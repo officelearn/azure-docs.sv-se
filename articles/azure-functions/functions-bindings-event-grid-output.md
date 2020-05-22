@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0237bcbf98578d9f83f3c9652661c786df54e73a
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627695"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773959"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Event Grid utgående bindning för Azure Functions
 
@@ -162,7 +162,53 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Den Event Grid utgående bindningen är inte tillgänglig för python.
+I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Den skickar sedan en händelse till det anpassade Event Grid ämnet, enligt vad som anges i `topicEndpointUri` .
+
+Här är bindnings data i *Function. JSON* -filen:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    },
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "MyEventGridTopicUriSetting",
+      "topicKeySetting": "MyEventGridTopicKeySetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Här är python-exemplet för att skicka en händelse till ett anpassat Event Grid-ämne genom att ange `EventGridOutputEvent` :
+
+```python
+import logging
+import azure.functions as func
+import datetime
+
+
+def main(eventGridEvent: func.EventGridEvent, 
+         outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
+
+    logging.log("eventGridEvent: ", eventGridEvent)
+
+    outputEvent.set(
+        func.EventGridOutputEvent(
+            id="test-id",
+            data={"tag1": "value1", "tag2": "value2"},
+            subject="test-subject",
+            event_type="test-event-1",
+            event_time=datetime.datetime.utcnow(),
+            data_version="1.0"))
+```
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -172,7 +218,7 @@ Den Event Grid utgående bindningen är inte tillgänglig för Java.
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 För [klass bibliotek i C#](functions-dotnet-class-library.md)använder du attributet [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) .
 
@@ -213,10 +259,10 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp** | saknas | Måste vara inställd på "eventGrid". |
+|**typ** | saknas | Måste vara inställd på "eventGrid". |
 |**position** | saknas | Måste anges till "out". Den här parametern anges automatiskt när du skapar bindningen i Azure Portal. |
 |**Namn** | saknas | Variabel namnet som används i funktions koden som representerar händelsen. |
-|**topicEndpointUri** |**TopicEndpointUri** | Namnet på en app-inställning som innehåller URI: n för det anpassade ämnet, till `MyTopicEndpointUri`exempel. |
+|**topicEndpointUri** |**TopicEndpointUri** | Namnet på en app-inställning som innehåller URI: n för det anpassade ämnet, till exempel `MyTopicEndpointUri` . |
 |**topicKeySetting** |**TopicKeySetting** | Namnet på en app-inställning som innehåller en åtkomst nyckel för det anpassade ämnet. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -226,17 +272,17 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 ## <a name="usage"></a>Användning
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Skicka meddelanden med hjälp av en metod parameter, `out EventGridEvent paramName`till exempel. Om du vill skriva flera meddelanden kan du `ICollector<EventGridEvent>` använda `IAsyncCollector<EventGridEvent>` eller i stället `out EventGridEvent`för.
+Skicka meddelanden med hjälp av en metod parameter, till exempel `out EventGridEvent paramName` . Om du vill skriva flera meddelanden kan du använda `ICollector<EventGridEvent>` eller `IAsyncCollector<EventGridEvent>` i stället för `out EventGridEvent` .
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Skicka meddelanden med hjälp av en metod parameter, `out EventGridEvent paramName`till exempel. I C#- `paramName` skript är värdet som anges i `name` egenskapen för *Function. JSON*. Om du vill skriva flera meddelanden kan du `ICollector<EventGridEvent>` använda `IAsyncCollector<EventGridEvent>` eller i stället `out EventGridEvent`för.
+Skicka meddelanden med hjälp av en metod parameter, till exempel `out EventGridEvent paramName` . I C#-skript `paramName` är värdet som anges i `name` egenskapen för *Function. JSON*. Om du vill skriva flera meddelanden kan du använda `ICollector<EventGridEvent>` eller `IAsyncCollector<EventGridEvent>` i stället för `out EventGridEvent` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Få åtkomst till utdata-händelsen `context.bindings.<name>` med `<name>` hjälp av WHERE är värdet som `name` anges i egenskapen för *Function. JSON*.
+Få åtkomst till utdata-händelsen med hjälp av `context.bindings.<name>` WHERE `<name>` är värdet som anges i `name` egenskapen för *Function. JSON*.
 
 # <a name="python"></a>[Python](#tab/python)
 

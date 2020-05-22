@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 3947bf0dcad598bf52a742c790a2f99538d6facb
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 642f2705f54fe8f84cfde7ff039c9a723be59595
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116441"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770967"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Vilka autentiserings-och verifierings metoder finns i Azure Active Directory?
 
@@ -31,19 +31,20 @@ En användare i Azure AD kan välja att autentisera med någon av följande aute
 
 Många konton i Azure AD är aktiverade för självbetjäning för återställning av lösen ord (SSPR) eller Azure Multi-Factor Authentication. Dessa funktioner omfattar ytterligare verifierings metoder, till exempel telefonsamtal eller säkerhets frågor. Vi rekommenderar att du kräver att användarna registrerar flera verifierings metoder. När en metod inte är tillgänglig för en användare kan de välja att autentisera med en annan metod.
 
-Följande tabell beskriver vilka autentiserings-och verifierings metoder som är tillgängliga för olika scenarier:
+I följande tabell beskrivs vilka metoder som är tillgängliga för primär eller sekundär autentisering:
 
-| Metod | Använd vid inloggning | Använd under verifiering |
+| Metod | Primär autentisering | Sekundär autentisering |
 | --- | --- | --- |
-| [Lösenord](#password) | Ja | MFA och SSPR |
+| [Lösenord](#password) | Ja | |
 | [Microsoft Authenticator-appen](#microsoft-authenticator-app) | Ja (för hands version) | MFA och SSPR |
 | [Säkerhets nycklar för FIDO2 (för hands version)](#fido2-security-keys) | Ja | Endast MFA |
-| [OATH-token för maskin vara (för hands version)](#oath-hardware-tokens) | Ja | SSPR och MFA |
+| [OATH-programvaru-token](#oath-software-tokens) | Nej | MFA |
+| [OATH-token för maskin vara (för hands version)](#oath-hardware-tokens-preview) | Ja | MFA |
 | [SMS](#phone-options) | Ja (för hands version) | MFA och SSPR |
-| [Röstsamtal](#phone-options) | Inga | MFA och SSPR |
-| [Säkerhetsfrågor](#security-questions) | Inga | SSPR – endast |
-| [E-postadress](#email-address) | Inga | SSPR – endast |
-| [Applösenord](#app-passwords) | Inga | MFA i vissa fall |
+| [Röstsamtal](#phone-options) | Nej | MFA och SSPR |
+| [Säkerhetsfrågor](#security-questions) | Nej | SSPR – endast |
+| [E-postadress](#email-address) | Nej | SSPR – endast |
+| [Applösenord](#app-passwords) | Nej | MFA i vissa fall |
 
 Den här artikeln beskriver dessa olika autentiserings-och verifierings metoder som är tillgängliga i Azure AD och eventuella specifika begränsningar eller begränsningar.
 
@@ -73,7 +74,7 @@ Authenticator-appen kan hjälpa till att förhindra obehörig åtkomst till kont
 ![Skärm bild av exempel på en webbläsares fråga om meddelandeautentisering för att slutföra inloggnings processen](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> Om din organisation har personal som arbetar i eller reser till Kina fungerar inte *meddelandet via mobilappen* på Android-enheter i det landet. Alternativa autentiseringsmetoder bör göras tillgängliga för dessa användare.
+> Om din organisation har personal som arbetar i eller reser till Kina fungerar inte *meddelandet via mobilappen* på Android-enheter i det landet/den regionen. Alternativa autentiseringsmetoder bör göras tillgängliga för dessa användare.
 
 ### <a name="verification-code-from-mobile-app"></a>Verifierings kod från mobilapp
 
@@ -96,15 +97,29 @@ Användare kan registrera sig och sedan välja en säkerhets nyckel för FIDO2 i
 
 FIDO2 säkerhets nycklar i Azure AD är för närvarande en för hands version. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
-## <a name="oath-hardware-tokens"></a>OATH-maskinvarutoken
+## <a name="oath-tokens"></a>OATH-token
 
-OATH är en öppen standard som anger hur eng ång slö sen ord (eng ång slö sen ord) genereras. Azure AD har stöd för användning av OATH-TOTP mobilapp SHA-1-token i den 30-sekunders-eller 60-andra sorten. Kunder kan köpa dessa token från den leverantör de väljer.
+OATH-TOTP mobilapp (Time-based ett Time-lösenordet) är en öppen standard som anger hur eng ång slö sen ord (eng ång slö sen ord) genereras. OATH-TOTP mobilapp kan implementeras med hjälp av antingen program vara eller maskin vara för att generera koderna. Azure AD har inte stöd för OATH-HOTP, en annan kodgenerering standard.
 
-Hemliga nycklar är begränsade till 128 tecken, som kanske inte är kompatibla med alla tokens. Den hemliga nyckeln får bara innehålla tecknen *a-z* eller *a-z* och siffror *1-7*och måste kodas i *Base32*.
+### <a name="oath-software-tokens"></a>OATH-programvaru-token
 
-OATH-token i Azure AD är för närvarande en för hands version. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
+OATH-token för program vara är vanligt vis program som Microsoft Authenticator-appen och andra Authenticator-appar. Azure AD genererar den hemliga nyckeln eller dirigeringen som inmatas i appen och används för att generera varje eng ång slö sen ord.
 
-![Laddar upp OATH-token i fönstret MFA OATH-token](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+Authenticator-appen genererar automatiskt koder när de konfigureras att utföra push-meddelanden så att en användare har en säkerhets kopia även om deras enheter inte har någon anslutning. Program från tredje part som använder OATH-TOTP mobilapp för att generera koder kan också användas.
+
+Vissa TOTP mobilapp-token för OATH är programmerbara, vilket innebär att de inte har en hemlig nyckel eller ett förprogrammerat dirigerings-. Dessa programmerbara maskinvaru-token kan konfigureras med hjälp av den hemliga nyckeln eller dirigeringen som hämtats från installations flödet för programtoken. Kunder kan köpa dessa token från den leverantör de väljer och använda den hemliga nyckeln eller dirigeringen i deras leverantörs konfigurations process.
+
+### <a name="oath-hardware-tokens-preview"></a>OATH-token för maskin vara (för hands version)
+
+Azure AD stöder användningen av OATH-TOTP mobilapp SHA-1-token som uppdaterar koder var 30: e sekund eller 60 sekunder. Kunder kan köpa dessa token från den leverantör de väljer.
+
+OATH TOTP mobilapp-token levereras vanligt vis med en hemlig nyckel eller dirigeras, förprogrammeras i token. De här nycklarna måste vara inmatade i Azure AD enligt beskrivningen i följande steg. Hemliga nycklar är begränsade till 128 tecken, som kanske inte är kompatibla med alla tokens. Den hemliga nyckeln får bara innehålla tecknen *a-z* eller *a-z* och siffror *1-7*och måste kodas i *Base32*.
+
+Programmerbara OATH TOTP mobilapp-maskinvaru-token som kan dirigeras om kan också konfigureras med Azure AD i installations flödet för programtoken.
+
+OATH-token för OATH-enheter stöds som en del av en offentlig för hands version. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna
+
+![Laddar upp OATH-token till bladet MFA OATH-token](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
 När token har erhållits måste de överföras i ett fil format med kommaavgränsade värden (CSV), inklusive UPN, serie nummer, hemlig nyckel, tidsintervall, tillverkare och modell som visas i följande exempel:
 
@@ -116,7 +131,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Se till att du inkluderar rubrik raden i CSV-filen.
 
-När den är korrekt formaterad som en CSV-fil kan en administratör logga in på Azure Portal, navigera till **Azure Active Directory**  >  **Security**  >  **säkerhetsmfa**  >  **Oath-token**och ladda upp den resulterande CSV-filen.
+När den är korrekt formaterad som en CSV-fil kan en administratör logga in på Azure Portal, navigera till **Azure Active Directory > säkerhet > MFA > Oath-token**och ladda upp den resulterande CSV-filen.
 
 Beroende på storleken på CSV-filen kan det ta några minuter att bearbeta. Välj knappen **Uppdatera** för att hämta aktuell status. Om det finns fel i filen kan du ladda ned en CSV-fil som visar eventuella fel som du kan lösa. Fält namnen i den hämtade CSV-filen skiljer sig från den överförda versionen.
 
@@ -133,7 +148,7 @@ Användarna kan också kontrol lera att de använder en mobil telefon eller en a
 För att fungera korrekt måste telefonnumret vara i formatet *+ CountryCode telefonnummer*, till exempel *+ 1 4251234567*.
 
 > [!NOTE]
-> Det måste finnas ett blank steg mellan lands koden och telefonnumret.
+> Det måste finnas ett blank steg mellan lands-/region koden och telefonnumret.
 >
 > Lösen ords återställning stöder inte telefon tillägg. Även i formatet *+ 1 4251234567X12345* tas tilläggen bort innan anropet placeras.
 

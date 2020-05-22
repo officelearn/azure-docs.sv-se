@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 634f89b3123902d981ad07dd1404315387104322
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68726733"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774052"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure-anläggningar, lokal och fysisk säkerhet
 I den här artikeln beskrivs vad Microsoft gör för att skydda Azure-infrastrukturen.
@@ -28,7 +28,7 @@ I den här artikeln beskrivs vad Microsoft gör för att skydda Azure-infrastruk
 ## <a name="datacenter-infrastructure"></a>Data Center infrastruktur
 Azure består av en [globalt distribuerad Data Center infrastruktur](https://azure.microsoft.com/global-infrastructure/), stöd för tusentals onlinetjänster och fler än 100 hög säkra funktioner över hela världen.
 
-Infrastrukturen är utformad för att ge program närmare användare runtom i världen, bevara data placering och erbjuder omfattande alternativ för efterlevnad och återhämtning för kunder. Azure har 52 regioner i hela världen och är tillgänglig i 140 länder/regioner.
+Infrastrukturen är utformad för att ge program närmare användare runtom i världen, bevara data placering och erbjuder omfattande alternativ för efterlevnad och återhämtning för kunder. Azure har 58 regioner i hela världen och är tillgänglig i 140 länder/regioner.
 
 En region är en uppsättning data Center som är sammankopplade via ett massivt och elastiskt nätverk. Nätverket omfattar innehålls distribution, belastnings utjämning, redundans och kryptering som standard. Med fler globala regioner än någon annan moln leverantör ger Azure dig flexibiliteten att distribuera program där du behöver dem.
 

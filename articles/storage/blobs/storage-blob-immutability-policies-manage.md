@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 05a155584f0cb69191883cb82b3db0af435ccc12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 539154135c35e034c889294d911fb53b3d45daa4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78970099"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771017"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Ange och hantera oföränderlighets-principer för Blob Storage
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du ställer in och hanterar oföränderlighets-princ
 
 ## <a name="set-retention-policies-and-legal-holds"></a>Ange bevarande principer och juridiska undantag
 
-### <a name="portal"></a>[Portalen](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Skapa en ny container eller välj en befintlig container för lagring av de blobbar som ska behållas i det oföränderliga tillståndet. Behållaren måste vara i ett General-Purpose v2-eller Blob Storage-konto.
 
@@ -61,7 +61,7 @@ Den här artikeln visar hur du ställer in och hanterar oföränderlighets-princ
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Funktionen ingår i följande kommando grupper: `az storage container immutability-policy` och. `az storage container legal-hold` Kör `-h` på dem för att se kommandona.
+Funktionen ingår i följande kommando grupper: `az storage container immutability-policy` och `az storage container legal-hold` . Kör `-h` på dem för att se kommandona.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -69,9 +69,9 @@ Funktionen ingår i följande kommando grupper: `az storage container immutabili
 
 Modulen AZ. Storage stöder oföränderligt lagrings utrymme.  Aktivera funktionen genom att följa dessa steg:
 
-1. Kontrol lera att du har den senaste versionen av PowerShellGet installerad `Install-Module PowerShellGet –Repository PSGallery –Force`:.
+1. Kontrol lera att du har den senaste versionen av PowerShellGet installerad: `Install-Module PowerShellGet –Repository PSGallery –Force` .
 2. Ta bort alla tidigare installationer av Azure PowerShell.
-3. Installera Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
+3. Installera Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber` .
 
 Följande exempel på PowerShell-skript är för referens. Det här skriptet skapar ett nytt lagrings konto och en behållare. Det visar sedan hur du ställer in och rensar juridiska undantag, skapar och låser en tidsbaserad bevarande princip (kallas även för en oföränderlighets-princip) och utökar kvarhållningsintervallet.
 
@@ -91,7 +91,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # Create your Azure storage account
-$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
+$account = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
     $storageAccount -SkuName Standard_ZRS -Location $location -Kind StorageV2
 
 # Create a new container using the context
@@ -119,7 +119,7 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
 Skapa eller uppdatera tidsbaserade oföränderlighets-principer:
 
 ```powershell
-# Create a time-based immutablity policy
+# Create a time-based immutability policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -132,7 +132,7 @@ Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container
 ```
 
-Lås oföränderlighets-principer ( `-Force` Lägg till för att stänga prompten):
+Lås oföränderlighets-principer (Lägg till `-Force` för att stänga prompten):
 
 ```powershell
 # Lock immutability policies
@@ -154,7 +154,7 @@ Set-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 ```
 
-Ta bort en olåst oföränderlighets-princip `-Force` (Lägg till för att stänga meddelandet):
+Ta bort en olåst oföränderlighets-princip (Lägg till `-Force` för att stänga meddelandet):
 
 ```powershell
 # Remove an unlocked immutability policy
@@ -168,18 +168,18 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ## <a name="enabling-allow-protected-append-blobs-writes"></a>Aktivera Tillåt att skyddade bifogade blobbar skrivs
 
-### <a name="portal"></a>[Portalen](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 ![Tillåt ytterligare append-skrivningar](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Funktionen ingår i följande kommando grupper: `az storage container immutability-policy` och. `az storage container legal-hold` Kör `-h` på dem för att se kommandona.
+Funktionen ingår i följande kommando grupper: `az storage container immutability-policy` och `az storage container legal-hold` . Kör `-h` på dem för att se kommandona.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
-# Create an immutablity policy with appends allowed
+# Create an immutability policy with appends allowed
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
 ```

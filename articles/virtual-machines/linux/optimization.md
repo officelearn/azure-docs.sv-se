@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 87776c14e45ff4bb3cce6661323d74a1315c8ab2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf674170ff49f55fc7997a87d07f9069306fc0cd
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81757100"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774157"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att skapa en virtuell Linux-dator (VM) från kommando raden eller från portalen. Den här självstudien visar hur du ser till att du har konfigurerat för att optimera prestandan på Microsoft Azures plattformen. I det här avsnittet används en virtuell Ubuntu-Server, men du kan också skapa en virtuell Linux-dator med [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -29,9 +29,9 @@ Baserat på storleken på den virtuella datorn kan du ansluta upp till 16 ytterl
 
 För att uppnå högsta IOps på Premium Storage diskar där deras cacheinställningar har angetts till antingen **ReadOnly** eller **ingen**, måste du inaktivera **barriärer** när du monterar fil systemet i Linux. Du behöver inte hinder eftersom skrivningarna till Premium Storage de säkerhetskopierade diskarna är varaktiga för dessa cacheinställningar.
 
-* Om du använder **reiserFS**inaktiverar du barriärer med hjälp av `barrier=none` monterings alternativet (för att `barrier=flush`Aktivera hinder, användning)
-* Om du använder **EXT3/Ext4**inaktiverar du barriärer med hjälp av `barrier=0` monterings alternativet (för att `barrier=1`Aktivera hinder, användning)
-* Om du använder **xfs**inaktiverar du barriärer med hjälp av `nobarrier` monterings alternativet (för att aktivera hinder `barrier`använder du alternativet)
+* Om du använder **reiserFS**inaktiverar du barriärer med hjälp av monterings alternativet `barrier=none` (för att aktivera hinder, användning `barrier=flush` )
+* Om du använder **EXT3/Ext4**inaktiverar du barriärer med hjälp av monterings alternativet `barrier=0` (för att aktivera hinder, användning `barrier=1` )
+* Om du använder **xfs**inaktiverar du barriärer med hjälp av monterings alternativet `nobarrier` (för att aktivera hinder använder du alternativet `barrier` )
 
 ## <a name="unmanaged-storage-account-considerations"></a>Överväganden vid ohanterat lagrings konto
 Standard åtgärden när du skapar en virtuell dator med Azure CLI är att använda Azure Managed Disks.  Diskarna hanteras av Azure-plattformen och kräver inte någon förberedelse eller plats för att lagra dem.  Ohanterade diskar kräver ett lagrings konto och några ytterligare prestanda överväganden.  Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md).  I följande avsnitt beskrivs prestanda överväganden bara när du använder ohanterade diskar.  Standardvärdet och den rekommenderade lagrings lösningen är att använda hanterade diskar.
@@ -116,12 +116,14 @@ För Red Hat-distributions familjen behöver du bara följande kommando:
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
+Ubuntu 18,04 med Azure-justerade kernel använder I/O-scheman för flera köer. I det scenariot `none` är det lämpligt val i stället för `noop` . Mer information finns i [Ubuntu i/O-schemaläggare](https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers).
+
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Använda programvaru-RAID för att uppnå högre I/OPS
 Om dina arbets belastningar kräver mer IOps än en enskild disk kan du behöva använda en RAID-konfiguration på flera diskar. Eftersom Azure redan utför disk återhämtning på det lokala Fabric-lagret, uppnår du den högsta prestanda nivån från en konfiguration för RAID-0-skiktning.  Etablera och skapa diskar i Azure-miljön och koppla dem till din virtuella Linux-dator innan partitionering, formatering och montering av enheterna.  Mer information om hur du konfigurerar en programvaru-RAID-installation på din virtuella Linux-dator i Azure finns i **[Konfigurera programvaru-RAID på Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** -dokument.
 
 Som ett alternativ till en traditionell RAID-konfiguration kan du också välja att installera Logical Volume Manager (LVM) för att konfigurera ett antal fysiska diskar i en enda stripe-volym för logisk lagring. I den här konfigurationen distribueras läsningar och skrivningar till flera diskar som ingår i volym gruppen (liknar RAID0). Av prestanda skäl är det troligt att du vill ta bort dina logiska volymer så att läsningar och skrivningar använder alla dina anslutna data diskar.  Mer information om hur du konfigurerar en striped logisk volym på din virtuella Linux-dator i Azure finns i **[Konfigurera LVM på en virtuell Linux-dator i Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** -dokument.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Kom ihåg, precis som med alla optimerings diskussioner, måste du utföra tester före och efter varje ändring för att mäta effekten av ändringen.  Optimering är en steg-för-steg-process som har olika resultat på olika datorer i din miljö.  Det som fungerar för en konfiguration kanske inte fungerar för andra.
 
 Några användbara länkar till ytterligare resurser:

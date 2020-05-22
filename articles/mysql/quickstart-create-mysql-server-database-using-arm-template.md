@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: 4fef9db91369c23d27090cc2433b5e0ed09bbc7d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 6a007b14ad96efbef7fae0d606bf38b22383b0d4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684729"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773346"
 ---
-# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Snabb start: Använd en ARM-mall för att skapa en Azure Database for MySQL-Server
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mysql-server"></a>Snabb start: Använd en Resource Manager-mall för att skapa en Azure Database for MySQL-Server
 
 Azure Database for MySQL är en hanterad tjänst som du använder för att köra, hantera och skala hög tillgängliga MySQL-databaser i molnet. I den här snabb starten använder du en ARM-mall för att skapa en Azure Database for MySQL-server med integrering av virtuella nätverk. Du kan skapa servern i Azure Portal, Azure CLI eller Azure PowerShell.
 

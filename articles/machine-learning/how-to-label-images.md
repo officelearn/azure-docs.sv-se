@@ -7,14 +7,14 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 1a928726665a743cb874a2f8a51ee63fcf64d9ad
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 22b77b79ea3f8c6744c2eba064c52e6d9e29c2b9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007529"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758919"
 ---
-# <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt
+# <a name="tag-images-in-a-labeling-project-preview"></a>Tagga bilder i ett etikett projekt (förhands granskning)
 
 När projekt administratören har [skapat ett etikett projekt](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) i Azure Machine Learning kan du använda etikett verktyget (offentlig för hands version) för att snabbt förbereda data för ett Machine Learning-projekt. I den här artikeln beskrivs:
 
@@ -105,7 +105,7 @@ Azure aktiverar bara knappen **Skicka** när du har tillämpat minst en tagg på
 Om ditt projekt är av typen objekt identifiering (avgränsnings rutor) anger du en eller flera markerings rutor i bilden och använder en tagg för varje ruta. Bilder kan ha flera avgränsnings rutor, var och en med en enda tagg. Använd **Visa detaljerade instruktioner** för att avgöra om flera avgränsnings rutor används i projektet.
 
 1. Välj en tagg för den avgränsnings ruta som du planerar att skapa.
-1. Välj rektangulär **Box-** verktyget ![](./media/how-to-label-images/rectangular-box-tool.png) eller välj "R".
+1. Välj rektangulär **Box-** verktyget ![ ](./media/how-to-label-images/rectangular-box-tool.png) eller välj "R".
 3. Klicka och dra diagonalt över ditt mål för att skapa en grov markerings ruta. Dra i kanterna eller hörnen för att justera avgränsnings rutan.
 
 ![En skärm bild visar en grundläggande avgränsnings ruta.](./media/how-to-label-images/bounding-box-sequence.png)
@@ -114,13 +114,13 @@ Om du vill ta bort en avgränsnings ruta klickar du på det X-formade mål som v
 
 Du kan inte ändra taggen för en befintlig avgränsnings ruta. Om du gör en tagg-tilldelning av misstag måste du ta bort avgränsnings rutan och skapa en ny med rätt tagg.
 
-Som standard kan du redigera befintliga avgränsnings rutor. Verktyget **Lock/unlock regioner** ![Lock/unlock regions](./media/how-to-label-images/lock-bounding-boxes-tool.png) eller "L" växlar beteendet. Om regionerna är låsta kan du bara ändra form eller plats för en ny avgränsnings ruta.
+Som standard kan du redigera befintliga avgränsnings rutor. Verktyget **Lock/unlock regioner** ![ Lock/unlock regions ](./media/how-to-label-images/lock-bounding-boxes-tool.png) eller "L" växlar beteendet. Om regionerna är låsta kan du bara ändra form eller plats för en ny avgränsnings ruta.
 
-Använd områdena **Regions manipulation** modifierings verktyg ![för regioner](./media/how-to-label-images/regions-tool.png) eller "M" för att justera en befintlig avgränsnings ruta. Justera figuren genom att dra i kanterna eller hörnen. Klicka på insidan för att kunna dra hela avgränsnings rutan. Om du inte kan redigera en region har du förmodligen växlat **Lås/Lås upp** regions verktyget.
+Använd områdena modifierings verktyg för **regioner** ![ ](./media/how-to-label-images/regions-tool.png) eller "M" för att justera en befintlig avgränsnings ruta. Justera figuren genom att dra i kanterna eller hörnen. Klicka på insidan för att kunna dra hela avgränsnings rutan. Om du inte kan redigera en region har du förmodligen växlat **Lås/Lås upp** regions verktyget.
 
-Använd ![mallen för **mallbaserade Box** -verktyget](./media/how-to-label-images/template-box-tool.png) eller "T" för att skapa flera avgränsnings rutor av samma storlek. Om bilden inte har några markerings rutor och du aktiverar mallbaserade rutor, kommer verktyget att producera 50-för-50-pixel-rutor. Om du skapar en avgränsnings ruta och sedan aktiverar mallbaserade rutor, blir alla nya avgränsnings rutor storleken på den sista rutan som du skapade. Du kan ändra storlek på mallbaserade rutor efter placering. Att ändra storlek på en mall-baserad ruta ändrar bara storlek på den aktuella rutan.
+Använd mallen för **mallbaserade Box** ![ -verktyget ](./media/how-to-label-images/template-box-tool.png) eller "T" för att skapa flera avgränsnings rutor av samma storlek. Om bilden inte har några markerings rutor och du aktiverar mallbaserade rutor, kommer verktyget att producera 50-för-50-pixel-rutor. Om du skapar en avgränsnings ruta och sedan aktiverar mallbaserade rutor, blir alla nya avgränsnings rutor storleken på den sista rutan som du skapade. Du kan ändra storlek på mallbaserade rutor efter placering. Att ändra storlek på en mall-baserad ruta ändrar bara storlek på den aktuella rutan.
 
-Om du vill ta bort *alla* avgränsnings rutor i den aktuella bilden väljer du verktyget](./media/how-to-label-images/delete-regions-tool.png) **ta bort alla regioner** ![ta bort regioner.
+Om du vill ta bort *alla* avgränsnings rutor i den aktuella bilden väljer du verktyget **ta bort alla regioner** ![ ta bort regioner ](./media/how-to-label-images/delete-regions-tool.png) .
 
 När du har skapat markerings rutorna för en bild väljer du **Skicka** för att spara ditt arbete, eller så sparas inte ditt arbete.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 746cef8dfe026c731a677cbf77f729d36342f007
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c485c1612df526e813119239fd2202b7657db9c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969362"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774182"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Använd portalen för att koppla en datadisk till en virtuell Linux-dator 
 Den här artikeln visar hur du ansluter både nya och befintliga diskar till en virtuell Linux-dator via Azure Portal. Du kan också [ansluta en datadisk till en virtuell Windows-dator i Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -100,7 +100,7 @@ Partitionera disken med `fdisk`. Om disk storleken är 2 tebibyte (TiB) eller st
 sudo fdisk /dev/sdc
 ```
 
-Använd kommandot `n` för att lägga till en ny partition. I det här exemplet väljer `p` vi också för en primär partition och accepterar resten av standardvärdena. Utdatan blir något som liknar följande exempel:
+Använd kommandot `n` för att lägga till en ny partition. I det här exemplet väljer vi också `p` för en primär partition och accepterar resten av standardvärdena. Utdatan blir något som liknar följande exempel:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -179,12 +179,13 @@ Writing superblocks and filesystem accounting information: done
 FDISK-verktyget behöver interaktiva ingångar och är därför inte perfekt för användning i Automation-skript. Men [det går att skriva](https://www.gnu.org/software/parted/) skript för det verktyg som används, och därför lämpar sig självt bättre i automatiserings scenarier. Det delvis använda verktyget kan användas för att partitionera och formatera en datadisk. I genom gången nedan använder vi en ny datadisk/dev/SDC och formaterar den med hjälp av [xfs](https://xfs.wiki.kernel.org/) -fil systemet.
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
 partprobe /dev/sdc1
 ```
 Som vi sett ovan använder vi [partprobe](https://linux.die.net/man/8/partprobe) -verktyget för att kontrol lera att kärnan är direkt medveten om den nya partitionen och fil systemet. Om du inte använder partprobe kan blkid-eller lslbk-kommandona inte returnera UUID: t för det nya fil systemet omedelbart.
 
 ### <a name="mount-the-disk"></a>Montera disken
-Skapa en katalog för att montera fil systemet med `mkdir`hjälp av. I följande exempel skapas en katalog på */datadrive*:
+Skapa en katalog för att montera fil systemet med hjälp av `mkdir` . I följande exempel skapas en katalog på */datadrive*:
 
 ```bash
 sudo mkdir /datadrive
@@ -235,12 +236,12 @@ Vissa Linux-Kernels stöder TRIMNINGs-/MAPPNINGs åtgärder för att ta bort oan
 
 Det finns två sätt att aktivera TRIMNINGs stöd i din virtuella Linux-dator. Som vanligt kan du kontakta din distribution för den rekommenderade metoden:
 
-* Använd alternativet `discard` Mount i */etc/fstab*, till exempel:
+* Använd `discard` alternativet Mount i */etc/fstab*, till exempel:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* I vissa fall kan `discard` alternativet ha prestanda konsekvenser. Du kan också köra `fstrim` kommandot manuellt från kommando raden eller lägga till det i crontab för att köra regelbundet:
+* I vissa fall `discard` kan alternativet ha prestanda konsekvenser. Du kan också köra `fstrim` kommandot manuellt från kommando raden eller lägga till det i crontab för att köra regelbundet:
   
     **Ubuntu**
   

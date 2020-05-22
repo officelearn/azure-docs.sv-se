@@ -3,7 +3,7 @@ title: Översikt över SQL-hanterad instans
 description: I den här artikeln beskrivs Azure SQL Database Hanterad instans.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: cce871d2f38d7871bd1ba9c5cb7b086e514a6913
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 55e56d918b1e0c16887f069713203a7e4701baaf
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120801"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772326"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database Hanterad instans?
 
@@ -63,7 +63,7 @@ Huvud funktionerna i hanterade instanser visas i följande tabell:
 | Antal datafiler (rader) per databas | Flera |
 | Antal loggfiler (logg) per databas | 1 |
 | VNet – Azure Resource Manager distribution | Ja |
-| VNet – klassisk distributions modell | Inga |
+| VNet – klassisk distributions modell | Nej |
 | Portal stöd | Ja|
 | Inbyggd integrerings tjänst (SSIS) | No-SSIS är en del av [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Inbyggd Analysis Service (SSAS) | No-SSAS är separat [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
@@ -150,7 +150,7 @@ I följande tabell sammanfattas åtgärder och typiska övergripande varaktighet
 |Distribution |Första instansen av en annan maskin varu generation i ett undernät som inte är tomt (till exempel första generation 5-instansen i ett undernät med generation 4 instanser)|Skapa virtuellt kluster *|90% av åtgärderna har slutförts på 4 timmar|
 |Distribution |Första instans skapandet av 4 virtuella kärnor, i ett tomt eller icke-tomt undernät|Skapa virtuellt kluster * *|90% av åtgärderna har slutförts på 4 timmar|
 |Distribution |Efterföljande instans skapas i det icke-tomma under nätet (andra, tredje osv.)|Storleks ändring av virtuellt kluster|90% av åtgärderna har slutförts om 2,5 timmar|
-|**Uppdatera** |Ändring av instans egenskap (administratörs lösen ord, AAD-inloggning, Azure Hybrid-förmån flagga)|E.t.|Upp till 1 minut|
+|**Uppdatera** |Ändring av instans egenskap (administratörs lösen ord, AAD-inloggning, Azure Hybrid-förmån flagga)|Ej tillämpligt|Upp till 1 minut|
 |Uppdatera |Skalning av instans lagring upp/ned (Generell användning tjänst nivå)|Bifoga databasfiler|90% av åtgärderna har slutförts på 5 minuter|
 |Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk tjänst nivå)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
 |Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning)|-Storleks ändring av virtuellt kluster<br>-Bifoga databasfiler|90% av åtgärderna har slutförts om 2,5 timmar|
@@ -199,14 +199,14 @@ I följande tabell sammanfattas möjligheten att avbryta vissa hanterings åtgä
 
 Kategori  |Åtgärd  |Avbrytbar  |Beräknad tids längd för avbrott  |
 |---------|---------|---------|---------|
-|Distribution |Skapa instans |Inga |  |
-|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |Inga |  |
+|Distribution |Skapa instans |Nej |  |
+|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |Nej |  |
 |Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter |
 |Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Ja |90% av åtgärderna har slutförts på 5 minuter |
 |Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter |
 |Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Ja |90% av åtgärderna har slutförts på 5 minuter |
-|Ta bort |Borttagning av instans |Inga |  |
-|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |Inga |  |
+|Ta bort |Borttagning av instans |Nej |  |
+|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |Nej |  |
 
 Om du vill avbryta hanterings åtgärden går du till bladet översikt och klickar på meddelande rutan för pågående åtgärder. En skärm med kontinuerlig åtgärd visas från höger sida och det kommer att finnas en knapp för att avbryta åtgärden. När du har klickat på uppmanas du att klicka igen och bekräfta att du vill avbryta åtgärden.
 

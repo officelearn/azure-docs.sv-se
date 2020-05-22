@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: f813551ed665628898bb219a611947c3026ac67c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4180f62e589ef79227d8e60ca19661e1c65f0097
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084489"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773329"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Använda Packer för att skapa avbildningar av virtuella Windows-datorer i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Windows-distribution och operativ system version. Avbildningar kan omfatta förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för de flesta vanliga operativ system och program miljöer, eller så kan du skapa egna anpassade avbildningar som är anpassade efter dina behov. Den här artikeln beskriver [hur du använder verktyget med](https://www.packer.io/) öppen källkod för att definiera och skapa anpassade avbildningar i Azure.
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Skapa Azure-autentiseringsuppgifter
 Packer autentiseras med Azure med hjälp av ett huvud namn för tjänsten. Ett huvud namn för Azure-tjänsten är en säkerhets identitet som du kan använda med appar, tjänster och automatiserings verktyg som Packer. Du styr och definierar behörigheterna för vilka åtgärder som tjänstens huvud namn kan utföra i Azure.
 
-Skapa ett huvud namn för tjänsten med [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) och tilldela behörigheter för tjänstens huvud namn för att skapa och hantera resurser med [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Värdet för `-DisplayName` måste vara unikt. Ersätt med ditt eget värde efter behov.  
+Skapa ett huvud namn för tjänsten med [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) och tilldela behörigheter för tjänstens huvud namn för att skapa och hantera resurser med [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Värdet för `-DisplayName` måste vara unikt. Ersätt med ditt eget värde om det behövs.  
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
@@ -105,7 +105,7 @@ Skapa en fil med namnet *Windows. JSON* och klistra in följande innehåll. Ange
     },
 
     "location": "East US",
-    "vm_size": "Standard_DS2_v2"
+    "vm_size": "Standard_D2_v2"
   }],
   "provisioners": [{
     "type": "powershell",

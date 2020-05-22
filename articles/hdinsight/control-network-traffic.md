@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 031dbb0e8c9b9fb8dc37b264f9ba8e1186efc832
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 54a55789cf867c97cf2384b48f1e5545ee54dafc
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783596"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773414"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Kontrol lera nätverks trafik i Azure HDInsight
 
@@ -36,7 +36,7 @@ Om du planerar att använda **nätverks säkerhets grupper** för att kontrol le
 
 3. Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i.
 
-    * __Nätverks säkerhets grupper__: Tillåt __inkommande__ trafik på port __443__ från IP-adresserna. Detta säkerställer att HDInsight Management Services kan komma åt klustret utanför det virtuella nätverket.
+    * __Nätverks säkerhets grupper__: Tillåt __inkommande__ trafik på port __443__ från IP-adresserna. Detta säkerställer att HDInsight Management Services kan komma åt klustret utanför det virtuella nätverket. För __KAFKA rest proxy__ -aktiverade kluster tillåter du även __inkommande__ trafik på port __9400__ . Detta säkerställer att Kafka REST-proxyservern kan kontaktas.
 
 Mer information om nätverks säkerhets grupper finns i [Översikt över nätverks säkerhets grupper](../virtual-network/security-overview.md).
 

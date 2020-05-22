@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ed1f47ae99f6346a932d0fe94be7586dc25a672f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e62536b610595c7a53eb8333f06f147e628dec7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262742"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772054"
 ---
 # <a name="using-web-browsers-msalnet"></a>Använda webbläsare (MSAL.NET)
 
@@ -32,30 +32,30 @@ Det är viktigt att förstå att när du hämtar en token interaktivt, har inneh
 
 - Lösen ordet (om ett sådant har skrivits) lagras aldrig av programmet, eller med autentiseringsläget.
 - Aktiverar omdirigering till andra identitets leverantörer (till exempel inloggning med ett arbets skol konto eller ett personligt konto med MSAL, eller med ett socialt konto med Azure AD B2C).
-- Tillåter STS-kontroll av villkorlig åtkomst, t. ex. genom att låta användaren utföra Multiple Factor Authentication (MFA) under fasen Authentication (genom att ange en Windows Hello-PIN-kod eller anropas på deras telefon eller i en webbapp på telefonen). I de fall där den obligatoriska Multi Factor Authentication inte har kon figurer ATS ännu, kan användaren konfigurera den precis i tid i samma dialog ruta.  Användaren anger sitt mobiltelefon nummer och vägleder dig för att installera ett program för autentisering och skanna en QR-tagg för att lägga till sitt konto. Den här server drivna interaktionen är en bra upplevelse!
+- Tillåter STS-kontroll av villkorlig åtkomst, till exempel genom att användaren utför [Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md) under autentiseringsläget (genom att ange en Windows Hello-PIN-kod eller anropas på deras telefon eller i en webbapp på telefonen). I de fall där den nödvändiga Multi-Factor Authentication inte har kon figurer ATS ännu, kan användaren konfigurera den precis i tid i samma dialog ruta.  Användaren anger sitt mobiltelefon nummer och vägleder dig för att installera ett program för autentisering och skanna en QR-tagg för att lägga till sitt konto. Den här server drivna interaktionen är en bra upplevelse!
 - Låter användaren ändra sitt lösen ord i den här dialog rutan när lösen ordet har upphört att gälla (vilket ger ytterligare fält för det gamla lösen ordet och det nya lösen ordet).
 - Aktiverar varumärkes innehavare, eller programmet (avbildningar) som styrs av Azure AD-klientens administratör/program ägare.
 - Gör det möjligt för användarna att tillåta åtkomst till resurserna/omfattningarna i programmet, precis efter autentiseringen.
 
 ### <a name="embedded-vs-system-web-ui"></a>Webb gränssnitt för Embedded vs-systemet
 
-MSAL.NET är ett bibliotek med flera ramverk och har en Framework-specifik kod som är värd för en webbläsare i en GRÄNSSNITTs kontroll (till exempel på den klassiska .net-IT använder WinForms, på Xamarin den använder sig av inbyggda mobila kontroller osv.). Den här kontrollen kallas `embedded` webb gränssnitt. Du kan också starta MSAL.NET i systemets OS-webbläsare.
+MSAL.NET är ett bibliotek med flera ramverk och har en Framework-specifik kod som är värd för en webbläsare i en GRÄNSSNITTs kontroll (till exempel på den klassiska .NET-IT använder WinForms, på Xamarin den använder sig av inbyggda mobila kontroller osv.). Den här kontrollen kallas `embedded` webb gränssnitt. Du kan också starta MSAL.NET i systemets OS-webbläsare.
 
 I allmänhet rekommenderar vi att du använder plattforms standarden och det är vanligt vis system läsaren. System läsaren är bättre för att komma ihåg vilka användare som har loggat in tidigare. Om du behöver ändra det här beteendet använder du`WithUseEmbeddedWebView(bool)`
 
 ### <a name="at-a-glance"></a>Snabbt
 
-| Ramverk        | Inbäddning | System | Default |
+| Ramverk        | Inbäddning | System | Standard |
 | ------------- |-------------| -----| ----- |
 | .NET Classic     | Ja | Ja ^ | Inbäddning |
-| .NET Core     | Inga | Ja ^ | System |
-| .NET Standard | Inga | Ja ^ | System |
-| UWP | Ja | Inga | Inbäddning |
+| .NET Core     | Nej | Ja ^ | System |
+| .NET Standard | Nej | Ja ^ | System |
+| UWP | Ja | Nej | Inbäddning |
 | Xamarin.Android | Ja | Ja  | System |
 | Xamarin.iOS | Ja | Ja  | System |
-| Xamarin. Mac| Ja | Inga | Inbäddning |
+| Xamarin. Mac| Ja | Nej | Inbäddning |
 
-^ Kräver "http://localhost" omdirigerings-URI
+^ Kräver " http://localhost " omdirigerings-URI
 
 ## <a name="system-web-browser-on-xamarinios-xamarinandroid"></a>System webbläsare på Xamarin. iOS, Xamarin. Android
 
@@ -74,7 +74,7 @@ await pca.AcquireTokenInteractive(s_scopes)
          .WithUseEmbeddedWebView(false)
 ```
 
-MSAL.NET kan inte identifiera om användaren navigerar bort eller bara stänger webbläsaren. Appar som använder den här metoden uppmuntras att definiera en tids `CancellationToken`gräns (via). Vi rekommenderar en tids gräns på minst några minuter, för att ta hänsyn till de fall där användaren uppmanas att ändra lösen ordet eller utföra Multi-Factor-Authentication.
+MSAL.NET kan inte identifiera om användaren navigerar bort eller bara stänger webbläsaren. Appar som använder den här metoden uppmuntras att definiera en tids gräns (via `CancellationToken` ). Vi rekommenderar en tids gräns på minst några minuter, för att ta hänsyn till de fall där användaren uppmanas att ändra lösen ordet eller utföra Multi-Factor-Authentication.
 
 ### <a name="how-to-use-the-default-os-browser"></a>Använda standard webbläsaren för OS
 
@@ -82,7 +82,7 @@ MSAL.NET måste lyssna på `http://localhost:port` och avlyssna koden som AAD sk
 
 Så här aktiverar du systemets webbläsare:
 
-1. Under registrering av appar konfigurerar `http://localhost` du som en omdirigerings-URI (stöds för närvarande inte av B2C)
+1. Under registrering av appar konfigurerar du `http://localhost` som en omdirigerings-URI (stöds för närvarande inte av B2C)
 2. När du skapar din PublicClientApplication anger du denna omdirigerings-URI:
 
 ```csharp
@@ -94,12 +94,11 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
 ```
 
 > [!Note]
-> Om du konfigurerar `http://localhost`kommer internt MSAL.net att hitta en slumpmässig öppen port och använda den.
+> Om du konfigurerar `http://localhost` kommer internt MSAL.net att hitta en slumpmässig öppen port och använda den.
 
 ### <a name="linux-and-mac"></a>Linux och MAC
 
-I Linux öppnar MSAL.NET standard webbläsaren för operativ systemet med hjälp av xdg-Open-verktyget. Du kan felsöka genom att köra verktyget från en terminal till exempel`xdg-open "https://www.bing.com"`  
-På Mac öppnas webbläsaren genom att anropa`open <url>`
+I Linux öppnar MSAL.NET standard webbläsaren för operativ systemet med hjälp av xdg-Open-verktyget. Du kan felsöka genom att köra verktyget från en Terminal, till exempel `xdg-open "https://www.bing.com"` . I Mac öppnas webbläsaren genom att anropa `open <url>` .
 
 ### <a name="customizing-the-experience"></a>Anpassa upplevelsen
 
@@ -182,7 +181,7 @@ Som utvecklare som använder MSAL.NET har du flera alternativ för att visa den 
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>Välja mellan en inbäddad webbläsare eller system webbläsare på Xamarin. iOS
 
-I iOS-appen kan `AppDelegate.cs` du initiera `ParentWindow` till. `null` Den används inte i iOS
+I iOS-appen `AppDelegate.cs` kan du initiera `ParentWindow` till `null` . Den används inte i iOS
 
 ```csharp
 App.ParentWindow = null; // no UI parent on iOS
@@ -190,13 +189,13 @@ App.ParentWindow = null; // no UI parent on iOS
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid"></a>Välja mellan en inbäddad webbläsare eller system webbläsare på Xamarin. Android
 
-I din Android-app, `MainActivity.cs` i kan du ange den överordnade aktiviteten, så att autentiseringen blir tillbaka till den:
+I din Android-app, i `MainActivity.cs` kan du ange den överordnade aktiviteten, så att autentiseringen blir tillbaka till den:
 
 ```csharp
  App.ParentWindow = this;
 ```
 
-Sedan i `MainPage.xaml.cs`:
+Sedan i `MainPage.xaml.cs` :
 
 ```csharp
 authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
@@ -207,7 +206,7 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 
 #### <a name="detecting-the-presence-of-custom-tabs-on-xamarinandroid"></a>Identifiera förekomsten av anpassade flikar på Xamarin. Android
 
-Om du vill använda system webbläsare för att aktivera SSO med appar som körs i webbläsaren, men oroar dig om användar upplevelsen för Android-enheter som inte har en webbläsare med stöd för anpassade flikar, har du möjlighet att välja genom att anropa- `IsSystemWebViewAvailable()` metoden i. `IPublicClientApplication` Den här metoden `true` returnerar om PackageManager identifierar anpassade flikar och `false` om de inte identifieras på enheten.
+Om du vill använda system webbläsare för att aktivera SSO med appar som körs i webbläsaren, men oroar dig om användar upplevelsen för Android-enheter som inte har en webbläsare med stöd för anpassade flikar, har du möjlighet att välja genom att anropa- `IsSystemWebViewAvailable()` metoden i `IPublicClientApplication` . Den här metoden returnerar `true` om PackageManager identifierar anpassade flikar och `false` om de inte identifieras på enheten.
 
 Utifrån det värde som returneras av den här metoden, och dina krav, kan du fatta ett beslut:
 

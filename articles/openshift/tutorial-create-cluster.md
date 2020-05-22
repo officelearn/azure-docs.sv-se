@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 78ec45f5e6c354644e4303db53f276343225eff9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 86e1bc088c3e4327fbd0b9ad4a05e7c42c3fb776
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858833"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773492"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: skapa ett Azure Red Hat OpenShift 4-kluster
 
@@ -23,6 +23,16 @@ I den här självstudien, som är del ett av tre, förbereder du din miljö för
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.0.75 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+### <a name="verify-your-permissions"></a>Verifiera dina behörigheter
+
+Om du vill skapa ett Azure Red Hat OpenShift-kluster kontrollerar du följande behörigheter för ditt Azure-konto och användare:
+
+[!div class="mx-tdBreakAll"]
+|Behörigheter|Resurs grupp som innehåller VNet|Användaren körs`az aro create`|Tjänstens huvud namn angavs som`–client-id`|
+|----|:----:|:----:|:----:|
+|**Administratör för användaråtkomst**|X|X| |
+|**Deltagare**|X|X|X|
 
 ### <a name="install-the-az-aro-extension"></a>Installera `az aro` tillägget
 Med `az aro` tillägget kan du skapa, komma åt och ta bort Azure Red Hat OpenShift-kluster direkt från kommando raden med hjälp av Azure CLI.
@@ -74,7 +84,7 @@ Med en Red Hat pull-hemlighet kan ditt kluster få åtkomst till Red Hat contain
 
 Behåll den sparade `pull-secret.txt` filen någonstans säkert – den kommer att användas i varje kluster som skapas.
 
-När du kör `az aro create` kommandot kan du referera till din pull-hemlighet med `--pull-secret @pull-secret.txt` hjälp av parametern. Kör `az aro create` från den katalog där du sparade `pull-secret.txt` filen. Annars ersätter `@pull-secret.txt` du med `@<path-to-my-pull-secret-file>`.
+När du kör `az aro create` kommandot kan du referera till din pull-hemlighet med hjälp av `--pull-secret @pull-secret.txt` parametern. Kör `az aro create` från den katalog där du sparade `pull-secret.txt` filen. Annars ersätter du `@pull-secret.txt` med `@<path-to-my-pull-secret-file>` .
 
 Om du kopierar din pull-hemlighet eller refererar till den i andra skript, ska din pull-hemlighet formateras som en giltig JSON-sträng.
 
@@ -196,12 +206,12 @@ az aro create \
   # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
-När du `az aro create` har kört kommandot tar det vanligt vis cirka 35 minuter att skapa ett kluster.
+När du har kört `az aro create` kommandot tar det vanligt vis cirka 35 minuter att skapa ett kluster.
 
 >[!IMPORTANT]
-> Om du väljer att ange en anpassad domän, till exempel **foo.example.com**, blir OpenShift-konsolen tillgänglig på en URL, till exempel `https://console-openshift-console.apps.foo.example.com`, i stället för den inbyggda domänen `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
+> Om du väljer att ange en anpassad domän, till exempel **foo.example.com**, blir OpenShift-konsolen tillgänglig på en URL, till exempel `https://console-openshift-console.apps.foo.example.com` , i stället för den inbyggda domänen `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
 >
-> Som standard använder OpenShift självsignerade certifikat för alla vägar som skapas på `*.apps.<random>.<location>.aroapp.io`.  Om du väljer att använda anpassad DNS när du har anslutit till klustret måste du följa den OpenShift-dokumentationen för att [Konfigurera en anpassad certifikat utfärdare för din](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) ingångs kontroll och en [anpassad ca för din API-Server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+> Som standard använder OpenShift självsignerade certifikat för alla vägar som skapas på `*.apps.<random>.<location>.aroapp.io` .  Om du väljer att använda anpassad DNS när du har anslutit till klustret måste du följa den OpenShift-dokumentationen för att [Konfigurera en anpassad certifikat utfärdare för din](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) ingångs kontroll och en [anpassad ca för din API-Server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 >
 
 ## <a name="next-steps"></a>Nästa steg

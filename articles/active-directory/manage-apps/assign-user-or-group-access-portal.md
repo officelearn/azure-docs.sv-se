@@ -12,12 +12,12 @@ ms.date: 02/21/2020
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 186e36e4625a60362c54972b16b53f0f3e6753fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b52bc45287e0e3a8f4908630cb6e57130c1725df
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409200"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772428"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en företags app i Azure Active Directory
 
@@ -38,7 +38,7 @@ Med följande typer av program kan du välja att kräva att användarna ska till
 - Program för programproxy som använder Azure Active Directory förautentisering
 - Program som bygger på Azure AD-programplattformen som använder OAuth 2,0/OpenID Connect-autentisering när en användare eller administratör har samtyckt till det programmet.
 
-När användar tilldelning krävs kommer endast de användare som du uttryckligen tilldelar till programmet att kunna logga in. De kan komma åt appen på sidan Mina appar eller genom att använda en direkt länk. 
+När användar tilldelning krävs kommer endast de användare som du uttryckligen tilldelar till programmet (antingen genom direkt användar tilldelning eller baserat på grupp medlemskap) att kunna logga in. De kan komma åt appen på sidan Mina appar eller genom att använda en direkt länk. 
 
 Om tilldelning *inte krävs*, antingen på grund av att du har ställt in det här alternativet på **Nej** eller på att programmet använder ett annat SSO-läge, kan alla användare komma åt programmet om de har en direkt länk till programmet eller URL: en för **användar åtkomst** på programmets **egenskaps** sida. 
 
@@ -90,7 +90,7 @@ Så här kräver du användar tilldelning för ett program:
 1. Öppna en upphöjd kommando tolk i Windows PowerShell.
 
    > [!NOTE]
-   > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory v2 PowerShell-modulen skriver du Y och trycker på RETUR.
+   > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD` ). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory v2 PowerShell-modulen skriver du Y och trycker på RETUR.
 
 1. Kör `Connect-AzureAD` och logga in med ett globalt administratörs användar konto.
 1. Använd följande skript för att tilldela en användare och roll till ett program:
@@ -110,9 +110,11 @@ Så här kräver du användar tilldelning för ett program:
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-Mer information om hur du tilldelar en användare till en program roll finns i dokumentationen för [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+Mer information om hur du tilldelar en användare till en program roll finns i dokumentationen för [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
-Om du vill tilldela en grupp till en företags-app måste du `Get-AzureADUser` ersätta `Get-AzureADGroup`med.
+Om du vill tilldela en grupp till en företags app måste du ersätta `Get-AzureADUser` med `Get-AzureADGroup` och ersätta `New-AzureADUserAppRoleAssignment` med `New-AzureADGroupAppRoleAssignment` .
+
+Mer information om hur du tilldelar en grupp till en program roll finns i dokumentationen för [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### <a name="example"></a>Exempel
 

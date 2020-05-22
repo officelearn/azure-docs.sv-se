@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 62b3445ba841a87f04dbe8c867411814b849be07
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4fef6102ac2ee69926c1c56af338b6e92670dd71
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682439"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773108"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -30,8 +30,8 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 | Windows 8,1 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 R2 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 | SMB 3.0 | Ja | Ja |
-| Windows 7<sup>3</sup> | SMB 2.1 | Ja | Inga |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Ja | Inga |
+| Windows 7<sup>3</sup> | SMB 2.1 | Ja | Nej |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Ja | Nej |
 
 <sup>1</sup> Windows 10, version 1507, 1607, 1709, 1803, 1809, 1903 och 1909.  
 <sup>2</sup> Windows Server, version 1809, 1903 och 1909.  
@@ -186,7 +186,7 @@ Remove-PSDrive -Name <desired-drive-letter>
     
     ![En skärmbild av den nedrullningsbara menyn "Anslut nätverksenhet"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Välj enhets bokstaven och ange UNC-sökvägen. UNC-sökvägarna är `<storageAccountName>.file.core.windows.net/<fileShareName>` . Exempel: `anexampleaccountname.file.core.windows.net/example-share-name`.
+1. Välj enhets bokstaven och ange UNC-sökvägen. UNC-sökvägarna är `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Exempel: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![En skärmbild av dialogrutan "Anslut nätverksenhet"](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 

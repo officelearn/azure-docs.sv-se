@@ -1,19 +1,19 @@
 ---
 title: Konfigurera version 2 av anpassade regler med PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Lär dig hur du konfigurerar WAF v2-anpassade regler med hjälp av Azure PowerShell. Du kan skapa egna regler som utvärderas för varje begäran som passerar genom brand väggen.
+description: Lär dig hur du konfigurerar anpassade regler för brand vägg för webbaserade program (WAF) v2 med Azure PowerShell. Du kan skapa egna regler som utvärderas för varje begäran som passerar genom brand väggen.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 11/16/2019
+ms.date: 05/21/2020
 ms.author: victorh
-ms.openlocfilehash: 4c50c4ce344a51a70f6849beb7c5d9d18a2b401d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2572e30c02552859eb5c61915a9ef524c0c6cc70
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471643"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758970"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Konfigurera brand vägg för webbaserade program v2 på Application Gateway med en anpassad regel med hjälp av Azure PowerShell
 
@@ -136,6 +136,19 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
   -RequestRoutingRules $rule01 -Sku $sku -AutoscaleConfiguration $autoscaleConfig `
   -WebApplicationFirewallConfig $wafConfig `
   -FirewallPolicy $wafPolicy
+```
+
+## <a name="update-your-waf"></a>Uppdatera din WAF
+
+När du har skapat din WAF kan du uppdatera den med hjälp av en procedur som liknar följande kod:
+
+```azurepowershell
+# Get the existing policy
+$policy = Get-AzApplicationGatewayFirewallPolicy -Name $policyName -ResourceGroupName $RGname
+# Add an existing rule named $rule
+$policy.CustomRules.Add($rule)
+# Update the policy
+Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
 ## <a name="next-steps"></a>Nästa steg

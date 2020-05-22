@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: a8136f8fe6431187884a180925234d6aab36983f
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f880f189b19b4909268b6e0b24654fc4682ab7c8
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725524"
+ms.locfileid: "83759191"
 ---
-# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Självstudie: skapa ett etikett projekt för bild klassificering med flera klasser 
+# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Självstudie: skapa ett etikett projekt (för hands version) för bild klassificering med flera klasser 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Den här självstudien visar hur du hanterar processen för etiketter (kallas även för taggning) som ska användas som data för att skapa maskin inlärnings modeller. Data etiketter i Azure Machine Learning finns i offentlig för hands version.

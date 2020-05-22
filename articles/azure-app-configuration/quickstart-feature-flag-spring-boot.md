@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: cc040fe2c9e0686844c8609b9682d757595b9dbf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: a0d3c23f8f53b8ddfbd3fbd1cb1744a47664ce08
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981076"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774012"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabb start: Lägg till funktions flaggor i en våren Boot-app
 
@@ -29,7 +29,7 @@ Biblioteken våren Boot Feature Management utökar ramverket med omfattande stö
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **funktions hanteraren** > **+ Lägg** till för att lägga till en `Beta`funktions flagga som kallas.
+6. Välj **funktions hanteraren**  >  **+ Lägg** till för att lägga till en funktions flagga som kallas `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Aktivera funktions flagga med namnet beta](media/add-beta-feature-flag.png)
@@ -46,7 +46,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
    * Generera ett **Maven**-projekt med **Java**.
    * Ange en **våren Boot** -version som är lika med eller större än 2,0.
-   * Ange namnen för **Group** (Grupp) och **Artifact** (Artefakt) för ditt program.  I den här `com.example` artikeln `demo`används och.
+   * Ange namnen för **Group** (Grupp) och **Artifact** (Artefakt) för ditt program.  I den här artikeln används `com.example` och `demo` .
    * Lägg till **våren-** webbberoendet.
 
 1. När du har angett föregående alternativ väljer du **generera projekt**. När du uppmanas att ladda ned projektet till den lokala datorn.
@@ -55,7 +55,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 1. När du har extraherat filerna i det lokala systemet är ditt våren Boot-program klart för redigering. Leta upp *Pom. XML* i appens rot Katalog.
 
-1. Öppna filen *Pom. XML* i en text redigerare och Lägg till följande i listan över `<dependencies>`:
+1. Öppna filen *Pom. XML* i en text redigerare och Lägg till följande i listan över `<dependencies>` :
 
     **Våren Cloud 1.1. x**
 
@@ -100,15 +100,15 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Navigera till `resources` katalogen för appen och öppna `bootstrap.properties`.  Om filen inte finns skapar du den. Lägg till följande rad i filen.
+1. Navigera till `resources` katalogen för appen och öppna `bootstrap.properties` .  Om filen inte finns skapar du den. Lägg till följande rad i filen.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-1. Välj `Access keys` från sid panelen i konfigurations portalen för appen för konfigurations arkivet. Välj fliken skrivskyddade nycklar. Kopiera värdet för den primära anslutnings strängen.
+1. Välj från sid panelen i konfigurations portalen för appen för konfigurations arkivet `Access keys` . Välj fliken skrivskyddade nycklar. Kopiera värdet för den primära anslutnings strängen.
 
-1. Lägg till den primära anslutnings strängen som en miljö variabel med variabel namnet `APP_CONFIGURATION_CONNECTION_STRING`.
+1. Lägg till den primära anslutnings strängen som en miljö variabel med variabel namnet `APP_CONFIGURATION_CONNECTION_STRING` .
 
 1. Öppna huvudprogrammets Java-fil och lägg till `@EnableConfigurationProperties` för att aktivera den här funktionen.
 
@@ -178,7 +178,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
             return "welcome";
         }
     }
@@ -241,7 +241,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
     ```
 
-1. Skapa en ny mapp med namnet CSS `static` under och inuti den till en ny CSS-fil med namnet *main. CSS*.
+1. Skapa en ny mapp med namnet CSS under `static` och inuti den till en ny CSS-fil med namnet *main. CSS*.
 
     ```css
     html {
@@ -283,13 +283,13 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
     mvn spring-boot:run
     ```
 
-1. Öppna ett webbläsarfönster och gå till URL: en: `http://localhost:8080/welcome`.
+1. Öppna ett webbläsarfönster och gå till URL: en: `http://localhost:8080/welcome` .
 
     ![Snabbstart av lokal app](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
 1. I konfigurations portalen för app väljer du **funktions hanteraren**och ändrar status för **beta** nyckeln till **på**:
 
-    | Tangent | Status |
+    | Nyckel | Stat |
     |---|---|
     | Beta | På |
 

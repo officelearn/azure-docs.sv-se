@@ -3,12 +3,12 @@ title: Organisera dina resurser med hanterings grupper – Azure-styrning
 description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.
 ms.date: 04/15/2020
 ms.topic: overview
-ms.openlocfilehash: cc60e4555f0fb2b920b8061fb044ce5dde990d38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81381542"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773159"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna resurser med hanteringsgrupper i Azure
 
@@ -108,7 +108,7 @@ Anpassad RBAC-roll-support för hanterings grupper är för närvarande en för 
 
 Att [definiera och skapa en anpassad roll](../../role-based-access-control/custom-roles.md) ändras inte med inkludering av hanterings grupper. Använd den fullständiga sökvägen för att definiera hanterings gruppens **/providers/Microsoft.Management/managementgroups/{GroupID}**.
 
-Använd hanterings gruppens ID och inte hanterings gruppens visnings namn. Detta vanliga fel inträffar eftersom båda är anpassade definierade fält när du skapar en hanterings grupp.
+Använd hanterings gruppens ID och inte hanterings gruppens visnings namn. Detta vanliga fel inträffar eftersom båda är anpassade fält som definieras när du skapar en hanterings grupp.
 
 ```json
 ...
@@ -143,7 +143,7 @@ Använd hanterings gruppens ID och inte hanterings gruppens visnings namn. Detta
 
 ### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Problem med att bryta sökvägen till roll definitionen och tilldelnings-hierarkin
 
-Roll definitioner är tilldelnings bara omfång var som helst inom hanterings gruppens hierarki. En roll definition kan definieras i en överordnad hanterings grupp medan den faktiska roll tilldelningen finns i den underordnade prenumerationen. Eftersom det finns en relation mellan de två objekten visas ett fel meddelande när du försöker avgränsa tilldelningen från definitionen.
+Roll definitioner är tilldelnings bara omfång var som helst inom hanterings gruppens hierarki. En roll definition kan definieras i en överordnad hanterings grupp medan den faktiska roll tilldelningen finns i den underordnade prenumerationen. Eftersom det finns en relation mellan de två objekten får du ett fel meddelande när du försöker avgränsa tilldelningen från definitionen.
 
 Låt oss till exempel titta på en liten del av en hierarki för ett visuellt objekt.
 
@@ -163,13 +163,14 @@ Det finns ett par olika alternativ för att åtgärda det här scenariot:
 
 Det finns begränsningar som finns när du använder anpassade roller i hanterings grupper. 
 
- - Du kan bara definiera en hanterings grupp i de tilldelnings bara omfånget för en ny roll. Den här begränsningen är på plats för att minska antalet situationer där roll definitioner och roll tilldelningar är frånkopplade. Detta inträffar när en prenumeration eller hanterings grupp med en roll tilldelning flyttas till en annan överordnad som inte har roll definitionen.  
- - Åtgärder för RBAC-dataplan får inte definieras i anpassade roller för hanterings grupper. Den här begränsningen är på plats eftersom det finns ett latens problem med RBAC-åtgärder för att uppdatera data Plans resurs leverantörerna. Den här svars tids frågan bearbetas och de här åtgärderna inaktive ras från roll definitionen för att minska riskerna.
+ - Du kan bara definiera en hanterings grupp i de tilldelnings bara omfånget för en ny roll. Den här begränsningen är på plats för att minska antalet situationer där roll definitioner och roll tilldelningar är frånkopplade. Den här situationen inträffar när en prenumeration eller hanterings grupp med en roll tilldelning flyttas till en annan överordnad som inte har roll definitionen.  
+ - Det går inte att definiera åtgärder för RBAC-dataplan i anpassade roller för hanterings grupper. Den här begränsningen är på plats som ett problem med RBAC-åtgärder med RBAC-åtgärder för att uppdatera data planets resurs leverantörer.
+   Den här svars tids frågan bearbetas och de här åtgärderna inaktive ras från roll definitionen för att minska riskerna.
  - Azure Resource Manager validerar inte hanterings gruppens existens i roll definitionens tilldelnings omfång. Om det finns ett skrivfel eller felaktigt ID för hanterings grupp i listan, kommer roll definitionen fortfarande att skapas.  
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Flytta hanterings grupper och prenumerationer 
 
-För att en hanterings grupp eller prenumeration ska vara underordnad en annan hanterings grupp måste tre regler utvärderas som sant.
+Om du vill flytta en hanterings grupp eller prenumeration till en underordnad till en annan hanterings grupp måste tre regler utvärderas som sant.
 
 Om du utför flytt åtgärden behöver du: 
 

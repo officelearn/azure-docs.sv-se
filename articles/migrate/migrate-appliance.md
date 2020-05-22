@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: bd5686b30b07c0f7fb8961f8d1f71035cb2688a4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 98398510acb1eec29ea603d869f1e9ec383cb210
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656426"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758953"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -105,7 +105,7 @@ Azure Migrate-utrustningen behöver anslutning till Internet.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Skapa Azure Active Directory (AD) appar för att kunna kommunicera med Azure Migrate.
 management.azure.com | Skapa Azure AD-appar för att kunna kommunicera med tjänsten Azure Migrate.
 *.services.visualstudio.com | Ladda upp program loggar som används för intern övervakning.
-*.vault.azure.net | Hantera hemligheter i Azure Key Vault.
+*.vault.azure.net | Hantera hemligheter i Azure Key Vault. Obs: se till att datorer som ska replikeras har åtkomst till detta.
 aka.ms/* | Tillåt åtkomst till aka-länkar. Används för uppdateringar av Azure Migrates enheten.
 download.microsoft.com/download | Tillåt hämtning från Microsoft Download.
 *.servicebus.windows.net | Kommunikation mellan installations programmet och tjänsten Azure Migrate.
@@ -440,12 +440,12 @@ Så här kontrollerar du i kontroll panelen:
 Om du kör en äldre version för någon av komponenterna måste du avinstallera tjänsten och manuellt uppdatera till den senaste versionen.
 
 1. Om du vill söka efter de senaste versionerna av service-tjänsterna [laddar du ned](https://aka.ms/latestapplianceservices) filen LatestComponents. JSON.
-2.  När du har hämtat öppnar du filen LatestComponents. json i anteckningar.
-3. Hitta den senaste tjänst versionen i filen och nedladdnings länken för den. Till exempel:
+2.    När du har hämtat öppnar du filen LatestComponents. json i anteckningar.
+3. Hitta den senaste tjänst versionen i filen och nedladdnings länken för den. Ett exempel:
 
     "Namn": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi ", "version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
-4.  Hämta den senaste versionen av en föråldrad tjänst med hjälp av länken Hämta i filen.
+4.    Hämta den senaste versionen av en föråldrad tjänst med hjälp av länken Hämta i filen.
 5. När du har laddat ned kör du följande kommando i ett administratörs kommando fönster för att kontrol lera integriteten för den hämtade MSI-filen.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Exempel: C: \> certutil-HashFile C:\USERS\PUBLIC\DOWNLOADS\MICROSOFTAZUREAPPLIANCECONFIGURATIONMANAGER.msi MD5

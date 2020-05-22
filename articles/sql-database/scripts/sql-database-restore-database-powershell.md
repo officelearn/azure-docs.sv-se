@@ -3,7 +3,7 @@ title: PowerShell-exempel – återställning-backup – Azure SQL Database
 description: Azure PowerShell exempel skript för att återställa en enkel Azure SQL-databas till en tidigare tidpunkt från automatiska säkerhets kopieringar
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: da4236e138bd75237ca10b85dc1586fecd1cece4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a1e709992ce1e13f809c7c5f55b98aff11025e6
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73691549"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770354"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Använd PowerShell för att återställa en enkel Azure SQL-databas till en tidigare tidpunkt
 
@@ -44,7 +44,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapa en SQL Database-server som är värd för en enskild databas eller en elastisk pool. |

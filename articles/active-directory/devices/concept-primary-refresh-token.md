@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a237ad35d9d5d8abee784926563d972d0ee95f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ccd51bd69c982aeae25dbf52d1e5d076542cf35
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672639"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771204"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Vad är en primär uppdateringstoken?
 
@@ -39,7 +39,7 @@ Följande Windows-komponenter spelar en viktig roll när de begär och använder
 
 En PRT innehåller anspråk som vanligt vis finns i valfri Azure AD-uppdateringstoken. Dessutom finns det vissa enhetsspecifika anspråk som ingår i PRT. Det här är skillnaderna:
 
-* **Enhets-ID**: en PRT utfärdas till en användare på en speciell enhet. Anspråket `deviceID` för enhets-ID avgör vilken enhet som PRT har utfärdats till användaren. Detta påstående utfärdas senare till token som erhållits via PRT. Enhets-ID-anspråket används för att fastställa auktorisering för villkorlig åtkomst baserat på enhetens tillstånd eller efterlevnad.
+* **Enhets-ID**: en PRT utfärdas till en användare på en speciell enhet. Anspråket för enhets-ID `deviceID` avgör vilken enhet som PRT har utfärdats till användaren. Detta påstående utfärdas senare till token som erhållits via PRT. Enhets-ID-anspråket används för att fastställa auktorisering för villkorlig åtkomst baserat på enhetens tillstånd eller efterlevnad.
 * **Sessionsnyckel**: sessionsnyckeln är en krypterad symmetrisk nyckel som genereras av Azure AD-Autentiseringstjänsten som utfärdats som en del av PRT. Sessionsnyckeln fungerar som bevis på innehavet när en PRT används för att hämta token för andra program.
 
 ### <a name="can-i-see-whats-in-a-prt"></a>Kan jag se vad som finns i en PRT?
@@ -60,7 +60,7 @@ PRT utfärdas vid användarautentisering på en Windows 10-enhet i två situatio
 * **Azure AD-ansluten** eller **hybrid Azure AD-ansluten**: en PRT utfärdas under Windows-inloggning när en användare loggar in med sina autentiseringsuppgifter för organisationen. En PRT utfärdas med alla Windows 10-autentiseringsuppgifter som stöds, till exempel lösen ord och Windows Hello för företag. I det här scenariot är Azure AD CloudAP-plugin-programmet den primära utfärdaren för PRT.
 * **Registrerad Azure AD-enhet**: en PRT utfärdas när en användare lägger till ett sekundärt arbets konto till Windows 10-enheten. Användare kan lägga till ett konto i Windows 10 på två olika sätt –  
    * Lägg till ett konto med **hjälp av det här kontot överallt på enheten** när du har loggat in på en app (till exempel Outlook)
-   * Lägga till ett konto från **Inställningar** > **konton** > **åtkomst till arbets-eller skol** > **anslutning**
+   * Lägga till ett konto från **Inställningar**  >  **konton**  >  **åtkomst till arbets-eller skol**  >  **anslutning**
 
 I Azure AD-registrerade enhets scenarier är Azure AD WAM-plugin-programmet den primära utfärdaren för PRT eftersom Windows-inloggning inte sker med det här Azure AD-kontot.
 
@@ -76,7 +76,7 @@ När en PRT har utfärdats är den giltig i 14 dagar och förnyas kontinuerligt 
 En PRT används av två viktiga komponenter i Windows:
 
 * **Azure AD CloudAP-plugin**: under Windows-inloggning begär Azure AD CloudAP-plugin-programmet en PRT från Azure AD med hjälp av de autentiseringsuppgifter som anges av användaren. Den cachelagrar också PRT för att aktivera cachelagrad inloggning när användaren inte har åtkomst till en Internet anslutning.
-* **Azure AD WAM-plugin**: när användare försöker få åtkomst till program använder Azure AD WAM-plugin-programmet PRT för att aktivera SSO på Windows 10. Azure AD WAM-pluginprogrammet använder PRT för att begära uppdaterings-och åtkomsttoken för program som förlitar sig på WAM för token-begäranden. Det aktiverar även SSO i webbläsare genom att mata in PRT i webb läsar begär Anden. Enkel inloggning i webbläsare i Windows 10 stöds på Microsoft Edge (inbyggt) och Chrome (via Windows 10-konton eller Office Online-tillägget).
+* **Azure AD WAM-plugin**: när användare försöker få åtkomst till program använder Azure AD WAM-plugin-programmet PRT för att aktivera SSO på Windows 10. Azure AD WAM-pluginprogrammet använder PRT för att begära uppdaterings-och åtkomsttoken för program som förlitar sig på WAM för token-begäranden. Det aktiverar även SSO i webbläsare genom att mata in PRT i webb läsar begär Anden. Enkel inloggning i webbläsare i Windows 10 stöds på Microsoft Edge (inbyggt) och Chrome (via [Windows 10-konton](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) eller [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) -tillägg).
 
 ## <a name="how-is-a-prt-renewed"></a>Hur förnyas en PRT?
 

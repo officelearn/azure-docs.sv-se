@@ -3,7 +3,7 @@ title: Återställa en säkerhets kopia till en hanterad instans
 description: Återställa en databassäkerhetskopia till en hanterad Azure SQL Database-instans med SSMS.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 3b12aa860bee189f706bd98df63fc194a3a0cc71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b7d635a45929ead1ef67e10fef75e502c5005f7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80874712"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770099"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Snabb start: återställa en databas till en hanterad instans
 
@@ -90,7 +90,7 @@ Den här snabbstarten:
 
 > [!NOTE]
 > Databas återställnings åtgärden är asynkron och återförsöksbar. Du kan få ett fel SQL Server Management Studio om anslutningen bryts eller om tids gränsen upphör att gälla. Azure SQL Database fortsätter att försöka återställa databasen i bakgrunden och du kan följa förloppet för återställningen med hjälp av vyerna [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
-> I vissa faser av återställnings processen kommer du att se unik identifierare i stället för det faktiska databas namnet i systemvyerna. Lär dig `RESTORE` mer om instruktions skillnader [här](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
+> I vissa faser av återställnings processen kommer du att se unik identifierare i stället för det faktiska databas namnet i systemvyerna. Lär dig mer om `RESTORE` instruktions skillnader [här](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
 ## <a name="next-steps"></a>Nästa steg
 

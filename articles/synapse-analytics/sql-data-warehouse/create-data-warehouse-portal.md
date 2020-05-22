@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9605d20fa6a1480b24d7b64963aa9579ed3b5a11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e393b653ecb9e9d7b8eff277b91215ccc5bf6342
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81115184"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770830"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Snabb start: skapa och fråga en Synapse SQL-pool med hjälp av Azure Portal
 
@@ -66,7 +66,11 @@ Följ dessa steg om du vill skapa en SQL-pool som innehåller **AdventureWorksDW
 
    Mer information om prestanda nivåer finns i [Hantera beräkning i Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
 
-5. Nu när du har slutfört fliken grundläggande i formuläret för Azure Synapse Analytics väljer du **Granska + skapa** och sedan **skapa** för att skapa SQL-poolen. Etableringen tar några minuter.
+5. Välj **ytterligare inställningar**. under **Använd befintliga data**väljer du **exempel** så att AdventureWorksDW skapas som exempel databas.
+
+    ![Välj Använd befintliga data](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
+
+6. Nu när du har slutfört fliken grundläggande i formuläret för Azure Synapse Analytics väljer du **Granska + skapa** och sedan **skapa** för att skapa SQL-poolen. Etableringen tar några minuter.
 
    ![Välj granska + skapa](./media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
@@ -148,6 +152,8 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    ![databasobjekt](./media/create-data-warehouse-portal/connected-ssms.png)
 
 ## <a name="run-some-queries"></a>Köra några frågor
+
+Vi rekommenderar inte att du kör stora frågor när du loggar som Server administratör, eftersom den använder en [begränsad resurs klass](resource-classes-for-workload-management.md). Konfigurera i stället [arbets belastnings isolering](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) som visas [i självstudierna](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
 
 SQL Data Warehouse använder T-SQL som frågespråk. Använd följande steg om du vill öppna ett frågefönster och köra några T-SQL-frågor:
 

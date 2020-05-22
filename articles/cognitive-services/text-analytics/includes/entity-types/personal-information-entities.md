@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57be24142a8504347f420e5780e9621cd2eac91d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77086893"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778187"
 ---
 ## <a name="personal-information-entity-types"></a>Enhets typer för personlig information:
 
@@ -25,7 +25,7 @@ Språk:
 
 | Under typs namn | Beskrivning                                               | Tillgängligt från och med modell version |
 |--------------|-----------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | Identifierade namn, till `Bill Gates`exempel`Marie Curie` | `2020-02-01`                           |
+| Ej tillämpligt          | Identifierade `Bill Gates` namn, till exempel`Marie Curie` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organisation  
 
@@ -37,7 +37,7 @@ Språk:
 
 | Under typs namn | Beskrivning                                                                                       | Tillgängligt från och med modell version|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
-| Ej tillämpligt          | organisationer, till exempel `Microsoft` `NASA`,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
+| Ej tillämpligt          | organisationer `Microsoft` , till exempel, `NASA``National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
 ### <a name="phone-number"></a>Telefonnummer
 
@@ -109,7 +109,7 @@ Språk:
 
 | Under typs namn | Beskrivning                   | Tillgängligt från och med modell version |
 |--------------|-------------------------------|----------------------------------------|
-| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
+| Datum         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
 ### <a name="eu-gps-coordinates"></a>EU GPS-koordinater
 
@@ -127,7 +127,7 @@ Språk:
 
 Identifierbar Azure-information inklusive autentiseringsinformation och anslutnings strängar. 
 
-* Tillgängligt från och med modell `2019-10-01`version.
+* Tillgängligt från och med modell version `2019-10-01` .
 
 Språk:
 
@@ -149,7 +149,7 @@ Språk:
 
 ### <a name="identification"></a>Identification
 
-* Tillgängligt från och med modell `2019-10-01`version.
+* Tillgängligt från och med modell version `2019-10-01` .
 
 Språk:
 
@@ -164,9 +164,9 @@ Språk:
 | Kreditkort                | Kreditkorts nummer.                                                       |
 | IBAN-kod                  | IBAN-koder för information om betalnings instruktioner.                            |
 
-#### <a name="government-and-country-specific-identification"></a>Myndighets-och landsspecifika identifiering
+#### <a name="government-and-countryregion-specific-identification"></a>Identifiering av myndigheter och land/region
 
-Entiteterna nedan grupperas och listas efter land:
+Entiteterna nedan grupperas och listas efter land/region:
 
 Argentina
 * Nationellt identitets nummer (DNI)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2020
 ms.author: memildin
-ms.openlocfilehash: 152168bbadd5815659bc5f70c91bd2a28f5e049d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57e13f3ed619fa88f29397fe44b783bd3650f636
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481967"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759174"
 ---
 # <a name="monitor-identity-and-access"></a>Övervaka identitet och åtkomst
 
@@ -58,7 +58,7 @@ Alla rekommendationer för identitet och åtkomst finns i två säkerhets kontro
 
 För att aktivera MFA krävs [Azure Active Directory (AD) klient behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
 
-- Om du har en Premium-version av AD aktiverar du MFA med [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+- Om du har en Premium-version av AD aktiverar du MFA med [villkorlig åtkomst](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 
 - Användare av den kostnads fria versionen av AD kan aktivera **säkerhets inställningar** i Azure Active Directory enligt beskrivningen i [AD-dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) , men Security Center rekommendationer för att aktivera MFA kommer fortfarande att visas.
 

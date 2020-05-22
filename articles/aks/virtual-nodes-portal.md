@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Portal för att skapa ett AKS-klust
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 5f7bf75598c09c5c8c0654f7db863068f9e7be7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7fa547ca8a3907669c9e7671b11fe3a6307d97f4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128862"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773431"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera ett Azure Kubernetes Services-kluster (AKS) för att använda virtuella noder i Azure Portal
 
@@ -74,7 +74,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-I det övre vänstra hörnet av Azure Portal väljer du **skapa en resurs** > **Kubernetes-tjänst**.
+I det övre vänstra hörnet av Azure Portal väljer du **skapa en resurs**  >  **Kubernetes-tjänst**.
 
 På sidan **grundläggande** inställningar konfigurerar du följande alternativ:
 
@@ -101,7 +101,7 @@ Det tar några minuter för AKS-klustret att skapas och bli redo för användnin
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Hantera Kubernetes-kluster med [kubectl][kubectl], Kubernetes kommandoradsklient. `kubectl`-klienten är förinstallerad i Azure Cloud Shell.
 
-Om du vill öppna Cloud Shell väljer du **testa den** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/bash](https://shell.azure.com/bash)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du **testa den** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 Använd kommandot [az aks get-credentials][az-aks-get-credentials] för att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster. I följande exempel hämtas autentiseringsuppgifterna för klusternamnet *myAKSCluster* i den resursgrupp som heter *myResourceGroup*:
 
@@ -154,8 +154,6 @@ spec:
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Exists
-      - key: azure.com/aci
-        effect: NoSchedule
 ```
 
 Kör programmet med kommandot [kubectl Apply][kubectl-apply] .
@@ -178,7 +176,7 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 Pod tilldelas en intern IP-adress från Azure Virtual Network-undernätet delegerad för användning med virtuella noder.
 
 > [!NOTE]
-> Om du använder avbildningar som lagras i Azure Container Registry [konfigurerar och använder du en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning av virtuella noder är att du inte kan använda integrerad autentisering för Azure AD-tjänstens huvud namn. Om du inte använder en hemlighet kan poddar schemalagda på virtuella noder inte starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"`.
+> Om du använder avbildningar som lagras i Azure Container Registry [konfigurerar och använder du en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning av virtuella noder är att du inte kan använda integrerad autentisering för Azure AD-tjänstens huvud namn. Om du inte använder en hemlighet kan poddar schemalagda på virtuella noder inte starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"` .
 
 ## <a name="test-the-virtual-node-pod"></a>Testa den virtuella noden Pod
 
@@ -188,13 +186,13 @@ Om du vill testa Pod som körs på den virtuella noden bläddrar du till demonst
 kubectl run -it --rm virtual-node-test --image=debian
 ```
 
-Installera `curl` i pod med `apt-get`:
+Installera `curl` i pod med `apt-get` :
 
 ```console
 apt-get update && apt-get install -y curl
 ```
 
-Nu kan du få åtkomst till adressen till `curl`din POD med *http://10.241.0.4*, till exempel. Ange din egna interna IP-adress som visas i `kubectl get pods` föregående kommando:
+Nu kan du få åtkomst till adressen till din POD med `curl` , till exempel *http://10.241.0.4* . Ange din egna interna IP-adress som visas i föregående `kubectl get pods` kommando:
 
 ```console
 curl -L http://10.241.0.4
@@ -210,7 +208,7 @@ Demo programmet visas, som du ser i följande komprimerade exempel i utdata:
 [...]
 ```
 
-Stäng terminalfönstret för test Pod med `exit`. När sessionen är slut tas Pod bort.
+Stäng terminalfönstret för test Pod med `exit` . När sessionen är slut tas Pod bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

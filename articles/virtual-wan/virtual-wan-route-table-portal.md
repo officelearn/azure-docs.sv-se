@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 0807b535adc45093b439dba5ab8a0ea26b2a0721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 740a2174933e37e2737de0daa56e4b1670ecf55f
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78402925"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773176"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Skapa en virtuell WAN Hub-routningstabell för NVA: Azure Portal
 
@@ -76,6 +76,9 @@ Uppdatera hubben med en hubb väg tabell. Använd följande exempel värden:
 3. Klicka på **...** och klicka sedan på **Redigera virtuell hubb**.
 4. På sidan **Redigera virtuellt nav** bläddrar du nedåt och markerar kryss rutan **Använd tabell för routning**.
 5. Lägg till adress utrymmena i kolumnen **om målets prefix är** . I kolumnen **Skicka till nästa hopp** lägger du till DMZ NVA Network Interface Private IP Address.
+>[!NOTE]
+>DMZ NVA-nätverket är tillämpligt på den lokala hubben.
+>
 6. Klicka på **Bekräfta** om du vill uppdatera Hub-resursen med väg tabells inställningarna.
 
 ## <a name="5-create-the-vnet-connections"></a><a name="connections"></a>5. skapa VNet-anslutningarna

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 34ee5d4978c6476da407cde33598a5713177078e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97e0456e274adee7d678e373cfd92b5003f3d801
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80682018"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759106"
 ---
 # <a name="single-sided-rendering"></a>Enkelsidig rendering
 
@@ -25,13 +25,13 @@ Med inställningen med *Enkels idig åter givning* kan du anpassa det här betee
 
 ## <a name="prerequisites"></a>Krav
 
-Inställningen med enkel sida åter givning har bara en effekt för maskor som har [konverterats](../../how-tos/conversion/configure-model-conversion.md) med `opaqueMaterialDefaultSidedness` alternativet inställt på `SingleSided`. Som standard är det här alternativet inställt på `DoubleSided`.
+Inställningen med enkel sida åter givning har bara en effekt för maskor som har [konverterats](../../how-tos/conversion/configure-model-conversion.md) med `opaqueMaterialDefaultSidedness` alternativet inställt på `SingleSided` . Som standard är det här alternativet inställt på `DoubleSided` .
 
 ## <a name="single-sided-rendering-setting"></a>Inställning med Enkels idig åter givning
 
 Det finns tre olika lägen:
 
-**Normal:** I det här läget återges alltid maskor när de konverteras. Det innebär att nät som konverteras `opaqueMaterialDefaultSidedness` med `SingleSided` set till alltid återges med en bakgrunds Cull aktive rad, även om de överlappar ett klipp plan.
+**Normal:** I det här läget återges alltid maskor när de konverteras. Det innebär att nät som konverteras med `opaqueMaterialDefaultSidedness` set till `SingleSided` alltid återges med en bakgrunds Cull aktive rad, även om de överlappar ett klipp plan.
 
 **DynamicDoubleSiding:** I det här läget, när ett klipp plan överlappar ett nät, växlas det automatiskt till dubbels idig åter givning. Det här läget är standard läget.
 
@@ -39,7 +39,7 @@ Det finns tre olika lägen:
 
 Du kan ändra inställningarna för enkel åter givning på följande sätt:
 
-``` cs
+```cs
 void ChangeSingleSidedRendering(AzureSession session)
 {
     SingleSidedSettings settings = session.Actions.SingleSidedSettings;
@@ -49,6 +49,19 @@ void ChangeSingleSidedRendering(AzureSession session)
 
     // Single-sided geometry is always rendered double-sided
     settings.Mode = SingleSidedMode.AlwaysDoubleSided;
+}
+```
+
+```cpp
+void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
+{
+    ApiHandle<SingleSidedSettings> settings = *session->Actions()->SingleSidedSettings();
+
+    // Single-sided geometry is rendered as is
+    settings->Mode(SingleSidedMode::Normal);
+
+    // Single-sided geometry is always rendered double-sided
+    settings->Mode(SingleSidedMode::AlwaysDoubleSided);
 }
 ```
 

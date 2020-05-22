@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 05/18/2020
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5ae2dee68ec0da8e8a00d4f01583461462bc196c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a471504b88791b5bfb6ce6cc7c81d60bfbe5028
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76696103"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772088"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Kända problem i Internet Explorer och Microsoft Edge-webbläsare (MSAL. js)
 
@@ -30,7 +30,7 @@ Orsaken till de flesta av de här problemen är som följer. Session Storage och
 
 ### <a name="issues"></a>Problem
 
-- **Oändliga omdirigerings-slingor och hämtning av sidor vid autentisering**. När användarna loggar in på programmet i Microsoft Edge, omdirigeras de tillbaka från inloggnings sidan för AAD och fastnar i en oändlig omdirigerings slinga som resulterar i upprepade inläsningar av sidor. Detta åtföljs vanligt vis av `invalid_state` ett fel i session Storage.
+- **Oändliga omdirigerings-slingor och hämtning av sidor vid autentisering**. När användarna loggar in på programmet i Microsoft Edge, omdirigeras de tillbaka från inloggnings sidan för AAD och fastnar i en oändlig omdirigerings slinga som resulterar i upprepade inläsningar av sidor. Detta åtföljs vanligt vis av ett `invalid_state` fel i session Storage.
 
 - **Oändligt antal hämtningar av token och AADSTS50058-fel**. När ett program som körs på Microsoft Edge försöker hämta en token för en resurs, kan det hända att programmet fastnar i en oändlig loop av anropet för inhämta token tillsammans med följande fel från AAD i nätverks spårningen:
 
@@ -50,7 +50,7 @@ Använd lösningarna nedan.
 
 #### <a name="other-workarounds"></a>Andra lösningar
 Se till att testa att ditt problem bara uppstår på den aktuella versionen av Microsoft Edge-webbläsaren och fungerar i de andra webbläsarna innan du inför dessa lösningar.  
-1. Som ett första steg för att lösa dessa problem bör du se till att program domänen, och andra platser som ingår i omdirigeringen av autentiseringsschemat läggs till som betrodda platser i webbläsarens säkerhets inställningar, så att de tillhör samma säkerhets zon.
+1. Som ett första steg för att lösa dessa problem bör du se till att program domänen och andra platser som ingår i omdirigeringen av autentiseringsschemat läggs till som betrodda platser i webbläsarens säkerhets inställningar så att de tillhör samma säkerhets zon.
 Det gör du på följande sätt:
     - Öppna **Internet Explorer** och klicka på **inställningarna** (kugg hjuls ikonen) i det övre högra hörnet
     - Välj **Internet alternativ**
@@ -63,7 +63,7 @@ Observera att detta inte löser problemet med InPrivate-surfning eftersom både 
 
 ## <a name="issues-due-to-popup-blockers"></a>Problem som beror på popup-Blocker
 
-Det finns fall då popup-fönster blockeras i IE eller Microsoft Edge, till exempel när ett andra popup-fönster inträffar under Multi-Factor Authentication. Du får en avisering i webbläsaren så att popup-fönstret kan visas en gång eller alltid. Om du väljer att tillåta öppnar webbläsaren automatiskt popup-fönstret och returnerar en `null` referens för det. Därför har biblioteket ingen referens för fönstret och det finns inget sätt att stänga popup-fönstret. Samma problem inträffar inte i Chrome när du blir ombedd att tillåta popup-fönster eftersom det inte automatiskt öppnar ett popup-fönster.
+Det finns fall då popup-fönster blockeras i IE eller Microsoft Edge, till exempel när ett andra popup-fönster inträffar under [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). Du får en avisering i webbläsaren så att popup-fönstret kan visas en gång eller alltid. Om du väljer att tillåta öppnar webbläsaren automatiskt popup-fönstret och returnerar en `null` referens för det. Därför har biblioteket ingen referens för fönstret och det finns inget sätt att stänga popup-fönstret. Samma problem inträffar inte i Chrome när du blir ombedd att tillåta popup-fönster eftersom det inte automatiskt öppnar ett popup-fönster.
 
 Som en **lösning**måste utvecklare tillåta popup-fönster i IE och Microsoft Edge innan de börjar använda appen för att undvika det här problemet.
 

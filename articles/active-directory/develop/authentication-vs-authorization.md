@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: fca794d51e06c72f157dc063445d1cab09d92d28
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cfc2a7d161619efcd9eee2c32a4dabc2e3a2e6ed
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115871"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772071"
 ---
 # <a name="authentication-vs-authorization"></a>Autentisering kontra auktorisering
 
@@ -36,9 +36,9 @@ I den här artikeln definieras autentisering och auktorisering och du får en ko
 
 I stället för att skapa appar som var och en upprätthåller sin egen användar namn och lösen ords information, vilket innebär en hög administrativ börda när du behöver lägga till eller ta bort användare över flera appar, kan appar delegera det ansvaret till en centraliserad identitets leverantör.
 
-Azure Active Directory (Azure AD) är en centraliserad identitets leverantör i molnet. Genom att delegera autentisering och auktorisering till det möjliggör scenarier som villkorliga åtkomst principer som kräver att en användare befinner sig på en speciell plats, användningen av Multi-Factor Authentication, samt att göra det möjligt för en användare att logga in en gång och sedan loggas in automatiskt till alla webbappar som delar samma centrala katalog. Den här funktionen kallas **enkel inloggning (SSO)**.
+Azure Active Directory (Azure AD) är en centraliserad identitets leverantör i molnet. Genom att delegera autentisering och auktorisering till det kan du använda scenarier som principer för villkorlig åtkomst som kräver att en användare befinner sig på en speciell plats, användningen av [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) (kallas ibland för TVÅFAKTORAUTENTISERING eller 2fa), samt att göra det möjligt för en användare att logga in en gång och sedan loggas in automatiskt på alla webbappar som delar samma centrala katalog. Den här funktionen kallas **enkel inloggning (SSO)**.
 
-Microsoft Identity Platform fören klar autentisering och auktorisering för programutvecklare genom att tillhandahålla identitet som en tjänst, med stöd för bransch standard protokoll som OAuth 2,0 och OpenID Connect, samt bibliotek med öppen källkod för olika plattformar som hjälper dig att snabbt komma igång med att koda. Det gör det möjligt för utvecklare att skapa program som loggar in alla Microsoft-identiteter, Hämta token för att anropa [Microsoft Graph](https://developer.microsoft.com/graph/), andra Microsoft API: er eller API: er som utvecklare har skapat. Mer information finns i [utvecklingen av Microsoft Identity Platform](about-microsoft-identity-platform.md).
+Microsoft Identity Platform fören klar auktorisering och autentisering för programutvecklare genom att tillhandahålla identitet som en tjänst, med stöd för bransch standard protokoll som OAuth 2,0 och OpenID Connect, samt bibliotek med öppen källkod för olika plattformar som hjälper dig att snabbt komma igång med att koda. Det gör det möjligt för utvecklare att skapa program som loggar in alla Microsoft-identiteter, Hämta token för att anropa [Microsoft Graph](https://developer.microsoft.com/graph/), andra Microsoft API: er eller API: er som utvecklare har skapat. Mer information finns i [utvecklingen av Microsoft Identity Platform](about-microsoft-identity-platform.md).
 
 Följande är en kort jämförelse av de olika protokoll som används av Microsoft Identity Platform:
 
@@ -50,11 +50,10 @@ Följande är en kort jämförelse av de olika protokoll som används av Microso
 
 För andra ämnen som behandlar grundläggande autentisering och auktorisering:
 
-* Se [säkerhetstoken](security-tokens.md) för att lära dig hur åtkomsttoken, uppdaterings-token och ID-token används vid autentisering och auktorisering.
+* Se [säkerhetstoken](security-tokens.md) för att lära dig hur åtkomsttoken, uppdaterings-token och ID-token används vid auktorisering och autentisering.
 * Se [program modell](application-model.md) för att lära dig mer om hur du registrerar ditt program så att det kan integreras med Microsoft Identity Platform.
 * Se [appens inloggnings flöde](app-sign-in-flow.md) för att lära dig om inloggnings flödet för webben, skriv bordet och mobila appar i Microsoft Identity Platform.
 
-Om du vill veta mer om de protokoll som Microsoft Identity Platform implementerar:
-
-* Se [OAuth 2,0-och OpenID Connect-protokoll på Microsoft Identity Platform](active-directory-v2-protocols.md) för mer information om OpenID Connect och OAuth 2,0-standarder.
+* Mer information om de protokoll som används av Microsoft Identity Platform finns i [OAuth 2,0-och OpenID Connect-protokoll på Microsoft Identity Platform](active-directory-v2-protocols.md).
 * Mer information om hur Microsoft Identity Platform stöder enkel inloggning finns i [SAML-protokoll för enkel inloggning](single-sign-on-saml-protocol.md) .
+* Mer information om hur du kan implementera enkel inloggning i din app finns i [enkel inloggning till program i Azure Active Directory](../manage-apps/what-is-single-sign-on.md) .

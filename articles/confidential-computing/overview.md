@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: ae98325d98df1ac8a06e0c0bc950d89cc6b77eda
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44006bdfd9ffe6e78380adefe9271f42c0a76f84
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82192271"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773287"
 ---
 # <a name="confidential-computing-on-azure"></a>Konfidentiell data behandling i Azure
 
@@ -42,13 +42,13 @@ Microsoft Azure hjälper dig att minimera din attack yta så att du får bättre
 
 ## <a name="introduction-to-confidential-computing"></a>Introduktion till konfidentiell dator användning<a id="intro to acc"></a>
 
-Konfidentiell data behandling är en bransch term som definieras av kopia ( [konfidentiell Computing Consortium](https://confidentialcomputing.io/) ), en grund som är dedikerad för att definiera och påskynda införandet av konfidentiell dator användning. Konfidentiell data behandling är skydd av data som används när du utför beräkningar. Beräkningarna sker i en maskinvarubaserad betrodd körnings miljö (TEE).
+Konfidentiell data behandling är en bransch term som definieras av kopia ( [konfidentiell Computing Consortium](https://confidentialcomputing.io/) ) – en grund som är dedikerad för att definiera och påskynda införandet av konfidentiell dator användning. KOPIA definierar konfidentiell data behandling som skydd av data som används genom att utföra beräkningar i en maskinvarubaserad betrodd körnings miljö (TEE).
 
 En TEE är en miljö som tillämpar körning av enbart auktoriserad kod. Alla data i TEE kan inte läsas eller manipuleras av någon kod utanför miljön.
 
-### <a name="enclaves-and-trusted-execution-environments"></a>Enclaves och betrodda körnings miljöer
+### <a name="enclaves"></a>Enclaves
 
-I samband med konfidentiell data behandling kallas TEEs vanligt vis *enclaves* eller *säker enclaves*. Enclaves är säkra delar av en maskin varu processor och minne. Det finns inget sätt att visa data eller kod inuti enklaven, även med en fel sökare. Om ej betrott kod försök ändrar innehållet i enklaven-minnet inaktive ras miljön och åtgärderna nekas.
+Enclaves är säkra delar av en maskin varu processor och minne. Det finns inget sätt att visa data eller kod inuti enklaven, även med en fel sökare. Om ej betrott kod försök ändrar innehållet i enklaven-minnet inaktive ras miljön och åtgärderna nekas.
 
 När du utvecklar program kan du använda- [program verktyg](#oe-sdk) för att avskärma delar av koden och data i enklaven. Dessa verktyg ser till att din kod och dina data inte kan visas eller ändras av någon utanför den betrodda miljön. 
 
@@ -96,11 +96,11 @@ Ett program som skapats med enclaves är partitionerat på två sätt:
 1. En "ej betrodd" komponent (värden)
 1. En "betrodd" komponent (enklaven)
 
-**Värden** är ditt enklaven-program som körs på en ej betrodd miljö. Koden i värden har inte åtkomst till koden som lästs in i enklaven. 
+**Värden** är den plats där ditt enklaven-program körs ovanpå och är en icke-betrodd miljö. Enklaven-koden som har distribuerats på värden kan inte nås av värden. 
 
-**Enklaven** är där kod och data körs i tee-implementeringen. Säkra beräkningar bör utföras i enklaven för att säkerställa att hemligheter och känsliga data förblir skyddade. 
+**Enklaven** är den plats där program koden och dess cachelagrade data/minne körs. Säkra beräkningar bör ske i enclaves för att säkerställa hemligheter och känsliga data, förbli skyddade. 
 
-När du börjar utveckla ett enklaven-program måste du bestämma vilken kod och vilka data som behöver skyddas. Den kod som du väljer att placera i den betrodda komponenten är isolerad från resten av ditt program. När enklaven har initierats och koden har lästs in i minnet, kan den koden inte läsas eller ändras från utanför skyddad miljö.
+Under program design är det viktigt att identifiera och fastställa vilken del av programmet som måste köras i enclaves. Den kod som du väljer att placera i den betrodda komponenten är isolerad från resten av ditt program. När enklaven har initierats och koden har lästs in i minnet, kan den koden inte läsas eller ändras från ej betrodda komponenter. 
 
 ### <a name="open-enclave-software-development-kit-oe-sdk"></a>Öppna enklaven Software Development Kit (OE SDK)<a id="oe-sdk"></a>
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 7316df7bcf78e3a154510e69116c288b2b293d4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be3dc2b113cb21c2dfb54a29e7f426e0d925c6d9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680614"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759123"
 ---
 # <a name="sky-reflections"></a>Reflektioner av himmel
 
@@ -37,9 +37,9 @@ Mer information om belysnings modellen finns i kapitlet om [material](../../conc
 
 ## <a name="changing-the-sky-texture"></a>Ändra luft rummets struktur
 
-Om du vill ändra miljö kartan behöver du bara [läsa in en struktur](../../concepts/textures.md) och ändra sessionens `SkyReflectionSettings`:
+Om du vill ändra miljö kartan behöver du bara [läsa in en struktur](../../concepts/textures.md) och ändra sessionens `SkyReflectionSettings` :
 
-``` cs
+```cs
 LoadTextureAsync _skyTextureLoad = null;
 void ChangeEnvironmentMap(AzureSession session)
 {
@@ -66,6 +66,30 @@ void ChangeEnvironmentMap(AzureSession session)
 }
 ```
 
+```cpp
+void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::CubeMap;
+    params.TextureUrl = "builtin://VeniceSunset";
+    ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+
+    skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            ApiHandle<SkyReflectionSettings> settings = *session->Actions()->SkyReflectionSettings();
+            settings->SkyReflectionTexture(*res->Result());
+        }
+        else
+        {
+            printf("Texture loading failed!");
+        }
+    });
+}
+
+```
+
 Observera att `LoadTextureFromSASAsync` varianten används ovan eftersom en inbyggd textur har lästs in. Om du läser in från [länkade BLOB-lagringar](../../how-tos/create-an-account.md#link-storage-accounts)använder du `LoadTextureAsync` varianten.
 
 ## <a name="sky-texture-types"></a>Typer av luft rummets struktur
@@ -80,7 +104,7 @@ För referens är här en cubemap som inte är figursatt:
 
 ![En figursatt cubemap](media/Cubemap-example.png)
 
-`AzureSession.Actions.LoadTextureAsync` /  Använd `LoadTextureFromSASAsync` med `TextureType.CubeMap` för att läsa in cubemap texturer.
+Använd `AzureSession.Actions.LoadTextureAsync` /  `LoadTextureFromSASAsync` med `TextureType.CubeMap` för att läsa in cubemap texturer.
 
 ### <a name="sphere-environment-maps"></a>Sfär miljö kartor
 

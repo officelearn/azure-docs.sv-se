@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 05/20/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a5026fa055307a3a37031dbf64128e4622fc2b8
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 738a5bd76cc15b9356275707aed0d0a695aa6367
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713938"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770932"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
 
@@ -54,9 +54,6 @@ Internt är hanterade identiteter tjänstens huvud namn av en särskild typ, som
 När en användardefinierad eller systemtilldelad identitet skapas, utfärdar MSRP (Managed Identity Resource Provider) ett certifikat internt till identiteten. 
 
 Din kod kan använda en hanterad identitet för att begära åtkomsttoken för tjänster som stöder Azure AD-autentisering. Azure tar hand om de autentiseringsuppgifter som används av tjänstinstansen. 
-
-## <a name="credential-rotation"></a>Rotation av autentiseringsuppgift
-Rotationen för autentiseringsuppgifter styrs av resurs leverantören som är värd för Azure-resursen. Standard rotationen för autentiseringsuppgiften sker var 46: e dag. Det är upp till resurs leverantören att anropa nya autentiseringsuppgifter, så resurs leverantören kan vänta mer än 46 dagar.
 
 Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella datorer i Azure (VM):
 
@@ -107,6 +104,9 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
 
 6. Ett anrop görs till Azure AD för att begära en åtkomsttoken (se steg 5) med klient-ID:t och certifikatet som konfigurerades i steg 3. Azure AD returnerar en åtkomsttoken för JSON Web Token (JWT).
 7. Koden skickar åtkomsttoken vid ett anrop till en tjänst som stöder Azure AD-autentisering.
+
+## <a name="credential-rotation"></a>Rotation av autentiseringsuppgift
+Rotationen för autentiseringsuppgifter styrs av resurs leverantören som är värd för Azure-resursen. Standard rotationen för autentiseringsuppgiften sker var 46: e dag. Det är upp till resurs leverantören att anropa nya autentiseringsuppgifter, så resurs leverantören kan vänta mer än 46 dagar.
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Hur använder jag hanterade identiteter för Azure-resurser?
 

@@ -1,14 +1,14 @@
 ---
 title: Resource Manager-resurs typer som stöds
 description: Ange en lista över resurs typer för resurs hanteraren som stöds av Azure Resource Graph och ändrings historik.
-ms.date: 05/16/2020
+ms.date: 05/21/2020
 ms.topic: reference
-ms.openlocfilehash: 61b4865f695fbee7bd425429fde03bc7161043db
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7ccf8cc58ce19746958f89ff9d9207906aad16bd
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655865"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770592"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Resurs diagram tabell och referens för resurs typ i Azure
 
@@ -217,11 +217,10 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. hardwaresecuritymodules/dedicatedhsms
 - Microsoft. HDInsight/kluster
 - Microsoft. healthcareapis/Services
+- Microsoft. healthcareapis/Services/privateendpointconnections
 - Microsoft. hybridcompute/Machines
 - Microsoft. hybridcompute/Machines/Extensions
 - Microsoft. hybriddata/datamanagers
-- Microsoft. Hydra/Components
-- Microsoft. Hydra/networkscopes
 - Microsoft. importexport/Jobs
 - Microsoft. industrydatalifecycle/derivedmodels
 - Microsoft. Insights/actiongroups
@@ -361,9 +360,6 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. portalsdk/rootresources
 - Microsoft. PowerBI/workspacecollections
 - Microsoft. powerbidedicated/kapacitet
-- Microsoft. projectarcadia/arbets ytor
-- Microsoft. projectarcadia/arbets ytor/sparkcomputes
-- Microsoft. projectarcadia/arbets ytor/sqlcomputes
 - Microsoft. projectbabylon/konton
 - Microsoft. Quantum/arbets ytor
 - Microsoft. recoveryservices/valv
@@ -440,8 +436,6 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. vmwarecloudsimple/virtualmachines
 - Microsoft. vmwareonazure/privateclouds
 - Microsoft. vmwarevirtustream/privateclouds
-- Microsoft. vnfmanager/enheter
-- Microsoft. vnfmanager/vnfs
 - Microsoft. VSOnline/konton
 - Microsoft. VSOnline/-planer
 - Microsoft. Web/apimanagementaccounts/API: er

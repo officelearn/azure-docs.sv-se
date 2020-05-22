@@ -3,7 +3,7 @@ title: Konfigurera P2S-hanterad instans
 description: Anslut till en Azure SQL Database Hanterad instans med SQL Server Management Studio hjälp av en punkt-till-plats-anslutning från en lokal klient dator.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 30b2ba92174996ea2bae34e7553a3258d8ebee27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 434b3d46d19138b494c9e29add3affb2eecc9c45
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268891"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773739"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från den lokala platsen
 
@@ -54,7 +54,7 @@ Den här snabbstarten:
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
-3. Klistra in skriptet i PowerShell-fönstret och ange de parametrar som krävs. Värdena för `<subscriptionId>`, `<resourceGroup>`och `<virtualNetworkName>` ska matcha de som du använde för snabb starten [skapa hanterad instans](sql-database-managed-instance-get-started.md) . Värdet för `<certificateNamePrefix>` kan vara en valfri sträng.
+3. Klistra in skriptet i PowerShell-fönstret och ange de parametrar som krävs. Värdena för `<subscriptionId>` , `<resourceGroup>` och `<virtualNetworkName>` ska matcha de som du använde för snabb starten [skapa hanterad instans](sql-database-managed-instance-get-started.md) . Värdet för `<certificateNamePrefix>` kan vara en valfri sträng.
 
 4. Kör PowerShell-skriptet.
 

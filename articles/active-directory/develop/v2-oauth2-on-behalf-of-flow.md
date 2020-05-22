@@ -1,5 +1,6 @@
 ---
 title: Microsoft Identity Platform och OAuth 2.0 på uppdrag av Flow | Azure
+titleSuffix: Microsoft identity platform
 description: I den här artikeln beskrivs hur du använder HTTP-meddelanden för att implementera tjänst-till-tjänst-autentisering med hjälp av flödes data för OAuth 2.0.
 services: active-directory
 author: hpsin
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9e1711bbb859d855d2490e49c21db5c654eca7f5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bcf971b56aa0dc343fdfaf34b329e49a82bba9a8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643372"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771528"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform och OAuth 2,0 på uppdrag av Flow
 
@@ -156,7 +157,7 @@ I följande exempel visas ett lyckat svar på en begäran om en åtkomsttoken f�
 
 ### <a name="error-response-example"></a>Exempel på fel svar
 
-Ett felsvar returneras av token-slutpunkten vid försök att hämta en åtkomsttoken för underordnat API, om det underordnade API: t har en princip för villkorlig åtkomst (till exempel Multi-Factor Authentication) som angetts i den. Den mellanliggande tjänsten ska visa det här felet för klient programmet så att klient programmet kan ge användaren interaktion för att uppfylla principen för villkorlig åtkomst.
+Ett felsvar returneras av token-slutpunkten vid försök att hämta en åtkomsttoken för underordnat API, om det underordnade API: t har en princip för villkorlig åtkomst (till exempel [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)) som angetts i den. Den mellanliggande tjänsten ska visa det här felet för klient programmet så att klient programmet kan ge användaren interaktion för att uppfylla principen för villkorlig åtkomst.
 
 ```json
 {

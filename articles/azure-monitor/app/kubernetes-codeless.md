@@ -1,16 +1,16 @@
 ---
 title: Övervaka program på Azure Kubernetes service (AKS) med Application Insights-Azure Monitor | Microsoft Docs
-description: Azure Monitor integreras sömlöst med ditt program som körs på Kubernetes och gör att du kan övervaka dina problem med dina appar på en gång.
+description: Azure Monitor integreras sömlöst med ditt program som körs på Kubernetes och gör att du kan hitta problem med dina appar på en gång.
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 05/13/2020
-ms.openlocfilehash: aaca07febedc609fb0dc9b9ca0e536510f9ca8d1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 76f9f922697ef6be6c959ea7f9bafd0872dba6ff
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83704522"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773758"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes---azure-monitor-application-insights"></a>Övervakning av program vara med noll Kubernetes-Azure Monitor Application Insights
 

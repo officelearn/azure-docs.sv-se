@@ -3,7 +3,7 @@ title: Hanterade instanser T-SQL-skillnader
 description: I den här artikeln beskrivs skillnader i T-SQL mellan en hanterad instans i Azure SQL Database och SQL Server
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 03/11/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 2e121d94b27710eb952f98bf97c3b4e5602866f4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: bc5aed6c00afc5ffc9d44f43a9163b2ae2de1e17
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724640"
+ms.locfileid: "83772309"
 ---
 # <a name="managed-instance-t-sql-differences-and-limitations"></a>Hanterade instanser i T-SQL-skillnader och begränsningar
 
@@ -36,7 +36,7 @@ De flesta av dessa funktioner är arkitektur begränsningar och representerar tj
 
 Tillfälliga kända problem som upptäcks i den hanterade instansen och som kommer att lösas i framtiden beskrivs på [sidan viktig information](sql-database-release-notes.md).
 
-## <a name="availability"></a>Tillgängligt
+## <a name="availability"></a>Tillgänglighet
 
 ### <a name="always-on-availability-groups"></a><a name="always-on-availability-groups"></a>Always on-tillgänglighetsgrupper
 

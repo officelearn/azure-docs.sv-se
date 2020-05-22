@@ -3,7 +3,7 @@ title: Anslut klientens VM-hanterade instans
 description: Anslut till en Azure SQL Database Hanterad instans med SQL Server Management Studio från en virtuell Azure-dator.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 8b5dce0b43fac7cfd0e974f26451338ca1541f8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2787756da048de0a4354d88feb8445c03fb3ef74
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80528423"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773676"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans
 
@@ -76,7 +76,7 @@ Det enklaste sättet att skapa en virtuell klient dator med alla nödvändiga ve
    | Inställningen| Föreslaget värde | Beskrivning |
    | ---------------- | ----------------- | ----------- |
    | **Prenumeration** | En giltig prenumeration | Måste vara en prenumeration där du har behörighet att skapa nya resurser. |
-   | **Resurs grupp** |Den resurs grupp som du angav i snabb starten för att [skapa hanterade instanser](sql-database-managed-instance-get-started.md) .|Den här resurs gruppen måste vara den som VNet finns i.|
+   | **Resource Group** |Den resurs grupp som du angav i snabb starten för att [skapa hanterade instanser](sql-database-managed-instance-get-started.md) .|Den här resurs gruppen måste vara den som VNet finns i.|
    | **Position** | Platsen för resurs gruppen | Det här värdet fylls i baserat på den valda resurs gruppen. |
    | **Namn på virtuell dator**  | Valfritt giltigt namn | Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
    |**Administratörens användar namn**|Alla giltiga användar namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder det här användar namnet varje gången du [ansluter till den virtuella datorn](#connect-to-virtual-machine).|

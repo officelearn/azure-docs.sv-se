@@ -3,7 +3,7 @@ title: Konfigurera ett befintligt virtuellt nätverk för en hanterad instans
 description: Den här artikeln beskriver hur du konfigurerar ett befintligt virtuellt nätverk och undernät där du kan distribuera Azure SQL Database Hanterad instans.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,16 +11,16 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 50b832baa9253f47b5f10980ae1764c9425ed4d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e678edad2c59205e76598991b36d296404a3163
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476957"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773628"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Konfigurera ett befintligt virtuellt nätverk för Azure SQL Database Managed Instance
 
-Azure SQL Database hanterade instansen måste distribueras i ett virtuellt Azure- [nätverk](../virtual-network/virtual-networks-overview.md) och under nätet dedikerat endast för hanterade instanser. Du kan använda det befintliga virtuella nätverket och under nätet om det har kon figurer ATS enligt kraven i den [hanterade instansens virtuella nätverk](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+Hanterad Azure SQL Database-instans måste distribueras i ett [virtuellt Azure nätverk](../virtual-network/virtual-networks-overview.md), och undernätet ska vara dedikerat endast för hanterade instanser. Du kan använda det befintliga virtuella nätverket och undernätet om de har konfigurerats enligt [kraven för virtuellt nätverk för hanterade instanser](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
 Om något av följande gäller för dig kan du validera och ändra nätverket med hjälp av skriptet som beskrivs i den här artikeln:
 
@@ -35,7 +35,7 @@ Om något av följande gäller för dig kan du validera och ändra nätverket me
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>Verifiera och ändra ett befintligt virtuellt nätverk
 
-Om du vill skapa en hanterad instans i ett befintligt undernät rekommenderar vi följande PowerShell-skript för att förbereda under nätet:
+Om du vill skapa en hanterad instans i ett befintligt undernät rekommenderar vi följande PowerShell-skript för att förbereda undernätet:
 
 ```powershell
 $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/delegate-subnet'
@@ -50,7 +50,7 @@ $parameters = @{
 Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/delegateSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
 
-Skriptet förbereder under nätet i tre steg:
+Skriptet förbereder undernätet i tre steg:
 
 1. Verifiera: den verifierar det valda virtuella nätverket och under nätet för nätverks krav för hanterade instanser.
 2. Bekräfta: det visar användaren en uppsättning ändringar som behöver göras för att förbereda under nätet för distribution av hanterade instanser. Den ber även om medgivande.

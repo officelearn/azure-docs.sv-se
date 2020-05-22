@@ -6,19 +6,19 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 18fa1b60b15b7eef96efa8dcc4fbf9cd7c4dc7f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ec30aafe63259237a89de6597970b908fb969cf
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77472627"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773448"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Ge åtkomst till Azure App konfiguration med Azure Active Directory
 Azure App konfiguration stöder användning av Azure Active Directory (Azure AD) för att godkänna begär anden till konfigurations instanser för appar.  Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt.  Ett säkerhets objekt kan vara en användare eller ett [huvud namn för program tjänsten](../active-directory/develop/app-objects-and-service-principals.md).  Mer information om roller och roll tilldelningar finns i [förstå olika roller](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Översikt
 Begär Anden som görs av säkerhets objekt (en användare eller ett program) för att få åtkomst till en app Configuration-resurs måste vara auktoriserade.  Med Azure AD är åtkomst till en resurs en två stegs process.
-1. Säkerhets objektets identitet autentiseras och en OAuth 2,0-token returneras.  Resurs namnet för att begära en token `https://login.microsoftonline.com/{tenantID}` är `{tenantID}` det som matchar Azure Active Directory klient-ID som tjänstens huvud namn tillhör.
+1. Säkerhets objektets identitet autentiseras och en OAuth 2,0-token returneras.  Resurs namnet för att begära en token är det `https://login.microsoftonline.com/{tenantID}` som `{tenantID}` matchar Azure Active Directory klient-ID som tjänstens huvud namn tillhör.
 2. Token skickas som en del av en begäran till appens konfigurations tjänst för att ge åtkomst till den angivna resursen.
 
 Autentiserings steget kräver att en programbegäran innehåller en OAuth 2,0-åtkomsttoken vid körning.  Om ett program körs i en Azure-entitet, till exempel en Azure Functions app, en Azure-webbapp eller en virtuell Azure-dator, kan den använda en hanterad identitet för att få åtkomst till resurserna.  Information om hur du autentiserar begär Anden som görs av en hanterad identitet för att Azure App konfiguration finns i [autentisera åtkomst till Azure App konfigurations resurser med Azure Active Directory och hanterade identiteter för Azure-resurser](howto-integrate-azure-managed-service-identity.md).
@@ -33,9 +33,10 @@ När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtk
 ## <a name="built-in-rbac-roles-for-azure-app-configuration"></a>Inbyggda RBAC-roller för Azure App konfiguration
 Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till konfigurations data för appar med hjälp av Azure AD och OAuth:
 
-- Azure App konfigurations data ägare: Använd den här rollen för att ge Läs-/skriv åtkomst till konfigurations resurser för appar.
-- Azure App konfigurations data läsare: Använd den här rollen för att ge Läs åtkomst till konfigurations resurser för appar.
-- Deltagare: Använd den här rollen för att ge administratörs åtkomst till tjänsten utan att bevilja åtkomst till de data som lagras i appens konfigurations instans.
+- **Data ägare för app Configuration**: Använd den här rollen för att ge Läs-/skriv-/borttagnings åtkomst till konfigurations data för appar. Detta ger inte åtkomst till appens konfigurations resurs.
+- **Konfigurations data läsare för appar**: Använd den här rollen för att ge Läs åtkomst till konfigurations data för appar. Detta ger inte åtkomst till appens konfigurations resurs.
+- **Deltagare**: Använd den här rollen för att hantera appens konfigurations resurs. Även om konfigurations data för appar kan nås med hjälp av åtkomst nycklar ger den här rollen inte åtkomst till data med hjälp av Azure AD.
+- **Läsare**: Använd den här rollen för att ge Läs behörighet till appens konfigurations resurs. Detta ger inte åtkomst till resursens åtkomst nycklar eller data som är lagrade i app-konfigurationen.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du använder [hanterade identiteter](howto-integrate-azure-managed-service-identity.md) för att administrera konfigurations tjänsten för appar.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b92d833e6f32821ad907ff966771bbba8bbb77ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54ec1392dab19491ba8c041d0342f0fe82e671fe
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755179"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758205"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Villkorlig åtkomst: Kräv MFA för Azure-hantering
 
@@ -39,19 +39,19 @@ Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att 
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kräver att de tilldelade administrativa rollerna utför Multi-Factor Authentication.
+Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kräver att de har åtkomst till den [Microsoft Azure hanterings](concept-conditional-access-cloud-apps.md#microsoft-azure-management) appen för att utföra Multi-Factor Authentication.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Klar**.
-1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **Välj appar**, Välj **Microsoft Azure hantering**och **Välj sedan** **Välj** .
-1. Under **villkor** > **klient program (för hands version)** anger du **Konfigurera** till **Ja**och väljer **klart**.
-1. Under **åtkomst kontroller** > **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.
+   1. Välj **Done** (Klar).
+1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**, Välj **Microsoft Azure hantering**och välj sedan **Välj** . **Done**
+1. Under **villkor**  >  **klient program (för hands version)** anger du **Konfigurera** till **Ja**och väljer **klart**.
+1. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.
 

@@ -3,7 +3,7 @@ title: Skapa ett virtuellt nätverk för en hanterad instans
 description: Den här artikeln beskriver hur du skapar ett virtuellt nätverk där du kan distribuera Azure SQL Database Hanterad instans.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 0ce88f9a61b8aa7c2588a6e077d694afa6fb8631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cece07cccf00548a62c17cb59e8cf873ba106a3c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878858"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773544"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Skapa ett virtuellt nätverk för Azure SQL Database Hanterad instans
 
@@ -41,7 +41,7 @@ Azure SQL Database hanterade instansen måste distribueras i ett virtuellt Azure
 
 Det enklaste sättet att skapa och konfigurera ett virtuellt nätverk är att använda en mall för Azure Resource Manager distribution.
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Välj knappen **distribuera till Azure** :
 

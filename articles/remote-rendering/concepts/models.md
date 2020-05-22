@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5d737b1e85a28661a7491b8d2822e6472538c7a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7832f999de2f6f16cfe816c061925e371f90662e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617945"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758698"
 ---
 # <a name="models"></a>Modeller
 
@@ -36,8 +36,8 @@ När en modell har konverterats kan den läsas in från Azure Blob Storage till 
 
 Det finns två distinkta inläsnings funktioner som skiljer sig åt av sättet till gången i Blob Storage:
 
-* Modellen kan åtgärdas med hjälp av SAS-URI: n. Relevant inläsnings `LoadModelFromSASAsync` funktion är `LoadModelFromSASParams`med-parameter. Använd även den här varianten vid inläsning av [inbyggda modeller](../samples/sample-model.md).
-* Modellen kan åtgärdas av Blob Storage-parametrar direkt, om [Blob Storage är länkat till kontot](../how-tos/create-an-account.md#link-storage-accounts). Relevant inläsnings funktion i det `LoadModelAsync` här fallet `LoadModelParams`är med-parameter.
+* Modellen kan åtgärdas med hjälp av SAS-URI: n. Relevant inläsnings funktion är `LoadModelFromSASAsync` med-parameter `LoadModelFromSASParams` . Använd även den här varianten vid inläsning av [inbyggda modeller](../samples/sample-model.md).
+* Modellen kan åtgärdas av Blob Storage-parametrar direkt, om [Blob Storage är länkat till kontot](../how-tos/create-an-account.md#link-storage-accounts). Relevant inläsnings funktion i det här fallet är `LoadModelAsync` med-parameter `LoadModelParams` .
 
 Följande kodfragment visar hur du läser in modeller med någon av funktionerna. Om du vill läsa in en modell med SAS URI använder du kod som den nedan:
 
@@ -58,6 +58,28 @@ async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
 }
 ```
 
+```cpp
+ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string modelUri)
+{
+    LoadModelFromSASParams modelParams;
+    modelParams.ModelUrl = modelUri;
+    modelParams.Parent = modelParent;
+
+    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelFromSASAsync(modelParams);
+
+    loadOp->Completed([](const ApiHandle<LoadModelAsync>& async)
+    {
+        printf("Loading: finished.");
+    });
+    loadOp->ProgressUpdated([](float progress)
+    {
+        printf("Loading: %.1f%%", progress*100.f);
+    });
+
+    return loadOp;
+}
+```
+
 Om du vill läsa in en modell genom att direkt använda dess Blob Storage-parametrar använder du kod som liknar följande kodfragment:
 
 ```csharp
@@ -73,6 +95,20 @@ async void LoadModel(AzureSession session, Entity modelParent, string storageAcc
 
     var loadOp = session.Actions.LoadModelAsync(modelParams);
 
+    // ... (identical to the SAS URI snippet above)
+}
+```
+
+```cpp
+ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string storageAccount, std::string containerName, std::string assetFilePath)
+{
+    LoadModelParams modelParams;
+    modelParams.Parent = modelParent;
+    modelParams.Blob.StorageAccountName = std::move(storageAccount);
+    modelParams.Blob.BlobContainerName = std::move(containerName);
+    modelParams.Blob.AssetPath = std::move(assetFilePath);
+
+    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelAsync(modelParams);
     // ... (identical to the SAS URI snippet above)
 }
 ```

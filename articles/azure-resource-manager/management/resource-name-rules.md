@@ -2,13 +2,13 @@
 title: Begränsningar för resurs namn
 description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: 7ab012c5363de643c4cb5de8777de56fad5a9711
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/21/2020
+ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653717"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758902"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -59,9 +59,9 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | tjänst-openidConnectProviders | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/principer | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/produkter | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | service/produkter/API: er | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | tjänst/produkter/grupper | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | service/produkter/Taggar | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | service/produkter/API: er | product | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/produkter/grupper | product | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | service/produkter/Taggar | product | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/egenskaper | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/prenumerationer | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | service/Taggar | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
@@ -696,6 +696,9 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | Server grupper | Resursgrupp | 1-40 | Alfanumeriska tecken och bindestreck. |
 > | webbplatser | EAN | 2-60 | Innehåller alfanumeriska tecken och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. |
 > | platser/platser | webbplats | 2-59 | Alfanumeriska tecken och bindestreck. |
+
+> [!NOTE]
+> Azure Functions har samma namngivnings regler och begränsningar som Microsoft. Web/Sites.
 
 ## <a name="next-steps"></a>Nästa steg
 

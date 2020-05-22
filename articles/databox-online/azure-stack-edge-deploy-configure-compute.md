@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 29967c5f8d452fbf66d9a121357415176139b39d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ab9c93dc029498c70a828f38f297c1e02dcb29ee
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570673"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774091"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge"></a>Självstudie: transformera data med Azure Stack Edge
 
@@ -22,7 +22,7 @@ I den här självstudien beskrivs hur du konfigurerar en beräknings roll på di
 
 Den här proceduren kan ta cirka 10 till 15 minuter att slutföra.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera beräkning
@@ -50,7 +50,7 @@ Om du vill konfigurera Compute på Azure Stack Edge skapar du en IoT Hub resurs.
 3. Ange följande på bladet **Konfigurera Edge Compute** :
 
    
-    |Field  |Värde  |
+    |Fält  |Värde  |
     |---------|---------|
     |IoT Hub     | Välj från **ny** eller **befintlig**. <br> Som standard används en standard-nivå (S1) för att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnads fri nivå skapar du en och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.     |
     |Name     |Ange ett namn för din IoT Hub-resurs.         |
@@ -109,7 +109,7 @@ I det här avsnittet lägger du till en anpassad modul till den IoT Edge enhet s
 2. Ange följande värden i bladet **Konfigurera och Lägg till modul** :
 
     
-    |Field  |Värde  |
+    |Fält  |Värde  |
     |---------|---------|
     |Namn     | Ett unikt namn för modulen. Den här modulen är en Docker-behållare som du kan distribuera till den IoT Edge enhet som är kopplad till Azure Stack Edge.        |
     |Bild-URI     | Avbildnings-URI för motsvarande behållar avbildning för modulen.        |
@@ -136,11 +136,11 @@ Verifiera att modulen körs genom att göra följande:
 
     ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute/verify-data-1.png)
  
-1.    I Utforskaren ansluter du till både de lokala resurserna och kant resurserna som du skapade tidigare.
+1. I Utforskaren ansluter du till både de lokala resurserna och kant resurserna som du skapade tidigare.
 
     ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
  
-1.    Lägg till data i den lokala resursen.
+1. Lägg till data i den lokala resursen.
 
     ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
  

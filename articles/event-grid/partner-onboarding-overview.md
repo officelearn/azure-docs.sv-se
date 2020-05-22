@@ -7,14 +7,14 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: 3c2c2e3d5a2ef48ddc212fc0df4906c91071d803
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2a1f35b86e21099c9fdd0397ae8a3b20aed3cd5d
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725977"
+ms.locfileid: "83758834"
 ---
-# <a name="become-and-event-grid-partner"></a>Bli och Event Grid partner
+# <a name="onboard-as-an-azure-event-grid-partner"></a>Publicera som en Azure Event Grid-partner
 
 Den här artikeln beskriver hur du privat använder Event Grid partner resurser och hur du blir en offentligt tillgänglig partner ämnes typ.
 
@@ -38,7 +38,7 @@ Med partner ämnen kan du publicera händelser till Azure Event Grid för använ
 
     ![Avsnittet Skapa partner](./media/partner-onboarding-how-to/create-partner-registration.png)
 
-1. Skapa en eller flera `partnerNamespaces` i varje region som du vill publicera händelser. Som en del av detta etablerar Event Grid-tjänsten en publicerings slut punkt (till exempel https://contoso.westus-1.eventgrid.azure.net/api/events) och åtkomst nycklar.
+1. Skapa en eller flera `partnerNamespaces` i varje region som du vill publicera händelser. Som en del av detta etablerar Event Grid-tjänsten en publicerings slut punkt (till exempel `https://contoso.westus-1.eventgrid.azure.net/api/events` ) och åtkomst nycklar.
 
     ![Skapa partner namn område](./media/partner-onboarding-how-to/create-partner-namespace.png)
 
@@ -105,10 +105,10 @@ Publicera händelser till Azure Event Grid med CloudEvents 1,0-schemat. Event Gr
 
 ### <a name="example-flow"></a>Exempel flöde
 
-1.  Publicerings tjänsten gör ett HTTP-inlägg https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01 .
+1.  Publicerings tjänsten gör ett HTTP-inlägg `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01` .
 2.  I begäran inkluderar du ett huvud värde med namnet AEG-SAS-Key som innehåller en nyckel för autentisering. Den här nyckeln tillhandahålls när partnerNamespace skapas. Till exempel är ett giltigt huvud värde AEG-SAS-Key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg = =.
 3.  Ange rubrik för innehålls typ till "Application/cloudevents-batch + JSON; charset = UTF-8 ".
-4.  Utför en HTTP POST till publicerings webb adressen ovan med en batch med händelser som motsvarar den regionen. Till exempel:
+4.  Utför en HTTP POST till publicerings webb adressen ovan med en batch med händelser som motsvarar den regionen. Ett exempel:
 
 ``` json
 [
@@ -158,7 +158,7 @@ När du har bokfört till partnerNamespace-slutpunkten får du ett svar. Svaret 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [ARM-mall](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
   * [Schema för ARM-mall](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [REST API:er](https://docs.microsoft.com/rest/api/eventgrid/partnernamespaces)
+  * [REST API:er](https://docs.microsoft.com/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
   * [CLI-tillägg](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
 ### <a name="sdks"></a>SDK:er
@@ -170,7 +170,7 @@ När du har bokfört till partnerNamespace-slutpunkten får du ett svar. Svaret 
   * [Kör](https://github.com/Azure/azure-sdk-for-go)
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 - [Översikt över partner ämnen](partner-topics-overview.md)
 - [Formulär för partner ämnen onboarding](https://aka.ms/gridpartnerform)
 - [Auth0-partner ämne](auth0-overview.md)

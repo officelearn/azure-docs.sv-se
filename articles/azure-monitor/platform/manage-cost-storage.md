@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/21/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: ea289dbdf22f76c8ea716acf87b0b1a2da6ef0f9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6e6be4cd0f8053d356183a75c5a012dee0bd8c68
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196598"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771323"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar
 
@@ -92,14 +92,20 @@ Du kan också [ställa in pris nivån via Azure Resource Manager](https://docs.m
 
 ## <a name="legacy-pricing-tiers"></a>Äldre pris nivåer
 
-Prenumerationer som hade en Log Analytics arbets yta eller Application Insights resurs i den 2 april 2018, eller som är kopplade till en Enterprise-avtal som startades före den 1 februari 2019, fortsätter att ha åtkomst till de äldre pris nivåerna: **kostnads fri**, **fristående (per GB)** och **per nod (OMS)**.  Arbets ytor i den kostnads fria pris nivån har en daglig data inmatning som är begränsad till 500 MB (förutom säkerhets data typer som samlas in av Azure Security Center) och datakvarhållning är begränsad till 7 dagar. Den kostnads fria pris nivån är endast avsedd för utvärderings ändamål. Arbets ytorna i de fristående eller per-nodens pris nivåer har användar konfigurerbar kvarhållning från 30 till 730 dagar.
+Prenumerationer som hade en Log Analytics arbets yta eller Application Insights resurs i den 2 april 2018, eller som är kopplade till en Enterprise-avtal som startades före den 1 februari 2019, fortsätter att ha åtkomst till de äldre pris nivåerna: **kostnads fri**, **fristående (per GB)** och **per nod (OMS)**.  Arbets ytor i den kostnads fria pris nivån har en daglig data inmatning som är begränsad till 500 MB (förutom säkerhets data typer som samlas in av [Azure Security Center](https://docs.microsoft.com/azure/security-center/)) och datakvarhållning är begränsad till 7 dagar. Den kostnads fria pris nivån är endast avsedd för utvärderings ändamål. Arbets ytorna i de fristående eller per-nodens pris nivåer har användar konfigurerbar kvarhållning från 30 till 730 dagar.
 
 Pris nivå avgifter per nod per övervakad virtuell dator (nod) på en tids kornig het. För varje övervakad nod allokeras arbets ytan 500 MB data per dag som inte faktureras. Den här allokeringen sammanställs på arbets ytans nivå. Data som matats in ovanför den sammanställda dagliga data tilldelningen faktureras per GB som överanvändning av data. Observera att tjänsten **Insight and Analytics** för att Log Analytics användning om arbets ytan finns på pris nivån per nod på din faktura. 
 
 > [!TIP]
 > Om din arbets yta har åtkomst till pris nivån **per nod** , men du undrar om det skulle vara kostnads fritt i en nivå där du betalar per användning, kan du [använda frågan nedan](#evaluating-the-legacy-per-node-pricing-tier) för att enkelt få en rekommendation. 
 
-Arbets ytor som skapats före april 2016 kan också komma åt de ursprungliga pris nivåerna **standard** och **Premium** som har en fast data lagring på 30 respektive 365 dagar. Det går inte att skapa nya arbets ytor på pris nivåerna **standard** eller **Premium** , och om en arbets yta flyttas ut från dessa nivåer går det inte att flytta tillbaka den. 
+Arbets ytor som skapats före april 2016 kan också komma åt de ursprungliga pris nivåerna **standard** och **Premium** som har en fast data lagring på 30 respektive 365 dagar. Det går inte att skapa nya arbets ytor på pris nivåerna **standard** eller **Premium** , och om en arbets yta flyttas ut från dessa nivåer går det inte att flytta tillbaka den.
+
+Det finns även vissa beteenden mellan användningen av äldre Log Analyticss nivåer och hur användning faktureras för [Azure Security Center](https://docs.microsoft.com/azure/security-center/). 
+
+1. Om arbets ytan finns på den äldre standard-eller Premium-nivån faktureras Azure Security Center bara för Log Analytics data inmatning, inte per nod.
+2. Om arbets ytan är i bakåtkompatibelt läge per nod kommer Azure Security Center att faktureras med den aktuella [Azure Security Center-nodens pris modell](https://azure.microsoft.com/pricing/details/security-center/). 
+3. I andra pris nivåer (inklusive kapacitets reservationer), om Azure Security Center har Aktiver ATS före den 19 juni 2017, faktureras Azure Security Center bara för Log Analytics data inmatning. Annars kommer Azure Security Center att faktureras med den aktuella Azure Security Center-nodens pris modell.
 
 Mer information om begränsningar för pris nivån finns [här](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces).
 
@@ -125,7 +131,7 @@ När kvarhållning sänks, finns det en flera dagars respitperiod innan de älds
 Kvarhållning kan också [ställas in via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) med hjälp av `retentionInDays` parametern. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av `immediatePurgeDataOn30Days` parametern, vilket kan vara användbart för scenarier som rör kompatibilitet. Den här funktionen exponeras bara via Azure Resource Manager. 
 
 
-Två data typer-- `Usage` och `AzureActivity` --bevaras i 90 dagar som standard och det kostar inget att debitera för denna 90-dagars kvarhållning. Dessa data typer är också kostnads fria från data inmatnings kostnader. 
+Två data typer-- `Usage` och `AzureActivity` --bevaras i minst 90 dagar som standard och det kostar inget att debitera för denna 90-dagars kvarhållning. Om kvarhållning av arbets yta höjs över 90 dagar, kommer kvarhållning av dessa data typer också att öka.  Dessa data typer är också kostnads fria från data inmatnings kostnader. 
 
 Data typer från arbets ytans baserade Application Insights resurser (,,,,,,,, `AppAvailabilityResults` `AppBrowserTimings` `AppDependencies` `AppExceptions` `AppEvents` `AppMetrics` `AppPageViews` `AppPerformanceCounters` `AppRequests` `AppSystemEvents` och `AppTraces` ) behålls också i 90 dagar som standard och det kostar inget att debitera för denna 90-dagars kvarhållning. Deras kvarhållning kan justeras med hjälp av funktionen kvarhållning av data typ. 
 

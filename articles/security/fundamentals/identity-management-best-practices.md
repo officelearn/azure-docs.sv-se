@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ffd9919092cdf2481767e58f10ba6525d56ca4a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: baa0ad790491351a17b638ba9d8eb75ed1f355b0
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548458"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758630"
 ---
-# <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management och regelverk kring åtkomstkontroll och säkerhet
+# <a name="azure-identity-management-and-access-control-security-best-practices"></a>Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll
 
 I den här artikeln diskuterar vi en samling med metod tips för Azure Identity Management och åtkomst kontroll. De här bästa metoderna är härledda från vår erfarenhet av [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) och kundernas upplevelser som du själv.
 
@@ -126,10 +126,10 @@ Användare kan komma åt din organisations resurser genom att använda en mängd
 För att balansera säkerhet och produktivitet måste du tänka på hur en resurs används innan du kan fatta ett beslut om åtkomst kontroll. Med villkorlig åtkomst för Azure AD kan du åtgärda detta krav. Med villkorlig åtkomst kan du fatta beslut om automatiserad åtkomst kontroll baserat på villkor för att komma åt dina molnappar.
 
 **Bästa praxis**: hantera och kontrol lera åtkomsten till företags resurser.  
-**Information**: konfigurera [villkorlig åtkomst](/azure/active-directory/active-directory-conditional-access-azure-portal) för Azure AD baserat på en grupp, plats och program känslighet för SaaS-appar och Azure AD – anslutna appar.
+**Information**: Konfigurera vanliga Azure AD- [principer för villkorlig åtkomst](../../active-directory/conditional-access/concept-conditional-access-policy-common.md) baserat på en grupp, plats och program känslighet för SaaS-appar och Azure AD – anslutna appar.
 
 **Bästa praxis**: blockera bakåtkompatibla autentiseringsprotokoll.
-**Information**: angripare utnyttjar svagheter i äldre protokoll varje dag, särskilt för attacker med lösen ords spridning. Konfigurera villkorlig åtkomst för att blockera äldre protokoll. Se videon [Azure AD: s och inte](https://www.youtube.com/watch?v=wGk0J4z90GI) för mer information.
+**Information**: angripare utnyttjar svagheter i äldre protokoll varje dag, särskilt för attacker med lösen ords spridning. Konfigurera villkorlig åtkomst för att [blockera äldre protokoll](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md).
 
 ## <a name="plan-for-routine-security-improvements"></a>Planera för förbättringar av rutin säkerhet
 
@@ -175,11 +175,11 @@ Den här metoden är tillgänglig för alla licensierings nivåer men kan inte b
 För att avgöra var Multi-Factor Authentication behöver aktive ras, se [vilken version av Azure MFA som passar min organisation?](/azure/active-directory/authentication/concept-mfa-whichversion).
 
 **Alternativ 3**: [Aktivera Multi-Factor Authentication med princip för villkorlig åtkomst](/azure/active-directory/authentication/howto-mfa-getstarted).
-**Förmån**: med det här alternativet kan du begära tvåstegsverifiering under vissa villkor genom [att använda villkorlig åtkomst](/azure/active-directory/active-directory-conditional-access-azure-portal). Vissa villkor kan vara användar inloggningar från olika platser, ej betrodda enheter eller program som du anser vara riskfyllda. Genom att definiera vissa villkor där du kräver tvåstegsverifiering kan du undvika en konstant uppskrivning för dina användare, vilket kan vara en krångligt användar upplevelse.
+**Förmån**: med det här alternativet kan du begära tvåstegsverifiering under vissa villkor genom [att använda villkorlig åtkomst](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). Vissa villkor kan vara användar inloggningar från olika platser, ej betrodda enheter eller program som du anser vara riskfyllda. Genom att definiera vissa villkor där du kräver tvåstegsverifiering kan du undvika en konstant uppskrivning för dina användare, vilket kan vara en krångligt användar upplevelse.
 
 Detta är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Att aktivera en princip för villkorlig åtkomst fungerar bara för Azure Multi-Factor Authentication i molnet och är en Premium funktion i Azure AD. Du hittar mer information om den här metoden i [distribuera molnbaserad Azure-Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted).
 
-**Alternativ 4**: Aktivera Multi-Factor Authentication med principer för villkorlig åtkomst genom att utvärdera användare och inloggnings risk för [Azure AD Identity Protection](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa).   
+**Alternativ 4**: Aktivera Multi-Factor Authentication med principer för villkorlig åtkomst genom att utvärdera [riskfyllda principer för villkorlig åtkomst](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md).   
 **Förmån**: med det här alternativet kan du:
 
 * Identifiera potentiella sårbarheter som påverkar organisationens identiteter.

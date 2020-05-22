@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: f3be073857cc8583669ab26f306760478479e2ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40857e83457222365e61a224ead19bd1d1d31ae7
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680796"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758987"
 ---
 # <a name="hierarchical-state-override"></a>Åsidosätta hierarkiskt tillstånd
 
 I många fall är det nödvändigt att ändra utseendet på delar i en [modell](../../concepts/models.md)dynamiskt, till exempel dölja under diagram eller byta delar till genomskinlig åter givning. Att ändra material för varje del som ingår är inte praktiskt eftersom det måste iterera över hela scenen och hantera material kloning och tilldelning på varje nod.
 
-Använd för att göra det här användnings fallet med minsta möjliga belastning `HierarchicalStateOverrideComponent`. Den här komponenten implementerar hierarkiska tillstånds uppdateringar på godtyckliga grenar i scen diagrammet. Det innebär att ett tillstånd kan definieras på vilken nivå som helst i scen diagrammet och det trickles nedåt i hierarkin tills den antingen åsidosätts av ett nytt tillstånd eller tillämpas på ett löv objekt.
+Använd för att göra det här användnings fallet med minsta möjliga belastning `HierarchicalStateOverrideComponent` . Den här komponenten implementerar hierarkiska tillstånds uppdateringar på godtyckliga grenar i scen diagrammet. Det innebär att ett tillstånd kan definieras på vilken nivå som helst i scen diagrammet och det trickles nedåt i hierarkin tills den antingen åsidosätts av ett nytt tillstånd eller tillämpas på ett löv objekt.
 
 Du kan till exempel överväga modellen för en bil och du vill byta hela bilen så att den blir genomskinlig, förutom den inre motor delen. Det här användnings fallet omfattar bara två instanser av komponenten:
 
@@ -47,7 +47,7 @@ Den fasta uppsättning tillstånd som kan åsidosättas är:
 
 ## <a name="hierarchical-overrides"></a>Hierarkiska åsidosättningar
 
-`HierarchicalStateOverrideComponent` Kan kopplas på flera nivåer i en Object-hierarki. Eftersom det bara kan finnas en komponent av varje typ på en entitet, hanterar `HierarchicalStateOverrideComponent` var och en av de olika tillstånden för dolda, se-genom, valda, färg nyanser och kollisioner.
+`HierarchicalStateOverrideComponent`Kan kopplas på flera nivåer i en Object-hierarki. Eftersom det bara kan finnas en komponent av varje typ på en entitet, hanterar var och en av `HierarchicalStateOverrideComponent` de olika tillstånden för dolda, se-genom, valda, färg nyanser och kollisioner.
 
 Varje tillstånd kan därför ställas in på något av följande:
 
@@ -68,6 +68,21 @@ component.SetState(HierarchicalStates.SeeThrough, HierarchicalEnableState.Inheri
 
 // set multiple states at once with the SetState function
 component.SetState(HierarchicalStates.Hidden | HierarchicalStates.DisableCollision, HierarchicalEnableState.ForceOff);
+```
+
+```cpp
+ApiHandle<HierarchicalStateOverrideComponent> component = ...;
+
+// set one state directly
+component->HiddenState(HierarchicalEnableState::ForceOn);
+
+// set a state with the SetState function
+component->SetState(HierarchicalStates::SeeThrough, HierarchicalEnableState::InheritFromParent);
+
+// set multiple states at once with the SetState function
+component->SetState(
+    (HierarchicalStates)((int32_t)HierarchicalStates::Hidden | (int32_t)HierarchicalStates::DisableCollision), HierarchicalEnableState::ForceOff);
+
 ```
 
 ### <a name="tint-color"></a>Färgton

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/22/2019
+ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 93d07ab1740da68298478ae2dcc2ab46d8d8362e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d65d85d21521a6277a3ea823a8c9e83a34e3f42c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884026"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772105"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Hantera undantag och fel i MSAL
 
@@ -48,16 +48,16 @@ Här följer de vanliga undantag som kan uppstå och vissa möjliga åtgärder:
 
 | Undantag | Felkod | Åtgärd|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: användaren eller administratören har inte samtyckt till att använda programmet med ID {appId} med namnet {appName}. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen.| Du måste först få användar medgivande. Om du inte använder .NET Core (som inte har något webb gränssnitt) anropar du (bara en `AcquireTokeninteractive`gång). Om du använder .NET Core eller inte vill göra något `AcquireTokenInteractive`kan användaren navigera till en URL för att ge medgivande:. `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read` för att `AcquireTokenInteractive`anropa:`app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: användaren måste använda Multi-Factor Authentication (MFA).| Det finns ingen minskning. Om MFA har kon figurer ATS för din klient organisation och Azure Active Directory (AAD) bestämmer sig för att genomdriva det måste du återgå till ett `AcquireTokenInteractive` interaktivt flöde, till exempel eller `AcquireTokenByDeviceCode`.|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: användaren eller administratören har inte samtyckt till att använda programmet med ID {appId} med namnet {appName}. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen.| Du måste först få användar medgivande. Om du inte använder .NET Core (som inte har något webb gränssnitt) anropar du (bara en gång) `AcquireTokeninteractive` . Om du använder .NET Core eller inte vill göra något `AcquireTokenInteractive` kan användaren navigera till en URL för att ge medgivande: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read` . för att anropa `AcquireTokenInteractive` :`app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: användaren måste använda [Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md).| Det finns ingen minskning. Om MFA har kon figurer ATS för din klient organisation och Azure Active Directory (AAD) bestämmer sig för att genomdriva det måste du återgå till ett interaktivt flöde, till exempel `AcquireTokenInteractive` eller `AcquireTokenByDeviceCode` .|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010: anslags typen stöds inte över */vanliga* -eller */consumers* -slutpunkterna. Använd den */organizations* eller klient-/regionsspecifika slut punkten. Du använde */vanliga*.| Som förklaras i meddelandet från Azure AD måste utfärdaren ha en klient eller på annat */organizations*.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: begär ande texten måste innehålla följande parameter: `client_secret or client_assertion`.| Detta undantag kan genereras om programmet inte har registrerats som ett offentligt klient program i Azure AD. Redigera manifestet för ditt program i Azure Portal och ange `allowPublicClient` till. `true` |
-| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| `unknown_user Message`: Det gick inte att identifiera inloggad användare| Biblioteket kunde inte fråga den aktuella Windows-inloggade användaren eller så är den här användaren inte AD eller AAD-ansluten (arbets plats anslutna användare stöds inte). Minskning 1: på UWP kontrollerar du att programmet har följande funktioner: Enterprise-autentisering, privata nätverk (klient och Server), information om användar konton. Minskning 2: implementera din egen logik för att hämta användar namnet (till exempel john@contoso.com) och Använd `AcquireTokenByIntegratedWindowsAuth` formuläret som tar med användar namnet.|
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: begär ande texten måste innehålla följande parameter: `client_secret or client_assertion` .| Detta undantag kan genereras om programmet inte har registrerats som ett offentligt klient program i Azure AD. Redigera manifestet för ditt program i Azure Portal och ange `allowPublicClient` till `true` . |
+| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| `unknown_user Message`: Det gick inte att identifiera inloggad användare| Biblioteket kunde inte fråga den aktuella Windows-inloggade användaren eller så är den här användaren inte AD eller AAD-ansluten (arbets plats anslutna användare stöds inte). Minskning 1: på UWP kontrollerar du att programmet har följande funktioner: Enterprise-autentisering, privata nätverk (klient och Server), information om användar konton. Minskning 2: implementera din egen logik för att hämta användar namnet (till exempel john@contoso.com ) och Använd `AcquireTokenByIntegratedWindowsAuth` formuläret som tar med användar namnet.|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| Den här metoden förlitar sig på ett protokoll som exponeras av Active Directory (AD). Om en användare skapades i Azure Active Directory utan AD-återställning ("hanterad" användare) kommer den här metoden att Miss förväntas. Användare som skapats i AD och som backas upp av AAD ("federerade" användare) kan dra nytta av den här icke-interaktiva autentiseringsmetoden. Minskning: Använd interaktiv autentisering.|
 
 ### `MsalUiRequiredException`
 
-En av de gemensamma status koderna som returnerades `AcquireTokenSilent()` från `MsalError.InvalidGrantError`MSAL.net vid anrop är. Den här status koden innebär att programmet ska anropa autentiseringspaket igen, men i interaktivt läge (AcquireTokenInteractive eller AcquireTokenByDeviceCodeFlow för offentliga klient program och gör en utmaning i Web Apps). Detta beror på att ytterligare användar åtgärder krävs innan autentiseringstoken kan utfärdas.
+En av de gemensamma status koderna som returnerades från MSAL.NET vid anrop `AcquireTokenSilent()` är `MsalError.InvalidGrantError` . Den här status koden innebär att programmet ska anropa autentiseringspaket igen, men i interaktivt läge (AcquireTokenInteractive eller AcquireTokenByDeviceCodeFlow för offentliga klient program och gör en utmaning i Web Apps). Detta beror på att ytterligare användar åtgärder krävs innan autentiseringstoken kan utfärdas.
 
 I de flesta fall då `AcquireTokenSilent` detta Miss lyckas beror det på att token cache inte har tokens som matchar din begäran. Åtkomsttoken upphör att gälla om 1 timme och `AcquireTokenSilent` försöker hämta en ny baserat på en uppdateringstoken (i OAuth2 villkor är detta "Refresh token"-flödet). Det här flödet kan också inte utföras av olika orsaker, till exempel om en klient organisations administratör konfigurerar mer strikta inloggnings principer. 
 
@@ -65,7 +65,7 @@ Interaktionen syftar på att användaren ska göra en åtgärd. Några av dessa 
 
 ### <a name="msaluirequiredexception-classification-enumeration"></a>`MsalUiRequiredException`klassificering av klassificering
 
-MSAL exponerar ett `Classification` fält, som du kan läsa för att ge en bättre användar upplevelse, till exempel för att tala om för användaren att deras lösen ord har upphört att gälla eller att de måste ge medgivande till att använda vissa resurser. De värden som stöds är en del `UiRequiredExceptionClassification` av uppräkningen:
+MSAL exponerar ett `Classification` fält, som du kan läsa för att ge en bättre användar upplevelse, till exempel för att tala om för användaren att deras lösen ord har upphört att gälla eller att de måste ge medgivande till att använda vissa resurser. De värden som stöds är en del av `UiRequiredExceptionClassification` uppräkningen:
 
 | Klassificering    | Betydelse           | Rekommenderad hantering |
 |-------------------|-------------------|----------------------|
@@ -76,7 +76,7 @@ MSAL exponerar ett `Classification` fält, som du kan läsa för att ge en bätt
 | UserPasswordExpired | Användarens lösen ord har upphört att gälla. | Anropa AcquireTokenInteractively () så att användaren kan återställa sina lösen ord. |
 | PromptNeverFailed| Interaktiv autentisering anropades med parameter tolken = aldrig, tvinga MSAL att förlita sig på webbläsarens cookies och inte att visa webbläsaren. Detta har misslyckats. | Anropa AcquireTokenInteractively () utan prompt. None |
 | AcquireTokenSilentFailed | MSAL SDK har inte tillräckligt med information för att hämta en token från cachen. Detta kan bero på att det inte finns några token i cachen eller om det inte gick att hitta något konto. Fel meddelandet innehåller mer information.  | Anropa AcquireTokenInteractively (). |
-| Ingen    | Det finns ingen ytterligare information. Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet. | Anropa AcquireTokenInteractively (). |
+| Inga    | Det finns ingen ytterligare information. Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet. | Anropa AcquireTokenInteractively (). |
 
 ## <a name="net-code-example"></a>Exempel på .NET-kod
 
@@ -155,7 +155,7 @@ export class AuthError extends Error {
 ```
 
 Genom att utöka fel klassen har du åtkomst till följande egenskaper:
-- `AuthError.message`: Samma som `errorMessage`.
+- `AuthError.message`: Samma som `errorMessage` .
 - `AuthError.stack`: Stack spårning för utlösta fel.
 
 ### <a name="error-types"></a>Fel typer
@@ -170,9 +170,9 @@ Följande fel typer är tillgängliga:
 
 - `ServerError`: Klassen Error representerar de fel strängar som skickats av autentiseringsservern. Detta kan vara fel som ogiltiga format eller parametrar för begäran, eller andra fel som hindrar servern från att autentisera eller auktorisera användaren.
 
-- `InteractionRequiredAuthError`: Fel klass, utökar `ServerError` för att representera Server fel som kräver ett interaktivt anrop. Det här felet uppstår av `acquireTokenSilent` om användaren måste interagera med servern för att ange autentiseringsuppgifter eller tillstånd för autentisering/auktorisering. Felkoderna `"interaction_required"`är `"login_required"`, och `"consent_required"`.
+- `InteractionRequiredAuthError`: Fel klass, utökar `ServerError` för att representera Server fel som kräver ett interaktivt anrop. Det här felet uppstår av `acquireTokenSilent` om användaren måste interagera med servern för att ange autentiseringsuppgifter eller tillstånd för autentisering/auktorisering. Felkoderna är `"interaction_required"` , `"login_required"` och `"consent_required"` .
 
-För fel hantering i autentiserings flöden med omdirigerings metoder (`loginRedirect`, `acquireTokenRedirect`) måste du registrera återanropet, som anropas med lyckat eller misslyckat efter `handleRedirectCallback()` omdirigeringen med hjälp av metoden enligt följande:
+För fel hantering i autentiserings flöden med omdirigerings metoder ( `loginRedirect` , `acquireTokenRedirect` ) måste du registrera återanropet, som anropas med lyckat eller misslyckat efter omdirigeringen med hjälp av `handleRedirectCallback()` metoden enligt följande:
 
 ```javascript
 function authCallback(error, response) {
@@ -186,7 +186,7 @@ myMSALObj.handleRedirectCallback(authCallback);
 myMSALObj.acquireTokenRedirect(request);
 ```
 
-Metoderna för att se pop-up (`loginPopup`, `acquireTokenPopup`) returnera löfte så att du kan använda löftes mönstret (. och. Catch) för att hantera dem som de visas:
+Metoderna för att se pop-up ( `loginPopup` , `acquireTokenPopup` ) returnera löfte så att du kan använda löftes mönstret (. och. Catch) för att hantera dem som de visas:
 
 ```javascript
 myMSALObj.acquireTokenPopup(request).then(
@@ -199,7 +199,7 @@ myMSALObj.acquireTokenPopup(request).then(
 
 ### <a name="errors-that-require-interaction"></a>Fel som kräver interaktion
 
-Ett fel returneras när du försöker använda en icke-interaktiv metod för att förvärva en token, till exempel `acquireTokenSilent`, men MSAL inte kunde göra det tyst.
+Ett fel returneras när du försöker använda en icke-interaktiv metod för att förvärva en token, till exempel `acquireTokenSilent` , men MSAL inte kunde göra det tyst.
 
 Möjliga orsaker är:
 
@@ -207,7 +207,7 @@ Möjliga orsaker är:
 - Du måste godkänna
 - Du måste gå igenom en Multi-Factor Authentication-upplevelse.
 
-Reparationen är att anropa en interaktiv metod som `acquireTokenPopup` eller: `acquireTokenRedirect`
+Reparationen är att anropa en interaktiv metod som `acquireTokenPopup` eller `acquireTokenRedirect` :
 
 ```javascript
 // Request for Access Token
@@ -234,15 +234,15 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 I MSAL för python förmedlas de flesta fel som ett retur värde från API-anropet. Felet visas som en ord lista som innehåller JSON-svaret från Microsoft Identity Platform.
 
 * Ett lyckat svar innehåller `"access_token"` nyckeln. Svars formatet definieras av OAuth2-protokollet. Mer information finns i [5,1 svar](https://tools.ietf.org/html/rfc6749#section-5.1)
-* Ett fel svar innehåller `"error"` vanligt vis `"error_description"`. Svars formatet definieras av OAuth2-protokollet. Mer information finns i [5,2-fel svar](https://tools.ietf.org/html/rfc6749#section-5.2)
+* Ett fel svar innehåller `"error"` vanligt vis `"error_description"` . Svars formatet definieras av OAuth2-protokollet. Mer information finns i [5,2-fel svar](https://tools.ietf.org/html/rfc6749#section-5.2)
 
-När ett fel returneras innehåller `"error_description"` nyckeln ett läsbart meddelande. som i sin tur innehåller vanligt vis en felkod för Microsoft Identity Platform. Mer information om de olika fel koderna finns i [fel koder för autentisering och auktorisering](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
+När ett fel returneras `"error_description"` innehåller nyckeln ett läsbart meddelande, vilket i sin tur vanligt vis innehåller en felkod för Microsoft Identity Platform. Mer information om de olika fel koderna finns i [fel koder för autentisering och auktorisering](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
 
-I MSAL för python är undantag sällsynt eftersom de flesta fel hanteras genom att returnera ett felvärde. `ValueError` Undantaget utlöses bara när det är problem med hur du försöker använda biblioteket, till exempel när API-parameter (s) har fel format.
+I MSAL för python är undantag sällsynt eftersom de flesta fel hanteras genom att returnera ett felvärde. `ValueError`Undantaget utlöses bara när det är problem med hur du försöker använda biblioteket, till exempel när API-parameter (s) har fel format.
 
 ## <a name="java"></a>[Java](#tab/java)
 
-I MSAL för Java finns det tre typer av undantag: `MsalClientException`, `MsalServiceException`och; `MsalInteractionRequiredException` allt som ärver från `MsalException`.
+I MSAL för Java finns det tre typer av undantag: `MsalClientException` , `MsalServiceException` och `MsalInteractionRequiredException` . allt ärver från `MsalException` .
 
 - `MsalClientException`genereras när ett fel inträffar som är lokalt i biblioteket eller på enheten.
 - `MsalServiceException`utlöses när STS (Secure token service) returnerar ett fel svar eller ett annat nätverks fel inträffar.
@@ -254,15 +254,15 @@ I MSAL för Java finns det tre typer av undantag: `MsalClientException`, `MsalSe
 
 ### <a name="msalinteractionrequiredexception"></a>MsalInteractionRequiredException
 
-En av de vanliga status koderna som returnerades från MSAL `AcquireTokenSilently()` för `InvalidGrantError`Java vid anrop är. Det innebär att ytterligare användar åtgärder krävs innan en autentiseringstoken kan utfärdas. Programmet bör anropa autentiseringspaket igen, men i interaktivt läge genom att skicka `AuthorizationCodeParameters` eller `DeviceCodeParameters` för offentliga klient program.
+En av de vanliga status koderna som returnerades från MSAL för Java vid anrop `AcquireTokenSilently()` är `InvalidGrantError` . Det innebär att ytterligare användar åtgärder krävs innan en autentiseringstoken kan utfärdas. Programmet bör anropa autentiseringspaket igen, men i interaktivt läge genom att skicka `AuthorizationCodeParameters` eller `DeviceCodeParameters` för offentliga klient program.
 
-I de flesta fall då `AcquireTokenSilently` Miss lyckas, beror det på att token cache inte har en token som matchar din begäran. Åtkomsttoken upphör att gälla om en timme och `AcquireTokenSilently` kommer att försöka hämta en ny utifrån en uppdateringstoken. I OAuth2 villkor är det här uppdaterings-token. Det här flödet kan också inte utföras av olika anledningar, t. ex. När en klient administratör konfigurerar mer strikta inloggnings principer.
+I de flesta fall då `AcquireTokenSilently` Miss lyckas, beror det på att token cache inte har en token som matchar din begäran. Åtkomsttoken upphör att gälla om en timme och kommer att `AcquireTokenSilently` försöka hämta en ny utifrån en uppdateringstoken. I OAuth2 villkor är det här uppdaterings-token. Det här flödet kan också inte utföras av olika anledningar, t. ex. När en klient administratör konfigurerar mer strikta inloggnings principer.
 
 Vissa villkor som resulterar i detta fel är lätta för användarna att lösa. De kan till exempel behöva godkänna användnings villkoren. Eller så kanske begäran inte kan uppfyllas med den aktuella konfigurationen eftersom datorn måste ansluta till ett enskilt företags nätverk.
 
-MSAL visar ett `reason` fält som du kan använda för att ge en bättre användar upplevelse. `reason` Fältet kan till exempel leda till att användaren anger att deras lösen ord har upphört att gälla eller att de måste ge tillåtelse att använda vissa resurser. De värden som stöds är en del `InteractionRequiredExceptionReason` av uppräkningen:
+MSAL visar ett `reason` fält som du kan använda för att ge en bättre användar upplevelse. Fältet kan till exempel `reason` leda till att användaren anger att deras lösen ord har upphört att gälla eller att de måste ge tillåtelse att använda vissa resurser. De värden som stöds är en del av `InteractionRequiredExceptionReason` uppräkningen:
 
-| Orsak | Betydelse | Rekommenderad hantering |
+| Anledning | Betydelse | Rekommenderad hantering |
 |---------|-----------|-----------------------------|
 | `BasicAction` | Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet | Anropa `acquireToken` med interaktiva parametrar |
 | `AdditionalAction` | Villkoret kan lösas med hjälp av ytterligare återställnings interaktion med systemet utanför det interaktiva autentiserings flödet. | Anropa `acquireToken` med interaktiva parametrar för att visa ett meddelande som förklarar vilken åtgärd som ska vidtas. Den anropande appen kan välja att dölja flöden som kräver ytterligare åtgärder om användaren inte är tvungen att slutföra åtgärden. |
@@ -302,7 +302,7 @@ Den fullständiga listan med MSAL för iOS-och macOS-fel visas i [MSALError-uppr
 
 Alla MSAL-producerade fel returneras med `MSALErrorDomain` domän.
 
-För system fel returnerar MSAL originalet `NSError` från system-API: et. Om till exempel hämtning av token Miss lyckas på grund av brist på nätverks anslutning, returnerar MSAL ett fel `NSURLErrorDomain` med domänen `NSURLErrorNotConnectedToInternet` och koden.
+För system fel returnerar MSAL originalet `NSError` från system-API: et. Om till exempel hämtning av token Miss lyckas på grund av brist på nätverks anslutning, returnerar MSAL ett fel med `NSURLErrorDomain` domänen och `NSURLErrorNotConnectedToInternet` koden.
 
 Vi rekommenderar att du hanterar minst följande två MSAL-fel på klient sidan:
 
@@ -311,7 +311,7 @@ Vi rekommenderar att du hanterar minst följande två MSAL-fel på klient sidan:
 - `MSALErrorServerDeclinedScopes`: Vissa eller alla omfattningar nekades. Bestäm om du vill fortsätta med endast beviljade omfattningar eller stoppa inloggnings processen.
 
 > [!NOTE]
-> `MSALInternalError` Uppräkningen ska endast användas för referens och fel sökning. Försök inte att automatiskt hantera dessa fel vid körning. Om din app påträffar något av de fel som faller under `MSALInternalError`, kanske du vill visa ett allmänt användar meddelande som förklarar vad som hände.
+> `MSALInternalError`Uppräkningen ska endast användas för referens och fel sökning. Försök inte att automatiskt hantera dessa fel vid körning. Om din app påträffar något av de fel som faller under `MSALInternalError` , kanske du vill visa ett allmänt användar meddelande som förklarar vad som hände.
 
 Till exempel `MSALInternalErrorBrokerResponseNotReceived` innebär att användaren inte slutförde autentiseringen och returnerade manuellt till appen. I det här fallet bör appen Visa ett allmänt fel meddelande som förklarar att autentiseringen inte slutförts och att de försöker autentisera igen.
 
@@ -518,9 +518,9 @@ För att hantera anspråks utmaningen måste du använda `.WithClaim()` metoden 
 
 ### <a name="javascript"></a>JavaScript
 
-När du hämtar token tyst (med `acquireTokenSilent`hjälp av) med hjälp av MSAL. js kan programmet få fel meddelanden när en [utmanings utmaning för anspråk](../azuread-dev/conditional-access-dev-guide.md) som MFA-princip krävs av ett API som du försöker få åtkomst till.
+När du hämtar token tyst (med hjälp av `acquireTokenSilent` ) med hjälp av MSAL. js kan programmet få fel meddelanden när en [utmanings utmaning för anspråk](../azuread-dev/conditional-access-dev-guide.md) som MFA-princip krävs av ett API som du försöker få åtkomst till.
 
-Mönstret för att hantera det här felet är att göra ett interaktivt anrop för att hämta token i `acquireTokenPopup` MSAL `acquireTokenRedirect` . js som eller som i följande exempel:
+Mönstret för att hantera det här felet är att göra ett interaktivt anrop för att hämta token i MSAL. js som `acquireTokenPopup` eller `acquireTokenRedirect` som i följande exempel:
 
 ```javascript
 myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenResponse) {
@@ -549,7 +549,7 @@ Mer information finns i [begära ytterligare anspråk](active-directory-optional
 
 MSAL för iOS och macOS gör att du kan begära vissa anspråk i både interaktiva och tysta token för hämtning.
 
-Om du vill begära anpassade anspråk `claimsRequest` anger `MSALSilentTokenParameters` du `MSALInteractiveTokenParameters`i eller.
+Om du vill begära anpassade anspråk anger du `claimsRequest` i `MSALSilentTokenParameters` eller `MSALInteractiveTokenParameters` .
 
 Mer information finns i [begäran om anpassade anspråk med MSAL för iOS och MacOS](request-custom-claims.md) .
 
@@ -567,7 +567,7 @@ När service token Server (STS) är överbelastad med för många begär Anden r
 
 ### <a name="net"></a>.NET
 
-[MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) - `System.Net.Http.Headers.HttpResponseHeaders` ytor som en `namedHeaders`egenskap. Du kan använda ytterligare information från felkoden för att förbättra tillförlitligheten för dina program. I det fall som beskrivs kan du använda `RetryAfterproperty` (av typen `RetryConditionHeaderValue`) och beräkna när du vill försöka igen.
+[MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) -ytor `System.Net.Http.Headers.HttpResponseHeaders` som en egenskap `namedHeaders` . Du kan använda ytterligare information från felkoden för att förbättra tillförlitligheten för dina program. I det fall som beskrivs kan du använda `RetryAfterproperty` (av typen `RetryConditionHeaderValue` ) och beräkna när du vill försöka igen.
 
 Här är ett exempel på ett daemon-program som använder flödet för klientautentiseringsuppgifter. Du kan anpassa detta till någon av metoderna för att förvärva en token.
 

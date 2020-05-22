@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2cb19c82f8c19bf87eeef755adb5756b2452512
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2682a85f88a537630fbca86dd55541a152d8f37e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025278"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758647"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Skapa och tilldela en anpassad roll i Azure Active Directory
 
@@ -30,8 +30,8 @@ Du kan skapa anpassade roller på fliken [roller och administratörer](https://p
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Skapa en ny anpassad roll för att ge åtkomst till hantering av app-registreringar
 
-1. Logga in på [administrations centret](https://aad.portal.azure.com) för Azure AD med privilegierade roll administratörer eller globala administratörs behörigheter i Azure AD-organisationen.
-1. Välj **Azure Active Directory** > **roller och administratörer** > **ny anpassad roll**.
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com)   med privilegierade roll administratörer eller globala administratörs behörigheter i Azure AD-organisationen.
+1. Välj **Azure Active Directory**  >  **roller och administratörer**  >  **ny anpassad roll**.
 
    ![Skapa eller redigera roller från sidan roller och administratörer](./media/roles-create-custom/new-custom-role.png)
 
@@ -122,7 +122,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
     ```
 
-    Innehåll
+    Brödtext
 
     ``` HTTP
    {
@@ -141,6 +141,9 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
    }
     ```
 
+  > [!Note]
+  > "TemplateId": "GUID" är en valfri parameter som skickas i bröd texten, beroende på krav. Om du har ett krav för att skapa flera olika anpassade roller med vanliga parametrar är det bäst att skapa en mall och definiera en templateId. Du kan skapa en templateId på förhand med PowerShell-cmdleten (New-GUID). LED. 
+
 1. Skapa roll tilldelningen.
 
     HTTP-begäran om att skapa en anpassad roll definition.
@@ -151,7 +154,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
     ```
 
-    Innehåll
+    Brödtext
 
     ``` HTTP
    {
@@ -160,6 +163,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
    }
     ```
+
 
 ## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Tilldela en anpassad roll som är begränsad till en resurs
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 55d544ecf6c96335ca65255e1af695f7757b818c
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 2885df9e64bdbfa21eaaa38f423b90554f767cd7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699517"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773295"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -180,7 +180,7 @@ Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan 
 
 Ange en längre Beskrivning av erbjudandet, upp till 256 tecken. Beskrivningen kan användas i Sök resultat.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -226,7 +226,7 @@ Alla tre logo typer krävs och används på olika platser i listan.
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 x 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Video
+#### <a name="videos"></a>Videoklipp
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. De ska vara värd för en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 x 720 pixlar.
 
@@ -354,7 +354,7 @@ Du kan konfigurera varje plan så att den blir synlig för alla eller till en sp
 
 Välj **det här är en privat plan** för att göra din plan privat och endast synlig för den begränsade gruppen som du väljer. När du har publicerat som privat plan kan du uppdatera mål gruppen eller välja att göra planen tillgänglig för alla. När en plan publiceras som synlig för alla måste den förbli synlig för alla; den kan inte konfigureras om som privat plan.
 
-Om du gör anläggningen privat anger du ett **ID för Azure-prenumeration** och dess beskrivning. Varje är en mål grupp som kommer att ha åtkomst till den här privata planen. Åtkomst tilldelas med hjälp av Azures prenumerations-ID med alternativet att inkludera en beskrivning av varje tilldelad Azure-prenumeration. Lägg till upp till 10 kunders prenumerations-ID individuellt eller 20 000 genom att importera en CSV-fil. ID: n för Azure-prenumerationen visas som GUID och bokstäver måste vara gemena.
+Om du gör planen privat anger du ett **ID för Azure-prenumeration** och dess beskrivning. Varje är en mål grupp som kommer att ha åtkomst till den här privata planen. Åtkomst tilldelas med hjälp av Azures prenumerations-ID med alternativet att inkludera en beskrivning av varje tilldelad Azure-prenumeration. Lägg till upp till 10 kunders prenumerations-ID individuellt eller 20 000 genom att importera en CSV-fil. ID: n för Azure-prenumerationen visas som GUID och bokstäver måste vara gemena.
 
 >[!Note]
 >En privat eller begränsad mål grupp skiljer sig från den förhands visnings mål som du definierade på fliken **förhands granskning** . En förhands gransknings grupp kan komma åt ditt erbjudande _innan_ det publiceras Live på Marketplace. Även om valet för privat mål bara gäller för en speciell plan, kan förhands gransknings gruppen Visa alla planer (privata eller inte) för validerings syfte.
@@ -377,7 +377,7 @@ Varje plan måste vara tillgänglig på minst en marknad. Markera kryss rutan f�
 
 Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en annan marknads plats kommer priset för den nya marknaden att beräknas enligt de aktuella växelkurserna. Granska alltid priset för varje marknad innan du publicerar. Priserna kan granskas med hjälp av länken "export priser (xlsx)" när du har sparat ändringarna.
 
-#### <a name="pricing"></a>Priser
+#### <a name="pricing"></a>Prissättning
 
 Ange priset per månad för den här planen.  Detta pris är utöver alla Azure-infrastrukturer eller program kostnader som du betalar per användning av de resurser som distribueras av den här lösningen.
 
@@ -399,7 +399,7 @@ Du kan konfigurera varje plan så att den blir synlig för alla eller till en sp
 
 Välj **det här är en privat plan** för att göra din plan privat och endast synlig för den begränsade gruppen som du väljer. När du har publicerat som privat plan kan du uppdatera mål gruppen eller välja att göra planen tillgänglig för alla. När en plan publiceras som synlig för alla måste den förbli synlig för alla; den kan inte konfigureras om som privat plan.
 
-Om du gör anläggningen privat anger du ett **ID för Azure-prenumeration** och dess beskrivning. Varje är en mål grupp som kommer att ha åtkomst till den här privata planen. Åtkomst tilldelas med hjälp av Azures prenumerations-ID med alternativet att inkludera en beskrivning av varje tilldelad Azure-prenumeration. Lägg till upp till 10 kunders prenumerations-ID individuellt eller 20 000 genom att importera en CSV-fil. ID: n för Azure-prenumerationen visas som GUID och bokstäver måste vara gemena.
+Om du gör planen privat anger du ett **ID för Azure-prenumeration** och dess beskrivning. Varje är en mål grupp som kommer att ha åtkomst till den här privata planen. Åtkomst tilldelas med hjälp av Azures prenumerations-ID med alternativet att inkludera en beskrivning av varje tilldelad Azure-prenumeration. Lägg till upp till 10 kunders prenumerations-ID individuellt eller 20 000 genom att importera en CSV-fil. ID: n för Azure-prenumerationen visas som GUID och bokstäver måste vara gemena.
 
 >[!Note]
 >En privat eller begränsad mål grupp skiljer sig från den förhands visnings mål som du definierade på fliken **förhands granskning** . En förhands gransknings grupp kan komma åt ditt erbjudande _innan_ det publiceras Live på Marketplace. Även om valet för privat mål bara gäller för en speciell plan, kan förhands gransknings gruppen Visa alla planer (privata eller inte) för validerings syfte.

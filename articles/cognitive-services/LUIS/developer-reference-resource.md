@@ -3,12 +3,12 @@ title: Utvecklings resurser – Language Understanding
 description: 'SDK: er, REST API: er, CLI, hjälper dig att utveckla Language Understanding-appar (LUIS) i ditt programmeringsspråk. Hantera dina Azure-resurser och LUIS-förutsägelser.'
 ms.topic: reference
 ms.date: 05/19/2020
-ms.openlocfilehash: c86dad46b09c2f761e73f38187b4824c0a17406f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c712a81e5b786ac980a0c48d358fef4caf2e7597
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655561"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758069"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>SDK-, REST-och CLI-utvecklarresurser för Language Understanding (LUIS)
 
@@ -73,7 +73,7 @@ I följande tabell förklaras parametrarna, med klammerparenteser `{}` , i före
 |`version`|namn på 10-siffrig version|
 |`slot`| `production` eller `staging`|
 
-## <a name="app-schema"></a>App-schema
+## <a name="app-schema"></a>Appschema
 
 [Appens schema](app-schema-definition.md) importeras och exporteras i ett- `.json` eller- `.lu` format.
 
@@ -119,7 +119,7 @@ Bot Framework innehåller [flera verktyg](https://github.com/microsoft/botbuilde
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) – generera automatiskt omvänt C#/typescript-klasser för dina Luis-intentor och entiteter.
 * [Bot Framework-emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) – ett Skriv bords program som gör det möjligt för bot-utvecklare att testa och felsöka robotar som skapats med bot Framework SDK
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) – ett integrerat utvecklingsverktyg för utvecklare och flera disciplin team för att bygga robotar och konversations upplevelser med Microsoft bot Framework
-
+* [Robot Framework-exempel](https://github.com/microsoft/botbuilder-samples) – i #C, Java Script, typescript och python
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om vanliga [http-felkoder](luis-reference-response-codes.md)

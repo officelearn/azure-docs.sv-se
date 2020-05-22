@@ -7,12 +7,12 @@ ms.date: 08/08/2019
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 6fe0e39584cbaa001e11f712bb2f60b45dba6914
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 68af882bf240b354bdad1afe322135c048576ed4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203496"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772844"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Konfigurera din App Service-eller Azure Functions-app för att använda inloggning med Microsoft-konto
 
@@ -28,11 +28,11 @@ Det här avsnittet visar hur du konfigurerar Azure App Service eller Azure Funct
 1. Gå till [**Appregistreringar**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal. Om det behövs loggar du in med din Microsoft-konto.
 1. Välj **ny registrering**och ange sedan ett program namn.
 1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog (alla Azure AD Directory-flera klienter) och personliga Microsoft-konton (t. ex. Skype, Xbox)**
-1. I **omdirigerings-URI: er**väljer du `https://<app-domain-name>/.auth/login/aad/callback` **webb**och anger sedan. Ersätt * \<app-Domain-Name>* med domän namnet för din app.  Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Se till att använda HTTPS-schemat i URL: en.
+1. I **omdirigerings-URI: er**väljer du **webb**och anger sedan `https://<app-domain-name>/.auth/login/aad/callback` . Ersätt * \< app-Domain-Name>* med domän namnet för din app.  Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Se till att använda HTTPS-schemat i URL: en.
 
 1. Välj **Registrera**.
 1. Kopiera **program-ID: t (klient)**. Du behöver det senare.
-1. I den vänstra rutan väljer du **certifikat & hemligheter** > **ny klient hemlighet**. Ange en beskrivning, Välj giltighets tid och välj **Lägg till**.
+1. I den vänstra rutan väljer du **certifikat & hemligheter**  >  **ny klient hemlighet**. Ange en beskrivning, Välj giltighets tid och välj **Lägg till**.
 1. Kopiera värdet som visas på sidan **certifikat & hemligheter** . När du har lämnat sidan visas den inte igen.
 
     > [!IMPORTANT]
@@ -41,7 +41,7 @@ Det här avsnittet visar hur du konfigurerar Azure App Service eller Azure Funct
 ## <a name="add-microsoft-account-information-to-your-app-service-application"></a><a name="secrets"> </a>Lägg till information om Microsoft-konto till ditt App Service program
 
 1. Gå till ditt program i [Azure Portal].
-1. Välj **Inställningar** > **autentisering/auktorisering**och se till att **App Service autentisering** är **aktiverat**.
+1. Välj **Inställningar**  >  **autentisering/auktorisering**och se till att **App Service autentisering** är **aktiverat**.
 1. Under **autentiseringsproviders**väljer du **Azure Active Directory**. Välj **Avancerat** under **hanterings läge**. Klistra in det program (klient)-ID och klient hemlighet som du fick tidigare. Används **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** för fältet **Issuer URL** .
 1. Välj **OK**.
 

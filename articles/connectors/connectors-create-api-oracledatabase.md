@@ -3,16 +3,16 @@ title: Anslut till Oracle Database
 description: 'Infoga och hantera poster med Oracle Database REST-API: er och Azure Logic Apps'
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b4f016b53c6c42831d5f5ae08a30ec8ac176e6e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147805"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773380"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Kom igång med Oracle Database Connector
 
@@ -20,6 +20,13 @@ Med hjälp av Oracle Database Connector skapar du organisations arbets flöden s
 
 * Skapa ett arbets flöde genom att lägga till en ny kund i en kund databas eller uppdatera en order i en order databas.
 * Använd åtgärder för att hämta en rad med data, infoga en ny rad och sedan ta bort. Till exempel när en post skapas i Dynamics CRM Online (en utlösare) infogar du en rad i en Oracle Database (en åtgärd). 
+
+Den här anslutningen har inte stöd för följande objekt:
+
+* Vyer 
+* Valfri tabell med sammansatta nycklar
+* Kapslade objekt typer i tabeller
+* Databas funktioner med icke-skalära värden
 
 Den här artikeln visar hur du använder Oracle Database Connector i en Logic app.
 
@@ -60,13 +67,13 @@ Den här artikeln visar hur du använder Oracle Database Connector i en Logic ap
     ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
-    > Detta är också det snabbaste sättet att se utlösare och åtgärder som är tillgängliga för alla anslutningar. Ange en del av kopplings namnet, till exempel `oracle`. Designern visar alla utlösare och åtgärder. 
+    > Detta är också det snabbaste sättet att se utlösare och åtgärder som är tillgängliga för alla anslutningar. Ange en del av kopplings namnet, till exempel `oracle` . Designern visar alla utlösare och åtgärder. 
 
 5. Välj en av åtgärderna, till exempel **Oracle Database-get-rad**. Välj **Anslut via lokal datagateway**. Ange Oracle-servernamn, autentiseringsmetod, användar namn, lösen ord och välj gatewayen:
 
     ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
-6. När du är ansluten väljer du en tabell i listan och anger rad-ID: t i tabellen. Du måste känna till identifieraren för tabellen. Om du inte vet kan du kontakta Oracle DB-administratören och hämta utdata från `select * from yourTableName`. Det ger dig den information du behöver för att kunna fortsätta.
+6. När du är ansluten väljer du en tabell i listan och anger rad-ID: t i tabellen. Du måste känna till identifieraren för tabellen. Om du inte vet kan du kontakta Oracle DB-administratören och hämta utdata från `select * from yourTableName` . Det ger dig den information du behöver för att kunna fortsätta.
 
     I följande exempel returneras jobb data från en personal databas: 
 
@@ -81,11 +88,11 @@ Den här artikeln visar hur du använder Oracle Database Connector i en Logic ap
 
 ### <a name="workflow-ideas"></a>Arbets flödes idéer
 
-* Du vill övervaka #oracle hashtagg och placera tweets i en databas så att de kan frågas och användas i andra program. I en Logic-app lägger du `Twitter - When a new tweet is posted` till utlösaren och anger **#oracle** hashtagg. Lägg sedan till `Oracle Database - Insert row` åtgärden och välj din tabell:
+* Du vill övervaka #oracle hashtagg och placera tweets i en databas så att de kan frågas och användas i andra program. I en Logic-app lägger du till `Twitter - When a new tweet is posted` utlösaren och anger **#oracle** hashtagg. Lägg sedan till `Oracle Database - Insert row` åtgärden och välj din tabell:
 
     ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
-* Meddelanden skickas till en Service Bus kö. Du vill hämta dessa meddelanden och placera dem i en databas. I en Logic-app lägger du `Service Bus - when a message is received in a queue` till utlösaren och väljer kön. Lägg sedan till `Oracle Database - Insert row` åtgärden och välj din tabell:
+* Meddelanden skickas till en Service Bus kö. Du vill hämta dessa meddelanden och placera dem i en databas. I en Logic-app lägger du till `Service Bus - when a message is received in a queue` utlösaren och väljer kön. Lägg sedan till `Oracle Database - Insert row` åtgärden och välj din tabell:
 
     ![](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
 
@@ -108,12 +115,6 @@ Den här artikeln visar hur du använder Oracle Database Connector i en Logic ap
 **Orsak**: tabellen har ingen primär nyckel.  
 
 **Lösning**: Oracle Database-anslutningen kräver att en tabell med en primär nyckel kolumn används.
-
-#### <a name="currently-not-supported"></a>Stöds inte för närvarande
-
-* Vyer 
-* Valfri tabell med sammansatta nycklar
-* Kapslade objekt typer i tabeller
  
 ## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 
@@ -123,7 +124,7 @@ Visa eventuella utlösare och åtgärder som definierats i Swagger och se även 
 
 [Azure Logic Apps-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) är en bra plats för att ställa frågor, besvara frågor och se vad andra Logic Apps användare gör. 
 
-Du kan hjälpa till att förbättra Logic Apps och anslutningar genom att rösta och skicka dina [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)idéer till. 
+Du kan hjälpa till att förbättra Logic Apps och anslutningar genom att rösta och skicka dina idéer till [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish) . 
 
 
 ## <a name="next-steps"></a>Nästa steg

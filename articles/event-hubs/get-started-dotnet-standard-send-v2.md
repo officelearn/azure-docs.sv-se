@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: spelluru
-ms.openlocfilehash: fd4b41cc2fe97ad0c2f075884e21f4f2ffc01561
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44e77330e6a651a93b1f88fa6b20450ebc2b1455
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159462"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773977"
 ---
-# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Skicka händelser till och ta emot händelser från Azure Event Hubs-.NET Core (Azure. Messaging. EventHubs) 
-Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av **Azure. Messaging. EventHubs** .net Core Library. 
+# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Skicka händelser till och ta emot händelser från Azure Event Hubs-.NET (Azure. Messaging. EventHubs) 
+Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av **Azure. Messaging. EventHubs** .net-biblioteket. 
 
 > [!IMPORTANT]
 > Den här snabb starten använder det nya **Azure. Messaging. EventHubs** -biblioteket. En snabb start som använder det gamla **Microsoft. Azure. EventHubs** -biblioteket finns i [skicka och ta emot händelser med hjälp av Microsoft. Azure. EventHubs-biblioteket](event-hubs-dotnet-standard-getstarted-send.md). 
@@ -34,7 +34,7 @@ Om du inte har använt Azure Event Hubs tidigare, se [Event Hubs översikt](even
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
 - **Microsoft Azure prenumeration**. Om du vill använda Azure-tjänster, inklusive Azure Event Hubs, behöver du en prenumeration.  Om du inte har ett befintligt Azure-konto kan du registrera dig för en [kostnads fri utvärderings version](https://azure.microsoft.com/free/) eller använda dina förmåner för MSDN-prenumeranter när du [skapar ett konto](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2019**. Klient biblioteket för Azure Event Hubs använder nya funktioner som introducerades i C# 8,0.  Du kan fortfarande använda biblioteket med äldre versioner av C#, men vissa av dess funktioner är inte tillgängliga.  Om du vill aktivera dessa funktioner måste du vara [mål för .net Core 3,0](/dotnet/standard/frameworks#how-to-specify-target-frameworks) eller [Ange den språk version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) som du vill använda (8,0 eller senare). Om du använder Visual Studio kan du inte använda de verktyg som krävs för att bygga C# 8,0-projekt i Visual Studio 2019. Visual Studio 2019, inklusive den kostnads fria community-versionen, kan hämtas [här](https://visualstudio.microsoft.com/vs/)
+- **Microsoft Visual Studio 2019**. Klient biblioteket för Azure Event Hubs använder nya funktioner som introducerades i C# 8,0.  Du kan fortfarande använda biblioteket med tidigare C#-språk versioner, men den nya syntaxen är inte tillgänglig. Om du vill använda fullständig syntax rekommenderar vi att du kompilerar med [.NET Core SDK](https://dotnet.microsoft.com/download) 3,0 eller högre och [språk versionen](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version#override-a-default) har angetts till `latest` . Om du använder Visual Studio kan du inte använda de verktyg som krävs för att bygga C# 8,0-projekt i Visual Studio 2019. Visual Studio 2019, inklusive den kostnads fria community-versionen, kan hämtas [här](https://visualstudio.microsoft.com/vs/).
 - **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan **anslutnings strängen för Event Hubs namn området genom att** följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder anslutnings strängen senare i den här snabb starten.
 
 ## <a name="send-events"></a>Skicka händelser 
@@ -57,7 +57,7 @@ Det här avsnittet visar hur du skapar ett .NET Core-konsolprogram för att skic
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Lägga till Event Hubs NuGet-paketet
 
-1. Välj **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen** på menyn. 
+1. Välj **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen** på menyn. 
 1. Kör följande kommando för att installera paketet **Azure. Messaging. EventHubs** NuGet:
 
     ```cmd
@@ -67,7 +67,7 @@ Det här avsnittet visar hur du skapar ett .NET Core-konsolprogram för att skic
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Skriva kod för att skicka meddelanden till händelsehubben
 
-1. Lägg till följande `using` -instruktioner överst i **program.cs** -filen:
+1. Lägg till följande- `using` instruktioner överst i **program.cs** -filen:
 
     ```csharp
     using System.Text;
@@ -139,7 +139,7 @@ I den här snabb starten använder du Azure Storage som kontroll punkts arkiv. F
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Lägga till Event Hubs NuGet-paketet
 
-1. Välj **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen** på menyn. 
+1. Välj **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen** på menyn. 
 1. Kör följande kommando för att installera paketet **Azure. Messaging. EventHubs** NuGet:
 
     ```cmd
@@ -153,7 +153,7 @@ I den här snabb starten använder du Azure Storage som kontroll punkts arkiv. F
 
 ### <a name="update-the-main-method"></a>Uppdatera main-metoden 
 
-1. Lägg till följande `using` -instruktioner överst i **program.cs** -filen.
+1. Lägg till följande- `using` instruktioner överst i **program.cs** -filen.
 
     ```csharp
     using System.Text;

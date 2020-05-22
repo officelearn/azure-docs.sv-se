@@ -3,7 +3,7 @@ title: Instruktioner för instansen i guiden (för hands version)
 description: Den här artikeln beskriver hur du skapar och hanterar Azure SQL Database instanser (för hands version).
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 4a27165d929cc9bc5f18e372f7f108887e466e43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 005ed634830190a947045964ff01d126853bdc64
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299370"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773049"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Instruktions guide för Azure SQL Database instanser (förhands granskning)
 

@@ -3,7 +3,7 @@ title: Återställa en databas från en säkerhets kopia
 description: Lär dig mer om återställning vid tidpunkter, vilket gör att du kan återställa en Azure SQL-databas upp till 35 dagar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: b98331a9cdb359aeefac5db1546f3a15b54010ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da841c2f1280bc0dc126e43a9f618e170d0d2553
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268748"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770694"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Återställa en Azure SQL-databas med hjälp av automatisk säkerhets kopiering av databasen
 
@@ -70,7 +70,7 @@ Du återställer vanligt vis en databas till en tidigare tidpunkt för återstä
 
   Om du vill att den återställda databasen ska ersätta den ursprungliga databasen, bör du ange den ursprungliga databasens beräknings storlek och tjänst nivå. Du kan sedan byta namn på den ursprungliga databasen och ge den återställda databasen det ursprungliga namnet med hjälp av kommandot [Alter Database](/sql/t-sql/statements/alter-database-azure-sql-database) i T-SQL.
 
-- **Data återställning**
+- **Dataåterställning**
 
   Om du planerar att hämta data från den återställda databasen för att återställa från ett användar-eller program fel måste du skriva och köra ett data återställnings skript som extraherar data från den återställda databasen och gäller för den ursprungliga databasen. Även om återställnings åtgärden kan ta lång tid att slutföra, visas återställnings databasen i databas listan under hela återställnings processen. Om du tar bort databasen under återställningen avbryts återställnings åtgärden och du debiteras inte för den databas som inte slutförde återställningen.
   
@@ -147,7 +147,7 @@ Från Azure Portal skapar du en ny databas för enkel eller hanterad instans och
 
 Om du vill geo-återställa en enskild SQL-databas från Azure Portal i den region och server du väljer, följer du dessa steg:
 
-1. Från **instrument panelen**väljer du **Lägg till** > **skapa SQL Database**. Ange den information som krävs på fliken **grundläggande** .
+1. Från **instrument panelen**väljer du **Lägg till**  >  **skapa SQL Database**. Ange den information som krävs på fliken **grundläggande** .
 2. Välj **ytterligare inställningar**.
 3. Om du vill **använda befintliga data**väljer du **säkerhets kopiering**.
 4. För **säkerhets kopiering**väljer du en säkerhets kopia i listan över tillgängliga säkerhets kopior för geo-återställning.

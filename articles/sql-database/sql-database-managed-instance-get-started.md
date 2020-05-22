@@ -3,7 +3,7 @@ title: 'Azure Portal: skapa en hanterad instans'
 description: Skapa en SQL Database Hanterad instans, nätverks miljö och virtuell klient dator för åtkomst.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 25128442cd922f6b9130586e245695b6880f661c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e8a0b27f055f39186371e23e46c8b41679e05dea
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80257622"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770116"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabb start: skapa en Azure SQL Database Hanterad instans
 
@@ -93,7 +93,7 @@ Följande steg visar hur du skapar en hanterad instans:
 
    | Inställningen| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
-   | **Sortering** | Välj den sortering som du vill använda för din hanterade instans. Om du migrerar databaser från SQL Server kontrollerar du käll sorteringen genom att `SELECT SERVERPROPERTY(N'Collation')` använda och använda det värdet.| Information om sorteringar finns i [Ange eller ändra Server sorteringen](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
+   | **Sortering** | Välj den sortering som du vill använda för din hanterade instans. Om du migrerar databaser från SQL Server kontrollerar du käll sorteringen genom `SELECT SERVERPROPERTY(N'Collation')` att använda och använda det värdet.| Information om sorteringar finns i [Ange eller ändra Server sorteringen](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Tidszon** | Välj den tidszon som din hanterade instans ska observera.|Mer information finns i [tids zoner](sql-database-managed-instance-timezone.md).|
    | **Använd som sekundär redundans** | Välj **Ja**. | Aktivera det här alternativet om du vill använda den hanterade instansen som en sekundär grupp för redundans.|
    | **Primär hanterad instans** (om **Använd som sekundär redundans** är inställt på **Ja**) | Välj en befintlig primär hanterad instans som ska anslutas till samma DNS-zon med den hanterade instans som du skapar. | I det här steget aktive ras konfigurationen efter skapandet av gruppen redundans. Mer information finns i [Självstudier: Lägg till en SQL Database Hanterad instans i en failover-grupp](sql-database-managed-instance-failover-group-tutorial.md).|

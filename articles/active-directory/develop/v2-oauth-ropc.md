@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 26b3cb343aba2d45d5a14944a7f8856715bca100
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: bfc6b6fa6a2af8750c868aaacb289d39306ce06e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690088"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770984"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Autentiseringsuppgifter för Microsoft Identity Platform och OAuth 2,0-resurs ägar lösen ord
 
@@ -29,10 +29,10 @@ Microsoft Identity Platform stöder [OAuth 2,0-ROPC (Resource Owner Password Cre
 
 > [!IMPORTANT]
 >
-> * Slut punkten för Microsoft Identity Platform stöder endast ROPC för Azure AD-klienter, inte personliga konton. Det innebär att du måste använda en klient-/regionsspecifika slut punkt`https://login.microsoftonline.com/{TenantId_or_Name}`() eller `organizations` slut punkten.
+> * Slut punkten för Microsoft Identity Platform stöder endast ROPC för Azure AD-klienter, inte personliga konton. Det innebär att du måste använda en klient-/regionsspecifika slut punkt ( `https://login.microsoftonline.com/{TenantId_or_Name}` ) eller `organizations` slut punkten.
 > * Personliga konton som bjuds in till en Azure AD-klient kan inte använda ROPC.
 > * Konton som inte har lösen ord kan inte logga in via ROPC. I det här scenariot rekommenderar vi att du använder ett annat flöde för appen i stället.
-> * Om användarna behöver använda Multi-Factor Authentication (MFA) för att logga in i programmet kommer de att blockeras i stället.
+> * Om användarna behöver använda [Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md) för att logga in i programmet kommer de att blockeras i stället.
 > * ROPC stöds inte i scenarier med [hybrid identitets Federation](/azure/active-directory/hybrid/whatis-fed) (till exempel Azure AD och ADFS som används för att autentisera lokala konton). Om användarna är fulla omdirigerade till en lokal identitets leverantör kan inte Azure AD testa användar namn och lösen ord mot identitets leverantören. [Direktautentisering](/azure/active-directory/hybrid/how-to-connect-pta) stöds med ROPC, men.
 
 ## <a name="protocol-diagram"></a>Protokoll diagram
@@ -66,14 +66,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Krävs | Den katalog klient som du vill logga in användaren i. Detta kan vara i ett GUID eller eget namn format. Den här parametern kan inte anges `common` till `consumers`eller, men den kan vara `organizations`inställd på. |
-| `client_id` | Krävs | Det program (klient)-ID som den [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
-| `grant_type` | Krävs | Måste anges till `password`. |
-| `username` | Krävs | Användarens e-postadress. |
-| `password` | Krävs | Användarens lösen ord. |
+| `tenant` | Obligatorisk | Den katalog klient som du vill logga in användaren i. Detta kan vara i ett GUID eller eget namn format. Den här parametern kan inte anges till `common` eller `consumers` , men den kan vara inställd på `organizations` . |
+| `client_id` | Obligatorisk | Det program (klient)-ID som den [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
+| `grant_type` | Obligatorisk | Måste anges till `password` . |
+| `username` | Obligatorisk | Användarens e-postadress. |
+| `password` | Obligatorisk | Användarens lösen ord. |
 | `scope` | Rekommenderas | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md)eller behörigheter som appen kräver. I ett interaktivt flöde måste administratören eller användaren samtycka till dessa omfattningar i förväg. |
-| `client_secret`| Krävs ibland | Om din app är en offentlig klient kan `client_secret` eller `client_assertion` inte tas med.  Om appen är en konfidentiell klient måste den tas med. |
-| `client_assertion` | Krävs ibland | En annan form av `client_secret`, som genereras med hjälp av ett certifikat.  Se [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md) för mer information. |
+| `client_secret`| Krävs ibland | Om din app är en offentlig klient kan `client_secret` eller inte tas `client_assertion` med.  Om appen är en konfidentiell klient måste den tas med. |
+| `client_assertion` | Krävs ibland | En annan form av `client_secret` , som genereras med hjälp av ett certifikat.  Se [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md) för mer information. |
 
 ### <a name="successful-authentication-response"></a>Godkänt autentiserings svar
 
@@ -92,12 +92,12 @@ I följande exempel visas ett lyckat svar på token:
 
 | Parameter | Format | Beskrivning |
 | --------- | ------ | ----------- |
-| `token_type` | Sträng | Ställ alltid in `Bearer`på. |
+| `token_type` | Sträng | Ställ alltid in på `Bearer` . |
 | `scope` | Separerade blankstegsavgränsad strängar | Om en åtkomsttoken returnerades listar den här parametern de omfattningar som åtkomsttoken är giltig för. |
 | `expires_in`| int | Antal sekunder som den inkluderade åtkomsttoken är giltig för. |
 | `access_token`| Ogenomskinlig sträng | Utfärdat för de [omfattningar](v2-permissions-and-consent.md) som begärdes. |
 | `id_token` | JWT | Utfärdas om den ursprungliga `scope` parametern omfattade `openid` omfånget. |
-| `refresh_token` | Ogenomskinlig sträng | Utfärdas om den ursprungliga `scope` parametern ingår `offline_access`. |
+| `refresh_token` | Ogenomskinlig sträng | Utfärdas om den ursprungliga `scope` parametern ingår `offline_access` . |
 
 Du kan använda uppdateringstoken för att hämta nya åtkomsttoken och uppdatera tokens med samma flöde som beskrivs i [dokumentationen för OAuth-kod flödet](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
 
@@ -108,7 +108,7 @@ Om användaren inte har angett rätt användar namn eller lösen ord, eller om k
 | Fel | Beskrivning | Klient åtgärd |
 |------ | ----------- | -------------|
 | `invalid_grant` | Autentiseringen misslyckades | Autentiseringsuppgifterna var felaktiga eller så har klienten inte tillstånd för de begärda omfattningarna. Om omfången inte beviljas returneras ett `consent_required` fel. Om detta inträffar ska klienten skicka användaren till en interaktiv prompt med en webbvy eller webbläsare. |
-| `invalid_request` | Begäran har inte konstruerats korrekt | Anslags typen stöds inte i `/common` kontexterna eller `/consumers` .  Använd `/organizations` eller ett klient-ID i stället. |
+| `invalid_request` | Begäran har inte konstruerats korrekt | Anslags typen stöds inte i `/common` `/consumers` kontexterna eller.  Använd `/organizations` eller ett klient-ID i stället. |
 
 ## <a name="learn-more"></a>Läs mer
 

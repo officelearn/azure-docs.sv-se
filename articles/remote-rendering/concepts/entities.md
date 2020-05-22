@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b9ecd048b080ae0ec9fd3fb7a4fb35009551b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7981a28db23ab8c0aed05013dd260ffd97a11c07
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681953"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758732"
 ---
 # <a name="entities"></a>Entiteter
 
@@ -22,7 +22,7 @@ Entiteter har en transformering som definieras av en position, rotation och skal
 
 Den viktigaste aspekten av själva entiteten är hierarkin och den resulterande hierarkiska omvandlingen. Till exempel när flera entiteter är kopplade som underordnade till en delad överordnad entitet, kan alla dessa entiteter flyttas, roteras och skalas i dem samtidigt genom att ändra den överordnade entitetens omvandling.
 
-En entitet ägs unikt av dess överordnade, vilket innebär att när det överordnade objektet förstörs `Entity.Destroy()`, så är dess underordnade och alla anslutna [komponenter](components.md). Därför utförs borttagning av en modell från scenen genom att anropar `Destroy` rotnoden i en modell, som returneras av `AzureSession.Actions.LoadModelAsync()` eller dess SAS-variant `AzureSession.Actions.LoadModelFromSASAsync()`.
+En entitet ägs unikt av dess överordnade, vilket innebär att när det överordnade objektet förstörs, `Entity.Destroy()` så är dess underordnade och alla anslutna [komponenter](components.md). Därför utförs borttagning av en modell från scenen genom att anropar `Destroy` rotnoden i en modell, som returneras av `AzureSession.Actions.LoadModelAsync()` eller dess SAS-variant `AzureSession.Actions.LoadModelFromSASAsync()` .
 
 Entiteter skapas när servern läser in innehåll eller när användaren vill lägga till ett objekt i scenen. Om en användare till exempel vill lägga till ett klipp plan för att visualisera insidan av ett nät, kan användaren skapa en entitet där planet ska finnas och sedan lägga till komponenten klipp ut plan till den.
 
@@ -32,13 +32,20 @@ Det finns två typer av fråge funktioner på entiteter: synkrona och asynkrona 
 
 ### <a name="querying-components"></a>Fråga komponenter
 
-Om du vill hitta en komponent av en speciell typ `FindComponentOfType`använder du:
+Om du vill hitta en komponent av en speciell typ använder du `FindComponentOfType` :
 
 ```cs
 CutPlaneComponent cutplane = (CutPlaneComponent)entity.FindComponentOfType(ObjectType.CutPlaneComponent);
 
 // or alternatively:
 CutPlaneComponent cutplane = entity.FindComponentOfType<CutPlaneComponent>();
+```
+
+```cpp
+ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType(ObjectType::CutPlaneComponent)->as<CutPlaneComponent>();
+
+// or alternatively:
+ApiHandle<CutPlaneComponent> cutplane = *entity->FindComponentOfType<CutPlaneComponent>();
 ```
 
 ### <a name="querying-transforms"></a>Fråga transformeringar
@@ -53,6 +60,13 @@ Transformations frågor är synkrona anrop i objektet. Det är viktigt att Obser
 Double3 translation = entity.Position;
 Quaternion rotation = entity.Rotation;
 ```
+
+```cpp
+// local space transform of the entity
+Double3 translation = *entity->Position();
+Quaternion rotation = *entity->Rotation();
+```
+
 
 ### <a name="querying-spatial-bounds"></a>Frågar efter rums gränser
 
@@ -77,6 +91,21 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
         // ...
     }
 };
+```
+
+```cpp
+ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
+metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
+    {
+        if (query->IsRanToCompletion())
+        {
+            ApiHandle<ObjectMetaData> metaData = *query->Result();
+            ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
+            int64_t intValue = *entry->AsInt64();
+
+            // ...
+        }
+    });
 ```
 
 Frågan kommer att lyckas även om objektet inte innehåller några metadata.

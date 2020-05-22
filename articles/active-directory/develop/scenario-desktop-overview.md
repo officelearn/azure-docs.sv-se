@@ -1,5 +1,6 @@
 ---
-title: 'Bygg en stationär app som anropar webb-API: er – Microsoft Identity Platform | Azure'
+title: 'Bygg en stationär app som anropar webb-API: er | Azure'
+titleSuffix: Microsoft identity platform
 description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er (översikt)'
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 09cc43dec2eff48754f5a6e693badd6bb1907cce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883009"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771867"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Skriv bords program som anropar webb-API: er
 
@@ -50,7 +51,7 @@ Du skriver ett Skriv bords program och vill logga in användare i ditt program o
   - Eller, om det är ett .NET Core-program och du samtycker till att ha autentiseringen med Azure Active Directory (Azure AD) i system läsaren.
 
 - För Windows-värdbaserade program är det också möjligt för program som körs på datorer som är anslutna till en Windows-domän eller Azure AD-ansluten för att hämta en token i tysthet med hjälp av integrerad Windows-autentisering.
-- Slutligen, och även om det inte rekommenderas, kan du använda ett användar namn och ett lösen ord i offentliga klient program. Det behövs fortfarande i vissa scenarier som DevOps. Användning av IT-begränsningar i ditt program. Det går till exempel inte att logga in en användare som behöver utföra multifaktorautentisering (villkorlig åtkomst). Programmet kommer också inte att dra nytta av enkel inloggning (SSO).
+- Slutligen, och även om det inte rekommenderas, kan du använda ett användar namn och ett lösen ord i offentliga klient program. Det behövs fortfarande i vissa scenarier som DevOps. Användning av IT-begränsningar i ditt program. Den kan till exempel inte logga in en användare som behöver utföra [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) (villkorlig åtkomst). Programmet kommer också inte att dra nytta av enkel inloggning (SSO).
 
   Det är också mot principerna för modern autentisering och tillhandahålls endast av tidigare skäl.
 

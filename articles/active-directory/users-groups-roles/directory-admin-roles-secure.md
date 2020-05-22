@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c580a39db97e1ce50c3d244db3023bf422bca08
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 16c87eabec8f09f082c258a439a17b9f3aa79336
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837200"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759038"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD
 
@@ -82,7 +82,7 @@ När du har aktiverat Azure AD Privileged Identity Management:
 
 4. Öppna Privileged Identity Management från listan **alla tjänster** och fäst den på din instrument panel.
 
-Den första personen som använder PIM i din organisation tilldelas rollen **säkerhets administratör** och administratör för **privilegie rad roll** . Endast privilegierade roll administratörer kan hantera roll tilldelningar för Azure AD-katalog för användare. Säkerhets guiden i PIM vägleder dig genom den inledande identifierings-och tilldelnings upplevelsen. Du kan avsluta guiden utan att göra några ytterligare ändringar för tillfället.
+Se till att den första personen som använder PIM i din organisation är tilldelad rollen **säkerhets administratör** och **administratör för privilegie rad roll** . Endast privilegierade roll administratörer kan hantera roll tilldelningar för Azure AD-katalog för användare. Säkerhets guiden i PIM vägleder dig genom den inledande identifierings-och tilldelnings upplevelsen. Du kan avsluta guiden utan att göra några ytterligare ändringar för tillfället.
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identifiera och kategorisera konton som har privilegier för hög privilegier
 
@@ -110,11 +110,11 @@ Det är möjligt för en användare att av misstag låsa sig av sin roll. Om til
 
 Med hjälp av konton för nöd åtkomst kan du begränsa privilegie rad åtkomst i en Azure AD-organisation. Dessa konton är mycket privilegierade och har inte tilldelats till vissa individer. Konton för nöd åtkomst är begränsade till nödfall för scenarier med "Break glas" där normala administrativa konton inte kan användas. Se till att du styr och minskar nöd kontots användning enbart till den tid för vilken det är nödvändigt.
 
-Utvärdera de konton som är tilldelade eller berättigade till den globala administratörs rollen. Om du inte ser några moln konton som använder \*onmicrosoft.com-domänen (för "Break glas"-åtkomst till nöd situationer) skapar du dem. Mer information finns i [Hantera administratörs konton för nöd åtkomst i Azure AD](directory-emergency-access.md).
+Utvärdera de konton som är tilldelade eller berättigade till den globala administratörs rollen. Om du inte ser några moln konton som använder onmicrosoft.com- \* domänen (för "Break glas"-åtkomst till nöd situationer) skapar du dem. Mer information finns i [Hantera administratörs konton för nöd åtkomst i Azure AD](directory-emergency-access.md).
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Aktivera Multi-Factor Authentication och registrera alla andra icke-federerade administratörs konton med hög behörighet
 
-Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som permanent tilldelas till en eller flera av administratörs rollerna för Azure AD: global administratör, privilegie rad roll administratör, Exchange Online-administratör och SharePoint Online-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har [https://aka.ms/mfasetup](https://aka.ms/mfasetup)registrerat sig på. Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som permanent tilldelas till en eller flera av administratörs rollerna för Azure AD: global administratör, privilegie rad roll administratör, Exchange Online-administratör och SharePoint Online-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har registrerat sig på [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Steg 2: minimera ofta använda attacker
 
@@ -177,7 +177,7 @@ Azure AD Identity Protection är ett algoritmbaserade övervaknings-och rapporte
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Skaffa dina Office 365-säkra poäng (om du använder Office 365)
 
-Säkra Poäng tittar på dina inställningar och aktiviteter för de Office 365-tjänster som du använder och jämför dem med en bas linje som upprättats av Microsoft. Du får ett resultat baserat på hur justerat du är med säkerhets praxis. Alla som har administratörs behörighet för en Office 365 Business Premium-eller Enterprise-prenumeration kan komma åt säkra [https://securescore.office.com](https://securescore.office.com/)poäng på.
+Säkra Poäng tittar på dina inställningar och aktiviteter för de Office 365-tjänster som du använder och jämför dem med en bas linje som upprättats av Microsoft. Du får ett resultat baserat på hur justerat du är med säkerhets praxis. Alla som har administratörs behörighet för en Office 365 Business Premium-eller Enterprise-prenumeration kan komma åt säkra poäng på [https://securescore.office.com](https://securescore.office.com/) .
 
 #### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Granska vägledningen för säkerhet och efterlevnad i Office 365 (om du använder Office 365)
 
@@ -207,7 +207,7 @@ Använd Enterprise Portal och Azure Portal för att identifiera de prenumeration
 
 #### <a name="remove-microsoft-accounts-from-admin-roles"></a>Ta bort Microsoft-konton från administratörs roller
 
-Microsoft-konton från andra program, till exempel Xbox, Live och Outlook, bör inte användas som administratörs konton för din organisations prenumerationer. Ta bort administratörs status från alla Microsoft-konton och Ersätt med Azure AD (till chris@contoso.comexempel) arbets-eller skol konton. I administratörs syfte beror på konton som autentiseras i Azure AD och inte i andra tjänster.
+Microsoft-konton från andra program, till exempel Xbox, Live och Outlook, bör inte användas som administratörs konton för din organisations prenumerationer. Ta bort administratörs status från alla Microsoft-konton och Ersätt med Azure AD (till exempel chris@contoso.com ) arbets-eller skol konton. I administratörs syfte beror på konton som autentiseras i Azure AD och inte i andra tjänster.
 
 #### <a name="monitor-azure-activity"></a>Övervaka Azure-aktivitet
 
@@ -364,7 +364,7 @@ Att skydda privilegie rad åtkomst är viktigt för att upprätta säkerhets gar
 * Servrar
 * Program
 * Datorer
-* Egenskaper
+* Enheter
 * Cloud Fabric
 
 Vi rekommenderar följande metoder när du hanterar privilegierade åtkomst konton:

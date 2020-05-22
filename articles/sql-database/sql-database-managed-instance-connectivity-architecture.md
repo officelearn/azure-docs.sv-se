@@ -3,7 +3,7 @@ title: Anslutnings arkitektur för en hanterad instans
 description: Lär dig mer om Azure SQL Database Hanterad instans-och anslutnings arkitektur samt hur komponenterna dirigerar trafik till den hanterade instansen.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f341c3c2c299ca358b2a42210f04c6399fe2892
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677177"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773604"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutnings arkitektur för en hanterad instans i Azure SQL Database
 
@@ -66,7 +66,7 @@ Låt oss ta en djupare titt på anslutnings arkitekturen för hanterade instanse
 
 ![Anslutnings arkitektur för det virtuella klustret](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Klienter ansluter till en hanterad instans med hjälp av ett värdnamn som har formuläret `<mi_name>.<dns_zone>.database.windows.net`. Det här värd namnet matchar en privat IP-adress även om den är registrerad i en offentlig Domain Name System (DNS)-zon och kan matchas offentligt. `zone-id` Skapas automatiskt när du skapar klustret. Om ett nytt kluster är värd för en sekundär hanterad instans, delar den sitt zon-ID med det primära klustret. Mer information finns i [använda grupper för automatisk redundans för att aktivera transparent och koordinerad redundansväxling av flera databaser](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
+Klienter ansluter till en hanterad instans med hjälp av ett värdnamn som har formuläret `<mi_name>.<dns_zone>.database.windows.net` . Det här värd namnet matchar en privat IP-adress även om den är registrerad i en offentlig Domain Name System (DNS)-zon och kan matchas offentligt. Skapas `zone-id` automatiskt när du skapar klustret. Om ett nytt kluster är värd för en sekundär hanterad instans, delar den sitt zon-ID med det primära klustret. Mer information finns i [använda grupper för automatisk redundans för att aktivera transparent och koordinerad redundansväxling av flera databaser](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Den här privata IP-adressen tillhör den hanterade instansens interna belastningsutjämnare. Belastningsutjämnaren dirigerar trafiken till den hanterade instansens Gateway. Eftersom flera hanterade instanser kan köras i samma kluster använder gatewayen den hanterade instansens värdnamn för att dirigera om trafik till rätt SQL-motortjänster.
 
@@ -83,28 +83,28 @@ När anslutningar börjar inuti den hanterade instansen (som med säkerhets kopi
 
 ## <a name="service-aided-subnet-configuration"></a>Undernätskonfiguration med tjänststöd
 
-För att hantera den hanterade instansen av kund säkerhet och hanterbarhet övergår du från manuell till tjänstens konfiguration för under nätet.
+I syfte att uppfylla kundens krav på säkerhet och hanterbarhet övergår hanterad instans från manuell till serviceförstärkt undernätskonfiguration.
 
-Med konfigurations användaren för tjänste under nätet används en fullständig kontroll över data trafik (TDS) medan hanterad instans tar ansvar för att säkerställa oavbrutet flöde för hanterings trafik för att uppfylla SLA.
+Med serviceförstärkt undernätskonfiguration har användaren full kontroll över datatrafik (TDS) medan hanterad instans ansvarar för att säkerställa oavbrutet flöde av hanteringstrafik så att serviceavtalet uppfylls.
 
-Konfiguration av tjänstens konfiguration för under nätet bygger på funktionen för [delegering](../virtual-network/subnet-delegation-overview.md) av virtuella nätverk för att tillhandahålla automatisk hantering av nätverks konfiguration och aktivera tjänstens slut punkter. Tjänst slut punkter kan användas för att konfigurera brand Väggs regler för virtuella nätverk på lagrings konton som håller säkerhets kopior/gransknings loggar.
+Serviceförstärkt undernätskonfiguration bygger på funktionen för [undernätsdelegering](../virtual-network/subnet-delegation-overview.md) för virtuella nätverk för att tillhandahålla automatisk hantering av nätverkskonfiguration och aktivering av tjänstslutpunkter. Tjänstslutpunkter kan användas för att konfigurera brandväggsregler för virtuella nätverk på lagringskonton som upprätthåller säkerhetskopior/spårningsloggar.
 
 ### <a name="network-requirements"></a>Nätverkskrav 
 
-Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätverket. Under nätet måste ha följande egenskaper:
+Distribuera en hanterad instans i ett dedikerat undernät inuti det virtuella nätverket. Undernätet måste ha följande egenskaper:
 
-- **Dedikerat undernät:** Under nätet för den hanterade instansen får inte innehålla någon annan moln tjänst som är kopplad till den, och det får inte vara ett Gateway-undernät. Under nätet får inte innehålla någon resurs, men den hanterade instansen, och du kan inte senare lägga till andra typer av resurser i under nätet.
+- **Dedikerat undernät:** Den hanterade instansens undernät får inte innehålla någon annan molntjänst som är associerad med det, och det kan inte vara ett gatewayundernät. Undernätet får inte innehålla någon resurs förutom den hanterade instansen, och du kan inte lägga till andra typer av resurser i undernätet senare.
 - **Under näts delegering:** Under nätet för den hanterade instansen måste delegeras till `Microsoft.Sql/managedInstances` resurs leverantören.
-- **Nätverks säkerhets grupp (NSG):** En NSG måste vara kopplad till under nätet för den hanterade instansen. Du kan använda en NSG för att styra åtkomsten till data slut punkten för den hanterade instansen genom att filtrera trafiken på port 1433 och portarna 11000-11999 när den hanterade instansen har kon figurer ATS för Tjänsten etablerar och behåller automatiskt de aktuella [reglerna](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) för att tillåta oavbruten flöde för hanterings trafik.
-- **Användardefinierad routningstabell (UDR):** En UDR-tabell måste vara kopplad till under nätet för den hanterade instansen. Du kan lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella Nätverksgatewayen eller Virtual Network-apparaten (NVA). Tjänsten kommer automatiskt att etablera och behålla aktuella [poster](#user-defined-routes-with-service-aided-subnet-configuration) som krävs för att tillåta oavbruten flöde av hanterings trafik.
-- **Tillräckligt med IP-adresser:** Under nätet för hanterade instanser måste ha minst 16 IP-adresser. Det rekommenderade minimivärdet är 32 IP-adresser. Mer information finns i [bestämma storleken på under nätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](sql-database-managed-instance-configure-vnet-subnet.md) när du har konfigurerat det för att uppfylla [nätverks kraven för hanterade instanser](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](sql-database-managed-instance-create-vnet-subnet.md).
+- **Nätverkssäkerhetsgrupp (NSG):** En NSG måste vara associerad med den hanterade instansens undernät. Du kan använda en NSG för att styra åtkomsten till den hanterade instansens dataslutpunkt genom att filtrera trafik på port 1433 och portarna 11000–11999 när den hanterade instansen är konfigurerad för omdirigeringsanslutningar. Tjänsten etablerar automatiskt och upprätthåller de aktuella [regler](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) som krävs för att tillåta oavbruten hanteringstrafik.
+- **Användardefinierad routningstabell (UDR):** En UDR-tabell behöver vara associerad med den hanterade instansens undernät. Du kan lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella nätverksgatewayen eller den virtuella nätverksapparaten (NVA). Tjänsten etablerar automatiskt och upprätthåller de aktuella [poster](#user-defined-routes-with-service-aided-subnet-configuration) som krävs för att tillåta oavbruten hanteringstrafik.
+- **Tillräckligt med IP-adresser:** Den hanterade instansens undernät måste ha minst 16 IP-adresser. Det rekommenderade minimiantalet är 32 IP-adresser. Mer information finns i [Bestämma storleken på undernätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](sql-database-managed-instance-configure-vnet-subnet.md) efter att du har konfigurerat det för att uppfylla [nätverkskraven för hanterade instanser](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
 > När du skapar en hanterad instans tillämpas en princip för nätverks avsikt i under nätet för att förhindra inkompatibla ändringar av nätverks konfigurationen. När den sista instansen har tagits bort från under nätet tas även principen för nätverks avsikt bort.
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatoriska inkommande säkerhets regler med konfiguration för tjänstens under näts undernät 
 
-| Name       |Port                        |Protokoll|Källa           |Mål|Action|
+| Name       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI-UNDERNÄT  |Tillåt |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |MI-UNDERNÄT  |Tillåt |
@@ -114,7 +114,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatoriska utgående säkerhets regler med konfiguration för tjänstens under näts undernät 
 
-| Name       |Port          |Protokoll|Källa           |Mål|Action|
+| Name       |Port          |Protokoll|Källa           |Mål|Åtgärd|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
 |mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
@@ -310,20 +310,20 @@ Följande funktioner för virtuella nätverk stöds för närvarande inte med en
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>Föråldrad Nätverks krav utan konfiguration av service-stödda undernät
 
-Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätverket. Under nätet måste ha följande egenskaper:
+Distribuera en hanterad instans i ett dedikerat undernät inuti det virtuella nätverket. Undernätet måste ha följande egenskaper:
 
-- **Dedikerat undernät:** Under nätet för den hanterade instansen får inte innehålla någon annan moln tjänst som är kopplad till den, och det får inte vara ett Gateway-undernät. Under nätet får inte innehålla någon resurs, men den hanterade instansen, och du kan inte senare lägga till andra typer av resurser i under nätet.
-- **Nätverks säkerhets grupp (NSG):** En NSG som är associerad med det virtuella nätverket måste definiera [inkommande säkerhets regler](#mandatory-inbound-security-rules) och [utgående säkerhets regler](#mandatory-outbound-security-rules) före andra regler. Du kan använda en NSG för att styra åtkomsten till data slut punkten för den hanterade instansen genom att filtrera trafiken på port 1433 och portarna 11000-11999 när den hanterade instansen har kon figurer ATS för
+- **Dedikerat undernät:** Den hanterade instansens undernät får inte innehålla någon annan molntjänst som är associerad med det, och det kan inte vara ett gatewayundernät. Undernätet får inte innehålla någon resurs förutom den hanterade instansen, och du kan inte lägga till andra typer av resurser i undernätet senare.
+- **Nätverks säkerhets grupp (NSG):** En NSG som är associerad med det virtuella nätverket måste definiera [inkommande säkerhets regler](#mandatory-inbound-security-rules) och [utgående säkerhets regler](#mandatory-outbound-security-rules) före andra regler. Du kan använda en NSG för att styra åtkomsten till den hanterade instansens dataslutpunkt genom att filtrera trafik på port 1433 och portarna 11000–11999 när den hanterade instansen är konfigurerad för omdirigeringsanslutningar.
 - **Användardefinierad routningstabell (UDR):** En UDR-tabell som är associerad med det virtuella nätverket måste innehålla vissa [poster](#user-defined-routes).
 - **Inga tjänst slut punkter:** Ingen tjänst slut punkt måste vara kopplad till under nätet för den hanterade instansen. Kontrol lera att alternativet tjänst slut punkter är inaktiverat när du skapar det virtuella nätverket.
-- **Tillräckligt med IP-adresser:** Under nätet för hanterade instanser måste ha minst 16 IP-adresser. Det rekommenderade minimivärdet är 32 IP-adresser. Mer information finns i [bestämma storleken på under nätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](sql-database-managed-instance-configure-vnet-subnet.md) när du har konfigurerat det för att uppfylla [nätverks kraven för hanterade instanser](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](sql-database-managed-instance-create-vnet-subnet.md).
+- **Tillräckligt med IP-adresser:** Den hanterade instansens undernät måste ha minst 16 IP-adresser. Det rekommenderade minimiantalet är 32 IP-adresser. Mer information finns i [Bestämma storleken på undernätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](sql-database-managed-instance-configure-vnet-subnet.md) efter att du har konfigurerat det för att uppfylla [nätverkskraven för hanterade instanser](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
 > Du kan inte distribuera en ny hanterad instans om mål under nätet saknar dessa egenskaper. När du skapar en hanterad instans tillämpas en princip för nätverks avsikt i under nätet för att förhindra inkompatibla ändringar av nätverks konfigurationen. När den sista instansen har tagits bort från under nätet tas även principen för nätverks avsikt bort.
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatoriska inkommande säkerhets regler
 
-| Name       |Port                        |Protokoll|Källa           |Mål|Action|
+| Name       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI-UNDERNÄT  |Tillåt |
 |mi_subnet   |Alla                         |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
@@ -331,7 +331,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatoriska utgående säkerhets regler
 
-| Name       |Port          |Protokoll|Källa           |Mål|Action|
+| Name       |Port          |Protokoll|Källa           |Mål|Åtgärd|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
 |mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |

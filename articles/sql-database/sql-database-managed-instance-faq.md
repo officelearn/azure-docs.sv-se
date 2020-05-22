@@ -3,7 +3,7 @@ title: Vanliga frågor och svar om hanterade instanser
 description: Vanliga frågor och svar om SQL Database Managed instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 99fbda6f6d5e8fc88f9f4f34c6e194412a120057
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 3ffa4bc905a08c1757865db7bab828193ff3c7ea
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598519"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770150"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om SQL Database Managed instance
 
@@ -76,7 +76,7 @@ Du kan [Exportera databasen till BACPAC](sql-database-export.md) och sedan [Impo
 
 Transaktionsreplikering kan användas om alla tabeller i databasen har primära nycklar.
 
-Det `COPY_ONLY` går inte att återställa inbyggda säkerhets kopior från hanterade instanser till SQL Server eftersom den hanterade instansen har en högre databas version jämfört med SQL Server.
+`COPY_ONLY`Det går inte att återställa inbyggda säkerhets kopior från hanterade instanser till SQL Server eftersom den hanterade instansen har en högre databas version jämfört med SQL Server.
 
 ## <a name="migrate-instance-db"></a>Migrera instans databas
 
@@ -129,7 +129,7 @@ Nej, lagring av säkerhets kopior dras inte av från lagrings utrymmet för den 
 
 Du kan göra det med hjälp av [Azure Cost Management-lösningen](/azure/cost-management/). Gå till **prenumerationer** i [Azure Portal](https://portal.azure.com) och välj **kostnads analys**. 
 
-Använd alternativet **ackumulerade kostnader** och filtrera sedan efter **resurs typ** som `microsoft.sql/managedinstances`. 
+Använd alternativet **ackumulerade kostnader** och filtrera sedan efter **resurs typ** som `microsoft.sql/managedinstances` . 
   
 ## <a name="inbound-nsg-rules"></a>Regler för inkommande NSG
 

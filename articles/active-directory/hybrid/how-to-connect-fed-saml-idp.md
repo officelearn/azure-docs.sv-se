@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff4f1b81f476159c13d3725cd3cb1766aec7dc87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 770c16abeaeee3ad7a7e9baa973e23fde2d34509
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70305104"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771119"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning
 
@@ -48,8 +48,8 @@ Det här dokumentet innehåller detaljerade krav på protokoll och meddelande fo
 
 Vi rekommenderar att du ser till att dina e-postmeddelanden med SAML 2,0-identitetsprovider är så likt de tillhandahållna exempel spåren som möjligt. Använd också särskilda attributvärden från de angivna Azure AD-metadata där det är möjligt. När du är nöjd med dina utmatnings meddelanden kan du testa med Microsoft anslutnings analys enligt beskrivningen nedan.
 
-Azure AD-metadata kan hämtas från den här URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml)en:.
-För kunder i Kina som använder den Kina-angivna instansen av Office 365 ska följande Federations slut punkt [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml)användas:.
+Azure AD-metadata kan hämtas från den här URL: en: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml) .
+För kunder i Kina som använder den Kina-angivna instansen av Office 365 ska följande Federations slut punkt användas: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml) .
 
 ## <a name="saml-protocol-requirements"></a>Krav för SAML-protokoll
 I det här avsnittet beskrivs hur begär ande-och svars meddelande par placeras tillsammans för att hjälpa dig att formatera dina meddelanden på rätt sätt.
@@ -90,14 +90,23 @@ I den här tabellen visas krav för särskilda attribut i SAML 2,0-meddelandet.
 Meddelande-och svars meddelande paret visas för inloggnings meddelandets utbyte.
 Följande är ett exempel på ett begär ande meddelande som skickas från Azure AD till ett exempel på SAML 2,0 Identity Provider. Exempel på SAML 2,0 Identity Provider är Active Directory Federation Services (AD FS) (AD FS) som kon figurer ATS för att använda SAML-P-protokollet. Samverkans testning har också slutförts med andra SAML 2,0-identitets leverantörer.
 
-    `<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" IssueInstant="2014-01-30T16:18:35Z" Version="2.0" AssertionConsumerServiceIndex="0" >
-    <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
-    <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
-    </samlp:AuthnRequest>`
+```xml
+    <samlp:AuthnRequest 
+        xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" 
+        xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
+        ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" 
+        IssueInstant="2014-01-30T16:18:35Z" 
+        Version="2.0" 
+        AssertionConsumerServiceIndex="0" >
+            <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
+            <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
+    </samlp:AuthnRequest>
+```
 
 Följande är ett exempel svars meddelande som skickas från det exempel på SAML 2,0-kompatibla identitets leverantören till Azure AD/Office 365.
 
-    `<samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+```xml
+    <samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
     <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://WS2012R2-0.contoso.com/adfs/services/trust</Issuer>
     <samlp:Status>
     <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
@@ -146,13 +155,14 @@ Följande är ett exempel svars meddelande som skickas från det exempel på SAM
       </AuthnContext>
     </AuthnStatement>
     </Assertion>
-    </samlp:Response>`
+    </samlp:Response>
+```
 
 ## <a name="configure-your-saml-20-compliant-identity-provider"></a>Konfigurera din SAML 2,0-kompatibla identitets leverantör
 Det här avsnittet innehåller rikt linjer för hur du konfigurerar din SAML 2,0 Identity-Provider att federera med Azure AD för att aktivera enkel inloggning till en eller flera Microsoft-molntjänster (till exempel Office 365) med hjälp av SAML 2,0-protokollet. SAML 2,0-förlitande part för en moln tjänst från Microsoft som används i det här scenariot är Azure AD.
 
 ## <a name="add-azure-ad-metadata"></a>Lägg till Azure AD-metadata
-Din SAML 2,0-identitetsprovider måste följa information om den förlitande parten i Azure AD. Azure AD publicerar metadata på https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
+Din SAML 2,0-identitetsprovider måste följa information om den förlitande parten i Azure AD. Azure AD publicerar metadata på https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml .
 
 Vi rekommenderar att du alltid importerar de senaste Azure AD-metadata när du konfigurerar din SAML 2,0 Identity Provider.
 
@@ -184,19 +194,56 @@ Följande procedur vägleder dig genom konvertering av en befintlig standard dom
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Konfigurera en domän i Azure AD-katalogen för Federation
 
 
-1. Anslut till din Azure AD-katalog som innehavaradministratör: Connect-MsolService.
-2.  Konfigurera din önskade Office 365-domän för att använda Federation med SAML 2,0:`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $BrandName -Authentication Federated -PassiveLogOnUri $LogOnUrl -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $MyURI -LogOffUri $LogOffUrl -PreferredAuthenticationProtocol $Protocol` 
+1. Anslut till din Azure AD-katalog som klient organisations administratör:
+
+    ```powershell
+    Connect-MsolService
+    ```
+    
+2. Konfigurera din önskade Office 365-domän för att använda Federation med SAML 2,0:
+
+    ```powershell
+    $dom = "contoso.com" 
+    $BrandName - "Sample SAML 2.0 IDP" 
+    $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" 
+    $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" 
+    $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" 
+    $MyURI = "urn:uri:MySamlp2IDP" 
+    $MySigningCert = "MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" 
+    $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" 
+    $Protocol = "SAMLP" 
+    Set-MsolDomainAuthentication `
+        -DomainName $dom `
+        -FederationBrandName $BrandName `
+        -Authentication Federated `
+        -PassiveLogOnUri $LogOnUrl `
+        -ActiveLogOnUri $ecpUrl `
+        -SigningCertificate $MySigningCert `
+        -IssuerUri $MyURI `
+        -LogOffUri $LogOffUrl `
+        -PreferredAuthenticationProtocol $Protocol
+    ``` 
 
 3.  Du kan hämta signerings certifikatets base64-kodade sträng från din IDP metadata-fil. Ett exempel på den här platsen har angetts men kan skilja sig något beroende på din implementering.
 
-    `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
+    ```xml
+    <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <KeyDescriptor use="signing">
+          <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
+             <X509Data>
+                 <X509Certificate> MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate>
+              </X509Data>
+            </KeyInfo>
+        </KeyDescriptor>
+    </IDPSSODescriptor>
+    ``` 
 
-Mer information om "Set-MsolDomainAuthentication" finns i: [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx).
+Mer information om "Set-MsolDomainAuthentication" finns i: [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx) .
 
 >[!NOTE]
->Du måste endast köra `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` use om du konfigurerar ett ECP-tillägg för din identitetsprovider. Exchange Online-klienter, förutom Outlook Web Application (OWA), förlitar sig på en POST baserad aktiv slut punkt. Om SAML 2,0 STS implementerar en aktiv slut punkt som liknar shibboleths ECP-implementering av en aktiv slut punkt kan det vara möjligt för dessa rika klienter att samverka med Exchange Online-tjänsten.
+>Du måste `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` bara använda om du konfigurerar ett ECP-tillägg för din identitetsprovider. Exchange Online-klienter, förutom Outlook Web Application (OWA), förlitar sig på en POST baserad aktiv slut punkt. Om SAML 2,0 STS implementerar en aktiv slut punkt som liknar shibboleths ECP-implementering av en aktiv slut punkt kan det vara möjligt för dessa rika klienter att samverka med Exchange Online-tjänsten.
 
-När federationen har kon figurer ATS kan du växla tillbaka till "icke-federerad" (eller "hanterad"), men den här ändringen tar upp till två timmar att slutföra och den kräver att du tilldelar nya slumpmässiga lösen ord för molnbaserad inloggning till varje användare. Att växla tillbaka till "hanterad" kan krävas i vissa situationer för att återställa ett fel i inställningarna. Mer information om domän konvertering finns i: [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+När federationen har kon figurer ATS kan du växla tillbaka till "icke-federerad" (eller "hanterad"), men den här ändringen tar upp till två timmar att slutföra och den kräver att du tilldelar nya slumpmässiga lösen ord för molnbaserad inloggning till varje användare. Att växla tillbaka till "hanterad" kan krävas i vissa situationer för att återställa ett fel i inställningarna. Mer information om domän konvertering finns i: [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx) .
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Etablera användar huvud konton i Azure AD/Office 365
 Innan du kan autentisera dina användare till Office 365 måste du etablera Azure AD med användarens huvud namn som motsvarar intyget i SAML 2,0-anspråket. Om dessa användares huvud namn inte är kända för Azure AD i förväg, kan de inte användas för federerad inloggning. Antingen Azure AD Connect eller Windows PowerShell kan användas för att etablera användar huvud konton.
@@ -209,16 +256,17 @@ Den här proceduren visar hur du lägger till en enskild användare i Azure AD.
 
 
 1. Anslut till din Azure AD-katalog som innehavaradministratör: Connect-MsolService.
-2.  Skapa ett nytt huvud namn för användare:
+2. Skapa ett nytt huvud namn för användare:
+
     ```powershell
-    New-MsolUser
-      -UserPrincipalName elwoodf1@contoso.com
-      -ImmutableId ABCDEFG1234567890
-      -DisplayName "Elwood Folk"
-      -FirstName Elwood 
-      -LastName Folk 
-      -AlternateEmailAddresses "Elwood.Folk@contoso.com" 
-      -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
+    New-MsolUser `
+      -UserPrincipalName elwoodf1@contoso.com `
+      -ImmutableId ABCDEFG1234567890 `
+      -DisplayName "Elwood Folk" `
+      -FirstName Elwood `
+      -LastName Folk `
+      -AlternateEmailAddresses "Elwood.Folk@contoso.com" `
+      -LicenseAssignment "samlp2test:ENTERPRISEPACK" `
       -UsageLocation "US" 
     ```
 
@@ -254,11 +302,11 @@ Microsoft tillhandahåller ett verktyg som du kan använda för att testa din SA
 
 
 
-1. Hämta anslutnings analys från, [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
+1. Hämta anslutnings analys från, [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client) .
 2.  Klicka på Installera nu för att börja ladda ned och installera verktyget.
 3.  Välj "Jag kan inte konfigurera Federation med Office 365, Azure eller andra tjänster som använder Azure Active Directory".
 4.  När verktyget har laddats ned och körs visas fönstret anslutnings diagnos. Verktyget kommer att gå igenom hur du testar din Federations anslutning.
-5.  Anslutnings analys öppnar din SAML 2,0-IDP så att du kan logga in, ange autentiseringsuppgifterna för det användar huvud som du testar: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  Anslutnings analys öppnar din SAML 2,0-IDP så att du kan logga in, ange autentiseringsuppgifterna för det användar huvud som du testar: ![ SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  I fönstret för Federations test inloggning ska du ange ett konto namn och lösen ord för den Azure AD-klient som har kon figurer ATS för federerad med din SAML 2,0-identitetsprovider. Verktyget försöker logga in med de här autentiseringsuppgifterna och detaljerade resultat från tester som utförs under inloggnings försöket visas som utdata.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Det här fönstret visar ett undersöknings resultat som inte kunde utföras. Om du klickar på granska detaljerade resultat visas information om resultatet för varje test som utfördes. Du kan också spara resultatet till disk för att dela dem.
@@ -272,8 +320,8 @@ Utför följande steg för att kontrol lera att enkel inloggning har ställts in
 
 
 1. På en domänansluten dator loggar du in på moln tjänsten med samma inloggnings namn som du använder för företagets autentiseringsuppgifter.
-2.  Klicka i rutan lösen ord. Om enkel inloggning har kon figurer ATS skuggas rutan lösen ord och följande meddelande visas: "du måste nu logga in på &lt;företaget&gt;".
-3.  Klicka på inloggningen på &lt;företagets&gt; länk. Om du kan logga in har enkel inloggning kon figurer ATS.
+2.  Klicka i rutan lösen ord. Om enkel inloggning har kon figurer ATS skuggas rutan lösen ord och följande meddelande visas: "du måste nu logga in på &lt; företaget &gt; ".
+3.  Klicka på inloggningen på &lt; företagets &gt; länk. Om du kan logga in har enkel inloggning kon figurer ATS.
 
 ## <a name="next-steps"></a>Efterföljande moment
 

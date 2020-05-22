@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2020
 ms.author: yelevin
-ms.openlocfilehash: 43eba727b1dc724aae6eea3ec77de1363c5db73f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3e63063b3ea4e7fba3997ddd645aa59fe857488
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252518"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758579"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Anslut data från Office 365-loggar
 
@@ -36,6 +36,9 @@ Du kan strömma gransknings loggar från [Office 365](https://docs.microsoft.com
 - Klienten måste ha enhetlig granskning aktive rad. Klienter med Office 365 E3-eller E5-licenser har enhetlig granskning aktiverat som standard. <br>Om din klient organisation saknar någon av dessa licenser måste du aktivera enhetlig granskning på din klient med hjälp av någon av följande metoder:
     - [Använd cmdleten Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) och aktivera parametern "UnifiedAuditLogIngestionEnabled").
     - [Använda gränssnittet för säkerhets & Compliance Center](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
+   
+   > [!NOTE]
+   > För närvarande fångar O365-datakopplingen endast Exchange-och SharePoint-aktivitets automatiskt som anges på anslutnings sidan i avsnittet data typer. Vi rekommenderar att du kontrollerar [den här artikeln om du kräver Teams gransknings data och skyddar team med kontroll](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761). 
 
 ## <a name="connect-to-office-365"></a>Ansluta till Office 365
 

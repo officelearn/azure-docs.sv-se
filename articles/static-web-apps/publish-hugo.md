@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: a0d1ba696b39b9331c4a85c9cf37d13d545ffad5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a6ea758de7f471cb15462d1ebadaecf24c851c70
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599795"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773462"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Hugo-webbplats till Azures statiska Web Apps för hands version
 
@@ -28,7 +28,7 @@ I de här självstudierna får du lära dig att
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
 - Ett GitHub-konto. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://github.com/join).
@@ -133,13 +133,11 @@ Sedan lägger du till de konfigurations inställningar som bygg processen använ
 
 1. Klicka på **Nästa: bygg >** om du vill redigera build-konfigurationen
 
-1. Ange _app-plats_ till **/** .
+1. Ange att _app-platsen_ ska vara **offentlig**.
 
-1. Ställ in _appens artefakt plats_ på **offentlig**.
+1. Lämna _appens artefakt plats_ tom.
 
    Ett värde för _API-platsen_ är inte nödvändigt eftersom du inte distribuerar ett API för tillfället.
-
-   :::image type="content" source="./media/publish-hugo/build-details.png" alt-text="Build-inställningar":::
 
 ### <a name="review-and-create"></a>Granska och skapa
 

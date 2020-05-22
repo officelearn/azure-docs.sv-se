@@ -3,7 +3,7 @@ title: Resurs gränser-hanterad instans
 description: Den här artikeln innehåller en översikt över Azure SQL Database resurs gränser för hanterade instanser.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 49a9355d0e5653ac453493a1808ab95136410d19
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d46746b03935ff5d7893d149b9eb744bb65293ed
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680482"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774224"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 

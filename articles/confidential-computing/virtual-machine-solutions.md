@@ -8,20 +8,20 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: e574ac33e5f7da814c4bd813fc1c083c7cb4c2c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 49b159434497d4b455a338ba88058d73d7de10ee
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187893"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773142"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Lösningar på virtuella Azure-datorer
 
 Den här artikeln beskriver hur du distribuerar virtuella datorer med Azure konfidentiella data bearbetning (VM) som kör Intel-processorer som backas upp av [Intel Software Guard-tillägget](https://software.intel.com/sgx) (Intel SGX). 
 
-## <a name="azure-confidential-computing-vm-sizes"></a>VM-storlekar för Azure konfidentiella datorer
+## <a name="azure-confidential-computing-vm-sizes"></a>VM-storlekar för konfidentiell databehandling i Azure
 
-Virtuella Azure-datorer med konfidentiell användning är utformade för att skydda konfidentiellt och integriteten hos dina data och kod när de bearbetas i molnet 
+Virtuella Azure-datorer med konfidentiell användning är utformade för att skydda konfidentialiteten och integriteten hos dina data och kod när de bearbetas i molnet 
 
 [DCsv2-serien](../virtual-machines/dcv2-series.md) Virtuella datorer är den senaste och senaste konfidentiella data bearbetnings familjen. De här virtuella datorerna har stöd för ett större antal distributions funktioner, har 2x enklaven Page cache (EPC) och ett större urval av storlekar jämfört med våra virtuella datorer i DC-serien. VM [-seriens](../virtual-machines/sizes-previous-gen.md#preview-dc-series) virtuella datorer är för närvarande i för hands version och kommer att vara inaktuella och ingår inte i allmän tillgänglighet.
 
@@ -39,7 +39,7 @@ az vm list-skus
     --output table
 ```
 
-Från och med april 2020 är dessa SKU: er tillgängliga i följande regioner och tillgänglighets zoner:
+Från och med maj 2020 är dessa SKU: er tillgängliga i följande regioner och tillgänglighets zoner:
 
 ```output
 Name              Locations      AZ_a
@@ -86,7 +86,7 @@ Följ en snabb starts guide för att distribuera en virtuell dator med DCsv2-ser
   
 - **Ändra storlek** – på grund av deras specialiserade maskin vara kan du bara ändra storlek på konfidentiella dator instanser inom samma storleks familj. Du kan till exempel bara ändra storlek på en virtuell dator i DCsv2-serien från en DCsv2-serie till en annan. Det går inte att ändra storlek på en icke-konfidentiell dator storlek till en konfidentiell data behandling.  
 
-- **Avbildning** – för att tillhandahålla Intel-stöd för Software Guard-tillägget (Intel SGX) på konfidentiella beräknings instanser måste alla distributioner köras på generation 2-avbildningar. Azures konfidentiella data behandling har stöd för arbets belastningar som körs på Ubuntu 18,04 gen 2, Ubuntu 16,04 gen 2 och Windows Server 2016 gen 2. Läs om [stöd för virtuella datorer i generation 2 på Azure](../virtual-machines/linux/generation-2.md) för att lära dig mer om scenarier som stöds och som inte stöds. 
+- **Avbildning** – för att tillhandahålla Intel-stöd för Software Guard-tillägget (Intel SGX) på konfidentiella beräknings instanser måste alla distributioner köras på generation 2-avbildningar. Azures konfidentiella data behandling har stöd för arbets belastningar som körs på Ubuntu 18,04 gen 2, Ubuntu 16,04 gen 2, Windows Server 2019 Gen2 och Windows Server 2016 gen 2. Läs om [stöd för virtuella datorer i generation 2 på Azure](../virtual-machines/linux/generation-2.md) för att lära dig mer om scenarier som stöds och som inte stöds. 
 
 - **Lagring** – data diskar för virtuella datorer i Azure konfidentiell dator och våra tillfälliga OS-diskar finns på NVMe-diskar. Instanser stöder bara Premium SSD och Standard SSD diskar, inte Ultra SSD eller Standard HDD. Den virtuella datorns storlek **DC8_v2** stöder inte Premium Storage. 
 
@@ -104,11 +104,11 @@ Azure Resource Manager är Azures tjänst för distribution och hantering. Det t
 
 Mer information om Azure Resource Manager mallar finns [malldistribution översikt](../azure-resource-manager/templates/overview.md).
 
-Om du vill distribuera en virtuell dator med DCsv2-serien i en ARM-mall använder du den [virtuella dator resursen](../virtual-machines/windows/template-description.md). Du måste se till att du anger rätt egenskaper för **vmSize** och för din **imageReference**.
+Om du vill distribuera en virtuell dator med DCsv2-serien i en Azure Resource Manager mall använder du den [virtuella dator resursen](../virtual-machines/windows/template-description.md). Se till att du anger rätt egenskaper för **vmSize** och för din **imageReference**.
 
 ### <a name="vm-size"></a>Storlek på virtuell dator
 
-Ange en av följande storlekar i ARM-mallen i den virtuella dator resursen. Den här strängen anges som **vmSize** i **Egenskaper**.
+Ange en av följande storlekar i Azure Resource Manager-mallen i den virtuella dator resursen. Den här strängen anges som **vmSize** i **Egenskaper**.
 
 ```json
   [
@@ -124,6 +124,12 @@ Ange en av följande storlekar i ARM-mallen i den virtuella dator resursen. Den 
 Under **Egenskaper**måste du också referera till en bild under **storageProfile**. Använd *endast en* av följande avbildningar för din **imageReference**.
 
 ```json
+      "2019-datacenter-gensecond": {
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "sku": "2019-datacenter-gensecond",
+        "version": "latest"
+      },
       "2016-datacenter-gensecond": {
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
@@ -146,7 +152,7 @@ Under **Egenskaper**måste du också referera till en bild under **storageProfil
 
 ## <a name="next-steps"></a>Efterföljande moment 
 
-I den här artikeln har du lärt dig om de kvalifikationer och konfigurationer som behövs när du skapar en virtuell dator med konfidentiell dator användning. Nu kan du gå till Azure Marketplace för att distribuera en virtuell dator med DCsv2-serien.
+I den här artikeln har du lärt dig om de kvalifikationer och konfigurationer som behövs när du skapar en virtuell dator med konfidentiell dator användning. Nu kan du gå till Microsoft Azure Marketplace för att distribuera en virtuell dator i DCsv2-serien.
 
 > [!div class="nextstepaction"]
 > [Distribuera en virtuell dator med DCsv2-serien på Azure Marketplace](quick-create-marketplace.md)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7ac085beaa85a7ddf3a6c3bfc61820e8e5a63ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8218b3dbe09e5ce7e6c28e1084b26c6eec4a16ca
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68496912"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773068"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Självstudie: integrera Amazon Business med Azure Active Directory
 
@@ -87,24 +87,22 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     
        | | |
        |-|-|
-       | `https://www.amazon.com`|
-       | `https://www.amazon.co.jp`|
-       | `https://www.amazon.de`|
+       | `https://www.amazon.com`| Nordamerika |
+       | `https://www.amazon.co.jp`| Asien, östra |
+       | `https://www.amazon.de`| Europa |
 
     1. I text rutan **svars-URL** skriver du en URL med något av följande mönster:
     
        | | |
        |-|-|
-       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
+       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Nordamerika |
+       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Asien, östra |
+       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Europa |
 
        > [!NOTE]
        > Värdet för svars-URL:en är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL:en. Du får `<idpid>` värdet från avsnittet om konfiguration av Amazon Business SSO, som beskrivs senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
-
-    Skriv en URL i text rutan **inloggnings-URL** :`https://www.amazon.com/`
+1. Om du vill konfigurera programmet i **SP** -initierat läge måste du lägga till den fullständiga URL: en som finns i Amazon Business-konfigurationen till **inloggnings-URL: en** i avsnittet **Ange ytterligare URL: er** .
 
 1. I följande skärmbild visas listan över standardattribut. Redigera attributen genom att klicka på ikonen **Redigera** i avsnittet **användarattribut &-anspråk** .
 
@@ -153,6 +151,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 1. I guiden **Konfigurera SSO** väljer du providern enligt organisationens krav och klickar på **Nästa**.
 
     ![Standardgrupp](media/amazon-business-tutorial/default-group1.png)
+    
+    > [!NOTE]
+    > Även om Microsoft ADFS är ett listat alternativ fungerar det inte med Azure AD SSO.
 
 1. I guiden **nytt användar konto standarder** väljer du **standard gruppen** och väljer sedan **standard köp rollen** enligt användar rollen i din organisation och klickar på **Nästa**.
 
@@ -197,7 +198,12 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 1. Slutligen visas statusen i avsnittet **information om SSO-anslutnings** **status** som **aktiv**.
 
     ![Anslutning](media/amazon-business-tutorial/sso-connection5.png)
-
+    
+    > [!NOTE]
+    > Om du vill konfigurera programmet i **SP** initierat läge slutför du följande steg, klistra in inloggnings-URL: en från skärm bilden ovanför i text rutan **INLOGGNINGs-URL** i text rutan **Ange ytterligare URL: er** i Azure Portal. Använd följande format:
+    >
+    > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
+    
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
@@ -209,7 +215,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 

@@ -3,12 +3,12 @@ title: Hur du utformar din Application Insights-distribution – en vs många re
 description: Dirigera telemetri till olika resurser för utveckling, testning och produktions märken.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 6df6622cbba251c221533c3307dc194f08e871fb
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125697"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773702"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Hur många Application Insights-resurser ska jag distribuera
 
@@ -138,7 +138,7 @@ När Application Insights-webbmodulen har fått versionsinformationen läggs **p
 Observera dock att versions numret för versionen endast genereras av Microsoft build-motorn, inte av utvecklaren från Visual Studio.
 
 ### <a name="release-annotations"></a>Versionsanteckningar
-Om du använder Azure DevOps kan du [få en antecknings markör](../../azure-monitor/app/annotations.md) tillagd i dina diagram när du släpper en ny version. Följande bild visar hur markeringen visas.
+Om du använder Azure DevOps kan du [få en antecknings markör](../../azure-monitor/app/annotations.md) tillagd i dina diagram när du släpper en ny version. 
 
 ## <a name="next-steps"></a>Nästa steg
 

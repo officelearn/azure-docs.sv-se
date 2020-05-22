@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 7b326e17611b5f4b9520d8218a28a67afe9a851a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: af5b27dc85a276c731a61135ab59ab81f5aaf3c2
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584355"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772207"
 ---
 # <a name="app-sign-in-flow-with-microsoft-identity-platform"></a>Inloggnings flöde för appar med Microsoft Identity Platform
 
@@ -29,7 +29,7 @@ I det här avsnittet beskrivs det grundläggande inloggnings flödet för webb-,
 När en användare navigerar i webbläsaren till en webbapp händer följande:
 
 * Webb programmet avgör om användaren är autentiserad.
-* Om användaren inte har autentiserats delegerar webbappen till Azure AD för att logga in användaren. Inloggningen är kompatibel med organisationens princip, vilket kan innebära att användaren anger sina autentiseringsuppgifter, använder Multi-Factor Authentication eller inte använder ett lösen ord alls (till exempel med hjälp av Windows Hello).
+* Om användaren inte har autentiserats delegerar webbappen till Azure AD för att logga in användaren. Inloggningen är kompatibel med principen för organisationen, vilket kan innebära att användaren anger sina autentiseringsuppgifter med hjälp av [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) (kallas ibland TVÅFAKTORAUTENTISERING eller 2fa) eller inte använder ett lösen ord alls (till exempel med hjälp av Windows Hello).
 * Användaren uppmanas att godkänna åtkomsten som klient appen behöver. Detta är anledningen till att klient program måste registreras med Azure AD, så att Microsoft Identity Platform kan leverera tokens som representerar den åtkomst som användaren har samtyckt till.
 
 När användaren har autentiserats:
@@ -46,7 +46,7 @@ Följande sekvensdiagram sammanfattar interaktionen:
 
 Utvecklare av webbappar kan ange om alla eller endast vissa sidor kräver autentisering. I ASP.NET/ASP.NET Core görs detta genom att `[Authorize]` attributet läggs till i styrenhets åtgärderna.
 
-Det här attributet gör att ASP.NET söker efter en sessions-cookie som innehåller användarens identitet. Om en cookie inte finns omdirigerar ASP.NET autentiseringen till den angivna identitets leverantören. Om identitets leverantören är Azure AD omdirigerar webbappen autentiseringen till `https://login.microsoftonline.com`, som visar en dialog ruta för inloggning.
+Det här attributet gör att ASP.NET söker efter en sessions-cookie som innehåller användarens identitet. Om en cookie inte finns omdirigerar ASP.NET autentiseringen till den angivna identitets leverantören. Om identitets leverantören är Azure AD omdirigerar webbappen autentiseringen till `https://login.microsoftonline.com` , som visar en dialog ruta för inloggning.
 
 ### <a name="how-a-web-app-delegates-sign-in-to-microsoft-identity-platform-and-obtains-a-token"></a>Hur en webbapp delegerar inloggning till Microsoft Identity Platform och erhåller en token
 

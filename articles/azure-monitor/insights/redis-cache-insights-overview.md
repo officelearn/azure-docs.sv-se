@@ -4,13 +4,13 @@ description: I den här artikeln beskrivs Azure Monitor för Azure Redis Cache-f
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/07/2020
-ms.openlocfilehash: a6a8499a13e5c14869f9c9063528cea4ee82f419
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/21/2020
+ms.openlocfilehash: 8c8265242e09938126bfdb28900b64f2c0e7970a
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650428"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773924"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Utforska Azure Monitor för Azure cache för Redis (för hands version)
 
@@ -123,6 +123,38 @@ När du väljer **felen** överst på sidan öppnas tabellen med **felaktiga** t
 ### <a name="metric-definitions"></a>Mått definitioner
 
 Om du vill ha en fullständig lista över mått definitionerna som utgör arbets böckerna kan du läsa [artikeln om tillgängliga mått och rapporterings intervall](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+
+## <a name="view-from-an-azure-cache-for-redis-resource"></a>Visa från en Azure-cache för Redis-resurs
+
+Få åtkomst till Azure Monitor för Azure cache för Redis direkt från en enskild resurs:
+
+1. I Azure Portal väljer du Azure cache för Redis.
+
+2. I listan väljer du en enskild Azure-cache för Redis-resurs. I avsnittet övervakning väljer du insikter (för hands version).
+
+    ![Skärm bild av meny alternativ med orden "insikter (för hands version)" markerade i en röd ruta](./media/redis-cache-insights-overview/insights.png)
+
+Dessa vyer är också tillgängliga genom att välja resurs namnet för en Azure-cache för Redis-resurs från arbets boken Azure Monitors nivå.
+
+### <a name="resource-level-overview"></a>Översikt över resurs nivå
+
+I arbets boken **Översikt** för Azure Redis cache visas flera prestanda mått som ger dig till gång till:
+
+- Interaktiva prestanda diagram som visar de viktigaste detaljerna som rör Azure cache för Redis-prestanda.
+
+- Mått och status paneler som markerar Shard-prestanda, totalt antal anslutna klienter och övergripande svars tid.
+
+![Skärm bild av instrument panelen översikt som visar information om processor prestanda, använt minne, anslutna klienter, fel, förfallna nycklar och avlägsnade nycklar](./media/redis-cache-insights-overview/resource-overview.png)
+
+Om du väljer någon av de andra flikarna för **prestanda** eller **åtgärder** öppnas respektive arbets bok.
+
+### <a name="resource-level-performance"></a>Prestanda på resurs nivå
+
+![Skärm bild av diagram över resurs prestanda](./media/redis-cache-insights-overview/resource-performance.png)
+
+### <a name="resource-level-operations"></a>Åtgärder på resurs nivå
+
+![Skärm bild av diagram över resurs åtgärder](./media/redis-cache-insights-overview/resource-operations.png)
 
 ## <a name="pin-export-and-expand"></a>Fäst, exportera och expandera
 

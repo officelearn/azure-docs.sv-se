@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 28f57c5657ce2f8537a654a7f67ed4481fab2c91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 781406a1bfd253f0ab3eb333f23917be4aeb3ba9
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882700"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771748"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Anropa ett webb-API från en mobilapp
 
@@ -125,7 +125,7 @@ Om du behöver anropa samma API flera gånger, eller om du behöver anropa flera
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Anropa flera API: er med hjälp av stegvisa medgivande och villkorlig åtkomst
 
-Om du behöver anropa flera API: er för samma användare kan du, efter att du har skaffat en token för användaren, undvika att upprepade gånger be användaren om `AcquireTokenSilent` autentiseringsuppgifter genom att sedan anropa för att hämta en token:
+Om du behöver anropa flera API: er för samma användare kan du, efter att du har skaffat en token för användaren, undvika att upprepade gånger be användaren om autentiseringsuppgifter genom att sedan anropa `AcquireTokenSilent` för att hämta en token:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -138,7 +138,7 @@ result = await app.AcquireTokenSilent("scopeApi2")
 Interaktion krävs när:
 
 - Den användare som har skickat för det första API: et, men som nu måste godkänna för fler omfattningar. I det här fallet använder du ett stegvist godkännande.
-- Det första API: t kräver inte multifaktorautentisering, men nästa API gör detta.
+- Det första API: t kräver inte [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md), men nästa API gör.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

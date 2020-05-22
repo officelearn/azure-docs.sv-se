@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91a59e1398bf5e68799ad16a20dfb824904edc8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 509375459d019ead5a7992b808044a75e2666393
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681693"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758868"
 ---
 # <a name="remote-rendering-sessions"></a>Remote Rendering-sessioner
 
@@ -24,7 +24,7 @@ Det innebär att när du använder Azure-fjärrrendering måste en moln server m
 
 ## <a name="managing-sessions"></a>Hantera sessioner
 
-Det finns flera olika sätt att hantera och interagera med sessioner. Det språk oberoende sättet att skapa, uppdatera och stänga av sessioner är via [REST API för hantering av sessionen](../how-tos/session-rest-api.md). I C# och C++ exponeras dessa åtgärder via klasserna `AzureFrontend` och. `AzureSession` För Unity-program finns ytterligare verktyg som tillhandahålls av `ARRServiceUnity` komponenten.
+Det finns flera olika sätt att hantera och interagera med sessioner. Det språk oberoende sättet att skapa, uppdatera och stänga av sessioner är via [REST API för hantering av sessionen](../how-tos/session-rest-api.md). I C# och C++ exponeras dessa åtgärder via klasserna `AzureFrontend` och `AzureSession` . För Unity-program finns ytterligare verktyg som tillhandahålls av `ARRServiceUnity` komponenten.
 
 När du är *ansluten* till en aktiv session exponeras åtgärder som att [läsa in modeller](models.md) och interagera med scenen genom `AzureSession` klassen.
 
@@ -82,7 +82,7 @@ Du kan [utöka låne tiden](../how-tos/session-rest-api.md#update-a-session) fö
 
 Koden nedan visar en enkel implementering av att starta en session, väntar på *klart* läge, ansluta och sedan koppla från och stänga av igen.
 
-``` cs
+```cs
 RemoteRenderingInitialization init = new RemoteRenderingInitialization();
 // fill out RemoteRenderingInitialization parameters...
 
@@ -138,11 +138,11 @@ RemoteManagerStatic.ShutdownRemoteRendering();
 
 Flera `AzureFrontend` och `AzureSession` instanser kan underhållas, manipuleras och efter frågas från kod. Men bara en enskild enhet kan ansluta till en `AzureSession` i taget.
 
-Livs längden för en virtuell dator är inte kopplad till `AzureFrontend` instansen `AzureSession` eller instansen. `AzureSession.StopAsync`måste anropas för att stoppa en session.
+Livs längden för en virtuell dator är inte kopplad till `AzureFrontend` instansen eller `AzureSession` instansen. `AzureSession.StopAsync`måste anropas för att stoppa en session.
 
-Det permanenta sessions-ID: t kan `AzureSession.SessionUUID()` frågas via och cachelagras lokalt. Med det här ID: t kan ett `AzureFrontend.OpenSession` program anropa för att binda till den sessionen.
+Det permanenta sessions-ID: t kan frågas via `AzureSession.SessionUUID()` och cachelagras lokalt. Med det här ID: t kan ett program anropa `AzureFrontend.OpenSession` för att binda till den sessionen.
 
-När `AzureSession.IsConnected` är `AzureSession.Actions` sant returnerar en instans av `RemoteManager`, som innehåller funktionerna för att [läsa in modeller](models.md), manipulera [entiteter](entities.md)och fråga efter [information](../overview/features/spatial-queries.md) om den återgede scenen.
+När `AzureSession.IsConnected` är sant `AzureSession.Actions` returnerar en instans av `RemoteManager` , som innehåller funktionerna för att [läsa in modeller](models.md), manipulera [entiteter](entities.md)och [fråga efter information](../overview/features/spatial-queries.md) om den återgede scenen.
 
 ## <a name="next-steps"></a>Nästa steg
 

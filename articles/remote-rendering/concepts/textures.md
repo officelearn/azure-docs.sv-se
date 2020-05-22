@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09fa22d33377dfcbafd84f0caeb5f33a575b1bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de3f127d97803ea920d61d748a1af0c80a1a1afc
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681667"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759140"
 ---
 # <a name="textures"></a>Bakgrunder
 
@@ -34,16 +34,16 @@ Att läsa in en struktur med samma URI två gånger returnerar samma textur obje
 
 Precis som vid inläsning av modeller finns det två varianter av att adressera en struktur till gång i Blob Storage för källa:
 
-* Textur till gången kan åtgärdas med hjälp av SAS-URI: n. Relevant inläsnings `LoadTextureFromSASAsync` funktion är `LoadTextureFromSASParams`med-parameter. Använd även den här varianten vid inläsning av [inbyggda texturer](../overview/features/sky.md#built-in-environment-maps).
-* Strukturen kan åtgärdas av Blob Storage-parametrar direkt, om [Blob Storage är länkat till kontot](../how-tos/create-an-account.md#link-storage-accounts). Relevant inläsnings funktion i det `LoadTextureAsync` här fallet `LoadTextureParams`är med-parameter.
+* Textur till gången kan åtgärdas med hjälp av SAS-URI: n. Relevant inläsnings funktion är `LoadTextureFromSASAsync` med-parameter `LoadTextureFromSASParams` . Använd även den här varianten vid inläsning av [inbyggda texturer](../overview/features/sky.md#built-in-environment-maps).
+* Strukturen kan åtgärdas av Blob Storage-parametrar direkt, om [Blob Storage är länkat till kontot](../how-tos/create-an-account.md#link-storage-accounts). Relevant inläsnings funktion i det här fallet är `LoadTextureAsync` med-parameter `LoadTextureParams` .
 
 Följande exempel kod visar hur du läser in en struktur via dess SAS-URI (eller inbyggd struktur) – Observera att endast inläsnings funktionen/-parametern skiljer sig för det andra fallet:
 
-``` cs
+```cs
 LoadTextureAsync _textureLoad = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
-    _textureLoad = session.Actions.LoadTextureAsync(new LoadTextureParams(textureUri, TextureType.Texture2D));
+    _textureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
     _textureLoad.Completed +=
         (LoadTextureAsync res) =>
         {
@@ -59,6 +59,28 @@ void LoadMyTexture(AzureSession session, string textureUri)
         };
 }
 ```
+
+```cpp
+void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::Texture2D;
+    params.TextureUrl = std::move(textureUri);
+    ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+    textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            //use res->Result()
+        }
+        else
+        {
+            printf("Texture loading failed!");
+        }
+    });
+}
+```
+
 
 Beroende på vad texturen ska användas för kan det finnas begränsningar för textur typ och innehåll. Till exempel måste en ojämnhets karta för ett [PBR-material](../overview/features/pbr-materials.md) vara gråskala.
 

@@ -3,7 +3,7 @@ title: Instans pooler (för hands version)
 description: Den här artikeln beskriver Azure SQL Database instans-pooler (för hands version).
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 0938fbe94cb0d1e6dae3dcb84950a11f90dd9db8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a418972b78750dbed90f0148aac45dbcc2617f8e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878161"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773091"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Vad är SQL Database instance Pools (för hands version)?
 
@@ -31,7 +31,7 @@ Dessutom stöder instans-pooler inbyggd VNet-integrering så att du kan distribu
 
 Instans pooler ger följande fördelar:
 
-1. Möjlighet att vara värd för 2 vCore-instanser. *Endast för instanser i instans grupper. \**
+1. Möjlighet att vara värd för 2 vCore-instanser. * \* Endast för instanser i instans grupper*.
 2. Tid för förutsägbar och snabb instans distribution (upp till 5 minuter).
 3. Minimal allokering av IP-adress.
 
@@ -59,7 +59,7 @@ I följande lista visas de viktigaste användnings fallen där instanser av inst
 
 ## <a name="architecture-of-instance-pools"></a>Arkitektur för instans-pooler
 
-Instans pooler har liknande arkitektur för vanliga hanterade instanser (*enskilda instanser*). För att stödja [distributioner inom Azure Virtual Networks (virtuella nätverk)](../virtual-network/virtual-network-for-azure-services.md) och för att tillhandahålla isolering och säkerhet för kunder, förlitar sig instansen på [virtuella kluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Virtuella kluster representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverks undernät.
+Instans pooler har liknande arkitektur för vanliga hanterade instanser (*enskilda instanser*). För att stödja [distributioner inom Azure Virtual Networks (virtuella nätverk)](../virtual-network/virtual-network-for-azure-services.md)   och för att tillhandahålla isolering och säkerhet för kunder, förlitar sig instansen på [virtuella kluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Virtuella kluster representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverks undernät.
 
 Den största skillnaden mellan de två distributions modellerna är att instans pooler tillåter flera SQL Server process distributioner på samma nod för virtuella datorer, som är en resurs som styrs med hjälp av [Windows-jobbobjektet](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), medan enskilda instanser alltid är ensamma på en nod för virtuella datorer.
 

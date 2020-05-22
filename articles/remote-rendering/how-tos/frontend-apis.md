@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: 04296a3dab61fdb569126abc1bc1f975d69e226d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68d94a3bdf7914f762774686fa0b0fa0d0fd37cc
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681355"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759072"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Använda Azure Frontend-API:er för autentisering
 
@@ -24,20 +24,33 @@ De viktiga fälten är:
 
 ```cs
 
-    public class AzureFrontendAccountInfo
-    {
-        // Something akin to "<region>.mixedreality.azure.com"
-        public string AccountDomain;
+public class AzureFrontendAccountInfo
+{
+    // Something akin to "<region>.mixedreality.azure.com"
+    public string AccountDomain;
 
-        // Can use one of:
-        // 1) ID and Key.
-        // 2) AuthenticationToken.
-        // 3) AccessToken.
-        public string AccountId = Guid.Empty.ToString();
-        public string AccountKey = string.Empty;
-        public string AuthenticationToken = string.Empty;
-        public string AccessToken = string.Empty;
-    }
+    // Can use one of:
+    // 1) ID and Key.
+    // 2) AuthenticationToken.
+    // 3) AccessToken.
+    public string AccountId = Guid.Empty.ToString();
+    public string AccountKey = string.Empty;
+    public string AuthenticationToken = string.Empty;
+    public string AccessToken = string.Empty;
+}
+```
+
+C++-motsvarigheten ser ut så här:
+
+```cpp
+struct AzureFrontendAccountInfo
+{
+    std::string AccountDomain{};
+    std::string AccountId{};
+    std::string AccountKey{};
+    std::string AuthenticationToken{};
+    std::string AccessToken{};
+};
 
 ```
 
@@ -47,13 +60,13 @@ Konto informationen kan hämtas från portalen enligt beskrivningen i stycket [H
 
 ## <a name="azure-frontend"></a>Azure-frontend
 
-Relevanta klasser är ```AzureFrontend``` och ```AzureSession```. ```AzureFrontend```används för konto hanterings-och konto nivå funktioner, bland annat: till gångs konvertering och åter givnings skapande av session. ```AzureSession```används för funktioner på sidnivå och innehåller: uppdatering av sessionen, frågor, förnyande och inaktive ring.
+Relevanta klasser är ```AzureFrontend``` och ```AzureSession``` . ```AzureFrontend```används för konto hanterings-och konto nivå funktioner, bland annat: till gångs konvertering och åter givnings skapande av session. ```AzureSession```används för funktioner på sidnivå och innehåller: uppdatering av sessionen, frågor, förnyande och inaktive ring.
 
 Alla öppna/skapade ```AzureSession``` behåller en referens till den klient som skapade den. För att stänga av datorn måste alla sessioner frigöras innan klient delen frigörs.
 
-Om du avallokerar en session stoppas inte den virtuella `AzureSession.StopAsync` datorn på Azure, måste uttryckligen anropas.
+Om du avallokerar en session stoppas inte den virtuella datorn på Azure, `AzureSession.StopAsync` måste uttryckligen anropas.
 
-När en session har skapats och dess status har marker ATS som klar, kan den ansluta till körnings miljön för fjärrrendering med `AzureSession.ConnectToRuntime`.
+När en session har skapats och dess status har marker ATS som klar, kan den ansluta till körnings miljön för fjärrrendering med `AzureSession.ConnectToRuntime` .
 
 ### <a name="threading"></a>Threading
 
@@ -65,13 +78,15 @@ Mer information om konverterings tjänsten finns i [modell konverterings REST AP
 
 #### <a name="start-asset-conversion"></a>Starta till gångs konvertering
 
-``` cs
+```cs
 private StartConversionAsync _pendingAsync = null;
 
-void StartAssetConversion(AzureFrontend frontend, string modelName, string modelUrl, string assetContainerUrl)
+void StartAssetConversion(AzureFrontend frontend, string storageContainer, string blobinputpath, string bloboutpath, string modelName, string outputName)
 {
     _pendingAsync = frontend.StartConversionAsync(
-        new AssetConversionParams(modelName, modelUrl, assetContainerUrl));
+        new AssetConversionInputParams(storageContainer, blobinputpath, "", modelName),
+        new AssetConversionOutputParams(storageContainer, bloboutpath, "", outputName)
+        );
     _pendingAsync.Completed +=
         (StartConversionAsync res) =>
         {
@@ -89,13 +104,45 @@ void StartAssetConversion(AzureFrontend frontend, string modelName, string model
 }
 ```
 
+```cpp
+void StartAssetConversion(ApiHandle<AzureFrontend> frontend, std::string storageContainer, std::string blobinputpath, std::string bloboutpath, std::string modelName, std::string outputName)
+{
+    AssetConversionInputParams input;
+    input.BlobContainerInformation.BlobContainerName = blobinputpath;
+    input.BlobContainerInformation.StorageAccountName = storageContainer;
+    input.BlobContainerInformation.FolderPath = "";
+    input.InputAssetPath = modelName;
+
+    AssetConversionOutputParams output;
+    output.BlobContainerInformation.BlobContainerName = blobinputpath;
+    output.BlobContainerInformation.StorageAccountName = storageContainer;
+    output.BlobContainerInformation.FolderPath = "";
+    output.OutputAssetPath = outputName;
+
+    ApiHandle<StartAssetConversionAsync> conversionAsync = *frontend->StartAssetConversionAsync(input, output);
+    conversionAsync->Completed([](ApiHandle<StartAssetConversionAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            //use res.Result
+        }
+        else
+        {
+            printf("Failed to start asset conversion!");
+        }
+    }
+    );
+}
+```
+
+
 #### <a name="get-conversion-status"></a>Hämta konverterings status
 
-``` cs
+```cs
 private ConversionStatusAsync _pendingAsync = null
 void GetConversionStatus(AzureFrontend frontend, string assetId)
 {
-    _pendingAsync = frontend.GetConversionStatusAsync(assetId);
+    _pendingAsync = frontend.GetAssetConversionStatusAsync(assetId);
     _pendingAsync.Completed +=
         (ConversionStatusAsync res) =>
         {
@@ -113,6 +160,26 @@ void GetConversionStatus(AzureFrontend frontend, string assetId)
 }
 ```
 
+```cpp
+void GetConversionStatus(ApiHandle<AzureFrontend> frontend, std::string assetId)
+{
+    ApiHandle<ConversionStatusAsync> pendingAsync = *frontend->GetAssetConversionStatusAsync(assetId);
+    pendingAsync->Completed([](ApiHandle<ConversionStatusAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            // use res->Result
+        }
+        else
+        {
+            printf("Failed to get status of asset conversion!");
+        }
+
+    });
+}
+```
+
+
 ### <a name="rendering-apis"></a>API för rendering
 
 Mer information om sessionshantering finns i [REST API för hantering av sessioner](session-rest-api.md) .
@@ -121,7 +188,7 @@ En rendering-session kan antingen skapas dynamiskt på tjänsten eller också ka
 
 #### <a name="create-rendering-session"></a>Skapa åter givnings session
 
-``` cs
+```cs
 private CreateSessionAsync _pendingAsync = null;
 void CreateRenderingSession(AzureFrontend frontend, RenderingSessionVmSize vmSize, ARRTimeSpan maxLease)
 {
@@ -144,11 +211,33 @@ void CreateRenderingSession(AzureFrontend frontend, RenderingSessionVmSize vmSiz
 }
 ```
 
+```cpp
+void CreateRenderingSession(ApiHandle<AzureFrontend> frontend, RenderingSessionVmSize vmSize, const ARRTimeSpan& maxLease)
+{
+    RenderingSessionCreationParams params;
+    params.MaxLease = maxLease;
+    params.Size = vmSize;
+    ApiHandle<CreateSessionAsync> pendingAsync = *frontend->CreateNewRenderingSessionAsync(params);
+
+    pendingAsync->Completed([] (ApiHandle<CreateSessionAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            //use res->Result
+        }
+        else
+        {
+            printf("Failed to create session!");
+        }
+    });
+}
+```
+
 #### <a name="open-an-existing-rendering-session"></a>Öppna en befintlig åter givnings session
 
 Att öppna en befintlig session är ett synkront anrop.
 
-``` cs
+```cs
 void CreateRenderingSession(AzureFrontend frontend, string sessionId)
 {
     AzureSession session = frontend.OpenRenderingSession(sessionId);
@@ -156,9 +245,18 @@ void CreateRenderingSession(AzureFrontend frontend, string sessionId)
 }
 ```
 
+```cpp
+void CreateRenderingSession(ApiHandle<AzureFrontend> frontend, std::string sessionId)
+{
+    ApiHandle<AzureSession> session = *frontend->OpenRenderingSession(sessionId);
+    // Query session status, etc.
+}
+```
+
+
 #### <a name="get-current-rendering-sessions"></a>Hämta aktuella åter givnings sessioner
 
-``` cs
+```cs
 private SessionPropertiesArrayAsync _pendingAsync = null;
 void GetCurrentRenderingSessions(AzureFrontend frontend)
 {
@@ -179,11 +277,29 @@ void GetCurrentRenderingSessions(AzureFrontend frontend)
 }
 ```
 
+```cpp
+void GetCurrentRenderingSessions(ApiHandle<AzureFrontend> frontend)
+{
+    ApiHandle<SessionPropertiesArrayAsync> pendingAsync = *frontend->GetCurrentRenderingSessionsAsync();
+    pendingAsync->Completed([](ApiHandle<SessionPropertiesArrayAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            // use res.Result
+        }
+        else
+        {
+            printf("Failed to get current rendering sessions!");
+        }
+    });
+}
+```
+
 ### <a name="session-apis"></a>Sessioners-API: er
 
 #### <a name="get-rendering-session-properties"></a>Hämta egenskaper för åter givnings session
 
-``` cs
+```cs
 private SessionPropertiesAsync _pendingAsync = null;
 void GetRenderingSessionProperties(AzureSession session)
 {
@@ -204,9 +320,27 @@ void GetRenderingSessionProperties(AzureSession session)
 }
 ```
 
+```cpp
+void GetRenderingSessionProperties(ApiHandle<AzureSession> session)
+{
+    ApiHandle<SessionPropertiesAsync> pendingAsync = *session->GetPropertiesAsync();
+    pendingAsync->Completed([](ApiHandle<SessionPropertiesAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            //use res.Result
+        }
+        else
+        {
+            printf("Failed to get properties of session!");
+        }
+    });
+}
+```
+
 #### <a name="update-rendering-session"></a>Uppdatera åter givnings session
 
-``` cs
+```cs
 private SessionAsync _pendingAsync;
 void UpdateRenderingSession(AzureSession session, ARRTimeSpan updatedLease)
 {
@@ -228,9 +362,29 @@ void UpdateRenderingSession(AzureSession session, ARRTimeSpan updatedLease)
 }
 ```
 
+```cpp
+void UpdateRenderingSession(ApiHandle<AzureSession> session, const ARRTimeSpan& updatedLease)
+{
+    RenderingSessionUpdateParams params;
+    params.MaxLease = updatedLease;
+    ApiHandle<SessionAsync> pendingAsync = *session->RenewAsync(params);
+    pendingAsync->Completed([](ApiHandle<SessionAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            printf("Rendering session renewed succeeded!");
+        }
+        else
+        {
+            printf("Failed to renew rendering session!");
+        }
+    });
+}
+```
+
 #### <a name="stop-rendering-session"></a>Stoppa åter givning av session
 
-``` cs
+```cs
 private SessionAsync _pendingAsync;
 void StopRenderingSession(AzureSession session)
 {
@@ -251,9 +405,27 @@ void StopRenderingSession(AzureSession session)
 }
 ```
 
+```cpp
+void StopRenderingSession(ApiHandle<AzureSession> session)
+{
+    ApiHandle<SessionAsync> pendingAsync = *session->StopAsync();
+    pendingAsync->Completed([](ApiHandle<SessionAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            printf("Rendering session stopped successfully!");
+        }
+        else
+        {
+            printf("Failed to stop rendering session!");
+        }
+    });
+}
+```
+
 #### <a name="connect-to-arr-inspector"></a>Anslut till ARR-kontrollant
 
-``` cs
+```cs
 private ArrInspectorAsync _pendingAsync = null;
 void ConnectToArrInspector(AzureSession session, string hostname)
 {
@@ -283,6 +455,26 @@ void ConnectToArrInspector(AzureSession session, string hostname)
                 Console.WriteLine("Failed to connect to ARR inspector!");
             }
         };
+}
+```
+
+```cpp
+void ConnectToArrInspector(ApiHandle<AzureSession> session, std::string hostname)
+{
+    ApiHandle<ArrInspectorAsync> pendingAsync = *session->ConnectToArrInspectorAsync(hostname);
+    pendingAsync->Completed([](ApiHandle<ArrInspectorAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            // Launch the html file with default browser
+            std::string htmlPath = "file:///" + *res->Result();
+            ShellExecuteA(NULL, "open", htmlPath.c_str(), NULL, NULL, SW_SHOWDEFAULT);
+        }
+        else
+        {
+            printf("Failed to connect to ARR inspector!");
+        }
+    });
 }
 ```
 

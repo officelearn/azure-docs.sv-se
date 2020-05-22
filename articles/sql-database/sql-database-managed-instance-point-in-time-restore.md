@@ -3,7 +3,7 @@ title: Hanterad instans-tidpunkts återställning (PITR)
 description: Återställa en SQL-databas i en hanterad instans till en tidigare tidpunkt.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 27f465e6864d0ff639e825c8a816d86648bd8853
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21af96e8527bb3fc18666c0353ab3bdbe2a010f1
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268813"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773816"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Återställa en SQL-databas i en hanterad instans till en tidigare tidpunkt
 
@@ -52,7 +52,7 @@ I följande tabell visas scenarier för återställning av tidpunkter för hante
 
 Återställ en befintlig databas till samma instans med hjälp av Azure Portal, PowerShell eller Azure CLI. Om du vill återställa en databas till en annan instans använder du PowerShell eller Azure CLI så att du kan ange egenskaperna för den hanterade mål instansen och resurs gruppen. Om du inte anger dessa parametrar kommer databasen att återställas till den befintliga instansen som standard. Azure Portal har för närvarande inte stöd för återställning till en annan instans.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Gå till din hanterade instans och välj den databas som du vill återställa.
@@ -205,7 +205,7 @@ Använd någon av följande metoder för att ansluta till databasen i den hanter
 - [Punkt-till-plats](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Offentlig slutpunkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 I Azure Portal väljer du databasen från den hanterade instansen och väljer sedan **ta bort**.
 

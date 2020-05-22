@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/30/2020
+ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: db9937d87692a1221d72bd27cfd653d803b9a1c6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: ce81af90baeeda519f1b56d1e10a46923ebd22c2
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883251"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772139"
 ---
 # <a name="authentication-flows"></a>Autentiserings flöden
 
@@ -49,7 +49,7 @@ Beroende på hur din klient har skapats kan den använda en (eller flera) av de 
 |[Enhets kod flöde](v2-oauth2-device-code.md) | | x| x| x| |
 |[Klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) | | | x (endast app-only)| | |
  
-Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL `response_mode` : `query` en `fragment`(där är eller).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Detta innebär att dessa tokens inte har eller `groups` `wids` är anspråk.
+Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL: en (där `response_mode` är `query` eller `fragment` ).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Detta innebär att dessa tokens inte har `groups` eller är `wids` anspråk.
 
 ## <a name="interactive"></a>Interaktiv
 
@@ -78,7 +78,7 @@ Det här autentiseringsschemat omfattar inte program scenarier som använder pla
 
 MSAL stöder [utfärdande av OAuth 2-auktoriseringskod](v2-oauth2-auth-code-flow.md). Det här bidraget kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. På så sätt kan du lägga till inloggnings-och API-åtkomst till dina mobila och Station ära appar. 
 
-När användarna loggar in på webb program (webbplatser) får webb programmet en auktoriseringskod.  Auktoriseringskod löses för att hämta en token för att anropa webb-API: er. I ASP.NET och ASP.NET Core webbappar `AcquireTokenByAuthorizationCode` är det enda målet att lägga till en token i token cache. Token kan sedan användas av programmet (vanligt vis i kontrollanter som bara får en token för ett API med hjälp `AcquireTokenSilent`av).
+När användarna loggar in på webb program (webbplatser) får webb programmet en auktoriseringskod.  Auktoriseringskod löses för att hämta en token för att anropa webb-API: er. I ASP.NET och ASP.NET Core webbappar är det enda målet `AcquireTokenByAuthorizationCode` att lägga till en token i token cache. Token kan sedan användas av programmet (vanligt vis i kontrollanter som bara får en token för ett API med hjälp av `AcquireTokenSilent` ).
 
 ![Diagram över flöde för auktoriseringskod](media/msal-authentication-flows/authorization-code.png)
 
@@ -151,7 +151,7 @@ Genom att använda enhets kod flödet hämtar programmet token via en två stegs
 
 I diagrammet ovan:
 
-1. När användarautentisering krävs ger appen en kod och ber användaren att använda en annan enhet (till exempel en Internet-ansluten smartphone) för att gå till en URL (t. ex. `https://microsoft.com/devicelogin`). Användaren uppmanas sedan att ange koden och fortsätter med en normal autentisering, inklusive medgivande-prompter och Multi-Factor Authentication om det behövs.
+1. När användarautentisering krävs ger appen en kod och ber användaren att använda en annan enhet (till exempel en Internet-ansluten smartphone) för att gå till en URL (t. ex. `https://microsoft.com/devicelogin` ). Användaren uppmanas sedan att ange koden och fortsätter med en normal autentisering, inklusive medgivande-prompter och [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) om det behövs.
 
 2. Vid lyckad autentisering tar kommando rads appen emot de begärda token via en återställnings kanal och använder dem för att utföra de webb-API-anrop som krävs.
 
@@ -160,7 +160,7 @@ I diagrammet ovan:
 - Enhets kod flödet är bara tillgängligt för offentliga klient program.
 - Den auktoritet som skickades när du konstruerade det offentliga klient programmet måste vara något av följande:
   - Tenant (av formuläret `https://login.microsoftonline.com/{tenant}/` där `{tenant}` är antingen det GUID som representerar klient-ID: t eller en domän som är associerad med klienten).
-  - För arbets-och skol konton (`https://login.microsoftonline.com/organizations/`).
+  - För arbets-och skol konton ( `https://login.microsoftonline.com/organizations/` ).
 - Microsoft personliga konton stöds ännu inte av Azure AD v 2.0-slut punkten (du kan inte `/common` använda `/consumers` -klient organisationer).
 
 ## <a name="integrated-windows-authentication"></a>Integrerad Windows-autentisering
@@ -182,11 +182,11 @@ IWA är avsedd för appar som är skrivna för .NET Framework, .NET Core och Uni
 
 IWA kringgår inte Multi-Factor Authentication. Om Multi-Factor Authentication har kon figurer ATS kan IWA Miss förväntat om en Multi-Factor Authentication-utmaning krävs. Multi-Factor Authentication kräver användar interaktion.
 
-Du styr inte när identitets leverantören begär tvåfaktorautentisering som ska utföras. Klient organisationens administratör gör. Normalt krävs tvåfaktorautentisering när du loggar in från ett annat land, när du inte är ansluten via VPN till ett företags nätverk och ibland även när du är ansluten via VPN. Azure AD använder AI för att kontinuerligt lära sig om tvåfaktorautentisering krävs. Om IWA Miss lyckas bör du gå tillbaka till en [interaktiv användar varning] (#interactive).
+Du styr inte när identitets leverantören begär tvåfaktorautentisering som ska utföras. Klient organisationens administratör gör. Vanligt vis krävs tvåfaktorautentisering när du loggar in från ett annat land/en annan region, när du inte är ansluten via VPN till ett företags nätverk och ibland även när du är ansluten via VPN. Azure AD använder AI för att kontinuerligt lära sig om tvåfaktorautentisering krävs. Om IWA Miss lyckas bör du gå tillbaka till en [interaktiv användar varning] (#interactive).
 
 Den auktoritet som skickades när du konstruerade det offentliga klient programmet måste vara något av följande:
 - Tenant (av formuläret `https://login.microsoftonline.com/{tenant}/` där `tenant` är antingen det GUID som representerar klient-ID: t eller en domän som är associerad med klienten).
-- För arbets-och skol konton (`https://login.microsoftonline.com/organizations/`). Microsoft-personliga konton stöds inte (du kan inte `/common` använda `/consumers` eller klienter).
+- För arbets-och skol konton ( `https://login.microsoftonline.com/organizations/` ). Microsoft-personliga konton stöds inte (du kan inte använda `/common` eller `/consumers` klienter).
 
 Eftersom IWA är ett tyst flöde måste något av följande vara sant:
 - Användaren av ditt program måste tidigare ha samtyckt till att använda programmet. 

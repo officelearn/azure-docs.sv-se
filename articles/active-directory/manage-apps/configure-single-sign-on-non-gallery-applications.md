@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad27ad5e34d9f44fe7d7be80e05e33dd6fb5e7b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d97cef332b24700920693bab55dcbd396015dc7
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244217"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758375"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Konfigurera SAML-baserad enkel inloggning till program som inte är gallerier
 
@@ -26,7 +26,7 @@ När du [lägger till en Galleri-app](add-gallery-app.md) eller en [icke-Galleri
 > [!NOTE]
 > Lägger du till en galleriapp? Hitta steg-för-steg-instruktioner i [listan med självstudier för SaaS-appar](../saas-apps/tutorial-list.md)
 
-Om du vill konfigurera SAML enkel inloggning för ett program som inte är ett galleri program utan att skriva kod, måste du ha en prenumeration tillsammans med en Azure AD Premium-licens och programmet måste ha stöd för SAML 2,0. Mer information om Azure AD-versioner finns i [priser för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Om du vill konfigurera SAML enkel inloggning för ett program som inte är ett galleri program utan att skriva kod, måste du ha en Azure AD-prenumeration och programmet måste ha stöd för SAML 2,0. Mer information om Azure AD-versioner finns i [priser för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -36,7 +36,7 @@ Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör för molnprogram eller programadministratör för din Azure AD-klientorganisation.
 
-2. Gå till **Azure Active Directory** > **företags program** och välj programmet i listan. 
+2. Gå till **Azure Active Directory**  >  **företags program** och välj programmet i listan. 
    
    - Om du vill söka efter programmet väljer du **alla program**i menyn **program typ** och väljer sedan **Använd**. Ange namnet på programmet i sökrutan och välj sedan programmet från resultaten.
 
@@ -52,11 +52,11 @@ Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till
 
     | Grundläggande konfigurations inställning för SAML | SP-initierad | idP-initierad | Beskrivning |
     |:--|:--|:--|:--|
-    | **Identifierare (entitets-ID)** | Krävs för vissa appar | Krävs för vissa appar | Identifierar programmet unikt. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet. Ange en URL som använder följande mönster: "https://<subdomain>. contoso.com" *du hittar det här värdet som **Issuer** -element i **AuthnRequest** (SAML-begäran) som skickas av programmet.* |
-    | **Svarswebbadress** | Krävs | Krävs | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |
-    | **Inloggnings-URL** | Krävs | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL:en för att starta programmet från Office 365 eller Azure AD-åtkomstpanelen. Om det är tomt utför Azure AD IdP inloggning när en användare startar programmet från Office 365, Azure AD-åtkomst panelen eller URL: en för Azure AD SSO.|
-    | **Vidarebefordransstatus** | Valfri | Valfri | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
-    | **Utloggnings-URL** | Valfri | Valfri | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
+    | **Identifierare (entitets-ID)** | Krävs för vissa appar | Krävs för vissa appar | Identifierar programmet unikt. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet. Ange en URL som använder följande mönster: "https:// <subdomain> . contoso.com" *du hittar det här värdet som **Issuer** -element i **AuthnRequest** (SAML-begäran) som skickas av programmet.* |
+    | **Svarswebbadress** | Obligatorisk | Obligatorisk | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |
+    | **Inloggnings-URL** | Obligatorisk | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL:en för att starta programmet från Office 365 eller Azure AD-åtkomstpanelen. Om det är tomt utför Azure AD IdP inloggning när en användare startar programmet från Office 365, Azure AD-åtkomst panelen eller URL: en för Azure AD SSO.|
+    | **Vidarebefordransstatus** | Valfritt | Valfritt | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
+    | **Utloggnings-URL** | Valfritt | Valfritt | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
 
 Mer information finns i [SAML-protokoll för enkel inloggning](../develop/single-sign-on-saml-protocol.md).
 
@@ -102,7 +102,7 @@ Från Azure AD kan du ladda ned det aktiva certifikatet i base64-eller RAW-forma
    - *Rätt signerings alternativ och algoritm.*
    - *Rätt e-postadress för e-post.* När det aktiva certifikatet är nära utgångs datumet skickar Azure AD ett meddelande till den e-postadress som kon figurer ATS i det här fältet.
 
-2. Om du vill hämta certifikatet väljer du ett av alternativen för base64-format, RAW-format eller XML för federationsmetadata. Azure AD tillhandahåller även **URL: en för app Federation-Metadata** där du kan komma åt metadata som är specifika för `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`programmet i formatet.
+2. Om du vill hämta certifikatet väljer du ett av alternativen för base64-format, RAW-format eller XML för federationsmetadata. Azure AD tillhandahåller även **URL: en för app Federation-Metadata** där du kan komma åt metadata som är specifika för programmet i formatet `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>` .
 
 3. Om du vill hantera, skapa eller importera ett certifikat väljer du **redigerings** ikonen (en penna) i det övre högra hörnet av certifikat avsnittet **SAML-signering** .
 
@@ -122,9 +122,9 @@ Från Azure AD kan du ladda ned det aktiva certifikatet i base64-eller RAW-forma
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Steg 4. Konfigurera programmet för att använda Azure AD
 
-I avsnittet **Konfigurera \<applicationName>** visas de värden som måste konfigureras i programmet så att Azure AD används som en SAML-identitetsprovider. De värden som krävs varierar beroende på programmet. Mer information finns i programmets SAML-dokumentation. Om du vill hitta dokumentationen går du till rubriken **Konfigurera \<program namn>** och väljer **Visa steg-för-steg-instruktioner**. Dokumentationen visas på sidan **Konfigurera inloggning** . På den sidan får du hjälp att fylla i **inloggnings-URL**: en, **Azure AD-identifierare**och **Logga ut URL** -värden i rubriken **Konfigurera \<program namn>** .
+I avsnittet **Konfigurera \< applicationName>** visas de värden som måste konfigureras i programmet så att Azure AD används som en SAML-identitetsprovider. De värden som krävs varierar beroende på programmet. Mer information finns i programmets SAML-dokumentation. Om du vill hitta dokumentationen går du till rubriken **Konfigurera \< program namn>** och väljer **Visa steg-för-steg-instruktioner**. Dokumentationen visas på sidan **Konfigurera inloggning** . På den sidan får du hjälp att fylla i **inloggnings-URL**: en, **Azure AD-identifierare**och **Logga ut URL** -värden i rubriken **Konfigurera \< program namn>** .
 
-1. Rulla ned till avsnittet ** \<konfigurera applicationName->** . 
+1. Rulla ned till avsnittet **Konfigurera \< applicationName->** . 
    
    ![Steg 4 konfigurera programmet](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
 

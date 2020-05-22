@@ -3,19 +3,19 @@ title: Aktiverar konfiguration av tjänstens konfiguration för under nätet fö
 description: Aktiverar konfiguration av tjänstens konfiguration för under nätet för Azure SQL Database hanterade instansen
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: efc2b8578651f68d052f227694f85348853e191f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f22c713af700225ffe6954460c36217abdea5eea
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79533274"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770167"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-database-managed-instance"></a>Aktiverar konfiguration av tjänstens konfiguration för under nätet för Azure SQL Database hanterade instansen
 Konfiguration av tjänstens konfiguration för under nätet ger automatisk hantering av nätverks konfiguration för undernät som är värdar för hanterade instanser. Med konfigurations användaren för tjänste under nätet förblir fullständig kontroll över åtkomsten till data (TDS-trafikflöden) medan den hanterade instansen tar ansvar för att säkerställa oavbrutet flöde av hanterings trafik för att uppfylla SLA.
@@ -31,13 +31,13 @@ Konfiguration av tjänstens konfiguration aktive ras automatiskt när du aktiver
 > Som tjänst-konfiguration av under nätet är en viktig funktion för att upprätthålla SLA, med början den 1 maj 2020, det går inte att distribuera hanterade instanser i undernät som inte är delegerade till resurs leverantören för en hanterad instans. Den 1 juli 2020 kommer alla undernät som innehåller hanterade instanser automatiskt att delegeras till resurs leverantören för hanterade instanser. 
 
 ## <a name="enabling-subnet-delegation-for-new-deployments"></a>Aktivera undernät – delegering för nya distributioner
-Om du vill distribuera en hanterad instans i till ett tomt undernät måste `Microsoft.Sql/managedInstances` du delegera den till Resource Provider enligt beskrivningen i följande [artikel](../virtual-network/manage-subnet-delegation.md). _Observera att den refererade artikeln använder `Microsoft.DBforPostgreSQL/serversv2` resurs leverantören till exempel. Du måste använda `Microsoft.Sql/managedInstances` Resource Provider i stället._
+Om du vill distribuera en hanterad instans i till ett tomt undernät måste du delegera den till `Microsoft.Sql/managedInstances` Resource Provider enligt beskrivningen i följande [artikel](../virtual-network/manage-subnet-delegation.md). _Observera att den refererade artikeln använder `Microsoft.DBforPostgreSQL/serversv2` resurs leverantören till exempel. Du måste använda `Microsoft.Sql/managedInstances` Resource Provider i stället._
 
 ## <a name="enabling-subnet-delegation-for-existing-deployments"></a>Aktivera undernät – delegering för befintliga distributioner
 
 Om du vill aktivera under näts delegering för din befintliga hanterade instans distribution måste du ta reda på det virtuella nätverkets undernät där det är placerat. 
 
-För att lära dig detta kan `Virtual network/subnet` du titta `Overview` på Portal bladet för din hanterade instans.
+För att lära dig detta kan du titta `Virtual network/subnet` på `Overview` Portal bladet för din hanterade instans.
 
 Alternativt kan du köra följande PowerShell-kommandon för att lära dig detta. Ersätt **prenumerations-ID** med ditt PRENUMERATIONS-ID. Ersätt också **RG-Name** med resurs gruppen för din hanterade instans och Ersätt **mi-Name** med namnet på din hanterade instans.
 
@@ -60,7 +60,7 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi.SubnetId
 ```
 
-När du har hittat under nätet för hanterade instanser måste du `Microsoft.Sql/managedInstances` delegera det till Resource Provider enligt beskrivningen i följande [artikel](../virtual-network/manage-subnet-delegation.md). _Observera att den refererade artikeln använder `Microsoft.DBforPostgreSQL/serversv2` resurs leverantören till exempel. Du måste använda `Microsoft.Sql/managedInstances` Resource Provider i stället._
+När du har hittat under nätet för hanterade instanser måste du delegera det till `Microsoft.Sql/managedInstances` Resource Provider enligt beskrivningen i följande [artikel](../virtual-network/manage-subnet-delegation.md). _Observera att den refererade artikeln använder `Microsoft.DBforPostgreSQL/serversv2` resurs leverantören till exempel. Du måste använda `Microsoft.Sql/managedInstances` Resource Provider i stället._
 
 
 > [!IMPORTANT]

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: f3341f1c30a1581b8507652c322c00581e3972aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a52635dbaa7a76034f3a535b099320a901e8c07
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77137416"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758783"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Hantera åtkomst till Azure-hantering med villkorlig åtkomst
 
@@ -47,5 +47,4 @@ Principen som du skapar gäller för alla slut punkter för Azure-hantering, ink
 
 Observera att principen gäller för Azure PowerShell, som anropar Azure Resource Manager API. Den gäller inte för [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), som anropar Microsoft Graph.
 
-
-Mer information om hur du konfigurerar och använder villkorlig åtkomst finns i [villkorlig åtkomst i Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
+Mer information om hur du konfigurerar en exempel princip för att aktivera villkorlig åtkomst för Microsoft Azure hantering finns i artikeln [villkorlig åtkomst: KRÄV MFA för Azure-hantering](../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).

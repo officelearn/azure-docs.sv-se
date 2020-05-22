@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 600f19a6fc0b44fa8cb4b3ba6d37fcc601605dc5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3abd93e1699a701140e8b3558dcdf0161110ff6f
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82206739"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758137"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning
 
@@ -92,7 +92,7 @@ Information om besluts frågor:
 
 * **Avancerade scenarier**. Om organisationer väljer att göra det, är det möjligt att använda insikter från identiteter med Azure AD Identity Protection rapporter med Azure AD Premium P2. Ett exempel är rapporten läckta autentiseringsuppgifter. Windows Hello för företag har [specifika krav när du använder hash-synkronisering av lösen ord](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) kräver synkronisering av lösen ords-hash för att etablera användare med sina företags uppgifter i den hanterade domänen.
 
-    Organisationer som kräver multifaktorautentisering med hash-synkronisering måste använda multifaktor-autentisering i Azure AD eller [anpassade kontroller för villkorlig åtkomst](../../active-directory/conditional-access/controls.md#custom-controls-preview). Dessa organisationer kan inte använda tredjeparts autentiseringsmetoder eller lokala metoder för multifaktorautentisering som förlitar sig på Federation.
+    Organisationer som kräver multifaktorautentisering med hash-synkronisering måste använda anpassade kontroller för Azure Multi-Factor Authentication eller [villkorlig åtkomst](../../active-directory/conditional-access/controls.md#custom-controls-preview). Dessa organisationer kan inte använda tredjeparts autentiseringsmetoder eller lokala metoder för multifaktorautentisering som förlitar sig på Federation.
 
 > [!NOTE]
 > Villkorlig åtkomst för Azure AD kräver [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) -licenser.
@@ -139,7 +139,7 @@ Se [implementering av direktautentisering](../../active-directory/hybrid/how-to-
   * Autentisering som kräver smartkort eller certifikat.
   * Lokala MFA-servrar eller tredjepartsleverantörer som kräver en federerad identitets leverantör.
   * Autentisering med hjälp av lösningar från tredje part. Se [listan över kompatibel Azure AD-Federation](../../active-directory/hybrid/how-to-connect-fed-compatibility.md).
-  * Logga in som kräver ett sAMAccountName, t. ex user@domain.com. domän \ användar namn, i stället för UPN (User Principal Name), till exempel.
+  * Logga in som kräver ett sAMAccountName, t. ex. domän \ användar namn, i stället för UPN (User Principal Name), till exempel user@domain.com .
 
 * **Affärs kontinuitet**. Federerade system kräver vanligt vis en belastningsutjämnad mat ris med servrar, som kallas Server grupp. Den här server gruppen är konfigurerad i en intern topologi för nätverk och perimeter för att säkerställa hög tillgänglighet för autentiseringsbegäranden.
 

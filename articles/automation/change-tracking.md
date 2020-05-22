@@ -1,18 +1,18 @@
 ---
-title: Översikt över Ändringsspårning och inventering i Azure Automation
-description: Ändringsspårning och inventeringen hjälper dig att identifiera program vara och Microsoft-tjänsteändringar som inträffar i din miljö.
+title: Översikt över Azure Automation Ändringsspårning och inventering
+description: I den här artikeln beskrivs funktionen Ändringsspårning och inventering, som hjälper dig att identifiera program vara och Microsoft-tjänsteändringar som inträffar i din miljö.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6a21effc3e567e75a8851fec35ff80dffc60a761
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ab091ba413a8429a8fea131c643cceee7007f927
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787183"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744370"
 ---
-# <a name="overview-of-change-tracking-and-inventory"></a>Översikt över Ändringsspårning och inventering
+# <a name="change-tracking-and-inventory-overview"></a>Översikt över Ändringsspårning och inventering
 
 I den här artikeln beskrivs hur du Ändringsspårning och inventering i Azure Automation. Den här funktionen spårar ändringar i virtuella datorer och Server infrastruktur för att hjälpa dig att hitta drift-och miljö problem med program som hanteras av distributions paket hanteraren. Objekt som spåras av Ändringsspårning och lager inkluderar: 
 
@@ -136,7 +136,7 @@ Med Ändringsspårning och inventering kan du visa innehållet i en Windows-elle
 Ändringsspårning och inventering stöder rekursion, vilket gör att du kan ange jokertecken för att förenkla spårningen mellan kataloger. Rekursion tillhandahåller även miljövariabler som gör att du kan spåra filer i miljöer med flera eller dynamiska enhets namn. Följande lista innehåller allmän information som du bör känna till när du konfigurerar rekursion:
 
 * Jokertecken krävs för att spåra flera filer.
-* Jokertecken kan endast användas i det sista segmentet i en sökväg, till exempel **\\c:\folder-filen*** eller **/etc/*. conf**.
+* Jokertecken kan endast användas i det sista segmentet i en sökväg, till exempel c:\folder- ** \\ filen*** eller **/etc/*. conf**.
 * Om en miljö variabel har en ogiltig sökväg, lyckas verifieringen men sökvägen Miss lyckas under körningen.
 * Undvik allmänna Sök vägs namn när du anger sökvägen, eftersom den här typen av inställning kan orsaka att för många mappar passerar.
 
@@ -184,17 +184,18 @@ En viktig funktion i Ändringsspårning och inventering är aviseringar om ändr
 
 |Söka i data  |Beskrivning  |
 |---------|---------|
-|ConfigurationChange <br>&#124; där ConfigChangeType = = "Files" och FileSystemPath innehåller "c:\\Windows\\system32\\-\\drivrutiner"|Användbart för att spåra ändringar i systemkritiska filer.|
-|ConfigurationChange <br>&#124; där FieldsChanged innehåller "FileContentChecksum" och FileSystemPath = = "c:\\Windows\\system32\\-\\drivrutiner\\osv"|Användbart för att spåra ändringar i nyckel konfigurationsfiler.|
+|ConfigurationChange <br>&#124; där ConfigChangeType = = "Files" och FileSystemPath innehåller "c: \\ Windows \\ system32- \\ drivrutiner \\ "|Användbart för att spåra ändringar i systemkritiska filer.|
+|ConfigurationChange <br>&#124; där FieldsChanged innehåller "FileContentChecksum" och FileSystemPath = = "c: \\ Windows \\ system32- \\ drivrutiner \\ osv \\ "|Användbart för att spåra ändringar i nyckel konfigurationsfiler.|
 |ConfigurationChange <br>&#124; där ConfigChangeType = = "Microsoft-tjänster" och SvcName innehåller "W3SVC" och SvcState = = "stoppad"|Användbart för att spåra ändringar i system kritiska tjänster.|
 |ConfigurationChange <br>&#124; där ConfigChangeType = = "daemons" och SvcName innehåller "SSH" och SvcState! = "kör"|Användbart för att spåra ändringar i system kritiska tjänster.|
 |ConfigurationChange <br>&#124; där ConfigChangeType = = "Software" och ChangeCategory = = "Added"|Användbart för miljöer som behöver låsta program varu konfigurationer.|
 |ConfigurationData <br>&#124; där SoftwareName innehåller "övervaknings agent" och CurrentVersion! = "8.0.11081.0"|Användbart för att se vilka datorer som har inaktuella eller inkompatibla program varu versioner installerade. Den här frågan rapporterar det senaste rapporterade konfigurations läget, men rapporterar inte ändringar.|
-|ConfigurationChange <br>&#124; där RegistryKey = = @ "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Användbart för att spåra ändringar i viktiga Antivirus nycklar.|
-|ConfigurationChange <br>&#124; där RegistryKey innehåller @ "HKEY_LOCAL_MACHINE\\system\\CurrentControlSet\\Services\\SharedAccess\\-\\parametrar FirewallPolicy"| Användbart för att spåra ändringar i brand Väggs inställningar.|
+|ConfigurationChange <br>&#124; där RegistryKey = = @ "HKEY_LOCAL_MACHINE \\ Software \\ Microsoft \\ Windows \\ CurrentVersion \\ QualityCompat"| Användbart för att spåra ändringar i viktiga Antivirus nycklar.|
+|ConfigurationChange <br>&#124; där RegistryKey innehåller @ "HKEY_LOCAL_MACHINE \\ system \\ CurrentControlSet \\ Services \\ SharedAccess- \\ parametrar \\ FirewallPolicy"| Användbart för att spåra ändringar i brand Väggs inställningar.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du arbetar med Ändringsspårning och inventering i dina Runbooks finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
-* Information om hur du löser fel med Ändringsspårning och inventering finns i [felsöka ändringsspårning och inventering](automation-tutorial-troubleshoot-changes.md).
-* Använd [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md) om du vill visa detaljerade ändrings spårnings data.
+* [Hantera Ändringsspårning och inventering](change-tracking-file-contents.md)
+* [Loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md)
+* [Felsöka Ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md)
+* [Felsöka ändringar på en virtuell Azure-dator](automation-tutorial-troubleshoot-changes.md)

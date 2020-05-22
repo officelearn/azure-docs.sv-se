@@ -1,18 +1,18 @@
 ---
-title: Runbook- och modulgallerier för Azure Automation
-description: Runbooks och moduler från Microsoft och communityn är tillgängliga så att du kan installera och använda i din Azure Automation-miljö.  I den här artikeln beskrivs hur du kan komma åt dessa resurser och bidra med Runbooks till galleriet.
+title: Använda Azure Automation runbooks och moduler i PowerShell-galleriet
+description: Den här artikeln beskriver hur du använder Runbooks och moduler från Microsoft och communityn i PowerShell-galleriet.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90b475e275598363314c8f131911fe12650cd3df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1d60c19b05de218ab985b2087071733602c7f2c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535561"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743893"
 ---
-# <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- och modulgallerier för Azure Automation
+# <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Använda Runbooks och moduler i PowerShell-galleriet
 
 I stället för att skapa egna runbooks och moduler i Azure Automation kan du komma åt scenarier som redan har skapats av Microsoft och communityn. Du kan hämta PowerShell-Runbooks och [moduler](#modules-in-powershell-gallery) från PowerShell-galleriet-och [python-Runbooks](#use-python-runbooks) från Script Center-galleriet. Du kan också bidra till communityn genom [att dela scenarier som du utvecklar](#add-a-powershell-runbook-to-the-gallery). 
 
@@ -32,9 +32,9 @@ Du kan bara importera direkt från PowerShell-galleriet med hjälp av Azure Port
 
 PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och befintliga moduler som du kan installera i Azure Automation är tillgängliga i [PowerShell-galleriet](https://www.powershellgallery.com). Du kan starta galleriet från Azure Portal och installera dem direkt i Azure Automation. Du kan också hämta dem och installera dem manuellt.
 
-## <a name="common-solutions-available-in-powershell-gallery"></a>Vanliga lösningar som är tillgängliga i PowerShell-galleriet
+## <a name="common-scenarios-available-in-powershell-gallery"></a>Vanliga scenarier som är tillgängliga i PowerShell-galleriet
 
-Listan nedan innehåller några Runbooks som innehåller lösningar på vanliga scenarier. En fullständig lista över Runbooks som skapats av Azure Automation-teamet finns i [AzureAutomationTeam Profile](https://www.powershellgallery.com/profiles/AzureAutomationTeam).
+Listan nedan innehåller några Runbooks som stöder vanliga scenarier. En fullständig lista över Runbooks som skapats av Azure Automation-teamet finns i [AzureAutomationTeam Profile](https://www.powershellgallery.com/profiles/AzureAutomationTeam).
 
    * [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) – importerar den senaste versionen av alla moduler i ett Automation-konto från PowerShell-galleriet.
    * [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) – konfigurerar Azure-diagnostik och Log Analytics att ta emot Azure Automation loggar som innehåller jobb status och jobb strömmar.
@@ -94,7 +94,7 @@ Microsoft uppmuntrar dig att lägga till Runbooks i de PowerShell-galleriet som 
 
 ## <a name="use-python-runbooks"></a>Använda python-Runbooks
 
-Python-Runbooks är tillgängliga i [Script Center-galleriet](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Du kan bidra med python-Runbooks till Script Center-galleriet genom att klicka på **överför ett bidrag**. När du gör det, se till att du lägger `Python` till taggen när du laddar upp ditt bidrag.
+Python-Runbooks är tillgängliga i [Script Center-galleriet](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Du kan bidra med python-Runbooks till Script Center-galleriet genom att klicka på **överför ett bidrag**. När du gör det, se till att du lägger till taggen `Python` när du laddar upp ditt bidrag.
 
 > [!NOTE]
 > Om du vill överföra innehåll till [Script Center](https://gallery.technet.microsoft.com/scriptcenter)behöver du minst 100 punkter.
@@ -105,6 +105,6 @@ Du kan skicka förfrågningar till [användar rösten](https://feedback.azure.co
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du kommer igång med Runbooks finns [i hantera Runbook i Azure Automation](manage-runbooks.md).
-* Information om skillnaderna mellan PowerShell-och PowerShell-arbetsflöde med Runbooks finns i [Learning PowerShell-arbetsflöde](automation-powershell-workflow.md).
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).
+* [Hantera Runbooks i Azure Automation](manage-runbooks.md)
+* [Lär dig mer om PowerShell-arbetsflöde för Azure Automation](automation-powershell-workflow.md)
+* [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview)

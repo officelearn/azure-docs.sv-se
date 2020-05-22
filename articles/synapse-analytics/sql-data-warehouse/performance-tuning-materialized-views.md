@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: e5973ed505a43ca56a0f11e3603e05eeed0952fd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7a54d1d644d1069957db7f94d6f5e261e1a8dfb2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657749"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747551"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Prestandajustering med materialiserade vyer
 
@@ -37,7 +37,7 @@ De flesta av kraven för en standardvy gäller fortfarande för en materialisera
 |Visa innehåll                    | Genereras varje gång som vyn används.   | Förbehandlade och lagrade i SQL-poolen när du skapar vyn. Uppdateras när data läggs till i de underliggande tabellerna.
 |Datauppdatering                    | Alltid uppdaterad                               | Alltid uppdaterad
 |Hastighet för att hämta visnings data från komplexa frågor     | Långsam                                         | Snabbväxande  
-|Extra lagrings utrymme                   | Inga                                           | Ja
+|Extra lagrings utrymme                   | Nej                                           | Ja
 |Syntax                          | SKAPA VY                                  | SKAPA MATERIALISERAD VY SOM VÄLJ
 
 ## <a name="benefits-of-using-materialized-views"></a>Fördelar med att använda materialiserade vyer
@@ -115,7 +115,7 @@ Alternativ för att minska antalet materialiserade vyer:
 
 - Ta bort de materialiserade vyerna som har låg användning eller som inte längre behövs.  En inaktive rad materialiserad vy underhålls inte, men den kostar fortfarande lagrings kostnaden.  
 
-- Kombinera materialiserade vyer som skapats på samma eller liknande bas tabeller även om deras data inte överlappar varandra.  Att kombinera materialiserade vyer kan resultera i en större vy än summan av de separata vyerna, men vyn underhålls kostnader bör minska.  Till exempel:
+- Kombinera materialiserade vyer som skapats på samma eller liknande bas tabeller även om deras data inte överlappar varandra.  Att kombinera materialiserade vyer kan resultera i en större vy än summan av de separata vyerna, men vyn underhålls kostnader bör minska.  Ett exempel:
 
 ```sql
 
@@ -159,7 +159,7 @@ Materialiserade vyer tillåter data ändringar i bas tabellerna.  Data i materia
 
 ## <a name="example"></a>Exempel
 
-I det här exemplet används en TPCDS fråga som söker efter kunder som tillbringar mer pengar via katalog än i butikerna, identifierar önskade kunder och deras ursprungsland.   Frågan omfattar att välja de översta 100 posterna från UNION av tre under SELECT-uttryck som involverar SUM () och GROUP BY.
+I det här exemplet används en TPCDS fråga som söker efter kunder som tillbringar mer pengar via katalog än i butikerna, identifierar önskade kunder och deras ursprungsland/region.   Frågan omfattar att välja de översta 100 posterna från UNION av tre under SELECT-uttryck som involverar SUM () och GROUP BY.
 
 ```sql
 WITH year_total AS (

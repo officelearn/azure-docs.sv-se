@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Application insikter med Azure Func
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 6218e5163212540f2132020dffea520d34b77cc4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2aaf52a528f929f183c9bf4565d9f0da4918f146
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648861"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757763"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -64,7 +64,7 @@ Information om hur du använder Application Insights finns i Application Insight
 Följande områden i Application Insights kan vara användbara när du ska utvärdera beteende, prestanda och fel i dina funktioner:
 
 | Undersök
- | Description |
+ | Beskrivning |
 | ---- | ----------- |
 | **[Fel](../azure-monitor/app/asp-net-exceptions.md)** |  Skapa diagram och aviseringar baserat på funktions fel och Server undantag. **Åtgärds namnet** är funktions namnet. Felen i beroenden visas inte om du inte implementerar anpassad telemetri för beroenden. |
 | **[Prestanda](../azure-monitor/app/performance-counters.md)** | Analysera prestanda problem genom att Visa resursutnyttjande och data flöde per **moln roll instanser**. Dessa data kan vara användbara för fel sökning av scenarier där funktioner är bogging de underliggande resurserna. |
@@ -90,7 +90,7 @@ requests
 
 De tabeller som är tillgängliga visas på fliken **schema** till vänster. Du kan hitta data som genererats av funktions anrop i följande tabeller:
 
-| Tabell | Description |
+| Tabell | Beskrivning |
 | ----- | ----------- |
 | **Anden** | Loggar som skapats av körningen och med funktions kod. |
 | **begäran** | En begäran för varje funktions anrop. |
@@ -118,7 +118,7 @@ Du kan använda Application Insights utan någon anpassad konfiguration. Standar
 
 Azure Functions loggen innehåller en *kategori* för varje logg. Kategorin visar vilken del av körnings koden eller din funktions kod som skrev loggen. Följande diagram beskriver de huvudsakliga kategorierna för loggar som körs av körnings miljön. 
 
-| Kategori | Description |
+| Kategori | Beskrivning |
 | ----- | ----- | 
 | Host.Results | Loggarna visar som **begär Anden** i Application Insights. De indikerar en funktion som lyckats eller misslyckats. Alla dessa loggar skrivs på `Information` nivå. Om du filtrerar på `Warning` eller ovanför visas inte någon av dessa data. |
 | Host. Aggregator | Dessa loggar ger räknare och medelvärden för funktions anrop under en [konfigurerbar](#configure-the-aggregator) tids period. Standard perioden är 30 sekunder eller 1 000 resultat, beroende på vilket som kommer först. Loggarna är tillgängliga i tabellen **customMetrics** i Application Insights. Exempel är antalet körningar, lyckade kostnader och varaktighet. Alla dessa loggar skrivs på `Information` nivå. Om du filtrerar på `Warning` eller ovanför visas inte någon av dessa data. |
@@ -611,7 +611,7 @@ När du väljer **skapa**skapas en Application Insights resurs med din Function-
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Lägg till i en befintlig Function-app 
 
-När du skapar en Function-app med [Visual Studio](functions-create-your-first-function-visual-studio.md)måste du skapa Application Insights resursen. Du kan sedan lägga till Instrumentation-nyckeln från resursen som en program inställning i din Function-app.
+När du skapar en Function-app med [Visual Studio](functions-create-your-first-function-visual-studio.md)måste du skapa Application Insights resursen. Du kan sedan lägga till Instrumentation-nyckeln från resursen som en [program inställning](functions-how-to-use-azure-function-app-settings.md#settings) i din Function-app.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -655,7 +655,7 @@ I Application Insights väljer du **Live Metrics Stream**. [Exempel logg poster]
 
 ![Visa Live Metrics Stream i portalen](./media/functions-monitoring/live-metrics-stream.png) 
 
-### <a name="visual-studio-code"></a>Visuell Studio-kod
+### <a name="visual-studio-code"></a>Visual Studio-koden
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 

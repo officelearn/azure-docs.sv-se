@@ -3,12 +3,12 @@ title: Stödmatris för SAP HANA-säkerhetskopiering
 description: I den här artikeln lär du dig om de scenarier och begränsningar som stöds när du använder Azure Backup för att säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 20519562151a70c9fd8e8fe5d86ce912e615b460
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5dcbfa67ce69a3dad1c263427ea3a0e34e8cef18
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660129"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747343"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Supportmatris för säkerhetskopiering av SAP HANA-databaser på virtuella Azure-datorer
 
@@ -35,6 +35,12 @@ Azure Backup stöder säkerhets kopiering av SAP HANA-databaser till Azure. Den 
 | **Särskilda konfigurationer** |                                                              | SAP HANA + dynamisk nivå <br>  Kloning via LaMa        |
 
 ------
+
+>[!NOTE]
+>Azure Backup anpassas inte automatiskt för sommar tids ändringar vid säkerhets kopiering av en SAP HANA databas som körs på en virtuell Azure-dator.
+>
+>Ändra principen manuellt efter behov.
+
 
 > [!NOTE]
 > Nu kan du [övervaka säkerhets kopierings-och återställnings](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) jobben (till samma dator) som utlöses från Hana-ursprungliga klienter (SAP HANA Studio/cockpit/DBA-cockpit) i Azure Portal.

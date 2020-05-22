@@ -3,12 +3,12 @@ title: Självstudie – SAP HANA DB-säkerhetskopiering på Azure med CLI
 description: I den här självstudien får du lära dig hur du säkerhetskopierar SAP HANA databaser som körs på en virtuell Azure-dator till ett Azure Backup Recovery Services valv med Azure CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: cdc8a8fb09a086a2b9212c21d071f267991fa275
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d1c52a846b837d47aa40c8f6a68010a8e7f1137
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78206630"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747295"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: säkerhetskopiera SAP HANA databaser i en virtuell Azure-dator med Azure CLI
 
@@ -141,6 +141,11 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2
 ```
 
 [AZ för säkerhets kopierings jobb lista](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) visar en lista över alla säkerhets kopierings jobb (schemalagda eller på begäran) som har körts eller som för närvarande körs på den skyddade databasen, förutom andra åtgärder som registrera, konfigurera säkerhets kopiering, ta bort säkerhetskopierade data osv.
+
+>[!NOTE]
+>Azure Backup anpassas inte automatiskt för sommar tids ändringar vid säkerhets kopiering av en SAP HANA databas som körs på en virtuell Azure-dator.
+>
+>Ändra principen manuellt efter behov.
 
 ## <a name="trigger-an-on-demand-backup"></a>Utlös en säkerhets kopiering på begäran
 

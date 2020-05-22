@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 42478f6e6d6cb28364fe39aafcb52b3a17aa3c23
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: eb91e498fa757c5cec7bd466c60aaf7e8758304c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791484"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744571"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologi för kommersiell marknads plats analys och vanliga frågor
 
@@ -51,7 +51,7 @@ Om du får det här meddelandet betyder det att du har analys data, men det finn
 | Kund ort| Kund| Orts namnet som tillhandahålls av kunden. Staden kan skilja sig från staden i en kunds Azure-prenumeration.||
 | Kundens kommunikations språk  | Kund| Det språk som kunden föredrar för kommunikation.||
 | Kund företags namn | Kund, order | Företags namnet som tillhandahålls av kunden. Namnet får inte vara detsamma som staden i en kunds Azure-prenumeration.|  |
-| Kund land | Kund, order | Landets namn som tillhandahålls av kunden. Landet kan skilja sig från landet i en kunds Azure-prenumeration.|  |
+| Kund land/-region | Kund, order | Landets/regionens namn som tillhandahålls av kunden. Land/region kan vara annorlunda än landet/regionen i en kunds Azure-prenumeration.|  |
 | Kund-e-post| Kund| E-postadressen som tillhandahålls av slut kunden. E-postadressen kan skilja sig från e-postadressen i en kunds Azure-prenumeration.||
 | Förnamn för kund| Kund| Det namn som tillhandahålls av kunden. Namnet får inte vara detsamma som det namn som anges i en kunds Azure-prenumeration.| |
 | Kund-ID | Kund, order | Den unika identifierare som tilldelats till en kund. En kund kan ha noll eller flera prenumerationer på Azure Marketplace.|  |

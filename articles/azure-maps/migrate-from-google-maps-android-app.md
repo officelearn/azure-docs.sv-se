@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9514398ec6a84becd1283e4b0975804101b64086
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5e344eb37af4fc1fae35a1f0c036ed1582054ea5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77209740"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747424"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Migrera en Android-app från Google Maps
 
@@ -52,7 +52,7 @@ Om du vill visa en karta med Google Maps SDK för Android gör du så här:
 
     `implementation 'com.google.android.gms:play-services-maps:17.0.0'`
 
-1.  Lägg till en Google Maps API-nyckel i program avsnittet i **filen\_Google\_Maps API. XML** :
+1.  Lägg till en Google Maps API-nyckel i program avsnittet i filen **Google \_ Maps \_ API. XML** :
     
     ```xml
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_GOOGLE_MAPS_KEY"/>
@@ -67,7 +67,7 @@ Om du vill visa en karta med Google Maps SDK för Android gör du så här:
             android:layout_height="match_parent"/>
     ```
 
-1.  I **MainActivity. java** -filen måste du importera Google Maps SDK. Vidarebefordra alla livs cykel metoder från den aktivitet som innehåller kart visningen till motsvarande i Map-klassen. Hämta en `MapView` instans från kart fragmentet med hjälp `getMapAsync(OnMapReadyCallback)` av metoden. `MapView` Automatiskt initierar Maps-systemet och vyn. Redigera filen **MainActivity. java** enligt följande:
+1.  I **MainActivity. java** -filen måste du importera Google Maps SDK. Vidarebefordra alla livs cykel metoder från den aktivitet som innehåller kart visningen till motsvarande i Map-klassen. Hämta en `MapView` instans från kart fragmentet med hjälp av `getMapAsync(OnMapReadyCallback)` metoden. `MapView`Automatiskt initierar Maps-systemet och vyn. Redigera filen **MainActivity. java** enligt följande:
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
@@ -182,7 +182,7 @@ Om du vill visa en karta som använder Azure Maps SDK för Android måste du utf
         > Azure Maps Android SDK uppgraderas regelbundet och förbättras. Du kan se [komma igång med Android Map-kontrollen](how-to-use-android-map-control-library.md) för att hämta det senaste Azure Maps versions numret. Du kan också ställa in versions numret från "0,2" till "0 +" för att koden alltid ska peka på den senaste versionen.
     
     4. Gå till **filen** i verktygsfältet och klicka sedan på **Synkronisera projekt med Gradle-filer**.
-3. Lägg till ett kart fragment i huvud aktiviteten ( \> \> \_huvud aktivitets-XML för resurser):
+3. Lägg till ett kart fragment i huvud aktiviteten ( \> huvud aktivitets \> -XML för resurser \_ ):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -207,7 +207,7 @@ Om du vill visa en karta som använder Azure Maps SDK för Android måste du utf
     * Ange information om Azure Maps-autentisering
     * Hämta kart kontroll instansen i **onCreate** -metoden
 
-     Ange autentiseringsinformationen i `AzureMaps` klassen med hjälp av `setSubscriptionKey` metoderna eller. `setAadProperties` Den här globala uppdateringen, se till att du lägger till autentiseringsinformation i alla vyer.
+     Ange autentiseringsinformationen i `AzureMaps` klassen med hjälp av `setSubscriptionKey` `setAadProperties` metoderna eller. Den här globala uppdateringen, se till att du lägger till autentiseringsinformation i alla vyer.
 
     Kart kontrollen innehåller sina egna livs cykel metoder för att hantera Android: s OpenGL-livscykel. Dessa metoder måste anropas direkt från den inneslutna aktiviteten. För att kunna anropa kart kontrollens livs cykel metoder måste du åsidosätta följande livs cykel metoder i den aktivitet som innehåller kart kontrollen. Anropa respektive kart kontroll metod.
 
@@ -314,7 +314,7 @@ Observera att Azure Maps kontrollen har stöd för att zooma ut mer och innehål
 
 ## <a name="localizing-the-map"></a>Lokalisera kartan
 
-Lokalisering är viktigt om åhörarna är spridda över flera länder eller talar olika språk.
+Lokalisering är viktigt om mål gruppen är uppdelad i flera länder/regioner eller talar olika språk.
 
 **Före: Google Maps**
 
@@ -338,7 +338,7 @@ Här är ett exempel på Google Maps med språket inställt på "fr".
 
 **Efter: Azure Maps**
 
-Azure Maps tillhandahåller tre olika sätt att ange språket och den regionala vyn för kartan. Det första alternativet är att skicka information om språket och den regionala vyn till `AzureMaps` -klassen. Det här alternativet använder de `setLanguage` statiska `setView` metoderna och metoderna globalt. Standard språket och den regionala vyn ställs in över alla Azure Maps kontroller som läses in i din app. I det här exemplet anges franska med språk koden "fr-FR".
+Azure Maps tillhandahåller tre olika sätt att ange språket och den regionala vyn för kartan. Det första alternativet är att skicka information om språket och den regionala vyn till- `AzureMaps` klassen. Det här alternativet använder de `setLanguage` statiska `setView` metoderna och metoderna globalt. Standard språket och den regionala vyn ställs in över alla Azure Maps kontroller som läses in i din app. I det här exemplet anges franska med språk koden "fr-FR".
 
 ```java
 static {
@@ -365,7 +365,7 @@ Det andra alternativet är att skicka språket och Visa information till kart ko
     />
 ```
 
-Det tredje alternativet är att program mera språket och den nationella kart visningen med `setStyle` hjälp av Maps-metoden. Med det här alternativet uppdateras språket och den regionala vyn när koden körs.
+Det tredje alternativet är att program mera språket och den nationella kart visningen med hjälp av Maps- `setStyle` metoden. Med det här alternativet uppdateras språket och den regionala vyn när koden körs.
 
 ```java
 mapControl.onReady(map -> {
@@ -388,7 +388,7 @@ Dynamiska kartor i både Azure Maps och Google Maps kan flyttas program mässigt
 
 **Före: Google Maps**
 
-Kameran med Google Maps Map-kontrollen kan flyttas program mässigt med `moveCamera` metoden. Med `moveCamera` metoden kan du ange kartans centrum och zoomnings nivå. `setMapType` Metoden ändrar vilken typ av karta som ska visas.
+Kameran med Google Maps Map-kontrollen kan flyttas program mässigt med `moveCamera` metoden. Med `moveCamera` metoden kan du ange kartans centrum och zoomnings nivå. `setMapType`Metoden ändrar vilken typ av karta som ska visas.
 
 ```java
 @Override
@@ -425,7 +425,7 @@ Den inledande kart visningen kan anges i XML-attribut på kart kontrollen.
     />
 ```
 
-Map-vyn kan programmeras med hjälp av `setCamera` Maps `setStyle` och metoder.
+Map-vyn kan programmeras med hjälp av Maps `setCamera` och `setStyle` metoder.
 
 ```java
 mapControl.onReady(map -> {
@@ -443,7 +443,7 @@ mapControl.onReady(map -> {
 
 **Ytterligare resurser:**
 
-- [Kart format som stöds](supported-map-styles.md)
+- [Mappningsformat som stöds](supported-map-styles.md)
 
 ## <a name="adding-a-marker"></a>Lägga till en markör
 
@@ -451,7 +451,7 @@ Punkt data återges ofta med hjälp av en bild på kartan. Dessa bilder kallas f
 
 **Före: Google Maps**
 
-Med Google Maps läggs markörerna till med hjälp av `addMarker` Maps-metoden.
+Med Google Maps läggs markörerna till med hjälp av Maps- `addMarker` metoden.
 
 ```java
 @Override
@@ -495,13 +495,13 @@ Anpassade bilder kan användas för att representera punkter på en karta. Karta
 <center>
 
 ![gul kartnåls bild](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
-YLW\_kartnål. png</center>
+YLW \_ kartnål. png</center>
 
 I båda exemplen läggs bilden ovan till i den skrivbara mappen i Apps-resurserna.
 
 **Före: Google Maps**
 
-Med Google Maps kan anpassade avbildningar användas för markörer. Läs in anpassade avbildningar med markerings `icon` alternativet. Använd `anchor` alternativet för att justera bildens punkt till koordinaten. Fäst punkten är i förhållande till bildens dimensioner. I det här fallet är fäst punkten 0,2 enheter bred och 1 enhet hög.
+Med Google Maps kan anpassade avbildningar användas för markörer. Läs in anpassade avbildningar med markerings `icon` alternativet. Använd alternativet för att justera bildens punkt till koordinaten `anchor` . Fäst punkten är i förhållande till bildens dimensioner. I det här fallet är fäst punkten 0,2 enheter bred och 1 enhet hög.
 
 ```java
 @Override
@@ -520,7 +520,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Efter: Azure Maps**
 
-Symbol lager i Azure Maps stöder anpassade bilder, men först måste bilden läsas in på kart resurserna och tilldelas ett unikt ID. Sedan måste symbol skiktet referera till detta ID. Förskjuter symbolen så att den överensstämmer med rätt punkt på bilden med `iconOffset` alternativet. Ikonens förskjutning är i bild punkter. Som standard är förskjutningen relativ till längst ned i mitten av bilden, men detta förskjutnings värde kan justeras med `iconAnchor` alternativet. I `iconAnchor` det här exemplet anges alternativet `"center"`till. Den använder en ikon förskjutning för att flytta bilden fem pixlar till höger och 15 bild punkter upp för att passa med punkten på den kartnåla bilden.
+Symbol lager i Azure Maps stöder anpassade bilder, men först måste bilden läsas in på kart resurserna och tilldelas ett unikt ID. Sedan måste symbol skiktet referera till detta ID. Förskjuter symbolen så att den överensstämmer med rätt punkt på bilden med `iconOffset` alternativet. Ikonens förskjutning är i bild punkter. Som standard är förskjutningen relativ till längst ned i mitten av bilden, men detta förskjutnings värde kan justeras med `iconAnchor` alternativet. I det här exemplet anges `iconAnchor` alternativet till `"center"` . Den använder en ikon förskjutning för att flytta bilden fem pixlar till höger och 15 bild punkter upp för att passa med punkten på den kartnåla bilden.
 
 ```java
 mapControl.onReady(map -> {
@@ -552,7 +552,7 @@ Polylinjer används för att representera en linje eller bana på kartan. I föl
 
 **Före: Google Maps**
 
-Med Google Maps återger du `PolylineOptions` en polyline med hjälp av klassen. Lägg till polylinje i kartan med hjälp `addPolyline` av metoden. Ställ in linje färgen med `color` alternativet. Ange linje bredden med `width` alternativet. Lägg till en streck mat ris med `pattern` alternativet.
+Med Google Maps återger du en polyline med hjälp av `PolylineOptions` klassen. Lägg till polylinje i kartan med hjälp av `addPolyline` metoden. Ställ in linje färgen med `color` alternativet. Ange linje bredden med `width` alternativet. Lägg till en streck mat ris med `pattern` alternativet.
 
 ```java
 @Override
@@ -580,7 +580,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Efter: Azure Maps**
 
-I Azure Maps kallas `LineString` polystreck eller `MultiLineString` objekt. Lägg till dessa objekt i en data källa och återge dem med hjälp av ett linje lager. Ange linje bredden med `strokeWidth` alternativet. Lägg till en streck mat ris med `strokeDashArray` alternativet.
+I Azure Maps kallas polystreck `LineString` eller `MultiLineString` objekt. Lägg till dessa objekt i en data källa och återge dem med hjälp av ett linje lager. Ange linje bredden med `strokeWidth` alternativet. Lägg till en streck mat ris med `strokeDashArray` alternativet.
 
 Måtten för linje bredd och streck mat ris "pixel" i Azure Maps Web SDK är samma som i Google Maps-tjänsten. Båda accepterar samma värden för att producera samma resultat.
 
@@ -617,7 +617,7 @@ Polygoner används för att representera ett område på kartan. I nästa exempe
 
 **Före: Google Maps**
 
-Med Google Maps återger du en polygon med `PolygonOptions` hjälp av klassen. Lägg till polygonen till kartan med `addPolygon` metoden. Ange färgerna för fyllning och linje med alternativen `fillColor` respektive `strokeColor` . Ange linje bredden med `strokeWidth` alternativet.
+Med Google Maps återger du en polygon med hjälp av `PolygonOptions` klassen. Lägg till polygonen till kartan med `addPolygon` metoden. Ange färgerna för fyllning och linje med `fillColor` alternativen respektive `strokeColor` . Ange linje bredden med `strokeWidth` alternativet.
 
 ```java
 @Override
@@ -645,7 +645,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Efter: Azure Maps**
 
-I Azure Maps lägger du `Polygon` till `MultiPolygon` och objekt i en data källa och återger dem på kartan med hjälp av lager. Återge ytan i en polygon i ett polygon lager. Återge konturen för en polygon med ett linje lager. Ange linje färg och bredd med alternativen `strokeColor` och. `strokeWidth`
+I Azure Maps lägger du till `Polygon` och `MultiPolygon` objekt i en data källa och återger dem på kartan med hjälp av lager. Återge ytan i en polygon i ett polygon lager. Återge konturen för en polygon med ett linje lager. Ange linje färg och bredd med `strokeColor` `strokeWidth` alternativen och.
 
 Måtten för linje bredd och streck mat ris "pixel" i Azure Maps Web SDK överensstämmer med respektive enheter i Google Maps. Båda accepterar samma värden och ger samma resultat.
 
@@ -689,7 +689,7 @@ I följande exempel överlappar ett väder radar panels lager från Iowa Environ
 
 **Före: Google Maps**
 
-Med Google Maps kan ett panel lager överlappa ovanpå kartan. Använd- `TileOverlayOptions` klassen. Lägg till panel skiktet till kartan med `addTileLauer` metoden. För att göra brickorna halv genomskinliga är `transparency` alternativet inställt på 0,2 eller 20% transparent.
+Med Google Maps kan ett panel lager överlappa ovanpå kartan. Använd- `TileOverlayOptions` klassen. Lägg till panel skiktet till kartan med `addTileLauer` metoden. För att göra brickorna halv genomskinliga `transparency` är alternativet inställt på 0,2 eller 20% transparent.
 
 ```java
 @Override
@@ -722,10 +722,10 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Efter: Azure Maps**
 
-Ett panel lager kan läggas till i kartan på samma sätt som andra lager. En formaterad URL med plats hållare för x, y och zoomning; `{x}`, `{y}`används för att ange skiktet för att få åtkomst `{z}` till panelerna. Panel lager i Azure Maps stöd `{quadkey}`, `{bbox-epsg-3857}`och `{subdomain}` plats hållare. Om du vill göra panel lagret halv genomskinligt används värdet 0,8 för opacitet. Ogenomskinlighet och genomskinlighet, men Använd inverterade värden. Om du vill konvertera mellan båda alternativen subtraherar du värdet från siffran ett.
+Ett panel lager kan läggas till i kartan på samma sätt som andra lager. En formaterad URL med plats hållare för x, y och zoomning; `{x}`, `{y}` `{z}` används för att ange skiktet för att få åtkomst till panelerna. Panel lager i Azure Maps stöd `{quadkey}` , `{bbox-epsg-3857}` och `{subdomain}` plats hållare. Om du vill göra panel lagret halv genomskinligt används värdet 0,8 för opacitet. Ogenomskinlighet och genomskinlighet, men Använd inverterade värden. Om du vill konvertera mellan båda alternativen subtraherar du värdet från siffran ett.
 
 > [!TIP]
-> I Azure Maps är det praktiskt att återge lager under andra lager, inklusive bas kart skikt. Dessutom är det ofta önskvärt att återge panel lager under kart etiketterna så att de är lätta att läsa. `map.layers.add` Metoden tar en andra parameter som är ID: t för det lager där det nya lagret ska infogas. Följande kod kan användas för att infoga ett panel lager under kart etiketterna:`map.layers.add(myTileLayer, "labels");`
+> I Azure Maps är det praktiskt att återge lager under andra lager, inklusive bas kart skikt. Dessutom är det ofta önskvärt att återge panel lager under kart etiketterna så att de är lätta att läsa. `map.layers.add`Metoden tar en andra parameter som är ID: t för det lager där det nya lagret ska infogas. Följande kod kan användas för att infoga ett panel lager under kart etiketterna:`map.layers.add(myTileLayer, "labels");`
 
 ```java
 mapControl.onReady(map -> {

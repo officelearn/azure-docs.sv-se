@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 32ec35094740f05a2c2a6f17ab5dafa29d30a0f1
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 0fe191ac827c76afd497896611430f6efc6283aa
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628818"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747248"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Konfigurera SMS-meddelanden som din verifierings metod
 
@@ -38,7 +38,7 @@ Beroende på din organisations inställningar kanske du kan använda SMS som en 
 
 ### <a name="to-set-up-text-messages"></a>Konfigurera textmeddelanden
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myaccount.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myaccount.microsoft.com/ sida.
 
     ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 

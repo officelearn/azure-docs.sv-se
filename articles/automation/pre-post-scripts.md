@@ -5,19 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f55ebb3270fdd97a1fdbbf5a56f9703c08933f9f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: df7a544601d723170b43b3fbf8466daa6a98be6e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855340"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745121"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Hantera för skript och efter skript
 
 För skript och post-skript är Runbooks som ska köras i ditt Azure Automation konto före (före aktivitet) och efter (efter aktivitet) en uppdaterings distribution. För skript och efter skript körs i Azure-kontexten, inte lokalt. För skript körs i början av uppdaterings distributionen. Efter att skripten körs i slutet av distributionen och efter omstarter som har kon figurer ATS.
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="pre-script-and-post-script-requirements"></a>Krav för skript och efter skript
 
@@ -41,7 +38,7 @@ Runbook-parametrarna för skript och efter skript stöder inte booleska, objekt 
 
 Om du behöver en annan objekt typ kan du omvandla den till en annan typ med din egen logik i runbooken.
 
-Förutom dina standard parametrar för Runbook anges `SoftwareUpdateConfigurationRunContext` parametern (typ JSON-sträng). Om du definierar parametern i skriptet för för skript eller efter skript skickas den automatiskt av uppdaterings distributionen. Parametern innehåller information om uppdaterings distributionen, som är en del av informationen som returneras av [SoftwareUpdateconfigurations-API: et](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). I avsnitten nedan definieras de associerade egenskaperna.
+Förutom dina standard parametrar för Runbook `SoftwareUpdateConfigurationRunContext` anges parametern (typ JSON-sträng). Om du definierar parametern i skriptet för för skript eller efter skript skickas den automatiskt av uppdaterings distributionen. Parametern innehåller information om uppdaterings distributionen, som är en del av informationen som returneras av [SoftwareUpdateconfigurations-API: et](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). I avsnitten nedan definieras de associerade egenskaperna.
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Egenskaper för SoftwareUpdateConfigurationRunContext
 
@@ -51,7 +48,7 @@ Förutom dina standard parametrar för Runbook anges `SoftwareUpdateConfiguratio
 |SoftwareUpdateConfigurationRunId     | Unikt ID för körningen.        |
 |SoftwareUpdateConfigurationSettings     | En samling egenskaper relaterade till program uppdaterings konfigurationen.         |
 |SoftwareUpdateConfigurationSettings. Opera ting system     | De operativ system som är avsedda för uppdaterings distributionen.         |
-|SoftwareUpdateConfigurationSettings. duration     | Maximal varaktighet för uppdaterings distributionen som körs enligt `PT[n]H[n]M[n]S` vad som är tillåtet per iso8601; kallas även underhålls period.          |
+|SoftwareUpdateConfigurationSettings. duration     | Den maximala tids åtgången för uppdaterings distributionen som `PT[n]H[n]M[n]S` ska köras enligt iso8601, kallas även underhålls perioden.          |
 |SoftwareUpdateConfigurationSettings. Windows     | En samling egenskaper som är relaterade till Windows-datorer.         |
 |SoftwareUpdateConfigurationSettings. Windows. excludedKbNumbers     | En lista över KB som är undantagna från uppdaterings distributionen.        |
 |SoftwareUpdateConfigurationSettings. Windows. includedUpdateClassifications     | Uppdaterings klassificeringar som valts för uppdaterings distributionen.        |
@@ -92,9 +89,9 @@ Följande exempel är en JSON-sträng som skickas till parametern **SoftwareUpda
 Du hittar ett fullständigt exempel med alla egenskaper på: [Hämta program uppdaterings konfiguration efter namn](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
 
 > [!NOTE]
-> `SoftwareUpdateConfigurationRunContext` Objektet kan innehålla dubbla poster för datorer. Detta kan orsaka att för skript och efter skript körs flera gånger på samma dator. Undvik problemet genom att använda `Sort-Object -Unique` för att välja enbart unika VM-namn.
+> `SoftwareUpdateConfigurationRunContext`Objektet kan innehålla dubbla poster för datorer. Detta kan orsaka att för skript och efter skript körs flera gånger på samma dator. Undvik problemet genom `Sort-Object -Unique` att använda för att välja enbart unika VM-namn.
 
-## <a name="using-a-pre-script-or-post-script-in-a-deployment"></a>Använda ett för skript eller efter skript i en distribution
+## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Använda ett för skript eller efter skript i en distribution
 
 Om du vill använda ett för skript eller efter skript i en uppdaterings distribution börjar du med att skapa en uppdaterings distribution. Välj **för skript + efter skript**. Den här åtgärden öppnar sidan **Välj före skript + efter skript** .
 
@@ -120,7 +117,7 @@ Genom att välja körningen av uppdaterings distributionen visas ytterligare inf
 
 es i skriptet.
 
-## <a name="stopping-a-deployment"></a>Stoppa en distribution
+## <a name="stop-a-deployment"></a>Stoppa en distribution
 
 Om du vill stoppa en distribution som baseras på ett för skript, måste du [utlösa](automation-runbook-execution.md#throw) ett undantag. Om du inte gör det kommer distribution och post script fortfarande att köras. Följande kodfragment visar hur du genererar ett undantag.
 
@@ -137,9 +134,7 @@ foreach($summary in $finalStatus)
 }
 ```
 
-
-
-## <a name="interacting-with-machines"></a>Interagera med datorer
+## <a name="interact-with-machines"></a>Interagera med datorer
 
 För skript och post-uppgifter körs som Runbooks i ditt Automation-konto och inte direkt på datorerna i distributionen. Aktiviteter och aktiviteter körs också i Azure-kontexten och har inte åtkomst till datorer som inte är Azure-datorer. I följande avsnitt visas hur du kan interagera med datorerna direkt, oavsett om de är virtuella Azure-datorer eller datorer som inte är Azure-datorer.
 
@@ -163,7 +158,7 @@ Aktiviteter och aktiviteter som körs i Azure-kontexten och som inte har åtkoms
 
 För att interagera med datorer som inte är Azure-datorer körs en överordnad Runbook i Azure-kontexten. Denna Runbook anropar en underordnad Runbook med cmdleten [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) . Du måste ange `RunOn` parametern och ange namnet på Hybrid Runbook Worker som skriptet ska köras på. Se Runbook-exemplet [uppdateringshantering – kör skriptet lokalt](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
-## <a name="aborting-patch-deployment"></a>Avbryter korrigerings distribution
+## <a name="abort-patch-deployment"></a>Avbryt korrigerings distribution
 
 Om ditt för skript returnerar ett fel kanske du vill avbryta distributionen. Om du vill göra det måste du [utlösa](/powershell/module/microsoft.powershell.core/about/about_throw) ett fel i skriptet för vilken logik som skulle utgöra ett fel.
 
@@ -192,7 +187,7 @@ Du kan också söka efter dem med deras skript namn, som du ser i följande list
 > [!IMPORTANT]
 > När du har importerat Runbooks måste du publicera dem innan de kan användas. Det gör du genom att leta upp Runbook i ditt Automation-konto, välja **Redigera**och sedan **publicera**.
 
-Exemplen är alla baserade på den grundläggande mall som definieras i följande exempel. Den här mallen kan användas för att skapa en egen Runbook som ska användas med för-skript och efter skript. Den nödvändiga logiken för autentisering med Azure och hantering av `SoftwareUpdateConfigurationRunContext` -parametern ingår.
+Exemplen är alla baserade på den grundläggande mall som definieras i följande exempel. Den här mallen kan användas för att skapa en egen Runbook som ska användas med för-skript och efter skript. Den nödvändiga logiken för autentisering med Azure och hantering av- `SoftwareUpdateConfigurationRunContext` parametern ingår.
 
 ```powershell
 <#
@@ -250,7 +245,4 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till följande självstudie och lär dig hur du hanterar uppdateringar för virtuella Windows-datorer:
-
-> [!div class="nextstepaction"]
-> [Hantera uppdateringar och korrigeringar för dina virtuella Windows-datorer i Azure](automation-tutorial-update-management.md)
+* [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md)

@@ -1,25 +1,22 @@
 ---
-title: Källkontrollintegrering i Azure Automation
-description: I den här artikeln beskrivs integrering av käll kontroll med GitHub i Azure Automation.
+title: Använd käll kontroll integrering i Azure Automation
+description: Den här artikeln beskriver hur du synkroniserar Azure Automation käll kontroll med andra databaser.
 services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 166902978d1641458f18aeee6269c8d819e85233
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 248cbd42d86371742ad4985b515d70d022722385
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132934"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744934"
 ---
-# <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
+# <a name="use-source-control-integration"></a>Använda källkontrollsintegrering
 
  Käll kontroll integrering i Azure Automation stöder synkronisering med en riktning från din lagrings plats för käll kontroll. Med käll kontroll kan du hålla dina Runbooks i ditt Automation-konto uppdaterat med skript i din GitHub-eller Azure databaser-käll kontroll lagrings plats. Den här funktionen gör det enkelt att befordra kod som har testats i utvecklings miljön till ditt produktions Automation-konto.
  
  Med käll kontroll integrering kan du enkelt samar beta med ditt team, spåra ändringar och återställa till tidigare versioner av dina runbooks. Med käll kontroll kan du till exempel synkronisera olika grenar i käll kontrollen med dina Automation-konton för utveckling, testning och produktion. 
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="source-control-types"></a>Käll kontroll typer
 
@@ -33,12 +30,12 @@ Azure Automation stöder tre typer av käll kontroll:
 
 * Ett lagrings lager för käll kontroll (GitHub eller Azure databaser)
 * Ett [Kör som-konto](manage-runas-account.md)
-* De [senaste Azure-modulerna](automation-update-azure-modules.md) i ditt Automation-konto `Az.Accounts` , inklusive modulen (AZ `AzureRM.Profile`-modul motsvarande)
+* De [senaste Azure-modulerna](automation-update-azure-modules.md) i ditt Automation-konto, inklusive `Az.Accounts` modulen (AZ-modul motsvarande `AzureRM.Profile` )
 
 > [!NOTE]
 > Synkroniseringsjobb för käll kontroll körs under användarens Automation-konto och debiteras enligt samma taxa som andra Automation-jobb.
 
-## <a name="configuring-source-control"></a>Konfigurera käll kontroll
+## <a name="configure-source-control"></a>Konfigurera käll kontroll
 
 Det här avsnittet beskriver hur du konfigurerar käll kontroll för ditt Automation-konto. Du kan använda antingen Azure Portal eller PowerShell.
 
@@ -90,7 +87,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 #### <a name="create-source-control-connection-for-azure-repos-git"></a>Skapa käll kontroll anslutning för Azure databaser (git)
 
 > [!NOTE]
-> Azure databaser (git) använder en URL som har åtkomst till **dev.Azure.com** i stället för **VisualStudio.com**, som används i tidigare format. Det äldre URL- `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` formatet är inaktuellt men stöds fortfarande. Det nya formatet rekommenderas.
+> Azure databaser (git) använder en URL som har åtkomst till **dev.Azure.com** i stället för **VisualStudio.com**, som används i tidigare format. Det äldre URL-formatet `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` är inaktuellt men stöds fortfarande. Det nya formatet rekommenderas.
 
 
 ```powershell-interactive
@@ -100,7 +97,7 @@ New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<a
 #### <a name="create-source-control-connection-for-azure-repos-tfvc"></a>Skapa käll kontroll anslutning för Azure databaser (TFVC)
 
 > [!NOTE]
-> Azure-databaser (TFVC) använder en URL som har åtkomst till **dev.Azure.com** i stället för **VisualStudio.com**, som används i tidigare format. Det äldre URL- `https://<accountname>.visualstudio.com/<projectname>/_versionControl` formatet är inaktuellt men stöds fortfarande. Det nya formatet rekommenderas.
+> Azure-databaser (TFVC) använder en URL som har åtkomst till **dev.Azure.com** i stället för **VisualStudio.com**, som används i tidigare format. Det äldre URL-formatet `https://<accountname>.visualstudio.com/<projectname>/_versionControl` är inaktuellt men stöds fortfarande. Det nya formatet rekommenderas.
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -139,7 +136,7 @@ I följande lista definieras de lägsta PAT-behörigheter som krävs för Azure 
 
 <sup>1</sup> `Service connections` behörigheten krävs bara om du har aktiverat automatisk synkronisering.
 
-## <a name="synchronizing"></a>Synkronisera
+## <a name="synchronize-with-source-control"></a>Synkronisera med käll kontroll
 
 Följ dessa steg för att synkronisera med käll kontroll. 
 
@@ -161,7 +158,7 @@ Följ dessa steg för att synkronisera med käll kontroll.
     Azure Automation Source Control.
     Supported runbooks to sync: PowerShell Workflow, PowerShell Scripts, DSC Configurations, Graphical, and Python 2.
 
-    Setting AzureRmEnvironment.
+    Setting AzEnvironment.
 
     Getting AzureRunAsConnection.
 
@@ -187,7 +184,7 @@ Följ dessa steg för att synkronisera med käll kontroll.
 
 6. Ytterligare loggning är tillgängligt genom att välja **alla loggar** på sidan Översikt över synkronisering av käll kontroll. Dessa ytterligare logg poster kan hjälpa dig att felsöka problem som kan uppstå när du använder käll kontroll.
 
-## <a name="disconnecting-source-control"></a>Kopplar från käll kontrollen
+## <a name="disconnect-source-control"></a>Koppla från käll kontroll
 
 Så här kopplar du bort från en lagrings plats för käll kontroll:
 
@@ -197,11 +194,11 @@ Så här kopplar du bort från en lagrings plats för käll kontroll:
 
 3. Klicka på **ta bort**på sidan Översikt över käll kontroll.
 
-## <a name="handling-encoding-issues"></a>Hantera kodnings problem
+## <a name="handle-encoding-issues"></a>Hantera kodnings problem
 
 Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med olika redigerare kan kodnings problem uppstå. Läs mer om den här situationen i [vanliga orsaker till kodnings problem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
 
-## <a name="updating-the-pat"></a>Uppdaterar PAT
+## <a name="update-the-pat"></a>Uppdatera PAT
 
 För närvarande kan du inte använda Azure Portal för att uppdatera PAT i käll kontrollen. När din PAT har upphört att gälla eller återkallats kan du uppdatera käll kontrollen med en ny åtkomsttoken på något av följande sätt:
 
@@ -210,4 +207,5 @@ För närvarande kan du inte använda Azure Portal för att uppdatera PAT i käl
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Runbook-typer och deras fördelar och begränsningar finns i [Azure Automation Runbook-typer](automation-runbook-types.md).
+* [Azure Automation: käll kontroll integrering i Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+* [Azure Automation: integrera Runbook käll kontroll med Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  

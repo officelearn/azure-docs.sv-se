@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 848be71764bb503879c34ed6667a43909ef19c13
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 557dc3ad48f8f21d8898e2beb5d940d66058e90c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713445"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744984"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Hantera scheman i Azure Automation
 
@@ -198,5 +198,5 @@ Remove-AzAutomationSchedule -AutomationAccountName $automationAccountName `
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda moduler i Azure Automation](modules.md)
-* [Runbook-körning i Azure Automation](../automation-runbook-execution.md)
+* Mer information om de cmdletar som används för att få åtkomst till scheman finns [i hantera moduler i Azure Automation](modules.md).
+* Allmän information om Runbooks finns [i Runbook-körning i Azure Automation](../automation-runbook-execution.md).

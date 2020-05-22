@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: abcef61d478eccb4e979b60eb845ac8d398a49f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb97a2d848441a153db47b41644a6226e9d75782
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135878"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747752"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Konfigurera en princip för geo-filtrering WAF för din front dörr
 
@@ -52,7 +52,7 @@ Skapa en profil för en frontend-dörr genom att följa anvisningarna i [snabb s
 
 ## <a name="define-geo-filtering-match-condition"></a>Definiera matchnings villkor för geo-filtrering
 
-Skapa ett exempel på matchnings villkor som väljer begär Anden som inte kommer från "US" med [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) på parametrar när ett matchnings villkor skapas. Det finns två lands koder för lands mappning i [Vad är geo-filtrering på en domän för Azures front dörr?](waf-front-door-geo-filtering.md).
+Skapa ett exempel på matchnings villkor som väljer begär Anden som inte kommer från "US" med [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) på parametrar när ett matchnings villkor skapas. Det finns två koder för lands-och regions koder för mappning av land/region i [Vad är geo-filtrering på en domän för Azures front dörr?](waf-front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
@@ -64,7 +64,7 @@ $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
  
 ## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Lägga till matchningsvillkor för geofiltrering i en regel med Action (Åtgärd) och Priority (Prioritet)
 
-Skapa ett CustomRule- `nonUSBlockRule` objekt baserat på matchnings villkoret, en åtgärd och en prioritet med [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  En CustomRule (Anpassad regel) kan ha flera MatchCondition (Matchningsvillkor).  I det här exemplet anges Block (Blockera) för Action (Åtgärd) och 1 som Priority (Prioritet), högsta prioritetsnivån.
+Skapa ett CustomRule `nonUSBlockRule` -objekt baserat på matchnings villkoret, en åtgärd och en prioritet med [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  En CustomRule (Anpassad regel) kan ha flera MatchCondition (Matchningsvillkor).  I det här exemplet anges Block (Blockera) för Action (Åtgärd) och 1 som Priority (Prioritet), högsta prioritetsnivån.
 
 ```
 $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
@@ -77,7 +77,7 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 
 ## <a name="add-rules-to-a-policy"></a>Lägga till regler i en princip
 
-Hitta namnet på den resurs grupp som innehåller profilen för front dörren med hjälp `Get-AzResourceGroup`av. Skapa sedan ett `geoPolicy` princip objekt som innehåller `nonUSBlockRule` kommandot [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) i den angivna resurs gruppen som innehåller profilen för den främre dörren. Du måste ange ett unikt namn för geo-principen. 
+Hitta namnet på den resurs grupp som innehåller profilen för front dörren med hjälp av `Get-AzResourceGroup` . Skapa sedan ett `geoPolicy` princip objekt som innehåller `nonUSBlockRule` kommandot [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) i den angivna resurs gruppen som innehåller profilen för den främre dörren. Du måste ange ett unikt namn för geo-principen. 
 
 I följande exempel används resurs grupps namnet *myResourceGroupFD1* med antagandet att du har skapat en profil för front dörren med hjälp av anvisningarna i [snabb starten: skapa en artikel i front dörren](../../frontdoor/quickstart-create-front-door.md) . I exemplet nedan ersätter du princip namnet *geoPolicyAllowUSOnly* med ett unikt princip namn.
 
@@ -101,7 +101,7 @@ $geoFrontDoorObjectExample = Get-AzFrontDoor -ResourceGroupName myResourceGroupF
 $geoFrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $geoPolicy.Id
 ```
 
-Ange sedan egenskapen frontend-WebApplicationFirewallPolicyLink till resourceId för `geoPolicy`funktionen [set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
+Ange sedan egenskapen frontend-WebApplicationFirewallPolicyLink till resourceId för funktionen `geoPolicy` [set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
 
 ```
 Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]

@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: f64dd74ad0e038c5cad152e20ae2255de03114e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79501451"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747219"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -32,6 +32,11 @@ Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
   * För MDC ska nyckeln peka mot SQL-porten för **namnserver**. Om det är SDC ska det peka på SQL-porten för **INDEXSERVER**
   * Den bör ha autentiseringsuppgifter för att lägga till och ta bort användare
 * Kör konfigurations skriptet för SAP HANA säkerhets kopiering (för registrerings skriptet) på den virtuella datorn där HANA är installerat, som rot användare. [Det här skriptet](https://aka.ms/scriptforpermsonhana) hämtar Hana-systemet för säkerhets kopiering. Mer information om skriptet för för registrering finns i avsnittet [Vad skriptet gör för registrering](#what-the-pre-registration-script-does) .
+
+>[!NOTE]
+>Azure Backup anpassas inte automatiskt för sommar tids ändringar vid säkerhets kopiering av en SAP HANA databas som körs på en virtuell Azure-dator.
+>
+>Ändra principen manuellt efter behov.
 
 ## <a name="set-up-network-connectivity"></a>Konfigurera nätverks anslutning
 
@@ -116,7 +121,7 @@ hdbuserstore list
 Kommandots utdata ska Visa nyckeln {SID} {DBNAME}, där användaren visas som AZUREWLBACKUPHANAUSER.
 
 >[!NOTE]
-> Se till att du har en unik uppsättning SSFS-filer `/usr/sap/{SID}/home/.hdb/`under. Det får bara finnas en mapp i den här sökvägen.
+> Se till att du har en unik uppsättning SSFS-filer under `/usr/sap/{SID}/home/.hdb/` . Det får bara finnas en mapp i den här sökvägen.
 
 ## <a name="create-a-recovery-service-vault"></a>Skapa ett Recovery Service-valv
 
@@ -236,7 +241,7 @@ Ange princip inställningarna enligt följande:
 
 Du har nu konfigurerat säkerhets kopiering (er) för SAP HANA databas (er).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * Lär dig hur du [Kör säkerhets kopiering på begäran på SAP HANA databaser som körs på virtuella Azure-datorer](backup-azure-sap-hana-database.md#run-an-on-demand-backup)
 * Lär dig hur du [återställer SAP HANA databaser som körs på virtuella Azure-datorer](sap-hana-db-restore.md)

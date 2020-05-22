@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d8be2c8cc70db963252054a39cad558c4c1b5bd2
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871217"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737511"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -321,14 +321,14 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | othermail | Annan e-post |
 | Användare | land | Land/region |
 | Användare | city | Ort |
-| Användare | state | Status |
+| Användare | state | Stat |
 | Användare | befattning | Befattning |
 | Användare | employeeid | Anställnings-ID |
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
 | program, resurs, mål grupp | displayname (visningsnamn) | Visningsnamn |
 | program, resurs, mål grupp | inobjekt | ObjectID |
 | program, resurs, mål grupp | tags | Tjänstens huvud namns etikett |
-| Företag | tenantcountry | Innehavarens land |
+| Företag | tenantcountry | Innehavarens land/region |
 
 **TransformationID:** TransformationID-elementet får bara anges om käll elementet har angetts till "Transformation".
 
@@ -360,8 +360,8 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 |TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Beskrivning|
 |-----|-----|-----|-----|
-|Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Kopplar ihop inmatade strängar med hjälp av en avgränsare mellan. Till exempel: sträng1: "foo@bar.com", sträng2: "sandbox", avgränsare: "." resulterar i outputClaimfoo@bar.com.sandbox: ""|
-|ExtractMailPrefix|e-post|outputClaim|Extraherar den lokala delen av en e-postadress. Exempel: mail: "foo@bar.com" resulterar i outputClaim: "foo". Om det \@ inte finns något tecken returneras den ursprungliga Indatasträngen som den är.|
+|Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Kopplar ihop inmatade strängar med hjälp av en avgränsare mellan. Till exempel: sträng1: " foo@bar.com ", sträng2: "sandbox", avgränsare: "." resulterar i outputClaim: " foo@bar.com.sandbox "|
+|ExtractMailPrefix|e-post|outputClaim|Extraherar den lokala delen av en e-postadress. Exempel: mail: " foo@bar.com " resulterar i outputClaim: "foo". Om det inte finns något \@ tecken returneras den ursprungliga Indatasträngen som den är.|
 
 **InputClaims:** Använd ett InputClaims-element för att skicka data från en anspråks schema post till en omvandling. Det har två attribut: **ClaimTypeReferenceId** och **TransformationClaimType**.
 
@@ -417,7 +417,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 En anpassad signerings nyckel måste tilldelas till tjänstens huvud objekt för att en anspråks mappnings princip ska börja gälla. Detta säkerställer bekräftelse på att token har ändrats av skaparen av anspråks mappnings principen och skyddar program från principer för anspråk mappning som skapats av skadliga aktörer. Om du vill lägga till en anpassad signerings nyckel kan du använda Azure PowerShell cmdlet `new-azureadapplicationkeycredential` för att skapa en symmetrisk nyckel autentiseringsuppgift för ditt program objekt. Mer information om denna Azure PowerShell-cmdlet finns i [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-Appar som har aktiverat anspråks mappning måste verifiera sina token signerings `appid={client_id}` nycklar genom att lägga till i deras [OpenID Connect metadata-begäranden](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Nedan visas formatet för OpenID Connect-Metadatadokumentet som du bör använda: 
+Appar som har aktiverat anspråks mappning måste verifiera sina token signerings nycklar genom `appid={client_id}` att lägga till i deras [OpenID Connect metadata-begäranden](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Nedan visas formatet för OpenID Connect-Metadatadokumentet som du bör använda: 
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
@@ -478,7 +478,7 @@ I det här exemplet skapar du en princip som tar bort den grundläggande ansprå
 
 #### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exempel: skapa och tilldela en princip för att inkludera fälten Anställningsnr och TenantCountry som anspråk i token som utfärdats till ett huvud namn för tjänsten
 
-I det här exemplet skapar du en princip som lägger till fälten Anställningsnr och TenantCountry för token som utfärdats till länkade tjänstens huvud namn. Anställningsnr genereras som namn anspråks typ i både SAML-tokens och JWTs. TenantCountry genereras som land anspråks typ i både SAML-tokens och JWTs. I det här exemplet fortsätter vi att inkludera de grundläggande anspråks uppsättningarna i tokens.
+I det här exemplet skapar du en princip som lägger till fälten Anställningsnr och TenantCountry för token som utfärdats till länkade tjänstens huvud namn. Anställningsnr genereras som namn anspråks typ i både SAML-tokens och JWTs. TenantCountry genereras som lands-/regions typ i både SAML-token och JWTs. I det här exemplet fortsätter vi att inkludera de grundläggande anspråks uppsättningarna i tokens.
 
 1. Skapa en princip för anspråks mappning. Den här principen, som är länkad till särskilda tjänst huvud namn, lägger till anspråken Anställningsnr och TenantCountry till tokens.
    1. Kör följande kommando för att skapa principen:  

@@ -1,24 +1,21 @@
 ---
-title: Rollbaserad åtkomstkontroll i Azure Automation
-description: Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Den här artikeln beskriver hur du konfigurerar RBAC i Azure Automation.
+title: Hantera roll behörigheter och säkerhet i Azure Automation
+description: Den här artikeln beskriver hur du använder rollbaserad åtkomst kontroll (RBAC), som möjliggör åtkomst hantering för Azure-resurser.
 keywords: automation rbac, rollbaserad åtkomstkontroll, azure rbac
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: a49f2596df91c44deafa1be83483f8972e223742
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cdde8d1142ec47f835e4a06e7fe2e843d796a3a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535578"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743932"
 ---
-# <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
+# <a name="manage-role-permissions-and-security"></a>Hantera rollbehörigheter och säkerhet
 
 Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Med [RBAC](../role-based-access-control/overview.md)kan du åtskilja uppgifter i ditt team och endast bevilja den mängd åtkomst till användare, grupper och program som de behöver för att utföra sina jobb. Du kan bevilja rollbaserad åtkomst till användare med hjälp av Azure Portal, Azures kommando rads verktyg eller Azure Management-API: er.
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="roles-in-automation-accounts"></a>Roller i Automation-konton
 
@@ -32,7 +29,7 @@ I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till
 | Automation-operatör |Med rollen som Automation-operatör kan du Visa Runbook-namn och egenskaper och skapa och hantera jobb för alla Runbooks i ett Automation-konto. Den här rollen är användbar om du vill skydda dina Automation-konto resurser som autentiseringsuppgifter och Runbooks från att visas eller ändras, men ändå tillåta medlemmar i organisationen att köra dessa Runbooks. |
 |Automatiserings jobb operatör|Med rollen automatiserings jobb operatör kan du skapa och hantera jobb för alla Runbooks i ett Automation-konto.|
 |Automation Runbook-operator|Med rollen Automation Runbook-operatör kan du Visa namn och egenskaper för en Runbook.|
-| Log Analytics Contributor | Med rollen Log Analytics Contributor kan du läsa alla övervaknings data och redigera övervaknings inställningar. Genom att redigera övervaknings inställningarna kan du lägga till VM-tillägget till virtuella datorer, läsa lagrings konto nycklar för att kunna konfigurera insamling av loggar från Azure Storage, skapa och konfigurera Automation-konton, lägga till lösningar och konfigurera Azure Diagnostics på alla Azure-resurser.|
+| Log Analytics Contributor | Med rollen Log Analytics Contributor kan du läsa alla övervaknings data och redigera övervaknings inställningar. Genom att redigera övervaknings inställningarna kan du lägga till VM-tillägget till virtuella datorer, läsa lagrings konto nycklar för att kunna konfigurera insamling av loggar från Azure Storage, skapa och konfigurera Automation-konton, lägga till Azure Automation funktioner och konfigurera Azure Diagnostics på alla Azure-resurser.|
 | Log Analytics Reader | Med rollen Log Analytics läsare kan du Visa och söka i alla övervaknings data samt Visa övervaknings inställningar. Detta inkluderar visning av Azure Diagnostics-konfigurationen på alla Azure-resurser. |
 | Övervaknings deltagare | Med rollen övervaknings deltagare kan du läsa alla övervaknings data och uppdatera övervaknings inställningar.|
 | Övervaknings läsare | Med rollen övervaknings läsare kan du läsa alla övervaknings data. |
@@ -130,7 +127,7 @@ En rollen Automation Runbook-operatör beviljas i Runbook-omfånget. En Automati
 
 ### <a name="log-analytics-contributor"></a>Log Analytics Contributor
 
-En Log Analytics deltagare kan läsa alla övervaknings data och redigera övervaknings inställningar. Genom att redigera övervaknings inställningarna lägger du till VM-tillägget till virtuella datorer. läsning av lagrings konto nycklar för att kunna konfigurera samling av loggar från Azure Storage. Skapa och konfigurera Automation-konton. lägga till lösningar. och konfigurera Azure Diagnostics på alla Azure-resurser. Följande tabell visar de behörigheter som har beviljats för rollen:
+En Log Analytics deltagare kan läsa alla övervaknings data och redigera övervaknings inställningar. Genom att redigera övervaknings inställningarna lägger du till VM-tillägget till virtuella datorer. läsning av lagrings konto nycklar för att kunna konfigurera samling av loggar från Azure Storage. Skapa och konfigurera Automation-konton. lägger till funktioner; och konfigurera Azure Diagnostics på alla Azure-resurser. Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
@@ -142,7 +139,7 @@ En Log Analytics deltagare kan läsa alla övervaknings data och redigera överv
 |Microsoft. Insights/alertRules/*|Läsa/skriva/ta bort aviserings regler.|
 |Microsoft. Insights/diagnosticSettings/*|Läsa/skriva/ta bort diagnostikinställningar.|
 |Microsoft. OperationalInsights/*|Hantera Azure Monitor loggar.|
-|Microsoft. OperationsManagement/*|Hantera lösningar i arbets ytor.|
+|Microsoft. OperationsManagement/*|Hantera Azure Automation funktioner på arbets ytor.|
 |Microsoft. Resources/Deployments/*|Skapa och hantera distributioner av resurs grupper.|
 |Microsoft. Resources/Subscriptions/ResourceGroups/distributions/*|Skapa och hantera distributioner av resurs grupper.|
 |Microsoft. Storage/storageAccounts/Listnycklar/åtgärd|Lista lagrings konto nycklar.|
@@ -207,11 +204,11 @@ En administratör för användar åtkomst kan hantera användar åtkomst till Az
 |Microsoft. Authorization/*|Hantera auktorisering|
 |Microsoft. support/*|Skapa och hantera support biljetter|
 
-## <a name="onboarding-permissions"></a>Onboarding-behörigheter
+## <a name="feature-setup-permissions"></a>Funktions installations behörigheter
 
-I följande avsnitt beskrivs de lägsta behörigheter som krävs för att registrera virtuella datorer för lösningarna för ändrings spårning eller uppdaterings hantering.
+I följande avsnitt beskrivs minimi kraven för de behörigheter som krävs för att aktivera Uppdateringshantering-och Ändringsspårning-och inventerings funktionerna.
 
-### <a name="permissions-for-onboarding-from-a-vm"></a>Behörigheter för onboarding från en virtuell dator
+### <a name="permissions-for-enabling-update-management-and-change-tracking-and-inventory-from-a-vm"></a>Behörigheter för att aktivera Uppdateringshantering och Ändringsspårning och inventering från en virtuell dator
 
 |**Åtgärd**  |**Behörighet**  |**Minsta omfång**  |
 |---------|---------|---------|
@@ -231,9 +228,9 @@ I följande avsnitt beskrivs de lägsta behörigheter som krävs för att regist
 | Kontroll av arbets ytan för VM<sup>1</sup>       | Microsoft. OperationalInsights/arbets ytor/läsa         | Prenumeration         |
 | Registrera Log Analytics-providern |Microsoft. Insights/register/åtgärd | Prenumeration|
 
-<sup>1</sup> den här behörigheten krävs för att publicera via den virtuella datorns Portal upplevelse.
+<sup>1</sup> den här behörigheten krävs för att aktivera funktioner via den virtuella datorns Portal upplevelse.
 
-### <a name="permissions-for-onboarding-from-automation-account"></a>Behörigheter för onboarding från Automation-konto
+### <a name="permissions-for-enabling-update-management-and-change-tracking-and-inventory-from-an-automation-account"></a>Behörigheter för att aktivera Uppdateringshantering och Ändringsspårning och inventering från ett Automation-konto
 
 |**Åtgärd**  |**Behörighet** |**Minsta omfång**  |
 |---------|---------|---------|
@@ -248,7 +245,7 @@ I följande avsnitt beskrivs de lägsta behörigheter som krävs för att regist
 |Skapa/redigera Sparad sökning     | Microsoft. OperationalInsights/arbets ytor/Skriv        | Arbetsyta        |
 |Skapa/redigera omfattnings konfiguration     | Microsoft. OperationalInsights/arbets ytor/Skriv        | Arbetsyta        |
 | Registrera Log Analytics-providern |Microsoft. Insights/register/åtgärd | Prenumeration|
-|**Steg 2 – publicera flera virtuella datorer**     |         |         |
+|**Steg 2 – aktivera flera virtuella datorer**     |         |         |
 |Bladet VMOnboarding – skapa MMA-tillägg     | Microsoft. Compute/virtualMachines/Write           | Virtuell dator        |
 |Skapa/redigera Sparad sökning     | Microsoft. OperationalInsights/arbets ytor/Skriv           | Arbetsyta        |
 |Skapa/redigera omfattnings konfiguration  | Microsoft. OperationalInsights/arbets ytor/Skriv   | Arbetsyta|
@@ -286,7 +283,7 @@ I följande avsnitt visas hur du konfigurerar RBAC på ditt Automation-konto via
 
 3. Skriv namnet på den användare som du vill ge behörighet till i fältet **Välj** . Välj användaren i listan och klicka på **Spara**.
 
-   ![Lägg till användare](media/automation-role-based-access-control/automation-04-add-users.png)
+   ![Lägga till användare](media/automation-role-based-access-control/automation-04-add-users.png)
 
    Nu bör du se användaren som har lagts till på sidan användare med den valda rollen tilldelad.
 
@@ -314,7 +311,7 @@ Du kan ta bort åtkomst behörigheten för en användare som inte hanterar Autom
 
 Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med hjälp av följande [Azure PowerShell-cmdlet: ar](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) visar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda den här cmdleten `Name` med parametern för att visa en lista över alla åtgärder som en speciell roll kan utföra.
+[Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) visar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda den här cmdleten med `Name` parametern för att visa en lista över alla åtgärder som en speciell roll kan utföra.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -385,7 +382,7 @@ Använd [Remove-AzRoleAssignment](https://docs.microsoft.com/powershell/module/A
 Remove-AzRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-I föregående `sign-in ID of a user you wish to remove`exempel ersätter du, `SubscriptionID` `Resource Group Name`, och `Automation account name` med din konto information. Välj **Ja** när du uppmanas att bekräfta innan du fortsätter att ta bort användar roll tilldelningar.
+I föregående exempel ersätter `sign-in ID of a user you wish to remove` du,, `SubscriptionID` `Resource Group Name` och `Automation account name` med din konto information. Välj **Ja** när du uppmanas att bekräfta innan du fortsätter att ta bort användar roll tilldelningar.
 
 ### <a name="user-experience-for-automation-operator-role---automation-account"></a>Användar upplevelse för rollen Automation-operatör – Automation-konto
 
@@ -428,6 +425,6 @@ När en användare som är tilldelad rollen som Automation-operatör i Runbook-o
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du konfigurerar RBAC för Azure Automation finns i [hantera RBAC med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Information om hur du startar en Runbook finns i [starta en Runbook](automation-starting-a-runbook.md).
-* Information om Runbook-typer finns i [Azure Automation Runbook-typer](automation-runbook-types.md).
+* [Hantera RBAC med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Starta en runbook i Azure Automation](start-runbooks.md)
+* [Azure Automation Runbook-typer](automation-runbook-types.md)

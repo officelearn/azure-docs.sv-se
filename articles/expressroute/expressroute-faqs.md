@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 085830ee1c8e7556a7c3390aaf6e638245d20324
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264926"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745764"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -295,7 +295,7 @@ ExpressRoute Premium är en samling av följande funktioner:
 * Ökat antal virtuella nätverk-och ExpressRoute-Global Reach-anslutningar som kan aktive ras på en ExpressRoute-krets (Standardvärdet är 10). Mer information finns i [ExpressRoute Limits](#limits) -tabellen.
 * Anslutning till Office 365
 * Global anslutning över Microsoft Core-nätverket. Nu kan du länka ett VNet i en politisk region med en ExpressRoute-krets i en annan region.<br>
-    **Fler**
+    **Exempel:**
 
     *  Du kan länka ett VNet som skapats i Europa, västra till en ExpressRoute-krets som skapats i Silicon dal. 
     *  På Microsofts peering annonseras prefix från andra politiska regioner, så att du kan ansluta till, till exempel SQL Azure i Europa, väst från en krets i kisel dal.
@@ -342,7 +342,7 @@ Jämfört med en vanlig ExpressRoute-krets har en lokal krets samma uppsättning
 ExpressRoute Local har också samma begränsningar för resurser (t. ex. antalet virtuella nätverk per krets) som standard. 
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Var finns ExpressRoute lokalt och vilka Azure-regioner är varje peering-plats mappad till?
-ExpressRoute Local är tillgängligt på peering-platserna där en eller två Azure-regioner stängs av. Den är inte tillgänglig på en peering-plats där det inte finns någon Azure-region i detta tillstånd eller region eller land. Se exakta mappningar på [sidan platser](expressroute-locations-providers.md).  
+ExpressRoute Local är tillgängligt på peering-platserna där en eller två Azure-regioner stängs av. Den är inte tillgänglig på en peering-plats där det inte finns någon Azure-region i detta tillstånd eller region eller land/region. Se exakta mappningar på [sidan platser](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute för Office 365
 

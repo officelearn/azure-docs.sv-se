@@ -8,16 +8,16 @@ ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 0ff8b85a15d94ded2d702e0df247f9ebc4d3f923
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c93f34068cd296cb2d3a59f208fa644cdbf2260
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266317"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745722"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Anslut din arbets enhet till din organisations nätverk
 Anslut din arbetsägda Windows 10-enhet till din organisations nätverk så att du kan komma åt potentiellt begränsade resurser.
@@ -61,7 +61,7 @@ Du kan se till att du är ansluten genom att titta på dina inställningar.
 
     ![Konton på skärmen Inställningar](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Välj **åtkomst till arbete eller skola**och se till att du ser text som säger något som är **ansluten till * \<your_organization>* Azure AD**.
+2. Välj **åtkomst till arbete eller skola**och se till att du ser text som säger något som är **ansluten till * \< your_organization>* Azure AD**.
 
     ![Få åtkomst till arbets-eller skol skärmen med det anslutna contoso-kontot](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -79,7 +79,7 @@ Om du har haft enheten en stund och den redan har kon figurer ATS, kan du följa
 
     ![Konfigurera ett arbets-eller skol konto-fönster](./media/user-help-join-device-on-network/join-device-setup-join-aad.png)
 
-4. Skriv din e-postadress (till exempel alain@contoso.com) på sidan **Låt oss bli inloggad** och välj sedan **Nästa**.
+4. Skriv din e-postadress (till exempel) på sidan **Låt oss bli inloggad** alain@contoso.com och välj sedan **Nästa**.
 
     ![Låt oss bli inloggad på skärmen](./media/user-help-join-device-on-network/join-device-setup-get-signed-in.png)
 
@@ -106,7 +106,7 @@ Du kan se till att du är ansluten genom att titta på dina inställningar.
 
     ![Konton på skärmen Inställningar](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Välj **åtkomst till arbete eller skola**och se till att du ser text som säger något som är **ansluten till * \<your_organization>* Azure AD**.
+2. Välj **åtkomst till arbete eller skola**och se till att du ser text som säger något som är **ansluten till * \< your_organization>* Azure AD**.
 
     ![Få åtkomst till arbets-eller skol skärmen med det anslutna contoso-kontot](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

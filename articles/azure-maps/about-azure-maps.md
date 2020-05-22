@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fdac12350db785e6194cd3d057f4d2adfefa5969
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 113e745e078bd5d345845318af1b10ed98f2aecb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80335734"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746923"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
@@ -155,7 +155,7 @@ Mer information finns i dokumentationen om [Traffic API](https://docs.microsoft.
 
 ### <a name="ip-to-location-service"></a>Tjänst-till-plats-tjänst
 
-Använd tjänsten IP to Location för att förhandsgranska den hämtade lands koden med två bokstäver för en IP-adress. Den här tjänsten kan hjälpa dig att förbättra användar upplevelsen genom att tillhandahålla anpassat program innehåll baserat på geografisk plats.
+Använd tjänsten IP to Location för att förhandsgranska den hämtade lands-och region koden för två bokstäver för en IP-adress. Den här tjänsten kan hjälpa dig att förbättra användar upplevelsen genom att tillhandahålla anpassat program innehåll baserat på geografisk plats.
 
 Mer information om IP-till-plats-tjänsten i REST API finns i [Azure Maps API-dokumentation för geolokalisering](https://docs.microsoft.com/rest/api/maps/geolocation).
 
@@ -180,7 +180,7 @@ Azure Maps-API: er är för närvarande tillgängliga i alla länder och regione
 * Kina
 * Sydkorea
 
-Kontrol lera att platsen för din aktuella IP-adress finns i ett land som stöds.
+Kontrol lera att platsen för din aktuella IP-adress finns i ett land/region som stöds.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,17 +5,17 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/30/2020
-ms.openlocfilehash: 7ed01a57a4c2a55d777907a6cc14b111fb2086e3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/19/2020
+ms.openlocfilehash: 5ab71ee67b66cacbcd1b23fa35d6f424021fa9cc
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731908"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757553"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
-Den här artikeln förklarar begreppet Azure Log Analytics arbets yta mjuk borttagning och hur du återställer den borttagna arbets ytan. 
+Den här artikeln förklarar begreppet Azure Log Analytics arbets yta mjuk borttagning och hur du återställer den borttagna arbets ytan.
 
 ## <a name="considerations-when-deleting-a-workspace"></a>Att tänka på när du tar bort en arbets yta
 
@@ -45,12 +45,12 @@ Du kan ta bort en arbets yta med [PowerShell](https://docs.microsoft.com/powersh
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Logga in genom att gå till [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 3. I listan över Log Analytics arbets ytor väljer du en arbets yta och klickar sedan på **ta bort** längst upp i mitten av fönstret.
-   ![Ta bort alternativ från fönstret Egenskaper för arbets yta](media/delete-workspace/log-analytics-delete-workspace.png)
-4. När fönstret bekräftelse meddelande visas och du uppmanas att bekräfta borttagningen av arbets ytan klickar du på **Ja**.
-   ![Bekräfta borttagning av arbets yta](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+4. En bekräftelse sida visas som visar data inmatningen till arbets ytan under den senaste veckan. Skriv in namnet på arbets ytan som ska bekräftas och klicka sedan på **ta bort**.
+
+   ![Bekräfta borttagning av arbets yta](media/delete-workspace/workspace-delete.png)
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell
@@ -92,10 +92,27 @@ Om du vill ta bort arbets ytan permanent använder du [arbets ytorna – ta bort
 Där ' eyJ0eXAiOiJKV1Qi... ' representerar fullständig token för autentisering.
 
 ## <a name="recover-workspace"></a>Återställ arbets yta
+När du tar bort en Log Analytics arbets yta oavsiktligt eller avsiktligt, placerar tjänsten arbets ytan i ett mjuk borttagnings tillstånd, vilket gör att den inte är tillgänglig för någon åtgärd. Namnet på den borttagna arbets ytan bevaras under perioden för mjuk borttagning och kan inte användas för att skapa en ny arbets yta. Efter den mjuka borttagnings perioden går det inte att återskapa arbets ytan, den är schemalagd för permanent borttagning och dess namn som den släppts och kan användas för att skapa en ny arbets yta.
 
-Om du har deltagar behörighet till prenumerationen och resurs gruppen där arbets ytan var kopplad innan du mjuka borttagnings åtgärden, kan du återställa den under den mjuka borttagnings perioden, inklusive dess data, konfiguration och anslutna agenter. Efter den mjuka borttagnings perioden är arbets ytan inte återställnings bar och tilldelad för permanent borttagning. Namn på borttagna arbets ytor bevaras under perioden för mjuk borttagning och kan inte användas när du försöker skapa en ny arbets yta.  
+Du kan återställa arbets ytan under den mjuka borttagnings perioden, inklusive dess data, konfiguration och anslutna agenter. Du måste ha deltagar behörighet till prenumerationen och resurs gruppen där arbets ytan fanns före åtgärden mjuk borttagning. Arbets ytans återställning utförs genom att skapa en Log Analytics arbets yta med information om den borttagna arbets ytan, inklusive:
 
-Du kan återställa arbets ytan genom att skapa en arbets yta med information om den borttagna arbets ytan, bland annat *prenumerations-ID*, *resurs grupp namn*, *namn på arbets yta* och *region*. Om din resurs grupp också har tagits bort och inte finns skapar du en resurs grupp med samma namn som användes före borttagningen och sedan skapar du en arbets yta med någon av följande metoder: [Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace), [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) eller [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate).
+- Prenumerations-ID:t
+- Resurs grupps namn
+- Namn på arbetsyta
+- Region
+
+### <a name="azure-portal"></a>Azure Portal
+
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
+2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**. Du ser listan över arbets ytor som du har i det valda omfånget.
+3. Klicka på **Återställ** på menyn längst upp till vänster om du vill öppna en sida med arbets ytor i läget för mjuk borttagning som kan återställas.
+
+   ![Återställ arbets yta](media/delete-workspace/recover-menu.png)
+
+4. Välj arbets ytan och klicka på **Återställ** för att återställa arbets ytan.
+
+   ![Återställ arbets yta](media/delete-workspace/recover-workspace.png)
+
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell

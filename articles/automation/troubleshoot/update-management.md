@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 64df2e0f17322f8e650ede9d4453d90c36252135
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 35049e148af09376667a55e2f0bb4a28cf728245
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680016"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735896"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Felsöka Uppdateringshantering problem
 
@@ -50,7 +50,7 @@ Det här felet kan inträffa av följande orsaker:
 
 * Gå till [nätverks konfiguration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) och lär dig om vilka adresser och portar som måste tillåtas för att Log Analytics agenten ska fungera.
 
-* Sök efter problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer som har kon figurer ats för uppdateringshantering. Om din dator visas på arbets ytan men inte i Uppdateringshantering portal måste du ange omfattnings konfigurationen som mål för datorerna. Mer information om omfattnings konfigurationen finns i [Aktivera datorer i arbets ytan](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+* Sök efter problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer som har kon figurer ats för uppdateringshantering. Om din dator visas på arbets ytan men inte i Uppdateringshantering portal måste du ange omfattnings konfigurationen som mål för datorerna. Mer information om omfattnings konfigurationen finns i [Aktivera datorer i arbets ytan](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Ta bort arbets konfigurationen genom att följa stegen i [ta bort hybrid Runbook Worker från en lokal Windows-dator](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) eller [ta bort hybrid Runbook Worker från en lokal Linux-dator](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
@@ -119,9 +119,9 @@ Det här problemet kan orsakas av lokala konfigurations problem eller av en fela
 
 4. Om du inte ser datorn i frågeresultatet har den nyligen checkats in. Det finns förmodligen ett lokalt konfigurations problem och du bör [installera om agenten](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
 
-5. Om din dator visas i frågeresultatet kontrollerar du om det finns problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer som har kon figurer ats för uppdateringshantering. 
+5. Om din dator visas i frågeresultatet kontrollerar du om det finns problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-scope-configurations-update-management.md) avgör vilka datorer som har kon figurer ats för uppdateringshantering. 
 
-6. Om datorn visas på arbets ytan men inte i Uppdateringshantering måste du konfigurera omfattnings konfigurationen så att den passar datorn. Information om hur du gör detta finns i [Aktivera datorer i arbets ytan](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+6. Om datorn visas på arbets ytan men inte i Uppdateringshantering måste du konfigurera omfattnings konfigurationen så att den passar datorn. Information om hur du gör detta finns i [Aktivera datorer i arbets ytan](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 7. Kör den här frågan i din arbets yta.
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 0c5bfb6632a22a890ac2387f06464c18be7dd714
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3b4159d81ce1d202dd1a302e863e5392f51a9868
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699053"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747796"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Analys av orderinstrumentpanelen på kommersiell marknadsplats
 
@@ -58,7 +58,7 @@ Procentvärdet bredvid totalt antal beställningar representerar den mängd till
 
 ### <a name="orders-by-geography"></a>Beställningar efter geografi
 
-Termisk karta för **beställningar per geografi** visar antalet beställningar på en världs karta och visar platser som har mappats baserat på kund land. Den här termisk karta fungerar på samma sätt som **[kunden efter geografi termisk karta](./customer-dashboard.md#customer-by-geography)**.
+Termisk karta för **beställningar per geografi** visar antalet beställningar på en världs karta och visar platser som har mappats baserat på kundens land/region. Den här termisk karta fungerar på samma sätt som **[kunden efter geografi termisk karta](./customer-dashboard.md#customer-by-geography)**.
 
 ![Partner Center, analysera beställningar efter geografi](./media/orders-by-geography.png)
 
@@ -103,7 +103,7 @@ Tabellen Order information visar en numrerad lista över de 1000 främsta order 
 - Varje kolumn i rutnätet är sorterbar.
 - Data kan extraheras till en TSV-fil om antalet poster är mindre än 1000.
 - Om poster nummer över 1000 placeras exporterade data asynkront på sidan nedladdningar under de närmaste 30 dagarna.
-- Filter kan tillämpas på **tabellen Order information** för att visa endast de data som du är intresse rad av. Data kan filtreras efter land, Azure-licensserver, Marketplace-licens typ, erbjudande typ, order status, kostnads fria historik, prenumerations-ID för Marketplace, kund-ID och företags namn.
+- Filter kan tillämpas på **tabellen Order information** för att visa endast de data som du är intresse rad av. Data kan filtreras efter land/region, Azure-licensserver, Marketplace-licens typ, erbjudande typ, beställnings status, kostnads fria spår, prenumerations-ID för Marketplace, kund-ID och företags namn.
 - Eftersom SaaS-erbjudanden som köpts via Azure Marketplace eller AppSource inte kräver en Azure-prenumeration, visas prenumerations-ID: t för Marketplace som 00000000-0000-0000-0000-000000000000 i avsnittet **detaljerade order data** .
 
 #### <a name="orders-page-filters"></a>Sid filter för order

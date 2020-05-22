@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: 08dcee28c234183aa2b125d82d046d31d4b50e47
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e74acd3cdb0a0d2e0fbb37d022ff40e1f5798b18
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788861"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744610"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Vad är Azure Media Services Video Indexer?
 
@@ -70,8 +70,8 @@ I följande lista visas de insikter som du kan hämta från dina videor med Vide
 
 ### <a name="audio-insights"></a>Ljud insikter
 
-* **Ljud avskrift**: konverterar tal till text på 12 språk och tillåter tillägg. Språk som stöds är engelska, spanska, franska, tyska, italienska, mandariner kinesiska, japanska, arabiska, ryska, brasiliansk portugisiska, hindi och koreanska.
-* **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, mandariner kinesiska, japanska, ryska och brasiliansk portugisiska. Om språket inte kan identifieras med förtroende förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [språk identifierings modell](language-identification-model.md).
+* **Ljud avskrift**: konverterar tal till text på 12 språk och tillåter tillägg. Språk som stöds är engelska, spanska, franska, tyska, italienska, mandariner kinesiska, japanska, arabiska, ryska, portugisiska, hindi och koreanska.
+* **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, mandariner kinesiska, japanska, ryska och portugisiska. Om språket inte kan identifieras med förtroende förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [språk identifierings modell](language-identification-model.md).
 * **Tal identifiering och avskrifter för flera språk** (för hands version): identifierar automatiskt det talade språket i olika segment från ljud. Den skickar varje segment i medie filen som ska skrivas av och kombinerar sedan avskriften till en enhetlig avskrift. Mer information finns i [identifiera och automatisk identifiering av innehåll på flera språk](multi-language-identification-transcription.md).
 * **Textning**: Skapar textning i tre format: VTT, TTML och SRT.
 * **Två kanal bearbetning**: identifierar automatiskt separata avskrifter och sammanfogningar på en enda tids linje.

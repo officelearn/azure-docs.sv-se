@@ -3,12 +3,12 @@ title: Miljövariabler för uppgiftens körtid
 description: Vägledning för aktivitetens körnings miljö och referens för Azure Batch analys.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 2027716283ca4910f45ae3e32111896ef0045ce8
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 0b3f00bcae50b0913432b122c85a3725a489679a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726765"
+ms.locfileid: "83745337"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variabler för Azure Batch körnings miljö
 
@@ -36,7 +36,7 @@ Kommando raderna som körs av aktiviteter på datornoderna körs inte under ett 
 
 ## <a name="environment-variables"></a>Miljövariabler
 
-| Variabelnamn                     | Beskrivning                                                              | Tillgängligt | Exempel |
+| Variabelnamn                     | Beskrivning                                                              | Tillgänglighet | Exempel |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Namnet på batch-kontot som aktiviteten tillhör.                  | Alla aktiviteter.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | URL: en för batch-kontot. | Alla aktiviteter. | `https://myaccount.westus.batch.azure.com` |
@@ -48,7 +48,7 @@ Kommando raderna som körs av aktiviteter på datornoderna körs inte under ett 
 | AZ_BATCH_JOB_ID                 | ID:t för jobbet som aktiviteten hör till. | Alla aktiviteter förutom start aktivitet. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | Den fullständiga sökvägen till [aktivitets katalogen][files_dirs] för jobb förberedelser på noden. | Alla aktiviteter förutom uppgiften starta uppgift och jobb förberedelse. Endast tillgängligt om jobbet har kon figurer ATS med en jobb förberedelse aktivitet. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | Den fullständiga sökvägen till [arbets katalogen][files_dirs] för jobb förberedelse aktiviteten på noden. | Alla aktiviteter förutom uppgiften starta uppgift och jobb förberedelse. Endast tillgängligt om jobbet har kon figurer ATS med en jobb förberedelse aktivitet. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
-| AZ_BATCH_MASTER_NODE            | IP-adressen och porten för den Compute-nod som den primära aktiviteten för en [multi-instance-aktivitet][multi_instance] körs på. | Primär-och under aktiviteter med flera instanser. | `10.0.0.4:6000` |
+| AZ_BATCH_MASTER_NODE            | IP-adressen och porten för den Compute-nod som den primära aktiviteten för en [multi-instance-aktivitet][multi_instance] körs på. Använd inte porten som anges här för MPI-eller NCCL-kommunikation – den är reserverad för Azure Batch tjänsten. Använd variabeln MASTER_PORT i stället, antingen genom att ställa in den med ett värde som skickas via kommando rads argumentet (port 6105 är ett bra standard val) eller med värdet AML anger om det gör det. | Primär-och under aktiviteter med flera instanser. | `10.0.0.4:6000` |
 | AZ_BATCH_NODE_ID                | ID: t för noden som uppgiften är tilldelad till. | Alla aktiviteter. | TVM-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Om `true` är den aktuella noden en dedikerad nod. Om `false` är det en [nod med låg prioritet](batch-low-pri-vms.md). | Alla aktiviteter. | `true` |
 | AZ_BATCH_NODE_LIST              | Listan över noder som har tilldelats en [aktivitet med flera instanser][multi_instance] i formatet `nodeIP;nodeIP` . | Primär-och under aktiviteter med flera instanser. | `10.0.0.4;10.0.0.5` |

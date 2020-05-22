@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 7d59f00d655bc7b2395c46713a56f52c61ffa42c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35be2e0b7b5a24261cd8ee15b1964b953c1a3327
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277112"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747713"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Använda Windows PowerShell för StorSimple för att administrera din enhet
 
@@ -105,7 +105,7 @@ Du kan välja bland följande inställningar:
      > [!NOTE]
      > Detta är det bästa alternativet om du har glömt enhetens administratörs lösen ord och inte kan ansluta via alternativ 1 eller 2.
 
-4. **Ändra språk** Med det här alternativet kan du ändra visnings språket för Windows PowerShell-gränssnittet. De språk som stöds är engelska, japanska, ryska, franska, södra koreanska, spanska, italienska, tyska, kinesiska och brasiliansk portugisiska.
+4. **Ändra språk** Med det här alternativet kan du ändra visnings språket för Windows PowerShell-gränssnittet. De språk som stöds är engelska, japanska, ryska, franska, södra koreanska, spanska, italienska, tyska, kinesiska och portugisiska.
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Fjärrans luta till StorSimple med hjälp av Windows PowerShell för StorSimple
 
@@ -142,7 +142,7 @@ I följande tabell visas en översikt över alla vanliga hanterings uppgifter oc
 | Konfigurera webbproxy</br>Visa webbproxy-inställningar |[Konfigurera webbproxy för din StorSimple-enhet](storsimple-8000-configure-web-proxy.md) |
 | Ändra inställningarna för nätverks gränssnittet på enheten för DATA 0 |[Ändra nätverks gränssnittet för DATA 0 för din StorSimple-enhet](storsimple-8000-modify-data-0.md) |
 | Stoppa en kontroll enhet </br> Starta om eller stänga av en styrenhet </br> Stänga av en enhet</br>Återställa enheten till fabriksinställningarna |[Hantera enhets styrenheter](storsimple-8000-manage-device-controller.md) |
-| Installera uppdateringar och snabb korrigeringar för underhålls läge |[Uppdatera din enhet](storsimple-update-device.md) |
+| Installera uppdateringar och snabb korrigeringar för underhålls läge |[Uppdatera enheten](storsimple-update-device.md) |
 | Ange underhålls läge </br>Avsluta underhålls läge |[StorSimple enhets lägen](storsimple-8000-device-modes.md) |
 | Skapa ett support paket</br>Dekryptera och redigera ett support paket |[Skapa och hantera ett support paket](storsimple-8000-create-manage-support-package.md) |
 | Starta en support-session</br> |[Starta en support-session i Windows PowerShell för StorSimple](storsimple-8000-create-manage-support-package.md#create-a-support-package) |
@@ -158,7 +158,7 @@ Följande är en kort beskrivning av de olika typerna av hjälp för Windows Pow
 ### <a name="to-get-help-for-a-cmdlet"></a>För att få hjälp med en cmdlet
 
 * Använd följande kommando för att få hjälp med en cmdlet eller funktion:`Get-Help <cmdlet-name>`
-* Använd föregående cmdlet med `-Online` parametern för att få onlinehjälp för alla cmdlet: ar:`Get-Help <cmdlet-name> -Online`
+* Använd föregående cmdlet med parametern för att få onlinehjälp för alla cmdlet: ar `-Online` :`Get-Help <cmdlet-name> -Online`
 * För fullständig hjälp kan du använda- `–Full` parametern, och till exempel använder du `–Examples` parametern.
 
 ### <a name="to-update-help"></a>Så här uppdaterar du hjälpen
@@ -169,7 +169,7 @@ Du kan enkelt uppdatera hjälpen i Windows PowerShell-gränssnittet. Utför föl
 1. Starta Windows PowerShell med alternativet **Kör som administratör** .
 2. Skriv följande i kommando tolken:`Update-Help`
 3. De uppdaterade hjälpfilerna kommer att installeras.
-4. När hjälpfilerna har installerats skriver du: `Get-Help Get-Command`. Detta visar en lista över cmdletar för vilka hjälpen är tillgänglig.
+4. När hjälpfilerna har installerats skriver du: `Get-Help Get-Command` . Detta visar en lista över cmdletar för vilka hjälpen är tillgänglig.
 
 > [!NOTE]
 > Om du vill hämta en lista över alla tillgängliga cmdlets i en körnings utrymme loggar du in på motsvarande meny alternativ och kör `Get-Command` cmdleten.

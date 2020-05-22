@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e637aec3c5105bb9628a854b0d4c73988e60daaf
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 24ff69e76736ffa93cecb795be563f172c422355
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714516"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744751"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regioner som stöder länkade Log Analytics-arbetsytor
 
@@ -80,6 +80,6 @@ Du kan också ta bort länken för arbets ytan från ditt Automation-konto på a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över Uppdateringshantering](../automation-update-management.md)
-* [Översikt över Ändringsspårning och inventering](../change-tracking.md)
-* [Översikt över Starta/stoppa virtuella datorer när de inte används](../automation-solution-vm-management.md)
+* Läs mer om Uppdateringshantering i [uppdateringshantering översikt](../automation-update-management.md).
+* Läs mer om Ändringsspårning och inventering i [ändringsspårning och inventerings översikt](../change-tracking.md).
+* Läs mer om Starta/stoppa virtuella datorer när de inte används i [Starta/stoppa virtuella datorer när de inte används översikt](../automation-solution-vm-management.md).

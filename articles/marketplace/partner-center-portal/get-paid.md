@@ -6,12 +6,12 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 678c47fc345838f6d1e93ac397a4e54d1c61391f
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: bdef440fb8273dbbc5053d1c4eb6607fba0cdab3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780505"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744562"
 ---
 # <a name="getting-paid-in-commercial-marketplace"></a>Få betalt på kommersiell marknads plats
 
@@ -30,7 +30,7 @@ Butiks avgiften tillämpas på alla försäljnings erbjudanden som samlas in av 
 
 ## <a name="price-tiers"></a>Pris nivåer
 
-Pris nivåerna som du väljer anger försäljnings priset i alla länder där du väljer att distribuera erbjudandet. Du kan också använda ytterligare prissättnings funktioner, till exempel välja olika priser för olika marknader.
+Pris nivåerna som du väljer anger försäljnings priset i alla länder/regioner där du väljer att distribuera erbjudandet. Du kan också använda ytterligare prissättnings funktioner, till exempel välja olika priser för olika marknader.
 
 Du kan erbjuda din app kostnads fritt, eller så kan du välja ett pris som kunderna måste betala för att få ditt erbjudande. Pris nivåer börjar med. 99 USD, med ytterligare ökningar (1,09 USD, 1,19 USD och så vidare). Ökningarna mellan pris nivåerna ökar när priset blir högre.
 

@@ -1,16 +1,16 @@
 ---
-title: Azure Automation Windows Hybrid Runbook Worker
-description: Den här artikeln innehåller information om hur du installerar en Azure Automation Hybrid Runbook Worker som du kan använda för att köra Runbooks på Windows-baserade datorer i ditt lokala data Center eller i moln miljön.
+title: Distribuera en Windows-Hybrid Runbook Worker i Azure Automation
+description: Den här artikeln beskriver hur du distribuerar en Hybrid Runbook Worker som du kan använda för att köra Runbooks på Windows-baserade datorer i ditt lokala data Center eller i moln miljön.
 services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 163650a05bf47e6cb8a8832bb85477740d88b0cd
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 3a27cee7a94ee6f33c399d10f90e47ec574e7380
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787383"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744180"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -19,9 +19,6 @@ Du kan använda Hybrid Runbook Worker funktionen i Azure Automation för att kö
 När du har distribuerat en Runbook Worker granskar du [Kör Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md) för att lära dig hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller annan moln miljö.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="windows-hybrid-runbook-worker-installation-and-configuration"></a>Installation och konfiguration av Windows Hybrid Runbook Worker
 
@@ -51,11 +48,11 @@ Minimi kraven för en Windows-Hybrid Runbook Worker är:
 
 Information om hur du får fler nätverks krav för Hybrid Runbook Worker finns i [Konfigurera nätverket](automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="server-onboarding-for-management-with-state-configuration-dsc"></a>Server onboarding för hantering med tillstånds konfiguration (DSC)
+### <a name="enabling-servers-for-management-with-azure-automation-state-configuration"></a>Aktivera servrar för hantering med Azure Automation tillstånds konfiguration
 
-Information om onboarding-servrar för hantering med tillstånds konfiguration (DSC) finns i [onboard Machines for Management by state Configuration (DSC)](automation-dsc-onboarding.md).
+Information om hur du aktiverar servrar för hantering med Azure Automation tillstånds konfiguration finns i [Aktivera datorer för hantering genom att Azure Automation tillstånds konfiguration](automation-dsc-onboarding.md).
 
-När du aktiverar [uppdateringshantering](automation-update-management.md) konfigureras automatiskt en Windows-dator som är ansluten till din Log Analytics arbets yta som en hybrid Runbook Worker som stöder Runbook-uppdateringar. Den här arbetaren är dock inte registrerad med Hybrid Runbook Worker grupper som redan har definierats i ditt Automation-konto.
+Om du aktiverar Azure Automation [uppdateringshantering](automation-update-management.md) konfigureras automatiskt en Windows-dator som är ansluten till din Log Analytics arbets yta som en hybrid Runbook Worker som stöder Runbook-uppdateringar. Den här arbetaren är dock inte registrerad med Hybrid Runbook Worker grupper som redan har definierats i ditt Automation-konto.
 
 ### <a name="addition-of-the-computer-to-a-hybrid-runbook-worker-group"></a>Tillägg av datorn i en Hybrid Runbook Worker grupp
 
@@ -73,12 +70,12 @@ Hämta skriptet **New-OnPremiseHybridWorker. ps1** från [PowerShell-galleriet](
 | --------- | ------ | ----------- |
 | `AAResourceGroupName` | Obligatorisk | Namnet på resurs gruppen som är kopplad till ditt Automation-konto. |
 | `AutomationAccountName` | Obligatorisk | Namnet på ditt Automation-konto.
-| `Credential` | Valfri | De autentiseringsuppgifter som ska användas när du loggar in i Azure-miljön. |
+| `Credential` | Valfritt | De autentiseringsuppgifter som ska användas när du loggar in i Azure-miljön. |
 | `HybridGroupName` | Obligatorisk | Namnet på en Hybrid Runbook Worker grupp som du anger som mål för de Runbooks som har stöd för det här scenariot. |
-| `OMSResourceGroupName` | Valfri | Namnet på resurs gruppen för Log Analytics arbets ytan. Om den här resurs gruppen inte anges används värdet för `AAResourceGroupName` . |
+| `OMSResourceGroupName` | Valfritt | Namnet på resurs gruppen för Log Analytics arbets ytan. Om den här resurs gruppen inte anges används värdet för `AAResourceGroupName` . |
 | `SubscriptionID` | Obligatorisk | Identifieraren för den Azure-prenumeration som är kopplad till ditt Automation-konto. |
-| `TenantID` | Valfri | Identifieraren för den klient organisation som är kopplad till ditt Automation-konto. |
-| `WorkspaceName` | Valfri | Namnet på Log Analytics arbets ytan. Om du inte har en Log Analytics arbets yta, skapar skriptet och konfigurerar ett. |
+| `TenantID` | Valfritt | Identifieraren för den klient organisation som är kopplad till ditt Automation-konto. |
+| `WorkspaceName` | Valfritt | Namnet på Log Analytics arbets ytan. Om du inte har en Log Analytics arbets yta, skapar skriptet och konfigurerar ett. |
 
 > [!NOTE]
 > När du aktiverar funktioner stöder Azure Automation bara vissa regioner för att länka en Log Analytics arbets yta och ett Automation-konto. En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md).
@@ -89,7 +86,7 @@ Hämta skriptet **New-OnPremiseHybridWorker. ps1** från [PowerShell-galleriet](
 
 ### <a name="step-3---run-the-powershell-script"></a>Steg 3 – kör PowerShell-skriptet
 
-I kommando rads gränssnittet för PowerShell bläddrar du till den mapp som innehåller skriptet som du har laddat ned. Ändra värdena för parametrarna `AutomationAccountName`, `AAResourceGroupName` `OMSResourceGroupName` `HybridGroupName` `SubscriptionID`,,, och. `WorkspaceName` Kör sedan skriptet.
+I kommando rads gränssnittet för PowerShell bläddrar du till den mapp som innehåller skriptet som du har laddat ned. Ändra värdena för parametrarna,,,, `AutomationAccountName` `AAResourceGroupName` `OMSResourceGroupName` `HybridGroupName` `SubscriptionID` och `WorkspaceName` . Kör sedan skriptet.
 
 Du uppmanas att autentisera med Azure när du har kört skriptet. Du måste logga in med ett konto som är medlem i rollen prenumerations administratörer och som är medadministratör för prenumerationen.
 
@@ -117,9 +114,9 @@ Om du inte redan har en Log Analytics arbets yta granskar du [rikt linjerna för
 
 ### <a name="step-2---add-an-azure-automation-feature-to-the-log-analytics-workspace"></a>Steg 2 – lägga till en Azure Automation-funktion till arbets ytan Log Analytics
 
-En automatiserings funktion lägger till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du lägger till en lösning i Log Analytics-arbetsytan pushas den automatiskt till agent datorn med de arbets komponenter som du installerar enligt beskrivningen i nästa steg.
+En automatiserings funktion lägger till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du aktiverar en Azure Automation-funktion på arbets ytan Log Analytics flyttas Worker-komponenterna automatiskt till agent datorn.
 
-Kör följande PowerShell-cmdlet för att lägga till Automation-lösningen i din arbets yta.
+För att lägga till funktionen Azure Automation, till exempel Uppdateringshantering, till din arbets yta, kör du följande PowerShell-cmdlet:
 
 ```powershell-interactive
 Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true -DefaultProfile <IAzureContextContainer>
@@ -139,17 +136,15 @@ Heartbeat
 | where TimeGenerated > ago(30m)
 ```
 
-I Sök resultaten bör du se pulsslags poster för datorn, vilket indikerar att den är ansluten och rapporterar till tjänsten. Som standard vidarebefordrar varje agent en pulsslags post till den tilldelade arbets ytan. 
+I Sök resultaten bör du se pulsslags poster för datorn, vilket indikerar att den är ansluten och rapporterar till tjänsten. Som standard vidarebefordrar varje agent en pulsslags post till den tilldelade arbets ytan. Använd följande steg för att slutföra Agent installationen och installationen.
 
-Använd följande steg för att slutföra Agent installationen och installationen.
-
-1. Aktivera lösningen för att publicera agent datorn. Se [onboard Machines på arbets ytan](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace).
-2. Kontrol lera att agenten har laddat ned Automation-lösningen korrekt. 
+1. Aktivera funktionen för att lägga till agent datorn. Se [Aktivera datorer i arbets ytan](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace).
+2. Kontrol lera att agenten har laddat ned Azure Automation-funktionen korrekt. 
 3. Om du vill bekräfta versionen av Hybrid Runbook Worker bläddrar du till **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation** och noterar undermappen **version** .
 
 ### <a name="step-4---install-the-runbook-environment-and-connect-to-azure-automation"></a>Steg 4 – installera Runbook-miljön och Anslut till Azure Automation
 
-När du konfigurerar en agent att rapportera till en Log Analytics arbets yta, push-överför lösningen nedåt i `HybridRegistration` PowerShell-modulen, som innehåller `Add-HybridRunbookWorker` cmdleten. Använd den här cmdleten för att installera Runbook-miljön på datorn och registrera den med Azure Automation.
+När du konfigurerar en agent att rapportera till en Log Analytics arbets yta, pushas den Azure Automation-funktionen nedåt i `HybridRegistration` PowerShell-modulen, som innehåller `Add-HybridRunbookWorker` cmdleten. Använd den här cmdleten för att installera Runbook-miljön på datorn och registrera den med Azure Automation.
 
 Öppna en PowerShell-session i administratörs läge och kör följande kommandon för att importera modulen.
 
@@ -186,7 +181,7 @@ Moduler som är installerade måste finnas på en plats som refereras av `PSModu
 1. I Azure Portal går du till ditt Automation-konto.
 2. Under **konto inställningar**väljer du **nycklar** och noterar värdena för **URL** och **primär åtkomst nyckel**.
 
-3. Öppna en PowerShell-session i administratörs läge och kör följande kommando med URL: en och primär åtkomst nyckel värden. Använd `Verbose` parametern för en detaljerad logg över borttagnings processen. Om du vill ta bort inaktuella datorer från Hybrid Worker gruppen använder `machineName` du den valfria parametern.
+3. Öppna en PowerShell-session i administratörs läge och kör följande kommando med URL: en och primär åtkomst nyckel värden. Använd `Verbose` parametern för en detaljerad logg över borttagnings processen. Om du vill ta bort inaktuella datorer från Hybrid Worker gruppen använder du den valfria `machineName` parametern.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
@@ -209,6 +204,5 @@ Om du vill ta bort en Hybrid Runbook Worker grupp måste du först ta bort Hybri
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller någon annan moln miljö finns i [köra Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* Information om hur du felsöker dina hybrid Runbook Worker finns i [Felsöka Windows hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#windows).
-
+* [Köra runbook-flöden på Hybrid Runbook Worker](automation-hrw-run-runbooks.md)
+* [Felsöka Hybrid Runbook Worker problem](troubleshoot/hybrid-runbook-worker.md#windows)

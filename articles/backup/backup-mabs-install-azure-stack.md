@@ -3,12 +3,12 @@ title: Installera Azure Backup Server på Azure Stack
 description: I den här artikeln lär du dig hur du använder Azure Backup Server för att skydda eller säkerhetskopiera arbets belastningar i Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77583443"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747440"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
 
@@ -57,7 +57,7 @@ Om den delas med andra virtuella datorer påverkar lagrings kontots storlek och 
 
 ### <a name="configuring-azure-backup-temporary-disk-storage"></a>Konfigurera Azure Backup temporär disk lagring
 
-Varje Azure Stack virtuell dator levereras med temporär disk lagring, som är tillgänglig för användaren som volym `D:\`. Det lokala mellanlagringsområdet som krävs av Azure Backup kan konfigureras för att finnas i `D:\`och cache-platsen kan placeras på `C:\`. På så sätt måste ingen lagring vara hämtas bort från data diskarna som är anslutna till den virtuella datorn Azure Backup Server.
+Varje Azure Stack virtuell dator levereras med temporär disk lagring, som är tillgänglig för användaren som volym `D:\` . Det lokala mellanlagringsområdet som krävs av Azure Backup kan konfigureras för att finnas i `D:\` och cache-platsen kan placeras på `C:\` . På så sätt måste ingen lagring vara hämtas bort från data diskarna som är anslutna till den virtuella datorn Azure Backup Server.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Lagra säkerhets kopierings data på lokal disk och i Azure
 
@@ -91,7 +91,7 @@ Den Azure Backup Server virtuella datorn måste vara ansluten till en domän. En
 
 När du väljer en server för Azure Backup Server börjar du med en Windows Server 2012 R2 Data Center-eller Windows Server 2016 Data Center Gallery-avbildning. Artikeln [skapar din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)och innehåller en själv studie kurs för att komma igång med den rekommenderade virtuella datorn. De rekommenderade minimi kraven för virtuell Server-dator (VM) ska vara: a2 standard med två kärnor och 3,5 GB RAM.
 
-Att skydda arbets belastningar med Azure Backup Server har många olika delarna. Artikeln [Installera DPM som en virtuell Azure-dator, vilket](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))hjälper dig att förklara dessa olika delarna. Innan du distribuerar datorn kan du läsa den här artikeln helt och hållet.
+Att skydda arbets belastningar med Azure Backup Server har många olika delarna. [Skydds matrisen för Mabs](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) hjälper till att förklara dessa olika delarna. Innan du distribuerar datorn kan du läsa den här artikeln helt och hållet.
 
 > [!NOTE]
 > Azure Backup Server är utformad för att köras på en dedikerad virtuell dator med ett enda syfte. Du kan inte installera Azure Backup Server på:
@@ -112,7 +112,7 @@ Med alternativet Recovery Services valv lagrings replikering kan du välja mella
 Så här redigerar du inställningen för lagringsreplikering:
 
 1. Välj ditt valv för att öppna instrument panelen för valv och menyn Inställningar. Om menyn **Inställningar** inte öppnas, klickar du på **alla inställningar** på instrument panelen för valvet.
-2. På menyn **Inställningar** klickar du på **säkerhets kopierings infrastruktur** > **säkerhets kopierings konfiguration** för att öppna menyn **säkerhetskopiera konfiguration** . På menyn för **säkerhets kopierings konfiguration** väljer du alternativet Storage Replication för ditt valv.
+2. På menyn **Inställningar** klickar du på **säkerhets kopierings infrastruktur**  >  **säkerhets kopierings konfiguration** för att öppna menyn **säkerhetskopiera konfiguration** . På menyn för **säkerhets kopierings konfiguration** väljer du alternativet Storage Replication för ditt valv.
 
     ![Lista över säkerhetskopieringsvalv](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -243,7 +243,7 @@ Azure Backup Server delar kod med Data Protection Manager. Referenser till Data 
 
     ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    Det krävs en arbets plats för att säkerhetskopiera till Azure. Se till att den virtuella platsens storlek motsvarar minst 5% av de data som planeras att säkerhets kopie ras till Azure. För disk skydd måste separata diskar konfigureras när installationen är klar. Mer information om lagringspooler finns i Konfigurera lagringspooler [och disk lagring](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+    Det krävs en arbets plats för att säkerhetskopiera till Azure. Se till att den virtuella platsens storlek motsvarar minst 5% av de data som planeras att säkerhets kopie ras till Azure. För disk skydd måste separata diskar konfigureras när installationen är klar. Mer information om lagringspooler finns i [förbereda data lagring](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 
 6. På sidan **säkerhets inställningar** anger du ett starkt lösen ord för begränsade lokala användar konton och klickar på **Nästa**.
 
@@ -326,11 +326,11 @@ När du känner till statusen för Azure-anslutningen och Azure-prenumerationen 
 
 | Anslutnings tillstånd | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Active |Tillåtet |Tillåtet |Tillåtet |Tillåtet |
-| Ansluten |Upphörd |Stoppad |Stoppad |Tillåtet |Tillåtet |
+| Ansluten |Aktiv |Tillåts |Tillåts |Tillåts |Tillåts |
+| Ansluten |Upphörd |Stoppad |Stoppad |Tillåts |Tillåts |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
-| Förlorad anslutning > 15 dagar |Active |Stoppad |Stoppad |Tillåtet |Tillåtet |
-| Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Tillåtet |Tillåtet |
+| Förlorad anslutning > 15 dagar |Aktiv |Stoppad |Stoppad |Tillåts |Tillåts |
+| Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Tillåts |Tillåts |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställning från förlust av anslutning

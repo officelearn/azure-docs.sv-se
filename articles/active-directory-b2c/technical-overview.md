@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d6b33211f6f247d9f30c0f162b388085faabe6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332537"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739107"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Teknisk och funktions översikt över Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ En användare med ett konsument konto kan logga in med flera identiteter, till e
 
 ![Konsument konto identiteter](media/technical-overview/identities.png)<br/>*Bild: ett enda konsument konto med flera identiteter i Azure AD B2C*
 
-Med Azure AD B2C kan du hantera vanliga attribut för konsument konto profiler, t. ex. visnings namn, efter namn, förnamn, stad och andra. Du kan också utöka Azure AD-schemat för att lagra ytterligare information om dina användare. Till exempel deras land eller placering, vilket språk som helst, samt inställningar som om de vill prenumerera på ett nyhets brev eller aktivera Multi-Factor Authentication.
+Med Azure AD B2C kan du hantera vanliga attribut för konsument konto profiler, t. ex. visnings namn, efter namn, förnamn, stad och andra. Du kan också utöka Azure AD-schemat för att lagra ytterligare information om dina användare. Till exempel land/region eller placering, önskat språk och inställningar som om de vill prenumerera på ett nyhets brev eller aktivera Multi-Factor Authentication.
 
 Läs mer om användar konto typerna i Azure AD B2C i [Översikt över användar konton i Azure Active Directory B2C](user-overview.md).
 
@@ -100,7 +100,7 @@ För att hjälpa dig att snabbt skapa de vanligaste identitets uppgifterna inneh
 Du kan konfigurera inställningar för användar flöden så att de kan styra identitets upplevelsens beteenden i dina program:
 
 * Konto typer som används för inloggning, till exempel sociala konton som en Facebook eller lokala konton som använder en e-postadress och ett lösen ord för inloggning
-* Attribut som ska samlas in från konsumenten, till exempel förnamn, post nummer eller land i placering
+* Attribut som ska samlas in från konsumenten, till exempel förnamn, post nummer eller land/region för placering
 * Azure Multi-Factor Authentication (MFA)
 * Anpassning av användar gränssnittet
 * Uppsättning anspråk i en token som programmet tar emot när användaren har slutfört användar flödet

@@ -1,15 +1,15 @@
 ---
 title: 'Snabb start: ny princip tilldelning med mallar'
 description: I den här snabb starten använder du en Resource Manager-mall för att skapa en princip tilldelning för att identifiera icke-kompatibla resurser.
-ms.date: 03/16/2020
+ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 646e2e064618e70fd9e9e747926f0886d85fde26
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b9e372e8b86e1ac5b0a99d0aba77982896b4d11
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82187791"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757457"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av en Resource Manager-mall
 
@@ -30,7 +30,7 @@ I den här snabb starten skapar du en princip tilldelning och tilldelar en inbyg
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
-:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-36" highlight="26-34":::
+:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-30" highlight="20-28":::
 
 Den resurs som definierats i mallen är:
 
@@ -50,7 +50,7 @@ Den resurs som definierats i mallen är:
    | Name | Värde |
    |------|-------|
    | Prenumeration | Välj din Azure-prenumeration. |
-   | Resursgrupp | Välj **Skapa ny**, ange ett namn och välj sedan **OK**. I skärm bilden är resurs gruppens namn _mypolicyquickstarts\<datum i MMDD\>RG_. |
+   | Resursgrupp | Välj **Skapa ny**, ange ett namn och välj sedan **OK**. I skärm bilden är resurs gruppens namn _mypolicyquickstarts \< datum i MMDD \> RG_. |
    | Plats | Välj en region. Välj till exempel **USA, centrala**. |
    | Princip tilldelnings namn | Ange ett princip tilldelnings namn. Du kan använda princip definitions visningen om du vill. Granska till exempel **virtuella datorer som inte använder hanterade diskar**. |
    | RG namn | Ange ett resurs grupps namn som du vill tilldela principen till. I den här snabb starten använder du standardvärdet **[resourceGroup (). name]**. **[resourceGroup ()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** är en mall-funktion som hämtar resurs gruppen. |

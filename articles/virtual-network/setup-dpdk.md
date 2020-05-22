@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/27/2018
+ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: c79c1fd687e329b97a854a3ff66a3cf95076b5d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79e06fe95b48468616dce913e19c430dc2818719
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80384236"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744869"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Konfigurera DPDK i en virtuell Linux-dator
 
@@ -50,7 +50,7 @@ Följande distributioner från Azure Marketplace stöds:
 
 **Anpassat stöd för kernel**
 
-För alla Linux kernel-versioner som inte finns med i listan, se [patchar för att skapa en Azure-justerad Linux-kernel](https://github.com/microsoft/azure-linux-kernel). Du kan också kontakta [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com)om du vill ha mer information. 
+För alla Linux kernel-versioner som inte finns med i listan, se [patchar för att skapa en Azure-justerad Linux-kernel](https://github.com/microsoft/azure-linux-kernel). Du kan också kontakta om du vill ha mer information [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com) . 
 
 ## <a name="region-support"></a>Stöd för regioner
 
@@ -109,10 +109,10 @@ zypper \
 ## <a name="set-up-the-virtual-machine-environment-once"></a>Konfigurera den virtuella dator miljön (en gång)
 
 1. [Hämta de senaste DPDK](https://core.dpdk.org/download). Version 18,11 LTS eller 19,11 LTS krävs för Azure.
-2. Bygg standard konfigurationen med `make config T=x86_64-native-linuxapp-gcc`.
-3. Aktivera Mellanox-PMDs i den genererade `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`konfigurationen med.
-4. Kompilera med `make`.
-5. Installera med `make install DESTDIR=<output folder>`.
+2. Bygg standard konfigurationen med `make config T=x86_64-native-linuxapp-gcc` .
+3. Aktivera Mellanox-PMDs i den genererade konfigurationen med `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config` .
+4. Kompilera med `make` .
+5. Installera med `make install DESTDIR=<output folder>` .
 
 ## <a name="configure-the-runtime-environment"></a>Konfigurera körnings miljön
 
@@ -126,20 +126,20 @@ När du har startat om kör du följande kommandon en gång:
      echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   * Skapa en katalog för montering med `mkdir /mnt/huge`.
-   * Montera hugepages med `mount -t hugetlbfs nodev /mnt/huge`.
-   * Kontrol lera att hugepages är reserverade `grep Huge /proc/meminfo`med.
+   * Skapa en katalog för montering med `mkdir /mnt/huge` .
+   * Montera hugepages med `mount -t hugetlbfs nodev /mnt/huge` .
+   * Kontrol lera att hugepages är reserverade med `grep Huge /proc/meminfo` .
 
      > Lägg Det finns ett sätt att ändra grub-filen så att hugepages reserveras vid start genom att följa [anvisningarna](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) för DPDK. Instruktionerna visas längst ned på sidan. När du använder en virtuell Azure Linux-dator ändrar du filerna under **/etc/config/grub.d** i stället för att reservera hugepages över omstarter.
 
-2. MAC-& IP-adresser `ifconfig –a` : används för att visa Mac-och IP-adressen för nätverks gränssnitten. Nätverks gränssnittet *VF* och *NETVSC* har samma Mac-adress, men bara *NETVSC* -nätverks gränssnittet har en IP-adress. *VF* -gränssnitt körs som underordnade gränssnitt för *NETVSC* -gränssnitt.
+2. MAC-& IP-adresser: används `ifconfig –a` för att visa Mac-och IP-adressen för nätverks gränssnitten. Nätverks gränssnittet *VF* och *NETVSC* har samma Mac-adress, men bara *NETVSC* -nätverks gränssnittet har en IP-adress. *VF* -gränssnitt körs som underordnade gränssnitt för *NETVSC* -gränssnitt.
 
 3. PCI-adresser
 
    * Använd `ethtool -i <vf interface name>` för att ta reda på vilken PCI-adress som ska användas för *VF*.
    * Om *eth0* har accelererat nätverk aktiverat kontrollerar du att testpmd inte oavsiktligt tar över *VF* PCI-enheten för *eth0*. Om DPDK-programmet oavsiktligt tar över hanterings nätverks gränssnittet och gör att du förlorar SSH-anslutningen kan du använda serie konsolen för att stoppa DPDK-programmet. Du kan också använda serie konsolen för att stoppa eller starta den virtuella datorn.
 
-4. Läs in *ibuverbs* vid varje omstart `modprobe -a ib_uverbs`med. Läs även *mlx4_ib* med `modprobe -a mlx4_ib`för SLES 15.
+4. Läs in *ibuverbs* vid varje omstart med `modprobe -a ib_uverbs` . Läs även *mlx4_ib* med för SLES 15 `modprobe -a mlx4_ib` .
 
 ## <a name="failsafe-pmd"></a>Failsafe PMD
 
@@ -149,7 +149,7 @@ Om du kör ett DPDK-program över Failsafe-PMD garanterar det att programmet tar
 
 ## <a name="run-testpmd"></a>Kör testpmd
 
-Om du vill köra testpmd i rot läge `sudo` använder du före kommandot *testpmd* .
+Om du vill köra testpmd i rot läge använder `sudo` du före kommandot *testpmd* .
 
 ### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: Sanity check, Failsafe adapter-initiering
 
@@ -172,7 +172,7 @@ Om du vill köra testpmd i rot läge `sudo` använder du före kommandot *testpm
    -- -i
    ```
 
-   Om du kör testpmd med fler än två nätverkskort, följer `--vdev` argumentet följande mönster:. `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`
+   Om du kör testpmd med fler än två nätverkskort, `--vdev` följer argumentet följande mönster: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>` .
 
 3.  När den har startats kör `show port info all` du för att kontrol lera port information. Du bör se en eller två DPDK-portar som är net_failsafe (inte *net_mlx4*).
 4.  Används `start <port> /stop <port>` för att starta trafiken.

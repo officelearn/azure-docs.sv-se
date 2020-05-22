@@ -1,25 +1,25 @@
 ---
-title: Skriver DSC-konfigurationer i Azure Automation tillstånds konfiguration med sammansatta resurser
-description: Lär dig hur du skapar konfigurationer med sammansatta resurser i Azure Automation tillstånds konfiguration.
+title: Skriva DSC-konfigurationer
+description: Den här artikeln beskriver hur du skapar konfigurationer med sammansatta resurser i Azure Automation tillstånds konfiguration.
 keywords: PowerShell DSC, önskad tillstånds konfiguration, PowerShell DSC Azure, sammansatta resurser
 services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1840f4049f8450295e179a89b472d7710c5f61a0
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 04e32a88dcfb9f069e51b2f18207155b95da37d6
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993766"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744356"
 ---
-# <a name="composing-dsc-configurations-in-azure-automation-state-configuration-using-composite-resources"></a>Skriver DSC-konfigurationer i Azure Automation tillstånds konfiguration med sammansatta resurser
+# <a name="compose-dsc-configurations"></a>Skriva DSC-konfigurationer
 
 När du behöver hantera resurser med mer än en enda önskad tillstånds konfiguration (DSC) är den bästa vägen att använda [sammansatta resurser](/powershell/scripting/dsc/resources/authoringresourcecomposite). En sammansatt resurs är en kapslad och parameterstyrda konfiguration som används som en DSC-resurs i en annan konfiguration. Med hjälp av sammansatta resurser kan du skapa komplexa konfigurationer samtidigt som de underliggande sammansatta resurserna individuellt hanteras och skapas.
 
 Azure Automation aktiverar [import och kompilering av sammansatta resurser](automation-dsc-compile.md). När du har importerat sammansatta resurser till ditt Automation-konto kan du använda Azure Automation tillstånds konfiguration via funktionen **tillstånds konfiguration (DSC** i Azure Portal.
 
-## <a name="composing-a-configuration-from-composite-resources"></a>Skapa en konfiguration från sammansatta resurser
+## <a name="compose-a-configuration"></a>Skapa en konfiguration
 
 Innan du kan tilldela en konfiguration som görs från sammansatta resurser i Azure Portal måste du skapa konfigurationen. Sammansättningen använder- **konfiguration** på sidan för tillstånds konfiguration (DSC) på fliken **konfigurationer** eller **kompilerade konfigurationer** .
 
@@ -34,15 +34,16 @@ Innan du kan tilldela en konfiguration som görs från sammansatta resurser i Az
 1. I steget **Parameters** visas parametern för varje sammansatt resurs så att du kan ange värden. Om en parameter har en beskrivning visas den bredvid parameter fältet. Om en parameter är av `PSCredential` typen, innehåller List rutan en lista över **Credential** -objekt i det aktuella Automation-kontot. Det finns även ett alternativ för att **lägga till en autentiseringsuppgift** . När alla obligatoriska parametrar har angetts klickar du på **Spara och kompilera**.
    ![Skärm bild av steget Parameters på sidan Skriv konfiguration](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
-När den nya konfigurationen har sparats skickas den för kompilering. Status för Compilation-jobbet kan visas som alla importerade konfigurationer. Mer information finns i [Visa ett Compilation-jobb](automation-dsc-getting-started.md#view-a-compilation-job).
+## <a name="submit-the-configuration-for-compilation"></a>Skicka konfigurationen för kompilering
+
+När den nya konfigurationen har sparats skickas den för kompilering. Du kan visa status för Compilation-jobbet som du gör med en importerad konfiguration. Mer information finns i [Visa ett Compilation-jobb](automation-dsc-getting-started.md#view-a-compilation-job).
 
 När kompileringen har slutförts visas den nya konfigurationen på fliken **kompilerade konfigurationer** . Sedan kan du tilldela konfigurationen till en hanterad nod med hjälp av stegen i [omtilldela en nod till en annan nod-konfiguration](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du kommer igång finns i [komma igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md).
-- Information om hur du kan publicera noder finns i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md).
-- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
-- Referens för PowerShell-cmdlet finns i [Azure Automation cmdlets för tillstånds konfiguration](/powershell/module/azurerm.automation/#automation).
-- Pris information finns i pris information för [Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
-- Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [kontinuerlig distribution med Azure Automation tillstånds konfiguration och choklad](automation-dsc-cd-chocolatey.md).
+- [Kom igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md)
+- [Aktivera konfiguration av Azure Automation tillstånd](automation-dsc-onboarding.md)
+- [Kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md)
+- [Konfigurera kontinuerlig distribution med choklad](automation-dsc-cd-chocolatey.md)
+- [Prissättning för Azure Automations tillstånds konfiguration](https://azure.microsoft.com/pricing/details/automation/)

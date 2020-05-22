@@ -8,15 +8,15 @@ ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7de8a5bcc2f7883b00ec25e2674b1dc6bd6871c9
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81454493"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747274"
 ---
 # <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Konfigurera din säkerhets information från en inloggnings tolk
 
@@ -136,7 +136,7 @@ När du använder applösenord är det viktigt att komma ihåg:
 
 1. När du har slutfört de föregående avsnitten i guiden väljer du **Nästa** och slutför **appens lösen ord** .
 
-2. Skriv namnet på den app som behöver lösen ordet, till exempel `Outlook 2010`, och välj sedan **Nästa**.
+2. Skriv namnet på den app som behöver lösen ordet, till exempel `Outlook 2010` , och välj sedan **Nästa**.
 
     ![Lägg till appens lösen ords namn i guiden](media/security-info/app-password-app-password.png)
 

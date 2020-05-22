@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: e2361590118668f2cdf22c4a29534b16790b90e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3bc439e3244be63bff1c54d3230eda17dfb9d88d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253449"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745597"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Azure CDN från Verizon Premium-regel motor matchnings villkor
 
@@ -49,7 +49,7 @@ Plats matchnings villkoren identifierar begär Anden baserat på beställarens p
 Name | Syfte
 -----|--------
 [SOM nummer](#as-number) | Identifierar begär Anden som kommer från ett visst nätverk.
-[Land/region](#country) | Identifierar begär Anden som kommer från de angivna länderna/regionerna.
+[Land](#country) | Identifierar begär Anden som kommer från de angivna länderna/regionerna.
 
 ## <a name="origin-match-conditions"></a>Ursprungliga matchnings villkor
 
@@ -112,7 +112,7 @@ Villkoret Always match använder en standard uppsättning funktioner för alla b
 
 AS Number-nätverket definieras av sitt autonoma system nummer (ASN). 
 
-**Matchningarna**/**stämmer inte överens** med det villkor som anger vilka villkor för as-tal matchningen som är uppfyllda:
+**Matchningarna** / **stämmer inte överens** med det villkor som anger vilka villkor för as-tal matchningen som är uppfyllda:
 
 - **Matchningar**: kräver att ASN för klient nätverket matchar ett av de angivna ASN: er. 
 - **Matchar inte**: kräver att ASN för klient nätverket inte matchar någon av de angivna ASN: er.
@@ -157,7 +157,7 @@ Viktig information:
 
 ### <a name="client-ip-address"></a>Klientens IP-adress
 
-**Matchningen**/**matchar inte** alternativet anger under vilka villkor som klientens IP-adress matchnings villkor är uppfyllt:
+**Matchningen** / **matchar inte** alternativet anger under vilka villkor som klientens IP-adress matchnings villkor är uppfyllt:
 
 - **Matchningar**: kräver att KLIENTens IP-adress matchar en av de angivna IP-adresserna. 
 - **Matchar inte**: kräver att KLIENTens IP-adress inte matchar någon av de angivna IP-adresserna. 
@@ -186,7 +186,7 @@ Viktig information:
 
 ### <a name="cookie-parameter"></a>Cookie-parameter
 
-**Matchningarna**/**stämmer inte överens** med alternativet anger under vilka villkor som matchnings villkoret för cookie-parametern är uppfyllt.
+**Matchningarna** / **stämmer inte överens** med alternativet anger under vilka villkor som matchnings villkoret för cookie-parametern är uppfyllt.
 
 - **Matchningar**: kräver en begäran att innehålla angiven cookie med ett värde som matchar minst ett av de värden som har definierats i matchnings villkoret.
 - **Matchar inte**: kräver att begäran uppfyller något av följande villkor:
@@ -220,7 +220,7 @@ Viktig information:
 
 Cookie-parametern regex match villkor definierar ett cookie-namn och-värde. Du kan använda [reguljära uttryck](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) för att definiera det önskade cookie-värdet.
 
-**Matchningarna**/**stämmer inte överens** med det villkor som anger under vilken cookie-parameter regex matchnings villkoret är uppfyllt.
+**Matchningarna** / **stämmer inte överens** med det villkor som anger under vilken cookie-parameter regex matchnings villkoret är uppfyllt.
 
 - **Matchningar**: kräver en begäran att innehålla angiven cookie med ett värde som matchar det angivna reguljära uttrycket.
 - **Matchar inte**: kräver att begäran uppfyller något av följande villkor:
@@ -249,11 +249,11 @@ Viktig information:
 
 ---
 
-### <a name="country"></a>Land/region
+### <a name="country"></a>Land
 
 Du kan ange ett land genom lands koden. 
 
-**Matchningarna**/**stämmer inte överens** med det villkor som uppfyller villkoret för land matchning:
+**Matchningarna** / **stämmer inte överens** med det villkor som uppfyller villkoret för land matchning:
 
 - **Matchningar**: kräver att begäran innehåller de angivna lands kod värdena. 
 - **Matchar inte**: kräver att begäran inte innehåller de angivna lands kod värdena.
@@ -279,9 +279,9 @@ Med detta matchnings villkor kan du utföra en mängd anpassningar baserat på d
 - Matchning av jokertecken för URL-sökväg: ange [URL-sökväg jokertecken matchnings villkor](#url-path-wildcard) till den katalog som ska skyddas. 
     Lägg till en asterisk i slutet av den relativa sökvägen för att säkerställa att åtkomsten till alla dess underordnade objekt begränsas av den här regeln.
 
-- Lands matchning: ange land matchnings villkoret till önskad uppsättning länder.
-  - Tillåt: ange lands matchnings villkoret till stämmer **inte överens** att endast tillåta att de angivna länderna får åtkomst till innehåll som lagras på den plats som definieras av matchnings villkoret för URL-sökvägen.
-  - Blockera: ange lands matchnings villkoret som **matchar** för att blockera de angivna länderna från åtkomst till innehåll som lagras på den plats som definieras av matchnings villkoret för URL-sökvägen.
+- Lands matchning: ange land matchnings villkoret till önskad uppsättning länder/regioner.
+  - Tillåt: ange lands matchnings villkoret till **överensstämmer inte** för att endast tillåta att de angivna länderna/regionerna har åtkomst till innehåll som lagras på den plats som definierats av URL-sökvägen matchnings villkor för jokertecken.
+  - Blockera: ange lands matchnings villkoret som **matchar** för att blockera de angivna länderna/regionerna från åtkomst till innehåll som lagras på den plats som definieras av matchnings villkoret för URL-sökvägen.
 
 - Funktionen neka åtkomst (403): aktivera [funktionen neka åtkomst (403)](cdn-verizon-premium-rules-engine-reference-features.md#deny-access-403) för att replikera funktionen för att tillåta eller blockera del av funktionen land filtrering.
 
@@ -311,7 +311,7 @@ Viktig information:
 
 Villkoret enhets matchning identifierar begär Anden som görs från en mobil enhet baserat på dess egenskaper. Identifiering av mobila enheter uppnås via [WURFL](http://wurfl.sourceforge.net/). 
 
-**Matchningarna**/**stämmer inte överens** med de villkor som enhetens matchnings villkor är uppfyllt under:
+**Matchningarna** / **stämmer inte överens** med de villkor som enhetens matchnings villkor är uppfyllt under:
 
 - **Matchningar**: kräver att beställarens enhet matchar det angivna värdet. 
 - **Matchar inte**: kräver att beställarens enhet inte matchar det angivna värdet.
@@ -351,7 +351,7 @@ Märkes namn | % {wurfl_cap_brand_name} | En sträng som anger enhetens märkes 
 Enhetens operativ system | % {wurfl_cap_device_os} | En sträng som anger vilket operativ system som är installerat på enheten. | iOS
 Enhetens operativsystemversion | % {wurfl_cap_device_os_version} | En sträng som anger versions numret för det operativ system som är installerat på enheten. | 1.0.1
 Dubbel orientering | % {wurfl_cap_dual_orientation} | Ett booleskt värde som anger om enheten stöder dubbel orientering. | true
-HTML-föredragen DTD | % {wurfl_cap_html_preferred_dtd} | En sträng som anger den mobila enhetens primära dokument typ definition (DTD) för HTML-innehåll. | ingen<br/>xhtml_basic<br/>HTML5
+HTML-föredragen DTD | % {wurfl_cap_html_preferred_dtd} | En sträng som anger den mobila enhetens primära dokument typ definition (DTD) för HTML-innehåll. | inget<br/>xhtml_basic<br/>HTML5
 Bild inlägg | % {wurfl_cap_image_inlining} | Ett booleskt värde som anger om enheten stöder base64-kodade avbildningar. | falskt
 Är Android | % {wurfl_vcap_is_android} | Ett booleskt värde som anger om enheten använder Android OS. | true
 Är IOS | % {wurfl_vcap_is_ios} | Ett booleskt värde som anger om enheten använder iOS. | falskt
@@ -398,7 +398,7 @@ Viktig information:
 
 Värd namnet som är associerat med den referent genom vilken innehåll begärdes avgör om det refererande domän villkoret är uppfyllt.
 
-**Matchningen**/**matchar inte** alternativet anger under vilka villkor som det refererande domän matchnings villkoret är uppfyllt:
+**Matchningen** / **matchar inte** alternativet anger under vilka villkor som det refererande domän matchnings villkoret är uppfyllt:
 
 - **Matchningar**: kräver det refererande värd namnet för att matcha de angivna värdena. 
 - **Matchar inte**: kräver att det refererande värd namnet inte matchar det angivna värdet.
@@ -424,7 +424,7 @@ Viktig information:
 
 ### <a name="request-header-literal"></a>Tecken för begär ande rubrik
 
-**Matchningarna**/**stämmer inte överens** med alternativet anger under vilka villkor som villkoret för begärans huvudets litterala matchning är uppfyllt.
+**Matchningarna** / **stämmer inte överens** med alternativet anger under vilka villkor som villkoret för begärans huvudets litterala matchning är uppfyllt.
 
 - **Matchningar**: kräver att begäran innehåller det angivna huvudet. Värdet måste matcha det som har definierats i matchnings villkoret.
 - **Matchar inte**: kräver att begäran uppfyller något av följande villkor:
@@ -449,7 +449,7 @@ Viktig information:
 
 ### <a name="request-header-regex"></a>Huvudbegäran-huvud-regex
 
-**Matchningarna**/**stämmer inte överens** med det här alternativet anger under vilka villkor som begär ande huvudet regex matchnings villkor är uppfyllt.
+**Matchningarna** / **stämmer inte överens** med det här alternativet anger under vilka villkor som begär ande huvudet regex matchnings villkor är uppfyllt.
 
 - **Matchningar**: kräver att begäran innehåller det angivna huvudet. Dess värde måste matcha det mönster som har definierats i det angivna [reguljära uttrycket](cdn-verizon-premium-rules-engine-reference.md#regular-expressions).
 - **Matchar inte**: kräver att begäran uppfyller något av följande villkor:
@@ -480,7 +480,7 @@ Viktig information:
 
 ### <a name="request-header-wildcard"></a>Jokertecken för begär ande rubrik
 
-**Matchningarna**/**stämmer inte överens** med det villkor som anger under vilket villkor för matchning av begär ande rubrik är uppfyllt.
+**Matchningarna** / **stämmer inte överens** med det villkor som anger under vilket villkor för matchning av begär ande rubrik är uppfyllt.
 
 - **Matchningar**: kräver att begäran innehåller det angivna huvudet. Dess värde måste matcha minst ett av de värden som har definierats i matchnings villkoret.
 - **Matchar inte**: kräver att begäran uppfyller något av följande villkor:
@@ -565,7 +565,7 @@ Viktig information:
 
 Identifierar en begäran via dess relativa sökväg, vilket utesluter fil namnet för den begärda till gången.
 
-**Matchningarna**/**stämmer inte överens** med det villkor som URL-sökvägarnas katalog matchnings villkor är uppfyllt under.
+**Matchningarna** / **stämmer inte överens** med det villkor som URL-sökvägarnas katalog matchnings villkor är uppfyllt under.
 
 - **Matchningar**: kräver att begäran innehåller en relativ URL-sökväg, förutom fil namnet, som matchar det angivna URL-mönstret.
 - **Matchar inte**: kräver att begäran innehåller en relativ URL-sökväg, exklusive fil namn, som inte matchar angivet URL-mönster.
@@ -577,23 +577,23 @@ Viktig information:
    Följande värden är tillgängliga för alternativet **relativt till** :
   - **Rot**: anger att URL-jämförelsen börjar direkt efter CDN-värdnamnet. 
 
-  Till exempel: http:\//WPC.0001. &lt;800001&gt;/för domän **/källa/min mapp**/index.htm
+  Till exempel: http: \/ /WPC.0001. &lt; 800001 för domän &gt; / **/källa/min mapp**/index.htm
 
-  - **Ursprung**: anger att URL-jämförelsen börjar efter innehålls åtkomst punkten (till exempel/000001 eller/800001/myorigin). Eftersom \*. azureedge.net CNAME skapas i förhållande till ursprungs katalogen på Verizon CDN-värdnamnet som standard, ska Azure CDN användare använda **ursprung** svärdet. 
+  - **Ursprung**: anger att URL-jämförelsen börjar efter innehålls åtkomst punkten (till exempel/000001 eller/800001/myorigin). Eftersom \* . AZUREEDGE.net CNAME skapas i förhållande till ursprungs katalogen på Verizon CDN-värdnamnet som standard, ska Azure CDN användare använda **ursprung** svärdet. 
 
-  Till exempel: https:\//&lt;Endpoint&gt;**. azureedge.net//index.htm** 
+  Till exempel: https: \/ / &lt; Endpoint &gt; . azureedge.net/**myfolder**/index.htm 
 
-  URL: en pekar på följande Verizon CDN-värdnamn: http\/:/WPC.0001. &lt;/index.htm&gt;för**myfolder**domän/800001/myorigin/
+  URL: en pekar på följande Verizon CDN-värdnamn: http: \/ /WPC.0001. &lt; &gt;/index.htm för**myfolder**domän/800001/myorigin/
 
 - En kant-CNAME-URL skrivs om till en CDN-URL före URL-jämförelsen.
 
     Till exempel kan båda följande URL: er peka till samma till gång och har därför samma URL-sökväg.
-  - CDN-URL: http\/:/WPC.0001. &lt;domän&gt;-800001/CustomerOrigin/Path/Asset.htm
+  - CDN-URL: http: \/ /WPC.0001. &lt; domän &gt; -800001/CustomerOrigin/Path/Asset.htm
     
-  - Edge CNAME-URL: http\//&lt;:&gt;Endpoint. azureedge.net/Path/Asset.htm
+  - Edge CNAME-URL: http: \/ / &lt; Endpoint &gt; . azureedge.net/Path/Asset.htm
     
     Ytterligare information:
-  - Anpassad domän: https:\//My.domain.com/Path/Asset.htm
+  - Anpassad domän: https: \/ /My.domain.com/Path/Asset.htm
     
     - URL-sökväg (relativ till rot):/800001/CustomerOrigin/path/
     
@@ -623,7 +623,7 @@ Viktig information:
 
 Identifierar begär anden av fil namns tillägget för den begärda till gången.
 
-**Matchningarna**/**stämmer inte överens** med de villkor som URL-tilläggets matchnings villkor är uppfyllt under.
+**Matchningarna** / **stämmer inte överens** med de villkor som URL-tilläggets matchnings villkor är uppfyllt under.
 
 - **Matchningar**: kräver URL: en för begäran att innehålla ett fil namns tillägg som exakt matchar det angivna mönstret.
 
@@ -666,7 +666,7 @@ Matchnings villkoret är uppfyllt när det hittar URL: er som slutar med följan
 
 Identifierar begär Anden med fil namnet för den begärda till gången. I detta matchnings villkor består ett fil namn av namnet på den begärda till gången, en punkt och fil namns tillägget (till exempel index. html).
 
-**Matchningarna**/**stämmer inte överens** med de villkor under vilka URL-sökvägens fil namns matchnings villkor är uppfyllt.
+**Matchningarna** / **stämmer inte överens** med de villkor under vilka URL-sökvägens fil namns matchnings villkor är uppfyllt.
 
 - **Matchningar**: kräver att begäran innehåller ett fil namn i URL-sökvägen som matchar det angivna mönstret.
 - **Matchar inte**: kräver att begäran innehåller ett fil namn i URL-sökvägen som inte matchar det angivna mönstret.
@@ -697,7 +697,7 @@ Viktig information:
 
 Jämför en begär ande URL-sökväg, inklusive fil namn, till det angivna värdet.
 
-**Matchningarna**/**stämmer inte överens** med det villkor som URL-sökvägens litterala matchnings villkor är uppfyllt under.
+**Matchningarna** / **stämmer inte överens** med det villkor som URL-sökvägens litterala matchnings villkor är uppfyllt under.
 
 - **Matchningar**: kräver att begäran innehåller en URL-sökväg som matchar det angivna mönstret.
 - **Matchar inte**: kräver att begäran innehåller en URL-sökväg som inte matchar det angivna mönstret.
@@ -709,20 +709,20 @@ Viktig information:
     Följande värden är tillgängliga för alternativet **relativt till** :
   - **Rot**: anger att URL-jämförelsen börjar direkt efter CDN-värdnamnet.
 
-    Till exempel: http:\//WPC.0001. &lt;&gt;domän/**800001/myorigin/MyFolder/index.htm**
+    Till exempel: http: \/ /WPC.0001. &lt; domän &gt; / **800001/myorigin/MyFolder/index.htm**
 
-  - **Ursprung**: anger att URL-jämförelsen börjar efter innehålls åtkomst punkten (till exempel/000001 eller/800001/myorigin). Eftersom \*. azureedge.net CNAME skapas i förhållande till ursprungs katalogen på Verizon CDN-värdnamnet som standard, ska Azure CDN användare använda **ursprung** svärdet. 
+  - **Ursprung**: anger att URL-jämförelsen börjar efter innehålls åtkomst punkten (till exempel/000001 eller/800001/myorigin). Eftersom \* . AZUREEDGE.net CNAME skapas i förhållande till ursprungs katalogen på Verizon CDN-värdnamnet som standard, ska Azure CDN användare använda **ursprung** svärdet. 
 
-    Till exempel: https:\//&lt;Endpoint&gt;. azureedge.net/**MyFolder/index.htm**
+    Till exempel: https: \/ / &lt; Endpoint &gt; . azureedge.net/**MyFolder/index.htm**
 
-  URL: en pekar på följande Verizon CDN-värdnamn: http\/:/WPC.0001. &lt;MyFolder/index.htm&gt;för**myfolder/index.htm** domän/800001/myorigin/
+  URL: en pekar på följande Verizon CDN-värdnamn: http: \/ /WPC.0001. &lt; &gt;**MyFolder/index.htm** för domän/800001/myorigin/
 
 - En kant-CNAME-URL skrivs om till en CDN-URL före en URL-jämförelse.
 
 Exempelvis pekar båda på följande URL: er till samma till gång och har därför samma URL-sökväg:
 
-- CDN-URL: http\/:/WPC.0001. &lt;domän&gt;-800001/CustomerOrigin/Path/Asset.htm
-- Edge CNAME-URL: http\//&lt;:&gt;Endpoint. azureedge.net/Path/Asset.htm
+- CDN-URL: http: \/ /WPC.0001. &lt; domän &gt; -800001/CustomerOrigin/Path/Asset.htm
+- Edge CNAME-URL: http: \/ / &lt; Endpoint &gt; . azureedge.net/Path/Asset.htm
 
     Ytterligare information:
     
@@ -746,7 +746,7 @@ Exempelvis pekar båda på följande URL: er till samma till gång och har därf
 
 Jämför URL-sökvägen för en begäran till det angivna [reguljära uttrycket](cdn-verizon-premium-rules-engine-reference.md#regular-expressions).
 
-**Matchningarna**/**stämmer inte överens** med det villkor som URL-sökvägen regex matchnings villkoret är uppfyllt under.
+**Matchningarna** / **stämmer inte överens** med det villkor som URL-sökvägen regex matchnings villkoret är uppfyllt under.
 
 - **Matchningar**: kräver att begäran innehåller en URL-sökväg som matchar det angivna reguljära uttrycket.
 - **Matchar inte**: kräver att begäran innehåller en URL-sökväg som inte matchar det angivna reguljära uttrycket.
@@ -757,9 +757,9 @@ Viktig information:
 
     Exempelvis pekar båda URL: erna till samma till gång och har därför samma URL-sökväg.
 
-     - CDN-URL: http\/:/WPC.0001. &lt;domän&gt;-800001/CustomerOrigin/Path/Asset.htm
+     - CDN-URL: http: \/ /WPC.0001. &lt; domän &gt; -800001/CustomerOrigin/Path/Asset.htm
 
-     - Edge CNAME-URL: http\/:/My.domain.com/Path/Asset.htm
+     - Edge CNAME-URL: http: \/ /My.domain.com/Path/Asset.htm
 
     Ytterligare information:
     
@@ -781,7 +781,7 @@ Viktig information:
 
 Jämför en begär ande relativa URL-sökväg till det angivna jokertecken.
 
-**Matchningarna**/**stämmer inte överens** med det angivna villkoret för URL-sökvägen matchnings villkoret är uppfyllt.
+**Matchningarna** / **stämmer inte överens** med det angivna villkoret för URL-sökvägen matchnings villkoret är uppfyllt.
 
 - **Matchningar**: kräver att begäran innehåller en URL-sökväg som matchar det angivna jokertecken.
 - **Matchar inte**: kräver att begäran innehåller en URL-sökväg som inte matchar det angivna jokertecken.
@@ -793,19 +793,19 @@ Viktig information:
    Det här alternativet kan ha följande värden:
      - **Rot**: anger att URL-jämförelsen börjar direkt efter CDN-värdnamnet.
 
-       Till exempel: http:\//WPC.0001. &lt;&gt;domän/**800001/myorigin/MyFolder/index.htm**
+       Till exempel: http: \/ /WPC.0001. &lt; domän &gt; / **800001/myorigin/MyFolder/index.htm**
 
-     - **Ursprung**: anger att URL-jämförelsen börjar efter innehålls åtkomst punkten (till exempel/000001 eller/800001/myorigin). Eftersom \*. azureedge.net CNAME skapas i förhållande till ursprungs katalogen på Verizon CDN-värdnamnet som standard, ska Azure CDN användare använda **ursprung** svärdet. 
+     - **Ursprung**: anger att URL-jämförelsen börjar efter innehålls åtkomst punkten (till exempel/000001 eller/800001/myorigin). Eftersom \* . AZUREEDGE.net CNAME skapas i förhållande till ursprungs katalogen på Verizon CDN-värdnamnet som standard, ska Azure CDN användare använda **ursprung** svärdet. 
 
-       Till exempel: https:\//&lt;Endpoint&gt;. azureedge.net/**MyFolder/index.htm**
+       Till exempel: https: \/ / &lt; Endpoint &gt; . azureedge.net/**MyFolder/index.htm**
 
-     URL: en pekar på följande Verizon CDN-värdnamn: http\/:/WPC.0001. &lt;MyFolder/index.htm&gt;för**myfolder/index.htm** domän/800001/myorigin/
+     URL: en pekar på följande Verizon CDN-värdnamn: http: \/ /WPC.0001. &lt; &gt;**MyFolder/index.htm** för domän/800001/myorigin/
 
 - En kant-CNAME-URL skrivs om till en CDN-URL före jämförelse med URL.
 
     Exempelvis pekar båda på följande URL: er till samma till gång och har därför samma URL-sökväg:
-     - CDN-URL http://wpc.0001.&lt:;d&gt;omain/800001/CustomerOrigin/Path/Asset.htm
-     - Edge CNAME-URL: http\//&lt;:&gt;Endpoint. azureedge.net/Path/Asset.htm
+     - CDN-URL: http://wpc.0001.&lt ;d omain &gt; /800001/CustomerOrigin/Path/Asset.htm
+     - Edge CNAME-URL: http: \/ / &lt; Endpoint &gt; . azureedge.net/Path/Asset.htm
     
     Ytterligare information:
     
@@ -835,7 +835,7 @@ Värde                   | I förhållande till    | Resultat
 /80ABCD/origin/text/*   | Rot           | Det här mönstret matchas när den begärda till gången uppfyller följande kriterier: <br />– Det måste finnas i ett kund ursprung som kallas "ursprung". <br />-Den relativa sökvägen måste börja med en mapp med namnet "text". Det vill säga att den begärda till gången antingen finns i mappen "text" eller någon av dess rekursiva undermappar.
 */CSS/* */JS/*          | Rot eller ursprung | Det här mönstret matchas av alla CDN-eller Edge CNAME-URL: er som innehåller en CSS-eller JS-mapp.
 *. jpg *. gif *. png       | Rot eller ursprung | Det här mönstret matchas av alla CDN-eller Edge CNAME-URL: er som slutar med. jpg,. gif eller. png. Ett alternativt sätt att ange det här mönstret är med [URL-sökvägen tillägg matchnings villkor](#url-path-extension).
-/images/* /media/*      | Ursprung         | Det här mönstret matchas av CDN-eller Edge CNAME-URL: er vars relativa sökväg börjar med en "images"-eller "media"-mapp. <br />-CDN-URL: http\/:/WPC.0001. &lt;domän&gt;/800001/myorigin/images/Sales/event1.png<br />– Exempel-CNAME CNAME-URL:\/http:/CDN.mydomain.com/images/Sales/event1.png
+/images/* /media/*      | Ursprung         | Det här mönstret matchas av CDN-eller Edge CNAME-URL: er vars relativa sökväg börjar med en "images"-eller "media"-mapp. <br />-CDN-URL: http: \/ /WPC.0001. &lt; domän &gt; /800001/myorigin/images/Sales/event1.png<br />– Exempel-CNAME CNAME-URL: http: \/ /CDN.mydomain.com/images/Sales/event1.png
 
 [Tillbaka till början](#reference-for-rules-engine-match-conditions)
 
@@ -847,7 +847,7 @@ Värde                   | I förhållande till    | Resultat
 
 Jämför en förfrågans frågesträng med det angivna värdet.
 
-**Matchningarna**/**stämmer inte överens** med det villkor som anger under vilken URL-frågans litterala matchnings villkor är uppfyllt.
+**Matchningarna** / **stämmer inte överens** med det villkor som anger under vilken URL-frågans litterala matchnings villkor är uppfyllt.
 
 - **Matchningar**: kräver att begäran innehåller en URL-frågesträng som matchar den angivna frågesträngen.
 - **Matchar inte**: kräver att begäran innehåller en URL-frågesträng som inte matchar den angivna frågesträngen.
@@ -884,7 +884,7 @@ Viktig information:
 
 Identifierar begär Anden som innehåller den angivna frågesträngen. Den här parametern har angetts till ett värde som matchar ett angivet mönster. Parametrar för frågesträng (till exempel parameter = värde) i URL: en för begäran avgör om det här villkoret är uppfyllt. Detta matchnings villkor identifierar en frågesträngparametern efter dess namn och accepterar ett eller flera värden för parametervärdet. 
 
-**Matchningarna**/**stämmer inte överens** med det villkor som anger under vilken URL som matchnings villkoret för URL-frågan är uppfyllt.
+**Matchningarna** / **stämmer inte överens** med det villkor som anger under vilken URL som matchnings villkoret för URL-frågan är uppfyllt.
 
 - **Matchningar**: kräver en begäran att innehålla den angivna parametern med ett värde som matchar minst ett av de värden som har definierats i matchnings villkoret.
 - **Matchar inte**: kräver att begäran uppfyller något av följande villkor:
@@ -969,7 +969,7 @@ E-post | Joe\* | Det här mönstret matchas när frågesträngen för en begärd
 
 Identifierar begär Anden som innehåller den angivna frågesträngen. Den här parametern har angetts till ett värde som matchar ett angivet [reguljärt uttryck](cdn-verizon-premium-rules-engine-reference.md#regular-expressions).
 
-**Matchningarna**/**stämmer inte överens** med det villkor som anger under vilken URL som URL-frågan regex matchnings villkor är uppfyllt.
+**Matchningarna** / **stämmer inte överens** med det villkor som anger under vilken URL som URL-frågan regex matchnings villkor är uppfyllt.
 
 - **Matchningar**: kräver att begäran innehåller en URL-frågesträng som matchar det angivna reguljära uttrycket.
 - **Matchar inte**: kräver att begäran innehåller en URL-frågesträng som inte matchar det angivna reguljära uttrycket.
@@ -986,12 +986,12 @@ Viktig information:
 
    Tecken | URL-kodning | Värde
    ----------|--------------|------
-   Space     | %20          | \%20
+   Space     | %20          | \%tjugo
    &         | %25          | \%25.1
 
    Observera att procentuella symboler måste föregås av Escape.
 
-- Dubbla escape-tecken för vanlig reguljära uttryck (till \^exempel $. +) för att inkludera ett omvänt snedstreck i det reguljära uttrycket.
+- Dubbla escape-tecken för vanlig reguljära uttryck (till exempel \^ $. +) för att inkludera ett omvänt snedstreck i det reguljära uttrycket.
 
    Ett exempel:
 
@@ -1017,7 +1017,7 @@ Viktig information:
 
 Jämför det eller de angivna värdena mot frågans frågesträng.
 
-**Matchningarna**/**stämmer inte överens** med de villkor som URL-frågans jokertecken matchar villkoret är uppfyllt i.
+**Matchningarna** / **stämmer inte överens** med de villkor som URL-frågans jokertecken matchar villkoret är uppfyllt i.
 
 - **Matchningar**: kräver att begäran innehåller en URL-frågesträng som matchar det angivna jokertecknet.
 - **Matchar inte**: kräver att begäran innehåller en URL-frågesträng som inte matchar det angivna jokertecknet.
@@ -1056,7 +1056,7 @@ Följande exempel visar hur det här alternativet fungerar i vissa situationer:
  Name                 | Beskrivning
  ---------------------|------------
 användare = Johan              | Det här mönstret matchas när frågesträngen för en begärd URL är "? User = Johan."
-\*användare =\* \*utdatanivå =\* | Det här mönstret matchas när CDN URL-frågan innehåller antingen användar-eller utdatanivå-parametern.
+\*användare = \* \* utdatanivå =\* | Det här mönstret matchas när CDN URL-frågan innehåller antingen användar-eller utdatanivå-parametern.
 
 [Tillbaka till början](#reference-for-rules-engine-match-conditions)
 
@@ -1066,6 +1066,6 @@ användare = Johan              | Det här mönstret matchas när frågestränge
 
 - [Översikt över Azure Content Delivery Network](cdn-overview.md)
 - [Regel motor referens](cdn-verizon-premium-rules-engine-reference.md)
-- [Regel motor villkorliga uttryck](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
-- [Funktioner i regel motorn](cdn-verizon-premium-rules-engine-reference-features.md)
+- [Regelmotor – villkorliga uttryck](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
+- [Regelmotor – funktioner](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Åsidosätta standard-HTTP-beteendet med hjälp av regel motorn](cdn-verizon-premium-rules-engine.md)

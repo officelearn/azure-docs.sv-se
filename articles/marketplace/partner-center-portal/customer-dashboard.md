@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 37569eba0d351fdedcd68042af2e33b0e3947faa
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: b8492a6740eb9acfa20fbbe5dd5beed5e985fafc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701512"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744596"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för kunder i Commercial Marketplace-analys
 
@@ -52,9 +52,9 @@ Det finns tre **kund typer**: nya, befintliga och uppdelade.
 
 ### <a name="customer-by-geography"></a>Kund efter geografi
 
-Diagrammet **kund per geografi** visar antalet kunder och kunder som har köpts under det valda datum intervallet och som mappas baserat på kundens land. Ljuset till mörkt färg på kartan representerar det låga värdet för kund antalet. Klicka på en post i tabellen om du vill zooma in i ett land.
+Diagrammet **kund per geografi** visar antalet kunder och kunder som har köpts under det valda datum intervallet och som mappas baserat på kundens land/region. Ljuset till mörkt färg på kartan representerar det låga värdet för kund antalet. Klicka på en post i tabellen om du vill zooma in i ett land/en region.
 
-Termisk karta visar kund antalet och% per kund land. Du kan flytta kartan för att visa den exakta platsen och zooma in på en bestämd plats. Den här kartan har ett kompletterande rutnät som gör att du kan visa% av kunderna efter plats, samt kunder som nyligen har lagts till på den platsen.
+Termisk karta visar kund antalet och% per kund land/region. Du kan flytta kartan för att visa den exakta platsen och zooma in på en bestämd plats. Den här kartan har ett kompletterande rutnät som gör att du kan visa% av kunderna efter plats, samt kunder som nyligen har lagts till på den platsen.
 
 ### <a name="customer-trends"></a>Kund trender
 
@@ -97,7 +97,7 @@ Tabellen **kund information** visar en numrerad lista över de 1000 främsta kun
 - Varje kolumn i rutnätet är sorterbar.
 - Data kan extraheras till en TSV-fil om antalet poster är mindre än 1000.
 - Om poster är över 1000 kommer exporterade data att placeras asynkront på en nedladdnings sida under de närmaste 30 dagarna.
-- Filter kan tillämpas på tabellen för att visa endast de data som du är intresse rad av. Data kan filtreras efter företags namn, kund-ID, marknads plats prenumerations-ID, typ av Azure-licens, förvärvs datum, datum förlorat, kund-e-post, kund land/delstat/ort/post, kund språk och så vidare.
+- Filter kan tillämpas på tabellen för att visa endast de data som du är intresse rad av. Data kan filtreras efter företags namn, kund-ID, marknads plats prenumerations-ID, typ av Azure-licens, förvärvs datum, datum förlorat, kund-e-post, kund land/region/delstat/stad/post, kund språk och så vidare.
 - När ett erbjudande köps av en skyddad kund kommer information i **kundens detaljerade data** att maskeras (* * * * * * * *).
 
 ### <a name="customer-page-filters"></a>Kund sid filter

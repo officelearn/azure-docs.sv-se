@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/17/2019
+ms.date: 05/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2c3082fbd7c02cbb075fd118f8e6021ac951e8e3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240914"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737681"
 ---
 # <a name="what-is-conditional-access"></a>Vad är villkorsstyrd åtkomst?
 
@@ -47,7 +47,7 @@ Vanliga signaler att villkorlig åtkomst kan ta med i kontot när du fattar ett 
    - Principer kan riktas mot specifika användare och grupper som ger administratörer detaljerad kontroll över åtkomsten.
 - Information om IP-plats
    - Organisationer kan skapa betrodda IP-adressintervall som kan användas när du fattar princip beslut. 
-   - Administratörer kan ange IP-adressintervall för hela länder för att blockera eller tillåta trafik från.
+   - Administratörer kan ange hela länder/regioner med IP-intervall för att blockera eller tillåta trafik från.
 - Enhet
    - Användare med enheter av vissa plattformar eller markerade med ett angivet tillstånd kan användas för att verkställa principer för villkorlig åtkomst.
 - Program

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 798da0261dbb692d411f1bb568a272a6bb7dbb03
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 540ae25b22b2c134a47f91ad5b8b19089c7f2acb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715672"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745000"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Hantera autentiseringsuppgifter i Azure Automation
 
@@ -163,6 +163,6 @@ print cred["password"]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda moduler i Azure Automation](modules.md)
-* [Runbook-körning i Azure Automation](../automation-runbook-execution.md)
-* [Översikt över Azure Automation tillstånds konfiguration](../automation-dsc-overview.md) 
+* Mer information om de cmdletar som används för att komma åt certifikat finns [i hantera moduler i Azure Automation](modules.md).
+* Allmän information om Runbooks finns [i Runbook-körning i Azure Automation](../automation-runbook-execution.md).
+* Mer information om DSC-konfigurationer finns i [Översikt över Azure Automation tillstånds konfiguration](../automation-dsc-overview.md). 

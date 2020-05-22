@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 5e155758d19b45d977fcd087bff0ceb85898f8f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e64873cc2e7779c4d931018fd16bdca08596aa2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548307"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757831"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Metod tips för Azure för nätverks säkerhet
 I den här artikeln beskrivs en samling Azure Best Practices för att förbättra nätverks säkerheten. Dessa bästa metoder är härledda från vår erfarenhet av Azure-nätverk och våra kunders upplevelser som du själv har.
@@ -74,7 +74,7 @@ Nätverk behöver utvecklas från traditionella försvars gränser eftersom nät
 Bästa praxis är:
 
 **Bästa praxis**: ge villkorlig åtkomst till resurser baserat på enhet, identitet, säkerhet, nätverks plats och mycket annat.  
-**Information**: med [villkorlig åtkomst i Azure AD](/azure/active-directory/conditional-access/overview) kan du tillämpa rätt åtkomst kontroller genom att implementera automatiska åtkomst kontroll beslut baserat på de villkor som krävs. Mer information finns i [Hantera åtkomst till Azure-hantering med villkorlig åtkomst](../../role-based-access-control/conditional-access-azure-management.md).
+**Information**: med [villkorlig åtkomst i Azure AD](../../active-directory/conditional-access/overview.md) kan du tillämpa rätt åtkomst kontroller genom att implementera automatiska åtkomst kontroll beslut baserat på de villkor som krävs. Mer information finns i [Hantera åtkomst till Azure-hantering med villkorlig åtkomst](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
 **Bästa praxis**: Aktivera endast port åtkomst efter arbets flödes godkännande.  
 **Information**: du kan använda [just-in-Time VM-åtkomst i Azure Security Center](../../security-center/security-center-just-in-time.md) för att låsa inkommande trafik till dina virtuella Azure-datorer, vilket minskar exponeringen för attacker och ger enkel åtkomst till att ansluta till virtuella datorer när det behövs.
@@ -104,8 +104,8 @@ Azure Network Security-enheter kan ge bättre säkerhet än vad kontroller på n
 
 * Brand vägg
 * Intrångs identifiering/skydd mot intrång
-* Sårbarhets hantering
-* Program kontroll
+* Sårbarhetshantering
+* Programregleringstyp
 * Nätverks baserad avvikelse identifiering
 * Webbfiltrering
 * Antivirus

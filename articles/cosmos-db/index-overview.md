@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 921a11d8846c868436365fe400852eac0f7dcd3e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: fb3467e60ada92c90a84d8e89f6b5f5e94ca42e8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712102"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746418"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – Översikt
 
@@ -179,7 +179,7 @@ Så länge ett filter predikat använder en av index typerna, kommer frågesynta
 
 De sökvägar som extraherades vid indexering av data gör det enkelt att söka efter indexet när en fråga bearbetas. Genom att matcha `WHERE` -satsen i en fråga med listan över indexerade sökvägar är det möjligt att identifiera de objekt som matchar frågespråket mycket snabbt.
 
-Överväg till exempel följande fråga: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . Frågans predikat (filtrering av objekt, där alla platser har "Frankrike" som sitt land), matchar sökvägen som marker ATS i rött nedan:
+Överväg till exempel följande fråga: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . Frågans predikat (filtrering av objekt, där vilken plats som helst har "Frankrike" som land/region) matchar sökvägen som marker ATS i rött nedan:
 
 ![Matcha en angiven sökväg inom ett träd](./media/index-overview/matching-path.png)
 

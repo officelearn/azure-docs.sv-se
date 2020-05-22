@@ -1,28 +1,28 @@
 ---
-title: Fråga Azure Uppdateringshantering-loggar
-description: I den här artikeln beskrivs hur du frågar loggarna efter Uppdateringshantering i Log Analytics-arbetsytan.
+title: Fråga Azure Automation Uppdateringshantering loggar
+description: Den här artikeln beskriver hur du skickar frågor till loggarna för Uppdateringshantering i Log Analytics-arbetsytan.
 services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09eacb42eff6ecf3a3fca2d7fb401f52195f5f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2e9a97dac4d69ea4e470a932cb446d83b425dde
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617416"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745291"
 ---
-# <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Fråga efter uppdaterings poster för Uppdateringshantering i Azure Monitor loggar
+# <a name="query-update-management-logs"></a>Fråga Uppdateringshanteringsloggar
 
-Utöver den information som finns i Uppdateringshantering lösning kan du söka mot loggarna som lagras i Log Analytics arbets ytan. På lösnings sidan väljer du **loggar**i det vänstra fönstret. Sidan för loggs ökning öppnas.
+Utöver de uppgifter som anges under Uppdateringshantering distribution kan du söka i loggarna som lagras i Log Analytics arbets ytan. Om du vill söka i loggarna från ditt Automation-konto väljer du **uppdaterings hantering** och öppnar Log Analytics arbets ytan som är kopplad till din distribution.
 
-Du kan också lära dig hur du anpassar frågorna eller använder dem från olika klienter. Se [Log Analytics Search API-dokumentation](https://dev.loganalytics.io/).
+Du kan också anpassa logg frågorna eller använda dem från olika klienter. Se [Log Analytics Search API-dokumentation](https://dev.loganalytics.io/).
 
-## <a name="update-records"></a>Uppdateringsposter
+## <a name="query-update-records"></a>Fråga efter uppdaterings poster
 
 Uppdateringshantering samlar in poster för virtuella Windows-och Linux-datorer och de data typer som visas i loggs öknings resultat. I följande avsnitt beskrivs dessa poster.
 
-### <a name="required-updates"></a>Nödvändiga uppdateringar
+### <a name="query-required-updates"></a>Fråga krävs uppdateringar
 
 En post med en typ av `RequiredUpdate` skapas som representerar uppdateringar som krävs av en dator. Dessa poster har egenskaperna i följande tabell:
 
@@ -31,7 +31,7 @@ En post med en typ av `RequiredUpdate` skapas som representerar uppdateringar so
 | Dator | Fullständigt kvalificerat domän namn för rapporterings datorn. |
 | KBID | Kunskaps bas artikel-ID för Windows Update. |
 | ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. | 
-| Produkt | De produkter som uppdateringen gäller för. | 
+| Product | De produkter som uppdateringen gäller för. | 
 | PublishDate | Det datum då uppdateringen är redo att laddas ned och installeras från Windows Update. |
 | Server | | 
 | SourceHealthServiceId | Unik identifierare som representerar Log Analytics Windows agent-ID. |
@@ -39,11 +39,11 @@ En post med en typ av `RequiredUpdate` skapas som representerar uppdateringar so
 | TenantId | Unik identifierare som representerar organisations instansen av Azure Active Directory. | 
 | TimeGenerated | Datum och tid då posten skapades. | 
 | Typ | *Uppdatera* | 
-| UpdateClassification | Anger vilken typ av uppdateringar som kan tillämpas. För Windows:<br> *Kritiska uppdateringar*<br> *Säkerhetsuppdateringar*<br> *Samlade uppdateringar*<br> *Funktionspaket*<br> *Service pack*<br> *Definitionsuppdateringar*<br> *Verktyg*<br> *Uppdateringar*. För Linux:<br> *Kritiska uppdateringar och säkerhetsuppdateringar*<br> *Andra* |
-| UpdateSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> *Kritisk*<br> *Oviktig*<br> *Moderera*<br> *Låg* |
+| UpdateClassification | Anger vilken typ av uppdateringar som kan tillämpas. För Windows:<br> *Kritiska uppdateringar*<br> *Säkerhetsuppdateringar*<br> *Samlade uppdateringar*<br> *Funktionspaket*<br> *Service Pack*<br> *Definitionsuppdateringar*<br> *Verktyg*<br> *Uppdateringar*. För Linux:<br> *Kritiska uppdateringar och säkerhetsuppdateringar*<br> *Övrigt* |
+| UpdateSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> *Kritiskt*<br> *Viktigt*<br> *Medel*<br> *Låg* |
 | UpdateTitle | Uppdateringens rubrik.|
 
-### <a name="update"></a>Uppdatera
+### <a name="query-update-record"></a>Uppdatera post för fråga
 
 En post med en typ av `Update` skapas som representerar uppdateringar som är tillgängliga och deras installations status för en dator. Dessa poster har egenskaperna i följande tabell:
 
@@ -55,32 +55,32 @@ En post med en typ av `Update` skapas som representerar uppdateringar som är ti
 | Dator | Fullständigt kvalificerat domän namn för rapporterings datorn. |
 | ComputerEnvironment | Miljö. Möjliga värden är Azure eller icke-Azure. |
 | MSRCBulletinID | ID-nummer för säkerhetsbulletin. | 
-| MSRCSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> Kritisk<br> Viktigt<br> Moderera<br> Låg |  
+| MSRCSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> Kritiskt<br> Viktigt<br> Medel<br> Låg |  
 | KBID | Kunskaps bas artikel-ID för Windows Update. |
 | ManagementGroupName | Namnet på Operations Manager hanterings gruppen eller arbets ytan Log Analytics. |
 | UpdateID | Unikt ID för program uppdateringen. |
 | RevisionNumber | Revisions numret för en bestämd revision av en uppdatering. |
-| Valfri | Sant om posten är valfri eller falskt annars. | 
+| Valfritt | Sant om posten är valfri eller falskt annars. | 
 | RebootBehavior | Omstarts beteendet efter installation/avinstallation av en uppdatering. |
 | _ResourceId | Unikt ID för den resurs som är associerad med posten. |
 | Typ | Posttyp. Värdet är Update. |
 | VMUUID | Unik identifierare för den virtuella datorn. |
 | MG | Unik identifierare för hanterings gruppen eller Log Analytics arbets ytan. | 
 | TenantId | Unik identifierare som representerar organisationens instans av Azure Active Directory. | 
-| SourceSystem | Käll systemet för posten. Värdet är `OperationsManager`. | 
+| SourceSystem | Käll systemet för posten. Värdet är `OperationsManager` . | 
 | TimeGenerated | Datum och tid då posten skapades. | 
 | SourceComputerId | Unik identifierare som representerar käll datorn. | 
-| Titel | Uppdateringens rubrik. |
+| Rubrik | Uppdateringens rubrik. |
 | PublishedDate (UTC) | Det datum då uppdateringen är redo att laddas ned och installeras från Windows Update.  |
 | UpdateState | Uppdateringens aktuella tillstånd. | 
-| Produkt | De produkter som uppdateringen gäller. |
+| Product | De produkter som uppdateringen gäller. |
 | SubscriptionId | Unik identifierare för Azure-prenumerationen. | 
 | ResourceGroup | Namnet på resurs gruppen som resursen tillhör. | 
 | ResourceProvider | Resurs leverantören. | 
 | Resurs | Namn på resursen. | 
 | ResourceType | Resurs typen. | 
 
-### <a name="update-agent"></a>Uppdatera agent
+### <a name="query-update-agent-record"></a>Uppdatera agent posten för fråga
 
 En post med en typ av `UpdateAgent` skapas som innehåller information om uppdaterings agenten på datorn. Dessa poster har egenskaperna i följande tabell:
 
@@ -94,14 +94,14 @@ En post med en typ av `UpdateAgent` skapas som innehåller information om uppdat
 | OSVersion | Operativ systemets version. |
 | Server | |
 | SourceHealthServiceId | Unik identifierare som representerar Log Analytics Windows agent-ID. |
-| SourceSystem | Käll systemet för posten. Värdet är `OperationsManager`. | 
+| SourceSystem | Käll systemet för posten. Värdet är `OperationsManager` . | 
 | TenantId | Unik identifierare som representerar organisationens instans av Azure Active Directory. |
 | TimeGenerated | Datum och tid då posten skapades. |
 | Typ | Posttyp. Värdet är Update. | 
 | WindowsUpdateAgentVersion | Windows Update agentens version. |
 | WSUSServer | Fel om Windows Update Agent har problem, för att under lätta fel sökningen. |
 
-### <a name="update-deployment-status"></a>Status för uppdaterings distribution 
+### <a name="query-update-deployment-status-record"></a>Uppdatera distributions status post för fråga
 
 En post med en typ av `UpdateRunProgress` skapas som tillhandahåller uppdaterings distributions status för en schemalagd distribution per dator. Dessa poster har egenskaperna i följande tabell:
 
@@ -116,24 +116,24 @@ En post med en typ av `UpdateRunProgress` skapas som tillhandahåller uppdaterin
 | KBID | Kunskaps bas artikel-ID för Windows Update. | 
 | ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. |
 | OSType | Typ av operativ system. Värdena är Windows eller Linux. | 
-| Produkt | De produkter som uppdateringen gäller. |
+| Product | De produkter som uppdateringen gäller. |
 | Resurs | Namn på resursen. | 
 | ResourceId | Unikt ID för den resurs som är associerad med posten. |
 | ResourceProvider | Resurs leverantören. | 
 | ResourceType | Resurs typ. | 
 | SourceComputerId | Unik identifierare som representerar käll datorn. | 
-| SourceSystem | Käll system för posten. Värdet är `OperationsManager`. |
+| SourceSystem | Käll system för posten. Värdet är `OperationsManager` . |
 | StartTime | Tid när uppdateringen har schemalagts för installation. |
 | SubscriptionId | Unik identifierare för Azure-prenumerationen. | 
 | SucceededOnRetry | Värde som anger om uppdaterings körningen misslyckades för det första försöket och den aktuella åtgärden är ett försök att försöka igen. |
 | TimeGenerated | Datum och tid då posten skapades. |
-| Titel | Uppdateringens rubrik. |
-| Typ | Typ av uppdatering. Värdet är `UpdateRunProgress`. |
+| Rubrik | Uppdateringens rubrik. |
+| Typ | Typ av uppdatering. Värdet är `UpdateRunProgress` . |
 | UpdateId | Unikt ID för program uppdateringen. |
 | VMUUID | Unik identifierare för den virtuella datorn. |
 | ResourceId | Unikt ID för den resurs som är associerad med posten. |
 
-### <a name="update-summary"></a>Uppdaterings Sammanfattning 
+### <a name="query-update-summary-record"></a>Samlings post för uppdatering av fråga
 
 En post med en typ av `UpdateSummary` skapas som tillhandahåller uppdaterings Sammanfattning per dator. Dessa poster har egenskaperna i följande tabell:
 
@@ -156,11 +156,11 @@ En post med en typ av `UpdateSummary` skapas som tillhandahåller uppdaterings S
 | RestartPending | Sant om en omstart väntar eller annars FALSE. |
 | SecurityUpdatesMissing | Antal saknade säkerhets uppdateringar som är tillämpliga.| 
 | SourceComputerId | Unik identifierare för den virtuella datorn. |
-| SourceSystem | Käll system för posten. Värdet är `OpsManager`. | 
+| SourceSystem | Käll system för posten. Värdet är `OpsManager` . | 
 | SubscriptionId | Unik identifierare för Azure-prenumerationen. |
 | TimeGenerated | Datum och tid då posten skapades. |
 | TotalUpdatesMissing | Totalt antal saknade uppdateringar som är tillämpliga. | 
-| Typ | Posttyp. Värdet är `UpdateSummary`. |
+| Typ | Posttyp. Värdet är `UpdateSummary` . |
 | VMUUID | Unik identifierare för den virtuella datorn. |
 | WindowsUpdateAgentVersion | Windows Update agentens version. |
 | WindowsUpdateSetting | Status för Windows Update agenten. Möjliga värden:<br> `Scheduled installation`<br> `Notify before installation`<br> `Error returned from unhealthy WUA agent` | 
@@ -171,7 +171,7 @@ En post med en typ av `UpdateSummary` skapas som tillhandahåller uppdaterings S
 
 I följande avsnitt finns exempel på logg frågor för uppdaterings poster som samlas in för Uppdateringshantering.
 
-### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Bekräfta att icke-Azure-datorer har publicerats
+### <a name="confirm-that-non-azure-machines-are-enabled-for-update-management"></a>Bekräfta att icke-Azure-datorer är aktiverade för Uppdateringshantering
 
 Du kan kontrol lera att direktanslutna datorer kommunicerar med Azure Monitor loggar genom att köra någon av följande loggs ökningar.
 
@@ -197,7 +197,7 @@ På en Windows-dator kan du granska följande information för att verifiera age
 Om agenten inte kan kommunicera med Azure Monitor loggar och agenten är konfigurerad för att kommunicera med Internet via en brand vägg eller proxyserver, kontrollerar du att brand väggen eller proxyservern har kon figurer ATS korrekt. Information om hur du verifierar att brand väggen eller proxyservern har kon figurer ATS korrekt finns i [nätverks konfiguration för Windows-agent](../azure-monitor/platform/agent-windows.md) eller [nätverks konfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Om Linux-systemen har kon figurer ATS för att kommunicera med en proxy eller Log Analytics gateway och du registrerar den här lösningen uppdaterar du *proxyn. conf* -behörighet för att ge behörigheten omiuser Group Läs behörighet för filen genom att använda följande kommandon:
+> Om Linux-systemen har kon figurer ATS för att kommunicera med en proxy eller Log Analytics gateway och du aktiverar Uppdateringshantering, uppdaterar du `proxy.conf` behörigheterna för att ge behörigheten omiuser Group Läs behörighet för filen genom att använda följande kommandon:
 >
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
@@ -409,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Använd loggs ökningar i [Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md) om du vill visa detaljerade uppdaterings data.
-* [Skapa aviseringar](automation-tutorial-update-management.md#configure-alerts) för status för uppdaterings distribution.
+* [Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md)
+* [Konfigurera varningar](automation-tutorial-update-management.md#configure-alerts)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 02b88ae0fa0473ad3d11346f0443582d80e75f5d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 90ceb2b716df429eaf4541f13cfa96cb9e0eac7d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691133"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745222"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Kopiera data från SharePoint Online-listan med Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -55,8 +55,8 @@ SharePoint-listans Online Connector använder tjänstens huvud namns autentiseri
     1. Öppna SharePoint Online-webbplatsens länk, t. ex. `https://[your_site_url]/_layouts/15/appinv.aspx` (Ersätt klient organisation och plats namn).
     2. Sök efter det program-ID som du har registrerat, Fyll i de tomma fälten och klicka på "skapa".
 
-        - App-domän: localhost.com
-        - Omdirigerings-URL:https://www.localhost.com
+        - App-domän:`localhost.com`
+        - Omdirigerings-URL:`https://www.localhost.com`
         - Begäran-XML för behörighet:
 
         ```xml
@@ -86,7 +86,7 @@ Följande egenskaper stöds för en länkad SharePoint Online-lista:
 | servicePrincipalId  | Program-ID för programmet som är registrerat i Azure Active Directory. | Ja          |
 | servicePrincipalKey | Programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja          |
 | tenantId            | Det klient-ID som ditt program finns under.          | Ja          |
-| connectVia          | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från [nödvändiga komponenter](#prerequisites)tidigare i den här artikeln. Om inget värde anges används standard Azure Integration Runtime. | Inga           |
+| connectVia          | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från [nödvändiga komponenter](#prerequisites)tidigare i den här artikeln. Om inget värde anges används standard Azure Integration Runtime. | Nej           |
 
 **Exempel:**
 
@@ -148,8 +148,8 @@ Om du vill kopiera data från SharePoint Online-listan stöds följande egenskap
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SharePointOnlineListSource**. | Ja |
-| DocumentDB | Anpassade alternativ för OData-frågor för att filtrera data. Exempel: `"$top=10&$select=Title,Number"`. | Inga |
-| httpRequestTimeout | Tids gränsen (i sekund) för HTTP-begäran för att få ett svar. Standardvärdet är 300 (5 minuter). | Inga |
+| DocumentDB | Anpassade alternativ för OData-frågor för att filtrera data. Exempel: `"$top=10&$select=Title,Number"`. | Nej |
+| httpRequestTimeout | Tids gränsen (i sekund) för HTTP-begäran för att få ett svar. Standardvärdet är 300 (5 minuter). | Nej |
 
 **Exempel**
 

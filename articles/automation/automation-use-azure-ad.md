@@ -1,24 +1,21 @@
 ---
 title: Använda Azure AD i Azure Automation för autentisering till Azure
-description: Lär dig hur du använder Azure AD inom Azure Automation som Provider för autentisering till Azure.
+description: Den här artikeln beskriver hur du använder Azure AD inom Azure Automation som Provider för autentisering till Azure.
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 90338a1ffa79e6c2347832cb2e74633db02ec72d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1361ecf3ab7b726310df9e3b1040e0726d7658e2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548340"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745258"
 ---
-# <a name="use-azure-ad-in-azure-automation-to-authenticate-to-azure"></a>Använda Azure AD i Azure Automation för autentisering till Azure
+# <a name="use-azure-ad-to-authenticate-to-azure"></a>Använda Azure AD för att autentisera mot Azure
 
 Tjänsten [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) möjliggör ett antal administrativa uppgifter, till exempel användar hantering, domän hantering och konfiguration av enkel inloggning. Den här artikeln beskriver hur du använder Azure AD inom Azure Automation som Provider för autentisering till Azure. 
 
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
-
-## <a name="installing-azure-ad-modules"></a>Installera Azure AD-moduler
+## <a name="install-azure-ad-modules"></a>Installera Azure AD-moduler
 
 Du kan aktivera Azure AD genom följande PowerShell-moduler:
 
@@ -65,13 +62,13 @@ Innan du installerar Azure AD-modulerna på datorn:
 
 ### <a name="install-support-for-pscredential"></a>Installera stöd för PSCredential
 
-Azure Automation använder klassen [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) för att representera en referens till gång. Skripten hämtar `PSCredential` objekt med hjälp `Get-AutomationPSCredential` av cmdleten. Mer information finns i avsnittet [om inloggnings till gångar i Azure Automation](shared-resources/credentials.md).
+Azure Automation använder klassen [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) för att representera en referens till gång. Skripten hämtar `PSCredential` objekt med hjälp av `Get-AutomationPSCredential` cmdleten. Mer information finns i avsnittet [om inloggnings till gångar i Azure Automation](shared-resources/credentials.md).
 
-## <a name="assigning-a-subscription-administrator"></a>Tilldela en prenumerations administratör
+## <a name="assign-a-subscription-administrator"></a>Tilldela en prenumerationsadministratör
 
 Du måste tilldela en administratör för Azure-prenumerationen. Den här personen har rollen ägare för prenumerations omfånget. Se [rollbaserad åtkomst kontroll i Azure Automation](automation-role-based-access-control.md). 
 
-## <a name="changing-the-azure-ad-users-password"></a>Ändra Azure AD-användarens lösen ord
+## <a name="change-the-azure-ad-users-password"></a>Ändra Azure AD-användarens lösen ord
 
 Ändra Azure AD-användarens lösen ord:
 
@@ -81,11 +78,11 @@ Du måste tilldela en administratör för Azure-prenumerationen. Den här person
 
 3. Be administratören att ändra lösen ordet när du uppmanas till det.
 
-## <a name="configuring-azure-automation-to-use-the-azure-ad-user-to-manage-the-azure-subscription"></a>Konfigurera Azure Automation att använda Azure AD-användaren för att hantera Azure-prenumerationen
+## <a name="configure-azure-automation-to-manage-the-azure-subscription"></a>Konfigurera Azure Automation för att hantera Azure-prenumerationen
 
 För att Azure Automation ska kunna kommunicera med Azure AD måste du hämta de autentiseringsuppgifter som är associerade med Azure-anslutningen till Azure AD. Exempel på dessa autentiseringsuppgifter är klient-ID, prenumerations-ID och liknande. Mer information om anslutningen mellan Azure och Azure AD finns i [Anslut din organisation till Azure Active Directory](https://docs.microsoft.com/azure/devops/organizations/accounts/connect-organization-to-azure-ad?view=azure-devops).
 
-## <a name="creating-a-credential-asset"></a>Skapa en inloggnings till gång
+## <a name="create-a-credential-asset"></a>Skapa en inloggnings till gång
 
 Med Azures autentiseringsuppgifter för Azure AD är det dags att skapa en Azure Automation Credential-till gång för att lagra autentiseringsuppgifter för Azure AD på ett säkert sätt så att Runbooks och aktuella tillstånds konfigurations skript (DSC) kan komma åt dem. Du kan göra detta med hjälp av antingen Azure Portal-eller PowerShell-cmdletar.
 
@@ -95,11 +92,11 @@ Du kan använda Azure Portal för att skapa inloggnings till gången. Utför den
 
 ### <a name="create-the-credential-asset-with-windows-powershell"></a>Skapa inloggnings till gången med Windows PowerShell
 
-För att förbereda en ny inloggnings till gång i Windows PowerShell skapar skriptet först `PSCredential` ett objekt med det tilldelade användar namnet och lösen ordet. Skriptet använder sedan det här objektet för att skapa till gången via ett anrop till cmdleten [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) . Alternativt kan skriptet anropa cmdleten [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) för att uppmana användaren att ange ett namn och lösen ord. Se [inloggnings till gångar i Azure Automation](shared-resources/credentials.md). 
+För att förbereda en ny inloggnings till gång i Windows PowerShell skapar skriptet först ett `PSCredential` objekt med det tilldelade användar namnet och lösen ordet. Skriptet använder sedan det här objektet för att skapa till gången via ett anrop till cmdleten [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) . Alternativt kan skriptet anropa cmdleten [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) för att uppmana användaren att ange ett namn och lösen ord. Se [inloggnings till gångar i Azure Automation](shared-resources/credentials.md). 
 
-## <a name="managing-azure-resources-from-an-azure-automation-runbook"></a>Hantera Azure-resurser från en Azure Automation Runbook
+## <a name="manage-azure-resources-from-an-azure-automation-runbook"></a>Hantera Azure-resurser från en Azure Automation Runbook
 
-Du kan hantera Azure-resurser från Azure Automation-runbooks med hjälp av inloggnings till gången. Nedan visas ett exempel på en PowerShell-Runbook som samlar in den inloggnings till gång som ska användas för att stoppa och starta virtuella datorer i en Azure-prenumeration. Den här runbooken använder `Get-AutomationPSCredential` först för att hämta de autentiseringsuppgifter som ska användas för att autentisera till Azure. Sedan anropas cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) för att ansluta till Azure med hjälp av autentiseringsuppgiften. Skriptet använder cmdleten [Select-AzureSubscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0) för att välja vilken prenumeration som ska användas. 
+Du kan hantera Azure-resurser från Azure Automation-runbooks med hjälp av inloggnings till gången. Nedan visas ett exempel på en PowerShell-Runbook som samlar in den inloggnings till gång som ska användas för att stoppa och starta virtuella datorer i en Azure-prenumeration. Den här runbooken använder först `Get-AutomationPSCredential` för att hämta de autentiseringsuppgifter som ska användas för att autentisera till Azure. Sedan anropas cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) för att ansluta till Azure med hjälp av autentiseringsuppgiften. Skriptet använder cmdleten [Select-AzureSubscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0) för att välja vilken prenumeration som ska användas. 
 
 ```azurepowershell
 Workflow Stop-Start-AzureVM 
@@ -162,7 +159,7 @@ Workflow Stop-Start-AzureVM
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Du hittar information om till gångar för automatisering av autentiseringsuppgifter i [inloggnings till gångar i Azure Automation](shared-resources/credentials.md).
-* Se [Hantera moduler i Azure Automation](shared-resources/modules.md) för att ta reda på hur du arbetar med Automation-moduler.
-* Mer information om de metoder som kan användas för att starta en Runbook i Azure Automation finns i [starta en Runbook i Azure Automation](automation-starting-a-runbook.md).
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).
+* [Hantera autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md)
+* [Använda moduler i Azure Automation](shared-resources/modules.md)
+* [Starta en runbook i Azure Automation](start-runbooks.md)
+* [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview)

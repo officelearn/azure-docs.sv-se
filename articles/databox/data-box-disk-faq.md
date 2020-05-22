@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 7ba6ea8606fc354527ff4114bc45a0904941ba93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77918945"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745801"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: vanliga frågor och svar
 
@@ -36,7 +36,7 @@ A.  Azure Data Box-tjänsten är utformad för offlineinmatning av data. Tjänst
 ### <a name="q-what-are-azure-data-box-disks"></a>F. Vad är Azure Data Box-diskar?
 A. Azure Data Box-diskar möjliggör snabb, prisvärd och säker överföring av terabytes data till och från Azure. Microsoft skickar 1 till 5 diskar till dig, med en maximal lagringskapacitet på 35 TB. Du kan enkelt konfigurera, ansluta och låsa upp diskarna via Data Box-tjänsten i Azure-portalen.  
 
-Diskarna krypteras med hjälp av Microsoft BitLocker-enhetskryptering, och dina krypteringsnycklar hanteras på Azure-portalen. Du kan sedan kopiera data från kundens servrar. I datacentret migrerar Microsoft dina data från enheten till molnet via en snabb, privat nätverksöverföringslänk. De överförs till Azure.
+Diskarna krypteras med hjälp av Microsoft BitLocker-enhetskryptering, och dina krypteringsnycklar hanteras på Azure-portalen. Sedan kopierar du data från kundens servrar. I datacentret migrerar Microsoft dina data från enheten till molnet via en snabb, privat nätverksöverföringslänk. De överförs till Azure.
 
 ### <a name="q-when-should-i-use-data-box-disks"></a>F. När ska jag använda Data Box-diskar?
 A. Om du har högst 40 TB data som du vill överföra till Azure kan du använda Data Box-diskar.
@@ -56,8 +56,8 @@ A.  Om du vill se var Data Box-enhet diskarna är tillgängliga går du till [re
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>F. I vilka regioner kan jag lagra data med Data Box-diskar?
 A. Data Box Disk stöds för alla regioner i USA, Kanada, Australien, Västeuropa och Nord Europa, Korea och Japan. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte.
 
-### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>F. Kommer mitt Data Box Disk mellan landets gränser under leveransen?
-A. Data Box Disk levereras från samma land som destinationen och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU) där diskar kan levereras till och från valfritt EU-land.
+### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>F. Kommer mitt Data Box Disk mellan land/region-kantlinjer under leverans?
+A. Data Box Disk levereras inifrån samma land/region som deras destination och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU) där diskar kan levereras till och från valfritt EU-land/-region.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>F. Vem kontaktar jag om jag får problem med Data Box-diskarna?
 A. Om du får problem med Data Box Disk-enheter [kontaktar du Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -159,7 +159,7 @@ A. Azure Files stöds med Data Box Disk men fungerar inte bra med Azure File Syn
 
 ## <a name="verify-and-upload"></a>Verifiera och ladda upp
 
-### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-disks-back"></a>F. Hur snart kommer jag åt mina data i Azure när jag har skickat tillbaka diskarna? 
+### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-disks-back"></a>F. Hur snart kan jag få åtkomst till mina data i Azure när jag har skickat tillbaka diskarna? 
 A.  När orderstatusen för datakopieringen visas som slutförd bör du komma åt dina data direkt.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>F. Var i Azure finns mina data efter uppladdningen?

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a399ee43ef0ce97274f060b7a5b7df46fb523605
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: ab6be101e33fb29f96e2e5ea0fd2e79aa1cf0d09
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582896"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744697"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -54,7 +54,7 @@ Mer detaljerade instruktioner finns i [skapa eller uppdatera en dynamisk grupp](
 
 ### <a name="rule-syntax-for-a-single-expression"></a>Regel-syntax för ett enskilt uttryck
 
-Ett enda uttryck är den enklaste formen av en medlemskaps regel och har bara tre delar som anges ovan. En regel med ett enda uttryck ser ut ungefär så här `Property Operator Value`:, där syntaxen för egenskapen är namnet på objektet objekt. Property.
+Ett enda uttryck är den enklaste formen av en medlemskaps regel och har bara tre delar som anges ovan. En regel med ett enda uttryck ser ut ungefär så här: `Property Operator Value` , där syntaxen för egenskapen är namnet på objektet objekt. Property.
 
 Följande är ett exempel på en korrekt konstruerad medlemskaps regel med ett enda uttryck:
 
@@ -118,16 +118,16 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | streetAddress |Valfritt sträng värde eller *Null* |(User. streetAddress-EQ "value") |
 | surname |Valfritt sträng värde eller *Null* |(User. efter namn – EQ "värde") |
 | telephoneNumber |Valfritt sträng värde eller *Null* |(User. telephoneNumber-EQ "value") |
-| usageLocation |Två bokstäver för bokstavs kod |(User. usageLocation-EQ "US") |
-| userPrincipalName |Valfritt sträng värde |(User. userPrincipalName-EQ "alias@domain") |
+| usageLocation |Två bokstäver för lands-och regions kod |(User. usageLocation-EQ "US") |
+| userPrincipalName |Valfritt sträng värde |(User. userPrincipalName-EQ " alias@domain ") |
 | userType |medlems gäster *Null* |(User. userType-EQ "medlem") |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling
 
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
-| otherMails |Valfritt sträng värde |(User. otherMails-contains "alias@domain") |
-| proxyAddresses |SMTP: alias@domain SMTP:alias@domain |(User. proxyAddresses-contains "SMTP: alias@domain") |
+| otherMails |Valfritt sträng värde |(User. otherMails-contains " alias@domain ") |
+| proxyAddresses |SMTP: alias@domain SMTP:alias@domain |(User. proxyAddresses-contains "SMTP: alias@domain ") |
 
 Information om egenskaper som används för enhets regler finns i [regler för enheter](#rules-for-devices).
 
@@ -185,8 +185,8 @@ När du anger ett värde i ett uttryck är det viktigt att du använder rätt sy
 
 * Dubbla citat tecken är valfria om värdet är en sträng.
 * Sträng-och regex-åtgärder är inte Skift läges känsliga.
-* Om ett sträng värde innehåller dubbla citat tecken ska båda citat tecknen undantas med hjälp \` av tecken, till exempel User. Department-EQ \`"Sales\`" är rätt syntax när "Sales" är värdet.
-* Du kan också utföra null-kontroller, med null som ett värde, till exempel `user.department -eq null`.
+* Om ett sträng värde innehåller dubbla citat tecken ska båda citat tecknen undantas med hjälp av \` tecken, till exempel User. Department-EQ \` "Sales \` " är rätt syntax när "Sales" är värdet.
+* Du kan också utföra null-kontroller, med null som ett värde, till exempel `user.department -eq null` .
 
 ### <a name="use-of-null-values"></a>Användning av null-värden
 
@@ -252,7 +252,7 @@ Egenskaper för flera värden är samlingar med objekt av samma typ. De kan anv�
 | Egenskaper | Värden | Användning |
 | --- | --- | --- |
 | assignedPlans | Varje objekt i samlingen visar följande sträng egenskaper: capabilityStatus, service, servicePlanId |User. assignedPlans – any (assignedPlan. servicePlanId-EQ "efb87545-963c-4e0d-99df-69c6916d9eb0"-och assignedPlan. capabilityStatus-EQ "Enabled") |
-| proxyAddresses| SMTP: alias@domain SMTP:alias@domain | (User. proxyAddresses – any (\_ -innehåller "contoso")) |
+| proxyAddresses| SMTP: alias@domain SMTP:alias@domain | (User. proxyAddresses – any ( \_ -innehåller "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>Använda operatorerna-any och-all
 
@@ -279,11 +279,11 @@ Följande uttryck väljer alla användare som har en tjänst plan som är associ
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-### <a name="using-the-underscore-_-syntax"></a>Använda syntaxen under streck\_()
+### <a name="using-the-underscore-_-syntax"></a>Använda syntaxen under streck ( \_ )
 
-Under streck ()\_-syntaxen matchar förekomster av ett angivet värde i en av de egenskaper för mängd med flera värden som du använder för att lägga till användare eller enheter i en dynamisk grupp. Den används med operatorerna-any eller-all.
+Under streck ( \_ )-syntaxen matchar förekomster av ett angivet värde i en av de egenskaper för mängd med flera värden som du använder för att lägga till användare eller enheter i en dynamisk grupp. Den används med operatorerna-any eller-all.
 
-Här är ett exempel på hur du använder under streck\_() i en regel för att lägga till medlemmar baserat på User. proxyAddress (det fungerar på samma gång för User. otherMails). Den här regeln lägger till alla användare med proxyadress som innehåller "contoso"-gruppen.
+Här är ett exempel på hur du använder under streck ( \_ ) i en regel för att lägga till medlemmar baserat på User. proxyAddress (det fungerar på samma gång för User. otherMails). Den här regeln lägger till alla användare med proxyadress som innehåller "contoso"-gruppen.
 
 ```
 (user.proxyAddresses -any (_ -contains "contoso"))
@@ -347,7 +347,7 @@ Tilläggets attribut och anpassade tilläggs egenskaper stöds som sträng egens
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Anpassade tilläggs egenskaper](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) synkroniseras från lokala Windows Server AD eller från ett anslutet SaaS `user.extension_[GUID]_[Attribute]`-program och har formatet, där:
+[Anpassade tilläggs egenskaper](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) synkroniseras från lokala Windows Server AD eller från ett anslutet SaaS-program och har formatet `user.extension_[GUID]_[Attribute]` , där:
 
 * [GUID] är den unika identifieraren i Azure AD för programmet som skapade egenskapen i Azure AD
 * [Attribute] är namnet på egenskapen som det skapades

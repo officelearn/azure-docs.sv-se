@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3b3733dfc32dae21ddcf4c5f73cddf9ad6b7fc59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2bab7b101b5461d854bb2db509b5cb243012a592
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334076"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746008"
 ---
 # <a name="localization-support-in-azure-maps"></a>Lokaliserings stöd i Azure Maps
 
@@ -25,7 +25,7 @@ Azure Maps stöder olika språk och vyer baserat på land/region. Den här artik
 Azure Maps har lokaliserats på olika typer av tjänster för sina tjänster. Följande tabell innehåller de språk koder som stöds för varje tjänst.  
   
 
-| ID         | Name                   |  Kartor | Sök | Routning | Väder | Trafik incidenter | JS-kart kontroll |
+| ID         | Name                   |  Maps | Search | Routning | Väder | Trafik incidenter | JS-kart kontroll |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | AF – ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabiska                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -65,7 +65,7 @@ Azure Maps har lokaliserats på olika typer av tjänster för sina tjänster. F�
 | ja-JP      | Japanska               |       |        |         |     ✓    |                   |                |
 | KN-IN      | Kannada                |       |       |         |     ✓    |                   |                |
 | kk-KZ      | Kazakiska                 |       |    ✓   |         |     ✓    |                   |                |
-| ko-KR      | Koreansk                 |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
+| ko-KR      | Koreanska                 |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
 | ES – 419     | Latinska spanska |       |    ✓   |         |         |                   |                |
 | lv-LV      | Lettiska                |       |    ✓   |         |     ✓    |         ✓         |                |
 | lt-LT      | Litauiska             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
@@ -142,12 +142,12 @@ Se till att ställa in parametern **Visa** som krävs för REST-API: er och SDK:
 >    * Azure Maps webb-SDK
 >    * Azure Maps Android SDK
 
-Som standard har parametern View angetts till **Unified**, även om du inte har definierat den i begäran. Bestäm platsen för dina användare. Ange sedan parametern **View** korrekt för den platsen. Du kan också ange "Visa = Auto", som returnerar kartdata baserat på IP-adressen för begäran.  Parametern **View** i Azure Maps måste användas i enlighet med gällande lagar, inklusive de lagar som gäller mappning av det land där kartor, bilder och andra data och innehåll från tredje part som du har behörighet att komma åt via Azure Maps görs tillgängligt.
+Som standard har parametern View angetts till **Unified**, även om du inte har definierat den i begäran. Bestäm platsen för dina användare. Ange sedan parametern **View** korrekt för den platsen. Du kan också ange "Visa = Auto", som returnerar kartdata baserat på IP-adressen för begäran.  Parametern **View** i Azure Maps måste användas i enlighet med tillämplig lagstiftning, inklusive de lagar om mappning av land/region där kartor, bilder och andra data och innehåll från tredje part som du har behörighet att komma åt via Azure Maps görs tillgängligt.
 
 
 Följande tabell innehåller vyer som stöds.
 
-| Visa         | Beskrivning                            |  Kartor | Sök | JS-Kartkontroll |
+| Visa         | Beskrivning                            |  Maps | Search | JS-Kartkontroll |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Förenade Arabemiraten (arabisk vy)    |   ✓   |        |     ✓          |
 | AR           | Argentina (argentinsk vy)           |   ✓   |    ✓   |     ✓          |

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: ac3f24e06553fd037ef5deaf374690fb92b0fa8c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 5c562fb43966fda203e92cc5003ef3c85945364b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715825"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742838"
 ---
 # <a name="create-modular-runbooks"></a>Skapa modulära runbooks
 
@@ -35,7 +35,7 @@ När du aktiverar en infogad runbook körs den i samma jobb som den överordnade
 
 När en Runbook publiceras måste alla underordnade Runbooks som den anropar redan publiceras. Anledningen är att Azure Automation skapar en Association med underordnade runbooks när den kompilerar en Runbook. Om de underordnade Runbooks inte redan har publicerats, verkar den överordnade runbooken publicera korrekt men genererar ett undantag när den startas. Om detta inträffar kan du publicera om den överordnade runbooken så att den refererar till underordnade Runbooks korrekt. Du behöver inte publicera om den överordnade runbooken om en underordnad Runbook ändras eftersom associationen redan har skapats.
 
-Parametrarna för en underordnad Runbook som kallas infogade kan vara av valfri datatyp, inklusive komplexa objekt. Det finns ingen [JSON-serialisering](start-runbooks.md#runbook-parameters)eftersom du startar runbooken med hjälp av Azure Portal eller med cmdleten [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) .
+Parametrarna för en underordnad Runbook som kallas infogade kan vara av valfri datatyp, inklusive komplexa objekt. Det finns ingen [JSON-serialisering](start-runbooks.md#work-with-runbook-parameters)eftersom du startar runbooken med hjälp av Azure Portal eller med cmdleten [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) .
 
 ### <a name="runbook-types"></a>Runbook-typer
 
@@ -80,7 +80,7 @@ Underordnade Runbook-utdata återgår inte till överordnad Runbook tillförlitl
 
 Om du inte vill att den överordnade runbooken ska blockeras vid väntan kan du starta den underordnade runbooken med hjälp av `Start-AzAutomationRunbook` `Wait` parametern utan parametern. I det här fallet måste din Runbook använda [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) för att vänta på att jobbet ska slutföras. Det måste också använda [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) och [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) för att hämta resultaten.
 
-Parametrar för en underordnad Runbook som startas med en cmdlet anges som en hash-modul enligt beskrivningen i [Runbook-parametrar](start-runbooks.md#runbook-parameters). Endast enkla data typer kan användas. Om runbooken har en parameter med en komplex datatyp, måste den anropas infogad.
+Parametrar för en underordnad Runbook som startas med en cmdlet anges som en hash-modul enligt beskrivningen i [Runbook-parametrar](start-runbooks.md#work-with-runbook-parameters). Endast enkla data typer kan användas. Om runbooken har en parameter med en komplex datatyp, måste den anropas infogad.
 
 Prenumerations kontexten kan gå förlorad när du startar underordnade Runbooks som separata jobb. För att underordnad Runbook ska kunna köra cmdletar för AZ-moduler mot en speciell Azure-prenumeration, måste den underordnade autentisera den här prenumerationen oberoende av den överordnade runbooken.
 
@@ -117,5 +117,5 @@ Start-AzAutomationRunbook `
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Starta en Runbook i Azure Automation](start-runbooks.md)
+* [Starta en runbook i Azure Automation](start-runbooks.md)
 * [Runbook-utdata och meddelanden i Azure Automation](automation-runbook-output-and-messages.md)

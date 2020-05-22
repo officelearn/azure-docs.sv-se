@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 7e4ec8a5772f0fbc1c0e67ba07a172daeac9b91b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5abb373d4b3f9c66b2dc2f103e4a89ef0dc5af89
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657897"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744838"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads platser
 
@@ -40,7 +40,7 @@ Den kommersiella marknads platsen är en utgångs punkt för samarbete och aktiv
 
 Den kommersiella Marketplace är tillgänglig i 141 regioner per plan. 
 
-Vi hanterar skatte betalningar i många länder och vi ger till gång till vårt globala kanal nätverk av åter försäljare. Du kan använda en kunds Microsoft kund avtal eller Enterprise-avtal för att sälja till organisationer utan att behöva skapa en ny inköps relation.
+Vi hanterar moms betalning i många länder/regioner och vi ger till gång till vårt globala kanal nätverk för åter försäljare. Du kan använda en kunds Microsoft kund avtal eller Enterprise-avtal för att sälja till organisationer utan att behöva skapa en ny inköps relation.
 
 Om du vill veta mer kan du visa videon på [Varför sälja via Marketplace](https://partner.microsoft.com/asset/detail/why-sell-through-marketplace).
 
@@ -225,7 +225,7 @@ Nej, förbetald eller sponsrad Azure-utgifter kan inte användas för att köpa 
 
 Användar kontot måste ha *ägar* -eller *deltagar* behörighet för Azure-prenumerationen.
 
-### <a name="in-what-countries-can-customers-purchase-from-microsoft-appsource-and-azure-marketplace"></a>I vilka länder kan kunder köpa från Microsoft AppSource och Azure Marketplace?
+### <a name="in-what-countriesregions-can-customers-purchase-from-microsoft-appsource-and-azure-marketplace"></a>I vilka länder/regioner kan kunder köpa från Microsoft AppSource och Azure Marketplace?
 
 Kunder kan få lösningar från den kommersiella Marketplace på 141 platser runtom i världen.
 
@@ -262,7 +262,7 @@ Om planen ändras för en befintlig prenumeration förblir den oförändrad och 
 
 ### <a name="what-could-block-a-customer-from-completing-a-purchase"></a>Vad kan hindra en kund från att slutföra ett köp?
 
-För Microsoft AppSource måste kunden ha ett kredit kort med en fakturerings adress i samma land som Azure AD-instansen och kundens Azure AD-administratör måste se till att systemet inte förhindrar autentisering till Microsoft AppSource.
+För Microsoft AppSource måste kunden ha ett kredit kort med en fakturerings adress i samma land/region som sin Azure AD-instans, och kundens Azure AD-administratör måste se till att systemet inte förhindrar autentisering till Microsoft AppSource.
 
 För Azure Marketplace måste kunden ha en aktiv Azure-prenumeration och ett användar konto med *ägar* -eller *deltagar* behörighet för den prenumerationen. Kundens Azure-administratör måste se till att Azure Policy inte står i konflikt med erbjudandet som används och att det inte går att konfigurera kostnads hantering för att inaktivera Azure Marketplace.
 

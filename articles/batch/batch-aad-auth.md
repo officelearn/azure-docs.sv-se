@@ -4,12 +4,12 @@ description: Batch stöder Azure AD för autentisering från batch-tjänsten. L�
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3ed3db184174d0a383c5c1fbd85e69d9fef0da44
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 186de47b61c25485cec602cbc9bb208a795a7785
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726918"
+ms.locfileid: "83757599"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
@@ -413,7 +413,7 @@ Använd autentiseringsuppgifterna för tjänstens huvud namn för att öppna ett
 ```python
     batch_client = BatchServiceClient(
     credentials,
-    base_url=BATCH_ACCOUNT_URL
+    batch_url=BATCH_ACCOUNT_URL
 )
 ```
 

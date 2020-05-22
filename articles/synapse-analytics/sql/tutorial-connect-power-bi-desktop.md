@@ -6,19 +6,19 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1bdf2d0e3613af7eec339194d6d8a446be83f365
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 649c9a2e0dd9df21a9a59140d9f2999768aab555
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692413"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745407"
 ---
 # <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Självstudie: använda SQL på begäran (för hands version) med Power BI Desktop & skapa en rapport
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -51,10 +51,7 @@ Skapa demo databasen (och släpp en befintlig databas om det behövs) genom att 
 
 ```sql
 -- Drop database if it exists
-IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Demo')
-BEGIN
-    DROP DATABASE Demo
-END;
+DROP DATABASE IF EXISTS Demo
 GO
 
 -- Create new database
@@ -62,23 +59,16 @@ CREATE DATABASE [Demo];
 GO
 ```
 
-## <a name="2---create-credential"></a>2 – Skapa autentiseringsuppgift
+## <a name="2---create-data-source"></a>2 – Skapa data Källa
 
-Det krävs en autentiseringsuppgift för att tjänsten SQL på begäran ska kunna komma åt filer i lagringen. Skapa autentiseringsuppgifterna för ett lagrings konto som finns i samma region som din slut punkt. Även om SQL på begäran kan komma åt lagrings konton från olika regioner, ger lagring och slut punkt i samma region bättre prestanda.
+Det krävs en data källa för SQL-tjänsten på begäran för att komma åt filer i lagringen. Skapa data källan för ett lagrings konto som finns i samma region som din slut punkt. Även om SQL på begäran kan komma åt lagrings konton från olika regioner, ger lagring och slut punkt i samma region bättre prestanda.
 
-Skapa autentiseringsuppgiften genom att köra följande skript för Transact-SQL (T-SQL):
+Skapa data källan genom att köra följande skript för Transact-SQL (T-SQL):
 
 ```sql
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
-GO
-
--- Create credentials for Census Data container which resides in a azure open data storage account
--- There is no secret. We are using public storage account which doesn't need a secret.
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',
-SECRET = '';
-GO
+-- There is no credential in data surce. We are using public storage account which doesn't need a secret.
+CREATE EXTERNAL DATA SOURCE AzureOpenData
+WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
 ```
 
 ## <a name="3---prepare-view"></a>3 – Förbered vy
@@ -96,7 +86,8 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        BULK 'censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        DATA_SOURCE = 'AzureOpenData',
         FORMAT='PARQUET'
     ) AS uspv;
 ```
@@ -118,11 +109,11 @@ Skapa rapporten för Power BI Desktop med hjälp av följande steg:
 
    ![Öppna Power BI Desktop-programmet och välj Hämta data.](./media/tutorial-connect-power-bi-desktop/step-0-open-powerbi.png)
 
-2. Välj **Azure** > -**Azure SQL Database**. 
+2. Välj **Azure**-  >  **Azure SQL Database**. 
 
    ![Välj data källa.](./media/tutorial-connect-power-bi-desktop/step-1-select-data-source.png)
 
-3. Skriv namnet på servern där-databasen finns i fältet **Server** och skriv `Demo` sedan in namnet på databasen. Välj alternativet **Importera** och välj sedan **OK**. 
+3. Skriv namnet på servern där-databasen finns i fältet **Server** och skriv sedan `Demo` in namnet på databasen. Välj alternativet **Importera** och välj sedan **OK**. 
 
    ![Välj databas på slut punkten.](./media/tutorial-connect-power-bi-desktop/step-2-db.png)
 
@@ -137,11 +128,11 @@ Skapa rapporten för Power BI Desktop med hjälp av följande steg:
         ![Använd SQL-inloggning.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
-5. Välj vyn `usPopulationView`och välj sedan **load**. 
+5. Välj vyn `usPopulationView` och välj sedan **load**. 
 
    ![Välj en vy i den valda databasen.](./media/tutorial-connect-power-bi-desktop/step-3-select-view.png)
 
-6. Vänta tills åtgärden har slutförts och sedan visas ett popup-meddelande `There are pending changes in your queries that haven't been applied`. Välj **tillämpa ändringar**. 
+6. Vänta tills åtgärden har slutförts och sedan visas ett popup-meddelande `There are pending changes in your queries that haven't been applied` . Välj **tillämpa ändringar**. 
 
    ![Klicka på tillämpa ändringar.](./media/tutorial-connect-power-bi-desktop/step-4-apply-changes.png)
 
@@ -163,7 +154,7 @@ När du är klar med den här rapporten tar du bort resurserna med följande ste
 1. Ta bort autentiseringsuppgiften för lagrings kontot
 
    ```sql
-   DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
+   DROP EXTENAL DATA SOURCE AzureOpenData
    ```
 
 2. Ta bort vyn

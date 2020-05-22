@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: de3f553fd001b06d56663f63402da2489f35877d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ceaa44429d105c2a6a1d0883ab29ed11b63ad497
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649167"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736083"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Azures säkerhets bas linje för API Management
 
@@ -1096,7 +1096,7 @@ Hanterade identiteter kan användas för att hämta certifikat från Azure Key V
 
 **Vägledning**: validera säkerhets kopieringar genom att utföra en test återställning av tjänsten och certifikat från säkerhets kopior.
 
-* [Så här anropar du åtgärden API Management återställning](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+* [Så här anropar du åtgärden API Management återställning](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 * [Återställa Azure Key Vault-certifikat](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 

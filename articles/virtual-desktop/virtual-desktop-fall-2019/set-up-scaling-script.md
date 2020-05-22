@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 012cdc53099bf156e50fe766b04c3176d415db1c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f659a40cbb9e3ef2d0e7fe4e527518a76507d5ee
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117401"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745718"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skala sessionsbaserade värdar med hjälp av Azure Automation
 
@@ -114,7 +114,7 @@ Först behöver du ett Azure Automation-konto för att köra PowerShell-runbooke
 
 Nu när du har ett Azure Automation konto måste du också skapa ett Azure Automation kör som-konto för att få åtkomst till dina Azure-resurser.
 
-Ett [Azure Automation kör som-konto](../../automation/manage-runas-account.md) tillhandahåller autentisering för att hantera resurser i Azure med Azure-cmdletar. När du skapar ett Kör som-konto skapar det en ny tjänst huvud användare i Azure Active Directory och tilldelar rollen deltagare till tjänstens huvud namns användare på prenumerations nivån, kör som-kontot i Azure är ett bra sätt att autentisera säkert med certifikat och ett huvud namn för tjänsten utan att behöva lagra ett användar namn och lösen ord i ett Credential-objekt. Mer information om kör som-autentisering finns i [begränsa behörigheter för kör som-kontot](../../automation/manage-runas-account.md#limiting-run-as-account-permissions).
+Ett [Azure Automation kör som-konto](../../automation/manage-runas-account.md) tillhandahåller autentisering för att hantera resurser i Azure med Azure-cmdletar. När du skapar ett Kör som-konto skapar det en ny tjänst huvud användare i Azure Active Directory och tilldelar rollen deltagare till tjänstens huvud namns användare på prenumerations nivån, kör som-kontot i Azure är ett bra sätt att autentisera säkert med certifikat och ett huvud namn för tjänsten utan att behöva lagra ett användar namn och lösen ord i ett Credential-objekt. Om du vill veta mer om kör som-autentisering, se [begränsa behörigheter för kör som-konto](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
 Alla användare som är medlemmar i rollen prenumerations administratörer och administratören av prenumerationen kan skapa ett Kör som-konto genom att följa anvisningarna i nästa avsnitt.
 

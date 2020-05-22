@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: cb016ec490dc14cbde1a1cb3f34caf39e4740961
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: c55d81db848dcb1aebe9dacb03387565b3d8db48
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732379"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745600"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
@@ -146,7 +146,7 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
    ```
 
 2. Starta Visual Studio.
-3. I verktygsfältet väljer du **Arkiv** > **Öppna** > **projekt/lösning**och öppnar lösningen för eko-bot-projekt:
+3. I verktygsfältet väljer du **Arkiv**  >  **Öppna**  >  **projekt/lösning**och öppnar lösningen för eko-bot-projekt:
 
    ```
    samples\csharp_dotnetcore\02.echo-bot\EchoBot.sln
@@ -163,7 +163,7 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
 
 1. Installera [bot Framework-emulatorns](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) version 4.3.0 eller senare
 2. Starta bot Framework-emulatorn och öppna din robot:
-   * **Filen** -> **Öppna bot**.
+   * **Fil**  ->  **Öppna bot**.
 3. Ange URL: en för din robot. Ett exempel:
 
    ```
@@ -178,7 +178,7 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
 Nästa steg är att distribuera eko-roboten till Azure. Det finns några sätt att distribuera en bot, men i den här självstudien fokuserar vi på att publicera direkt från Visual Studio.
 
 > [!NOTE]
-> Alternativt kan du distribuera en robot med hjälp av mallar för [Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) och [distribution](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/adaptive-dialog/csharp_dotnetcore/04.core-bot/deploymentTemplates).
+> Alternativt kan du distribuera en robot med hjälp av mallar för [Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) och [distribution](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/adaptive-dialog/03.core-bot).
 
 1. Öppna eko-roboten som har kon figurer ATS för användning med direkt linje tal kanal i Visual Studio:
 
@@ -241,7 +241,7 @@ Nu när du har skapat en Azure App Service som värd för din robot, är nästa 
    * För **resurs grupp**väljer du **SpeechEchoBotTutorial-ResourceGroup**.
    * För **plats**väljer du **västra USA**.
      * För **pris nivå**väljer du **F0**.
-     * För **meddelande slut punkt**anger du URL: en för din webbapp med `/api/messages` sökvägen som läggs till i slutet. Exempel: om ditt globalt unika app-namn var **EchoBot20190805125647**skulle meddelande slut punkten vara: `https://EchoBot20190805125647.azurewebsites.net/api/messages/`.
+     * För **meddelande slut punkt**anger du URL: en för din webbapp med `/api/messages` sökvägen som läggs till i slutet. Exempel: om ditt globalt unika app-namn var **EchoBot20190805125647**skulle meddelande slut punkten vara: `https://EchoBot20190805125647.azurewebsites.net/api/messages/` .
      * För **Application Insights**kan du ange till **av**. Mer information finns i [bot Analytics](https://docs.microsoft.com/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0).
      * Ignorera **Auto skapa app-ID och lösen ord**.
 5. Klicka på **skapa**längst ned på bladet **robot Channels Registration** .
@@ -309,7 +309,7 @@ Om problemet inte har åtgärd ATS i tabellen, se [röst assistenter: vanliga fr
 
 ### <a name="view-bot-activities"></a>Visa bot-aktiviteter
 
-Varje robot skickar och tar emot **aktivitets** meddelanden. I **aktivitets logg** fönstret i Windows Voice Assistant-klienten ser du de tidsstämplade loggarna med varje aktivitet som klienten har tagit emot från bot. Du kan också se de aktiviteter som klienten har skickat till roboten med hjälp [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) av-metoden. När du väljer ett logg objekt visas information om den associerade aktiviteten som JSON.
+Varje robot skickar och tar emot **aktivitets** meddelanden. I **aktivitets logg** fönstret i Windows Voice Assistant-klienten ser du de tidsstämplade loggarna med varje aktivitet som klienten har tagit emot från bot. Du kan också se de aktiviteter som klienten har skickat till roboten med hjälp av- [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) metoden. När du väljer ett logg objekt visas information om den associerade aktiviteten som JSON.
 
 Här är ett exempel-JSON för en aktivitet som klienten tar emot:
 
@@ -351,7 +351,7 @@ Mer information om vad som returneras i JSON-utdata finns i [fält i aktiviteten
 
 ### <a name="view-client-source-code-for-calls-to-the-speech-sdk"></a>Visa klient käll koden för anrop till tal-SDK
 
-Windows Voice Assistant-klienten använder NuGet-paketet [Microsoft. CognitiveServices. Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)som innehåller talet SDK. En bra plats för att börja granska exempel koden är metoden InitSpeechConnector () i filen [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs), som skapar dessa två tal SDK-objekt:
+Windows Voice Assistant-klienten använder NuGet-paketet [Microsoft. CognitiveServices. Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)som innehåller talet SDK. En bra plats för att börja granska exempel koden är metoden InitSpeechConnector () i filen [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs) , som skapar dessa två tal SDK-objekt:
 - [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig)– För konfigurations inställningar (t. ex. tal prenumerations nyckel, nyckel region)
 - [`DialogServiceConnector`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor)-För att hantera kanal anslutningen och klient prenumerations händelser för hantering av identifierade tal-och robot svar.
 
@@ -367,8 +367,8 @@ Nyckelords identifiering görs i klient programmet. Om du använder ett nyckelor
 Följ de här stegen för att skapa en nyckelords modell, konfigurera Windows Voice Assistant-klienten att använda den här modellen och testa den med din robot.
 
 1. Följ de här anvisningarna för att [skapa ett anpassat nyckelord med hjälp av tal tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
-2. Zippa upp modell filen som du laddade ned i föregående steg. Den ska namnges för ditt nyckelord. Du letar efter en fil med namnet `kws.table`.
-3. I Windows Voice Assistant-klienten, leta upp menyn **Inställningar** (leta efter kugg hjuls ikonen längst upp till höger). Leta reda på **modell filens sökväg** och ange den fullständiga sökvägen `kws.table` för filen från steg 2.
+2. Zippa upp modell filen som du laddade ned i föregående steg. Den ska namnges för ditt nyckelord. Du letar efter en fil med namnet `kws.table` .
+3. I Windows Voice Assistant-klienten, leta upp menyn **Inställningar** (leta efter kugg hjuls ikonen längst upp till höger). Leta reda på **modell filens sökväg** och ange den fullständiga sökvägen för `kws.table` filen från steg 2.
 4. Se till att markera kryss rutan med etiketten **aktive rad**. Du bör se meddelandet bredvid kryss rutan: "lyssnar efter nyckelordet vid nästa anslutning". Om du har angett fel fil eller ogiltig sökväg bör du se ett fel meddelande.
 5. Ange din röst **prenumerations nyckel**, **prenumerations nyckel region**och klicka sedan på **OK** för att stänga menyn **Inställningar** .
 6. Klicka på **Återanslut**. Du bör se ett meddelande som läser: "ny konversation har startats", tryck på mikrofon knappen eller säg nyckelordet ". Appen lyssnar nu kontinuerligt.
@@ -384,18 +384,18 @@ Följ de här stegen för att skapa en nyckelords modell, konfigurera Windows Vo
 
 Ta en titt på de här filerna i klient käll koden för Windows röst assistenten och granska koden som används för att aktivera nyckelords identifiering:
 
-1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs)innehåller ett anrop till metoden [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-)Speech SDK som används för att instansiera modellen från en lokal fil på disk.
-1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs)innehåller ett anrop till metoden [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync)Speech SDK som aktiverar kontinuerlig identifiering av nyckelord.
+1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs)innehåller ett anrop till metoden Speech SDK [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-) som används för att instansiera modellen från en lokal fil på disk.
+1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs)innehåller ett anrop till metoden Speech SDK [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) som aktiverar kontinuerlig identifiering av nyckelord.
 
 ## <a name="optional-change-the-language-and-bot-voice"></a>Valfritt Ändra språk och bot-röst
 
-Roboten som du har skapat lyssnar efter och svarar på engelska, med en amerikansk engelska text till tal-röst. Men du är inte begränsad till att använda engelska eller en standard röst. I det här avsnittet får du lära dig hur du ändrar språket som roboten ska lyssna efter och svara på. Du får också lära dig hur du väljer en annan röst för det språket.
+Roboten som du har skapat kommer att lyssna efter och svara på engelska, med en standard engelsk text till tal-röst. Men du är inte begränsad till att använda engelska eller en standard röst. I det här avsnittet får du lära dig hur du ändrar språket som roboten ska lyssna efter och svara på. Du får också lära dig hur du väljer en annan röst för det språket.
 
 ### <a name="change-the-language"></a>Ändra språk
 
 Du kan välja något av de språk som anges i tabellen [tal till text](language-support.md#speech-to-text) . I exemplet nedan kommer vi att ändra språket till tyska.
 
-1. Öppna klient programmet för Windows Voice Assistant, klicka på knappen Inställningar (övre högra kugg hjuls ikonen) och ange `de-de` i fältet språk (detta är det språkvariant-värde som anges i [tal till text-](language-support.md#speech-to-text) tabellen). Detta anger det talade språket som ska identifieras och åsidosätter standardvärdet `en-us`. Det instruerar också direkt linje tal kanalen att använda en standard-tysk röst för bot-svaret.
+1. Öppna klient programmet för Windows Voice Assistant, klicka på knappen Inställningar (övre högra kugg hjuls ikonen) och ange `de-de` i fältet språk (detta är det språkvariant-värde som anges i [tal till text-](language-support.md#speech-to-text) tabellen). Detta anger det talade språket som ska identifieras och åsidosätter standardvärdet `en-us` . Det instruerar också direkt linje tal kanalen att använda en standard-tysk röst för bot-svaret.
 2. Stäng sidan Inställningar och klicka på knappen Återanslut för att upprätta en ny anslutning till din eko-robot.
 3. Klicka på mikrofon knappen och säg en fras på tyska. Den tolkade texten och eko-roboten visas med den tyska standard rösten.
 
@@ -403,7 +403,7 @@ Du kan välja något av de språk som anges i tabellen [tal till text](language-
 
 Att välja rösten text till tal och kontrol lera uttal kan göras om bot anger svaret i form av ett [tal syntes kodspråk](speech-synthesis-markup.md) (SSML) i stället för enkel text. Eko-roboten använder inte SSML, men vi kan enkelt ändra koden för att göra det. I exemplet nedan lägger vi till SSML till eko robot svaret, till exempel att den tyska rösten Stefan Apollo (en hane-röst) kommer att användas i stället för standard kvinnligt röst. Se lista över [standard röster](language-support.md#standard-voices) och [neurala-röster](language-support.md#neural-voices) som stöds för ditt språk.
 
-1. Vi börjar med att öppna `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`.
+1. Vi börjar med att öppna `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs` .
 2. Leta upp följande två rader:
     ```csharp
     var replyText = $"Echo: {turnContext.Activity.Text}";

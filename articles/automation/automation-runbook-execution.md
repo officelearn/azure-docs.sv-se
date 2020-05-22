@@ -1,16 +1,16 @@
 ---
 title: Runbook-körning i Azure Automation
-description: Beskriver information om hur en Runbook i Azure Automation bearbetas.
+description: Den här artikeln beskriver en översikt över bearbetningen av Runbooks i Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1933688459cd02ee4da448d2e83b0a7a92a1d2c8
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 5785377830f7e2cfb159a3090d19b1cd35b07a61
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994748"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743900"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -29,9 +29,6 @@ Följande diagram visar livs cykeln för ett Runbook-jobb för [PowerShell-Runbo
 ![Jobb status – PowerShell-arbetsflöde](./media/automation-runbook-execution/job-statuses.png)
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="runbook-execution-environment"></a>Körnings miljö för Runbook
 
@@ -103,7 +100,7 @@ De loggar som är tillgängliga för Log Analytics-agenten och **nxautomation** 
 * /var/opt/Microsoft/omsagent/Run/automationworker/Worker.log – automatisering Worker-logg
 
 >[!NOTE]
->**Nxautomation** -användaren som ingår i uppdateringshantering kör bara signerade Runbooks.
+>**Nxautomation** -användaren som är aktive rad som en del av uppdateringshantering kör bara signerade Runbooks.
 
 ## <a name="runbook-permissions"></a>Runbook-behörigheter
 
@@ -134,7 +131,7 @@ I följande tabell beskrivs de status värden som är möjliga för ett jobb. Du
 
 | Status | Beskrivning |
 |:--- |:--- |
-| Slutfört |Jobbet har slutförts. |
+| Slutförd |Jobbet har slutförts. |
 | Misslyckades |Det gick inte att kompilera en grafisk eller PowerShell-arbetsflöde Runbook. Det gick inte att starta PowerShell-runbooken eller så innehöll jobbet ett undantag. Se [Azure Automation Runbook-typer](automation-runbook-types.md).|
 | Misslyckades, väntar på resurser |Jobbet misslyckades eftersom det nådde den [verkliga delnings](#fair-share) gränsen tre gånger och startade från samma kontroll punkt eller från början av runbooken varje gång. |
 | I kö |Jobbet väntar på att resurser i en automatiserings arbets uppgift ska bli tillgängliga så att de kan startas. |
@@ -144,7 +141,7 @@ I följande tabell beskrivs de status värden som är möjliga för ett jobb. Du
 | Startar |Jobbet har tilldelats en anställd och systemet startas. |
 | Stoppad |Jobbet stoppades av användaren innan det slutfördes. |
 | Stoppas |Jobbet stoppas av systemet. |
-| Inaktiverad |Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . Jobbet pausades av användaren, av systemet, eller av ett kommando i runbook. Om en Runbook inte har en kontroll punkt börjar den från början. Om den har en kontroll punkt kan den startas igen och återupptas från den senaste kontroll punkten. Systemet pausar bara runbooken när ett undantag inträffar. Som standard är `ErrorActionPreference` variabeln inställd på Fortsätt, vilket anger att jobbet fortsätter att köras vid ett fel. Om variabeln ställs in på Avbryt pausas jobbet vid ett fel.  |
+| Inaktiverad |Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . Jobbet pausades av användaren, av systemet, eller av ett kommando i runbook. Om en Runbook inte har en kontroll punkt börjar den från början. Om den har en kontroll punkt kan den startas igen och återupptas från den senaste kontroll punkten. Systemet pausar bara runbooken när ett undantag inträffar. Som standard `ErrorActionPreference` är variabeln inställd på Fortsätt, vilket anger att jobbet fortsätter att köras vid ett fel. Om variabeln ställs in på Avbryt pausas jobbet vid ett fel.  |
 | Pausar |Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . Systemet försöker pausa jobbet på användarens begäran. Runbooken måste nå nästa kontrollpunkt innan den kan pausas. Om den redan har passerat den senaste kontroll punkten slutförs den innan den kan pausas. |
 
 ## <a name="activity-logging"></a>Aktivitetsloggning
@@ -157,9 +154,9 @@ I det här avsnittet beskrivs några sätt att hantera undantag eller tillfälli
 
 ### <a name="erroractionpreference"></a>ErrorActionPreference
 
-[Erroractionpreference satt](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) -variabeln avgör hur PowerShell svarar på ett icke-avslutande fel. Avslutande fel avslutas alltid och påverkas inte av `ErrorActionPreference`.
+[Erroractionpreference satt](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) -variabeln avgör hur PowerShell svarar på ett icke-avslutande fel. Avslutande fel avslutas alltid och påverkas inte av `ErrorActionPreference` .
 
-När runbooken används `ErrorActionPreference`stoppar ett normalt icke-avslutande fel som `PathNotFound` från [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) -cmdleten Runbook från att slutföras. I följande exempel visas användningen av `ErrorActionPreference`. Det slutliga kommandot [Write-output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) körs aldrig, eftersom skriptet slutar.
+När runbooken används `ErrorActionPreference` stoppar ett normalt icke-avslutande fel som `PathNotFound` från [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) -cmdleten Runbook från att slutföras. I följande exempel visas användningen av `ErrorActionPreference` . Det slutliga kommandot [Write-output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) körs aldrig, eftersom skriptet slutar.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -169,7 +166,7 @@ Write-Output "This message will not show"
 
 ### <a name="try-catch-finally"></a>Prova att fånga finally
 
-[Prova Catch finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) används i PowerShell-skript för att hantera avslutande fel. Skriptet kan använda den här metoden för att fånga upp vissa undantag eller allmänna undantag. `catch` Instruktionen ska användas för att spåra eller försöka hantera fel. I följande exempel försöker hämta en fil som inte finns. Det fångar `System.Net.WebException` undantag och returnerar det sista värdet för alla andra undantag.
+[Prova Catch finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) används i PowerShell-skript för att hantera avslutande fel. Skriptet kan använda den här metoden för att fånga upp vissa undantag eller allmänna undantag. `catch`Instruktionen ska användas för att spåra eller försöka hantera fel. I följande exempel försöker hämta en fil som inte finns. Det fångar `System.Net.WebException` undantag och returnerar det sista värdet för alla andra undantag.
 
 ```powershell-interactive
 try
@@ -205,7 +202,7 @@ Dina Runbooks måste hantera fel. Azure Automation stöder två typer av PowerSh
 
 Om du avslutar fel stoppas Runbook-körningen när de inträffar. Runbooken slutar med jobb statusen misslyckades.
 
-Icke-avslutande fel tillåter att ett skript fortsätter även efter att det har inträffat. Ett exempel på ett icke-avslutande fel är en som inträffar när en Runbook använder `Get-ChildItem` cmdleten med en sökväg som inte finns. PowerShell ser att sökvägen inte finns, genererar ett fel och fortsätter till nästa mapp. Felet i det här fallet anger inte status för Runbook-jobbet till misslyckades och jobbet kan till och med slutföras. Om du vill tvinga en Runbook att stoppa vid ett icke-avslutande fel, kan du `ErrorAction Stop` använda på-cmdleten.
+Icke-avslutande fel tillåter att ett skript fortsätter även efter att det har inträffat. Ett exempel på ett icke-avslutande fel är en som inträffar när en Runbook använder `Get-ChildItem` cmdleten med en sökväg som inte finns. PowerShell ser att sökvägen inte finns, genererar ett fel och fortsätter till nästa mapp. Felet i det här fallet anger inte status för Runbook-jobbet till misslyckades och jobbet kan till och med slutföras. Om du vill tvinga en Runbook att stoppa vid ett icke-avslutande fel, kan du använda `ErrorAction Stop` på-cmdleten.
 
 ## <a name="calling-processes"></a>Anropande processer
 
@@ -217,7 +214,7 @@ Runbook-jobb i Azure-sandbox har inte åtkomst till några enhets-eller program 
 
 ## <a name="webhooks"></a>Webhooks
 
-Externa tjänster, till exempel Azure DevOps Services och GitHub, kan starta en Runbook i Azure Automation. För att utföra den här typen av start använder tjänsten en [webhook](automation-webhooks.md) via en enda http-begäran. Med en webhook kan Runbooks startas utan implementering av en fullständig Azure Automation-lösning. 
+Externa tjänster, till exempel Azure DevOps Services och GitHub, kan starta en Runbook i Azure Automation. För att utföra den här typen av start använder tjänsten en [webhook](automation-webhooks.md) via en enda http-begäran. Med en webhook kan Runbooks startas utan att en fullständig Azure Automation-funktion implementeras. 
 
 ## <a name="shared-resources"></a><a name="fair-share"></a>Delade resurser
 
@@ -231,7 +228,6 @@ Om underordnade Runbooks används minskar den totala tiden som den överordnade 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du kommer igång med en Runbook finns [i hantera Runbooks i Azure Automation](manage-runbooks.md).
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).
-* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* [Hantera Runbooks i Azure Automation](manage-runbooks.md)
+* [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: f9fafc4b03d5ce18fcfedcffaf2d81f847537865
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f0efaf593725fd676ae8e85ff9c190c8b850fef1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598642"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744665"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse-länk för Azure Cosmos DB: i nära real tids analys användnings fall
 
@@ -106,7 +106,7 @@ Med Azure dataSynapses-länken kan Azure Cosmos DB inte bara driva transaktions 
 
 Följande bild visar arbets belastnings mönster med Azure Cosmos DB: ![ Azure Synapse-länk för Azure Cosmos DB arbets belastnings mönster](./media/synapse-link-use-cases/synapse-link-workload-patterns.png)
 
-Låt oss ta ett exempel på en e-handelsföretags CompanyXYZ med globala åtgärder i 20 länder för att illustrera fördelarna med att välja Azure Cosmos DB som enkel real tids databas med både transaktions-och analys krav för en inventerings hanterings plattform.
+Låt oss ta ett exempel på ett e-handelsföretags CompanyXYZ med globala åtgärder i 20 länder/regioner för att illustrera fördelarna med att välja Azure Cosmos DB som enkel real tids databas med både transaktions-och analys krav för en inventerings hanterings plattform.
 
 * CompanyXYZ-kärnan är beroende av inventerings hanterings systemet – därför är tillgänglighets & tillförlitlighet viktiga krav i pelaren. Fördelar med att använda Azure Cosmos DB:
 

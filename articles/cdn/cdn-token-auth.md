@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: 491f413f9bf189b1a46d04042fd7223a47af1f24
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 3539c101b8bf146e9feee6dfc4e90f859f0ef142
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929136"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745448"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Skydda Azure CDN-tillgångar med token-autentisering
 
@@ -33,7 +33,7 @@ Token-autentisering är en mekanism som gör att du kan förhindra att Azure-Con
 
 Token-autentiseringen verifierar att begär Anden genereras av en betrodd plats genom att kräva att begär Anden innehåller ett token-värde som innehåller kodad information om beställaren. Innehållet hanteras endast till en beställare om den kodade informationen uppfyller kraven. annars nekas förfrågningar. Du kan ställa in kraven genom att använda en eller flera av följande parametrar:
 
-- Land: Tillåt eller neka begär Anden som kommer från de länder/regioner som anges i [lands koden](/previous-versions/azure/mt761717(v=azure.100)).
+- Land/region: Tillåt eller Neka förfrågningar som kommer från de länder/regioner som anges av [lands-/regions koden](/previous-versions/azure/mt761717(v=azure.100)).
 - URL: Tillåt endast begär Anden som matchar den angivna till gången eller sökvägen.
 - Host: Tillåt eller neka begär Anden som använder de angivna värdarna i begär ande huvudet.
 - Referent: Tillåt eller neka begäran från angiven referent.
@@ -100,31 +100,31 @@ Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran n�
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
-      >    <td>Tilldelar en förfallo tid till en token, efter vilken token upphör att gälla. Begär Anden som skickats efter att förfallo tiden har nekats. Den här parametern använder en Unix-tidsstämpel, som baseras på antalet sekunder sedan standard-UNIX-epoken `1/1/1970 00:00:00 GMT`. (Du kan konvertera mellan standard tid och UNIX-tid med hjälp av online-verktyg.)> 
-      >    Om du till exempel vill att token ska upphöra att gälla `12/31/2016 12:00:00 GMT`anger du värdet för UNIX- `1483185600`tidsstämpel. 
+      >    <td>Tilldelar en förfallo tid till en token, efter vilken token upphör att gälla. Begär Anden som skickats efter att förfallo tiden har nekats. Den här parametern använder en Unix-tidsstämpel, som baseras på antalet sekunder sedan standard-UNIX-epoken `1/1/1970 00:00:00 GMT` . (Du kan konvertera mellan standard tid och UNIX-tid med hjälp av online-verktyg.)> 
+      >    Om du till exempel vill att token ska upphöra att gälla `12/31/2016 12:00:00 GMT` anger du värdet för Unix-tidsstämpel `1483185600` . 
       > </tr>
       > <tr>
       >    <td><b>ec_url_allow</b></td> 
       >    <td>Gör att du kan skräddarsy tokens till en viss till gång eller sökväg. Den begränsar åtkomsten till begär Anden vars URL börjar med en viss relativ sökväg. URL: er är Skift läges känsliga. Mata in flera sökvägar genom att avgränsa varje sökväg med kommatecken. Lägg inte till blank steg. Beroende på dina behov kan du ange olika värden för att ge olika åtkomst nivåer.> 
-      >    För webb adressen `http://www.mydomain.com/pictures/city/strasbourg.png`är till exempel dessa begär Anden tillåtna för följande indatavärden: 
+      >    För webb adressen är till exempel `http://www.mydomain.com/pictures/city/strasbourg.png` dessa begär Anden tillåtna för följande indatavärden: 
       >    <ul>
-      >       <li>Indatavärde `/`: alla begär Anden tillåts.</li>
-      >       <li>Inmatat värde `/pictures`, följande begär Anden tillåts: <ul>
+      >       <li>Indatavärde `/` : alla begär Anden tillåts.</li>
+      >       <li>Inmatat värde `/pictures` , följande begär Anden tillåts: <ul>
       >          <li>`http://www.mydomain.com/pictures.png`</li>
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Indatavärde `/pictures/`: endast begär Anden som innehåller `/pictures/` sökvägen tillåts. Till exempel `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
-      >       <li>Indatavärde `/pictures/city/strasbourg.png`: endast begär Anden för denna angivna sökväg och till gång är tillåtna.</li>
+      >       <li>Indatavärde `/pictures/` : endast begär Anden som innehåller `/pictures/` sökvägen tillåts. Till exempel `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Indatavärde `/pictures/city/strasbourg.png` : endast begär Anden för denna angivna sökväg och till gång är tillåtna.</li>
       >    </ul>
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Tillåter endast förfrågningar som härstammar från ett eller flera specificerade länder/regioner. Begär Anden som kommer från alla andra länder/regioner nekas. Använd en [ISO 3166-landskod](/previous-versions/azure/mt761717(v=azure.100)) med två bokstäver för varje land och avgränsa var och en med kommatecken. Lägg inte till ett blank steg. Om du till exempel bara vill tillåta åtkomst från USA och Frankrike anger `US,FR`du.</td>
+      >    <td>Tillåter endast förfrågningar som härstammar från ett eller flera specificerade länder/regioner. Begär Anden som kommer från alla andra länder/regioner nekas. Använd en [ISO 3166-lands-/regionkod](/previous-versions/azure/mt761717(v=azure.100)) i två bokstäver för varje land/region och avgränsa var och en med kommatecken. Lägg inte till ett blank steg. Om du till exempel bara vill tillåta åtkomst från USA och Frankrike anger du `US,FR` .</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Nekar förfrågningar som kommer från ett eller flera specificerade länder/regioner. Begär Anden som kommer från alla andra länder/regioner är tillåtna. Implementeringen är samma som <b>ec_country_allow</b> -parametern. Om det finns en landskod i både <b>ec_country_allow</b> -och <b>ec_country_deny</b> -parametrarna har <b>ec_country_allow</b> -parametern företräde.</td>
+      >    <td>Nekar förfrågningar som kommer från ett eller flera specificerade länder/regioner. Begär Anden som kommer från alla andra länder/regioner är tillåtna. Implementeringen är samma som <b>ec_country_allow</b> -parametern. Om lands-/regionkoden finns i både <b>ec_country_allow</b> -och <b>ec_country_deny</b> -parametrarna har <b>ec_country_allow</b> -parametern företräde.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
@@ -134,9 +134,9 @@ Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran n�
       >       <li>Ett värdnamn eller ett värdnamn och en sökväg.</li>
       >       <li>Flera referenter. Om du vill lägga till flera referenter avgränsar du varje referent med kommatecken. Lägg inte till ett blank steg. Om du anger ett referent värde, men referent-informationen inte skickas i begäran på grund av webb läsar konfigurationen, nekas begäran som standard.</li> 
       >       <li>Begär Anden med saknad eller tom referent information. Som standard blockerar den <b>ec_ref_allow</b> parametern dessa typer av begär Anden. Om du vill tillåta dessa förfrågningar anger du antingen texten, "saknas" eller anger ett tomt värde (genom att använda ett avslutande kommatecken).</li> 
-      >       <li>Under domäner. Ange en asterisk (\*) om du vill tillåta under domäner. Om du till exempel vill tillåta alla under domäner av `contoso.com`anger `*.contoso.com`du.</li>
+      >       <li>Under domäner. Ange en asterisk () om du vill tillåta under domäner \* . Om du till exempel vill tillåta alla under domäner av `contoso.com` anger du `*.contoso.com` .</li>
       >    </ul> 
-      >    Om du till exempel vill tillåta åtkomst för förfrågningar `www.contoso.com`från, alla under domäner under `contoso2.com`och begär Anden med tomma eller saknade referenter, anger `www.contoso.com,*.contoso.com,missing`du.</td>
+      >    Om du till exempel vill tillåta åtkomst för förfrågningar från `www.contoso.com` , alla under domäner under `contoso2.com` och begär Anden med tomma eller saknade referenter, anger du `www.contoso.com,*.contoso.com,missing` .</td>
       > </tr>
       > <tr> 
       >    <td><b>ec_ref_deny</b></td>
@@ -144,7 +144,7 @@ Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran n�
       > </tr>
       > <tr> 
       >    <td><b>ec_proto_allow</b></td> 
-      >    <td>Tillåter endast begär Anden från det angivna protokollet. Giltiga värden är `http`, `https`, eller `http,https`.</td>
+      >    <td>Tillåter endast begär Anden från det angivna protokollet. Giltiga värden är `http` , `https` , eller `http,https` .</td>
       > </tr>
       > <tr>
       >    <td><b>ec_proto_deny</b></td>
@@ -152,7 +152,7 @@ Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran n�
       > </tr>
       > <tr>
       >    <td><b>ec_clientip</b></td>
-      >    <td>Begränsar åtkomsten till den angivna förfrågans IP-adress. Både IPV4 och IPV6 stöds. Du kan antingen ange en enskild IP-adress för begäran eller IP-adresser som är associerade med ett visst undernät. `11.22.33.0/22` Tillåter till exempel förfrågningar från IP-adresser 11.22.32.1 till 11.22.35.254.</td>
+      >    <td>Begränsar åtkomsten till den angivna förfrågans IP-adress. Både IPV4 och IPV6 stöds. Du kan antingen ange en enskild IP-adress för begäran eller IP-adresser som är associerade med ett visst undernät. Tillåter till exempel `11.22.33.0/22` förfrågningar från IP-adresser 11.22.32.1 till 11.22.35.254.</td>
       > </tr>
       > </table>
 
@@ -195,7 +195,7 @@ Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran n�
    - PHP
    - Perl
    - Java
-   - Python 
+   - Python    
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN funktioner och priser för Provider
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 489b15423add03d69070bc32057af97396a85309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a694c9f6fc9d3a0b7e73c1565501915aa1470bc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409074"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739833"
 ---
 # <a name="managing-access-to-apps"></a>Hantera åtkomst till appar
 
@@ -78,7 +78,7 @@ Med Azure AD kan program som Salesforce vara förkonfigurerade för enkel inlogg
 
 I det här fallet är alla tilldelade användare automatiskt etablerade i Salesforce, eftersom de läggs till i olika grupper. roll tilldelningen uppdateras i Salesforce. Användare skulle kunna identifiera och komma åt Salesforce via Microsoft-programmets åtkomst panel, Office-webbklienter eller till och med genom att gå till deras organisations inloggnings sida för Salesforce. Administratörer kan enkelt Visa användnings-och tilldelnings status med hjälp av Azure AD repor ting.
 
-Administratörer kan använda [villkorlig Azure AD-åtkomst](../active-directory-conditional-access-azure-portal.md) för att ange åtkomst principer för särskilda roller. Dessa principer kan omfatta om åtkomst tillåts utanför företags miljön och till och med Multi-Factor Authentication-eller enhets krav för att få åtkomst i olika fall.
+Administratörer kan använda [villkorlig Azure AD-åtkomst](../conditional-access/concept-conditional-access-users-groups.md) för att ange åtkomst principer för särskilda roller. Dessa principer kan omfatta om åtkomst tillåts utanför företags miljön och till och med Multi-Factor Authentication-eller enhets krav för att få åtkomst i olika fall.
 
 ## <a name="access-to-microsoft-applications"></a>Åtkomst till Microsoft-program
 
@@ -97,5 +97,5 @@ Användare har åtkomst till Office 365-program via deras Office 365-portaler. D
 Precis som med företags program kan du [tilldela användare](assign-user-or-group-access-portal.md) till vissa Microsoft-program via Azure Portal eller, om Portal alternativet inte är tillgängligt, med hjälp av PowerShell.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skydda appar med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)
+* [Skydda appar med villkorlig åtkomst](../conditional-access/concept-conditional-access-cloud-apps.md)
 * [Grupp hantering för självbetjäning/SSAA](../users-groups-roles/groups-self-service-management.md)

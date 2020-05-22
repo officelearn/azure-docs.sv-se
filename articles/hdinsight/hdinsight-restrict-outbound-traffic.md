@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: eaf51f6778d38d236808c3fd809082bc3b2d54b2
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d3e5f99edb8043b563f37a1710c973bf925338db
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82863441"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745551"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg
 
@@ -53,7 +53,7 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
 
 1. Välj den nya brand Väggs **test-FW01** från Azure Portal.
 
-1. Gå till **Inställningar** > **regler** > **program regel samling** > **+ Lägg till program regel samling**.
+1. Gå till **Inställningar**  >  **regler**  >  **program regel samling**  >  **+ Lägg till program regel samling**.
 
     ![Rubrik: Lägg till program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
@@ -65,17 +65,17 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
     |---|---|
     |Namn| FwAppRule|
     |Prioritet|200|
-    |Action|Tillåt|
+    |Åtgärd|Tillåt|
 
     **Avsnittet FQDN-Taggar**
 
-    | Name | Käll adress | FQDN-tagg | Obs! |
+    | Name | Käll adress | FQDN-tagg | Anteckningar |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate och HDInsight | Krävs för HDI-tjänster |
 
     **Avsnittet mål-FQDN**
 
-    | Name | Käll adresser | `Protocol:Port` | Mål-FQDN | Obs! |
+    | Name | Käll adresser | `Protocol:Port` | Mål-FQDN | Anteckningar |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Tillåt Windows inloggnings aktivitet |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Tillåt Windows inloggnings aktivitet |
@@ -89,7 +89,7 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
 
 Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt.
 
-1. Fortsätt från föregående steg, gå till **regel samling** > för nätverk **+ Lägg till nätverks regel samling**.
+1. Fortsätt från föregående steg, gå till **regel samling för nätverk**  >  **+ Lägg till nätverks regel samling**.
 
 1. Ange följande information på skärmen **Lägg till regel samling för nätverk** :
 
@@ -99,23 +99,24 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
     |---|---|
     |Namn| FwNetRule|
     |Prioritet|200|
-    |Action|Tillåt|
+    |Åtgärd|Tillåt|
 
     **Avsnittet IP-adresser**
 
-    | Name | Protokoll | Käll adresser | Mål adresser | Målportar | Obs! |
+    | Name | Protokoll | Käll adresser | Mål adresser | Målportar | Anteckningar |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Tids tjänst |
     | Rule_2 | Alla | * | DC_IP_Address_1 DC_IP_Address_2 | * | Om du använder Enterprise Security Package (ESP) lägger du till en nätverks regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domän kontrol Lanterna i AAD-DS-avsnittet i portalen |
-    | Rule_3 | TCP | * | IP-adress för ditt Data Lake Storage konto | * | Om du använder Azure Data Lake Storage kan du lägga till en nätverks regel i avsnittet IP-adresser för att åtgärda ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brand väggen. Detta kan resultera i högre kostnader för stora data belastningar, men trafiken loggas och granskas i brand Väggs loggar. Identifiera IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett PowerShell-kommando `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` för att matcha FQDN till en IP-adress.|
+    | Rule_3 | TCP | * | IP-adress för ditt Data Lake Storage konto | * | Om du använder Azure Data Lake Storage kan du lägga till en nätverks regel i avsnittet IP-adresser för att åtgärda ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brand väggen. Detta kan resultera i högre kostnader för stora data belastningar, men trafiken loggas och granskas i brand Väggs loggar. Identifiera IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett PowerShell `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` -kommando för att matcha FQDN till en IP-adress.|
     | Rule_4 | TCP | * | * | 12000 | Valfritt Om du använder Log Analytics skapar du en nätverks regel i avsnittet IP-adresser för att aktivera kommunikation med arbets ytan Log Analytics. |
 
     **Avsnittet service Tags**
 
-    | Name | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Obs! |
+    | Name | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Anteckningar |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverks regel i avsnittet service märken för SQL som gör att du kan logga och granska SQL-trafik. Om du inte har konfigurerat tjänst slut punkter för SQL Server i HDInsight-undernätet, vilket kringgår brand väggen. |
-
+    | Rule_8 | TCP | * | Azure Monitor | * | valfritt Kunder som planerar att använda funktionen för automatisk skalning bör lägga till den här regeln. |
+    
    ![Rubrik: Ange program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 1. Välj **Lägg till**.
@@ -134,9 +135,9 @@ Om du till exempel vill konfigurera routningstabellen för ett kluster som skapa
 
 1. Välj din Azure Firewall **test-FW01**. Kopiera den **privata IP-adressen** som visas på sidan **Översikt** . I det här exemplet ska vi använda en **exempel adress för 10.0.2.4**.
 
-1. Navigera sedan till **alla tjänster** > **nätverks** > **flödes tabeller** och **skapa routningstabell**.
+1. Navigera sedan till **alla tjänster**  >  **nätverks**  >  **flödes tabeller** och **skapa routningstabell**.
 
-1. Från din nya väg går du till **Inställningar** > **vägar** > **+ Lägg till**. Lägg till följande vägar:
+1. Från din nya väg går du till **Inställningar**  >  **vägar**  >  **+ Lägg till**. Lägg till följande vägar:
 
 | Vägnamn | Adressprefix | Nexthop-typ | Nexthop-adress |
 |---|---|---|---|
@@ -184,11 +185,11 @@ Mer information om skalnings gränserna för Azure-brandväggen och begär Anden
 
 ## <a name="access-to-the-cluster"></a>Åtkomst till klustret
 
-När brand väggen har kon figurer ATS kan du använda den interna slut punkten (`https://CLUSTERNAME-int.azurehdinsight.net`) för att komma åt Ambari inifrån det virtuella nätverket.
+När brand väggen har kon figurer ATS kan du använda den interna slut punkten ( `https://CLUSTERNAME-int.azurehdinsight.net` ) för att komma åt Ambari inifrån det virtuella nätverket.
 
-Om du vill använda den offentliga`https://CLUSTERNAME.azurehdinsight.net`slut punkten () eller`CLUSTERNAME-ssh.azurehdinsight.net`SSH-slutpunkten () kontrollerar du att du har rätt vägar i routningstabellen och NSG-regler för att undvika problemet med asymmetrisk routning som beskrivs [här](../firewall/integrate-lb.md). I detta fall måste du tillåta klientens IP-adress i reglerna för inkommande NSG och även lägga till den i den användardefinierade routningstabellen med nästa hopp uppsättning som `internet`. Om routningen inte är korrekt konfigurerad visas ett tids gräns fel.
+Om du vill använda den offentliga slut punkten ( `https://CLUSTERNAME.azurehdinsight.net` ) eller SSH-slutpunkten ( `CLUSTERNAME-ssh.azurehdinsight.net` ) kontrollerar du att du har rätt vägar i ROUTNINGSTABELLEN och NSG-regler för att undvika problemet med asymmetrisk routning som beskrivs [här](../firewall/integrate-lb.md). I detta fall måste du tillåta klientens IP-adress i reglerna för inkommande NSG och även lägga till den i den användardefinierade routningstabellen med nästa hopp uppsättning som `internet` . Om routningen inte är korrekt konfigurerad visas ett tids gräns fel.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Azure HDInsight Virtual Network-arkitektur](hdinsight-virtual-network-architecture.md)
-* [Konfigurera virtuell nätverks installation](./network-virtual-appliance.md)
+* [Konfigurera virtuell nätverksinstallation](./network-virtual-appliance.md)

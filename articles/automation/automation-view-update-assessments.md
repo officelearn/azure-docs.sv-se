@@ -1,18 +1,18 @@
 ---
-title: Visa Azure Automation Uppdateringshantering uppdaterings utvärderingar
-description: Den här artikeln beskriver hur du visar uppdaterings utvärderingar för uppdaterings distributioner.
+title: Visa Azure Automation uppdaterings bedömningar
+description: Den här artikeln beskriver hur du visar uppdaterings utvärderingar för Uppdateringshantering distributioner.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 75762afc9ae69da81e89ce320f454d9764f82914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c66f54b8b01b5131defce6e709af52f9b2732d1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617383"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745238"
 ---
-# <a name="view-azure-automation-update-management-update-assessments"></a>Visa Azure Automation Uppdateringshantering uppdaterings utvärderingar
+# <a name="view-update-assessments"></a>Visa uppdateringsutvärderingar
 
 I ditt Azure Automation konto väljer du **uppdateringshantering** för att visa status för dina datorer.
 
@@ -28,7 +28,7 @@ Välj **saknade uppdateringar** om du vill visa en lista med uppdateringar som s
 
 ![Uppdateringar som saknas](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Klassificering av uppdateringar
+## <a name="work-with-update-classifications"></a>Arbeta med uppdaterings klassificeringar
 
 I följande tabeller visas de uppdaterings klassificeringar som stöds i Uppdateringshantering, med en definition för varje klassificering.
 
@@ -40,7 +40,7 @@ I följande tabeller visas de uppdaterings klassificeringar som stöds i Uppdate
 |Säkerhetsuppdateringar     | Uppdateringar för produktspecifika, säkerhetsrelaterade problem.        |
 |Samlade uppdateringar     | Uppsättningar med snabb korrigeringar som är paketerade tillsammans för enkel distribution.        |
 |Funktionspaket     | Nya produkt funktioner som distribueras utanför en produkt lansering.        |
-|Service pack     | Uppsättningar med snabb korrigeringar som tillämpas på ett program.        |
+|Service Pack     | Uppsättningar med snabb korrigeringar som tillämpas på ett program.        |
 |Definitionsuppdateringar     | Uppdateringar av virus-eller andra definitionsfiler.        |
 |Verktyg     | Verktyg eller funktioner som hjälper dig att slutföra en eller flera uppgifter.        |
 |Uppdateringar     | Uppdateringar av program eller filer som installeras för närvarande.        |
@@ -64,4 +64,4 @@ Om du vill klassificera uppdateringar i Red Hat Enterprise version 6 måste du i
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har granskat uppdaterings utvärderingen kan du schemalägga en uppdaterings distribution genom att följa stegen i [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).
+[Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md)

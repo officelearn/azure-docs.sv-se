@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: ab2ba31d6b712bd3399bc8bf5b491337d462dac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2a5928d8326c4a0628ebc1bfb7eec3cd20f9254
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606203"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747510"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Anpassa installations programmet för en Azure-SSIS Integration Runtime
 
@@ -42,7 +42,7 @@ Följande begränsningar gäller endast för anpassade standardinställningar:
 
 - Om du vill använda *Gacutil. exe* i skriptet för att installera sammansättningar i GAC (Global Assembly Cache) måste du ange *Gacutil. exe* som en del av din anpassade installation. Eller så kan du använda kopian som finns i vår *offentliga för hands versions* behållare, som beskrivs senare i avsnittet "instruktioner".
 
-- Om du vill referera till en undermapp i skriptet stöder inte *msiexec. exe* `.\` notation för att referera till rotmappen. Använd ett kommando som `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` i stället för `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
+- Om du vill referera till en undermapp i skriptet stöder inte *msiexec. exe* `.\` notation för att referera till rotmappen. Använd ett kommando som `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` i stället för `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...` .
 
 - Administrativa resurser eller dolda nätverks resurser som skapas automatiskt av Windows stöds för närvarande inte på Azure-SSIS IR.
 
@@ -68,7 +68,7 @@ Om du vill anpassa din Azure-SSIS IR behöver du följande objekt:
 
    * Du måste ha en skript fil med namnet *main. cmd*, vilket är start punkten för den anpassade installationen.  
    * För att säkerställa att skriptet kan köras i bakgrunden rekommenderar vi att du testar det på din lokala dator först.  
-   * Om du vill att fler loggar som genereras av andra verktyg (t. ex. *CUSTOM_SETUP_SCRIPT_LOG_DIR* *........................................................* `CUSTOM_SETUP_SCRIPT_LOG_DIR`
+   * Om du vill att fler loggar som genereras av andra verktyg (t. ex. CUSTOM_SETUP_SCRIPT_LOG_DIR *........................................................* `CUSTOM_SETUP_SCRIPT_LOG_DIR` *msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log*
 
 1. Ladda ned, installera och öppna [Azure Storage Explorer](https://storageexplorer.com/). Gör så här:
 
@@ -123,7 +123,7 @@ Om du vill anpassa din Azure-SSIS IR behöver du följande objekt:
 
      * Om du väljer **oh22's-Hedda. I/o** -komponenten kan du installera [Hedda. IO](https://hedda.io/ssis-component/) -datakvalitet/rengörings komponent från oh22 på din Azure-SSIS IR efter köpet av tjänsten. Den aktuella integrerade versionen är **1.0.13**.
 
-     * Om du väljer komponenten **oh22's SQLPhonetics.net** kan du installera [SQLPhonetics.net](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) Data Quality/Matching-komponenten från oh22 på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **1.0.43**.
+     * Om du väljer komponenten **oh22's SQLPhonetics.net** kan du installera [SQLPhonetics.net](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) Data Quality/Matching-komponenten från oh22 på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **1.0.43**.
 
      * Om du väljer komponenten **SSIS Integration Toolkit för KingswaySoft** kan du installera [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) Suite för CRM/ERP/Marketing/Collaboration-appar, till exempel Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marknadsförings moln osv. från KingswaySoft på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **2019,2**.
 

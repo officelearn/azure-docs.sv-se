@@ -1,17 +1,17 @@
 ---
 title: Använd Azure Policy för att implementera styrning och kontroller för Azure Cosmos DB resurser
-description: Lär dig hur du använder Azure Policy för att implementera styrning och kontroller för Cosmos DB resurser.
+description: Lär dig hur du använder Azure Policy för att implementera styrning och kontroller för Azure Cosmos DB resurser.
 author: plzm
 ms.author: paelaz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 6b8823b586ae0d0d9f6a2c50286aa754a9ab8025
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2249dbdebecc52a8f5d6decccb83d3b1fc0777f7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665161"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747377"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Använd Azure Policy för att implementera styrning och kontroller för Azure Cosmos DB resurser
 
@@ -32,7 +32,7 @@ I steget för att välja en princip definition anger `Cosmos DB` du i Sök fält
 > [!TIP]
 > Du kan också använda de inbyggda princip definitions namnen som visas i fönstret **tillgängliga definitioner** med Azure PowerShell-, Azure CLI-eller arm-mallar för att skapa princip tilldelningar.
 
-:::image type="content" source="./media/policy/available-definitions.png" alt-text="Sök efter Cosmos DB inbyggda princip definitioner":::
+:::image type="content" source="./media/policy/available-definitions.png" alt-text="Sök efter Azure Cosmos DB inbyggda princip definitioner":::
 
 ## <a name="create-a-custom-policy-definition"></a>Skapa en anpassad principdefinition
 
@@ -115,11 +115,11 @@ Skärm bilden visar följande resultat för utvärdering av kompatibilitet:
 - Noll av ett Azure Cosmos DB konton i det angivna omfånget är kompatibla med princip tilldelningen för att kontrol lera att resurserna har distribuerats till tillåtna regioner.
 - En av två Azure Cosmos DB databasen eller samlings resurserna i det angivna omfånget är kompatibla med princip tilldelningen för att kontrol lera om det etablerade data flödet överskrider den angivna Max gränsen.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Sök efter Cosmos DB inbyggda princip definitioner":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Sök efter Azure Cosmos DB inbyggda princip definitioner":::
 
 Information om hur du åtgärdar icke-kompatibla resurser finns i avsnittet [åtgärdad med Azure policy](../governance/policy/how-to/remediate-resources.md) .
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Granska exempel anpassade princip definitioner för Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)
 - [Skapa en princip tilldelning i Azure Portal](../governance/policy/assign-policy-portal.md)

@@ -1,16 +1,16 @@
 ---
 title: Starta en runbook i Azure Automation
-description: Sammanfattar de olika metoder som kan användas för att starta en Runbook i Azure Automation och innehåller information om hur du använder både Azure Portal och Windows PowerShell.
+description: Den här artikeln beskriver hur du startar en Runbook i Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7f2c0dda952959db3bffba6016f48b986016c19e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20f2e0e4dec7602b69a24ed1eccd0c4ec946038b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679452"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744906"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starta en runbook i Azure Automation
 
@@ -19,7 +19,7 @@ I följande tabell får du hjälp att avgöra hur du ska starta en Runbook i Azu
 | **Metod** | **Kännetecken ** |
 | --- | --- |
 | [Azure Portal](#start-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med Interactive User Interface.<br> <li>Form för att tillhandahålla enkla parameter värden.<br> <li>Spåra jobbets status enkelt.<br> <li>Åtkomst autentiserad med Azure-inloggning. |
-| [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Anropa från kommando raden med Windows PowerShell-cmdletar.<br> <li>Kan inkluderas i automatiserad lösning med flera steg.<br> <li>Begäran autentiseras med certifikat eller användar huvud/tjänstens huvud namn för OAuth-användare.<br> <li>Ange enkla och komplexa parameter värden.<br> <li>Spåra jobb status.<br> <li>Klienten krävde för att stödja PowerShell-cmdletar. |
+| [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Anropa från kommando raden med Windows PowerShell-cmdletar.<br> <li>Kan inkluderas i automatiserad funktion med flera steg.<br> <li>Begäran autentiseras med certifikat eller användar huvud/tjänstens huvud namn för OAuth-användare.<br> <li>Ange enkla och komplexa parameter värden.<br> <li>Spåra jobb status.<br> <li>Klienten krävde för att stödja PowerShell-cmdletar. |
 | [Azure Automation-API](/rest/api/automation/) |<li>Den mest flexibla metoden, men även mest komplex.<br> <li>Anropa från en anpassad kod som kan göra HTTP-förfrågningar.<br> <li>Begäran autentiserad med certifikat eller användar huvud för OAuth/tjänstens huvud namn.<br> <li>Ange enkla och komplexa parameter värden. *Om du anropar en python-Runbook med API: t måste JSON-nyttolasten serialiseras.*<br> <li>Spåra jobb status. |
 | [Webhooks](automation-webhooks.md) |<li>Starta Runbook från en enskild HTTP-begäran.<br> <li>Autentiserad med säkerhetstoken i URL.<br> <li>Klienten kan inte åsidosätta parameter värden som anges när webhooken skapades. En Runbook kan definiera en enda parameter som är ifylld med HTTP-begärans information.<br> <li>Det går inte att spåra jobb status via webhook-URL. |
 | [Svara på Azure-avisering](../log-analytics/log-analytics-alerts.md) |<li>Starta en Runbook som svar på Azure-aviseringen.<br> <li>Konfigurera webhook för Runbook och länka till avisering.<br> <li>Autentiserad med säkerhetstoken i URL. |
@@ -30,10 +30,7 @@ Följande bild illustrerar en detaljerad steg-för-steg-process i livs cykeln f�
 
 ![Runbook-arkitektur](media/automation-starting-runbook/runbooks-architecture.png)
 
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
-
-## <a name="runbook-parameters"></a>Runbook-parametrar
+## <a name="work-with-runbook-parameters"></a>Arbeta med Runbook-parametrar
 
 När du startar en Runbook från Azure Portal eller Windows PowerShell skickas instruktionen via Azure Automation-webbtjänsten. Den här tjänsten stöder inte parametrar med komplexa data typer. Om du behöver ange ett värde för en komplex parameter måste du anropa den infogad från en annan Runbook enligt beskrivningen i [underordnade Runbooks i Azure Automation](automation-child-runbooks.md).
 
@@ -114,7 +111,7 @@ Smith
 
 ### <a name="credentials"></a>Autentiseringsuppgifter
 
-Om parametern är datatyp `PSCredential`kan du ange namnet på en Azure Automation [behörighet till till gång](automation-credentials.md). Runbooken hämtar autentiseringsuppgiften med det namn som du anger. Följande test-Runbook accepterar en parameter med `credential`namnet.
+Om parametern är datatyp `PSCredential` kan du ange namnet på en Azure Automation [behörighet till till gång](automation-credentials.md). Runbooken hämtar autentiseringsuppgiften med det namn som du anger. Följande test-Runbook accepterar en parameter med namnet `credential` .
 
 ```powershell
 Workflow Test-Parameters
@@ -126,13 +123,13 @@ Workflow Test-Parameters
 }
 ```
 
-Följande text kan användas för användar parametern förutsatt att det fanns en referens till gång som kallas `My Credential`.
+Följande text kan användas för användar parametern förutsatt att det fanns en referens till gång som kallas `My Credential` .
 
 ```input
 My Credential
 ```
 
-Förutsatt att användar namnet i autentiseringsuppgiften är `jsmith`visas följande utdata.
+Förutsatt att användar namnet i autentiseringsuppgiften är `jsmith` visas följande utdata.
 
 ```output
 jsmith
@@ -143,7 +140,7 @@ jsmith
 1. I Azure Portal väljer du **Automation** och klickar sedan på namnet på ett Automation-konto.
 2. På menyn hubb väljer du **Runbooks**.
 3. På sidan Runbooks väljer du en Runbook och klickar sedan på **Starta**.
-4. Om runbooken har parametrar uppmanas du att ange värden med en text ruta för varje parameter. Mer information om parametrar finns i [Runbook-parametrar](#runbook-parameters).
+4. Om runbooken har parametrar uppmanas du att ange värden med en text ruta för varje parameter. Mer information om parametrar finns i [Runbook-parametrar](#work-with-runbook-parameters).
 5. I fönstret jobb kan du visa statusen för Runbook-jobbet.
 
 ## <a name="start-a-runbook-with-powershell"></a>Starta en Runbook med PowerShell
@@ -173,15 +170,16 @@ While ($doLoop) {
 Get-AzAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Om Runbook kräver parametrar måste du ange dem som en [hash](https://technet.microsoft.com/library/hh847780.aspx)-form. Nyckeln för hash-tabellen måste matcha parameter namnet och värdet är parametervärdet. I följande exempel visas hur du startar en Runbook med två strängparametrar som heter FirstName och LastName, ett heltal som heter RepeatCount och en boolesk parameter som heter Show. Mer information om parametrar finns i [Runbook-parametrar](#runbook-parameters).
+Om Runbook kräver parametrar måste du ange dem som en [hash](https://technet.microsoft.com/library/hh847780.aspx)-form. Nyckeln för hash-tabellen måste matcha parameter namnet och värdet är parametervärdet. I följande exempel visas hur du startar en Runbook med två strängparametrar som heter FirstName och LastName, ett heltal som heter RepeatCount och en boolesk parameter som heter Show. Mer information om parametrar finns i [Runbook-parametrar](#work-with-runbook-parameters).
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
+Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du kör Automation-runbooks i ditt data Center finns i [hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
-* Mer information om hur du skapar modulära Runbooks som ska användas av andra Runbooks för vissa eller vanliga funktioner finns i [underordnade Runbooks](automation-child-runbooks.md).
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).
+* [Hantera Runbooks i Azure Automation](manage-runbooks.md)
+* [Översikt över Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
+* [Skapa modulära runbooks](automation-child-runbooks.md)
+* [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview)

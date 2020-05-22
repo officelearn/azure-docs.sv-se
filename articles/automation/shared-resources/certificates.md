@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9542fe6cb574b36b03151a50a0352c9175a22b55
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ebd4bf0ff91342229edb4295489f0cbd0970699a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711473"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745033"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Hantera certifikat i Azure Automation
 
@@ -165,6 +165,7 @@ print cert
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda moduler i Azure Automation](modules.md)
-* [Runbook-körning i Azure Automation](../automation-runbook-execution.md)
-* [Översikt över Azure Automation tillstånds konfiguration](../automation-dsc-overview.md) 
+* Mer information om de cmdletar som används för att komma åt certifikat finns [i hantera moduler i Azure Automation](modules.md).
+* Allmän information om Runbooks finns [i Runbook-körning i Azure Automation](../automation-runbook-execution.md).
+* Mer information om DSC-konfigurationer finns i [Översikt över Azure Automation tillstånds konfiguration](../automation-dsc-overview.md). 
+

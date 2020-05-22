@@ -3,12 +3,12 @@ title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 80c69ec38a364238eb03e786c23cc927d6181062
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 6c2dc8303b630eb01de5c3ad9e3504dfec5256bc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684321"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746903"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -39,13 +39,6 @@ När resurs leverantören returnerar en lyckad kod, utvärderas **AuditIfNotExis
 
 Det finns för närvarande ingen utvärderings ordning för **EnforceOPAConstraint** -eller **EnforceRegoPolicy** -effekterna.
 
-## <a name="disabled"></a>Disabled
-
-Den här inställningen är användbar för att testa situationer eller när princip definitionen har parameterstyrda påverkan. Den här flexibiliteten gör det möjligt att inaktivera en enskild tilldelning i stället för att inaktivera alla tilldelningar för principen.
-
-Ett alternativ till den inaktiverade inställningen är **enforcementMode** som anges för princip tilldelningen.
-När **enforcementMode** är _inaktive rad_utvärderas resurserna fortfarande. Loggning, till exempel aktivitets loggar och princip påverkan inträffar inte. Mer information finns i [princip tilldelning – tvingande läge](./assignment-structure.md#enforcement-mode).
-
 ## <a name="append"></a>Lägg till
 
 Lägg till används för att lägga till ytterligare fält till den begärda resursen under skapandet eller uppdateringen. Ett vanligt exempel är att ange tillåtna IP-adresser för en lagrings resurs.
@@ -55,7 +48,7 @@ Lägg till används för att lägga till ytterligare fält till den begärda res
 
 ### <a name="append-evaluation"></a>Lägg till utvärdering
 
-Lägg till utvärderas innan begäran bearbetas av en resurs leverantör under skapandet eller uppdateringen av en resurs. Lägg till fält till resursen **när villkors** villkoret för princip regeln är uppfyllt. Om Lägg till-resultatet skulle åsidosätta ett värde i den ursprungliga begäran med ett annat värde, fungerar det som en nekande-inverkan och avvisar begäran. Om du vill lägga till ett nytt värde i en befintlig matris använder du **[ \* ]** -versionen av aliaset.
+Lägg till utvärderas innan begäran bearbetas av en resurs leverantör under skapandet eller uppdateringen av en resurs. Lägg till fält till resursen **när villkors** villkoret för princip regeln är uppfyllt. Om Lägg till-resultatet skulle åsidosätta ett värde i den ursprungliga begäran med ett annat värde, fungerar det som en nekande-inverkan och avvisar begäran. Om du vill lägga till ett nytt värde i en befintlig matris använder du **\[\*\]** versionen av aliaset.
 
 När en princip definition med hjälp av Lägg till-effekter körs som en del av en utvärderings cykel, gör den inte några ändringar i resurser som redan finns. I stället markeras alla resurser som uppfyller **IF** -villkoret som icke-kompatibel.
 
@@ -65,7 +58,7 @@ En Lägg till-funktion har endast en **informations** mat ris, vilket krävs. So
 
 ### <a name="append-examples"></a>Lägg till exempel
 
-Exempel 1: ett **fält/värde** -par med ett icke-**[ \* ]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** som anger IP-regler för ett lagrings konto. När ett icke-**[ \* ]** -alias är en matris lägger effekterna till **värdet** som hela matrisen. Om matrisen redan finns inträffar en Deny-händelse från konflikten.
+Exempel 1: ett **fält/värde** -par med ett icke- **\[\*\]** [alias](definition-structure.md#aliases) med ett mat ris **värde** som anger IP-regler för ett lagrings konto. När ett icke- **\[\*\]** alias är en matris, lägger effekterna till **värdet** som hela matrisen. Om matrisen redan finns inträffar en Deny-händelse från konflikten.
 
 ```json
 "then": {
@@ -80,7 +73,7 @@ Exempel 1: ett **fält/värde** -par med ett icke-**[ \* ]** - [alias](definitio
 }
 ```
 
-Exempel 2: ett **fält/värde** -par med ett **[ \* ]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** som anger IP-regler för ett lagrings konto. Genom att använda **[ \* ]** -aliaset lägger du till **värdet** i en befintlig matris som kan användas. Om matrisen inte finns kommer den att skapas.
+Exempel 2: ett **fält/värde** -par med ett **\[\*\]** [alias](definition-structure.md#aliases) med ett mat ris **värde** som anger IP-regler för ett lagrings konto. Genom att använda **\[\*\]** aliaset lägger du till **värdet** i en befintlig matris som kan användas. Om matrisen ännu inte finns skapas den.
 
 ```json
 "then": {
@@ -95,144 +88,8 @@ Exempel 2: ett **fält/värde** -par med ett **[ \* ]** - [alias](definition-str
 }
 ```
 
-## <a name="modify"></a>Ändra
 
-Ändra används för att lägga till, uppdatera eller ta bort taggar på en resurs under skapandet eller uppdateringen. Ett vanligt exempel är att uppdatera taggar på resurser som costCenter. En ändra princip ska alltid ha `mode` angetts till _indexerad_ om inte mål resursen är en resurs grupp. Befintliga icke-kompatibla resurser kan åtgärdas med en [reparations uppgift](../how-to/remediate-resources.md). En enda ändra-regel kan ha valfritt antal åtgärder.
 
-> [!IMPORTANT]
-> Ändra är för närvarande endast för användning med-taggar. Om du hanterar Taggar rekommenderar vi att du använder ändra i stället för Lägg till som ändra och ger ytterligare åtgärds typer och möjlighet att åtgärda befintliga resurser. Tillägg rekommenderas dock om du inte kan skapa en hanterad identitet.
-
-### <a name="modify-evaluation"></a>Ändra utvärdering
-
-Ändra utvärderar innan begäran bearbetas av en resurs leverantör under skapandet eller uppdateringen av en resurs. Ändra taggar för tillägg eller uppdateringar på en resurs när **villkors** villkoret för princip regeln är uppfyllt.
-
-När en princip definition med hjälp av ändra-effekter körs som en del av en utvärderings cykel, gör den inte några ändringar i resurser som redan finns. I stället markeras alla resurser som uppfyller **IF** -villkoret som icke-kompatibel.
-
-### <a name="modify-properties"></a>Ändra egenskaper
-
-Egenskapen **information** för funktionen ändra har alla under egenskaper som definierar de behörigheter som krävs för reparation och de **åtgärder** som används för att lägga till, uppdatera eller ta bort taggattribut.
-
-- **roleDefinitionIds** [krävs]
-  - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomst kontroll roll-ID som är tillgängligt för prenumerationen. Mer information finns i [reparation-Konfigurera princip definition](../how-to/remediate-resources.md#configure-policy-definition).
-  - Den roll som definieras måste innehålla alla åtgärder som beviljas rollen [deltagare](../../../role-based-access-control/built-in-roles.md#contributor) .
-- **åtgärder** [krävs]
-  - En matris med alla märknings åtgärder som ska utföras för matchande resurser.
-  - Egenskaper:
-    - **åtgärd** [krävs]
-      - Definierar vilken åtgärd som ska vidtas för en matchande resurs. Alternativen är: _addOrReplace_, _Add_, _Remove_. _Lägg till_ fungerar ungefär som [i Lägg till-resultatet.](#append)
-    - **fält** [obligatoriskt]
-      - Taggen för att lägga till, ersätta eller ta bort. Taggnamn måste följa samma namngivnings konvention för andra [fält](./definition-structure.md#fields).
-    - **värde** (valfritt)
-      - Värdet som taggen ska ställas in på.
-      - Den här egenskapen krävs om **åtgärden** är _addOrReplace_ eller _Add_.
-
-### <a name="modify-operations"></a>Ändra åtgärder
-
-Med egenskapen för **drifts** egenskaper kan du ändra flera taggar på olika sätt från en enda princip definition. Varje åtgärd består av egenskaperna **åtgärd**, **fält**och **värde** . Åtgärden avgör vad reparations uppgiften gör till taggarna, fältet avgör vilken tagg som ändras och värdet definierar den nya inställningen för taggen. Exemplet nedan gör följande tagg ändringar:
-
-- Ställer in `environment` taggen på "test", även om den redan finns med ett annat värde.
-- Tar bort taggen `TempResource` .
-- Ställer in `Dept` taggen till den princip parameter _DeptName_ som kon figurer ATS för princip tilldelningen.
-
-```json
-"details": {
-    ...
-    "operations": [
-        {
-            "operation": "addOrReplace",
-            "field": "tags['environment']",
-            "value": "Test"
-        },
-        {
-            "operation": "Remove",
-            "field": "tags['TempResource']",
-        },
-        {
-            "operation": "addOrReplace",
-            "field": "tags['Dept']",
-            "value": "[parameters('DeptName')]"
-        }
-    ]
-}
-```
-
-Egenskapen **operation** har följande alternativ:
-
-|Åtgärd |Description |
-|-|-|
-|addOrReplace |Lägger till den definierade taggen och värdet i resursen, även om taggen redan finns med ett annat värde. |
-|Lägg till |Lägger till den definierade taggen och värdet i resursen. |
-|Ta bort |Tar bort den definierade taggen från resursen. |
-
-### <a name="modify-examples"></a>Ändra exempel
-
-Exempel 1: Lägg till `environment` taggen och ersätt befintliga `environment` taggar med "test":
-
-```json
-"then": {
-    "effect": "modify",
-    "details": {
-        "roleDefinitionIds": [
-            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-        ],
-        "operations": [
-            {
-                "operation": "addOrReplace",
-                "field": "tags['environment']",
-                "value": "Test"
-            }
-        ]
-    }
-}
-```
-
-Exempel 2: ta bort `env` taggen och Lägg till `environment` taggen eller ersätt befintliga `environment` taggar med ett parameter värde:
-
-```json
-"then": {
-    "effect": "modify",
-    "details": {
-        "roleDefinitionIds": [
-            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-        ],
-        "operations": [
-            {
-                "operation": "Remove",
-                "field": "tags['env']"
-            },
-            {
-                "operation": "addOrReplace",
-                "field": "tags['environment']",
-                "value": "[parameters('tagValue')]"
-            }
-        ]
-    }
-}
-```
-
-## <a name="deny"></a>Neka
-
-Neka används för att förhindra en resurs förfrågan som inte matchar definierade standarder via en princip definition och som Miss lyckas med begäran.
-
-### <a name="deny-evaluation"></a>Neka utvärdering
-
-När du skapar eller uppdaterar en matchad resurs förhindrar neka-begäran innan den skickas till resurs leverantören. Begäran returneras som en `403 (Forbidden)` . I portalen kan den förbjudna visas som status för den distribution som förhindrades av princip tilldelningen.
-
-Vid utvärdering av befintliga resurser markeras resurser som matchar en definition för neka-principer som icke-kompatibla.
-
-### <a name="deny-properties"></a>Egenskaper för neka
-
-Neka-funktionen har inga ytterligare egenskaper att använda i **then** -villkoret för princip definitionen.
-
-### <a name="deny-example"></a>Neka exempel
-
-Exempel: använda neka-effekter.
-
-```json
-"then": {
-    "effect": "deny"
-}
-```
 
 ## <a name="audit"></a>Granska
 
@@ -321,6 +178,31 @@ Exempel: utvärderar Virtual Machines för att avgöra om tillägget för progra
     }
 }
 ```
+
+## <a name="deny"></a>Neka
+
+Neka används för att förhindra en resurs förfrågan som inte matchar definierade standarder via en princip definition och som Miss lyckas med begäran.
+
+### <a name="deny-evaluation"></a>Neka utvärdering
+
+När du skapar eller uppdaterar en matchad resurs förhindrar neka-begäran innan den skickas till resurs leverantören. Begäran returneras som en `403 (Forbidden)` . I portalen kan den förbjudna visas som status för den distribution som förhindrades av princip tilldelningen.
+
+Vid utvärdering av befintliga resurser markeras resurser som matchar en definition för neka-principer som icke-kompatibla.
+
+### <a name="deny-properties"></a>Egenskaper för neka
+
+Neka-funktionen har inga ytterligare egenskaper att använda i **then** -villkoret för princip definitionen.
+
+### <a name="deny-example"></a>Neka exempel
+
+Exempel: använda neka-effekter.
+
+```json
+"then": {
+    "effect": "deny"
+}
+```
+
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
@@ -430,9 +312,17 @@ Exempel: utvärderar SQL Server databaser för att avgöra om transparentDataEnc
 }
 ```
 
+## <a name="disabled"></a>Disabled
+
+Den här inställningen är användbar för att testa situationer eller när princip definitionen har parameterstyrda påverkan. Den här flexibiliteten gör det möjligt att inaktivera en enskild tilldelning i stället för att inaktivera alla tilldelningar för principen.
+
+Ett alternativ till den inaktiverade inställningen är * * enforcementMode, som anges i princip tilldelningen.
+När **enforcementMode** är _inaktive rad_utvärderas resurserna fortfarande. Loggning, till exempel aktivitets loggar och princip påverkan inträffar inte. Mer information finns i [princip tilldelning – tvingande läge](./assignment-structure.md#enforcement-mode).
+
+
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-Den här inställningen används med ett princip definitions *läge* för `Microsoft.Kubernetes.Data` . Den används för att skicka Gatekeeper v3-regler för åtkomst kontroll som definierats med [OPA constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) till att [Öppna princip agent](https://www.openpolicyagent.org/) (OPA) till Kubernetes-kluster i Azure.
+Den här inställningen används med ett princip definitions _läge_ för `Microsoft.Kubernetes.Data` . Den används för att skicka Gatekeeper v3-regler för åtkomst kontroll som definierats med [OPA constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) till att [Öppna princip agent](https://www.openpolicyagent.org/) (OPA) till Kubernetes-kluster i Azure.
 
 > [!NOTE]
 > [Azure policy för Kubernetes](./policy-for-kubernetes.md) finns i för hands version och stöder bara Linux-nodkonfigurationer och inbyggda princip definitioner.
@@ -447,9 +337,9 @@ Var 15: e minut slutförs en fullständig genomsökning av klustret och resultat
 Egenskapen **information** för EnforceOPAConstraint-effekter har de subegenskaper som beskriver Gatekeeper-åtkomstkontroll för åtkomst kontroll.
 
 - **constraintTemplate** [krävs]
-  - Begränsnings mal len CustomResourceDefinition (CRD) som definierar nya begränsningar. Mallen definierar Rego Logic, begränsnings schema och villkors parametrar som skickas via **värden** från Azure policy.
+  - Begränsnings mal len CustomResourceDefinition (CRD) som definierar nya begränsningar. Mallen definierar Rego Logic, begränsnings schema och de villkors parametrar som skickas via **värden** från Azure policy.
 - **begränsning** [obligatoriskt]
-  - CRD-implementeringen av begränsnings mal len. Använder parametrar som skickas via **värden** som `{{ .Values.<valuename> }}` . I exemplet nedan är detta `{{ .Values.cpuLimit }}` och `{{ .Values.memoryLimit }}` .
+  - CRD-implementeringen av begränsnings mal len. Använder parametrar som skickas via **värden** som `{{ .Values.<valuename> }}` . I exemplet nedan är dessa värden `{{ .Values.cpuLimit }}` och `{{ .Values.memoryLimit }}` .
 - **värden** [valfritt]
   - Definierar alla parametrar och värden som ska skickas till begränsningen. Varje värde måste finnas i CRD för begränsnings mal len.
 
@@ -538,9 +428,126 @@ Exempel: Gatekeeper v2-åtkomstkontroll för att endast tillåta de angivna beh�
 }
 ```
 
+## <a name="modify"></a>Ändra
+
+Ändra används för att lägga till, uppdatera eller ta bort taggar på en resurs under skapandet eller uppdateringen. Ett vanligt exempel är att uppdatera taggar på resurser som costCenter. En ändra princip ska alltid ha `mode` angetts till _indexerad_ om inte mål resursen är en resurs grupp. Befintliga icke-kompatibla resurser kan åtgärdas med en [reparations uppgift](../how-to/remediate-resources.md). En enda ändra-regel kan ha valfritt antal åtgärder.
+
+> [!IMPORTANT]
+> Ändra är för närvarande endast för användning med-taggar. Om du hanterar Taggar rekommenderar vi att du använder ändra i stället för Lägg till som ändra och ger ytterligare åtgärds typer och möjlighet att åtgärda befintliga resurser. Tillägg rekommenderas dock om du inte kan skapa en hanterad identitet.
+
+### <a name="modify-evaluation"></a>Ändra utvärdering
+
+Ändra utvärderar innan begäran bearbetas av en resurs leverantör under skapandet eller uppdateringen av en resurs. Ändra taggar för tillägg eller uppdateringar på en resurs när **villkors** villkoret för princip regeln är uppfyllt.
+
+När en princip definition med hjälp av ändra-effekter körs som en del av en utvärderings cykel, gör den inte några ändringar i resurser som redan finns. I stället markeras alla resurser som uppfyller **IF** -villkoret som icke-kompatibel.
+
+### <a name="modify-properties"></a>Ändra egenskaper
+
+Egenskapen **information** för funktionen ändra har alla under egenskaper som definierar de behörigheter som krävs för reparation och de **åtgärder** som används för att lägga till, uppdatera eller ta bort taggattribut.
+
+- **roleDefinitionIds** [krävs]
+  - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomst kontroll roll-ID som är tillgängligt för prenumerationen. Mer information finns i [reparation-Konfigurera princip definition](../how-to/remediate-resources.md#configure-policy-definition).
+  - Den roll som definieras måste innehålla alla åtgärder som beviljas rollen [deltagare](../../../role-based-access-control/built-in-roles.md#contributor) .
+- **åtgärder** [krävs]
+  - En matris med alla märknings åtgärder som ska utföras för matchande resurser.
+  - Egenskaper:
+    - **åtgärd** [krävs]
+      - Definierar vilken åtgärd som ska vidtas för en matchande resurs. Alternativen är: _addOrReplace_, _Add_, _Remove_. _Lägg till_ fungerar ungefär som [i Lägg till-resultatet.](#append)
+    - **fält** [obligatoriskt]
+      - Taggen för att lägga till, ersätta eller ta bort. Taggnamn måste följa samma namngivnings konvention för andra [fält](./definition-structure.md#fields).
+    - **värde** (valfritt)
+      - Värdet som taggen ska ställas in på.
+      - Den här egenskapen krävs om **åtgärden** är _addOrReplace_ eller _Add_.
+
+### <a name="modify-operations"></a>Ändra åtgärder
+
+Med egenskapen för **drifts** egenskaper kan du ändra flera taggar på olika sätt från en enda princip definition. Varje åtgärd består av egenskaperna **åtgärd**, **fält**och **värde** . Åtgärden avgör vad reparations uppgiften gör till taggarna, fältet avgör vilken tagg som ändras och värdet definierar den nya inställningen för taggen. Exemplet nedan gör följande tagg ändringar:
+
+- Ställer in `environment` taggen på "test", även om den redan finns med ett annat värde.
+- Tar bort taggen `TempResource` .
+- Ställer in `Dept` taggen till den princip parameter _DeptName_ som kon figurer ATS för princip tilldelningen.
+
+```json
+"details": {
+    ...
+    "operations": [
+        {
+            "operation": "addOrReplace",
+            "field": "tags['environment']",
+            "value": "Test"
+        },
+        {
+            "operation": "Remove",
+            "field": "tags['TempResource']",
+        },
+        {
+            "operation": "addOrReplace",
+            "field": "tags['Dept']",
+            "value": "[parameters('DeptName')]"
+        }
+    ]
+}
+```
+
+Egenskapen **operation** har följande alternativ:
+
+|Åtgärd |Beskrivning |
+|-|-|
+|addOrReplace |Lägger till den definierade taggen och värdet i resursen, även om taggen redan finns med ett annat värde. |
+|Lägg till |Lägger till den definierade taggen och värdet i resursen. |
+|Ta bort |Tar bort den definierade taggen från resursen. |
+
+### <a name="modify-examples"></a>Ändra exempel
+
+Exempel 1: Lägg till `environment` taggen och ersätt befintliga `environment` taggar med "test":
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "Test"
+            }
+        ]
+    }
+}
+```
+
+Exempel 2: ta bort `env` taggen och Lägg till `environment` taggen eller ersätt befintliga `environment` taggar med ett parameter värde:
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "Remove",
+                "field": "tags['env']"
+            },
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
+}
+```
+
+
+
 ## <a name="layering-policy-definitions"></a>Skikt princip definitioner
 
-En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan finnas i samma omfång eller i olika omfång. Vart och ett av dessa tilldelningar är också troligt att en annan inverkan har definierats. Villkoret och påverkan för varje princip utvärderas oberoende av varandra. Till exempel:
+En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan finnas i samma omfång eller i olika omfång. Vart och ett av dessa tilldelningar är också troligt att en annan inverkan har definierats. Villkoret och påverkan för varje princip utvärderas oberoende av varandra. Ett exempel:
 
 - Princip 1
   - Begränsar resursens plats till "väst"

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 49b57b213a452d6c594bbc1ca537e68bd7a83864
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 050f95ac98ce1ab36dc4ca537db458e133581925
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333846"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746049"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Självstudie: skapa en Store-lokaliserare med hjälp av Azure Maps
 
-Den här självstudien vägleder dig genom processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps. Butikslokaliserare är vanliga. Många av de begrepp som används i den här typen av program är tillämpliga på många andra typer av program. En butikslokaliserare för kunder är ett måste för de flesta företag som säljer direkt till konsumenter. I den här guiden får du lära dig att:
+Den här självstudien vägleder dig genom processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps. Butikslokaliserare är vanliga. Många av de begrepp som används i den här typen av program är tillämpliga på många andra typer av program. En butikslokaliserare för kunder är ett måste för de flesta företag som säljer direkt till konsumenter. I de här självstudierna får du lära dig att
     
 > [!div class="checklist"]
 > * Skapa en ny webbsida med API:et Azure Kartkontroll.
@@ -81,7 +81,7 @@ När vi tittar på skärmbilden över data kan vi göra följande observationer:
     
 * Platsinformation lagras med hjälp av kolumnerna **AddressLine**, **Stad**, **Kommun** (län), **AdminDivision** (region), **PostCode** (postnummer) och **Land**.  
 * Kolumnerna **Latitud** och **Longitud** innehåller koordinaterna för varje plats för Contoso Coffee. Om du inte har koordinaternas information kan du använda Search-tjänsterna i Azure Maps för att fastställa platskoordinaterna.
-* Vissa ytterligare kolumner innehåller metadata som är relaterade till Café butiker: ett telefonnummer, booleska kolumner och lagrings tider i 24-timmarsformat. Booleska kolumner är för Wi-Fi-och Wheelchair-tillgänglighet. Du kan skapa egna kolumner som innehåller metadata som är mer relevant för dina platsdata.
+* Vissa ytterligare kolumner innehåller metadata som är relaterade till Café butiker: ett telefonnummer, booleska kolumner och lagrings tider i 24-timmarsformat. Booleska kolumner är för Wi-Fi-och Wheelchair-tillgänglighet. Du kan skapa egna kolumner som innehåller metadata som är mer relevanta för dina plats data.
 
 > [!Note]
 > Azure Maps renderar data i den sfäriska Mercator-projektionen ”EPSG:3857” men läser data i ”EPSG:4325”, som använder WGS84-datumet. 
@@ -115,7 +115,7 @@ För att skapa projektet använder du [Visual Studio](https://visualstudio.micro
 
 Lägg till kod till *index.html* för att skapa användargränssnittet:
 
-1. Lägg till följande `meta`-taggar till `head` i *index.html*. `charset` Taggen definierar teckenuppsättningen (UTF-8). Värdet för `http-equiv` visar att Internet Explorer och Microsoft Edge använder de senaste webb läsar versionerna. Och den sista `meta` taggen anger ett visnings område som fungerar bra för layouter som svarar.
+1. Lägg till följande `meta`-taggar till `head` i *index.html*. `charset`Taggen definierar teckenuppsättningen (UTF-8). Värdet för `http-equiv` visar att Internet Explorer och Microsoft Edge använder de senaste webb läsar versionerna. Och den sista `meta` taggen anger ett visnings område som fungerar bra för layouter som svarar.
 
     ```HTML
     <meta charset="utf-8">
@@ -397,7 +397,7 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
 
 1. Lägg till kod till *index.js*. Följande kod initierar kartan. Vi har lagt till en [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) att vänta tills sidan har lästs in. Sedan kabelansluter vi händelser för att övervaka inläsningen av kartan och ge funktioner till knappen Sök och min plats.
 
-   När användaren väljer Sök knappen, eller anger en plats i sökrutan, trycker på RETUR, en Fuzzy-sökning mot användarens fråga initieras. Skicka i en matris med ISO 2-värden till `countrySet` alternativet om du vill begränsa Sök resultaten till dessa länder/regioner. Genom att begränsa de länder/regioner som ska genomsökas kan du öka noggrannheten i de resultat som returneras. 
+   När användaren väljer Sök knappen, eller anger en plats i sökrutan, trycker på RETUR, en Fuzzy-sökning mot användarens fråga initieras. Skicka i en matris med ISO 2-värden för land/region till `countrySet` alternativet om du vill begränsa Sök resultaten till dessa länder/regioner. Genom att begränsa de länder/regioner som ska genomsökas kan du öka noggrannheten i de resultat som returneras. 
   
    När sökningen är klar ska du ta det första resultatet och ställa in kart kameran över detta område. När användaren väljer knappen min plats hämtar du användarens plats med hjälp av HTML5s API för geolokalisering. Detta API är inbyggt i webbläsaren. Centrera sedan kartan över deras plats.  
 
@@ -453,7 +453,7 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
         });
     }
 
-    //Create an array of country ISO 2 values to limit searches to. 
+    //Create an array of country/region ISO 2 values to limit searches to. 
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];
 
     function performSearch() {
@@ -461,7 +461,7 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
 
         //Perform a fuzzy search on the users query.
         searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
-            //Pass in the array of country ISO2 for which we want to limit the search to.
+            //Pass in the array of country/region ISO2 for which we want to limit the search to.
             countrySet: countrySet
         }).then(results => {
             //Parse the response into GeoJSON so that the map can understand.
@@ -544,7 +544,7 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
 
 1. När du läser in datauppsättningen i kartans `ready`-händelselyssnare definierar du en uppsättning lager för att återge data. Ett bubbellager används för att återge klustrade datapunkter. Ett symbollager används för att återge antalet punkter i varje kluster över bubbellagret. Ett andra symbollager visas med en anpassad ikon för enskilda platser på kartan.
 
-   Lägg till händelserna `mouseover` och `mouseout` till bubbel- och ikonlagren för att ändra markören när användaren för muspekaren över ett kluster eller en ikon på kartan. Lägg till en `click`-händelse i bubbellagret. Den `click` här händelsen zoomar in två nivåer och centrerar kartan över ett kluster när användaren väljer ett kluster. Lägg till en `click`-händelse i ikonlagret. `click`-händelsen visar ett popup-fönster som visar information om ett kafé när en användare väljer en enskild platsikon. Lägg till en händelse på kartan för att övervaka när kartan har rört sig klart. Uppdatera objekten i listpanelen när den här händelsen utlöses.  
+   Lägg till händelserna `mouseover` och `mouseout` till bubbel- och ikonlagren för att ändra markören när användaren för muspekaren över ett kluster eller en ikon på kartan. Lägg till en `click`-händelse i bubbellagret. Den här `click` händelsen zoomar in två nivåer och centrerar kartan över ett kluster när användaren väljer ett kluster. Lägg till en `click`-händelse i ikonlagret. `click`-händelsen visar ett popup-fönster som visar information om ett kafé när en användare väljer en enskild platsikon. Lägg till en händelse på kartan för att övervaka när kartan har rört sig klart. Uppdatera objekten i listpanelen när den här händelsen utlöses.  
 
     ```JavaScript
     //Create a bubble layer to render clustered data points.
@@ -922,7 +922,7 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
 
 Du har nu en fullt fungerande butikslokaliserare. I en webbläsare öppnar du filen *index.html* för butikslokaliseraren. När klustren visas på kartan kan söka du efter en plats med hjälp av sökrutan, genom att välja knappen My Location (Min plats), genom att välja ett kluster eller zooma in på kartan för att se enskilda platser.
 
-Första gången en användare väljer knappen My Location (Min plats) visas en säkerhetsvarning som begär behörighet att komma åt användarens plats. Om användaren samtycker till att dela sin plats zoomar kartan in på användarens plats och kaféer i närheten visas. 
+Första gången en användare väljer knappen min plats visas en säkerhets varning i webbläsaren som ber om behörighet att komma åt användarens plats. Om användaren samtycker till att dela sin plats zoomar kartan in på användarens plats och kaféer i närheten visas. 
 
 <center>
 

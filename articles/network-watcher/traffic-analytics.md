@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: adba282a96f9d250569e090e186859c04e89ebda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8deb3d81895629e817aeb9dbc1eb6520e1fb7aad
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80981553"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747535"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -168,7 +168,7 @@ Registrera Azure Insights-providern om den inte redan har registrerats för din 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
-Om du inte redan har ett Azure Storage konto för att lagra NSG Flow-loggar i måste du skapa ett lagrings konto. Du kan skapa ett lagrings konto med kommandot som följer. Innan du kör kommandot ersätter `<replace-with-your-unique-storage-account-name>` du med ett namn som är unikt för alla Azure-platser, mellan 3-24 tecken, med enbart siffror och gemener. Du kan också ändra resurs gruppens namn, om det behövs.
+Om du inte redan har ett Azure Storage konto för att lagra NSG Flow-loggar i måste du skapa ett lagrings konto. Du kan skapa ett lagrings konto med kommandot som följer. Innan du kör kommandot ersätter du `<replace-with-your-unique-storage-account-name>` med ett namn som är unikt för alla Azure-platser, mellan 3-24 tecken, med enbart siffror och gemener. Du kan också ändra resurs gruppens namn, om det behövs.
 
 ```azurepowershell-interactive
 New-AzStorageAccount `
@@ -196,7 +196,7 @@ Välj följande alternativ, som du ser på bilden:
 
     ![Val av lagrings konto, Log Analytics arbets yta och Trafikanalys aktivering](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Upprepa föregående steg för alla andra NSG: er som du vill aktivera trafik analys för. Data från flödes loggar skickas till arbets ytan, så se till att lokala lagar och föreskrifter i ditt land tillåter data lagring i den region där arbets ytan finns. Om du har angett olika bearbetnings intervall för olika NSG: er kommer data att samlas in i olika intervall. Exempel: du kan välja att aktivera bearbetnings intervallet på 10 minuter för kritiska virtuella nätverk och 1 timme för icke-kritiska virtuella nätverk.
+Upprepa föregående steg för alla andra NSG: er som du vill aktivera trafik analys för. Data från flödes loggar skickas till arbets ytan, så se till att lokala lagar och föreskrifter i ditt land/region tillåter data lagring i den region där arbets ytan finns. Om du har angett olika bearbetnings intervall för olika NSG: er kommer data att samlas in i olika intervall. Exempel: du kan välja att aktivera bearbetnings intervallet på 10 minuter för kritiska virtuella nätverk och 1 timme för icke-kritiska virtuella nätverk.
 
 Du kan också konfigurera trafik analys med hjälp av [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell-cmdleten i Azure PowerShell. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 

@@ -1,24 +1,24 @@
 ---
-title: Använd Azure Automation grafisk Runbook SDK
-description: Den här artikeln beskriver hur du använder Azure Automation grafiska Runbook SDK.
+title: Använd Azure Automation grafisk Runbook SDK (för hands version)
+description: Den här artikeln beskriver hur du använder Azure Automation grafisk Runbook SDK (för hands version).
 services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 886ce03b6e107d871879ff40bdc5de9ceb97c7c3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b0733cd4f71a734511d5085473047eb7a6d030d3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690744"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744341"
 ---
-# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Använd Azure Automation grafisk Runbook SDK
+# <a name="use-the-azure-automation-graphical-runbook-sdk-preview"></a>Använd Azure Automation grafisk Runbook SDK (för hands version)
 
 [Grafiska runbooks](automation-graphical-authoring-intro.md) hjälper till att hantera komplexiteten i den underliggande Windows PowerShell-eller PowerShell-arbetsflödes koden. Microsoft Azure Automation graphicing graphicing SDK gör det möjligt för utvecklare att skapa och redigera grafiska runbooks för användning med Azure Automation. I den här artikeln beskrivs de grundläggande stegen för att skapa en grafisk Runbook från din kod.
 
 ## <a name="prerequisites"></a>Krav
 
-Importera `Orchestrator.GraphRunbook.Model.dll` paketet till projektet.
+Importera `Orchestrator.GraphRunbook.Model.dll` paketet genom att hämta [SDK: n](https://www.microsoft.com/download/details.aspx?id=50734).
 
 ## <a name="create-a-runbook-object-instance"></a>Skapa en instans av en Runbook-objekt
 
@@ -137,8 +137,8 @@ var serialized = RunbookSerializer.Serialize(runbook);
 ```
 
 Du kan spara den här strängen i en fil med fil namns tillägget **. graphrunbook** . Motsvarande Runbook kan importeras till Azure Automation.
-Det serialiserade formatet kan ändras i framtida versioner av `Orchestrator.GraphRunbook.Model.dll`. Vi lovar bakåtkompatibilitet: alla Runbook-versioner som serialiseras med en äldre `Orchestrator.GraphRunbook.Model.dll` version av kan avserialiseras med en senare version. Forward-kompatibilitet är inte garanterad: en Runbook som serialiseras med en nyare version kan inte deserialiseras av äldre versioner.
+Det serialiserade formatet kan ändras i framtida versioner av `Orchestrator.GraphRunbook.Model.dll` . Vi lovar bakåtkompatibilitet: alla Runbook-versioner som serialiseras med en äldre version av `Orchestrator.GraphRunbook.Model.dll` kan avserialiseras med en senare version. Forward-kompatibilitet är inte garanterad: en Runbook som serialiseras med en nyare version kan inte deserialiseras av äldre versioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om grafiska runbooks i Azure Automation finns i [Introduktion till grafisk redigering](automation-graphical-authoring-intro.md).
+[Redigera grafiska runbooks i Azure Automation](automation-graphical-authoring-intro.md)

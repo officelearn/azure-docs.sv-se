@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/10/2020
 ms.author: robinsh
-ms.openlocfilehash: b71b86c14c55c312ef420a4d8517140fdded4072
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5551655843b8d3ed5b6d70f5d6ed3a0eb4d0e92f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77122297"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746963"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Väder prognoser med sensor data från din IoT Hub i Azure Machine Learning
 
@@ -102,7 +102,7 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
 
    ![Kör experimentet för att verifiera stegen](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
 
-1. Klicka på **Konfigurera** > webb tjänsten**förutsägbar webb tjänst**. Det förutsägande experiment diagrammet öppnas.
+1. Klicka på **Konfigurera**webb tjänsten  >  **förutsägbar webb tjänst**. Det förutsägande experiment diagrammet öppnas.
 
    ![Distribuera väder förutsägelse modellen i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
@@ -181,10 +181,10 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Lägg till en funktion i Stream Analytics jobbet för att anropa den distribuerade webb tjänsten
 
-1. Klicka på **funktioner** > **Lägg till**under **jobb sto pol Ogin**.
+1. Klicka på **funktioner**Lägg till under **jobb sto pol Ogin**  >  **Add**.
 1. Ange följande information:
 
-   **Funktions Ali Aset**: `machinelearning`ange.
+   **Funktions Ali Aset**: ange `machinelearning` .
 
    **Funktions typ**: Välj **Azure ml**.
 
@@ -207,7 +207,7 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
    WITH machinelearning AS (
       SELECT EventEnqueuedUtcTime, temperature, humidity, machinelearning(temperature, humidity) as result from [YourInputAlias]
    )
-   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[Scored Probabilities] AS FLOAT ) AS 'probabalities of rain'
+   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
    Into [YourOutputAlias]
    From machinelearning
    ```
@@ -220,7 +220,7 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
 
 ### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 
-I Stream Analytics jobb klickar du på **Starta** > **nu** > **.** När jobbet startar ändras jobbstatusen från **Stoppad** till **Körs**.
+I Stream Analytics jobb klickar du på **Starta**  >  **nu**  >  **Start**. När jobbet startar ändras jobbstatusen från **Stoppad** till **Körs**.
 
 ![Köra Stream Analytics-jobbet](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 

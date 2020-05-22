@@ -7,27 +7,27 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
-ms.openlocfilehash: 6725e1de21dbd103850071f7511e2800c6bd7b69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdb115cf6d0f0aa2c55f6143015a323df6faa114
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76961093"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744293"
 ---
 # <a name="geomatch-custom-rules-preview"></a>Ommatchnings anpassade regler (förhands granskning)
 
 Med anpassade regler kan du skapa skräddarsydda regler som passar de exakta behoven för dina program och säkerhets principer. Nu kan du begränsa åtkomsten till dina webb program efter land/region. Precis som med alla anpassade regler kan den här logiken sammanställas med andra regler som passar ditt programs behov.
 
-Om du vill skapa en anpassad regel för geo-filtrering väljer du bara *Geo-Location* som matchnings typ och väljer sedan det land eller de länder som du vill tillåta/blockera från ditt program. Mer information finns i [så här skapar du anpassade regler i PowerShell](configure-waf-custom-rules.md) och fler anpassade regel exempel (Create-Custom-waf-rules.MD).
+Om du vill skapa en anpassad regel för geo-filtrering väljer du bara *Geo-Location* som matchnings typ och väljer sedan det land/den region eller de länder/regioner som du vill tillåta/blockera från ditt program. Mer information finns i [så här skapar du anpassade regler i PowerShell](configure-waf-custom-rules.md) och fler anpassade regel exempel (Create-Custom-waf-rules.MD).
 
 > [!IMPORTANT]
 > Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="country-codes"></a>Lands koder
+## <a name="countryregion-codes"></a>Lands-/regions koder
 
-Om du använder en kors matchnings operator kan väljare vara någon av följande tvåsiffriga lands koder. 
+Om du använder en kors matchnings operator kan väljare vara någon av följande tvåsiffriga lands-eller regions koder. 
 
-|Landskod | Lands namn |
+|Lands-/regionkod | Land/region namn |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Förenade Arabemiraten|
@@ -61,7 +61,7 @@ Om du använder en kors matchnings operator kan väljare vara någon av följand
 | BZ | Belize|
 | CA | Kanada|
 | CD | Demokratiska republiken Kongo|
-| CF | Centralafrikanska republiken|
+| CF | Centralafrikanska Republiken|
 | CH | Schweiz|
 | CI | Cote d'Ivoire|
 | CL | Chile|
@@ -87,7 +87,7 @@ Om du använder en kors matchnings operator kan väljare vara någon av följand
 | FM | Mikronesien|
 | FR | Frankrike|
 | GB | Storbritannien|
-| GE | Georgien|
+| GE | Georgia|
 | GF | Franska Guyana|
 | GH | Ghana|
 | GN | Guinea|
@@ -95,7 +95,7 @@ Om du använder en kors matchnings operator kan väljare vara någon av följand
 | GR | Grekland|
 | GT | Guatemala|
 | GY | Guyana|
-| HK | Hongkong|
+| HK | Folkrepubliken Kinas särskilda administrativa region Hongkong|
 | HN | Honduras|
 | HR | Kroatien|
 | HT | Haiti|
@@ -120,7 +120,7 @@ Om du använder en kors matchnings operator kan väljare vara någon av följand
 | KR | Sydkorea|
 | KW | Kuwait|
 | KY | Caymanöarna|
-| KZ | Kazakhstan|
+| KZ | Kazakstan|
 | LA | Demokratiska folkrepubliken Laos|
 | LB | Libanon|
 | LI | Liechtenstein|
@@ -144,10 +144,10 @@ Om du använder en kors matchnings operator kan väljare vara någon av följand
 | MT | Malta|
 | MV | Maldiverna|
 | MW | Malawi|
-| MX | Mexiko|
+| MX | Mexico|
 | MY | Malaysia|
 | MZ | Moçambique|
-| Ej tillämpligt | Namibia|
+| NA | Namibia|
 | NE | Niger|
 | NG | Nigeria|
 | NI | Nicaragua|

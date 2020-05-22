@@ -2,16 +2,20 @@
 title: Kontinuerlig export av telemetri från Application Insights | Microsoft Docs
 description: Exportera diagnostik-och användnings data till lagring i Microsoft Azure och ladda ned dem därifrån.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: f6afe42e483ab7ad5810169fc301946c75308c29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: 7284e6305b1028cbcb62041ff8196d06250f4414
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298291"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744867"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Vill du behålla din telemetri längre än standard kvarhållningsperioden? Eller bearbeta den på ett visst sätt? Kontinuerlig export är idealisk för detta. De händelser som visas i Application Insights-portalen kan exporteras till lagring i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriva vilken kod du behöver för att bearbeta den.  
+
+> [!NOTE]
+> Kontinuerlig export stöds endast för klassiska Application Insights-resurser. [Arbets ytans baserade Application Insights resurser](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource) måste använda [diagnostikinställningar](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource#export-telemetry).
+>
 
 Innan du konfigurerar kontinuerlig export finns det några alternativ som du kanske vill tänka på:
 

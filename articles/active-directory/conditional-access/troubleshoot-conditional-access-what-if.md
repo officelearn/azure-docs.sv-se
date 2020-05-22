@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661afc08c76c6cde61b02a29a55b4a8bec932e21
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73175798"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737647"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Felsöka villkorlig åtkomst med hjälp av What If-verktyget
 
 [What IFS verktyget](what-if-tool.md) i villkorlig åtkomst är kraftfullt vid försök att förstå varför en princip har eller inte tillämpats på en användare under en viss omständighet eller om en princip skulle gälla i ett känt tillstånd.
 
-What If-verktyget finns i **Azure Portal** > **Azure Active Directory** > **villkorlig åtkomst** > **What If**.
+What If-verktyget finns i **Azure Portal**  >  **Azure Active Directory**  >  **villkorlig åtkomst**  >  **What If**.
 
 ![What If verktyget för villkorlig åtkomst i standard läge](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
 

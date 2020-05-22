@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0de95fb725c260ae8c93152884d860e2817b7a5c
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 3f19c77d5e2a943ca6c3c9d081cddedd0769c934
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402409"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736066"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -83,7 +83,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Auckland** | [Vocus-grupp NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | saknas | 10 G | Devoli, Kordia, Megaport, Spark NZ, Vocus-grupp NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | saknas | 10 G | AIS |
 | **Stockholm** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Tyskland, norra | 10 G | NTT globala data Center EMEA|
-| **Busan** | [LG CNS](https://www.lgcns.com/datacenter) | 2 | Sydkorea, södra | saknas | LG CNS |
+| **Busan** | [LG CNS](https://www.lgcns.com/En/Service/DataCenter) | 2 | Sydkorea, södra | saknas | LG CNS |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australien, centrala | 10G, 100G | CDC |
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australien, centrala 2| 10G, 100G | CDC |
 | **Kapstaden** | [Teraco CT1](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | Sydafrika, västra | 10 G | BCX, Internet-lösningar – moln anslutning, flytande telekom, Teraco |
@@ -214,7 +214,7 @@ Om du är fjärran sluten och inte har fiber anslutning eller om du vill utforsk
 | **Dallas** | Equinix, Megaport | AXTEL, C3ntro Telecom, Cox Business, kron Castle, data Funna, spektrum Enterprise, Transtelco |
 | **Frankfurt** | Interxion | BICS, Cinia, Equinix, Nianet, QSC AG, telekom Deutschland GmbH |
 | **Hamburg** | Equinix | Cinia |
-| **Hongkong** | Equinix | Chief, Macroview Telecom |
+| **Folkrepubliken Kinas särskilda administrativa region Hongkong** | Equinix | Chief, Macroview Telecom |
 | **Johannesburg** | Teraco | MTN |
 | **London** | BICS, Equinix, euNetworks| Bezeq International Ltd., CoreAzure, Epsilon, Epsilon-begränsad, exponentiell E, HSO, NexGen Networks, Proximus, Tamares Telecom, Zain |
 | **Los Angeles** | Equinix |Kron Castle, spektrum Enterprise, Transtelco |

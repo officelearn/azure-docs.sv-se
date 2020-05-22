@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: 7ae8a21d4ea9216bea13d47ad5ae41f3bc1c2089
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 80efee18ff7cc927ea9029c11aadcf13ad75781a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82630179"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747600"
 ---
 # <a name="webhook-event-delivery"></a>Leverans av webhook-händelser
 Webhooks är ett av många sätt att ta emot händelser från Azure Event Grid. När en ny händelse är klar skickar Event Grid tjänsten en HTTP-begäran till den konfigurerade slut punkten med händelsen i begär ande texten.
@@ -29,23 +29,23 @@ Om du använder någon annan typ av slut punkt, till exempel en HTTP-utlösare b
 
 1. **Synkron hand skakning**: när händelse prenumerationen skapas skickar Event Grid en prenumerations validerings händelse till din slut punkt. Schemat för den här händelsen liknar andra Event Grid-händelser. Data delen av den här händelsen innehåller en `validationCode` egenskap. Programmet verifierar att verifierings förfrågan är för en förväntad händelse prenumeration och returnerar verifierings koden i svaret synkront. Den här hand skaknings mekanismen stöds i alla Event Grid-versioner.
 
-2. **Asynkron hand skakning**: i vissa fall kan du inte returnera ValidationCode i svar synkront. Om du till exempel använder en tjänst från tredje part (t [`Zapier`](https://zapier.com) . ex. eller [ifttt](https://ifttt.com/)) kan du inte program mässigt svara med validerings koden.
+2. **Asynkron hand skakning**: i vissa fall kan du inte returnera ValidationCode i svar synkront. Om du till exempel använder en tjänst från tredje part (t. ex. [`Zapier`](https://zapier.com) eller [ifttt](https://ifttt.com/)) kan du inte program mässigt svara med validerings koden.
 
    Från och med version 2018-05-01 – för hands version har Event Grid stöd för en manuell validerings hand skakning. Om du skapar en händelse prenumeration med ett SDK eller verktyg som använder API-version 2018-05-01-Preview eller senare, skickar Event Grid en `validationUrl` egenskap i data delen av prenumerations verifierings händelsen. Om du vill slutföra hand skakningen letar du reda på URL: en i händelse data och gör en GET-begäran till den. Du kan antingen använda en REST-klient eller din webbläsare.
 
-   Den angivna webb adressen är giltig i **5 minuter**. Under denna tid är `AwaitingManualAction`etablerings statusen för händelse prenumerationen. Om du inte slutför den manuella verifieringen inom 5 minuter anges etablerings statusen till `Failed`. Du måste skapa händelse prenumerationen igen innan du startar den manuella verifieringen.
+   Den angivna webb adressen är giltig i **5 minuter**. Under denna tid är etablerings statusen för händelse prenumerationen `AwaitingManualAction` . Om du inte slutför den manuella verifieringen inom 5 minuter anges etablerings statusen till `Failed` . Du måste skapa händelse prenumerationen igen innan du startar den manuella verifieringen.
 
    Den här autentiseringsmetoden kräver också att webhook-slutpunkten returnerar en HTTP-statuskod på 200 så att den vet att posten för verifierings händelsen accepterades innan den kan placeras i manuellt validerings läge. Med andra ord, om slut punkten returnerar 200 men inte returnerar ett verifierings svar synkront, övergår läget till det manuella validerings läget. Om validerings-URL: en visas inom 5 minuter anses verifierings hand skakningen vara lyckad.
 
 > [!NOTE]
-> Det finns inte stöd för att använda självsignerade certifikat för verifiering. Använd ett signerat certifikat från en certifikat utfärdare (CA) i stället.
+> Det finns inte stöd för att använda självsignerade certifikat för verifiering. Använd ett signerat certifikat från en kommersiell certifikat utfärdare (CA) i stället.
 
 ### <a name="validation-details"></a>Verifierings information
 
 - Vid skapande/uppdatering av händelse prenumerationen skickar Event Grid en prenumerations validerings händelse till mål slut punkten.
 - Händelsen innehåller ett huvud värde "AEG-Event-Type: SubscriptionValidation".
 - Händelse texten har samma schema som andra Event Grid händelser.
-- Händelsens händelse-egenskap är `Microsoft.EventGrid.SubscriptionValidationEvent`.
+- Händelsens händelse-egenskap är `Microsoft.EventGrid.SubscriptionValidationEvent` .
 - Egenskapen data för händelsen innehåller en `validationCode` egenskap med en slumpmässigt genererad sträng. Till exempel "validationCode: acb13...".
 - Händelse data innehåller även en `validationUrl` egenskap med en URL för att verifiera prenumerationen manuellt.
 - Matrisen innehåller bara verifierings händelsen. Andra händelser skickas i en separat begäran när du har tillbaka verifierings koden.

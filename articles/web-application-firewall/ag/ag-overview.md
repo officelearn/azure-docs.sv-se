@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 45e7e59f72fcda983053314c0b11ff56de8a72e8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314348"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747771"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Web Application-brandvägg på Azure Application Gateway
 
@@ -72,7 +72,7 @@ I det här avsnittet beskrivs de grundläggande fördelar som WAF i Application 
 - Konfigurerbara storleks gränser för begäran med nedre och övre gräns.
 - Med undantags listor kan du utelämna vissa begär ande attribut från en WAF-utvärdering. Ett vanligt exempel är Active Directory-infogade tokens som används för autentiserings-eller lösen ords fält.
 - Skapa anpassade regler som passar de olika behoven i dina program.
-- Geo-filter-trafik för att tillåta eller blockera vissa länder från att få åtkomst till dina program. (förhandsversion)
+- Geo-filter-trafik för att tillåta eller blockera vissa länder/regioner från att få åtkomst till dina program. (förhandsversion)
 - Skydda dina program från robotar med ruleset för bot. (förhandsversion)
 
 ## <a name="waf-policy"></a>WAF-princip
@@ -125,7 +125,7 @@ I avvikande bedömnings läge blockeras inte trafik som matchar någon regel dir
 
 |Severity  |Värde  |
 |---------|---------|
-|Kritisk     |5|
+|Kritiskt     |5|
 |Fel        |4|
 |Varning      |3|
 |anslagstavlan,       |2|

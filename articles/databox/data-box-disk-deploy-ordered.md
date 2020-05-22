@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 91177c67c9d24f73934381704bca8259af31adca
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e7ab15749ccd4ef2808e9cbb362196e38e3d7f4b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858630"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746087"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Självstudie: Beställ en Azure Data Box Disk
 
@@ -23,6 +23,7 @@ Azure Data Box Disk är en hybridmolnlösning. Via den kan du importera lokala d
 I den här självstudien beskriver vi hur du kan beställa Azure Data Box-diskar. I den här självstudien lär du dig:
 
 > [!div class="checklist"]
+>
 > * Beställa Data Box-diskar
 > * Spåra beställningen
 > * Avbryta beställningen
@@ -38,21 +39,22 @@ Innan du distribuerar slutför du följande konfigurationskrav för Data Box-tj�
 ### <a name="for-device"></a>För enheten
 
 Innan du börjar ska du kontrollera att:
-- Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
-    - Kör ett [operativ system som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Ha en annan[programvara som krävs](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installerad om det är en Windows-klient.  
+
+* Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
+  * Kör ett [operativ system som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+  * Ha en annan[programvara som krävs](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installerad om det är en Windows-klient.  
 
 ## <a name="order-data-box-disk"></a>Beställa Data Box Disk
 
 Logga in på:
 
-- Azure Portal på denna URL: https://portal.azure.com för att beställa data Box disk.
-- Eller, Azure Government portalen på denna URL: https://portal.azure.us. Mer information finns i [ansluta till Azure Government med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+* Azure Portal på denna URL: https://portal.azure.com för att beställa data Box disk.
+* Eller, Azure Government portalen på denna URL: https://portal.azure.us . Mer information finns i [ansluta till Azure Government med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 Utför följande steg för att beställa Data Box Disk.
 
 1. I det övre vänstra hörnet i portalen klickar du på **+ Create a resource**, (Skapa en resurs) och titta efter *Azure Data Box*. Klicka på **Azure Data Box**.
-    
+
    ![Sök Azure Data Box 1](media/data-box-disk-deploy-ordered/search-data-box11.png)
 
 2. Klicka på **Skapa**.
@@ -65,15 +67,14 @@ Utför följande steg för att beställa Data Box Disk.
     |---|---|
     |Prenumeration|Välj den prenumeration för vilken Data Box-tjänsten är aktiverad.<br> Prenumerationen är kopplad till ditt faktureringskonto. |
     |Överföringstyp| Importera till Azure|
-    |Källand | Välj landet/regionen där dina data finns.|
+    |Käll land/-region | Välj landet/regionen där dina data finns.|
     |Azure-målregion|Välj den Azure-region dit du vill överföra data.|
-
   
-5.  Välj **Data Box Disk**. Maximal kapacitet för en enskild beställning på 5 diskar är 35 TB. Du kan skapa flera beställningar om du har större datamängder.
+4. Välj **Data Box Disk**. Maximal kapacitet för en enskild beställning på 5 diskar är 35 TB. Du kan skapa flera beställningar om du har större datamängder.
 
      ![Välj Data Box Disk-alternativ](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
-6.  I **Order** (Beställa) anger du **Order details** (Beställningsinformation). Ange eller välj följande information.
+5. I **Order** (Beställa) anger du **Order details** (Beställningsinformation). Ange eller välj följande information.
 
     |Inställningen|Värde|
     |---|---|
@@ -81,7 +82,7 @@ Utför följande steg för att beställa Data Box Disk.
     |Resursgrupp| Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
     |Azure-målregion| Välj en region för lagringskontot.<br> För närvarande stöds lagringskonton i USA, västra och Europa, norra, Kanada och Australien. |
     |Beräknad datastorlek i TB| Ange en uppskattning i TB. <br>Microsoft skickar baserat på datastorlek ett lämpligt antal SSD-diskar på vardera 8 TB (7 TB användbar kapacitet). <br>Den maximala kapaciteten som kan användas på 5 diskar är upp till 35 TB. |
-    |Disknyckel| Ange disknyckeln om du markerar **Använd anpassad nyckel istället för en nyckel som skapats av Azure**. <br> Ange en alfanumerisk nyckel på 12 till 32 tecken som har minst ett numeriskt tecken och ett specialtecken. Tillåtna specialtecken är `@?_+`. <br> Du kan välja att hoppa över det här alternativet och använder den Azure-genererade nyckeln för att låsa upp dina diskar.|
+    |Disknyckel| Ange disknyckeln om du markerar **Använd anpassad nyckel istället för en nyckel som skapats av Azure**. <br> Ange en alfanumerisk nyckel på 12 till 32 tecken som innehåller minst ett numeriskt tecken och ett specialtecken. Tillåtna specialtecken är `@?_+`. <br> Du kan välja att hoppa över det här alternativet och använder den Azure-genererade nyckeln för att låsa upp dina diskar.|
     |Lagringsmål     | Välj mellanlagringskonto eller hanterade diskar eller båda. <br> Baserat på den angivna Azure-regionen väljer du ett lagrings konto i den filtrerade listan för ett befintligt lagrings konto. Data Box Disk kan bara länkas med ett lagrings konto. <br> Du kan också skapa ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **bloblagring**. <br>Lagringskonton med virtuella nätverk stöds. För att Data Box-tjänsten ska fungera med skyddade lagringskonton aktiverar du de betrodda tjänsterna i inställningarna för nätverksbrandväggen för lagringskontot. Mer information finns i så här [lägger du till Azure Data box som en betrodd tjänst](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
 
     Om du använder lagringskontot som lagringsmål visas följande skärmbild:
@@ -98,33 +99,34 @@ Utför följande steg för att beställa Data Box Disk.
 
     Det angivna lagringskontot för hanterade diskar används som ett mellanlagringskonto. Den Data Box-enhet tjänsten laddar upp de virtuella hård diskarna till lagrings kontot och konverterar dem till de hanterade diskarna och flyttar till resurs grupperna. Mer information finns i [Verifiera dataöverföring till Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
 
-13. Klicka på **Nästa**.
+6. Klicka på **Nästa**.
 
     ![Uppge beställningsinformation](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
-14. På fliken **Shipping address** (Leveransadress) uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Klicka på **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det. Kunder som använder tjänsten i Japan, Singapore, Korea och Västeuropa har möjlighet att välja självhanterad leverans medan ordern behålls. När ordern har placerats får du ett e-postmeddelande med instruktioner för att hämta enheten från det angivna Azure-datacenter.
+7. På fliken **Shipping address** (Leveransadress) uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Klicka på **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det.
+
+   När beställningen har bearbetats visas ett e-postmeddelande. Mer information om självhanterad leverans finns i [Använd självhanterad leverans](data-box-disk-portal-customer-managed-shipping.md).
 
     ![Uppge leveransadress](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
-15. Ange e-postadresser i **Notification details** (Information om meddelande). Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus. 
+8. Ange e-postadresser i **Notification details** (Information om meddelande). Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
 
     Vi rekommenderar att du använder en grupp-e-postadress, så att du kan fortsätta att ta emot meddelanden även om en gruppadministratör lämnar företaget.
 
-16. Granska informationen **Summary** (Sammanfattning) som rör beställningen, kontakt, meddelanden och sekretess. Markera rutan för avtalet till sekretesspolicyn.
+9. Granska informationen **Summary** (Sammanfattning) som rör beställningen, kontakt, meddelanden och sekretess. Markera rutan för avtalet till sekretesspolicyn.
 
-17. Klicka på **Order** (Ordning). Det tar några minuter att skapa beställningen.
+10. Klicka på **Order** (Ordning). Det tar några minuter att skapa beställningen.
 
- 
 ## <a name="track-the-order"></a>Spåra beställningen
 
 När du har skapat beställningen kan du spåra statusen för ordern via Azure-portalen. Öppna beställningen och navigera till **Overview** (Översikt) för att visa status. Portalen visar jobbet i tillståndet **Ordered** (beställt).
 
-![Data Box Disk-status beställd](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
+![Data Box Disk-status beställd](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png)
 
 Om diskarna inte är tillgängliga får du ett meddelande. Om diskarna är tillgängliga identifierar Microsoft vilka diskar som ska skickas och förbereder dem för leverans. Vid förberedelsen av disk utförs följande åtgärder:
 
-- Diskarna krypteras med AES-128 BitLocker-kryptering.  
-- Diskarna är låsta för att förhindra obehörig åtkomst.
-- Nyckeln som låser upp diskarna genereras under den här processen.
+* Diskarna krypteras med AES-128 BitLocker-kryptering.  
+* Diskarna är låsta för att förhindra obehörig åtkomst.
+* Nyckeln som låser upp diskarna genereras under den här processen.
 
 När diskförberedelserna är klara visar portalen ordningen i tillståndet **Processed** (Bearbetat).
 
@@ -134,18 +136,18 @@ Microsoft förbereder sedan diskarna och skickar dem via en regional leverantör
 
 Om du vill avbryta beställningen öppnar du Azure-portalen, navigerar till **Översikt** och klickar på **Avbryt** i kommandofältet.
 
-Du kan bara avbryta beställningen medan den bearbetas inför leveransen. När beställningen har bearbetats går det inte att avbryta den.
+Du kan bara avbryta när diskarna har beställts och beställningen bearbetas för leverans. När beställningen har bearbetats går det inte att avbryta den.
 
 ![Avbryta beställning](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
 Om du vill ta bort en avbruten beställning navigerar du till **Översikt** och klickar på **Ta bort** i kommandofältet.
-
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
+>
 > * Beställa Data Box Disk
 > * Spåra beställningen
 > * Avbryta beställningen

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7725a9ddd1d9559166360b27bd8a5371d8c0557e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638250"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757627"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Översikt över tokens i Azure Active Directory B2C
 
@@ -37,8 +37,8 @@ Följande tokens används i kommunikationen med Azure AD B2C:
 
 Ett [registrerat program](tutorial-register-applications.md) tar emot tokens och kommunicerar med Azure AD B2C genom att skicka begär anden till dessa slut punkter:
 
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/authorize`
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token`
 
 Säkerhetstoken som programmet tar emot från Azure AD B2C kan komma från-eller- `/authorize` `/token` slut punkterna. När ID-token har hämtats från `/authorize` slut punkten görs det med det [implicita flödet](implicit-flow-single-page-application.md), som ofta används för användare som loggar in på JavaScript-baserade webb program. När ID-token har hämtats från `/token` slut punkten görs det med hjälp av [flödet för auktoriseringskod](openid-connect.md#get-a-token), som gör att token är dold i webbläsaren.
 
@@ -50,7 +50,7 @@ Anspråk i ID-token returneras inte i någon särskild ordning. Nya anspråk kan
 
 I följande tabell visas de anspråk som du kan förväntar dig i ID-token och åtkomsttoken som utfärdats av Azure AD B2C.
 
-| Name | Begär | Exempelvärde | Description |
+| Name | Begär | Exempelvärde | Beskrivning |
 | ---- | ----- | ------------- | ----------- |
 | Målgrupp | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifierar den avsedda mottagaren för token. För Azure AD B2C är mål gruppen program-ID: t. Programmet bör validera det här värdet och avvisa token om det inte matchar. Mål gruppen är synonym med resursen. |
 | Utfärdare | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifierar säkerhetstokentjänst som konstruerar och returnerar token. Den identifierar även den katalog där användaren autentiserades. Ditt program bör verifiera utfärdarens anspråk för att se till att token kommer från lämplig slut punkt. |

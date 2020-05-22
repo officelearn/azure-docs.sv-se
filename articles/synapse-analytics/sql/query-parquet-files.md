@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0b272a8c8ce81fc40585014e5930f5d7b1b5f2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9731b869b20c7d8cfc3b1e234711c818a2b7422
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431701"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744242"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga Parquet-filer med SQL on-demand (för hands version) i Azure Synapse Analytics
 
@@ -22,34 +22,11 @@ I den här artikeln får du lära dig hur du skriver en fråga med SQL på begä
 
 ## <a name="prerequisites"></a>Krav
 
-Läs följande artiklar innan du läser resten av den här artikeln:
-
-- [Installation vid första tiden](query-data-storage.md#first-time-setup)
-- [Förutsättningar](query-data-storage.md#prerequisites)
+Ditt första steg är att **skapa en databas** med en data källa som refererar till [NYC gul taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) -lagrings konto. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
 ## <a name="dataset"></a>Datauppsättning
 
-Du kan fråga Parquet-filer på samma sätt som du läser CSV-filer. Den enda skillnaden är att parametern FILEFORMAT ska anges till PARQUET. Exemplen i den här artikeln visar information om hur du läser Parquet-filer.
-
-> [!NOTE]
-> Du behöver inte ange kolumner i OpenRowSet WITH-satsen när du läser Parquet-filer. SQL på begäran kommer att använda metadata i Parquet-filen och binda kolumner efter namn.
-
-Du använder mappen *Parquet/taxi* för exempel frågorna. Den innehåller NYC taxi-Yellow taxi-resa registrerar data från 2016 juli. till juni 2018.
-
-Data partitioneras per år och månad och mappstrukturen är följande:
-
-- år = 2016
-  - månad = 6
-  - ...
-  - månad = 12
-- år = 2017
-  - månad = 1
-  - ...
-  - månad = 12
-- år = 2018
-  - månad = 1
-  - ...
-  - månad = 6
+[NYC gul taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) -datauppsättning används i det här exemplet. Du kan fråga Parquet-filer på samma sätt som du [läser CSV-filer](query-parquet-files.md). Den enda skillnaden är att `FILEFORMAT` parametern ska vara inställd på `PARQUET` . Exemplen i den här artikeln visar information om hur du läser Parquet-filer.
 
 ## <a name="query-set-of-parquet-files"></a>Fråga uppsättning Parquet-filer
 
@@ -57,23 +34,24 @@ Du kan bara ange intressanta kolumner när du frågar Parquet-filer.
 
 ```sql
 SELECT
-        YEAR(pickup_datetime),
-        passenger_count,
+        YEAR(tpepPickupDateTime),
+        passengerCount,
         COUNT(*) AS cnt
 FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+        BULK 'puYear=2018/puMonth=*/*.snappy.parquet',
+        DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
     ) WITH (
-        pickup_datetime DATETIME2,
-        passenger_count INT
+        tpepPickupDateTime DATETIME2,
+        passengerCount INT
     ) AS nyc
 GROUP BY
-    passenger_count,
-    YEAR(pickup_datetime)
+    passengerCount,
+    YEAR(tpepPickupDateTime)
 ORDER BY
-    YEAR(pickup_datetime),
-    passenger_count;
+    YEAR(tpepPickupDateTime),
+    passengerCount;
 ```
 
 ## <a name="automatic-schema-inference"></a>Automatisk schema härledning
@@ -86,13 +64,13 @@ Exemplet nedan visar de automatiska schema härlednings funktionerna för Parque
 > Du behöver inte ange kolumner i OpenRowSet WITH-satsen när du läser Parquet-filer. I så fall använder Query-tjänsten SQL på begäran metadata i Parquet-filen och bind kolumner efter namn.
 
 ```sql
-SELECT
-    COUNT_BIG(*)
-FROM
+SELECT TOP 10 *
+FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+        BULK 'puYear=2018/puMonth=*/*.snappy.parquet',
+        DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
-    ) AS nyc;
+    ) AS nyc
 ```
 
 ### <a name="query-partitioned-data"></a>Fråga partitionerade data
@@ -104,27 +82,25 @@ Den data mängd som anges i det här exemplet är uppdelad (partitionerad) i sep
 
 ```sql
 SELECT
-    nyc.filepath(1) AS [year],
-    nyc.filepath(2) AS [month],
-    payment_type,
-    SUM(fare_amount) AS fare_total
-FROM
+        YEAR(tpepPickupDateTime),
+        passengerCount,
+        COUNT(*) AS cnt
+FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=*/month=*/*.parquet',
+        BULK 'puYear=*/puMonth=*/*.snappy.parquet',
+        DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
-    ) AS nyc
+    ) nyc
 WHERE
     nyc.filepath(1) = 2017
     AND nyc.filepath(2) IN (1, 2, 3)
-    AND pickup_datetime BETWEEN CAST('1/1/2017' AS datetime) AND CAST('3/31/2017' AS datetime)
+    AND tpepPickupDateTime BETWEEN CAST('1/1/2017' AS datetime) AND CAST('3/31/2017' AS datetime)
 GROUP BY
-    nyc.filepath(1),
-    nyc.filepath(2),
-    payment_type
+    passengerCount,
+    YEAR(tpepPickupDateTime)
 ORDER BY
-    nyc.filepath(1),
-    nyc.filepath(2),
-    payment_type;
+    YEAR(tpepPickupDateTime),
+    passengerCount;
 ```
 
 ## <a name="type-mapping"></a>Typ mappning
@@ -141,12 +117,12 @@ Parquet-filer innehåller typ beskrivningar för varje kolumn. I följande tabel
 | INT64 | | bigint |
 | INT96 | |datetime2 |
 | FIXED_LEN_BYTE_ARRAY | |binary |
-| BINARY |UTF8 |varchar \*(utf8-sortering) |
-| BINARY |NOLLÄNGD |varchar \*(utf8-sortering) |
-| BINARY |RÄKNING|varchar \*(utf8-sortering) |
+| BINARY |UTF8 |varchar \* (utf8-sortering) |
+| BINARY |NOLLÄNGD |varchar \* (utf8-sortering) |
+| BINARY |RÄKNING|varchar \* (utf8-sortering) |
 | BINARY |UUID |uniqueidentifier |
 | BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar (max) \*(utf8-sortering) |
+| BINARY |JSON |varchar (max) \* (utf8-sortering) |
 | BINARY |BSON |varbinary(max) |
 | FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
 | BYTE_ARRAY |INTERVALL |varchar (max), serialiserad till standardiserat format |

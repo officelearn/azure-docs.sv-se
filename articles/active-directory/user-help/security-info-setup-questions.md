@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: d4714a78ed03a9b861f3a266cfd0d7bca456b3c4
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 0c55f15d12ddc51573f59f56c742a8cac525af0b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628358"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744437"
 ---
 # <a name="set-up-security-questions-as-your-verification-method"></a>Konfigurera säkerhets frågor som verifierings metod
 
@@ -55,7 +55,7 @@ Om du använder säkerhets frågor rekommenderar vi att du använder dem tillsam
 
 ### <a name="to-set-up-your-security-questions"></a>Konfigurera dina säkerhets frågor
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myaccount.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myaccount.microsoft.com/ sida.
 
     ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 9a28dee2d1e6d1355b729a56e8eeb8447e4ed8c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e843216bf973033868e75c027b11d27ddfe2e93
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80682031"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757474"
 ---
 # <a name="server-side-performance-queries"></a>Prestandafrågor på serversidan
 
@@ -37,7 +37,7 @@ Bilden visar hur:
 
 Ram statistik ger viss information på hög nivå för den sista ramen, till exempel svars tid. De data som anges i `FrameStatistics` strukturen mäts på klient sidan, så API: et är ett synkront anrop:
 
-````c#
+```cs
 void QueryFrameData(AzureSession session)
 {
     FrameStatistics frameStatistics;
@@ -46,7 +46,18 @@ void QueryFrameData(AzureSession session)
         // do something with the result
     }
 }
-````
+```
+
+```cpp
+void QueryFrameData(ApiHandle<AzureSession> session)
+{
+    FrameStatistics frameStatistics;
+    if (*session->GetGraphicsBinding()->GetLastFrameStatistics(&frameStatistics) == Result::Success)
+    {
+        // do something with the result
+    }
+}
+```
 
 Det hämtade `FrameStatistics` objektet innehåller följande medlemmar:
 
@@ -65,17 +76,17 @@ Det hämtade `FrameStatistics` objektet innehåller följande medlemmar:
 
 Summan av alla latens-värden är vanligt vis mycket större än den tillgängliga bild perioden vid 60 Hz. Det här är OK eftersom flera ramar håller på att vara parallella och nya begär Anden om ramar inaktive ras enligt önskad bild Rute hastighet, som visas i bilden. Men om fördröjningen blir för stor, påverkar det kvaliteten på [omprojektionen av den sena fasen](../../overview/features/late-stage-reprojection.md)och kan äventyra den övergripande upplevelsen.
 
-`videoFramesReceived`, `videoFrameReusedCount`och `videoFramesDiscarded` kan användas för att mäta nätverks-och Server prestanda. Om `videoFramesReceived` är lågt och `videoFrameReusedCount` är högt, kan detta tyda på nätverks överbelastning eller dåliga Server prestanda. Ett högt `videoFramesDiscarded` värde indikerar också överbelastning av nätverket.
+`videoFramesReceived`, `videoFrameReusedCount` och `videoFramesDiscarded` kan användas för att mäta nätverks-och Server prestanda. Om `videoFramesReceived` är lågt och `videoFrameReusedCount` är högt, kan detta tyda på nätverks överbelastning eller dåliga Server prestanda. Ett högt `videoFramesDiscarded` värde indikerar också överbelastning av nätverket.
 
-Till sist`timeSinceLastPresent`, `videoFrameMinDelta`, och `videoFrameMaxDelta` ger en uppfattning om var Ian sen för inkommande video bild rutor och lokala presentations samtal. Hög varians innebär instabil bild hastighet.
+Till sist,, `timeSinceLastPresent` `videoFrameMinDelta` och `videoFrameMaxDelta` ger en uppfattning om var Ian sen för inkommande video bild rutor och lokala presentations samtal. Hög varians innebär instabil bild hastighet.
 
-Inget av värdena ovan ger tydliga indikationer på en ren nätverks fördröjning (de röda pilarna i bilden), eftersom den exakta tiden som servern är upptagen med åter givning måste subtraheras från värdet `latencyPoseToReceive`för tur och retur. Server sidan av den totala svars tiden är information som inte är tillgänglig för klienten. Nästa stycke förklarar dock hur det här värdet är ungefärligt genom ytterligare indatatyper från servern och exponeras genom `networkLatency` värdet.
+Inget av värdena ovan ger tydliga indikationer på en ren nätverks fördröjning (de röda pilarna i bilden), eftersom den exakta tiden som servern är upptagen med åter givning måste subtraheras från värdet för tur och retur `latencyPoseToReceive` . Server sidan av den totala svars tiden är information som inte är tillgänglig för klienten. Nästa stycke förklarar dock hur det här värdet är ungefärligt genom ytterligare indatatyper från servern och exponeras genom `networkLatency` värdet.
 
 ## <a name="performance-assessment-queries"></a>Frågor om prestanda bedömning
 
 *Frågor om prestanda bedömning* ger mer detaljerad information om processor-och GPU-arbetsbelastningen på servern. Eftersom data begärs från servern, efter fråga en ögonblicks bild av prestanda, följer det vanliga asynkrona mönstret:
 
-``` cs
+```cs
 PerformanceAssessmentAsync _assessmentQuery = null;
 
 void QueryPerformanceAssessment(AzureSession session)
@@ -92,7 +103,21 @@ void QueryPerformanceAssessment(AzureSession session)
 }
 ```
 
-Objektet är i `FrameStatistics` motsats till objektet `PerformanceAssessment` och innehåller information på Server sidan:
+```cpp
+void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
+{
+    ApiHandle<PerformanceAssessmentAsync> assessmentQuery = *session->Actions()->QueryServerPerformanceAssessmentAsync();
+    assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
+    {
+        // do something with the result:
+        PerformanceAssessment result = *res->Result();
+        // ...
+
+    });
+}
+```
+
+`FrameStatistics`Objektet är i motsats till objektet och `PerformanceAssessment` innehåller information på Server sidan:
 
 | Medlem | Förklaring |
 |:-|:-|
@@ -102,7 +127,7 @@ Objektet är i `FrameStatistics` motsats till objektet `PerformanceAssessment` o
 | utilizationGPU | Total GPU-användning i procent för Server |
 | memoryCPU | Total belastning på serverns huvud minne i procent |
 | memoryGPU | Total dedikerad video minnes användning i procent av serverns GPU |
-| networkLatency | Den ungefärliga genomsnittliga fördröjningen i millisekunder för nätverks fördröjningen. I bilden ovan motsvarar detta summan av de röda pilarna. Värdet beräknas genom att dra ifrån den `latencyPoseToReceive` faktiska Server åter givnings tiden från värdet för. `FrameStatistics` Även om den här uppskattningen inte är korrekt ger den en indikation på nätverks fördröjningen, isolerad från latens värden som beräknas på klienten. |
+| networkLatency | Den ungefärliga genomsnittliga fördröjningen i millisekunder för nätverks fördröjningen. I bilden ovan motsvarar detta summan av de röda pilarna. Värdet beräknas genom att dra ifrån den faktiska Server åter givnings tiden från `latencyPoseToReceive` värdet för `FrameStatistics` . Även om den här uppskattningen inte är korrekt ger den en indikation på nätverks fördröjningen, isolerad från latens värden som beräknas på klienten. |
 | polygonsRendered | Antalet trianglar som återges i en ram. Det här talet inkluderar även de trianglar som slaktas senare under åter givning. Det innebär att det här talet inte varierar mycket mellan olika kamera lägen, men prestanda kan variera drastiskt beroende på triangelns culling-pris.|
 
 För att hjälpa dig att utvärdera värdena kommer varje del att ha en kvalitets klassificering som **fantastiska**, **bra**, **mediocre**eller **dåligt**.
@@ -110,9 +135,9 @@ Detta bedömnings mått ger en grov indikation på serverns hälsa, men bör int
 
 ## <a name="statistics-debug-output"></a>Statistik fel söknings utdata
 
-Klassen `ARRServiceStats` radbryts runt både ram statistik och prestanda utvärderings frågor och ger praktiska funktioner för att returnera statistik som aggregerade värden eller som en förskapad sträng. Följande kod är det enklaste sättet att visa statistik på Server sidan i klient programmet.
+Klassen `ARRServiceStats` är en C#-klass som radbryts runt både ram statistik och prestanda utvärderings frågor och ger praktiska funktioner för att returnera statistik som sammanställda värden eller som en förskapad sträng. Följande kod är det enklaste sättet att visa statistik på Server sidan i klient programmet.
 
-``` cs
+```cs
 ARRServiceStats _stats = null;
 
 void OnConnect()
@@ -142,9 +167,9 @@ Koden ovan fyller i text etiketten med följande text:
 
 ![Utdata för ArrServiceStats-sträng](./media/arr-service-stats.png)
 
-`GetStatsString` API: et formaterar en sträng med alla värden, men varje enskilt värde kan också frågas program mässigt från `ARRServiceStats` instansen.
+`GetStatsString`API: et formaterar en sträng med alla värden, men varje enskilt värde kan också frågas program mässigt från `ARRServiceStats` instansen.
 
-Det finns också varianter av medlemmarna, som sammanställer värdena över tid. Se medlemmar med suffix `*Avg`, `*Max`eller `*Total`. Medlemmen `FramesUsedForAverage` anger hur många ramar som har använts för denna agg regering.
+Det finns också varianter av medlemmarna, som sammanställer värdena över tid. Se medlemmar med suffix `*Avg` , `*Max` eller `*Total` . Medlemmen `FramesUsedForAverage` anger hur många ramar som har använts för denna agg regering.
 
 ## <a name="next-steps"></a>Nästa steg
 

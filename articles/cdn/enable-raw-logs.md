@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2020
 ms.author: sohamnc
-ms.openlocfilehash: c6e8570746ae3dd0051dbec084c89d90580d28b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4693cdac2d5d3a57987cc692797756314ded11e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80371637"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747304"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Azure CDN HTTP RAW-loggar
 Obehandlade loggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning och fel sökning. Obehandlade loggar skiljer sig från aktivitets loggar. Aktivitets loggarna ger insyn i de åtgärder som utförs på Azure-resurser. Obehandlade loggar innehåller en post med åtgärder för din resurs.
@@ -23,7 +23,7 @@ Obehandlade loggar innehåller omfattande information om åtgärder och fel som 
 > [!IMPORTANT]
 > Funktionen HTTP RAW-loggar är tillgänglig för Azure CDN från Microsoft.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -33,7 +33,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 Så här konfigurerar du obehandlade loggar för din Azure CDN från Microsoft-profilen: 
 
-1. Från Azure Portal-menyn väljer du **alla resurser** >> **\<din-CDN-profil>**.
+1. Från Azure Portal-menyn väljer du **alla resurser**  >>  ** \< din-CDN-profil>**.
 
 2. Under **Övervakning** väljer du **Diagnostikinställningar**.
 
@@ -84,12 +84,12 @@ Azure CDN från Microsoft-tjänsten tillhandahåller för närvarande obehandlad
 | Popup                   | Edge-pop, som svarade på användarens begäran. Pop-förkortningar är flyg plats koder för deras respektive Metros.                                                                                   |
 | Cache-status          | Indikerar om objektet returnerades från cachen eller kom från ursprunget.                                                                                                             |
 > [!IMPORTANT]
-> Funktionen HTTP RAW-loggar är tillgänglig automatiskt för profiler som skapats eller uppdaterats efter **25 februari 2020**. För CDN-profiler som skapats tidigare bör du uppdatera CDN-slutpunkten när du har konfigurerat loggning. Till exempel kan en navigera till geo-filtrering under CDN-slutpunkter och blockera alla länder som inte är relevanta för deras arbets belastning och tryck på Spara. 
+> Funktionen HTTP RAW-loggar är tillgänglig automatiskt för profiler som skapats eller uppdaterats efter **25 februari 2020**. För CDN-profiler som skapats tidigare bör du uppdatera CDN-slutpunkten när du har konfigurerat loggning. Till exempel kan en navigera till geo-filtrering under CDN-slutpunkter och blockera alla länder/regioner som inte är relevanta för deras arbets belastning och tryck på Spara. 
 
 > [!NOTE]
 > Loggarna kan visas under din Log Analytics profil genom att köra en fråga. En exempel fråga skulle se ut som AzureDiagnostics | där Category = = "AzureCdnAccessLog"
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 I den här artikeln har du aktiverat HTTP RAW-loggar för Microsoft CDN-tjänsten.
 
 Mer information om Azure CDN och de andra Azure-tjänsterna som nämns i den här artikeln finns i:

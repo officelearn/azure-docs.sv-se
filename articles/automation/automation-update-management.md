@@ -1,22 +1,22 @@
 ---
 title: Översikt över Azure Automation Uppdateringshantering
-description: Översikt över den Uppdateringshantering-funktion som hanterar uppdateringar för dina Windows-och Linux-datorer.
+description: Den här artikeln innehåller en översikt över den Uppdateringshantering funktionen som implementerar uppdateringar för dina Windows-och Linux-datorer.
 services: automation
 ms.subservice: update-management
-ms.date: 05/20/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba4ce84dca85ea1e3f2385ac280bd82c16aa8fb3
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b064e22b56d63055cede400fa2b06cee96d21664
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714771"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745303"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
 Du kan använda Uppdateringshantering i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-datorer i Azure, i lokala miljöer och i andra moln miljöer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agent datorer och hantera processen för att installera nödvändiga uppdateringar för servrar.
 
-Du kan aktivera Uppdateringshantering för virtuella datorer (VM) med följande metoder:
+Du kan aktivera Uppdateringshantering för virtuella datorer på följande sätt:
 
 * Från ditt [Azure Automation-konto](automation-onboard-solutions-from-automation-account.md) för en eller flera Azure-datorer.
 * Manuellt för datorer som inte är Azure-datorer.
@@ -31,7 +31,7 @@ En [Azure Resource Manager mall](automation-update-management-deploy-template.md
 > [!NOTE]
 > Du kan inte använda en dator som kon figurer ATS med Uppdateringshantering för att köra anpassade skript från Azure Automation. Den här datorn kan bara köra det Microsoft-signerade uppdaterings skriptet. 
 
-## <a name="update-management-overview"></a>Översikt över Uppdateringshantering
+## <a name="about-update-management"></a>Om Uppdateringshantering
 
 Datorer som hanteras med Uppdateringshantering använder följande konfigurationer för att utföra utvärderingen och för att uppdatera distributioner:
 
@@ -44,7 +44,7 @@ I följande diagram illustreras hur Uppdateringshantering utvärderar och tillä
 
 ![Uppdateringshantering arbets flöde](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Du kan använda Uppdateringshantering till att internt registrera datorer i flera prenumerationer hos samma klientorganisation.
+Uppdateringshantering kan användas för att distribuera datorer internt i flera prenumerationer i samma klient organisation.
 
 När ett paket har frigjorts tar det 2 till 3 timmar innan korrigeringen visas för Linux-datorer för utvärdering. För Windows-datorer tar det 12 till 15 timmar innan korrigeringen visas för utvärderingen när den har släppts.
 
@@ -74,7 +74,7 @@ En dator som är registrerad för Uppdateringshantering i fler än en Log Analyt
 
 ### <a name="supported-client-types"></a>Klient typer som stöds
 
-I följande tabell visas de operativ system som stöds för utvärdering av uppdateringar. Uppdatering kräver en Hybrid Runbook Worker. Information om Hybrid Runbook Worker krav finns i [distribuera en Windows hybrid Runbook Worker](automation-windows-hrw-install.md) och [distribuera en Linux-hybrid Runbook Worker](automation-linux-hrw-install.md).
+I följande tabell visas de operativ system som stöds för utvärdering av uppdateringar. Uppdatering kräver en Hybrid Runbook Worker. Information om Hybrid Runbook Worker krav finns i [distribuera en Windows-hybrid Runbook Worker](automation-windows-hrw-install.md) och [distribuera en Linux-hybrid Runbook Worker](automation-linux-hrw-install.md).
 
 > [!NOTE]
 > Uppdaterings utvärdering av Linux-datorer stöds bara i vissa regioner enligt listan i Automation-kontot och Log Analytics [mappnings tabellen](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)för arbets ytan. 
@@ -89,8 +89,7 @@ I följande tabell visas de operativ system som stöds för utvärdering av uppd
 |Ubuntu 14,04 LTS, 16,04 LTS och 18,04 (x86/x64)      |Linux-agenter kräver åtkomst till ett uppdaterings lager.         |
 
 > [!NOTE]
-> Skalnings uppsättningar för virtuella Azure-datorer kan hanteras via Uppdateringshantering. Uppdateringshantering fungerar på själva instanserna och inte på bas avbildningen. Du måste schemalägga uppdateringarna på ett stegvist sätt så att alla VM-instanser inte uppdateras samtidigt.
-> Du kan lägga till noder för skalnings uppsättningar för virtuella datorer genom att följa stegen under [publicera en icke-Azure-dator](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
+> Skalnings uppsättningar för virtuella Azure-datorer kan hanteras via Uppdateringshantering. Uppdateringshantering fungerar på själva instanserna och inte på bas avbildningen. Du måste schemalägga uppdateringarna på ett stegvist sätt så att alla VM-instanser inte uppdateras samtidigt. Du kan lägga till noder för skalnings uppsättningar för virtuella datorer genom att följa stegen under [Lägg till en icke-Azure-dator i ändringsspårning och inventering](automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
 
 ### <a name="unsupported-client-types"></a>Klient typer som inte stöds
 
@@ -98,11 +97,9 @@ I följande tabell visas operativ system som inte stöds:
 
 |Operativsystem  |Anteckningar  |
 |---------|---------|
-|Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.<br> Den rekommenderade metoden för Azure Windows Virtual Desktop (WVD)<br> för att hantera uppdateringar är [Windows Update för Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) för hantering av klient datorer för Windows 10. |
+|Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.        |
 |Windows Server 2016 Nano Server     | Stöds inte.       |
 |Azure Kubernetes service-noder | Stöds inte. Använd korrigerings processen som beskrivs i [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
-
-
 
 ### <a name="client-requirements"></a>Klientkrav
 
@@ -112,7 +109,7 @@ Följande information beskriver särskilda klient krav för operativ systemet. Y
 
 Windows-agenter måste konfigureras för att kommunicera med en WSUS-server, eller de kräver åtkomst till Microsoft Update. Information om hur du installerar Log Analytics agent för Windows finns i [ansluta Windows-datorer till Azure Monitor](../log-analytics/log-analytics-windows-agent.md).
 
-Du kan använda Uppdateringshantering med Microsoft Endpoint Configuration Manager. Mer information om integrations scenarier finns i [integrera Configuration Manager med uppdateringshantering](updatemgmt-mecmintegration.md#configuration). [Log Analytics agent för Windows](../azure-monitor/platform/agent-windows.md) krävs för Windows-servrar som hanteras av-platser i din Configuration Manager-miljö. 
+Du kan använda Uppdateringshantering med Microsoft Endpoint Configuration Manager. Mer information om integrations scenarier finns i [integrera uppdateringshantering med Windows-slutpunkt Configuration Manager](updatemgmt-mecmintegration.md). [Log Analytics agent för Windows](../azure-monitor/platform/agent-windows.md) krävs för Windows-servrar som hanteras av-platser i din Configuration Manager-miljö. 
 
 Som standard är virtuella Windows-datorer som distribueras från Azure Marketplace inställda på att ta emot automatiska uppdateringar från Windows Update-tjänsten. Det här beteendet ändras inte när du lägger till virtuella Windows-datorer i din arbets yta. Om du inte aktivt hanterar uppdateringar med hjälp av Uppdateringshantering gäller standard beteendet (för att tillämpa uppdateringar automatiskt).
 
@@ -239,7 +236,7 @@ Om du vill klassificera uppdateringar i Red Hat Enterprise version 6 måste du i
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Integrera Uppdateringshantering med Configuration Manager
 
-Kunder som har investerat i Microsoft Endpoint Configuration Manager för att hantera datorer, servrar och mobila enheter är också beroende av styrka och mognad för Configuration Manager för att hantera program uppdateringar. Information om hur du integrerar Uppdateringshantering med Configuration Manager finns i [integrera Configuration Manager med uppdateringshantering](updatemgmt-mecmintegration.md).
+Kunder som har investerat i Microsoft Endpoint Configuration Manager för att hantera datorer, servrar och mobila enheter är också beroende av styrka och mognad för Configuration Manager för att hantera program uppdateringar. Information om hur du integrerar Uppdateringshantering med Configuration Manager finns i [integrera uppdateringshantering med Windows-slutpunkt Configuration Manager](updatemgmt-mecmintegration.md).
 
 ## <a name="third-party-updates-on-windows"></a>Uppdateringar från tredje part på Windows
 
@@ -251,10 +248,10 @@ En Azure [Resource Manager-mall](automation-update-management-deploy-template.md
 
 Här är hur du kan aktivera Uppdateringshantering och välja datorer som ska hanteras:
 
-* [Från en virtuell dator](automation-onboard-solutions-from-vm.md).
-* [Från att bläddra flera datorer](automation-onboard-solutions-from-browse.md).
-* [Från ett Azure Automation-konto](automation-onboard-solutions.md).
+* [Från en virtuell dator](automation-onboard-solutions-from-vm.md)
+* [Från att bläddra flera datorer](automation-onboard-solutions-from-browse.md)
+* [Från ett Azure Automation konto](automation-onboard-solutions.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs Azure Automation vanliga frågor och [svar](automation-faq.md) om du vill läsa vanliga frågor om uppdateringshantering.
+[Vanliga frågor och svar om Azure Automation](automation-faq.md)

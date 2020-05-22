@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 0380330c2cfd4b0a72dcc158a0d6e051d5547b31
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 6639026d071b496027996036a81f6bc66e0185e3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857013"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744813"
 ---
 # <a name="payout-summaries"></a>Utbetalningssammanfattningar
 
@@ -64,9 +64,9 @@ Om du vill se mer information om ett som du väljer väljer du nedåtpilen till 
 
 Om du vill exportera någon av transaktions data på den här sidan väljer du **Exportera** och följer anvisningarna på sidan Exportera data. Filer som exporteras från sidan transaktions historik visar data i transaktions valuta, intäkter i både transaktions valuta och US-dollar och det betalda värdet i betala till valuta.
 
-## <a name="payment-status"></a>Betalnings status
+## <a name="payment-status"></a>Betalningstatus
 
-| Status för att tjäna           | Orsak                                                                                                                                      | Krävs partner åtgärd?                                   |
+| Status för att tjäna           | Anledning                                                                                                                                      | Krävs partner åtgärd?                                   |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
 | Obearbetade              | Betalningen är berättigad till betalning. Den förblir i det här läget för en kylnings period som definieras i program guiden för stimulans programmet. | Nej                                                         |
 | Planer                 | Betalnings order som genererats som väntande interna granskningar innan betalningen bearbetas                                                               | Nej                                                         |
@@ -112,7 +112,7 @@ Med det här alternativet får du en hämtning av de betalningar som du har fåt
 | currencyCode             | Betala till valuta kod                                                                                                                      |
 | paymentMethod            | Den metod som används för att betala partnern, till exempel elektronisk bank överföring, kredit anteckning                                                     |
 | paymentID                | Unikt ID för betalningen. Det här numret visas vanligt vis i ditt konto utdrag (gäller endast för SAP-betalningar).              |
-| paymentStatus            | Betalnings status                                                                                                                            |
+| paymentStatus            | Betalningstatus                                                                                                                            |
 | paymentStatusDescription | Egen beskrivning av betalnings status                                                                                                    |
 | paymentDate              | Datum betalning skickades från Microsoft                                                                                                      |
 |||
@@ -129,7 +129,7 @@ Det här alternativet innehåller en nedladdning av varje rad objekt som du ser 
 | participantId                  | Den primära identiteten för partnern enligt programmet                                                                            | Alla                                                            |
 | participantIdType              | De flesta program-ID: n för stimulans program och näringsidkare om för Store-program och Azure Marketplace                                          | Alla                                                            |
 | participantName                | Partnerns namn                                                                                                              | Alla                                                            |
-| partnerCountryCode             | Partnerns plats/land                                                                                                  | Alla                                                            |
+| partnerCountryCode             | Plats/land/region för partnern                                                                                                  | Alla                                                            |
 | programName                    | Namn på incitament/Store-program                                                                                                             | Alla                                                            |
 | transactionId                  | Unikt ID för transaktionen                                                                                                    | Alla                                                            |
 | transactionCurrency            | Valutan i vilken den ursprungliga kund transaktionen inträffade (detta är inte en partner plats valuta)                                     | Alla                                                            |
@@ -154,7 +154,7 @@ Det här alternativet innehåller en nedladdning av varje rad objekt som du ser 
 | claimId                        | Unikt ID för anspråk                                                                                                              | Incitament – endast vissa program                                |
 | planId                         | Unikt ID för plan                                                                                                               | Incitament – endast vissa program                                |
 | paymentId                      | Unikt ID för betalningen. Det här numret visas vanligt vis i ditt konto utdrag                                                 | Endast SAP-betalningar                                              |
-| paymentStatus                  | Betalnings status                                                                                                                           | Alla                                                            |
+| paymentStatus                  | Betalningstatus                                                                                                                           | Alla                                                            |
 | paymentStatusDescription       | Egen beskrivning av betalnings status                                                                                                   | Alla                                                            |
 | customerId                     | Är alltid tomt                                                                                                                     | Incitaments program (undantag: OEM) och Azure Marketplace |
 | customerName                   | Är alltid tomt                                                                                                                     | Incitaments program (undantag: OEM) och Azure Marketplace |
@@ -183,7 +183,7 @@ Det här alternativet innehåller en nedladdning av varje rad objekt som du ser 
 | storeFee                       | Det belopp som Microsoft har bevarat som en avgift för att göra appen eller tillägget tillgängligt i butiken                                           | Endast butik                                                     |
 | transactionPaymentMethod       | Kund betalnings instrument som används för transaktionen, till exempel kort, fakturering av mobil företag eller PayPal                                | Store och Azure Marketplace                                    |
 | tpan                           | Anger AD-nätverk från tredje part                                                                                                     | Lagra endast annonser                                               |
-| customerCountry                | Kund land                                                                                                                         | Store och Azure Marketplace                                    |
+| customerCountry                | Kund land/-region                                                                                                                         | Store och Azure Marketplace                                    |
 | customerCity                   | Kund ort                                                                                                                            | Store och Azure Marketplace                                    |
 | customerState                  | Kund tillstånd                                                                                                                           | Store och Azure Marketplace                                    |
 | customerZip                    | Post nummer för kund                                                                                                                 | Store och Azure Marketplace                                    |
@@ -234,7 +234,7 @@ Transaktions historiken från före juli 1 2019 hanteras separat. Instruktioner 
 | Kvarhållna skatter          | **Förbehållen** inkomst skatt (del ingår i den reserverade CSV-filen)                                                                                                |
 | Payment                 | Appen fortsätter minus eventuell tillämplig inkomst skatts katt (belopp som visas i transaktions valutan). Ingår inte i **reserverad** CSV-fil.                               |
 | FX-pris                 | Utländsk växelkurs som används för att omvandla transaktions valutan till betalnings valutan                                                                                         |
-| Betalnings valuta        | Valutan som din betalning görs i                                                                                                                                       |
+| Betalningsvaluta        | Valutan som din betalning görs i                                                                                                                                       |
 | Konverterad betalning       | Betalnings belopp konverterat till betalnings valuta med hjälp av FX-pris                                                                                                         |
 | Moms remitterad modell         | Part som ansvarar för att remittera skatter (försäljning, användning eller moms/GST-skatter)                                                                                                   |
 | Datum och tid för berättigande   | Datum och tid när transaktions fortsätter blir berättigade till utbetalning (UTC). När en utbetalning skapas, inkluderar den transaktions Fortsätt med en giltighets tid innan datumet för utbetalning skapas (endast inkluderad i den **reserverade** CSV-filen). |

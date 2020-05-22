@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 22d27d50a7d2c304e5d1a04a9a5eaa03d2f0bfa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8c0644a84b917acff60060a0c48f8e9aac30e16
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366350"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746224"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installera Apache Hadoop program från tredje part i Azure HDInsight
 
@@ -31,7 +31,7 @@ I följande lista visas de publicerade programmen:
 |[Dataiku DSS på HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS i en Enterprise data science-plattform som gör det möjligt för data experter och dataanalytiker att samar beta för att utforma och köra nya data produkter och tjänster mer effektivt, så att rå data blir mer effektiva. |
 |[WANdisco fusion HDI-app](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark, HBase, Storm, Kafka |Att hålla data konsekvent i en distribuerad miljö är en enorm data åtgärds utmaning. WANdisco fusion, en program plattform i företags klass, löser problemet genom att aktivera ostrukturerad data konsekvens i alla miljöer. |
 |[H2O SparklingWater för HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O mousserande vatten har stöd för följande distribuerade algoritmer: GLM, naïve Bayes, distribuerad slumpmässig skog, tonings förstärknings dator, djup neurala nätverk, djup inlärning, K-medelvärde, PCA, generaliserade låg rang modeller, avvikelse identifiering, Autoencoders. |
-|[Striims för data integrering i real tid till HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.hdinsightintegration) |Hadoop, HBase, Storm, Spark, Kafka |Striims (uttalad "Stream") är en slut punkt till slut punkts data integrering + informations plattform, vilket möjliggör kontinuerlig inmatning, bearbetning och analys av olika data strömmar. |
+|[Striims för data integrering i real tid till HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, Storm, Spark, Kafka |Striims (uttalad "Stream") är en slut punkt till slut punkts data integrering + informations plattform, vilket möjliggör kontinuerlig inmatning, bearbetning och analys av olika data strömmar. |
 |[Jumbune Enterprise – Acceleratoring BigData Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |På en hög nivå hjälper Jumbune företag av, 1. Accelerera tez, MapReduce & Spark Engine-baserad Hive, Java, Scala arbets belastnings prestanda. 2. Proaktiv övervakning av Hadoop-kluster, 3. Upprätta data kvalitets hantering på distribuerat fil system. |
 |[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence) |Hadoop, HBase, Spark |Kyligence Enterprise drivs av Apache Kylin och gör det möjligt för BI på Big data. Som en Enterprise OLAP-motor på Hadoop ger Kyligence Enterprise en affärsanalytiker som konstruerar BI på Hadoop med data lager och BI-metodik som bransch standard. |
 |[Stjärn explosion Presto för Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto är en snabb och skalbar distribuerad SQL-frågemotor. Presto är perfekt för att kunna fråga data i Azure Data Lake Storage, Azure Blob Storage-, SQL-och NoSQL-databaser och andra data källor. |
@@ -52,7 +52,7 @@ I följande procedur beskriver vi hur du installerar HDInsight-program i ett bef
 **Installera ett HDInsight-program**
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. I den vänstra menyn navigerar du till **alla tjänster** > **Analytics** > **HDInsight-kluster**.
+2. I den vänstra menyn navigerar du till **alla tjänster**  >  **Analytics**  >  **HDInsight-kluster**.
 3. Välj ett HDInsight-kluster i listan.  Om du inte har något måste du skapa ett först.  Mer information finns i [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 4. Under kategorin **Inställningar** väljer du **program**. Du kan se en lista över installerade program i huvud fönstret. 
    
@@ -76,7 +76,7 @@ På portalen kan du visa en lista över de installerade HDInsight-programmen fö
 **Visa en lista med HDInsight-program och visnings egenskaper**
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. I den vänstra menyn navigerar du till **alla tjänster** > **Analytics** > **HDInsight-kluster**.
+2. I den vänstra menyn navigerar du till **alla tjänster**  >  **Analytics**  >  **HDInsight-kluster**.
 3. Välj ett HDInsight-kluster i listan.
 4. Under kategorin **Inställningar** väljer du **program**. Du kan se en lista över installerade program i huvud fönstret. 
    

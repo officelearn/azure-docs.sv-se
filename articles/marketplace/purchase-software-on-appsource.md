@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: bc19246354bebd1ba2a827e7718cbad95b896e14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 450a97b0be1b11980d65477d396431170180d00f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80284984"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746645"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Så här köper du program vara på Microsoft AppSource
 
@@ -29,11 +29,11 @@ För att köpa SaaS-erbjudanden behöver du:
 - Ett giltigt kredit kort i landet/regionen där du köper erbjudandet.
 
     > [!Note]
-    > Kredit kortets fakturerings land kan vara låst till platsen för din Azure Active Directory-instans.
+    > Kredit kortets fakturerings land/region kan vara låst till platsen för din Azure Active Directory-instans.
 
 ## <a name="steps-for-making-purchases-on-appsource"></a>Steg för att göra inköp på AppSource
 
-1. Välj din fakturerings-/land region på [AppSource](https://appsource.microsoft.com/).
+1. Välj fakturerings land/-region på [AppSource](https://appsource.microsoft.com/).
 1. Hitta det program som du vill köpa.
 1. Välj **Hämta nu**.
 1. Välj planen:

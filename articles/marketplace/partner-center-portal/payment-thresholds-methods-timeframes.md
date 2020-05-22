@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 29b6b47a30760887fb01700e50ecdeb5dd307ad4
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858179"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745018"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Betalningströsklar, metoder och tidsramar
 
@@ -38,7 +38,7 @@ Vi skickar vanligt vis all betalning som förfaller under en månad den 15: e da
 
 Detta är de länder och regioner där betalnings metoderna ovan används för varje Marketplace. Betalnings tröskeln i samtliga fall är $50 USD.
 
-| Land/region | Azure Marketplace | Butik, annonsering, mixer och Minecraft | Kontor | PayPal-betalningar  |
+| Land/region | Azure Marketplace | Butik, annonsering, mixer och Minecraft | Office | PayPal-betalningar  |
 | --- | --- | --- | --- | --- |
 | Afghanistan | Ja | Ja | Nej | Nej |
 | Albanien | Ja | Ja | Ja | Ja |
@@ -66,7 +66,7 @@ Detta är de länder och regioner där betalnings metoderna ovan används för v
 | Kambodja | Ja | Ja | Ja | Nej |
 | Kamerun | Ja | Ja | Ja | Nej |
 | Kanada | Ja | Ja | Ja | Ja |
-| Centralafrikanska republiken | Ja | Ja | Ja | Nej |
+| Centralafrikanska Republiken | Ja | Ja | Ja | Nej |
 | Tchad | Ja | Ja | Ja | Nej |
 | Chile | Ja | Ja | Ja | Ja |
 | Kina | Nej | Ja | Ja | Ja |
@@ -91,7 +91,7 @@ Detta är de länder och regioner där betalnings metoderna ovan används för v
 | Fidji | Ja | Ja | Nej | Nej |
 | Finland | Ja | Ja | Ja | Ja |
 | Frankrike | Ja | Ja | Ja | Ja |
-| Georgien | Ja | Ja | Ja | Ja |
+| Georgia | Ja | Ja | Ja | Ja |
 | Tyskland | Ja | Ja | Ja | Ja |
 | Ghana | Ja | Ja | Ja | Nej |
 | Grekland | Ja | Ja | Ja | Ja |
@@ -111,7 +111,7 @@ Detta är de länder och regioner där betalnings metoderna ovan används för v
 | Jamaica | Ja | Ja | Ja | Ja |
 | Japan | Ja | Ja | Ja | Ja |
 | Jordanien | Ja | Ja | Ja | Ja |
-| Kazakhstan | Ja | Ja | Ja | Ja |
+| Kazakstan | Ja | Ja | Ja | Ja |
 | Kenya | Ja | Ja | Ja | Ja |
 | Korea (södra) | Ja | Ja | Ja | Nej |
 | Kuwait | Ja | Ja | Ja | Ja |
@@ -130,7 +130,7 @@ Detta är de länder och regioner där betalnings metoderna ovan används för v
 | Mali | Ja | Ja | Ja | Nej |
 | Malta | Ja | Ja | Ja | Ja |
 | Mauritius | Ja | Ja | Nej | Ja |
-| Mexiko | Ja | Ja | Ja | Ja |
+| Mexico | Ja | Ja | Ja | Ja |
 | Monaco | Ja | Ja | Nej | Nej |
 | Mongoliet | Ja | Ja | Ja | Nej |
 | Montenegro | Ja | Ja | Ja | Nej |

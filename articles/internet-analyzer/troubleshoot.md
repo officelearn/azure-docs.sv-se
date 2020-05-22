@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 12/04/2019
 ms.author: dibotero
-ms.openlocfilehash: a265278652c16b4682707470d183a02a55b9a0ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c9e203d7e8be7b24c711f73e2152a7745a57dac
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77069225"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745471"
 ---
 # <a name="azure-internet-analyzer-troubleshooting"></a>Fel sökning i Azure Internet Analyzer
 
@@ -25,7 +25,7 @@ Den här artikeln innehåller fel söknings steg för vanliga problem med Intern
 ## <a name="azure-portal"></a>Azure Portal
 **"Ett styrkort har inte skapats för den valda filter kombinationen" i avsnittet styrkort**
 - Styrkort skapas per dag (i slutet av varje dag, UTC-tid).
-- Styrkort skapas endast om fler än 100 mått samlades in för den valda filter kombinationen (test, tids period, land osv.).
+- Styrkort skapas endast om fler än 100 mått samlades in för den valda filter kombinationen (test, tids period, land/region osv.).
 
 **"Totalt antal mätningar" är noll för en eller båda slut punkterna i ett test**
 - Tids serier och mätnings antal beräknas en gång i timmen, så du måste vänta minst den tiden för att nya Mät data ska visas.

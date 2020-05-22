@@ -1,28 +1,25 @@
 ---
-title: Starta en Azure Automation-runbook med en webhook
-description: En webhook som gör att en klient kan starta en Runbook i Azure Automation från ett HTTP-anrop.  Den här artikeln beskriver hur du skapar en webhook och hur du anropar en för att starta en Runbook.
+title: Starta en Azure Automation Runbook från en webhook
+description: Den här artikeln beskriver hur du använder en webhook för att starta en Runbook i Azure Automation från ett HTTP-anrop.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: cbe43b298c57d266f0b031b5192f25fe3df07c05
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: e61c8b9af04ce9157179d464c1a49ce685c6913f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582446"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744729"
 ---
-# <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Starta en Azure Automation-runbook med en webhook
+# <a name="start-a-runbook-from-a-webhook"></a>Starta ett Runbook-flöde från en webhook
 
-Med en webhook kan en extern tjänst starta en viss Runbook i Azure Automation via en enda HTTP-begäran. Externa tjänster omfattar Azure DevOps Services, GitHub, Azure Monitor loggar och anpassade program. En sådan tjänst kan använda en webhook för att starta en Runbook utan att implementera en fullständig lösning med hjälp av Azure Automation API. Du kan jämföra Webhooks med andra metoder för att starta en runbook när du [startar en Runbook i Azure Automation](automation-starting-a-runbook.md).
+Med en webhook kan en extern tjänst starta en viss Runbook i Azure Automation via en enda HTTP-begäran. Externa tjänster omfattar Azure DevOps Services, GitHub, Azure Monitor loggar och anpassade program. En sådan tjänst kan använda en webhook för att starta en Runbook utan att implementera fullständig Azure Automation-API. Du kan jämföra Webhooks med andra metoder för att starta en runbook när du [startar en Runbook i Azure Automation](automation-starting-a-runbook.md).
 
 > [!NOTE]
 > Det finns inte stöd för att använda en webhook för att starta en python-Runbook.
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="webhook-properties"></a>Webhook-egenskaper
 
@@ -39,11 +36,11 @@ I följande tabell beskrivs de egenskaper som du måste konfigurera för en webh
 
 En webhook kan definiera värden för Runbook-parametrar som används när Runbook startas. Webhooken måste innehålla värden för alla obligatoriska Runbook-parametrar och kan innehålla värden för valfria parametrar. Ett parameter värde som har kon figurer ATS för en webhook kan ändras även när webhook har skapats. Flera webhook-länkar till en enda Runbook kan båda använda olika värden för Runbook-parametrar. När en klient startar en Runbook med en webhook kan den inte åsidosätta de parameter värden som definierats i webhooken.
 
-För att ta emot data från klienten stöder runbooken en enda parameter som kallas `WebhookData`. Den här parametern definierar ett objekt som innehåller data som klienten inkluderar i en POST-begäran.
+För att ta emot data från klienten stöder runbooken en enda parameter som kallas `WebhookData` . Den här parametern definierar ett objekt som innehåller data som klienten inkluderar i en POST-begäran.
 
 ![Egenskaper för WebhookData](media/automation-webhooks/webhook-data-properties.png)
 
-`WebhookData` Parametern har följande egenskaper:
+`WebhookData`Parametern har följande egenskaper:
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
@@ -58,13 +55,13 @@ Det krävs ingen konfiguration av webhook för att stödja `WebhookData` paramet
 
 Om du anger ett värde för `WebhookData` när en webhook skapas, åsidosätts det när webhooken startar runbooken med data från klient post förfrågan. Detta inträffar även om programmet inte innehåller några data i begär ande texten. 
 
-Om du startar en Runbook som definierar `WebhookData` en annan metod än en webhook kan du ange ett värde för `WebhookData` Runbook-flödet. Det här värdet ska vara ett objekt med samma [Egenskaper](#webhook-properties) som `WebhookData` parametern så att runbooken kan arbeta med det precis som det fungerar med faktiska `WebhookData` objekt som skickas av en webhook.
+Om du startar en Runbook som definierar `WebhookData` en annan metod än en webhook kan du ange ett värde för Runbook- `WebhookData` flödet. Det här värdet ska vara ett objekt med samma [Egenskaper](#webhook-properties) som `WebhookData` parametern så att runbooken kan arbeta med det precis som det fungerar med faktiska objekt som `WebhookData` skickas av en webhook.
 
 Om du till exempel startar följande Runbook från Azure Portal och vill skicka några exempel på webhook-data för testning måste du skicka data i JSON i användar gränssnittet.
 
 ![WebhookData-parameter från UI](media/automation-webhooks/WebhookData-parameter-from-UI.png)
 
-I nästa Runbook-exempel definierar vi följande egenskaper för `WebhookData`:
+I nästa Runbook-exempel definierar vi följande egenskaper för `WebhookData` :
 
 * **WebhookName**: MyWebhook
 * **RequestBody**:`*[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*`
@@ -84,7 +81,7 @@ Nu skickar vi följande JSON-objekt i användar gränssnittet för- `WebhookData
 
 Säkerheten för en webhook är beroende av sekretessen för dess URL, som innehåller en säkerhetstoken som gör att webhooken kan anropas. Azure Automation utför ingen autentisering för en begäran så länge den har gjorts till rätt URL. Därför bör dina klienter inte använda Webhooks för Runbooks som utför mycket känsliga åtgärder utan att använda alternativa metoder för att verifiera begäran.
 
-Du kan inkludera logik i en Runbook för att avgöra om den anropas av en webhook. Ange att runbooken ska kontrol `WebhookName` lera egenskapen för `WebhookData` parametern. Runbooken kan utföra ytterligare verifiering genom att söka efter viss information i egenskaperna `RequestHeader` och `RequestBody` .
+Du kan inkludera logik i en Runbook för att avgöra om den anropas av en webhook. Ange att runbooken ska kontrol lera `WebhookName` egenskapen för `WebhookData` parametern. Runbooken kan utföra ytterligare verifiering genom att söka efter viss information i `RequestHeader` egenskaperna och `RequestBody` .
 
 En annan strategi är att låta Runbook utföra en del validering av ett externt villkor när den får en webhook-begäran. Anta till exempel att en Runbook som anropas av GitHub när som helst är en ny incheckning av en GitHub-lagringsplats. Runbooken kan ansluta till GitHub för att kontrol lera att ett nytt genomförande har skett innan du fortsätter.
 
@@ -118,7 +115,7 @@ Klienten får en av följande retur koder från `POST` begäran.
 
 | Kod | Text | Beskrivning |
 |:--- |:--- |:--- |
-| 202 |Accepterad |Begäran accepterades och Runbook har placerats i kö. |
+| 202 |Har godkänts |Begäran accepterades och Runbook har placerats i kö. |
 | 400 |Felaktig begäran |Begäran godtogs inte av någon av följande orsaker: <ul> <li>Webhooken har upphört att gälla.</li> <li>Webhooken är inaktive rad.</li> <li>Token i URL: en är ogiltig.</li>  </ul> |
 | 404 |Hittades inte |Begäran godtogs inte av någon av följande orsaker: <ul> <li>Det gick inte att hitta webhooken.</li> <li>Det gick inte att hitta Runbook-flödet.</li> <li>Det gick inte att hitta kontot.</li>  </ul> |
 | 500 |Internt Server fel |URL: en var giltig, men ett fel uppstod. Skicka begäran igen. |
@@ -219,7 +216,7 @@ $response = Invoke-WebRequest -Method Post -Uri $uri -Body $body -Headers $heade
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 
-I följande exempel visas bröd texten i begäran som är tillgänglig för runbooken i `RequestBody` egenskapen för. `WebhookData` Det här värdet är formaterat i JSON för att vara kompatibelt med det format som finns i bröd texten i begäran.
+I följande exempel visas bröd texten i begäran som är tillgänglig för runbooken i `RequestBody` egenskapen för `WebhookData` . Det här värdet är formaterat i JSON för att vara kompatibelt med det format som finns i bröd texten i begäran.
 
 ```json
 [
@@ -240,4 +237,4 @@ Följande bild visar den begäran som skickas från Windows PowerShell och det r
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du använder Azure Automation för att vidta åtgärder på Azure-aviseringar finns i [använda en avisering för att utlösa en Azure Automation Runbook](automation-create-alert-triggered-runbook.md).
+* [Använda en avisering för att utlösa en Azure Automation Runbook](automation-create-alert-triggered-runbook.md)

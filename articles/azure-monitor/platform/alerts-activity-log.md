@@ -4,12 +4,12 @@ description: Skapa aktivitets logg aviseringar med hjälp av Azure Portal, en Az
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: bfbe2bc3ae3edf9285d3ec006ab0451f070cabd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132394"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744271"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor  
 
@@ -37,7 +37,7 @@ Du kan använda Azure Portal för att skapa och ändra varnings regler för akti
 
 Använd följande procedur.
 
-1. I Azure Portal väljer du **övervaka** > **aviseringar**.
+1. I Azure Portal väljer du **övervaka**  >  **aviseringar**.
 2. Välj **ny varnings regel** i det övre vänstra hörnet i **aviserings** fönstret.
 
      ![Ny varnings regel](media/alerts-activity-log/AlertsPreviewOption.png)
@@ -48,7 +48,7 @@ Använd följande procedur.
 
 3. Under **definiera aviserings villkor**anger du följande information och väljer sedan **slutförd**:
 
-   - **Aviserings mål:** Om du vill visa och välja målet för den nya aviseringen använder du **Filtrera efter prenumerations** / **filter efter resurs typ**. Välj den resurs eller resurs grupp i listan som visas.
+   - **Aviserings mål:** Om du vill visa och välja målet för den nya aviseringen använder du **Filtrera efter prenumerations**  /  **filter efter resurs typ**. Välj den resurs eller resurs grupp i listan som visas.
 
      > [!NOTE]
      > 
@@ -67,6 +67,11 @@ Använd följande procedur.
      **Fönstret Lägg till villkor**
 
      ![Lägg till villkor](media/alerts-activity-log/add-criteria.png)
+     
+     > [!NOTE]
+     > 
+     >  För att få en hög kvalitets-och effektiv regel ber vi dig lägga till minst ett villkor för regler med signalen "alla administrativa". 
+     > Som en del av aviserings definitionen måste du fylla i en av de nedrullningsbara List rutorna: "händelse nivå", "status" eller "initierad av" och genom att regeln är mer unik.
 
      - **Historik tid**: händelser som är tillgängliga för den valda åtgärden kan ritas under de senaste 6, 12 eller 24 timmarna eller under den senaste veckan.
 
@@ -103,7 +108,7 @@ En enkel analoghet för att förstå villkor för vilka aviserings regler som ka
 
 ### <a name="view-and-manage-in-the-azure-portal"></a>Visa och hantera i Azure Portal
 
-1. I Azure Portal väljer du **övervaka** > **aviseringar**. Välj **Hantera aviserings regler** i det övre vänstra hörnet i fönstret.
+1. I Azure Portal väljer du **övervaka**  >  **aviseringar**. Välj **Hantera aviserings regler** i det övre vänstra hörnet i fönstret.
 
     ![Hantera aviseringsregler](media/alerts-activity-log/manage-alert-rules.png)
 
@@ -127,7 +132,7 @@ En enkel analoghet för att förstå villkor för vilka aviserings regler som ka
 
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
-Om du vill skapa en aktivitets logg aviserings regel med hjälp av en Azure Resource Manager mall skapar du en resurs `microsoft.insights/activityLogAlerts`av typen. Fyll sedan i alla relaterade egenskaper. Här är en mall som skapar en aviserings regel för aktivitets logg:
+Om du vill skapa en aktivitets logg aviserings regel med hjälp av en Azure Resource Manager mall skapar du en resurs av typen `microsoft.insights/activityLogAlerts` . Fyll sedan i alla relaterade egenskaper. Här är en mall som skapar en aviserings regel för aktivitets logg:
 
 ```json
 {

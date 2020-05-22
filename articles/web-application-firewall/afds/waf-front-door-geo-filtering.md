@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: e287da94a71fccabddb90f3f5a3699f4c4cf22a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f620ced1bc859e5c824b45839a21ab21d0244d89
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472613"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747776"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Vad är geofiltrering på en domän för Azure Front Door?
 
 Som standard svarar Azure Front Door Service på användarnas begäranden oavsett var användaren som skickar begäran finns. Men i vissa fall kanske du vill begränsa åtkomsten till dina webb program efter land/region. Med brand vägg för webbaserade program (WAF) i front dörren kan du definiera en princip med hjälp av anpassade åtkomst regler för en viss sökväg på slut punkten för att tillåta eller blockera åtkomst från angivna länder/regioner. 
 
-En WAF-princip innehåller vanligt vis en uppsättning anpassade regler. En regel består av matchningsvillkor, en åtgärd och en prioritet. I matchningsvillkor definierar du en matchningsvariabel, en operator och ett matchningsvärde.  För en geofiltreringsregel är matchningsvariabeln REMOTE_ADDR, operatorn är GeoMatch och värdet är landskoden på två bokstäver av intresse. Du kan kombinera ett GeoMatch-villkor och ett matchningsvillkor för REQUEST_URI-sträng för att skapa en sökvägsbaserad geofiltreringsregel.
+En WAF-princip innehåller vanligt vis en uppsättning anpassade regler. En regel består av matchningsvillkor, en åtgärd och en prioritet. I matchningsvillkor definierar du en matchningsvariabel, en operator och ett matchningsvärde.  För geo filtrerings regeln är matcha variabel REMOTE_ADDR, operatorn är en geografisk matchning, värdet är det två lands-/regionkoden som intresserar dig. Du kan kombinera ett GeoMatch-villkor och ett matchningsvillkor för REQUEST_URI-sträng för att skapa en sökvägsbaserad geofiltreringsregel.
 
 Du kan konfigurera en princip för geo-filtrering för din front dörr genom att antingen använda [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) eller med hjälp av vår [snabb starts mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## <a name="country-code-reference"></a>Lands kods referens
+## <a name="countryregion-code-reference"></a>Kod referens för land/region
 
-|Landskod | Lands namn |
+|Lands-/regionkod | Ursprungslandet? Region namn |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Förenade Arabemiraten|
@@ -59,7 +59,7 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr genom att
 | BZ | Belize|
 | CA | Kanada|
 | CD | Demokratiska republiken Kongo|
-| CF | Centralafrikanska republiken|
+| CF | Centralafrikanska Republiken|
 | CH | Schweiz|
 | CI | Cote d'Ivoire|
 | CL | Chile|
@@ -85,7 +85,7 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr genom att
 | FM | Mikronesien|
 | FR | Frankrike|
 | GB | Storbritannien|
-| GE | Georgien|
+| GE | Georgia|
 | GF | Franska Guyana|
 | GH | Ghana|
 | GN | Guinea|
@@ -93,7 +93,7 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr genom att
 | GR | Grekland|
 | GT | Guatemala|
 | GY | Guyana|
-| HK | Hongkong|
+| HK | Folkrepubliken Kinas särskilda administrativa region Hongkong|
 | HN | Honduras|
 | HR | Kroatien|
 | HT | Haiti|
@@ -118,7 +118,7 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr genom att
 | KR | Sydkorea|
 | KW | Kuwait|
 | KY | Caymanöarna|
-| KZ | Kazakhstan|
+| KZ | Kazakstan|
 | LA | Demokratiska folkrepubliken Laos|
 | LB | Libanon|
 | LI | Liechtenstein|
@@ -142,10 +142,10 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr genom att
 | MT | Malta|
 | MV | Maldiverna|
 | MW | Malawi|
-| MX | Mexiko|
+| MX | Mexico|
 | MY | Malaysia|
 | MZ | Moçambique|
-| Ej tillämpligt | Namibia|
+| NA | Namibia|
 | NE | Niger|
 | NG | Nigeria|
 | NI | Nicaragua|

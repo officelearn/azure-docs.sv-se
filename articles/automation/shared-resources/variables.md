@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cb89caa0a2fe5cde5bcea92e08c0df117215d916
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 28f69d3ef8301e00b470ce09353be6ae3259bbe3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713309"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744969"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Hantera variabler i Azure Automation
 
@@ -194,6 +194,6 @@ Följande bild visar exempel aktiviteter för att uppdatera en variabel med ett 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda moduler i Azure Automation](modules.md)
-* [Runbook-körning i Azure Automation](../automation-runbook-execution.md)
-* [Översikt över Azure Automation tillstånds konfiguration](../automation-dsc-overview.md) 
+* Mer information om de cmdletar som används för att få åtkomst till variabler finns [i hantera moduler i Azure Automation](modules.md).
+* Allmän information om Runbooks finns [i Runbook-körning i Azure Automation](../automation-runbook-execution.md).
+* Mer information om DSC-konfigurationer finns i [Översikt över Azure Automation tillstånds konfiguration](../automation-dsc-overview.md).

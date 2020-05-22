@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a6298b3a9c5769b1d82f89956736b451935b2c5d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 7bf05fe039de2ab9e25495f9e2652fde8fac34e1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612647"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747704"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Anslutningar till virtuella Windows-datorer
 
@@ -42,36 +42,6 @@ Get-AzRoleAssignment -SignInName <userupn>
 Bekräfta att användaren har loggat in med rätt autentiseringsuppgifter.
 
 Om webb klienten används kontrollerar du att det inte finns några problem med cachelagrade autentiseringsuppgifter.
-
-## <a name="windows-10-enterprise-multi-session-virtual-machines-dont-respond"></a>Virtuella datorer med Windows 10 Enterprise multi-session svarar inte
-
-Om en virtuell dator inte svarar och du inte kan komma åt den via RDP, måste du Felsöka den med funktionen diagnostik genom att kontrol lera värd statusen.
-
-Kör denna cmdlet för att kontrol lera värd statusen:
-
-```powershell
-Get-AzWvdSessionHost -HostPoolName <hostpoolname> -ResourceGroupName <resourcegroupname>| Format-List Name, LastHeartBeat, AllowNewSession, Status
-```
-
-Om värd statusen är `NoHeartBeat`, innebär det att den virtuella datorn inte svarar och att agenten inte kan kommunicera med Windows Virtual Desktop-tjänsten.
-
-```powershell
-Name            : 0301HP/win10pd-0.contoso.com 
-LastHeartBeat   : 4/8/2020 1:48:35 AM 
-AllowNewSession : True 
-Status          : Available 
-
-Name            : 0301HP/win10pd-1.contoso.com 
-LastHeartBeat   : 4/8/2020 1:45:44 AM 
-AllowNewSession : True 
-Status          : NoHeartBeat
-```
-
-Det finns några saker du kan göra för att åtgärda nopulsslag-statusen.
-
-### <a name="update-fslogix"></a>Uppdatera FSLogix
-
-Om din FSLogix inte är uppdaterad, särskilt om det är version 2.9.7205.27375 av frxdrvvt. sys, kan det orsaka ett död läge. Se till att [Uppdatera FSLogix till den senaste versionen](https://go.microsoft.com/fwlink/?linkid=2084562).
 
 ## <a name="next-steps"></a>Nästa steg
 

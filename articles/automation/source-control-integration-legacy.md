@@ -1,18 +1,18 @@
 ---
-title: Käll kontrolls integrering i Azure Automation-bakåtkompatibelt
-description: I den här artikeln beskrivs integrering av käll kontroll med GitHub i Azure Automation.
+title: Använd käll kontroll integrering i Azure Automation-bakåtkompatibelt
+description: Den här artikeln beskriver hur du använder käll kontrolls integrering.
 services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: b990db39ffe0623b50a2cfc728da61bc51bdd4da
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: fac6a3b55f4a9150e827682cb3a134c203231978
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855357"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744951"
 ---
-# <a name="source-control-integration-in-azure-automation---legacy"></a>Käll kontrolls integrering i Azure Automation-bakåtkompatibelt
+# <a name="use-source-control-integration-in-azure-automation---legacy"></a>Använd käll kontroll integrering i Azure Automation-bakåtkompatibelt
 
 > [!NOTE]
 > Det finns en ny upplevelse för käll kontroll. Läs mer om den nya upplevelsen i [käll kontroll (för hands version)](source-control-integration.md).
@@ -24,7 +24,7 @@ Med käll kontroll kan du skicka kod från Azure Automation till käll kontroll 
 > [!NOTE]
 > Käll kontrollen stöder hämtning och överföring av [PowerShell-arbetsflöden med Runbooks](automation-runbook-types.md#powershell-workflow-runbooks) samt PowerShell- [Runbooks](automation-runbook-types.md#powershell-runbooks). [Grafiska runbooks](automation-runbook-types.md#graphical-runbooks) stöds inte ännu.
 
-## <a name="configuring-source-control"></a>Konfigurera käll kontroll
+## <a name="configure-source-control"></a>Konfigurera käll kontroll
 
 Det finns två enkla steg som krävs för att konfigurera käll kontroll för ditt Automation-konto och bara ett om du redan har ett GitHub-konto. 
 
@@ -47,7 +47,7 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
    | Sökväg till Runbook-mapp |Sökvägen till Runbook-mappen anger sökvägen i GitHub-lagringsplatsen som du vill skicka eller ta emot din kod från. Den måste anges i formatet **/FolderName/subfoldername**. Endast Runbooks i sökvägen till Runbook-mappen kommer att synkroniseras med ditt Automation-konto. Runbooks i undermapparna i sökvägen till Runbook-mappen kommer **inte** att synkroniseras. Används **/** för att synkronisera alla Runbooks under lagrings platsen. |
 3. Om du till exempel har en lagrings plats med namnet **PowerShellScripts** som innehåller en mapp med namnet **RootFolder**, som innehåller en mapp med namnet **undermapp.** Du kan använda följande strängar för att synkronisera varje mappnivå:
 
-   1. Om du vill synkronisera Runbooks från **lagrings platsen**för **/** Runbook-mappar är Runbook-mappsökvägen.
+   1. Om du vill synkronisera Runbooks från **lagrings platsen**för Runbook-mappar är Runbook-mappsökvägen **/** .
    2. För att synkronisera Runbooks från **RootFolder**är sökvägen till Runbook-mappen **/RootFolder**.
    3. För att synkronisera Runbooks från **undermappar**är sökvägen till Runbook-mappen **/RootFolder/SubFolder**.
 4. När du har konfigurerat parametrarna visas de på sidan Konfigurera käll kontroll.  
@@ -64,7 +64,7 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
      |:--- |:--- |
      | `Name`  |Microsoft. Azure. Automation. SourceControl. Connection |
      | `Type`  |Sträng |
-     | `Value` |{"Gren":\<*ditt gren namn*>, "RunbookFolderPath":\<*Runbook-mappsökväg*>, "ProviderType":\<*har värdet 1 för GitHub*>, "databas":\<*namnet på din databas*>, "användar namn":\<*GitHub-användarnamnet*>} |
+     | `Value` |{"Gren": \< *Ditt gren namn*>, "RunbookFolderPath": \< *Runbook-mappsökväg*>, "ProviderType": \< *har värdet 1 för GitHub*>, "databas": \< *namnet på din databas*>, "username": \< *ditt GitHub-användarnamn*>} |
 
    * Variabeln **Microsoft. Azure. Automation. SourceControl. OAuthToken**innehåller det säkra krypterade värdet för din OAuthToken.  
 
@@ -76,11 +76,11 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
 
      ![Ett fönster som visar variabler för käll kontroll](media/source-control-integration-legacy/automation-Variables.png)  
 
-   * **Kontroll av Automation-källa** läggs till som ett auktoriserat program till ditt GitHub-konto. Om du vill visa programmet går du till GitHub start sida och navigerar till **profil** > **inställnings** > **program**. Det här programmet tillåter Azure Automation att synkronisera din GitHub-lagringsplats med ett Automation-konto.  
+   * **Kontroll av Automation-källa** läggs till som ett auktoriserat program till ditt GitHub-konto. Om du vill visa programmet går du till GitHub start sida och navigerar till **profil**  >  **inställnings**  >  **program**. Det här programmet tillåter Azure Automation att synkronisera din GitHub-lagringsplats med ett Automation-konto.  
 
      ![Program inställningar i GitHub](media/source-control-integration-legacy/automation-GitApplication.png)
 
-## <a name="using-source-control-in-automation"></a>Använda käll kontroll i Automation
+## <a name="use-source-control-in-automation"></a>Använd käll kontroll i Automation
 
 Med Runbook checka in kan du skicka de ändringar du har gjort till en Runbook i Azure Automation till lagrings platsen för käll kontroll. Nedan visas stegen för att checka in en Runbook:
 
@@ -124,15 +124,13 @@ Med knappen Synkronisera på sidan lagringsplats för lagring kan du hämta alla
 
 ![Ett fönster som visar alla loggar från ett inaktiverat synkroniseringsjobb för käll kontroll](media/source-control-integration-legacy/automation-AllLogs.png)
 
-## <a name="disconnecting-source-control"></a>Kopplar från käll kontrollen
+## <a name="disconnect-source-control"></a>Koppla från käll kontroll
 
 Om du vill koppla från ditt GitHub-konto öppnar du sidan databas synkronisering och klickar på **Koppla från**. När du kopplar från käll kontrollen förblir Runbooks som synkroniserades tidigare fortfarande kvar i ditt Automation-konto, men sidan för synkronisering av databasen är inte aktive rad.  
 
   ![Ett fönster som visar knappen Koppla från för att koppla från käll kontrollen](media/source-control-integration-legacy/automation-Disconnect.png)
 
 ## <a name="next-steps"></a>Nästa steg
-
-Mer information om käll kontrolls integrering finns i följande resurser:  
 
 * [Azure Automation: käll kontroll integrering i Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
 * [Azure Automation: integrera Runbook käll kontroll med Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  

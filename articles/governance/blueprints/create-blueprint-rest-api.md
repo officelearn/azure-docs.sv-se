@@ -3,12 +3,12 @@ title: 'Snabb start: skapa en skiss med REST API'
 description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av REST API.
 ms.date: 02/26/2020
 ms.topic: quickstart
-ms.openlocfilehash: 93c9aef9efd826b88da59cdb77dedfb10fb11262
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec84e8396ad65aa01f73414b971f27bc95396e2f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80676575"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745100"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabb start: definiera och tilldela en Azure Blueprint med REST API
 
@@ -16,7 +16,7 @@ När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveck
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free) konto innan du börjar.
+- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 - Registrera `Microsoft.Blueprint` resurs leverantören. Anvisningar finns i [resurs leverantörer och typer](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -44,7 +44,7 @@ $authHeader = @{
 }
 
 # Invoke the REST API
-$restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-version=2016-06-01'
+$restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-version=2020-01-01'
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
@@ -329,7 +329,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{YourMG}` – Ersätt med ID för din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
-1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men tjänstens huvud NAMNS-ID varierar av klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
+1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är static ( `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` ), men tjänstens huvud namns-ID varierar av klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
 
    - REST API-URI
 

@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: b096b9352be65033f2fb782b118e815dc16b43b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d264b0d35be5114d35713f793b771e42449c9230
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73838323"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745674"
 ---
 # <a name="customize-a-language-model-with-video-indexer"></a>Anpassa en språk modell med Video Indexer
 
-Video Indexer stöder automatisk tal igenkänning genom integrering med Microsoft- [Custom Speech service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). Du kan anpassa språk modellen genom att överföra anpassnings text, nämligen text från den domän vars vokabulär du vill att motorn ska anpassa sig till. När du tränar din modell kommer nya ord som visas i anpassnings texten att kännas igen, förutsatt att det är standard uttal och språk modellen lär sig nya sannolika sekvenser av ord. Anpassade språk modeller stöds för engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska, portugisiska (Brasilien), hindi och koreanska. 
+Video Indexer stöder automatisk tal igenkänning genom integrering med Microsoft- [Custom Speech service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). Du kan anpassa språk modellen genom att överföra anpassnings text, nämligen text från den domän vars vokabulär du vill att motorn ska anpassa sig till. När du tränar din modell kommer nya ord som visas i anpassnings texten att kännas igen, förutsatt att det är standard uttal och språk modellen lär sig nya sannolika sekvenser av ord. Anpassade språk modeller stöds för engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska, portugisiska, hindi och koreanska. 
 
 Låt oss ta ett ord som är mycket speciellt, till exempel "Kubernetes" (i Azure Kubernetes-tjänsten) som exempel. Eftersom ordet är nytt för Video Indexer identifieras det som "communities". Du måste träna modellen för att kunna identifiera den som "Kubernetes". I andra fall finns orden, men språk modellen förväntar sig inte att de ska visas i en viss kontext. Till exempel är "container service" inte en 2-ord-sekvens som en icke specialiserad språk modell känner igen som en specifik uppsättning ord.
 

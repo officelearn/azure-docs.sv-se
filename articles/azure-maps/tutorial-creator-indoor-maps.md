@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a49661ca8776f04d98cc04bbe7a07b8c388f91ee
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681663"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745927"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Använd skapare för att skapa inliggande kartor
 
@@ -215,7 +215,7 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. Svars texten levereras i formatet för det interjson-formatet och kommer att innehålla alla samlingar i data uppsättningen. För enkelhetens skull visar exemplet bara `unit` samlingen. Om du vill se ett exempel som innehåller alla samlingar, se [WFS beskriver API: er för samlingar](https://docs.microsoft.com/rest/api/maps/wfs/describecollectionspreview). Om du vill veta mer om en samling kan du klicka på någon av URL: erna inuti `link` elementet.
+3. Svars texten levereras i formatet för det interjson-formatet och kommer att innehålla alla samlingar i data uppsättningen. För enkelhetens skull visar exemplet bara `unit` samlingen. Om du vill se ett exempel som innehåller alla samlingar, se [WFS beskriver API: er för samlingar](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Om du vill veta mer om en samling kan du klicka på någon av URL: erna inuti `link` elementet.
 
     ```json
     {
@@ -285,7 +285,7 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
 
 1. I Postman-programmet väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
 
-2. Gör en **post** -begäran till [create Stateset-API: et](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview). Använd `datasetId` för data uppsättningen som innehåller det tillstånd som du vill ändra. Begäran bör se ut som följande URL:
+2. Gör en **post** -begäran till [create Stateset-API: et](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Använd `datasetId` för data uppsättningen som innehåller det tillstånd som du vill ändra. Begäran bör se ut som följande URL:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}

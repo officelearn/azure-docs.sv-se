@@ -12,12 +12,12 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca73fac06649f801461e53130a67aa9ec0ad0d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ee9a9d404e9a08d8b795a3d73907e84d25b73107
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77063330"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739761"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Programhantering med Azure Active Directory
 
@@ -43,7 +43,7 @@ Det finns fyra huvud typer av program som du kan lägga till i dina **företags 
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>Hantera risker med principer för villkorlig åtkomst
 
-Koppling av enkel inloggning med Azure AD (SSO) med [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) ger hög säkerhet för åtkomst till program. Säkerhetsfunktionerna omfattar moln skalning av identitets skydd, riskfylld åtkomst kontroll, inbyggd Multi-Factor Authentication och principer för villkorlig åtkomst. De här funktionerna möjliggör detaljerade kontrollprinciper baserade på program eller på grupper som behöver högre säkerhet.
+Koppling av enkel inloggning med Azure AD (SSO) med [villkorlig åtkomst](../conditional-access/concept-conditional-access-cloud-apps.md) ger hög säkerhet för åtkomst till program. Säkerhetsfunktionerna omfattar moln skalning av identitets skydd, riskfylld åtkomst kontroll, inbyggd Multi-Factor Authentication och principer för villkorlig åtkomst. De här funktionerna möjliggör detaljerade kontrollprinciper baserade på program eller på grupper som behöver högre säkerhet.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Förbättra produktiviteten med enkel inloggning
 

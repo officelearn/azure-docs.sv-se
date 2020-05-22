@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 58f2dc39c185e158a2b4b1b5e73b6b7d589c8c03
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70387789"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745572"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exempel: identifiera språk med Textanalys
 
@@ -25,7 +25,7 @@ Den här funktionen är användbar för innehållslager samlar in godtycklig tex
 
 Språkidentifiering funktionen kan identifiera en mängd olika språk, varianter, dialekter och vissa regionala eller kulturella språk. Den exakta listan över språk för den här funktionen har inte publicerats.
 
-Om du har innehåll som uttryckts på ett mindre vanligt språk kan du prova Språkidentifiering funktionen för att se om den returnerar en kod. Svaret för språk som inte kan identifieras är `unknown`.
+Om du har innehåll som uttryckts på ett mindre vanligt språk kan du prova Språkidentifiering funktionen för att se om den returnerar en kod. Svaret för språk som inte kan identifieras är `unknown` .
 
 > [!TIP]
 > Textanalys ger även en Linux-baserad Docker-containeravbildning för språkidentifiering, så att du kan [installera och köra Textanalys-containern](text-analytics-how-to-install-containers.md) nära dina data.
@@ -69,7 +69,7 @@ Mer information om definition av begäran finns i [anropa API för textanalys](t
 
 + Skicka en POST-begäran. Information om hur du granskar API-dokumentationen för den här begäran finns i [SPRÅKIDENTIFIERING API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-+ Ange HTTP-slutpunkt för språkidentifiering. Använd antingen en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste ta `/text/analytics/v2.1/languages` med i URL: en. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`.
++ Ange HTTP-slutpunkt för språkidentifiering. Använd antingen en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste ta med `/text/analytics/v2.1/languages` i URL: en. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`.
 
 + Ange ett rubrik för begäran för att inkludera [åtkomst nyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) för textanalys åtgärder.
 
@@ -155,9 +155,9 @@ Ett positivt resultat på 1.0 uttrycker högsta möjliga förtroendenivå för a
 
 ### <a name="ambiguous-content"></a>Tvetydig innehåll
 
-I vissa fall kan det vara svårt att disambiguate språk baserat på indatamängden. Du kan använda- `countryHint` parametern för att ange en landskod på 2 bokstäver. Som standard använder API: t "US" som standard-countryHint, för att ta bort det här alternativet kan du återställa den här parametern genom att ange värdet `countryHint = ""` till en tom sträng.
+I vissa fall kan det vara svårt att disambiguate språk baserat på indatamängden. Du kan använda `countryHint` -parametern för att ange en landskod på 2 bokstäver. Som standard använder API: t "US" som standard-countryHint, för att ta bort det här alternativet kan du återställa den här parametern genom att ange värdet till en tom sträng `countryHint = ""` .
 
-Till exempel är "omöjlig" gemensamt för både engelska och franska och om det ges med begränsad kontext, kommer svaret att baseras på "US"-lands tipset. Om det är fastställt att textens ursprung är franskt, så kan detta ges som ett tips.
+Till exempel är "omöjlig" gemensamt för både engelska och franska och om det ges med begränsad kontext, kommer svaret att baseras på "US"-lands-/region tipset. Om det är fastställt att textens ursprung är franskt, så kan detta ges som ett tips.
 
 **Indata**
 
@@ -209,7 +209,7 @@ Tjänsten har nu ytterligare kontext för att göra en bättre bedömning:
     }
 ```
 
-Om analysen inte kan parsa inmataren returneras `(Unknown)`. Ett exempel är om du skickar ett textblock som består av enbart arabiska siffror.
+Om analysen inte kan parsa inmataren returneras `(Unknown)` . Ett exempel är om du skickar ett textblock som består av enbart arabiska siffror.
 
 ```json
     {

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 5ceefb076b63df942cfff202946f6b82050bbab9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0e930116447ded51616651751bba7482b638ca1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311948"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745488"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generera ett självsignerat certifikat för Azure Application Gateway med en anpassad rot certifikat utfärdare
 
@@ -67,7 +67,7 @@ Skapa ditt rot certifikat för certifikat utfärdare med hjälp av OpenSSL.
    ```
    Föregående kommandon skapar rot certifikatet. Du kommer att använda den här för att signera Server certifikatet.
 
-1. När du uppmanas till det anger du lösen ordet för rot nyckeln och organisations informationen för den anpassade certifikat utfärdaren, till exempel land, delstat, org, OU och det fullständigt kvalificerade domän namnet (detta är domän för utfärdaren).
+1. När du uppmanas till det anger du lösen ordet för rot nyckeln och organisations informationen för den anpassade certifikat utfärdaren, till exempel land/region, tillstånd, org, OU och det fullständigt kvalificerade domän namnet (detta är domän för utfärdaren).
 
    ![Skapa rot certifikat](media/self-signed-certificates/root-cert.png)
 
@@ -88,7 +88,7 @@ Använd följande kommando för att generera nyckeln för Server certifikatet.
 CSR är en offentlig nyckel som tilldelas en certifikat utfärdare när ett certifikat begärs. CA: n utfärdar certifikatet för den här specifika begäran.
 
 > [!NOTE]
-> CN (eget namn) för Server certifikatet måste skilja sig från utfärdarens domän. I det här fallet är `www.contoso.com` till exempel CN för utfärdaren och Server certifikatets CN. `www.fabrikam.com`
+> CN (eget namn) för Server certifikatet måste skilja sig från utfärdarens domän. I det här fallet är till exempel CN för utfärdaren `www.contoso.com` och Server certifikatets CN `www.fabrikam.com` .
 
 
 1. Använd följande kommando för att generera CSR:
@@ -97,7 +97,7 @@ CSR är en offentlig nyckel som tilldelas en certifikat utfärdare när ett cert
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. När du uppmanas till det anger du lösen ordet för rot nyckeln och organisationens information för den anpassade certifikat utfärdaren: land, delstat, org, OU och det fullständigt kvalificerade domän namnet. Det här är domänen för webbplatsen och den bör inte vara samma som utfärdaren.
+1. När du uppmanas till det anger du lösen ordet för rot nyckeln och organisationens information för den anpassade certifikat utfärdaren: land/region, tillstånd, org, OU och det fullständigt kvalificerade domän namnet. Det här är domänen för webbplatsen och den bör inte vara samma som utfärdaren.
 
    ![Server certifikat](media/self-signed-certificates/server-cert.png)
 

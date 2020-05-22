@@ -3,12 +3,12 @@ title: Översikt över säkerhets kopiering offline
 description: Läs mer om komponenterna i säkerhets kopiering offline. De inkluderar offline-säkerhetskopiering som baseras på Azure Data Box och offline-säkerhetskopiering baserat på Azure import/export-tjänsten.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: a33810c633d8c7ca79c559355935d3c11853bc0a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160929"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744644"
 ---
 # <a name="overview-of-offline-backup"></a>Översikt över säkerhets kopiering offline
 
@@ -73,11 +73,11 @@ I följande tabell jämförs de två tillgängliga alternativen så att du kan g
 | Säkerhet (data, enhet och tjänst)                           | [Data](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) AES 256-bit-krypterad <br> [Enhet](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) – robust väska, patentskyddat, Credential-baserat gränssnitt för att kopiera data <br> [Tjänst](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) – skyddas av säkerhetsfunktioner i Azure | Data-BitLocker-krypterad                                 |
 | Tillfällig etablering av lagrings plats                     | Krävs inte                                                | Mer än eller lika med den beräknade säkerhets kopierings data storleken        |
 | Regioner som stöds                                           | [Azure Data Box disk regioner](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Azure Data Box regioner](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Azure import/export-tjänst regioner](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
-| Leverans mellan länder                                     | Stöds inte  <br>    Käll adress och mål Azure-datacenter måste finnas i samma land * | Stöds                                                    |
+| Leverans mellan länder                                     | Stöds inte  <br>    Käll adress och mål Azure-datacenter måste finnas i samma land/region * | Stöds                                                    |
 | Överför logistik (leverans, transport, upphämtning)           | Fullständigt Microsoft-hanterat                                     | Kund hantering                                            |
 | Prissättning                                                      | [Azure Data Box priser](https://azure.microsoft.com/pricing/details/databox/) <br> [Priser för Azure Data Box disken](https://azure.microsoft.com/pricing/details/databox/disk/) | [Prissättning för Azure import/export-tjänsten](https://azure.microsoft.com/pricing/details/storage-import-export/) |
 
-* Om ditt land inte har ett Azure-datacenter, måste du leverera diskarna till ett Azure-datacenter i ett annat land.
+* Om ditt land/din region inte har något Azure-datacenter, måste du leverera diskarna till ett Azure-datacenter i ett annat land/en annan region.
 
 ## <a name="next-steps"></a>Nästa steg
 

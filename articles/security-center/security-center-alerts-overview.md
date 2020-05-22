@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 697c038a2fefdde8e488dad23a4e38e0b2b7b288
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77e75caf836c4f7d142b0b5c23327d73afa6a77
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79415857"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744627"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Säkerhetsaviseringar i Azure Security Center
 
@@ -55,7 +55,7 @@ Security Center använder avancerade säkerhetsanalyser, som går mycket längre
 
 * **Integrerad Hot information**: Microsoft har en stor mängd global Hot information. Telemetri flödar från flera källor, till exempel Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital brottslighet Unit (DCU) och Microsoft Security Response Center (MSRC). Forskare får också information om hot information som delas mellan större leverantörer av moln tjänster och feeds från andra tredje parter. Azure Security Center kan använda den här informationen för att varna dig om hot från kända illvilliga aktörer.
 
-* **Beteende analys**: beteende analys är en teknik som analyserar och jämför data med en samling kända mönster. Dessa mönster är dock inte enkla signaturer. De fastställs genom komplexa maskininlärningsalgoritmer som tillämpas på enorma datamängder, och av expertanalytiker genom noggrann analys av skadliga beteenden. Azure Security Center kan använda beteende analys för att identifiera komprometterade resurser baserat på analyser av loggar för virtuella datorer, loggar för virtuella nätverks enheter, infrastruktur loggar, krasch dum par och andra källor.
+* **Beteende analys**: beteende analys är en teknik som analyserar och jämför data med en samling kända mönster. Dessa mönster är dock inte enkla signaturer. De fastställs genom komplexa maskininlärningsalgoritmer som tillämpas på enorma datamängder, och av expertanalytiker genom noggrann analys av skadliga beteenden. Azure Security Center kan använda beteende analys för att identifiera komprometterade resurser baserat på analyser av loggar för virtuella datorer, loggar för virtuella nätverks enheter, infrastruktur loggar och andra källor.
 
 * **Avvikelse identifiering**: Azure Security Center använder också avvikelse identifiering för att identifiera hot. Till skillnad från beteende analyser (som är beroende av kända mönster härledda från stora data mängder) är avvikelse identifieringen mer personligt anpassad och fokuserar på de bas linjer som är speciella för dina distributioner. Maskininlärning tillämpas för att fastställa om aktiviteten i dina distributioner är normal. Sedan genereras regler som definierar avvikande förhållanden som kan representera en säkerhetshändelse.
 

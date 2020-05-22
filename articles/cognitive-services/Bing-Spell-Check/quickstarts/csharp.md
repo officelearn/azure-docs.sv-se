@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 036ea00362b604957a1887127fca0b8d775d4e7b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: aa76a5773a20a103ceec075a58c79fac691eec6f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382973"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747333"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och C #
 
@@ -34,7 +34,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny konsol lösning som `SpellCheckSample` heter i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
+1. Skapa en ny konsol lösning `SpellCheckSample` som heter i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
     
     ```csharp
     using System;
@@ -62,7 +62,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     }
     ```
 
-3. Skapa en variabel för sökparametrarna. Lägg till din marknads kod `mkt=`efter. Marknads koden är det land som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=`. Läget är antingen `proof` (fångar de flesta stavnings-och grammatikfel) `spell` eller (fångar de flesta stavfel men inte lika många grammatiska fel).
+3. Skapa en variabel för sökparametrarna. Lägg till din marknads kod efter `mkt=` . Marknads koden är landet/regionen som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=` . Läget är antingen `proof` (fångar de flesta stavnings-och grammatikfel) eller `spell` (fångar de flesta stavfel men inte lika många grammatiska fel).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -137,7 +137,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Skapa och kör ditt projekt. Om du använder Visual Studio trycker du på **F5** för att felsöka filen.
 

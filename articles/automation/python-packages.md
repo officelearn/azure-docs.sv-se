@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 701a5aab7a0061f8b5abfaac1b699034db2671b9
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: cc709be7a7f0d46d105e73b0a105a3dec8cc793c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508997"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746710"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Hantera python 2-paket i Azure Automation
 
@@ -48,14 +48,14 @@ När paketen har hämtats kan du importera dem till ditt Automation-konto.
 
  Om du vill hämta en Runbook [importerar du python 2-paket från pypi till Azure Automation konto](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) från galleriet till ditt Automation-konto. Se till att körnings inställningarna är inställda på **Azure** och starta runbooken med parametrarna. Runbook kräver ett Kör som-konto för att Automation-kontot ska fungera. För varje parameter måste du starta den med växeln som visas i följande lista och bild:
 
-* -s \<subscriptionId\>
-* – g \<resourceGroup\>
-* – en \<automationAccount\>
-* -m \<modulePackage\>
+* -s \< subscriptionId\>
+* – g \< resourceGroup\>
+* – en \< automationAccount\>
+* -m \< modulePackage\>
 
 ![Paket lista](media/python-packages/import-python-runbook.png)
 
-I Runbook-flödet kan du ange vilket paket som ska laddas ned. Om du `Azure` till exempel använder parametern hämtas alla Azure-moduler och alla beroenden (cirka 105).
+I Runbook-flödet kan du ange vilket paket som ska laddas ned. Om du till exempel använder `Azure` parametern hämtas alla Azure-moduler och alla beroenden (cirka 105).
 
 När runbooken har slutförts kan du kontrol lera **python 2-paketen** under **delade resurser** i ditt Automation-konto för att kontrol lera att paketet har importer ATS korrekt.
 
@@ -89,4 +89,4 @@ För att utveckla och testa dina python 2-Runbooks offline kan du använda modul
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att komma igång med python 2-Runbooks, se [min första python 2-Runbook](automation-first-runbook-textual-python2.md).
+[Skapa en Python-runbook](learn/automation-tutorial-runbook-textual-python2.md)

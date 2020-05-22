@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 93dc831fa631a28b918ef5015a3c9ff107d41541
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 423d65cc77cb06a6084ad9ad56f3d7274e057ffb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726085"
+ms.locfileid: "83746515"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -140,7 +140,7 @@ Det finns fler än 75 standard röster i över 45 språk och nationella inställ
 | <sup>81.1</sup>`ar-EG` | Arabiska (Egypten) | Kvinna | "ar-tex-Hoda" |
 | `ar-SA` | Arabiska (Saudiarabien) | Man | "ar-SA-Naayf" |
 | `bg-BG` | Bulgariska | Man |  "BG-BG-Ivan" |
-| `ca-ES` | Katalanska (Spanien) | Kvinna |  "ca-ES-HerenaRUS" |
+| `ca-ES` | Katalanska | Kvinna |  "ca-ES-HerenaRUS" |
 | `cs-CZ` | Tjeckiska | Man | "CS-CZ-Jakub" |
 | `da-DK` | Danska | Kvinna |  "da-DK-HelleRUS" |
 | `de-AT` | Tyska (Österrike) | Man | "avinstallation-Michael" |

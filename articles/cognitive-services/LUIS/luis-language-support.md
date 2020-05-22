@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: e859ac18276d10960a5a8488a6051252d90e0fcd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 69ff3aa3f649b054192f9dd001af83dc8dbc2317
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591054"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745699"
 ---
 # <a name="language-and-region-support-for-luis"></a>Språk-och region stöd för LUIS
 
@@ -32,7 +32,7 @@ LUIS förstår yttranden på följande språk:
 
 | Språk |Nationell inställning  |  Fördefinierad domän | Fördefinierad entitet | Rekommendationer för fras lista | **[Text analys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment och<br>Reserverade|
 |--|--|:--:|:--:|:--:|:--:|
-| Amerikansk engelska |`en-US` | ✔ | ✔  |✔|✔|
+| Engelska (USA) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabiska (förhands granskning-modern standard arabisk) |`ar-AR`|-|-|-|-|
 | *[Kinesiska](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Nederländska |`nl-NL` |✔|-|-|✔|

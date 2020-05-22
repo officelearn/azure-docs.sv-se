@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 7de57c9a69e60e8c342e067ff1e95a0f2cfadec8
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: f975abcd05b92dd57eb736f076b63c88b4bf6769
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699312"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747262"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Skapa ett erbjudande för Dynamics 365 for Customer Engagement & PowerApps
 
@@ -147,7 +147,7 @@ Det namn som du anger här visas för kunder som rubrik på din erbjudande lista
 
 Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan användas i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -207,7 +207,7 @@ Hjälte avbildningen är valfri. Om du anger ett värde måste du mäta 815 x 29
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst en skärm bild krävs, och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Video
+#### <a name="videos"></a>Videoklipp
 
 Du kan också lägga till upp till fyra videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en, anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 bild punkter)
 
@@ -217,7 +217,7 @@ Du kan också lägga till upp till fyra videor som demonstrerar ditt erbjudande.
 
 Välj **Spara utkast** innan du fortsätter.
 
-## <a name="availability"></a>Tillgängligt
+## <a name="availability"></a>Tillgänglighet
 
 På den här sidan kan du definiera var och hur du vill göra ditt erbjudande tillgängligt.
 
@@ -258,9 +258,14 @@ Ange webb adressen till webb sidan för konfigurationen som gör det möjligt f�
 
 ### <a name="crm-package"></a>CRM-paket
 
-Ange URL: en för ett Azure Storage konto som innehåller den överförda CRM Package. zip-filen i **URL: en för ditt paket plats** fält. URL-adressen bör innehålla en skrivskyddad SAS-nyckel som gör att Microsoft kan hämta ditt paket för verifiering.
+I **URL: en för din paket plats** anger du URL: en för ett Azure Blob Storage-konto som innehåller den överförda CRM Package. zip-filen. Ta med en skrivskyddad SAS-nyckel i URL: en så att Microsoft kan hämta ditt paket för verifiering.
 
-Markera kryss rutan **det finns fler än ett CRM-paket i paket filen**, om tillämpligt. I så fall, se till att inkludera alla paket i. zip-filen.
+> [!IMPORTANT]
+> För att undvika ett publicerings block ser du till att utgångs datumet i URL: en för blob-lagringen inte har gått ut. Du kan ändra datumet genom att komma åt din princip. Vi rekommenderar att **förfallo tiden infaller** minst en månad i framtiden.
+
+Markera kryss rutan **det finns mer än ett CRM-paket i paket filen**, om tillämpligt. I så fall, se till att inkludera alla paket i. zip-filen.
+
+Detaljerad information om hur du skapar paketet och uppdaterar dess struktur finns i [steg 3: skapa ett AppSource-paket för din app](https://docs.microsoft.com/powerapps/developer/common-data-service/create-package-app-appsource).
 
 ### <a name="crm-package-availability"></a>Tillgänglighet för CRM-paket
 

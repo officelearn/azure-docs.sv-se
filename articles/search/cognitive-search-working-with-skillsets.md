@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2b336451bde559ce773a9b611bc98b4de3f11871
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e8e263d29bc71ac76c374eeda78e5250a0af2095
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652745"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744790"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Färdigheter-koncept och-sammansättning i Azure Kognitiv sökning
 
@@ -26,9 +26,9 @@ En färdigheter är en återanvändbar resurs i Azure Kognitiv sökning som ange
 
 En färdigheter har tre egenskaper:
 
-+   ```skills```, en osorterad samling kunskaper för vilka plattformen fastställer körnings ordningen baserat på de indata som krävs för varje färdighet
-+   ```cognitiveServices```är den kognitiva tjänst nyckeln som krävs för att fakturera de kognitiva färdigheter som anropas
-+   ```knowledgeStore```, lagrings kontot där dina berikade dokument kommer att projiceras
++    ```skills```, en osorterad samling kunskaper för vilka plattformen fastställer körnings ordningen baserat på de indata som krävs för varje färdighet
++    ```cognitiveServices```är den kognitiva tjänst nyckeln som krävs för att fakturera de kognitiva färdigheter som anropas
++    ```knowledgeStore```, lagrings kontot där dina berikade dokument kommer att projiceras
 
 
 
@@ -54,14 +54,14 @@ För resten av det här dokumentet kommer vi att anta att vi arbetar med [hotell
 
 ### <a name="context"></a>Kontext
 Varje färdighet kräver en kontext. En kontext fastställer:
-+   Antalet gånger som kompetensen körs, baserat på de valda noderna. Om du lägger till en i slutet av Sammanhangs värden av typen samling leder det till att en ```/*``` färdighet anropas en gång för varje instans i samlingen. 
-+   Var i anriknings trädet läggs färdighets utmatningarna till. Utdata läggs alltid till i trädet som underordnade noder till kontextnoden. 
-+   Figuren för indata. För samlingar med flera nivåer påverkar att ange kontexten till den överordnade samlingen formen på indata för kunskapen. Om du till exempel har ett berikande träd med en lista över länder, var och en med en lista över stater som innehåller en lista över ZipCodes.
++    Antalet gånger som kompetensen körs, baserat på de valda noderna. Om du lägger till en i slutet av Sammanhangs värden av typen samling leder det till att en ```/*``` färdighet anropas en gång för varje instans i samlingen. 
++    Var i anriknings trädet läggs färdighets utmatningarna till. Utdata läggs alltid till i trädet som underordnade noder till kontextnoden. 
++    Figuren för indata. För samlingar med flera nivåer påverkar att ange kontexten till den överordnade samlingen formen på indata för kunskapen. Om du till exempel har ett anriknings träd med en lista över länder/regioner, var och en med en lista med tillstånd som innehåller en lista över ZipCodes.
 
 |Kontext|Indata|Inmatad form|Kompetens anrop|
 |---|---|---|---|
-|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |En lista över alla ZipCodes i landet |En gång per land |
-|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |En lista över ZipCodes i status | En gång per kombination av land och delstat|
+|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |En lista över alla ZipCodes i landet/regionen |En gång per land/region |
+|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |En lista över ZipCodes i status | En gång per kombination av land/region och delstat|
 
 ### <a name="sourcecontext"></a>SourceContext
 

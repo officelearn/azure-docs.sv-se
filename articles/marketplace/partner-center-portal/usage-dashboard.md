@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 89a0a782b4a18b71f7be8bcdd3728fd008c24d5a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b60475c56b18e81b082e7552fec789b06adeff27
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793014"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746667"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Instrument panelen för användning i Microsofts marknads plats analys
 
@@ -54,7 +54,7 @@ I tabellen användnings översikt visas kund förbruknings timmar för alla erbj
 
 ### <a name="usage-by-geography"></a>Användning efter geografi
 
-Den **normaliserade användningen av geografi** -termisk karta visar användnings timmar som mappats enligt kundens land. Landets färg variation visar normaliserad användnings koncentration. Återgå till den ursprungliga vyn genom att trycka på knappen **Start** på kartan.
+Den **normaliserade användningen av geografi** -termisk karta visar användnings timmar som mappats enligt kundens land/region. Färg variationen för land/region representerar normaliserad användnings koncentration. Återgå till den ursprungliga vyn genom att trycka på knappen **Start** på kartan.
 
 ### <a name="usage-by-offers"></a>Användning efter erbjudanden
 
@@ -92,7 +92,7 @@ Ranknings lista visar de virtuella 50 VM-storlekarna med högsta användning och
 - Varje kolumn i rutnätet är sorterbar.
 - Data kan extraheras till en CSV-fil om antalet poster är mindre än 1000.
 - Om antalet poster är över 1000 placeras export data asynkront på en nedladdnings sida som kommer att vara tillgänglig under de närmaste 30 dagarna.
-- Filter kan tillämpas på **detaljerad användnings information** för att visa endast de data som du är intresse rad av. Data kan filtreras efter land, försäljnings kanal, Marketplace-licens typ, användnings typ, erbjudande namn, erbjudande typ, kostnads fria utvärderings prenumerationer, Marketplace-ID, kund-ID och företags namn.
+- Filter kan tillämpas på **detaljerad användnings information** för att visa endast de data som du är intresse rad av. Data kan filtreras efter land/region, försäljnings kanal, Marketplace-licens typ, användnings typ, erbjudande namn, erbjudande typ, kostnads fri utvärderings prenumerations-ID, kund-ID och företags namn.
 
 > [!NOTE]
 > Välj **användnings typen** i sid filtret för att visa diagram på sidan i antingen "normaliserad vy" eller "rå vy". Standardvyn för de här diagrammen är "normaliserad vy".
@@ -116,7 +116,7 @@ På fliken **avgiftsbelagd fakturerings användning** visas användnings informa
 > [!NOTE]
 > Användnings informationen och alla diagram på den här sidan visas för den valda mätnings dimensionen för sid filtret.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - En översikt över analys rapporter som är tillgängliga i partner Centers kommersiella marknads platser finns i [analys för den kommersiella Marketplace i Partner Center](./analytics.md).
 - För grafer, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för ditt erbjudande, se [översikts instrument panel i](./summary-dashboard.md)marknads plats analys.

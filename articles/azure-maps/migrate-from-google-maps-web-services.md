@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d2f25f2b786686b8af9bad4ea8ce3c8aea9b589f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 934a7546464cf552c355ee6b4e278b79a0f9ff90
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80371461"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747488"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migrera webb tjänsten från Google Maps
 
@@ -56,7 +56,7 @@ Kodning är en process för att konvertera en adress till en koordinat. Till exe
 Azure Maps tillhandahåller flera metoder för att koda adresser:
 
 - [**Kodning av fritt format**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Ange en enskild adress sträng och bearbeta begäran omedelbart. "1 Microsoft Way, Redmond, WA" är ett exempel på en enskild adress sträng. Det här API: et rekommenderas om du snabbt behöver koda enskilda adresser.
-- [**Kodning av strukturerad adress**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Ange delar av en enskild adress, till exempel gatu namn, stad, land och post nummer och bearbeta begäran omedelbart. Det här API: et rekommenderas om du behöver en kort kod för enskilda adresser snabbt och data redan har tolkats i sina enskilda adress delar.
+- [**Kodning av strukturerad adress**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Ange delar av en enskild adress, till exempel gatu namn, stad, land/region och post nummer och bearbeta begäran omedelbart. Det här API: et rekommenderas om du behöver en kort kod för enskilda adresser snabbt och data redan har tolkats i sina enskilda adress delar.
 - [**Kodning av batch-adresser**](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): skapa en begäran som innehåller upp till 10 000 adresser och behandla dem under en viss tids period. Alla adresser kommer att kodas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned. Detta rekommenderas för att kunna koda stora data mängder.
 - [**Fuzzy-sökning**](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): det här API: et kombinerar adressens kod för att söka efter orienterings punkter. Detta API tar i en sträng med fritt format. Den här strängen kan vara en adress, plats, landmärke, orienterings punkt eller kategori av intressant kategori. Denna API bearbetar begäran nära real tid. Detta API rekommenderas för program där användare söker efter adresser eller intressanta punkter i samma text ruta.
 - [**Fuzzy batch-sökning**](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): skapa en begäran som innehåller upp till 10 000 adresser, platser, landmärken eller anslags punkter och låta dem bearbetas under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
@@ -67,7 +67,7 @@ Följande tabell innehåller en kors referens till Google Maps API-parametrar me
 |---------------------------|--------------------------------------|
 | `address`                   | `query`                            |
 | `bounds`                    | `topLeft` och `btmRight`           |
-| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality`– stad/stad<br/>`municipalitySubdivision`– till, sub/Super City<br/>`countrySubdivision`delstat eller provins<br/>`countrySecondarySubdivision`-län<br/>`countryTertiarySubdivision`– distrikt<br/>`countryCode`– landskod för två bokstäver |
+| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality`– stad/stad<br/>`municipalitySubdivision`– till, sub/Super City<br/>`countrySubdivision`delstat eller provins<br/>`countrySecondarySubdivision`-län<br/>`countryTertiarySubdivision`– distrikt<br/>`countryCode`– landskod för land/region |
 | `key`                       | `subscription-key`– Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
 | `language`                  | `language`– Se dokumentation om [språk som stöds](supported-languages.md) .  |
 | `region`                    | `countrySet`                       |
@@ -75,7 +75,7 @@ Följande tabell innehåller en kors referens till Google Maps API-parametrar me
 Ett exempel på hur du använder Sök tjänsten finns dokumenterat [här](how-to-search-for-address.md). Se till att gå igenom [metod tipsen för sökning](how-to-use-best-practices-for-search.md).
 
 > [!TIP]
-> De kostnads fria adresserna för kodning och fuzzy Search-API: er kan användas i läget komplettera `&typeahead=true` automatiskt genom att lägga till i URL: en för begäran. Detta talar om för servern att indatamängden är troligt vis delvis och att sökningen försätts i förutsägande läge.
+> De kostnads fria adresserna för kodning och fuzzy Search-API: er kan användas i läget komplettera automatiskt genom att lägga till `&typeahead=true` i URL: en för begäran. Detta talar om för servern att indatamängden är troligt vis delvis och att sökningen försätts i förutsägande läge.
 
 ## <a name="reverse-geocode-a-coordinate"></a>Omvändly-kod a-koordinat
 
@@ -126,7 +126,7 @@ Azure Maps tillhandahåller flera Sök-API: er för intressanta punkter:
 För närvarande har Azure Maps inte något jämförbart API till API: et för texts ökning i Google Maps.
 
 > [!TIP]
-> POI search, POI kategori search och fuzzy Search-API: er kan användas i läget komplettera automatiskt genom `&typeahead=true` att lägga till i fråge-URL: en. Detta talar om för servern att indatamängden är troligt vis delvis. API: n kommer att genomföra sökningen i förutsägande läge.
+> POI search, POI kategori search och fuzzy Search-API: er kan användas i läget komplettera automatiskt genom att lägga till i `&typeahead=true` fråge-URL: en. Detta talar om för servern att indatamängden är troligt vis delvis. API: n kommer att genomföra sökningen i förutsägande läge.
 
 Läs igenom [metod tipsen för Sök efter](how-to-use-best-practices-for-search.md) dokumentation.
 
@@ -266,25 +266,25 @@ Förutom att kunna generera en statisk kart bild ger tjänsten Azure Maps åter 
 
 **Före: Google Maps**
 
-Lägg till markörer `markers` med hjälp av parametern i URL: en. `markers` Parametern tar i ett format och en lista över platser som ska återges på kartan med det formatet enligt nedan:
+Lägg till markörer med hjälp av `markers` parametern i URL: en. `markers`Parametern tar i ett format och en lista över platser som ska återges på kartan med det formatet enligt nedan:
 
 ```
 &markers=markerStyles|markerLocation1|markerLocation2|...
 ```
 
-Om du vill lägga till fler stilar `markers` använder du parametrarna till URL: en med ett annat format och en uppsättning med platser.
+Om du vill lägga till fler stilar använder du `markers` parametrarna till URL: en med ett annat format och en uppsättning med platser.
 
 Ange markör platser med formatet "latitud, longitud".
 
-Lägg till markör format med `optionName:value` formatet, med flera format åtskiljda med pipe\|()-tecken som detta "optionName1\|: värde1 optionName2: värde2". Observera att alternativ namn och värden åtskiljs med kolon (:). Använd följande namn på stil-alternativet för att formatera markörer i Google Maps:
+Lägg till markör format med `optionName:value` formatet, med flera format åtskiljda med pipe ( \| )-tecken som detta "optionName1: värde1 \| optionName2: värde2". Observera att alternativ namn och värden åtskiljs med kolon (:). Använd följande namn på stil-alternativet för att formatera markörer i Google Maps:
 
-- `color`– Färgen på standard markör ikonen. Kan vara en 24-bitars hexadecimal färg (`0xrrggbb`) eller något av följande värden: `black`, `brown`, `green`, `purple`, `yellow`, `blue`, `gray`, `orange`, `red`, `white`.
+- `color`– Färgen på standard markör ikonen. Kan vara en 24-bitars hexadecimal färg ( `0xrrggbb` ) eller något av följande värden: `black` ,,,, `brown` `green` `purple` `yellow` , `blue` , `gray` , `orange` `red` `white` ,,.
 - `label`– Ett enkelt alfanumeriskt tecken som ska visas ovanpå ikonen.
-- `size`– Markörens storlek. Kan vara `tiny`, `mid`eller `small`.
+- `size`– Markörens storlek. Kan vara `tiny` , `mid` eller `small` .
 
 Använd följande format alternativ namn för anpassade ikoner i Google Maps:
 
-- `anchor`– Anger hur ikon bilden justeras mot koordinaten. Kan vara ett pixel värde (x, y) eller något av följande värden: `top`, `bottom` `left`, `bottomleft` `bottomright`,, `center`,,, eller. `topleft` `right` `topright`
+- `anchor`– Anger hur ikon bilden justeras mot koordinaten. Kan vara ett pixel värde (x, y) eller något av följande värden: ,,,,,,, `top` `bottom` `left` `right` `center` `topleft` `topright` `bottomleft` eller `bottomright` .
 - `icon`– En URL som pekar mot ikon bilden.
 
 Vi kan till exempel lägga till en röd, medels Tor markör till kartan vid longitud:-110, latitud: 45:
@@ -299,37 +299,37 @@ Vi kan till exempel lägga till en röd, medels Tor markör till kartan vid long
 
 **Efter: Azure Maps**
 
-Lägg till markörer till en statisk kart bild genom `pins` att ange parametern i URL: en. Som Google Maps anger du ett format och en lista över platser i parametern. `pins` Parametern kan anges flera gånger för att stödja markörer med olika format.
+Lägg till markörer till en statisk kart bild genom att ange `pins` parametern i URL: en. Som Google Maps anger du ett format och en lista över platser i parametern. `pins`Parametern kan anges flera gånger för att stödja markörer med olika format.
 
 ```
 &pins=iconType|pinStyles||pinLocation1|pinLocation2|...
 ```
 
-Om du vill använda ytterligare format lägger `pins` du till ytterligare parametrar till URL: en med ett annat format och en uppsättning med platser.
+Om du vill använda ytterligare format lägger du till ytterligare `pins` parametrar till URL: en med ett annat format och en uppsättning med platser.
 
 I Azure Maps måste PIN-platsen vara i formatet "longitud latitud". Google Maps använder formatet "latitud, longitud". Ett blank steg, inte ett kommatecken, avgränsar longitud och latitud i Azure Maps format.
 
-`iconType` Anger vilken typ av PIN-kod som ska skapas. Den kan ha följande värden:
+`iconType`Anger vilken typ av PIN-kod som ska skapas. Den kan ha följande värden:
 
 - `default`– Standard ikonen för PIN-kod.
 - `none`– Ingen ikon visas, endast etiketter kommer att återges.
 - `custom`– Anger att en anpassad ikon ska användas. En URL som pekar på ikon bilden kan läggas till i slutet av `pins` parametern efter PIN-kodens plats information.
 - `{udid}`– Ett unikt data-ID (UDID) för en ikon som lagras i Azure Maps data lagrings plattform.
 
-Lägg till PIN-format `optionNameValue` med formatet. Separera flera format med pipe ()\|-tecknen. Till exempel: `iconType|optionName1Value1|optionName2Value2`. Alternativ namn och värden är inte separerade. Använd följande format alternativ namn till format markörer:
+Lägg till PIN-format med `optionNameValue` formatet. Separera flera format med pipe ( \| )-tecknen. Exempel: `iconType|optionName1Value1|optionName2Value2`. Alternativ namn och värden är inte separerade. Använd följande format alternativ namn till format markörer:
 
 - `al`– Anger markörens opacitet (alfa). Välj ett tal mellan 0 och 1.
 - `an`– Anger fäst punkten. Ange X-och y-pixelvärdena i formatet "X y".
-- `co`– PIN-kodens färg. Ange en 24-bitars hexadecimal färg: `000000` till `FFFFFF`.
+- `co`– PIN-kodens färg. Ange en 24-bitars hexadecimal färg: `000000` till `FFFFFF` .
 - `la`– Anger etikettens ankare. Ange X-och y-pixelvärdena i formatet "X y".
-- `lc`– Etikettens färg. Ange en 24-bitars hexadecimal färg: `000000` till `FFFFFF`.
+- `lc`– Etikettens färg. Ange en 24-bitars hexadecimal färg: `000000` till `FFFFFF` .
 - `ls`– Etikettens storlek i bild punkter. Välj ett tal som är större än 0.
 - `ro`– Ett värde i grader för att rotera ikonen. Välj ett tal mellan-360 och 360.
 - `sc`– Ett skalnings värde för PIN-ikonen. Välj ett tal som är större än 0.
 
 Ange etikett värden för varje PIN-plats. Den här metoden är mer effektiv än att använda ett enda etikett värde för alla markörer i listan över platser. Etikett svärdet kan vara en sträng med flera tecken. Omsluta strängen med enkla citat tecken för att säkerställa att den inte är förväxlad som ett format eller ett plats värde.
 
-Nu ska vi lägga till en`FF0000`röd () standard ikon med etiketten "utrymmes nål", placerad under (15 50). Ikonen är i longitud:-122,349300, latitud: 47,620180:
+Nu ska vi lägga till en röd ( `FF0000` ) standard ikon med etiketten "utrymmes nål", placerad under (15 50). Ikonen är i longitud:-122,349300, latitud: 47,620180:
 
 ```
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
@@ -353,20 +353,20 @@ Lägg till tre PIN-koder med etikett värden "1", "2" och "3":
 
 **Före: Google Maps**
 
-Lägg till linjer och polygon till en statisk kart bild med `path` hjälp av parametern i URL: en. `path` Parametern tar i ett format och en lista över platser som ska återges på kartan, enligt nedan:
+Lägg till linjer och polygon till en statisk kart bild med hjälp av `path` parametern i URL: en. `path`Parametern tar i ett format och en lista över platser som ska återges på kartan, enligt nedan:
 
 ```
 &path=pathStyles|pathLocation1|pathLocation2|...
 ```
 
-Använd ytterligare format genom att lägga `path` till ytterligare parametrar till URL: en med ett annat format och en uppsättning med platser.
+Använd ytterligare format genom att lägga till ytterligare `path` parametrar till URL: en med ett annat format och en uppsättning med platser.
 
 Sök vägs platser anges med `latitude1,longitude1|latitude2,longitude2|…` formatet. Sökvägar kan vara kodade eller innehålla adresser för punkter.
 
-Lägg till Sök vägs format `optionName:value` med formatet, separera flera format med pipe (\|)-tecknen. Och separata alternativ namn och värden med kolon (:). Så här: `optionName1:value1|optionName2:value2`. Följande format alternativ namn kan användas för att formatera sökvägar i Google Maps:
+Lägg till Sök vägs format med `optionName:value` formatet, separera flera format med pipe ( \| )-tecknen. Och separata alternativ namn och värden med kolon (:). Så här: `optionName1:value1|optionName2:value2` . Följande format alternativ namn kan användas för att formatera sökvägar i Google Maps:
 
-- `color`– Färgen på banan eller polygonens kontur. Kan vara en 24-bitars hexadecimal färg (`0xrrggbb`), en 32-bitars hex-färg`0xrrggbbbaa`() eller något av följande värden: svart, brun, grön, lila, gul, blå, grå, orange, röd, vit.
-- `fillColor`– Färgen för att fylla Ban ytan med (Polygon). Kan vara en 24-bitars hexadecimal färg (`0xrrggbb`), en 32-bitars hex-färg`0xrrggbbbaa`() eller något av följande värden: svart, brun, grön, lila, gul, blå, grå, orange, röd, vit.
+- `color`– Färgen på banan eller polygonens kontur. Kan vara en 24-bitars hexadecimal färg ( `0xrrggbb` ), en 32-bitars hex-färg ( `0xrrggbbbaa` ) eller något av följande värden: svart, brun, grön, lila, gul, blå, grå, orange, röd, vit.
+- `fillColor`– Färgen för att fylla Ban ytan med (Polygon). Kan vara en 24-bitars hexadecimal färg ( `0xrrggbb` ), en 32-bitars hex-färg ( `0xrrggbbbaa` ) eller något av följande värden: svart, brun, grön, lila, gul, blå, grå, orange, röd, vit.
 - `geodesic`– Anger om sökvägen ska vara en linje som följer jordens böjning.
 - `weight`– Bredden på Sök vägs linjen i bild punkter.
 
@@ -382,7 +382,7 @@ Lägg till en röd linje opacitet och pixel tjock lek på kartan mellan koordina
 
 **Efter: Azure Maps**
 
-Lägg till linjer och polygoner till en statisk kart bild genom att `path` ange parametern i URL: en. Som Google Maps anger du ett format och en lista över platser i den här parametern. Ange `path` parametern flera gånger för att återge flera cirklar, linjer och polygoner med olika format.
+Lägg till linjer och polygoner till en statisk kart bild genom att ange `path` parametern i URL: en. Som Google Maps anger du ett format och en lista över platser i den här parametern. Ange `path` parametern flera gånger för att återge flera cirklar, linjer och polygoner med olika format.
 
 ```
 &path=pathStyles||pathLocation1|pathLocation2|...
@@ -390,7 +390,7 @@ Lägg till linjer och polygoner till en statisk kart bild genom att `path` ange 
 
 När den kommer till Sök vägs platser kräver Azure Maps att koordinaterna ska vara i formatet "longitud Latitude". Google Maps använder formatet "latitud, longitud". Ett blank steg, inte ett kommatecken, avgränsar longitud och latitud i Azure Maps format. Azure Maps stöder inte kodade sökvägar eller adresser för punkter. Ladda upp större data uppsättningar som en polyjson-fil i Azure Maps data Storage API som dokumenteras [här](how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
 
-Lägg till Sök vägs format `optionNameValue` med formatet. Separera flera format per pipe (\|)-tecken, som `optionName1Value1|optionName2Value2`det här. Alternativ namn och värden är inte separerade. Använd följande format alternativ namn för att formatera sökvägar i Azure Maps:
+Lägg till Sök vägs format med `optionNameValue` formatet. Separera flera format per pipe ( \| )-tecken, som det här `optionName1Value1|optionName2Value2` . Alternativ namn och värden är inte separerade. Använd följande format alternativ namn för att formatera sökvägar i Azure Maps:
 
 - `fa`– Fyllnings färg opaciteten (alpha) som används vid åter givning av polygoner. Välj ett tal mellan 0 och 1.
 - `fc`– Fyllnings färgen som används för att återge ytan i en polygon.

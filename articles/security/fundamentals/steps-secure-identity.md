@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: e0db8edfdfa380697a1d8d7e262a7a84da2fb7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cda0d79166f355fd7346865f2d42d066a3e3690
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77565544"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757899"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -107,7 +107,7 @@ Appar som använder sina egna äldre metoder för att autentisera med Azure AD o
 
 1. Blockera [äldre autentisering om du använder AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Konfigurera [SharePoint Online och Exchange Online för att använda modern autentisering](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Om du har Azure AD Premium använder du [villkorliga åtkomst principer](../../active-directory/conditional-access/overview.md) för att blockera äldre autentisering, annars använder du [standardinställningar för Azure AD-säkerhet](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
+3. Om du har Azure AD Premium använder du villkorliga åtkomst principer för att [blockera äldre autentisering](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md), annars använder du [standardinställningar för Azure AD-säkerhet](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blockera ogiltiga start punkter för autentisering
 
@@ -117,7 +117,7 @@ Genom att använda den ungefärliga kränkningen av intrång bör du minska effe
 
 Det är viktigt att förstå de olika [Azure AD-programmens medgivande upplevelser](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), vilka [typer av behörigheter och medgivande](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)och deras konsekvenser i din organisations säkerhets position. Som standard kan alla användare i Azure AD bevilja program som utnyttjar Microsofts identitets plattform för att komma åt din organisations data. Samtidigt som användare kan godkänna själva kan användarna enkelt förvärva användbara program som integrerar med Microsoft 365, Azure och andra tjänster, men det kan representera en risk om den inte används och övervakas noggrant.
 
-Microsoft rekommenderar att du [inaktiverar framtida användar medgivande åtgärder](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) för att minska din yta och minimera risken. Om slut användar medgivande är inaktiverat kommer tidigare medgivande bidrag fortfarande att bevaras, men alla framtida medgivande åtgärder måste utföras av en administratör. Administratörs medgivande kan begäras av användare via ett integrerat [arbets flöde för administratörs medgivande](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) , eller genom egna support processer. Innan du inaktiverar Slutanvändarens medgivande bör du använda våra [rekommendationer](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) för att planera den här ändringen i din organisation. För program som du vill att alla användare ska ha åtkomst till, kan du överväga att [bevilja medgivande åt alla användare](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), och se till att användare som ännu inte har samtyckt individuellt kommer att kunna komma åt appen. Om du inte vill att dessa program ska vara tillgängliga för alla användare i alla scenarier, använder du [program tilldelning](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) och [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) för att begränsa användar åtkomsten till appar.
+Microsoft rekommenderar att du [inaktiverar framtida användar medgivande åtgärder](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) för att minska din yta och minimera risken. Om slut användar medgivande är inaktiverat kommer tidigare medgivande bidrag fortfarande att bevaras, men alla framtida medgivande åtgärder måste utföras av en administratör. Administratörs medgivande kan begäras av användare via ett integrerat [arbets flöde för administratörs medgivande](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) , eller genom egna support processer. Innan du inaktiverar Slutanvändarens medgivande bör du använda våra [rekommendationer](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) för att planera den här ändringen i din organisation. För program som du vill att alla användare ska ha åtkomst till, kan du överväga att [bevilja medgivande åt alla användare](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), och se till att användare som ännu inte har samtyckt individuellt kommer att kunna komma åt appen. Om du inte vill att dessa program ska vara tillgängliga för alla användare i alla scenarier, använder du [program tilldelning](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) och villkorlig åtkomst för att begränsa användar åtkomsten till [specifika appar](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md).
 
 Se till att användarna kan begära administratörs godkännande för nya program för att minska användar friktionen, minimera support volymen och hindra användare från att registrera sig för program som använder autentiseringsuppgifter som inte är Azure AD. När du reglerar dina medgivande åtgärder bör administratörerna granska appen och godkända behörigheter regelbundet.
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fa43eae906c918cad940b8f5efafeea07020098
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 9c953c43ff119d42cdadcd2aba6e15f69765afc2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201643"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745444"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -454,11 +454,11 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
 
 1. Slutför avsnittet **admin credentials** enligt följande:
 
-   * **Workday-användarnamn** – Ange användar namnet för kontot för arbets dag integrerings systemet, med namnet på klient organisationen som lagts till. Det bör se ut ungefär så här: **användar namn\@tenant_name**
+   * **Workday-användarnamn** – Ange användar namnet för kontot för arbets dag integrerings systemet, med namnet på klient organisationen som lagts till. Det bör se ut ungefär så här: **användar namn \@ tenant_name**
 
    * **Lösen ord för arbets dag –** Ange lösen ordet för system kontot för Workday-integrering
 
-   * **URL för Workday webb tjänster-API –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut `https://wd3-impl-services1.workday.com/ccx/service/contoso4`så här:, där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng.
+   * **URL för Workday webb tjänster-API –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut så här: `https://wd3-impl-services1.workday.com/ccx/service/contoso4` , där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng.
 
      > [!NOTE]
      > Som standard använder appen Workday-webbtjänster (WWS) v 21.1 om ingen versions information anges i URL: en. Använd URL-formatet om du vill använda en viss WWS API-version:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
@@ -561,16 +561,16 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Ja** | Endast skrivet vid skapande |
 | **PreferredNameData**    |  nomenklatur    |   |   Endast skrivet vid skapande |
-| **SelectUniqueValue (JOIN ("\@", Anslut (".", \[FirstName\], \[LastName\]), "contoso.com"), JOIN ("\@", JOIN (".", MID (\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), JOIN ("\@", JOIN (".", MID (\[FirstName\], 1, 2), \[\]"contoso.com"))**   | userPrincipalName     |     | Endast skrivet vid skapande 
+| **SelectUniqueValue (JOIN (" \@ ", Anslut (".", \[ FirstName \] , \[ lastname \] ), "contoso.com"), JOIN (" \@ ", JOIN (".", MID ( \[ FirstName \] , 1, 1), \[ LastName \] ), "contoso.com"), JOIN (" \@ ", JOIN (".", MID ( \[ FirstName \] , 1, 2), \[ \] "contoso.com"))**   | userPrincipalName     |     | Endast skrivet vid skapande 
 | `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Endast skrivet vid skapande |
-| **Växel (\[aktiv\],, "0", "sant", "1", "falskt")** |  accountDisabled      |     | Skapa + uppdatera |
+| **Växel ( \[ aktiv \] ,, "0", "sant", "1", "falskt")** |  accountDisabled      |     | Skapa + uppdatera |
 | **FirstName**   | förnamn       |     |    Skapa + uppdatera |
 | **LastName**   |   sn   |     |  Skapa + uppdatera |
 | **PreferredNameData**  |  displayName |     |   Skapa + uppdatera |
 | **Firm**         | company   |     |  Skapa + uppdatera |
 | **SupervisoryOrganization**  | avdelning  |     |  Skapa + uppdatera |
 | **ManagerReference**   | manager  |     |  Skapa + uppdatera |
-| **BusinessTitle**   |  title     |     |  Skapa + uppdatera | 
+| **BusinessTitle**   |  rubrik     |     |  Skapa + uppdatera | 
 | **AddressLineData**    |  streetAddress  |     |   Skapa + uppdatera |
 | **Kommuner**   |   l   |     | Skapa + uppdatera |
 | **CountryReferenceTwoLetter**      |   företag |     |   Skapa + uppdatera |
@@ -580,9 +580,9 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | **Post nummer**  |   Post nummer  |     | Skapa + uppdatera |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Skapa + uppdatera |
 | **Fax**      | facsimileTelephoneNumber     |     |    Skapa + uppdatera |
-| **Mobil**  |    mobil       |     |       Skapa + uppdatera |
+| **Mobilt**  |    mobil       |     |       Skapa + uppdatera |
 | **LocalReference** |  preferredLanguage  |     |  Skapa + uppdatera |                                               
-| **Switch (\[kommun\], "OU = standard användare, OU = användare, OU = standard, OU = platser, DC = contoso, DC = com", "Borås", "OU = standard användare, OU = användare, OU = Borås, OU = platser, DC = contoso, DC = com", "Austin", "OU = standard användare, OU = användare, OU = Austin, OU = locations, DC = contoso, DC = com", "Seattle", "OU = standard användare, OU = användare, OU = Seattle, OU = locations, DC = contoso, DC = com", "London", "OU = standard användare, OU = användare, OU = London, OU = locations, DC = contoso, DC = com")**  | parentDistinguishedName     |     |  Skapa + uppdatera |
+| **Switch ( \[ kommun \] , "OU = standard användare, OU = användare, OU = standard, OU = platser, DC = contoso, DC = com", "Borås", "OU = standard användare, OU = användare, OU = Borås, OU = platser, DC = contoso, DC = com", "Austin", "OU = standard användare, OU = användare, OU = Austin, OU = locations, DC = contoso, DC = com", "Seattle", "OU = standard användare, OU = användare, OU = Seattle, OU = locations, DC = contoso, DC = com", "London", "OU = standard användare, OU = användare, OU = London, OU = locations, DC = contoso, DC = com")**  | parentDistinguishedName     |     |  Skapa + uppdatera |
 
 När du har slutfört konfigurationen av attributmappning kan du nu [Aktivera och starta användar etablerings tjänsten](#enable-and-launch-user-provisioning).
 
@@ -621,7 +621,7 @@ I följande avsnitt beskrivs hur du konfigurerar användar etablering från Work
 
    * **Lösen ord för arbets dag –** Ange lösen ordet för system kontot för Workday-integrering
 
-   * **URL för Workday webb tjänster-API –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut `https://wd3-impl-services1.workday.com/ccx/service/contoso4`så här:, där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng. Om den här URL: en inte är känd kan du samar beta med din prenumerations partner eller support representant för din arbets plats för att fastställa rätt URL som ska användas.
+   * **URL för Workday webb tjänster-API –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut så här: `https://wd3-impl-services1.workday.com/ccx/service/contoso4` , där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng. Om den här URL: en inte är känd kan du samar beta med din prenumerations partner eller support representant för din arbets plats för att fastställa rätt URL som ska användas.
 
      > [!NOTE]
      > Som standard använder appen Workday Web Services v-21.1 om ingen versions information anges i URL: en. Använd URL-formatet om du vill använda en viss API-version för Workday-webb tjänster:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
@@ -719,11 +719,11 @@ Följ de här anvisningarna för att konfigurera tillbakaskrivning av användare
 
 8. Slutför avsnittet **admin credentials** enligt följande:
 
-   * **Administratörens användar** namn – Ange användar namnet för kontot för arbets dag integrerings systemet med klient domän namnet tillagt. Bör se ut ungefär så här: *username\@contoso4*
+   * **Administratörens användar** namn – Ange användar namnet för kontot för arbets dag integrerings systemet med klient domän namnet tillagt. Bör se ut ungefär så här: *username \@ contoso4*
 
    * **Administratörs lösen ord –** Ange lösen ordet för system kontot för Workday-integrering
 
-   * **Klient-URL –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`så här:, där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng (om det behövs).
+   * **Klient-URL –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut så här: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources` , där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng (om det behövs).
 
    * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
 
@@ -823,9 +823,9 @@ Den här funktionen stöds inte för närvarande. Rekommenderad lösning är att
 Lösningen använder för närvarande följande API: er för arbets dagar:
 
 * **URL-formatet för URL: en för webb tjänster för Workday** som används i avsnittet admin- **AUTENTISERINGSUPPGIFTER** bestämmer vilken API-version som används för Get_Workers
-  * Om URL-formatet är: https://\#\#\#\#\.Workday\.com/CCX/service/tenantName används API v 21.1. 
-  * Om URL-formatet är: https://\#\#\#\#\.Workday\.com/CCX/service/tenantName/personal\_-resurser används API v-21.1 
-  * Om URL-formatet är: https://\#\#\#\#\.Workday\.com/CCX/service/tenantName/personal\_/v\# \# \. \# , används den angivna API-versionen. (Exempel: om v-34.0 anges används den.)  
+  * Om URL-formatet är: https:// \# \# \# \# \. Workday \. com/CCX/service/tenantName används API v 21.1. 
+  * Om URL-formatet är: https:// \# \# \# \# \. Workday \. com/CCX/service/tenantName/personal- \_ resurser används API v-21.1 
+  * Om URL-formatet är: https:// \# \# \# \# \. Workday \. com/CCX/service/tenantName/personal \_ /v \# \# \. \# , används den angivna API-versionen. (Exempel: om v-34.0 anges används den.)  
    
 * Funktionen för e-posttillbakaskrivning i Workday använder Change_Work_Contact_Information (v 30.0) 
 * Funktionen för tillbakaskrivning av workday-användare använder Update_Workday_Account (v 31.2) 
@@ -864,7 +864,7 @@ När du föreslår en ny idé bör du kontrol lera om någon annan redan har fö
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>Hur gör jag för att känner du till versionen av etablerings agenten?
 
 * Logga in på Windows Server där etablerings agenten är installerad.
-* Gå till **kontroll panelen** -> **Avinstallera eller ändra en program** meny
+* Gå till **kontroll panelen**  ->  **Avinstallera eller ändra en program** meny
 * Leta efter den version som motsvarar posten **Microsoft Azure AD ansluta etablerings agenten**
 
   ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
@@ -916,15 +916,15 @@ Ja, en etablerings agent kan konfigureras för att hantera flera AD-domäner så
 * Hämta *klient-ID: t* för din Azure AD-klient från Azure Portal.
 * Logga in på Windows Server som kör etablerings agenten.
 * Öppna PowerShell som Windows-administratör.
-* Ändra till den katalog som innehåller registrerings skripten och kör följande kommandon och Ersätt \[klient-\] ID-parametern med värdet för klient-ID: t.
+* Ändra till den katalog som innehåller registrerings skripten och kör följande kommandon och Ersätt \[ klient-ID- \] parametern med värdet för klient-ID: t.
 
   ```powershell
-  cd “C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder”
+  cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder"
   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder\AppProxyPSModule.psd1"
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
 
-* I listan över agenter som visas – kopierar du värdet för `id` fältet från den resurs vars *RESOURCENAME* motsvarar ditt AD-domännamn.
+* I listan över agenter som visas – kopierar du värdet för `id` fältet från den resurs vars *resourceName* motsvarar ditt AD-domännamn.
 * Klistra in ID-värdet i det här kommandot och kör kommandot i PowerShell.
 
   ```powershell
@@ -937,7 +937,7 @@ Ja, en etablerings agent kan konfigureras för att hantera flera AD-domäner så
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>Hur gör jag för att avinstallera etablerings agenten?
 
 * Logga in på Windows Server där etablerings agenten är installerad.
-* Gå till **kontroll panelen** -> **Avinstallera eller ändra en program** meny
+* Gå till **kontroll panelen**  ->  **Avinstallera eller ändra en program** meny
 * Avinstallera följande program:
   * Microsoft Azure AD ansluta etablerings agent
   * Microsoft Azure AD ansluta Agent uppdatering
@@ -1003,21 +1003,21 @@ Här kan du hantera sådana krav för att skapa *CN* eller *DisplayName* för at
      | ----------------- | -------------------- |
      | PreferredFirstName | WD: Worker/WD: Worker_Data/WD: Personal_Data/WD: Name_Data/WD: Preferred_Name_Data/WD: Name_Detail_Data/WD: First_Name/text () |
      | PreferredLastName | WD: Worker/WD: Worker_Data/WD: Personal_Data/WD: Name_Data/WD: Preferred_Name_Data/WD: Name_Detail_Data/WD: Last_Name/text () |
-     | Företag | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data [WD: Organization_Data/WD: Organization_Type_Reference/WD: ID@wd:type[= ' Organization_Type_ID '] = ' Company ']/wd:Organization_Reference/@wd:Descriptor |
-     | SupervisoryOrganization | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data/WD: Organization_Data [WD: Organization_Type_Reference/WD: ID@wd:type[= ' Organization_Type_ID '] = ' övervakande ']/wd: ORGANIZATION_NAME/text () |
+     | Företag | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data [WD: Organization_Data/WD: Organization_Type_Reference/WD: ID [ @wd:type = ' Organization_Type_ID '] = ' Company ']/wd:Organization_Reference/@wd:Descriptor |
+     | SupervisoryOrganization | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data/WD: Organization_Data [WD: Organization_Type_Reference/WD: ID [ @wd:type = ' Organization_Type_ID '] = ' övervakande ']/WD: ORGANIZATION_NAME/text () |
   
    Bekräfta med ditt Workday-team att API-uttrycket ovan är giltigt för din arbets grupps klient konfiguration. Om det behövs kan du redigera dem enligt beskrivningen i avsnittet [Anpassa listan med användar](#customizing-the-list-of-workday-user-attributes)-och Workday-användarattribut.
 
-* På samma sätt hämtas landets information som finns i Workday med följande XPATH: *WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference*
+* På samma sätt hämtas lands-och region information som finns i Workday med följande XPATH: *WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference*
 
-     Det finns 5 lands relaterade attribut som är tillgängliga i avsnittet om attributet för Workday-attribut.
+     Det finns fem lands-eller regionbaserade attribut som är tillgängliga i avsnittet för attributet för Workday-attribut.
 
      | Workday-attribut | API XPATH-uttryck |
      | ----------------- | -------------------- |
-     | CountryReference | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID@wd:type[= ' ISO_3166-1_Alpha-3_Code ']/text () |
+     | CountryReference | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [ @wd:type = ' ISO_3166-1_Alpha-3_Code ']/text () |
      | CountryReferenceFriendly | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/@wd:Descriptor |
-     | CountryReferenceNumeric | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID@wd:type[= ' ISO_3166-1_Numeric-3_Code ']/text () |
-     | CountryReferenceTwoLetter | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID@wd:type[= ' ISO_3166-1_Alpha-2_Code ']/text () |
+     | CountryReferenceNumeric | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [ @wd:type = ' ISO_3166-1_Numeric-3_Code ']/text () |
+     | CountryReferenceTwoLetter | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [ @wd:type = ' ISO_3166-1_Alpha-2_Code ']/text () |
      | CountryRegionReference | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Region_Reference/@wd:Descriptor |
 
   Bekräfta med ditt Workday-team att API-uttrycken ovan är giltiga för din konfiguration av din arbets dag. Om det behövs kan du redigera dem enligt beskrivningen i avsnittet [Anpassa listan med användar](#customizing-the-list-of-workday-user-attributes)-och Workday-användarattribut.
@@ -1027,7 +1027,7 @@ Här kan du hantera sådana krav för att skapa *CN* eller *DisplayName* för at
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
     ```
-    När du har rätt uttryck redigerar du mappnings tabellen för attribut och ändrar attributet *DisplayName* -attribut så som visas nedan: ![DisplayName-mappning](./media/workday-inbound-tutorial/wd_displayname_map.png)
+    När du har rätt uttryck redigerar du mappnings tabellen för attribut och ändrar attributet *DisplayName* -attribut så som visas nedan: ![ DisplayName-mappning](./media/workday-inbound-tutorial/wd_displayname_map.png)
 
 * Utöka exemplet ovan, låt oss säga att du vill konvertera Orts namn från *arbets dagar till* stenografiska värden och sedan använda det för att bygga visnings namn som *Smith, John (Chi)* eller *berg, Jane (NYC)*. sedan kan det här resultatet uppnås med ett switch-uttryck med attributet Workday som Determinant variabel.
 
@@ -1210,7 +1210,7 @@ I det här avsnittet beskrivs vanliga fel med användar etablering för arbets d
 |#|Felscenario |Troliga orsaker|Rekommenderad lösning|
 |--|---|---|---|
 |1.| Det gick inte att installera etablerings agenten med fel meddelandet: *Det gick inte att starta tjänsten Microsoft Azure AD ansluta etablerings agenten (AADConnectProvisioningAgent). Kontrol lera att du har behörighet att starta systemet.* | Det här felet visas vanligt vis om du försöker installera etablerings agenten på en domänkontrollant och grup princip förhindrar att tjänsten startar.  Den visas också om du har en tidigare version av agenten som körs och du inte har avinstallerat den innan du påbörjar en ny installation.| Installera etablerings agenten på en server som inte är en DOMÄNKONTROLLANT. Se till att tidigare versioner av agenten avinstalleras innan du installerar den nya agenten.|
-|2.| Windows-tjänsten Microsoft Azure AD ansluta etablerings agenten är i *Start* läge och växlar inte till *körnings* tillstånd. | Som en del av installationen skapar agent guiden ett lokalt konto (**NT-\\AADConnectProvisioningAgent**) på servern och det är det inloggnings konto som används för att starta tjänsten. Om en säkerhets princip på Windows Server förhindrar att lokala konton kör tjänsterna, kommer du att stöta på det här felet. | Öppna *konsolen tjänster*. Högerklicka på Windows-tjänsten Microsoft Azure AD Anslut etablerings agenten och på fliken inloggning anger du kontot för en domän administratör som ska köra tjänsten. Starta om tjänsten. |
+|2.| Windows-tjänsten Microsoft Azure AD ansluta etablerings agenten är i *Start* läge och växlar inte till *körnings* tillstånd. | Som en del av installationen skapar agent guiden ett lokalt konto (**NT- \\ AADConnectProvisioningAgent**) på servern och det är det inloggnings konto som används för att starta tjänsten. Om en säkerhets princip på Windows Server förhindrar att lokala konton kör tjänsterna, kommer du att stöta på det här felet. | Öppna *konsolen tjänster*. Högerklicka på Windows-tjänsten Microsoft Azure AD Anslut etablerings agenten och på fliken inloggning anger du kontot för en domän administratör som ska köra tjänsten. Starta om tjänsten. |
 |3.| När du konfigurerar etablerings agenten med AD-domänen i steget *anslut Active Directory*, tar det längre tid att läsa in AD-schemat i guiden och tids gränsen går ut. | Det här felet visas vanligtvis om det inte går att kontakta AD-domänkontrollantservern på grund av problem med brandväggen. | På skärmen *anslut Active Directory* guiden, medan du anger autentiseringsuppgifterna för din AD-domän, finns ett alternativ som kallas *Välj domänkontrollantens prioritet*. Använd det här alternativet för att välja en domänkontrollant som finns på samma plats som agent servern och se till att det inte finns några brand Väggs regler som blockerar kommunikationen. |
 
 #### <a name="connectivity-errors"></a>Anslutningsfel
@@ -1268,11 +1268,11 @@ För att göra den här ändringen måste du använda [Workday Studio](https://c
 
     ![Workday-Studio](./media/workday-inbound-tutorial/wdstudio1.png)
 
-6. Ange fältet **plats** som `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, men Ersätt "implementering-CC" med din faktiska instans typ och "TENANT" med ditt riktiga klient namn.
+6. Ange fältet **plats** som `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources` , men Ersätt "implementering-CC" med din faktiska instans typ och "TENANT" med ditt riktiga klient namn.
 
 7. Ange **åtgärd** för att **Get_Workers**
 
-8.  Klicka på den lilla **Konfigurera** -länken under fönstret för svar/svar för att ange dina autentiseringsuppgifter för din arbets dag. Kontrol lera **autentiseringen**och ange sedan användar namn och lösen ord för ditt system konto för ditt system konto för system. Se till att formatera användar namnet som\@klient organisation och lämna alternativet **WS-Security UsernameToken** markerat.
+8.    Klicka på den lilla **Konfigurera** -länken under fönstret för svar/svar för att ange dina autentiseringsuppgifter för din arbets dag. Kontrol lera **autentiseringen**och ange sedan användar namn och lösen ord för ditt system konto för ditt system konto för system. Se till att formatera användar namnet som \@ klient organisation och lämna alternativet **WS-Security UsernameToken** markerat.
 
     ![Workday-Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
@@ -1323,9 +1323,9 @@ För att göra den här ändringen måste du använda [Workday Studio](https://c
 
 17. Ta bort **/env: Envelope/miljö: Body/WD: Get_Workers_Response/WD: Response_Data/** prefix från det kopierade uttrycket.
 
-18. Om det sista objektet i det kopierade uttrycket är en nod (exempel: "/WD: Birth_Date"), lägger du till **/text ()** i slutet av uttrycket. Detta är inte nödvändigt om det sista objektet är ett-attribut (exempel:/@wd: "typ").
+18. Om det sista objektet i det kopierade uttrycket är en nod (exempel: "/WD: Birth_Date"), lägger du till **/text ()** i slutet av uttrycket. Detta är inte nödvändigt om det sista objektet är ett-attribut (exempel: " /@wd: typ").
 
-19. Resultatet bör vara något som liknar `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. Det här värdet är det du kopierar till Azure Portal.
+19. Resultatet bör vara något som liknar `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()` . Det här värdet är det du kopierar till Azure Portal.
 
 **För att lägga till ditt anpassade Workday-användarattribut i etablerings konfigurationen:**
 

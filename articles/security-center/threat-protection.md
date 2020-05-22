@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: bdd8104200bf21507e978abacf600c4780bb3808
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 850b06153a25020f36a4c7df1863e5a576495f3b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636677"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744165"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Skydd mot hot i Azure Security Center
 
@@ -53,14 +53,6 @@ Azure Security Center integreras med Azure-tjänster för att övervaka och skyd
     > Microsoft Defender ATP-sensorn aktive ras automatiskt på Windows-servrar som använder Security Center.
 
     När Microsoft Defender ATP identifierar ett hot utlöses en avisering. Aviseringen visas på instrument panelen för Security Center. Från instrument panelen kan du pivotera till Microsoft Defender ATP-konsolen och utföra en detaljerad undersökning för att få fram omfattningen av angreppet. För ytterligare information om Microsoft Defender ATP, se [onboard-servrar till Microsoft Defender ATP-tjänsten](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
-
-* Analys av krasch **dumpning** <a name="windows-dump"></a> – När program vara kraschar fångar en kraschdump en del av minnet vid tidpunkten för kraschen.
-
-    En krasch kan ha orsakats av skadlig kod eller innehålla skadlig kod. För att undvika att de upptäcks av säkerhets produkter använder olika former av skadlig kod en fil lös attack, vilket förhindrar skrivning till disk eller kryptering av program varu komponenter som skrivs till disk. Den här typen av attack är svår att identifiera med hjälp av traditionella diskbaserade metoder.
-
-    Genom att använda minnes analyser kan du dock identifiera den här typen av attack. Genom att analysera minnet i krasch dumpningen kan Security Center identifiera de tekniker som angreppet använder. Till exempel kan angreppet försöka utnyttja sårbarheter i program varan, komma åt konfidentiella data och ligger gömda kvar på en komprometterad dator. Security Center fungerar detta med minimal prestanda påverkan på värdar.
-
-    Mer information om analys aviseringar för krasch dumpning finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-windows).
 
 * Avkänning av filbaserad **attack** <a name="windows-fileless"></a> – Filspecifika attacker riktade mot slut punkterna är vanliga. För att undvika identifiering kan fil lösa angrepp injicera skadliga nytto laster i minnet. Angripares nytto laster finns kvar i minnet för komprometterade processer och utför en mängd olika skadliga aktiviteter.
 

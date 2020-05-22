@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2f4751440d719a542d39f8d8e83260c8cb628de0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2061d69fdfd13683ee722951cc7aaedcb1e1750a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659284"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745374"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Language Understanding (LUIS) begränsningar för behållare
 
@@ -48,7 +48,7 @@ LUIS-behållare har stöd för en delmängd av de [språk som stöds](luis-langu
 
 | Språk | Nationell inställning | Fördefinierad domän | Fördefinierad entitet | Rekommendationer för fras lista | **[Text analys](../text-analytics/language-support.md)<br>(Sentiment och<br>Reserverade|
 |--|--|:--:|:--:|:--:|:--:|
-| Amerikansk engelska | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Engelska (USA) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | *[Kinesiska](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
 | Franska (Frankrike) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Franska (Kanada) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |

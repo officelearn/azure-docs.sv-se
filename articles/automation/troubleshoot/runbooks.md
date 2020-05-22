@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 586e560f25d12ed8076fcc76810c5a5fb84736dc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1ee6920d1870b7449f4b77394aaf918947f57ea5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680902"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744314"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Felsöka Runbook-problem
 
@@ -45,7 +45,7 @@ När du får fel meddelanden under Runbook-körningen i Azure Automation kan du 
     * [Förnya certifikatet](../manage-runas-account.md#cert-renewal) om kör som-kontot har upphört att gälla.
     * [Förnya webhooken](../automation-webhooks.md#renew-a-webhook) om du försöker använda en upphört webhook för att starta runbooken.
     * [Kontrol lera jobb status](../automation-runbook-execution.md#job-statuses) för att fastställa aktuella Runbook-statusar och vissa möjliga orsaker till problemet.
-    * [Lägg till ytterligare utdata](../automation-runbook-output-and-messages.md#message-streams) till runbooken för att identifiera vad som händer innan runbooken pausas.
+    * [Lägg till ytterligare utdata](../automation-runbook-output-and-messages.md#monitor-message-streams) till runbooken för att identifiera vad som händer innan runbooken pausas.
     * [Hantera eventuella undantag](../automation-runbook-execution.md#exceptions) som genereras av ditt jobb.
 
 1. Gör det här steget om Runbook-jobbet eller miljön på Hybrid Runbook Worker inte svarar.
@@ -479,7 +479,7 @@ Du får följande fel meddelande när du kör `Get-AzAutomationJobOutput` cmdlet
 
 ### <a name="cause"></a>Orsak
 
-Felet kan uppstå när jobbets utdata hämtas från en Runbook som har många [utförliga data strömmar](../automation-runbook-output-and-messages.md#verbose-stream).
+Felet kan uppstå när jobbets utdata hämtas från en Runbook som har många [utförliga data strömmar](../automation-runbook-output-and-messages.md#monitor-verbose-stream).
 
 ### <a name="resolution"></a>Lösning
 

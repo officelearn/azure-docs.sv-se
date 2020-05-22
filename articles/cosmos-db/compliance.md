@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 5a35ec10d7d9bc60bbbf28ee85c83c838108050b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32266695770f627f7044bce92e4505f45776fd28
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527375"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747351"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Efterlevnad i Azure Cosmos DB 
 
@@ -34,11 +34,11 @@ För att hjälpa kunder att uppfylla sina egna krav på efterlevnad för reglera
 
 Azure Cosmos DB utökar kontinuerligt dess certifieringstäckning. Azure Cosmos DB certifieras för närvarande med följande certifikat:
 
-| **Globalt tillämpligt** | **Amerikanska myndigheter** | **Bransch Specific** | **Region eller land, Specific** |
+| **Globalt tillämpligt** | **AMERIKANSKA myndigheter** | **Bransch Specific** | **Region eller land, Specific** |
 | --- | --- | --- | --- |
 | CSA STAR-certifiering | DoD SRG nivå 2 | HIPAA BAA | Australien, IRAP |
 | CSA-stjärn attestering | FedRAMP Moderate | HITRUST | Tyskland C5|
-| ISO 20000-1:2011 | GxP (FDA 21 CFR Part 11) | PCI DSS | Singapore MTCS nivå 3 |
+| ISO 20000-1:2011 | GxP (FDA 21 CFR, del 11) | PCI DSS | Singapore MTCS nivå 3 |
 | ISO 22301:2012 | | | Spanien ENS hög|
 | ISO 27001:2013| | | |
 | ISO 27017:2015 | | | |
@@ -51,7 +51,7 @@ Om du vill veta mer om vart och ett av dessa erbjudanden för efterlevnad och hu
 
 I följande tabell visas de certifieringar som stöds av Azure Cosmos DB i Azure Government:
 
-| **Globalt tillämpligt** | **Amerikanska myndigheter** | **Bransch Specific** | 
+| **Globalt tillämpligt** | **AMERIKANSKA myndigheter** | **Bransch Specific** | 
 | --- | --- | --- | --- |
 | CSA STAR-certifiering | CJIS| HIPAA BAA | 
 | CSA-stjärn attestering| DoD SRG nivå 2| HITRUST  | 

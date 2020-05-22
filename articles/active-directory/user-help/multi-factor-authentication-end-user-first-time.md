@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 5a7f0e10b23bf1a541fe83c3112962c38f7e1331
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 47220bc721092005c7e4d65a00eb933cd5c49a8c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062565"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746771"
 ---
 # <a name="what-is-the-additional-verification-page"></a>Vad är sidan Ytterligare verifiering?
 
@@ -24,7 +24,7 @@ Du har fått ett e-postmeddelande från någon på IT-avdelningen eller från di
 Tvåstegsverifiering är säkrare än bara ett lösen ord eftersom det förlitar sig på två typer av autentisering: något du känner till och något du har med dig. Något du känner till är ditt lösenord. Något du har med dig är en telefon eller enhet som du ofta har med dig. Tvåstegsverifiering kan hjälpa till att stoppa skadliga hackare från att vara du, eftersom även om de har ditt lösen ord, är strider att de inte har din enhet.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker använda tvåstegsverifiering med ett arbets-eller skol konto (till exempel, alain@contoso.com). Om du är administratör för att söka efter information om hur du aktiverar tvåstegsverifiering för dina anställda eller andra användare kan du läsa mer i [dokumentationen för Azure Active Directory autentisering](https://docs.microsoft.com/azure/active-directory/authentication/).
+>Den här artikeln är avsedd för användare som försöker använda tvåstegsverifiering med ett arbets-eller skol konto (till exempel, alain@contoso.com ). Om du är administratör för att söka efter information om hur du aktiverar tvåstegsverifiering för dina anställda eller andra användare kan du läsa mer i [dokumentationen för Azure Active Directory autentisering](https://docs.microsoft.com/azure/active-directory/authentication/).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Vem bestämmer om du använder den här funktionen?
 
@@ -35,7 +35,7 @@ Beroende på din typ av konto kan organisationen välja att du måste använda t
 - **Personligt Microsoft-konto.** Du kan välja att ställa in tvåfaktorsverifiering för dina personliga Microsoft-konton (till exempel alain@outlook.com). Om du har problem med tvåstegsverifiering och din personliga Microsoft-konto kan du läsa mer i [Aktivera och inaktivera tvåstegsverifiering för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Eftersom du väljer om du vill använda den här funktionen kan du aktivera och inaktivera den när du vill.
 
     >[!Note]
-    >Om du har problem med tvåstegsverifiering och ett av dina personliga Microsoft-konton (till exempel danielle@outlook.com) kan du prova förslagen på hur du [använder tvåstegsverifiering med Microsoft-konto](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification).
+    >Om du har problem med tvåstegsverifiering och ett av dina personliga Microsoft-konton (till exempel danielle@outlook.com ) kan du prova förslagen på [hur du använder tvåstegsverifiering med Microsoft-konto](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification).
 
 ## <a name="access-the-additional-security-verification-page"></a>Öppna sidan ytterligare säkerhets verifiering
 

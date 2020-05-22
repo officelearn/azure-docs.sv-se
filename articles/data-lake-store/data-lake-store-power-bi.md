@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 952be68a1675732857969f875cd2b39c2feab674
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: eb34199f6f1b304d56c691f56b78d9c035be8a5b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691657"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744775"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analysera data i Azure Data Lake Storage Gen1 med Power BI
 I den här artikeln får du lära dig hur du använder Power BI Desktop för att analysera och visualisera data som lagras i Azure Data Lake Storage Gen1.
@@ -81,10 +81,10 @@ Innan du påbörjar de här självstudierna måste du ha:
         ![Cirkeldiagram](./media/data-lake-store-power-bi/pie-chart.png "Skapa visualiseringar")
 16. Genom att välja ett land/en viss region från sid nivå filtren kan du nu se antalet driv rutiner i varje stad för det valda landet/den valda regionen. Välj exempelvis **Brasilien**under fliken **visualiseringar** under **sid nivå filter**.
     
-    ![Välj ett land](./media/data-lake-store-power-bi/select-country.png "Välj ett land eller en region")
+    ![Välj ett land eller en region](./media/data-lake-store-power-bi/select-country.png "Välj ett land eller en region")
 17. Cirkel diagrammet uppdateras automatiskt så att det visar driv rutinerna i städerna för Brasilien.
     
-    ![Driv rutiner i ett land](./media/data-lake-store-power-bi/driver-per-country.png "Driv rutiner per land/region")
+    ![Driv rutiner i ett land/region](./media/data-lake-store-power-bi/driver-per-country.png "Driv rutiner per land/region")
 18. I menyn **Arkiv** klickar du på **Spara** för att spara visualiseringen som en Power BI Desktop-fil.
 
 ## <a name="publish-report-to-power-bi-service"></a>Publicera rapporten till Power BI-tjänst

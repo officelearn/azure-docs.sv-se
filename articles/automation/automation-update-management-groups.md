@@ -1,16 +1,16 @@
 ---
 title: Använd dynamiska grupper med Azure Automation Uppdateringshantering
-description: Den här artikeln beskriver hur dynamiska grupper fungerar med Azure Automation Uppdateringshantering.
+description: Den här artikeln beskriver hur du använder dynamiska grupper med Azure Automation Uppdateringshantering.
 services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf4c156d2bf9c205bd7545a96b5314dd43b2d02c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 792f69c900853d76dc260ad1de2e635e47bb2b4a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690778"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744390"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Använd dynamiska grupper med Uppdateringshantering
 
@@ -49,4 +49,4 @@ En dynamisk grupp för datorer som inte är Azure-datorer använder sparade sök
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat en dynamisk grupp kan du [skapa en uppdaterings distribution](automation-tutorial-update-management.md).
+[Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md)

@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 4c3dd3e7e0bc899b87a16f66dc4d049a2876dbb4
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 4f0ea55149fc8cfeeb6ef719d67346019b81078a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628375"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744474"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>Konfigurera en e-postadress som verifierings metod
 
@@ -49,7 +49,7 @@ Beroende på din organisations inställningar kanske du kan använda din e-posta
 
 ### <a name="to-set-up-your-email-address"></a>Konfigurera din e-postadress
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myaccount.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myaccount.microsoft.com/ sida.
 
     ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 
@@ -61,7 +61,7 @@ Beroende på din organisations inställningar kanske du kan använda din e-posta
 
     ![Rutan Lägg till metod, med e-post valt](media/security-info/securityinfo-myprofile-addemail.png)
 
-4. På sidan **e-post** anger du din e-postadress (till alain@gmail.comexempel) och väljer sedan **Nästa**.
+4. På sidan **e-post** anger du din e-postadress (till exempel alain@gmail.com ) och väljer sedan **Nästa**.
 
     ![Lägg till telefonnummer och välj telefonsamtal](media/security-info/securityinfo-myprofile-emailaddress.png)
 

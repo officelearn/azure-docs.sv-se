@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845a202faccbbe0a604560ac57ae30f87344b95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81451133"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757613"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planera en Azure Multi-Factor Authentication-distribution
 
@@ -35,7 +35,7 @@ För att snabbt se Azure Multi-Factor Authentication i praktiken och återgå se
 
 Innan du påbörjar en distribution av Azure Multi-Factor Authentication finns det nödvändiga objekt som bör övervägas.
 
-| Scenario | Krav |
+| Scenario | Förutsättning |
 | --- | --- |
 | Identitets miljö med **enbart moln** med modern autentisering | **Inga ytterligare nödvändiga aktiviteter** |
 | **Hybrid** identitets scenarier | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) distribueras och användar identiteter synkroniseras eller federerade med den lokala Active Directory Domain Services med Azure Active Directory. |
@@ -55,7 +55,7 @@ Microsoft tillhandahåller [kommunikations mallar](https://aka.ms/mfatemplates) 
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-Azure Multi-Factor Authentication distribueras genom att tvinga principer med villkorlig åtkomst. En [princip för villkorlig åtkomst](../conditional-access/overview.md) kan kräva att användare utför Multi-Factor Authentication när vissa villkor uppfylls, t. ex.:
+Azure Multi-Factor Authentication distribueras genom att tvinga principer med villkorlig åtkomst. En princip för villkorlig åtkomst kan kräva att användare utför Multi-Factor Authentication när vissa villkor uppfylls, t. ex.:
 
 * Alla användare, en speciell användare, medlem i en grupp eller tilldelad roll
 * Specifika moln program som ska användas
@@ -114,7 +114,7 @@ Administratörer kan välja de [autentiseringsmetoder](../authentication/concept
 Ett push-meddelande skickas till Microsoft Authenticator-appen på din mobila enhet. Användaren visar meddelandet och väljer **Godkänn** för att slutföra verifieringen. Push-meddelanden via en mobilapp ger användarna minst påträngande-alternativ. De är också det mest pålitliga och säkra alternativet eftersom de använder en data anslutning i stället för telefoni.
 
 > [!NOTE]
-> Om din organisation har personal som arbetar i eller reser i Kina fungerar inte **meddelandet via mobilappen** på **Android-enheter** i det landet. Alternativa metoder bör göras tillgängliga för dessa användare.
+> Om din organisation har personal som arbetar i eller reser till Kina, fungerar inte **meddelandet via mobilappen** på **Android-enheter** i landet/regionen. Alternativa metoder bör göras tillgängliga för dessa användare.
 
 ### <a name="verification-code-from-mobile-app"></a>Verifierings kod från mobilapp
 
@@ -221,14 +221,14 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## <a name="plan-conditional-access-policies"></a>Planera principer för villkorlig åtkomst
 
-För att planera strategin för principer för villkorlig åtkomst som avgör när MFA och andra kontroller krävs, se [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md).
+För att planera strategin för principer för villkorlig åtkomst som avgör när MFA och andra kontroller krävs, se [vanliga principer för villkorlig åtkomst](../conditional-access/concept-conditional-access-policy-common.md).
 
 Det är viktigt att du förhindrar oavsiktligt låst av din Azure AD-klient. Du kan minska effekten av denna oavsiktliga brist på administrativ åtkomst genom att [skapa två eller fler konton för nöd åtkomst i din klient organisation](../users-groups-roles/directory-emergency-access.md) och utesluta dem från din princip för villkorlig åtkomst.
 
 ### <a name="create-conditional-access-policy"></a>Skapa princip för villkorlig åtkomst
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett globalt administratörs konto.
-1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 1. Välj **ny princip**.
    ![Skapa en princip för villkorlig åtkomst för att aktivera MFA för Azure Portal användare i pilot gruppen](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Ange ett beskrivande namn för principen.
@@ -284,7 +284,7 @@ Om du har en distribuerad NPS-instans och redan använder, [integrerar du din be
 
 Välj vad som ska hända när användare som inte är registrerade med MFA försöker autentisera sig. Använd register inställningen `REQUIRE_USER_MATCH` i register Sök vägen `HKLM\Software\Microsoft\AzureMFA` för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ.
 
-| Nyckel | Värde | Default |
+| Tangent | Värde | Standard |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -354,7 +354,7 @@ Rapporter för Azure MFA
 
 Azure Multi-Factor Authentication ger rapporter via Azure Portal:
 
-| Rapport | Location | Beskrivning |
+| Rapport | Plats | Beskrivning |
 | --- | --- | --- |
 | Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
 

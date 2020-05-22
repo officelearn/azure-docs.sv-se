@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: cecff7347189c5e5b964e10439297bce405810b7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 2d9691279b987f9d45f755ab340ff70671d350c0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857916"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745659"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Marketplace insikter-instrument panel i Partner Center
 
@@ -89,7 +89,7 @@ I termisk karta nedan visas antalet **sid besök**, **anrop till åtgärd**och *
 Termisk karta innehåller följande funktioner:
 
 - Termisk karta har ett extra rutnät för att visa information om **sid besök**, **samtal till åtgärd** och **unika besökare** på en angiven plats. Du kan zooma in en viss plats om du föredrar det.  
-- **Ländernas uppslag** är antalet länder där kunderna har rapporterat sid-besök under det valda datum intervallet.
+- **Uppslag i länder/regioner** är antalet länder/regioner från vilka kunderna har rapporterat sid besök under det valda datum intervallet.
 - Du kan söka efter och välja ett land i rutnätet för att zooma in på platsen i kartan. Återgå till den ursprungliga vyn genom att välja **Start** på kartan.
 
 ## <a name="page-visits-versus-unique-visitors-trend"></a>Sid besök jämfört med unika besökare

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 3d09692c06bcdffbb070f545950092592e417838
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0e4208f4f9a01bc42d4c6134ec3ec4fb1cb19fd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431597"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744287"
 ---
 # <a name="query-csv-files"></a>Fråga CSV-filer
 
@@ -176,7 +176,7 @@ WHERE
 ```
 
 > [!NOTE]
-> Den här frågan kan inte utföras om ESCAPECHAR inte anges eftersom kommatecknet i "slov, enia" behandlas som fält avgränsare i stället för en del av landets namn. "Slov, enia" behandlas som två kolumner. Därför skulle den aktuella raden ha en kolumn mer än de andra raderna, och en kolumn mer än du definierade i WITH-satsen.
+> Den här frågan kan inte utföras om ESCAPECHAR inte anges eftersom kommatecknet i "slov, enia" behandlas som fält avgränsare i stället för en del av landets/regionens namn. "Slov, enia" behandlas som två kolumner. Därför skulle den aktuella raden ha en kolumn mer än de andra raderna, och en kolumn mer än du definierade i WITH-satsen.
 
 ## <a name="tab-delimited-files"></a>Tabbavgränsade filer
 
@@ -210,7 +210,7 @@ WHERE
 
 Hittills har du angett CSV-filschemat med med och visar alla kolumner. Du kan bara ange kolumner som du faktiskt behöver i frågan genom att använda ett ordnings tal för varje kolumn som behövs. Du kommer också att utelämna kolumner utan intresse.
 
-Följande fråga returnerar antalet distinkta lands namn i en fil och anger bara de kolumner som behövs:
+Följande fråga returnerar antalet distinkta lands-/region namn i en fil och anger bara de kolumner som behövs:
 
 > [!NOTE]
 > Ta en titt på WITH-satsen i frågan nedan och Observera att det finns "2" (utan citat tecken) i slutet av raden där du definierar kolumnen *[country_name]* . Det innebär att kolumnen *[country_name]* är den andra kolumnen i filen. Frågan kommer att ignorera alla kolumner i filen förutom den andra.

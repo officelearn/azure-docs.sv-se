@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
-ms.openlocfilehash: 0e0e67bfb893e1bf141182e45ce4a49f5f6880ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 11212c931e38b1c6319c7c3554155d9d17a1080c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73502249"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745153"
 ---
 # <a name="whats-new-in-azure-web-application-firewall"></a>Vad är nytt i brand väggen för Azure Web Application?
 
@@ -28,7 +28,7 @@ Azure Web Application-brandväggen uppdateras regelbundet. För att hålla dig u
 |Funktion  |Beskrivning  |Tillagt den  |
 |---------|---------|---------|
 |Ruleset för bot-åtgärder (för hands version)|Du kan aktivera en bot-ruleset, tillsammans med den datoriserade boknings ruleset som du väljer. | November 2019 |
-|GeoDB-integration (för hands version)|Nu kan du skapa anpassade regler som begränsar trafiken efter ursprungsland. | November 2019 |
+|GeoDB-integration (för hands version)|Nu kan du skapa anpassade regler som begränsar trafiken efter ursprungsland/-region. | November 2019 |
 |WAF per plats/per-URI-princip (för hands version)|WAF-v2 har nu stöd för att tillämpa en princip för lyssnare, samt Sök vägs baserade regler. Se [skapa WAF-princip](create-waf-policy-ag.md). | November 2019 |
 |Anpassade WAF-regler |Application Gateway WAF_v2 har nu stöd för att skapa anpassade regler. Se [Application Gateway anpassade regler](custom-waf-rules-overview.md). |Juni 2019 |
 |WAF-konfiguration och exkluderings lista     |Vi har lagt till fler alternativ som hjälper dig att konfigurera din WAF och minska antalet falska positiva identifieringar. Mer information finns i [brand väggens storleks gränser och undantags listor för webb program](application-gateway-waf-configuration.md) .|December 2018|

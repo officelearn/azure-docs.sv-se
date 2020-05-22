@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 039fdda4ab8fe636c1eab926c477aea420b59de8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f4919bb6856703c5bb5f1c798a8bcf5b2a108cc7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647480"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747673"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Skapa och Använd externa tabeller i SQL på begäran (för hands version) med Azure Synapse Analytics
 
@@ -112,7 +112,7 @@ CREATE EXTERNAL TABLE Taxi (
 
 Du kan använda [externa tabeller](develop-tables-external-tables.md) i dina frågor på samma sätt som du använder dem i SQL Server frågor.
 
-Följande fråga visar detta med den externa *populations* tabellen som vi skapade i föregående avsnitt. Den returnerar lands namn med sin population i 2019 i fallande ordning.
+Följande fråga visar detta med den externa *populations* tabellen som vi skapade i föregående avsnitt. Namnet på land/region returneras med deras population i 2019 i fallande ordning.
 
 > [!NOTE]
 > Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat.

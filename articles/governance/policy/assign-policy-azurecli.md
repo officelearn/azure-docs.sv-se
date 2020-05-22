@@ -3,12 +3,12 @@ title: 'Snabb start: ny princip tilldelning med Azure CLI'
 description: I den här snabb starten använder du Azure CLI för att skapa en Azure Policy tilldelning för att identifiera icke-kompatibla resurser.
 ms.date: 01/11/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b1d93cdb4dfa1c82e8004af4052c22bba60f3a3a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75978325"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745745"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med Azure CLI
 
@@ -67,7 +67,7 @@ Mer information om policy tilldelnings-ID: n finns i [AZ princip tilldelning](/c
 Kör sedan följande kommando för att hämta resurs-ID:n för de icke-kompatibla resurserna som matas ut till en JSON-fil:
 
 ```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-09-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 
 Ditt resultat liknar följande exempel:

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 48644f2f8148a7aa1974be0d7f761e9b3a55612d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a872331238946de0d57e6d42164f1ce7fb1c7357
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783518"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746211"
 ---
 # <a name="payout-summary-overview"></a>Översikt över utbetalningssammanfattning
 
@@ -70,7 +70,7 @@ Det här alternativet ger en nedladdning av varje rad objekt som visas på sidan
 | participantId | Den primära identiteten för partnern enligt programmet |
 | participantIdType | Program-ID för stimulans program och näringsidkare om programmet är för Store-program och Azure Marketplace |
 | participantName | Partnerns namn |
-| partnerCountryCode | Partnerns plats/land |
+| partnerCountryCode | Plats/land/region för partnern |
 | programName | Namn på incitament/Store-program |
 | transactionId | Unikt ID för transaktionen |
 | transactionCurrency | Valutan i vilken den ursprungliga kund transaktionen ägde rum (den är inte partner platsens valuta) |
@@ -89,11 +89,11 @@ Det här alternativet ger en nedladdning av varje rad objekt som visas på sidan
 | calculationDate | Datum då intjänaren beräknades i systemet |
 | earningExchangeRate | Växelkurs som används för att visa motsvarande USD-belopp |
 | exchangeRateDate | Valutakurs datum som används för att beräkna EarningAmount USD |
-| paymentAmountWOTax | Tjänande belopp (utan skatt) i betala till valuta &quot;för&quot; skickade enbart betalningar |
+| paymentAmountWOTax | Tjänande belopp (utan skatt) i betala till valuta för &quot; skickade &quot; enbart betalningar |
 | paymentCurrency | Betala till den valuta som valts av partner i betalnings profilen. Visas endast för skickade betalningar |
 | paymentExchangeRate | Växelkurs som används för att beräkna paymentAmountWOTax i betalnings valuta med ExchangeRateDate |
 | paymentId | Unikt ID för betalningen. Det här antalet visas i ditt bank utdrag |
-| paymentStatus | Betalnings status |
+| paymentStatus | Betalningstatus |
 | paymentStatusDescription | Beskrivning av betalnings status |
 | customerId | Är alltid tomt |
 | customerName | Är alltid tomt |
@@ -113,15 +113,15 @@ Det här alternativet ger en nedladdning av varje rad objekt som visas på sidan
 | storeFee | Det belopp som Microsoft har bevarat som en avgift för att göra appen eller tillägget tillgängligt på den kommersiella marknaden. |
 | transactionPaymentMethod | Kund betalnings instrument som används för transaktionen (till exempel kort, fakturering av mobil företag och PayPal) |
 | tpan | AD-nätverk från tredje part |
-| customerCountry | Kund land |
+| customerCountry | Kund land/-region |
 | customerCity | Kund ort |
 | customerState | Kund tillstånd |
 | customerZip | Post nummer för kund |
 | TenantID | ID för klienten |
 | externalReferenceId | Unikt ID för programmet |
 | externalReferenceIdLabel | Etikett för unikt ID |
-| transactionCountryCode | Landskod som transaktionen skedde i |
-| taxCountry | Kundens land |
+| transactionCountryCode | Lands nummer/region kod som transaktionen skedde i |
+| taxCountry | Kundens land/region |
 | taxState | Kundens tillstånd |
 | taxCity | Kundens ort |
 | taxZipCode | Kundens post nummer |
@@ -132,7 +132,7 @@ Det här alternativet ger en nedladdning av varje rad objekt som visas på sidan
 | AssetId | Den unika identifieraren för kund order för din Marketplace-tjänst. Den representerar inköps rad artiklarna. Det kan finnas flera till gångar. |
 | OrderId | Avser en kund faktura |
 | LineItemId | Enskild rad i en kunds faktura |
-| Kund land | Landets namn som tillhandahålls av kunden. Detta kan skilja sig från landet i en kunds Azure-prenumeration. |
+| Kund land/-region | Landets/regionens namn som tillhandahålls av kunden. Detta kan skilja sig från landet/regionen i en kunds Azure-prenumeration. |
 | Kund EmailAddress | E-postadressen som tillhandahålls av kunden. Detta kan skilja sig från e-postadressen i en kunds Azure-prenumeration. |
 | SkuId | SKU-ID som definieras under publiceringen. Ett erbjudande kan ha många SKU: er, men en SKU kan bara associeras med ett enda erbjudande. |
 

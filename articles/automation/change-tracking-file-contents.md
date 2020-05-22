@@ -1,41 +1,41 @@
 ---
 title: Hantera Ändringsspårning och inventering i Azure Automation
-description: Den här artikeln beskriver hur du använder Ändringsspårning och inventering för att spåra program-och Microsoft-tjänsteändringar som inträffar i din miljö.
+description: Den här artikeln beskriver hur du använder Ändringsspårning och inventering för att spåra program-och Microsoft-tjänsteändringar i din miljö.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8ca1bd7a724d3256bc2e171ce39fd6a06e2e5935
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 8e5ee8df1dfd250a6713d832bf176daecdaef7ea
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779305"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744394"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Hantera ändringsspårning och inventering
 
-När du lägger till en ny fil eller register nyckel som ska spåras aktiverar Azure Automation det för funktionen [ändringsspårning och inventering](change-tracking.md) . Den här artikeln innehåller procedurer för att arbeta med den här funktionen.
+Azure Automation aktiverar funktionen [ändringsspårning och inventering](change-tracking.md) för datorer i din miljö. Funktionen spårar och gör tillgängliga ändringar i register nycklar, filer, innehåll och liknande. Den här artikeln innehåller procedurer för att arbeta med den här funktionen.
 
 ## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>Aktivera fullständig Ändringsspårning-och inventerings funktion
 
-Om du har aktiverat [Azure Security Center fil integritets övervakning (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)kan du använda den fullständiga ändringsspårning och inventerings funktionen enligt beskrivningen nedan. Inställningarna tas inte bort av den här processen.
+Om du har aktiverat [Azure Security Center fil integritets övervakning (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)kan du använda funktionen fullständig ändringsspårning och inventering för dina datorer enligt beskrivningen nedan. Inställningarna tas inte bort av den här processen.
 
 > [!NOTE]
 > Aktivering av funktionen fullständig Ändringsspårning och inventering kan orsaka ytterligare kostnader. Se [Automation-prissättning](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Ta bort övervaknings lösningen genom att gå till arbets ytan och hitta den i [listan över installerade övervaknings lösningar](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Klicka på namnet på lösningen för att öppna sammanfattnings sidan och klicka sedan på **ta bort**, enligt beskrivningen i [ta bort en övervaknings lösning](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Om du vill återaktivera Ändringsspårning och inventering navigerar du till Automation-kontot och väljer **ändrings spårning** under **konfigurations hantering**.
+3. Om du vill återaktivera Ändringsspårning och inventering navigerar du till Automation-kontot och väljer **ändrings spårning** eller **inventering** under **konfigurations hantering**.
 4. Välj Log Analytics arbets yta och Automation-konto, bekräfta inställningarna för arbets ytan och klicka på **Aktivera**.
 
-## <a name="onboard-machines-to-change-tracking-and-inventory"></a><a name="onboard"></a>Publicera datorer till Ändringsspårning och inventering
+## <a name="enable-machines-for-change-tracking-and-inventory"></a><a name="onboard"></a>Aktivera datorer för Ändringsspårning och inventering
 
-Om du vill börja spåra ändringar måste du aktivera Ändringsspårning och inventering i Azure Automation. Här är de rekommenderade och de sätt som stöds för att publicera dina datorer i den här funktionen: 
+Om du vill börja spåra ändringar måste du aktivera Ändringsspårning och inventering i Azure Automation. Här är de rekommenderade och de sätt som stöds för att aktivera den här funktionen för dina datorer: 
 
-* [Publicera från en virtuell dator](automation-onboard-solutions-from-vm.md)
-* [Publicera flera datorer från en webbläsare](automation-onboard-solutions-from-browse.md)
-* [Publicera från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md)
-* [Publicera i en Azure Automation Runbook](automation-onboard-solutions.md)
+* [Aktivera från en virtuell dator](automation-onboard-solutions-from-vm.md)
+* [Aktivera från att söka efter flera datorer](automation-onboard-solutions-from-browse.md)
+* [Aktivera från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md)
+* [Aktivera i en Azure Automation Runbook](automation-onboard-solutions.md)
 
 ## <a name="track-files"></a>Spåra filer
 
@@ -53,7 +53,7 @@ Använd följande steg för att konfigurera fil spårning på Windows-datorer:
     |Enabled     | Sant om inställningen tillämpas och annars FALSE.        |
     |Objektnamn     | Eget namn på filen som ska spåras.        |
     |Grupp     | Ett grupp namn för logisk gruppering av filer.        |
-    |Ange sökväg     | Sökvägen för att söka efter filen, till exempel **\\\*c:\Temp. txt**. Du kan också använda miljövariabler, till exempel `%winDir%\System32\\\*.*`.       |
+    |Ange sökväg     | Sökvägen för att söka efter filen, till exempel **c:\Temp \\ \* . txt**. Du kan också använda miljövariabler, till exempel `%winDir%\System32\\\*.*` .       |
     |Sökvägstyp     | Typ av sökväg. Möjliga värden är fil och katalog.        |    
     |Rekursion     | Sant om rekursion används vid sökning efter objektet som ska spåras och falskt annars.        |    
     |Ladda upp fil innehåll | Sant om du vill överföra fil innehåll på spårade ändringar och annars FALSE.|
@@ -164,7 +164,7 @@ I följande exempel visas att filen **C:\Windows\System32\drivers\etc\hosts** ha
 Vi ska använda det här exemplet för att diskutera stegen för att skapa aviseringar vid en ändring.
 
 1. I ditt Automation-konto väljer du **ändrings spårning** under **konfigurations hantering**och väljer sedan **Log Analytics**. 
-2. Leta efter innehålls ändringar i **värd** filen med frågan `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`i loggar Sök. Den här frågan söker efter en innehålls ändring för filer med en fullständigt kvalificerad sökväg som innehåller ordet "hosts". Du kan också fråga efter en viss fil genom att ändra Sök vägs delen till dess fullständigt kvalificerade form, till exempel med `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`hjälp av.
+2. Leta efter innehålls ändringar i **värd** filen med frågan i loggar Sök `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` . Den här frågan söker efter en innehålls ändring för filer med en fullständigt kvalificerad sökväg som innehåller ordet "hosts". Du kan också fråga efter en viss fil genom att ändra Sök vägs delen till dess fullständigt kvalificerade form, till exempel med hjälp av `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"` .
 
 3. När frågan returnerar önskade resultat klickar du på **ny varnings regel** i logg sökningen för att öppna sidan Skapa avisering. Du kan också navigera till den här sidan via **Azure Monitor** i Azure Portal. 
 
@@ -178,6 +178,6 @@ Vi ska använda det här exemplet för att diskutera stegen för att skapa avise
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Grundläggande information om Ändringsspårning och inventering finns i [Översikt över ändringsspårning och inventering](change-tracking.md).
-* Information om hur du felsöker ändringar för en virtuell Azure-dator finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).
-* Använd [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md) om du vill visa detaljerade ändrings spårnings data.
+* [Översikt över Ändringsspårning och inventering](change-tracking.md)
+* [Felsöka Ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md)
+* [Loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md)

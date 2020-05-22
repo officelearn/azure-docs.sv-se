@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426387"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747625"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics partitionering av anpassad BLOB-utdata
 
@@ -77,10 +77,10 @@ Följande format-token kan användas separat eller i kombination för att uppnå
 |{datetime: MM}|Månad från 01 till 12|01|
 |{datetime: M}|Månad från 1 till 12|1|
 |{datetime: DD}|Dag från 01 till 31|02|
-|{datetime: d}|Dag från 1 till 12|2|
+|{datetime: d}|Dag från 1 till 31|2|
 |{datetime: HH}|Timme med 24-timmarsformat, från 00 till 23|10|
-|{datetime: mm}|Minuter från 00 till 24|06|
-|{datetime: m}|Minuter från 0 till 24|6|
+|{datetime: mm}|Minuter från 00 till 60|06|
+|{datetime: m}|Minuter från 0 till 60|6|
 |{datetime: SS}|Sekunder från 00 till 60|08|
 
 Om du inte vill använda anpassade DateTime-mönster kan du lägga till {date}-och/eller {Time}-token i Path-prefixet för att generera en listruta med inbyggda DateTime-format.
@@ -89,9 +89,9 @@ Om du inte vill använda anpassade DateTime-mönster kan du lägga till {date}-o
 
 ### <a name="extensibility-and-restrictions"></a>Utökning och begränsningar
 
-Du kan använda så många tokens, som `{datetime:<specifier>}`du vill i Sök vägs mönstret tills du når tecken gränsen för Path-prefixet. Det går inte att kombinera format specificerare inom en token utöver de kombinationer som redan visas i list rutorna datum och tid. 
+Du kan använda så många tokens, `{datetime:<specifier>}` som du vill i Sök vägs mönstret tills du når tecken gränsen för Path-prefixet. Det går inte att kombinera format specificerare inom en token utöver de kombinationer som redan visas i list rutorna datum och tid. 
 
-För en Path-partition `logs/MM/dd`av:
+För en Path-partition av `logs/MM/dd` :
 
 |Giltigt uttryck   |Ogiltigt uttryck   |
 |----------|-----------|
@@ -101,7 +101,7 @@ Du kan använda samma format specifikation flera gånger i Path-prefixet. Token 
 
 ### <a name="hive-streaming-conventions"></a>Konventioner för direkt uppspelning av Hive
 
-Anpassade Sök vägs mönster för Blob Storage kan användas med registrerings konventionen för Hive, som förväntar sig att mappar etiketteras `column=` med i mappnamnet.
+Anpassade Sök vägs mönster för Blob Storage kan användas med registrerings konventionen för Hive, som förväntar sig att mappar etiketteras med `column=` i mappnamnet.
 
 Till exempel `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={datetime:HH}`.
 

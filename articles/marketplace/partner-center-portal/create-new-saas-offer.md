@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 81b36532d09985d1e50fb3d0394d054d9a5e8250
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: eb7f527885d1d49fe09407c3cbce109a098056f9
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701170"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744661"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace
 
@@ -227,7 +227,7 @@ Ange information som ska visas på Marketplace, inklusive beskrivningar av ditt 
 - **Sök Nyckelord** – ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande på Marketplace.
 - **Komma igång-instruktioner** (krävs) – förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 
 Det här fältet är obligatoriskt.
 
@@ -340,7 +340,7 @@ På den här sidan kan du konfigurera de marknader som planen kommer att vara ti
 
 #### <a name="markets-optional"></a>Marknader (valfritt)
 
-Varje plan måste vara tillgänglig på minst en marknad. Välj **Redigera marknader** och markera kryss rutan för alla marknads platser där du vill göra den här planen tillgänglig. Den här sidan innehåller en sökruta och ett alternativ för att välja "skatte mottagare", där Microsoft betalar försäljnings-och användnings skatt för din räkning.
+Varje plan måste vara tillgänglig på minst en marknad. Välj **Redigera marknader** och markera kryss rutan för alla marknads platser där du vill göra den här planen tillgänglig. Den här sidan innehåller en sökruta och ett alternativ för att välja "skatte mottagare"-länder/-regioner där Microsoft betalar försäljnings-och användnings skatt för din räkning.
 
 Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en annan marknads plats kommer priset för den nya marknaden att beräknas enligt de aktuella växelkurserna. Granska priset för varje marknad innan du publicerar. Visa priser med hjälp av länken "export priser (xlsx)" när du har sparat ändringarna.
 

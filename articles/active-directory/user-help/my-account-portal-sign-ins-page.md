@@ -8,15 +8,15 @@ ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: c828878506ee69e90945d1f4be07eb81541b9757
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 0b3b0d686ae10f9b376c977bf165eccddda32239
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625416"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744512"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visa och Sök efter din senaste inloggnings aktivitet från sidan mina inloggningar (för hands version)
 
@@ -30,7 +30,7 @@ Du kan visa all din senaste inloggnings aktivitet för arbets-eller skol konton 
 
 ## <a name="view-your-recent-sign-in-activity"></a>Visa din senaste inloggningsaktivitet
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myaccount.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myaccount.microsoft.com/ sida.
 
 2. Välj **Mina inloggningar (förhands granskning)** i det vänstra navigerings fönstret eller Välj länken **Granska senaste aktivitet** från blockeringen **mitt inloggnings program (för hands version)** .
 
@@ -56,7 +56,7 @@ Om du ser en misslyckad inloggning, med en anteckning under session-aktivitet so
 
 Du kan söka efter din senaste inloggnings aktivitet med någon av de tillgängliga uppgifterna. Du kan till exempel söka efter din senaste inloggnings aktivitet efter operativ system, plats, app och så vidare.
 
-1. På sidan **Granska senaste aktivitet** anger du den information som du vill söka efter i **Sök** fältet. Skriv `My Account` till exempel om du vill söka efter all aktivitet som samlas in av appen mitt konto.
+1. På sidan **Granska senaste aktivitet** anger du den information som du vill söka efter i **Sök** fältet. Skriv till exempel om `My Account` du vill söka efter all aktivitet som samlas in av appen mitt konto.
 
 2. Välj **Sök** knappen för att börja söka.
 

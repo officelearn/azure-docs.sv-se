@@ -3,12 +3,12 @@ title: Skydda Azure Functions
 description: Lär dig mer om hur du gör funktions koden igång i Azure säkrare från vanliga attacker.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7336974a0f982f2dd2394f16d7f6d520ecb8571d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 07d099ae3ce8a544994208436770674e6674e6f0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664419"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744053"
 ---
 # <a name="securing-azure-functions"></a>Skydda Azure Functions
 
@@ -181,7 +181,7 @@ Genom att ha en separat SCM-slutpunkt kan du styra distributioner och andra avan
 
 ### <a name="continuous-security-validation"></a>Kontinuerlig säkerhets validering
 
-Eftersom säkerheten måste betraktas som ett steg i utvecklings processen, är det viktigt att även implementera säkerhets valideringar i en kontinuerlig distributions miljö. Detta kallas ibland för DevSecOps. Med Azure DevOps för din distributions pipeline integrerar du verifieringen i distributions processen. Mer information finns i [Lär dig hur du lägger till kontinuerlig säkerhets validering till din CI/CD-pipeline](/devops/migrate/security-validation-cicd-pipeline).  
+Eftersom säkerheten måste betraktas som ett steg i utvecklings processen, är det viktigt att även implementera säkerhets valideringar i en kontinuerlig distributions miljö. Detta kallas ibland för DevSecOps. Med Azure DevOps för din distributions pipeline integrerar du verifieringen i distributions processen. Mer information finns i [Lär dig hur du lägger till kontinuerlig säkerhets validering till din CI/CD-pipeline](/azure/devops/migrate/security-validation-cicd-pipeline).  
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 

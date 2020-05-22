@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f35658a75adb4d4c6c279e45087e741b8117e65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fda84a68921500e8ba40aa6d04bfb5939f79a1ef
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481389"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736491"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Konfigurera anpassade domäner med Azure AD-programproxy
 
-När du publicerar ett program via Azure Active Directory-programproxy skapar du en extern URL för dina användare. Den här URL: en hämtar standard domänen *yourtenant.msappproxy.net*. Om du till exempel publicerar en app med namnet *utgifter* i din klient med namnet *contoso*, är den externa webb adressen *https\/:/expenses-contoso.msappproxy.net*. Om du vill använda ditt eget domän namn i stället för *msappproxy.net*kan du konfigurera en anpassad domän för ditt program. 
+När du publicerar ett program via Azure Active Directory-programproxy skapar du en extern URL för dina användare. Den här URL: en hämtar standard domänen *yourtenant.msappproxy.net*. Om du till exempel publicerar en app med namnet *utgifter* i din klient med namnet *contoso*, är den externa webb adressen *https: \/ /expenses-contoso.msappproxy.net*. Om du vill använda ditt eget domän namn i stället för *msappproxy.net*kan du konfigurera en anpassad domän för ditt program. 
 
 ## <a name="benefits-of-custom-domains"></a>Förmåner för anpassade domäner
 
@@ -128,7 +128,7 @@ Du måste använda ett PFX-certifikat för att se till att alla nödvändiga mel
 
 Det finns ingen begränsning för certifikatets signatur metoder. Elliptic Curve Cryptography (ECC), alternativt namn för certifikat mottagare (SAN) och andra vanliga certifikat typer stöds. 
 
-Du kan använda certifikat med jokertecken så länge jokertecknet matchar den externa URL: en. Du måste använda certifikat med jokertecken för [program med jokertecken](application-proxy-wildcard.md). Om du vill använda certifikatet till att även komma åt under domäner måste du lägga till jokertecken för underdomäner som alternativa namn i samma certifikat. Till exempel fungerar inte ett certifikat för * \*. Adventure-Works.com* för * \*. Apps.Adventure-Works.com* om du inte lägger till * \*. Apps.Adventure-Works.com* som alternativt namn för certifikat mottagare. 
+Du kan använda certifikat med jokertecken så länge jokertecknet matchar den externa URL: en. Du måste använda certifikat med jokertecken för [program med jokertecken](application-proxy-wildcard.md). Om du vill använda certifikatet till att även komma åt under domäner måste du lägga till jokertecken för underdomäner som alternativa namn i samma certifikat. Till exempel fungerar inte ett certifikat för * \* . Adventure-Works.com* för * \* . Apps.Adventure-Works.com* om du inte lägger till * \* . Apps.Adventure-Works.com* som alternativt namn för certifikat mottagare. 
 
 Du kan använda certifikat som utfärdats av din egen infrastruktur för offentliga nycklar (PKI) om certifikat kedjan är installerad på klient enheterna. Intune kan distribuera dessa certifikat till hanterade enheter. För icke-hanterade enheter måste du installera dessa certifikat manuellt. 
 
@@ -143,6 +143,6 @@ Du kan använda samma certifikat för flera program. Om ett uppladdat certifikat
 När ett certifikat går ut får du en varning om att ladda upp ett annat certifikat. Om certifikatet har återkallats kan användarna se en säkerhets varning vid åtkomst till appen. Om du vill uppdatera certifikatet för en app går du till sidan **Application Proxy** för appen, väljer **certifikat**och laddar upp ett nytt certifikat. Om det gamla certifikatet inte används av andra appar tas det bort automatiskt. 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md) till dina publicerade appar med Azure AD-autentisering.
-* [Aktivera villkorlig åtkomst](../conditional-access/overview.md) till dina publicerade appar.
 
+* [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md) till dina publicerade appar med Azure AD-autentisering.
+* [Villkorlig åtkomst](../conditional-access/concept-conditional-access-cloud-apps.md) för dina publicerade molnappar.

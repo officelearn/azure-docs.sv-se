@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8d62d7d278323baa0ae49b9e12f46468efb067a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea44355795f0685f42de1306e979707f34d8f142
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335310"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742758"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Metod tips för Azure Maps Search Service
 
@@ -39,7 +39,7 @@ Information om autentisering i Azure Maps finns i [hantera autentisering i Azure
 
 När du söker efter en fullständig eller partiell adress med hjälp av Azure Maps Search Service läser API: et nyckelord från din Sök fråga. Sedan returnerar den longitud-och latitud-koordinaterna för adressen. Den här processen kallas för *kodning*. 
 
-Möjligheten att koda i ett land beror på tillgängligheten för väg data och att det är en bra kodning av tjänsten. Mer information om Azure Maps funktioner för att koda efter land eller region finns i lands [kodnings täckning](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
+Möjligheten att koda i ett land/en region beror på tillgängligheten för väg data och att det är en bra kodning av tjänsten. Mer information om Azure Maps funktioner för att koda efter land eller region finns i lands [kodnings täckning](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 
 ### <a name="limit-search-results"></a>Begränsa Sök Resultat
 
@@ -52,25 +52,25 @@ Möjligheten att koda i ett land beror på tillgängligheten för väg data och 
 
 Om du vill göra ett neutralt resultat till det relevanta område för din användare ska du alltid lägga till så många plats detaljer som möjligt. Du kanske vill begränsa Sök resultaten genom att ange några typer av indata:
 
-* Ange `countrySet` parametern. Du kan till exempel ställa `US,FR`in den till. Som standard söker API: t igenom hela världen, så att den kan returnera onödiga resultat. Om frågan saknar `countrySet` parameter kan sökningen returnera felaktiga resultat. En sökning efter en stad med namnet *Bellevue* returnerar till exempel resultat från USA och Frankrike eftersom båda länderna innehåller en stad med namnet *Bellevue*.
+* Ange `countrySet` parametern. Du kan till exempel ställa in den till `US,FR` . Som standard söker API: t igenom hela världen, så att den kan returnera onödiga resultat. Om frågan saknar parameter kan `countrySet` sökningen returnera felaktiga resultat. En sökning efter en stad med namnet *Bellevue* returnerar till exempel resultat från USA och Frankrike eftersom båda länderna/regionerna innehåller en stad med namnet *Bellevue*.
 
-* Du kan använda parametrarna `btmRight` och `topleft` för att ange avgränsnings rutan. Dessa parametrar begränsar sökningen till ett angivet område på kartan.
+* Du kan använda `btmRight` parametrarna och `topleft` för att ange avgränsnings rutan. Dessa parametrar begränsar sökningen till ett angivet område på kartan.
 
-* Om du vill påverka resultatet av relevansen definierar du `lat` parametrarna och `lon` för koordinaten. Använd `radius` parametern för att ställa in radien för Sök fältet.
+* Om du vill påverka resultatet av relevansen definierar du `lat` parametrarna och för `lon` koordinaten. Använd `radius` parametern för att ställa in radien för Sök fältet.
 
 
 #### <a name="fuzzy-search-parameters"></a>Parametrar för fuzzy-sökning
 
 Vi rekommenderar att du använder Azure Maps [Sök i fuzzy API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) när du inte känner till dina användar indata för en Sök fråga. API: n kombinerar POI-sökning och-kodning i en kanonisk *enkel sökning*: 
 
-* Parametrarna `minFuzzyLevel` och `maxFuzzyLevel` hjälper till att returnera relevanta matchningar även när frågeparametrar inte exakt matchar den information som användaren vill. För att maximera prestandan och minska ovanliga resultat ställer du in Sök frågor `minFuzzyLevel=1` till `maxFuzzyLevel=2`standardvärdena och. 
+* `minFuzzyLevel`Parametrarna och `maxFuzzyLevel` hjälper till att returnera relevanta matchningar även när frågeparametrar inte exakt matchar den information som användaren vill. För att maximera prestandan och minska ovanliga resultat ställer du in Sök frågor till standardvärdena `minFuzzyLevel=1` och `maxFuzzyLevel=2` . 
 
     Om till exempel `maxFuzzyLevel` parametern är inställd på 2 matchas Sök termen *restrant* till *restaurang*. Du kan åsidosätta standard nivåer för fuzzy när du behöver. 
 
 * Använd `idxSet` parametern för att prioritera den exakta uppsättningen av resultat typer. Om du vill prioritera en exakt uppsättning resultat kan du skicka en kommaavgränsad lista över index. Objekt ordningen spelar ingen roll i listan. Azure Maps stöder följande index:
 
 * `Addr` - **Adress intervall**: adress punkter som interpoleras från början och slutet av gatan. Dessa punkter visas som adress intervall.
-* `Geo` - **Geografiska**områden: administrativa indelningar av mark. En geografi kan till exempel vara ett land, en delstat eller en stad.
+* `Geo` - **Geografiska**områden: administrativa indelningar av mark. En geografi kan till exempel vara land/region, delstat eller stad.
 * `PAD` - **Adress adresser**: adresser som innehåller gatu namn och nummer. Punkt adresser kan hittas i ett index. Ett exempel är *Soquel Dr 2501*. En punkt adress ger den högsta möjliga noggrannhets nivån för adresser.  
 * `POI` - **Punkter av intresse**: punkter på en karta som anses vara värda eller som kan vara intressanta. [Sök adressens API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) returnerar inte POI: er.  
 * `Str` - **Streets**: gator på kartan.
@@ -137,9 +137,9 @@ Mer information finns i [Azure Maps språk som stöds](https://docs.microsoft.co
 
 ### <a name="use-predictive-mode-automatic-suggestions"></a>Använd förutsägande läge (automatiska förslag)
 
-Om du vill hitta fler matchningar för partiella `typeahead` frågor anger `true`du parametern till. Den här frågan tolkas som en del Indatatyp och sökningen går in i förutsägande läge. Om du inte anger `typeahead` parametern till `true`förutsätter tjänsten att all relevant information har skickats in.
+Om du vill hitta fler matchningar för partiella frågor anger du `typeahead` parametern till `true` . Den här frågan tolkas som en del Indatatyp och sökningen går in i förutsägande läge. Om du inte anger `typeahead` parametern till `true` förutsätter tjänsten att all relevant information har skickats in.
 
-I följande exempel fråga frågar Sök adress tjänsten efter *mi*. Här har `typeahead` parametern angetts till `true`. Svaret visar att Sök tjänsten tolkade frågan som partiell fråga. Svaret innehåller resultat för en automatiskt föreslagen fråga.
+I följande exempel fråga frågar Sök adress tjänsten efter *mi*. Här har `typeahead` parametern angetts till `true` . Svaret visar att Sök tjänsten tolkade frågan som partiell fråga. Svaret innehåller resultat för en automatiskt föreslagen fråga.
 
 #### <a name="sample-query"></a>Exempelfråga
 
@@ -407,9 +407,9 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 ### <a name="encode-a-uri-to-handle-special-characters"></a>Koda en URI för att hantera specialtecken 
 
-Om du vill hitta kors adresser måste du koda URI: n för att hantera specialtecken i adressen. Tänk på följande adress exempel: *1st minimering & union gata, Seattle*. Här kodar du et-tecknet (`&`) innan du skickar begäran. 
+Om du vill hitta kors adresser måste du koda URI: n för att hantera specialtecken i adressen. Tänk på följande adress exempel: *1st minimering & union gata, Seattle*. Här kodar du et-tecknet ( `&` ) innan du skickar begäran. 
 
-Vi rekommenderar att du kodar tecken data i en URI. I en URI kodar du alla tecken genom att använda ett procent tecken (`%`) och ett hexadecimalt värde på två tecken som motsvarar tecknens UTF-8-kod.
+Vi rekommenderar att du kodar tecken data i en URI. I en URI kodar du alla tecken genom att använda ett procent tecken ( `%` ) och ett hexadecimalt värde på två tecken som motsvarar tecknens UTF-8-kod.
 
 #### <a name="usage-examples"></a>Användnings exempel
 
@@ -480,13 +480,13 @@ url.QueryEscape(query)
 
 I en POI-sökning kan du begära POI resultat efter namn. Du kan till exempel söka efter ett företag efter namn. 
 
-Vi rekommenderar starkt att du använder `countrySet` parametern för att ange länder där ditt program behöver täckning. Standard beteendet är att söka hela världen. Den här breda sökningen kan returnera onödiga resultat och sökningen kan ta lång tid.
+Vi rekommenderar starkt att du använder `countrySet` parametern för att ange länder/regioner där ditt program behöver täckning. Standard beteendet är att söka hela världen. Den här breda sökningen kan returnera onödiga resultat och sökningen kan ta lång tid.
 
 ### <a name="brand-search"></a>Varumärkes sökning
 
 För att förbättra relevansen för resultaten och informationen i svaret innehåller ett POI söksvar varumärkes information. Du kan använda den här informationen för att ytterligare parsa svaret.
 
-I en begäran kan du skicka en kommaavgränsad lista med varumärkes namn. Använd listan för att begränsa resultaten till vissa varumärken genom att `brandSet` ange parametern. Objekt ordningen spelar ingen roll i listan. När du tillhandahåller flera märkes listor måste resultaten som returneras tillhöra minst en av dina listor.
+I en begäran kan du skicka en kommaavgränsad lista med varumärkes namn. Använd listan för att begränsa resultaten till vissa varumärken genom att ange `brandSet` parametern. Objekt ordningen spelar ingen roll i listan. När du tillhandahåller flera märkes listor måste resultaten som returneras tillhöra minst en av dina listor.
 
 För att utforska varumärkes sökning, ska vi göra en [POI kategori Sök](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) förfrågan. I följande exempel söker vi efter gas stationer nära Microsofts campus i Redmond, Washington. Svaret visar varumärkes information för varje POI som returnerades.
 
@@ -769,7 +769,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 * **Adress intervall**: det intervall av adress punkter som interpoleras från början och slutet av gatan.  
 
-* **Geografi**: områden på en karta som representerar administrativa indelningar av en mark, till exempel land, delstat eller stad. 
+* **Geografi**: områden på en karta som representerar administrativa indelningar av en mark, till exempel land/region, delstat eller stad. 
 
 * **POI**: punkter på en karta som är värda och som kan vara intressanta.
 
@@ -787,7 +787,7 @@ Nu ska vi titta på svars strukturen. I svaret som följer är typerna av result
 
 Observera att adresss ökningen inte returnerar POI: er.  
 
-`Score` Parametern för varje Response-objekt anger hur det matchande resultatet relaterar till poängen för andra objekt i samma svar. Mer information om parametrar för svars objekt finns i [Hämta Sök adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress).
+`Score`Parametern för varje Response-objekt anger hur det matchande resultatet relaterar till poängen för andra objekt i samma svar. Mer information om parametrar för svars objekt finns i [Hämta Sök adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress).
 
 ```JSON
 {
@@ -951,10 +951,10 @@ Observera att adresss ökningen inte returnerar POI: er.
 
 ### <a name="geometry"></a>Geometri
 
-Svars typen *Geometry* kan innehålla det geometri-ID som returneras i `dataSources` objektet under `geometry` och. `id` Du kan till exempel använda [tjänsten search polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) för att begära geometri data i ett interjson-format. Med hjälp av det här formatet kan du få en stad eller en flyg plats för en uppsättning entiteter. Du kan sedan använda dessa gräns data för att [ställa in en inhägnad](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) eller [söka POI: er i geometrin](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
+Svars typen *Geometry* kan innehålla det geometri-ID som returneras i `dataSources` objektet under `geometry` och `id` . Du kan till exempel använda [tjänsten search polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) för att begära geometri data i ett interjson-format. Med hjälp av det här formatet kan du få en stad eller en flyg plats för en uppsättning entiteter. Du kan sedan använda dessa gräns data för att [ställa in en inhägnad](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) eller [söka POI: er i geometrin](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
 
 
-Svar för [Sök adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) -API eller [Sök i fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) -API: t kan innehålla det geometri-ID som `dataSources` returneras i `geometry` objektet `id`under och:
+Svar för [Sök adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) -API eller [Sök i fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) -API: t kan innehålla det geometri-ID som returneras i `dataSources` objektet under `geometry` och `id` :
 
 
 ```JSON 

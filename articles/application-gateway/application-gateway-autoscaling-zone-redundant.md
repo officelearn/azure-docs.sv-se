@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 74af3d14512018abc216b288a27dc54ed806d8c9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18bcd57c804746da5cff2efe8713616174fc794d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125238"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739489"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
-Application Gateway och brand vägg för webbaserade program (WAF) är också tillgängliga under en Standard_v2 och WAF_v2 SKU. V2-SKU: n erbjuder prestanda förbättringar och ger stöd för viktiga nya funktioner som automatisk skalning, zon redundans och stöd för statiska VIP. Befintliga funktioner under standard-och WAF-SKU: n fortsätter att stödjas i den nya v2-SKU: n, med några undantag som anges i [jämförelse](#differences-with-v1-sku) avsnittet.
+Application Gateway och brand vägg för webbaserade program (WAF) är också tillgängliga under en Standard_v2 och WAF_v2 SKU. V2-SKU: n erbjuder prestanda förbättringar och ger stöd för viktiga nya funktioner som automatisk skalning, zon redundans och stöd för statiska VIP. Befintliga funktioner under standard-och WAF-SKU: n fortsätter att stödjas i den nya v2-SKU: n, med några undantag som anges i [jämförelse](#differences-from-v1-sku) avsnittet.
 
 Den nya v2-SKU: n innehåller följande förbättringar:
 
@@ -172,7 +172,9 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 > [!NOTE]
 > Den automatiska skalning v2-SKU: n stöder nu [standard hälso avsökningar](application-gateway-probe-overview.md#default-health-probe) för att automatiskt övervaka hälsan för alla resurser i sin backend-pool och markera de Server dels medlemmar som betraktas som felaktiga. Standard hälso avsökningen konfigureras automatiskt för Server delar som inte har någon anpassad avsöknings konfiguration. Läs mer i [hälso avsökningar i Application Gateway](application-gateway-probe-overview.md).
 
-## <a name="differences-with-v1-sku"></a>Skillnader med v1 SKU
+## <a name="differences-from-v1-sku"></a>Skillnader från v1 SKU
+
+I det här avsnittet beskrivs funktioner och begränsningar för v2-SKU: n som skiljer sig från v1 SKU.
 
 |Skillnad|Information|
 |--|--|

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: e5d73ef1f41337bce593fdd4def3721d95db5392
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a16b95249562db98d9382f8ca56bf4a27beba2fd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664104"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743495"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Använd inbyggda antecknings boks kommandon och funktioner i Azure Cosmos DB python-anteckningsböcker (förhands granskning)
 
@@ -42,7 +42,7 @@ Du kan använda ``%%sql`` kommandot Magic för att köra en [SQL-fråga](sql-que
 - Ersätt ``{database_id}`` och ``{container_id}`` med namnet på databasen och behållaren i ditt Cosmos-konto. Om ``--database`` ``--container`` argumenten och inte har angetts körs frågan på [standard databasen och-behållaren](#set-default-database-for-queries).
 - Du kan köra alla SQL-frågor som är giltiga i Azure Cosmos DB. Frågetexten måste finnas på en ny rad.
 
-Till exempel: 
+Ett exempel: 
 ```python
 %%sql --database RetailDemo --container WebsiteData
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
@@ -61,7 +61,7 @@ Du kan generera resultatet av en ``%%sql`` fråga till en [Pandas-DataFrame](htt
 - Ersätt ``{outputDataFrameVar}`` med namnet på den DataFrame-variabel som ska innehålla resultaten.
 - Du kan köra alla SQL-frågor som är giltiga i Azure Cosmos DB. Frågetexten måste finnas på en ny rad. 
 
-Till exempel:
+Ett exempel:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -70,7 +70,7 @@ SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 ```python
 df_cosmos.head(10)
 
-    Action    ItemRevenue    Country    Item
+    Action    ItemRevenue    Country/Region    Item
 0    Viewed    9.00    Tunisia    Black Tee
 1    Viewed    19.99    Antigua and Barbuda    Flannel Shirt
 2    Added    3.75    Guinea-Bissau    Socks
@@ -80,7 +80,7 @@ df_cosmos.head(10)
 6    Added    19.99    Syrian Arab Republic    Button-Up Shirt
 7    Viewed    19.99    Syrian Arab Republic    Button-Up Shirt
 8    Viewed    33.00    Tuvalu    Red Top
-9    Viewed    14.00    Cape Verde    Flip Flop Shoes
+9    Viewed    14.00    Cabo Verde    Flip Flop Shoes
 ```
 ## <a name="set-default-database-for-queries"></a>Ange standard databas för frågor
 Du kan ange standard databas ```%%sql``` kommandona som ska användas för antecknings boken. Ersätt ```{database_id}``` med namnet på din databas.
@@ -108,7 +108,7 @@ Du kan använda ``%%upload`` kommandot Magic för att överföra data från en J
 - Ersätt ``{database_id}`` och ``{container_id}`` med namnet på databasen och behållaren i ditt Azure Cosmos-konto. Om ``--database`` ``--container`` argumenten och inte har angetts körs frågan på [standard databasen och-behållaren](#set-default-database-for-queries).
 - Ersätt ``{url_location_of_file}`` med platsen för din JSON-fil. Filen måste vara en matris med giltiga JSON-objekt och den bör vara tillgänglig via det offentliga Internet.
 
-Till exempel:
+Ett exempel:
 
 ```python
 %%upload --database databaseName --container containerName --url 
@@ -147,7 +147,7 @@ Version 4 av [Azure Cosmos DB python SDK för SQL API](https://github.com/Azure/
 
 Använd den inbyggda ``cosmos_client`` instansen för att köra en SDK-åtgärd. 
 
-Till exempel:
+Ett exempel:
 
 ```python
 ## Import modules as needed

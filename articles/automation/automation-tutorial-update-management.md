@@ -1,38 +1,28 @@
 ---
-title: Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
-description: Den här artikeln innehåller en översikt över hur du använder Azure Automation Uppdateringshantering för att hantera uppdateringar och korrigeringar för dina virtuella Azure-och icke-Azure-datorer.
+title: Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer i Azure Automation
+description: Den här artikeln beskriver hur du använder Uppdateringshantering för att hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer.
 services: automation
 ms.subservice: update-management
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 52158fe78262b5b2b3d006fb3a543ca743f4e417
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4b47fa873df88bf85c4c56c9f2ac94fce16c63be
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683828"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743656"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
-Du kan använda uppdateringshanteringen för att hantera uppdateringar och korrigeringar av virtuella datorer. I den här självstudien får du lära dig hur du utvärderar statusen för tillgängliga uppdateringar snabbt, planerar installation av uppdateringar som krävs, granskar distributionsresultat och skapar en avisering för att verifiera uppdateringar.
+Den här artikeln beskriver hur du kan använda funktionen Azure Automation [uppdateringshantering](automation-update-management.md) för att hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer. 
 
 Pris information finns i avsnittet [om Automation-priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/).
 
-I de här självstudierna får du lära dig att
-
-> [!div class="checklist"]
-> * Visa en uppdateringsbedömning
-> * Konfigurera aviseringar
-> * Schemalägga en uppdateringsdistribution
-> * Visa resultatet av en distribution
-
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här kursen behöver du:
-
-* [Uppdateringshantering](automation-update-management.md) lösning aktive rad för en eller flera av dina virtuella datorer.
-* En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) som du vill publicera.
+* [Uppdateringshantering](automation-update-management.md) funktionen aktive rad för en eller flera av dina virtuella datorer. 
+* En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) har Aktiver ats för uppdateringshantering.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -95,7 +85,7 @@ Om du vill anpassa ämnet för e-postaviseringen under **Skapa regel**, under **
 
 ## <a name="schedule-an-update-deployment"></a>Schemalägga en uppdateringsdistribution
 
-För att installera uppdateringar schemalägger du en distribution som passar ditt schema och servicefönster. Du kan välja vilka uppdaterings typer som ska ingå i distributionen. Du kan till exempel ta med kritiska uppdateringar eller säkerhetsuppdateringar och exkludera samlade uppdateringar.
+Schemalägg en distribution som följer ditt versions schema och service fönster för att installera uppdateringar. Du kan välja vilka uppdaterings typer som ska ingå i distributionen. Du kan till exempel ta med kritiska uppdateringar eller säkerhetsuppdateringar och exkludera samlade uppdateringar.
 
 >[!NOTE]
 >När du schemalägger en uppdaterings distribution skapas en [schema](shared-resources/schedules.md) resurs som är länkad till **MicrosoftOMSComputers-** runbooken som hanterar uppdaterings distributionen på mål datorerna. Om du tar bort schema resursen från Azure Portal eller använder PowerShell när du har skapat distributionen bryts den schemalagda uppdaterings distributionen och ett fel uppstår när du försöker konfigurera om schema resursen från portalen. Du kan bara ta bort schema resursen genom att ta bort motsvarande distributions schema.  
@@ -112,18 +102,9 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
 * **Datorer som ska uppdateras**: Välj en sparad sökning, importerad grupp eller Välj **datorer** i list menyn och välj enskilda datorer. Om du väljer **datorer**visas beredskapen för varje dator i kolumnen **Uppdatera agent beredskap** . Om du vill veta mer om olika metoder för att skapa dator grupper i Azure Monitor loggar, se [dator grupper i Azure Monitor loggar](../azure-monitor/platform/computer-groups.md).
 
-* **Uppdaterings klassificering**: för varje produkt avmarkerar du alla uppdaterings klassificeringar som stöds, men de som ska inkluderas i uppdaterings distributionen. I den här självstudien lämnar du alla typer markerade för alla produkter.
+* **Uppdaterings klassificering**: för varje produkt avmarkerar du alla uppdaterings klassificeringar som stöds, men de som ska inkluderas i uppdaterings distributionen. Beskrivningar av klassificerings typerna finns i [uppdaterings klassificeringar](automation-view-update-assessments.md#work-with-update-classifications).
 
-  Klassificeringstyper:
-
-   |Operativsystem  |Typ  |
-   |---------|---------|
-   |Windows     | Kritiska uppdateringar</br>Säkerhetsuppdateringar</br>Samlade uppdateringar</br>Funktionspaket</br>Service Pack</br>Definitionsuppdateringar</br>Verktyg</br>Uppdateringar<br>Drivrutin        |
-   |Linux     | Kritiska uppdateringar och säkerhetsuppdateringar</br>Övriga uppdateringar       |
-
-   Beskrivningar av klassificerings typerna finns i [uppdaterings klassificeringar](automation-view-update-assessments.md#update-classifications).
-
-* **Inkludera/exkludera uppdateringar** – öppnar sidan inkludera/exkludera. Uppdateringar som ska tas med eller undantas finns på separata flikar genom att ange KB-artikelns ID-nummer. När du anger ett eller flera ID-nummer måste du ta bort eller avmarkera alla klassificeringar med uppdaterings distributionen. Detta säkerställer att inga andra uppdateringar tas med i uppdaterings paketet när du anger uppdaterings-ID: n.
+* **Uppdateringar som ska tas med/undanta** – öppnar sidan inkludera/exkludera. Uppdateringar som ska tas med eller undantas finns på separata flikar genom att ange KB-artikelns ID-nummer. När du anger ett eller flera ID-nummer måste du ta bort eller avmarkera alla klassificeringar med uppdaterings distributionen. Detta säkerställer att inga andra uppdateringar tas med i uppdaterings paketet när du anger uppdaterings-ID: n.
 
 > [!NOTE]
 > Det är viktigt att veta att undantagen åsidosätter inkluderingar. Om du till exempel definierar en undantags regel för `*` uppdateringshantering installerar inga korrigeringar eller paket, eftersom de undantas. Undantagna uppdateringar visas fortfarande som saknas på datorn. För Linux-datorer, om du inkluderar ett paket som har ett beroende paket som har uteslutits, installerar Uppdateringshantering inte huvud paketet.
@@ -131,7 +112,6 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 > [!NOTE]
 > Du kan inte ange uppdateringar som har ersatts för inkludering med uppdaterings distributionen.
 >
-
 * **Schemainställningar**: Sidan Schemainställningar öppnas. Starttiden är som standard 30 minuter efter den aktuella tiden. Du kan ange starttiden till helst från 10 minuter i framtiden.
 
    Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Under **Återkommande**, välj **En gång**. Låt standardvärdet vara 1 dag och klicka på **OK**. Dessa poster ställer in ett återkommande schema.
@@ -196,16 +176,4 @@ När distributionen av uppdateringen lyckas får du ett bekräftelse meddelande 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Publicera en virtuell dator för hantering av uppdateringar
-> * Visa en uppdateringsbedömning
-> * Konfigurera aviseringar
-> * Schemalägga en uppdateringsdistribution
-> * Visa resultatet av en distribution
-
-Fortsätt till översikten för uppdateringshanteringslösningen.
-
-> [!div class="nextstepaction"]
-> [Uppdateringshanteringslösning](automation-update-management.md)
+* [Översikt över Uppdateringshantering](automation-update-management.md)

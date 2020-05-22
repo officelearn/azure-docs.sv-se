@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c3e6216c172b0ba1273fea1690c030a05f4c456
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657052"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742222"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -31,7 +31,7 @@ I följande lista beskrivs vanliga ord som används med Azure Maps-tjänsterna.
 
 <a name="altitude"></a>**Höjd**: höjden eller den vertikala höjningen av en punkt ovanför en referens yta. Höjd mätningarna baseras på en specifik referens punkt, t. ex. Mean Sea-nivå. Se även höjning.
 
-<a name="ambiguous"></a>**Tvetydig**: ett läge med osäkerhet i data klassificering som finns när ett objekt kan ha en lämplig tilldelning av två eller flera värden för ett angivet attribut. Till exempel returneras två tvetydiga resultat för "CA": t. ex. "Kanada" och "Kalifornien". "CA" är ett land och en delstats kod för "Kanada" respektive "Kalifornien". 
+<a name="ambiguous"></a>**Tvetydig**: ett läge med osäkerhet i data klassificering som finns när ett objekt kan ha en lämplig tilldelning av två eller flera värden för ett angivet attribut. Till exempel returneras två tvetydiga resultat för "CA": t. ex. "Kanada" och "Kalifornien". "CA" är ett land/en region och en delstats kod för "Kanada" och "Kalifornien". 
 
 <a name="annotation"></a>**Anteckning**: text eller grafik som visas på kartan för att ge information till användaren. Anteckningen kan identifiera eller beskriva en speciell kart organisation, ange allmän information om ett område på kartan eller tillhandahålla information om kartan.
 
@@ -93,7 +93,7 @@ I följande lista beskrivs vanliga ord som används med Azure Maps-tjänsterna.
 
 <a name="coordinate-system"></a>**Koordinatsystem**: ett referens ramverk som används för att definiera positionen för punkter i utrymme i två eller tre dimensioner.
 
-<a name="country-code"></a>**Landskod**: en unik identifierare för ett land/en region som baseras på ISO-standarden. ISO2 är en kod med två tecken för ett land (till exempel US), som ISO3 representerar en kod på tre tecken (till exempel USA).
+<a name="country-code"></a>**Landskod**: en unik identifierare för ett land/en region som baseras på ISO-standarden. ISO2 är en kod med två tecken för ett land/en region (till exempel US), som ISO3 representerar en kod på tre tecken (till exempel USA).
 
 <a name="country-subdivision"></a>**Land-underavdelning**: en underavdelning på första nivån av ett land/en region, vanligt vis kallat delstat eller provins.
 

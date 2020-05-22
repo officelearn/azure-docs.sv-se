@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97e8a34f3b8639990f8de736a8f1f7429ebfd448
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678442"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739149"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använda beroendeinmatning i .NET Azure Functions
 
@@ -27,11 +27,11 @@ Innan du kan använda beroende inmatning måste du installera följande NuGet-pa
 
 - [Microsoft. Azure. functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-- [Microsoft. net. SDK. Functions-paket](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 eller senare
+- [Microsoft. net. SDK. Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) -paket version 1.0.28 eller senare
 
 ## <a name="register-services"></a>Registrera tjänster
 
-Registrera tjänster genom att skapa en metod för att konfigurera och lägga till komponenter `IFunctionsHostBuilder` i en instans.  Azure Functions-värden skapar en instans av `IFunctionsHostBuilder` och skickar den direkt till din metod.
+Registrera tjänster genom att skapa en metod för att konfigurera och lägga till komponenter i en `IFunctionsHostBuilder` instans.  Azure Functions-värden skapar en instans av `IFunctionsHostBuilder` och skickar den direkt till din metod.
 
 Registrera-metoden genom att lägga till `FunctionsStartup` attributet Assembly som anger typ namnet som används vid start.
 
@@ -68,13 +68,13 @@ En serie registrerings steg som körs före och efter körningen bearbetar start
 
 - *Start klassen är endast avsedd för installation och registrering.* Undvik att använda tjänster som registrerats vid start under start processen. Försök till exempel inte att logga ett meddelande i en loggad logg som registreras under start. Den här tidpunkten för registrerings processen är för tidig för att tjänsterna ska kunna användas. När `Configure` metoden har körts fortsätter funktions körningen att registrera ytterligare beroenden, vilket kan påverka hur dina tjänster fungerar.
 
-- *Den beroende injektions behållaren innehåller bara explicit registrerade typer*. De enda tjänster som är tillgängliga som inmatnings bara typer är vad `Configure` som ställts in i-metoden. Därför är funktions typerna som `BindingContext` och `ExecutionContext` inte tillgängliga under installationen eller som inmatnings bara typer.
+- *Den beroende injektions behållaren innehåller bara explicit registrerade typer*. De enda tjänster som är tillgängliga som inmatnings bara typer är vad som ställts in i- `Configure` metoden. Därför är funktions typerna som `BindingContext` och `ExecutionContext` inte tillgängliga under installationen eller som inmatnings bara typer.
 
 ## <a name="use-injected-dependencies"></a>Använda inmatade beroenden
 
 Konstruktorn för konstruktorn används för att göra beroenden tillgängliga i en funktion. Användningen av konstruktorn för konstruktorn kräver att du inte använder statiska klasser.
 
-Följande exempel visar hur `IMyService` och `HttpClient` beroenden matas in i en http-utlöst funktion. I det här exemplet används paketet [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) som krävs `HttpClient` för att registrera ett vid start.
+Följande exempel visar hur `IMyService` och `HttpClient` beroenden matas in i en http-utlöst funktion. I det här exemplet används paketet [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) som krävs för att registrera ett `HttpClient` vid start.
 
 ```csharp
 using System;
@@ -127,15 +127,15 @@ Visa eller hämta ett [exempel på olika livs längder för tjänsten](https://a
 
 ## <a name="logging-services"></a>Loggnings tjänster
 
-Om du behöver en egen Logging-Provider registrerar du en anpassad typ som `ILoggerProvider` en instans. Application Insights läggs till av Azure Functions automatiskt.
+Om du behöver en egen Logging-Provider registrerar du en anpassad typ som en `ILoggerProvider` instans. Application Insights läggs till av Azure Functions automatiskt.
 
 > [!WARNING]
-> - Lägg `AddApplicationInsightsTelemetry()` inte till i samlingen tjänster när den registrerar tjänster som står i konflikt med tjänster som tillhandahålls av miljön.
+> - Lägg inte till i `AddApplicationInsightsTelemetry()` samlingen tjänster när den registrerar tjänster som står i konflikt med tjänster som tillhandahålls av miljön.
 > - Registrera inte din egen `TelemetryConfiguration` eller `TelemetryClient` om du använder de inbyggda Application Insights funktionerna. Om du behöver konfigurera en egen `TelemetryClient` instans skapar du en via den inmatade `TelemetryConfiguration` som visas i [övervaka Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
 
-### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> och ILoggerFactory
+### <a name="iloggert-and-iloggerfactory"></a>ILogger <T> och ILoggerFactory
 
-Värden kommer att `ILogger<T>` injiceras `ILoggerFactory` och tjänster till konstruktörer.  Dessa nya loggnings filter kommer dock att filtreras bort från funktions loggarna som standard.  Du måste ändra `host.json` filen om du vill välja ytterligare filter och kategorier.  Följande exempel visar hur du lägger `ILogger<HttpTrigger>` till en med-loggar som kommer att exponeras av värden.
+Värden kommer att injiceras `ILogger<T>` och `ILoggerFactory` tjänster till konstruktörer.  Dessa nya loggnings filter kommer dock att filtreras bort från funktions loggarna som standard.  Du måste ändra `host.json` filen om du vill välja ytterligare filter och kategorier.  Följande exempel visar hur du lägger till en `ILogger<HttpTrigger>` med-loggar som kommer att exponeras av värden.
 
 ```csharp
 namespace MyNamespace
@@ -219,7 +219,7 @@ Och en `local.settings.json` fil som kan strukturera den anpassade inställninge
 }
 ```
 
-Inifrån- `Startup.Configure` metoden kan du extrahera värden från `IConfiguration` instansen till din anpassade typ med hjälp av följande kod:
+Inifrån `Startup.Configure` -metoden kan du extrahera värden från `IConfiguration` instansen till din anpassade typ med hjälp av följande kod:
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()

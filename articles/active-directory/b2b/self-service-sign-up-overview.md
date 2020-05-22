@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd76a0556ff22890aff9f4b623e7688064192558
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 98456f26fbc7ca3955883eb283b54084bd86d503
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712204"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737766"
 ---
 # <a name="self-service-sign-up-preview"></a>Registrering via självbetjäning (förhandsversion)
 |     |
@@ -35,7 +35,7 @@ Ett självbetjänings registrerings användar flöde skapar en registrerings upp
 Du kan konfigurera användar flödes inställningarna för att styra hur användaren registrerar sig för programmet:
 
 - Konto typer som används för inloggning, till exempel sociala konton som Facebook eller Azure AD-konton
-- Attribut som ska samlas in från användaren som registrerar sig, till exempel förnamn, post nummer eller land i placering
+- Attribut som ska samlas in från användaren som registrerar sig, till exempel förnamn, post nummer eller land/region för placering
 
 När en användare vill logga in i ditt program, oavsett om det är en webb-, mobil-, skriv bords-eller Enkels Ides applikation (SPA), initierar programmet en auktoriseringsbegäran till slut punkten för användar flödet. Användar flödet definierar och styr användarens upplevelse. När användaren slutför inloggnings användar flödet genererar Azure AD en token och omdirigerar användaren tillbaka till ditt program. När registreringen är klar skapas ett gäst konto för användaren i katalogen. Flera program kan använda samma användar flöde.
 

@@ -3,12 +3,12 @@ title: Funktioner – LUIS
 description: Lägg till funktioner i en språk modell för att ge tips om hur du identifierar indatatyper som du vill etikettera eller klassificera.
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: e0fd4470c9e1c2a56562b3783010ff1ef87ff466
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682157"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742717"
 ---
 # <a name="machine-learning-ml-features"></a>Funktioner för Machine Learning (ML)
 
@@ -85,7 +85,7 @@ Om n till exempel enhet för leverans adress innehåller en gatuadress för gatu
     * Gatuadress (underentitet)
     * Ort (underentitet)
     * Delstat eller provins (underentitet)
-    * Land (underentitet)
+    * Land/region (underentitet)
     * Post nummer (underentitet)
 
 ## <a name="nested-subentities-with-features"></a>Kapslade underentiteter med funktioner
@@ -118,14 +118,14 @@ Du fortsätter med exemplet på leverans adressen:
     * Gatu namn (underentitet)
     * Ort (underentitet)
     * Delstat eller provins (underentitet)
-    * Land (underentitet)
+    * Land/region (underentitet)
     * Post nummer (underentitet)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Nödvändig funktion med fördefinierade entiteter
 
-Ort, delstat och land är vanligt vis en stängd uppsättning listor, vilket innebär att de inte ändras mycket över tid. Dessa entiteter kan ha relevanta rekommenderade funktioner och dessa funktioner kan markeras som obligatoriska. Det innebär att hela leverans adressen inte returneras, men det går inte att hitta entiteterna med de funktioner som krävs.
+Ort, delstat och land/region är vanligt vis en stängd uppsättning listor, vilket innebär att de inte ändras mycket över tid. Dessa entiteter kan ha relevanta rekommenderade funktioner och dessa funktioner kan markeras som obligatoriska. Det innebär att hela leverans adressen inte returneras, men det går inte att hitta entiteterna med de funktioner som krävs.
 
-Vad händer om ort, region eller land finns i uttryck, men antingen på en plats eller slang som LUIS inte förväntar sig? Om du vill ge en del post bearbetning för att hjälpa till att lösa entiteten, på grund av en låg exakthet från LUIS, ska du inte markera funktionen som krävs.
+Vad händer om ort, delstat eller land/region finns i uttryck, men antingen på en plats eller slang som LUIS inte förväntar sig? Om du vill ge en del post bearbetning för att hjälpa till att lösa entiteten, på grund av en låg exakthet från LUIS, ska du inte markera funktionen som krävs.
 
 Ett annat exempel på en nödvändig funktion för leverans adressen är att skapa ett obligatoriskt [fördefinierat](luis-reference-prebuilt-entities.md) nummer för gatan. Detta gör att användaren kan ange "1 Microsoft Way" eller "One Microsoft Way". Båda kommer att matcha ett antal "1" för underentiteten gata nummer.
 
@@ -133,19 +133,19 @@ Ett annat exempel på en nödvändig funktion för leverans adressen är att ska
 
 En [lista entitet](reference-entity-list.md) används som en lista över kanoniska namn tillsammans med deras synonymer. Som en nödvändig funktion, om uttryck inte inkluderar det kanoniska namnet eller en synonym, returneras inte entiteten som en del av förutsägelse slut punkten.
 
-Om du fortsätter med leverans adress exemplet antar vi att företaget endast levererar till en begränsad uppsättning länder. Du kan skapa en lista med entiteter som innehåller flera olika sätt som kunden kan referera till i landet. Om LUIS inte hittar en exakt matchning i texten för uttryck, returneras inte entiteten (som har den nödvändiga funktionen i list entiteten) i förutsägelsen.
+Om du fortsätter med leverans adress exemplet antar vi att företaget endast levererar till en begränsad uppsättning länder/regioner. Du kan skapa en lista med entiteter som innehåller flera olika sätt som kunden kan referera till i landet. Om LUIS inte hittar en exakt matchning i texten för uttryck, returneras inte entiteten (som har den nödvändiga funktionen i list entiteten) i förutsägelsen.
 
 |Kanoniskt namn|Synonymer|
 |--|--|
 |USA|USA<br>U. S. A<br>USA<br>USA<br>0|
 
-Klient programmet, till exempel en chatt-robot, kan ställa en uppföljnings fråga, så att Kunden förstår att valet av land är begränsat och _obligatoriskt_.
+Klient programmet, till exempel en chatt-robot, kan ställa en uppföljnings fråga, så att Kunden förstår att valet land/region är begränsat och _obligatoriskt_.
 
 ### <a name="required-feature-using-regular-expression-entities"></a>Nödvändig funktion med hjälp av reguljära uttrycks enheter
 
 En [entitet för reguljära uttryck](reference-entity-regular-expression.md) som används som en obligatorisk funktion innehåller funktioner för text matchning med RTF-format.
 
-Om du fortsätter med leverans adressen kan du skapa ett reguljärt uttryck som samlar in mellanliggande sökkoder för landets post nummer.
+Om du fortsätter med leverans adressen kan du skapa ett reguljärt uttryck som samlar in insamlings regler för post nummer i landet/regionen.
 
 ## <a name="global-features"></a>Globala funktioner
 

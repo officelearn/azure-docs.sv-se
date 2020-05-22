@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c71195b247af6d5046d88d3e6918a660eddf09b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b529c8112683281148751091ee93dd12ae73b4a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062394"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741931"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Utföra en åtkomst granskning från portalen Mina appar
 
@@ -41,7 +41,7 @@ Om din administratör har gett dig behörighet att utföra dina egna åtkomst gr
 
 1. Logga in på ditt arbets-eller skol konto.
 
-2. Öppna webbläsaren och gå till https://myapps.microsoft.comeller Använd den länk som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
+2. Öppna webbläsaren och gå till https://myapps.microsoft.com eller Använd den länk som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com .
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 

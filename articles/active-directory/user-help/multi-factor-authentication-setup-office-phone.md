@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: b94c739abffa8792afbfab4285c54a67f3eb4b65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062531"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739217"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Konfigurera en arbets telefon som en metod för verifiering av två faktorer
 
@@ -41,7 +41,7 @@ Du kan konfigurera din arbets telefon så att den fungerar som en metod för ver
     >[!Note]
     >Information om hur du använder applösenord med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåstegsverifiering.
 
-4. Välj **Klar**.
+4. Välj **Done** (Klar).
 
 ## <a name="next-steps"></a>Nästa steg
 

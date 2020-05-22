@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e4521cb67ae95a1cd4a3e728a13e43bfd5773ab
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672668"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737035"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD-anslutna enheter
 
 Azure AD Join är avsett för organisationer som bara vill vara molnbaserade eller endast i molnet. Alla organisationer kan distribuera Azure AD-anslutna enheter oavsett storlek eller bransch. Azure AD Join fungerar även i en hybrid miljö som möjliggör åtkomst till både molnet och lokala appar och resurser.
 
-|   | Azure AD Join |
+|   | Azure AD-anslutning |
 | --- | --- |
 | **Definition** | Endast ansluten till Azure AD som kräver organisations konto för att logga in på enheten |
 | **Primär mål grupp** | Lämpligt för både molnbaserade och hybrid organisationer. |
@@ -33,7 +33,7 @@ Azure AD Join är avsett för organisationer som bara vill vara molnbaserade ell
 |   | Massregistrering |
 |   | Windows Autopilot |
 | **Alternativ för enhets inloggning** | Organisations konton med: |
-|   | lösenord |
+|   | lösenordsinställning |
 |   | Windows Hello för företag |
 |   | FIDO 2.0-säkerhets nycklar (för hands version) |
 | **Enhetshantering** | Hantering av mobila enheter (exempel: Microsoft Intune) |
@@ -43,7 +43,7 @@ Azure AD Join är avsett för organisationer som bara vill vara molnbaserade ell
 |   | Återställning av lösen ord för självbetjäning och Windows Hello-PIN-återställning på Lås skärmen |
 |   | Enterprise State Roaming över enheter |
 
-Azure AD-anslutna enheter är inloggade i att använda ett organisations Azure AD-konto. Åtkomst till resurser i organisationen kan ytterligare begränsas baserat på det Azure AD-konto och [principer för villkorlig åtkomst](../conditional-access/overview.md) som tillämpas på enhets identiteten.
+Azure AD-anslutna enheter är inloggade i att använda ett organisations Azure AD-konto. Åtkomst till resurser i organisationen kan ytterligare begränsas baserat på det Azure AD-konto och [principer för villkorlig åtkomst](../conditional-access/howto-conditional-access-policy-compliant-device.md) som tillämpas på enhets identiteten.
 
 Administratörer kan skydda och hantera Azure AD-anslutna enheter med hjälp av MDM-verktyg (Mobile Device Management) som Microsoft Intune eller i samhanterings scenarier med Microsoft Endpoint Configuration Manager. Dessa verktyg ger ett sätt att tvinga fram organisations konfiguration, t. ex. att lagringen ska vara krypterad, lösen ords komplexitet, program varu installationer och program uppdateringar. Administratörer kan göra organisations program tillgängliga för Azure AD-anslutna enheter med hjälp av Configuration Manager för att [Hantera appar från Microsoft Store för företag och utbildning](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 

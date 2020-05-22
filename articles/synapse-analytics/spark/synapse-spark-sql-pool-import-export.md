@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: d2c8215a68d2f80471be87b0ca07aa1438a25ac4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1a2b9c739f3583fb5d842bd9d3834252d542cb7d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660049"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739285"
 ---
 # <a name="introduction"></a>Introduktion
 
@@ -44,14 +44,14 @@ Därför behöver du inte skapa autentiseringsuppgifter eller ange dem i anslutn
 
 Om du vill skapa användare ansluter du till databasen och följer de här exemplen:
 
-```Sql
+```sql
 CREATE USER Mary FROM LOGIN Mary;
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 Så här tilldelar du en roll:
 
-```Sql
+```sql
 EXEC sp_addrolemember 'db_exporter', 'Mary';
 ```
 
@@ -64,14 +64,14 @@ Import instruktionerna krävs inte, de är i förväg importerade för den bärb
 > [!NOTE]
 > **Importer som inte behövs i Notebook-upplevelsen**
 
-```Scala
+```scala
  import com.microsoft.spark.sqlanalytics.utils.Constants
  import org.apache.spark.sql.SqlAnalyticsConnector._
 ```
 
 #### <a name="read-api"></a>Läs-API
 
-```Scala
+```scala
 val df = spark.read.sqlanalytics("[DBName].[Schema].[TableName]")
 ```
 
@@ -79,13 +79,13 @@ Ovanstående API fungerar både för interna (hanterade) och externa tabeller i 
 
 #### <a name="write-api"></a>Skriv-API
 
-```Scala
+```scala
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 ```
 
 där TableType kan vara konstanter. INTERNAL eller constants. EXTERNAL
 
-```Scala
+```scala
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.INTERNAL)
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 ```
@@ -97,14 +97,14 @@ Autentiseringen till lagringen och SQL Server görs
 > [!NOTE]
 > Importer som inte behövs i Notebook-upplevelsen
 
-```Scala
+```scala
  import com.microsoft.spark.sqlanalytics.utils.Constants
  import org.apache.spark.sql.SqlAnalyticsConnector._
 ```
 
 #### <a name="read-api"></a>Läs-API
 
-```Scala
+```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>")
@@ -112,7 +112,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 #### <a name="write-api"></a>Skriv-API
 
-```Scala
+```scala
 df.write.
 option(Constants.SERVER, "[samplews].[database.windows.net]").
 sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
@@ -124,7 +124,7 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 
 För närvarande har kopplingen inte stöd för tokenbaserad autentisering till en SQL-pool utanför arbets ytan. Du måste använda SQL-autentisering.
 
-```Scala
+```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, [SQLServer Login UserName]).
@@ -134,7 +134,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 #### <a name="write-api"></a>Skriv-API
 
-```Scala
+```scala
 df.write.
 option(Constants.SERVER, "[samplews].[database.windows.net]").
 option(Constants.USER, [SQLServer Login UserName]).
@@ -151,13 +151,13 @@ Anta att du har en dataframe "pyspark_df" som du vill skriva till DW.
 
 Skapa en temporär tabell med hjälp av dataframe i PySpark:
 
-```Python
+```py
 pyspark_df.createOrReplaceTempView("pysparkdftemptable")
 ```
 
 Kör en Scala-cell i den PySpark Notebook med MAGICS:
 
-```Scala
+```scala
 %%spark
 val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 

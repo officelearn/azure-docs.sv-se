@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ccdd25d82af2b4893260af18dac818816d9e4579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ddcd95356f9b70fec5a74f36f5b80e55ea56b477
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72791982"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744003"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Extrahering av diskussionsämne kognitiva kunskaper
 
@@ -31,7 +31,7 @@ Den här funktionen är användbar om du snabbt behöver identifiera de viktigas
 Microsoft. färdigheter. text. KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Kunskaps parametrar
 
@@ -44,10 +44,17 @@ Parametrar är skiftlägeskänsliga.
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Indata     | Beskrivning |
+| Indata  | Beskrivning |
 |--------------------|-------------|
 | text | Den text som ska analyseras.|
 | languageCode  |  En sträng som anger språket för posterna. Om den här parametern inte anges används standard språk koden för att analysera posterna. <br/>Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+
+## <a name="skill-outputs"></a>Kunskaps utmatningar
+
+| Utdata  | Beskrivning |
+|--------------------|-------------|
+| keyPhrases | En lista med nyckel fraser extraherade från inmatad text. Viktiga fraser returneras i prioritetsordning. |
+
 
 ##  <a name="sample-definition"></a>Exempel definition
 

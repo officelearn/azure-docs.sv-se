@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 6b0977628f7c3d971804d8597f42425608028081
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3350ff4bc810666f7b772607c2983d86902f5ffc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448462"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744051"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och python
 
@@ -52,7 +52,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     data = {'text': example_text}
     ```
 
-2. Lägg till parametrarna för begäran. Lägg till din marknads kod `mkt=`efter. Marknads koden är det land som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=`. Läget är antingen `proof` (fångar de flesta stavnings-och grammatikfel) `spell` eller (fångar de flesta stavfel men inte lika många grammatiska fel).
+2. Lägg till parametrarna för begäran. Lägg till din marknads kod efter `mkt=` . Marknads koden är landet/regionen som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=` . Läget är antingen `proof` (fångar de flesta stavnings-och grammatikfel) eller `spell` (fångar de flesta stavfel men inte lika många grammatiska fel).
 
     ```python
     params = {
@@ -86,7 +86,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     ```
 
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Om du använder kommando raden använder du följande kommando för att köra programmet.
 

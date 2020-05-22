@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd26b2b475e293a1fda1b007289ba7c3eef35136
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8052f94755019d8ad3fe818d979d2eb7f8ba0a5e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183947"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738769"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definiera anspråks omvandlingar för telefonnummer i Azure AD B2C
 
@@ -28,14 +28,14 @@ Den här artikeln innehåller en referens och exempel på hur du kan använda an
 
 ## <a name="convertphonenumberclaimtostring"></a>ConvertPhoneNumberClaimToString
 
-Konverterar en `phoneNumber` datatyp till en `string` datatyp.
+Konverterar en datatyp `phoneNumber` till en `string` datatyp.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumber | phoneNumber |  ClaimType som ska konverteras till en sträng. |
 | OutputClaim | phoneNumberString | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
-I det här exemplet konverteras cellPhoneNumber-anspråket med `phoneNumber` värde typen till ett mobilt anspråk med värde typen `string`.
+I det här exemplet konverteras cellPhoneNumber-anspråket med värde typen `phoneNumber` till ett mobilt anspråk med värde typen `string` .
 
 ```XML
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
@@ -62,8 +62,8 @@ Den här anspråks omvandlingen verifierar formatet för telefonnumret. Om det �
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumberString | sträng |  Sträng anspråket för telefonnumret. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och landskod. Om indata `country` -anspråk anges, är telefonnumret i lokalt format (utan lands koden). |
-| InputClaim | land | sträng | Valfritt Sträng anspråket för lands koden för telefonnumret i ISO3166-format (ISO-3166-landskod). |
+| InputClaim | phoneNumberString | sträng |  Sträng anspråket för telefonnumret. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och lands-/regions kod. Om indata `country` -anspråk anges, är telefonnumret i lokalt format (utan lands-/region kod). |
+| InputClaim | land | sträng | Valfritt Sträng anspråket för lands-/regionkoden för telefonnumret i ISO3166-format (ISO-3166 land/region-kod). |
 | OutputClaim | outputClaim | phoneNumber | Resultatet av denna omvandling av anspråk. |
 
 Omvandlingen av **ConvertStringToPhoneNumberClaim** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md) eller [visnings kontroll](display-controls.md). **UserMessageIfClaimsTransformationInvalidPhoneNumber** -metadata för självkontrollerad teknisk profil styr det fel meddelande som visas för användaren.
@@ -113,24 +113,24 @@ Den självkontrollerade tekniska profilen som anropar den tekniska verifierings 
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString
 
-Detta extraherar lands koden och det nationella numret från det inskickade anspråket och genererar ett undantag om det angivna telefonnumret inte är giltigt.
+Detta extraherar lands-/regionkoden och det nationella numret från det inskickade anspråket och returnerar ett undantag om det angivna telefonnumret inte är giltigt.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumber | sträng | Telefonnumrets sträng anspråk. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och landskod. |
+| InputClaim | phoneNumber | sträng | Telefonnumrets sträng anspråk. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och lands-/regions kod. |
 | InputParameter | throwExceptionOnFailure | boolean | Valfritt En parameter som anger om ett undantag genereras när telefonnumret är ogiltigt. Standardvärdet är false. |
-| InputParameter | countryCodeType | sträng | Valfritt En parameter som anger typen av landskod i utgående anspråk. Tillgängliga värden är **CallingCode** (den internationella anrops koden för ett land, t. ex. + 1) eller **ISO3166** (ISO-3166-landkoden med två bokstäver). |
+| InputParameter | countryCodeType | sträng | Valfritt En parameter som anger typen av lands-/regionkod i utgående anspråk. Tillgängliga värden är **CallingCode** (den internationella anrops koden för ett land/en region, t. ex. + 1) eller **ISO3166** (ISO-3166 land/region-kod). |
 | OutputClaim | nationalNumber | sträng | Sträng anspråket för det nationella numret för telefonnumret. |
-| OutputClaim | countryCode | sträng | Sträng anspråket för telefonnumrets landskod. |
+| OutputClaim | countryCode | sträng | Sträng anspråket för telefonnumret för land/region. |
 
 
 Om omvandlingen av **GetNationalNumberAndCountryCodeFromPhoneNumberString** -anspråk körs från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md) eller en [åtgärd för att Visa kontroll](display-controls.md#display-control-actions), styr **UserMessageIfPhoneNumberParseFailure** för självkontrollerad teknisk profil det fel meddelande som visas för användaren.
 
 ![Diagram över sökväg för körning av fel meddelande](./media/phone-authentication/assert-execution.png)
 
-Du kan använda den här anspråks omvandlingen för att dela upp ett fullständigt telefonnummer i lands koden och det nationella numret. Om det angivna telefonnumret inte är giltigt kan du välja att utlösa ett fel meddelande.
+Du kan använda den här anspråks omvandlingen för att dela upp ett fullständigt telefonnummer i lands-/region koden och det nationella numret. Om det angivna telefonnumret inte är giltigt kan du välja att utlösa ett fel meddelande.
 
-I följande exempel försöker du dela telefonnumret i det nationella numret och lands koden. Om telefonnumret är giltigt kommer telefonnumret att åsidosättas av det nationella numret. Om telefonnumret inte är giltigt, genereras inget undantag och telefonnumret har fortfarande sitt ursprungliga värde.
+I följande exempel försöker du dela telefonnumret i det nationella numret och land/region-koden. Om telefonnumret är giltigt kommer telefonnumret att åsidosättas av det nationella numret. Om telefonnumret inte är giltigt, genereras inget undantag och telefonnumret har fortfarande sitt ursprungliga värde.
 
 ```XML
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">

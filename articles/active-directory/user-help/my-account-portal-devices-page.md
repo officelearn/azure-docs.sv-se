@@ -8,15 +8,15 @@ ms.reviewer: jpettere
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: d43b2bd5912375c3bb2010f0f2ae75a119512f03
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 9badda1663947587b078c6bb808f4efdf2e10579
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625841"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735964"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Hantera dina anslutna enheter från sidan enheter
 
@@ -31,7 +31,7 @@ Sidan **enheter** i portalen **My-Account** hjälper dig att hantera enheter som
 
 ## <a name="view-your-connected-devices"></a>Visa dina anslutna enheter
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till **mitt konto** (https://myaccount.microsoft.com/) sidan.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till **mitt konto** ( https://myaccount.microsoft.com/) sidan.
 
 2. Välj **enheter** i det vänstra navigerings fönstret eller Välj länken **Hantera enheter** från **enhets** blocket.
 

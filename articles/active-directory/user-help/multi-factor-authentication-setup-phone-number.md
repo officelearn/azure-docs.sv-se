@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: b0bfaa87c77ba9fff9f6605c1989e48ffbc3fb35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 76809a41400502ec48c2dd674f8976bb168ec9f9
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062514"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735998"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Konfigurera en mobil enhet som en metod för verifiering av två faktorer
 
@@ -43,7 +43,7 @@ Du kan konfigurera din mobila enhet så att den fungerar som en metod för verif
     >[!Note]
     >Information om hur du använder applösenord med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåstegsverifiering.
 
-5. Välj **Klar**.
+5. Välj **Done** (Klar).
 
 ## <a name="set-up-your-mobile-device-to-receive-a-phone-call"></a>Konfigurera din mobila enhet för att ta emot ett telefonsamtal
 
@@ -64,7 +64,7 @@ Du kan konfigurera din mobila enhet så att den fungerar som en metod för verif
     >[!Note]
     >Information om hur du använder applösenord med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåstegsverifiering.
 
-5. Välj **Klar**.
+5. Välj **Done** (Klar).
 
 ## <a name="next-steps"></a>Nästa steg
 

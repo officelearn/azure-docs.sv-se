@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 7a442cb094f87852c9d4f781d378f5886f3a4a42
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bbe3e21840f094fbd3f34d94e7af64ca98d884df
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652128"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735879"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -48,7 +48,7 @@ Det första steget för att få Azure Backup Server igång är att konfigurera e
 
 När du väljer en server för att köra Azure Backup Server rekommenderar vi att du börjar med en galleri bild av Windows Server 2016 Data Center eller Windows Server 2019 Data Center. Artikeln [skapar din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)och innehåller en självstudie för att komma igång med den rekommenderade virtuella datorn i Azure, även om du aldrig har använt Azure tidigare. De rekommenderade minimi kraven för virtuell Server-dator (VM) ska vara: Standard_A4_v2 med fyra kärnor och 8 GB RAM.
 
-Att skydda arbets belastningar med Azure Backup Server har många olika delarna. Artikeln [Installera DPM som en virtuell Azure-dator, vilket](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))hjälper dig att förklara dessa olika delarna. Innan du distribuerar datorn kan du läsa den här artikeln helt och hållet.
+Att skydda arbets belastningar med Azure Backup Server har många olika delarna. [Skydds matrisen för Mabs](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) hjälper till att förklara dessa olika delarna. Innan du distribuerar datorn kan du läsa den här artikeln helt och hållet.
 
 ### <a name="using-an-on-premises-server"></a>Använda en lokal server
 
@@ -199,7 +199,7 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    Arbets platsen är ett krav för säkerhets kopiering till Azure. Se till att arbets platsen är minst 5% av de data som planeras att säkerhets kopie ras till molnet. För disk skydd måste separata diskar konfigureras när installationen är klar. Mer information om lagringspooler finns i Konfigurera lagringspooler [och disk lagring](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+    Arbets platsen är ett krav för säkerhets kopiering till Azure. Se till att arbets platsen är minst 5% av de data som planeras att säkerhets kopie ras till molnet. För disk skydd måste separata diskar konfigureras när installationen är klar. Mer information om lagringspooler finns i [förbereda data lagring](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 5. Ange ett starkt lösen ord för begränsade lokala användar konton och klicka på **Nästa**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)

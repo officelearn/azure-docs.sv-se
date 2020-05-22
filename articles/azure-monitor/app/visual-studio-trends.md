@@ -7,12 +7,12 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 151248f7cd6fe763643da42fc8edbe7c01a69cc7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670873"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744137"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analysera trender i Visual Studio
 Verktyget Application Insights Trends hjälper dig att visualisera hur webbappens viktiga telemetrihändelser ändras med tiden, så att du snabbt kan identifiera problem och inkonsekvenser. Med länkar till mer detaljerad diagnostiskinformation kan Trends hjälpa dig att förbättra dina apprestanda, spåra orsakerna till undantag och få insikter från anpassade händelser.
@@ -48,7 +48,7 @@ Sätt igång genom att välja någon av fem vanliga trendanalyser, som var och e
 Dessa fördefinierade analyser är tillgängliga senare från knappen **View common types of telemetry analysis** (Visa vanliga typer av telemetrianalyser) i det övre vänstra hörnet i Trends-fönstret.
 
 ## <a name="visualize-trends-in-your-application"></a>Visualisera trender i ditt program
-Application Insights Trends skapar en tidsserievisualisering från din apps telemetri. Varje tidsserievisualisering visar en typ av telemetri, grupperad efter en egenskap för den telemetrin, över en viss tidsperiod. Du kanske till exempel vill visa serverbegäranden, grupperade efter det land som de kommer från, under de senaste 24 timmarna. I det här exemplet representerar varje bubbla i visualiseringen ett antal serverbegäranden för ett visst land/en viss region under en timme.
+Application Insights Trends skapar en tidsserievisualisering från din apps telemetri. Varje tidsserievisualisering visar en typ av telemetri, grupperad efter en egenskap för den telemetrin, över en viss tidsperiod. Du kanske till exempel vill visa server begär Anden, grupperade efter det land/den region som de kom från, under de senaste 24 timmarna. I det här exemplet representerar varje bubbla i visualiseringen ett antal serverbegäranden för ett visst land/en viss region under en timme.
 
 Använd kontrollerna längst upp i fönstret för att välja vilka telemetrityper som visas. Börja med att välja de telemetrityper som du är intresserad av:
 

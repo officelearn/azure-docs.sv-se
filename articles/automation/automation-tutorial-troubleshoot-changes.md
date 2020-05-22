@@ -1,28 +1,28 @@
 ---
-title: Felsöka ändringar på en virtuell Azure-dator | Microsoft Docs
-description: Använd Ändringsspårning för att felsöka ändringar i en virtuell Azure-dator.
+title: Felsöka ändringar på en virtuell Azure-dator i Azure Automation | Microsoft Docs
+description: Den här artikeln beskriver hur du felsöker ändringar på en virtuell Azure-dator.
 services: automation
 ms.subservice: change-inventory-management
-keywords: change, tracking, automation
+keywords: ändring, spårning, ändrings spårning, inventering, automatisering
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 89f5e00c75b6b85c9a14de02504136907cde62b5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 211b34b4424fa5bc9b82dc1cc2a2da574ffc5d96
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604700"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743693"
 ---
-# <a name="troubleshoot-changes-in-your-environment"></a>Felsöka ändringar i miljön
+# <a name="troubleshoot-changes-on-an-azure-vm"></a>Felsöka ändringar på en virtuell Azure-dator
 
-I den här självstudien får du lära dig att felsöka ändringar i en virtuell Azure-dator. Genom att aktivera Ändringsspårning kan du spåra ändringar i program vara, filer, Linux-daemon, Windows-tjänster och Windows-registernycklar på dina datorer.
+I den här självstudien får du lära dig att felsöka ändringar i en virtuell Azure-dator. Genom att aktivera Ändringsspårning och inventering kan du spåra ändringar i program vara, filer, Linux-daemon, Windows-tjänster och Windows-registernycklar på dina datorer.
 Om du identifierar dessa konfigurationsändringar kan du få hjälp med att precisera driftproblem i miljön.
 
 I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
-> * Publicera en virtuell dator för spårning av ändringar och lager
+> * Aktivera Ändringsspårning och inventering för en virtuell dator
 > * Sök i ändringsloggar efter stoppade enheter
 > * Konfigurera spårning av ändringar
 > * Aktivera aktivitetslogganslutning
@@ -36,7 +36,7 @@ För att slutföra den här kursen behöver du:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett [Automation-konto](automation-offering-get-started.md) för att lagra övervakare och åtgärds-Runbooks och övervaknings aktiviteten.
-* En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) som du vill publicera.
+* En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) som ska aktive ras för funktionen.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -44,33 +44,36 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
 
-Först måste du aktivera Ändringsspårning och inventering för den virtuella datorn för den här självstudien. Om du redan har aktiverat någon annan automatiseringslösning för en virtuell dator kan du hoppa över det här steget.
+Först måste du aktivera Ändringsspårning och inventering för den här självstudien. Om du tidigare har aktiverat funktionen behövs inte det här steget.
 
-1. På den vänstra menyn väljer du **virtuella datorer** och väljer en virtuell dator i listan.
-1. På den vänstra menyn väljer du **inventering** under **åtgärder**. Sidan inventering öppnas.
+>[!NOTE]
+>Om fälten är nedtonade är en annan automatiserings funktion aktive rad för den virtuella datorn och du måste använda samma arbets yta och Automation-konto.
 
-![Aktivera ändring](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
+1. Välj **virtuella datorer** och välj en virtuell dator i listan.
+2. På den vänstra menyn väljer du **inventering** under **åtgärder**. Sidan inventering öppnas.
 
-Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klicka på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
+    ![Aktivera ändring](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-En [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som Inventering.
-Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
+3. Välj arbets ytan [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) . Den här arbets ytan samlar in data som genereras av funktioner som Ändringsspårning och inventering. Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
 
-Under onboarding tillhandahålls den virtuella datorn med Log Analytics-agenten för Windows och en Hybrid Runbook Worker.
-Agenten används för att kommunicera med den virtuella datorn och få information om installerad program vara.
+    [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Det kan ta upp till 15 minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren.
-När lösningen har aktiverats flödar information om installerad programvara och ändringar på den virtuella datorn till Azure Monitor-loggar.
+4. Välj det Automation-konto som ska användas.
+
+5. Konfigurera platsen för distributionen.
+
+5. Klicka på **Aktivera** för att distribuera funktionen för din virtuella dator. 
+
+Under installationen tillhandahålls den virtuella datorn med Log Analytics-agenten för Windows och en [hybrid Runbook Worker](automation-hybrid-runbook-worker.md). Det kan ta upp till 15 minuter att aktivera Ändringsspårning och inventering. Under tiden ska du inte stänga webbläsaren.
+
+När funktionen har Aktiver ATS flödar information om installerad program vara och ändringar på den virtuella datorn till Azure Monitor loggar.
 Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+## <a name="use-change-tracking-and-inventory-in-azure-monitor-logs"></a>Använda Ändringsspårning och inventering i Azure Monitor loggar
 
-## <a name="using-change-tracking-in-azure-monitor-logs"></a>Använda Ändringsspårning i Azure Monitor loggar
+Ändringsspårning och inventeringen genererar loggdata som skickas till Azure Monitor loggar. Om du vill söka i loggarna genom att köra frågor väljer du **Log Analytics** överst på sidan ändrings spårning. Ändrings spårnings data lagras under typen `ConfigurationChange` .
 
-Ändringsspårning genererar loggdata som skickas till Azure Monitor-loggar.
-Om du vill söka i loggarna genom att köra frågor väljer du **Log Analytics** överst på sidan ändrings spårning.
-Ändrings spårnings data lagras under typen `ConfigurationChange`.
-Följande exempel på Log Analytics-fråga returnerar alla Windows-tjänster som har stoppats.
+I följande exempel Log Analytics Query returnerar alla Windows-tjänster som har stoppats.
 
 ```loganalytics
 ConfigurationChange
@@ -81,27 +84,23 @@ Mer information om hur du kör och söker efter loggfiler i Azure Monitor-loggar
 
 ## <a name="configure-change-tracking"></a>Konfigurera spårning av ändringar
 
-Med ändringsspårning kan du spåra ändringar i konfigurationen på den virtuella datorn. I följande anvisningar ser du hur du konfigurerar spårning av registernycklar och filer.
-
-När du ska välja vilka filer och registernycklar du ska samla in och spåra ska du välja **Redigera inställningar** överst på sidan Ändringsspårning.
+Med ändrings spårning väljer du de filer och register nycklar som ska samlas in och spåras med hjälp av **redigerings inställningarna** överst på sidan för ändrings spårning på den virtuella datorn. Du kan lägga till Windows-registernycklar, Windows-filer eller Linux-filer som ska spåras på konfigurations sidan för arbets ytan.
 
 > [!NOTE]
-> Inventering och ändringsspårning använder samma samlingsinställningar och konfigureras på arbetsytenivå.
+> Både ändrings spårning och inventering använder samma samlings inställningar, och inställningarna konfigureras på en arbets ytans nivå.
 
-På sidan konfiguration av arbets yta lägger du till de Windows-registernycklar, Windows-filer eller Linux-filer som ska spåras, enligt beskrivningen i följande tre avsnitt.
-
-### <a name="add-a-windows-registry-key"></a>Lägga till en Windows-registernyckel
+### <a name="add-a-windows-registry-key"></a>Lägg till en register nyckel för Windows
 
 1. På fliken **Windows-registret** väljer du **Lägg till**. 
 
 1. På sidan Lägg till Windows-register för Ändringsspårning anger du informationen för nyckeln som ska spåras och klickar på **Spara**
 
-|Egenskap  |Beskrivning  |
-|---------|---------|
-|Enabled     | Fastställer om inställningen tillämpas        |
-|Objektnamn     | Eget namn på filen som ska spåras        |
-|Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
-|Windows-registernyckel   | Sökvägen för att söka efter filen Till exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
+    |Egenskap  |Beskrivning  |
+    |---------|---------|
+    |Enabled     | Fastställer om inställningen tillämpas        |
+    |Objektnamn     | Eget namn på filen som ska spåras        |
+    |Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+    |Windows-registernyckel   | Sökvägen för att söka efter filen Till exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
 
 ### <a name="add-a-windows-file"></a>Lägga till en Windows-fil
 
@@ -109,14 +108,14 @@ På sidan konfiguration av arbets yta lägger du till de Windows-registernycklar
 
 1. På sidan Lägg till Windows-fil för Ändringsspårning anger du informationen för filen eller katalogen som ska spåras och klickar på **Spara**
 
-|Egenskap  |Beskrivning  |
-|---------|---------|
-|Enabled     | Fastställer om inställningen tillämpas        |
-|Objektnamn     | Eget namn på filen som ska spåras        |
-|Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
-|Ange sökväg     | Sökvägen för att söka efter filen Till exempel: "c:\temp\\\*.txt"<br>Du kan också använda miljövariabler som "%winDir%\System32\\\*.*"         |
-|Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
-|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
+    |Egenskap  |Beskrivning  |
+    |---------|---------|
+    |Enabled     | Fastställer om inställningen tillämpas        |
+    |Objektnamn     | Eget namn på filen som ska spåras        |
+    |Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+    |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: "c:\temp\\\*.txt"<br>Du kan också använda miljövariabler som "%winDir%\System32\\\*.*"         |
+    |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
+    |Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
 
 ### <a name="add-a-linux-file"></a>Lägga till en Linux-fil
 
@@ -124,107 +123,119 @@ På sidan konfiguration av arbets yta lägger du till de Windows-registernycklar
 
 1. På sidan Lägg till Linux-fil för Ändringsspårning anger du informationen för filen eller katalogen som ska spåras och klickar på **Spara**.
 
-|Egenskap  |Beskrivning  |
-|---------|---------|
-|Enabled     | Fastställer om inställningen tillämpas        |
-|Objektnamn     | Eget namn på filen som ska spåras        |
-|Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
-|Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”/etc/*.conf”       |
-|Sökvägstyp     | Typ av objekt som ska spåras, möjliga värden är Fil och Katalog        |
-|Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
-|Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
-|Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – Ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger<br>**Följ** – Följer de symboliska länkarna under rekursion och inkluderar refererade filer/kataloger<br>**Hantera** – Följer de symboliska länkarna och tillåter ändring av behandling av returnerat innehåll      |
-|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: True eller False.|
+    |Egenskap  |Beskrivning  |
+    |---------|---------|
+    |Enabled     | Fastställer om inställningen tillämpas        |
+    |Objektnamn     | Eget namn på filen som ska spåras        |
+    |Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+    |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”/etc/*.conf”       |
+    |Sökvägstyp     | Typ av objekt som ska spåras, möjliga värden är Fil och Katalog        |
+    |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
+    |Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
+    |Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – Ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger<br>**Följ** – Följer de symboliska länkarna under rekursion och inkluderar refererade filer/kataloger<br>**Hantera** – Följer de symboliska länkarna och tillåter ändring av behandling av returnerat innehåll      |
+    |Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: True eller False.|
 
    > [!NOTE]
-   > Alternativet **hantera länkar** rekommenderas inte. Hämtning av filinnehåll stöds inte.
+   > Du rekommenderas inte att **Hantera** värdet för **Links** -egenskapen. Hämtning av filinnehåll stöds inte.
 
 ## <a name="enable-activity-log-connection"></a>Aktivera aktivitetslogganslutning
 
-Från sidan Ändringsspårning på din virtuella dator väljer du **Hantera aktivitetslogganslutning**. Den här uppgiften öppnar sidan Azure-aktivitetslogg. Klicka på **Anslut** för att ansluta ändringsspårning till Azure aktivitets loggen för den virtuella datorn.
+1. Från sidan Ändringsspårning på din virtuella dator väljer du **Hantera aktivitetslogganslutning**. 
 
-När den här inställningen är aktiverad går du till sidan Översikt för din virtuella dator och väljer **Stoppa** för att stoppa din virtuella dator. När du uppmanas väljer du **Ja** för att stoppa den virtuella datorn. När den har frigjorts väljer du **Starta** för att starta om din virtuella dator.
+2. På sidan Azure aktivitets logg klickar du på **Anslut** för att ansluta ändringsspårning och inventering till Azure aktivitets loggen för den virtuella datorn.
 
-När en virtuell dator stoppas och startas loggar den virtuella datorn en händelse i aktivitetsloggen. Gå tillbaka till sidan Ändringsspårning. Välj fliken **Händelser** längst ned på sidan. Efter ett tag visas händelserna i diagrammet och tabellen. Som i föregående steg kan du välja varje händelse för att visa detaljerad information om händelsen.
+3. Gå till översikts sidan för den virtuella datorn och välj **stoppa** för att stoppa den virtuella datorn. 
 
-![Visa information om ändringar i portalen](./media/automation-tutorial-troubleshoot-changes/viewevents.png)
+4. När du uppmanas väljer du **Ja** för att stoppa den virtuella datorn. 
+
+5. När den virtuella datorn har frigjorts väljer du **Starta** för att starta om den. Att stoppa och starta en virtuell dator loggar en händelse i aktivitets loggen. 
 
 ## <a name="view-changes"></a>Visa ändringar
 
-När ändringsspårningen och inventeringslösningen har aktiverats kan du visa resultatet på sidan Ändringsspårning.
+1. Gå tillbaka till sidan ändrings spårning och välj fliken **händelser** längst ned på sidan. 
 
-Från din virtuella dator väljer du **Ändringsspårning** under **ÅTGÄRDER**.
+2. Efter ett tag visas ändrings spårnings händelser i diagrammet och tabellen. Diagrammet visar ändringar som har skett över tid. Linje diagrammet överst visar Azure aktivitets logg händelser. Varje rad i stapeldiagram representerar en annan typ av spårnings bara ändring. Dessa typer är Linux-daemon, filer, Windows-registernycklar, program vara och Windows-tjänster. På fliken Ändra visas information om de ändringar som visas, med den senaste ändringen som visas först.
 
-![Skärmbild som visar en lista över ändringar i den virtuella datorn](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+    ![Visa händelser i portalen](./media/automation-tutorial-troubleshoot-changes/viewevents.png)
 
-Diagrammet visar ändringar som har skett över tid.
-När du har lagt till en aktivitetslogganslutning visar linjediagrammet högst upp händelser i Azure-aktivitetsloggen.
-Varje rad med stapeldiagram representerar en annan spårningsbar ändringstyp.
-Typerna är Linux-daemons, filer, Windows-registernycklar, programvara och Windows-tjänster.
-På fliken Ändra visas information för de ändringar som visas i visualiseringen i fallande tidsordning för när ändringen skedde (senaste först).
-På fliken **Händelser** visar tabellen de anslutna aktivitetslogghändelserna och deras motsvarande information med det senaste först.
+3. Observera att det har gjorts flera ändringar i systemet, inklusive ändringar av tjänster och program vara. Du kan använda filtren högst upp på sidan för att filtrera resultatet efter **Typ av ändring** eller efter ett tidsintervall.
 
-I resultatet kan du se att det fanns flera ändringar i systemet, däribland ändringar i tjänster och programvara. Du kan använda filtren högst upp på sidan för att filtrera resultatet efter **Typ av ändring** eller efter ett tidsintervall.
+    ![Lista över ändringar i den virtuella datorn](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
-Välj en **WindowsServices** -ändring. Det här alternativet öppnar sidan ändrings information och visar information om ändringen och värdena före och efter ändringen. I den här instansen stoppades tjänsten Software Protection.
+4. Välj en **WindowsServices** -ändring. Det här alternativet öppnar sidan ändrings information och visar information om ändringen och värdena före och efter ändringen. I den här instansen stoppades tjänsten Software Protection.
 
-![Visa information om ändringar i portalen](./media/automation-tutorial-troubleshoot-changes/change-details.png)
+    ![Visa information om ändringar i portalen](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
 ## <a name="configure-alerts"></a>Konfigurera varningar
 
-Det kan vara användbart att granska ändringar i Azure-portalen, men det är bättre att kunna få aviseringar när en ändring sker, till exempel en stoppad tjänst.
+Det kan vara användbart att granska ändringar i Azure-portalen, men det är bättre att kunna få aviseringar när en ändring sker, till exempel en stoppad tjänst. Nu ska vi lägga till en avisering för en stoppad tjänst. 
 
-Om du vill lägga till en avisering för en stoppad tjänst går du till Azure-portalen och sedan till **Övervaka**. Under **Delade tjänster** väljer du sedan **Aviseringar** och klickar på **+ Ny aviseringsregel**
+1. I Azure Portal går du till **övervaka**. 
 
-Klicka på **Markera** för att välja en anslutning. På sidan Välj en resurs väljer du **Log Analytics** från List Rute menyn **Filtrera efter resurs typ** . Välj Log Analytics-arbetsytan och välj sedan **Klar**.
+2. Välj **aviseringar** under **delade tjänster**och klicka på **+ ny varnings regel**.
 
-![Välj en resurs](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
+3. Klicka på **Markera** för att välja en anslutning. 
 
-Klicka på **Lägg till villkor** på sidan Konfigurera signallogiken väljer du **Anpassad loggsökning** i tabellen. Ange sedan följande fråga i textrutan Sökfråga:
+4. På sidan Välj en resurs väljer du **Log Analytics** från List Rute menyn **Filtrera efter resurs typ** . 
 
-```loganalytics
-ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
-```
+5. Välj din Log Analytics arbets yta och klicka sedan på **färdig**.
 
-Den här frågan returnerar de datorer där W3SVC-tjänsten stoppades i det angivna tidsintervallet.
+    ![Välj en resurs](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Under **Aviseringslogik** går du till **Tröskelvärde** och anger **0**. När du är klar väljer du **Klar**.
+6. Klicka på **Lägg till villkor**.
 
-![Konfigurera signallogiken](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
+7. I tabellen på sidan Konfigurera signal logik väljer du **anpassad loggs ökning**. 
 
-Välj **Skapa ny** under **Åtgärdsgrupper**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Mer information om åtgärds grupper finns i [skapa och hantera åtgärds grupper](../azure-monitor/platform/action-groups.md).
+8. Ange följande fråga i text rutan Sök fråga:
 
-Under **Aviseringsinformation** anger du ett namn och en beskrivning för aviseringen. Ställ in **Allvarlighetsgrad** på **Information (Sev 2)**, **Varning (Sev 1)** eller **Kritisk (Sev 0)**.
+    ```loganalytics
+    ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
+    ```
 
-I rutan **Åtgärdsgruppnamn** anger du ett namn för aviseringen och ett kortnamn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
+    Den här frågan returnerar de datorer där W3SVC-tjänsten stoppades i det angivna tidsintervallet.
 
-Under **Åtgärder** anger du ett namn för åtgärden, till exempel **E-postadministratörer**. Under **ÅTGÄRDSTYP**, välj **e-post/SMS/Push/röst**. Under **INFORMATION** väljer du **Redigera detaljer**.
+9. Ange **0**för **tröskel** under **aviserings logik**. När du är klar klickar du på **klar**.
 
-![Lägg till åtgärdsgrupp](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+    ![Konfigurera signallogiken](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-I rutan e-post/SMS/Push/röst, ange ett namn. Välj kryssrutan **e-post** och ange sedan en giltig e-postadress. Klicka på **OK** i fönstret och klicka sedan på **OK** på sidan Lägg till åtgärds grupp.
+10. Välj **Skapa ny** under **Åtgärds grupper**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Mer information om åtgärds grupper finns i [skapa och hantera åtgärds grupper](../azure-monitor/platform/action-groups.md).
 
-För att anpassa ämnesraden för e-postaviseringen går du till **Skapa regel** och **Anpassa åtgärder**. Där väljer du **E-postämne**. När du är klar väljer du **Skapa varningsregel**. Varningen berättar när en distribution lyckas och vilka datorer som var en del av denna uppdaterade distributionskörning.
+11. Under **Aviseringsinformation** anger du ett namn och en beskrivning för aviseringen. 
 
-Följande bild är ett exempel på ett e-postmeddelande som tas emot när W3SVC-tjänsten stoppas.
+12. Ställ in **Allvarlighetsgrad** på **Information (Sev 2)**, **Varning (Sev 1)** eller **Kritisk (Sev 0)**.
 
-![e-post](./media/automation-tutorial-troubleshoot-changes/email.png)
+13. I rutan **Åtgärdsgruppnamn** anger du ett namn för aviseringen och ett kortnamn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
+
+14. För **åtgärder**anger du ett namn för åtgärden, t. ex. **e-postadministratörer**. 
+
+15. För **Åtgärds typ**väljer du **e-post/SMS/push/röst**. 
+
+16. Välj **Redigera information**om du vill ha mer **information**.
+
+    ![Lägg till åtgärdsgrupp](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+
+17. I fönstret e-post/SMS/push/Voice anger du ett namn, markerar kryss rutan **e-** postadress och anger sedan en giltig e-postadress. När du är färdig klickar du på **OK** i fönstret och sedan på **OK** på sidan Lägg till åtgärds grupp.
+
+18. Om du vill anpassa ämnet för aviserings meddelandet väljer du **Anpassa åtgärder**. 
+
+19. Välj **e-postämne**för **Skapa regel**och välj sedan **skapa aviserings regel**. Varningen berättar när en distribution lyckas och vilka datorer som var en del av denna uppdaterade distributionskörning. Följande bild är ett exempel på ett e-postmeddelande som tas emot när W3SVC-tjänsten stoppas.
+
+    ![e-post](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Publicera en virtuell dator för spårning av ändringar och lager
+> * Aktivera Ändringsspårning och inventering för en virtuell dator
 > * Sök i ändringsloggar efter stoppade enheter
 > * Konfigurera spårning av ändringar
-> * Aktivera aktivitetslogganslutning
+> * Aktivera aktivitets logg anslutning
 > * Utlösa en händelse
 > * Visa ändringar
 > * Konfigurera varningar
 
-Fortsätt till översikten över lösningen för ändringsspårning och inventering för att läsa mer om det.
+Fortsätt till översikten över funktionen Ändringsspårning och inventering för att lära dig mer om det.
 
 > [!div class="nextstepaction"]
-> [Ändringshantering och inventeringslösning](automation-change-tracking.md)
-
+> [Översikt över Ändringsspårning och inventering](automation-change-tracking.md)

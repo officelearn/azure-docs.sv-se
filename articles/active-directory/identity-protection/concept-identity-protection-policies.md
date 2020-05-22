@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 05/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a44e32efa3e38cf9c4df7dc00e3189c129db418
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72887421"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736508"
 ---
 # <a name="identity-protection-policies"></a>Principer om identitetsskydd
 
@@ -41,7 +41,7 @@ Om risken identifieras kan användarna utföra Multi-Factor Authentication för 
 
 ### <a name="custom-conditional-access-policy"></a>Anpassad princip för villkorlig åtkomst
 
-Administratörer kan också välja att skapa en anpassad princip för villkorlig åtkomst inklusive inloggnings risk som ett tilldelnings villkor. Du hittar mer information om villkorlig åtkomst i artikeln [Vad är villkorlig åtkomst?](../conditional-access/overview.md)
+Administratörer kan också välja att skapa en anpassad princip för villkorlig åtkomst inklusive inloggnings risk som ett tilldelnings villkor. Mer information om risker som ett villkor i en princip för villkorlig åtkomst finns i artikeln, [villkorlig åtkomst: villkor](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk)
 
 ![Anpassad princip för inloggnings risk för anpassad villkorlig åtkomst](./media/concept-identity-protection-policies/identity-protection-custom-sign-in-policy.png)
 

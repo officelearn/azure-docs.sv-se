@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: d7f14728f5acbcb76d3109d76b6de3c691e35543
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a932f4ec37eda66c353df2c865bb4036ddcc59fa
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658088"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741084"
 ---
 # <a name="cloud-solution-provider-program"></a>Cloud Solution Provider-program
 
@@ -66,7 +66,7 @@ Om du vill godkänna partner klickar du på **Välj CSP-partner** och en meny vi
 
 Du kan använda Sök filter, till exempel **land**, **kompetens**eller **kunskap**.
 
-![Lands-, kompetens-och kunskaps filter för partner sökning](media/marketplace-publishers-guide/csp-add-resellers.png)
+![Lands-, region-, kompetens-och kunskaps filter för partner sökning](media/marketplace-publishers-guide/csp-add-resellers.png)
 
 När du har valt listan över partners väljer du **Lägg till**.
 

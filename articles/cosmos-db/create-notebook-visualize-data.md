@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 41f68ead6f985d6cc2c8120091c36783d074b066
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659142"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743577"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Självstudie: skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data
 
@@ -141,7 +141,7 @@ df_cosmos.head(10)
 
 I det här avsnittet ska du köra några frågor om hämtade data.
 
-* **Fråga1:** Kör en grupp efter fråga på DataFrame för att få summan av total försäljnings intäkter för varje land och Visa 5 objekt från resultatet. Kör följande kod i en ny Notebook-cell:
+* **Fråga1:** Kör en grupp efter fråga på DataFrame för att få summan av total försäljnings intäkt för varje land/region och Visa 5 objekt från resultatet. Kör följande kod i en ny Notebook-cell:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
@@ -170,16 +170,16 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    !{sys.executable} -m pip install bokeh --user
    ```
 
-1. Förbered sedan för att rita data på en karta. Koppla data i Azure Cosmos DB med lands information som finns i Azure Blob Storage och konvertera resultatet till formatet interjson. Kopiera följande kod till en ny Notebook-cell och kör den.
+1. Förbered sedan för att rita data på en karta. Koppla data i Azure Cosmos DB med information om land/region som finns i Azure Blob Storage och konvertera resultatet till formatet interjson. Kopiera följande kod till en ny Notebook-cell och kör den.
 
    ```python
    import urllib.request, json
    import geopandas as gpd
 
-   # Load country information for mapping
+   # Load country/region information for mapping
    countries = gpd.read_file("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/countries.json")
 
-   # Merge the countries dataframe with our data in Azure Cosmos DB, joining on country code
+   # Merge the countries/regions dataframe with our data in Azure Cosmos DB, joining on country/region code
    df_merged = countries.merge(df_revenue, left_on = 'admin', right_on = 'Country', how='left')
 
    # Convert to GeoJSON so bokeh can plot it
@@ -187,7 +187,7 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    json_data = json.dumps(merged_json)
    ```
 
-1. Visualisera försäljnings intäkterna för olika länder på en världs karta genom att köra följande kod i en ny Notebook-cell:
+1. Visualisera försäljnings intäkterna för olika länder/regioner på en världs karta genom att köra följande kod i en ny Notebook-cell:
 
    ```python
    from bokeh.io import output_notebook, show
@@ -233,9 +233,9 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    show(p)
    ```
 
-   I utdata visas världs kartan med olika färger. Färgerna mörkare till ljusare representerar länderna med högst intäkter till lägsta intäkter.
+   I utdata visas världs kartan med olika färger. Färgerna som är mörkare till ljusare motsvarar de länder/regioner som har högst intäkter till lägsta intäkter.
 
-   ![Visualisering av intäkts karta för länder](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   ![Visualisering av intäkts karta för länder/regioner](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
 1. Nu ska vi se ett annat fall av data visualisering. Behållaren WebsiteData innehåller en lista över användare som har visat ett objekt, lagt till i sin varukorg och köpt objektet. Vi ska Rita in konverterings takten för de köpta objekten. Kör följande kod i en ny cell för att visualisera konverterings takten för varje objekt:
 

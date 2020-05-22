@@ -9,15 +9,15 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 397e1fd7695fd7e74e1f22959d0f9f24af7d1ea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3deb59b04f3c0ba90e270bc064e3ece3c21229b3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062650"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739614"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registrera din verifierings metod information för att återställa ditt eget lösen ord
 
@@ -26,7 +26,7 @@ Om du har glömt lösen ordet till ditt arbets-eller skol konto, fick du aldrig 
 Administratören måste aktivera den här funktionen så att du kan registrera din information och återställa ditt eget lösen ord. Om du inte ser alternativet **glömt mitt lösen ord** betyder det att administratören inte har aktiverat funktionen för din organisation. Om du tror att det är fel kan du kontakta supportavdelningen om du behöver hjälp.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker använda registrera sig för självbetjäning för återställning av lösen ord. Det innebär att du kan återställa ditt eget lösen ord för arbetet eller skolan (till exempel alain@contoso.com), utan att behöva administratörens hjälp. Om du är administratör för att få information om hur du aktiverar lösen ords återställning via självbetjäning för dina anställda eller andra användare kan du läsa mer i [Distribuera Azure AD självbetjäning återställning av lösen ord och andra artiklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Den här artikeln är avsedd för användare som försöker använda registrera sig för självbetjäning för återställning av lösen ord. Det innebär att du kan återställa ditt eget lösen ord för arbetet eller skolan (till exempel alain@contoso.com ), utan att behöva administratörens hjälp. Om du är administratör för att få information om hur du aktiverar lösen ords återställning via självbetjäning för dina anställda eller andra användare kan du läsa mer i [Distribuera Azure AD självbetjäning återställning av lösen ord och andra artiklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## <a name="set-up-your-password-reset-verification-method"></a>Konfigurera verifierings metoden för lösen ords återställning
 
@@ -57,7 +57,7 @@ Administratören måste aktivera den här funktionen så att du kan registrera d
 
 | Felmeddelande |  Möjlig lösning |
 | --- | --- | --- |
-| Kontakta din administratör.<br>Vi har upptäckt att lösen ordet för ditt användar konto inte hanteras av Microsoft. Därför kan vi inte automatiskt återställa ditt lösen ord.<br>Kontakta IT-personalen om du vill ha mer hjälp.| Om du får det här fel meddelandet när du har skrivit ditt användar-ID, innebär det att din organisation hanterar ditt lösen ord internt och inte vill att du återställer ditt lösen ord från länken **kan inte komma åt ditt konto** . Om du vill återställa lösen ordet i den här situationen måste du kontakta din organisations supportavdelning eller be administratören om hjälp. |
+| Kontakta administratören.<br>Vi har upptäckt att lösen ordet för ditt användar konto inte hanteras av Microsoft. Därför kan vi inte automatiskt återställa ditt lösen ord.<br>Kontakta IT-personalen om du vill ha mer hjälp.| Om du får det här fel meddelandet när du har skrivit ditt användar-ID, innebär det att din organisation hanterar ditt lösen ord internt och inte vill att du återställer ditt lösen ord från länken **kan inte komma åt ditt konto** . Om du vill återställa lösen ordet i den här situationen måste du kontakta din organisations supportavdelning eller be administratören om hjälp. |
 | Ditt konto har inte Aktiver ATS för lösen ords återställning.<br>Din IT-personal har tyvärr inte konfigurerat ditt konto för användning med den här tjänsten.<br>Om du vill kan vi kontakta en administratör i din organisation för att återställa lösen ordet åt dig. | Om du får det här fel meddelandet när du har skrivit ditt användar-ID, innebär det att antingen din organisation inte har aktiverat funktionen för lösen ords återställning eller om du inte får använda den. Om du vill återställa lösen ordet i den här situationen måste du välja länken **kontakta en administratör** . När du klickar på länken skickas ett e-postmeddelande till din organisations supportavdelning eller administratör, så att du vet att du vill återställa lösen ordet. |
 | Vi kunde inte verifiera ditt konto.<br>Om du vill kan vi kontakta en administratör i din organisation för att återställa lösen ordet åt dig. | Om du får det här fel meddelandet när du har skrivit ditt användar-ID, innebär det att din organisation har aktiverat lösen ords återställning och att du kan använda det, men som du inte har registrerat för tjänsten. I så fall måste du kontakta din organisations supportavdelning eller administratör för att återställa ditt lösen ord. Information om hur du registrerar dig för lösen ords återställning när du är tillbaka på enheten finns i processen ovan i den här artikeln. |
 

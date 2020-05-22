@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f04a3fea3801f917a3ae4aced04ef3824d1cfa82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad681f4996f713b8bb0c85b07a3f38f0dcb6708a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184527"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738242"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Hantera användar åtkomst i Azure Active Directory B2C
 
@@ -66,15 +66,15 @@ Ett anpassat användar flöde kan samla in information om DOB och land/region oc
 
 Följande steg visar vilken logik som används för att beräkna **ageGroup** från användarens födelse datum:
 
-1. Försök att hitta landet enligt lands koden i listan. Om landet inte hittas, kan du återgå till **standardvärdet**.
+1. Försök att hitta landet/regionen med lands-/region koden i listan. Om landet/regionen inte hittas, kan du återgå till **standard**.
 
-2. Om **MinorConsent** -noden finns i land-elementet:
+2. Om noden **MinorConsent** finns i elementet land/region:
 
     a. Beräkna det datum då användaren måste vara föddes för att anses vara vuxen. Om det aktuella datumet till exempel är 14 mars 2015 och **MinorConsent** är 18, får födelse datumet inte vara senare än 14 mars 2000.
 
     b. Jämför det minsta födelse datumet med det faktiska födelse datumet. Om det minsta födelse datumet infaller före användarens födelse datum, returnerar beräkningen **mindre** som ålders grupps beräkning.
 
-3. Om **MinorNoConsentRequired** -noden finns i elementet land upprepar du steg 2a och 2b med värdet från **MinorNoConsentRequired**. Resultatet av 2b returnerar **MinorNoConsentRequired** om det minsta födelse datumet infaller före användarens födelse datum.
+3. Om noden **MinorNoConsentRequired** finns i elementet land/region upprepar du steg 2a och 2b med värdet från **MinorNoConsentRequired**. Resultatet av 2b returnerar **MinorNoConsentRequired** om det minsta födelse datumet infaller före användarens födelse datum.
 
 4. Om ingen av beräkningarna returnerar true returnerar beräkningen **vuxen**.
 

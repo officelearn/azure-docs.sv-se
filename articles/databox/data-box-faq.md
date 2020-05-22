@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 73256aef19a03c4c971be5fc9e69f988ef5a831a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1455bc65f175970bb741dab4a56aa0aac58fc59
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75438618"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743002"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -166,7 +166,7 @@ A.  To speed up the copy process:
 
 - Create a local VHDx on fast storage or create an empty VHD on the HDD/SSD (slower).
 - Mount it to a VM.
-- Copy files to the VM’s disk.-->
+- Copy files to the VM's disk.-->
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>F. Kan jag använda flera lagringskonton med Data Box?
@@ -194,8 +194,8 @@ När data kopieringen är klar utför du följande steg för att returnera enhet
 3. Rulla upp strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
 4. E-posta [Azure Data boxs drifts teamet](mailto:adbops@microsoft.com) och ange koden som du sparade tidigare. De ger dig information om var och när du ska ta bort enheten.
 
-### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>F. Kommer mina Data Box-enhet enheter att korsa lands gränser under leverans?
-A. Alla Data Box-enhet enheter levereras inifrån samma land som deras destination och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU), där enheterna kan leverera till och från ett EU-land. Detta gäller både för Data Box-enhet och Data Box Heavy enheterna.
+### <a name="q-will-my-data-box-devices-cross-countryregion-borders-during-shipping"></a>F. Kommer mina Data Box-enhet enheter att korsa lands-/region gränser under leverans?
+A. Alla Data Box-enhet enheter levereras inifrån samma land/region som deras destination och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU), där enheterna kan leverera till och från valfritt EU-land/-region. Detta gäller både för Data Box-enhet och Data Box Heavy enheterna.
 
 ### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>F. Jag har beställt en Data Box-enhet i östra USA, men jag har fått en enhet som levererades från en plats i västra USA. Var ska jag återställa enheten?
 A. Vi försöker få en Data Box-enhet enhet så fort som möjligt. Vi prioriterar leveransen från ett Data Center som är närmast din lagrings konto plats, men kommer att leverera en enhet från alla Azure-datacenter som har tillgängligt lager. Din Data Box-enhet ska returneras till samma plats som den levererades från som visas i leverans etiketten.
@@ -221,7 +221,7 @@ A. Om enheten inte startar går du till din beställning i Azure-portalen. Ladda
 
 ## <a name="verify-and-upload"></a>Verifiera och ladda upp
 
-### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>F. Hur snart kommer jag åt mina data i Azure när jag har skickat tillbaka Data Box? 
+### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>F. Hur snart kan jag få åtkomst till mina data i Azure när jag har skickat Data Box-enhet tillbaka? 
 A.  När order statusen för **data kopiering** visas som **slutförd**, bör du kunna komma åt dina data direkt.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>F. Var i Azure finns mina data efter uppladdningen?
@@ -258,7 +258,7 @@ A.  Följande rapportering är tillgänglig för spårbarhet och övervakning:
 - Sanering av Data Box-enheten (enligt NIST 800 88R1-standarder) efter att alla data har kopierats till ditt Azure Storage-konto.
 
 ### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>Är transportföretagets spårningsloggar (från UPS) tillgängliga? 
-A.  Transportföretagets spårningsloggar samlas in Data Box-orderhistoriken. Den här rapporten är tillgänglig när enheten har returnerats till Azure-datacentret och data på enhetsdiskarna har rensats. Du kan också gå direkt till transportföretagets webbplats och ange spårningsnumret för ordern för att visa spårningsinformationen.
+A.  Transportföretagets spårningsloggar samlas in Data Box-orderhistoriken. Den här rapporten är tillgänglig när enheten har returnerats till Azure-datacentret och data på enhetsdiskarna har rensats. För omedelbar behov kan du också gå direkt till operatörens webbplats med order spårnings numret och hämta spårnings informationen.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Kan jag själv transportera Data Box till Azures datacenter? 
 A.  Nej. Azures datacenter accepterar för närvarande inte leverans av Data Box från kunder eller andra transportföretag än UPS.

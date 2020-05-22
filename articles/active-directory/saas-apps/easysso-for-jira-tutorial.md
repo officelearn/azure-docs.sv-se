@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44a9009121c2dab0701d08f40de7c8f26777bc3a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e3226ef8d739df6902a96cff336762ce4425c5de
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82187110"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740390"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-jira"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med EasySSO för JIRA
 
@@ -57,7 +57,6 @@ Om du vill konfigurera integreringen av EasySSO för JIRA i Azure AD måste du l
 1. Välj **nytt program**om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** skriver du **EasySSO för JIRA** i sökrutan.
 1. Välj **EasySSO för JIRA** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-easysso-for-jira"></a>Konfigurera och testa enkel inloggning med Azure AD för EasySSO för JIRA
 
@@ -120,7 +119,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -144,13 +143,50 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-easysso-for-jira-sso"></a>Konfigurera EasySSO för JIRA SSO
 
-Om du vill konfigurera enkel inloggning på **EasySSO för JIRA** -sidan måste du skicka **URL: en för appens Federations-metadata** till [EasySSO för JIRA support-teamet](mailto:support@techtime.co.nz). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+1. Logga in på Atlassian JIRA-instansen med administratörs behörighet och navigera till avsnittet **Hantera appar** .
+
+    ![Hantera appar](./media/easysso-for-jira-tutorial/jira-admin-1.png)
+
+1. Klicka på **EasySSO**.
+
+    ![Enkel inloggning](./media/easysso-for-jira-tutorial/jira-admin-2.png)
+
+1. Välj **SAML** -alternativ. Detta tar dig till avsnittet om SAML-konfiguration.
+
+    ![SAML](./media/easysso-for-jira-tutorial/jira-admin-3.png)
+
+1. Fliken Välj **certifikat** överst och du kommer att visas på följande skärm och letar reda på **certifikat (base64)** eller **metadatafilen** som du har sparat i de tidigare stegen i **Azure AD SSO** -konfigurationen. Du har följande alternativ för hur du går vidare:
+
+    ![Metadata-URL](./media/easysso-for-jira-tutorial/jira-admin-4.png)
+
+    a. Använd den app Federation- **metadatafil** som du laddade ned till en lokal fil på din dator. Välj **Ladda upp** alternativ knapp och följ dialog rutan Ladda upp fil som är unik för ditt operativ system
+
+    **ELLER**
+
+    b. Öppna appens Federations **ETA data** för att se innehållet (i valfri text redigerare) i filen och kopiera den till Urklipp. Välj **inmatat** alternativ och klistra in innehåll i Urklipp i textfältet.
+
+    **ELLER**
+
+    c. Helt manuell konfiguration. Öppna appens Federations **certifikat (base64)** om du vill se innehållet (i valfri text redigerare) i filen och kopiera det till Urklipp. Klistra in det i textfältet **IDP token Signature certificates** . Gå sedan till fliken **Allmänt** och fyll **i bindnings-URL** och **entitets-ID** med respektive värden för **inloggnings-URL** och **Azure AD-identifierare** som du sparade tidigare.
+
+1. Klicka på knappen **Spara** längst ned på sidan. Du kan se innehållet i metadata eller certifikatfiler parsas i konfigurations fälten. EasySSO för JIRA-konfigurationen har slutförts.
+
+1. För bästa test upplevelse går du till fliken **titta & känsla** och markerar knappen för **SAML-inloggning** på. Detta aktiverar separat knapp på JIRA-inloggnings skärmen för att testa att Azure AD SAML-integration slutar till slutet. Du kan lämna den här knappen och konfigurera dess placering, färg och översättning för produktions läget.
+
+    ![Titta & känsla](./media/easysso-for-jira-tutorial/jira-admin-5.png)
+
+    > [!NOTE]
+    > Kontakta [EasySSO support team](mailto:support@techtime.co.nz)om du har några problem.
 
 ### <a name="create-easysso-for-jira-test-user"></a>Skapa EasySSO för JIRA test användare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i EasySSO för Jira. EasySSO för JIRA har stöd för just-in-Time User-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i EasySSO för JIRA skapas en ny efter autentiseringen.
+I det här avsnittet skapas en användare som heter B. Simon i Jira. EasySSO för JIRA har stöd för just-in-Time User-etablering, som är **inaktive rad** som standard. Om du vill aktivera användar etablering måste du markera kryss rutan **skapa användare på ett lyckat inloggnings** alternativ i avsnittet Allmänt i konfiguration av EasySSO-plugin-programmet. Om en användare inte redan finns i JIRA skapas en ny efter autentiseringen.
 
-## <a name="test-sso"></a>Testa SSO 
+Men om du inte vill aktivera automatisk användar etablering för användaren första inloggningen måste användarna finnas i backend-användargrupper som JIRA-instansen använder, till exempel LDAP eller Atlassian Fully.
+
+![Användaretablering](./media/easysso-for-jira-tutorial/jira-admin-6.png)
+
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
@@ -169,4 +205,3 @@ När du klickar på panelen EasySSO för JIRA på åtkomst panelen, bör du logg
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Så här skyddar du EasySSO för JIRA med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

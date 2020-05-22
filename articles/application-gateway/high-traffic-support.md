@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 65f404b52a5fc06d8fa5bb5aad291e57fde8caba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56622ee2c014bd8dbca7c61ec00b927c56f63a40
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617203"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740407"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Stöd för höga trafikvolymer i Application Gateway
 
@@ -51,7 +51,7 @@ Det här exemplet visar hur du använder Azure Portal för att ställa in en avi
 > Du kan ställa in aviseringen på ett lägre eller högre antal CU i procent beroende på hur känsliga du vill ha till gång till potentiella trafik toppar.
 
 ## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>Konfigurera WAF med skydd mot filter för att stoppa attacker
-Om du vill ha ett extra säkerhets lager framför ditt program, använder du Application Gateway WAF_v2 SKU för WAF-funktioner. Du kan konfigurera v2-SKU: n så att den endast tillåter åtkomst till dina program från ett angivet land eller länder. Du ställer in en anpassad WAF-regel för att explicit tillåta eller blockera trafik baserat på den lokala platsen. Mer information finns i avsnittet om att [filtrera anpassade regler](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) och [hur du konfigurerar anpassade regler på Application Gateway WAF_v2 SKU via PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+Om du vill ha ett extra säkerhets lager framför ditt program, använder du Application Gateway WAF_v2 SKU för WAF-funktioner. Du kan konfigurera v2-SKU: n så att den endast tillåter åtkomst till dina program från ett specifikt land/region eller länder/regioner. Du ställer in en anpassad WAF-regel för att explicit tillåta eller blockera trafik baserat på den lokala platsen. Mer information finns i avsnittet om att [filtrera anpassade regler](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) och [hur du konfigurerar anpassade regler på Application Gateway WAF_v2 SKU via PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
 
 Aktivera bot-skydd för att blockera kända dåliga robotar. Detta bör minska mängden trafik som får till ditt program. Mer information finns i [bot-skydd med konfigurera instruktioner](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
 

@@ -12,12 +12,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 9f2ed6ea8cc75e2ee72f15c14f3de7bb8bf8cef6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3338c71d37a176206ff106a8229c3b583209ddd4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450895"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737341"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory app-manifest
 
@@ -67,7 +67,7 @@ Slut punkten som används, v 1.0 eller v 2.0 väljs av klienten och påverkar en
 
 Möjliga värden `accesstokenAcceptedVersion` är 1, 2 eller null. Om värdet är null är parametern standardvärdet 1, som motsvarar v 1.0-slutpunkten.
 
-Om `signInAudience` är `AzureADandPersonalMicrosoftAccount`, måste värdet vara `2`.
+Om `signInAudience` är `AzureADandPersonalMicrosoftAccount` , måste värdet vara `2` .
 
 Exempel:
 
@@ -123,7 +123,7 @@ Exempel:
 Ange som sant om programmet delas med andra klienter. annars FALSE.
 
 > [!NOTE]
-> Det här attributet är endast tillgängligt i **Appregistreringar (bakåtkompatibelt)** . Ersätts `signInAudience` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
+> Det här attributet är endast tillgängligt i **Appregistreringar (bakåtkompatibelt)** . Ersätts av `signInAudience` i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
 ### <a name="appid-attribute"></a>appId-attribut
 
@@ -173,7 +173,7 @@ Exempel:
 Appens visnings namn.
 
 > [!NOTE]
-> Det här attributet är endast tillgängligt i **Appregistreringar (bakåtkompatibelt)** . Ersätts `name` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
+> Det här attributet är endast tillgängligt i **Appregistreringar (bakåtkompatibelt)** . Ersätts av `name` i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
 ### <a name="errorurl-attribute"></a>errorUrl-attribut
 
@@ -210,7 +210,7 @@ Exempel:
 URL: en till programmets start sida.
 
 > [!NOTE]
-> Det här attributet är endast tillgängligt i **Appregistreringar (bakåtkompatibelt)** . Ersätts `signInUrl` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
+> Det här attributet är endast tillgängligt i **Appregistreringar (bakåtkompatibelt)** . Ersätts av `signInUrl` i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
 ### <a name="objectid-attribute"></a>objectId-attribut
 
@@ -220,7 +220,7 @@ URL: en till programmets start sida.
 
 Den unika identifieraren för appen i katalogen.
 
-Detta är endast tillgängligt i den **Appregistreringar (äldre)** . Ersätts `id` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
+Detta är endast tillgängligt i den **Appregistreringar (äldre)** . Ersätts av `id` i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
 Exempel:
 
@@ -349,7 +349,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| namn | Sträng |
+| name | Sträng |
 
 Appens visnings namn.
 
@@ -432,8 +432,8 @@ Exempel:
 | :--- | :--- |
 | parentalControlSettings | Sträng |
 
-- `countriesBlockedForMinors`anger de länder där appen blockeras för minderåriga.
-- `legalAgeGroupRule`anger den juridiska ålders grupps regel som gäller för användare av appen. Kan ställas in `Allow`på `RequireConsentForPrivacyServices`, `RequireConsentForMinors` `RequireConsentForKids`,, eller `BlockMinors`.  
+- `countriesBlockedForMinors`anger de länder/regioner där appen blockeras för minderåriga.
+- `legalAgeGroupRule`anger den juridiska ålders grupps regel som gäller för användare av appen. Kan ställas in på,,, `Allow` `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` eller `BlockMinors` .  
 
 Exempel:
 
@@ -495,7 +495,7 @@ Exempel:
 
 Anger om det här programmet är en offentlig klient (till exempel ett installerat program som körs på en mobil enhet). 
 
-Den här egenskapen är endast tillgänglig i den **Appregistreringar (äldre)** . Ersätts `allowPublicClient` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
+Den här egenskapen är endast tillgänglig i den **Appregistreringar (äldre)** . Ersätts av `allowPublicClient` i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
 ### <a name="publisherdomain-attribute"></a>publisherDomain-attribut
 
@@ -519,7 +519,7 @@ Exempel:
 
 Den här egenskapen för flera värden innehåller en lista över registrerade redirect_uri värden som Azure AD accepterar som mål när token returneras.
 
-Den här egenskapen är endast tillgänglig i den **Appregistreringar (äldre)** . Ersätts `replyUrlsWithType` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
+Den här egenskapen är endast tillgänglig i den **Appregistreringar (äldre)** . Ersätts av `replyUrlsWithType` i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
 ### <a name="replyurlswithtype-attribute"></a>replyUrlsWithType-attribut
 
@@ -551,10 +551,10 @@ Exempel:
 | :--- | :--- |
 | requiredResourceAccess | Samling |
 
-Med dynamiskt medgivande `requiredResourceAccess` bevarar administratörs upplevelsen och användar medgivande upplevelsen för användare som använder det statiska godkännandet. Den här parametern styr dock inte användar medgivande upplevelsen för det allmänna fallet.
+Med dynamiskt medgivande bevarar `requiredResourceAccess` Administratörs upplevelsen och användar medgivande upplevelsen för användare som använder det statiska godkännandet. Den här parametern styr dock inte användar medgivande upplevelsen för det allmänna fallet.
 
 - `resourceAppId`är den unika identifieraren för den resurs som appen kräver åtkomst till. Värdet ska vara lika med det appId som deklarerats för mål resurs appen.
-- `resourceAccess`är en matris som visar behörighets omfattningarna för OAuth 2.0 och de app-roller som appen kräver från den angivna resursen. Innehåller värdena `id` och `type` för de angivna resurserna.
+- `resourceAccess`är en matris som visar behörighets omfattningarna för OAuth 2.0 och de app-roller som appen kräver från den angivna resursen. Innehåller `id` värdena och `type` för de angivna resurserna.
 
 Exempel:
 

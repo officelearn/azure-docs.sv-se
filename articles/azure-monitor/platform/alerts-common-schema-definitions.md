@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 62b2738324f4c728cd4b5959c04c93649c156afb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f0c99899b647c677025dbb38480b4d7f64c24fa
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114444"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739996"
 ---
 # <a name="common-alert-schema-definitions"></a>Vanliga aviseringsschemadefinitioner
 
@@ -71,7 +71,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 
 ## <a name="essentials"></a>Essentials
 
-| Field | Beskrivning|
+| Fält | Beskrivning|
 |:---|:---|
 | alertId | GUID: n identifierar aviserings instansen unikt. |
 | alertRule | Namnet på den aviserings regel som genererade aviserings instansen. |
@@ -83,7 +83,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 | originAlertId | ID: t för varnings instansen, som genereras av övervaknings tjänsten som genererar den. |
 | firedDateTime | Datum och tid när aviserings instansen utlöstes i UTC (Coordinated Universal Time). |
 | resolvedDateTime | Datum och tid när övervaknings villkoret för varnings instansen har angetts till **löst** i UTC. Gäller för närvarande endast för mått aviseringar.|
-| description | Beskrivningen, enligt definitionen i varnings regeln. |
+| beskrivning | Beskrivningen, enligt definitionen i varnings regeln. |
 |essentialsVersion| Avsnittet versions nummer för avsnittet Essentials.|
 |alertContextVersion | Versions numret för `alertContext` avsnittet. |
 
@@ -149,7 +149,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 ### <a name="log-alerts"></a>Loggaviseringar
 
 > [!NOTE]
-> För logg aviseringar som har ett anpassat e-postämne och/eller en JSON-nyttolast definierad, aktiverar det gemensamma schemat e-postämnet och/eller nytto Last schema till det som beskrivs i följande avsnitt. Aviseringar med det gemensamma schemat aktiverat har en övre storleks gräns på 256 KB per varning. Sök resultaten är inte inbäddade i logg aviserings nytto lasten om de orsakar aviserings storleken mellan detta tröskelvärde. Du kan fastställa detta genom att kontrol lera `IncludeSearchResults`flaggan. När Sök resultaten inte ingår bör du använda Sök frågan tillsammans med [Log Analytics-API: et](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> För logg aviseringar som har ett anpassat e-postämne och/eller en JSON-nyttolast definierad, aktiverar det gemensamma schemat e-postämnet och/eller nytto Last schema till det som beskrivs i följande avsnitt. Aviseringar med det gemensamma schemat aktiverat har en övre storleks gräns på 256 KB per varning. Sök resultaten är inte inbäddade i logg aviserings nytto lasten om de orsakar aviserings storleken mellan detta tröskelvärde. Du kan fastställa detta genom att kontrol lera flaggan `IncludeSearchResults` . När Sök resultaten inte ingår bör du använda Sök frågan tillsammans med [Log Analytics-API: et](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 

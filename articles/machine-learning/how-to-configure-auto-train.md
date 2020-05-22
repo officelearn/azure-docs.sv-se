@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: c183c179200738566d0794ba23582f16068013b6
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 09f0e0f47ecd94c6db67b3973218cc1323bccde3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722855"
+ms.locfileid: "83736185"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -253,9 +253,12 @@ Ensemble-modeller är aktiverade som standard och visas som de slutliga körning
 
 Det finns flera standard argument som kan anges som `kwargs` i ett `AutoMLConfig` objekt för att ändra standard-Ensemble-beteendet.
 
-* `ensemble_download_models_timeout_sec`: Vid genereringen av VotingEnsemble och StackEnsemble-modellen laddas flera monterade modeller från de tidigare underordnade körningarna ned. Om du stöter på det här felet `AutoMLEnsembleException: Could not find any models for running ensembling` kan du behöva ange mer tid för att modeller ska laddas ned. Standardvärdet är 300 sekunder för nedladdning av dessa modeller parallellt och det finns ingen maximal tids gräns. Konfigurera den här parametern med ett högre värde än 300 sekunder, om mer tid behövs. **Obs!** om tids gränsen har nåtts och det finns hämtade modeller, fortsätter ensembling med så många modeller som den har laddat ned (det krävs inte att alla modeller måste laddas ned för att slutföras inom tids gränsen).
+* `ensemble_download_models_timeout_sec`: Vid genereringen av **VotingEnsemble** och **StackEnsemble** -modellen laddas flera monterade modeller från de tidigare underordnade körningarna ned. Om du stöter på det här felet `AutoMLEnsembleException: Could not find any models for running ensembling` kan du behöva ange mer tid för att modeller ska laddas ned. Standardvärdet är 300 sekunder för nedladdning av dessa modeller parallellt och det finns ingen maximal tids gräns. Konfigurera den här parametern med ett högre värde än 300 sekunder, om mer tid behövs. 
 
-Följande parametrar gäller endast för StackEnsemble-modeller: 
+  > [!NOTE]
+  >  Om tids gränsen har nåtts och det finns hämtade modeller, fortsätter ensembling med så många modeller som den har laddat ned. Det krävs inte att alla modeller måste laddas ned för att slutföras inom tids gränsen.
+
+Följande parametrar gäller endast för **StackEnsemble** -modeller: 
 
 * `stack_meta_learner_type`: meta-eleven är en modell som är utbildad i resultatet av de enskilda heterogena modellerna. Standard-metadata är `LogisticRegression` för klassificerings aktiviteter (eller `LogisticRegressionCV` om kors validering är aktiverat) och `ElasticNet` för Regressions-/prognos aktiviteter (eller `ElasticNetCV` om kors validering är aktive rad). Den här parametern kan vara en av följande strängar:,,,,, `LogisticRegression` `LogisticRegressionCV` `LightGBMClassifier` `ElasticNet` `ElasticNetCV` `LightGBMRegressor` eller `LinearRegression` .
 

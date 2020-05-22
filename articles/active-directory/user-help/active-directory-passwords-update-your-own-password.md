@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b27b046d53a45c91d0a55a468758386437a7a6a5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062667"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739672"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Återställa ditt arbets-eller skol lösen ord med hjälp av säkerhets information
 
@@ -103,7 +103,7 @@ Om du inte kan komma åt ditt Azure Active Directory-konto (Azure AD) kan det be
 
      Om du fortfarande inte kan komma åt ditt konto bör du kontakta din organisations administratör för mer hjälp.
 
-När du har återställt lösen ordet kan du få en bekräftelse via e-post som kommer från ett konto, till exempel \<"Microsoft på uppdrag av *your_organization*>." Om du får ett liknande e-postmeddelande, men du inte nyligen återställt ditt lösen ord, måste du kontakta din organisations administratör omedelbart.
+När du har återställt lösen ordet kan du få en bekräftelse via e-post som kommer från ett konto, till exempel "Microsoft på uppdrag av \< *your_organization*>." Om du får ett liknande e-postmeddelande, men du inte nyligen återställt ditt lösen ord, måste du kontakta din organisations administratör omedelbart.
 
 ## <a name="how-to-change-your-password"></a>Så ändrar du ditt lösenord
 
@@ -117,7 +117,7 @@ Använd den här metoden om du normalt kommer åt dina appar via Office-portalen
 
 2. Välj din profil längst upp till höger och välj sedan **Visa konto**.
 
-3. Välj **säkerhets & sekretess** > **lösen ord**.
+3. Välj **säkerhets & sekretess**  >  **lösen ord**.
 
 4. Skriv ditt gamla lösen ord, skapa och bekräfta ditt nya lösen ord och välj sedan **Skicka**.
 

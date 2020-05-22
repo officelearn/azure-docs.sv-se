@@ -1,20 +1,20 @@
 ---
 title: Azure Automation Runbook-typer
-description: Beskriver de olika typerna av Runbooks som du kan använda i Azure Automation och överväganden för att bestämma vilken typ som ska användas.
+description: I den här artikeln beskrivs de typer av Runbooks som du kan använda i Azure Automation och överväganden för att bestämma vilken typ som ska användas.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 390f14e8369f206b2f5ffce74f0775b33e313021
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: c7b036e7adca1fe92425659ebd099feaa3891556
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714992"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743829"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook-typer
 
-Tjänsten Azure Automation process Automation stöder flera typer av Runbooks som definieras i följande tabell. Mer information om process automatiserings miljön finns [i Runbook-körning i Azure Automation](automation-runbook-execution.md).
+Funktionen Azure Automation process automatisering stöder flera typer av Runbooks som definieras i följande tabell. Mer information om process automatiserings miljön finns [i Runbook-körning i Azure Automation](automation-runbook-execution.md).
 
 | Typ | Beskrivning |
 |:--- |:--- |
@@ -28,9 +28,6 @@ Ta hänsyn till följande överväganden när du bestämmer vilken typ som ska a
 
 * Du kan inte konvertera Runbooks från grafiskt till text typ, eller tvärtom.
 * Det finns begränsningar när du använder Runbooks av olika typer som underordnade Runbooks. Mer information finns i [underordnade Runbooks i Azure Automation](automation-child-runbooks.md).
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="graphical-runbooks"></a>Grafiska runbooks
 
@@ -118,7 +115,7 @@ Python-Runbooks kompileras under python 2. Du kan redigera koden för runbooken 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om grafisk redigering av Runbook finns [i grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
-* Information om skillnaderna mellan PowerShell-och PowerShell-arbetsflöden för Runbooks finns i [Learning Windows PowerShell-arbetsflöde](automation-powershell-workflow.md).
-* Mer information om hur du skapar eller importerar en Runbook finns [i hantera Runbooks i Azure Automation](manage-runbooks.md).
-* Om du vill veta mer om PowerShell, inklusive språk referens-och inlärnings moduler, se [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).
+* [Hantera Runbooks i Azure Automation](manage-runbooks.md)
+* [Lär dig mer om PowerShell-arbetsflöde för Azure Automation](automation-powershell-workflow.md)
+* [Redigera grafiska runbooks i Azure Automation](automation-graphical-authoring-intro.md)
+* [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview)

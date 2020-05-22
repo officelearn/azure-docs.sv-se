@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8eb59eebd29c2cc94e20b71b467866686deec2f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa9813480425d179bdd11bac6f6f944f9f65e3ab
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869729"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741966"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Logga in och starta appar från portalen Mina appar
 
@@ -78,9 +78,9 @@ En ikon läggs till till höger i **adress** fältet, så att du kan logga in oc
 
 Du kan välja hur många appar som ska visas i avsnittet som **används nyligen** och bestämma om du vill tillåta att organisationens interna URL: er omdirigeras.
 
-1. Välj ikonen för ![den nya](media/my-apps-portal/my-apps-portal-extension-icon.png) ikonen **Mina appar säker inloggnings** tillägg till höger om **adress** fältet och välj sedan **Logga in för att komma igång**.
+1. Välj ikonen för den nya ikonen **Mina appar säker inloggnings** tillägg ![ ](media/my-apps-portal/my-apps-portal-extension-icon.png) till höger om **adress** fältet och välj sedan **Logga in för att komma igång**.
 
-2. ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)Högerklicka på **ikonen Inställningar inställnings ikon** ![och välj sedan **Inställningar**.
+2. Högerklicka på ikonen Inställningar **inställnings ikon** ![ ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) och välj sedan **Inställningar**.
 
 3. I rutan **Inställningar** väljer du det antal senaste appar som du vill se på portalen, och om du vill att organisationens interna URL: er ska omdirigeras så att du kan använda dem via en fjärr anslutning.
 
@@ -98,7 +98,7 @@ Om du har åtkomst behörighet till och använder din organisations molnbaserade
 
 1. Logga in på ditt arbets-eller skol konto på din dator.
 
-2. Öppna och gå till https://myapps.microsoft.comi en webbläsare som stöds, eller Använd länken som tillhandahålls av din organisation om de dirigerar dig till en anpassad sida, till exempel `https://myapps.microsoft.com/contoso.com`.
+2. Öppna och gå till i en webbläsare som stöds https://myapps.microsoft.com , eller Använd länken som tillhandahålls av din organisation om de dirigerar dig till en anpassad sida, till exempel `https://myapps.microsoft.com/contoso.com` .
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som är tillgängliga för användning.
 
@@ -112,7 +112,7 @@ Visa och Använd din organisations appar från en Intune Managed Browser på din
 
 1. Hämta och installera Intune Managed Browser-appen från Apple App Store och Google Play Butik på den mobila enheten.
 
-2. Öppna appen Intune Managed Browser, gå till https://myapps.microsoft.comeller Använd länken från din organisation om de dirigerar dig till en anpassad sida, till exempel. https://myapps.microsoft.com/contoso.com
+2. Öppna appen Intune Managed Browser, gå till https://myapps.microsoft.com eller Använd länken från din organisation om de dirigerar dig till en anpassad sida, till exempel https://myapps.microsoft.com/contoso.com .
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
@@ -126,7 +126,7 @@ Visa och använda **Mina Apps** -portalen från en iPhone-eller iPad-enhet, som 
 
 1. Starta en webbapp på din mobila enhet, till exempel Safari.
 
-2. Gå till https://myapps.microsoft.comeller Använd länken från din organisation om de dirigerar dig till en anpassad sida, till exempel https://myapps.microsoft.com/contoso.com.
+2. Gå till https://myapps.microsoft.com eller Använd länken från din organisation om de dirigerar dig till en anpassad sida, till exempel https://myapps.microsoft.com/contoso.com .
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som är tillgängliga för användning.
 
@@ -140,7 +140,7 @@ Visa och använda **Mina Apps** -portalen på en Android-enhet.
 
 1. Starta en webbapp på din mobila enhet, till exempel Google Chrome.
 
-2. Gå till https://myapps.microsoft.comeller Använd länken från din organisation om de dirigerar dig till en anpassad sida, till exempel https://myapps.microsoft.com/contoso.com.
+2. Gå till https://myapps.microsoft.com eller Använd länken från din organisation om de dirigerar dig till en anpassad sida, till exempel https://myapps.microsoft.com/contoso.com .
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 

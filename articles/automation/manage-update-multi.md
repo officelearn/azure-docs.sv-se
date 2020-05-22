@@ -1,22 +1,22 @@
 ---
-title: Hantera uppdateringar för flera virtuella Azure-datorer
-description: Den här artikeln beskriver hur du hanterar uppdateringar för virtuella Azure-datorer och icke-Azure-datorer.
+title: Hantera uppdateringar för flera virtuella datorer i Azure Automation
+description: Den här artikeln beskriver hur du hanterar uppdateringar för flera virtuella datorer.
 services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6a878ecf4519a852a9798b320bda26cd490487a4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 864b6793f65c69c83c0e26d01a10e156b1094889
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731993"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741028"
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Hantera uppdateringar för flera virtuella Azure-datorer
+# <a name="manage-updates-for-multiple-vms"></a>Hantera uppdateringar för flera virtuella datorer
 
 Du kan använda Azure Automation Uppdateringshantering för att hantera uppdateringar och korrigeringar för dina virtuella Windows-och Linux-datorer. Från [Azure Automation](automation-offering-get-started.md)-kontot kan du:
 
-- Publicera virtuella datorer.
+- Aktivera virtuella datorer för uppdaterings hantering.
 - Bedöma statusen för tillgängliga uppdateringar.
 - Schemalägga installation av obligatoriska uppdateringar.
 - Granska distributions resultaten för att kontrol lera att uppdateringarna har tillämpats på alla virtuella datorer som Uppdateringshantering har Aktiver ATS för.
@@ -25,26 +25,24 @@ Mer information om system kraven för Uppdateringshantering finns [uppdateringsh
 
 ## <a name="prerequisites"></a>Krav
 
-* En virtuell dator eller en dator med ett operativsystem som stöds installerat.
-* Åtkomst till ett uppdaterings lager för virtuella Linux-datorer som har registrerats för Uppdateringshantering.
+* En virtuell dator eller en dator med ett operativ system som stöds installerat.
+* Åtkomst till ett uppdaterings lager för virtuella Linux-datorer som är aktiverade för Uppdateringshantering.
 
-## <a name="enable-update-management-for-azure-virtual-machines"></a>Aktivera Uppdateringshantering för virtuella Azure-datorer
+## <a name="enable-update-management-for-azure-vms"></a>Aktivera Uppdateringshantering för virtuella Azure-datorer
 
-I Azure Portal öppnar du ditt Automation-konto och väljer sedan **uppdaterings hantering**.
+1. I Azure Portal öppnar du ditt Automation-konto och väljer sedan **uppdaterings hantering**.
 
-Välj **Lägg till virtuella Azure-datorer**.
+2. Välj **Lägg till virtuella Azure-datorer**.
 
-![Fliken Lägg till virtuell Azure-dator](./media/manage-update-multi/update-onboard-vm.png)
+    ![Fliken Lägg till virtuell Azure-dator](./media/manage-update-multi/update-onboard-vm.png)
 
-Välj en virtuell dator som du vill publicera.
+3. Välj en virtuell dator som du vill aktivera och välj **Aktivera** under **Aktivera uppdateringshantering**.
 
-Under **aktivera uppdateringshantering**väljer du **Aktivera** för att publicera den virtuella datorn.
+    ![Dialogrutan Aktivera hantering av uppdateringar](./media/manage-update-multi/update-enable.png)
 
-![Dialogrutan Aktivera hantering av uppdateringar](./media/manage-update-multi/update-enable.png)
+    När åtgärden har slutförts aktive ras Uppdateringshantering på den virtuella datorn.
 
-När onboarding är klart är Uppdateringshantering aktive rad för den virtuella datorn.
-
-## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Aktivera Uppdateringshantering för virtuella datorer och datorer som inte är Azure-datorer
+## <a name="enable-update-management-for-non-azure-vms-and-computers"></a>Aktivera Uppdateringshantering för icke-virtuella datorer och datorer som inte är Azure-datorer
 
 Log Analytics-agenten för Windows och Linux måste installeras på de virtuella datorer som körs i företags nätverket eller i en annan moln miljö för att du ska kunna göra det med Uppdateringshantering. Mer information om system kraven och de metoder som stöds för att distribuera agenten till datorer som ligger utanför Azure finns i [Översikt över Log Analytics agenten](../azure-monitor/platform/log-analytics-agent.md).
 
@@ -54,7 +52,7 @@ När du har aktiverat Uppdateringshantering för dina datorer kan du Visa dator 
 
   ![Visa fliken för datorer](./media/manage-update-multi/update-computers-tab.png)
 
-Datorer som nyligen har Aktiver ATS för Uppdateringshantering kanske inte har utvärderats ännu. Kompatibilitetstillstånd för dessa datorer är `Not assessed`. Här är en lista över möjliga värden för kompatibilitetstillstånd:
+Datorer som nyligen har Aktiver ATS för Uppdateringshantering kanske inte har utvärderats ännu. Kompatibilitetstillstånd för dessa datorer är `Not assessed` . Här är en lista över möjliga värden för kompatibilitetstillstånd:
 
 - `Compliant`: Datorer som inte saknar kritiska uppdateringar eller säkerhets uppdateringar.
 - `Non-compliant`: Datorer som saknar minst en kritisk eller säkerhets uppdatering.
@@ -74,14 +72,14 @@ Agenter som är installerade på virtuella datorer och datorer samlar in data om
 
 ### <a name="supported-agents"></a>Agenter som stöds
 
-I följande tabell beskrivs de anslutna källor som stöds av den här lösningen:
+I följande tabell beskrivs de anslutna källor som Uppdateringshantering stöder:
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
 | Windows-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och initierar sedan installationen av nödvändiga uppdateringar. |
 | Linux-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och initierar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
 | Operations Manager-hanteringsgrupp |Ja |Uppdateringshantering samlar in information om system uppdateringar från agenter i en ansluten hanterings grupp. |
-| Azure-lagringskonto |Inga |Azure Storage innehåller inte information om system uppdateringar. |
+| Azure-lagringskonto |Nej |Azure Storage innehåller inte information om system uppdateringar. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 
@@ -117,12 +115,12 @@ I fönstret **ny uppdaterings distribution** anger du följande information:
 
   ![Nytt distributions fönster för uppdatering](./media/manage-update-multi/update-select-computers.png)
 
-- **Uppdaterings klassificering**: Välj vilka typer av program vara som ska ingå i uppdaterings distributionen. En beskrivning av klassificerings typerna finns i [uppdaterings klassificeringar](automation-view-update-assessments.md#update-classifications). Klassificeringstyper:
+- **Uppdaterings klassificering**: Välj vilka typer av program vara som ska ingå i uppdaterings distributionen. En beskrivning av klassificerings typerna finns i [uppdaterings klassificeringar](automation-view-update-assessments.md#work-with-update-classifications). Klassificeringstyper:
   - Kritiska uppdateringar
   - Säkerhetsuppdateringar
   - Samlade uppdateringar
   - Funktionspaket
-  - Service pack
+  - Service Pack
   - Definitionsuppdateringar
   - Verktyg
   - Uppdateringar
@@ -130,11 +128,10 @@ I fönstret **ny uppdaterings distribution** anger du följande information:
 - **Uppdateringar att inkludera/exkludera** – detta öppnar sidan Inkludera/exkludera. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras finns i [Schemalägga en uppdaterings distribution](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 > [!NOTE]
-> Det är viktigt att veta att undantagen åsidosätter inkluderingar. Om du till exempel definierar en undantags regel för `*`, installeras inga korrigeringar eller paket eftersom de undantas. Undantagna uppdateringar visas fortfarande som saknas på datorn. För Linux-datorer om ett paket ingår men har ett beroende paket som uteslutits, installeras inte paketet.
+> Det är viktigt att veta att undantagen åsidosätter inkluderingar. Om du till exempel definierar en undantags regel för `*` , installeras inga korrigeringar eller paket eftersom de undantas. Undantagna uppdateringar visas fortfarande som saknas på datorn. För Linux-datorer om ett paket ingår men har ett beroende paket som uteslutits, installeras inte paketet.
 
 > [!NOTE]
-> Det går inte att ange uppdateringar som har ersatts för inkludering med uppdaterings distributionen.
->
+> Du kan inte ange uppdateringar som har ersatts för inkludering med uppdaterings distributionen.
 
 - **Schemainställningar**: Du kan godkänna standarddatumet och -tiden, d.v.s. 30 minuter efter aktuell tid. Du kan också ange en annan tid.
 
@@ -185,4 +182,4 @@ Välj **Fel** om du vill se detaljerad information om fel som uppstått vid dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Uppdateringshantering loggar, utdata och fel finns i [fråga uppdaterings poster för uppdateringshantering](automation-update-management-query-logs.md).
+[Fråga Uppdateringshanteringsloggar](automation-update-management-query-logs.md)

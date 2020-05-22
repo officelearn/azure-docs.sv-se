@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 00639462fce4e67561b8e50609264d4423872c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23b7205e63c7991368efe421d5c067e980314611
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77022332"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741987"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Uppdatera dina grupp information på portalen Mina appar
 
@@ -40,7 +40,7 @@ Om administratören har gett dig behörighet att visa panelen **grupper** kan du
 
 1. Logga in på ditt arbets-eller skol konto.
 
-2. Öppna webbläsaren och gå till https://myapps.microsoft.comeller Använd den länk som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
+2. Öppna webbläsaren och gå till https://myapps.microsoft.com eller Använd den länk som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com .
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
@@ -98,7 +98,7 @@ Om administratören har gett dig behörighet att visa panelen **grupper** kan du
 
 När du har skapat en grupp kan du redigera dess information, inklusive uppdatera all befintlig information.
 
-1. Välj den grupp som du vill redigera på sidan **grupper** och välj sedan **Redigera information** på sidan * &lt;&gt; GROUP_NAME* .
+1. Välj den grupp som du vill redigera på sidan **grupper** och välj sedan **Redigera information** på sidan * &lt; GROUP_NAME &gt; * .
 
     Rutan **Redigera information** visas och du kan uppdatera den information som du lade till när du skapade gruppen första gången.
 
@@ -108,7 +108,7 @@ När du har skapat en grupp kan du redigera dess information, inklusive uppdater
 
 Du kan lägga till eller ta bort medlemmar för alla grupper som du äger.
 
-1. Välj den grupp som du vill lägga till medlemmar i och välj **+** sedan på sidan * &lt;GROUP_NAME&gt; * .
+1. Välj den grupp som du vill lägga till medlemmar i och välj sedan **+** på sidan * &lt; GROUP_NAME &gt; * .
 
     ![Lägg till en grupp medlem med plus tecken markerat](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
@@ -118,7 +118,7 @@ Du kan lägga till eller ta bort medlemmar för alla grupper som du äger.
 
     En inbjudan skickas till den nya medlemmen för att komma igång med att komma åt organisationens appar.
 
-3. Om du har lagt till en medlem av misstag, eller om en medlem har lämnat din organisation, kan du ta bort medlemmen genom att välja **ta bort medlem** bredvid medlemmens namn på sidan * &lt;&gt; GROUP_NAME* .
+3. Om du har lagt till en medlem av misstag, eller om en medlem har lämnat din organisation, kan du ta bort medlemmen genom att välja **ta bort medlem** bredvid medlemmens namn på sidan * &lt; GROUP_NAME &gt; * .
 
     ![Ta bort en medlem med länken borttagnings länk markerad](media/my-apps-portal/my-apps-portal-remove-member-link.png)
 
@@ -138,7 +138,7 @@ Om din organisation tillåter det kan du förnya en Office 365-grupp och förlä
 
 Du kan när som helst ta bort alla egna grupper. Men om du tar bort en grupp av misstag måste du skapa den och lägga till medlemmar igen.
 
-1. Välj den grupp som du vill ta bort permanent och välj sedan **ta bort grupp** på * &lt;sidan&gt; GROUP_NAME* .
+1. Välj den grupp som du vill ta bort permanent och välj sedan **ta bort grupp** på sidan * &lt; &gt; GROUP_NAME* .
 
     ![Sidan <Group_name> med länken Ta bort grupp markerad](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 

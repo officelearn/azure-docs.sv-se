@@ -12,12 +12,12 @@ ms.date: 04/22/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 515ac034158b821968e2d7b2be9514a3f7c20866
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 59f42f7c1fcdfef29becfb4a046753650ae9d14f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099120"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737562"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Gör så här: tillhandahålla valfria anspråk till din Azure AD-App
 
@@ -49,7 +49,7 @@ Den uppsättning valfria anspråk som är tillgängliga som standard för progra
 
 **Tabell 2: v 1.0 och v 2.0 valfri anspråks uppsättning**
 
-| Name                       |  Beskrivning   | Tokentyp | Användar typ | Obs!  |
+| Name                       |  Beskrivning   | Tokentyp | Användar typ | Anteckningar  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Tid när användaren senast autentiserades. Se OpenID Connect spec.| JWT        |           |  |
 | `tenant_region_scope`      | Resurs innehavarens region | JWT        |           | |
@@ -61,15 +61,15 @@ Den uppsättning valfria anspråk som är tillgängliga som standard för progra
 | `enfpolids`                | Tvingade princip-ID: n. En lista med princip-ID: n som utvärderats för den aktuella användaren. | JWT |  |  |
 | `vnet`                     | Information om VNET-specifikation. | JWT        |           |      |
 | `fwd`                      | IP-adress.| JWT    |   | Lägger till den ursprungliga IPv4-adressen för den begär ande klienten (i ett VNET) |
-| `ctry`                     | Användarens land | JWT |  | Azure AD returnerar det `ctry` valfria anspråket om det finns och värdet för anspråket är en vanlig landskod i två bokstäver, till exempel fr, JP, sz och så vidare. |
-| `tenant_ctry`              | Resurs innehavarens land | JWT | | |
+| `ctry`                     | Användarens land/region | JWT |  | Azure AD returnerar det `ctry` valfria anspråket om det finns och värdet för anspråket är en vanlig lands-/regionkod i två bokstäver, till exempel fr, JP, sz och så vidare. |
+| `tenant_ctry`              | Resurs innehavarens land/region | JWT | | |
 | `xms_pdl`             | Önskad data plats   | JWT | | För flera geo-klienter är den önskade data platsen den tre bokstavs koden som visar den geografiska region som användaren är i. Mer information finns i Azure AD Connect- [dokumentationen om önskad data plats](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Exempel: `APC` för Asien och Stillahavsområdet. |
 | `xms_pl`                   | Användarens prioriterade språk  | JWT ||Användarens önskade språk, om det är inställt. Från hem klienten, i scenarier med gäst åtkomst. Formaterat lla-CC ("en-US"). |
 | `xms_tpl`                  | Föredraget klient språk| JWT | | Resurs innehavarens föredragna språk, om det är inställt. Formaterat lla ("en"). |
 | `ztdid`                    | ID för noll-Touch-distribution | JWT | | Enhets identiteten som används för [Windows autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | Det adresser bara e-postmeddelandet för den här användaren, om användaren har ett.  | JWT, SAML | MSA, Azure AD | Det här värdet ingår som standard om användaren är en gäst i klienten.  För hanterade användare (användare i klienten) måste det begäras via detta valfria anspråk eller, endast v 2.0, med OpenID-omfånget.  För hanterade användare måste e-postadressen anges i [Office Admin-portalen](https://portal.office.com/adminportal/home#/users).|
 | `groups`| Valfri formatering för grupp anspråk |JWT, SAML| |Används tillsammans med GroupMembershipClaims-inställningen i [applikations manifestet](reference-app-manifest.md), som även måste anges. Mer information finns i [grupp anspråk](#configuring-groups-optional-claims) nedan. Mer information om grupp anspråk finns i [så här konfigurerar du grupp anspråk](../hybrid/how-to-connect-fed-group-claims.md)
-| `acct`                | Användarens konto status i klient organisationen. | JWT, SAML | | Om användaren är medlem i klienten är `0`värdet. Om de är en gäst är `1`värdet. |
+| `acct`                | Användarens konto status i klient organisationen. | JWT, SAML | | Om användaren är medlem i klienten är värdet `0` . Om de är en gäst är värdet `1` . |
 | `upn`                      | UserPrincipalName-anspråk. | JWT, SAML  |           | Även om det här anspråket ingår automatiskt kan du ange det som ett valfritt anspråk för att bifoga ytterligare egenskaper för att ändra dess beteende i gäst användarens ärende.  |
 
 ## <a name="v20-specific-optional-claims-set"></a>v 2.0 – angivna valfria anspråks uppsättningar
@@ -78,7 +78,7 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 
 **Tabell 3: v 2.0 – endast valfria anspråk**
 
-| JWT-anspråk     | Name                            | Beskrivning                                | Obs! |
+| JWT-anspråk     | Name                            | Beskrivning                                | Anteckningar |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adress                      | IP-adressen som klienten loggade in från.   |       |
 | `onprem_sid`  | Lokal säkerhets identifierare |                                             |       |
@@ -92,7 +92,7 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
 
-Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returneras. Dessa ytterligare egenskaper används främst för att hjälpa migrering av lokala program med olika data förväntningar (till exempel för `include_externally_authenticated_upn_without_hash` att hjälpa klienter som inte kan hantera hash-tecken (`#`) i UPN)
+Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returneras. Dessa ytterligare egenskaper används främst för att hjälpa migrering av lokala program med olika data förväntningar (till exempel för att hjälpa `include_externally_authenticated_upn_without_hash` klienter som inte kan hantera hash-tecken ( `#` ) i UPN)
 
 **Tabell 4: värden för konfiguration av valfria anspråk**
 
@@ -100,7 +100,7 @@ Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returnera
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Kan användas för både SAML-och JWT-svar och för v 1.0-och v 2.0-token. |
 |                | `include_externally_authenticated_upn`  | Inkluderar gäst-UPN som lagrats i resurs klienten. Till exempel, `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | Samma som ovan, förutom att hash-tecknen (`#`) ersätts med under streck (`_`), till exempel`foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Samma som ovan, förutom att hash-tecknen ( `#` ) ersätts med under streck ( `_` ), till exempel`foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Exempel på ytterligare egenskaper
 
@@ -118,12 +118,12 @@ Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returnera
 }
 ```
 
-Detta OptionalClaims-objekt gör att ID-token som returnerades till klienten inkluderar ett UPN-anspråk med ytterligare information om hem klient och resurs klient. `upn` Anspråket ändras bara i token om användaren är en gäst i klienten (som använder en annan IDP för autentisering).
+Detta OptionalClaims-objekt gör att ID-token som returnerades till klienten inkluderar ett UPN-anspråk med ytterligare information om hem klient och resurs klient. `upn`Anspråket ändras bara i token om användaren är en gäst i klienten (som använder en annan IDP för autentisering).
 
 ## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
 
 > [!IMPORTANT]
-> Åtkomsttoken skapas **alltid** med hjälp av resurs manifestet, inte klienten.  Så i begäran `...scope=https://graph.microsoft.com/user.read...` är resursen Microsoft Graph-API.  Därför skapas åtkomsttoken med hjälp av Microsoft Graph API-manifestet, inte klientens manifest.  Att ändra manifestet för programmet kommer aldrig att orsaka att token för Microsoft Graph-API: et ser annorlunda ut.  För att verifiera att `accessToken` ändringarna gäller, begär du en token för ditt program, inte en annan app.
+> Åtkomsttoken skapas **alltid** med hjälp av resurs manifestet, inte klienten.  Så i begäran `...scope=https://graph.microsoft.com/user.read...` är resursen Microsoft Graph-API.  Därför skapas åtkomsttoken med hjälp av Microsoft Graph API-manifestet, inte klientens manifest.  Att ändra manifestet för programmet kommer aldrig att orsaka att token för Microsoft Graph-API: et ser annorlunda ut.  För att verifiera att ändringarna gäller `accessToken` , begär du en token för ditt program, inte en annan app.
 
 Du kan konfigurera valfria anspråk för ditt program via användar gränssnittet eller applikations manifestet.
 
@@ -185,7 +185,7 @@ Deklarerar de valfria anspråk som begärs av ett program. Ett program kan konfi
 
 **Tabell 5: egenskaper för OptionalClaims-typ**
 
-| Name          | Typ                       | Beskrivning                                           |
+| Name          | Typ                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Samling (OptionalClaim) | De valfria anspråk som returneras i JWT ID-token.     |
 | `accessToken` | Samling (OptionalClaim) | De valfria anspråk som returneras i JWT-åtkomsttoken. |
@@ -216,9 +216,9 @@ Schema-och öppna tillägg stöds inte av valfria anspråk, bara katalog tilläg
 
 ### <a name="directory-extension-formatting"></a>Formatering av katalog tillägg
 
-När du konfigurerar alternativ anspråk för katalog tillägg med hjälp av applikations manifestet använder du det fullständiga namnet på tillägget ( `extension_<appid>_<attributename>`i formatet:). `<appid>` Måste matcha ID för programmet som begär anspråket.
+När du konfigurerar alternativ anspråk för katalog tillägg med hjälp av applikations manifestet använder du det fullständiga namnet på tillägget (i formatet: `extension_<appid>_<attributename>` ). `<appid>`Måste matcha ID för programmet som begär anspråket.
 
-I JWT genereras dessa anspråk med följande namn format: `extn.<attributename>`.
+I JWT genereras dessa anspråk med följande namn format: `extn.<attributename>` .
 
 I SAML-token genereras dessa anspråk med följande URI-format:`http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
@@ -304,7 +304,7 @@ Det här avsnittet beskriver konfigurations alternativen under valfria anspråk 
    > [!NOTE]
    > Om emit_as_roles används alla program roller som kon figurer ATS som användaren är tilldelad visas inte i roll anspråket
 
-**Fler**
+**Exempel:**
 
 1) Generera grupper som grupp namn i OAuth-åtkomsttoken i dnsDomainName\sAMAccountName-format
 
@@ -371,9 +371,9 @@ Det finns flera tillgängliga alternativ för att uppdatera egenskaperna för et
 
 I exemplet nedan använder du användar gränssnittet för **token-konfiguration** och **manifestet** för att lägga till valfria anspråk till åtkomst, ID och SAML-token som är avsedda för ditt program. Olika valfria anspråk kommer att läggas till i varje tokentyp som programmet kan ta emot:
 
-- ID-token kommer nu att innehålla UPN för federerade användare i fullständig form (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
+- ID-token kommer nu att innehålla UPN för federerade användare i fullständig form ( `<upn>_<homedomain>#EXT#@<resourcedomain>` ).
 - De åtkomsttoken som andra klienter begär för det här programmet kommer nu att innehålla auth_time-anspråk
-- SAML-token kommer nu att innehålla skypeId Directory schema-tillägget (i det här exemplet är app-ID: t för den här appen ab603c56068041afb2f6832e2a17e237). SAML-token kommer att exponera Skype-ID `extension_skypeId`: t som.
+- SAML-token kommer nu att innehålla skypeId Directory schema-tillägget (i det här exemplet är app-ID: t för den här appen ab603c56068041afb2f6832e2a17e237). SAML-token kommer att exponera Skype-ID: t som `extension_skypeId` .
 
 **GRÄNSSNITTs konfiguration:**
 

@@ -13,16 +13,16 @@ ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 12f5df9b644246092f0a5da2b30dc5a7187ca827
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0bb7812d75fa3276b52a182f9184e28a21a910ae
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926824"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737494"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>OAuth 2,0-och OpenID Connect-protokoll på Microsoft Identity Platform
 
-Microsoft Identity Platform-slutpunkten för Identity-as-a-service med bransch standard protokoll, OpenID Connect (OIDC) och OAuth 2,0. Tjänsten är standard-kompatibel, men det kan finnas små skillnader mellan de två implementeringarna av de här protokollen. Informationen här är användbar om du väljer att skriva koden genom att direkt skicka och hantera HTTP-förfrågningar eller använda ett bibliotek med öppen källkod från tredje part, i stället för att använda ett av våra [bibliotek med öppen källkod](reference-v2-libraries.md).
+Microsoft Identity Platform-slutpunkten för identitet-som-en-tjänst implementerar autentisering och auktorisering med OpenID Connect (OIDC) och OAuth 2,0 (bransch standard protokoll). Tjänsten är standard-kompatibel, men det kan finnas små skillnader mellan de två implementeringarna av de här protokollen. Informationen här är användbar om du väljer att skriva koden genom att direkt skicka och hantera HTTP-förfrågningar eller använda ett bibliotek med öppen källkod från tredje part, i stället för att använda ett av våra [bibliotek med öppen källkod](reference-v2-libraries.md).
 
 ## <a name="the-basics"></a>Grunderna
 

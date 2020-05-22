@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 05/20/2020
 ms.author: curtand
-ms.openlocfilehash: e42c4e5aced9fd567c67b520a98318c965045e07
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 6d6d32a7a340ef4b07138d5ec12c561e958cf739
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715536"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739506"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator för Android i det offentliga molnet i Kina
 
@@ -46,7 +46,7 @@ Om en användare tidigare har hanterat för att konfigurera telefonin loggning e
 
 I stället för att använda push-meddelanden för Multi-Factor Authentication kan användarna konfigurera sina MFA för att ta emot verifierings koder på deras enheter som de kan använda för att verifiera sin identitet. Dessa verifierings koder är giltiga i 30 sekunder och använder dem, administratörerna måste göra det möjligt för en klient att utföra verifiering med tidsbaserad eng ång slö sen ord (TOTP mobilapp) verifierings koder.
 
-## <a name="availability"></a>Tillgängligt
+## <a name="availability"></a>Tillgänglighet
 
 Microsoft Authenticator funktion | Tillgänglighet i Kina
 ------------------------------- | ---------------------

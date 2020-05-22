@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 8ec20e03544ba54b83130ae41244dcdb186252d0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9398b40763e8226cedf788f9cefbf5ed28cd649d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613088"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739540"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange X12-meddelanden för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -319,8 +319,8 @@ I den här tabellen visas de typer av meddelanden som påverkas, alla varianter 
 | Meddelande typ eller variant |  Beskrivning | Dokument versions nummer (GS8) |
 |-------------------------|--------------|-------------------------------|
 | 277 | Status meddelande för hälso vårds information | 005010X212 |
-| 837_I | Tandvård av hälso vårds anspråk | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
-| 837_D | Hälso vårds anspråk institutionellt | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
+| 837_I | Hälso vårds anspråk institutionellt | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
+| 837_D | Tandvård av hälso vårds anspråk | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
 | 837_P | Health Care-anspråket Professional | 004010X098A1 <br>005010X222 <br>005010X222A1 |
 |||
 
@@ -330,7 +330,7 @@ Följ dessa steg om du vill ange dessa dokument versions nummer och meddelande t
 
 1. I HIPAA-schemat ersätter du den aktuella meddelande typen med meddelande typen variant för det dokument versions nummer som du vill använda.
 
-   Anta till exempel att du vill använda dokument versions nummer `005010X222A1` med `837` meddelande typen. Ersätt varje `"X12_00501_837"` värde med `"X12_00501_837_P"` värdet i stället i schemat.
+   Anta till exempel att du vill använda dokument versions nummer `005010X222A1` med `837` meddelande typen. Ersätt varje `"X12_00501_837"` värde med värdet i stället i schemat `"X12_00501_837_P"` .
 
    Följ dessa steg om du vill uppdatera schemat:
 
@@ -352,7 +352,7 @@ Följ dessa steg om du vill ange dessa dokument versions nummer och meddelande t
    ]
    ```
 
-   I det `schemaReferences` här avsnittet lägger du till en annan post med följande värden:
+   I det här `schemaReferences` avsnittet lägger du till en annan post med följande värden:
 
    * `"messageId": "837_P"`
    * `"schemaVersion": "00501"`

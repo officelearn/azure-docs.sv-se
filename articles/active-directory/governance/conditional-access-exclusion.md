@@ -16,12 +16,12 @@ ms.date: 04/24/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91bb5a342eea079b6e9abcf109ad472151d3c13d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab2974cf95726f44641b4ac220c7ee871890ca56
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144488"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736865"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd åtkomst granskningar i Azure AD för att hantera användare som uteslutits från principer för villkorlig åtkomst
 
@@ -32,7 +32,7 @@ I en idealisk värld följer alla användare åtkomst principerna för att skydd
 
 ## <a name="why-would-you-exclude-users-from-policies"></a>Varför skulle du undanta användare från principer?
 
-Anta att du som administratör bestämmer dig för att använda [villkorlig åtkomst för Azure AD](../conditional-access/overview.md) för att kräva Multi-Factor Authentication (MFA) och begränsa autentiseringsbegäranden till vissa nätverk eller enheter. Under distributions planeringen inser du att inte alla användare kan uppfylla dessa krav. Du kan till exempel ha användare som arbetar från fjärranslutna kontor, inte en del av det interna nätverket. Du kan också behöva hantera användare som ansluter med hjälp av enheter som inte stöds under väntan på att enheterna ska ersättas. I korthet kräver företaget att dessa användare loggar in och utför sitt jobb så att du exkluderar dem från principer för villkorlig åtkomst.
+Anta att du som administratör bestämmer dig för att använda [villkorlig åtkomst för Azure AD](../conditional-access/concept-conditional-access-policy-common.md) för att kräva Multi-Factor Authentication (MFA) och begränsa autentiseringsbegäranden till vissa nätverk eller enheter. Under distributions planeringen inser du att inte alla användare kan uppfylla dessa krav. Du kan till exempel ha användare som arbetar från fjärranslutna kontor, inte en del av det interna nätverket. Du kan också behöva hantera användare som ansluter med hjälp av enheter som inte stöds under väntan på att enheterna ska ersättas. I korthet kräver företaget att dessa användare loggar in och utför sitt jobb så att du exkluderar dem från principer för villkorlig åtkomst.
 
 Ett annat exempel är om du använder [namngivna platser](../conditional-access/location-condition.md) i villkorlig åtkomst för att ange en uppsättning länder och regioner som du inte vill att användarna ska ha åtkomst till av klienten.
 
@@ -63,7 +63,7 @@ Följ dessa steg om du vill skapa en ny Azure AD-grupp och en princip för villk
 
 ### <a name="create-an-exclusion-group"></a>Skapa en undantags grupp
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Klicka på **Azure Active Directory** i det vänstra navigerings fönstret och klicka sedan på **grupper**.
 

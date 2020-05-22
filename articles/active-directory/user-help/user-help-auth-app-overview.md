@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: c95ae2e48a7d5a3b9e9e28b1d4e14b670205c043
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60c2b3ed1f367dc5c501a51ed52440f7d9d3ed6b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062293"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741176"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Vad är Microsoft Authenticator-appen?
 
@@ -37,7 +37,7 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
 
 ## <a name="terminology"></a>Terminologi
 
-| Period|Beskrivning|
+| Term|Beskrivning|
 | ----|-----------|
 | Tvåfaktorsverifiering | En verifieringsprocess som kräver att du endast använder två typer av verifieringsinformation, t.ex. ett lösenord och en PIN-kod. Microsoft Authenticator-appen har stöd för både tvåfaktorsverifiering som är standard och lösenordsfri inloggning. |
 | Multi-Factor Authentication (MFA) | All tvåfaktorsverifiering är multifaktorautentisering, och kräver att du använder *minst* två typer av information för verifiering, baserat på din organisations behov. |
@@ -49,7 +49,7 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
 
 Tvåfaktorsverifiering fungerar med Microsoft Authenticator-appen på följande sätt:
 
-- **Meddelande.** Ange ditt användarnamn och lösenord i enheten som du loggar in för ditt arbets- eller skolkonto eller ditt personliga Microsoft-konto så skickar Microsoft Authenticator-appen ett meddelande som ber dig **godkänna inloggningen**. Välj **Godkänn** om du känner igen inloggningsförsöket. Annars väljer du **Neka**. Om du väljer **Neka** kan du också markera begäran som falsk.
+- **Indikering.** Ange ditt användarnamn och lösenord i enheten som du loggar in för ditt arbets- eller skolkonto eller ditt personliga Microsoft-konto så skickar Microsoft Authenticator-appen ett meddelande som ber dig **godkänna inloggningen**. Välj **Godkänn** om du känner igen inloggningsförsöket. Annars väljer du **Neka**. Om du väljer **Neka** kan du också markera begäran som falsk.
 
 - **Verifieringskod.** Ange ditt användarnamn och lösenord i enheten som du loggar in för ditt arbets- eller skolkonto eller ditt personliga Microsoft-konto och kopiera sedan den associerade verifieringskoden från skärmen **Konton** i Microsoft Authenticator-appen. Verifieringskoden kallas även för autentisering med engångslösenord (OTP).
 

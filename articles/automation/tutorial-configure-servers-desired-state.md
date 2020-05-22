@@ -1,18 +1,18 @@
 ---
-title: Konfigurera servrar till önskade tillstånd och hantera drift med Azure Automation
-description: Självstudie – hantera serverkonfigurationer med Azure Automation tillstånds konfiguration
+title: Konfigurera datorer till önskat tillstånd i Azure Automation
+description: Den här artikeln beskriver hur du konfigurerar datorer till önskad status med Azure Automation tillstånds konfiguration.
 services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: a02c664ddf0802ad5ac306f98de14b7c0d5d7271
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93fb896dfc373a7402bbb3d1a38a655088d27fdf
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678696"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735926"
 ---
-# <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Konfigurera servrar till önskat tillstånd och hantera drift
+# <a name="configure-machines-to-a-desired-state"></a>Konfigurera datorer till ett önskat tillstånd
 
 Med Azure Automation tillstånds konfiguration kan du ange konfigurationer för dina servrar och se till att servrarna är i det angivna läget över tid.
 
@@ -24,9 +24,6 @@ Med Azure Automation tillstånds konfiguration kan du ange konfigurationer för 
 > - Kontrol lera status för efterlevnad för en hanterad nod
 
 I den här självstudien använder vi en enkel [DSC-konfiguration](/powershell/scripting/dsc/configurations/configurations) som garanterar att IIS är installerat på den virtuella datorn.
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -71,7 +68,7 @@ configuration TestConfig {
 ```
 
 > [!NOTE]
-> I mer avancerade scenarier där du kräver att flera moduler importeras som tillhandahåller DSC-resurser, se till att varje modul har en `Import-DscResource` unik rad i konfigurationen.
+> I mer avancerade scenarier där du kräver att flera moduler importeras som tillhandahåller DSC-resurser, se till att varje modul har en unik `Import-DscResource` rad i konfigurationen.
 
 Anropa cmdleten [import-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration?view=azps-3.7.0) för att överföra konfigurationen till ditt Automation-konto.
 
@@ -83,7 +80,7 @@ Anropa cmdleten [import-AzAutomationDscConfiguration](https://docs.microsoft.com
 
 En DSC-konfiguration måste kompileras till en noduppsättning innan den kan tilldelas till en nod. Se [DSC-konfigurationer](/powershell/scripting/dsc/configurations/configurations).
 
-Anropa cmdleten [Start-AzAutomationDscCompilationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob?view=azps-3.7.0) för att kompilera `TestConfig` konfigurationen till en Node-konfiguration `TestConfig.WebServer` med namnet i ditt Automation-konto.
+Anropa cmdleten [Start-AzAutomationDscCompilationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob?view=azps-3.7.0) för att kompilera `TestConfig` konfigurationen till en Node-konfiguration med namnet `TestConfig.WebServer` i ditt Automation-konto.
 
 ```powershell
 Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount'
@@ -107,7 +104,7 @@ Använd cmdleten [register-AzAutomationDscNode](/powershell/module/azurerm.autom
 Register-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationMode 'ApplyOnly'
 ```
 
-Du kan också ange hur ofta DSC ska kontrol lera konfigurations statusen med `ConfigurationModeFrequencyMins` hjälp av egenskapen. Mer information om konfigurations inställningar för DSC finns i [Konfigurera den lokala Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
+Du kan också ange hur ofta DSC ska kontrol lera konfigurations statusen med hjälp av `ConfigurationModeFrequencyMins` egenskapen. Mer information om konfigurations inställningar för DSC finns i [Konfigurera den lokala Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 ```powershell
 # Run a DSC check every 60 minutes
@@ -126,7 +123,7 @@ $node = Get-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Automation
 Set-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeConfigurationName 'TestConfig.WebServer' -NodeId $node.Id
 ```
 
-Detta tilldelar nodens konfiguration med namnet `TestConfig.WebServer` till den registrerade DSC-noden `DscVm`. DSC-noden kontrol leras som standard med nodens konfiguration var 30: e minut. Information om hur du ändrar intervallet för kompatibilitetskontroll finns i [Konfigurera den lokala Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
+Detta tilldelar nodens konfiguration med namnet `TestConfig.WebServer` till den registrerade DSC-noden `DscVm` . DSC-noden kontrol leras som standard med nodens konfiguration var 30: e minut. Information om hur du ändrar intervallet för kompatibilitetskontroll finns i [Konfigurera den lokala Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Kontrol lera status för efterlevnad för en hanterad nod
 
@@ -166,9 +163,9 @@ Om du vill avregistrera en nod från Azure Automation tillstånds konfigurations
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du kommer igång finns i [komma igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md).
-- Information om hur du kan publicera noder finns i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md).
-- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
-- Referens för PowerShell-cmdlet finns i [Azure Automation cmdlets för tillstånds konfiguration](/powershell/module/azurerm.automation/#automation).
-- Pris information finns i pris information för [Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
-- Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [kontinuerlig distribution med Azure Automation tillstånds konfiguration och choklad](automation-dsc-cd-chocolatey.md)
+* [Kom igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md)
+* [Aktivera konfiguration av Azure Automation tillstånd](automation-dsc-onboarding.md)
+* [Kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md)
+* [Cmdletar för Azure Automation tillstånds konfiguration](/powershell/module/azurerm.automation/#automation)
+* [Prissättning för Azure Automations tillstånds konfiguration](https://azure.microsoft.com/pricing/details/automation/)
+- [Konfigurera kontinuerlig distribution med choklad](automation-dsc-cd-chocolatey.md)

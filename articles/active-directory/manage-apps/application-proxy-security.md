@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fd6794bafc3c209032f32626e8c46b51769d05e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74e0faf8ac776c043f2407e509c936d21f227664
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481236"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739976"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhets överväganden för att få åtkomst till appar via fjärr anslutning med Azure AD-programproxy
 
@@ -47,7 +47,7 @@ Om du väljer genom strömning som metod för förautentisering får du inte den
 
 Använd bättre princip kontroller innan anslutningar till nätverket upprättas.
 
-Med [villkorlig åtkomst](../conditional-access/overview.md)kan du definiera begränsningar för vilken trafik som får åtkomst till dina Server dels program. Du kan skapa principer som begränsar inloggningar baserat på plats, styrkan för autentisering och användar risk profil.
+Med [villkorlig åtkomst](../conditional-access/concept-conditional-access-cloud-apps.md)kan du definiera begränsningar för hur användare får åtkomst till dina program. Du kan skapa principer som begränsar inloggningar baserat på plats, styrkan för autentisering och användar risk profil.
 
 Du kan också använda villkorlig åtkomst för att konfigurera Multi-Factor Authentication-principer och lägga till ytterligare ett säkerhets lager till dina användarautentisering. Dessutom kan dina program dirigeras till Microsoft Cloud App Security via villkorlig åtkomst i Azure AD för att tillhandahålla övervakning och kontroller i real tid via [åtkomst](https://docs.microsoft.com/cloud-app-security/access-policy-aad) [och arbetsköprinciper](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
 
@@ -79,7 +79,7 @@ Du behöver inte bekymra dig om att underhålla och korrigera lokala servrar.
 
 Program vara som inte har uppdaterats har fortfarande konton för ett stort antal attacker. Azure AD-programproxy är en Internet-Scale-tjänst som Microsoft äger, så att du alltid får de senaste säkerhets korrigeringarna och-uppgraderingar.
 
-För att förbättra säkerheten för program som publiceras av Azure AD-programproxy blockerar vi webb robot robotarna från att indexera och arkivera dina program. Varje gången ett robot försök försöker hämta robotens inställningar för en publicerad app, svarar programproxyn med en robots. txt-fil som innehåller `User-agent: * Disallow: /`.
+För att förbättra säkerheten för program som publiceras av Azure AD-programproxy blockerar vi webb robot robotarna från att indexera och arkivera dina program. Varje gången ett robot försök försöker hämta robotens inställningar för en publicerad app, svarar programproxyn med en robots. txt-fil som innehåller `User-agent: * Disallow: /` .
 
 #### <a name="azure-ddos-protection-service"></a>Azure DDoS Protection-tjänst
 

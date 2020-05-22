@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 27b93e77e7b813e73496d15c4003e999daff10d5
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4c4c43d8522c6f507d458c56abc445e2da35fa6d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681278"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739387"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Felsöka funktions distributions problem
 
@@ -71,7 +71,7 @@ Felet beror på felaktig eller saknas behörighet på den virtuella datorn eller
 
 #### <a name="resolution"></a>Lösning
 
-Se till att du har rätt [behörigheter för funktions distribution](../automation-role-based-access-control.md#onboarding-permissions)och försök sedan att distribuera funktionen igen. Om du får fel meddelandet `The solution cannot be enabled on this VM because the permission to read the workspace is missing` kontrollerar du att du har `Microsoft.OperationalInsights/workspaces/read` behörighet att kunna se om den virtuella datorn är aktive rad för en arbets yta.
+Se till att du har rätt [behörigheter för funktions distribution](../automation-role-based-access-control.md#feature-setup-permissions)och försök sedan att distribuera funktionen igen. Om du får fel meddelandet `The solution cannot be enabled on this VM because the permission to read the workspace is missing` kontrollerar du att du har `Microsoft.OperationalInsights/workspaces/read` behörighet att kunna se om den virtuella datorn är aktive rad för en arbets yta.
 
 ### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenario: funktions distributionen Miss lyckas med meddelandet "Det gick inte att konfigurera Automation-konto för diagnostisk loggning"
 

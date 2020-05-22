@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c8808450f8baa6d395ee9c24dbc59dfa919b66d
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 8075574556375b7c07de2abd6c5aff792880b497
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801016"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738826"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -88,8 +88,8 @@ E-postmeddelanden kommer att skickas från följande e-postadresser. Kontrol ler
 
 Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
-### <a name="email-azure-resource-manager-role"></a>E-Azure Resource Manager roll
-Skicka e-post till medlemmarna i prenumerationens roll. E-post skickas endast till **användar medlemmar i Azure AD** i rollen. E-post kommer inte att skickas till Azure AD-grupper eller tjänstens huvud namn.
+### <a name="email-azure-resource-manager-role"></a>E-post till Azure Resource Manager-rollen
+Skicka e-post till medlemmarna i prenumerationens roll. E-post skickas endast till **användar medlemmar i Azure AD** i rollen. E-post kommer inte att skickas till Azure AD-grupper eller tjänstens huvudnamn.
 
 Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
@@ -201,9 +201,9 @@ Mer viktig information finns i [frekvens begränsa information](./../../azure-mo
 Du kan ha ett begränsat antal SMS-åtgärder i en åtgärds grupp.
 
 > [!NOTE]
-> Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer din landskod, stöds SMS inte för ditt land.  Om din landskod inte är tillgänglig kan du rösta för att få ditt land tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). Under tiden är ett arbete runt att låta din åtgärds grupp anropa en webhook till en tredjeparts-SMS-provider med stöd i ditt land.  
+> Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer din landskod, stöds SMS inte för ditt land/din region.  Om lands-/region koden inte är tillgänglig kan du rösta för att få ditt land/region tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). Under tiden är ett arbete runt att låta din åtgärds grupp anropa en webhook till en tredjeparts-SMS-provider med stöd i ditt land/din region.  
 
-Priser för länder som stöds visas på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/).
+Priser för länder/regioner som stöds finns på [sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
   
 
 ### <a name="voice"></a>Röst
@@ -212,9 +212,9 @@ Mer viktig information finns i artikeln om [pris begränsning](./../../azure-mon
 Du kan ha ett begränsat antal röst åtgärder i en åtgärds grupp.
 
 > [!NOTE]
-> Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer din landskod, stöds inte röst samtal för ditt land. Om din landskod inte är tillgänglig kan du rösta för att få ditt land tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  Under tiden är ett arbete runt att be din åtgärds grupp att anropa en webhook till en röst samtals leverantör från tredje part med support i ditt land.  
+> Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer landskod, stöds inte röst samtal för ditt land/din region. Om lands-/region koden inte är tillgänglig kan du rösta för att få ditt land/region tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  Under tiden är ett arbete runt att be din åtgärds grupp att anropa en webhook till en röst samtals leverantör från tredje part med support i ditt land/din region.  
 
-Priser för länder som stöds visas på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/).
+Priser för länder/regioner som stöds finns på [sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>Webhook
 Webhook-försök görs med följande regler. Webhook-anropet görs om högst 2 gånger när följande HTTP-status koder returneras: 408, 429, 503, 504 eller HTTP-slutpunkten svarar inte. Det första återförsöket görs efter 10 sekunder. Det andra återförsöket sker efter 100 sekunder. Efter två haveri anropar ingen åtgärds grupp slut punkten i 30 minuter. 

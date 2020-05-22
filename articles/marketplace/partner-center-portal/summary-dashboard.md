@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 86bce85c6ec273b4ab5f9f00cbae68fc054f53f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7f1700cb386a197b33427e2ea615de019284d96
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262408"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738327"
 ---
-# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Sammanfattning av instrument panelen i kommersiell Marketplace-analys
+# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för sammanfattning i Commercial Marketplace-analys
 
 Den här artikeln innehåller information om sammanfattnings instrument panelen i Partner Center. Den här instrument panelen visar diagram, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för dina erbjudanden.
 
@@ -70,7 +70,7 @@ Termisk karta **kunder per geografi** visar ett kund antal på en världs karta.
 - Du kan flytta kartan för att visa den exakta platsen.
 - Du kan zooma in på en bestämd plats.
 - Termisk karta har ett kompletterande rutnät för att visa information om antalet kunder, antalet order, normaliserad användnings tid på den specifika platsen.
-- Du kan söka efter och välja ett land i rutnätet för att zooma till platsen i kartan. Återgå till den ursprungliga vyn genom att trycka på knappen **Start** på kartan.
+- Du kan söka efter och välja ett land/en region i rutnätet för att zooma till platsen i kartan. Återgå till den ursprungliga vyn genom att trycka på knappen **Start** på kartan.
 - En **ny** kund har köpt ett av dina erbjudanden för första gången under månaden inom det valda datum intervallet.
 
 ### <a name="growth-trend-charts"></a>Diagram över tillväxt trend

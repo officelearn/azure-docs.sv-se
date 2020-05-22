@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: dfd9c949767d3dc8e63e3f15ba12641f27d46b80
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: bb73494dd5fe22c3be645f732f9d0958e48edb64
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569360"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743642"
 ---
 # <a name="return-or-replace-your-azure-stack-edge-device"></a>Returnera eller Ersätt din Azure Stack Edge-enhet
 
@@ -74,7 +74,7 @@ Utför följande steg för att påbörja retur processen.
 5. Fäst frakt sedeln som du fick från Azure på paketet.
 6. Schemalägg en upphämtning med ditt regionala transportföretag. Om du returnerar enheten i USA, kan operatören vara UPS-eller FedEx. Så här schemalägger du en upphämtning med UPS:
 
-    1. Ring den lokala UPS-enheten (landsspecifika avgiftsfritt nummer).
+    1. Ring din lokala UPS (lands-/regionspecifikt avgiftsfritt nummer).
     2. I ditt samtal offerterar du det omvända försändelse spårnings numret som det visas på den utskrivna etiketten.
     3. Om spårnings numret inte är citerat, kräver UPS att du betalar ytterligare en kostnad under upphämtningen.
 

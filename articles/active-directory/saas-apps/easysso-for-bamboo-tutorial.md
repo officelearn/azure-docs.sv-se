@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/06/2020
+ms.date: 05/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 227f4a804c466af81707eca79e9d8cf6c00e52be
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: c37850d2188f560b8eb8d0b16f5a1b2880a8b32e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984365"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740662"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med EasySSO för Bamboo
 
@@ -99,7 +99,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     ![image](common/default-attributes.png)
 
 1. Utöver ovan förväntar sig EasySSO för Bamboo-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
-    
+
     | Name | Källattribut |
     | ---------------|  --------- |
     | urn: OID: 2.16.840.1.113730.3.1.241 | user.displayname |
@@ -120,7 +120,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -144,13 +144,50 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-easysso-for-bamboo-sso"></a>Konfigurera EasySSO för Bamboo SSO
 
-Om du vill konfigurera enkel inloggning på **EasySSO för Bamboo** -sidan måste du skicka **URL: en för appens Federations-metadata** till [EasySSO för Bamboo support-teamet](mailto:support@techtime.co.nz). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+1. Logga in på EasySSO för Bamboo-instansen med administratörs behörighet och gå till avsnittet **Hantera appar** .
+
+    ![EasySSO för Bamboo-konfiguration](./media/easysso-for-bamboo-tutorial/jira-admin-1.png)
+
+1. Klicka på **EasySSO**.
+
+    ![EasySSO för Bamboo-konfiguration](./media/easysso-for-bamboo-tutorial/jira-admin-2.png)
+
+1. Välj **SAML** -alternativ. Detta tar dig till avsnittet om SAML-konfiguration.
+
+    ![EasySSO för Bamboo-konfiguration](./media/easysso-for-bamboo-tutorial/jira-admin-3.png)
+
+1. Fliken Välj **certifikat** överst och du kommer att visas på följande skärm och letar reda på **certifikat (base64)** eller **metadatafilen** som du har sparat i de tidigare stegen i **Azure AD SSO** -konfigurationen. Du har följande alternativ för hur du går vidare:
+
+    ![EasySSO för Bamboo-konfiguration](./media/easysso-for-bamboo-tutorial/jira-admin-4.png)
+
+    a. Använd den app Federation- **metadatafil** som du laddade ned till en lokal fil på din dator. Välj **Ladda upp** alternativ knapp och följ dialog rutan Ladda upp fil som är unik för ditt operativ system
+
+    **ELLER**
+
+    b. Öppna appens Federations **ETA data** för att se innehållet (i valfri text redigerare) i filen och kopiera den till Urklipp. Välj **inmatat** alternativ och klistra in innehåll i Urklipp i textfältet.
+
+    **ELLER**
+
+    c. Helt manuell konfiguration. Öppna appens Federations **certifikat (base64)** om du vill se innehållet (i valfri text redigerare) i filen och kopiera det till Urklipp. Klistra in det i textfältet **IDP token Signature certificates** . Gå sedan till fliken **Allmänt** och fyll **i bindnings-URL** och **entitets-ID** med respektive värden för **inloggnings-URL** och **Azure AD-identifierare** som du sparade tidigare.
+
+1. Klicka på knappen **Spara** längst ned på sidan. Du kan se innehållet i metadata eller certifikatfiler parsas i konfigurations fälten. EasySSO för Bamboo-konfigurationen har slutförts.
+
+1. För bästa test upplevelse går du till fliken **titta & känsla** och markerar knappen för **SAML-inloggning** på. Detta aktiverar en separat knapp på EasySSO för Bamboo inloggnings skärmen för att testa Azure AD SAML-integrationen till slut. Du kan lämna den här knappen och konfigurera dess placering, färg och översättning för produktions läget.
+
+    ![EasySSO för Bamboo-konfiguration](./media/easysso-for-bamboo-tutorial/jira-admin-5.png)
+
+    > [!NOTE]
+    > Kontakta [EasySSO support team](mailto:support@techtime.co.nz)om du har några problem.
 
 ### <a name="create-easysso-for-bamboo-test-user"></a>Skapa EasySSO för Bamboo test användare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i EasySSO för Bamboo. EasySSO för Bamboo har stöd för just-in-Time User-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i EasySSO för Bamboo skapas en ny efter autentiseringen.
+I det här avsnittet skapas en användare som heter B. Simon i EasySSO för Bamboo. EasySSO för Bamboo har stöd för just-in-Time User-etablering, som är **inaktive rad** som standard. Om du vill aktivera användar etablering måste du markera kryss rutan **skapa användare på ett lyckat inloggnings** alternativ i avsnittet Allmänt i konfiguration av EasySSO-plugin-programmet. Om en användare inte redan finns i EasySSO för Bamboo skapas en ny efter autentiseringen.
 
-## <a name="test-sso"></a>Testa SSO 
+Men om du inte vill aktivera automatisk användar etablering för användaren första inloggningen måste användarna finnas i backend-användargrupper EasySSO för Bamboo-instansen använder, t. ex. LDAP eller Atlassiane full.
+
+![Användaretablering](./media/easysso-for-bamboo-tutorial/jira-admin-6.png)
+
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 

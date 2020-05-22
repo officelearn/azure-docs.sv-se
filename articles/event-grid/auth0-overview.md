@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: 17416131566edf8710737862f0cbea2e31477960
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e193b272460fe97f599adff414fcac6e80648104
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722532"
+ms.locfileid: "83738378"
 ---
 # <a name="auth0-partner-topics"></a>Avsnitt om Auth0-partner
 ![Auth0-logotyp](./media/auth0-overview/auth0-logo.png)
@@ -46,6 +46,6 @@ Det är viktigt att kombinera säkerhets övervakning och incident svars procedu
 
 - [Översikt över partner ämnen](partner-topics-overview.md)
 - [Så här använder du Auth0-partner ämnet](auth0-how-to.md)
-- [Dokumentation om Auth0](https://auth0.com/docs/logs/streams/azure-eventgrid)
+- [Dokumentation om Auth0](https://auth0.com/docs/azure-tutorial)
 - [Bli en Event Grid-partner](partner-onboarding-overview.md)
 

@@ -1,20 +1,26 @@
 ---
-title: Skapa en bevakare-uppgift i Azure Automation kontot
-description: Lär dig hur du skapar en bevakare-aktivitet i Azure Automation-kontot och titta efter nya filer som skapats i en mapp.
+title: Spåra uppdaterade filer med en Azure Automation bevakare-uppgift
+description: Den här artikeln beskriver hur du skapar en bevakare-uppgift i Azure Automation-kontot för att titta efter nya filer som skapats i en mapp.
 services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 1175350e7f9f4db92d7d59eba0cc66ac4bb49f5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c41437773cf45e51e90dc55ad37e198c77f4373
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617359"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744154"
 ---
-# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Skapa en Azure Automation bevakare-aktiviteter för att spåra fil ändringar på en lokal dator
+# <a name="track-updated-files-with-a-watcher-task"></a>Spåra uppdaterade filer med en bevakare-uppgift
 
 Azure Automation använder en bevakare-uppgift för att söka efter händelser och utlösa åtgärder med PowerShell-Runbooks. Bevakaren innehåller två delar, bevakaren och åtgärden. En bevakad runbook körs enligt ett intervall som definierats i övervaknings aktiviteten och matar ut data till en åtgärds-Runbook. 
+
+> [!NOTE]
+> Övervaknings uppgifter stöds inte i Azure Kina Vianet 21.
+
+> [!IMPORTANT]
+> Från och med maj 2020 är det möjligt att använda Azure Logic Apps för att övervaka händelser, schemalägga återkommande uppgifter och utlösa åtgärder. Se [schemalägga och köra återkommande automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 Den här självstudien vägleder dig genom att skapa en bevakare-uppgift som ska övervakas när en ny fil läggs till i en katalog. Lär dig att:
 
@@ -34,9 +40,6 @@ Följande krävs för att genomföra kursen:
 * [Automation-konto](automation-offering-get-started.md) för att lagra övervakare och åtgärds-Runbooks och övervaknings aktiviteten.
 * En [hybrid Runbook Worker](automation-hybrid-runbook-worker.md) där övervaknings aktiviteten körs.
 * PowerShell-Runbooks. PowerShell Workflow-Runbooks stöds inte av bevakade uppgifter.
-
-> [!NOTE]
-> Övervaknings uppgifter stöds inte i Azure Kina.
 
 ## <a name="import-a-watcher-runbook"></a>Importera en övervakare Runbook
 
@@ -166,5 +169,5 @@ I den här självstudiekursen lärde du dig att:
 Följ den här länken om du vill veta mer om hur du redigerar din egen Runbook.
 
 > [!div class="nextstepaction"]
-> [Min första PowerShell-Runbook](automation-first-runbook-textual-powershell.md).
+> [Skapa en PowerShell-runbook](learn/automation-tutorial-runbook-textual-powershell.md)
 

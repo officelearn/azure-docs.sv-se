@@ -1,37 +1,34 @@
 ---
-title: Använd Azure Resource Manager mallar för att publicera Uppdateringshantering | Microsoft Docs
-description: Du kan använda en Azure Resource Manager-mall för att publicera Azure Automation Uppdateringshantering-lösningen.
+title: Aktivera Uppdateringshantering med Azure Resource Manager-mall | Microsoft Docs
+description: Den här artikeln beskriver hur du använder en Azure Resource Manager-mall för att aktivera Uppdateringshantering.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: dd8706c1e95e6b1e4ca4a38d4a336f6186464696
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 9e4396a1def5b032077c1c15c2d10b7f3452853f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872199"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743466"
 ---
-# <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Publicera Uppdateringshantering-lösning med Azure Resource Manager-mall
+# <a name="enable-update-management-using-azure-resource-manager-template"></a>Aktivera Uppdateringshantering med Azure Resource Manager-mall
 
-Du kan använda [Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md) för att aktivera Azure Automation uppdateringshantering-lösningen i din resurs grupp. Den här artikeln innehåller en exempel mall som automatiserar följande:
+Du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/templates/template-syntax.md) för att aktivera funktionen Azure Automation uppdateringshantering i resurs gruppen. Den här artikeln innehåller en exempel mall som automatiserar följande:
 
 * Skapa en Azure Monitor Log Analytics-arbetsyta.
 * Skapa ett Azure Automation-konto.
 * Länkar Automation-kontot till Log Analytics-arbetsytan, om det inte redan är länkat.
-* Onboarding The Azure Automation Uppdateringshantering-lösningen.
+* Aktiverar Uppdateringshantering.
 
-Mallen automatiserar inte onboarding av en eller flera virtuella Azure-eller icke-Azure-datorer.
+Mallen automatiserar inte aktiveringen av en eller flera virtuella Azure-eller icke-Azure-datorer.
 
-Om du redan har en Log Analytics arbets yta och ett Automation-konto som har distribuerats i en region som stöds i din prenumeration är de inte länkade. Den Uppdateringshantering-lösningen har inte distribuerats på arbets ytan. Genom att använda den här mallen skapas länken och distribuerar Uppdateringshantering-lösningen. 
-
->[!NOTE]
->**Nxautomation** -användaren som ingår i uppdateringshantering på Linux kör bara signerade Runbooks.
+Om du redan har en Log Analytics arbets yta och ett Automation-konto som har distribuerats i en region som stöds i din prenumeration är de inte länkade. Arbets ytan har inte redan Uppdateringshantering aktive rad. Med den här mallen skapas länken och distribuerar Uppdateringshantering för dina virtuella datorer. 
 
 >[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
+>**Nxautomation** -användaren som är aktive rad som en del av uppdateringshantering på Linux kör bara signerade Runbooks.
 
 ## <a name="api-versions"></a>API-versioner
 
@@ -244,10 +241,10 @@ Det är viktigt att förstå följande konfigurations information om du är nyb�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har distribuerat Uppdateringshantering-lösningen kan du aktivera virtuella datorer för hantering, granska uppdaterings utvärderingar och distribuera uppdateringar för att göra dem kompatibla.
+Nu när du har Uppdateringshantering aktiverat kan du aktivera virtuella datorer för hantering, granska uppdaterings utvärderingar och distribuera uppdateringar för att göra dem kompatibla.
 
-- Från ditt [Azure Automation-konto](automation-onboard-solutions-from-automation-account.md) för en eller flera Azure-datorer och manuellt för datorer som inte är Azure-datorer.
+- Från ditt [Azure Automation-konto](automation-onboard-solutions-from-automation-account.md) för en eller flera Azure-datorer och manuellt för datorer som inte är Azure-datorer
 
-- För en enskild virtuell Azure-dator från sidan virtuell dator i Azure Portal. Det här scenariot är tillgängligt för virtuella [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) -och [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) -datorer.
+- För en enskild virtuell Azure-dator från sidan virtuell dator i Azure Portal. Det här scenariot är tillgängligt för virtuella [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) -och [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) -datorer
 
-- För [flera virtuella Azure-datorer](manage-update-multi.md) genom att välja dem från sidan **virtuella datorer** i Azure Portal. 
+- För [flera virtuella Azure-datorer](manage-update-multi.md) genom att välja dem från sidan **virtuella datorer** i Azure Portal 

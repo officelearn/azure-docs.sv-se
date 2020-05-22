@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: ab41d3619150ace8e55702792d5974060133d5c1
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 7ecd68023c5c48a82c07d98615807a895cdd0cae
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726187"
+ms.locfileid: "83743108"
 ---
 # <a name="create-an-azure-virtual-machine-offer-in-azure-marketplace"></a>Skapa ett erbjudande för virtuell Azure-dator på Azure Marketplace
 
@@ -370,7 +370,7 @@ På den här fliken konfigurerar du följande:
 
 #### <a name="markets"></a>Marknaden
 
-Varje plan måste vara tillgänglig på minst en marknad. Markera kryss rutan för varje marknads plats där den här planen ska vara tillgänglig för köp (användare på dessa marknader kan fortfarande distribuera erbjudandet till alla Azure-regioner som valts i **[Planera installationen](#plan-setup)**). Knappen **skatt mottagare** visar länder där Microsoft betalar och använder moms för din räkning. Publicering till Kina är begränsad till planer som antingen är **kostnads fria** eller **Bring Your Own License** (BYOL).
+Varje plan måste vara tillgänglig på minst en marknad. Markera kryss rutan för varje marknads plats där den här planen ska vara tillgänglig för köp (användare på dessa marknader kan fortfarande distribuera erbjudandet till alla Azure-regioner som valts i **[Planera installationen](#plan-setup)**). Knappen **skatt remitterad** visar länder/regioner där Microsoft betalar och använder moms för din räkning. Publicering till Kina är begränsad till planer som antingen är **kostnads fria** eller **Bring Your Own License** (BYOL).
 
 Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en annan marknads plats kommer priset för den nya marknaden att beräknas enligt aktuella växelkurser. Granska alltid priset för varje marknad innan du publicerar. Granska priserna med hjälp av länken **export priser (xlsx)** när du har sparat ändringarna.
 
@@ -503,7 +503,7 @@ Det **manuella validerings** steget i publicerings processen representerar en om
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och pågående) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
+Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Ett exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)

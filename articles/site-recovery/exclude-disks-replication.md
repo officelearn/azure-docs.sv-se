@@ -3,12 +3,12 @@ title: Undanta diskar från replikering med Azure Site Recovery
 description: Så här undantar du diskar från replikering till Azure med Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: abecc19cac57a4a95d01b7a7ec076259088b101b
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900288"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740532"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exkludera diskar från haveri beredskap
 
@@ -24,9 +24,9 @@ Den här artikeln beskriver hur du undantar diskar från replikering under haver
 
 Du kan undanta diskar från replikeringen som sammanfattas i tabellen.
 
-**Azure till Azure** | **VMware till Azure** | **Hyper-V till Azure** 
---- | --- | ---
-Ja | Ja | Ja 
+**Azure till Azure** | **VMware till Azure** | **Hyper-V till Azure** | **Fysisk server till Azure**
+--- | --- | --- | ---
+Ja | Ja | Ja | Ja
 
 ## <a name="exclude-limitations"></a>Uteslut begränsningar
 
@@ -179,7 +179,7 @@ Efter planerad redundansväxling (failback) från Azure till lokal Hyper-V har d
 DB-Disk0-OS | Disk0 |   C:\ | Operativ system disk.
 DB-Disk1 | Disk1 | D:\ | SQL system Database och User Databas1.
 DB-Disk2 (utesluten disk) | Disk2 | E:\ | Temporära filer.
-DB-Disk3 (utesluten disk) | Disk3 | F:\ | SQL tempdb-databas<br/><br/> Mappsökväg (F:\MSSQL\Data\).
+DB-Disk3 (utesluten disk) | Disk3 | F:\ | SQL tempdb-databas<br/><br/> Mappsökväg (F:\MSSQL\Data \) .
 DB-Disk4 | Disk4 | G:\ | Användardatabas2
 
 

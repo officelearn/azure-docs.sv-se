@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 03/30/2020
+ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 01aff34839cc7385834468a08f30696efe84561f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 356506224a0273eeea65f0f901fbc79c338498d2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614777"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743608"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Anslutningar till virtuella Windows-datorer
 
@@ -39,45 +39,6 @@ Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 Bekräfta att användaren loggar in med rätt autentiseringsuppgifter.
 
 Om webb klienten används kontrollerar du att det inte finns några problem med cachelagrade autentiseringsuppgifter.
-
-## <a name="windows-10-enterprise-multi-session-virtual-machines-dont-respond"></a>Virtuella datorer med Windows 10 Enterprise multi-session svarar inte
-
-Om en virtuell dator inte svarar och du inte kan komma åt den via RDP, måste du Felsöka den med funktionen diagnostik genom att kontrol lera värd statusen.
-
-Kör denna cmdlet för att kontrol lera värd statusen:
-
-```powershell
-Get-RdsSessionHost -TenantName $TenantName -HostPoolName $HostPool | ft SessionHostName, LastHeartBeat, AllowNewSession, Status
-```
-
-Om värd statusen är `NoHeartBeat`, innebär det att den virtuella datorn inte svarar och att agenten inte kan kommunicera med Windows Virtual Desktop-tjänsten.
-
-```powershell
-SessionHostName          LastHeartBeat     AllowNewSession    Status 
----------------          -------------     ---------------    ------ 
-WVDHost1.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost2.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost3.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-```
-
-Det finns några saker du kan göra för att åtgärda nopulsslag-statusen.
-
-### <a name="update-fslogix"></a>Uppdatera FSLogix
-
-Om din FSLogix inte är uppdaterad, särskilt om det är version 2.9.7205.27375 av frxdrvvt. sys, kan det orsaka ett död läge. Se till att [Uppdatera FSLogix till den senaste versionen](https://go.microsoft.com/fwlink/?linkid=2084562).
-
-### <a name="disable-bgtaskregistrationmaintenancetask"></a>Inaktivera BgTaskRegistrationMaintenanceTask
-
-Om uppdatering av FSLogix inte fungerar kan problemet vara att en BiSrv-komponent förbrukar system resurser under en veckovis underhålls uppgift. Inaktivera underhålls aktiviteten tillfälligt genom att inaktivera BgTaskRegistrationMaintenanceTask med någon av följande två metoder:
-
-- Gå till Start-menyn och Sök efter **Schemaläggaren**. Gå till **biblioteket** > för Schemaläggaren**Microsoft** > **Windows** > -**BrokerInfrastructure**. Leta efter en aktivitet med namnet **BgTaskRegistrationMaintenanceTask**. När du har hittat den högerklickar du på den och väljer **inaktivera** på den nedrullningsbara menyn.
-- Öppna en kommando rads meny som administratör och kör följande kommando:
-    
-    ```cmd
-    schtasks /change /tn "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask" /disable 
-    ```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 54b45825f2322dc127d5db818b7abe52e4a98967
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f5e4515cfbacb656f60492613b5379c0bde60244
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208405"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736032"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella Marketplace-konto i Partner Center
 
@@ -64,7 +64,7 @@ I avsnittet kontakt information ser du **visnings namnet för utgivaren**, **sä
 
 #### <a name="payout-account"></a>Konto utbetalning
 
-Ett utbetalnings konto är Bank kontot som fortsätter skickas från din försäljning. Detta bank konto måste finnas i samma land som du registrerade ditt partner Center-konto.
+Ett utbetalnings konto är Bank kontot som fortsätter skickas från din försäljning. Det här bank kontot måste finnas i samma land/region där du registrerade ditt partner Center-konto.
 
 Så här konfigurerar du ditt utbetalnings konto:
 
@@ -80,21 +80,21 @@ Så här konfigurerar du ditt utbetalnings konto:
 
 Granska din aktuella moms profil status och bekräfta att rätt **typ av entitetstyp** och **information om skatte certifikat** visas. Välj **Redigera** för att uppdatera eller fylla i nödvändiga formulär.
 
-För att fastställa din skatte status måste du ange ditt hemland och ditt medborgarskap och fylla i lämpliga skatte formulär som är kopplade till ditt land/din region.
+För att kunna upprätta din skatte status måste du ange land/region för bosättning och medborgarskap och fylla i lämpliga skatte formulär som är kopplade till ditt land/din region.
 
-Oavsett ditt hemland eller medborgarskap måste du fylla i USA skatte formulär för att sälja erbjudanden via Microsoft. Partner som uppfyller vissa USA placering krav måste fylla i ett IRS W-9-formulär. Andra partner utanför USA måste fylla i ett IRS-W-8-formulär. Du kan fylla i dessa formulär online när du har slutfört din skatte profil.
+Oavsett land/region för bosättning eller medborgarskap måste du fylla i USA skatte former för att sälja erbjudanden via Microsoft. Partner som uppfyller vissa USA placering krav måste fylla i ett IRS W-9-formulär. Andra partner utanför USA måste fylla i ett IRS-W-8-formulär. Du kan fylla i dessa formulär online när du har slutfört din skatte profil.
 
 En USA individuellt Taxpayer Identification Number (eller ITIN) krävs inte för att få betalningar från Microsoft eller för att göra anspråk på bidrag för skatte fördrag.
 
 Du kan slutföra och skicka in dina skatte formulär elektroniskt i Partner Center. i de flesta fall behöver du inte skriva ut och skicka e-post till några formulär.
 
-Olika länder och regioner har olika skatte krav. Den exakta mängd som du måste betala i skatter beror på de länder och regioner där du säljer dina erbjudanden. Microsoft betalar och använder moms för din räkning i vissa länder. De här länderna identifieras i den process där ditt erbjudande visas. I andra länder, beroende på var du är registrerad, kan du behöva betala försäljnings-och användnings skatt för din försäljning direkt till den lokala beskattnings-utfärdaren. Dessutom kan de försäljnings vinster du får vara skattepliktiga. Vi rekommenderar starkt att du kontaktar den behöriga myndigheten för ditt land eller din region som kan hjälpa dig att fastställa rätt skatte information för dina Microsoft Sales-transaktioner.
+Olika länder och regioner har olika skatte krav. Den exakta mängd som du måste betala i skatter beror på de länder och regioner där du säljer dina erbjudanden. Microsoft remitterar försäljning och använder skatt för din räkning i vissa länder/regioner. Dessa länder/regioner identifieras i den process där ditt erbjudande visas. I andra länder/regioner, beroende på var du är registrerad, kan du behöva betala försäljnings-och användnings skatt för din försäljning direkt till den lokala beskattnings-utfärdaren. Dessutom kan de försäljnings vinster du får vara skattepliktiga. Vi rekommenderar starkt att du kontaktar den behöriga myndigheten för ditt land eller din region som kan hjälpa dig att fastställa rätt skatte information för dina Microsoft Sales-transaktioner.
 
 ##### <a name="withholding-rates"></a>Käll frekvens
-Den information som du skickar i dina skatte formulär avgör vilken käll avgift som behövs. Käll priset gäller endast för försäljning som du gör i USA. försäljning som görs till platser utanför USA omfattas inte av indrag. Käll priserna varierar, men för de flesta utvecklare som registrerar utanför USA är standard priset 30%. Du kan välja att minska denna taxa om ditt land har samtyckt till ett inkomst skatte avtal med USA.
+Den information som du skickar i dina skatte formulär avgör vilken käll avgift som behövs. Käll priset gäller endast för försäljning som du gör i USA. försäljning som görs till platser utanför USA omfattas inte av indrag. Käll priserna varierar, men för de flesta utvecklare som registrerar utanför USA är standard priset 30%. Du kan välja att minska den här hastigheten om ditt land/din region har samtyckt till ett inkomst skatte avtal med USA.
 
 ##### <a name="tax-treaty-benefits"></a>Förmåner för skatte fördrag
-Om du befinner dig utanför USA kanske du kan dra nytta av fördelarna med moms avtal. De här fördelarna varierar från land till land, och kan göra att du kan minska den mängd av skatter som Microsoft drar. Du kan göra anspråk på skatte förmåner genom att fylla i del II i formuläret W-8BEN. Vi rekommenderar att du kommunicerar med lämpliga resurser i ditt land eller din region för att avgöra om dessa förmåner gäller dig.
+Om du befinner dig utanför USA kanske du kan dra nytta av fördelarna med moms avtal. De här fördelarna varierar från land/region till land/region, och kan göra att du kan minska den mängd av skatter som Microsoft drar. Du kan göra anspråk på skatte förmåner genom att fylla i del II i formuläret W-8BEN. Vi rekommenderar att du kommunicerar med lämpliga resurser i ditt land eller din region för att avgöra om dessa förmåner gäller dig.
 
 [Läs mer om skatte information för Windows app/Game-utvecklare och Azure Marketplace-utgivare](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
 
@@ -134,7 +134,7 @@ Mer information finns i [vanliga frågor och svar om att spåra Azure kund anvä
 
 Om du publicerar en [Dynamics 365 för kund engagemang & Power Apps](./create-new-customer-engagement-offer.md) eller [Dynamics 365 for Operations](./create-new-operations-offer.md) -erbjudandet måste du slutföra din **fakturerings profil**.
 
-Fakturerings adressen är förifylld från din juridiska organisation och du kan uppdatera den här adressen senare. Fälten skatte-och moms-ID är valfria.  Det går inte att redigera lands namnet och företags namnet.
+Fakturerings adressen är förifylld från din juridiska organisation och du kan uppdatera den här adressen senare. Fälten skatte-och moms-ID är valfria.  Det går inte att redigera lands-/region namn och företags namn.
 
 ## <a name="multi-user-account-management"></a>Hantering av flera användar konton
 
@@ -291,7 +291,7 @@ Ditt företags användare kan tilldelas följande roller och behörigheter för 
 - **Ansvarig**
   - Kan komma åt alla Microsoft-konto funktioner utom skatte-och utbetalnings inställningar
   - Kan hantera användare, roller och arbets konton (klient organisationer)
-- **Developer**
+- **Utvecklare**
   - Kan hantera och publicera erbjudanden
   - Kan visa vissa Publisher-rapporter
 

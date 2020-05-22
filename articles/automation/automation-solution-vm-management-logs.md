@@ -1,18 +1,18 @@
 ---
-title: Så här frågar du efter loggar från Starta/stoppa virtuella datorer när de inte används
-description: Den här artikeln beskriver hur du frågar logg data som genereras av Starta/stoppa virtuella datorer när de inte används lösning från Azure Monitor.
+title: Fråga efter loggar från Azure Automation Starta/stoppa virtuella datorer när de inte används
+description: Den här artikeln beskriver hur du använder Azure Monitor för att fråga logg data som genereras av Starta/stoppa virtuella datorer när de inte används.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 472baa3f4b3cbb970a8f365ccc94929ad565c421
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 49b573c5cd0125ba378f01db05b925f8e5eef3eb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864240"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743713"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-during-off-hours"></a>Så här frågar du efter loggar från Starta/stoppa virtuella datorer när de inte används
+# <a name="query-logs-from-startstop-vms-during-off-hours"></a>Fråga efter loggar från Starta/stoppa virtuella datorer när de inte används
 
 Azure Automation vidarebefordrar två typer av poster till den länkade Log Analytics arbets ytan: jobb loggar och jobb strömmar. Den här artikeln granskar de data som är tillgängliga för [fråga](../azure-monitor/log-query/log-query-overview.md) i Azure Monitor.
 
@@ -60,7 +60,7 @@ När du utför en loggs ökning som returnerar kategori poster för **JobLogs** 
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 
-Följande tabell innehåller exempel på sökningar i loggen för jobbposter som har samlats in av den här lösningen.
+Följande tabell innehåller exempel på loggs ökningar för jobb poster som samlas in av Starta/stoppa virtuella datorer när de inte används.
 
 |Söka i data | Beskrivning|
 |----------|----------|
@@ -71,4 +71,6 @@ Följande tabell innehåller exempel på sökningar i loggen för jobbposter som
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den **Starta/stoppa virtuella datorer när de inte används** lösningen innehåller ingen fördefinierad uppsättning aviseringar. Granska [aviseringarna skapa logg](../azure-monitor/platform/alerts-log.md) med Azure Monitor för att lära dig hur du skapar misslyckade jobb aviseringar som stöder dina DevOps eller operativa processer och procedurer.
+* [Skapa logg aviseringar med Azure Monitor](../azure-monitor/platform/alerts-log.md)
+* [Konfigurera stoppa/starta virtuella datorer vid andra tider](automation-solution-vm-management-config.md)
+* [Felsöka Starta/stoppa virtuella datorer när de inte används problem](troubleshoot/start-stop-vm.md)

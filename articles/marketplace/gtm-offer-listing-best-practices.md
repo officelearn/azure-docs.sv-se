@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: bf2c4ff1afbf3558d6c49cf7bec90cd37e17929b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 33effe0bbc566880b147c377b3bb130cd81999c8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658011"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740781"
 ---
 # <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
@@ -22,7 +22,7 @@ Den här artikeln innehåller förslag på hur du kan skapa och engagera kommers
 
 | Butik-inställning | Regelverk |
 |:--- |:--- |  
-| Erbjudandets namn | Ange en stark rubrik:<br> <ul> <li> Appens namn bör meddela kundens kärn värde. </li> <li> Inkludera Sök nyckelord i din app-titel för att få högre rangordning i sökmotorns resultat. </li> </ul> Följ ett uppsättnings rubrik format för konsult tjänst listor:<br>[Erbjudandets namn: [duration] [erbjudande typ] (till exempel *contoso: 2-veckors implementering*) <br><br> Följa rikt linjerna för varumärken:<br>Följ [rikt linjerna för Microsofts](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) varumärken och varumärke och andra relevanta, produktspecifika rikt linjer när du refererar till Microsofts varumärken och namn på Microsoft-programvara, produkter och tjänster. |
+| Erbjudandets namn | Ange en stark rubrik:<br> <ul> <li> Appens namn bör meddela kundens kärn värde. </li> <li> Inkludera Sök nyckelord i din app-titel för att få högre rangordning i sökmotorns resultat. </li> </ul> Följ ett uppsättnings rubrik format för konsult tjänst listor:<br>[Erbjudandets namn: [duration] [erbjudande typ] (till exempel *contoso: 2-veckors implementering*) <br><br> Följa rikt linjerna för varumärken:<br>Följ [rikt linjerna för Microsofts](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) varumärken och varumärke och andra relevanta, produktspecifika rikt linjer när du refererar till Microsofts varumärken och namn på Microsoft-programvara, produkter och tjänster. |
 | Beskrivning av erbjudande | Ange en beskrivning av klart erbjudande:<br> <ul> <li> Beskriv tydligt ditt erbjudande värde i de första meningarna i beskrivningen. </li> <li> Tänk på att de första meningarna kan visas i Sök motorns resultat. </li> <li> Förlita dig inte på funktioner och funktioner för att sälja produkten. Fokusera i stället på det värde som du levererar. </li> <li> Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt.</li> <li> Konsult tjänst listorna måste dessutom tydligt ange den professionella tjänst som du tillhandahåller. </li></ul> Kärn komponenterna i dina värde förslag bör innehålla följande information:<ul><li>Beskrivning av produkten.</li><li>Typ av användare som fördelar från produkten.</li><li>Kunden behöver eller återger produkt adressen.</li></ul> |
 
 Tabellerna i det här avsnittet innehåller förslag på hur du skapar och engagerar Marketplace-erbjudanden. Om du vill skriva och konfigurera marknadsförings material går du till [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/). 
@@ -49,7 +49,7 @@ Du kan välja upp till två kategorier och två under Kategorier för ett erbjud
 | Distribution    | * Grossist <br> * Leverans paket & paket |
 | Education     | * Högre utbildning <br> * Primär & sekundär utbildning/K-12 <br> * Bibliotek & Museums |
 | Ekonomiska tjänster     | * Bank & kapital marknader <br> * Försäkring |
-| Myndigheter    | * Försvar & Intelligence (används för att kallas för nationell och offentlig säkerhet) <br> * Allmän säkerhets & rättvisa <br> * Civila myndigheter |
+| Government    | * Försvar & Intelligence (används för att kallas för nationell och offentlig säkerhet) <br> * Allmän säkerhets & rättvisa <br> * Civila myndigheter |
 | Sjukvård (används för att kallas hälsa)   | * Hälso betalare <br> * Hälso leverantör <br> * Farmaceutiska |
 | & resurser för produktion (används för att kallas produktion)   | * Kemisk & Agrochemical <br> * Diskret tillverkning <br> * Energi |
 | Butiks & konsument varor (som används för att kallas detalj handel)  | * Konsument varor <br> * Åter försäljare |

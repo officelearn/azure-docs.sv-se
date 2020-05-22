@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
-ms.openlocfilehash: aa2931440b538346d9f1aa9d0ec967f1a812d56b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6eec99594ca748fa0610c60c83fd58e388f7923
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241020"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742894"
 ---
 # <a name="geospatial-apis-to-add-maps-spatial-analytics-and-mobility-solutions-with-azure-maps"></a>Geospatiala API: er för att lägga till kartor, lösningar för spatial analys och mobilitet med Azure Maps
 
@@ -25,7 +25,7 @@ ms.locfileid: "80241020"
 - **Routning**: visar de kortaste eller snabbaste vägarna som är tillgängliga för flera destinationer vid en angiven tidpunkt. Routning tillhandahåller också specialiserade vägar och fakta för avsökningar, cyklister och kommersiella bilar.
 - **Tids zoner**: gör det enkelt att se hur lång tid det är på plats i världen.
 - **Spatiala åtgärder**: förbättra plats information.
-- **Geolokalisering**: söker efter land i en IP-adress.
+- **Geolokalisering**: söker efter land/region för en IP-adress.
 - **Data tjänst**: laddar upp och lagrar geospatiala data som ska användas med spatiala åtgärder eller bild sammansättning.
 - **Mobilitet**: tillhandahåller lokaliserings information i real tid för närliggande offentliga överförings tjänster. Stopp, routningsinformation och res tids uppskattningar ingår.
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 04/08/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: cef4f83881aed67c46477110de530bbf191ee39f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff83a9a4e4bfd4c27dd3f8d3f212e489c3772eb4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984781"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741617"
 ---
 # <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Lägga till personliga Microsoft-konton i Microsoft Authenticator-appen
 
@@ -59,7 +59,7 @@ Du kan lägga till din personliga Microsoft-konto genom att först aktivera två
 
     ![Välj antingen en Microsoft-konto eller skanna en QR-kod när den är tillgänglig](media/user-help-auth-app-add-personal-ms-account/add-account-android.png)
 
-1. Logga in på ditt personliga konto med lämplig e-postadress (till exempel alain@outlook.com) och välj sedan **Nästa**.
+1. Logga in på ditt personliga konto med lämplig e-postadress (till exempel alain@outlook.com ) och välj sedan **Nästa**.
 
     >[!Note]
     >Om du inte har någon personlig Microsoft-konto [kan du skapa ett](https://account.microsoft.com/account/Account?refd=www.bing.com&ru=https%3A%2F%2Faccount.microsoft.com%2F%3Frefd%3Dwww.bing.com&destrt=home-index).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0256e5c60a417cec47f90cd6ec30fe9208f47f7f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792895"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738293"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Konfigurera utbetalningskonto och deklarationsblanketter
 
@@ -36,13 +36,13 @@ När du har konfigurerat ditt konto finns det två saker du måste göra innan d
 
 Först måste du skapa en skatte profil och tilldela den till de program som du deltar i. Du kan skapa din *skatte profil* för den kommersiella marknads platsen genom att utföra följande steg:
 
-- Ange ditt hemland och medborgarskap.
+- Ange land/region för bosättning och medborgarskap.
 - Fyll i lämpliga skatte formulär.
 
 Du kan slutföra och skicka in dina skatte formulär elektroniskt i Partner Center. i de flesta fall behöver du inte skriva ut och skicka e-post till några formulär.
 
 > [!IMPORTANT]
-> Olika länder och regioner har olika skatte krav. Den exakta mängd som du måste betala i skatter beror på de länder och regioner där du säljer ditt erbjudande. Se [Microsoft Azure Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/p/?LinkID=699560) för att ta reda på för vilka länder som Microsoft betalar och använder skatt för din räkning. I andra länder, beroende på var du är registrerad, kan du behöva betala försäljnings-och användnings skatt för din erbjudande försäljning direkt till den lokala beskattnings-utfärdaren. Dessutom kan app Sales-processen som du får vara skattepliktig som intäkt. Vi rekommenderar starkt att du kontaktar den behöriga myndigheten för ditt land eller din region som bäst kan hjälpa dig att fastställa rätt skatte information för dina kommersiella Marketplace-aktiviteter.
+> Olika länder och regioner har olika skatte krav. Den exakta mängd som du måste betala i skatter beror på de länder och regioner där du säljer ditt erbjudande. Se [Microsoft Azure Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/p/?LinkID=699560) för att ta reda på vilka länder/regioner som Microsoft betalar och använder för att betala för din räkning. I andra länder/regioner, beroende på var du är registrerad, kan du behöva betala försäljnings-och användnings skatt för din erbjudande försäljning direkt till den lokala beskattnings-utfärdaren. Dessutom kan app Sales-processen som du får vara skattepliktig som intäkt. Vi rekommenderar starkt att du kontaktar den behöriga myndigheten för ditt land eller din region som bäst kan hjälpa dig att fastställa rätt skatte information för dina kommersiella Marketplace-aktiviteter.
 
 1. I [partner Center](https://partner.microsoft.com/dashboard)väljer du ikonen **konto inställningar** i det övre högra hörnet och väljer sedan inställningar för **utvecklare**.
 
@@ -54,20 +54,20 @@ Du kan slutföra och skicka in dina skatte formulär elektroniskt i Partner Cent
 
 5. Klicka på **Redigera** om du vill redigera din skatte information.
 
-6. Välj lämplig alternativ knapp och välj land om du uppmanas att göra det. Det här steget avgör vilken Microsoft Business-entitet som ska användas för att göra utbetalningar på ditt konto.
+6. Välj lämplig alternativ knapp och välj land/region om du uppmanas att göra det. Det här steget avgör vilken Microsoft Business-entitet som ska användas för att göra utbetalningar på ditt konto.
 
-7. Beroende på dina val i steg 6 uppmanas du att ange skatte information som krävs för ditt land.
+7. Beroende på dina val i steg 6 uppmanas du att ange skatte information som krävs för ditt land/din region.
 
    > [!NOTE]
-   > Oavsett ditt hemland eller medborgarskap måste du fylla i USA skatte former för att sälja erbjudanden eller tillägg via den kommersiella Marketplace. Utgivare som uppfyller vissa USA placering krav måste fylla i ett IRS W-9-formulär. Andra utgivare utanför USA måste fylla i ett IRS-W-8-formulär. Du kan fylla i dessa formulär online när du har slutfört din skatte profil.
+   > Oavsett land/region för bosättning eller medborgarskap måste du fylla i USA skatte former för att sälja alla erbjudanden eller tillägg via den kommersiella Marketplace. Utgivare som uppfyller vissa USA placering krav måste fylla i ett IRS W-9-formulär. Andra utgivare utanför USA måste fylla i ett IRS-W-8-formulär. Du kan fylla i dessa formulär online när du har slutfört din skatte profil.
 
 ### <a name="withholding-rates"></a>Käll frekvens
 
-Den information som du skickar i dina skatte formulär avgör vilken käll avgift som behövs. Käll priset gäller endast för försäljning som du gör i USA. försäljning som görs till platser utanför USA omfattas inte av indrag. Käll priserna varierar, men för de flesta utgivare som registrerar sig utanför USA är standard priset 30%. Du kan välja att minska denna taxa om ditt land har samtyckt till ett inkomst skatte avtal med USA.
+Den information som du skickar i dina skatte formulär avgör vilken käll avgift som behövs. Käll priset gäller endast för försäljning som du gör i USA. försäljning som görs till platser utanför USA omfattas inte av indrag. Käll priserna varierar, men för de flesta utgivare som registrerar sig utanför USA är standard priset 30%. Du kan välja att minska den här hastigheten om ditt land/din region har samtyckt till ett inkomst skatte avtal med USA.
 
 ### <a name="tax-treaty-benefits"></a>Förmåner för skatte fördrag
 
-Om du befinner dig utanför USA kanske du kan dra nytta av fördelarna med moms avtal. De här fördelarna varierar från land till land, och kan göra att du kan minska den mängd skatter som de kommersiella Marketplace-webbplatserna har. Du kan göra anspråk på skatte förmåner genom att fylla i del II i formuläret W-8BEN. Vi rekommenderar att du kommunicerar med lämpliga resurser i ditt land eller din region för att avgöra om dessa förmåner gäller dig.
+Om du befinner dig utanför USA kanske du kan dra nytta av fördelarna med moms avtal. De här fördelarna skiljer sig från land/region till land/region, och kan göra det möjligt att minska den mängd skatter som de kommersiella Marketplace-datorerna har. Du kan göra anspråk på skatte förmåner genom att fylla i del II i formuläret W-8BEN. Vi rekommenderar att du kommunicerar med lämpliga resurser i ditt land eller din region för att avgöra om dessa förmåner gäller dig.
 
 > [!NOTE]
 > En USA individuellt Taxpayer Identification Number (eller ITIN) krävs inte för att få betalningar från Microsoft eller för att göra anspråk på bidrag för skatte fördrag.

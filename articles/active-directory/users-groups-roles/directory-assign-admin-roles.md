@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef321e82f1737df4b13d259824acd943a7eea440
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a15de41dc2dce4cae0a6155bfce8a8a2001b9a8b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649350"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798802"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -82,7 +82,7 @@ Användare med den här rollen kan ange eller återställa autentiseringsuppgift
 Rollen [Privileged Authentication Administrator](#privileged-authentication-administrator) har behörighet kan framtvinga omregistrering och Multi-Factor Authentication för alla användare.
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Till exempel:
+> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Ett exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och inte beviljas till autentiserings administratörer. Genom den här sökvägen kan en administratörs administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -99,14 +99,6 @@ Alla Enterprise Azure DevOps-principer kan hanteras av användare i den här rol
 ### <a name="azure-information-protection-administrator"></a>[Azure Information Protection administratör](#azure-information-protection-administrator-permissions)
 
 Användare med den här rollen har alla behörigheter i Azure Information Protections tjänsten. Med den här rollen kan du konfigurera etiketter för Azure Information Protection principen, hantera skydds mallar och aktivera skydd. Den här rollen beviljar inte några behörigheter i identitets skydds centret, Privileged Identity Management, övervaka Office 365 Service Health eller Office 365 Security & Compliance Center.
-
-### <a name="b2c-user-flow-administrator"></a>[B2C användar flödes administratör](#b2c-user-flow-administrator-permissions)
-
-Användare med den här rollen kan skapa och hantera B2C-Användarflöden (kallas även "inbyggda" principer) i Azure Portal.Genom att skapa eller redigera användar flöden kan dessa användare ändra HTML/CSS/JavaScript-innehåll i användar upplevelsen, ändra MFA-krav per användar flöde, ändra anspråk i token och justera sessionsinställningar för alla principer i Azure AD-organisationen. Å andra sidan omfattar den här rollen inte möjligheten att granska användar data eller göra ändringar i de attribut som ingår i organisationens schema.Ändringar av identitets miljö ramverk (även kallade anpassade) är också utanför den här rollens omfång.
-
-### <a name="b2c-user-flow-attribute-administrator"></a>[B2C-administratör för användar flöde](#b2c-user-flow-attribute-administrator-permissions)
-
-Användare med den här rollen lägger till eller tar bort anpassade attribut som är tillgängliga för alla användar flöden i Azure AD-organisationen.Det innebär att användare med den här rollen kan ändra eller lägga till nya element i slutanvändarens schema och påverka beteendet för alla användar flöden och indirekt leda till ändringar i vilka data som kan tillfrågas slutanvändare och slutligen skickas som anspråk till program.Den här rollen kan inte redigera användar flöden.
 
 ### <a name="b2c-ief-keyset-administrator"></a>[B2C IEF Keys-administratör](#b2c-ief-keyset-administrator-permissions)
 
@@ -214,6 +206,15 @@ Användare med den här rollen har globala behörigheter inom Microsoft Exchange
 > [!NOTE]
 > I Microsoft Graph API och Azure AD PowerShell identifieras den här rollen som "Exchange Service Administrator". Det är "Exchange-administratör" i [Azure Portal](https://portal.azure.com). Det är "Exchange Online Administrator" i [administrations centret för Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
 
+
+### <a name="external-id-user-flow-administrator"></a>[Användar flödes administratör för externt ID](#external-id-user-flow-administrator-permissions)
+
+Användare med den här rollen kan skapa och hantera B2C-Användarflöden (kallas även "inbyggda" principer) i Azure Portal.Genom att skapa eller redigera användar flöden kan dessa användare ändra HTML/CSS/JavaScript-innehåll i användar upplevelsen, ändra MFA-krav per användar flöde, ändra anspråk i token och justera sessionsinställningar för alla principer i Azure AD-organisationen. Å andra sidan omfattar den här rollen inte möjligheten att granska användar data eller göra ändringar i de attribut som ingår i organisationens schema.Ändringar av identitets miljö ramverk (även kallade anpassade) är också utanför den här rollens omfång.
+
+### <a name="external-id-user-flow-attribute-administrator"></a>[Administratör för externt ID-attribut för användar flöde](#external-id-user-flow-attribute-administrator-permissions)
+
+Användare med den här rollen lägger till eller tar bort anpassade attribut som är tillgängliga för alla användar flöden i Azure AD-organisationen.Det innebär att användare med den här rollen kan ändra eller lägga till nya element i slutanvändarens schema och påverka beteendet för alla användar flöden och indirekt leda till ändringar i vilka data som kan tillfrågas slutanvändare och slutligen skickas som anspråk till program.Den här rollen kan inte redigera användar flöden.
+
 ### <a name="external-identity-provider-administrator"></a>[Administratör för extern identitetsprovider](#external-identity-provider-administrator-permissions)
 
 Den här administratören hanterar federationen mellan Azure AD-organisationer och externa identitets leverantörer.Med den här rollen kan användarna lägga till nya identitets leverantörer och konfigurera alla tillgängliga inställningar (t. ex. autentiserings Sök väg, tjänst-ID, tilldelade nyckel behållare).Den här användaren kan göra det möjligt för Azure AD-organisationen att lita på autentiseringar från externa identitets leverantörer.Den resulterande påverkan på slut användar upplevelsen beror på organisationens typ:
@@ -237,8 +238,6 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 > [!NOTE]
 > Global läsar roll har några begränsningar just nu –
 >
->- [Administrations Center för OneDrive](https://admin.onedrive.com/) – administrations Center för OneDrive stöder inte rollen global läsare.
->- [Azure AD-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) – den globala läsaren kan inte läsa etablerings läget för en företags app.
 >- [M365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage) – den globala läsaren kan inte läsa förfrågningar om kundsäkerhet. Du hittar inte fliken **Customer Locked-begäranden** under **stöd** i den vänstra rutan i M365 administrations Center.
 >- [Office-säkerhet & Compliance Center](https://sip.protection.office.com/homepage) – den globala läsaren kan inte läsa SCC gransknings loggar, söka efter innehåll eller se säkra poäng.
 >- [Team administrations Center](https://admin.teams.microsoft.com) – den globala läsaren kan inte läsa **team livs cykeln**, analysera **& rapporter**, **hantering av IP-telefon enheter** och **program katalog**.
@@ -267,7 +266,7 @@ Användare med den här rollen kan ändra lösen ord, ogiltig uppdatera tokens, 
 * Rapport läsare
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Till exempel:
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Ett exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och beviljas ingen annan support administratör. Med hjälp av den här sökvägen kan IT-administratören kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare utgå från identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -478,7 +477,7 @@ Användare med den här rollen kan skapa användare och hantera alla aspekter av
 |Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Rapport läsare<li>Användaradministratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Till exempel:
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Ett exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. Dessa appar kan ha privilegierade behörigheter i Azure AD och inte beviljas till användar administratörer. Genom den här sökvägen kan en användar administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -599,22 +598,6 @@ Kan hantera alla aspekter av tjänsten Azure Information Protection.
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
 | Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
-
-### <a name="b2c-user-flow-administrator-permissions"></a>B2C behörigheter för användar flödes administratör
-
-Skapa och hantera alla aspekter av användar flöden.
-
-| **Åtgärder** | **Beskrivning** |
-| --- | --- |
-| Microsoft. AAD. B2C/userFlows/allTasks | Läsa och konfigurera användar flöden i Azure Active Directory B2C. |
-
-### <a name="b2c-user-flow-attribute-administrator-permissions"></a>B2C administratörs behörighet för User Flow-attribut
-
-Skapa och hantera attributet schema tillgängligt för alla användar flöden.
-
-| **Åtgärder** | **Beskrivning** |
-| --- | --- |
-| Microsoft. AAD. B2C/userAttributes/allTasks | Läsa och konfigurera användarattribut i Azure Active Directory B2C. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>B2C IEF Keys-administratör behörigheter
 
@@ -1030,6 +1013,22 @@ Kan hantera alla aspekter av Exchange-produkten.
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. usageReports/upplånade/upplånade/lästa | Läs Office 365-användnings rapporter. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
+
+### <a name="external-id-user-flow-administrator-permissions"></a>External ID användar flöde administratörs behörighet
+
+Skapa och hantera alla aspekter av användar flöden.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft. AAD. B2C/userFlows/allTasks | Läsa och konfigurera användar flöden i Azure Active Directory B2C. |
+
+### <a name="external-id-user-flow-attribute-administrator-permissions"></a>Administratörs behörighet för externt ID-användarnamn
+
+Skapa och hantera attributet schema tillgängligt för alla användar flöden.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft. AAD. B2C/userAttributes/allTasks | Läsa och konfigurera användarattribut i Azure Active Directory B2C. |
 
 ### <a name="external-identity-provider-administrator-permissions"></a>Administratörs behörighet för extern identitetsprovider
 
@@ -1809,8 +1808,6 @@ Programutvecklare | Programutvecklare | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administratör för autentisering | Administratör för autentisering | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Azure DevOps-administratör | Azure DevOps-administratör | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection administratör | Azure Information Protection administratör | 7495fdc4-34c4-4d15-a289-98788ce399fd
-B2C användar flödes administratör | B2C användar flödes administratör | 6e591065-9bad-43ed-90f3-e9424366d2f0
-B2C-administratör för användar flöde | B2C-administratör för användar flöde | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 B2C IEF Keys-administratör | B2C IEF Keys-administratör | aaf43236-0c0d-4d5f-883a-6955382ac081
 B2C IEF-princip administratör | B2C IEF-princip administratör | 3edaf663-341e-4475-9f94-5c398ef6c070
 Faktureringsadministratör | Faktureringsadministratör | b0f54661-2d74-4c50-afa3-1ec803f12efe
@@ -1831,6 +1828,8 @@ Katalog läsare | Katalog läsare | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Konton för katalog synkronisering | Visas inte eftersom det inte ska användas | d29b2b05-8046-44ba-8758-1e26182fcf32
 Katalog skrivare | Visas inte eftersom det inte ska användas | 9360feb5-F418-4baa-8175-e2a00bac4301
 Exchange service-administratör | Exchange-administratör | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Användar flödes administratör för externt ID | Användar flödes administratör för externt ID | 6e591065-9bad-43ed-90f3-e9424366d2f0
+Administratör för externt ID-attribut för användar flöde | Administratör för externt ID-attribut för användar flöde | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administratör för extern identitetsprovider | Administratör för extern identitetsprovider | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Global läsare | Global läsare | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Grupp administratör | Grupp administratör | fdd7a751-b60b-444a-984c-02652fe8fa1c 

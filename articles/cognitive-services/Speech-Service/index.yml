@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: c065f3d12f98be85f45ed6233593d9ccab1cefa1
-  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.openlocfilehash: 87190c5cab772e4b8dc04672066e575b10c14533
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 05/12/2020
-  ms.locfileid: "83201656"
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800787"
 highlightedContent:
   items:
   - title: Vad är Speech Service?
@@ -47,7 +47,7 @@ conceptualContent:
       text: Grunderna om taligenkänning
       url: speech-to-text-basics.md
     footerLink:
-      text: Mer information
+      text: Mer
       url: index-speech-to-text.yml
   - title: Text till tal
     links:
@@ -61,7 +61,7 @@ conceptualContent:
       text: Grunderna för talsyntes
       url: text-to-speech-basics.md
     footerLink:
-      text: Mer information
+      text: Mer
       url: index-text-to-speech.yml
   - title: Talöversättning
     links:
@@ -75,7 +75,7 @@ conceptualContent:
       text: Grundläggande om talöversättning
       url: speech-translation-basics.md
     footerLink:
-      text: Mer information
+      text: Mer
       url: index-speech-translation.yml
   - title: Avsiktsigenkänning
     links:
@@ -89,7 +89,7 @@ conceptualContent:
       text: Language Understanding-portalen (LUIS)
       url: https://www.luis.ai
     footerLink:
-      text: Mer information
+      text: Mer
       url: index-intent-recognition.yml
   - title: Konversationsscenarier
     links:
@@ -103,7 +103,7 @@ conceptualContent:
       text: Avskrifter av kundtjänst
       url: call-center-transcription.md
     footerLink:
-      text: Mer information
+      text: Mer
       url: index-conversation-scenarios.yml
   - title: Röstassistenter
     links:
@@ -117,18 +117,26 @@ conceptualContent:
       text: Skapa en röstassistent med Bot Framework
       url: direct-line-speech.md
     footerLink:
-      text: Mer information
+      text: Mer
       url: index-voice-assistants.yml
+  - title: Talarigenkänning
+    links:
+    - itemType: how-to-guide
+      text: Om talarigenkänning
+      url: ../Speaker-recognition/Home.md
+    - itemType: how-to-guide
+      text: API för talarigenkänning – referens
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797
   - title: Verktyg
     links:
     - itemType: overview
-      text: Om SPX – Använda Speech-tjänsten utan kod
+      text: Om Speech CLI (kommandoradsverktyg utan kod)
       url: spx-overview.md
     - itemType: how-to-guide
-      text: Grunderna i SPX
+      text: Grunderna i Speech CLI (installation och exempel)
       url: spx-basics.md
     - itemType: overview
-      text: Om Speech Studio – kodfri anpassning av Speech-tjänsten
+      text: Om Speech Studio (anpassningar)
       url: https://speech.microsoft.com
   - title: Värd
     links:
@@ -142,7 +150,7 @@ conceptualContent:
       text: Speech Service-containrar i Azure Container Instances
       url: deploy-speech-on-container-instances.md
     footerLink:
-      text: Mer information
+      text: Mer
       url: index-hosting.yml
   - title: Enheter
     links:
@@ -156,7 +164,7 @@ conceptualContent:
       text: Använda SDK för Speech-enheter
       url: speech-devices-sdk-quickstart.md
     footerLink:
-      text: Mer information
+      text: Mer
       url: index-devices.yml
   - title: Migrering
     links:

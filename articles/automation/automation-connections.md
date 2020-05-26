@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2bd4a59ee1b82b8f6eb3bf172b11239af1a9f4c5
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3c5901dbd45cc0ce82c7fcd8117705eaeed7b4ba
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714278"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837135"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Hantera anslutningar i Azure Automation
 
@@ -41,7 +41,7 @@ I de flesta fall behöver du inte skapa en anslutnings resurs eftersom den skapa
 
 Cmdletarna i följande tabell skapar och hanterar Automation-anslutningar med PowerShell. De levereras som en del av [AZ-modulerna](shared-resources/modules.md#az-modules).
 
-|Cmdlet|Beskrivning|
+|Cmdlet|Description|
 |---|---|
 |[Get-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Hämtar information om en anslutning.|
 |[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Skapar en ny anslutning.|
@@ -52,7 +52,7 @@ Cmdletarna i följande tabell skapar och hanterar Automation-anslutningar med Po
 
 Den interna cmdleten i följande tabell används för att få åtkomst till anslutningar i dina runbooks och DSC-konfigurationer. Denna cmdlet ingår i den globala modulen `Orchestrator.AssetManagement.Cmdlets` . Mer information finns i [interna cmdletar](shared-resources/modules.md#internal-cmdlets).
 
-|Intern cmdlet|Beskrivning|
+|Intern cmdlet|Description|
 |---|---|
 |`Get-AutomationConnection` | Hämtar värdena för de olika fälten i anslutningen och returnerar dem som en [hash](https://go.microsoft.com/fwlink/?LinkID=324844)-tabellen. Du kan sedan använda den här hash-tabellen med lämpliga kommandon i Runbook-eller DSC-konfigurationen.|
 
@@ -192,6 +192,6 @@ azure_credential = get_automation_runas_credential(runas_connection)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda moduler i Azure Automation](shared-resources/modules.md)
-* [Runbook-körning i Azure Automation](automation-runbook-execution.md)
-* [Översikt över statuskonfiguration](automation-dsc-overview.md)
+* Mer information om de cmdletar som används för att få åtkomst till anslutningar finns [i hantera moduler i Azure Automation](shared-resources/modules.md).
+* Allmän information om Runbooks finns [i Runbook-körning i Azure Automation](automation-runbook-execution.md).
+* Mer information om DSC-konfigurationer finns i [Översikt över tillstånds konfiguration](automation-dsc-overview.md).

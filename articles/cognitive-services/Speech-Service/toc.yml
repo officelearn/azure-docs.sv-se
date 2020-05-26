@@ -61,6 +61,8 @@
           href: how-to-custom-speech-inspect-data.md
         - name: Utvärdera noggrannhet i Custom Speech
           href: how-to-custom-speech-evaluate-data.md
+        - name: Förbättra noggrannhet i Custom Speech
+          href: how-to-custom-speech-improve-accuracy.md
         - name: Träna en modell för Custom Speech
           href: how-to-custom-speech-train-model.md
         - name: Distribuera en anpassad modell
@@ -559,11 +561,14 @@
           href: devices-sdk-release-notes.md
 - name: Verktyg
   items:
-    - name: SPX
+    - name: Speech CLI
+      displayName: SPX
       items:
-        - name: Vad är SPX?
+        - name: Vad är Speech CLI?
+          displayName: What is SPX?
           href: spx-overview.md
-        - name: Grunderna i SPX
+        - name: Grunderna i Speech CLI
+          displayName: SPX basics
           href: spx-basics.md
     - name: Speech Studio
       items:

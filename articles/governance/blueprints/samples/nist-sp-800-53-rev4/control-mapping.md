@@ -1,20 +1,20 @@
 ---
 title: NIST SP 800-53 R4 skiss exempel kontroller
 description: Kontroll mappning av NIST SP 800-53 R4 skiss-exemplet. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-ms.date: 11/18/2019
+ms.date: 05/14/2020
 ms.topic: sample
-ms.openlocfilehash: 104224ec96a5989a103f4d00310cf08b684b4d67
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c1950feefae46643825cfe0af46fb7c3a2fe4b39
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546616"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815969"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Kontroll mappning av NIST SP 800-53 R4 skiss exempel
 
 Följande artikel beskriver hur Azure-ritningar NIST SP 800-53 R4 skiss-exemplet mappar till NIST SP 800-53 R4-kontroller. Mer information om kontrollerna finns i [NIST SP 800-53](https://nvd.nist.gov/800-53).
 
-Följande mappningar är till **NIST SP 800-53-kontrollerna (Rev. 4)** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på ** \[och välj förhands\]granskningen: Audit NIST SP 800-53 R4 Controls och distribuera särskilda VM-tillägg så att de stöder gransknings krav** inbyggda princip initiativ.
+Följande mappningar är till **NIST SP 800-53-kontrollerna (Rev. 4)** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj ** \[ förhands granskningen \] : Audit NIST SP 800-53 R4 Controls och distribuera särskilda VM-tillägg så att de stöder gransknings krav** inbyggda princip initiativ.
 
 > [!IMPORTANT]
 > Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/nist-sp-800-53-rev4/control-mapping.md).
@@ -84,8 +84,8 @@ Funktionerna för data identifiering och klassificering av avancerad data säker
 
 Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att övervaka att fjärrfelsökning för Azure App Service program är inaktive rad. Skissen tilldelar också princip definitioner som granskar virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord. Dessutom tilldelar skissen en Azure Policy definition som hjälper dig att övervaka obegränsad åtkomst till lagrings konton. Genom att övervaka dessa indikatorer kan du se till att du ser till att fjärranslutna metoder överensstämmer med din säkerhets princip.
 
-- \[För\]hands version: granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
-- \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- \[För hands version \] : granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- \[För hands version \] : Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - Granska obegränsad nätverks åtkomst till lagrings konton
 - Fjärrfelsökning bör inaktive ras för API-appen
 - Fjärrfelsökning bör inaktive ras för Funktionsapp
@@ -95,13 +95,13 @@ Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst geno
 
 Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som möjliggör centraliserad konfiguration och hantering. Den här skissen hjälper dig att se till att händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar och tillämpar distribution av log Analyticss agenten på virtuella Azure-datorer.
 
-- \[För\]hands version: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[För\]hands version: granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
-- \[För\]hands version: granska Log Analytics arbets yta för VM-rapportera fel
-- \[För\]hands version: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[För\]hands version: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[För hands version \] : granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
+- \[För hands version \] : granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- \[För hands version \] : granska Log Analytics arbets yta för VM-rapportera fel
+- \[För hands version \] : distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
+- \[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer
+- \[För hands version \] : distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
+- \[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5-svar på gransknings bearbetnings problem
 
@@ -116,25 +116,25 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 
 Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som möjliggör central rapportering och analys. Den här skissen hjälper dig att se till att händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar och tillämpar distribution av log Analyticss agenten på virtuella Azure-datorer.
 
-- \[För\]hands version: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[För\]hands version: granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
-- \[För\]hands version: granska Log Analytics arbets yta för VM-rapportera fel
-- \[För\]hands version: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[För\]hands version: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[För hands version \] : granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
+- \[För hands version \] : granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- \[För hands version \] : granska Log Analytics arbets yta för VM-rapportera fel
+- \[För hands version \] : distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
+- \[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer
+- \[För hands version \] : distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
+- \[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-12-audit-generation"></a>AU – 12 gransknings generation
 
 Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar logg inställningar på Azure-resurser. Dessa princip definitioner granskar och tillämpar distributionen av Log Analytics agent på Azure Virtual Machines och konfigurationen av gransknings inställningar för andra Azure-resurs typer. Dessa princip definitioner granskar också konfigurationen av diagnostikloggar för att ge inblick i åtgärder som utförs i Azure-resurser. Dessutom konfigureras granskning och avancerad data säkerhet på SQL-servrar.
 
-- \[För\]hands version: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[För\]hands version: granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
-- \[För\]hands version: granska Log Analytics arbets yta för VM-rapportera fel
-- \[För\]hands version: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[För\]hands version: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[För hands version \] : granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
+- \[För hands version \] : granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- \[För hands version \] : granska Log Analytics arbets yta för VM-rapportera fel
+- \[För hands version \] : distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
+- \[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer
+- \[För hands version \] : distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
+- \[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer
 - Granska diagnostikinställning
 - Granska gransknings inställningar för SQL Server-nivå
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
@@ -184,29 +184,29 @@ Den här skissen hjälper dig att begränsa och kontrol lera åtkomst genom att 
 
 Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord och/eller har felaktiga behörigheter som angetts för passwd-filen. Den här skissen tilldelar också princip definitioner som granskar konfigurationen av lösen ords krypterings typen för virtuella Windows-datorer. Genom att övervaka dessa indikatorer kan du se till att system autentiserare följer organisationens principer för identifiering och autentisering.
 
-- \[För\]hands version: granska virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644
-- \[För\]hands version: granska virtuella Linux-datorer som har konton utan lösen ord
-- \[För\]hands version: granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
-- \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som inte har behörigheterna passwd-fil inställd på 0644
-- \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
+- \[För hands version \] : granska virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644
+- \[För hands version \] : granska virtuella Linux-datorer som har konton utan lösen ord
+- \[För hands version \] : granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
+- \[För hands version \] : Distribuera krav för att granska virtuella Linux-datorer som inte har behörigheterna passwd-fil inställd på 0644
+- \[För hands version \] : Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
+- \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Authenticator-hantering | Lösenordsbaserad autentisering
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Windows-datorer som inte kräver lägsta möjliga styrka och andra lösen ords krav. Medvetenheten om virtuella datorer som strider mot principen för lösen ords styrka hjälper dig att vidta åtgärder för att se till att lösen ord för alla virtuella dator användar konton följer organisationens lösen ords princip.
 
-- \[För\]hands version: granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[För\]hands version: granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[För\]hands version: granska virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
-- \[För\]hands version: granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- \[För\]hands version: granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[För\]hands version: granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
+- \[För hands version \] : granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[För hands version \] : granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[För hands version \] : granska virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
+- \[För hands version \] : granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
+- \[För hands version \] : granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[För hands version \] : granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
+- \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
+- \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
+- \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
 
 ## <a name="ra-5-vulnerability-scanning"></a>RA-5 sårbarhets-genomsökning
 
@@ -303,13 +303,13 @@ Den här skissen hjälper dig att hantera Endpoint Protection, inklusive skadlig
 
 Den här skissen hjälper dig att övervaka systemet genom att granska och framtvinga loggning och data säkerhet i Azure-resurser. Mer specifikt är principerna tilldelade granskning och tillämpar distribution av Log Analytics agenten och förbättrade säkerhets inställningar för SQL-databaser, lagrings konton och nätverks resurser. Dessa funktioner kan hjälpa dig att identifiera avvikande beteende och indikatorer på attacker så att du kan vidta lämpliga åtgärder.
 
-- \[För\]hands version: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[För\]hands version: granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
-- \[För\]hands version: granska Log Analytics arbets yta för VM-rapportera fel
-- \[För\]hands version: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[För\]hands version: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[För hands version \] : granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
+- \[För hands version \] : granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- \[För hands version \] : granska Log Analytics arbets yta för VM-rapportera fel
+- \[För hands version \] : distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
+- \[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer
+- \[För hands version \] : distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
+- \[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
@@ -332,8 +332,8 @@ Avancerat skydd för Azure Storage identifierar ovanliga och potentiellt skadlig
 Nu när du har granskat kontroll mappningen av NIST SP 800-53 R4-skissen kan du gå till följande artiklar om du vill veta mer om skissen och hur du distribuerar det här exemplet:
 
 > [!div class="nextstepaction"]
-> [NIST SP 800-53 R4 skiss – översikt](./index.md)
-> [NIST SP 800-53 R4 skiss – distribuera steg](./deploy.md)
+> [NIST SP 800-53 R4 skiss – översikt](./index.md) 
+>  [NIST SP 800-53 R4 skiss – distribuera steg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

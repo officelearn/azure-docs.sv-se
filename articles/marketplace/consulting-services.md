@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: fc0a82617346f60b90de34b379b4a0a114faf804
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: da2588125b455deaf18110687d54adc04a7dd4c0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658083"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799865"
 ---
 # <a name="consulting-service-offers"></a>Konsult tjänst erbjudanden
 
@@ -74,7 +74,7 @@ För AppSource visas de kvalificerade kompetenserna i följande tabell:
 
 Ytterligare resurser och support:
 
-* [Microsofts supportavdelning för molnet](https://partner.microsoft.com/campaigns/ced-nomination-form/): Slutför den här typen av partner för att få hjälp med att ansluta till en Cloud-programspecialist som kan tydliggör Microsoft Partner Network förmåner och tjäna som vägledning för kompetens uppnående.  
+* [Microsofts supportavdelning för molnet](https://aka.ms/CEDnominate): Slutför den här typen av partner för att få hjälp med att ansluta till en Cloud-programspecialist som kan tydliggör Microsoft Partner Network förmåner och tjäna som vägledning för kompetens uppnående.  
 * [Bli en Power BI-partner](https://powerbi.microsoft.com/become-a-partner/): skicka en begäran om att bli listad på Power BI Showcase.
 
 Mer information om kompetenser finns på sidan [Microsoft Partner Network kompetenser](https://partner.microsoft.com/membership/competencies) .

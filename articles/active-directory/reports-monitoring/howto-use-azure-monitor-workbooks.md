@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c6b8ef04e44a68290f61ed4688e3379130231ef
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690617"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799374"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Använda Azure Monitor-arbetsböcker för Azure Active Directory rapporter
 
@@ -42,13 +42,13 @@ Vill du:
 
 - Få djupare insikter om inloggnings logg frågor, arbets boken rapporterar hur många användare som har beviljats eller nekats åtkomst, samt hur många användare som ignorerade principer för villkorlig åtkomst vid åtkomst till resurser.
 
-- För att hjälpa dig att åtgärda de här frågorna innehåller Azure Active Directory arbets böcker för övervakning. [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) kombinerar text, analys frågor, mått och parametrar till omfattande interaktiva rapporter.
+- För att hjälpa dig att åtgärda de här frågorna innehåller Azure Active Directory arbets böcker för övervakning. [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) kombinerar text, analys frågor, mått och parametrar till omfattande interaktiva rapporter.
 
 
 
 Den här artikeln:
 
-- Förutsätter att du är bekant med hur du [skapar interaktiva rapporter med hjälp av övervaka arbets böcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Förutsätter att du är bekant med hur du [skapar interaktiva rapporter med hjälp av övervaka arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
 
 - Förklarar hur du använder övervaknings arbets böcker för att förstå effekterna av dina principer för villkorlig åtkomst, för att felsöka inloggnings fel och för att identifiera äldre autentiseringar.
  
@@ -83,7 +83,7 @@ För att få åtkomst till arbets böcker:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Navigera till **Azure Active Directory** > **övervakning** > av**arbets böcker**. 
+1. Navigera till **Azure Active Directory**  >  **övervakning**av  >  **arbets böcker**. 
 
 1. Välj en rapport eller mall eller Välj **Öppna**i verktygsfältet. 
 
@@ -231,7 +231,7 @@ Den här arbets boken visar följande inaktiverade inloggnings trender:
 
 - Kräv sekretess policy
 
-- Annat
+- Övrigt
 
 
 Du kan filtrera varje trend enligt följande kategorier:
@@ -302,4 +302,4 @@ För att hjälpa dig att felsöka inloggningar ger Azure Monitor en uppdelning e
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa interaktiva rapporter med hjälp av övervaka arbets böcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+[Skapa interaktiva rapporter med hjälp av övervaka arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 9dacbbac1caad33a6ab2f5f09d3f6c9d31c32bb7
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 624bce67e01a0d7dbee382ed77a833705ecd5c89
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871547"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800370"
 ---
 # <a name="support-for-microsoft-commercial-marketplace"></a>Support för Microsofts kommersiella marknads platser
 
@@ -20,13 +20,13 @@ Har du frågor om att komma igång som Microsoft-utgivare för extern Marketplac
 
 ## <a name="onboarding"></a>Publicering
 
-Öppna ett ärende med Microsoft [Marketplace Publisher-stöd](https://partner.microsoft.com/support/v2/?stage=1) för problem med onboarding och komma igång.
+Öppna ett ärende med Microsoft [Marketplace Publisher-stöd](https://aka.ms/marketplacepublishersupport) för problem med onboarding och komma igång.
 
-## <a name="partner-center"></a>Partner Center   
+## <a name="partner-center"></a>Partner Center
 
 | Supportkanal | Beskrivning | Tillgänglighet |  
 |:--- |:--- |:--- |  
-| Om du behöver hjälp kan du gå till sidan Skapa en incident som finns på [Marketplace-support](https://partner.microsoft.com/support/v2/?stage=1)</li> </ul> | Support för partner Center. | Support tillhandahålls 24x5. |  
+| Om du behöver hjälp kan du gå till sidan Skapa en incident som finns på [Marketplace-support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Support för partner Center. | Support tillhandahålls 24x5. |  
 
 ## <a name="technical"></a>Teknik  
 

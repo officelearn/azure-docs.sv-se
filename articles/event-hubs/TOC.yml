@@ -133,6 +133,8 @@
   items:
     - name: Flytta mellan regioner
       href: move-across-regions.md
+    - name: Lägg till partitioner dynamiskt
+      href: dynamically-add-partitions.md
     - name: Använda Blob Storage som kontrollpunktslager på Azure Stack Hub
       href: use-blob-storage-checkpoint-store-azure-stack-hub.md
     - name: 'Migrera från API:er för Azure Service Manager (klassisk) till API:er för Resource Manager'
@@ -205,7 +207,7 @@
           href: event-hubs-ip-filtering.md
         - name: Konfigurera tjänstslutpunkter för virtuellt nätverk
           href: event-hubs-service-endpoints.md
-        - name: Konfigurera privata slutpunkter (förhandsversion)
+        - name: Konfigurera privata slutpunkter
           href: private-link-service.md
         - name: Konfigurera kundhanterade nycklar
           href: configure-customer-managed-key.md

@@ -2,7 +2,7 @@
   items:
     - name: Virtuella Windows SQL Server-datorer
       href: ../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/virtual-machines/windows/'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: ../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
@@ -68,8 +68,8 @@
       href: /rest/api/
 - name: Resurser
   items:
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-machines.html'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: SQL Server Data Tools (SSDT)

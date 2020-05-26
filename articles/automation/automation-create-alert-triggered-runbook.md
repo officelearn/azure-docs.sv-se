@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 30ef3e0ccef859ec183d8aad18c0b9910a5d3c9f
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712510"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837118"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Använda en avisering för att utlösa en Azure Automation Runbook
 
@@ -29,7 +29,7 @@ Du kan använda Automation-runbooks med tre aviserings typer:
 
 När en avisering anropar en Runbook, är det faktiska anropet en HTTP POST-begäran till webhooken. Bröd texten i POST-begäran innehåller ett JSON-formaterat objekt som har användbara egenskaper som är relaterade till aviseringen. I följande tabell visas länkar till nytto Last schema för varje aviserings typ:
 
-|Varning  |Beskrivning|Nytto Last schema  |
+|Varning  |Description|Nytto Last schema  |
 |---------|---------|---------|
 |[Vanlig avisering](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Det vanliga aviserings schema som standardiserar användnings upplevelsen för aviserings meddelanden i Azure idag.|Vanligt schema för aviserings nytto Last|
 |[Aktivitets logg avisering](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande när en ny händelse i Azure aktivitets loggen matchar vissa villkor. Till exempel när en `Delete VM` åtgärd utförs i **myProductionResourceGroup** eller när en ny Azure Service Health-händelse med en aktiv status visas.| [Schema för aktivitets logg aviserings nytto Last](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
@@ -191,8 +191,8 @@ Aviseringar använder åtgärds grupper, som är samlingar av åtgärder som utl
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Starta ett Runbook-flöde från en webhook](automation-webhooks.md)
-* [Starta en runbook](automation-starting-a-runbook.md)
-* [Skapa aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Skapa en varnings regel i Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* Information om hur du startar en Runbook med en webhook finns i [starta en Runbook från en webhook](automation-webhooks.md).
+* Information om hur du startar en Runbook på olika sätt finns i [starta en Runbook](automation-starting-a-runbook.md).
+* Information om hur du skapar en aktivitets logg avisering finns i [skapa aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
+* Information om hur du skapar en nästan real tids avisering finns [i skapa en varnings regel i Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

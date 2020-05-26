@@ -40,7 +40,7 @@
       href: virtual-wan-ipsec.md
 - name: Anvisningar
   items:
-    - name: 'Anslut virtuell nätverksgateway till Virtual WAN '
+    - name: Anslut virtuell nätverksgateway till Virtual WAN
       href: connect-virtual-network-gateway-vwan.md
     - name: Konfigurera global VNet-peering
       href: global-peering-vnet.md
@@ -48,6 +48,8 @@
       href: upgrade-virtual-wan.md
     - name: Konfigurera anpassad IPsec-princip
       href: virtual-wan-custom-ipsec-portal.md
+    - name: Installera Azure Firewall i en hubb
+      href: howto-firewall.md
     - name: ExpressRoute
       items:
         - name: Skapa en ExpressRoute-anslutning
@@ -84,6 +86,8 @@
           href: openvpn-azure-ad-client.md
         - name: Konfigurera Azure AD-autentisering för flera program
           href: openvpn-azure-ad-tenant-multi-app.md
+        - name: Installera Azure Firewall i en hubb
+          href: howto-firewall.md
     - name: Routning
       items:
         - name: Dirigera trafik från en virtuell hubb till en NVA
@@ -94,6 +98,10 @@
               href: virtual-wan-route-table.md
         - name: Visa effektiva vägar för virtuell hubb
           href: effective-routes-virtual-hub.md
+    - name: Säkerhet
+      items:
+        - name: Installera Azure Firewall i en hubb
+          href: howto-firewall.md
 - name: Referens
   items:
     - name: Azure PowerShell

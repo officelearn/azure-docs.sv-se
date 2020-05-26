@@ -3,12 +3,12 @@ title: Index för principexempel
 description: Index för inbyggda Azure Policy-program. Kategoritaggar, regelefterlevnad, Key Vault, Kubernetes, gästkonfiguration med mera.
 ms.date: 03/25/2020
 ms.topic: sample
-ms.openlocfilehash: d990f911612c8e1f5ab7cdbdae7efe362aa70bb5
-ms.sourcegitcommit: 2a09565db8681cdb76607e7ed51eecf68f4ff8f0
+ms.openlocfilehash: 41a08a70df24f80ea324860d6d1db16c9ed99760
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80257180"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697196"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy-exempel
 
@@ -27,6 +27,7 @@ Följande är exempel på olika mönster för språk och operatörer i Azure Pol
 - [Fält](./pattern-fields.md)
 - [Parametrar](./pattern-parameters.md)
 - [Effektinformation](./pattern-effect-details.md)
+- [Använda taggar](./pattern-effect-details.md)
 - [Värdeoperator](./pattern-value-operator.md)
 - [Räkneoperator](./pattern-count-operator.md)
 - [Gruppera principdefinitioner i ett initiativ](./pattern-group-with-initiative.md)

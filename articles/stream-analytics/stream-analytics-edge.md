@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8bb1bd018866bda9270b78507f0462b6c4d4ea17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d4df4efc6dbee88e80e620860487636cc9210dd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79475900"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837220"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics på IoT Edge
  
@@ -44,7 +44,7 @@ ASA använder IoT Hub för att distribuera Edge-jobb till enhet (er). Mer inform
 ### <a name="installation-instructions"></a>Installationsinstruktioner
 De övergripande stegen beskrivs i följande tabell. Mer information ges i följande avsnitt.
 
-|      |Steg   | Obs!   |
+|      |Steg   | Anteckningar   |
 | ---   | ---   |  ---      |
 | 1   | **Skapa en lagrings behållare**   | Lagrings behållare används för att spara din jobb definition där de kan nås av dina IoT-enheter. <br>  Du kan återanvända alla befintliga lagrings behållare.     |
 | 2   | **Skapa ett ASA Edge-jobb**   |  Skapa ett nytt jobb, Välj **Edge** som **värd miljö**. <br> De här jobben skapas/hanteras från molnet och körs på dina egna IoT Edge enheter.     |
@@ -188,7 +188,7 @@ Så här skapar du ett jobb med referens data i Edge:
 
 3. Har en referens data fil som är klar på enheten. För en Windows-behållare, placera referens data filen på den lokala enheten och dela den lokala enheten med Docker-behållaren. För en Linux-behållare skapar du en Docker-volym och fyller i data filen på volymen.
 
-4. Ange sökvägen till filen. För Windows-värd-OS och Windows-behållare använder du den `E:\<PathToFile>\v1.csv`absoluta sökvägen:. För en Windows-värd-OS och Linux-behållare eller en Linux OS-och Linux-behållare använder du sökvägen `<VolumeName>/file1.txt`i volymen:.
+4. Ange sökvägen till filen. För Windows-värd-OS och Windows-behållare använder du den absoluta sökvägen: `E:\<PathToFile>\v1.csv` . För en Windows-värd-OS och Linux-behållare eller en Linux OS-och Linux-behållare använder du sökvägen i volymen: `<VolumeName>/file1.txt` .
 
 ![Nya referens indata för Azure Stream Analytics jobb på IoT Edge](./media/stream-analytics-edge/Reference-Data-New-Input.png)
 
@@ -226,7 +226,7 @@ Den här versions informationen uppdaterades senast den 2019-06-27:
       
       
 ## <a name="get-help"></a>Få hjälp
-Om du behöver ytterligare hjälp kan du prova [Azure Stream Analytics-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du testa [sidan Microsoft Q&en fråga för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

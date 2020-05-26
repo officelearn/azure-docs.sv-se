@@ -7,19 +7,21 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
-ms.openlocfilehash: bd9241e526d7cf42f0697afb8635c085a08c80d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.openlocfilehash: eece6f97e82f3800d4f59ac1849b34c2a1e4635b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606487"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800075"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Villkorlig delnings omvandling i data flöde för mappning
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Den villkorliga delnings Omvandlingen dirigerar data rader till olika strömmar baserat på matchnings villkor. Den villkorliga delnings omvandlingen liknar en ärende besluts struktur i ett programmeringsspråk. Omvandlingen utvärderar uttryck och baseras på resultaten och dirigerar data raden till den angivna data strömmen.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4wKCX]
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -45,7 +47,7 @@ Använd data flödets uttrycks verktyg för att ange ett uttryck för det delade
 
 ### <a name="example"></a>Exempel
 
-Exemplet nedan är en villkorlig delad omvandling med namnet `SplitByYear` som tar i inkommande data `CleanData`ström. Den här omvandlingen har två delade `year < 1960` villkor `year > 1980`och. `disjoint`är falskt eftersom data hamnar i det första matchnings villkoret. Varje rad som matchar det första villkoret går till `moviesBefore1960`utdataströmmen. Alla återstående rader som matchar det andra villkoret går till `moviesAFter1980`utdataström. Alla andra rader flödar genom standard data `AllOtherMovies`strömmen.
+Exemplet nedan är en villkorlig delad omvandling med namnet `SplitByYear` som tar i inkommande data ström `CleanData` . Den här omvandlingen har två delade villkor `year < 1960` och `year > 1980` . `disjoint`är falskt eftersom data hamnar i det första matchnings villkoret. Varje rad som matchar det första villkoret går till utdataströmmen `moviesBefore1960` . Alla återstående rader som matchar det andra villkoret går till utdataström `moviesAFter1980` . Alla andra rader flödar genom standard data strömmen `AllOtherMovies` .
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 81309f0b5781e6302887a5b079ed359e70659834
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658990"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836387"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Roller, behörigheter och säkerhet i Azure Monitor
 
@@ -28,7 +28,7 @@ Personer som har tilldelats rollen övervaknings läsare kan visa alla övervakn
 
 * Visa övervaknings instrument paneler i portalen och skapa egna instrument paneler för privat övervakning.
 * Visa aviserings regler som definierats i [Azure-aviseringar](alerts-overview.md)
-* Fråga efter mått med hjälp av [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdletar](powershell-quickstart-samples.md)eller [plattforms oberoende CLI](cli-samples.md).
+* Fråga efter mått med hjälp av [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdletar](powershell-quickstart-samples.md)eller [plattforms oberoende CLI](../samples/cli-samples.md).
 * Fråga aktivitets loggen med hjälp av portalen, Azure Monitor REST API, PowerShell-cmdletar eller plattforms oberoende CLI.
 * Visa [diagnostikinställningar](diagnostic-settings.md) för en resurs.
 * Visa [logg profilen](activity-log-export.md) för en prenumeration.
@@ -70,7 +70,7 @@ Personer som har tilldelats rollen övervaknings deltagare kan visa alla överva
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Övervakningsbehörigheter och anpassade RBAC-roller
 Om de inbyggda rollerna ovan inte uppfyller de exakta behoven för ditt team, kan du [skapa en anpassad RBAC-roll](../../role-based-access-control/custom-roles.md) med mer detaljerade behörigheter. Nedan visas de vanliga Azure Monitor RBAC-åtgärder med beskrivningar.
 
-| Åtgärd | Beskrivning |
+| Åtgärd | Description |
 | --- | --- |
 | Microsoft. Insights/ActionGroups/[läsa, skriva, ta bort] |Läs-/skriv-/ta bort åtgärds grupper. |
 | Microsoft. Insights/ActivityLogAlerts/[läsa, skriva, ta bort] |Läs/skriv/ta bort aktivitets logg aviseringar. |
@@ -181,7 +181,7 @@ Azure Monitor behöver åtkomst till dina Azure-resurser för att tillhandahåll
 ### <a name="secured-storage-accounts"></a>Skyddade lagrings konton 
 
 Övervaknings data skrivs ofta till ett lagrings konto. Du kanske vill se till att data som kopieras till ett lagrings konto inte kan nås av obehöriga användare. För ytterligare säkerhet kan du låsa nätverks åtkomsten för att bara tillåta att dina auktoriserade resurser och betrodda Microsoft-tjänster har åtkomst till ett lagrings konto genom att begränsa ett lagrings konto så att det använder valda nätverk.
-![Dialog](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor Azure Storage inställningar betraktas som en av dessa "betrodda Microsoft-tjänster" om du tillåter att betrodda Microsoft-tjänster får åtkomst till din skyddade lagring, kommer Azure monitor att ha åtkomst till ditt skyddade lagrings konto. Om du aktiverar skrivning Azure Monitor resurs loggar, aktivitets logg och mått till ditt lagrings konto under dessa skyddade villkor. Detta aktiverar även Log Analytics att läsa loggar från säker lagring.   
+![Dialog Azure Monitor Azure Storage inställningar ](./media/roles-permissions-security/secured-storage-example.png) betraktas som en av de här "betrodda Microsoft-tjänsterna" om du tillåter att betrodda Microsoft-tjänster får åtkomst till din skyddade lagring, kommer Azure monitor att ha åtkomst till ditt skyddade lagrings konto, aktivera skrivning Azure Monitor resurs loggar, aktivitets logg och mått till ditt lagrings konto under dessa skyddade villkor. Detta aktiverar även Log Analytics att läsa loggar från säker lagring.   
 
 
 Mer information finns i [nätverks säkerhet och Azure Storage](../../storage/common/storage-network-security.md)

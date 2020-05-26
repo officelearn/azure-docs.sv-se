@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 4eccdef6bd3f2bfcd0eced8281f7b998536f22a9
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5379f2c46bbeaba4ee8509603b7b739b75d08f04
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749188"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836795"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Aktivera Ändringsspårning och inventering från en virtuell Azure-dator
 
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du kan använda en virtuell Azure-dator för att
 > [!NOTE]
 > När du aktiverar Ändringsspårning och inventering, stöds bara vissa regioner för att länka en Log Analytics arbets yta och ett Automation-konto. En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation-konto](automation-offering-get-started.md) för att hantera datorer.
@@ -47,10 +47,9 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera Ändringsspårning och inventering](change-tracking-file-contents.md)
-* [Arbeta med scope-konfigurationer för Ändringsspårning och inventering](automation-scope-configurations-change-tracking.md)
-* [Identifiera programvara på en virtuell dator](automation-tutorial-installed-software.md)
-* [Ta bort länken mellan arbets ytan och automation-kontot för Ändringsspårning och inventering](automation-unlink-workspace-change-tracking.md)
-* [Ta bort virtuella datorer från Ändringsspårning och inventering](automation-remove-vms-from-change-tracking.md)
-* [Felsöka ändringar på en virtuell Azure-dator](automation-tutorial-troubleshoot-changes.md)
-* [Felsöka Ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md)
+* Information om hur du arbetar med funktionen finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
+* Information om konfiguration av omfattningar finns i [arbeta med scope-konfigurationer för ändringsspårning och inventering](automation-scope-configurations-change-tracking.md).
+* Information om hur du använder funktionen för att identifiera program vara som är installerad i din miljö finns i [identifiera vilken program vara som är installerad på dina virtuella datorer](automation-tutorial-installed-software.md).
+* Om du inte vill integrera ditt Automation-konto med en Log Analytics arbets yta när du aktiverar funktionen, se [ta bort länken till arbets ytan från Automation-kontot](automation-unlink-workspace-change-tracking.md).
+* När du har distribuerat ändringar av virtuella datorer kan du ta bort dem enligt beskrivningen i [ta bort virtuella datorer från ändringsspårning och inventering](automation-remove-vms-from-change-tracking.md).
+* Information om hur du felsöker allmänna problem med funktionen finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

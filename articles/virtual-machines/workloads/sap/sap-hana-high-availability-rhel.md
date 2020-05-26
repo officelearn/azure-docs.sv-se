@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/31/2020
+ms.date: 05/21/2020
 ms.author: radeltch
-ms.openlocfilehash: f1ae2c3c949e8bdbf30c8bef496177d56cd2dcbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed53b77587e307926689b2c20d7223212f3394d4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521397"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800262"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på Red Hat Enterprise Linux
 
@@ -108,7 +108,7 @@ Följ dessa steg om du vill distribuera mallen:
     * **SAP-system storlek**: Ange antalet SAPS som det nya systemet ska tillhandahålla. Om du inte är säker på hur många SAPS systemet kräver kan du fråga din SAP Technology-partner eller system integrerare.
     * **System tillgänglighet**: Välj **ha**.
     * **Administratörens användar namn, administratörs lösen ord eller SSH-nyckel**: en ny användare skapas som kan användas för att logga in på datorn.
-    * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som **/Subscriptions/\<prenumerations-ID>\</ResourceGroups/\<resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/\<virtuellt nätverks namn>/subnets/under näts namn>**. Lämna tomt om du vill skapa ett nytt virtuellt nätverk
+    * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som **/Subscriptions/ \< PRENUMERATIONS-ID>/ResourceGroups/ \< resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/ \< virtuellt nätverks namn>/subnets/ \< under näts namn>**. Lämna tomt om du vill skapa ett nytt virtuellt nätverk
 
 ### <a name="manual-deployment"></a>Manuell distribution
 
@@ -119,9 +119,9 @@ Följ dessa steg om du vill distribuera mallen:
 1. Skapa en belastningsutjämnare (intern). Vi rekommenderar [standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
    * Välj det virtuella nätverk som skapades i steg 2.
 1. Skapa virtuell dator 1.  
-   Använd minst Red Hat Enterprise Linux 7,4 för SAP HANA. I det här exemplet används Red Hat Enterprise Linux 7,4 för SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> avbildningen Välj den tillgänglighets uppsättning som skapades i steg 3.
+   Använd minst Red Hat Enterprise Linux 7,4 för SAP HANA. I det här exemplet används Red Hat Enterprise Linux 7,4 för SAP HANA avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Välj den tillgänglighets uppsättning som skapades i steg 3.
 1. Skapa virtuell dator 2.  
-   Använd minst Red Hat Enterprise Linux 7,4 för SAP HANA. I det här exemplet används Red Hat Enterprise Linux 7,4 för SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> avbildningen Välj den tillgänglighets uppsättning som skapades i steg 3.
+   Använd minst Red Hat Enterprise Linux 7,4 för SAP HANA. I det här exemplet används Red Hat Enterprise Linux 7,4 för SAP HANA avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Välj den tillgänglighets uppsättning som skapades i steg 3.
 1. Lägg till data diskar.
 1. Följ dessa konfigurations steg om du använder standard Load Balancer:
    1. Börja med att skapa en IP-pool på klient sidan:
@@ -263,7 +263,7 @@ Stegen i det här avsnittet använder följande prefix:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Skapa de logiska volymerna. En linjär volym skapas när du använder `lvcreate` utan `-i` växeln. Vi rekommenderar att du skapar en stripe-volym för bättre I/O-prestanda och justerar stripe-storlekarna mot värdena som dokumenteras i [SAP HANA VM Storage-konfigurationer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). `-i` Argumentet ska vara antalet underliggande fysiska volymer och `-I` argumentet är stripe-storleken. I det här dokumentet används två fysiska volymer för data volymen, så `-i` växel argumentet är inställt på **2**. Stripe-storleken för data volymen är **256KiB**. En fysisk volym används för logg volymen, så inga `-i` eller `-I` växlar används explicit för logg volym kommandona.  
+   Skapa de logiska volymerna. En linjär volym skapas när du använder `lvcreate` utan `-i` växeln. Vi rekommenderar att du skapar en stripe-volym för bättre I/O-prestanda och justerar stripe-storlekarna mot värdena som dokumenteras i [SAP HANA VM Storage-konfigurationer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). `-i`Argumentet ska vara antalet underliggande fysiska volymer och `-I` argumentet är stripe-storleken. I det här dokumentet används två fysiska volymer för data volymen, så `-i` växel argumentet är inställt på **2**. Stripe-storleken för data volymen är **256KiB**. En fysisk volym används för logg volymen, så inga `-i` eller `-I` växlar används explicit för logg volym kommandona.  
 
    > [!IMPORTANT]
    > Använd `-i` växeln och Ställ in den på den underliggande fysiska volymens nummer när du använder mer än en fysisk volym för varje data, logg eller delade volymer. Använd `-I` växeln för att ange stripe-storlek när du skapar en stripe-volym.  
@@ -342,11 +342,11 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[A]** RHEL för Hana-konfiguration
 
-   Konfigurera RHEL enligt beskrivningen i SAP NOTE [2292690] och [2455582] och <https://access.redhat.com/solutions/2447641>.
+   Konfigurera RHEL enligt beskrivningen i SAP NOTE [2292690] och [2455582] och <https://access.redhat.com/solutions/2447641> .
 
 1. **[A]** installera SAP HANA
 
-   Följ <https://access.redhat.com/articles/3004101>för att installera SAP HANA system-replikering.
+   Följ för att installera SAP HANA system-replikering <https://access.redhat.com/articles/3004101> .
 
    * Kör **hdblcm** -programmet från Hana-DVD: n. Ange följande värden i prompten:
    * Välj installation: ange **1**.
@@ -424,14 +424,14 @@ Stegen i det här avsnittet använder följande prefix:
 
    Om du använder SAP HANA 2,0 eller MDC skapar du en klient databas för ditt SAP NetWeaver-system. Ersätt **NW1** med sid för ditt SAP-system.
 
-   Kör som <hanasid\>ADM följande kommando:
+   Kör som <hanasid \> ADM följande kommando:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** konfigurera systemreplikering på den första noden:
 
-   Säkerhetskopiera databaserna som <hanasid\>ADM:
+   Säkerhetskopiera databaserna som <hanasid \> ADM:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -451,7 +451,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[2]** konfigurera systemreplikering på den andra noden:
     
-   Registrera den andra noden för att starta systemreplikeringen. Kör följande kommando som <hanasid\>ADM:
+   Registrera den andra noden för att starta systemreplikeringen. Kör följande kommando som <hanasid \> ADM:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -530,7 +530,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[1]** konfigurera systemreplikering på den första noden.
 
-   Skapa den primära platsen som <hanasid\>ADM:
+   Skapa den primära platsen som <hanasid \> ADM:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -538,7 +538,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[2]** konfigurera systemreplikering på den sekundära noden.
 
-   Registrera den sekundära platsen som <hanasid\>ADM:
+   Registrera den sekundära platsen som <hanasid \> ADM:
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -641,7 +641,7 @@ Du kan migrera SAP HANA Master-noden genom att köra följande kommando:
 <pre><code>[root@hn1-db-0 ~]# pcs resource move SAPHana_HN1_03-master
 </code></pre>
 
-Om du ställer `AUTOMATED_REGISTER="false"`in bör det här kommandot migrera SAP HANA huvud-noden och gruppen som innehåller den virtuella IP-adressen till HN1-DB-1.
+Om du ställer in `AUTOMATED_REGISTER="false"` bör det här kommandot migrera SAP HANA huvud-noden och gruppen som innehåller den virtuella IP-adressen till HN1-DB-1.
 
 När migreringen är färdig ser utdata för status för sudo-datorer ut så här
 
@@ -707,10 +707,7 @@ Se [artikeln om Red Hat-kunskaps artikel 79523](https://access.redhat.com/soluti
 Den virtuella datorn bör nu startas om eller stoppas beroende på kluster konfigurationen.
 Om du ställer in `stonith-action` inställningen till av stoppas den virtuella datorn och resurserna migreras till den virtuella datorn som körs.
 
-> [!NOTE]
-> Det kan ta upp till 15 minuter innan de virtuella datorerna är online igen.
-
-När du har startat den virtuella datorn igen går det inte att starta SAP HANA resursen som sekundär om du `AUTOMATED_REGISTER="false"`anger. I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
+När du har startat den virtuella datorn igen går det inte att starta SAP HANA resursen som sekundär om du anger `AUTOMATED_REGISTER="false"` . I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
 
 <pre><code>su - <b>hn1</b>adm
 
@@ -754,7 +751,7 @@ Du kan testa en manuell redundansväxling genom att stoppa klustret på noden HN
 <pre><code>[root@hn1-db-0 ~]# pcs cluster stop
 </code></pre>
 
-Efter redundansväxlingen kan du starta klustret igen. Om du ställer `AUTOMATED_REGISTER="false"`in går det inte att starta SAP HANA resursen på noden HN1-dB-0 som sekundär. I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
+Efter redundansväxlingen kan du starta klustret igen. Om du ställer in `AUTOMATED_REGISTER="false"` går det inte att starta SAP HANA resursen på noden HN1-dB-0 som sekundär. I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
 
 <pre><code>[root@hn1-db-0 ~]# pcs cluster start
 [root@hn1-db-0 ~]# su - hn1adm
@@ -780,9 +777,29 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 </code></pre>
 
+### <a name="test-a-manual-failover"></a>Testa en manuell redundansväxling
+
+Resurs tillstånd innan du startar testet:
+
+<pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
+    Started: [ hn1-db-0 hn1-db-1 ]
+Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Masters: [ hn1-db-0 ]
+    Slaves: [ hn1-db-1 ]
+Resource Group: g_ip_HN1_03
+    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
+    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+</code></pre>
+
+Du kan testa en manuell redundansväxling genom att stoppa klustret på noden HN1-dB-0:
+
+<pre><code>[root@hn1-db-0 ~]# pcs cluster stop
+</code></pre>
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 * [Azure Virtual Machines planera och implementera SAP][planning-guide]
 * [Azure Virtual Machines distribution för SAP][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP][dbms-guide]
-* Information om hur du upprättar hög tillgänglighet och planerar för haveri beredskap för SAP HANA på Azure (stora instanser) finns i [SAP HANA (stora instanser) hög tillgänglighet och haveri beredskap på Azure](hana-overview-high-availability-disaster-recovery.md)
+* [SAP HANA VM Storage-konfigurationer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: ce3313f2e96dacff95ed1587e2e979c4628ec022
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4be2f61cb0a45f30f0201d1ecca0efc2d8cbd9ae
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674328"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836234"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Vanliga frågor och svar om Tabell-API i Azure Cosmos DB
 
@@ -293,7 +293,7 @@ Azure Cosmos DB är ett SLA-baserat system som tillhandahåller svars tid, data 
 Du kan dela din feedback på något av följande sätt:
 
 * [Röstanvändare](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [MSDN-forum](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow är bäst för programmerings frågor. Se till att din fråga är [i ämne](https://stackoverflow.com/help/on-topic) och [Ange så många detaljer som möjligt, så att frågan blir tydlig och kan besvaras](https://stackoverflow.com/help/how-to-ask).
 
 ## <a name="next-steps"></a>Nästa steg

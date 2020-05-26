@@ -182,8 +182,8 @@
       href: frequently-asked-questions.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
     - name: Tjänstuppdateringar

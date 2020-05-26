@@ -6,12 +6,12 @@ ms.date: 04/04/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 8d4cdb87302e12c024e15f8e0a7e3854d6f707a7
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: a07c6ac524aa213519ace1ae204ac2d76db802aa
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715468"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836710"
 ---
 # <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
 
@@ -70,5 +70,5 @@ Kör en självstudierunbook.
 I den här snabbstarten har du distribuerat ett Automation-konto, startat ett runbook-jobb och sett jobbresultaten. Om du vill veta mer om Azure Automation kan du fortsätta att använda snabbstarten för att skapa din första runbook.
 
 > [!div class="nextstepaction"]
-> [Snabbstart för Automation – Skapa Runbook](./automation-quickstart-create-runbook.md)
+> [Snabb start för Automation – skapa en Azure Automation Runbook](./automation-quickstart-create-runbook.md)
 

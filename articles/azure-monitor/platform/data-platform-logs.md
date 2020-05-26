@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0b288bf6d987b9db682c8d1439879cf6b499f213
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dae72454cd9c0b3cb7370873619595840b770ed3
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457339"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799979"
 ---
 # <a name="logs-in-azure-monitor"></a>Loggar i Azure Monitor
 
@@ -42,7 +42,7 @@ I följande tabell visas de olika sätt som du kan använda för att logga in Az
 |  |  |
 |:---|:---|
 | Analysera | Använd [Log Analytics](../log-query/get-started-portal.md) i Azure Portal för att skriva [logg frågor](../log-query/log-query-overview.md) och analysera logg data interaktivt med hjälp av den kraftfulla datautforskaren analys motorn.<br>Använd [Application Insights Analytics-konsolen](../app/analytics.md) i Azure Portal om du vill skriva logg frågor och analysera loggdata interaktivt från Application Insights. |
-| Visualisera | Fäst frågeresultaten som återges som tabeller eller diagram på en [Azure-instrumentpanel](../../azure-portal/azure-portal-dashboards.md).<br>Skapa en [arbets bok](../app/usage-workbooks.md) som ska kombineras med flera data uppsättningar i en interaktiv rapport. <br>Exportera resultatet av en fråga för att [Power BI](powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.<br>Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) för att dra nytta av dess instrument panel och kombinera med andra data källor.|
+| Visualisera | Fäst frågeresultaten som återges som tabeller eller diagram på en [Azure-instrumentpanel](../../azure-portal/azure-portal-dashboards.md).<br>Skapa en [arbets bok](../platform/workbooks-overview.md) som ska kombineras med flera data uppsättningar i en interaktiv rapport. <br>Exportera resultatet av en fråga för att [Power BI](powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.<br>Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) för att dra nytta av dess instrument panel och kombinera med andra data källor.|
 | Varning | Konfigurera en [logg varnings regel](alerts-log.md) som skickar ett meddelande eller [automatiserar en åtgärd](action-groups.md) när resultatet av frågan matchar ett visst resultat.<br>Konfigurera en [mått varnings regel](alerts-metric-logs.md) för vissa logg data loggar som extraheras som mått. |
 | Hämta | Få åtkomst till logg frågeresultat från en kommando rad med hjälp av [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Kom åt logg frågeresultaten från en kommando rad med [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Få åtkomst till logg frågeresultaten från ett anpassat program med hjälp av [REST API](https://dev.loganalytics.io/). |
 | Exportera | Bygg ett arbets flöde för att hämta loggdata och kopiera det till en extern plats med hjälp av [Logic Apps](~/articles/logic-apps/index.yml). |
@@ -106,7 +106,7 @@ Azure Monitor kan samla in loggdata från olika källor både i Azure och från 
 | Spårnings data | Resultat från [distribuerad spårning](../app/distributed-tracing.md) lagras i tabellen _spår_ . |
 | Tillgänglighetstester | Sammanfattnings data från [tillgänglighets test](../app/monitor-web-app-availability.md) lagras i tabellen _availabilityResults_ . Detaljerade data från de här testerna finns i separat lagring och nås från Application Insights i Azure Portal. |
 
-### <a name="insights"></a>Insights
+### <a name="insights"></a>Insikter
 
 | Data | Beskrivning |
 |:---|:---|

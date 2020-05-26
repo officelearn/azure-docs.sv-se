@@ -7,18 +7,18 @@ keywords: dsc, configuration, automation
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: ab9210042439e2199d633577c77429573b71d1be
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 28e8f921fa7620d1fec7dec1788ed769026624d7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711864"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836727"
 ---
 # <a name="configure-a-vm-with-desired-state-configuration"></a>Konfigurera en virtuell dator med önskad tillstånds konfiguration
 
 Genom att aktivera Azure Automation tillstånds konfiguration kan du hantera och övervaka konfigurationerna för dina Windows-och Linux-servrar med önskad tillstånds konfiguration (DSC). Konfigurationer som går från en önskad konfiguration kan identifieras eller automatiskt korrigeras. Den här snabb starten beskriver hur du aktiverar en virtuell Linux-dator och distribuerar en LAMP-stack med Azure Automation tillstånds konfiguration.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra den här snabbstarten:
 
@@ -131,7 +131,4 @@ Du kan visa status för alla hanterade noder för tillstånds konfiguration i di
 I den här snabb starten aktiverade du en virtuell Linux-dator för tillstånds konfiguration, skapade en konfiguration för en LAMP-stack och distribuerade konfigurationen till den virtuella datorn. Om du vill veta hur du kan använda Azure Automation tillstånds konfiguration för att aktivera kontinuerlig distribution fortsätter du till artikeln:
 
 > [!div class="nextstepaction"]
-> [Continuous deployment to a VM using DSC and Chocolatey](./automation-dsc-cd-chocolatey.md) (Kontinuerlig distribution på en virtuell datorn med hjälp av DSC och Chocolatey)
-
-* Om du vill veta mer om PowerShell DSC läser du [Översikt över PowerShell Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
-* Information om hur du vidarebefordrar DSC-rapporter till Azure Monitor loggar för rapportering och aviseringar finns i [vidarebefordra DSC-rapportering till Azure Monitor loggar](automation-dsc-diagnostics.md).
+> [Konfigurera kontinuerlig distribution med Chocolatey](./automation-dsc-cd-chocolatey.md)

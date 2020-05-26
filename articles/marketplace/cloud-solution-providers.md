@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: a932f4ec37eda66c353df2c865bb4036ddcc59fa
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 58bfe5cdc58c41c2ead82ac2d280629e4fec9bcd
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741084"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798139"
 ---
 # <a name="cloud-solution-provider-program"></a>Cloud Solution Provider-program
 
@@ -105,7 +105,7 @@ Om du har auktoriserat en partner i CSP-programmet och den partnern redan har s�
 
 Om en partner i CSP-programmet inte har sålt produkten till kunderna och du vill ta bort CSP: n när ditt erbjudande har publicerats, använder du följande anvisningar:
 
-1. Gå till [sidan supportbegäran](https://partner.microsoft.com/support/v2/?stage=1). De första menyerna i listan fylls i automatiskt.
+1. Gå till [sidan supportbegäran](https://aka.ms/marketplacepublishersupport). De första menyerna i listan fylls i automatiskt.
 
    > [!NOTE]
    > Ändra inte markeringarna i list rutan i förväg.
@@ -127,7 +127,7 @@ Använd det här avsnittet för att navigera mellan de tre alternativen för CSP
 
 Om erbjudandet för närvarande är **alternativ 1: någon partner i CSP-programmet** och du vill navigera till något av de andra två alternativen, använder du följande instruktioner för att skapa en begäran:
 
-1. Gå till [sidan supportbegäran](https://partner.microsoft.com/support/v2/?stage=1). De första menyerna i listan fylls i automatiskt.
+1. Gå till [sidan supportbegäran](https://aka.ms/marketplacepublishersupport). De första menyerna i listan fylls i automatiskt.
 
    > [!NOTE]
    > Ändra inte markeringarna i list rutan i förväg.
@@ -145,7 +145,7 @@ Om erbjudandet för närvarande är **alternativ 1: någon partner i CSP-program
 
 Om erbjudandet för närvarande är **Alternativ 2: vissa partner i CSP-programmet som jag väljer** och du vill navigera till **alternativ ett: alla partner i CSP-programmet**använder följande instruktioner för att skapa en begäran:
 
-1. Gå till [sidan supportbegäran](https://partner.microsoft.com/support/v2/?stage=1). De första menyerna i listan fylls i automatiskt.
+1. Gå till [sidan supportbegäran](https://aka.ms/marketplacepublishersupport). De första menyerna i listan fylls i automatiskt.
 
    > [!NOTE]
    > Ändra inte markeringarna i list rutan i förväg.
@@ -158,7 +158,7 @@ Om erbjudandet för närvarande är **Alternativ 2: vissa partner i CSP-programm
 
  Om erbjudandet för närvarande är **Alternativ 2: särskilda partner i CSP-programmet som jag väljer** och du vill navigera till **Alternativ 3: inga partner i CSP-programmet**. du kommer bara att kunna navigera till det alternativet om de partner i CSP-programmet som du tidigare har godkänt inte har sålt ditt erbjudande till slutanvändare. Använd följande instruktioner för att skapa en begäran:
 
-1. Gå till [sidan supportbegäran](https://partner.microsoft.com/support/v2/?stage=1). De första menyerna i listan fylls i automatiskt.
+1. Gå till [sidan supportbegäran](https://aka.ms/marketplacepublishersupport). De första menyerna i listan fylls i automatiskt.
 
    > [!NOTE]
    > Ändra inte markeringarna i list rutan i förväg.

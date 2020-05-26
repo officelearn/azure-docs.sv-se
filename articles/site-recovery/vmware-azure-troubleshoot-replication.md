@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: f91ee5654b4add37d3cce4f875be1f9c2b398ab9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a3d8ee1d0c1625c9e7d3d83b590f38dcd8847fe
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259501"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836421"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsök problem med replikering för virtuella VMware-datorer och fysiska servrar
 
@@ -132,7 +132,7 @@ Lös problemet genom att följa stegen nedan för att kontrol lera tjänst statu
 
 ## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Fel-ID 78144 – ingen programkonsekvent återställnings punkt är tillgänglig för den virtuella datorn under de senaste XXX minuterna
 
-Förbättringar har gjorts i Mobility agent [9,23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher) & [9,27](site-recovery-whats-new.md#update-rollup-39) -versioner för att hantera problem med VSS-installation. Se till att du har de senaste versionerna för bästa vägledning om hur du felsöker VSS-fel.
+Förbättringar har gjorts i Mobility agent [9,23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher)  &  [9,27](site-recovery-whats-new.md#update-rollup-39) -versioner för att hantera problem med VSS-installation. Se till att du har de senaste versionerna för bästa vägledning om hur du felsöker VSS-fel.
 
 Några av de vanligaste problemen visas nedan
 
@@ -193,4 +193,4 @@ Kontrol lera att start typen för tjänsten VSS Provider är inställd på **Aut
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver mer hjälp kan du publicera din fråga i [Azure Site Recovery-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Vi har en aktiv community och en av våra tekniker kan hjälpa dig.
+Om du behöver mer hjälp kan du publicera din fråga på [sidan Microsoft Q&en fråga för Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). Vi har en aktiv community och en av våra tekniker kan hjälpa dig.

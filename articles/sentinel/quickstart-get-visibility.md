@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 95dcc135593c566eb1319ed52df3df6c1ada6609
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4bd01b737c4a80ff286458c122f3b0ab9573a40b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067688"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798676"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Snabb start: kom igång med Azure Sentinel
 
@@ -53,7 +53,7 @@ Huvud delen av översikts sidan ger en överblick över en överskådlig säkerh
 
 ## <a name="use-built-in-workbooks"></a>Använda inbyggda arbets böcker<a name="dashboards"></a>
 
-Inbyggda arbets böcker ger integrerade data från dina anslutna data källor så att du kan få en djup inblick i de händelser som genereras i dessa tjänster. De inbyggda arbets böckerna omfattar Azure AD, Azure Activity events och on-premises, som kan vara data från Windows-händelser från servrar, från första part-aviseringar från alla utomstående, inklusive brand Väggs trafik loggar, Office 365 och oskyddade protokoll baserade på Windows-händelser. Arbets böckerna baseras på Azure Monitor arbets böcker för att ge dig bättre anpassningsbarhet och flexibilitet i utformningen av din egen arbets bok. Mer information finns i [arbets böcker](../azure-monitor/app/usage-workbooks.md).
+Inbyggda arbets böcker ger integrerade data från dina anslutna data källor så att du kan få en djup inblick i de händelser som genereras i dessa tjänster. De inbyggda arbets böckerna omfattar Azure AD, Azure Activity events och on-premises, som kan vara data från Windows-händelser från servrar, från första part-aviseringar från alla utomstående, inklusive brand Väggs trafik loggar, Office 365 och oskyddade protokoll baserade på Windows-händelser. Arbets böckerna baseras på Azure Monitor arbets böcker för att ge dig bättre anpassningsbarhet och flexibilitet i utformningen av din egen arbets bok. Mer information finns i [arbets böcker](../azure-monitor/platform/workbooks-overview.md).
 
 1. Under **Inställningar**väljer du **arbets böcker**. Under **installerad**kan du se all din installerade arbets bok. Under **alla**kan du se hela galleriet med inbyggda arbets böcker som är tillgängliga för installation. 
 2. Sök efter en speciell arbets bok för att se hela listan och en beskrivning av vad varje erbjudande har. 
@@ -67,7 +67,7 @@ Inbyggda arbets böcker ger integrerade data från dina anslutna data källor s�
       ![PAL-instrument panel](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Du kan anpassa arbets böckerna antingen genom att redigera knappen ![](./media/qs-get-visibility/edit-query-button.png)för huvud frågan. Du kan klicka på knappen ![knapp](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort de enskilda panelerna från arbets boken.
+Du kan anpassa arbets böckerna antingen genom att redigera knappen för huvud ![ frågan ](./media/qs-get-visibility/edit-query-button.png) . Du kan klicka på knappen ![ knapp ](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort de enskilda panelerna från arbets boken.
 
 Mer information om hur du arbetar med frågor finns i [Självstudier: visuella data i Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

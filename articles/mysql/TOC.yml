@@ -276,6 +276,8 @@
       items:
         - name: Konfigurera Azure AD-integrering
           href: howto-configure-sign-in-azure-ad-authentication.md
+        - name: Anslut med hanterad identitet
+          href: howto-connect-with-managed-identity.md
     - name: Neka åtkomst till offentligt nätverk
       items:
         - name: Azure Portal

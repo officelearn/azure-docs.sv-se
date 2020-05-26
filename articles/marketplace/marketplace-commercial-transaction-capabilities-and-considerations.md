@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: ce1c134c1940abecd7ecc6329b48802e02e74dc9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6cac7218c8f1fc48734b426c9e041831bf0b1f71
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657902"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800056"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transact-funktioner för kommersiella Marketplace
 
@@ -165,7 +165,7 @@ Kunderna köper vanligt vis med Enterprise-avtal eller ett kredit kort aktiverat
 
 Mer information och juridiska principer finns i [utgivar avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (tillgängligt i Partner Center).
 
-Om du behöver hjälp med fakturerings frågor kontaktar du [supporten för support för Microsoft Marketplace](https://partner.microsoft.com/support/v2/?stage=1).
+Om du behöver hjälp med fakturerings frågor kontaktar du [supporten för support för Microsoft Marketplace](https://aka.ms/marketplacepublishersupport).
 
 ## <a name="transact-requirements"></a>Transact-krav
 

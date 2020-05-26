@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: PowerShell, Runbook, JSON, Azure Automation
-ms.openlocfilehash: dcb1f5919db71bb233f59cc5b5ba92648b8476d9
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 921d878c585b811700b1c112524e314f0af53c24
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714295"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837084"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Distribuera en Azure Resource Manager-mall i en PowerShell-Runbook
 
@@ -19,7 +19,7 @@ Du kan skriva en [Azure Automation PowerShell-Runbook](automation-first-runbook-
 
 I den här artikeln skapar vi en PowerShell-Runbook som använder en Resource Manager-mall som lagras i [Azure Storage](../storage/common/storage-introduction.md) för att distribuera ett nytt Azure Storage-konto.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har något än kan du [aktivera din prenumeration på MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller [Registrera dig för ett kostnads fritt konto](https://azure.microsoft.com/free/).
 * Ett [Automation-konto för Azure](automation-sec-configure-azure-runas-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
@@ -229,8 +229,8 @@ Get-AzStorageAccount
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md)
-* [Introduktion till Azure Storage](../storage/common/storage-introduction.md)
-* [Runbook- och modulgallerier för Azure Automation](automation-runbook-gallery.md)
-* [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* Mer information om Resource Manager-mallar finns i [Azure Resource Manager översikt](../azure-resource-manager/management/overview.md).
+* Information om hur du kommer igång med Azure Storage finns i [Introduktion till Azure Storage](../storage/common/storage-introduction.md).
+* Du hittar andra användbara Azure Automation runbooks [i använda Runbooks och moduler i Azure Automation](automation-runbook-gallery.md).
+* Du hittar andra användbara Resource Manager-mallar i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

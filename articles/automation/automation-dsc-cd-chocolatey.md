@@ -5,14 +5,14 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 63fd65f6a80dec582b9cecc8483bc3425d08c551
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ec954c2da317e2e4b332b959b9627cf96792da84
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714193"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837067"
 ---
-# <a name="set-up-continuous-deployment-with-chocolatey"></a>Konfigurera kontinuerlig distribution med choklad
+# <a name="set-up-continuous-deployment-with-chocolatey"></a>Konfigurera kontinuerlig distribution med Chocolatey
 
 I en DevOps-värld finns det många verktyg för att hjälpa till med olika punkter i den kontinuerliga integrerings pipelinen. Azure Automation [tillstånds konfiguration](automation-dsc-overview.md) är ett välkomst tillägg till de alternativ som DevOps team kan använda. 
 
@@ -209,10 +209,9 @@ Från den tidpunkten är det upp till de virtuella datorer som är beroende av d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt finns i [Azure Automation tillstånds konfiguration](automation-dsc-overview.md).
-- Information om hur du kommer igång finns i [komma igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md).
-- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
+- En översikt finns i [Översikt över Azure Automation tillstånds konfiguration](automation-dsc-overview.md).
+- För att komma igång med funktionen, se [Kom igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md).
+- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
 - En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - Pris information finns i pris information för [Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
-- Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [kontinuerlig distribution med Azure Automation tillstånds konfiguration och choklad](automation-dsc-cd-chocolatey.md).

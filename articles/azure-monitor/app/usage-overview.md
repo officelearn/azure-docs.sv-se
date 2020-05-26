@@ -3,12 +3,12 @@ title: Användnings analys med Azure Application Insights | Microsoft-dokument
 description: Förstå dina användare och vad de gör med din app.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: e964b1b5b9d5500f2d9f24ed765299389e6dbbb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f4f46f183291684fa59e5aa35b65c8ac3352563
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283964"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797779"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Användningsanalys med Application Insights
 
@@ -22,7 +22,7 @@ Den bästa upplevelsen erhålls genom att installera Application Insights både 
 
     * *Vill du inte installera Server koden? [Skapa bara en Azure Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ).*
 
-2. **Webbs Ides kod:** Lägg till följande skript på din webb sida före stängningen ``</head>``. Ersätt Instrumentation-nyckeln med lämpligt värde för din Application Insights-resurs:
+2. **Webbs Ides kod:** Lägg till följande skript på din webb sida före stängningen ``</head>`` . Ersätt Instrumentation-nyckeln med lämpligt värde för din Application Insights-resurs:
     
     ```html
     <script type="text/javascript">
@@ -155,9 +155,9 @@ I Web App-initieraren, till exempel Global.asax.cs:
 **ASP.NET Core-appar**
 
 > [!NOTE]
-> Det går inte att `ApplicationInsights.config` lägga till `TelemetryConfiguration.Active` initieraren med eller använda är ogiltig för ASP.net Core-program. 
+> Det går inte att lägga till initieraren med `ApplicationInsights.config` eller använda `TelemetryConfiguration.Active` är ogiltig för ASP.net Core-program. 
 
-Om du vill [ASP.net Core](asp-net-core.md#adding-telemetryinitializers) program lägger du `TelemetryInitializer` till en ny genom att lägga till den i behållaren för beroende insprutning, som du ser nedan. Detta görs i `ConfigureServices` -metoden för din `Startup.cs` klass.
+Om du vill [ASP.net Core](asp-net-core.md#adding-telemetryinitializers) program lägger du till en ny `TelemetryInitializer` genom att lägga till den i behållaren för beroende insprutning, som du ser nedan. Detta görs i- `ConfigureServices` metoden för din `Startup.cs` klass.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -175,5 +175,5 @@ Alla nya TelemetryClients lägger automatiskt till det egenskaps värde som du a
    - [Trattar](usage-funnels.md)
    - [Kvarhållning](usage-retention.md)
    - [Användarflöden](usage-flows.md)
-   - [Arbetsböcker](../../azure-monitor/app/usage-workbooks.md)
+   - [Arbetsböcker](../../azure-monitor/platform/workbooks-overview.md)
    - [Lägg till användar kontext](usage-send-user-context.md)

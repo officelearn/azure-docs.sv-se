@@ -87,18 +87,26 @@
           href: understand-ea-roles.md
         - name: Administration i Azure EA-portalen
           href: ea-portal-administration.md
+        - name: Administration i Azure EA-portalen för partner
+          href: ea-partner-portal-administration.md
+        - name: Azure Enterprise-överföringar
+          href: ea-transfers.md
         - name: EA-uppgifter i Microsoft-kundavtal
           href: mca-enterprise-operations.md
         - name: Azure EA-avtal och ändringar
           href: ea-portal-agreements.md
         - name: Fakturor för Enterprise-registrering
           href: ea-portal-enrollment-invoices.md
+        - name: Azure EA-priser
+          href: ea-pricing-overview.md
         - name: 'REST-API:er för Azure Enterprise'
           href: ea-portal-rest-apis.md
         - name: Reserverade instanser för virtuella Azure EA-datorer
           href: ea-portal-vm-reservations.md
         - name: Felsöka åtkomst till Azure EA-portalen
           href: ea-portal-troubleshoot.md
+        - name: Azure Marketplace
+          href: ea-azure-marketplace.md
 - name: Felsöka
   items:
     - name: Inga prenumerationer hittades

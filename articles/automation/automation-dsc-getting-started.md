@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76d078d564125db7b6b8ae10909340a52b220407
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b39fbdf19703d8b4b2f8683577701dcb23900616
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713224"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836965"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Kom igång med konfiguration av Azure Automation tillstånd
 
@@ -22,7 +22,7 @@ Den här artikeln innehåller en steg-för-steg-guide om hur du utför de vanlig
 
 Om du vill ha en exempel miljö som redan har kon figurer ATS utan att följa stegen som beskrivs i den här artikeln kan du använda [mallen Azure Automation hanterad nod](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Med den här mallen ställer du in en fullständig tillstånds konfiguration (DSC)-miljö, inklusive en virtuell Azure-dator som hanteras av State Configuration (DSC).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra exemplen i den här artikeln:
 
@@ -231,10 +231,10 @@ Om du inte längre vill att en nod ska hanteras av tillstånds konfigurationen k
 
     ![Skärm bild av sidan information om noden som markerar knappen avregistrera](./media/automation-dsc-getting-started/UnregisterNode.png)
 
-## <a name="related-articles"></a>Relaterade artiklar
+## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure Automation tillstånds konfiguration](automation-dsc-overview.md)
-- [Onboarding-datorer för hantering genom Azure Automation tillstånds konfiguration](automation-dsc-onboarding.md)
-- [Översikt över önskad tillstånds konfiguration i Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Prissättning för Azure Automations tillstånds konfiguration](https://azure.microsoft.com/pricing/details/automation/)
-- [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+- En översikt finns i [Översikt över Azure Automation tillstånds konfiguration](automation-dsc-overview.md).
+- Om du vill aktivera funktionen för virtuella datorer i din miljö, se [aktivera Azure Automation tillstånds konfiguration](automation-dsc-onboarding.md).
+- För att förstå PowerShell DSC, se [Översikt över önskad tillstånds konfiguration i Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+- Pris information finns i pris information för [Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
+- En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

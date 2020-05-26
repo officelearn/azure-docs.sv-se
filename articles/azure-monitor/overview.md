@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: cfdd0beac7d257a424d327df71602b4612c3da3b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dbace6b93e07571693b221bb3d2a947010b1e476
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79536861"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800001"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -23,7 +23,7 @@ Några exempel på vad du kan göra med Azure Monitor är:
 - Korrelera infrastruktur problem med [Azure Monitor for VMS](insights/vminsights-overview.md) och [Azure Monitor för behållare](insights/container-insights-overview.md).
 - Öka detalj nivån i dina övervaknings data med [Log Analytics](log-query/log-query-overview.md) för fel sökning och djup diagnostik.
 - Stöd åtgärder i stor skala med [smarta aviseringar](platform/alerts-smartgroups-overview.md) och [automatiserade åtgärder](platform/alerts-action-rules.md).
-- Skapa visualiseringar med Azure- [instrumentpaneler](learn/tutorial-logs-dashboards.md) och [arbets böcker](app/usage-workbooks.md).
+- Skapa visualiseringar med Azure- [instrumentpaneler](learn/tutorial-logs-dashboards.md) och [arbets böcker](platform/workbooks-overview.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
 

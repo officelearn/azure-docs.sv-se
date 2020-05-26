@@ -74,14 +74,15 @@
           href: tutorial-setup-vscode-extension.md
         - name: Träna och distribuera en TensorFlow-modell för avbildningsklassificering
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    - name: Skapa en arbetsyta med en Resource Manager-mall
+      href: tutorial-resource-manager-workspace.md
 - name: Exempel
   items:
     - name: Jupyter Notebook
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Designer-datamängder
-      href: sample-designer-datasets.md
-    - name: Exempelpipelines i Designer
+    - name: Designerexempel och datauppsättningar
+      displayName: 'example, examples, studio, pipelines, data sets, modules'
       href: samples-designer.md
     - name: MLOps-exempel från slutpunkt till slutpunkt
       href: 'https://github.com/microsoft/MLOps'
@@ -261,6 +262,9 @@
             - name: Versionera och spåra datamängder
               displayName: 'data, data set'
               href: how-to-version-track-datasets.md
+            - name: Bevara datasekretess
+              displayName: 'data,privacy,differential privacy'
+              href: how-to-differential-privacy.md
     - name: Inlärningsmodeller
       items:
         - name: Använda uppskattningar för ML
@@ -376,6 +380,9 @@
               href: how-to-monitor-data-drift.md
             - name: Övervaka med Application Insights
               href: how-to-enable-app-insights.md
+        - name: Distribuera krypterad tjänst för slutsatsdragning
+          displayName: 'homomorhic,encryption,deployment'
+          href: how-to-homomorphic-encryption-seal.md
     - name: Skapa och använda ML-pipelines
       displayName: pipelines
       items:
@@ -393,9 +400,6 @@
         - name: Felsöka pipelines i Application Insights.
           displayname: 'pipelines, log, monitor'
           href: how-to-debug-pipelines-application-insights.md
-        - name: Azure-pipelines för CI/CD
-          displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
         - name: Omvandla data i Designer
           displayName: pipeline
           href: how-to-designer-transform-data.md
@@ -417,6 +421,9 @@
         - name: Iterera och utveckla pipelines för maskininlärning
           displayName: modularizing testing
           href: concept-pipeline-practices-tips.md
+    - name: Azure-pipelines för CI/CD
+      displayName: 'continuous, integration, delivery'
+      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
     - name: Hantera resurskvoter
       displayName: limits
       href: how-to-manage-quotas.md

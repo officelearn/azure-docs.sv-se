@@ -15,6 +15,9 @@
           href: quickstart-create-server-database-azure-cli.md
         - name: Skapa DB – Azure CLI up-kommando
           href: quickstart-create-server-up-azure-cli.md
+        - name: Skapa DB – ARM-mall
+          href: quickstart-create-postgresql-server-database-using-arm-template.md
+          displayName: deploy azure resource manager template
         - name: Ansluta och fråga
           items:
             - name: Python
@@ -200,6 +203,8 @@
               href: howto-create-users.md
             - name: Konfigurera Azure AD-integrering
               href: howto-configure-sign-in-aad-authentication.md
+            - name: Anslut med hanterad identitet
+              href: howto-connect-with-managed-identity.md
         - name: Optimera
           items:
             - name: Massinfogning
@@ -336,8 +341,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/postgresql/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-database-postgresql.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-postgresql'
     - name: Videoklipp

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/17/2018
+ms.date: 05/21/2020
 ms.author: radeltch
-ms.openlocfilehash: 21c551721815847eea4cb1435298ea6f7bf37966
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b65422a9baf33a2b55de9f1bdfcc85918616d65
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264484"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800737"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurera pacemaker på Red Hat Enterprise Linux i Azure
 
@@ -206,7 +206,7 @@ STONITH-enheten använder ett huvud namn för tjänsten för att auktorisera mot
 1. Klicka på Appregistreringar
 1. Klicka på ny registrering
 1. Ange ett namn, välj "konton endast i den här organisations katalogen" 
-2. Välj program typ "Web", ange en inloggnings-URL (till exempel http:\//localhost) och klicka på Lägg till  
+2. Välj program typ "Web", ange en inloggnings-URL (till exempel http: \/ /localhost) och klicka på Lägg till  
    Inloggnings-URL: en används inte och kan vara en giltig URL
 1. Välj certifikat och hemligheter och klicka sedan på ny klient hemlighet
 1. Ange en beskrivning för en ny nyckel, välj "upphör aldrig" och klicka på Lägg till
@@ -273,6 +273,9 @@ Använd följande kommando för att konfigurera avgränsnings enheten.
 
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>
+
+> [!TIP]
+>Azure stängsel-agenten kräver utgående anslutning till offentliga slut punkter som dokumenteras, tillsammans med möjliga lösningar, i den [offentliga slut punkts anslutningen för virtuella datorer med standard ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 ## <a name="next-steps"></a>Nästa steg
 

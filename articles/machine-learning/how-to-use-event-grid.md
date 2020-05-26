@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
-ms.date: 03/11/2020
-ms.openlocfilehash: 79bea443ea576ba0c17c1a8150c305d7cd2320ff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/11/2020
+ms.openlocfilehash: 4a8c9c8088126a33b28bd36382536a8fe25ff0a7
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655795"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800475"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Utlös program, processer eller CI/CD-arbetsflöden baserat på Azure Machine Learning händelser (förhands granskning)
 
@@ -47,7 +47,7 @@ Mer information om händelse källor och händelse hanterare finns i [Vad är ev
 
 Azure Machine Learning innehåller händelser i olika punkter av Machine Learning-livscykel: 
 
-| Händelsetyp | Description |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | `Microsoft.MachineLearningServices.RunCompleted` | Utlöses när en körning av Machine Learning-experiment har slutförts |
 | `Microsoft.MachineLearningServices.ModelRegistered` | Utlöses när en maskin inlärnings modell registreras i arbets ytan |

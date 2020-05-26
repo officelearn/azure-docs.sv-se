@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 05/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5991c6e073001e565a965a8db3cf32ca76d843f4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b95112146c0003f3fc5ea563e5561dc26ea064e8
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684418"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800734"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -111,6 +111,7 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 05/21/2020: ändra i [ställa in pacemaker på SLES i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) och konfigurera [pacemaker på RHEL i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) för att lägga till en länk till en [offentlig slut punkts anslutning för virtuella datorer med Azure standard ILB i SAP ha-scenarier](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
 - 05/19/2020: Lägg till viktigt meddelande för att inte använda rot volym gruppen när du använder LVM för HANA-relaterade volymer i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 05/19/2020: Lägg till ett nytt operativ system som stöds för HANA stor instans typ II i [kompatibla operativ system för HANA stora instanser] (https://docs.microsoft.com/
 - Azure/Virtual-Machines/arbets belastningar/SAP/OS-Compatibility-Matrix-Hana-stor instans)

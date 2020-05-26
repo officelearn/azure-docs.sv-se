@@ -1,6 +1,6 @@
 ---
-title: Ta bort en Azure AD-katalog – Azure Active Directory | Microsoft Docs
-description: Förklarar hur du förbereder en Azure AD-katalog för borttagning, inklusive självbetjänings kataloger
+title: Ta bort en Azure AD-organisation (klient) – Azure Active Directory | Microsoft Docs
+description: Förklarar hur du förbereder en Azure AD-organisation (klient) för borttagning, inklusive självbetjänings organisationer
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,50 +9,50 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/21/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5ea42f5196b2c4ffe06c139e595dd4641752d35
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73961824"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816207"
 ---
-# <a name="delete-a-directory-in-azure-active-directory"></a>Ta bort en katalog i Azure Active Directory
+# <a name="delete-a-tenant-in-azure-active-directory"></a>Ta bort en klient i Azure Active Directory
 
-När en Azure AD-katalog tas bort, tas även alla resurser som finns i katalogen bort. Förbered din organisation genom att minimera dess associerade resurser innan du tar bort den. Endast en global administratör för Azure Active Directory (Azure AD) kan ta bort en Azure AD-katalog från portalen.
+När en Azure AD-organisation (klient) tas bort, tas även alla resurser som ingår i organisationen bort. Förbered din organisation genom att minimera dess associerade resurser innan du tar bort den. Endast en global administratör för Azure Active Directory (Azure AD) kan ta bort en Azure AD-organisation från portalen.
 
-## <a name="prepare-the-directory"></a>Förbered katalogen
+## <a name="prepare-the-organization"></a>Förbered organisationen
 
-Du kan inte ta bort en katalog i Azure AD förrän den passerar flera kontroller. Dessa kontroller minskar risken för att ta bort en Azure AD-katalog negativt påverkar användarens åtkomst, till exempel möjligheten att logga in på Office 365 eller få åtkomst till resurser i Azure. Om till exempel den katalog som är associerad med en prenumeration tas bort av misstag, kan användarna inte komma åt Azure-resurser för den prenumerationen. Följande villkor kontrolleras:
+Det går inte att ta bort en organisation i Azure AD förrän flera kontroller har passerats. Dessa kontroller minskar risken för att ta bort en Azure AD-organisation negativt påverkar användar åtkomst, till exempel möjligheten att logga in på Office 365 eller åtkomst till resurser i Azure. Till exempel om organisationen som är associerad med en prenumeration oavsiktligt har tagits bort, kan användarna inte komma åt Azure-resurser för den prenumerationen. Följande villkor kontrolleras:
 
-* Det får inte finnas några användare i katalogen, förutom en global administratör som är att ta bort katalogen. Andra användare måste tas bort innan katalogen kan tas bort. Om användarna synkroniseras lokalt måste synkroniseringen först inaktive ras och användarna måste tas bort i moln katalogen med hjälp av Azure Portal-eller Azure PowerShell-cmdletar.
-* Det får inte finnas några program i katalogen. Alla program måste tas bort innan katalogen kan tas bort.
-* Det kan inte finnas några Multi-Factor Authentication-providrar kopplade till katalogen.
-* Det får inte finnas några prenumerationer för Microsoft Online Services, till exempel Microsoft Azure, Office 365 eller Azure AD Premium, som är kopplade till katalogen. Om en standardkatalog skapades för dig i Azure kan du inte ta bort den katalogen om din Azure-prenumeration fortfarande är beroende av den här katalogen för autentisering. På liknande sätt kan du inte ta bort en katalog om en annan användare har associerat en prenumeration med den.
+* Det får inte finnas några användare i Azure AD-organisationen (klient organisationen) förutom en global administratör som vill ta bort organisationen. Andra användare måste tas bort innan organisationen kan tas bort. Om användarna synkroniseras lokalt måste synkroniseringen först inaktive ras och användarna måste tas bort i moln organisationen med hjälp av Azure Portal-eller Azure PowerShell-cmdletar.
+* Det kan inte finnas några program i organisationen. Alla program måste tas bort innan organisationen kan tas bort.
+* Det kan inte finnas några Multi-Factor Authentication-providrar kopplade till organisationen.
+* Det kan inte finnas några prenumerationer för Microsoft Online Services, till exempel Microsoft Azure, Office 365 eller Azure AD Premium som är kopplade till organisationen. Om du till exempel har skapat en Azure AD-organisation som standard i Azure kan du inte ta bort den här organisationen om din Azure-prenumeration fortfarande är beroende av den här organisationen för autentisering. På samma sätt kan du inte ta bort en organisation om en annan användare har associerat en prenumeration med den.
 
-## <a name="delete-the-directory"></a>Ta bort katalogen
+## <a name="delete-the-organization"></a>Ta bort organisationen
 
 1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som är den globala administratören för din organisation.
 
 2. Välj **Azure Active Directory**.
 
-3. Växla till den katalog som du vill ta bort.
+3. Växla till den organisation som du vill ta bort.
   
    ![Bekräfta organisation innan borttagning](./media/directory-delete-howto/delete-directory-command.png)
 
-4. Välj **ta bort katalog**.
+4. Välj **ta bort klient organisation**.
   
    ![Välj kommandot för att ta bort organisationen](./media/directory-delete-howto/delete-directory-list.png)
 
-5. Om din katalog inte klarar en eller flera kontroller får du en länk till mer information om hur du skickar. När du har godkänt alla kontroller väljer du **ta bort** för att slutföra processen.
+5. Om din organisation inte klarar en eller flera kontroller får du en länk till mer information om hur du skickar. När du har godkänt alla kontroller väljer du **ta bort** för att slutföra processen.
 
-## <a name="if-you-cant-delete-the-directory"></a>Om du inte kan ta bort katalogen
+## <a name="if-you-cant-delete-the-organization"></a>Om du inte kan ta bort organisationen
 
-När du konfigurerade din Azure AD-katalog kan du också ha aktiverat licensbaserade prenumerationer för din organisation som Azure AD Premium P2, Office 365 Business Premium eller Enterprise Mobility + Security E5. För att undvika oavsiktlig data förlust kan du inte ta bort en katalog förrän prenumerationerna har tagits bort helt. Prenumerationerna måste vara i **avetablerat** tillstånd för att det ska gå att ta bort katalogen. En **förfallen** eller **avbruten** prenumeration flyttas till **inaktiverat** tillstånd och den slutliga fasen är tillståndet **deetablerat** .
+När du konfigurerade din Azure AD-organisation kan du också ha aktiverat licensbaserade prenumerationer för din organisation som Azure AD Premium P2, Office 365 Business Premium eller Enterprise Mobility + Security E5. För att undvika oavsiktlig data förlust kan du inte ta bort en organisation förrän prenumerationerna har tagits bort helt. Prenumerationerna måste vara i **avetablerat** tillstånd för att organisationen ska kunna tas bort. En **förfallen** eller **avbruten** prenumeration flyttas till **inaktiverat** tillstånd och den slutliga fasen är tillståndet **deetablerat** .
 
 Information om vad som ska förväntas när en prenumeration på en utvärderings version av Office 365 går ut (inte inklusive betald partner/CSP, Enterprise-avtal eller volym licensiering) finns i följande tabell. Mer information om Office 365-datakvarhållning och prenumerations livs cykel finns i [Vad händer med mina data och åtkomst när min Office 365 för företag-prenumeration slutar?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
@@ -67,7 +67,7 @@ Avetablerat (30 dagar efter inaktive rad) | Data har tagits bort (tas bort autom
 
 Du kan lägga till en prenumeration i **avetablerat** tillstånd för borttagning på tre dagar med hjälp av Microsoft 365 administrations Center.
 
-1. Logga in på [Microsoft 365 administrations Center](https://admin.microsoft.com) med ett konto som är en global administratör i din organisation. Om du försöker ta bort katalogen "contoso" som har den inledande standard domänen contoso.onmicrosoft.com loggar du in med ett UPN, till exempel admin@contoso.onmicrosoft.com.
+1. Logga in på [Microsoft 365 administrations Center](https://admin.microsoft.com) med ett konto som är en global administratör i din organisation. Om du försöker ta bort organisationen "contoso" som har den inledande standard domänen contoso.onmicrosoft.com loggar du in med ett UPN, till exempel admin@contoso.onmicrosoft.com .
 
 2. Förhandsgranska den nya Microsoft 365 administrations centret genom att se till att **prova den nya administrations Center** -växlingen är aktive rad.
 
@@ -91,18 +91,18 @@ Du kan lägga till en prenumeration i **avetablerat** tillstånd för borttagnin
 
 7. Nu har prenumerations statusen ändrats och prenumerationen har marker ATS för borttagning. Prenumerationen går in i **avetablerat** tillstånd 72 timmar senare.
 
-8. När du har tagit bort en prenumeration i din katalog och 72 timmar har förflutit kan du logga in igen i Azure AD Admin Center igen och det bör inte finnas någon obligatorisk åtgärd och inga prenumerationer blockerar katalog borttagningen. Du bör kunna ta bort Azure AD-katalogen.
+8. När du har tagit bort en prenumeration i din organisation och 72 timmar har förflutit kan du logga in igen i Azure AD Admin Center igen och det bör inte finnas någon obligatorisk åtgärd och inga prenumerationer blockerar din organisations borttagning. Du bör kunna ta bort din Azure AD-organisation.
   
    ![Skicka prenumerations kontroll på borttagnings skärmen](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Jag har en utvärderings prenumeration som blockerar borttagningen
 
-Det finns [självbetjänings registrerings produkter](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) som Microsoft Power BI, Rights Management Services, Microsoft Power Apps eller Dynamics 365. enskilda användare kan registrera sig via Office 365, som också skapar en gäst användare för autentisering i Azure AD-katalogen. Dessa självbetjänings produkter blockerar katalog borttagningar tills de tas bort helt från katalogen, för att undvika data förlust. De kan bara tas bort av Azure AD-administratören om användaren har registrerat sig individuellt eller tilldelat produkten.
+Det finns [självbetjänings registrerings produkter](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) som Microsoft Power BI, Rights Management Services, Microsoft Power Apps eller Dynamics 365. enskilda användare kan registrera sig via Office 365, vilket även skapar en gäst användare för autentisering i din Azure AD-organisation. Dessa självbetjänings produkter blockerar katalog borttagningar tills produkterna tas bort helt från organisationen för att undvika data förlust. De kan bara tas bort av Azure AD-administratören om användaren har registrerat sig individuellt eller tilldelat produkten.
 
 Det finns två typer av självbetjänings registrerings produkter i hur de tilldelas: 
 
 * Tilldelning på organisations nivå: en Azure AD-administratör tilldelar produkten till hela organisationen och en användare kan aktivt använda tjänsten med den här tilldelningen på organisations nivå, även om de inte licensieras separat.
-* Tilldelning på användar nivå: en enskild användare under självbetjänings registreringen tilldelar produkten själva utan administratör. När organisationen har hanterats av en administratör (se [Administratörs övertag ande av en ohanterad katalog](domains-admin-takeover.md)kan administratören direkt tilldela produkten till användare utan självbetjänings registrering.  
+* Tilldelning på användar nivå: en enskild användare under självbetjänings registreringen tilldelar produkten själva utan administratör. När organisationen har hanterats av en administratör (se [Administratörs övertag ande av en ohanterad organisation](domains-admin-takeover.md)kan administratören direkt tilldela produkten till användare utan självbetjänings registrering.  
 
 När du påbörjar borttagningen av en självbetjänings registrerings produkt raderas data permanent och alla användare får åtkomst till tjänsten. Alla användare som har tilldelats erbjudandet individuellt eller på organisations nivå blockeras sedan från att logga in eller komma åt befintliga data. Om du vill förhindra data förlust med självbetjänings registrerings produkten som [Microsoft Power BI instrument paneler](https://docs.microsoft.com/power-bi/service-export-to-pbix) eller [princip konfiguration för Rights Management-tjänster](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), se till att data säkerhets kopie ras och sparas någon annan stans.
 
@@ -119,7 +119,7 @@ Borttagen | Data har tagits bort | Användare kan inte komma åt självbetjänin
 
 Du kan publicera en självbetjänings registrerings produkt som Microsoft Power BI eller Azure Rights Management Services i ett **borttagnings** tillstånd som genast tas bort i Azure AD-portalen.
 
-1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är en global administratör i organisationen. Om du försöker ta bort katalogen "contoso" som har den inledande standard domänen contoso.onmicrosoft.com loggar du in med ett UPN, till exempel admin@contoso.onmicrosoft.com.
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är en global administratör i organisationen. Om du försöker ta bort organisationen "contoso" som har den inledande standard domänen contoso.onmicrosoft.com loggar du in med ett UPN, till exempel admin@contoso.onmicrosoft.com .
 
 2. Välj **licenser**och välj sedan **självbetjänings registrerings produkter**. Du kan se alla självbetjänings registrerings produkter separat från de platsbaserade prenumerationerna. Välj den produkt som du vill ta bort permanent. Här är ett exempel i Microsoft Power BI:
 
@@ -137,7 +137,7 @@ Du kan publicera en självbetjänings registrerings produkt som Microsoft Power 
 
     ![användar namnet är felaktigt eller har inte hittats](./media/directory-delete-howto/product-deleted.png)
 
-6. När du har tagit bort alla produkter kan du logga in igen i Azure AD Admin Center igen och det bör inte finnas någon obligatorisk åtgärd och inga produkter som blockerar din katalog tas bort. Du bör kunna ta bort Azure AD-katalogen.
+6. När du har tagit bort alla produkter kan du logga in igen i Azure AD Admin Center igen och det bör inte finnas någon obligatorisk åtgärd och inga produkter som blockerar din organisation tas bort. Du bör kunna ta bort din Azure AD-organisation.
 
     ![användar namnet är felaktigt eller har inte hittats](./media/directory-delete-howto/delete-organization.png)
 

@@ -9,12 +9,12 @@ services: automation
 ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 4578e3bff7951293c5ec2f1992e597face84b716
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b55280dd8ed5ea82cf861e300306db5a787c31e8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713207"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836931"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Arbeta med Azure Desired State Configuration Extension versions historik
 
@@ -251,5 +251,5 @@ Den här artikeln innehåller information om varje version av Azure DSC VM-till�
 
 - Mer information om PowerShell DSC finns i [PowerShell Documentation Center](/powershell/scripting/dsc/overview/overview).
 - Granska [Resource Manager-mallen för DSC-tillägget](/azure/virtual-machines/extensions/dsc-template).
-- Om du vill ha fler funktioner som du kan hantera med hjälp av PowerShell DSC kan du bläddra i [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)för fler DSC-resurser.
+- Om du vill ha fler funktioner och resurser som du kan hantera med PowerShell DSC kan du bläddra i [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - Mer information om hur du skickar känsliga parametrar till konfigurationer finns i [Hantera autentiseringsuppgifter säkert med DSC-tilläggs hanteraren](/azure/virtual-machines/extensions/dsc-credentials).

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: f0a3ea3aebeb9c96d7ccfba9c883ae208d93a44e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a2bce05288d0085306a59f3ff5ee62939941bbaf
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657984"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800606"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicera en integrerad lösning
 
@@ -52,7 +52,7 @@ En översikt över integrerade lösnings program finns i [översikts videon för
 
 ## <a name="submit-a-nomination"></a>Skicka en utnämning
 
-Partner som vill delta i programmet ska identifiera andra partner som de vill arbeta med. De bör fylla i det [integrerade lösnings betecknings formuläret](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx). Program teamet för Integrated Solutions granskar nominerandet och följer upp inom 10 arbets dagar. Teamet innehåller godkännande och nästa steg.
+Partner som vill delta i programmet ska identifiera andra partner som de vill arbeta med. De bör fylla i det [integrerade lösnings betecknings formuläret](https://aka.ms/AA5qicu). Program teamet för Integrated Solutions granskar nominerandet och följer upp inom 10 arbets dagar. Teamet innehåller godkännande och nästa steg.
 
 ## <a name="develop-an-integrated-solution"></a>Utveckla en integrerad lösning
 
@@ -64,7 +64,7 @@ När din utnämning har godkänts använder du de länkade program resurserna f�
     * Omfång
     * Rikta kunder
     * Värde förslag
-    * Priser
+    * Prissättning
     * Licensiering
     * Villkor
     * Support metod
@@ -84,8 +84,8 @@ När din utnämning har godkänts använder du de länkade program resurserna f�
 
     Använd följande resurser för utvecklings processen:
 
-    * [Diskussions guide för Business besluts workshop](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-business-workshop.pptx)
-    * [Diskussions guide för teknisk besluts workshop](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-technical-workshop.pptx)
+    * [Diskussions guide för Business besluts workshop](https://aka.ms/AA5qicx)
+    * [Diskussions guide för teknisk besluts workshop](https://aka.ms/AA5qid1)
     * [Snabb starts video: integrerade lösningar workshops](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
 
 1. Identifiera en plattforms oberoende projekt hanterare för att driva projektplanen och tids linjen som du utvecklade i affärs-och teknik workshops.
@@ -98,8 +98,8 @@ När din utnämning har godkänts använder du de länkade program resurserna f�
 
     * Ett kombinerat lösnings namn.
     * En lista Beskrivning av den integrerade lösningen. Följ [erbjudande-lista över bästa praxis](./gtm-offer-listing-best-practices.md).
-    * Ett avstånd för en sida till kunder. Använd [mallen One-pager](https://assetsprod.microsoft.com/mpn/integrated-solutions-customer-one-pager-template.pptx).
-    * En kund presentation. Använd [presentations mal len](https://assetsprod.microsoft.com/mpn/customer-presentation-template.pptx).
+    * Ett avstånd för en sida till kunder. Använd [mallen One-pager](https://aka.ms/AA5s08a).
+    * En kund presentation. Använd [presentations mal len](https://aka.ms/AA5s7ql).
     * En logo typ för den kombinerade lösningen.
 
 ## <a name="publish-your-integrated-solution"></a>Publicera din integrerade lösning

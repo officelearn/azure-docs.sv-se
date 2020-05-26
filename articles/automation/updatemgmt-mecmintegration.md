@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 798cf3a7a8b94a06331e2f8e27c143b4182b718e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 183189253d11638751e1f8283b202f122131b005
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735845"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836319"
 ---
 # <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integrera Uppdateringshantering med Windows-slutpunkt Configuration Manager
 
@@ -20,7 +20,7 @@ Kunder som har investerat i Microsoft Endpoint Configuration Manager för att ha
 
 Du kan rapportera och uppdatera hanterade Windows-servrar genom att skapa och förinstallera distributioner av program uppdateringar i Windows-slutpunkt Configuration Manager och få detaljerad status för slutförda uppdaterings distributioner med [uppdateringshantering](automation-update-management.md). Om du använder Windows-slutpunkt Configuration Manager för uppdatering av Kompatibilitetsrapport, men inte för att hantera uppdaterings distributioner med dina Windows-servrar, kan du fortsätta att rapportera till Konfigurations hanteraren medan säkerhets uppdateringar hanteras med Azure Automation Uppdateringshantering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste ha [Azure Automation uppdateringshantering](automation-update-management.md) lagts till i ditt Automation-konto.
 * Windows-servrar som för närvarande hanteras av din Windows-slutpunkt Configuration Managers miljö måste också rapportera till Log Analytics-arbetsytan som också har Uppdateringshantering aktiverat.
@@ -48,4 +48,4 @@ När du har genomfört den här konfigurations ändringen skapar du en ny distri
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Schemalägga en uppdateringsdistribution](automation-tutorial-update-management.md#schedule-an-update-deployment)
+Information om hur du konfigurerar ett integrations schema finns i [Schemalägga en uppdaterings distribution](automation-tutorial-update-management.md#schedule-an-update-deployment).

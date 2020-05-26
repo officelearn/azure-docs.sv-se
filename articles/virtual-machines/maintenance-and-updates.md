@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: eaf7616b3bd69828829342b4dca9247c009d3475
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97605b0cdc7ac6368b21e9427f64e4bca7e35d4a
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250236"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815952"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Underhåll för virtuella datorer i Azure
 
@@ -21,7 +21,7 @@ Azure uppdaterar regelbundet sin plattform för att förbättra tillförlitlighe
 Uppdateringar påverkar sällan de värdar som är värdar för virtuella datorer. När uppdateringar har en effekt väljer Azure den minsta påverkan metoden för uppdateringar:
 
 - Om uppdateringen inte kräver en omstart pausas den virtuella datorn medan värden uppdateras, eller så är den virtuella datorn Live-migrerad till en redan uppdaterad värd. 
-- Om underhåll kräver en omstart får du ett meddelande om planerat underhåll. Azure tillhandahåller också ett tids fönster där du kan starta underhållet själv, vid en tidpunkt som passar dig. Fönstret för automatisk underhåll är vanligt vis 30 dagar om inte underhållet är brådskande. Azure investerar i teknikerna för att minska antalet fall där det planerade plattforms underhållet kräver att de virtuella datorerna startas om. Anvisningar om hur du hanterar planerat underhåll finns i hantera planerade underhålls aviseringar med hjälp av Azure [CLI](maintenance-notifications-cli.md), [PowerShell](maintenance-notifications-powershell.md) eller [Portal](maintenance-notifications-portal.md).
+- Om underhåll kräver en omstart får du ett meddelande om planerat underhåll. Azure tillhandahåller också ett tids fönster där du kan starta underhållet själv, vid en tidpunkt som passar dig. Fönstret för själv underhåll är vanligt vis 35 dagar om inte underhållet är brådskande. Azure investerar i teknikerna för att minska antalet fall där det planerade plattforms underhållet kräver att de virtuella datorerna startas om. Anvisningar om hur du hanterar planerat underhåll finns i hantera planerade underhålls aviseringar med hjälp av Azure [CLI](maintenance-notifications-cli.md), [PowerShell](maintenance-notifications-powershell.md) eller [Portal](maintenance-notifications-portal.md).
 
 Den här sidan beskriver hur Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i [Hantera tillgängligheten för virtuella datorer för Windows](./windows/manage-availability.md) eller motsvarande artikel för [Linux](./linux/manage-availability.md).
 
@@ -37,11 +37,11 @@ De flesta underhålls effekter som inte är noll pausar den virtuella datorn i m
 
 Underhåll av minnes underhåll fungerar i mer än 90 procent av virtuella Azure-datorer. Den fungerar inte för G-, M-, N-och H-serien. Azure använder i allt större utsträckning teknik för Live-migrering och förbättrar underhålls metoder för att minska paus tiderna.  
 
-De underhålls åtgärder som inte kräver en omstart tillämpas en fel domän i taget. De stoppas om de får varnings hälso signaler. 
+De underhålls åtgärder som inte kräver en omstart tillämpas en fel domän i taget. De stoppas om de får varnings hälso signaler från plattforms övervaknings verktyg. 
 
 De här typerna av uppdateringar kan påverka vissa program. När den virtuella datorn är Live-migrerad till en annan värd kan vissa känsliga arbets belastningar Visa en försämrad prestanda försämring under några minuter, vilket leder till att den virtuella datorn pausas. Om du vill förbereda för underhåll av virtuella datorer och minska påverkan under Azure-underhållet kan du försöka [använda schemalagda händelser för Windows](./windows/scheduled-events.md) eller [Linux](./linux/scheduled-events.md) för sådana program. 
 
-Det finns också en funktion, underhålls kontroll, i offentlig för hands version som kan hjälpa till att hantera underhåll som inte kräver en omstart. Du måste använda antingen [Azure-dedikerade värdar](./linux/dedicated-hosts.md) eller en [isolerad virtuell dator](../security/fundamentals/isolation-choices.md). Med underhålls kontrollen får du möjlighet att hoppa över plattforms uppdateringar och tillämpa uppdateringarna när som helst i en rullande 35-dagars period. Mer information finns i [styra uppdateringar med underhålls kontroll och Azure CLI](maintenance-control-cli.md).
+För bättre kontroll av alla underhålls aktiviteter, inklusive noll effekter och omstarter av uppdateringar, kan du använda funktionen underhålls kontroll. Du måste använda antingen [Azure-dedikerade värdar](./linux/dedicated-hosts.md) eller en [isolerad virtuell dator](../security/fundamentals/isolation-choices.md). Med underhålls kontrollen får du möjlighet att hoppa över alla plattforms uppdateringar och tillämpa uppdateringarna vid ditt val av tid inom en rullande 35-dagars period. Mer information finns i [styra uppdateringar med underhålls kontroll och Azure CLI](maintenance-control.md).
 
 
 ### <a name="live-migration"></a>Direktmigrering

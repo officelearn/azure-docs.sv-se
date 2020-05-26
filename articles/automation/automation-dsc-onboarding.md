@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: a2693803603e053f06c8b6886c6f6639f0859461
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f30d15615e4f3c738d969d068bf2864df23e7cdb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713156"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836914"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Aktivera konfiguration av Azure Automation tillstånd
 
@@ -22,7 +22,7 @@ I det här avsnittet beskrivs hur du kan konfigurera dina datorer för hantering
 
 ## <a name="enable-azure-vms"></a>Aktivera virtuella Azure-datorer
 
-Med Azure Automation tillstånds konfiguration kan du enkelt aktivera virtuella Azure-datorer för konfigurations hantering med hjälp av Azure Portal, Azure Resource Manager mallar eller PowerShell. Under huven, och utan att en administratör måste fjärrans luta till en virtuell dator, registreras den virtuella datorn med Azure Automation tillstånds konfiguration under det önskade tillstånds konfigurations tillägget i Azure Eftersom Azure-tillägget körs asynkront följer steg för att följa förloppet eller fel söknings funktionen finns i [Felsöka konfiguration av virtuella datorer för tillstånds konfiguration](#troubleshoot-vm-setup-for-state-configuration).
+Med Azure Automation tillstånds konfiguration kan du enkelt aktivera virtuella Azure-datorer för konfigurations hantering med hjälp av Azure Portal, Azure Resource Manager mallar eller PowerShell. Under huven, och utan att en administratör måste fjärrans luta till en virtuell dator, registreras den virtuella datorn med Azure Automation tillstånds konfiguration under det önskade tillstånds konfigurations tillägget i Azure Eftersom Azure-tillägget körs asynkront finns steg för att följa förloppet i [kontrol lera status för VM-installationen](#check-status-of-vm-setup).
 
 > [!NOTE]
 >Om du distribuerar DSC till en Linux-nod används mappen **katalogen/tmp** . Moduler som `nxautomation` tillfälligt hämtas för verifiering innan de installeras på lämpliga platser. För att se till att modulerna installeras korrekt behöver Log Analytics agent för Linux Läs-/Skriv behörighet för **katalogen/tmp** -mappen.<br><br>
@@ -307,27 +307,26 @@ När du har registrerat en dator som en DSC-nod i Azure Automation tillstånds k
 
 Du kan registrera om en nod precis som du registrerade noden från början med någon av de metoder som beskrivs i det här dokumentet. Du behöver inte avregistrera en nod från Azure Automation tillstånds konfiguration innan du registrerar om den.
 
-## <a name="troubleshoot-vm-setup-for-state-configuration"></a>Felsöka konfiguration av virtuella datorer för tillstånds konfiguration
+## <a name="check-status-of-vm-setup"></a>Kontrol lera status för VM-installationen
 
 Med tillstånds konfiguration kan du enkelt aktivera virtuella Azure Windows-datorer för konfigurations hantering. Under huven används det önskade tillstånds konfigurations tillägget för Azure VM för att registrera den virtuella datorn med Azure Automation tillstånds konfiguration. Eftersom det önskade tillstånds konfigurations tillägget för Azure VM körs asynkront, kan det vara viktigt att spåra dess förlopp och felsöka körningen.
 
 > [!NOTE]
 > Alla metoder för att aktivera virtuella Azure Windows-datorer för tillstånds konfiguration som använder tillägget för önskad tillstånds konfiguration i Azure VM kan ta upp till en timme för Azure Automation för att visa virtuella datorer som registrerade. Den här fördröjningen beror på installationen av WMF 5 på den virtuella datorn med tillägget för önskad tillstånds konfiguration i Azure VM, vilket krävs för att aktivera virtuella datorer för tillstånds konfiguration.
 
-Felsöka eller Visa status för tillägget Azure VM Desired State Configuration:
+Så här visar du status för det önskade tillägget för Azure VM-tillstånd:
 
 1. I Azure Portal navigerar du till den virtuella dator som är aktive rad.
 2. Klicka på **tillägg** under **Inställningar**. 
 3. Välj **DSC** eller **DSCForLinux**, beroende på vilket operativ system du har. 
 4. Du kan klicka på **Visa detaljerad status**om du vill ha mer information.
 
-Mer information om fel sökning finns i [felsöka Azure Automation tillstånds konfiguration](./troubleshoot/desired-state-configuration.md).
-
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du kommer igång finns i [komma igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md).
-- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
+- Information om hur du kommer igång finns i [Kom igång med Azure Automation tillstånds konfiguration](automation-dsc-getting-started.md).
+- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
 - En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - Pris information finns i pris information för [Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
-- Ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution finns i [användnings exempel: kontinuerlig distribution till virtuella datorer med Azure Automation tillstånds konfiguration och choklad](automation-dsc-cd-chocolatey.md).
+- Ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution finns i [Konfigurera kontinuerlig distribution med choklad](automation-dsc-cd-chocolatey.md).
+- Information om fel sökning finns i [felsöka Azure Automation tillstånds konfiguration](./troubleshoot/desired-state-configuration.md).

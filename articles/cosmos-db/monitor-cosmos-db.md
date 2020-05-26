@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: fcdc80e73d11bbc6d94e921548d346ee436b69ac
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 5056762dab18ae23980c7d3b3ebfbb3c3014fa56
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715689"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798701"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Övervaknings Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Följande avsnitt bygger på den här artikeln genom att beskriva de specifika d
 
 ## <a name="azure-monitor-for-azure-cosmos-db"></a>Azure Monitor för Azure Cosmos DB
 
-Azure Monitor för Azure Cosmos DB baseras på [arbets bokens funktion i Azure Monitor](../azure-monitor/app/usage-workbooks.md) och använder samma övervaknings data som samlas in för Cosmos DB som beskrivs i avsnitten nedan. Använd Azure Monitor för att se övergripande prestanda, fel, kapacitet och drifts hälsa för alla dina Azure Cosmos DB resurser i en enhetlig interaktiv upplevelse och utnyttja de andra funktionerna i Azure Monitor för detaljerad analys och avisering. Mer information finns i artikeln [utforska Azure Monitor för Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md) .
+Azure Monitor för Azure Cosmos DB baseras på [arbets bokens funktion i Azure Monitor](../azure-monitor/platform/workbooks-overview.md) och använder samma övervaknings data som samlas in för Cosmos DB som beskrivs i avsnitten nedan. Använd Azure Monitor för att se övergripande prestanda, fel, kapacitet och drifts hälsa för alla dina Azure Cosmos DB resurser i en enhetlig interaktiv upplevelse och utnyttja de andra funktionerna i Azure Monitor för detaljerad analys och avisering. Mer information finns i artikeln [utforska Azure Monitor för Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md) .
 
 > [!NOTE]
 > När du skapar behållare ser du till att du inte skapar två behållare med samma namn men med olika Skift läge. Det beror på att vissa delar av Azure-plattformen inte är Skift läges känsliga, och det kan leda till förvirring/kollisioner för telemetri och åtgärder på behållare med sådana namn.

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e8bb448e88d7aaa3d59ec9392a3b3ac69373c4d
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b6778c4eab4dee382ec38d6218aa647e8aedc4cc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715502"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836761"
 ---
 # <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrera från Orchestrator till Azure Automation (beta)
 
@@ -130,8 +130,8 @@ Orchestrator lagrar Runbooks på en databas server och kör dem på Runbook-serv
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
-* [System Center 2012 - Orchestrator](https://technet.microsoft.com/library/hh237242.aspx)
-* [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
-* [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
-* [Orchestrator standard-aktiviteter](https://technet.microsoft.com/library/hh403832.aspx)
-* [Hämta System Center Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323)
+* Information om Orchestrator finns i [System Center 2012-Orchestrator](https://technet.microsoft.com/library/hh237242.aspx).
+* Läs mer om hur du automatiserar hanteringen av tjänster i [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx).
+* Information om Orchestrator-aktiviteter finns i [Orchestrator standard-aktiviteter](https://technet.microsoft.com/library/hh403832.aspx).
+* Information om hur du skaffar Orchestrator Migration Toolkit finns i [Hämta System Center Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323).
+* En översikt över Azure Automation Hybrid Runbook Worker finns i [hybrid Runbook Worker översikt](automation-hybrid-runbook-worker.md).

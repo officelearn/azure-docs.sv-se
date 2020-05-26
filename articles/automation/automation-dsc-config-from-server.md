@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d783ce7193faed4110d07988d3f3f05951c80a45
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 775fae09c4d618551327669362cd28a0ae2cc801
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711405"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837016"
 ---
-# <a name="create-configurations-from-existing-servers-for-azure-automation-state-configuration"></a>Skapa konfigurationer från befintliga servrar för Azure Automation tillstånds konfiguration
+# <a name="create-configurations-from-existing-servers"></a>Skapa konfigurationer från befintliga servrar
 
 > Gäller för: Windows PowerShell 5,1
 
@@ -45,6 +45,6 @@ Om du vill testa ReverseDSC går du till [PowerShell-galleriet](https://www.powe
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över önskad tillstånds konfiguration i Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [DSC-resurser](/powershell/scripting/dsc/resources/resources)
-- [Konfigurera den lokala Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- För att förstå PowerShell DSC, se [Översikt över önskad tillstånds konfiguration i Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+- Lär dig mer om PowerShell DSC-resurser i [DSC-resurser](/powershell/scripting/dsc/resources/resources).
+- Information om lokal Configuration Manager konfiguration finns i [Konfigurera den lokala Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig).

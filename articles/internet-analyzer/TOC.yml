@@ -10,7 +10,7 @@
       href: internet-analyzer-create-test-portal.md
     - name: Skapa ett Internet Analyzer-test med CLI
       href: internet-analyzer-cli.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Bädda in klient
       href: internet-analyzer-embed-client.md
@@ -30,8 +30,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blogg
       href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
     - name: Förhandsversion – serviceavtal
       href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
     - name: SLA

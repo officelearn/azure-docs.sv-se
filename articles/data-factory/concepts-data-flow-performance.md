@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/27/2020
-ms.openlocfilehash: 8ea26fc041f3fa6194ced65b3e3b9055848ead49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.openlocfilehash: 327fffd807d93fda67ff650954ece65e5db58e63
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188779"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798114"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -41,7 +41,7 @@ När du skapar mappnings data flöden kan du Unit testa varje omvandling genom a
 
 En Integration Runtime med fler kärnor ökar antalet noder i beräknings miljöerna för Spark och ger mer processor kraft för att läsa, skriva och transformera dina data. I ADF-dataflöden används Spark för Compute-motorn. Spark-miljön fungerar mycket bra för minnesoptimerade resurser.
 * Prova ett **Compute-optimerat** kluster om du vill att din bearbetnings takt ska vara högre än din takt.
-* Försök med **ett minnesoptimerade** kluster om du vill cachelagra mer data i minnet. Minnesoptimerade har en högre pris nivå per kärna än beräkning optimerad, men kommer troligen att resultera i snabbare omvandlings hastigheter.
+* Försök med **ett minnesoptimerade** kluster om du vill cachelagra mer data i minnet. Minnesoptimerade har en högre pris nivå per kärna än beräkning optimerad, men kommer troligen att resultera i snabbare omvandlings hastigheter. Om det uppstår minnes fel när du kör dina data flöden växlar du till en minnesoptimerade Azure IR-konfiguration.
 
 ![Ny IR](media/data-flow/ir-new.png "Ny IR")
 
@@ -140,6 +140,10 @@ Om du till exempel har en lista med datafiler från 2019 juli som du vill bearbe
 ```DateFiles/*_201907*.txt```
 
 Genom att använda jokertecken innehåller pipelinen bara en data flödes aktivitet. Detta kommer att utföra bättre än en sökning mot BLOB Store som sedan itererar över alla matchade filer med hjälp av en förvarsin aktivitet med data flödes aktiviteten Kör i.
+
+Pipelinen för varje i parallellt läge skapar flera kluster genom att snurra jobb kluster för varje utförd data flödes aktivitet. Detta kan orsaka en begränsning i Azure-tjänsten med ett stort antal samtidiga körningar. Användningen av kör data flöde inuti en för varje med sekventiell uppsättning i pipelinen kommer dock att undvika begränsning och resurs överbelastning. Detta tvingar Data Factory att köra var och en av dina filer mot ett data flöde i tur och ordning.
+
+Om du använder för var och en med ett data flöde i följd rekommenderar vi att du använder TTL-inställningen i Azure Integration Runtime. Detta beror på att varje fil kommer att medföra en fullständig kluster start tid i 5 minuter i din iterator.
 
 ### <a name="optimizing-for-cosmosdb"></a>Optimering för CosmosDB
 

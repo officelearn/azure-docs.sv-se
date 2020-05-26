@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: ffe7edd5faf5ae4f88f9f3e0c40256bee32395d7
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 0734ac0843eec164ad2207020da9dd1a7e9fa429
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714873"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837101"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
@@ -83,7 +83,7 @@ Utför följande steg för att skapa ett Azure Automation konto i Azure Portal:
 
 När Automation-kontot har skapats skapas flera resurser automatiskt. När du har skapat dessa Runbooks kan de tas bort på ett säkert sätt om du inte vill behålla dem. Kör som-kontona kan användas för att autentisera till ditt konto i en Runbook och bör vara kvar om du inte skapar ett annat eller inte behöver det. I följande tabell sammanfattas resurserna för Kör som-kontot.
 
-| Resurs | Beskrivning |
+| Resurs | Description |
 | --- | --- |
 | AzureAutomationTutorial-runbook |Ett exempel på en grafisk Runbook som visar hur du autentiserar med hjälp av kör som-kontot. Runbook hämtar alla Resource Manager-resurser. |
 | AzureAutomationTutorialScript-runbook |Ett exempel på en PowerShell-Runbook som visar hur du autentiserar med hjälp av kör som-kontot. Runbook hämtar alla Resource Manager-resurser. |
@@ -101,8 +101,9 @@ Klassiska kör som-konton skapas inte längre som standard när du skapar ett Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md)
-* [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md)
-* [Min första PowerShell Workflow-Runbook](automation-first-runbook-textual.md)
-* [Min första Python2-Runbook](automation-first-runbook-textual-python2.md)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* Mer information om grafisk redigering finns [i Redigera grafiska runbooks i Azure Automation](automation-graphical-authoring-intro.md).
+* Information om hur du kommer igång med PowerShell-Runbooks finns i [Självstudier: skapa en PowerShell-Runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* Information om hur du kommer igång med PowerShell Workflow-Runbooks finns i [självstudie: skapa en PowerShell Workflow-Runbook](learn/automation-tutorial-runbook-textual.md).
+* Information om hur du kommer igång med python 2-Runbooks finns i [Självstudier: skapa en python 2-Runbook](learn/automation-tutorial-runbook-textual-python2.md).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

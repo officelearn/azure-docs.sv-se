@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: bd1449501cdc9483621a5408a3a4926afe90212f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 611ab503dfea44e8287e95cf607ce6af3b447d1f
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702150"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815799"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Installera och kör ansikts behållare (förhands granskning)
 
@@ -38,7 +38,7 @@ Du måste uppfylla följande krav innan du använder behållare för ansikts tj�
 
 ## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till registret för privat behållare
 
-Fyll i och skicka [formuläret för begäran](https://aka.ms/VisionContainersPreview) för att begära åtkomst till behållaren. 
+Fyll i och skicka [formuläret för begäran](https://aka.ms/cognitivegate) för att begära åtkomst till behållaren. 
 
 [!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 

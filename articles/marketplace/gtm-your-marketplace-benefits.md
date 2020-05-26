@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: abc71d644b44b432d0ebf2a8c849554fe8db0256
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25753ce4c313a60b06147ab06dbf0b5e3e05865f
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190341"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800502"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -36,7 +36,7 @@ Minimi kravet för att publicera i butiker är en MPNID, så dessa fördelar är
 
 Du får support för att förstå vilka resurser som är tillgängliga och hur du implementerar bästa praxis, som du också kan [Granska på egen hand](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Detaljerade beskrivningar av alla program förmåner finns i [program däcket Marketplace](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c)Benefits.
+Detaljerade beskrivningar av alla program förmåner finns i [program däcket Marketplace](https://aka.ms/marketplacerewards)Benefits.
 
 Dina steg för att komma igång är enkla:
 
@@ -56,7 +56,7 @@ Dina steg för att komma igång är enkla:
 2. Hur du utnyttjar fördelarna med Azures sponsring kommer att delas via ett e-postmeddelande när du låser upp dessa förmåner.
 
 >[!Note]
->Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått något meddelande, kan du kontrol lera i din organisation vem som är ägare till erbjudandet i fråga, genom att titta i Partner Center. De bör ha kommunikation och nästa steg. <br> <br> Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende i [Hjälp och support](https://partner.microsoft.com/support/v2/?stage=1).
+>Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått något meddelande, kan du kontrol lera i din organisation vem som är ägare till erbjudandet i fråga, genom att titta i Partner Center. De bör ha kommunikation och nästa steg. <br> <br> Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende i [Hjälp och support](https://aka.ms/marketplacepublishersupport).
 
 Omfattningen av de aktiviteter som är tillgängliga för dig expanderas när du växer dina erbjudanden i Marketplace. Alla listor får en grundläggande optimerings nivå för optimering och befordran som en del av en självbetjänings-e-post med resurser och bästa praxis.
 
@@ -68,7 +68,7 @@ I tabellen nedan sammanfattas kraven för krav för lista och utvärderings vers
 
 ![Go-to-Marketing-förmåner](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken för Marketplace](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c)-förmåner.
+Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken för Marketplace](https://aka.ms/marketplacerewards)-förmåner.
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Marknads förmåner för Transact-partner
 
@@ -89,7 +89,7 @@ Alla partner som har ett Live-erbjudande får arbeta med en engagerad engagemang
 
 \*Tröskelvärde för platser som säljs gäller endast för Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste utföras senast den 30 juni 2020.
 
-Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken för Marketplace](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c)-förmåner.
+Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken för Marketplace](https://aka.ms/marketplacerewards)-förmåner.
 
 Förutom förmåns förmånerna har företags program partner med Dynamics-erbjudanden publicerat till Microsoft AppSource har en extra programmering som är tillgänglig för dem via [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Detta inkluderar teknisk, marknadsförings-och försäljnings support som är specialiserad för affärs program partner behov.
 
@@ -97,7 +97,7 @@ Förutom förmåns förmånerna har företags program partner med Dynamics-erbju
 
 ### <a name="publisher-agreement"></a>Utgivar avtal
 
-Alla aktiviteter som beskrivs på den här sidan omfattas av [publicerings avtalet för Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) och omfattas av tillägget för kommersiella förmåner.
+Alla aktiviteter som beskrivs på den här sidan omfattas av [publicerings avtalet för Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) och omfattas av tillägget för kommersiella förmåner.
 
 ### <a name="cancellation-policy"></a>Avslutnings princip
 
@@ -122,6 +122,6 @@ Om du har skapat erbjudandet i [partner Center](https://partner.microsoft.com/da
 
 Granska de [självbetjänings resurser som är tillgängliga för dig](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Registrera dig för [Microsoft AppSource och Azure Marketplace community-forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) och lär dig mer om relevanta ämnen eller delta i diskussionen.
+Registrera dig för [Microsoft AppSource och Azure Marketplace community-forum](https://aka.ms/MarketplaceCommunity) och lär dig mer om relevanta ämnen eller delta i diskussionen.
 
 ---

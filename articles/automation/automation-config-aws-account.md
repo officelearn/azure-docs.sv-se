@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0c724b1782381c0499991124c359d3e1339109d3
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: acb056fb959fda320a14059e2b36a0f5e3fb0b37
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715808"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837201"
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Autentisera runbooks med Amazon Web Services (AWS)
 
@@ -39,4 +39,4 @@ När du har skapat och kopierat AWS-säkerhetsnycklarna måste du skapa en inlog
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Automatisera distribution av en virtuell dator i Amazon Web Services](automation-scenario-aws-deployment.md)
+* Information om hur du skapar runbooks för att automatisera uppgifter i AWS finns i [distribuera en virtuell Amazon Web Services virtuell dator med en Runbook](automation-scenario-aws-deployment.md).

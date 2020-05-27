@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81407166"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826476"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga frågor och svar om lösen ords hantering
 
 Här följer några vanliga frågor och svar (FAQ) för alla saker som rör lösen ords återställning.
 
-Om du har en allmän fråga om Azure Active Directory (Azure AD) och lösen ords återställning via självbetjäning (SSPR) som inte besvaras här kan du be communityn om hjälp i [Azure AD-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Medlemmar i communityn är tekniker, produkt chefer, MVP: er och andra IT-proffs.
+Om du har en allmän fråga om Azure Active Directory (Azure AD) och lösen ords återställning via självbetjäning (SSPR) som inte besvaras här kan du be communityn om hjälp på [sidan Microsoft Q&en fråga för Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Medlemmar i communityn är tekniker, produkt chefer, MVP: er och andra IT-proffs.
 
 Vanliga frågor och svar är indelade i följande avsnitt:
 
@@ -36,7 +36,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
 
 * **F: kan mina användare registrera sina egna lösen ords återställnings data?**
 
-  > **S:** Ja. Så länge lösen ords återställning är aktiverat och de är licensierade kan användare gå till registrerings portalen för lösen ords återställninghttps://aka.ms/ssprsetup) (för att registrera deras autentiseringsinformation). Användare kan även registrera sig via åtkomst panelen (https://myapps.microsoft.com). Om du vill registrera dig via åtkomst panelen måste du välja profil bilden, välja **profil**och sedan välja alternativet **Registrera för lösen ords återställning** .
+  > **S:** Ja. Så länge lösen ords återställning är aktiverat och de är licensierade kan användare gå till registrerings portalen för lösen ords återställning ( https://aka.ms/ssprsetup) för att registrera deras autentiseringsinformation). Användare kan även registrera sig via åtkomst panelen ( https://myapps.microsoft.com) . Om du vill registrera dig via åtkomst panelen måste du välja profil bilden, välja **profil**och sedan välja alternativet **Registrera för lösen ords återställning** .
   >
   >
 * **F: om jag aktiverar lösen ords återställning för en grupp och sedan bestämmer dig för att aktivera den för alla, måste mina användare omregistrera sig?**
@@ -101,7 +101,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
   > Om du inte får meddelandet inom denna tidsram:
   > * Kontrol lera mappen skräp post.
   > * Kontrol lera att det nummer eller den e-postadress som du kontaktar är det du förväntar dig.
-  > * Kontrol lera att autentiseringsdata i katalogen är korrekt formaterat, till exempel + 1 4255551234 eller *user\@contoso.com*. 
+  > * Kontrol lera att autentiseringsdata i katalogen är korrekt formaterat, till exempel + 1 4255551234 eller *user \@ contoso.com*. 
 * **F: vilka språk stöds av lösen ords återställning?**
 
   > **A:** Användar gränssnittet för lösen ords återställning, SMS-meddelanden och röst samtal lokaliseras på samma språk som stöds i Office 365.

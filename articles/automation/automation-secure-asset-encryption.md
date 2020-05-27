@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: b26498357db6b1bc006c27285546fd0f3ebe6c4a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 1cb70109657343f41a1b3a19f3426377d97e261e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743791"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830131"
 ---
 # <a name="encryption-of-secure-assets-in-azure-automation"></a>Kryptering av säkra resurser i Azure Automation
 
@@ -189,8 +189,8 @@ Om du vill återkalla åtkomsten till Kundhanterade nycklar använder du PowerSh
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är Azure Key Vault?](../key-vault/general/overview.md)
-- [Hantera certifikat i Azure Automation](shared-resources/certificates.md)
-- [Hantera autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md)
-- [Hantera variabler i Azure Automation](shared-resources/variables.md)
-- [Hantera anslutningar i Azure Automation](automation-connections.md)
+- Information om Azure Key Vault finns i [Azure Key Vault?](../key-vault/general/overview.md).
+- Information om hur du arbetar med certifikat finns [i hantera certifikat i Azure Automation](shared-resources/certificates.md).
+- Information om hur du hanterar autentiseringsuppgifter finns [i Hantera autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md).
+- Om du vill använda Automation-variabler [hanterar du variabler i Azure Automation](shared-resources/variables.md).
+- Information om hur du arbetar med anslutningar finns [i hantera anslutningar i Azure Automation](automation-connections.md).

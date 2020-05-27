@@ -5,15 +5,15 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2541e9e10103d66c6c2fb6978c3029d61b813eab
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ddfd9346f4a72ceb2e8bf5c336fb3de9b5c8c5c7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614972"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827479"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Konfigurera tilldelnings typen egen Skriv bords värd pool
 
@@ -75,6 +75,18 @@ Kör följande PowerShell-cmdlet om du vill tilldela en användare till en speci
 ```powershell
 Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
 ```
+
+## <a name="remove-a-user-assignment"></a>Ta bort en användar tilldelning
+
+Du kanske vill ta bort en användar tilldelning eftersom användaren inte längre behöver det personliga Skriv bordet, användaren har lämnat företaget eller vill återanvända Skriv bordet för någon annan.
+
+För närvarande är det enda sättet som du kan ta bort användar tilldelningen för ett personligt skriv bord att ta bort värd för sessionen fullständigt. Kör denna cmdlet för att ta bort värd för sessionen:
+
+```powershell
+Remove-RdsSessionHost
+```
+
+Om du behöver lägga till sessionsnyckeln i den personliga Skriv bords poolen igen avinstallerar du Windows Virtual Desktop på datorn och följer sedan stegen i [skapa en adresspool med PowerShell](create-host-pools-powershell-2019.md) för att omregistrera värd för sessionen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: kfollis
-ms.openlocfilehash: 2b68b6ddf19d6b07475e7009b47e162bfb2d0d2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0bd1191c0b92203b100b1713971119ec828352ea
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478986"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835554"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Skapa en supportbegäran för Azure
 
@@ -53,7 +53,7 @@ Så här startar du en supportbegäran var som helst i Azure Portal:
 
    ![Hjälp och support](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
-2. Välj **ny supportbegäran**. Följ anvisningarna för att ge oss information om ditt problem. Vi föreslår några möjliga lösningar, samlar in information om problemet och hjälper dig att skicka och spåra support förfrågan.
+2. Välj **Ny supportbegäran**. Följ anvisningarna för att ge oss information om ditt problem. Vi föreslår några möjliga lösningar, samlar in information om problemet och hjälper dig att skicka och spåra support förfrågan.
 
    ![Ny supportbegäran](./media/how-to-create-azure-support-request/newsupportrequest2lower.png)
 
@@ -106,7 +106,7 @@ En support agent kontaktar dig genom att använda den metod du angav. Informatio
 
 ## <a name="all-support-requests"></a>Alla support förfrågningar
 
-Du kan visa information och status för support förfrågningar genom att gå till **Hjälp + Support** >  förfrågningar**alla support förfrågningar**.
+Du kan visa information och status för support förfrågningar genom att gå till **Hjälp + Support**förfrågningar  >   **alla support förfrågningar**.
 
 ![Alla support förfrågningar](./media/how-to-create-azure-support-request/allrequestslower.png)
 
@@ -128,5 +128,5 @@ Titta på den här videon om du vill veta mer om support alternativ för självh
 
 * [Skicka feedback och förslag till oss](https://feedback.azure.com/forums/266794-support-feedback)
 * Engagera oss på [Twitter](https://twitter.com/azuresupport)
-* Få hjälp från dina kollegor i MSDN- [forumen](https://social.msdn.microsoft.com/Forums/azure)
+* Få hjälp från dina kollegor på [sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/products/azure)
 * Läs mer i [vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq)

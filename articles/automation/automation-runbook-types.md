@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c7b036e7adca1fe92425659ebd099feaa3891556
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 184e65c929d43e7a5d4ca3be8bd93770c55cd2a5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743829"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836574"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook-typer
 
 Funktionen Azure Automation process automatisering stöder flera typer av Runbooks som definieras i följande tabell. Mer information om process automatiserings miljön finns [i Runbook-körning i Azure Automation](automation-runbook-execution.md).
 
-| Typ | Beskrivning |
+| Typ | Description |
 |:--- |:--- |
 | [Grafisk](#graphical-runbooks)|Grafisk Runbook baserad på Windows PowerShell och skapas och redige ras helt i den grafiska redigeraren i Azure Portal. |
 | [Grafiskt PowerShell-arbetsflöde](#graphical-runbooks)|Grafisk Runbook baserad på Windows PowerShell-arbetsflöde och skapas och redige ras helt i den grafiska redigeraren i Azure Portal. |
@@ -115,7 +115,7 @@ Python-Runbooks kompileras under python 2. Du kan redigera koden för runbooken 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera Runbooks i Azure Automation](manage-runbooks.md)
-* [Lär dig mer om PowerShell-arbetsflöde för Azure Automation](automation-powershell-workflow.md)
-* [Redigera grafiska runbooks i Azure Automation](automation-graphical-authoring-intro.md)
-* [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview)
+* Mer information om PowerShell-Runbooks finns i [Självstudier: skapa en PowerShell-Runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* Mer information om PowerShell Workflow-Runbooks finns i [Självstudier: skapa en PowerShell-Runbook för arbets flöden](learn/automation-tutorial-runbook-textual.md).
+* Mer information om grafiska runbooks finns i [Självstudier: skapa en grafisk Runbook](learn/automation-tutorial-runbook-graphical.md).
+* Mer information om python-Runbooks finns i [Självstudier: skapa en python-Runbook](learn/automation-tutorial-runbook-textual-python2.md).

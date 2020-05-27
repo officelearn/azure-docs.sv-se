@@ -12,13 +12,13 @@
       href: create-app.md
     - name: Använda en blockkedjeapp
       href: use.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Arkitektur
       href: architecture.md
     - name: Integreringsmönster
       href: integration-patterns.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Distribuera Workbench
@@ -51,7 +51,7 @@
       href: database-views.md
     - name: Meddelande-API
       href: messages-overview.md
-    - name: REST API
+    - name: REST-API
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
 - name: Resurser
   items:
@@ -59,8 +59,8 @@
       href: 'https://github.com/Azure-Samples/blockchain'
     - name: Blogg
       href: 'https://azure.microsoft.com/blog/topics/blockchain/'
-    - name: MSDN-supportforum
-      href: 'https://aka.ms/workbenchforum'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html'
     - name: Community-support
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
     - name: Stack Overflow-support

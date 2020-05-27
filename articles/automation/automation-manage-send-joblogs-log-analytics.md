@@ -3,14 +3,14 @@ title: Vidarebefordra jobbdata från Azure Automation till Azure Monitor-loggar
 description: Den här artikeln beskriver hur du skickar jobb status och jobb strömmar i Runbook till Azure Monitor loggar.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/05/2019
+ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6cd1983a6aa1ea942fb6f3154d8bb99e255f51e9
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ba498fe9f70664a801172a6ff3705ac41a6371ef
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715451"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835263"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Vidarebefordra jobbdata från Azure Automation till Azure Monitor-loggar
 
@@ -46,11 +46,11 @@ Kör följande PowerShell-kommando för att hitta resurs-ID för din Log Analyti
 Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-Om du har mer än ett Automation-konto eller en arbets yta i resultatet av föregående kommandon hittar du det namn som du behöver konfigurera och kopierar värdet för resurs-ID: t.
+Om du har mer än ett Automation-konto eller en arbets yta i resultatet av föregående kommandon, kan du hitta namn och andra relaterade egenskaper som ingår i det fullständiga resurs-ID: t för ditt Automation-konto genom att utföra följande:
 
-1. I Azure Portal väljer du ditt Automation-konto på bladet **Automation-konto** och väljer **alla inställningar**. 
-2. Från bladet **alla inställningar** väljer du **Egenskaper**under **konto inställningar**.  
-3. På bladet **Egenskaper** noterar du egenskaperna som visas nedan.
+1. I Azure Portal väljer du ditt Automation-konto på sidan **Automation-konton** . 
+2. Välj **Egenskaper**under **konto inställningar**på sidan för det valda Automation-kontot.  
+3. På sidan **Egenskaper** noterar du informationen som visas nedan.
 
     ![Egenskaper för Automation-konto](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
@@ -105,11 +105,11 @@ Azure Automation diagnostik skapar du två typer av poster i Azure Monitor logga
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>Konfigurera integration med Azure Monitor loggar
 
 1. Starta Windows PowerShell från **Start** skärmen på datorn.
-2. Kör följande PowerShell-kommandon och redigera värdena för `[your resource ID]` och `[resource ID of the log analytics workspace]` med värdena från föregående avsnitt.
+2. Kör följande PowerShell-kommandon och redigera värdena för `$automationAccountId` och `$workspaceId` med värdena från föregående avsnitt.
 
    ```powershell-interactive
-   $workspaceId = "[resource ID of the log analytics workspace]"
-   $automationAccountId = "[resource ID of your Automation account]"
+   $workspaceId = "resource ID of the log analytics workspace"
+   $automationAccountId = "resource ID of your Automation account"
 
    Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
@@ -139,14 +139,16 @@ Kör följande fråga för att se loggarna:`AzureDiagnostics | where ResourcePro
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Skicka ett e-postmeddelande när ett Runbook-jobb Miss lyckas eller pausas
 
-En av de främsta kunderna ber om möjlighet att skicka ett e-postmeddelande eller en text när något går fel med ett Runbook-jobb.
+Följande steg visar hur du ställer in aviseringar i Azure Monitor för att meddela dig när något går fel med ett Runbook-jobb.
 
 Om du vill skapa en varnings regel börjar du med att skapa en loggs ökning för de Runbook-jobb poster som ska anropa aviseringen. Klicka på knappen **avisering** om du vill skapa och konfigurera varnings regeln.
 
 1. Klicka på **Visa loggar**på översikts sidan för Log Analytics-arbetsyta.
+
 2. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>Du kan också gruppera efter Runbook-namnet genom att använda:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Om du ställer in loggar från fler än ett Automation-konto eller en prenumeration på din arbets yta, kan du gruppera dina aviseringar efter prenumeration och Automation-konto. Du hittar namnet på Automation-kontot i `Resource` fältet i sökningen `JobLogs` .
+
 3. Öppna skärmen **Skapa regel** genom att klicka på **ny varnings regel** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns i [logg aviseringar i Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Hitta alla jobb som har slutförts med fel
@@ -154,7 +156,9 @@ Om du vill skapa en varnings regel börjar du med att skapa en loggs ökning fö
 Förutom aviseringar vid fel kan du hitta när ett Runbook-jobb har ett icke-avslutande fel. I dessa fall genererar PowerShell en fel ström, men de icke-avslutande felen orsakar inte att jobbet pausas eller kraschar.
 
 1. Klicka på **loggar**i arbets ytan Log Analytics.
+
 2. I fältet fråga skriver du `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` .
+
 3. Klicka på knappen **Sök** .
 
 ### <a name="view-job-streams-for-a-job"></a>Visa jobb strömmar för ett jobb
@@ -182,8 +186,8 @@ Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du felsöker Log Analytics finns i [fel sökning varför Log Analytics inte längre samlar in data](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).
-* Mer information om hur du skapar olika Sök frågor och granskar automatiserings jobb loggar med Azure Monitor loggar finns i [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
-* Information om hur du skapar och hämtar utdata och fel meddelanden från Runbooks finns i [Runbook-utdata och meddelanden](automation-runbook-output-and-messages.md).
+* Information om hur du skapar Sök frågor och granskar automatiserings jobb loggar med Azure Monitor loggar finns i [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
+* Information om hur du skapar och hämtar utdata och fel meddelanden från Runbooks finns i [övervaka Runbook-utdata](automation-runbook-output-and-messages.md).
 * Mer information om Runbook-körning, hur du övervakar Runbook-jobb och annan teknisk information finns [i Runbook-körning i Azure Automation](automation-runbook-execution.md).
 * Mer information om Azure Monitor loggar och data insamlings källor finns i [samla in Azure Storage-data i Azure Monitor loggar översikt](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* Information om hur du felsöker Log Analytics finns i [fel sökning varför Log Analytics inte längre samlar in data](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

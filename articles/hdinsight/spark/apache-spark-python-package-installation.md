@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 13ea1043d05c9f349e25623086c2908e176772a8
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: ec914db1e26e6f052715440c3e418df09fe8a361
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583948"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835979"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
 
@@ -23,7 +23,7 @@ ms.locfileid: "82583948"
 
 HDInsight har två inbyggda python-installationer i Spark-klustret, Anaconda python 2,7 och python 3,5. Kunder kan behöva anpassa python-miljön. Som att installera externa python-paket eller en annan python-version. Här visar vi bästa praxis för säker hantering av python-miljöer för Apache Spark kluster i HDInsight.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md). Om du inte redan har ett Spark-kluster i HDInsight kan du köra skript åtgärder när klustret skapas. Gå till dokumentationen om [hur du använder anpassade skript åtgärder](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -33,7 +33,7 @@ Microsoft Azure HDInsights tjänsten använder en miljö med tekniker med öppen
 
 Det finns två typer av komponenter med öppen källkod som är tillgängliga i HDInsight-tjänsten:
 
-|Komponent |Beskrivning |
+|Komponent |Description |
 |---|---|
 |Inbyggd|Dessa komponenter är förinstallerade i HDInsight-kluster och tillhandahåller kärn funktioner i klustret. Till exempel, Apache Hadoop garn Resource Manager, Apache Hive frågespråket (HiveQL) och Mahout-biblioteket tillhör den här kategorin. En fullständig lista över kluster komponenter finns i [Nyheter i Apache Hadoop kluster versioner från HDInsight](../hdinsight-component-versioning.md).|
 |Anpassad|Du, som användare av klustret, kan installera eller använda i din arbets belastning, vilken komponent som helst som är tillgänglig i communityn eller som du har skapat.|
@@ -41,7 +41,7 @@ Det finns två typer av komponenter med öppen källkod som är tillgängliga i 
 > [!IMPORTANT]
 > Komponenter som ingår i HDInsight-klustret stöds fullt ut. Microsoft Support hjälper till att isolera och lösa problem som rör dessa komponenter.
 >
-> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Microsoft Support kanske kan lösa problemet, eller så kan de be dig att tillhandahålla tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, t. ex. [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), `https://stackoverflow.com`. Även Apache-projekt har projekt webbplatser `https://apache.org`.
+> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Microsoft Support kanske kan lösa problemet, eller så kan de be dig att tillhandahålla tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, till exempel: [Microsoft Q&en fråge sida för HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) `https://stackoverflow.com` . Även Apache-projekt har projekt webbplatser `https://apache.org` .
 
 ## <a name="understand-default-python-installation"></a>Förstå den standardinställda python-installationen
 
@@ -50,8 +50,8 @@ HDInsight Spark-kluster skapas med Anaconda-installation. Det finns två python-
 | |Python 2,7|Python 3,5|
 |----|----|----|
 |Sökväg|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Standard är inställt på 2,7|E.t.|
-|Livy|Standard är inställt på 2,7|E.t.|
+|Spark|Standard är inställt på 2,7|Ej tillämpligt|
+|Livy|Standard är inställt på 2,7|Ej tillämpligt|
 |Jupyter|PySpark-kernel|PySpark3-kernel|
 
 ## <a name="safely-install-external-python-packages"></a>Installera externa python-paket på ett säkert sätt
@@ -105,7 +105,7 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
         sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
         ```
 
-    Om du inte känner till namnet på den virtuella miljön kan du använda SSH till Head-noden i klustret och `/usr/bin/anaconda/bin/conda info -e` köra för att visa alla virtuella miljöer.
+    Om du inte känner till namnet på den virtuella miljön kan du använda SSH till Head-noden i klustret och köra `/usr/bin/anaconda/bin/conda info -e` för att visa alla virtuella miljöer.
 
 3. Ändra Spark-och livy-konfiguration och peka på den virtuella miljön som skapats.
 
@@ -146,9 +146,9 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
 
 ## <a name="known-issue"></a>Kända problem
 
-Det finns ett känt fel för Anaconda- `4.7.11`versionen `4.7.12`, och `4.8.0`. Om du ser att skript åtgärderna låser sig `"Collecting package metadata (repodata.json): ...working..."` vid och slutar med `"Python script has been killed due to timeout after waiting 3600 secs"`. Du kan ladda ned [skriptet](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) och köra det som skript åtgärder på alla noder för att åtgärda problemet.
+Det finns ett känt fel för Anaconda `4.7.11` -versionen, `4.7.12` och `4.8.0` . Om du ser att skript åtgärderna låser sig vid `"Collecting package metadata (repodata.json): ...working..."` och slutar med `"Python script has been killed due to timeout after waiting 3600 secs"` . Du kan ladda ned [skriptet](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) och köra det som skript åtgärder på alla noder för att åtgärda problemet.
 
-Du kan kontrol lera din Anaconda-version genom att använda SSH till noden kluster huvud `/usr/bin/anaconda/bin/conda --v`och köra.
+Du kan kontrol lera din Anaconda-version genom att använda SSH till noden kluster huvud och köra `/usr/bin/anaconda/bin/conda --v` .
 
 ## <a name="next-steps"></a>Nästa steg
 

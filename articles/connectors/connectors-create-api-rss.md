@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e95b7bfce3d57dfe579a5622c3c13fac2b6af68
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789349"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834823"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Hantera RSS-flöden med Azure Logic Apps
 
@@ -25,7 +25,7 @@ RSS (utförlig sammanfattning av webbplats), även kallat faktiskt enkelt syndik
 
 Du kan använda en RSS-utlösare som hämtar svar från en RSS-feed och gör utdata tillgängliga för andra åtgärder. Du kan använda en RSS-åtgärd i dina Logi Kap par för att utföra en uppgift med RSS-flödet. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -43,7 +43,7 @@ Du kan använda en RSS-utlösare som hämtar svar från en RSS-feed och gör utd
 
    * För tomma Logi Kap par anger du "RSS" som filter i rutan Sök. Välj den utlösare som du vill använda under listan utlösare. 
 
-     ELLER
+     \- eller -
 
    * För befintliga Logi Kap par väljer du **nytt steg**under steget där du vill lägga till en åtgärd. I sökrutan skriver du "rss" som filter. Under listan åtgärder väljer du den åtgärd som du vill använda.
 
@@ -55,7 +55,7 @@ Teknisk information om utlösare, åtgärder och gränser, som beskrivs av koppl
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

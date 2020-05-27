@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: d892dc75d4e745912ceaf444b56494a2e0ed2a19
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005251"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834500"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
 
@@ -96,21 +96,21 @@ Därför ska vi mappa detta avsöknings mönster tillbaka. Bagerien representera
 
 Här följer de olika stegen för ditt API att följa, som beskrivs i API: s perspektiv:
 
-1. När ditt API hämtar en HTTP-begäran för att starta arbetet, returnerar omedelbart `202 ACCEPTED` ett http- `location` svar med rubriken som beskrivs senare i det här steget. Med det här svaret kan Logic Appss motorn veta att ditt API fick begäran, godkänt nytto lasten för begäran (indata) och nu bearbetas. 
+1. När ditt API hämtar en HTTP-begäran för att starta arbetet, returnerar omedelbart ett HTTP- `202 ACCEPTED` svar med `location` rubriken som beskrivs senare i det här steget. Med det här svaret kan Logic Appss motorn veta att ditt API fick begäran, godkänt nytto lasten för begäran (indata) och nu bearbetas. 
    
-   `202 ACCEPTED` Svaret måste innehålla följande rubriker:
+   `202 ACCEPTED`Svaret måste innehålla följande rubriker:
    
    * *Obligatorisk*: en `location` rubrik som anger den absoluta sökvägen till en URL där Logic Appss motorn kan kontrol lera ditt API: s jobb status
 
-   * *Valfritt*: en `retry-after` rubrik som anger antalet sekunder som motorn ska vänta innan den `location` kontrollerar URL: en för jobb status. 
+   * *Valfritt*: en `retry-after` rubrik som anger antalet sekunder som motorn ska vänta innan den kontrollerar `location` URL: en för jobb status. 
 
-     Som standard kontrollerar motorn var 20: e sekund. Om du vill ange ett annat intervall inkluderar `retry-after` du rubriken och antalet sekunder tills nästa omröstning.
+     Som standard kontrollerar motorn var 20: e sekund. Om du vill ange ett annat intervall inkluderar du `retry-after` rubriken och antalet sekunder tills nästa omröstning.
 
 2. När den angivna tiden har passerat avsöker Logic Appss motorn `location` URL: en för att kontrol lera jobb status. Ditt API bör utföra dessa kontroller och returnera dessa svar:
    
    * Om jobbet är färdigt returnerar du ett HTTP- `200 OK` svar, tillsammans med svarets nytto Last (ininformation för nästa steg).
 
-   * Om jobbet fortfarande bearbetas returnerar du ett annat `202 ACCEPTED` http-svar, men med samma rubriker som det ursprungliga svaret.
+   * Om jobbet fortfarande bearbetas returnerar du ett annat HTTP- `202 ACCEPTED` svar, men med samma rubriker som det ursprungliga svaret.
 
 När ditt API följer det här mönstret behöver du inte göra något i Logic app Workflow-definitionen för att fortsätta kontrol lera jobb status. När motorn hämtar ett HTTP- `202 ACCEPTED` svar och en giltig `location` rubrik, respekterar motorn det asynkrona mönstret och kontrollerar `location` rubriken tills ditt API returnerar ett svar som inte är 202.
 
@@ -128,9 +128,9 @@ Alternativt kan du använda webhook-mönstret för långvariga uppgifter och asy
 När vi mappar detta webhook-mönster, representerar bagerien ditt anpassade API, medan du, tårta-kunden, representerar Logic Apps motor. Motorn anropar API: et med en begäran och innehåller en "återanrops-URL".
 När jobbet är färdigt använder ditt API URL: en för att meddela motorn och returnera data till din Logi Kap par, som sedan fortsätter arbets flödet. 
 
-För det här mönstret ställer du in två slut punkter på din styrenhet `subscribe` : och`unsubscribe`
+För det här mönstret ställer du in två slut punkter på din styrenhet: `subscribe` och`unsubscribe`
 
-*  `subscribe`slut punkt: när körningen når ditt API: s åtgärd i arbets flödet anropar Logic Apps `subscribe` -motorn slut punkten. Det här steget gör att Logic app skapar en återanrops-URL som din API lagrar och väntar sedan på motringning från ditt API när arbetet är slutfört. Ditt API anropar sedan med ett HTTP-inlägg till URL: en och skickar tillbaka innehåll och rubriker som indata till Logic-appen.
+*  `subscribe`slut punkt: när körningen når ditt API: s åtgärd i arbets flödet anropar Logic Apps-motorn `subscribe` slut punkten. Det här steget gör att Logic app skapar en återanrops-URL som din API lagrar och väntar sedan på motringning från ditt API när arbetet är slutfört. Ditt API anropar sedan med ett HTTP-inlägg till URL: en och skickar tillbaka innehåll och rubriker som indata till Logic-appen.
 
 * `unsubscribe`slut punkt: om Logic app-körningen avbryts anropar Logic Apps-motorn `unsubscribe` slut punkten. Ditt API kan sedan avregistrera återanrops-URL: en och stoppa eventuella processer vid behov.
 
@@ -140,7 +140,7 @@ Logic App Designer stöder för närvarande inte identifiering av webhook-slutpu
 
 Här följer några andra tips och anmärkningar:
 
-* Om du vill skicka in återanrops-URL: `@listCallbackUrl()` en kan du använda arbets flödes funktionen i något av de föregående fälten om det behövs.
+* Om du vill skicka in återanrops-URL: en kan du använda `@listCallbackUrl()` arbets flödes funktionen i något av de föregående fälten om det behövs.
 
 * Om du äger både Logic app och den prenumererade tjänsten behöver du inte anropa `unsubscribe` slut punkten efter att återanrops-URL: en har anropats. Annars måste Logic Apps runtime anropa `unsubscribe` slut punkten för att signalera att inga fler anrop förväntas och för att göra det möjligt att rensa resursen på Server sidan.
 
@@ -165,23 +165,23 @@ Här följer några steg för en avsöknings utlösare som beskrivs i API: s per
 
 | Hittade du nya data eller händelser?  | API-svar | 
 | ------------------------- | ------------ |
-| Hittade | Returnera en HTTP `200 OK` -status med svarets nytto Last (ininformation för nästa steg). <br/>Det här svaret skapar en Logic App-instans och startar arbets flödet. | 
-| Hittades inte | Returnera en HTTP `202 ACCEPTED` -status med `location` ett sidhuvud och `retry-after` en rubrik. <br/>För utlösare `location` bör rubriken även innehålla en `triggerState` frågeparameter, som vanligt vis är en "tidstämpel". Ditt API kan använda den här identifieraren för att spåra den senaste gången Logic-appen utlöstes. | 
+| Hittade | Returnera en HTTP- `200 OK` status med svarets nytto Last (ininformation för nästa steg). <br/>Det här svaret skapar en Logic App-instans och startar arbets flödet. | 
+| Hittades inte | Returnera en HTTP- `202 ACCEPTED` status med ett `location` sidhuvud och en `retry-after` rubrik. <br/>För utlösare `location` bör rubriken även innehålla en `triggerState` frågeparameter, som vanligt vis är en "tidstämpel". Ditt API kan använda den här identifieraren för att spåra den senaste gången Logic-appen utlöstes. | 
 ||| 
 
 Om du till exempel regelbundet vill kontrol lera din tjänst för nya filer kan du bygga en avsöknings utlösare som har följande beteenden:
 
-| Förfrågan ingår `triggerState`? | API-svar | 
+| Förfrågan ingår `triggerState` ? | API-svar | 
 | -------------------------------- | -------------| 
-| Inga | Returnera en HTTP `202 ACCEPTED` -status plus `location` ett sidhuvud `triggerState` med angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
-| Ja | Kontrol lera om det finns filer som har `DateTime` lagts `triggerState`till efter for i-tjänsten. | 
+| No | Returnera en HTTP- `202 ACCEPTED` status plus ett `location` sidhuvud med `triggerState` angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
+| Yes | Kontrol lera om det finns filer som har lagts till efter for i-tjänsten `DateTime` `triggerState` . | 
 ||| 
 
 | Antal filer som hittades | API-svar | 
 | --------------------- | -------------| 
-| Enskild fil | Returnera en HTTP `200 OK` -status och innehålls nytto lasten `triggerState` , uppdatera `DateTime` till för den returnerade filen och `retry-after` ange intervall till 15 sekunder. | 
-| Flera filer | Returnera en fil i taget och en HTTP- `200 OK` status, uppdatera `triggerState`och ange `retry-after` intervallet till 0 sekunder. </br>De här stegen gör att motorn vet att fler data är tillgängliga och att motorn omedelbart ska begära data från URL: en i `location` rubriken. | 
-| Inga filer | Returnera en HTTP `202 ACCEPTED` -status, ändra `triggerState`inte och ange `retry-after` intervallet till 15 sekunder. | 
+| Enskild fil | Returnera en HTTP- `200 OK` status och innehålls nytto lasten, uppdatera `triggerState` till `DateTime` för den returnerade filen och ange `retry-after` intervall till 15 sekunder. | 
+| Flera filer | Returnera en fil i taget och en HTTP- `200 OK` status, uppdatera `triggerState` och ange `retry-after` intervallet till 0 sekunder. </br>De här stegen gör att motorn vet att fler data är tillgängliga och att motorn omedelbart ska begära data från URL: en i `location` rubriken. | 
+| Inga filer | Returnera en HTTP- `202 ACCEPTED` status, ändra inte `triggerState` och ange `retry-after` intervallet till 15 sekunder. | 
 ||| 
 
 > [!TIP]
@@ -192,11 +192,11 @@ Om du till exempel regelbundet vill kontrol lera din tjänst för nya filer kan 
 ### <a name="wait-and-listen-for-new-data-or-events-with-the-webhook-trigger-pattern"></a>Vänta och lyssna efter nya data eller händelser med utlösare för webhook
 
 En webhook-utlösare är en *push-utlösare* som väntar och lyssnar efter nya data eller händelser på tjänstens slut punkt. Om nya data eller en händelse uppfyller det angivna villkoret utlöses utlösaren och skapar en Logic App-instans, som sedan bearbetar data som indata.
-Webhook-utlösare fungerar ungefär som [webhook-åtgärder](#webhook-actions) som tidigare beskrivs i det här avsnittet och `subscribe` har `unsubscribe` kon figurer ATS med och slut punkter. 
+Webhook-utlösare fungerar ungefär som [webhook-åtgärder](#webhook-actions) som tidigare beskrivs i det här avsnittet och har kon figurer ATS med `subscribe` och `unsubscribe` slut punkter. 
 
 * `subscribe`slut punkt: när du lägger till och sparar en webhook-utlösare i din Logic app anropar Logic Apps-motorn `subscribe` slut punkten. Det här steget gör att Logic app skapar en återanrops-URL som din API lagrar. När det finns nya data eller en händelse som uppfyller det angivna villkoret, anropar API: et igen med ett HTTP-inlägg till URL: en. Innehålls nytto lasten och huvudena skickas som inmatade i Logic-appen.
 
-* `unsubscribe`slut punkt: om webhook-utlösaren eller hela Logic-appen tas bort anropar `unsubscribe` Logic Apps-motorn slut punkten. Ditt API kan sedan avregistrera återanrops-URL: en och stoppa eventuella processer vid behov.
+* `unsubscribe`slut punkt: om webhook-utlösaren eller hela Logic-appen tas bort anropar Logic Apps-motorn `unsubscribe` slut punkten. Ditt API kan sedan avregistrera återanrops-URL: en och stoppa eventuella processer vid behov.
 
 ![Utlösnings mönster för webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
@@ -204,7 +204,7 @@ Logic App Designer stöder för närvarande inte identifiering av webhook-slutpu
 
 Här följer några andra tips och anmärkningar:
 
-* Om du vill skicka in återanrops-URL: `@listCallbackUrl()` en kan du använda arbets flödes funktionen i något av de föregående fälten om det behövs.
+* Om du vill skicka in återanrops-URL: en kan du använda `@listCallbackUrl()` arbets flödes funktionen i något av de föregående fälten om det behövs.
 
 * För att förhindra bearbetning av samma data flera gånger bör utlösaren rensa data som redan har lästs och skickats till Logic app.
 
@@ -226,9 +226,9 @@ Om du vill göra dina anpassade API: er tillgängliga för alla användare i Log
 
 ## <a name="get-support"></a>Få support
 
-* Kontakta [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com)om du vill ha mer information om anpassade API: er.
+* Kontakta om du vill ha mer information om anpassade API: er [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com) .
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 
 * På [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish) kan du hjälpa till med att förbättra Logic Apps genom att rösta på förslag eller komma med egna förslag på förbättringar. 
 

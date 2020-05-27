@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bfb70aaa092cc62fbff87e9e3e327ee7364f8701
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684699"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833821"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Undantag och fel koder för designern (för hands version)
 
@@ -68,7 +68,7 @@ Nedan visas felkoder för moduler i designern.
 
  Du får det här felet i Azure Machine Learning om några indata eller parametrar till en modul är null eller tomma.  Det här felet kan inträffa, till exempel när du inte har angett något värde för en parameter. Det kan också inträffa om du väljer en data uppsättning som saknar värden eller en tom data uppsättning.  
 
-**Lösning**
+**Lösning:**
 
 + Öppna den modul som skapade undantaget och kontrol lera att alla indata har angetts. Se till att alla nödvändiga indata har angetts. 
 + Se till att data som läses in från Azure Storage är tillgängliga och att konto namnet eller nyckeln inte har ändrats.  
@@ -131,7 +131,7 @@ Nedan visas felkoder för moduler i designern.
 
  Du kan också se det här felet om du anger två uppsättningar med data som behöver matcha på något sätt. Om du till exempel byter namn på kolumner och anger kolumnerna efter index, måste antalet namn som du anger matcha antalet kolumn index. Ett annat exempel kan vara en matematik åtgärd som använder två kolumner, där kolumnerna måste ha samma antal rader. 
 
-**Lösning**
+**Lösning:**
 
  + Öppna modulen i fråga och granska eventuella numeriska egenskaps inställningar.
  + Se till att alla parameter värden ligger inom det tillåtna värde intervallet för den egenskapen.
@@ -178,7 +178,7 @@ Det här felet uppstår i Azure Machine Learning designer när du anger parametr
  + Du angav inte fullständigt sökvägen till filen (sökväg till blobben)
    
 
-**Lösning**
+**Lösning:**
 
 Sådana problem uppstår ofta när du försöker ange konto namn, lösen ord eller container Sök väg manuellt. Vi rekommenderar att du använder den nya guiden för modulen [Importera data](import-data.md) som hjälper dig att söka efter och kontrol lera namn.
 
@@ -245,7 +245,7 @@ Om den fullständiga sökvägen till en BLOB har angetts kontrollerar du att sö
 
  Felet uppstår när en utbildad modell inte är kompatibel med den anslutna bedömnings modulen. <!--For example, connecting the output of [Train Matchbox Recommender](train-matchbox-recommender.md) to [Score Model](score-model.md) (instead of [Score Matchbox Recommender](score-matchbox-recommender.md)) will generate this error when the pipeline is run.  -->
 
-**Lösning**
+**Lösning:**
 
 Ta reda på vilken typ av elev som produceras av modulen utbildning och Bestäm vilken bedömnings modul som är lämplig för din elev. 
 
@@ -280,7 +280,7 @@ Om modellen tränas med någon av de specialiserade inlärnings modulerna anslut
 
  Det här felet uppstår när en kolumn innehåller för många unika värden.  Du kan till exempel se det här felet om du anger att en kolumn ska hanteras som kategoriska data, men det finns för många unika värden i kolumnen som tillåter bearbetning. Du kan också se det här felet om det uppstår ett matchnings fel mellan antalet unika värden i två indata.   
 
-**Lösning**
+**Lösning:**
 
 Öppna den modul som genererade felet och identifiera de kolumner som används som indata. För vissa moduler kan du högerklicka på data uppsättningen och välja **visualisera** för att hämta statistik för enskilda kolumner, inklusive antalet unika värden och deras distribution.
 
@@ -332,7 +332,7 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
 
  Du kan till exempel få det här felet i Azure Machine Learning om ditt kolumn val innehåller en kolumn med en datatyp som inte kan bearbetas av modulen, till exempel en sträng kolumn för en matematik åtgärd, eller en score-kolumn där en kategoriska Feature-kolumn krävs.  
 
-**Lösning**
+**Lösning:**
  1. Identifiera den kolumn som är problemet.
  2. Granska kraven för modulen.
  3. Ändra kolumnen så att den uppfyller kraven. Du kan behöva använda flera av följande moduler för att göra ändringar, beroende på kolumn och konvertering som du försöker:
@@ -418,7 +418,7 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
 
  Det här felet visas i Azure Machine Learning när det inte finns tillräckligt många rader i data uppsättningen för att utföra den angivna åtgärden. Du kan till exempel se det här felet om indata-datauppsättningen är tom, eller om du försöker utföra en åtgärd som kräver att ett visst minsta antal rader är giltigt. Sådana åtgärder kan omfatta (men är inte begränsade till) gruppering eller klassificering baserat på statistiska metoder, vissa typer av diskretisering och inlärning med antal.  
 
-**Lösning**
+**Lösning:**
 
  + Öppna den modul som returnerade felet och kontrol lera indata-och modul egenskaper. 
  + Kontrol lera att indata-datauppsättningen inte är tom och att det finns tillräckligt med rader med data som uppfyller de krav som beskrivs i modulens hjälp.  
@@ -488,7 +488,7 @@ Undantag uppstår om data uppsättningen inte innehåller en etikett kolumn.
 
 Det kan också hända att en etikett kolumn finns i data uppsättningen, men inte identifieras korrekt av Azure Machine Learning.
 
-**Lösning**
+**Lösning:**
 
 + Öppna den modul som genererade felet och ta reda på om en etikett kolumn finns. Namnet eller data typen för kolumnen spelar ingen roll, så länge kolumnen innehåller ett enda resultat (eller beroende variabel) som du försöker förutsäga. Om du inte är säker på vilken kolumn som har etiketten söker du efter ett generiskt namn, till exempel *klass* eller *mål*. 
 +  Om data uppsättningen inte innehåller någon etikett kolumn, är det möjligt att kolumnen etikett har tagits bort direkt eller av misstag. Det kan också vara att data uppsättningen inte är utdata från en underordnad poängsättnings-modul.
@@ -628,7 +628,7 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
 ## <a name="error-0033"></a>Fel 0033  
  Undantaget inträffar om argumentet är oändligt.  
 
- Det här felet uppstår i Azure Machine Learning om argumentet är oändligt. Du får det här felet om argumentet är antingen `double.NegativeInfinity` eller. `double.PositiveInfinity`  
+ Det här felet uppstår i Azure Machine Learning om argumentet är oändligt. Du får det här felet om argumentet är antingen `double.NegativeInfinity` eller `double.PositiveInfinity` .  
 
 **Lösning:** Ändra det angivna argumentet till ett giltigt värde.  
 
@@ -658,7 +658,7 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
 
  Det här felet uppstår i Azure Machine Learning du försöker använda en rekommendations modell för att få en bedömning, men det går inte att hitta någon funktions vektor.  
 
-**Lösning**
+**Lösning:**
 
 Matchbox-rekommendationen har vissa krav som måste uppfyllas när du använder antingen objekt funktioner eller användar funktioner.  Det här felet indikerar att en funktions vektor saknas för en användare eller ett objekt som du har angett som indata. Se till att en Vector med funktioner är tillgänglig i data för varje användare eller objekt.  
 
@@ -712,7 +712,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **Lösning:** Det här felet orsakas av många villkor och det finns ingen speciell påföljd.  
  Följande tabell innehåller allmänna meddelanden för det här felet, som följs av en speciell Beskrivning av villkoret. 
 
- Om det inte finns någon information, [Skicka feedback](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) och ange information om de moduler som orsakade felet och relaterade villkor.
+ Om det inte finns någon information kan du [Skicka feedback från Microsoft Q&en fråge sida](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) och ange information om de moduler som genererade felet och relaterade villkor.
 
 |Undantags meddelanden|
 |------------------------|
@@ -730,7 +730,7 @@ Du kan till exempel välja en kolumn och försöka konvertera den till en numeri
 
 Ett annat skäl till att du kan få det här felet om du försöker använda en kolumn som innehåller flytt ALS nummer eller många unika värden som en kategoriska kolumn. 
 
-**Lösning**
+**Lösning:**
 
 + Öppna hjälp sidan för den modul som genererade felet och kontrol lera data typs kraven.
 + Granska data typerna för kolumnerna i data uppsättningen för indata.
@@ -891,7 +891,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
 
   <!--For example, the [Convert to Indicator Values](convert-to-indicator-values.md) module requires that columns be categorical, and will raise this error if you select a feature column or label column.  -->
 
-**Lösning**
+**Lösning:**
 
 1.  Granska data typen för de kolumner som för närvarande är markerade. 
 
@@ -912,7 +912,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
 
  Detta undantag uppstår när du använder modulen [Exportera data](export-data.md) eller annan modul för att spara resultaten av en pipeline i Azure Machine Learning till Azure Blob Storage, men du försöker skapa en fil eller BLOB som redan finns.   
 
-**Lösning**
+**Lösning:**
 
  Du får bara det här felet om du tidigare har ställt in egenskaps **skrivnings läget för Azure Blob Storage** på **fel**. Enligt design genererar den här modulen ett fel om du försöker skriva en data uppsättning till en blob som redan finns.
 
@@ -1070,7 +1070,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
 
  Det här felet uppstår i Azure Machine Learning om det finns syntaxfel i ett Hive-skript eller om Hive-tolken påträffar ett fel vid körning av frågan eller skriptet.  
 
-**Lösning**
+**Lösning:**
 
 Fel meddelandet från Hive rapporteras normalt tillbaka i fel loggen så att du kan vidta åtgärder baserat på det specifika felet. 
 
@@ -1106,7 +1106,7 @@ Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
 
  Om det finns ett SQL-genererat meddelande som rapporter ATS av ett modul undantag, vidta åtgärder baserat på det rapporterade felet. Fel meddelandena innehåller till exempel ibland speciell vägledning om det troliga felet:
 + *Ingen sådan kolumn eller saknad databas*, vilket indikerar att du har angett ett kolumn namn som fel. Om du är säker på att kolumn namnet är korrekt kan du prova att använda hakparenteser eller citat tecken för att omsluta kolumn-ID: n.
-+ *SQL Logic-fel \<nära SQL\>-nyckelord*, vilket indikerar att du kan ha ett syntaxfel innan det angivna nyckelordet
++ *SQL Logic-fel nära \< SQL- \> nyckelord*, som anger att du kan ha ett syntaxfel före det angivna nyckelordet
 
   
 |Undantags meddelanden|
@@ -1159,11 +1159,11 @@ Undantag inträffar när en ogiltig diskretisering-funktion används vid quantiz
 
 Det här felet uppstår i Azure Machine Learning när du försöker att använda bin-data med en metod som inte stöds, eller när parameter kombinationerna är ogiltiga.  
 
-**Lösning**
+**Lösning:**
 
 Fel hantering för den här händelsen introducerades i en tidigare version av Azure Machine Learning som tillåter mer anpassning av diskretisering-metoder. För närvarande är alla diskretisering-metoder baserade på ett val från en nedrullningsbar listruta, så tekniskt sett bör det inte längre vara möjligt att få det här felet.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Undantags meddelanden|
 |------------------------|
@@ -1266,7 +1266,7 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
 
  Felet i Azure Machine Learning uppstår om du försöker använda en av modulerna för att utvärdera en modell med utdata från ett R-skript som innehåller resultat.  
 
-**Lösning**
+**Lösning:**
 
 |Undantags meddelanden|
 |------------------------|
@@ -1326,7 +1326,7 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
 |Undantags meddelanden|  
 |------------------------|  
 |Parameter typen stöds inte.|  
-|Parameter typen som inte stöds har{0}angetts.|  
+|Parameter typen som inte stöds har {0} angetts.|  
 
 
 ## <a name="error-0107"></a>Fel 0107  
@@ -1345,7 +1345,7 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
 ## <a name="error-0125"></a>Fel 0125  
  Utlöstes när schemat för flera data uppsättningar inte matchar.  
 
-**Lösning**
+**Lösning:**
 
 |Undantags meddelanden|
 |------------------------|
@@ -1373,7 +1373,7 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
 ## <a name="error-0128"></a>Fel 0128  
  Antalet villkorsstyrda sannolikheter för kategoriska-kolumner överskrider gränsen.  
 
-**Lösning**
+**Lösning:**
 
 |Undantags meddelanden|
 |------------------------|
@@ -1384,7 +1384,7 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
 ## <a name="error-0129"></a>Fel 0129  
  Antalet kolumner i data uppsättningen överskrider den tillåtna gränsen.  
 
-**Lösning**
+**Lösning:**
 
 |Undantags meddelanden|
 |------------------------|

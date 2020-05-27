@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 11/16/2017
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 2ef50704d96cc51881594c778d1a4b109a1eae82
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 624f9bf512a28657808d9e2838149601c0bd2f99
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125153"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837237"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Felsöka automatisk skalning med VM-skalningsuppsättningar
 **Problem** – du har skapat en infrastruktur för automatisk skalning i Azure Resource Manager att använda skalnings uppsättningar för virtuella datorer, t. ex. genom att distribuera en mall som den här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – du har definierat dina skalnings regler och den fungerar utmärkt, förutom oavsett hur mycket belastning du lägger till på de virtuella datorerna, skalas den inte.
@@ -73,7 +73,7 @@ Några saker att tänka på är:
     Om data inte finns där innebär det att problemet är löst med diagnostiskt tillägg som körs i de virtuella datorerna. Om data finns där betyder det att det är problem med dina skalnings regler eller med tjänsten Insights. Kontrol lera [Azure-status](https://azure.microsoft.com/status/).
     
     När du har gått igenom de här stegen kan du prova följande resurser om du fortfarande har problem med autoskalning: 
-    * Läs forumen på [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows)eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure) 
+    * Läs forumen på [Microsoft Q&en fråge sida](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html)eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure) 
     * Logga ett support samtal. Var beredd på att dela mallen och Visa prestanda data.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

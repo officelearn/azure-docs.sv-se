@@ -127,6 +127,9 @@
           href: 'functions-reference-node.md#typescript'
     - name: Säkerhet
       items:
+        - name: Säkerhetsöversikt
+          href: security-concepts.md
+          displayName: 'secure, ssl'
         - name: Säkerhetsbaslinje
           href: security-baseline.md
     - name: Diagnostik
@@ -332,6 +335,8 @@
       items:
         - name: Felsöka Storage
           href: functions-recover-storage-account.md
+        - name: Felsök Python-beroenden
+          href: recover-module-not-found.md
 - name: Referens
   items:
     - name: API-referenser
@@ -347,12 +352,16 @@
         - name: Blob Storage
           items:
             - name: Översikt
+              displayName: Blob storage
               href: functions-bindings-storage-blob.md
             - name: Utlösare
+              displayName: Blob storage
               href: functions-bindings-storage-blob-trigger.md
             - name: Indata
+              displayName: Blob storage
               href: functions-bindings-storage-blob-input.md
             - name: Resultat
+              displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB
           items:
@@ -378,10 +387,13 @@
           items:
             - name: Översikt
               href: functions-bindings-event-grid.md
+              displayName: Event Grid
             - name: Utlösare
               href: functions-bindings-event-grid-trigger.md
+              displayName: Event Grid
             - name: Resultat
               href: functions-bindings-event-grid-output.md
+              displayName: Event Grid
         - name: Event Hubs
           items:
             - name: Översikt
@@ -408,10 +420,13 @@
           items:
             - name: Översikt
               href: functions-bindings-http-webhook.md
+              displayName: HTTP
             - name: Utlösare
               href: functions-bindings-http-webhook-trigger.md
+              displayName: HTTP
             - name: Resultat
               href: functions-bindings-http-webhook-output.md
+              displayName: HTTP
         - name: Microsoft Graph
           href: functions-bindings-microsoft-graph.md
         - name: Mobile Apps
@@ -422,20 +437,26 @@
           items:
             - name: Översikt
               href: functions-bindings-storage-queue.md
+              displayName: Queue storage
             - name: Utlösare
               href: functions-bindings-storage-queue-trigger.md
+              displayName: Queue storage
             - name: Resultat
               href: functions-bindings-storage-queue-output.md
+              displayName: Queue storage
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Service Bus
           items:
             - name: Översikt
               href: functions-bindings-service-bus.md
+              displayName: Service Bus
             - name: Utlösare
               href: functions-bindings-service-bus-trigger.md
+              displayName: Service Bus
             - name: Resultat
               href: functions-bindings-service-bus-output.md
+              displayName: Service Bus
         - name: SignalR Service
           items:
             - name: Översikt
@@ -479,8 +500,8 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Videoklipp
       href: 'https://www.youtube.com/c/AzureFunctions'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-functions.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-functions'
     - name: Twitter

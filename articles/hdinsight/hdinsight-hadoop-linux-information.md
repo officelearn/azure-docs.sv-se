@@ -8,23 +8,23 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: e9f8fe17fa28cc5fcc4543bfb5e194bd3e7b837d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 252467a22ba37352cee4c3e7bffcf1ff910c86ba
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594105"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835452"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
 Azure HDInsight-kluster ger Apache Hadoop på en välbekant Linux-miljö, som körs i Azure-molnet. För de flesta saker bör det fungera exakt som vilken annan Hadoop-on-Linux-installation som helst. Det här dokumentet anropar vissa skillnader som du bör vara medveten om.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Många av stegen i det här dokumentet använder följande verktyg, som kan behöva installeras i systemet.
 
 * [sväng](https://curl.haxx.se/) -används för att kommunicera med webbaserade tjänster.
-* **JQ**, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* **JQ**, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) – används för att fjärrhantera Azure-tjänster.
 * **En SSH-klient**. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -86,12 +86,12 @@ Mer information finns i [portarna som används av Apache Hadoop Services i HDIns
 
 ## <a name="file-locations"></a>Sökvägar
 
-Hadoop-relaterade filer hittar du på klusternoderna på `/usr/hdp`. Den här katalogen innehåller följande under kataloger:
+Hadoop-relaterade filer hittar du på klusternoderna på `/usr/hdp` . Den här katalogen innehåller följande under kataloger:
 
 * **2.6.5.3009 – 43**: Katalog namnet är den version av Hadoop-plattformen som används av HDInsight. Antalet på klustret kan vara ett annat än det som anges här.
 * **aktuell**: den här katalogen innehåller länkar till under kataloger i **2.6.5.3009-43-** katalogen. Katalogen finns så att du inte behöver komma ihåg versions numret.
 
-Du hittar exempel data och JAR-filer på Hadoop Distributed File System på `/example` och `/HdiSamples`.
+Du hittar exempel data och JAR-filer på Hadoop Distributed File System på `/example` och `/HdiSamples` .
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure Storage och Data Lake Storage
 
@@ -136,9 +136,9 @@ Använd något av följande URI-scheman när du använder [**Azure Data Lake Sto
 * `adl://<storage-name>.azuredatalakestore.net/`: Används vid kommunikation med ett Data Lake Storage som inte är standard. Används också för att komma åt data utanför rot katalogen i ditt HDInsight-kluster.
 
 > [!IMPORTANT]  
-> När du använder Data Lake Storage som standard Arkiv för HDInsight måste du ange en sökväg i arkivet som ska användas som roten för HDInsight-lagring. Standard Sök vägen är `/clusters/<cluster-name>/`.
+> När du använder Data Lake Storage som standard Arkiv för HDInsight måste du ange en sökväg i arkivet som ska användas som roten för HDInsight-lagring. Standard Sök vägen är `/clusters/<cluster-name>/` .
 >
-> När du `/` använder `adl:///` eller för att komma åt data, kan du bara komma åt data som lagras i roten `/clusters/<cluster-name>/`(till exempel) i klustret. Använd `adl://<storage-name>.azuredatalakestore.net/` formatet för att komma åt data var som helst i arkivet.
+> När `/` du använder eller `adl:///` för att komma åt data, kan du bara komma åt data som lagras i roten (till exempel `/clusters/<cluster-name>/` ) i klustret. Använd formatet för att komma åt data var som helst i arkivet `adl://<storage-name>.azuredatalakestore.net/` .
 
 ### <a name="what-storage-is-the-cluster-using"></a>Vilket lagrings utrymme är klustret använder
 
@@ -149,7 +149,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 ```
 
 > [!NOTE]  
-> Det här kommandot returnerar den första konfigurationen som tillämpas på servern`service_config_version=1`() som innehåller den här informationen. Du kan behöva visa en lista över alla konfigurations versioner för att hitta den senaste versionen.
+> Det här kommandot returnerar den första konfigurationen som tillämpas på servern ( `service_config_version=1` ) som innehåller den här informationen. Du kan behöva visa en lista över alla konfigurations versioner för att hitta den senaste versionen.
 
 Det här kommandot returnerar ett värde som liknar följande URI: er:
 
@@ -163,7 +163,7 @@ Det här kommandot returnerar ett värde som liknar följande URI: er:
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'
     ```
 
-    Det här kommandot returnerar följande värdnamn: `<data-lake-store-account-name>.azuredatalakestore.net`.
+    Det här kommandot returnerar följande värdnamn: `<data-lake-store-account-name>.azuredatalakestore.net` .
 
     Använd följande REST-anrop för att hämta katalogen i arkivet som är roten för HDInsight:
 
@@ -171,7 +171,7 @@ Det här kommandot returnerar ett värde som liknar följande URI: er:
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'
     ```
 
-    Det här kommandot returnerar en sökväg som liknar följande sökväg: `/clusters/<hdinsight-cluster-name>/`.
+    Det här kommandot returnerar en sökväg som liknar följande sökväg: `/clusters/<hdinsight-cluster-name>/` .
 
 Du kan också hitta lagrings informationen med hjälp av Azure Portal med hjälp av följande steg:
 
@@ -185,12 +185,12 @@ Det finns olika sätt att komma åt data utanför HDInsight-klustret. Följande 
 
 Om du använder __Azure Storage__, se följande länkar för hur du kan komma åt dina data:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): kommando rads kommandon för att arbeta med Azure. När du har installerat använder `az storage` du kommandot för att få hjälp med att `az storage blob` använda lagring, eller för BLOB-/regionsspecifika kommandon.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): kommando rads kommandon för att arbeta med Azure. När du har installerat använder du `az storage` kommandot för att få hjälp med att använda lagring, eller `az storage blob` för BLOB-/regionsspecifika kommandon.
 * [blobxfer.py](https://github.com/Azure/blobxfer): ett Python-skript för att arbeta med blobbar i Azure Storage.
 * Olika SDK: er:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
-    * [Node. js](https://github.com/Azure/azure-sdk-for-node)
+    * [Node.js](https://github.com/Azure/azure-sdk-for-node)
     * [PHP](https://github.com/Azure/azure-sdk-for-php)
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
@@ -239,7 +239,7 @@ Om du vill använda en annan version av en komponent laddar du upp den version d
 > [!IMPORTANT]
 > Komponenter som ingår i HDInsight-klustret stöds fullt ut och Microsoft Support hjälper till att isolera och lösa problem som rör dessa komponenter.
 >
-> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Detta kan resultera i att lösa problemet eller be dig att engagera tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, t. ex. [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Apache-projekt har även projekt webbplatser [https://apache.org](https://apache.org)på, till exempel: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
+> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Detta kan resultera i att lösa problemet eller be dig att engagera tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, till exempel: [Microsoft Q&en fråge sida för HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) [https://stackoverflow.com](https://stackoverflow.com) . Apache-projekt har även projekt webbplatser på [https://apache.org](https://apache.org) , till exempel: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
 ## <a name="next-steps"></a>Nästa steg
 

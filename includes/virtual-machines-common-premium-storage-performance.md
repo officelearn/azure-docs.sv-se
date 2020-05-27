@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1827d44f4d4ac812a33aee4791c2103a10328ba7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: dba0dd4e52913e0998b088fb2ccf90c98f0a89c2
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204548"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821488"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -140,7 +140,7 @@ En IO-begäran är en enhet med in-/utdata-åtgärd som programmet kommer att ut
 I/o-storlek är en av de viktiga faktorerna. I/o-storleken är storleken på begäran om indata/utdata som genererats av ditt program. I/o-storleken har en betydande inverkan på prestanda, särskilt på den IOPS och bandbredd som programmet kan uppnå. Följande formel visar förhållandet mellan IOPS, IO-storlek och bandbredd/data flöde.  
     ![](media/premium-storage-performance/image1.png)
 
-I vissa program kan du ändra deras IO-storlek, medan vissa program inte gör det. SQL Server bestämmer till exempel den optimala i/o-storleken och ger inte användare med någon ratt att ändra den. Å andra sidan tillhandahåller Oracle en parameter med namnet [\_DB block\_storlek](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) som du kan använda för att konfigurera i/O-begäran storlek för databasen.
+I vissa program kan du ändra deras IO-storlek, medan vissa program inte gör det. SQL Server bestämmer till exempel den optimala i/o-storleken och ger inte användare med någon ratt att ändra den. Å andra sidan tillhandahåller Oracle en parameter med namnet [db \_ block \_ storlek](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) som du kan använda för att konfigurera i/O-begäran storlek för databasen.
 
 Om du använder ett program, som inte tillåter att du ändrar i/o-storlek, använder du rikt linjerna i den här artikeln för att optimera prestanda-KPI: n som är mest relevant för ditt program. Exempel:
 
@@ -189,15 +189,15 @@ Anta till exempel att ett program krav är högst 4 000 IOPS. För att åstadkom
 *Drifts kostnader*  
 I många fall är det möjligt att den totala kostnaden för åtgärden med Premium Storage är lägre än att använda standard lagring.
 
-Överväg till exempel ett program som kräver 16 000 IOPS. För att uppnå den här prestandan behöver du en\_standard D14 Azure IaaS VM, som kan ge en maximal IOPS på 16 000 med 32 standard lagring 1 TB diskar. Varje 1 – TB standard lagrings disk kan uppnå högst 500 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 570. Månads kostnaden för 32 standard lagrings diskar är $1 638. Den uppskattade totala månads kostnaden blir $3 208.
+Överväg till exempel ett program som kräver 16 000 IOPS. För att uppnå den här prestandan behöver du en standard \_ D14 Azure IaaS VM, som kan ge en maximal IOPS på 16 000 med 32 standard lagring 1 TB diskar. Varje 1 – TB standard lagrings disk kan uppnå högst 500 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 570. Månads kostnaden för 32 standard lagrings diskar är $1 638. Den uppskattade totala månads kostnaden blir $3 208.
 
-Men om du har samma program på Premium Storage behöver du en mindre VM-storlek och färre Premium Storage-diskar, vilket minskar den totala kostnaden. En vanlig\_virtuell DS13-dator kan uppfylla 16 000 IOPS-kravet med fyra P30-diskar. Den virtuella datorn DS13 har en maximal IOPS på 25 600 och varje P30-disk har maximalt IOPS på 5 000. Som helhet kan den här konfigurationen uppnå 5 000 x 4 = 20 000 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 003. Månads kostnaden för fyra P30 Premium Storage-diskar är $544,34. Den uppskattade totala månads kostnaden blir $1 544.
+Men om du har samma program på Premium Storage behöver du en mindre VM-storlek och färre Premium Storage-diskar, vilket minskar den totala kostnaden. En vanlig \_ virtuell DS13-dator kan uppfylla 16 000 IOPS-kravet med fyra P30-diskar. Den virtuella datorn DS13 har en maximal IOPS på 25 600 och varje P30-disk har maximalt IOPS på 5 000. Som helhet kan den här konfigurationen uppnå 5 000 x 4 = 20 000 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 003. Månads kostnaden för fyra P30 Premium Storage-diskar är $544,34. Den uppskattade totala månads kostnaden blir $1 544.
 
 I tabellen nedan sammanfattas kostnads nedbrytningen för det här scenariot för standard och Premium Storage.
 
 | &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
-| **Kostnad för virtuell dator per månad** |$1 570,58 (standard\_D14) |$1 003,66 (standard\_DS13) |
+| **Kostnad för virtuell dator per månad** |$1 570,58 (standard \_ D14) |$1 003,66 (standard \_ DS13) |
 | **Kostnad för diskar per månad** |$1 638,40 (32 x 1 – TB diskar) |$544,34 (4 x P30 diskar) |
 | **Total kostnad per månad** |$3 208,98 |$1 544,34 |
 
@@ -237,7 +237,7 @@ Virtuella datorer med hög skalning som utnyttjar Azure Premium Storage har en t
 > [!WARNING]
 > Diskcachelagring stöds inte för disk 4 TiB och större. Om flera diskar är anslutna till den virtuella datorn kommer varje disk som är mindre än 4 TiB att ha stöd för cachelagring.
 >
-> När du ändrar cacheinställningen för en Azure-disk så frånkopplas och återansluts måldisken. Om det är operativ system disken startas den virtuella datorn om. Stoppa alla program/tjänster som kan påverkas av det här avbrottet innan du ändrar inställningen för diskcachelagring.
+> När du ändrar cacheinställningen för en Azure-disk så frånkopplas och återansluts måldisken. Om det är operativ system disken startas den virtuella datorn om. Stoppa alla program/tjänster som kan påverkas av det här avbrottet innan du ändrar inställningen för diskcachelagring. De här rekommendationerna kan leda till skadade data.
 
 Mer information om hur BlobCache fungerar finns i blogg inlägget i [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) .
 
@@ -280,9 +280,9 @@ Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på
 
 För alla Premium-SSD eller Ultra disks med cache satt till **ReadOnly** eller **none**, måste du inaktivera "barriärer" när du monterar fil systemet. Du behöver inte hinder i det här scenariot eftersom skrivningarna till Premium Storage-diskar är varaktiga för dessa cacheinställningar. När Skriv förfrågan har slutförts har data skrivits till det beständiga arkivet. Om du vill inaktivera "barriärer" använder du någon av följande metoder. Välj ett för fil systemet:
   
-* För **reiserFS**kan du inaktivera barriärer med hjälp `barrier=none` av monterings alternativet. (Använd `barrier=flush`för att aktivera barriärer.)
-* Använd `barrier=0` monterings alternativet för **EXT3/Ext4**för att inaktivera barriärer. (Använd `barrier=1`för att aktivera barriärer.)
-* För **xfs**kan du inaktivera barriärer med hjälp `nobarrier` av monterings alternativet. (Använd `barrier`för att aktivera barriärer.)
+* För **reiserFS**kan du inaktivera barriärer med hjälp av `barrier=none` monterings alternativet. (Använd för att aktivera barriärer `barrier=flush` .)
+* Använd monterings alternativet för **EXT3/Ext4**för att inaktivera barriärer `barrier=0` . (Använd för att aktivera barriärer `barrier=1` .)
+* För **xfs**kan du inaktivera barriärer med hjälp av `nobarrier` monterings alternativet. (Använd för att aktivera barriärer `barrier` .)
 * För Premium Storage-diskar med cache set till **readwrite**aktiverar du hinder för Skriv hållbarhet.
 * För att volym etiketter ska vara kvar när du startar om den virtuella datorn måste du uppdatera/etc/fstab med UUID-referenser (Universally Unique Identifier) till diskarna. Mer information finns i [lägga till en hanterad disk till en virtuell Linux-dator](../articles/virtual-machines/linux/add-disk.md).
 
@@ -384,3 +384,4 @@ För en stripe-volym upprätthåller du ett högt tillräckligt ködjup så att 
 Azure Premium Storage etablerar det angivna antalet IOPS och data flöden beroende på vilka VM-storlekar och disk storlekar du väljer. När ditt program försöker köra IOPS eller data flödet ovanför de här gränserna för vad den virtuella datorn eller disken kan hantera, kommer Premium Storage att reglera den. Detta manifest i form av försämrade prestanda i ditt program. Detta kan betyda högre latens, lägre data flöde eller lägre IOPS. Om Premium Storage inte begränsas kan programmet bli helt misslyckat genom att överskrida vad dess resurser kan uppnå. För att undvika prestanda problem på grund av begränsning, ska du alltid tillhandahålla tillräckligt med resurser för ditt program. Ta hänsyn till vad vi har diskuterat i avsnitten VM-storlekar och disk storlekar ovan. Benchmarking är det bästa sättet att ta reda på vilka resurser du behöver för att vara värd för ditt program.
 
 ## <a name="next-steps"></a>Nästa steg
+

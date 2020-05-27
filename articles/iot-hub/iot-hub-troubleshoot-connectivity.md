@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
-ms.openlocfilehash: 82139eef9708ff8d76e1087c71aa5445ba898385
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abce9387d4c23cd6cb5ecf73e3d5c8428d83d459
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759603"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833667"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Övervaka, diagnostisera och Felsök från koppling med Azure IoT Hub
 
@@ -83,7 +83,7 @@ När du aktiverar diagnostikloggar och aviseringar för anslutna enheter får du
     | where ( ResourceType == "IOTHUBS" and Category == "Connections" and Level == "Error")
     ```
 
-1. Om det finns resultat kan du söka `OperationName`efter `ResultType` , (felkod) och `ResultDescription` (fel meddelande) för att få mer information om felet.
+1. Om det finns resultat kan du söka efter `OperationName` , `ResultType` (felkod) och `ResultDescription` (fel meddelande) för att få mer information om felet.
 
    ![Exempel på fel logg](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
@@ -105,7 +105,7 @@ Om föregående steg inte hjälper kan du prova:
 
 * Om enheten använder MQTT-protokoll kontrollerar du att port 8883 är öppen. Mer information finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-* Få hjälp från [azure IoT Hub forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub)eller [Azure-supporten](https://azure.microsoft.com/support/options/).
+* Få hjälp från [Microsoft Q&en fråge sida för Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub)eller [Azure-support](https://azure.microsoft.com/support/options/).
 
 Du kan förbättra dokumentationen för alla genom att lämna en kommentar i avsnittet feedback nedan om den här guiden inte hjälper dig.
 

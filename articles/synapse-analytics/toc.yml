@@ -876,10 +876,10 @@
   items:
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html'
     - name: Funktionsbegäranden
       href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/synapse-analytics/'
     - name: Priskalkylator

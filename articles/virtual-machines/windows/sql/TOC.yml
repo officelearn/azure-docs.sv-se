@@ -12,7 +12,7 @@
       href: quickstart-sql-vm-create-portal.md
     - name: Skapa en virtuell SQL-dator – PowerShell
       href: quickstart-sql-vm-create-powershell.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Bästa praxis
       items:
@@ -54,7 +54,7 @@
               href: virtual-machines-windows-sql-automated-patching.md
             - name: Konfigurera Azure Key Vault-integrering
               href: virtual-machines-windows-ps-sql-keyvault.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Skapa SQL VM
       items:
@@ -101,7 +101,7 @@
               href: virtual-machines-windows-sql-workgroup-availability-group.md
             - name: Konfigurera manuellt
               items:
-                - name: Förutsättningar
+                - name: Krav
                   href: virtual-machines-windows-portal-sql-availability-group-prereq.md
                 - name: Självstudier
                   href: virtual-machines-windows-portal-sql-availability-group-tutorial.md
@@ -131,7 +131,7 @@
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
       href: virtual-machines-windows-sql-server-iaas-faq.md
-    - name: Priser
+    - name: Prissättning
       href: virtual-machines-windows-sql-server-pricing-guidance.md
     - name: SQL Server Data Tools (SSDT)
       href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
@@ -141,7 +141,7 @@
       href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-machines.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'

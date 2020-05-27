@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
-ms.openlocfilehash: 33b2ca8db75acff1ce423aa50087961cce6092b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 122725bff616a49d27981b88f465e04418db9526
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418413"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826125"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -34,9 +34,9 @@ Om du är nybörjare på Data Factory, se [Introduktion till Azure Data Factory]
 ## <a name="overview"></a>Översikt
 En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en aktivitet. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Nu är en **data uppsättning** en namngiven vy av data som bara pekar eller refererar till de data som du vill använda i dina **aktiviteter** som indata och utdata. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. En Azure Blob-datauppsättning anger till exempel blobcontainern och mappen i Blob Storage som aktiviteten ska läsa data från.
 
-Innan du skapar en data uppsättning måste du skapa en [**länkad tjänst**](concepts-linked-services.md) för att länka ditt data lager till data fabriken. Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Tänk på det på det här sättet. data uppsättningen representerar strukturen för data i de länkade data lagringarna och den länkade tjänsten definierar anslutningen till data källan. Till exempel länkar en Azure Storage länkad tjänst ett lagrings konto till data fabriken. En Azure Blob-datauppsättning representerar BLOB-behållaren och mappen i det Azure Storage-konto som innehåller de blobar för indata som ska bearbetas.
+Innan du skapar en data uppsättning måste du skapa en [**länkad tjänst**](concepts-linked-services.md) för att länka ditt data lager till data fabriken. Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Tänk på det på det här sättet. data uppsättningen representerar strukturen för data i de länkade data lagringarna och den länkade tjänsten definierar anslutningen till data källan. Till exempel länkar en Azure Storage länkad tjänst ett lagrings konto till data fabriken. En Azure Blob-datauppsättning representerar BLOB-behållaren och mappen i Azure Storage-kontot som innehåller de blobar för indata som ska bearbetas.
 
-Här är ett exempel scenario. Om du vill kopiera data från Blob Storage till en SQL-databas skapar du två länkade tjänster: Azure Storage och Azure SQL Database. Skapa sedan två data uppsättningar: Azure Blob-datauppsättningen (som refererar till den Azure Storage länkade tjänsten) och data uppsättningen för Azure SQL-tabellen (som refererar till den Azure SQL Database länkade tjänsten). De länkade tjänsterna Azure Storage och Azure SQL Database innehåller anslutnings strängar som Data Factory använder vid körning för att ansluta till dina Azure Storage respektive Azure SQL Database. Azure Blob-datauppsättningen anger BLOB-behållaren och blob-mappen som innehåller blobar för indata i blob-lagringen. Data uppsättningen för Azure SQL-tabellen anger den SQL-tabell i SQL-databasen som data ska kopieras till.
+Här är ett exempel scenario. Om du vill kopiera data från Blob Storage till en SQL Database skapar du två länkade tjänster: Azure Storage och Azure SQL Database. Skapa sedan två data uppsättningar: Azure Blob-datauppsättningen (som refererar till den Azure Storage länkade tjänsten) och data uppsättningen för Azure SQL-tabellen (som refererar till den Azure SQL Database länkade tjänsten). De länkade tjänsterna Azure Storage och Azure SQL Database innehåller anslutnings strängar som Data Factory använder vid körning för att ansluta till dina Azure Storage respektive Azure SQL Database. Azure Blob-datauppsättningen anger BLOB-behållaren och blob-mappen som innehåller blobar för indata i blob-lagringen. Data uppsättningen för Azure SQL-tabellen anger den SQL-tabell i SQL Database som data ska kopieras till.
 
 Följande diagram visar relationerna mellan pipeline, aktivitet, data uppsättning och länkad tjänst i Data Factory:
 
@@ -70,12 +70,12 @@ En data uppsättning i Data Factory definieras i följande JSON-format:
 ```
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap | Beskrivning | Krävs |
+Egenskap | Beskrivning | Obligatorisk |
 -------- | ----------- | -------- |
-namn | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
-typ | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Ja |
-hierarkistruktur | Schema för data uppsättningen. Mer information finns i [data uppsättnings schema](#dataset-structure-or-schema). | Inga |
-typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Ja |
+name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Yes |
+typ | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Yes |
+hierarkistruktur | Schema för data uppsättningen. Mer information finns i [data uppsättnings schema](#dataset-structure-or-schema). | No |
+typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Yes |
 
 ### <a name="data-flow-compatible-dataset"></a>Data flöde-kompatibel data mängd
 
@@ -115,16 +115,16 @@ När du importerar schemat för en data flödes data uppsättning väljer du kna
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap | Beskrivning | Krävs |
+Egenskap | Beskrivning | Obligatorisk |
 -------- | ----------- | -------- |
-namn | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
-typ | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Ja |
-schema | Schema för data uppsättningen. Mer information finns i [Data Flow-kompatibla data uppsättningar](#dataset-type). | Inga |
-typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Ja |
+name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Yes |
+typ | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Yes |
+schema | Schema för data uppsättningen. Mer information finns i [Data Flow-kompatibla data uppsättningar](#dataset-type). | No |
+typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Yes |
 
 
 ## <a name="dataset-example"></a>Exempel på data uppsättning
-I följande exempel representerar data uppsättningen en tabell med namnet min tabell i en SQL-databas.
+I följande exempel representerar data uppsättningen en tabell med namnet min tabell i en SQL Database.
 
 ```json
 {
@@ -181,12 +181,12 @@ Avsnittet för **struktur** avsnittet eller **schemat** (Data Flow Compatible) �
 
 Varje kolumn i strukturen innehåller följande egenskaper:
 
-Egenskap | Beskrivning | Krävs
+Egenskap | Beskrivning | Obligatorisk
 -------- | ----------- | --------
-namn | Kolumnens namn. | Ja
-typ | Kolumnens datatyp. Data Factory stöder följande Interimistiska data typer som tillåtna värden: **Int16, Int32, Int64, Single, Double, decimal, byte [], Boolean, String, GUID, DateTime, DateTimeOffset och TimeSpan** | Inga
-substrat | . NET-baserad kultur som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Inga
-format | Format sträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. | Inga
+name | Kolumnens namn. | Yes
+typ | Kolumnens datatyp. Data Factory stöder följande Interimistiska data typer som tillåtna värden: **Int16, Int32, Int64, Single, Double, decimal, byte [], Boolean, String, GUID, DateTime, DateTimeOffset och TimeSpan** | No
+substrat | . NET-baserad kultur som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset` . Standardvärdet är `en-us`. | No
+format | Format sträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset` . Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. | No
 
 ### <a name="example"></a>Exempel
 I följande exempel antar vi att käll-BLOB-data är i CSV-format och innehåller tre kolumner: UserID, Name och lastlogindate. De är av typen Int64, String och datetime med ett anpassat datetime-format med förkortade franska namn för veckodag.
@@ -202,12 +202,12 @@ Definiera strukturen för BLOB-datauppsättningen enligt följande, tillsammans 
 ]
 ```
 
-### <a name="guidance"></a>Riktlinjer
+### <a name="guidance"></a>Vägledning
 
 Följande rikt linjer hjälper dig att förstå när du ska inkludera struktur information och vad som ska ingå i **struktur** avsnittet. Läs mer om hur Data Factory mappar källdata till Sink och när du ska ange struktur information från [schema och typ mappning](copy-activity-schema-and-type-mapping.md).
 
 - **För data källor med stark schema**anger du avsnittet struktur endast om du vill mappa käll kolumner till Sink-kolumner, och deras namn är inte samma. Den här typen av strukturerad data källa lagrar data schema och skriver information tillsammans med själva data. Exempel på strukturerade data källor är SQL Server, Oracle och Azure SQL Database.<br/><br/>Eftersom typ information redan är tillgänglig för strukturerade data källor bör du inte ta med typ information när du inkluderar avsnittet struktur.
-- **För data källor utan/svaga scheman, t. ex. text filen i Blob Storage**, inkluderar du en struktur när data uppsättningen är indata för en kopierings aktivitet och data typerna för käll data uppsättningen ska konverteras till interna typer för mottagaren. Och ta med struktur när du vill mappa käll kolumner till Sink-kolumner..
+- **För data källor utan/svaga scheman till exempel text filen i Blob Storage**inkluderar du en struktur när data uppsättningen är indata för en kopierings aktivitet och data typerna för käll data uppsättningen ska konverteras till interna typer för mottagaren. Och ta med struktur när du vill mappa käll kolumner till mottagar kolumner
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 Du kan skapa data uppsättningar genom att använda något av dessa verktyg eller SDK: [er: .NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager mall och Azure Portal

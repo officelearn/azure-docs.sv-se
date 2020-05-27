@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f24efc4ea306046ab09119b859fa1d0853b25b6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793232"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834534"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Skapa switch-instruktioner som kör arbets flödes åtgärder baserat på vissa värden i Azure Logic Apps
 
@@ -23,7 +23,7 @@ Anta till exempel att du vill ha en Logic-app som tar olika steg baserat på ett
 > Precis som alla programmeringsspråk stöder switch-satser bara likhets operatorer. Om du behöver andra relationella operatorer, till exempel "större än", använder du en [villkors instruktion](../logic-apps/logic-apps-control-flow-conditional-statement.md).
 > För att säkerställa deterministiska körnings beteenden måste fall innehålla ett unikt och statiskt värde i stället för dynamiska tokens eller uttryck.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -42,7 +42,7 @@ Anta till exempel att du vill ha en Logic-app som tar olika steg baserat på ett
 
 1. I det här exemplet lägger du till en switch-instruktion i slutet av exempel arbets flödet. Välj **nytt steg**efter det sista steget.
 
-   När du vill lägga till en switch-sats mellan stegen flyttar du pekaren över den pil där du vill lägga till Switch-instruktionen. Välj **plus tecknet** (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   När du vill lägga till en switch-sats mellan stegen flyttar du pekaren över den pil där du vill lägga till Switch-instruktionen. Välj **plus tecknet** ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Skriv "Växla" som filter i sökrutan. Välj den här åtgärden: **växel kontroll**
 
@@ -57,7 +57,7 @@ Anta till exempel att du vill ha en Logic-app som tar olika steg baserat på ett
 
    ![Välj "SelectedOption"](./media/logic-apps-control-flow-switch-statement/select-selected-option.png)
 
-1. För att hantera de fall där god kännaren `Approve` väljer `Reject`eller, Lägg till ett annat Skift läge mellan **SKIFT läget** och **standard**. 
+1. För att hantera de fall där god kännaren väljer `Approve` eller `Reject` , Lägg till ett annat Skift läge mellan **SKIFT läget** och **standard**. 
 
    ![Lägg till ett annat ärende](./media/logic-apps-control-flow-switch-statement/switch-plus.png)
 
@@ -67,7 +67,7 @@ Anta till exempel att du vill ha en Logic-app som tar olika steg baserat på ett
    |--------|--------------------|--------|
    | Fall 1 | **Godkänn** | Lägg till Outlook **skicka en e-** poståtgärd för att skicka information om RSS-objektet endast när god kännaren valt **Godkänn**. |
    | Fall 2 | **Avvisa** | Lägg till Outlook **skicka en e-** poståtgärd för att meddela andra god kännare om att RSS-objektet avvisades. |
-   | Default | Ingen | Ingen åtgärd krävs. I det här exemplet är **standard** fallet tomt eftersom **SelectedOption** bara har två alternativ. |
+   | Standard | Inga | Ingen åtgärd krävs. I det här exemplet är **standard** fallet tomt eftersom **SelectedOption** bara har två alternativ. |
    |||
 
    ![Instruktionen avslutad switch](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
@@ -110,7 +110,7 @@ Nu när du har skapat en Logic app med en switch-instruktion ska vi titta på de
 }
 ```
 
-| Label (Etikett) | Beskrivning |
+| Etikett | Description |
 |-------|-------------|
 | `"Switch"`         | Namnet på Switch-instruktionen, som du kan byta namn på för läsbarhet |
 | `"type": "Switch"` | Anger att åtgärden är en switch-instruktion |
@@ -121,7 +121,7 @@ Nu när du har skapat en Logic app med en switch-instruktion ska vi titta på de
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på funktioner eller förslag går du till [webbplatsen för Azure Logic Apps feedback från användare](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

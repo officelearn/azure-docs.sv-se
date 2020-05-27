@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c827a19fd2b3e946154a3ee0acf6dddc6ad45a0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74036375"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830012"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Så här kopplar du bort en datadisk från en virtuell Linux-dator
 
@@ -106,12 +106,10 @@ Disken finns kvar i lagrings utrymmet men är inte längre kopplad till en virtu
 ## <a name="detach-a-data-disk-using-the-portal"></a>Koppla ifrån en datadisk med hjälp av portalen
 
 1. På den vänstra menyn väljer du **Virtual Machines**.
-2. Välj den virtuella dator som innehåller den datadisk som du vill koppla från och klicka på **stoppa** för att frigöra den virtuella datorn.
-3. I fönstret virtuell dator väljer du **diskar**.
-4. Överst i fönstret **diskar** väljer du **Redigera**.
-5. I rutan **diskar** längst till höger på den datadisk som du vill koppla från, klickar du på knappen ![koppla bort bild](./media/detach-disk/detach.png) från.
-5. När disken har tagits bort klickar du på Spara längst upp i fönstret.
-6. I fönstret virtuell dator klickar du på **Översikt** och sedan på **Start** -knappen längst upp i fönstret för att starta om den virtuella datorn.
+1. På bladet virtuell dator väljer du **diskar**.
+1. Överst på bladet **diskar** väljer du **Redigera**.
+1. I bladet **diskar** , längst till höger om den datadisk som du vill koppla från, klickar du på knappen ![ Koppla bort bild ](./media/detach-disk/detach.png) från.
+1. När disken har tagits bort klickar du på **Spara** överst på bladet.
 
 Disken finns kvar i lagrings utrymmet men är inte längre kopplad till en virtuell dator.
 

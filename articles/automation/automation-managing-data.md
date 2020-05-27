@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 44fe626abd71c13b7f16aa07c4ddf261ff3cacea
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: de60ef31a39a698f9a797a5836546f9b75b67594
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715434"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835214"
 ---
 # <a name="management-of-azure-automation-data"></a>Hantera Azure Automation-data
 
@@ -22,7 +22,7 @@ När du tar bort en resurs i Azure Automation sparas den i ett antal dagar för 
 
 I följande tabell sammanfattas bevarande principen för olika resurser.
 
-| Data | Princip |
+| Data | Policy |
 |:--- |:--- |
 | Konton |Ett konto tas bort permanent 30 dagar efter att användaren tagit bort det. |
 | Tillgångar |En till gång tas bort permanent 30 dagar efter att användaren tagit bort den, eller 30 dagar efter att en användare har tagit bort ett konto som innehåller till gången. |
@@ -76,6 +76,5 @@ Tjänsten Automation geo-Replication är inte tillgänglig direkt för externa k
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om säkra till gångar i Azure Automation finns i [kryptera säkra till gångar i Azure Automation](automation-secure-asset-encryption.md).
-
+* Mer information om säkra till gångar i Azure Automation finns i [kryptering av säkra till gångar i Azure Automation](automation-secure-asset-encryption.md).
 * Mer information om geo-replikering finns i [skapa och använda aktiv geo-replikering](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication).

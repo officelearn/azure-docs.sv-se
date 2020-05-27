@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 23c0cc0d0e4a007fdf46021f857b559266f6a193
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 465ca1d012c6d2057e33fe1460e794e4d5966be6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75431676"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831219"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Skapa en Stream Analytics jobb övervakare program mässigt
 
 Den här artikeln visar hur du aktiverar övervakning för ett Stream Analytics jobb. Stream Analytics jobb som skapas via REST-API: er, Azure SDK eller PowerShell har inte övervakning aktiverat som standard. Du kan aktivera det manuellt i Azure Portal genom att gå till jobbets övervaknings sida och klicka på knappen Aktivera, eller så kan du automatisera processen genom att följa stegen i den här artikeln. Övervaknings data visas i mått-avsnittet i Azure Portal för ditt Stream Analytics jobb.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här processen måste du ha följande krav:
 
@@ -144,7 +144,7 @@ Följande kod aktiverar övervakning av ett **befintligt** Stream Analytics-jobb
 > 
 > Alla Stream Analytics-jobb (och alla andra Azure-resurser) i samma region delar det här lagrings kontot för att lagra övervaknings data. Om du anger ett annat lagrings konto kan det orsaka oönskade sid effekter i övervakningen av dina andra Stream Analytics jobb eller andra Azure-resurser.
 > 
-> Namnet på det lagrings konto som du använder `<YOUR STORAGE ACCOUNT NAME>` för att ersätta i följande kod ska vara ett lagrings konto som finns i samma prenumeration som det Stream Analytics jobb som du aktiverar övervakning för.
+> Namnet på det lagrings konto som du använder för att ersätta `<YOUR STORAGE ACCOUNT NAME>` i följande kod ska vara ett lagrings konto som finns i samma prenumeration som det Stream Analytics jobb som du aktiverar övervakning för.
 > 
 > 
 >    ```csharp
@@ -169,7 +169,7 @@ Följande kod aktiverar övervakning av ett **befintligt** Stream Analytics-jobb
 
 ## <a name="get-support"></a>Få support
 
-Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

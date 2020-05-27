@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: e5b218efd9c8cfaad99d76d8118d181390a977c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb7be1815364b3def9b22e50454dceabd17e6150
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789111"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829655"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Hantera meddelanden i Twilio med Azure Logic Apps
 
 Med Azure Logic Apps och Twilio-anslutningen kan du skapa automatiserade uppgifter och arbets flöden som hämtar, skickar och listar meddelanden i Twilio, som innehåller globala SMS-, MMS-och IP-meddelanden. Du kan använda dessa åtgärder för att utföra uppgifter med ditt Twilio-konto. Du kan också använda de andra åtgärderna för att använda utdata från Twilio-åtgärder. När ett nytt meddelande anländer kan du till exempel skicka meddelande innehållet med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -47,10 +47,10 @@ Med Azure Logic Apps och Twilio-anslutningen kan du skapa automatiserade uppgift
 
      * Under det sista steget där du vill lägga till en åtgärd väljer du **nytt steg**. 
 
-       ELLER
+       \- eller -
 
      * Mellan stegen där du vill lägga till en åtgärd flyttar du pekaren över pilen mellan stegen. 
-     Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+     Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
      
        I rutan Sök anger du "Twilio" som filter. 
        Under listan åtgärder väljer du den åtgärd som du vill använda.
@@ -69,7 +69,7 @@ Teknisk information om utlösare, åtgärder och gränser, som beskrivs av koppl
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

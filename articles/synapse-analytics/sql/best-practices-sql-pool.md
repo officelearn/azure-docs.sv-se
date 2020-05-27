@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f6af79a37369fe5775c402af011f4ba59807595d
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 345794eead05a4ff5e5d1396df78878d2693f405
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780433"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834993"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Metod tips för SQL-pooler i Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ PolyBase-inläsningar kan utföras med hjälp av CTAS eller INSERT INTO. CTAS ko
 
 För att maximera data flödet när du använder gzip-textfiler kan du dela upp filer i 60 eller fler filer för att maximera din belastnings parallellt. För snabbare totalt genomflöde bör du överväga att använda samtidig inläsning av data. Ytterligare information för ämnen som är relevanta för det här avsnittet finns i följande artiklar:
 
-- [Läsa in data](data-loading-overview.md)
+- [Läs in data](data-loading-overview.md)
 - [Guide for using PolyBase](data-loading-best-practices.md) (Guide för att använda PolyBase)
 - [Inläsnings mönster och strategier för Azure SQL-poolen](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)
 - [Läs in data med Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
@@ -193,7 +193,7 @@ SQL-pooler har flera DMV: er som du kan använda för att övervaka frågekörni
 
 Se även [fel söknings](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) artikeln för vanliga problem och lösningar.
 
-Om du behöver information som inte anges i den här artikeln använder du **Filtrera efter rubrik** till vänster på den här sidan för att söka i alla dokument i SQL-poolen.  [SQL-poolens forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) är en plats där du kan ställa frågor till andra användare och till produkt gruppen för SQL-poolen.  
+Om du behöver information som inte finns med i den här artikeln kan du söka på [sidan Microsoft Q&en fråga för Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) , där du kan ställa frågor till andra användare och till produkt gruppen för SQL-poolen.  
 
 Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  Om du föredrar att ställa dina frågor på Stack Overflow, har vi också en [Azure SQL-pool Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

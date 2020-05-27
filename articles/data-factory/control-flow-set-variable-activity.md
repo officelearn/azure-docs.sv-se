@@ -11,12 +11,12 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0b5fa16658d3e354bcb4f90ad998997fc844a84
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417988"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832800"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Ange variabel aktivitet i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,17 +25,17 @@ Använd aktiviteten ange variabel för att ange värdet för en befintlig variab
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Krävs
+Egenskap | Beskrivning | Obligatorisk
 -------- | ----------- | --------
 name | Namn på aktiviteten i pipeline | ja
-description | Text som beskriver vad aktiviteten gör | nej
+beskrivning | Text som beskriver vad aktiviteten gör | nej
 typ | Måste anges till **SetVariable** | ja
-värde | Det sträng tecken eller uttrycks objekt värde som variabeln ska tilldelas | ja
-variableName | Namnet på den variabel som ska anges av den här aktiviteten | ja
+värde | Sträng tecken eller uttrycks objekt värde som variabeln är tilldelad | ja
+variableName | Namnet på den variabel som anges av den här aktiviteten | ja
 
 ## <a name="incrementing-a-variable"></a>Stegvis ökning av en variabel
 
-Ett vanligt scenario som involverar variabler i Azure Data Factory är att använda en variabel som en iterator i en till-eller-aktivitet. I en uppsättning variabel aktivitet kan du inte referera till variabeln som anges `value` i fältet. Du kan lösa den här begränsningen genom att ange en tillfällig variabel och sedan skapa en andra uppsättnings variabel aktivitet. Den andra uppsättningen variabel aktivitet anger värdet för Iteratorn till den tillfälliga variabeln. 
+Ett vanligt scenario som involverar variabler i Azure Data Factory är att använda en variabel som en iterator i en till-eller-aktivitet. I en uppsättning variabel aktivitet kan du inte referera till variabeln som anges i `value` fältet. Du kan lösa den här begränsningen genom att ange en tillfällig variabel och sedan skapa en andra uppsättnings variabel aktivitet. Den andra uppsättningen variabel aktivitet anger värdet för Iteratorn till den tillfälliga variabeln. 
 
 Nedan visas ett exempel på det här mönstret:
 

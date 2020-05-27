@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 95563e816fa4f0931e547b6bd163dce23c338a44
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 23ec49f2d68cf376ef0beb118d8bf69ada7bc0de
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749125"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832035"
 ---
 # <a name="work-with-scope-configurations-for-update-management"></a>Arbeta med scope-konfigurationer för Uppdateringshantering
 
@@ -52,12 +52,7 @@ När en dator läggs till Uppdateringshantering läggs den också till i en spar
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Allmän information om funktionen finns i [uppdateringshantering översikt](automation-update-management.md).
 * Information om hur du arbetar med funktionen finns i [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).
-* Om du vill använda ett Automation-konto för att aktivera funktionen, se [aktivera uppdateringshantering från ett Automation-konto](automation-onboard-solutions-from-automation-account.md).
-* Om du vill bläddra i Azure Portal för att aktivera funktionen, se [aktivera uppdateringshantering från Azure Portal](automation-onboard-solutions-from-browse.md).
-* Om du vill använda en Runbook för att aktivera funktionen, se [aktivera uppdateringshantering från en Runbook](automation-onboard-solutions.md).
-* Om du vill använda en virtuell Azure-dator för att aktivera funktionen, se [aktivera uppdateringshantering från en virtuell Azure-dator](automation-onboard-solutions-from-vm.md).
 * Information om hur du felsöker funktions fel finns i [felsöka uppdateringshantering problem](troubleshoot/update-management.md).
 * Fel sökning av problem med Windows Update-agenten finns i [Felsöka problem med Windows Update-agenten](troubleshoot/update-agent-issues.md).
 * Information om hur du felsöker problem med Linux-uppdaterings agent finns i [Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).

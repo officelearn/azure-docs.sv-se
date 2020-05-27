@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: b84db69f79b1611347a4c55d929e5426141e7ac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74791485"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831593"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på grupp status med hjälp av omfång i Azure Logic Apps
 
@@ -23,7 +23,7 @@ Här är till exempel en övergripande Logic-app som använder en omfattning fö
 
 ![Ställ in utlösare för "schema upprepning"](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa exemplet i den här artikeln behöver du följande objekt:
 
@@ -61,7 +61,7 @@ Du kan spara din Logi Kap par när som helst, så spara arbetet ofta.
 
    1. Om du inte redan har en Bing Maps-anslutning uppmanas du att skapa en anslutning.
 
-      | Inställning | Värde | Beskrivning |
+      | Inställningen | Värde | Beskrivning |
       | ------- | ----- | ----------- |
       | **Anslutnings namn** | BingMapsConnection | Ange ett namn på anslutningen. | 
       | **API-nyckel** | <*din-Bing-Maps-nyckel*> | Ange Bing Maps-nyckeln som du fick tidigare. | 
@@ -73,16 +73,16 @@ Du kan spara din Logi Kap par när som helst, så spara arbetet ofta.
 
       Mer information om dessa parametrar finns [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Beräkna en resväg).
 
-      | Inställning | Värde | Beskrivning |
+      | Inställningen | Värde | Beskrivning |
       | ------- | ----- | ----------- |
       | **Waypoint 1** (Platsmarkör 1) | <*har*> | Ange din flödes ursprung. | 
       | **Waypoint 2** (Platsmarkör 2) | <*ändamål*> | Ange vägens mål. | 
-      | **Avoid** (Undvik) | Ingen | Ange objekt som ska undvikas på vägen, till exempel vägar, väg tullar och så vidare. För möjliga värden, se [Beräkna en väg](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Avoid** (Undvik) | Inga | Ange objekt som ska undvikas på vägen, till exempel vägar, väg tullar och så vidare. För möjliga värden, se [Beräkna en väg](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimera** | timeWithTraffic | Välj en parameter för att optimera vägen, till exempel avstånd, tid med aktuell trafik information och så vidare. I det här exemplet används detta värde: "timeWithTraffic" | 
       | **Avståndsenhet** | <*dina inställningar*> | Ange avstånds enheten för att beräkna din väg. I det här exemplet används detta värde: "mil" | 
       | **Travel mode** (Färdsätt) | Driving (Bil) | Ange rese läge för vägen. I det här exemplet används det här värdet "driver" | 
-      | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Ingen | Gäller endast för överförings läge. | 
-      | **Typ av överförings datum** | Ingen | Gäller endast för överförings läge. | 
+      | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Inga | Gäller endast för överförings läge. | 
+      | **Typ av överförings datum** | Inga | Gäller endast för överförings läge. | 
       ||||  
 
 1. [Lägg till ett villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md) som kontrollerar om den aktuella res tiden med trafik överskrider den angivna tiden. 
@@ -130,7 +130,7 @@ Du kan spara din Logi Kap par när som helst, så spara arbetet ofta.
 
       ![Välj "trafik varaktighets trafik"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   1. När fältet har lösts till JSON-format lägger du till ett **kommatecken** (```,```) följt av ```60``` siffran så att du konverterar värdet i **trafikens varaktighets trafik** från sekunder till minuter. 
+   1. När fältet har lösts till JSON-format lägger du till ett **kommatecken** ( ```,``` ) följt av siffran ```60``` så att du konverterar värdet i **trafikens varaktighets trafik** från sekunder till minuter. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
@@ -161,7 +161,7 @@ Lägg sedan till ett omfång så att du kan gruppera vissa åtgärder och utvär
 1. Lägg till ett omfång på den arbets flödes plats som du vill ha. Om du till exempel vill lägga till ett omfång mellan befintliga steg i Logic app-arbetsflödet följer du dessa steg: 
 
    1. Flytta pekaren över den pil där du vill lägga till omfånget. 
-   Välj **plus tecknet** (**+**) > **Lägg till en åtgärd**.
+   Välj **plus tecknet** ( **+** ) > **Lägg till en åtgärd**.
 
       ![Lägg till ett omfång](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
@@ -196,8 +196,8 @@ Lägg sedan till ett omfång så att du kan gruppera vissa åtgärder och utvär
 
    1. Välj **är lika** med som operator för båda raderna. 
    
-   1. För jämförelse värdena i den första raden anger `Failed`du. 
-   På den andra raden anger `Aborted`du. 
+   1. För jämförelse värdena i den första raden anger du `Failed` . 
+   På den andra raden anger du `Aborted` . 
 
       När du är klar ser villkoret ut som i det här exemplet:
 
@@ -388,7 +388,7 @@ Om du arbetar i kodvyn kan du definiera en omfattnings struktur i din Logic Apps
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på funktioner och förslag går du till [webbplatsen för Azure Logic Apps feedback från användare](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

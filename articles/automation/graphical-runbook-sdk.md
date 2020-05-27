@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: b0733cd4f71a734511d5085473047eb7a6d030d3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 969e60cd08a65adb1dd731aa7c6c3f9872e288fd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744341"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835044"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk-preview"></a>Använd Azure Automation grafisk Runbook SDK (för hands version)
 
 [Grafiska runbooks](automation-graphical-authoring-intro.md) hjälper till att hantera komplexiteten i den underliggande Windows PowerShell-eller PowerShell-arbetsflödes koden. Microsoft Azure Automation graphicing graphicing SDK gör det möjligt för utvecklare att skapa och redigera grafiska runbooks för användning med Azure Automation. I den här artikeln beskrivs de grundläggande stegen för att skapa en grafisk Runbook från din kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Importera `Orchestrator.GraphRunbook.Model.dll` paketet genom att hämta [SDK: n](https://www.microsoft.com/download/details.aspx?id=50734).
 
@@ -141,4 +141,4 @@ Det serialiserade formatet kan ändras i framtida versioner av `Orchestrator.Gra
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Redigera grafiska runbooks i Azure Automation](automation-graphical-authoring-intro.md)
+Mer information finns i [Redigera grafiska runbooks i Azure Automation](automation-graphical-authoring-intro.md).

@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: b4d3be9fbacee82f36f1238c5d9b4598c95b5df2
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 8896aba104a99d323b3c39cfaeab6043d1c12f9d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888808"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832018"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -20,7 +20,7 @@ ms.locfileid: "82888808"
 I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funktioner, inklusive användning av Azure File Sync med Azure Files. Om du inte ser svaret på din fråga kan du kontakta oss genom följande kanaler (i eskalerad ordning):
 
 1. Avsnittet kommentarer i den här artikeln.
-2. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+2. [Sidan Microsoft Q&en fråga för Azure Storage](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft Support. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
 
@@ -101,7 +101,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 * <a id="afs-conflict-resolution"></a>**Vad händer om samma fil ändras på två servrar på ungefär samma tid?**  
     Azure File Sync använder en enkel lösning för konflikt lösning: vi behåller båda ändringarna i filer som ändras på två servrar på samma gång. Den senast skrivna ändringen behåller det ursprungliga fil namnet. Den äldre filen har "källa"-datorn och konflikt numret som lagts till i namnet. Den följer denna taxonomi: 
    
-    \<FileNameWithoutExtension\>-\[MachineName.\>\<-#\] \<ext\>  
+    \<FileNameWithoutExtension \> - \< MachineName \> \[ -# \] . \< EXT\>  
 
     Den första konflikten i CompanyReport. docx skulle till exempel bli CompanyReport-CentralServer. docx om CentralServer är där den äldre skrivningen ägde rum. Den andra konflikten skulle ha namnet CompanyReport-CentralServer-1. docx. Azure File Sync stöder 100-konfliktskapande filer per fil. När det maximala antalet konfliktskapande filer har nåtts kommer filen inte att synkroniseras förrän antalet konfliktskapande filer är mindre än 100.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3eedfb1e9ec59fbe12ee94a65d3702a7ef8ca95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b83dbdb928b7b5810864a9202134dee30f9582df
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73823646"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834261"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Elastic Database-verktyg
 
@@ -34,7 +34,7 @@ Det kostar inget att använda klient biblioteket för Elastic Database. Kostnade
 
 ## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Varför fungerar inte mina autentiseringsuppgifter när jag lägger till en Shard från en annan server
 
-Använd inte autentiseringsuppgifter i formatet "User ID =username@servername", och Använd i stället bara "User ID = username".  Se också till att "username"-inloggningen har behörighet för Shard.
+Använd inte autentiseringsuppgifter i formatet "User ID = username@servername ", och Använd i stället bara "User ID = username".  Se också till att "username"-inloggningen har behörighet för Shard.
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Måste jag skapa en Shard Map Manager och fylla i Shards varje gång jag startar mina program
 
@@ -42,7 +42,7 @@ Nej – skapandet av Shard Map Manager (till exempel [ShardMapManagerFactory. Cr
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Jag har frågor om att använda elastiska databas verktyg, hur får jag svar på dem
 
-Kontakta oss på [SQL Database-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+Kontakta oss på [sidan Microsoft Q&en fråga för SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>När jag får en databas anslutning med en horisontell partitionering-nyckel kan jag fortfarande fråga efter data för andra horisontell partitionering-nycklar på samma Shard.  Är detta enligt design
 

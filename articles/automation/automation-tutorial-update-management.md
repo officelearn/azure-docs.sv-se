@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 4b47fa873df88bf85c4c56c9f2ac94fce16c63be
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5b5172df6ed6993742a08d5ac08cf700681dfc6a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743656"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829162"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du kan använda funktionen Azure Automation [upp
 
 Pris information finns i avsnittet [om Automation-priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Uppdateringshantering](automation-update-management.md) funktionen aktive rad för en eller flera av dina virtuella datorer. 
 * En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) har Aktiver ats för uppdateringshantering.
@@ -52,7 +52,7 @@ Ditt Automation-konto har redan valts som resurs. Om du vill ändra det klickar 
 
 Klicka på **Lägg till villkor** för att välja lämplig signal för uppdateringsdistributionen. I följande tabell visas information om de två tillgängliga signalerna.
 
-|Signalnamn|Dimensioner|Beskrivning|
+|Signalnamn|Dimensioner|Description|
 |---|---|---|
 |`Total Update Deployment Runs`|– Namnet på uppdateringsdistributionen<br>– Status|Den här signalen aviserar om den övergripande statusen för en uppdaterings distribution.|
 |`Total Update Deployment Machine Runs`|– Namnet på uppdateringsdistributionen</br>– Status</br>– Måldator</br>-Uppdatera körnings-ID för distribution|Den här signalen aviserar om status för en uppdaterings distribution som är riktad mot specifika datorer.|
@@ -176,4 +176,4 @@ När distributionen av uppdateringen lyckas får du ett bekräftelse meddelande 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över Uppdateringshantering](automation-update-management.md)
+* Mer information om Uppdateringshantering finns i [uppdateringshantering översikt](automation-update-management.md).

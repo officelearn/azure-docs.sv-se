@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 8f6022f03d28362e85fba3fd75e60c4d7032b41b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cd02a0ea51faa7dae14e0f9d61c446aae55dcbe1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448369"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849577"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och ruby
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla Ruby-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
+Använd den här snabb starten för att göra ditt första anrop till API för videosökning i Bing. Det här enkla ruby-programmet skickar en HTTP-videosök fråga till API: et och visar JSON-svaret. Även om det här programmet är skrivet i python är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. 
+
+Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -29,7 +31,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. importera följande paket till din kodfil.
+1. Importera följande paket till din kod fil:
 
     ```ruby
     require 'net/https'
@@ -37,7 +39,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
     require 'json'
     ```
 
-2. Skapa variabler för API-slutpunkten, sökväg för video-API, din prenumerationsnyckel och sökterm. `uri`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för API-slutpunkten, sökväg för video-API, din prenumerationsnyckel och sökterm. För `url` värdet kan du använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -48,20 +50,20 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 
 ## <a name="create-and-send-an-api-request"></a>Skapa och skicka en API-begäran
 
-1. Använd variablerna från föregående steg för att formatera en sök-URL för begäran. Kombinera din URI och sökväg, och URL-koda sedan söktermen innan du lägger till den i parametern `?q=`.
+1. Använd variablerna från föregående steg för att formatera en Sök-URL för begäran. Kombinera din URI och sökväg och sedan URL-koda Sök termen innan du lägger till den i `?q=` parametern.
 
     ```ruby
     uri = URI(uri + path + "?q=" + URI.escape(term))
     ```
 
-2. Lägg till den fullständiga sök-URL:en i begäran och lägg till din prenumerationsnyckel i `Ocp-Apim-Subscription-Key`-rubriken.
+2. Lägg till den fullständiga Sök-URL: en i begäran och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken.
     
     ``` ruby
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = accessKey
     ```
 
-3. Skicka begäran och spara svaret.
+3. Skicka begäran och spara sedan svaret.
     
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -71,11 +73,11 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 
 ## <a name="process-and-view-the-response"></a>Bearbeta och visa svaret
 
-1. När svaret har tagits emot kan du skriva ut JSON-svaret.
+När svaret har tagits emot skriver du ut JSON-svaret.
 
-    ```ruby
-    puts JSON::pretty_generate(JSON(response.body))
-    ```
+```ruby
+puts JSON::pretty_generate(JSON(response.body))
+```
 
 ## <a name="json-response"></a>JSON-svar
 
@@ -191,7 +193,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en webbapp med en sida](../tutorial-bing-video-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](../tutorial-bing-video-search-single-page-app.md)
 
 ## <a name="see-also"></a>Se även 
 

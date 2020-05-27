@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: dcd5668fa2c6e1840eed13a9ee0cbd30d8d8a25a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 9613b74b727d27bd47a05fadc1398bf898f667a5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983252"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835739"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Övervaka körningar och mått för Azure ML-experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,6 +52,7 @@ Du kan lägga till följande mått i en körning medan du tränar ett experiment
 Om du vill spåra eller övervaka experimentet måste du lägga till kod för att starta loggning när du skickar in körningen. Följande är exempel på hur du kan starta sändningen:
 * __Kör. start_logging__ – Lägg till loggnings funktioner i utbildnings skriptet och starta en interaktiv inloggningssession i det angivna experimentet. **start_logging** skapar en interaktiv körning för användning i scenarier som Notebooks. Alla mått som loggas under sessionen läggs till i körnings posten i experimentet.
 * __ScriptRunConfig__ – Lägg till loggnings funktioner i ditt utbildnings skript och Läs in hela skript-mappen med körningen.  **ScriptRunConfig** är en klass för att konfigurera konfigurationer för skript körningar. Med det här alternativet kan du lägga till övervaknings kod för att få ett meddelande om slut för ande eller för att få en visuell widget att övervaka.
+* __Design loggning__ – Lägg till loggnings funktioner i en dra-&-Drop designer-pipeline med hjälp av modulen __köra Python-skript__ . Lägg till python-kod till log designer-experiment. 
 
 ## <a name="set-up-the-workspace"></a>Konfigurera arbets ytan
 Innan du lägger till loggning och skickar ett experiment måste du konfigurera arbets ytan.
@@ -78,7 +79,7 @@ Lägg till experiment uppföljning med Azure Machine Learning SDK och ladda upp 
 
 [! Notebook – python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? namn = create_experiment)]
 
-Skriptet slutar med ```run.complete()```, vilket anger att körningen är slutförd.  Den här funktionen används vanligt vis i interaktiva scenarier för bärbara datorer.
+Skriptet slutar med ```run.complete()``` , vilket anger att körningen är slutförd.  Den här funktionen används vanligt vis i interaktiva scenarier för bärbara datorer.
 
 ## <a name="option-2-use-scriptrunconfig"></a>Alternativ 2: Använd ScriptRunConfig
 
@@ -86,11 +87,11 @@ Skriptet slutar med ```run.complete()```, vilket anger att körningen är slutf�
 
 Det här exemplet expanderas i den grundläggande sklearn Ridge-modellen från ovan. Det gör att en enkel parameter svep för att svepa över alfa värden i modellen för att samla in mått och utbildade modeller i körs under experimentet. Exemplet körs lokalt mot en användar hanterad miljö. 
 
-1. Skapa ett utbildnings skript `train.py`.
+1. Skapa ett utbildnings skript `train.py` .
 
    [! code-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
-2. `train.py` Skript referenser `mylib.py` som gör att du kan hämta listan med alfa värden som ska användas i Ridge-modellen.
+2. `train.py`Skript referenser `mylib.py` som gör att du kan hämta listan med alfa värden som ska användas i Ridge-modellen.
 
    [! code-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/mylib.py)] 
 
@@ -103,8 +104,33 @@ Det här exemplet expanderas i den grundläggande sklearn Ridge-modellen från o
 
    [! Notebook – python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = src)] [! Notebook-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? namn = kör)]
 
+## <a name="option-3-log-designer-experiments"></a>Alternativ 3: log designer-experiment
 
+Använd modulen __Kör Python-skript__ för att lägga till loggnings logik i design experimenten. Du kan logga alla värden med hjälp av det här arbets flödet, men det är särskilt användbart att logga mått från modulen __utvärdera modell__ för att spåra modell prestanda mellan olika körningar.
 
+1. Anslut en __köra python-skriptfil__ till utdata från modulen __utvärdera modell__ .
+
+    ![Anslut kör python-skriptfil för att utvärdera modell modulen](./media/how-to-track-experiments/designer-logging-pipeline.png)
+
+1. Klistra in följande kod i __Kör Python-skript__ kod redigeraren för att logga medelvärdet för det absoluta felet för din tränade modell:
+
+    ```python
+    # dataframe1 contains the values from Evaluate Model
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+
+        from azureml.core import Run
+
+        run = Run.get_context()
+
+        # Log the mean absolute error to the current run to see the metric in the module detail pane.
+        run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+
+        # Log the mean absolute error to the parent run to see the metric in the run details page.
+        run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+    
+        return dataframe1,
+    ```
 
 ## <a name="manage-a-run"></a>Hantera en körning
 
@@ -168,13 +194,13 @@ Om du vill visa mer information om en pipeline klickar du på pipelinen som du v
 
 ### <a name="get-log-results-upon-completion"></a>Hämta loggresultat när åtgärden har slutförts
 
-Modell träning och övervakning sker i bakgrunden så att du kan köra andra uppgifter medan du väntar. Du kan också vänta tills modellen har slutfört utbildningen innan du kör mer kod. När du använder **ScriptRunConfig**kan du använda ```run.wait_for_completion(show_output = True)``` för att visa när modell träningen är klar. ```show_output``` Flaggan ger dig utförliga utdata. 
+Modell träning och övervakning sker i bakgrunden så att du kan köra andra uppgifter medan du väntar. Du kan också vänta tills modellen har slutfört utbildningen innan du kör mer kod. När du använder **ScriptRunConfig**kan du använda ```run.wait_for_completion(show_output = True)``` för att visa när modell träningen är klar. ```show_output```Flaggan ger dig utförliga utdata. 
 
 <a id="queryrunmetrics"></a>
 
 ### <a name="query-run-metrics"></a>Kör mått för fråga
 
-Du kan visa måtten för en utbildad modell med ```run.get_metrics()```. Nu kan du hämta alla mått som loggades i exemplet ovan för att fastställa den bästa modellen.
+Du kan visa måtten för en utbildad modell med ```run.get_metrics()``` . Nu kan du hämta alla mått som loggades i exemplet ovan för att fastställa den bästa modellen.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 ## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studio"></a>Visa experimentet i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com)

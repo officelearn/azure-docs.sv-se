@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 28ddd2a2d75ab8a57dfc3176eefd703f6c43d0b6
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 93b34af0baed89fd312948aeffe8ea4ac8ef806c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745057"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834704"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera Runbooks i Azure Automation
 
@@ -338,6 +338,8 @@ foreach($item in $output)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Runbook-körning i Azure Automation](automation-runbook-execution.md)
-* [Redigera text-Runbooks i Azure Automation](automation-edit-textual-runbook.md)
-* [Redigera grafiska runbooks i Azure Automation](automation-graphical-authoring-intro.md)
+* Mer information om Runbook-hantering finns [i Runbook-körning i Azure Automation](automation-runbook-execution.md).
+* Information om hur du förbereder en PowerShell-Runbook finns i [Redigera text-Runbooks i Azure Automation](automation-edit-textual-runbook.md).
+* Information om hur du skriver en PowerShell Workflow-Runbook finns i [Lär dig mer om PowerShell-arbetsflöde för Azure Automation](automation-powershell-workflow.md).
+* Mer information om hur du skriver grafiska runbooks finns [i Redigera grafiska runbooks i Azure Automation](automation-graphical-authoring-intro.md).
+* Information om hur du felsöker problem med Runbook-körning finns i [Felsöka Runbook-problem](troubleshoot/runbooks.md).

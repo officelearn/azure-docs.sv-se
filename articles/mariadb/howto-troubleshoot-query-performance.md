@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: b06fe37b63494eb4ee0ca680733a801c26415d67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca9a74763715c5c68526ff3213a14d2148f5ad30
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530061"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834313"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Så här använder du förklaringar för att profilera frågor om prestanda i Azure Database for MariaDB
 **Förklaring** är ett användbart verktyg för att optimera frågor. FÖRKLARINGs instruktionen kan användas för att hämta information om hur SQL-uttryck körs. Följande utdata visar ett exempel på körning av en FÖRKLARINGs instruktion.
@@ -166,4 +166,4 @@ FÖRKLARINGEN visar nu att MariaDB kan använda kombinerat index för att undvik
 Att använda förklaringar och olika typer av index kan öka prestandan avsevärt. Att ha ett index i tabellen innebär inte nödvändigt vis att MariaDB skulle kunna använda den för dina frågor. Validera alltid dina antaganden med hjälp av förklara och optimera dina frågor med hjälp av index.
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill hitta peer-svar på dina mest aktuella frågor eller publicera en ny fråga/svar, besök [MSDN-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).
+- Om du vill hitta peer-svar på dina mest aktuella frågor eller publicera en ny fråga/svar kan du besöka [Microsoft Q&en fråge sida](https://docs.microsoft.com/answers/topics/azure-database-mariadb.html) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

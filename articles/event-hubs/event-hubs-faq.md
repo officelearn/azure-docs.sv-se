@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 8d461652758dd1fe6bb90a703b7c3fa113c9bd3e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e8ae3cbbca926a97bf90f4ac1104d4f082b332fd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726255"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835622"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -186,7 +186,7 @@ Resultatet ger dig en uppfattning om vad som kan uppnås med ett dedikerat Event
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Hur gör jag för att skapa ett Event Hubs Dedicated-kluster?
 Du skapar ett Event Hubs dedikerat kluster genom att skicka en [kvot som ökar support förfrågan](https://portal.azure.com/#create/Microsoft.Support) eller genom att kontakta [Event Hubss teamet](mailto:askeventhubs@microsoft.com). Det tar vanligt vis ungefär två veckor att få klustret distribuerat och behålls för att användas av dig. Den här processen är tillfällig tills en fullständig egen betjäning görs tillgänglig via Azure Portal.
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 
 ### <a name="how-many-partitions-do-i-need"></a>Hur många partitioner behöver jag?
 Antalet partitioner anges när de skapas och måste vara mellan 2 och 32. Antalet partitioner kan inte ändras, så du bör överväga långsiktig skalning när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Mer information om partitioner finns i [partitioner](event-hubs-features.md#partitions).
@@ -250,7 +250,7 @@ Event Hubs stöder två typer av [diagnostikloggar](event-hubs-diagnostic-logs.m
 
 ### <a name="support-and-sla"></a>Support och SLA
 
-Teknisk support för Event Hubs finns i Community- [forumen](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Support för fakturering och prenumerations hantering ges utan kostnad.
+Teknisk support för Event Hubs finns på [sidan Microsoft Q&en fråga för Azure Service Bus](https://docs.microsoft.com/answers/topics/azure-service-bus.html). Support för fakturering och prenumerations hantering ges utan kostnad.
 
 Mer information om service avtal finns på sidan [service nivå avtal](https://azure.microsoft.com/support/legal/sla/) .
 

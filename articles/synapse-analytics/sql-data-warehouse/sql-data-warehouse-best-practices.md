@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4462bf0fc2057922340eb01cb8c786dbc63ce290
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce1121a4a006e4208c76193a38262d4309e67584
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745353"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834449"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Metod tips för Synapse SQL-pool i Azure Synapse Analytics (tidigare SQL DW)
 
@@ -54,7 +54,7 @@ Se även [övervaka arbets belastningen med DMV: er](sql-data-warehouse-manage-m
 
 ## <a name="group-insert-statements-into-batches"></a>Gruppera INSERT-satser i batchar
 
-En engångs inläsning till en liten tabell med en INSERT-instruktion eller till och med en regelbunden omlastning av en sökning kan fungera bra för dina behov med en instruktion `INSERT INTO MyLookup VALUES (1, 'Type 1')`som.  
+En engångs inläsning till en liten tabell med en INSERT-instruktion eller till och med en regelbunden omlastning av en sökning kan fungera bra för dina behov med en instruktion som `INSERT INTO MyLookup VALUES (1, 'Type 1')` .  
 
 Men om du behöver läsa in flera tusen eller flera miljoner rader under en dag kanske du märker att singleton-infogningar med INSERT inte hänger med.  I så fall utvecklar du i stället dina processer så att de skriver till en fil och så att en annan process regelbundet körs och läser in filen.
 
@@ -180,7 +180,7 @@ Se även [resurs klasser för hantering av arbets belastning](resource-classes-f
 
 Information om vanliga problem och lösningar finns i vår [felsökningsartikel](sql-data-warehouse-troubleshoot.md).
 
-Om du inte hittar det du letar efter i den här artikeln kan du prova att använda "Sök efter dokument" på vänster sida av den här sidan för att söka i alla Azure Synapse-dokument.  [Azure Synapse-forumet](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) är en plats där du kan skicka frågor till andra användare och till produkt gruppen för Azure Synapse. Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  
+Om du inte hittar det du letar efter i den här artikeln kan du prova att använda "Sök efter dokument" på vänster sida av den här sidan för att söka i alla Azure Synapse-dokument.  På [sidan Microsoft Q&en fråga för Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) kan du skicka frågor till andra användare och till produkt gruppen för Azure Synapse. Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  
 
 Om du föredrar att ställa dina frågor på Stack Overflow har vi också ett [Azure Synapse Stack Overflow-forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

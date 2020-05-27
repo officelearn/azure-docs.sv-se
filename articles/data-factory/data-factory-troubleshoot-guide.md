@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: f07cc109b21010df89b105576cb9afcf93df774a
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744773"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836166"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Felsöka Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,7 +56,7 @@ Information om anslutnings problem, till exempel ett problem med kopierings akti
 
 - **Orsak**:`Bad authoring.`
 
-- **Rekommendation**: Ange antingen absoluta sökvägar för arbets ytans adresserings scheman eller `dbfs:/folder/subfolder/foo.py` för filer som lagras i DATABRICKS File System (DFS).
+- **Rekommendation**: Ange antingen absoluta sökvägar för arbets ytans adresserings scheman eller `dbfs:/folder/subfolder/foo.py` för filer som lagras i Databricks File System (DFS).
 
 <br/> 
 
@@ -102,7 +102,7 @@ Information om anslutnings problem, till exempel ett problem med kopierings akti
 
 <br/> 
 
-- **Meddelande**: `User: `SimpleUserContext {userId =..., name =user@company.com, orgId =...}` is not authorized to access cluster.`
+- **Meddelande**: `User: ` SimpleUserContext {userId =..., name = user@company.com , orgId =...}` is not authorized to access cluster.`
 
 - **Orsak**: användaren som genererade åtkomsttoken får inte åtkomst till det Databricks-kluster som anges i den länkade tjänsten.
 
@@ -226,7 +226,7 @@ Följande tabell gäller för U-SQL.
 
 - **Orsak**: Azure Function aktivitets definition har inte slutförts.
 
-- **Rekommendation**: kontrol lera att JSON-definitionen för inmatade Azure Function- `functionKey`aktiviteter har en egenskap med namnet.
+- **Rekommendation**: kontrol lera att JSON-definitionen för inmatade Azure Function-aktiviteter har en egenskap med namnet `functionKey` .
 
 ### <a name="error-code-3607"></a>Felkod: 3607
 
@@ -234,7 +234,7 @@ Följande tabell gäller för U-SQL.
 
 - **Orsak**: Azure Function aktivitets definition har inte slutförts.
 
-- **Rekommendation**: kontrol lera att JSON-definitionen för inmatade Azure Function- `functionName`aktiviteter har en egenskap med namnet.
+- **Rekommendation**: kontrol lera att JSON-definitionen för inmatade Azure Function-aktiviteter har en egenskap med namnet `functionName` .
 
 ### <a name="error-code-3608"></a>Felkod: 3608
 
@@ -250,7 +250,7 @@ Följande tabell gäller för U-SQL.
 
 - **Orsak**: Azure Function aktivitets definition har inte slutförts.
 
-- **Rekommendation**: kontrol lera att JSON-definitionen för inmatade Azure Function- `functionAppUrl`aktiviteter har en egenskap med namnet.
+- **Rekommendation**: kontrol lera att JSON-definitionen för inmatade Azure Function-aktiviteter har en egenskap med namnet `functionAppUrl` .
 
 ### <a name="error-code-3610"></a>Felkod: 3610
 
@@ -266,7 +266,7 @@ Följande tabell gäller för U-SQL.
 
 - **Orsak**: Azure Function aktivitets definition har inte slutförts.
 
-- **Rekommendation**: kontrol lera att JSON-definitionen för inmatade Azure Function- `method`aktiviteter har en egenskap med namnet.
+- **Rekommendation**: kontrol lera att JSON-definitionen för inmatade Azure Function-aktiviteter har en egenskap med namnet `method` .
 
 ### <a name="error-code-3612"></a>Felkod: 3612
 
@@ -282,7 +282,7 @@ Följande tabell gäller för U-SQL.
 
 - **Meddelande**:`AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
 
-- **Orsak**: felaktigt format eller saknar egenskaps `%propertyName;`definition.
+- **Orsak**: felaktigt format eller saknar egenskaps definition `%propertyName;` .
 
 - **Rekommendation**: kontrol lera om aktiviteten `%activityName;` har den egenskap `%propertyName;` som definierats med rätt data.
 
@@ -308,7 +308,7 @@ Följande tabell gäller för U-SQL.
 
 - **Orsak**: felaktigt format eller en definition av egenskapen% PropertyName; saknas.
 
-- **Rekommendation**: kontrol lera om den länkade tjänsten har den `%propertyName;` egenskap som definierats med rätt data.
+- **Rekommendation**: kontrol lera om den länkade tjänsten har den egenskap `%propertyName;` som definierats med rätt data.
 
 ### <a name="error-code-4121"></a>Felkod: 4121
 
@@ -464,7 +464,7 @@ Följande tabell gäller för Azure Batch.
 
 - **Meddelande**:`Operation returned an invalid status code 'BadRequest'.`
 
-- **Orsak**: för många filer i `folderPath` den anpassade aktiviteten. Den totala storleken på `resourceFiles` får inte vara mer än 32 768 tecken.
+- **Orsak**: för många filer i den `folderPath` anpassade aktiviteten. Den totala storleken på `resourceFiles` får inte vara mer än 32 768 tecken.
 
 - **Rekommendation**: ta bort onödiga filer eller zip-filer och Lägg till ett zippa-kommando för att extrahera dem.
    
@@ -592,7 +592,7 @@ Följande tabell gäller för Azure Batch.
 
 - **Meddelande**:`Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
 
-- **Orsak**: fel meddelandet innehåller ett meddelande som `The remote name could not be resolved.`liknar. Den angivna kluster-URI: n kan vara ogiltig.
+- **Orsak**: fel meddelandet innehåller ett meddelande som liknar `The remote name could not be resolved.` . Den angivna kluster-URI: n kan vara ogiltig.
 
 - **Rekommendation**: kontrol lera att klustret inte har tagits bort och att angiven URI är korrekt. När du öppnar URI i en webbläsare bör du se Ambari-ANVÄNDARGRÄNSSNITTET. Om klustret finns i ett virtuellt nätverk ska URI: n vara den privata URI: n. Öppna den genom att använda en virtuell dator (VM) som är en del av samma virtuella nätverk.
 
@@ -600,7 +600,7 @@ Följande tabell gäller för Azure Batch.
  
  </br>
 
-- **Orsak**: om fel meddelandet innehåller ett meddelande som `A task was canceled.`liknar, tids gränsen uppnåddes för jobb överföringen.
+- **Orsak**: om fel meddelandet innehåller ett meddelande som liknar, tids gränsen uppnåddes `A task was canceled.` för jobb överföringen.
 
 - **Rekommendation**: problemet kan vara antingen allmän HDInsight-anslutning eller nätverks anslutning. Bekräfta först att HDInsight Ambari-ANVÄNDARGRÄNSSNITTET är tillgängligt från valfri webbläsare. Kontrol lera sedan att autentiseringsuppgifterna fortfarande är giltiga.
    
@@ -610,7 +610,7 @@ Följande tabell gäller för Azure Batch.
 
  </br>
 
-- **Orsak**: när fel meddelandet innehåller ett meddelande som `User admin is locked out in Ambari` liknar eller `Unauthorized: Ambari user name or password is incorrect`, är autentiseringsuppgifterna för HDInsight felaktigt eller har upphört att gälla.
+- **Orsak**: när fel meddelandet innehåller ett meddelande som liknar `User admin is locked out in Ambari` eller `Unauthorized: Ambari user name or password is incorrect` , är autentiseringsuppgifterna för HDInsight felaktigt eller har upphört att gälla.
 
 - **Rekommendation**: korrigera autentiseringsuppgifterna och distribuera om den länkade tjänsten. Kontrol lera först att autentiseringsuppgifterna fungerar på HDInsight genom att öppna kluster-URI: n i valfri webbläsare och försök logga in. Om autentiseringsuppgifterna inte fungerar kan du återställa dem från Azure Portal.
 
@@ -618,16 +618,16 @@ Följande tabell gäller för Azure Batch.
 
  </br>
 
-- **Orsak**: när fel meddelandet innehåller ett meddelande som `502 - Web server received an invalid response while acting as a gateway or proxy server`liknar, returneras det här felet av HDInsight-tjänsten.
+- **Orsak**: när fel meddelandet innehåller ett meddelande som liknar `502 - Web server received an invalid response while acting as a gateway or proxy server` , returneras det här felet av HDInsight-tjänsten.
 
 - **Rekommendation**: ett 502-fel inträffar ofta när Ambari-serverns process stängdes av. Du kan starta om Ambari-tjänsterna genom att starta om Head-noden.
 
     1. Anslut till en av noderna i HDInsight med SSH.
-    1. Identifiera din aktiva Head Node-värd genom `ping headnodehost`att köra.
+    1. Identifiera din aktiva Head Node-värd genom att köra `ping headnodehost` .
     1. Anslut till din aktiva Head-nod som Ambari-server på den aktiva Head-noden med SSH. 
     1. Starta om den aktiva Head-noden.
 
-       Mer information hittar du i fel söknings dokumentationen för Azure HDInsight. Exempel:
+       Mer information hittar du i fel söknings dokumentationen för Azure HDInsight. Ett exempel:
 
        * [Ambari UI 502-fel](https://hdinsight.github.io/ambari/ambari-ui-502-error.html)
        * [RpcTimeoutException för Apache Spark Thrift-Server](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception)
@@ -635,11 +635,11 @@ Följande tabell gäller för Azure Batch.
 
  </br>
 
-- **Orsak**: när fel meddelandet innehåller ett meddelande som liknar `Unable to service the submit job request as templeton service is busy with too many submit job requests` eller `Queue root.joblauncher already has 500 applications, cannot accept submission of application`, skickas för många jobb till HDInsight på samma gång.
+- **Orsak**: när fel meddelandet innehåller ett meddelande som liknar `Unable to service the submit job request as templeton service is busy with too many submit job requests` eller `Queue root.joblauncher already has 500 applications, cannot accept submission of application` , skickas för många jobb till HDInsight på samma gång.
 
 - **Rekommendation**: begränsa antalet samtidiga jobb som skickats till HDInsight. Referera till Data Factory aktivitets samtidighet om jobben skickas av samma aktivitet. Ändra utlösare så att samtidiga pipelines körs sprids över tid.
 
-   Se [HDInsight-dokumentationen](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors) för att `templeton.parallellism.job.submit` justera som ett fel förslag.
+   Se [HDInsight-dokumentationen](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors) för att justera `templeton.parallellism.job.submit` som ett fel förslag.
 
 ### <a name="error-code-2301"></a>Felkod: 2301
 
@@ -649,7 +649,7 @@ Följande tabell gäller för Azure Batch.
 
 - **Rekommendation**: det här felet uppstår när ADF inte får något svar från HDInsight-klustret vid försök att begära status för jobbet som körs. Det här problemet kan vara i själva klustret, eller så kan HDInsight-tjänsten ha ett avbrott.
 
-   Se fel söknings dokumentation för https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guideHDInsight på eller kontakta supporten för ytterligare hjälp.
+   Se fel söknings dokumentation för HDInsight på https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide eller kontakta supporten för ytterligare hjälp.
 
 ### <a name="error-code-2302"></a>Felkod: 2302
 
@@ -667,9 +667,9 @@ Följande tabell gäller för Azure Batch.
  1. Kör ett test jobb för prov.
     1. Om du kör samma jobb på HDInsight-backend-servern, kontrollerar du att det lyckades. Exempel på körnings exempel finns i [köra MapReduce-exemplen som ingår i HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
  1. Om jobbet fortfarande inte kunde utföras på HDInsight kontrollerar du programmets loggar och information, som tillhandahåller stöd för:
-    1. Kontrol lera om jobbet skickades till garn. Om jobbet inte skickades till garn använder `--master yarn`du.
+    1. Kontrol lera om jobbet skickades till garn. Om jobbet inte skickades till garn använder du `--master yarn` .
     1. Om programmet har körts klart samlar du in start tid och slut tid för garn programmet. Om programmet inte slutförde körningen samlar du in start tid/start tid.
-    1. Kontrol lera och samla in program `yarn logs -applicationId <Insert_Your_Application_ID>`loggen med.
+    1. Kontrol lera och samla in program loggen med `yarn logs -applicationId <Insert_Your_Application_ID>` .
     1. Kontrol lera och samla in garn Resource Manager-loggarna under `/var/log/hadoop-yarn/yarn` katalogen.
     1. Om dessa steg inte räcker för att lösa problemet kan du kontakta Azure HDInsight-teamet för support och tillhandahålla ovanstående loggar och tidsstämplar.
 
@@ -689,9 +689,9 @@ Följande tabell gäller för Azure Batch.
  1. Kör ett test jobb för prov.
     1. Om du kör samma jobb på HDInsight-backend-servern, kontrollerar du att det lyckades. Exempel på körnings exempel finns i [köra MapReduce-exemplen som ingår i HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
  1. Om jobbet fortfarande inte kunde utföras på HDInsight kontrollerar du programmets loggar och information, som tillhandahåller stöd för:
-    1. Kontrol lera om jobbet skickades till garn. Om jobbet inte skickades till garn använder `--master yarn`du.
+    1. Kontrol lera om jobbet skickades till garn. Om jobbet inte skickades till garn använder du `--master yarn` .
     1. Om programmet har körts klart samlar du in start tid och slut tid för garn programmet. Om programmet inte slutförde körningen samlar du in start tid/start tid.
-    1. Kontrol lera och samla in program `yarn logs -applicationId <Insert_Your_Application_ID>`loggen med.
+    1. Kontrol lera och samla in program loggen med `yarn logs -applicationId <Insert_Your_Application_ID>` .
     1. Kontrol lera och samla in garn Resource Manager-loggarna under `/var/log/hadoop-yarn/yarn` katalogen.
     1. Om dessa steg inte räcker för att lösa problemet kan du kontakta Azure HDInsight-teamet för support och tillhandahålla ovanstående loggar och tidsstämplar.
 
@@ -801,7 +801,7 @@ Följande tabell gäller för Azure Batch.
     1. Kontrol lera att autentiseringsuppgifterna är korrekta genom att öppna HDInsight-klustrets Ambari-användargränssnitt i en webbläsare.
     1. Om klustret är i Virtual Network (VNet) och en IR med egen värd används, måste HDI-URL: en vara den privata URL: en i virtuella nätverk, och ska ha "-int" i listan efter kluster namnet.
     
-       Till exempel ändra `https://mycluster.azurehdinsight.net/` till `https://mycluster-int.azurehdinsight.net/`. Observera `-int` efter `mycluster`, men före`.azurehdinsight.net`
+       Till exempel ändra `https://mycluster.azurehdinsight.net/` till `https://mycluster-int.azurehdinsight.net/` . Observera `-int` efter `mycluster` , men före`.azurehdinsight.net`
     1. Om klustret finns i VNet används det lokala IR-nätverket, och den privata URL: en användes, och anslutningen fortfarande misslyckades, men anslutningen fortfarande misslyckades, men den virtuella datorn där IR har installerats hade problem med att ansluta till HDI. 
     
        Anslut till den virtuella datorn där IR är installerat och öppna Ambari-ANVÄNDARGRÄNSSNITTET i en webbläsare. Använd den privata URL: en för klustret. Den här anslutningen bör fungera från webbläsaren. Om den inte gör det kontaktar du HDInsight support team för ytterligare hjälp.
@@ -1016,7 +1016,7 @@ Så här använder du **Fiddler** för att skapa en http-session för det överv
 
 1. Ladda ned, installera och öppna [Fiddler](https://www.telerik.com/download/fiddler).
 
-1. Om ditt webb program använder https går du till **verktyg** > **Fiddler alternativ** > **https**.
+1. Om ditt webb program använder https går du till **verktyg**  >  **Fiddler alternativ**  >  **https**.
 
    1. På fliken HTTPS väljer du både **avbilda https ansluter** och **dekryptera HTTPS-trafik**.
 
@@ -1024,9 +1024,9 @@ Så här använder du **Fiddler** för att skapa en http-session för det överv
 
 1. Om ditt program använder TLS/SSL-certifikat, lägger du till Fiddler-certifikatet på enheten.
 
-   Gå till: **verktyg** > **Fiddler alternativ** > **https** > **åtgärder** > **Exportera rot certifikat till Skriv bordet**.
+   Gå till: **verktyg**  >  **Fiddler alternativ**  >  **https**  >  **åtgärder**  >  **Exportera rot certifikat till Skriv bordet**.
 
-1. Inaktivera hämtning genom att gå till **fil** > **hämtnings trafik**. Eller tryck på **F12**.
+1. Inaktivera hämtning genom att gå till **fil**  >  **hämtnings trafik**. Eller tryck på **F12**.
 
 1. Rensa webbläsarens cacheminne så att alla cachelagrade objekt tas bort och måste laddas ned igen.
 
@@ -1042,7 +1042,7 @@ Så här använder du **Fiddler** för att skapa en http-session för det överv
 
 1. Aktivera trafik insamlingen igen och slutför den felande transaktionen på sidan.
 
-1. Gå **till:** > **Spara** > **alla sessioner**.
+1. Gå **till:**  >  **Spara**  >  **alla sessioner**.
 
 Mer information finns i [komma igång med Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
@@ -1055,4 +1055,4 @@ Om du vill ha mer fel söknings hjälp kan du prova följande resurser:
 * [Stack Overflow forum för Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter-information om Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Azure-videor](https://azure.microsoft.com/resources/videos/index/)
-* [MSDN-forum](https://social.msdn.microsoft.com/Forums/home)
+* [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-data-factory.html)

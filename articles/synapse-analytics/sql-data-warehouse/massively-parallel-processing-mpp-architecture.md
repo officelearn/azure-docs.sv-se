@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d57f02b9aff56c83aa1c12bd441df2863f6d6fa7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6768bc2420008db1e708cdbe3ef70a6146ed8010
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658479"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835520"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics-arkitektur (tidigare SQL DW)
 
@@ -119,6 +119,6 @@ Nu när du vet lite om Azure-Synapse kan du lära dig hur du snabbt [skapar en S
 - [Funktionsbegäranden](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Videor](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Skapa ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md)
-- [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

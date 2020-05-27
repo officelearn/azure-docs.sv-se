@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 401f8239cded04b6342b706242e970e39118d73d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77483762"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827173"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -36,7 +36,7 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 ![Sömlös enkel inloggning](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Sömlös SSO behöver användarens **enhet enbart vara domänansluten,** men den används inte på [Azure AD-anslutna](../devices/concept-azure-ad-join.md) eller [hybrid Azure AD-anslutna](../devices/concept-azure-ad-join-hybrid.md) enheter. SSO på Azure AD-anslutna och hybrid Azure AD-anslutna fungerar baserat på den [primära uppdateringstoken](../devices/concept-primary-refresh-token.md).
+>Sömlös SSO behöver användarens **enhet enbart vara domänansluten,** men den används inte på [Azure AD-anslutna](../devices/concept-azure-ad-join.md) eller [hybrid Azure AD-anslutna](../devices/concept-azure-ad-join-hybrid.md) enheter. SSO på Azure AD-ansluten, hybrid Azure AD-ansluten och registrerade Azure AD-enheter fungerar baserat på den [primära uppdateringstoken](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
@@ -51,10 +51,10 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 
 ## <a name="feature-highlights"></a>Funktions markeringar
 
-- Inloggnings användar namnet kan antingen vara det lokala standard användar namnet (`userPrincipalName`) eller ett annat attribut som kon figurer ats`Alternate ID`i Azure AD Connect (). Båda användnings fallen fungerar eftersom sömlös SSO använder `securityIdentifier` anspråk i Kerberos-biljetten för att leta upp motsvarande användar objekt i Azure AD.
+- Inloggnings användar namnet kan antingen vara det lokala standard användar namnet ( `userPrincipalName` ) eller ett annat attribut som kon figurer ATS i Azure AD Connect ( `Alternate ID` ). Båda användnings fallen fungerar eftersom sömlös SSO använder `securityIdentifier` anspråk i Kerberos-biljetten för att leta upp motsvarande användar objekt i Azure AD.
 - Sömlös SSO är en Opportunistic-funktion. Om det Miss lyckas av någon anledning återgår användar inloggningen till sitt normala beteende, d.v.s. användaren måste ange sitt lösen ord på inloggnings sidan.
-- Om ett program `https://myapps.microsoft.com/contoso.com`(till exempel) vidarebefordrar en `domain_hint` (OpenID Connect) eller `whr` (SAML) parameter som identifierar din klient, eller `login_hint` parameter som identifierar användaren, i sin inloggnings förfrågan för Azure AD, loggas användarna automatiskt in utan att de anger användar namn eller lösen ord.
-- Användarna får `https://contoso.sharepoint.com`också en tyst inloggning om ett program (t. ex.) skickar inloggnings förfrågningar till Azure Ads slut punkter som har kon figurer ATS som klienter, `https://login.microsoftonline.com/contoso.com/<..>` det vill säga eller `https://login.microsoftonline.com/<tenant_ID>/<..>` – i stället för Azure Ads vanliga slut punkt – det vill `https://login.microsoftonline.com/common/<...>`säga.
+- Om ett program (till exempel `https://myapps.microsoft.com/contoso.com` ) vidarebefordrar en `domain_hint` (OpenID Connect) eller `whr` (SAML) parameter som identifierar din klient, eller `login_hint` parameter som identifierar användaren, i sin inloggnings förfrågan för Azure AD, loggas användarna automatiskt in utan att de anger användar namn eller lösen ord.
+- Användarna får också en tyst inloggning om ett program (t. ex. `https://contoso.sharepoint.com` ) skickar inloggnings förfrågningar till Azure Ads slut punkter som har kon figurer ATS som klienter, det vill säga `https://login.microsoftonline.com/contoso.com/<..>` eller `https://login.microsoftonline.com/<tenant_ID>/<..>` – i stället för Azure Ads vanliga slut punkt – det vill säga `https://login.microsoftonline.com/common/<...>` .
 - Utloggning stöds. Detta gör att användarna kan välja ett annat Azure AD-konto för att logga in med, i stället för att automatiskt logga in med sömlös SSO automatiskt.
 - Office 365 Win32-klienter (Outlook, Word, Excel och andra) med versioner 16.0.8730. xxxx och senare stöds med ett icke-interaktivt flöde. För OneDrive måste du aktivera [funktionen OneDrive-tyst konfiguration](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för att få en tyst inloggning.
 - Den kan aktive ras via Azure AD Connect.
@@ -64,10 +64,10 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Ja\*|Ja|Ja|Ja\*\*\*|Ej tillämpligt
-|Windows 8,1|Ja\*|Ej tillämpligt|Ja|Ja\*\*\*|Ej tillämpligt
-|Windows 8|Ja\*|Ej tillämpligt|Ja|Ja\*\*\*|Ej tillämpligt
-|Windows 7|Ja\*|Ej tillämpligt|Ja|Ja\*\*\*|Ej tillämpligt
-|Windows Server 2012 R2 eller senare|Ja\*\*|Ej tillämpligt|Ja|Ja\*\*\*|Ej tillämpligt
+|Windows 8,1|Yes\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
+|Windows 8|Yes\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
+|Windows 7|Yes\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
+|Windows Server 2012 R2 eller senare|Ja\*\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
 |Mac OS X|Ej tillämpligt|Ej tillämpligt|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
 
 

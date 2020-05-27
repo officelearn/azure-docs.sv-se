@@ -132,6 +132,14 @@
               href: event-schema-azure-signalr.md
             - name: Azure-prenumerationer
               href: event-schema-subscriptions.md
+    - name: Partnerämnen
+      items:
+        - name: Översikt över partnerämnen
+          href: partner-topics-overview.md
+        - name: Auth0
+          href: auth0-overview.md
+        - name: Bli en Event Grid-partner
+          href: partner-onboarding-overview.md
     - name: Händelsedomäner
       href: event-domains.md
     - name: Format för händelsescheman
@@ -186,6 +194,8 @@
   items:
     - name: Skicka till anpassat ämne
       href: post-to-custom-topic.md
+    - name: Prenumerera på Auth0-händelser
+      href: auth0-how-to.md
     - name: Ta emot händelser vid HTTP-slutpunkt
       href: receive-events.md
     - name: Obeställbara meddelanden och nytt försök
@@ -214,6 +224,8 @@
           href: configure-firewall.md
         - name: Säker WebHook med AAD
           href: secure-webhook-delivery.md
+        - name: Händelseleverans med hanterad identitet
+          href: managed-service-identity.md
     - name: Felsöka
       items:
         - name: Aktivera diagnostikloggar

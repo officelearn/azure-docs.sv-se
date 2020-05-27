@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: b99c1c9348f8442233eeee8fd4442736c78ee4e4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 82ea6a27d5bd75c180928f6a8b5c9742c54ea5a1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199048"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834432"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -20,7 +20,7 @@ ms.locfileid: "83199048"
 
 Application Insights har utformats för att få allt du behöver för att övervaka tillgänglighet, prestanda och användning av dina webb program, oavsett om de finns på Azure eller lokalt. Application Insights stöder populära språk och ramverk, till exempel .NET, Java och Node. js, och kan integreras med DevOps-processer och verktyg som Azure DevOps, JIRA och PagerDuty. Det är viktigt att förstå vad som bestämmer kostnaderna för att övervaka dina program. I den här artikeln granskar vi vad som finns på dina program övervaknings kostnader och hur du kan övervaka och kontrol lera dem proaktivt.
 
-Om du har frågor om hur prissättningen fungerar för Application Insights kan du publicera en fråga i vårt [Forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
+Om du har frågor om hur prissättningen fungerar för Application Insights kan du publicera en fråga på vår [sida för Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-monitor.html).
 
 ## <a name="pricing-model"></a>Prismodell
 
@@ -337,7 +337,7 @@ Du kan skriva ett skript för att ställa in pris nivån med hjälp av Azure Res
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Samling](../../azure-monitor/app/sampling.md)
+* [Sampling](../../azure-monitor/app/sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties

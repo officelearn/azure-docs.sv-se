@@ -4,7 +4,7 @@
   items:
     - name: Vad är Azure AD Identity Protection?
       href: overview-identity-protection.md
-- name: Koncept
+- name: Begrepp
   expanded: false
   items:
     - name: Säkerhetsöversikt
@@ -17,7 +17,7 @@
       href: concept-identity-protection-user-experience.md
     - name: Identitetsskydd och B2B-användare
       href: concept-identity-protection-b2b.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Konfigurera meddelanden
@@ -50,9 +50,9 @@
   items:
     - name: Azures feedbackforum
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
-    - name: Priser
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Tjänstuppdateringar
       href: ../fundamentals/whats-new.md

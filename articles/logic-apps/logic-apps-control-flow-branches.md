@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: c0b1519992ba930382a1987aed185ef3c92eded4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f857449d4511b6ae0a5a25bf7aca9e1abc1ae7c0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453439"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833701"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Skapa eller Anslut parallella grenar för arbets flödes åtgärder i Azure Logic Apps
 
@@ -20,7 +20,7 @@ Som standard körs dina åtgärder i Logic app-arbetsflöden i tur och ordning. 
 > [!TIP] 
 > Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -34,14 +34,14 @@ Om du vill köra oberoende steg på samma gång kan du lägga till parallella gr
 
 ![Kör steg parallellt](media/logic-apps-control-flow-branches/parallel.png)
 
-Din Logic app väntar tills alla grenar är klara innan arbets flödet fortsätter. Parallella grenar körs bara när `runAfter` deras egenskaps värden matchar statusen för det avslutade överordnade steget. `branchAction1` Till exempel både `branchAction2` och är inställda på att endast köras när `parentAction` `Succeeded` statusen är slutförd.
+Din Logic app väntar tills alla grenar är klara innan arbets flödet fortsätter. Parallella grenar körs bara när deras `runAfter` egenskaps värden matchar statusen för det avslutade överordnade steget. Till exempel både `branchAction1` och `branchAction2` är inställda på att endast köras när `parentAction` statusen är slutförd `Succeeded` .
 
 > [!NOTE]
 > Innan du börjar måste din Logic app redan ha ett steg där du kan lägga till parallella grenar.
 
 1. I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>öppnar du din Logic app i Logic App Designer.
 
-1. Flytta pekaren över pilen ovanför det steg där du vill lägga till parallella grenar. Välj **plus** tecknet (**+**) som visas och välj sedan **Lägg till en parallell gren**. 
+1. Flytta pekaren över pilen ovanför det steg där du vill lägga till parallella grenar. Välj **plus** tecknet ( **+** ) som visas och välj sedan **Lägg till en parallell gren**. 
 
    ![Lägg till parallell gren](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -53,7 +53,7 @@ Din Logic app väntar tills alla grenar är klara innan arbets flödet fortsätt
 
    ![Sök efter och välj den åtgärd du vill använda](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Lägg nu till de steg som du vill använda i varje parallell gren. Om du vill lägga till en annan åtgärd i en gren flyttar du pekaren under den åtgärd där du vill lägga till en sekventiell åtgärd. Välj **plus** tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+1. Lägg nu till de steg som du vill använda i varje parallell gren. Om du vill lägga till en annan åtgärd i en gren flyttar du pekaren under den åtgärd där du vill lägga till en sekventiell åtgärd. Välj **plus** tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
    ![Lägg till sekventiell åtgärd i parallell gren](media/logic-apps-control-flow-branches/add-sequential-action.png)
 
@@ -183,7 +183,7 @@ Om du arbetar i kodvyn kan du definiera kopplings strukturen i din Logic Apps JS
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på funktioner och förslag går du till [webbplatsen för Azure Logic Apps feedback från användare](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

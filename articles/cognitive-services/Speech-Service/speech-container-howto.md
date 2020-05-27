@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: d1df46a5a8de4396011cc18ea062fe2d6b52ca8d
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 1d4fde8dd21911b70d5a1c0f3b23304a3468a2a6
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773968"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816241"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
@@ -47,7 +47,7 @@ Följande krav gäller innan du använder tal behållare:
 
 ## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
-Fyll i och skicka [formuläret för begäran](https://aka.ms/speechcontainerspreview/) för att begära åtkomst till behållaren. 
+Fyll i och skicka [formuläret för begäran](https://aka.ms/cognitivegate) för att begära åtkomst till behållaren. 
 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]

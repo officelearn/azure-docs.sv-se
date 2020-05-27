@@ -5,12 +5,12 @@ ms.date: 05/15/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9bbf2288ac92c33c2b24af4e6a97882013a4ff1d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0a4dcf749a76623df7f46d77bf3e4877f2c41900
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673466"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821489"
 ---
 Med standardiserade avbildningar av virtuella datorer kan organisationer migrera till molnet och säkerställa konsekvens i distributionerna. Bilder innehåller vanligt vis fördefinierade säkerhets-och konfigurations inställningar och nödvändig program vara. Att konfigurera din egen avbildnings pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder får du bara en enkel konfiguration som beskriver avbildningen, skickar den till tjänsten och avbildningen skapas och distribueras.
  
@@ -80,7 +80,7 @@ När du registrerar dig för (AIB) ger detta behörigheten AIB-tjänst för att 
 
 Om du vill tillåta att Azure VM Image Builder distribuerar avbildningar till antingen de hanterade avbildningarna eller till ett delat avbildnings Galleri måste du skapa en Azure User-tilldelad identitet som har behörighet att läsa och skriva bilder. Om du använder Azure Storage måste du ha behörighet att läsa privata behållare.
 
-Först måste du [skapa en Azure User-tilldelade hanterad identitets](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) dokumentation om hur du skapar en identitet.
+Från början måste du följa anvisningarna för att [skapa en Azure-tilldelad identitets](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) dokumentation om hur du skapar en identitet.
 
 När du har identiteten som du behöver för att ge IT-behörighet kan du använda en anpassad roll definition i Azure och sedan tilldela den användare som tilldelats den hanterade identiteten att använda den anpassade roll definitionen.
 

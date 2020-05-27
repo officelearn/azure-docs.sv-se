@@ -3,13 +3,13 @@ title: Distributions historik
 description: Beskriver hur du visar Azure Resource Manager distributions åtgärder med portalen, PowerShell, Azure CLI och REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 11/26/2019
-ms.openlocfilehash: b0f196f86bed05094b04bfc20c7cef2248a91c65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/22/2020
+ms.openlocfilehash: 1f22bdfac5eb12688a5b5778d4da1505e36ef6bf
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460304"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816292"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Visa distributions historik med Azure Resource Manager
 
@@ -21,7 +21,7 @@ Information om hur du löser specifika distributions fel finns i [lösa vanliga 
 
 Du kan visa information om en distribution via Azure Portal, PowerShell, Azure CLI eller REST API. Varje distribution har ett korrelations-ID som används för att spåra relaterade händelser. Det kan vara användbart när du arbetar med teknisk support för att felsöka en distribution.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Välj den resurs grupp som du vill undersöka.
 
@@ -113,7 +113,7 @@ Svaret innehåller korrelations-ID: t.
 
 Varje distribution kan innehålla flera åtgärder. Visa distributions åtgärder om du vill ha mer information om en distribution. När en distribution Miss lyckas innehåller distributions åtgärderna ett fel meddelande.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. I sammanfattningen för en distribution väljer du **Åtgärds information**.
 
@@ -145,22 +145,22 @@ Använd följande kommando för att hämta status meddelandet för misslyckade �
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill visa distributions åtgärderna för distribution till en resurs grupp använder du kommandot [AZ Deployment Group operation List](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-deployment-group-operation-list) .
+Om du vill visa distributions åtgärderna för distribution till en resurs grupp använder du kommandot [AZ distribution operation Group List](/cli/azure/deployment/operation/group#az-deployment-operation-group-list) . Du måste ha Azure CLI-2.6.0 eller senare.
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeployment
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
 ```
 
 Om du vill visa misslyckade åtgärder filter åtgärder med **felaktigt** tillstånd.
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
 ```
 
 Använd följande kommando för att hämta status meddelandet för misslyckade åtgärder:
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
 ```
 
 # <a name="http"></a>[HTTP](#tab/http)

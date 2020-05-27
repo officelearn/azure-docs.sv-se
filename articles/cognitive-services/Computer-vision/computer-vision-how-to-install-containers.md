@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: f1b6b9ffb53972aa81d6dd1150640b8db9dd7be9
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 75b71fe9a15b05679ab1b71b13bb0b1f51b7d1d1
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698573"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816156"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installera och köra Läs behållare (förhands granskning)
 
@@ -38,7 +38,7 @@ Du måste uppfylla följande krav innan du använder behållarna:
 
 ## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till registret för privat behållare
 
-Fyll i och skicka [formuläret för begäran](https://aka.ms/VisionContainersPreview) för att begära åtkomst till behållaren. 
+Fyll i och skicka [formuläret för begäran](https://aka.ms/cognitivegate) för att begära åtkomst till behållaren. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 

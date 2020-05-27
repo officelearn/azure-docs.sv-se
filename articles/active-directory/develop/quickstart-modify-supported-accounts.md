@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80050231"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826867"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Snabb start: ändra de konton som stöds av ett program
 
@@ -25,7 +25,7 @@ När du registrerar en app på Microsoft Identity Platform vill du kanske att ap
 
 I den här snabbstarten lär du hur du ändrar appens konfiguration för att ändra vilka, eller vilka konton, som har åtkomst till appen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -69,6 +69,8 @@ Som standard är implicit OAuth 2.0-beviljande inaktiverat för program. Du kan 
 
 ### <a name="to-enable-oauth-20-implicit-grant"></a>Så aktiverar du implicit OAuth 2.0-beviljande
 
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**.
+1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. På appens **översiktssida** väljer du avsnittet **Autentisering**.
 1. Under **Avancerade inställningar** letar du redan på avsnittet **Implicit beviljande**.
 1. Välj **ID-token**, **Åtkomsttoken** eller båda.

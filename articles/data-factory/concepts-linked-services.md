@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: a6002ed173ca5358df4257f4c8b41c88bcf60ad8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0703e7cd44a79dd45680e19c8f5f3232be840823
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418391"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826187"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Det finns inte några länkade tjänster i Azure Data Factory
 
@@ -28,7 +28,7 @@ ms.locfileid: "81418391"
 
 I den här artikeln beskrivs vilka länkade tjänster som är, hur de är definierade i JSON-format och hur de används i Azure Data Factory pipelines.
 
-Om du är nybörjare på Data Factory, se [Introduktion till Azure Data Factory](introduction.md) för en översikt.
+Om du inte har använt Data Factory, se [Introduktion till Azure Data Factory](introduction.md) för en översikt.
 
 ## <a name="overview"></a>Översikt
 
@@ -66,12 +66,12 @@ En länkad tjänst i Data Factory definieras i JSON-format enligt följande:
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap | Beskrivning | Krävs |
+Egenskap | Beskrivning | Obligatorisk |
 -------- | ----------- | -------- |
-namn | Namnet på den länkade tjänsten. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
-typ | Typ av länkad tjänst. Exempel: Azure Storage (data lager) eller AzureBatch (Compute). Se beskrivningen av typeProperties. | Ja |
-typeProperties | Typ egenskaperna är olika för varje data lager eller beräkning. <br/><br/> För de data lager typer som stöds och deras typ egenskaper, se tabellen [data uppsättnings typ](concepts-datasets-linked-services.md#dataset-type) i den här artikeln. Gå till artikeln data Store Connector om du vill veta mer om typ egenskaper som är speciella för ett data lager. <br/><br/> För beräknings typer som stöds och deras typ egenskaper, se [Compute-länkade tjänster](compute-linked-services.md). | Ja |
-connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime (om ditt data lager finns i ett privat nätverk). Om inget värde anges används standard Azure Integration Runtime. | Inga
+name | Namnet på den länkade tjänsten. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Yes |
+typ | Typ av länkad tjänst. Exempel: Azure Storage (data lager) eller AzureBatch (Compute). Se beskrivningen av typeProperties. | Yes |
+typeProperties | Typ egenskaperna är olika för varje data lager eller beräkning. <br/><br/> För de data lager typer som stöds och deras typ egenskaper, se tabellen [data uppsättnings typ](concepts-datasets-linked-services.md#dataset-type) i den här artikeln. Gå till artikeln data Store Connector om du vill veta mer om typ egenskaper som är speciella för ett data lager. <br/><br/> För beräknings typer som stöds och deras typ egenskaper, se [Compute-länkade tjänster](compute-linked-services.md). | Yes |
+connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime (om ditt data lager finns i ett privat nätverk). Om inget värde anges används standard Azure Integration Runtime. | No
 
 ## <a name="linked-service-example"></a>Exempel på länkad tjänst
 

@@ -25,8 +25,6 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: Skapa datafabrik – Resource Manager-mall
       href: quickstart-create-data-factory-resource-manager-template.md
-    - name: Säkerhet – aktivera kundhanterad nyckelkryptering
-      href: quickstart-enable-customer-managed-key.md
     - name: Skapa ett dataflöde
       href: data-flow-create.md
 - name: Självstudier
@@ -188,8 +186,6 @@
               href: wrangling-data-flow-functions.md
     - name: Roller och behörigheter
       href: concepts-roles-permissions.md
-    - name: Förstå prissättningen
-      href: pricing-concepts.md
     - name: Namngivningsregler
       href: naming-rules.md
 - name: Anvisningar
@@ -370,6 +366,8 @@
           href: connector-servicenow.md
         - name: SFTP
           href: connector-sftp.md
+        - name: SharePoint Online-lista
+          href: connector-sharepoint-online-list.md
         - name: Shopify
           href: connector-shopify.md
         - name: Spark
@@ -416,6 +414,8 @@
           href: copy-activity-schema-and-type-mapping.md
         - name: Feltolerans
           href: copy-activity-fault-tolerance.md
+        - name: Verifiering av datakonsekvens
+          href: copy-activity-data-consistency.md
         - name: Stöd för format och komprimering (äldre)
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: Omvandla data
@@ -553,8 +553,12 @@
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: Hanterad identitet för Data Factory
           href: data-factory-service-identity.md
+        - name: Kryptering av kundhanterad nyckel
+          href: quickstart-enable-customer-managed-key.md
     - name: Övervaka och hantera
       items:
+        - name: Övervaka visuellt
+          href: monitor-visually.md
         - name: Övervaka med Azure Monitor
           href: monitor-using-azure-monitor.md
         - name: Övervaka med SDKs
@@ -577,6 +581,8 @@
           href: create-azure-ssis-integration-runtime.md
         - name: Delad lokalt installerad integrationskörning
           href: create-shared-self-hosted-integration-runtime-powershell.md
+        - name: Automatiserade skript för lokalt installerad integrationskörning (IR)
+          href: self-hosted-integration-runtime-automation-scripts.md
     - name: Kör SSIS-paket i Azure
       items:
         - name: Köra SSIS-paket i Azure från SSDT
@@ -597,12 +603,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Aktivera Azure AD-autentisering för Azure-SSIS IR
           href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Ansluta till data med Windows-autentisering
-          href: ssis-azure-connect-with-windows-auth.md
-        - name: Spara filer och anslut till filresurser
-          href: ssis-azure-files-file-shares.md
         - name: Etablera Enterprise Edition för Azure-SSIS IR
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Inbyggda och förinstallerade komponenter på Azure-SSIS IR
+          href: built-in-preinstalled-components-ssis-integration-runtime.md
         - name: Anpassa konfiguration för Azure-SSIS IR
           href: how-to-configure-azure-ssis-ir-custom-setup.md
         - name: Installera licensierade komponenter för Azure-SSIS IR
@@ -613,6 +617,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Rensa SSISDB-loggar med Elastic Database-jobb
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Använd Azure SQL-hanterad instans med Azure-SSIS IR
+          href: how-to-use-sql-managed-instance-with-ir.md
         - name: Migrera SSIS-jobb med SSMS
           href: how-to-migrate-ssis-job-ssms.md
     - name: Skapa utlösare
@@ -645,6 +651,12 @@
           href: solution-template-move-files.md
         - name: Transformering med Azure Databricks
           href: solution-template-databricks-notebook.md
+    - name: Förstå prissättningen
+      items:
+        - name: Planera och hantera kostnader
+          href: plan-manage-costs.md
+        - name: Prissättningsexempel
+          href: pricing-concepts.md
     - name: Felsökningsguider
       items:
         - name: Aktiviteter

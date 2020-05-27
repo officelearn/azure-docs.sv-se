@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 194c08d034d44ba0a4472b3b516fc45d1d262d28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3023aa72d713dc25351a6e509319e1c4c0ed609a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789077"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829672"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Övervaka och hantera ditt Yammer-konto genom att använda Azure Logic Apps
 
@@ -24,7 +24,7 @@ Med Azure Logic Apps och Yammer-anslutningen kan du skapa automatiserade uppgift
 
 Du kan använda utlösare som får svar från ditt Yammer-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Yammer-konto. Du kan också använda andra åtgärder för att använda utdata från Yammer-åtgärder. Till exempel när nya meddelanden visas i matningar eller grupper kan du dela dessa meddelanden med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -47,16 +47,16 @@ Du kan använda utlösare som får svar från ditt Yammer-konto och göra utdata
    * För tomma Logi Kap par anger du "Yammer" som filter i rutan Sök. 
    Välj den utlösare som du vill använda under listan utlösare. 
 
-     ELLER
+     \- eller -
 
    * För befintliga Logic Apps: 
    
      * Under det sista steget där du vill lägga till en åtgärd väljer du **nytt steg**. 
 
-       ELLER
+       \- eller -
 
      * Mellan stegen där du vill lägga till en åtgärd flyttar du pekaren över pilen mellan stegen. 
-     Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+     Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
      
        I rutan Sök anger du "Yammer" som filter. 
        Under listan åtgärder väljer du den åtgärd som du vill använda.
@@ -71,7 +71,7 @@ Teknisk information om utlösare, åtgärder och gränser, som beskrivs av koppl
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

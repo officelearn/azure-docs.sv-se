@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6b3832662d2d03c7218da20d414a43a99a9bac8e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 892197c79285495f49a870bbe79eb75229af2940
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744202"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831032"
 ---
 # <a name="update-azure-powershell-modules"></a>Uppdatera Azure PowerShell-moduler
 
@@ -50,5 +50,5 @@ Om du vill använda en speciell Azure PowerShell-modul i stället för den senas
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda moduler i Azure Automation](shared-resources/modules.md)
-* [Uppdatera Azure modules Runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)
+* Mer information om hur du använder moduler finns [i hantera moduler i Azure Automation](shared-resources/modules.md).
+* Information om uppdaterings-Runbook finns i [Uppdatera Azure-moduler Runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).

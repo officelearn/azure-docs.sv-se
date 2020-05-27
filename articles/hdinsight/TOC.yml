@@ -59,6 +59,8 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: Kapacitetsplanering för kluster
           href: ./hdinsight-capacity-planning.md
+        - name: Begär ökning av CPU-kärnkvot
+          href: ./quota-increase-request.md
         - name: Metodtips för klusterhantering
           href: ./cluster-management-best-practices.md
         - name: Tillgänglighet och tillförlitlighet
@@ -243,6 +245,8 @@
               href: ./troubleshoot-resource-creation-fails.md
             - name: Felsöka Apache Oozie
               href: ./troubleshoot-oozie.md
+            - name: Förstå och lösa fel med WebHCat
+              href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
     - name: Referens
       items:
         - name: Azure PowerShell
@@ -285,8 +289,6 @@
           href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
         - name: Aktivera heap dumps för Apache Hadoop-tjänster
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
-        - name: Förstå och lösa fel med WebHCat
-          href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
         - name: Få hjälp i forumet
           href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight'
         - name: Priskalkylator
@@ -328,8 +330,20 @@
           href: ./spark/spark-best-practices.md
         - name: Konfigurera Apache Spark-inställningar
           href: ./spark/apache-spark-settings.md
-        - name: Optimera Apache Spark-jobb
-          href: ./spark/apache-spark-perf.md
+        - name: Optimering
+          items:
+            - name: Optimera Apache Spark-jobb
+              href: ./spark/apache-spark-perf.md
+            - name: Optimera databearbetning
+              href: ./spark/optimize-data-processing.md
+            - name: Optimera datalagring
+              href: ./spark/optimize-data-storage.md
+            - name: Optimera minnesanvändning
+              href: ./spark/optimize-memory-usage.md
+            - name: Optimera klusterkonfiguration
+              href: ./spark/optimize-cluster-configuration.md
+        - name: Migrera till Spark 2.3 eller 2.4
+          href: ./spark/migrate-versions.md
     - name: Gör så här för att
       items:
         - name: Använda verktyg
@@ -736,6 +750,8 @@
       items:
         - name: Bästa praxis för gateway
           href: ./interactive-query/gateway-best-practices.md
+        - name: Storleksriktlinjer
+          href: ./interactive-query/sizing-guidelines.md
     - name: Gör så här för att
       items:
         - name: Utveckla
@@ -780,6 +796,8 @@
               href: ./hdinsight-hadoop-hive-out-of-memory-error-oom.md
             - name: Apache Tez-program låser sig
               href: ./interactive-query/interactive-query-troubleshoot-tez-hangs.md
+            - name: Apache Hive LLAP – storleksriktlinjer
+              href: ./interactive-query/hive-llap-sizing-guide.md
             - name: Apache Hive LLAP-frågeprestanda
               href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
             - name: Långsam reducerare

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270581"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831627"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som upprepar arbetsflödesåtgärder eller processmatriser i Azure Logic Apps
 
@@ -22,7 +22,7 @@ Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ä
 > [!TIP]
 > Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -50,7 +50,7 @@ I den här exempel Logic-appen skickas en daglig sammanfattning för en RSS-feed
 2. Lägg till en "förgrunds"-loop mellan RSS-utlösare och skicka e-post. 
 
    1. Om du vill lägga till en slinga mellan steg flyttar du pekaren över pilen mellan stegen. 
-   Välj **plus tecknet** (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj **plus tecknet** ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
       ![Välj Lägg till en åtgärd](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -176,7 +176,7 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
    | Egenskap | Värde |
    | -------- | ----- |
    | **Intervall** | 1 | 
-   | **Frekvens** | Day |
+   | **Frekvens** | Dag |
    | **Vid dessa timmar** | 8 |
    ||| 
 
@@ -232,7 +232,7 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
       | Egenskap | Värde | Beskrivning |
       | -------- | ----- | ----------- | 
-      | **Att** | *\<e-postadress\@– domän>* | Mottagarens e-postadress. För testning använder du din egen e-postadress. | 
+      | **Att** | *\<e-postadress – \@ domän>* | Mottagarens e-postadress. För testning använder du din egen e-postadress. | 
       | **Subjekt** | Det aktuella värdet för "Limit" är **begränsat** | Ange e-postmeddelandets ämne. I det här exemplet ska du se till att du inkluderar **Limit** -variabeln. | 
       | **Brödtext** | <*e-post – innehåll*> | Ange det e-postmeddelande innehåll som du vill skicka. I det här exemplet anger du vilken text du vill. | 
       |||| 
@@ -247,9 +247,9 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
 En "till"-loop har standard gränser som slutar köras om något av dessa villkor inträffar:
 
-| Egenskap | Standardvärde | Beskrivning | 
+| Egenskap | Standardvärde | Description | 
 | -------- | ------------- | ----------- | 
-| **Antal** | 60 | Det högsta antalet slingor som körs innan loopen avslutas. Standardvärdet är 60. | 
+| **Reparationer** | 60 | Det högsta antalet slingor som körs innan loopen avslutas. Standardvärdet är 60. | 
 | **Standardvärde** | PT1H | Det mesta av tiden att köra en loop innan loopen avslutas. Standardvärdet är en timme och anges i ISO 8601-format. <p>Timeout-värdet utvärderas för varje loop-cykel. Om en åtgärd i slingan tar längre tid än tids gränsen, stoppas inte den aktuella cykeln. Nästa cykel startar dock inte eftersom gräns villkoret inte är uppfyllt. | 
 |||| 
 
@@ -297,11 +297,11 @@ Om du arbetar i kodvyn för din Logi Kap par kan du definiera en `Until` slinga 
 }
 ```
 
-I det här exemplet "till" tills "-loopen anropar en HTTP-slutpunkt, vilket skapar en resurs. Loopen stoppas när HTTP-svarets brödtext `Completed` returnerar status. För att förhindra oändliga slingor stoppas även loopen om något av dessa villkor inträffar:
+I det här exemplet "till" tills "-loopen anropar en HTTP-slutpunkt, vilket skapar en resurs. Loopen stoppas när HTTP-svarets brödtext returnerar `Completed` status. För att förhindra oändliga slingor stoppas även loopen om något av dessa villkor inträffar:
 
 * Loopen kördes 10 gånger som anges av `count` attributet. Standardvärdet är 60 gånger. 
 
-* Loopen kördes i två timmar som anges av `timeout` ATTRIBUTET i ISO 8601-format. Standardvärdet är en timme.
+* Loopen kördes i två timmar som anges av `timeout` attributet i ISO 8601-format. Standardvärdet är en timme.
   
 ``` json
 "actions": {
@@ -335,7 +335,7 @@ I det här exemplet "till" tills "-loopen anropar en HTTP-slutpunkt, vilket skap
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * För att skicka in eller rösta på funktioner och förslag [Azure Logic Apps användarens feedback-webbplats](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,12 +7,12 @@ ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: f9e8dbe2021c5700fe0223ff7ce246ac54f2abbd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2e168abaf522fa1126e3cb4618941952b562df31
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650292"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831882"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Använda Blob Storage från iOS
 
@@ -394,5 +394,5 @@ Nu när du har lärt dig hur du använder Blob Storage från iOS kan du följa d
 - [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Azure Storage teamets blogg](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 
-Om du har frågor om det här biblioteket är du välkommen att publicera till vårt [MSDN Azure-forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Om du har frågor om det här biblioteket är du välkommen att publicera till vår [Microsoft Q-&en fråge sida](https://docs.microsoft.com/answers/topics/azure-blob-storage.html) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Om du har funktions förslag för Azure Storage kan du skicka vidare till [Azure Storage feedback](https://feedback.azure.com/forums/217298-storage/).

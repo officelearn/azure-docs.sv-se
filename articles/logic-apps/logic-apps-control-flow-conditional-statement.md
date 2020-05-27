@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7f9ab478067cecbac6f01a5a969bf48653b6dd1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793245"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831508"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Skapa villkorliga uttryck som styr arbets flödes åtgärder i Azure Logic Apps
 
@@ -22,7 +22,7 @@ Anta till exempel att du har en logisk app som skickar för många e-postmeddela
 > [!TIP]
 > Om du vill köra olika steg baserat på olika värden använder du en [*switch-instruktion*](../logic-apps/logic-apps-control-flow-switch-statement.md) i stället.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -36,7 +36,7 @@ Anta till exempel att du har en logisk app som skickar för många e-postmeddela
 
 1. Lägg till ett villkor på den plats som du vill använda. 
 
-   Om du vill lägga till ett villkor mellan stegen flyttar du pekaren över den pil där du vill lägga till villkoret. Välj **plus tecknet** (**+**) som visas och välj sedan **Lägg till en åtgärd**. Ett exempel:
+   Om du vill lägga till ett villkor mellan stegen flyttar du pekaren över den pil där du vill lägga till villkoret. Välj **plus tecknet** ( **+** ) som visas och välj sedan **Lägg till en åtgärd**. Ett exempel:
 
    ![Lägg till åtgärd mellan steg](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
@@ -65,8 +65,8 @@ Anta till exempel att du har en logisk app som skickar för många e-postmeddela
 
    ![Slutför villkor](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   Om du vill lägga till en annan rad i villkoret väljer du **Lägg till** > **Lägg till rad**. 
-   Om du vill lägga till en grupp med under villkor väljer du **Lägg till** > **Lägg till grupp**. 
+   Om du vill lägga till en annan rad i villkoret väljer du **Lägg till**  >  **Lägg till rad**. 
+   Om du vill lägga till en grupp med under villkor väljer du **Lägg till**  >  **Lägg till grupp**. 
    Om du vill gruppera befintliga rader markerar du kryss rutorna för dessa rader, klickar på knappen med tre punkter (...) för alla rader och väljer sedan **Skapa grupp**.
 
 1. Under **om sant** och **falskt**, Lägg till de steg som ska utföras baserat på om villkoret är uppfyllt. Ett exempel:
@@ -110,7 +110,7 @@ Här är en kod definition på hög nivå bakom en villkors instruktion:
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på funktioner och förslag går du till [webbplatsen för Azure Logic Apps feedback från användare](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

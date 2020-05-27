@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 5c4fcb9b4fea1a4d982b5cf665564599d371b7cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1426bbe2064067b26f53a8f8e5d4aa842ede8c0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789145"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829706"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Övervaka och hantera Trello med Azure Logic Apps
 
@@ -26,7 +26,7 @@ Med Azure Logic Apps och Trello-anslutningen kan du skapa automatiserade uppgift
 
 Du kan använda utlösare som får svar från ditt Trello-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Trello-konto. Du kan också använda de andra åtgärderna för att använda utdata från Trello-åtgärder. Till exempel när ett nytt kort läggs till i tavlan eller listan, kan du skicka meddelanden med slack-anslutningen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -46,14 +46,14 @@ Du kan använda utlösare som får svar från ditt Trello-konto och göra utdata
 
 1. För tomma Logi Kap par anger du "Trello" som filter i rutan Sök. Välj den utlösare som du vill använda under listan utlösare. 
 
-   ELLER
+   \- eller -
 
    För befintliga Logic Apps, under det sista steget där du vill lägga till en åtgärd, väljer du **nytt steg**. 
    I rutan Sök anger du "Trello" som filter. 
    Under listan åtgärder väljer du den åtgärd som du vill använda.
 
    Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. 
-   Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Om du uppmanas att logga in på Trello ska du godkänna åtkomsten för din Logic app och logga in.
 
@@ -65,7 +65,7 @@ Teknisk information om utlösare, åtgärder och gränser, som beskrivs av koppl
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

@@ -28,7 +28,9 @@
       items:
         - name: Angular
           href: quickstart-v2-angular.md
-        - name: JavaScript
+        - name: JavaScript – auth-kodflöde
+          href: quickstart-v2-javascript-auth-code.md
+        - name: Java Script – implicit flöde
           href: quickstart-v2-javascript.md
     - name: Webbappar
       items:
@@ -73,7 +75,9 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
-        - name: JavaScript
+        - name: JavaScript – auth-kodflöde
+          href: tutorial-v2-javascript-auth-code.md
+        - name: Java Script – implicit flöde
           href: tutorial-v2-javascript-spa.md
     - name: Webbappar
       items:
@@ -479,6 +483,10 @@
           href: active-directory-optional-claims.md
         - name: Konfigurera livslängd för token
           href: active-directory-configurable-token-lifetimes.md
+        - name: Hantera SameSite-cookieändringar i webbläsaren Chrome
+          href: howto-handle-samesite-cookie-changes-chrome-browser.md
+        - name: Hantera ITP i Safari
+          href: reference-third-party-cookies-spas.md
     - name: Tillämpningskonfiguration
       displayName: App configuration
       items:
@@ -576,7 +584,7 @@
           href: vs-active-directory-webapi-what-happened.md
         - name: Diagnostisera fel under autentisering
           href: vs-active-directory-error.md
-- name: Referenser
+- name: Referens
   items:
     - name: Programmanifest
       href: reference-app-manifest.md

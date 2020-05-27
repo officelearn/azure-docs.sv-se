@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: b1e86eb67fa39396ae9d1c3a729ca06cb5718ecd
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 244bd6c270b5845039c1a5cc4d1322cb928a5aa3
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979216"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83806507"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
@@ -193,4 +193,4 @@ node index.js
 
 ## <a name="next-steps"></a>Nästa steg
 
-[!INCLUDE [footer](footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]

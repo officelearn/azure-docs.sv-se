@@ -30,6 +30,8 @@
       href: concepts-upgrades.md
 - name: Anvisningar
   items:
+    - name: Konfigurera HCX
+      href: hybrid-cloud-extension-installation.md
     - name: Hantera DHCP
       href: manage-dhcp.md
     - name: Haveriberedskap

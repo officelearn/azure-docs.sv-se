@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 01a7764eb0a353e6842441093f70ad29c9316bbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 871a764c549de75d5a9e1449ba2e0737d38a4094
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668277"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799949"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Använda intelligent Routning och Kanarie-versioner med Istio i Azure Kubernetes service (AKS)
 
@@ -31,9 +31,9 @@ I den här artikeln kan du se hur du:
 ## <a name="before-you-begin"></a>Innan du börjar
 
 > [!NOTE]
-> Det här scenariot har testats mot `1.3.2`Istio-versionen.
+> Det här scenariot har testats mot Istio-versionen `1.3.2` .
 
-De steg som beskrivs i den här artikeln förutsätter att du har skapat ett `1.13` AKS-kluster (Kubernetes och senare, med RBAC aktiverat `kubectl` ) och har upprättat en anslutning till klustret. Du måste också ha Istio installerat i klustret.
+De steg som beskrivs i den här artikeln förutsätter att du har skapat ett AKS-kluster (Kubernetes `1.13` och senare, med RBAC aktiverat) och har upprättat en `kubectl` anslutning till klustret. Du måste också ha Istio installerat i klustret.
 
 Om du behöver hjälp med något av dessa objekt kan du läsa snabb starten för [AKS][aks-quickstart] och [Installera Istio i AKS][istio-install] -vägledningen.
 
@@ -41,13 +41,13 @@ Om du behöver hjälp med något av dessa objekt kan du läsa snabb starten för
 
 Exemplet på AKS röstning innehåller två röstnings alternativ (**katter** eller **hundar**) till användare. Det finns en lagrings komponent som behåller antalet röster för varje alternativ. Det finns dessutom en analys komponent som innehåller information kring de röster som omvandlas för varje alternativ.
 
-I det här program scenariot börjar du med att `1.0` distribuera versionen av röstnings appen `1.0` och versionen av Analytics-komponenten. Analytics-komponenten ger enkla räknare för antalet röster. Röstnings appen och analys komponenten interagerar `1.0` med versionen av Storage-komponenten, som backas upp av Redis.
+I det här program scenariot börjar du med att distribuera versionen `1.0` av röstnings appen och versionen `1.0` av Analytics-komponenten. Analytics-komponenten ger enkla räknare för antalet röster. Röstnings appen och analys komponenten interagerar med versionen `1.0` av Storage-komponenten, som backas upp av Redis.
 
-Du uppgraderar Analytics-komponenten till version `1.1`, som innehåller antal och nu summor och procent.
+Du uppgraderar Analytics-komponenten till version `1.1` , som innehåller antal och nu summor och procent.
 
 En delmängd användare test version `2.0` av appen via en Kanarie-version. Den här nya versionen använder en lagrings komponent som backas upp av en MySQL-databas.
 
-När du är säker på att `2.0` versionen fungerar som förväntat på din delmängd av användarna kan `2.0` du distribuera versionen till alla dina användare.
+När du är säker på att versionen `2.0` fungerar som förväntat på din delmängd av användarna kan du distribuera versionen `2.0` till alla dina användare.
 
 ## <a name="deploy-the-application"></a>Distribuera programmet
 
@@ -67,13 +67,13 @@ git clone https://github.com/Azure-Samples/aks-voting-app.git
 cd aks-voting-app/scenarios/intelligent-routing-with-istio
 ```
 
-Börja med att skapa ett namn område i AKS-klustret för exempel AKS röstnings `voting` appen enligt följande:
+Börja med att skapa ett namn område i AKS-klustret för exempel AKS röstnings appen `voting` enligt följande:
 
 ```console
 kubectl create namespace voting
 ```
 
-Namnge namn området med `istio-injection=enabled`. Den här etiketten instruerar Istio att automatiskt mata in Istio-proxyservrarna som sidvagn i alla dina poddar i det här namn området.
+Namnge namn området med `istio-injection=enabled` . Den här etiketten instruerar Istio att automatiskt mata in Istio-proxyservrarna som sidvagn i alla dina poddar i det här namn området.
 
 ```console
 kubectl label namespace voting istio-injection=enabled
@@ -105,7 +105,7 @@ Om du vill se poddar som har skapats använder du kommandot [kubectl get poddar]
 kubectl get pods -n voting --show-labels
 ```
 
-Följande exempel på utdata visar att `voting-app` det finns tre instanser av Pod och en enda instans av både `voting-analytics` och `voting-storage` poddar. Varje poddar har två behållare. En av dessa behållare är komponenten och den andra är `istio-proxy`:
+Följande exempel på utdata visar att det finns tre instanser av `voting-app` Pod och en enda instans av både `voting-analytics` och `voting-storage` poddar. Varje poddar har två behållare. En av dessa behållare är komponenten och den andra är `istio-proxy` :
 
 ```output
 NAME                                    READY     STATUS    RESTARTS   AGE   LABELS
@@ -172,17 +172,17 @@ Följande exempel på utdata visar IP-adressen för den inkommande gatewayen:
 
 ![AKS röstnings app som körs i vårt Istio-aktiverade AKS-kluster.](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
 
-Informationen längst ned på skärmen visar att appen använder `1.0` version av `voting-app` och version `1.0` av `voting-storage` (Redis).
+Informationen längst ned på skärmen visar att appen använder version `1.0` av `voting-app` och version `1.0` av `voting-storage` (Redis).
 
 ## <a name="update-the-application"></a>Uppdatera programmet
 
-Nu ska vi distribuera en ny version av Analytics-komponenten. Den här nya `1.1` versionen visar summor och procent satser utöver antalet för varje kategori.
+Nu ska vi distribuera en ny version av Analytics-komponenten. Den här nya versionen `1.1` visar summor och procent satser utöver antalet för varje kategori.
 
 Följande diagram visar vad som kommer att köras i slutet av den här delen – endast versionen `1.1` av vår `voting-analytics` komponent har trafik som dirigerats från `voting-app` komponenten. Även om versionen `1.0` av vår `voting-analytics` komponent fortsätter att köras och refereras av `voting-analytics` tjänsten, tillåter Istio-proxyservrarna trafik till och från den.
 
 ![AKS röstnings program komponenter och routning.](media/servicemesh/istio/scenario-routing-components-02.png)
 
-Nu ska vi distribuera `1.1` version av `voting-analytics` komponenten. Skapa den här komponenten i `voting` namn området:
+Nu ska vi distribuera version `1.1` av `voting-analytics` komponenten. Skapa den här komponenten i `voting` namn området:
 
 ```console
 kubectl apply -f kubernetes/step-2-update-voting-analytics-to-1.1.yaml --namespace voting
@@ -196,7 +196,7 @@ deployment.apps/voting-analytics-1-1 created
 
 Öppna AKS röstnings app i en webbläsare igen med hjälp av IP-adressen för Istio ingress gateway som hämtades i föregående steg.
 
-Webbläsaren växlar mellan de två vyer som visas nedan. Eftersom du använder en Kubernetes [-tjänst][kubernetes-service] för `voting-analytics` komponenten med endast en enda etikett väljare (`app: voting-analytics`) använder Kubernetes standard beteendet för resursallokering mellan den poddar som matchar den väljaren. I det här fallet är det både version `1.0` och `1.1` `voting-analytics` poddar.
+Webbläsaren växlar mellan de två vyer som visas nedan. Eftersom du använder en Kubernetes [-tjänst][kubernetes-service] för `voting-analytics` komponenten med endast en enda etikett väljare ( `app: voting-analytics` ) använder Kubernetes standard beteendet för resursallokering mellan den poddar som matchar den väljaren. I det här fallet är det både version `1.0` och `1.1` `voting-analytics` poddar.
 
 ![Version 1,0 av analys komponenten som körs i vår AKS röstnings app.](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
 
@@ -234,7 +234,7 @@ Följande exempel på utdata visar relevant del av den returnerade webbplatsen s
 
 ### <a name="lock-down-traffic-to-version-11-of-the-application"></a>Lås trafik till version 1,1 av programmet
 
-Nu ska vi låsa trafiken till endast `1.1` version av `voting-analytics` komponenten och till version `1.0` av `voting-storage` komponenten. Du definierar sedan routningsregler för alla andra komponenter.
+Nu ska vi låsa trafiken till endast version `1.1` av `voting-analytics` komponenten och till version `1.0` av `voting-storage` komponenten. Du definierar sedan routningsregler för alla andra komponenter.
 
 > * En **virtuell tjänst** definierar en uppsättning regler för routning av en eller flera mål tjänster.
 > * En **mål regel** definierar Traffic policies-och versions principer.
@@ -242,7 +242,7 @@ Nu ska vi låsa trafiken till endast `1.1` version av `voting-analytics` kompone
 
 Använd `kubectl apply` kommandot för att ersätta den virtuella tjänst definitionen i `voting-app` och lägga till [mål regler][istio-reference-destinationrule] och [virtuella tjänster][istio-reference-virtualservice] för de andra komponenterna. Du lägger till en [princip][istio-reference-policy] i `voting` namn området för att säkerställa att all kommunikation mellan tjänster skyddas med ömsesidig TLS och klient certifikat.
 
-* Principen har `peers.mtls.mode` ställt in för `STRICT` att säkerställa att ömsesidig TLS upprätthålls mellan dina tjänster i `voting` namn området.
+* Principen har `peers.mtls.mode` ställt in för att `STRICT` säkerställa att ömsesidig TLS upprätthålls mellan dina tjänster i `voting` namn området.
 * Vi anger också `trafficPolicy.tls.mode` till `ISTIO_MUTUAL` i alla våra mål regler. Istio tillhandahåller tjänster med starka identiteter och skyddar kommunikationen mellan tjänster med ömsesidiga TLS-och klient certifikat som Istio transparent hanterar.
 
 ```console
@@ -261,7 +261,7 @@ destinationrule.networking.istio.io/voting-storage created
 virtualservice.networking.istio.io/voting-storage created
 ```
 
-Om du öppnar AKS röstnings app i en webbläsare igen används `1.1` `voting-analytics` `voting-app` bara den nya versionen av komponenten.
+Om du öppnar AKS röstnings app i en webbläsare igen används bara den nya versionen `1.1` av `voting-analytics` komponenten `voting-app` .
 
 ![Version 1,1 av analys komponenten som körs i vår AKS röstnings app.](media/servicemesh/istio/scenario-routing-update-app-01.png)
 
@@ -351,14 +351,14 @@ voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS     
 
 ## <a name="roll-out-a-canary-release-of-the-application"></a>Distribuera en Kanarie-version av programmet
 
-Nu ska vi distribuera en ny version `2.0` av `voting-app`-, `voting-analytics`-och `voting-storage` -komponenterna. Den nya `voting-storage` komponenten använder mysql i stället för Redis, `voting-app` och- `voting-analytics` komponenterna uppdateras så att de kan använda den här nya `voting-storage` komponenten.
+Nu ska vi distribuera en ny version `2.0` av `voting-app` -, `voting-analytics` -och- `voting-storage` komponenterna. Den nya `voting-storage` komponenten använder mysql i stället för Redis, och `voting-app` - `voting-analytics` komponenterna uppdateras så att de kan använda den här nya `voting-storage` komponenten.
 
-`voting-app` Komponenten stöder nu funktioner för funktions flagga. Med den här funktions flaggan kan du testa funktionen för Istio för en delmängd av användarna.
+`voting-app`Komponenten stöder nu funktioner för funktions flagga. Med den här funktions flaggan kan du testa funktionen för Istio för en delmängd av användarna.
 
 Följande diagram visar vad du kommer att ha i slutet av det här avsnittet.
 
-* Versionen `1.0` `voting-app` av komponenten, versionen `1.1` av `voting-analytics` komponenten och versionen `1.0` av `voting-storage` komponenten kan kommunicera med varandra.
-* Versionen `2.0` `voting-app` av komponenten, versionen `2.0` av `voting-analytics` komponenten och versionen `2.0` av `voting-storage` komponenten kan kommunicera med varandra.
+* Versionen `1.0` av `voting-app` komponenten, versionen `1.1` av komponenten `voting-analytics` och versionen `1.0` av komponenten kan `voting-storage` kommunicera med varandra.
+* Versionen `2.0` av `voting-app` komponenten, versionen `2.0` av komponenten `voting-analytics` och versionen `2.0` av komponenten kan `voting-storage` kommunicera med varandra.
 * Versionen `2.0` av `voting-app` komponenten är endast tillgänglig för användare som har en angiven funktions flagga angiven. Den här ändringen hanteras med en funktions flagga via en cookie.
 
 ![AKS röstnings program komponenter och routning.](media/servicemesh/istio/scenario-routing-components-03.png)
@@ -397,13 +397,13 @@ deployment.apps/voting-analytics-2-0 created
 deployment.apps/voting-app-2-0 created
 ```
 
-Vänta tills alla versions `2.0` poddar körs. Använd kommandot [kubectl get poddar][kubectl-get] med `-w` se-växeln för att se ändringar i alla poddar i `voting` namn området:
+Vänta tills alla versions `2.0` poddar körs. Använd kommandot [kubectl get poddar][kubectl-get] med se- `-w` växeln för att se ändringar i alla poddar i `voting` namn området:
 
 ```console
 kubectl get pods --namespace voting -w
 ```
 
-Nu bör du kunna växla mellan version `1.0` och version `2.0` (Kanarie) för röstnings programmet. Funktions flaggan växla längst ned på skärmen anger en cookie. Den här cookien används av `voting-app` den virtuella tjänsten för att dirigera användare till den `2.0`nya versionen.
+Nu bör du kunna växla mellan version `1.0` och version `2.0` (Kanarie) för röstnings programmet. Funktions flaggan växla längst ned på skärmen anger en cookie. Den här cookien används av den `voting-app` virtuella tjänsten för att dirigera användare till den nya versionen `2.0` .
 
 ![Version 1,0 av AKS röstning-appen-funktions flagga har inte angetts.](media/servicemesh/istio/scenario-routing-canary-release-01.png)
 
@@ -413,7 +413,7 @@ Antalet röstningar skiljer sig mellan versionerna av appen. Den här skillnaden
 
 ## <a name="finalize-the-rollout"></a>Slutför distributionen
 
-När du har testat Kanarie-versionen uppdaterar du den `voting-app` virtuella tjänsten för att dirigera all trafik till `2.0` version av `voting-app` komponenten. Alla användare ser sedan versionen `2.0` av programmet, oavsett om funktions flaggan är inställd eller inte:
+När du har testat Kanarie-versionen uppdaterar du den `voting-app` virtuella tjänsten för att dirigera all trafik till version `2.0` av `voting-app` komponenten. Alla användare ser sedan versionen `2.0` av programmet, oavsett om funktions flaggan är inställd eller inte:
 
 ![AKS röstnings program komponenter och routning.](media/servicemesh/istio/scenario-routing-components-04.png)
 
@@ -427,7 +427,7 @@ Nu har du distribuerat en ny version av AKS röstnings appen.
 
 ## <a name="clean-up"></a>Rensa 
 
-Du kan ta bort AKS röstnings appen som vi använde i det här scenariot från ditt AKS `voting` -kluster genom att ta bort namn området enligt följande:
+Du kan ta bort AKS röstnings appen som vi använde i det här scenariot från ditt AKS-kluster genom att ta bort `voting` namn området enligt följande:
 
 ```console
 kubectl delete namespace voting
@@ -451,7 +451,7 @@ Du kan utforska ytterligare scenarier med hjälp av [Istio Bookinfo-programexemp
 [istio-docs-concepts]: https://istio.io/docs/concepts/what-is-istio/
 [istio-requirements-pods-and-services]: https://istio.io/docs/setup/kubernetes/prepare/requirements/
 [istio-reference-gateway]: https://istio.io/docs/reference/config/networking/v1alpha3/gateway/
-[istio-reference-policy]: https://istio.io/docs/reference/config/istio.authentication.v1alpha1/#Policy
+[istio-reference-policy]: https://istio.io/docs/reference/config/istio.mesh.v1alpha1/#AuthenticationPolicy
 [istio-reference-virtualservice]: https://istio.io/docs/reference/config/networking/v1alpha3/virtual-service/
 [istio-reference-destinationrule]: https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/

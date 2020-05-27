@@ -240,10 +240,7 @@
               displayname: 'functions, monitor functions, automation'
               href: ../azure-functions/functions-monitoring.md
             - name: Azure Kubernetes Service
-              items:
-                - name: Kubernetes (föråldrat)
-                  displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
-                  href: app/kubernetes.md
+              href: app/kubernetes-codeless.md
             - name: Fristående – valfri miljö
               items:
                 - name: Java (förhandsversion)
@@ -1000,8 +997,6 @@
           items:
             - name: Tillgänglighet
               href: app/monitor-web-app-availability.md
-            - name: Måttaviseringar
-              href: app/alerts.md
         - name: Måttaviseringsregler
           items:
             - name: Hantera måttaviseringar
@@ -1268,6 +1263,8 @@
           href: insights/azure-web-apps-analytics.md
         - name: Application Insights-anslutningsprogram
           href: platform/app-insights-connector.md
+        - name: Application Insights för AKS utan kod
+          href: app/kubernetes.md
         - name: Övervaka Docker-program
           href: app/docker.md
         - name: Utfasning av OMS-portalen

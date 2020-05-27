@@ -6,7 +6,6 @@
     - name: Vad är Azure Reservations?
       href: save-compute-costs-reservations.md
 - name: Anvisningar
-  expanded: true
   items:
     - name: Bestämma vad som ska köpas in
       items:
@@ -56,12 +55,17 @@
           href: 'manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances'
         - name: Byten och återbetalningar av reservationer
           href: exchange-and-refund-azure-reservations.md
+    - name: Rapportera kostnader
+      items:
+        - name: Visa reservationstransaktioner
+          href: view-purchase-refunds.md
+        - name: Återbetala reservationskostnader
+          href: charge-back-usage.md
     - name: Förnya reservationer
       items:
         - name: Förnya en reservation
           href: reservation-renew.md
 - name: Begrepp
-  expanded: true
   items:
     - name: Så här skapas reservationsrekommendationer
       href: reserved-instance-purchase-recommendations.md

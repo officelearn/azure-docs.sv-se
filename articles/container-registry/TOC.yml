@@ -91,7 +91,7 @@
           items:
             - name: Begränsa åtkomst med privat slutpunkt
               href: container-registry-private-link.md
-            - name: Konfigurera brandväggsregler för tjänsten
+            - name: Konfigurera offentlig registeråtkomst
               href: container-registry-access-selected-networks.md
             - name: Begränsa åtkomst med hjälp av tjänstslutpunkter (förhandsversion)
               href: container-registry-vnet.md

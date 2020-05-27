@@ -6,8 +6,14 @@
       href: overview-iot-central.md
     - name: Genomgång av användargränssnittet
       href: overview-iot-central-tour.md
+    - name: Utveckla enheter
+      href: overview-iot-central-developer.md
     - name: Senaste uppdateringarna
       items:
+        - name: April 2020 – nya funktioner
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/'
+        - name: April 2020 – uppdateringar
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/'
         - name: Mars 2020
           href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
 - name: Snabbstarter
@@ -81,6 +87,8 @@
           href: howto-manage-devices.md
         - name: Konfigurera regler
           href: howto-configure-rules.md
+        - name: Använd arbetsflöden för att integrera med andra tjänster
+          href: howto-configure-rules-advanced.md
         - name: Analysera dina enhetsdata
           href: howto-create-analytics.md
         - name: Lägga till paneler på din instrumentpanel
@@ -123,6 +131,8 @@
               href: howto-manage-iot-central-from-cli.md
             - name: Hantera från Azure PowerShell
               href: howto-manage-iot-central-from-powershell.md
+            - name: Hantera programmässigt
+              href: howto-manage-iot-central-programmatically.md
             - name: Hantera från CSP-portalen
               href: howto-create-and-manage-applications-csp.md
         - name: Anpassa program

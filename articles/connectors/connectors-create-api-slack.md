@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 5f61009ee7b43be618e37acb4a783a54dbf11e55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 194f75fbb486d5c53a8e650631c16fcf2649f277
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789179"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826034"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Övervaka och hantera slack med Azure Logic Apps
 
@@ -25,7 +25,7 @@ Med Azure Logic Apps och slack-kopplingen kan du skapa automatiserade uppgifter 
 
 Du kan använda utlösare som får svar från ditt slack-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt slack-konto. Du kan också använda andra åtgärder för att använda utdata från slack-åtgärder. Till exempel kan du skicka e-post med Office 365 Outlook Connector när en ny fil skapas. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -45,14 +45,14 @@ Du kan använda utlösare som får svar från ditt slack-konto och göra utdata 
 
 1. Skriv "slack" som filter i rutan Sök i tomma Logi Kap par. Välj den utlösare som du vill använda under listan utlösare. 
 
-   ELLER
+   \- eller -
 
    För befintliga Logic Apps, under det sista steget där du vill lägga till en åtgärd, väljer du **nytt steg**. 
    Skriv "slack" som filter i rutan Sök. 
    Under listan åtgärder väljer du den åtgärd som du vill använda.
 
    Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. 
-   Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Om du uppmanas att logga in på slack loggar du in på din slack-arbetsyta. 
 
@@ -70,7 +70,7 @@ Teknisk information om utlösare, åtgärder och gränser, som beskrivs av koppl
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

@@ -3,12 +3,12 @@ title: Konfigurera Azure Backup-rapporter
 description: Konfigurera och Visa rapporter för Azure Backup med Log Analytics och Azure-arbetsböcker
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cd6e0e55f471da83d15e26252b0730ab00f20d3c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: e0c7418d7141a3b12f367f1b12ee740eaac64703
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713836"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797532"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 
@@ -18,7 +18,7 @@ Ett vanligt krav för säkerhets kopierings administratörer är att få insikte
 - Granskning av säkerhets kopiering och återställning.
 - Identifiera viktiga trender på olika nivåer av granularitet.
 
-Idag tillhandahåller Azure Backup en rapporterings lösning som använder [Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) och [Azure-arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks). De här resurserna hjälper dig att få omfattande insikter om dina säkerhets kopieringar i hela reserv fastigheten. Den här artikeln förklarar hur du konfigurerar och visar Azure Backup rapporter.
+Idag tillhandahåller Azure Backup en rapporterings lösning som använder [Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) och [Azure-arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). De här resurserna hjälper dig att få omfattande insikter om dina säkerhets kopieringar i hela reserv fastigheten. Den här artikeln förklarar hur du konfigurerar och visar Azure Backup rapporter.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 

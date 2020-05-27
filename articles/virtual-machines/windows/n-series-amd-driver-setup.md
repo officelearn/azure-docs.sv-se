@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 1bcc13db3f503c80fda71a2104d0ff8d99e67df6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 745ec7ebf792fe1165022516be4c83fb9e864cc9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198002"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799870"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows
 
@@ -38,13 +38,9 @@ Grundläggande specifikationer, lagrings kapacitet och disk information finns i 
 
 1. Anslut via fjärr skrivbord till varje virtuell NVv4-serien.
 
-2. Om du är en NVv4 för hands version stoppar du den virtuella datorn och väntar på att den ska flyttas till stoppat (friallokerat) tillstånd.
+2. Hämta och installera den senaste driv rutinen.
 
-3. Starta den virtuella datorn och ladda ned det senaste [verktyget för AMD Cleanup](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Avinstallera den befintliga driv rutinen genom att köra "amdcleanuputility-x64. exe". Använd inte något befintligt rensnings verktyg som installerades med den tidigare driv rutinen.  
-
-4. Hämta och installera den senaste driv rutinen.
-
-5. Starta om den virtuella datorn.
+3. Starta om den virtuella datorn.
 
 ## <a name="verify-driver-installation"></a>Verifiera installation av driv rutin
 

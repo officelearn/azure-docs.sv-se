@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/20/2020
-ms.openlocfilehash: aa27ba30c7a403cf70396e219b0619e2e84b0d4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6603985df39afaa2fa2871977d6e577c04f7b569
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747741"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800039"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -28,8 +28,6 @@ Azure Monitor säkerställer att alla data krypteras i vila med hjälp av Azure-
 Azure Monitor krypterings användningen är identisk med hur [Azure Storage kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   fungerar.
 
 Med CMK kan du kontrol lera åtkomsten till dina data och återkalla den när du vill. Azure Monitor Storage respekterar alltid ändringar i nyckel behörigheter inom en timme. Data som matats in under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett CMK-konfiguration, men kontrollen över SSD-data följer [nyckel återkallning](#cmk-kek-revocation). Vi arbetar med att ha SSD-data krypterade med CMK i den andra halvan av 2020.
-
-Data som matats in under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett CMK-konfiguration, men kontrollen över SSD-data följer [nyckel återkallning](#cmk-kek-revocation). Vi arbetar med att ha SSD-data krypterade med CMK i den andra halvan av 2020.
 
 CMK-funktionen levereras på dedikerade Log Analytics-kluster. För att kontrol lera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration vit listas i förväg. Använd din Microsoft-kontakt för att hämta din prenumerations vit listas innan du börjar konfigurera CMK.
 

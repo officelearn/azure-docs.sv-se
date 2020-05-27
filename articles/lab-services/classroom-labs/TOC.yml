@@ -118,10 +118,12 @@
       items:
         - name: Åtkomst till klassrumslabb
           href: how-to-use-classroom-lab.md
-        - name: Använda fjärrskrivbordsanslutning för virtuella Linux-datorer
+        - name: Anslut till virtuella Linux-datorer
           href: how-to-use-remote-desktop-linux-student.md
         - name: Ansluta till en virtuell dator från Mac med hjälp av RDP
-          href: connect-virtual-machine-mac-rdp.md
+          href: connect-virtual-machine-mac-remote-desktop.md
+        - name: Anslut till en virtuell dator från Chromebook med RDP
+          href: connect-virtual-machine-chromebook-remote-desktop.md
         - name: Ange eller återställa lösenord för virtuella datorer
           href: how-to-set-virtual-machine-passwords-student.md
         - name: Visa supportinformation (elev)

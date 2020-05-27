@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: cda803c886a3db9099a8c47bb70a582b6a1f6d52
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c996c51583d81905e7853323166407e38ae79225
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745047"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830046"
 ---
 # <a name="configure-runbook-input-parameters"></a>Konfigurera indataparametrar för Runbook
 
@@ -357,5 +357,5 @@ Nu kan du anropa runbooken från den lokala datorn med hjälp av Azure PowerShel
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Redigera text-Runbooks i Azure Automation](automation-edit-textual-runbook.md)
-* [Redigera grafiska runbooks i Azure Automation](automation-graphical-authoring-intro.md)
+* Information om hur du förbereder en text Runbook finns i [Redigera text-Runbooks i Azure Automation](automation-edit-textual-runbook.md).
+* Information om hur du förbereder en grafisk Runbook finns [i Redigera grafiska runbooks i Azure Automation](automation-graphical-authoring-intro.md).

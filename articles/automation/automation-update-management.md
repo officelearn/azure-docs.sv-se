@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: b064e22b56d63055cede400fa2b06cee96d21664
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4a48841a1c1f5225e5ce53c46c69bd3d29f6fe59
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745303"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830709"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
@@ -165,11 +165,11 @@ Mer information om uppdateringar av hanterings paket finns i [anslut Operations 
 
 I följande tabell beskrivs de anslutna källor som Uppdateringshantering stöder:
 
-| Ansluten källa | Stöds | Beskrivning |
+| Ansluten källa | Stöds | Description |
 | --- | --- | --- |
-| Windows-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och startar sedan installationen av nödvändiga uppdateringar. |
-| Linux-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och startar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
-| Operations Manager-hanteringsgrupp |Ja |Uppdateringshantering samlar in information om system uppdateringar från agenter i en ansluten hanterings grupp.<br/><br/>En direkt anslutning från Operations Manager agent till Azure Monitor loggar krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
+| Windows-agenter |Yes |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och startar sedan installationen av nödvändiga uppdateringar. |
+| Linux-agenter |Yes |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och startar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
+| Operations Manager-hanteringsgrupp |Yes |Uppdateringshantering samlar in information om system uppdateringar från agenter i en ansluten hanterings grupp.<br/><br/>En direkt anslutning från Operations Manager agent till Azure Monitor loggar krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 
@@ -206,7 +206,7 @@ Följ anvisningarna i [ansluta datorer utan Internet åtkomst](../azure-monitor/
 
 I följande tabell definieras de klassificeringar som Uppdateringshantering stöder för Windows-uppdateringar. 
 
-|Klassificering  |Beskrivning  |
+|Klassificering  |Description  |
 |---------|---------|
 |Kritiska uppdateringar     | En uppdatering för ett särskilt problem som åtgärdar en kritisk, ej säkerhetsrelaterad bugg.        |
 |Säkerhetsuppdateringar     | En uppdatering för en produktspecifik, säkerhetsrelaterad fråga.        |
@@ -219,7 +219,7 @@ I följande tabell definieras de klassificeringar som Uppdateringshantering stö
 
 Nästa tabell definierar de klassificeringar som stöds för Linux-uppdateringar.
 
-|Klassificering  |Beskrivning  |
+|Klassificering  |Description  |
 |---------|---------|
 |Kritiska uppdateringar och säkerhetsuppdateringar     | Uppdateringar för ett enskilt problem eller ett produktspecifik, säkerhetsrelaterat problem.         |
 |Övriga uppdateringar     | Alla andra uppdateringar som inte är kritiska eller som inte är av säkerhets uppdateringar.        |
@@ -254,4 +254,14 @@ Här är hur du kan aktivera Uppdateringshantering och välja datorer som ska ha
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vanliga frågor och svar om Azure Automation](automation-faq.md)
+* Information om hur du arbetar med Uppdateringshantering finns i [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).
+* Om du behöver rikta en dynamisk VM-grupp för uppdateringar kan du läsa [Använd dynamiska grupper med uppdateringshantering](automation-update-management-groups.md).
+* Om du vill aktivera funktionen med hjälp av en Azure Resource Manager-mall, se [aktivera uppdateringshantering med Azure Resource Manager mall](automation-update-management-deploy-template.md).
+* Information om hur du aktiverar funktionen från en Runbook finns i [aktivera uppdateringshantering från en Runbook](automation-onboard-solutions.md).
+* Information om hur du aktiverar funktionen från ett Automation-konto finns i [aktivera uppdateringshantering från ett Automation-konto](automation-onboard-solutions-from-automation-account.md).
+* Om du vill aktivera funktionen genom att bläddra i Azure Portal, se [aktivera uppdateringshantering från Azure Portal](automation-onboard-solutions-from-browse.md).
+* Om du vill aktivera funktionen från en virtuell Azure-dator kan du läsa [aktivera uppdateringshantering från en virtuell Azure-dator](automation-onboard-solutions-from-vm.md).
+* Om du behöver söka i loggar som lagras i din Log Analytics-arbetsyta, se [fråga uppdateringshantering loggar](automation-update-management-query-logs.md).
+* Information om hur du felsöker funktions fel finns i [felsöka uppdateringshantering problem](troubleshoot/update-management.md).
+* Fel sökning av problem med Windows Update-agenten finns i [Felsöka problem med Windows Update-agenten](troubleshoot/update-agent-issues.md).
+* Information om hur du felsöker problem med Linux-uppdaterings agent finns i [Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).

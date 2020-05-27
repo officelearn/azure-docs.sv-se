@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 8697c7a82e271919f8d5aaa48160aa93c833809b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: c5e5437db480646275a8bbe34e1a64c005a32a16
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996904"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827734"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -47,7 +47,7 @@ Vår Twitter-referens:[@azlabservices](https://twitter.com/azlabservices)
 Om din fråga inte visas här kan vi berätta för oss, så vi kan hjälpa dig att hitta ett svar.
 
 - Publicera en fråga i slutet av dessa vanliga frågor och svar.
-- Om du vill få en större mål grupp kan du publicera en fråga i [Azure DEVTEST Labs MSDN-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Engagera dig med Azure DevTest Labs-teamet och andra medlemmar i communityn.
+- För att få en större mål grupp kan du publicera en fråga på [sidan Microsoft Q&en fråga för Azure DevTest Labs](https://docs.microsoft.com/answers/topics/azure-devtestlabs.html). Engagera dig med Azure DevTest Labs-teamet och andra medlemmar i communityn.
 - Skicka dina förfrågningar och idéer till [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs)för funktions förfrågningar.
 
 ### <a name="what-is-a-microsoft-account"></a>Vad är en Microsoft-konto?
@@ -307,7 +307,7 @@ Azure Marketplace bör användas som standard om du inte har särskilda problem 
 - Efterlevnads-eller reglerings villkor (till exempel säkerhets principer) som måste finnas på plats för alla datorer.
 - Att använda anpassade bilder bör inte anses vara lätt. De introducerar extra komplexitet eftersom du nu måste hantera VHD-filer för de underliggande bas avbildningarna. Du måste också regelbundet korrigera de grundläggande avbildningarna med program uppdateringar. Dessa uppdateringar omfattar nya operativ Systems uppdateringar och uppdateringar eller konfigurations ändringar som krävs för själva programpaketet.
 
-## <a name="artifacts"></a>Artefakter
+## <a name="artifacts"></a>Artifacts
 
 ### <a name="what-are-artifacts"></a>Vad är artefakter?
 Artefakter är anpassningsbara element som du kan använda för att distribuera de senaste bitarna eller distribuera dina dev-verktyg till en virtuell dator. Bifoga artefakter till den virtuella datorn när du skapar den virtuella datorn. När den virtuella datorn har allokerats distribuerar artefakterna och konfigurerar den virtuella datorn. Olika befintliga artefakter är tillgängliga i vår [offentliga GitHub-lagringsplats](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Du kan också [Redigera dina egna artefakter](devtest-lab-artifact-author.md).
@@ -327,7 +327,7 @@ Den [offentliga artefakt lagrings platsen](https://github.com/Azure/azure-devtes
 Som en del av din organisations övergripande styrnings-och konfigurations hanterings strategi rekommenderar vi att du använder en central lagrings plats. När du använder flera databaser kan de bli silor av ohanterad program vara under tiden. Med en central lagrings plats kan flera team använda artefakter från den här lagrings platsen för sina projekt. Den tillämpar standardisering, säkerhet, enkel hantering och eliminerar dubbleringen av insatser. Som en del av centralisering är följande åtgärder rekommenderade metoder för långsiktig hantering och hållbarhet:
 
 - Associera Azure-databaser med samma Azure Active Directory klient som Azure-prenumerationen använder för autentisering och auktorisering.
-- Skapa en grupp med `All DevTest Labs Developers` namnet i Azure Active Directory som hanteras centralt. Alla utvecklare som bidrar till artefakt utveckling bör placeras i den här gruppen.
+- Skapa en grupp med namnet `All DevTest Labs Developers` i Azure Active Directory som hanteras centralt. Alla utvecklare som bidrar till artefakt utveckling bör placeras i den här gruppen.
 - Samma Azure Active Directorys grupp kan användas för att ge åtkomst till Azure databaser-lagringsplatsen och till labbet.
 - I Azure databaser bör branchning eller förgreningar användas för att separera ett utvecklings lager från den primära produktions lagrings platsen. Innehåll läggs bara till i huvud grenen med en pull-begäran efter en korrekt kod granskning. När kod granskaren godkänner ändringen är en lead-utvecklare, som ansvarar för underhåll av huvud grenen, sammanslagning av den uppdaterade koden.
 

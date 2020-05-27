@@ -5,18 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/20/2020
+ms.date: 05/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c3082fbd7c02cbb075fd118f8e6021ac951e8e3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.custom: contperfq4
+ms.openlocfilehash: 0e13fcba4b961efb6a839f95ad0e8100382619c0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737681"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798246"
 ---
 # <a name="what-is-conditional-access"></a>Vad är villkorsstyrd åtkomst?
 
@@ -71,7 +72,7 @@ Vanliga signaler att villkorlig åtkomst kan ta med i kontot när du fattar ett 
 
 ## <a name="commonly-applied-policies"></a>Principer som tillämpas ofta
 
-Många organisationer har vanliga åtkomst frågor som principer för villkorlig åtkomst kan hjälpa till, till exempel:
+Många organisationer har [vanliga åtkomst frågor som principer för villkorlig åtkomst kan hjälpa](concept-conditional-access-policy-common.md) till, till exempel:
 
 - Kräva Multi-Factor Authentication för användare med administrativa roller
 - Kräver Multi-Factor Authentication för Azures hanterings uppgifter
@@ -96,12 +97,8 @@ Kunder med [Microsoft 365 Business licenser](/office365/servicedescriptions/micr
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa en princip för villkorlig åtkomst i stycken](concept-conditional-access-policies.md)
-
-Information om hur du implementerar villkorlig åtkomst i din miljö finns i [Planera din distribution av villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md).
-
-[Lär dig mer om identitets skydd](../identity-protection/overview-v2.md)
-
-[Läs mer om Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
-
-[Läs mer om Microsoft Intune](/intune/index)
+- [Skapa en princip för villkorlig åtkomst i stycken](concept-conditional-access-policies.md)
+- [Planera distributionen av villkorsstyrd åtkomst](plan-conditional-access.md)
+- [Lär dig mer om identitets skydd](../identity-protection/overview-v2.md)
+- [Läs mer om Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
+- [Läs mer om Microsoft Intune](/intune/index)

@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: c30bd8a3bb4fa1085e56dd93c66c016c3612e352
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4fac94cc2f8f378b7e9d8e9485baed6a0ffa838b
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749139"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832171"
 ---
 # <a name="work-with-scope-configurations-for-change-tracking-and-inventory"></a>Arbeta med scope-konfigurationer för Ändringsspårning och inventering
 
@@ -52,11 +52,5 @@ När en dator läggs till Ändringsspårning och inventeringen läggs den också
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Allmän information om funktionen finns i [ändringsspårning och inventerings översikt](change-tracking.md).
-* Information om hur du arbetar med funktionen finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
-* Om du vill använda ett Automation-konto för att aktivera funktionen, se [aktivera ändringsspårning och inventering från ett Automation-konto](automation-enable-changes-from-auto-acct.md).
-* Om du vill använda Azure Portal för att aktivera funktionen, se [aktivera ändringsspårning och inventering från Azure Portal](automation-enable-changes-from-browse.md).
-* Om du vill använda en Runbook för att aktivera funktionen, se [aktivera ändringsspårning och inventering från en Runbook](automation-enable-changes-from-runbook.md).
-* Om du vill använda en virtuell Azure-dator för att aktivera funktionen, se [aktivera ändringsspårning och inventering från en virtuell Azure-dator](automation-enable-changes-from-vm.md).
-* Information om hur du felsöker problem med ändrings spårning och inventering på en virtuell dator finns i [Felsöka ändringar på en virtuell Azure-dator](automation-tutorial-troubleshoot-changes.md).
-* Information om hur du felsöker funktions fel finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).
+* Information om hur du arbetar med Ändringsspårning och lager finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
+* Information om hur du felsöker allmänna funktions problem finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

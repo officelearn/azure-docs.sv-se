@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e3a2ddda4529cee584f5eabf6677af940d2bdd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585903"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826102"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samarbete för inbjudan
 
@@ -42,9 +42,9 @@ Som ett alternativ till e-postinbjudan kan du ge en gäst en direkt länk till d
 
 > [!IMPORTANT]
 > Den direkta länken måste vara klient-/regionsspecifika. Med andra ord måste det innehålla ett klient-ID eller verifierad domän så att gästen kan autentiseras i din klient, där den delade appen finns. En vanlig URL som https://myapps.microsoft.com inte fungerar för en gäst, eftersom den kommer att omdirigeras till sin hem klient för autentisering. Här följer några exempel på direkta länkar med klient kontext:
- > - Åtkomst panel för appar: https://myapps.microsoft.com/?tenantid=&lt ; klient-ID&gt; 
- > - Åtkomst panel för appar för en verifierad domän: https://myapps.microsoft.com/&lt ; verifierad domän&gt;
- > - Azure Portal: https://portal.azure.com/&lt ; klient-ID&gt;
+ > - Åtkomst panel för appar:`https://myapps.microsoft.com/?tenantid=<tenant id>`
+ > - Åtkomst panel för appar för en verifierad domän:`https://myapps.microsoft.com/<;verified domain>`
+ > - Azure-portalen: `https://portal.azure.com/<tenant id>`
  > - Enskild app: se så här använder du en [direkt inloggnings länk](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Det finns vissa fall där e-postinbjudan rekommenderas över en direkt länk. Om dessa specialfall är viktiga för din organisation rekommenderar vi att du bjuder in användare genom att använda metoder som fortfarande skickar e-postinbjudan:

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837336"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800937"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Kunden får ett erbjudande från ditt kommersiella Marketplace
 
@@ -48,9 +48,9 @@ Här är platser där ett lead genereras:
 
 ## <a name="understand-lead-data"></a>Förstå lead-data
 
-Varje lead som du får under kund förvärvs processen har data i specifika fält. Det första fältet som ska inblickas för `LeadSource` är fältet, som följer detta format: **käll åtgärds** | **erbjudande**.
+Varje lead som du får under kund förvärvs processen har data i specifika fält. Det första fältet som ska inblickas för är `LeadSource` fältet, som följer detta format: **käll åtgärds**  |  **erbjudande**.
 
-**Källor**: värdet för det här fältet fylls i baserat på marknads platsen som skapade leadet. Möjliga värden är `"AzureMarketplace"`, `"AzurePortal"`och `"AppSource (SPZA)"`.
+**Källor**: värdet för det här fältet fylls i baserat på marknads platsen som skapade leadet. Möjliga värden är `"AzureMarketplace"` , `"AzurePortal"` och `"AppSource (SPZA)"` .
 
 **Åtgärder**: värdet för det här fältet fylls i baserat på den åtgärd som kunden vidtog i marknads platsen som skapade leadet.
 
@@ -64,7 +64,7 @@ Möjliga värden:
 
 **Erbjudanden**: du kan ha flera erbjudanden i den kommersiella marknads platsen. Värdet för det här fältet fylls i baserat på det erbjudande som genererade leadet. Utgivar-ID och erbjudande-ID skickas både i det här fältet och är värden som du angav när du publicerade erbjudandet till Marketplace.
 
-I följande exempel visas värden i förväntat `publisherid.offerid`format: 
+I följande exempel visas värden i förväntat format `publisherid.offerid` : 
 
 - `checkpoint.check-point-r77-10sg-byol`
 - `bitnami.openedxcypress`
@@ -76,7 +76,7 @@ Kundens information skickas via flera fält. I följande exempel visas kund info
 
 - FirstName: John
 - LastName: Smith
-- E-post\@: jsmith Microsoft.com
+- E-post: jsmith \@ Microsoft.com
 - Telefon: 1234567890
 - Land: US
 - Företag: Microsoft
@@ -96,7 +96,7 @@ Kundens information skickas via flera fält. I följande exempel visas kund info
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Var kan jag få hjälp med att ställa in mitt lead-mål?
 
-Följ stegen i avsnittet [Anslut till ditt CRM-system](#connect-to-your-crm-system)eller skicka in ett support ärende via [Hjälp och support för partner Center](https://partner.microsoft.com/support/v2/?stage=1). Välj sedan **erbjud skapa** > **din typ av konfiguration för** > **hantering av lead-hantering**.
+Följ stegen i avsnittet [Anslut till ditt CRM-system](#connect-to-your-crm-system)eller skicka in ett support ärende via [Hjälp och support för partner Center](https://aka.ms/marketplacepublishersupport). Välj sedan **erbjud skapa**  >  **din typ av**  >  **konfiguration för hantering av lead-hantering**.
 
 ### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>Är jag tvungen att konfigurera ett lead-mål för att publicera ett erbjudande i den kommersiella marknads platsen?
 
@@ -133,7 +133,7 @@ Azure Blob Storage stöds inte längre som ett lead-mål, så du saknar kund led
 
 ### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>Jag har fått ett e-postmeddelande från den kommersiella marknads platsen, men varför kan jag inte hitta något lead i min CRM?
 
-Det är möjligt att slutanvändarens e-postdomän är från. edu. Av säkerhets skäl skickar vi inte personlig information från. edu-domänen. Skicka in ett support ärende via [Hjälp och support för partner Center](https://partner.microsoft.com/support/v2/?stage=1).
+Det är möjligt att slutanvändarens e-postdomän är från. edu. Av säkerhets skäl skickar vi inte personlig information från. edu-domänen. Skicka in ett support ärende via [Hjälp och support för partner Center](https://aka.ms/marketplacepublishersupport).
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Jag har konfigurerat en Azure-tabell som mitt lead-mål. Hur kan jag Visa leads?
 
@@ -155,11 +155,11 @@ På grund av personliga informations principer kan vi inte dela information om l
 
 Data för lead-generering är låg. Det är mindre än 1 GB för nästan alla utgivare. Kostnaden beror på antalet mottagna leads. Om till exempel 1 000 leads tas emot under en månad är kostnaden cirka 50 cent. Mer information om lagrings priser finns i [Azure Storage översikts priser](https://azure.microsoft.com/pricing/details/storage/).
 
-Om din fråga inte besvaras kontaktar du Microsoft Support via [partner Center Hjälp och support](https://aka.ms/marketplacepublishersupport). Välj sedan **erbjud skapa** > **din typ av konfiguration för** > **hantering av lead-hantering**.
+Om din fråga inte besvaras kontaktar du Microsoft Support via [partner Center Hjälp och support](https://aka.ms/marketplacepublishersupport). Välj sedan **erbjud skapa**  >  **din typ av**  >  **konfiguration för hantering av lead-hantering**.
 
 ### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Jag får e-postmeddelanden när nya kund ledare tas emot. Hur kan jag konfigurera någon annan att ta emot e-postmeddelanden?
 
-Kom åt ditt erbjudande i Partner Center och gå till sidan för **erbjudande konfiguration** > **hantering av lead-hantering** > **.** Uppdatera e-postadresserna under fältet **kontakt epost** .
+Kom åt ditt erbjudande i Partner Center och gå till sidan för **erbjudande konfiguration** > **hantering av lead-hantering**  >  **Edit**. Uppdatera e-postadresserna under fältet **kontakt epost** .
 
 ## <a name="next-steps"></a>Nästa steg
 

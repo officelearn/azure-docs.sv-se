@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e5ee8df1dfd250a6713d832bf176daecdaef7ea
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4b8bf6a3f583e4c17f61e0a46911990ac5cc827c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744394"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830488"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Hantera ändringsspårning och inventering
 
@@ -150,7 +150,7 @@ Använd följande steg för att konfigurera register nyckel spårning på Window
 
 Du kan utföra olika sökningar mot Azure Monitor loggar för ändrings poster. När sidan ändrings spårning är öppen klickar du på **Log Analytics** för att öppna sidan loggar. Följande tabell innehåller exempel på loggs ökningar för ändrings poster.
 
-|Söka i data  |Beskrivning  |
+|Söka i data  |Description  |
 |---------|---------|
 |ConfigurationData<br>&#124; där ConfigDataType = = "Microsoft-tjänster" och SvcStartupType = = Auto "<br>&#124; där SvcState = = "stoppad"<br>&#124; sammanfatta arg_max (TimeGenerated, *) av SoftwareName, dator         | Visar de senaste inventerings posterna för Microsoft-tjänster som har ställts in på auto men som har rapporter ATS som stoppade. Resultaten är begränsade till den senaste posten för det angivna program namnet och datorn.    |
 |ConfigurationChange<br>&#124; där ConfigChangeType = = "Software" och ChangeCategory = = "borttaget"<br>&#124; order by TimeGenerated DESC|Visar ändrings poster för borttagen program vara.|
@@ -178,6 +178,5 @@ Vi ska använda det här exemplet för att diskutera stegen för att skapa avise
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över Ändringsspårning och inventering](change-tracking.md)
-* [Felsöka Ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md)
-* [Loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md)
+* Om du behöver söka i loggar som lagras i din Log Analytics-arbetsyta, se [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
+* Information om hur du felsöker funktions fel finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

@@ -4,12 +4,12 @@ description: Den här artikeln beskriver hur du använder Azure AD inom Azure Au
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1361ecf3ab7b726310df9e3b1040e0726d7658e2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 017341fd72329d0538a3cf2a6ec20d03ee6152cc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745258"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830573"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Använda Azure AD för att autentisera mot Azure
 
@@ -159,7 +159,7 @@ Workflow Stop-Start-AzureVM
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md)
-* [Använda moduler i Azure Automation](shared-resources/modules.md)
-* [Starta en runbook i Azure Automation](start-runbooks.md)
-* [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview)
+* Information om användning av autentiseringsuppgifter finns [i Hantera autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md).
+* Information om moduler finns [i hantera moduler i Azure Automation](shared-resources/modules.md).
+* Om du behöver starta en Runbook kan du läsa [starta en Runbook i Azure Automation](start-runbooks.md).
+* Information om PowerShell finns i [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview).

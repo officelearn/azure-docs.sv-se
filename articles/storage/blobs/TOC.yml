@@ -166,6 +166,8 @@
               href: storage-blob-change-feed.md
             - name: Återställning från tidpunkt
               href: point-in-time-restore-overview.md
+        - name: Objektreplikering
+          href: object-replication-overview.md
         - name: Åtkomst- och prestandanivåer
           items:
             - name: Åtkomstnivåer
@@ -399,6 +401,8 @@
               href: storage-blob-change-feed-how-to.md
             - name: Aktivera återställning baserat på tidpunkt
               href: point-in-time-restore-manage.md
+        - name: Konfigurera objektreplikering
+          href: object-replication-configure.md
         - name: Hantera haveriberedskap
           items:
             - name: Kontrollera egenskapen Tidpunkt för senaste synkronisering
@@ -694,16 +698,22 @@
               href: data-lake-storage-supported-azure-services.md
             - name: Plattformar för öppen källkod som stöds
               href: data-lake-storage-supported-open-source-platforms.md
-        - name: Övervaka och felsöka
+        - name: Övervakning
           items:
-            - name: 'Övervaka, diagnostisera och felsöka'
-              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Mått i Azure Monitor
-              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migrera till nya mått
+            - name: Övervaka ett lagringskonto
+              href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Migrera från klassiska mått
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Lagringsanalysloggar
-              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Övervakning (klassisk)
+              items:
+                - name: Lagringsanalys
+                  href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Mått
+                  href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Loggar
+                  href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Övervaka, diagnostisera och felsöka'
+                  href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gör så här för att
       items:
         - name: Skapa
@@ -752,6 +762,8 @@
                   href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Överför data med DistCp-verktyget
+              href: data-lake-storage-use-distcp.md
             - name: Överföra data med dataflyttbiblioteket
               href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Optimera

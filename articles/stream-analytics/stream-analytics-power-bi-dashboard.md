@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.openlocfilehash: 8466fbcb4325dc244551a3b84fc20581366b7071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: edc2b1d7d6a97dd7d7ec35dadf946b5b8581bd06
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78851147"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833140"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics och Power BI: en real tids analys instrument panel för strömmande data
 
@@ -23,7 +23,7 @@ Den här artikeln fortsätter från den Stream Analytics själv studie kursen om
 Du kan titta på [en video](https://www.youtube.com/watch?v=SGUpT-a99MA) som illustrerar det här scenariot.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande innan du börjar:
 
@@ -35,11 +35,11 @@ Se till att du har följande innan du börjar:
 ## <a name="add-power-bi-output"></a>Lägg till Power BI utdata
 I självstudien om bedrägeri identifiering i real tid skickas utdata till Azure Blob Storage. I det här avsnittet lägger du till utdata som skickar information till Power BI.
 
-1. Öppna det strömmande analys jobb som du skapade tidigare i Azure Portal. Om du använde det föreslagna namnet namnges `sa_frauddetection_job_demo`jobbet.
+1. Öppna det strömmande analys jobb som du skapade tidigare i Azure Portal. Om du använde det föreslagna namnet namnges jobbet `sa_frauddetection_job_demo` .
 
 2. På den vänstra menyn väljer du **utdata** under **jobb sto pol Ogin**. Välj sedan **+ Lägg till** och välj **Power BI** på list menyn.
 
-3. Välj **+ Lägg till** > **Power BI**. Fyll sedan i formuläret med följande information och välj **Auktorisera**:
+3. Välj **+ Lägg till**  >  **Power BI**. Fyll sedan i formuläret med följande information och välj **Auktorisera**:
 
    |**Inställning**  |**Föreslaget värde**  |
    |---------|---------|
@@ -74,10 +74,10 @@ Mer information om Power BI data uppsättningar finns i [Power BI REST API](http
 
 2. Klicka i rutan **fråga** . 
 
-3. Ange följande fråga. Den här frågan liknar den själv kopplings fråga som du skapade i själv studie kursen för bedrägeri identifiering. Skillnaden är att den här frågan skickar resultat till de nya utdata du skapade (`CallStream-PowerBI`). 
+3. Ange följande fråga. Den här frågan liknar den själv kopplings fråga som du skapade i själv studie kursen för bedrägeri identifiering. Skillnaden är att den här frågan skickar resultat till de nya utdata du skapade ( `CallStream-PowerBI` ). 
 
     >[!NOTE]
-    >Om du inte har `CallStream` angett något namn i själv studie kursen `CallStream` för bedrägeri identifiering, ersätter du ditt namn i **from** -och **Join** -satserna i frågan.
+    >Om du inte har angett `CallStream` något namn i själv studie kursen för bedrägeri identifiering, ersätter du ditt namn `CallStream` i **from** -och **Join** -satserna i frågan.
 
    ```SQL
    /* Our criteria for fraud:
@@ -137,11 +137,11 @@ Ditt strömnings analys jobb börjar söka efter bedrägliga anrop i den inkomma
 
     ![Strömmande data uppsättnings plats i Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
-2. Klicka på ** + &nbsp;skapa**i arbets ytan.
+2. Klicka på ** + &nbsp; skapa**i arbets ytan.
 
     ![Knappen Skapa i Power BI arbets ytan](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard.png)
 
-3. Skapa en ny instrument panel och ge `Fraudulent Calls`den namnet.
+3. Skapa en ny instrument panel och ge den namnet `Fraudulent Calls` .
 
     ![Skapa en instrument panel och ge den ett namn i Power BI arbets yta](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
 
@@ -235,7 +235,7 @@ Om ett jobb startar efter att token har gått ut, uppstår ett fel och jobbet Mi
 När auktoriseringen har uppdaterats med Power BI visas en grön avisering i avsnittet Authorization som visar att problemet har lösts.
 
 ## <a name="get-help"></a>Få hjälp
-Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

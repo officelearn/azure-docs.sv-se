@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 3a26561b7789446aff70c9fb9e08d523d05d8d64
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.openlocfilehash: 694b5fee19a1c0dca752e02259e3cc398ae6e55e
+  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83587484"
+  ms.locfileid: "83641863"
 landingContent:
 - title: Om externa identiteter
   linkLists:
@@ -27,6 +27,18 @@ landingContent:
       url: compare-with-b2c.md
     - text: Vad är B2B-gästanvändaråtkomst?
       url: what-is-b2b.md
+- title: Registrering via självbetjäning (förhandsversion)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är registrering via självbetjäning?
+      url: self-service-sign-up-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Lägga till ett användarflöde för registrering via självbetjäning
+      url: self-service-sign-up-user-flow.md
+    - text: Definiera anpassade attribut för användarflöden
+      url: user-flow-add-custom-attributes.md
 - title: Bjuda in B2B-gästanvändare
   linkLists:
   - linkListType: concept

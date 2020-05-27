@@ -15,6 +15,9 @@
       href: quick-run-dotnet.md
     - name: Köra ett Batch-jobb – Python
       href: quick-run-python.md
+    - name: Skapa ett batch-konto – ARM-mall
+      href: quick-create-template.md
+      displayName: Resource Manager
 - name: Självstudier
   items:
     - name: Parallell filbearbetning – .NET
@@ -50,12 +53,26 @@
       items:
         - name: Säkerhetsbaslinje
           href: security-baseline.md
-    - name: Utvecklarfunktioner
-      href: batch-api-basics.md
+    - name: Batch-tjänstens arbetsflöde och resurser
+      displayName: developer features
+      href: batch-service-workflow-features.md
+      items:
+        - name: Batch-konton
+          displayName: storage account
+          href: accounts.md
+        - name: Noder och pooler
+          displayName: 'compute node, application package, scaling, schedule, os'
+          href: nodes-and-pools.md
+        - name: Jobb och uppgifter
+          displayName: Batch job
+          href: jobs-and-tasks.md
+        - name: Filer och kataloger
+          displayName: Batch file
+          href: files-and-directories.md
     - name: 'API:er och verktyg'
       href: batch-apis-tools.md
-    - name: Identifiera och hantera batch-tjänstens fel
-      href: batch-retry-after-errors.md
+    - name: Felhantering och felidentifiering
+      href: error-handling.md
     - name: Bästa praxis
       href: best-practices.md
     - name: Kvoter och begränsningar
@@ -88,6 +105,10 @@
           href: batch-aad-auth-management.md
         - name: Säker åtkomst till Key Vault med Batch
           href: credential-access-key-vault.md
+        - name: Använda certifikat med Batch
+          href: batch-certificates.md
+    - name: Använda programpaket
+      href: batch-application-packages.md
     - name: Kopiera filer och program till poolnoder
       items:
         - name: Kopiera program och data till poolnoder
@@ -169,32 +190,32 @@
               href: batch-cli-templates.md
     - name: Använd Batch Node.js SDK
       href: batch-nodejs-get-started.md
-- name: Köra arbetsbelastningar
-  items:
-    - name: MPI-jobb
-      href: batch-mpi.md
-    - name: Containerarbetsbelastningar
-      href: batch-docker-container-workloads.md
-    - name: Rendering
+    - name: Köra arbetsbelastningar
       items:
-        - name: Rendering med hjälp av Azure
-          href: batch-rendering-service.md
-        - name: Rendering av VM-avbildningar
-          href: batch-rendering-applications.md
-        - name: Batchrenderingsfunktioner
-          href: batch-rendering-functionality.md
-        - name: Använda batchrendering
-          href: batch-rendering-using.md
-        - name: Använda renderingshanterare
-          href: batch-rendering-render-managers.md
-        - name: Renderingsprogramreferens
-          href: batch-rendering-application-reference.md
-        - name: Lagring och dataflytt
-          href: batch-rendering-storage-data-movement.md
-        - name: Renderingsarkitekturer
-          href: batch-rendering-architectures.md
-    - name: Databearbetning med Batch och Data Factory
-      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
+        - name: MPI-jobb
+          href: batch-mpi.md
+        - name: Containerarbetsbelastningar
+          href: batch-docker-container-workloads.md
+        - name: Rendering
+          items:
+            - name: Rendering med hjälp av Azure
+              href: batch-rendering-service.md
+            - name: Rendering av VM-avbildningar
+              href: batch-rendering-applications.md
+            - name: Batchrenderingsfunktioner
+              href: batch-rendering-functionality.md
+            - name: Använda batchrendering
+              href: batch-rendering-using.md
+            - name: Använda renderingshanterare
+              href: batch-rendering-render-managers.md
+            - name: Renderingsprogramreferens
+              href: batch-rendering-application-reference.md
+            - name: Lagring och dataflytt
+              href: batch-rendering-storage-data-movement.md
+            - name: Renderingsarkitekturer
+              href: batch-rendering-architectures.md
+        - name: Databearbetning med Batch och Data Factory
+          href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Referens
   items:
     - name: Azure CLI

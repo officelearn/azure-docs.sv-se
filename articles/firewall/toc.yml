@@ -17,13 +17,13 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Distribuera med IP-grupper
+    - name: Distribuera med IP-grupper – ARM-mall
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
-    - name: Distribuera med flera adresser
+    - name: Distribuera med flera adresser – ARM-mall
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
-    - name: Distribuera med Tillgänglighetszoner
+    - name: Distribuera med tillgänglighetszoner – ARM-mall
       displayName: Resource Manager
       href: deploy-template.md
 - name: Exempel

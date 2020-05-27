@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 6ba292850c057284fff265c8a77386d21374942a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b95ee80a7a99009918f4869b62a3e3768e6e58d3
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010230"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828278"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Lär dig svaren på vanliga frågor, mönster och metod tips för Azure cache för Redis.
@@ -20,7 +20,7 @@ Lär dig svaren på vanliga frågor, mönster och metod tips för Azure cache f�
 Om din fråga inte visas här kan vi hjälpa oss och vi hjälper dig att hitta ett svar.
 
 * Du kan publicera en fråga i kommentarerna i slutet av de här frågorna och engagera dig med Azure cache-teamet och andra community-medlemmar om den här artikeln.
-* För att nå en bredare publik kan du publicera en fråga på [Azure-cache MSDN-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) och engagera dig med Azure cache-teamet och andra medlemmar i communityn.
+* För att nå en bredare publik kan du publicera en fråga på [sidan Microsoft Q&en fråga för Azure cache](https://docs.microsoft.com/answers/topics/azure-cache-redis.html) och engagera dig med Azure cache-teamet och andra medlemmar i communityn.
 * Om du vill göra en funktions förfrågan kan du skicka in dina förfrågningar och idéer till [Azure cache för Redis User Voice](https://feedback.azure.com/forums/169382-cache).
 * Du kan också skicka ett e-postmeddelande till oss vid [extern Azure cache-feedback](mailto:azurecache@microsoft.com).
 
@@ -82,7 +82,7 @@ Det finns flera sätt att komma igång med Azure cache för Redis.
 
 * Du kan titta på någon av våra självstudier som är tillgängliga för [.net](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.net](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node. js](cache-nodejs-get-started.md)och [python](cache-python-get-started.md).
 * Du kan se [hur du skapar appar med hög prestanda med Microsoft Azure cache för Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
-* Du kan läsa klient dokumentationen för de klienter som matchar ditt projekts utvecklings språk och se hur du använder Redis. Det finns många Redis-klienter som kan användas med Azure cache för Redis. En lista över Redis-klienter finns i [https://redis.io/clients](https://redis.io/clients).
+* Du kan läsa klient dokumentationen för de klienter som matchar ditt projekts utvecklings språk och se hur du använder Redis. Det finns många Redis-klienter som kan användas med Azure cache för Redis. En lista över Redis-klienter finns i [https://redis.io/clients](https://redis.io/clients) .
 
 Om du inte redan har ett Azure-konto kan du:
 
@@ -112,7 +112,7 @@ Tänk på följande när du väljer ett cache-erbjudande.
 <a name="cache-performance"></a>
 
 ### <a name="azure-cache-for-redis-performance"></a>Azure cache för Redis-prestanda
-I följande tabell visas de maximala bandbredds värden som observerats vid testning av olika storlekar på standard- `redis-benchmark.exe` och Premium-cachen med hjälp av en IaaS VM mot Azure-cachen för Redis-slutpunkten. För TLS-genomflöde används Redis-benchmark med stunnelserver för att ansluta till Azure-cachen för Redis-slutpunkten.
+I följande tabell visas de maximala bandbredds värden som observerats vid testning av olika storlekar på standard-och Premium-cachen med hjälp av `redis-benchmark.exe` en IaaS VM mot Azure-cachen för Redis-slutpunkten. För TLS-genomflöde används Redis-benchmark med stunnelserver för att ansluta till Azure-cachen för Redis-slutpunkten.
 
 >[!NOTE] 
 >Dessa värden är inte garanterade och det finns inget service avtal för dessa nummer, men det bör vara typiskt. Du bör läsa in testa ditt eget program för att fastställa rätt cachestorlek för ditt program.
@@ -142,7 +142,7 @@ I den här tabellen kan vi Rita följande slut satser:
 | P4 |  53 GB |  8 | 6 000/750   | 400,000 | 373 000 |
 | P5 | 120 GB | 20 | 6 000/750   | 400,000 | 373 000 |
 
-Anvisningar om hur du konfigurerar stunnelserver eller laddar ned Redis-verktyg som `redis-benchmark.exe`finns i avsnittet [Hur kan jag köra Redis-kommandon?](#cache-commands) .
+Anvisningar om hur du konfigurerar stunnelserver eller laddar ned Redis-verktyg som finns `redis-benchmark.exe` i avsnittet [Hur kan jag köra Redis-kommandon?](#cache-commands) .
 
 <a name="cache-region"></a>
 
@@ -177,7 +177,7 @@ Information om hur du använder Azure cache för Redis med PowerShell i Azure Go
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>Vad är konfigurations alternativen för StackExchange. Redis?
 StackExchange. Redis har många alternativ. I det här avsnittet beskrivs några av de vanliga inställningarna. Mer detaljerad information om StackExchange. Redis-alternativ finns i [stackexchange. Redis-konfiguration](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| ConfigurationOptions | Beskrivning | Rekommendation |
+| ConfigurationOptions | Description | Rekommendation |
 | --- | --- | --- |
 | AbortOnConnectFail |När värdet är true kommer anslutningen inte att återanslutas efter ett nätverks haveri. |Ange till false och låt StackExchange. Redis ansluta automatiskt. |
 | ConnectRetry |Antalet gånger som anslutnings försöken upprepas under den första anslutningen. |Se följande information om vägledning. |
@@ -201,7 +201,7 @@ Vanligt vis räcker standardvärdena för-klienten. Du kan finjustera alternativ
       * Du kan ha en multiplexor för att hantera små nycklar.
       * Du kan ange olika värden för timeout för anslutningar och omprövnings logik för varje ConnectionMultiplexer som du använder.
       * Ange `ClientName` egenskapen för varje multiplexor för att hjälpa med diagnostik.
-      * Den här vägledningen kan leda till mer strömlinjeformad `ConnectionMultiplexer`svars tid per.
+      * Den här vägledningen kan leda till mer strömlinjeformad svars tid per `ConnectionMultiplexer` .
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Vilken Azure-cache för Redis-klienter kan jag använda?
 En av de fantastiska sakerna som Redis är att det finns många klienter som har stöd för många olika utvecklings språk. En aktuell lista över klienter finns i [Redis-klienter](https://redis.io/clients). För självstudier som rör flera olika språk och klienter, se [hur du använder Azure cache för Redis](cache-dotnet-how-to-use-azure-redis-cache.md) och dess artiklar på samma nivå i innehålls förteckningen.
@@ -240,7 +240,7 @@ Du kan använda något av de kommandon som anges i [Redis-kommandon](https://red
 * Om du har en standard-eller Premium-cache kan du köra Redis-kommandon med hjälp av [Redis-konsolen](cache-configure.md#redis-console). Redis-konsolen är ett säkert sätt att köra Redis-kommandon i Azure Portal.
 * Du kan också använda kommando rads verktygen för Redis. Utför följande steg för att använda dem:
 * Hämta [kommando rads verktygen för Redis](https://github.com/MSOpenTech/redis/releases/).
-* Anslut till cacheminnet med `redis-cli.exe`hjälp av. Skicka i cache-slutpunkten med växeln-h och nyckeln med-a som visas i följande exempel:
+* Anslut till cacheminnet med hjälp av `redis-cli.exe` . Skicka i cache-slutpunkten med växeln-h och nyckeln med-a som visas i följande exempel:
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
@@ -256,7 +256,7 @@ Microsoft Azure Cache for Redis är baserad på populära Azure Cache for Redis 
 Eftersom varje klient är annorlunda finns det ingen centraliserad klass referens på MSDN, och varje klient upprätthåller sin egen referens dokumentation. Förutom referens dokumentationen finns det flera självstudier som visar hur du kommer igång med Azure cache för Redis med olika språk och cache-klienter. Information om hur du kommer åt de här självstudierna finns i [så här använder du Azure cache för Redis](cache-dotnet-how-to-use-azure-redis-cache.md) och dess artiklar på samma nivå i innehålls förteckningen.
 
 ### <a name="can-i-use-azure-cache-for-redis-as-a-php-session-cache"></a>Kan jag använda Azure cache för Redis som ett PHP-sessionsnamn?
-Ja, om du vill använda Azure cache för Redis som en PHP-session, anger du anslutnings strängen till Azure-cachen för `session.save_path`Redis-instansen i.
+Ja, om du vill använda Azure cache för Redis som en PHP-session, anger du anslutnings strängen till Azure-cachen för Redis-instansen i `session.save_path` .
 
 > [!IMPORTANT]
 > När du använder Azure cache för Redis som ett PHP-sessionsobjekt måste du URL-koda den säkerhets nyckel som används för att ansluta till cachen, som du ser i följande exempel:
@@ -300,11 +300,11 @@ Instruktioner för hur du hämtar Redis-verktygen finns i avsnittet [Hur kan jag
 
 #### <a name="stackexchangeredis-best-practices"></a>Metod tips för StackExchange. Redis
 * Ange `AbortConnect` till false och låt ConnectionMultiplexer återansluta automatiskt. [Mer information finns här](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
-* Återanvänd ConnectionMultiplexer – skapa inte någon ny för varje begäran. Mönstret `Lazy<ConnectionMultiplexer>` som [visas här](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache) rekommenderas.
+* Återanvänd ConnectionMultiplexer – skapa inte någon ny för varje begäran. `Lazy<ConnectionMultiplexer>`Mönstret som [visas här](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache) rekommenderas.
 * Redis fungerar bäst med mindre värden, så Överväg att chopping upp större data i flera nycklar. I [den här Redis-diskussionen](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)betraktas 100 kB som stor. I [den här artikeln](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) finns ett exempel på problem som kan orsakas av stora värden.
 * Konfigurera dina [Inställningar för trådpool](#important-details-about-threadpool-growth) för att undvika tids gränser.
 * Använd minst standard connectTimeout på 5 sekunder. Intervallet ger StackExchange. Redis tillräckligt med tid för att återupprätta anslutningen i händelse av ett nätverks blip.
-* Tänk på de prestanda kostnader som är kopplade till olika åtgärder som du kör. Till exempel är `KEYS` kommandot en O (n)-åtgärd och bör undvikas. [Redis.io-webbplatsen](https://redis.io/commands/) innehåller information kring tids komplexiteten för varje åtgärd som stöds. Klicka på varje kommando för att se komplexiteten för varje åtgärd.
+* Tänk på de prestanda kostnader som är kopplade till olika åtgärder som du kör. Till exempel `KEYS` är kommandot en O (n)-åtgärd och bör undvikas. [Redis.io-webbplatsen](https://redis.io/commands/) innehåller information kring tids komplexiteten för varje åtgärd som stöds. Klicka på varje kommando för att se komplexiteten för varje åtgärd.
 
 #### <a name="configuration-and-concepts"></a>Konfiguration och begrepp
 * Använd standard-eller Premium nivån för produktions system. Basic-nivån är ett system med en nod utan datareplikering och serviceavtal. Använd också minst ett C1-cacheminne. C0-cache används vanligt vis för enkla utvecklings-och test scenarier.
@@ -312,7 +312,7 @@ Instruktioner för hur du hämtar Redis-verktygen finns i avsnittet [Hur kan jag
 * Utveckla ditt system så att det kan hantera anslutnings signaler [på grund av korrigeringar och redundans](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
 #### <a name="performance-testing"></a>Prestandatestning
-* Börja med att `redis-benchmark.exe` använda för att få en känsla för eventuella data flöden innan du skriver dina egna perf-tester. Eftersom `redis-benchmark` inte stöder TLS måste du [Aktivera icke-TLS-porten via Azure Portal](cache-configure.md#access-ports) innan du kör testet. Exempel finns i [Hur kan jag mäta och testa prestanda för mitt cacheminne?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+* Börja med `redis-benchmark.exe` att använda för att få en känsla för eventuella data flöden innan du skriver dina egna perf-tester. Eftersom inte `redis-benchmark` stöder TLS måste du [Aktivera icke-TLS-porten via Azure Portal](cache-configure.md#access-ports) innan du kör testet. Exempel finns i [Hur kan jag mäta och testa prestanda för mitt cacheminne?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * Den virtuella klient datorn som används för testning ska finnas i samma region som Azure-cachen för Redis-instansen.
 * Vi rekommenderar att du använder Dv2 VM-serien för din klient eftersom de har bättre maskin vara och ger bästa möjliga resultat.
 * Kontrol lera att den virtuella klient datorn du väljer har minst lika mycket data behandlings-och bandbredds kapacitet som det cacheminne som du testar.
@@ -352,7 +352,7 @@ Följande kommandon innehåller ett exempel på hur du använder Redis-benchmark
 ### <a name="important-details-about-threadpool-growth"></a>Viktig information om hur du växer i trådpool
 CLR-trådpool har två typer av trådar – "Work" och "I/O-sluten port" (IOCP) trådar.
 
-* Arbets trådar används för saker som att `Task.Run(…)`bearbeta metoderna, eller `ThreadPool.QueueUserWorkItem(…)` . Dessa trådar används också av olika komponenter i CLR när arbetet måste inträffa i en bakgrunds tråd.
+* Arbets trådar används för saker som att bearbeta `Task.Run(…)` metoderna, eller `ThreadPool.QueueUserWorkItem(…)` . Dessa trådar används också av olika komponenter i CLR när arbetet måste inträffa i en bakgrunds tråd.
 * IOCP-trådar används när asynkront IO sker, till exempel vid läsning från nätverket.
 
 Trådpoolen ger nya arbets trådar eller I/O-slutförande-trådar på begäran (utan begränsning) tills den når inställningen "minimum" för varje typ av tråd. Som standard anges det minsta antalet trådar som är antalet processorer i ett system.
@@ -381,7 +381,7 @@ Med hänsyn till den här informationen rekommenderar vi starkt att kunderna ang
 
 Så här konfigurerar du den här inställningen:
 
-* Vi rekommenderar att du ändrar den här inställningen program mässigt genom att använda filen [trådpool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) i `global.asax.cs`. Ett exempel:
+* Vi rekommenderar att du ändrar den här inställningen program mässigt genom att använda filen [trådpool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) i `global.asax.cs` . Ett exempel:
 
 ```cs
 private readonly int minThreads = 200;
@@ -398,10 +398,10 @@ void Application_Start(object sender, EventArgs e)
   > [!NOTE]
   > Värdet som anges av den här metoden är en global inställning som påverkar hela AppDomain. Om du till exempel har en dator med 4 kärnor och vill ställa in *minWorkerThreads* och *minIoThreads* på 50 per processor under körningen använder du **trådpool. SetMinThreads (200, 200)**.
 
-* Du kan också ange minsta antal trådar genom att använda [konfigurations inställningen *MinIoThreads* eller *minWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under `<processModel>` konfigurations elementet i, som `Machine.config`vanligt vis finns på `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Att ställa in antalet minsta trådar på det här sättet rekommenderas vanligt vis inte, eftersom det är en systemtäckande inställning.**
+* Du kan också ange minsta antal trådar genom att använda [konfigurations inställningen *MinIoThreads* eller *minWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under `<processModel>` konfigurations elementet i, som `Machine.config` vanligt vis finns på `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\` . **Att ställa in antalet minsta trådar på det här sättet rekommenderas vanligt vis inte, eftersom det är en systemtäckande inställning.**
 
   > [!NOTE]
-  > Värdet som anges i det här konfigurations elementet är en inställning *per kärna* . Om du till exempel har en dator med 4 kärnor och vill att *minIoThreads* -inställningen ska vara 200 vid körning använder `<processModel minIoThreads="50"/>`du.
+  > Värdet som anges i det här konfigurations elementet är en inställning *per kärna* . Om du till exempel har en dator med 4 kärnor och vill att *minIoThreads* -inställningen ska vara 200 vid körning använder du `<processModel minIoThreads="50"/>` .
   >
 
 <a name="server-gc"></a>

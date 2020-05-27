@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5f14bf383037bf937629d4307e7a1fb04825d2a7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cc7babdb7b64b12ecc9ef4590a91c7a3683a6558
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743780"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799790"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Skicka ett e-postmeddelande från en runbook
 
@@ -18,7 +18,7 @@ Du kan skicka ett e-postmeddelande från en Runbook med [SendGrid](https://sendg
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har något än kan du [aktivera din prenumeration på MSDN-prenumeranter](https://azure.microsoft.com/pricing/ember-offers/msdn-benefits-details/) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* En Azure-prenumeration. Om du inte har något än kan du [aktivera din prenumeration på MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Ett SendGrid-konto](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
 * [Automation-konto](automation-offering-get-started.md) med **AZ** -moduler.
 * [Kör som-konto](automation-create-runas-account.md) för att lagra och köra runbooken.

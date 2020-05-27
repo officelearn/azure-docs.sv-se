@@ -7,20 +7,20 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6902876e066649ae4dff4134fb8cc462f30dd0b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74084879"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826289"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Lägga till ett VMM-skript i en återställnings plan
 
 Den här artikeln beskriver hur du skapar ett System Center Virtual Machine Manager-skript (VMM) och lägger till det i en återställnings plan i [Azure Site Recovery](site-recovery-overview.md).
 
-Publicera eventuella kommentarer eller frågor längst ned i den här artikeln eller i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publicera eventuella kommentarer eller frågor längst ned i den här artikeln eller på [sidan Microsoft Q&en fråga för Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du kan använda PowerShell-skript i dina återställnings planer. För att kunna nås från återställnings planen måste du skriva skriptet och placera skriptet i VMM-biblioteket. Tänk på följande när du skriver skriptet:
 
@@ -29,7 +29,7 @@ Du kan använda PowerShell-skript i dina återställnings planer. För att kunna
     - Om ett fel inträffar körs inte resten av skriptet.
     - Om ett fel inträffar när du kör en oplanerad redundansväxling fortsätter återställnings planen.
     - Om ett fel inträffar när du kör en planerad redundansväxling stoppas återställnings planen. Korrigera skriptet, kontrol lera att det fungerar som förväntat och kör sedan återställnings planen igen.
-        - `Write-Host` Kommandot fungerar inte i ett återställnings plan skript. Om du använder `Write-Host` kommandot i ett skript, Miss lyckas skriptet. Skapa utdata genom att skapa ett proxy-skript som i sin tur kör huvud skriptet. Använd ** \> ** kommandot för att se till att alla utdata är skickas.
+        - `Write-Host`Kommandot fungerar inte i ett återställnings plan skript. Om du använder `Write-Host` kommandot i ett skript, Miss lyckas skriptet. Skapa utdata genom att skapa ett proxy-skript som i sin tur kör huvud skriptet. Använd kommandot för att se till att alla utdata är skickas **\>\>** .
         - Skriptet nådde tids gränsen om det inte returneras inom 600 sekunder.
         - Om något skrivs till STDERR klassificeras skriptet som misslyckat. Den här informationen visas i skript körnings informationen.
 
@@ -41,11 +41,11 @@ Du kan använda PowerShell-skript i dina återställnings planer. För att kunna
     Mer information finns i [Kom igång med Windows PowerShell och VMM](https://technet.microsoft.com/library/hh875013.aspx).
 * Se till att du har minst en biblioteks server i VMM-distributionen. Som standard finns sökvägen till biblioteks resursen för en VMM-server lokalt på VMM-servern. Mappnamnet är MSCVMMLibrary.
 
-  Om din biblioteks resurs Sök väg är fjärran sluten (eller om den är lokal men inte delas med MSCVMMLibrary) konfigurerar du resursen \\på följande sätt med hjälp av libserver2. contoso. com\share\ som exempel:
+  Om din biblioteks resurs Sök väg är fjärran sluten (eller om den är lokal men inte delas med MSCVMMLibrary) konfigurerar du resursen på följande sätt med hjälp av \\ libserver2. contoso. com\share\ som exempel:
   
   1. Öppna Registereditorn och gå sedan till **HKEY_LOCAL_MACHINE \Software\microsoft\azure site Recovery\Registration**.
 
-  1. Ändra värdet för **ScriptLibraryPath** till ** \\\libserver2.contoso.com\share\\**. Ange fullständigt fullständigt domän namn. Ange behörigheter till resursens plats. Detta är rot-noden för resursen. Om du vill kontrol lera rotnoden i VMM går du till rotnoden i biblioteket. Sökvägen som öppnas är roten till sökvägen. Det här är den sökväg som du måste använda i variabeln.
+  1. Ändra värdet för **ScriptLibraryPath** till ** \\ \libserver2.contoso.com\share \\ **. Ange fullständigt fullständigt domän namn. Ange behörigheter till resursens plats. Detta är rot-noden för resursen. Om du vill kontrol lera rotnoden i VMM går du till rotnoden i biblioteket. Sökvägen som öppnas är roten till sökvägen. Det här är den sökväg som du måste använda i variabeln.
 
   1. Testa skriptet med hjälp av ett användar konto som har samma nivå av användar rättigheter som VMM-tjänstkontot. Genom att använda dessa användar rättigheter verifieras att de fristående, testade skripten körs på samma sätt som de körs i återställnings planer. På VMM-servern anger du körnings principen som ska kringgås enligt följande:
 
@@ -60,9 +60,9 @@ Du kan använda PowerShell-skript i dina återställnings planer. För att kunna
 
 Om du har en VMM-datakälla kan du skapa ett skript på VMM-servern. Ta sedan med skriptet i din återställnings plan.
 
-1. Skapa en ny mapp i biblioteks resursen. Till exempel VMM \<-servernamn> \msscvmmlibrary\rpscripts. Placera mappen på käll-och mål VMM-servrarna.
+1. Skapa en ny mapp i biblioteks resursen. Till exempel \< VMM-servernamn> \msscvmmlibrary\rpscripts. Placera mappen på käll-och mål VMM-servrarna.
 1. Skapa skriptet. Namnge till exempel skriptet RPScript. Kontrol lera att skriptet fungerar som förväntat.
-1. Placera skriptet i \<VMM-serverns namn> \msscvmmlibrary-mappen på käll-och mål VMM-servrarna.
+1. Placera skriptet i VMM- \< serverns namn> \msscvmmlibrary-mappen på käll-och mål VMM-servrarna.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Lägg till skriptet i en återställnings plan
 

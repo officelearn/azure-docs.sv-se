@@ -159,6 +159,8 @@
               href: manage-self-service-access.md
             - name: Upptäckt av hemsfär
               href: configure-authentication-for-federated-users-portal.md
+        - name: 'Automatisera SAML-baserad enkel inloggning med MS Graph API:er'
+          href: application-saml-sso-configure-api.md
         - name: Migrera appar till Azure AD
           items:
             - name: Migreringsresurser

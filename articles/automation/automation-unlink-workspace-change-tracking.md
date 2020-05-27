@@ -5,14 +5,14 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: df2de44c2c8831fa4319b80484a119052434f8fb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2be702ec6e820fe71dd8d2da7aa4cf831b52402e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749111"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828261"
 ---
-# <a name="unlink-workspace-from-automation-account-for-change-tracking-and-inventory"></a>Ta bort länken mellan arbets ytan och automation-kontot för Ändringsspårning och inventering
+# <a name="unlink-workspace-from-automation-account"></a>Ta bort länk mellan arbetsyta och Automation-konto
 
 Du kan välja att inte integrera ditt Automation-konto med en Log Analytics arbets yta när du aktiverar [ändringsspårning-och inventerings](change-tracking.md) åtgärder. I den här artikeln får du information om hur du tar bort länken till arbets ytan från ditt konto.
 
@@ -37,7 +37,5 @@ Du kan också ta bort länken till Log Analytics arbets ytan från ditt Automati
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera Ändringsspårning och inventering](change-tracking-file-contents.md)
-* [Ta bort virtuella datorer från Ändringsspårning och inventering](automation-remove-vms-from-change-tracking.md)
-* [Felsöka ändringar på en virtuell Azure-dator](automation-tutorial-troubleshoot-changes.md)
-* [Felsöka Ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md)
+* Information om hur du arbetar med Ändringsspårning och lager finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
+* Information om hur du felsöker allmänna funktions problem finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

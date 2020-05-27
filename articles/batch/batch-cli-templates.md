@@ -4,18 +4,21 @@ description: Med endast CLI-kommandon kan du skapa en pool, ladda upp indata, sk
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2b1a28c817e0b0aa8047cdd9952065862bda9b73
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726782"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816003"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Använd Azure Batch CLI-mallar och fil överföring
 
-Genom att använda ett Azure Batch-tillägg i Azure CLI kan du köra batch-jobb utan att skriva kod.
+Med ett batch-tillägg till Azure CLI går det att köra batch-jobb utan att skriva kod.
 
 Skapa och Använd filer med JSON-mallar med Azure CLI för att skapa batch-pooler, jobb och uppgifter. Använd CLI-tilläggsbegäranden för att enkelt ladda upp indatafiler till det lagrings konto som är associerat med batch-kontot och hämta utdatafiler.
+
+> [!NOTE]
+> JSON-filer har inte stöd för samma funktioner som [Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md). De är avsedda att formateras som RAW REST-brödtext. CLI-tillägget ändrar inte några befintliga kommandon, men det har ett liknande mall-alternativ som lägger till delvis Azure Resource Manager mall-funktionalitet. Se [Azure Batch CLI-tillägg för Windows, Mac och Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
 ## <a name="overview"></a>Översikt
 
@@ -136,7 +139,7 @@ Om mallfilen hade namnet _pool-ffmpeg. JSON_, så anropa sedan mallen enligt fö
 az batch pool create --template pool-ffmpeg.json
 ```
 
-CLI uppmanas att ange värden för `poolId` `nodeCount` parametrarna och. Du kan också ange parametrarna i en JSON-fil. Till exempel:
+CLI uppmanas att ange värden för `poolId` `nodeCount` parametrarna och. Du kan också ange parametrarna i en JSON-fil. Ett exempel:
 
 ```json
 {

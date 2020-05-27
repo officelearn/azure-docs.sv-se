@@ -366,7 +366,7 @@
         - name: Bygg instrumentpaneler och rapporter
           items:
             - name: Visualisera med Power BI
-              href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect.md
+              href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect
     - name: Felsöka
       items:
         - name: Anslutning
@@ -417,3 +417,5 @@
           href: sql-data-warehouse-partner-data-integration.md
         - name: Datahantering
           href: sql-data-warehouse-partner-data-management.md
+        - name: Offentlig förhandsversion – partner
+          href: sql-data-warehouse-partner-launch.md

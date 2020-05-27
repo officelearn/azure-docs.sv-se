@@ -2,13 +2,13 @@
 title: Ogiltiga mal linne fel
 description: Beskriver hur du löser ogiltiga fel i mallar när du distribuerar Azure Resource Manager-mallar.
 ms.topic: troubleshooting
-ms.date: 03/08/2018
-ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/22/2020
+ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76154065"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832529"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Åtgärda fel med en ogiltig mall
 
@@ -130,7 +130,7 @@ Kontrol lera de tillåtna värdena i mallen och ange en under distribution. Mer 
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Lösning 4-för många mål resurs grupper
 
-Om du anger fler än fem mål resurs grupper i en enda distribution visas det här felet. Överväg att antingen konsolidera antalet resurs grupper i distributionen eller distribuera några av mallarna som separata distributioner. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-resource-group-deployment.md).
+Du kan se det här felet i tidigare distributioner eftersom du var begränsad till fem mål resurs grupper i en enda distribution. I maj 2020 ökade gränsen till 800 resurs grupper. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-resource-group-deployment.md).
 
 <a id="circular-dependency" />
 

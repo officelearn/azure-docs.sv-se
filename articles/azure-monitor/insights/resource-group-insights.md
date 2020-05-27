@@ -7,16 +7,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06bdedf1dac92a2010718ffd3eb5c6e43bb51e6c
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663546"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798128"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Övervaka resurs grupper med Azure Monitor (för hands version)
 
-Moderna program är ofta komplexa och mycket distribuerade med många diskreta delar som arbetar tillsammans för att leverera en tjänst. Den här komplexiteten är att Azure Monitor ger övervaknings insikter för resurs grupper. Detta gör det enkelt att prioritering och diagnostisera eventuella problem som kan uppstå för enskilda resurser, samtidigt som den erbjuder kontext och prestanda för resurs gruppen&mdash;och ditt program&mdash;som helhet.
+Moderna program är ofta komplexa och mycket distribuerade med många diskreta delar som arbetar tillsammans för att leverera en tjänst. Den här komplexiteten är att Azure Monitor ger övervaknings insikter för resurs grupper. Detta gör det enkelt att prioritering och diagnostisera eventuella problem som kan uppstå för enskilda resurser, samtidigt som den erbjuder kontext och prestanda för resurs gruppen &mdash; och ditt program &mdash; som helhet.
 
 ## <a name="access-insights-for-resource-groups"></a>Få åtkomst till insikter för resurs grupper
 
@@ -117,6 +117,6 @@ Azure Monitor för resurs grupper förlitar sig på Azure Monitor aviserings han
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Azure Monitor aviseringar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)

@@ -5,21 +5,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/18/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 65d314634648582bfcd7bd4c787c7b9e3184093a
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 8a3fd674e1b8b9ba93a9bfb026daaa714aac5780
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715261"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83806562"
 ---
-## <a name="run-the-spx-tool"></a>Köra SPX-verktyget
+## <a name="run-the-speech-cli"></a>Kör tal-CLI
 
-Nu är du redo att köra SPX-verktyget för att syntetisera tal från text.
+Nu är du redo att köra tal-CLI för att syntetisera tal från text.
 
-Från kommando raden ändrar du till den katalog som innehåller den binära fil som innehåller SPX-verktyget och skriver:
+Från kommando raden ändrar du till den katalog som innehåller den binära filen för tal-CLI och skriver:
 
 ```bash
 spx synthesize --text "The speech synthesizer greets you!"
 ```
 
-SPX-verktyget kommer att producera naturligt språk på engelska via datorns högtalare.
+Tal-CLI kommer att producera naturligt språk på engelska via datorns högtalare.

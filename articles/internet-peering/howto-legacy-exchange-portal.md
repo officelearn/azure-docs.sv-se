@@ -3,17 +3,17 @@ title: Konvertera en äldre Exchange-peering till en Azure-resurs med hjälp av 
 titleSuffix: Azure
 description: Konvertera en äldre Exchange-peering till en Azure-resurs med hjälp av Azure Portal
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: 87a7a6bca608f1748d3b659eabdc3e941b537377
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/21/2020
+ms.author: derekol
+ms.openlocfilehash: ca26189709405ca6dc0d2954bd98f0d933963bf4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678562"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800834"
 ---
 # <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-the-azure-portal"></a>Konvertera en äldre Exchange-peering till en Azure-resurs med hjälp av Azure Portal
 
@@ -26,8 +26,30 @@ Om du vill kan du slutföra den här guiden med hjälp av [PowerShell](howto-leg
 
 ## <a name="convert-a-legacy-exchange-peering-to-an-azure-resource"></a>Konvertera en äldre Exchange-peering till en Azure-resurs
 
-### <a name="sign-in-to-the-portal-and-select-your-subscription"></a>Logga in på portalen och välj din prenumeration
-[!INCLUDE [Account](./includes/account-portal.md)]
+Som en Internet Exchange-Provider kan du skapa en direkt peering-begäran genom att [skapa en peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
+
+1. På sidan **skapa en peering** , på fliken **grundläggande** , fyller du i rutorna som visas här:
+
+>    [!div class="mx-imgBorder"]
+>   ![Registrera Peering Service](./media/setup-basics-tab.png)
+
+* Välj din Azure-prenumeration.
+
+* För resurs grupp kan du antingen välja en befintlig resurs grupp i list rutan eller skapa en ny grupp genom att välja Skapa ny. Vi ska skapa en ny resurs grupp för det här exemplet.
+
+* Namnet motsvarar resurs namnet och kan vara allt du väljer.
+
+* Regionen väljs automatiskt om du väljer en befintlig resurs grupp. Om du väljer att skapa en ny resurs grupp måste du också välja den Azure-region där du vill att resursen ska finnas.
+
+>[!NOTE]
+    Den region där en resurs grupp finns är oberoende av den plats där du vill skapa peering med Microsoft. Men det är en bra idé att organisera dina peering-resurser i resurs grupper som finns i de närmaste Azure-regionerna. För peering i Ashburn kan du till exempel skapa en resurs grupp i USA, östra eller östra 2; USA.
+
+* Välj ditt ASN i rutan **PeerASN** .
+
+>[!IMPORTANT]  
+    Du kan bara välja ett ASN med ValidationState som godkänd innan du skickar en peering-begäran. Om du precis skickat in din PeerAsn-begäran, vänta i 12 timmar eller så att ASN-associationen kan godkännas. Om det ASN du väljer är väntande verifiering visas ett fel meddelande. Om du inte ser det ASN du behöver välja, kontrollerar du att du har valt rätt prenumeration. Om så är fallet kontrollerar du om du redan har skapat PeerAsn genom att använda **[associera peer-ASN till Azure-prenumerationen](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+
+* Välj **Nästa: konfiguration** för att fortsätta.
 
 ### <a name="convert-legacy-exchange-peering"></a><a name=create></a>Konvertera äldre Exchange-peering
 

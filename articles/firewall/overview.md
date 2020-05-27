@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/19/2020
+ms.date: 05/22/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b54e8efc4f5f22a89526bb5d529805b33371529f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2f466c71673c9239f6f984f838d050af8bf52182
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655117"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816071"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -61,15 +61,15 @@ Du kan centralt skapa nätverksfiltreringsreglerna *tillåt* eller *neka* efter 
 
 ## <a name="fqdn-tags"></a>FQDN-taggar
 
-FQDN-Taggar gör det enkelt för dig att tillåta en välkänd Azure-tjänstenätverks trafik genom brand väggen. Anta exempelvis att du vill tillåta Windows Update-nätverkstrafik via brandväggen. Du skapar en programregel och inkluderar Windows Update-taggen. Nätverkstrafik från Windows Update kan nu flöda genom brandväggen.
+[FQDN-Taggar](fqdn-tags.md) gör det enkelt för dig att tillåta en välkänd Azure-tjänstenätverks trafik genom brand väggen. Anta exempelvis att du vill tillåta Windows Update-nätverkstrafik via brandväggen. Du skapar en programregel och inkluderar Windows Update-taggen. Nätverkstrafik från Windows Update kan nu flöda genom brandväggen.
 
 ## <a name="service-tags"></a>Tjänsttaggar
 
-En tjänsttagg representerar en grupp IP-adressprefix och används i syfte att minska komplexiteten vid skapande av säkerhetsregler. Du kan inte skapa en egen service tag eller ange vilka IP-adresser som ska ingå i en tagg. Microsoft hanterar adressprefix som omfattas av tjänsttaggen och uppdaterar automatiskt tjänsttaggen när adresserna ändras.
+En [service tag](service-tags.md) -uppsättning representerar en grupp med IP-adressprefix för att minimera komplexiteten för att skapa säkerhets regler. Du kan inte skapa en egen service tag eller ange vilka IP-adresser som ska ingå i en tagg. Microsoft hanterar adressprefix som omfattas av tjänsttaggen och uppdaterar automatiskt tjänsttaggen när adresserna ändras.
 
 ## <a name="threat-intelligence"></a>Hotinformation
 
-Threat Intelligence-baserad filtrering kan aktive ras för brand väggen för att varna och neka trafik från/till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna är källor från Microsoft Threat Intelligence-flödet.
+[Threat Intelligence](threat-intel.md)-baserad filtrering kan aktive ras för brand väggen för att varna och neka trafik från/till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna är källor från Microsoft Threat Intelligence-flödet.
 
 ## <a name="outbound-snat-support"></a>Stöd för utgående SNAT
 
@@ -83,7 +83,7 @@ Inkommande Internet nätverks trafik till din offentliga brand Väggs IP-adress 
 
 ## <a name="multiple-public-ip-addresses"></a>Flera offentliga IP-adresser
 
-Du kan associera flera offentliga IP-adresser (upp till 250) med brand väggen.
+Du kan associera [flera offentliga IP-adresser](deploy-multi-public-ip-powershell.md) (upp till 250) med brand väggen.
 
 Detta möjliggör följande scenarier:
 
@@ -92,7 +92,7 @@ Detta möjliggör följande scenarier:
 
 ## <a name="azure-monitor-logging"></a>Azure Monitor-loggning
 
-Alla händelser är integrerade med Azure Monitor, vilket gör att du kan arkivera loggar till ett lagringskonto, strömma händelser till din händelsehubb eller skicka dem till Azure Monitor-loggar.
+Alla händelser är integrerade med Azure Monitor, vilket gör att du kan arkivera loggar till ett lagringskonto, strömma händelser till din händelsehubb eller skicka dem till Azure Monitor-loggar. Mer information finns i [Självstudier: övervaka Azure Firewall-loggar och-mått](tutorial-diagnostics.md).
 
 ## <a name="forced-tunneling"></a>Tvingad tunneltrafik
 

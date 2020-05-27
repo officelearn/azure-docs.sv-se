@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 248cbd42d86371742ad4985b515d70d022722385
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3cc75fb34f0a828eccfed3951e84a1c463d4cfb7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744934"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828890"
 ---
 # <a name="use-source-control-integration"></a>Använda källkontrollsintegrering
 
@@ -26,7 +26,7 @@ Azure Automation stöder tre typer av käll kontroll:
 * Azure-databaser (git)
 * Azure-databaser (TFVC)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett lagrings lager för käll kontroll (GitHub eller Azure databaser)
 * Ett [Kör som-konto](manage-runas-account.md)
@@ -62,7 +62,7 @@ Använd den här proceduren för att konfigurera käll kontroll med Azure Portal
     |Mappsökväg     | Mapp som innehåller Runbooks som ska synkroniseras, till exempel **/Runbooks**. Endast Runbooks i den angivna mappen synkroniseras. Rekursion stöds inte.        |
     |Automatisk synkronisering<sup>1</sup>     | Inställning som aktiverar eller inaktiverar automatisk synkronisering när ett genomförande görs i käll kontrollens lagrings plats.        |
     |Publicera Runbook     | Inställning av på om Runbooks publiceras automatiskt efter synkronisering från käll kontroll och av annat sätt.           |
-    |Beskrivning     | Text som anger ytterligare information om käll kontrollen.        |
+    |Description     | Text som anger ytterligare information om käll kontrollen.        |
 
     <sup>1</sup> om du vill aktivera automatisk synkronisering när du konfigurerar käll kontrolls integrering med Azure databaser måste du vara projekt administratör.
 
@@ -111,7 +111,7 @@ Käll kontrollen kräver vissa minimi behörigheter för PATs. Följande underav
 
 I följande tabell definieras de lägsta PAT-behörigheter som krävs för GitHub. Mer information om hur du skapar en PAT i GitHub finns i [skapa en personlig åtkomsttoken för kommando raden](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Omfång  |Beskrivning  |
+|Omfång  |Description  |
 |---------|---------|
 |**`repo`**     |         |
 |`repo:status`     | Status för åtkomst genomförande         |
@@ -123,7 +123,7 @@ I följande tabell definieras de lägsta PAT-behörigheter som krävs för GitHu
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Lägsta PAT-behörigheter för Azure databaser
 
-I följande lista definieras de lägsta PAT-behörigheter som krävs för Azure databaser. Mer information om hur du skapar en PAT i Azure databaser finns i [autentisera åtkomst med personliga](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)åtkomsttoken.
+I följande lista definieras de lägsta PAT-behörigheter som krävs för Azure databaser. Mer information om hur du skapar en PAT i Azure databaser finns i [autentisera åtkomst med personliga](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)åtkomsttoken.
 
 | Omfång  |  Åtkomst typ  |
 |---------| ----------|
@@ -196,16 +196,16 @@ Så här kopplar du bort från en lagrings plats för käll kontroll:
 
 ## <a name="handle-encoding-issues"></a>Hantera kodnings problem
 
-Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med olika redigerare kan kodnings problem uppstå. Läs mer om den här situationen i [vanliga orsaker till kodnings problem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
+Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med olika redigerare kan kodnings problem uppstå. Läs mer om den här situationen i [vanliga orsaker till kodnings problem](https://docs.microsoft.com/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
 
 ## <a name="update-the-pat"></a>Uppdatera PAT
 
 För närvarande kan du inte använda Azure Portal för att uppdatera PAT i käll kontrollen. När din PAT har upphört att gälla eller återkallats kan du uppdatera käll kontrollen med en ny åtkomsttoken på något av följande sätt:
 
 * Använd [REST API](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
-* Använd cmdleten [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) .
+* Använd cmdleten [Update-AzAutomationSourceControl](https://docs.microsoft.com//powershell/module/az.automation/update-azautomationsourcecontrol) .
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure Automation: käll kontroll integrering i Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-* [Azure Automation: integrera Runbook käll kontroll med Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* För att integrera käll kontroll i Azure Automation, se [Azure Automation: käll kontroll integrering i Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
+* Information om hur du integrerar Runbook-åtkomstkontroll med Visual Studio Online finns i [Azure Automation: integrera Runbook-källkod med Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

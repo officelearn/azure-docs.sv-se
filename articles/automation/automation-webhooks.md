@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: e61c8b9af04ce9157179d464c1a49ce685c6913f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2578e15a60b2021d9e599018043c4834d0c07d34
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744729"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830505"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Starta ett Runbook-flöde från en webhook
 
@@ -113,7 +113,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 Klienten får en av följande retur koder från `POST` begäran.
 
-| Kod | Text | Beskrivning |
+| Kod | Text | Description |
 |:--- |:--- |:--- |
 | 202 |Har godkänts |Begäran accepterades och Runbook har placerats i kö. |
 | 400 |Felaktig begäran |Begäran godtogs inte av någon av följande orsaker: <ul> <li>Webhooken har upphört att gälla.</li> <li>Webhooken är inaktive rad.</li> <li>Token i URL: en är ogiltig.</li>  </ul> |
@@ -237,4 +237,4 @@ Följande bild visar den begäran som skickas från Windows PowerShell och det r
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda en avisering för att utlösa en Azure Automation Runbook](automation-create-alert-triggered-runbook.md)
+* Information om hur du utlöser en Runbook från en avisering finns i [använda en avisering för att utlösa en Azure Automation Runbook](automation-create-alert-triggered-runbook.md).

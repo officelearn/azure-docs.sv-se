@@ -16,24 +16,24 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1a657a7d57b3e725b0ae92b5110935c0aecf73f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec59aa830fe314332d17091f17ef81d4a1d65470
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75533855"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833412"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Maxient utföra Manager-programvara
 
 I den här självstudien får du lära dig hur du integrerar Maxient med program vara med Azure Active Directory (Azure AD). När du integrerar Maxient Driver Manager med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Maxient sköt Manager-programvara.
+* Använd Azure AD för att autentisera dina användare för Maxient utföra Manager-programvaran
 * Gör det möjligt för användarna att logga in automatiskt till Maxient utföra Manager-programvara med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -42,8 +42,7 @@ För att komma igång behöver du följande objekt:
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
-
+I den här självstudien konfigurerar du din Azure AD för användning med Maxient utföra Manager-programvara.
 
 
 * Maxient utföra Manager-programvara stöder **SP-och IDP** -INITIERAd SSO
@@ -65,16 +64,13 @@ Om du vill konfigurera integrering av Maxient med Manager-programvara i Azure AD
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-maxient-conduct-manager-software"></a>Konfigurera och testa enkel inloggning med Azure AD för Maxient utföra Manager-programvara
 
-Konfigurera och testa Azure AD SSO med Maxient utföra Manager-programvara med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Maxient utföra Manager-programvara.
+Konfigurera och testa Azure AD SSO med Maxient utföra Manager-programvara. För att SSO ska fungera måste du upprätta en anslutning mellan Azure AD och Maxient utföra Manager-programvaran.
 
 Om du vill konfigurera och testa Azure AD SSO med Maxient utföra Manager-programvara slutför du följande Bygg stenar:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera Maxient utföra Manager-programvara](#configure-maxient-conduct-manager-software-sso)** för enkel inloggning för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa Maxient utföra Manager program vara](#create-maxient-conduct-manager-software-test-user)** för att få en motsvarighet till B. Simon i Maxient utföra Manager-programvara som är länkad till Azure AD-representation av användare.
-1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan autentiseras för användning med Maxient utföra Manager-programvaran
+    1. **[Tilldela alla användare att använda Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-Maxient-Conduct-Manager-Software)** – så att alla på din institution kan autentisera sig.
+1. **[Testa Azure AD-installationen med Maxient](#test-with-maxient)** – för att kontrol lera om konfigurationen fungerar och rätt attribut släpps
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
@@ -86,34 +82,22 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
+1. I avsnittet **grundläggande SAML-konfiguration**   är programmet förkonfigurerat i **IDP**   initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara**   .
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://cm.maxient.com/<SCHOOLCODE>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Maxient be Manager](mailto:support@maxient.com) -klientprogrammet för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Arbeta med din Maxient-implementering/support-representant för att hämta värdet.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.  Du måste ange din Maxient-implementering/support-representant med denna URL.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+### <a name="assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software"></a>Tilldela alla användare för att kunna autentisera sig för Maxient utföra Manager-programvaran
 
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
-
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
-   1. Klicka på **Skapa**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
-
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Maxient utföra Manager-programvara.
+I det här avsnittet får du beviljar åtkomst för alla konton att autentisera med hjälp av Azure-systemet för Maxient utföra Manager-programvaran.  Det är viktigt att Observera att det här steget **krävs** för att Maxient ska fungera korrekt.  Maxient utnyttjar ditt Azure AD-system för att *autentisera* användare. *Auktoriseringen* av användare utförs i Maxient-systemet för den specifika funktion som de försöker utföra. Maxient använder inte attribut från din katalog för att fatta beslut.
 
 1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
 1. I listan program väljer du **Maxient Driver Manager-programvara**.
@@ -125,24 +109,12 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
+1. I dialog rutan **användare och grupper** väljer du alla användare (eller lämpliga grupper) och **tilldelar** dem att kunna autentisera med Maxient.
 
-## <a name="configure-maxient-conduct-manager-software-sso"></a>Konfigurera Maxient utföra Manager-programvara med enkel inloggning
+## <a name="test-with-maxient"></a>Testa med Maxient 
 
-Om du vill konfigurera enkel inloggning på **Maxient utföra Manager-programvara** måste du skicka **URL: en för appens Federations-metadata** till [Maxient do Manager Software support team](mailto:support@maxient.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
-
-### <a name="create-maxient-conduct-manager-software-test-user"></a>Skapa Maxient utföra Manager program vara test användare
-
-I det här avsnittet skapar du en användare som heter Britta Simon i Maxient Driver Manager-programvaran. Arbeta med [support teamet för Maxient support Manager](mailto:support@maxient.com) för att lägga till användarna i Maxient Driver Manager-programvaran. Användare måste skapas och aktiveras innan du använder enkel inloggning.
-
-## <a name="test-sso"></a>Testa SSO 
-
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
-
-När du klickar på program varu panelen Maxient up Manager på åtkomst panelen, bör du loggas in automatiskt på Maxient utföra Manager-programvaran för vilken du konfigurerar SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
+Om ett support ärende inte redan har öppnats med en Maxient implementering/support-representant, skickar du ett e-postmeddelande till [support@maxient.com](mailto:support@maxient.com) med ämnet "Campus-baserad autentisering/Azure-installation- \< \< skolans namn \> \> ". I e-postmeddelandets brödtext anger du **URL: en för appens federationens metadata**. Maxient personal kommer att svara med en test länk för att kontrol lera att rätt attribut släpps.  
+    
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)

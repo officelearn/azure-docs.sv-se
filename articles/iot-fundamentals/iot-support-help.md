@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 1/23/2020
-ms.openlocfilehash: c40aa9b0a94940f48a8edbd046a744678f02cbd2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e5dfdd41d3770cc49ed7a1e40ad6fbb12e5b10ea
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76775398"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827243"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Support och hjälp för Azure IoT
 
@@ -53,11 +53,11 @@ För att diskutera Azure-teknik och-tjänster för att skapa IoT-lösningar. MSD
 
 Om du inte hittar något svar på problemet via sökning skickar du en ny fråga till MSDN i det service-relaterade forumet:
 
-- [Azure Digital Twins](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredigitaltwins)
-- [Azure IoT Hub](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureiothub)
-- [Azure IoT Edge](https://social.msdn.microsoft.com/Forums/en-US/home?forum=iotedge)
-- [Azure Maps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelbs)
-- [Azure Time Series Insights](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights)
+- [Sidan Microsoft Q&en fråga för Azure Digitals, dubbla](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
+- [Sidan Microsoft Q&en fråga för Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
+- [Sidan Microsoft Q&en fråga för Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
+- [Sidan Microsoft Q&en fråga för Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
+- [Sidan Microsoft Q&en fråga för Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
 
 ## <a name="submit-feedback-on-azure-feedback"></a>Skicka feedback om feedback från Azure
 

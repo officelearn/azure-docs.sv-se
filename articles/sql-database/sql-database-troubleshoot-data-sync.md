@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: d6ea604446cb9d56bb699685d24c81992bcac3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79d7bd57ff4ba5533caba1927703ea545e077f2c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382898"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830437"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Felsöka problem med SQL Data Sync
 
@@ -39,7 +39,7 @@ En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lok
 
 - [Jag ser en betydande försämring i prestandan](#sync-perf)
 
-- [Jag ser det här meddelandet: "det går inte att infoga värdet NULL \<i kolumn kolumnen>. Kolumnen tillåter inte null-värden. " Vad betyder detta, och hur kan jag åtgärda det?](#sync-nulls)
+- [Jag ser det här meddelandet: "det går inte att infoga värdet NULL i kolumn \< kolumnen>. Kolumnen tillåter inte null-värden. " Vad betyder detta, och hur kan jag åtgärda det?](#sync-nulls)
 
 - [Hur hanterar data synkronisering cirkel referenser? Det vill säga när samma data har synkroniserats i flera Sync-grupper och håller på att ändras till följd av detta?](#sync-circ)
 
@@ -78,7 +78,7 @@ Något av följande villkor kan resultera i att en synkroniseringsresurs fastnar
     1. Om tjänstens status är **stoppad**högerklickar du på tjänstens namn och väljer sedan **Starta**.
 
 > [!NOTE]
-> Om föregående information inte flyttar din synkroniserade grupp från bearbetnings tillståndet kan Microsoft Support återställa statusen för din Sync-grupp. Skapa ett inlägg i [Azure SQL Database-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)för att återställa synkroniseringsstatus. I inlägget inkluderar du ditt prenumerations-ID och ID för Sync-gruppen för den grupp som måste återställas. En Microsoft Support-tekniker kommer att svara på ditt inlägg och kommer att meddela dig när statusen har återställts.
+> Om föregående information inte flyttar din synkroniserade grupp från bearbetnings tillståndet kan Microsoft Support återställa statusen för din Sync-grupp. Om du vill återställa statusen för din synkroniseringsstatus på [sidan Microsoft Q&en fråga för Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html)skapar du ett inlägg. I inlägget inkluderar du ditt prenumerations-ID och ID för Sync-gruppen för den grupp som måste återställas. En Microsoft Support-tekniker kommer att svara på ditt inlägg och kommer att meddela dig när statusen har återställts.
 
 ### <a name="i-see-erroneous-data-in-my-tables"></a><a name="sync-baddata"></a>Jag ser felaktiga data i mina tabeller
 
@@ -104,7 +104,7 @@ Prestandan försämras kraftigt, eventuellt till den punkt där du inte ens kan 
 
 - **Lösning**. Den bästa korrigeringen är förebyggande. Se till att du inte har cirkel referenser i dina Sync-grupper. Alla rader som synkroniseras av en Sync-grupp kan inte synkroniseras av en annan Sync-grupp.
 
-### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a>Jag ser det här meddelandet: "det går inte att infoga värdet NULL \<i kolumn kolumnen>. Kolumnen tillåter inte null-värden. " Vad betyder detta, och hur kan jag åtgärda det? 
+### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a>Jag ser det här meddelandet: "det går inte att infoga värdet NULL i kolumn \< kolumnen>. Kolumnen tillåter inte null-värden. " Vad betyder detta, och hur kan jag åtgärda det? 
 Det här fel meddelandet anger att ett av följande två problem har inträffat:
 -  En tabell har ingen primär nyckel. Åtgärda problemet genom att lägga till en primär nyckel i alla tabeller som du synkroniserar.
 -  Det finns en WHERE-sats i CREATE INDEX-instruktionen. Datasynkroniseringen hanterar inte det här tillståndet. Åtgärda problemet genom att ta bort WHERE-satsen eller manuellt göra ändringarna i alla databaser. 
@@ -138,7 +138,7 @@ Information om hur du felsöker problem med klient agenten finns i [Felsöka pro
 
 - **Orsak**. Meddelandet "disk slut på utrymme" kan visas om överblivna filer behöver tas bort. Detta kan bero på antivirus program eller att filer är öppna när borttagnings åtgärder görs.
 
-- **Lösning**. Ta bort de synkroniserade filer som finns i mappen% Temp% (`del \*sync\* /s`) manuellt. Ta sedan bort under katalogerna i mappen% Temp%.
+- **Lösning**. Ta bort de synkroniserade filer som finns i mappen% Temp% ( `del \*sync\* /s` ) manuellt. Ta sedan bort under katalogerna i mappen% Temp%.
 
 > [!IMPORTANT]
 > Ta inte bort några filer medan synkroniseringen pågår.
@@ -193,7 +193,7 @@ Det gick inte att ta bort en synkroniseringsresurs. Något av följande scenarie
 
 - **Lösning**. Tilldela användar kontot inloggnings uppgifter för logga in som en tjänst:
 
-  1. Gå till **Start** > **kontroll panelen** > **administrations verktyg** > **lokal** > **princip** > **användare Rights Management**på lokal säkerhets princip.
+  1. Gå till **Start**  >  **kontroll panelen**  >  **administrations verktyg**  >  **lokal**  >  **princip**  >  **användare Rights Management**på lokal säkerhets princip.
   1. Välj **Logga in som en tjänst**.
   1. Lägg till användar kontot i dialog rutan **Egenskaper** .
   1. Tryck på **Tillämpa** och välj sedan **OK**.

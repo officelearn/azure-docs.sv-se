@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff92ae0763a7e8cc10e89b0eb1a73fdbed6323b4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76987030"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834228"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Kom igång med Elastic Database verktyg
 
@@ -24,7 +24,7 @@ I det här dokumentet får du en introduktion till utvecklaren för [klient bibl
 
 ## <a name="elastic-database-tools-for-java"></a>Elastic Database verktyg för Java
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * Java Developer Kit (JDK), version 1,8 eller senare
 * [Maven](https://maven.apache.org/download.cgi)
@@ -70,7 +70,7 @@ Om du vill lägga till klient biblioteket i ditt eget Maven-projekt lägger du t
 
 ## <a name="elastic-database-tools-for-net"></a>Elastic Database verktyg för .NET
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * Visual Studio 2012 eller senare med C#. Ladda ned en kostnads fri version vid [hämtning av Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2,7 eller senare. För att hämta den senaste versionen, se [Installera NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
@@ -132,7 +132,7 @@ Mer information om Elastic Database-verktyg finns i följande artiklar:
   * [Shard Elastiskhet i Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blogg: [meddelande om elastisk skalning](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * Kanal 9: [Översikt över elastisk skalning](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Diskussions forum: [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+* Diskussions forum: [Microsoft Q&en fråge sida för Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
 * För att mäta prestanda: [prestanda räknare för Shard Map Manager](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->

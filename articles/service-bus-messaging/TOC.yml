@@ -184,6 +184,8 @@
           href: service-bus-nodejs-how-to-use-topics-subscriptions.md
     - name: Hantera
       items:
+        - name: Uppdatera meddelandeenheter automatiskt
+          href: automate-update-messaging-units.md
         - name: Etablera entiteter med Azure PowerShell
           href: service-bus-manage-with-ps.md
         - name: Övervaka Service Bus med Azure Monitor
@@ -194,6 +196,8 @@
           href: service-bus-diagnostic-logs.md
         - name: Skjut upp och återaktivera meddelandeentiteter
           href: entity-suspend.md
+        - name: Använda Service Bus Explorer för att utföra dataåtgärder med Service Bus
+          href: explorer.md
         - name: Använda ARM-mallar
           href: service-bus-resource-manager-overview.md
           items:
@@ -209,7 +213,7 @@
           href: service-bus-ip-filtering.md
         - name: Konfigurera tjänstslutpunkter för virtuellt nätverk
           href: service-bus-service-endpoints.md
-        - name: Konfigurera privata slutpunkter (förhandsversion)
+        - name: Konfigurera privata slutpunkter
           href: private-link-service.md
         - name: Konfigurera kundhanterade nycklar
           href: configure-customer-managed-key.md

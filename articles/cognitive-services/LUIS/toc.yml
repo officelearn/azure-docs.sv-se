@@ -42,8 +42,6 @@
         - name: 2. Extrahera användardata
           href: tutorial-machine-learned-entity.md
           displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
-        - name: 3. Extrahera sentiment från användaryttranden
-          href: tutorial-publish-settings.md
     - name: Förbättra appen
       items:
         - name: Åtgärda osäkra förutsägelser
@@ -379,7 +377,7 @@
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Anpassad entitetsreferens
       items:
-        - name: Maskininlärd enhet
+        - name: Enhet för maskininlärning
           href: reference-entity-machine-learned-entity.md
         - name: Sammansatt entitet
           href: reference-entity-composite.md

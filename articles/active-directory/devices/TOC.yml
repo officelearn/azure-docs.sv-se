@@ -17,7 +17,7 @@
       href: hybrid-azuread-join-manual.md
     - name: Konfigurera Azure AD-anslutning under första körningen av Windows 10
       href: azuread-joined-devices-frx.md
-- name: Koncept
+- name: Begrepp
   expanded: true
   items:
     - name: Azure AD-registrerade enheter
@@ -32,7 +32,7 @@
       href: concept-primary-refresh-token.md
     - name: Hanterade Azure-arbetsstationer
       href: concept-azure-managed-workstation.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: false
   items:
     - name: Planera implementeringen av Azure AD-anslutningen
@@ -81,9 +81,9 @@
   items:
     - name: Azures feedbackforum
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
-    - name: Priser
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Tjänstuppdateringar
       href: ../fundamentals/whats-new.md

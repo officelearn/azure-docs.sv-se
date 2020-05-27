@@ -138,6 +138,8 @@
           href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Använda SMS-baserad autentisering (förhandsversion)
       href: howto-authentication-sms-signin.md
+    - name: Använd inloggning med e-postadress (förhandsversion)
+      href: howto-authentication-use-email-signin.md
     - name: Smart utlåsning i Azure AD
       href: howto-password-smart-lockout.md
     - name: Certifikatbaserad autentisering
@@ -223,8 +225,8 @@
   items:
     - name: Azures feedbackforum
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Tjänstuppdateringar

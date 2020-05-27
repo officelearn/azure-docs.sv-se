@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 69c613de02b9601966cae2d36c13428ca6c7becc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 565d98bd5f27351f16ff523aa017c4b980fbdd53
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121005"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827274"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Lodrät autoskalning med skalnings uppsättningar för virtuella datorer
 
@@ -153,8 +153,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 Mer information om hur du skapar aviseringar finns i följande artiklar:
 
-* [Azure Monitor PowerShell snabb starts exempel](../azure-monitor/platform/powershell-quickstart-samples.md)
-* [Azure Monitor cross-platform CLI snabb starts exempel](../azure-monitor/platform/cli-samples.md)
+* [Azure Monitor PowerShell-exempel](../azure-monitor/samples/powershell-samples.md)
+* [Azure Monitor cross-platform CLI-exempel](../azure-monitor/samples/cli-samples.md)
 
 ## <a name="summary"></a>Sammanfattning
 

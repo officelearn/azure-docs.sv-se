@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: fac6a3b55f4a9150e827682cb3a134c203231978
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744951"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828941"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Använd käll kontroll integrering i Azure Automation-bakåtkompatibelt
 
@@ -38,7 +38,7 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
 
 2. Sidan käll kontroll öppnas där du kan konfigurera dina GitHub-konto uppgifter. Nedan visas en lista över de parametrar som du kan konfigurera:  
 
-   | **Parameter** | **Beskrivning** |
+   | **ProfileServiceApplicationProxy** | **Beskrivning** |
    |:--- |:--- |
    | Välj källa |Välj källa. För närvarande stöds endast **GitHub** . |
    | Auktorisering |Klicka på knappen **auktorisera** för att ge Azure Automation åtkomst till din GitHub-lagringsplats. Om du redan är inloggad på ditt GitHub-konto i ett annat fönster används autentiseringsuppgifterna för kontot. När auktoriseringen är klar visar sidan ditt GitHub-användarnamn under **egenskapen Authorization**. |
@@ -60,7 +60,7 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
 
    * Variabeln **Microsoft. Azure. Automation. SourceControl. Connection** innehåller värdena för anslutnings strängen, som visas nedan.  
 
-     | **Parameter** | **Värde** |
+     | **ProfileServiceApplicationProxy** | **Värde** |
      |:--- |:--- |
      | `Name`  |Microsoft. Azure. Automation. SourceControl. Connection |
      | `Type`  |Sträng |
@@ -68,7 +68,7 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
 
    * Variabeln **Microsoft. Azure. Automation. SourceControl. OAuthToken**innehåller det säkra krypterade värdet för din OAuthToken.  
 
-     |**Parameter**            |**Värde** |
+     |**ProfileServiceApplicationProxy**            |**Värde** |
      |:---|:---|
      | `Name`  | `Microsoft.Azure.Automation.SourceControl.OAuthToken` |
      | `Type`  | `Unknown(Encrypted)` |
@@ -132,5 +132,5 @@ Om du vill koppla från ditt GitHub-konto öppnar du sidan databas synkroniserin
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure Automation: käll kontroll integrering i Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-* [Azure Automation: integrera Runbook käll kontroll med Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* För att integrera käll kontroll i Azure Automation, se [Azure Automation: käll kontroll integrering i Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
+* Information om hur du integrerar Runbook-åtkomstkontroll med Visual Studio Online finns i [Azure Automation: integrera Runbook-källkod med Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).  

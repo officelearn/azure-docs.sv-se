@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73954382"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829791"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Konfigurera en Linux-huvudmålserver för återställning efter fel
 När du har växlat över dina virtuella datorer till Azure kan du återställa de virtuella datorerna till den lokala platsen. Om du vill återställa den virtuella datorn från Azure till den lokala platsen måste du återställa den virtuella datorn från Azure. För den här processen behöver du en lokal huvud mål server för att ta emot trafiken. 
@@ -27,9 +27,9 @@ Om den skyddade virtuella datorn är en virtuell Windows-dator behöver du ett W
 ## <a name="overview"></a>Översikt
 Den här artikeln innehåller anvisningar för hur du installerar ett Linux-huvud mål.
 
-Publicera kommentarer eller frågor i slutet av den här artikeln eller i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publicera kommentarer eller frågor i slutet av den här artikeln eller på [sidan Microsoft Q&en fråga för Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du vill välja den värd som ska användas för att distribuera huvud målet kontrollerar du om återställning efter fel återställningen kommer till en befintlig lokal virtuell dator eller till en ny virtuell dator. 
     * För en befintlig virtuell dator ska värden för huvud målet ha åtkomst till den virtuella datorns data lager.
@@ -160,7 +160,7 @@ För att hämta ID för varje SCSI-hårddisk på en virtuell Linux-dator, **disk
 
 3. Välj fliken **alternativ** .
 
-4. Välj **Avancerad** > **allmän**i den vänstra rutan och välj sedan knappen **konfigurations parametrar** på den nedre högra delen av skärmen.
+4. Välj **Avancerad**allmän i den vänstra rutan  >  **General**och välj sedan knappen **konfigurations parametrar** på den nedre högra delen av skärmen.
 
     ![Öppna konfigurations parameter](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
@@ -244,7 +244,7 @@ Använd följande steg för att skapa en lagrings disk:
 
     ![Multipath-ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatera enheten och skapa sedan ett fil system på den nya enheten: **mkfs. ext4/dev/mapper/\<kvarhållning disk multipath ID>**.
+3. Formatera enheten och skapa sedan ett fil system på den nya enheten: **mkfs. ext4/dev/mapper/ \< kvarhållning disk multipath ID>**.
     
     ![Filsystem](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -261,7 +261,7 @@ Använd följande steg för att skapa en lagrings disk:
     
     Välj **Infoga** för att börja redigera filen. Skapa en ny rad och infoga sedan följande text. Redigera disk-multipath-ID: t baserat på det markerade multipath-ID: t från föregående kommando.
 
-    **/dev/mapper/\<kvarhållning disks multipath-ID>/mnt/retention ext4 RW 0 0**
+    **/dev/mapper/ \< kvarhållning disks multipath-id>/mnt/retention ext4 rw 0 0**
 
     Välj **ESC**och skriv **: Wq** (Skriv och avsluta) för att stänga redigerings fönstret.
 

@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 03/17/2020
-  ms.openlocfilehash: 5745c6c9a7f380d7e9b1d8d59d56a81581c66e14
-  ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+  ms.openlocfilehash: eba71e790c9da1978e0c9cac84b1913447972db2
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/26/2020
-  ms.locfileid: "80294322"
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800719"
 highlightedContent:
   items:
   - title: Vad är Azure-nätverkstjänster?
@@ -32,9 +32,9 @@ highlightedContent:
   - title: Nätverkstopologi av typen hub-spoke i Azure
     itemType: architecture
     url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-  - title: Privat åtkomst till en SQL-databasserver
-    itemType: tutorial
-    url: ../private-link/create-private-endpoint-portal.md
+  - title: Vad är routningsprioritet?
+    itemType: concept
+    url: ../virtual-network/routing-preference-overview.md
   - title: Arbeta på distans med hjälp av Azure-tjänster
     itemType: concept
     url: working-remotely-support.md
@@ -297,7 +297,7 @@ conceptualContent:
     footerLink:
       url: ../cdn/index.yml
       text: Mer information
-  - title: Automatiserade grenanslutningar
+  - title: Enhetligt ”nav och eker”-nätverk
     links:
     - url: ../virtual-wan/virtual-wan-about.md
       itemType: overview

@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: cfc2a7d161619efcd9eee2c32a4dabc2e3a2e6ed
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 2e9a50553a12c57c0043c7f2924245f6a907242a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772071"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83825966"
 ---
-# <a name="authentication-vs-authorization"></a>Autentisering kontra auktorisering
+# <a name="authentication-vs-authorization"></a>Autentisering mot auktorisering
 
 I den här artikeln definieras autentisering och auktorisering och du får en kort beskrivning av hur du kan använda Microsoft Identity Platform för att autentisera och auktorisera användare i webbappar, webb-API: er eller appar som anropar skyddade webb-API: er. Om du ser en term som du inte är bekant med kan du prova vår [ord lista](developer-glossary.md) eller våra [Microsoft Identity Platform-videor](identity-videos.md) som beskriver grundläggande begrepp.
 
@@ -42,9 +42,9 @@ Microsoft Identity Platform fören klar auktorisering och autentisering för pro
 
 Följande är en kort jämförelse av de olika protokoll som används av Microsoft Identity Platform:
 
-* **OAuth vs. OpenID Connect**: OAuth används för auktorisering och OpenID Connect (OIDC) används för autentisering. OpenID Connect är byggt på OAuth 2,0, så terminologin och flödet liknar de två. Du kan även både autentisera en användare (med OpenID Connect) och få åtkomst behörighet till en skyddad resurs som användaren äger (med OAuth 2,0) i en begäran. Mer information finns i [OAuth 2,0-och OpenID Connect-protokoll](active-directory-v2-protocols.md) och [OpenID Connect-protokoll](v2-protocols-oidc.md).
-* **OAuth vs. SAML**: OAuth används för auktorisering och SAML används för autentisering. Se [Microsoft Identity Platform och OAuth 2,0 SAML Bearer](v2-saml-bearer-assertion.md) reformat-flöde för mer information om hur de två protokollen kan användas tillsammans för att både autentisera en användare (med SAML) och få åtkomst behörighet till en skyddad resurs (med OAuth 2,0).
-* **OpenID Connect vs. SAML**: både OpenID Connect och SAML används för att autentisera en användare och används för att aktivera enkel inloggning. SAML-autentisering används ofta med identitets leverantörer som Active Directory Federation Services (AD FS) (ADFS) federerad till Azure AD och används därför ofta i företags program. OpenID Connect används ofta för appar som är helt i molnet, till exempel mobilappar, webbplatser och webb-API: er.
+* **OAuth vs OpenID Connect**: OAuth används för auktorisering och OpenID Connect (OIDC) används för autentisering. OpenID Connect är byggt på OAuth 2,0, så terminologin och flödet liknar de två. Du kan även både autentisera en användare (med OpenID Connect) och få åtkomst behörighet till en skyddad resurs som användaren äger (med OAuth 2,0) i en begäran. Mer information finns i [OAuth 2,0-och OpenID Connect-protokoll](active-directory-v2-protocols.md) och [OpenID Connect-protokoll](v2-protocols-oidc.md).
+* **OAuth vs SAML**: OAuth används för auktorisering och SAML används för autentisering. Se [Microsoft Identity Platform och OAuth 2,0 SAML Bearer](v2-saml-bearer-assertion.md) reformat-flöde för mer information om hur de två protokollen kan användas tillsammans för att både autentisera en användare (med SAML) och få åtkomst behörighet till en skyddad resurs (med OAuth 2,0).
+* **OpenID Connect vs SAML**: både OpenID Connect och SAML används för att autentisera en användare och används för att aktivera enkel inloggning. SAML-autentisering används ofta med identitets leverantörer som Active Directory Federation Services (AD FS) (ADFS) federerad till Azure AD och används därför ofta i företags program. OpenID Connect används ofta för appar som är helt i molnet, till exempel mobilappar, webbplatser och webb-API: er.
 
 ## <a name="next-steps"></a>Nästa steg
 

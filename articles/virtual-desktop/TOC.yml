@@ -122,6 +122,8 @@
       href: remotefx-graphics-performance-counters.md
 - name: Referens
   items:
+    - name: Metodtips för säkerhet
+      href: security-guide.md
     - name: Linux-support
       href: linux-overview.md
     - name: RDP-filinställningar som stöds
@@ -138,6 +140,8 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Utbildningsväg
       href: 'https://docs.microsoft.com/learn/paths/m365-wvd/'
+    - name: Instruktionsvideor
+      href: 'https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop'
     - name: Teknikcommunityns supportgrupp
       href: 'https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop'
     - name: UserVoice-forumet

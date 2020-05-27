@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: f2e9a97dac4d69ea4e470a932cb446d83b425dde
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b40357e71275d835a200f3bc08c618b6713001d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745291"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830777"
 ---
 # <a name="query-update-management-logs"></a>Fråga Uppdateringshanteringsloggar
 
@@ -31,7 +31,7 @@ En post med en typ av `RequiredUpdate` skapas som representerar uppdateringar so
 | Dator | Fullständigt kvalificerat domän namn för rapporterings datorn. |
 | KBID | Kunskaps bas artikel-ID för Windows Update. |
 | ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. | 
-| Product | De produkter som uppdateringen gäller för. | 
+| Produkt | De produkter som uppdateringen gäller för. | 
 | PublishDate | Det datum då uppdateringen är redo att laddas ned och installeras från Windows Update. |
 | Server | | 
 | SourceHealthServiceId | Unik identifierare som representerar Log Analytics Windows agent-ID. |
@@ -73,7 +73,7 @@ En post med en typ av `Update` skapas som representerar uppdateringar som är ti
 | Rubrik | Uppdateringens rubrik. |
 | PublishedDate (UTC) | Det datum då uppdateringen är redo att laddas ned och installeras från Windows Update.  |
 | UpdateState | Uppdateringens aktuella tillstånd. | 
-| Product | De produkter som uppdateringen gäller. |
+| Produkt | De produkter som uppdateringen gäller. |
 | SubscriptionId | Unik identifierare för Azure-prenumerationen. | 
 | ResourceGroup | Namnet på resurs gruppen som resursen tillhör. | 
 | ResourceProvider | Resurs leverantören. | 
@@ -116,7 +116,7 @@ En post med en typ av `UpdateRunProgress` skapas som tillhandahåller uppdaterin
 | KBID | Kunskaps bas artikel-ID för Windows Update. | 
 | ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. |
 | OSType | Typ av operativ system. Värdena är Windows eller Linux. | 
-| Product | De produkter som uppdateringen gäller. |
+| Produkt | De produkter som uppdateringen gäller. |
 | Resurs | Namn på resursen. | 
 | ResourceId | Unikt ID för den resurs som är associerad med posten. |
 | ResourceProvider | Resurs leverantören. | 
@@ -409,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md)
-* [Konfigurera varningar](automation-tutorial-update-management.md#configure-alerts)
+* Mer information om Azure Monitor-loggar finns i [Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
+* Hjälp med aviseringar finns i [Konfigurera aviseringar](automation-tutorial-update-management.md#configure-alerts).

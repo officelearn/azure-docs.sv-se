@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
-ms.author: b-juche
-ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.author: ramakk
+ms.openlocfilehash: d81ae835fa62c5188c8d71a5ae0563259ab027f3
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667862"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797438"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
 
@@ -36,10 +36,12 @@ Du bör förstå några saker som du bör tänka på när du planerar för Azure
 Funktionerna nedan stöds för närvarande inte för Azure NetApp Files: 
 
 * Nätverks säkerhets grupper (NSG: er) som tillämpas på det delegerade under nätet
-* Användardefinierade vägar (UDR) med adressprefix som Azure NetApp-undernät för filer
+* Användardefinierade vägar (UDR) som tillämpas på det delegerade under nätet
 * Azure-principer (till exempel anpassade namngivnings principer) i Azure NetApp Files-gränssnittet
 * Belastnings utjämning för Azure NetApp Files trafik
-* Azure NetApp Files stöds inte med Azure Virtual WAN
+* Azure Virtual WAN 
+* Zone-redundanta Virtual Network gatewayer (Gateway-SKU: er med AZ) 
+* Aktiva/aktiva Virtual Network GWs 
 
 Följande nätverks begränsningar gäller för Azure NetApp Files:
 
@@ -82,9 +84,10 @@ Om VNet är peer-kopplat med ett annat VNet kan du inte expandera det virtuella 
 
 ### <a name="udrs-and-nsgs"></a>UDR och NSG: er
 
-Användardefinierade vägar (UDR) och nätverks säkerhets grupper (NSG: er) stöds inte i delegerade undernät för Azure NetApp Files.
+Användardefinierade vägar (UDR) och nätverks säkerhets grupper (NSG: er) stöds inte i delegerade undernät för Azure NetApp Files. Du kan dock använda UDR och NSG: er till andra undernät, även inom samma VNet som under nätet delegerat till Azure NetApp Files.
 
-Som en lösning kan du använda NSG: er till andra undernät som antingen tillåter eller nekar trafik till och från det Azure NetApp Files delegerade under nätet.  
+* UDR definiera sedan trafik flöden från de andra under näten till det Azure NetApp Files delegerade under nätet. Detta hjälper till att säkerställa att detta justeras mot trafikflöde från Azure NetApp Files till de andra under näten med hjälp av system vägar.  
+* NSG: er antingen tillåta eller neka trafiken till och från det Azure NetApp Files delegerade under nätet. 
 
 ## <a name="azure-native-environments"></a>Inbyggda Azure-miljöer
 

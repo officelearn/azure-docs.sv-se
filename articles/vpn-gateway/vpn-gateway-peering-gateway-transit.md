@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 3917101ee7ac151cf624e5be0f51ccf01c8cb1cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c243c6ded4057c9e4ac63345f300f3b3b690b363
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77161893"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798944"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Konfigurera VPN-gatewayöverföring för peer-kopplade virtuella nätverk
 
@@ -30,6 +30,11 @@ Två scenarier beskrivs i det här dokumentet:
 
 1. Båda virtuella nätverken använder Resource Manager-distributionsmodellen
 2. Det virtuella ekernätverket bygger på den klassiska modellen och det virtuella navnätverket med gateway använder Resource Manager-modellen
+
+
+>[!NOTE]
+> Om du gör en ändring i nätverkets topologi och har Windows VPN-klienter, måste VPN-klientprogrammet för Windows-klienter laddas ned och installeras igen för att ändringarna ska tillämpas på klienten.
+>
 
 ## <a name="requirements"></a>Krav
 

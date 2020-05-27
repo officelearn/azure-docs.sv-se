@@ -70,6 +70,8 @@
           href: cognitive-search-tutorial-blob.md
         - name: Python
           href: cognitive-search-tutorial-blob-python.md
+    - name: Felsök en kunskapsuppsättning
+      href: cognitive-search-tutorial-debug-sessions.md
     - name: Fråga från Power Apps
       href: search-howto-powerapps.md
 - name: Exempel
@@ -95,14 +97,17 @@
       href: search-indexer-overview.md
     - name: AI-berikning
       href: cognitive-search-concept-intro.md
-    - name: Kompetensuppsättningar
-      href: cognitive-search-working-with-skillsets.md
-    - name: Knowledge Store
-      href: knowledge-store-concept-intro.md
-    - name: Projektioner
-      href: knowledge-store-projection-overview.md
-    - name: Inkrementellt berikande
-      href: cognitive-search-incremental-indexing-conceptual.md
+      items:
+        - name: Kompetensuppsättningar
+          href: cognitive-search-working-with-skillsets.md
+        - name: Felsökningssessioner
+          href: cognitive-search-debug-session.md
+        - name: Knowledge Store
+          href: knowledge-store-concept-intro.md
+        - name: Projektioner
+          href: knowledge-store-projection-overview.md
+        - name: Inkrementellt berikande
+          href: cognitive-search-incremental-indexing-conceptual.md
 - name: Anvisningar
   items:
     - name: Skapa index och konstruktioner
@@ -181,6 +186,16 @@
               href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
             - name: Virtuella SQL Server-datorer
               href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: Anslut med hanterade identiteter
+          items:
+            - name: Översikt över hanterade identiteter
+              href: search-howto-managed-identities-data-sources.md
+            - name: Azure Storage
+              href: search-howto-managed-identities-storage.md
+            - name: Azure Cosmos DB
+              href: search-howto-managed-identities-cosmos-db.md
+            - name: SQL Database
+              href: search-howto-managed-identities-sql.md
     - name: Mata in med AI
       items:
         - name: Bifoga en resurs för Cognitive Services
@@ -463,7 +478,7 @@
         - name: Finansiella filer – demo
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: JFK-filer – demo
-          href: 'https://aka.ms/jfkfiles'
+          href: 'https://www.microsoft.com/en-us/ai/ai-lab-jfk-files'
     - name: Utbildning
       items:
         - name: Introduktion (Microsoft Learn)

@@ -1,10 +1,12 @@
 - name: Azure Red Hat OpenShift
   href: index.yml
 - name: Översikt
+  expanded: true
   items:
     - name: Om Azure Red Hat OpenShift
       href: intro-openshift.md
 - name: Självstudier
+  expanded: true
   items:
     - name: 1 – Skapa ett Azure Red Hat OpenShift 4-kluster
       href: tutorial-create-cluster.md
@@ -13,7 +15,6 @@
     - name: 3 – Ta bort ett Azure Red Hat OpenShift 4-kluster
       href: tutorial-delete-cluster.md
 - name: Anvisningar
-  expanded: true
   items:
     - name: Skapa ett privat Azure Red Hat OpenShift 4-kluster
       href: howto-create-private-cluster-4x.md
@@ -37,7 +38,6 @@
       items:
         - name: Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön för Azure Red Hat OpenShift 3.11
           href: howto-setup-environment.md
-          expanded: true
           items:
             - name: Skapa en Azure AD-klientorganisation
               href: howto-create-tenant.md
@@ -85,7 +85,9 @@
       href: support-policies-v4.md
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Dokumentation om Red Hat OpenShift
-      href: 'https://docs.openshift.com/aro/welcome/index.html'
+    - name: Dokumentation om Azure Red Hat OpenShift 4.3
+      href: 'https://docs.openshift.com/aro/4/welcome/index.html'
+    - name: Dokumentation om Azure Red Hat OpenShift 3.11
+      href: 'https://docs.openshift.com/aro/3/welcome/index.html'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'

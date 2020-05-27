@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/20/2020
-ms.openlocfilehash: 6603985df39afaa2fa2871977d6e577c04f7b569
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 037edb8af6e04a2ff65977a92a66482c9f4f880f
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800039"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845106"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -35,8 +35,10 @@ CMK-funktionen levereras på dedikerade Log Analytics-kluster. För att kontrol 
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Så här fungerar CMK i Azure Monitor
 
-Azure Monitor utnyttjar systemtilldelad hanterad identitet för att ge åtkomst till din Azure Key Vault.Systemtilldelad hanterad identitet kan bara kopplas till en enda Azure-resurs medan Log Analytics klustrets identitet stöds på kluster nivå.Detta anger att CMK-funktionen levereras på ett dedikerat Log Analytics-kluster.För att stödja CMK på flera arbets ytor, fungerar en ny Log Analytics *kluster*   resurs som en mellanliggande identitets anslutning mellan din Key Vault och dina Log Analytics arbets ytor.Den Log Analytics kluster lagringen använder den hanterade identitet som \' är associerad med *kluster*   resursen för att autentisera till din Azure Key Vault via Azure Active Directory. 
-Efter CMK-konfigurationen krypteras alla data som matats in till arbets ytor som är kopplade till *kluster*   resursen med nyckeln i Key Vault. Du kan när som helst koppla från arbets ytor från *kluster*   resursen.Nya data matas in för att Log Analytics lagring och krypteras med Microsoft-nyckeln, medan du kan fråga dina nya och gamla data sömlöst.
+Azure Monitor utnyttjar systemtilldelad hanterad identitet för att ge åtkomst till din Azure Key Vault. Systemtilldelad hanterad identitet kan bara kopplas till en enda Azure-resurs medan identiteten för Log Analytics-klustret stöds på kluster nivå – detta anger att CMK-funktionen levereras på ett dedikerat Log Analytics-kluster. För att stödja CMK på flera arbets ytor, fungerar en ny Log Analytics *kluster* resurs som en mellanliggande identitets anslutning mellan din Key Vault och dina Log Analytics arbets ytor. Den Log Analytics kluster lagringen använder den hanterade identitet som \' är associerad med *kluster* resursen för att autentisera till din Azure Key Vault via Azure Active Directory. 
+
+Efter CMK-konfigurationen krypteras alla data som matats in till arbets ytor som är kopplade till *kluster* resursen med nyckeln i Key Vault. Du kan när som helst koppla från arbets ytor från *kluster* resursen. Nya data matas in för att Log Analytics lagring och krypteras med Microsoft-nyckeln, medan du kan fråga dina nya och gamla data sömlöst.
+
 
 ![Översikt över CMK](media/customer-managed-keys/cmk-overview-8bit.png)
 
@@ -118,6 +120,29 @@ Svaret innehåller information om åtgärden och dess *status*. Det kan vara nå
     "name": "operation-id", 
     "status" : "InProgress", 
     "startTime": "2017-01-06T20:56:36.002812+00:00",
+}
+```
+
+Uppdaterings åtgärden för nyckel identifieraren pågår
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Updating", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
+
+*Kluster* resurs borttagning pågår--när du tar bort en *kluster* resurs som har associerade arbets ytor, utförs en disassociation för varje arbets yta i asynkrona åtgärder som kan ta en stund.
+Detta är inte relevant när du tar bort ett *kluster* utan någon kopplad arbets yta – i det här fallet tas *kluster* resursen bort omedelbart.
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Deleting", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
 }
 ```
 

@@ -11,19 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6189e2bc6c3c8f28b767902b525b03cb72968bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2377ca4b929200ecd0a3a7de01dd3a58be6b7863
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80652903"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845448"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Konfigurera Azure Multi-Factor Authentication Server för IIS-webbappar
 
 Via IIS-autentisering på Azure Multi-Factor Authentication-servern kan du aktivera och konfigurera IIS-autentisering för integrering med Microsoft IIS-webbprogram. Azure MFA Server installerar ett plugin-program som kan filtrera begäranden som görs till IIS-webbservern för att lägga till Azure Multi-Factor Authentication. IIS-plugin-programmet har stöd för formulärbaserad autentisering och integrerad Windows-HTTP-autentisering. Betrodda IP-adresser kan även konfigureras att undanta interna IP-adresser från tvåfaktorsautentisering.
 
 > [!IMPORTANT]
-> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
+> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt. När du använder molnbaserade Azure-Multi-Factor Authentication finns det inget alternativ till det IIS-plugin-program som tillhandahålls av Azure Multi-Factor Authentication-servern (MFA). Använd i stället Webbprogramproxy (WAP) med Active Directory Federation Services (AD FS) (AD FS) eller Azure Active Directory programmets programproxy.
 
 ![IIS-autentisering i MFA Server](./media/howto-mfaserver-iis/iis.png)
 
@@ -34,7 +34,7 @@ Om du ska skydda en IIS-webbapp som använder formulärbaserad autentisering ins
 1. Klicka på ikonen för IIS-autentisering på den vänstra menyn i Azure Multi-Factor Authentication Server.
 2. Klicka på fliken **Formulärbaserad**.
 3. Klicka på **Lägg till**.
-4. Ange inloggnings-URL (t. ex `https://localhost/contoso/auth/login.aspx`.) i dialog rutan konfigurera formulärbaserad webbplats automatiskt och klicka på **OK**för att identifiera användar namn, lösen ord och domän variabler automatiskt.
+4. Ange inloggnings-URL (t. ex. `https://localhost/contoso/auth/login.aspx` ) i dialog rutan konfigurera formulärbaserad webbplats automatiskt och klicka på **OK**för att identifiera användar namn, lösen ord och domän variabler automatiskt.
 5. Markera rutan om att **Multi-Factor Authentication-användarmatchning krävs** om alla användare har importerats eller ska importeras till servern och om multifaktorautentisering används. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från multifaktorautentisering, lämnar du rutan avmarkerad.
 6. Om sidvariablerna inte kan identifieras automatiskt klickar du på **Ange manuellt** i dialogrutan Konfigurera formulärbaserad webbplats automatiskt.
 7. I dialogrutan Lägg till formulärbaserad webbplats anger du URL:en till inloggningssidan i fältet Skicka URL och anger ett programnamn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
@@ -58,7 +58,7 @@ Om du ska skydda en IIS-webbapp som använder integrerad Windows HTTP-autentiser
 1. Klicka på ikonen för IIS-autentisering på den vänstra menyn i Azure Multi-Factor Authentication Server.
 2. Klicka på fliken **HTTP**.
 3. Klicka på **Lägg till**.
-4. I dialog rutan Lägg till grundläggande webb adress anger du URL: en för den webbplats där HTTP-autentiseringen <http://localhost/owa>utförs (t. ex.) och anger ett program namn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
+4. I dialog rutan Lägg till grundläggande webb adress anger du URL: en för den webbplats där HTTP-autentiseringen utförs (t <http://localhost/owa> . ex.) och anger ett program namn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
 5. Justera tiderna för Timeout vid inaktivitet och Längsta session om standardvärdet inte räcker.
 6. Markera rutan om att **Multi-Factor Authentication-användarmatchning krävs** om alla användare har importerats eller ska importeras till servern och om multifaktorautentisering används. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från multifaktorautentisering, lämnar du rutan avmarkerad.
 7. Markera kryssrutan för **cachelagring av cookies** om du vill det.

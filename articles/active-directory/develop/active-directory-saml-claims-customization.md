@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 87a9632ec2433b8698e3ae3761ba733aa6bc63a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd99934ca74736c1f80bd47d701120398437e27a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885692"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845329"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
 
@@ -26,7 +26,7 @@ Idag har Azure Active Directory (Azure AD) stöd för enkel inloggning (SSO) med
 
 Ett *anspråk* är information som en identitets leverantör anger för en användare inom den token som de utfärdar för den användaren. I [SAML-token](https://en.wikipedia.org/wiki/SAML_2.0)finns dessa data vanligt vis i instruktionen SAML Attribute. Användarens unika ID visas vanligt vis i SAML-ämnet även kallat namn identifierare.
 
-Som standard utfärdar Azure AD en SAML-token till ditt program som innehåller `NameIdentifier` ett anspråk med ett värde för användarens användar namn (även kallat User Principal Name) i Azure AD, vilket kan identifiera användaren unikt. SAML-token innehåller också ytterligare anspråk som innehåller användarens e-postadress, förnamn och efter namn.
+Som standard utfärdar Azure AD en SAML-token till ditt program som innehåller ett `NameIdentifier` anspråk med ett värde för användarens användar namn (även kallat User Principal Name) i Azure AD, vilket kan identifiera användaren unikt. SAML-token innehåller också ytterligare anspråk som innehåller användarens e-postadress, förnamn och efter namn.
 
 Om du vill visa eller redigera de anspråk som utfärdats i SAML-token till programmet öppnar du programmet i Azure Portal. Öppna sedan avsnittet **användarattribut &-anspråk** .
 
@@ -34,7 +34,7 @@ Om du vill visa eller redigera de anspråk som utfärdats i SAML-token till prog
 
 Det finns två möjliga orsaker till varför du kan behöva redigera anspråk som utfärdats i SAML-token:
 
-* Programmet kräver `NameIdentifier` att NameID-anspråk är något annat än det användar namn (eller User Principal Name) som lagras i Azure AD.
+* Programmet kräver att `NameIdentifier` NameID-anspråk är något annat än det användar namn (eller User Principal Name) som lagras i Azure AD.
 * Programmet har skrivits för att kräva en annan uppsättning av anspråk-URI: er eller anspråks värden.
 
 ## <a name="editing-nameid"></a>Redigera nameID
@@ -56,7 +56,7 @@ I list rutan **Välj namn identifierare format** kan du välja något av följan
 
 | NameID-format | Beskrivning |
 |---------------|-------------|
-| **Default** | Standardvärdet för käll formatet används i Azure AD. |
+| **Standard** | Standardvärdet för käll formatet används i Azure AD. |
 | **Permanent** | Azure AD kommer att använda beständigt som NameID-format. |
 | **EmailAddress** | Azure AD kommer att använda EmailAddress som NameID-format. |
 | **Ospecificerat** | Azure AD kommer att använda ospecificerat som NameID-format. |
@@ -100,8 +100,8 @@ Du kan också använda funktionerna för anspråks omvandlingar.
 
 | Funktion | Beskrivning |
 |----------|-------------|
-| **ExtractMailPrefix()** | Tar bort domänsuffix från antingen e-postadressen eller User Principal Name. Detta extraherar bara den första delen av användar namnet som skickas genom (till exempel "joe_smith" i stället för joe_smith@contoso.com). |
-| **Anslut ()** | Ansluter till ett attribut med en verifierad domän. Om värdet för den valda användar identifieraren har en domän extraheras användar namnet för att lägga till den valda verifierade domänen. Om du till exempel väljer e-postmeddelandet (joe_smith@contoso.com) som värde för användar-ID och väljer contoso.onmicrosoft.com som verifierade domän kommer detta joe_smith@contoso.onmicrosoft.comatt resultera i. |
+| **ExtractMailPrefix()** | Tar bort domänsuffix från antingen e-postadressen eller User Principal Name. Detta extraherar bara den första delen av användar namnet som skickas genom (till exempel "joe_smith" i stället för joe_smith@contoso.com ). |
+| **Anslut ()** | Ansluter till ett attribut med en verifierad domän. Om värdet för den valda användar identifieraren har en domän extraheras användar namnet för att lägga till den valda verifierade domänen. Om du till exempel väljer e-postmeddelandet ( joe_smith@contoso.com ) som värde för användar-ID och väljer contoso.onmicrosoft.com som verifierade domän kommer detta att resultera i joe_smith@contoso.onmicrosoft.com . |
 | **ToLower()** | Konverterar tecknen i det valda attributet till gemener. |
 | **ToUpper()** | Konverterar tecknen i det valda attributet till versaler. |
 
@@ -119,7 +119,7 @@ Så här använder du en omvandling till ett användar-attribut:
 
 1. I **Hantera anspråk**väljer du *omvandling* som anspråks källa för att öppna sidan **Hantera omvandling** .
 2. Välj funktionen i list rutan för omvandling. Beroende på vilken funktion du väljer måste du ange parametrar och ett konstant värde som ska utvärderas i omvandlingen. Se tabellen nedan för mer information om tillgängliga funktioner.
-3. Om du vill använda flera omvandlingar klickar du på **Lägg till omvandling**. Du kan använda högst två omvandlingar till ett anspråk. Du kan till exempel först extrahera e-postprefixet för `user.mail`. Skapa sedan strängen versaler.
+3. Om du vill använda flera omvandlingar klickar du på **Lägg till omvandling**. Du kan använda högst två omvandlingar till ett anspråk. Du kan till exempel först extrahera e-postprefixet för `user.mail` . Skapa sedan strängen versaler.
 
    ![Redigera värdet för NameID (namn identifierare)](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
@@ -127,11 +127,11 @@ Du kan använda följande funktioner för att transformera anspråk.
 
 | Funktion | Beskrivning |
 |----------|-------------|
-| **ExtractMailPrefix()** | Tar bort domänsuffix från antingen e-postadressen eller User Principal Name. Detta extraherar bara den första delen av användar namnet som skickas genom (till exempel "joe_smith" i stället för joe_smith@contoso.com). |
-| **Anslut ()** | Skapar ett nytt värde genom att koppla ihop två attribut. Du kan också använda en avgränsare mellan de två attributen. Vid omvandling av NameID-anspråk är kopplingen begränsad till en verifierad domän. Om värdet för den valda användar identifieraren har en domän extraheras användar namnet för att lägga till den valda verifierade domänen. Om du till exempel väljer e-postmeddelandet (joe_smith@contoso.com) som värde för användar-ID och väljer contoso.onmicrosoft.com som verifierade domän kommer detta joe_smith@contoso.onmicrosoft.comatt resultera i. |
+| **ExtractMailPrefix()** | Tar bort domänsuffix från antingen e-postadressen eller User Principal Name. Detta extraherar bara den första delen av användar namnet som skickas genom (till exempel "joe_smith" i stället för joe_smith@contoso.com ). |
+| **Anslut ()** | Skapar ett nytt värde genom att koppla ihop två attribut. Du kan också använda en avgränsare mellan de två attributen. Vid omvandling av NameID-anspråk är kopplingen begränsad till en verifierad domän. Om värdet för den valda användar identifieraren har en domän extraheras användar namnet för att lägga till den valda verifierade domänen. Om du till exempel väljer e-postmeddelandet ( joe_smith@contoso.com ) som värde för användar-ID och väljer contoso.onmicrosoft.com som verifierade domän kommer detta att resultera i joe_smith@contoso.onmicrosoft.com . |
 | **ToLower()** | Konverterar tecknen i det valda attributet till gemener. |
 | **ToUpper()** | Konverterar tecknen i det valda attributet till versaler. |
-| **Contains ()** | Matar ut ett attribut eller en konstant om indata matchar det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Om du till exempel vill generera ett anspråk där värdet är användarens e-postadress om den innehåller domänen "@contoso.com", annars vill du spara User Principal Name. Det gör du genom att konfigurera följande värden:<br/>*Parameter 1 (indata)*: User. email<br/>*Värde*: "@contoso.com"<br/>Parameter 2 (utdata): User. email<br/>Parameter 3 (utdata om det inte finns någon matchning): User. UserPrincipalName |
+| **Contains ()** | Matar ut ett attribut eller en konstant om indata matchar det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Om du till exempel vill generera ett anspråk där värdet är användarens e-postadress om den innehåller domänen " @contoso.com ", annars vill du spara User Principal Name. Det gör du genom att konfigurera följande värden:<br/>*Parameter 1 (indata)*: User. email<br/>*Värde*: " @contoso.com "<br/>Parameter 2 (utdata): User. email<br/>Parameter 3 (utdata om det inte finns någon matchning): User. UserPrincipalName |
 | **EndWith()** | Matar ut ett attribut eller en konstant om indata slutar med det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Om du till exempel vill generera ett anspråk där värdet är användarens medarbetar-ID om anställnings-ID: t slutar med "000", annars vill du spara ett attribut för tillägg. Det gör du genom att konfigurera följande värden:<br/>*Parameter 1 (indata)*: User. Anställningsnr<br/>*Värde*: "000"<br/>Parameter 2 (utdata): User. Anställningsnr<br/>Parameter 3 (utdata om det inte finns någon matchning): User. extensionAttribute1 |
 | **StartWith()** | Matar ut ett attribut eller en konstant om indatan börjar med det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Om du till exempel vill generera ett anspråk där värdet är användarens anställnings-ID om landet/regionen börjar med "US", annars vill du spara ett attribut för tillägg. Det gör du genom att konfigurera följande värden:<br/>*Parameter 1 (indata)*: användare. land<br/>*Värde*: "US"<br/>Parameter 2 (utdata): User. Anställningsnr<br/>Parameter 3 (utdata om det inte finns någon matchning): User. extensionAttribute1 |
 | **Extrahera ()-efter matchning** | Returnerar del strängen när den matchar det angivna värdet.<br/>Om exempelvis värdet för indata är "Finance_BSimon" är det matchande värdet "Finance_", och anspråkets utdata är "BSimon". |
@@ -169,9 +169,9 @@ Så här lägger du till ett anspråks villkor:
 
 Den ordning som du lägger till villkoren i är viktiga. Azure AD utvärderar villkoren från uppifrån och ned för att bestämma vilket värde som ska ställas in i anspråket. 
 
-Till exempel är Brita Simon en gäst användare i Contoso-klienten. Hon tillhör en annan organisation som också använder Azure AD. Under den här konfigurationen av programmet Fabrikam när Brita försöker logga in på Fabrikam, kommer Azure AD att utvärdera villkoren enligt följande.
+Till exempel är Britta Simon en gäst användare i Contoso-klienten. Hon tillhör en annan organisation som också använder Azure AD. Under den här konfigurationen av programmet Fabrikam när Britta försöker logga in på Fabrikam, kommer Azure AD att utvärdera villkoren enligt följande.
 
-Först verifierar Azure AD om Brita användar typ är `All guests`. Eftersom detta är sant tilldelar Azure AD källan för anspråket till `user.extensionattribute1`. För det andra verifierar Azure AD om Brita användar typ är `AAD guests`, eftersom detta också är sant tilldelar Azure AD källan för anspråket till `user.mail`. Slutligen genereras anspråket med värdet `user.email` för Brita.
+Först verifierar Azure AD om Britta användar typ är `All guests` . Eftersom detta är sant tilldelar Azure AD källan för anspråket till `user.extensionattribute1` . För det andra verifierar Azure AD om Britta användar typ är `AAD guests` , eftersom detta också är sant tilldelar Azure AD källan för anspråket till `user.mail` . Slutligen genereras anspråket med värdet `user.mail` för Britta.
 
 ![Villkorlig konfiguration av anspråk](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c8081bb8145a6654c168fb2d664e1666b32dc18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d9eb3c8f34308271eb216cad25a5db4a62d03cb
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457917"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845381"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Villkorlig åtkomst: säkra registrering av säkerhets information
 
@@ -26,7 +26,7 @@ Att skydda när och hur användare registrerar sig för Azure Multi-Factor Authe
 
 Följande princip gäller för alla valda användare, som försöker registrera sig med den kombinerade registrerings upplevelsen och blockerar åtkomsten om de inte ansluter från en plats som har marker ATS som ett betrott nätverk.
 
-1. I **Azure Portal**bläddrar du till **Azure Active Directory** > **säkerhet** > för**villkorlig åtkomst**.
+1. I **Azure Portal**bläddrar du till **Azure Active Directory**  >  **säkerhet**för  >  **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. I namn anger du ett namn för den här principen. Till exempel **kombinerad säkerhets informations registrering på betrodda nätverk**.
 1. Under **tilldelningar**väljer du **användare och grupper**och väljer de användare och grupper som du vill att den här principen ska tillämpas på.
@@ -35,14 +35,14 @@ Följande princip gäller för alla valda användare, som försöker registrera 
    > Användare måste aktive ras för den [kombinerade registreringen](../authentication/howto-registration-mfa-sspr-combined.md).
 
 1. Under **molnappar eller åtgärder**väljer du **användar åtgärder**, markera **Registrera säkerhets information**.
-1. Under **villkor** > **platser**.
+1. Under **villkor**  >  **platser**.
    1. Konfigurera **Ja**.
    1. Ta med **vilken plats som helst**.
    1. Undanta **alla betrodda platser**.
    1. Välj **gör** på bladet platser.
    1. Välj **färdig** på bladet villkor.
-1. Under **villkor** > **klient program (för hands version)** anger du **Konfigurera** till **Ja**och väljer **klart**.
-1. Under **åtkomst kontroller** > **beviljar**.
+1. Under **villkor**  >  **klient program (för hands version)** anger du **Konfigurera** till **Ja**och väljer **klart**.
+1. Under **åtkomst kontroller**  >  **beviljar**.
    1. Välj **blockera åtkomst**.
    1. Klicka sedan på **Välj**.
 1. Ange **Aktivera princip** till **På**.
@@ -52,7 +52,7 @@ I steg 6 i den här policyn har organisationer alternativ som de kan göra. Prin
 
 Vissa kan välja att använda enhets tillstånd i stället för plats i steg 6 ovan:
 
-6. Under **villkor** > **enhets tillstånd (för hands version)**.
+6. Under **villkor**  >  **enhets tillstånd (för hands version)**.
    1. Konfigurera **Ja**.
    1. Ta med **all enhets status**.
    1. Undanta **enheten hybrid Azure AD** och/eller **enhet markerad som kompatibel**
@@ -61,6 +61,7 @@ Vissa kan välja att använda enhets tillstånd i stället för plats i steg 6 o
 
 > [!WARNING]
 > Om du använder enhets tillstånd som ett villkor i principen kan det påverka gäst användare i katalogen. [Endast rapport läge](concept-conditional-access-report-only.md) kan hjälpa dig att fastställa konsekvenserna av princip beslut.
+> Observera att endast rapport läge är tillämpligt för CA-principer med "användar åtgärder"-omfattningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

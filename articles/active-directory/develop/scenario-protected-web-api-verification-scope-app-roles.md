@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 018e7f9bc389e3d148ff6860dae9fef88991e5c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4ee2679da5065ab9e9b02d4ddb313fab75e78f7
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537176"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845143"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>Skyddat webb-API: kontrol lera omfattningar och app-roller
 
@@ -32,7 +32,7 @@ I den här artikeln beskrivs hur du kan lägga till auktorisering i ditt webb-AP
 > - [ASP.net Core stegvis självstudie för webb-API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37) på GitHub
 > - [ASP.NET-webb-API-exempel](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/dfd0115533d5a230baff6a3259c76cf117568bd9/TodoListService/Controllers/TodoListController.cs#L48)
 
-Om du vill skydda ett ASP.NET-eller ASP.NET Core-webb-API `[Authorize]` måste du lägga till attributet till något av följande objekt:
+Om du vill skydda ett ASP.NET-eller ASP.NET Core-webb-API måste du lägga till `[Authorize]` attributet till något av följande objekt:
 
 - Själva styrenheten om du vill att alla åtgärder för styrenheter ska skyddas
 - Åtgärden individuell kontrollant för ditt API
@@ -76,9 +76,9 @@ public class TodoListController : Controller
 }
 ```
 
-`VerifyUserHasAnyAcceptedScope` Metoden gör något så här:
+`VerifyUserHasAnyAcceptedScope`Metoden gör något så här:
 
-- Kontrol lera att det finns ett `http://schemas.microsoft.com/identity/claims/scope` anspråk `scp`med namnet eller.
+- Kontrol lera att det finns ett anspråk med namnet `http://schemas.microsoft.com/identity/claims/scope` eller `scp` .
 - Kontrol lera att anspråket har ett värde som innehåller omfånget som förväntas av API: et.
 
 ```csharp
@@ -109,13 +109,13 @@ public class TodoListController : Controller
     }
 ```
 
-Föregående [exempel kod](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/Microsoft.Identity.Web/Resource/ScopesRequiredByWebAPIExtension.cs#L47) är för ASP.net Core. För ASP.NET ersätter `HttpContext.User` du bara med `ClaimsPrincipal.Current`och ersätter anspråks typen `"http://schemas.microsoft.com/identity/claims/scope"` med `"scp"`. Se även kodfragmentet senare i den här artikeln.
+Föregående [exempel kod](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/Microsoft.Identity.Web/Resource/ScopesRequiredByWebAPIExtension.cs#L47) är för ASP.net Core. För ASP.NET ersätter du bara `HttpContext.User` med och `ClaimsPrincipal.Current` ersätter anspråks typen `"http://schemas.microsoft.com/identity/claims/scope"` med `"scp"` . Se även kodfragmentet senare i den här artikeln.
 
 ## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>Verifiera app-roller i API: er som anropas av daemon-appar
 
 Om ditt webb-API anropas av en [daemon-app](scenario-daemon-overview.md), bör appen kräva en program behörighet för ditt webb-API. Som det visas i [exponera program behörigheter (app-roller)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles)exponerar ditt API sådana behörigheter. Ett exempel är `access_as_application` app-rollen.
 
-Du måste nu ha ditt API för att verifiera att token som den tar `roles` emot innehåller anspråk och att detta anspråk har det förväntade värdet. Verifierings koden liknar den kod som verifierar delegerade behörigheter, förutom att styrenhets åtgärden testar för roller i stället för omfattningar:
+Du måste nu ha ditt API för att verifiera att token som den tar emot innehåller `roles` anspråk och att detta anspråk har det förväntade värdet. Verifierings koden liknar den kod som verifierar delegerade behörigheter, förutom att styrenhets åtgärden testar för roller i stället för omfattningar:
 
 ```csharp
 [Authorize]
@@ -128,7 +128,7 @@ public class TodoListController : ApiController
     }
 ```
 
-`ValidateAppRole` Metoden kan vara något som liknar detta:
+`ValidateAppRole`Metoden kan vara något som liknar detta:
 
 ```csharp
 private void ValidateAppRole(string appRole)
@@ -149,7 +149,7 @@ private void ValidateAppRole(string appRole)
 }
 ```
 
-Den här gången är kodfragmentet för ASP.NET. För ASP.NET Core ersätter `ClaimsPrincipal.Current` du bara med `HttpContext.User`och ersätter `"roles"` anspråks namnet med `"http://schemas.microsoft.com/identity/claims/roles"`. Se även kodfragmentet tidigare i den här artikeln.
+Den här gången är kodfragmentet för ASP.NET. För ASP.NET Core ersätter du bara `ClaimsPrincipal.Current` med och `HttpContext.User` ersätter `"roles"` anspråks namnet med `"http://schemas.microsoft.com/ws/2008/06/identity/claims/role"` . Se även kodfragmentet tidigare i den här artikeln.
 
 ### <a name="accepting-app-only-tokens-if-the-web-api-should-be-called-only-by-daemon-apps"></a>Accepterar endast app-token om webb-API: t endast ska anropas av daemon-appar
 

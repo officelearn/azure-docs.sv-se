@@ -190,6 +190,14 @@
           href: storage-files-identity-auth-active-directory-domain-service-enable.md
         - name: Aktivera säker TLS för Azure Storage-klient
           href: ../common/storage-security-tls.md
+    - name: Överföring
+      items:
+        - name: Kom igång – AzCopy
+          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Använda med Files
+          href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 'Konfigurera, optimera, felsöka – AzCopy'
+          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Felsöka
       items:
         - name: Felsöka Azure Files på Windows

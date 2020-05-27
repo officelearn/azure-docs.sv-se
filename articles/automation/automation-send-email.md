@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: cc7babdb7b64b12ecc9ef4590a91c7a3683a6558
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a92f65bd88a5aec79a179a6e2d53de15c274add4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799790"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834568"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Skicka ett e-postmeddelande från en runbook
 
 Du kan skicka ett e-postmeddelande från en Runbook med [SendGrid](https://sendgrid.com/solutions) med hjälp av PowerShell. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har något än kan du [aktivera din prenumeration på MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Ett SendGrid-konto](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
@@ -138,7 +138,7 @@ Du kan kontrol lera att runbooken körs utan problem genom att följa stegen und
 
 Om du inte först ser ditt test-e-postmeddelande kontrollerar du mapparna för **skräp post** och **skräp** post.
 
-## <a name="clean-up-after-the-email-operation"></a>Rensa efter e-poståtgärden
+## <a name="clean-up-resources-after-the-email-operation"></a>Rensa resurser efter e-poståtgärden
 
 1. När runbooken inte längre behövs väljer du den i Runbook-listan och klickar på **ta bort**.
 
@@ -152,7 +152,6 @@ Remove-AzKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Uppdatera Azure PowerShell-moduler](automation-update-azure-modules.md)
-* [Vidarebefordra jobbdata från Azure Automation till Azure Monitor-loggar](automation-manage-send-joblogs-log-analytics.md)
-* [Använda en avisering för att utlösa en Azure Automation Runbook](automation-create-alert-triggered-runbook.md)
-* [Felsöka Runbook-problem](./troubleshoot/runbooks.md)
+* Information om hur du skickar Runbook-jobb till din Log Analytics-arbetsyta finns i [vidarebefordra Azure Automation jobb data till Azure Monitor loggar](automation-manage-send-joblogs-log-analytics.md).
+* Information om hur du övervakar mått och loggar på bas nivå finns i [använda en avisering för att utlösa en Azure Automation Runbook](automation-create-alert-triggered-runbook.md).
+* Information om hur du korrigerar problem som uppstår under Runbook-åtgärder finns i [Felsöka Runbook-problem](./troubleshoot/runbooks.md).

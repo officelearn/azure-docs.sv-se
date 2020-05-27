@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478950"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834738"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsöka fel vid misslyckade virtuella VMware-datorer eller fysiska datorer till Azure
 
@@ -76,10 +76,10 @@ Om du vill ändra start typen för driv rutiner manuellt för **Windows gäst op
 
 Om knappen **Anslut** på den misslyckade virtuella datorn i Azure är nedtonad och du inte är ansluten till Azure via en Express Route eller plats-till-plats-VPN-anslutning, sedan
 
-1. Gå till **virtuella dator** > **nätverk**, klicka på namnet på det nödvändiga nätverks gränssnittet.  ![nätverks gränssnitt](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. Gå till **virtuella dator**  >  **nätverk**, klicka på namnet på det nödvändiga nätverks gränssnittet.  ![nätverks gränssnitt](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Navigera till **IP-konfigurationer**och klicka sedan på fältet namn för obligatorisk IP-konfiguration. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Om du vill aktivera offentlig IP-adress klickar du på **Aktivera**. ![Aktivera IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Klicka på **Konfigurera nödvändiga inställningar** > **Skapa ny**. ![Skapa ny](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. Klicka på **Konfigurera nödvändiga inställningar**  >  **Skapa ny**. ![Skapa ny](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Ange namnet på den offentliga adressen, Välj standard alternativen för **SKU** och **tilldelning**och klicka sedan på **OK**.
 6. Spara ändringarna genom att klicka på **Spara**.
 7. Stäng panelerna och navigera till **översikts** avsnittet på den virtuella datorn för att ansluta/RDP.
@@ -173,4 +173,4 @@ Så här löser du problemet:
 - Felsöka [RDP-anslutning till virtuell Windows-dator](../virtual-machines/windows/troubleshoot-rdp-connection.md)
 - Felsök [ssh-anslutning till virtuella Linux-datorer](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
-Om du behöver mer hjälp kan du skicka din fråga på [Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) eller lämna en kommentar i slutet av det här dokumentet. Vi har en aktiv community som kan hjälpa dig.
+Om du behöver mer hjälp kan du skicka din fråga på [sidan Microsoft Q&en fråga för Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) eller lämna en kommentar i slutet av det här dokumentet. Vi har en aktiv community som kan hjälpa dig.

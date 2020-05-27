@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: ae2df6f47d99fc5d452a6d3ea70f2dd2e4e7416b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e60a8a563819b38bbe67a0b532c6dcada6821b7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68359579"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835639"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Påminnelse om gäst operativ system familj 1
 Indragningen av OS-familjen 1 lanserades första den 1 juni 2013.
@@ -23,7 +23,7 @@ Indragningen av OS-familjen 1 lanserades första den 1 juni 2013.
 
 **3 November 2014** Utökat stöd för gäst operativ system familj 1 har avslut ATS och är helt tillbakadraget. Alla tjänster som fortfarande körs på familj 1 påverkas. Vi kan när som helst stoppa dessa tjänster. Det finns ingen garanti för att dina tjänster ska fortsätta att köras om du inte manuellt uppgraderar dem själv.
 
-Om du har fler frågor kan du besöka [Cloud Services forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) eller [kontakta Azure-supporten](https://azure.microsoft.com/support/options/).
+Om du har fler frågor kan du besöka [sidan Microsoft Q&en fråga för Cloud Services](https://docs.microsoft.com/answers/topics/azure-cloud-services.html) eller [kontakta Azure-supporten](https://azure.microsoft.com/support/options/).
 
 ## <a name="are-you-affected"></a>Påverkas du?
 Cloud Services påverkas om något av följande gäller:

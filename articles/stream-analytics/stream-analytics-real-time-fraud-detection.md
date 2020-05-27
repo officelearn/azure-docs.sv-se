@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: c0b2943e1f0d7f2386ec09da03d297a570eede7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e2ba749b64a6d44c9aa6b03352910ab24771084
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80276486"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835656"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Kom igång med Azure Stream Analytics: identifiering av bedrägerier i real tid
 
@@ -31,7 +31,7 @@ I den här självstudien används exemplet på identifiering av bedrägerier i r
 
 Ett tele bolag har en stor mängd data för inkommande samtal. Företaget vill kunna identifiera bedrägliga samtal i real tid så att de kan meddela kunder eller stänga av tjänsten för ett särskilt nummer. En typ av SIM-bedrägeri omfattar flera anrop från samma identitet ungefär samma tid, men i geografiskt olika platser. För att identifiera den här typen av bedrägerier måste företaget undersöka inkommande telefon poster och leta efter vissa mönster, i det här fallet för samtal som görs runt samma tid i olika länder/regioner. Alla telefon poster som tillhör den här kategorin skrivs till lagring för efterföljande analys.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien ska du simulera telefon samtals data med hjälp av en klient app som genererar metadata för telefonsamtal. Några av de poster som appen skapar ser ut som bedrägliga samtal. 
 
@@ -65,7 +65,7 @@ I den här proceduren skapar du först ett namn område för Event Hub och lägg
 
    ![Knappen Lägg till](./media/stream-analytics-real-time-fraud-detection/event-hubs-add-toolbar.png)
 
-4. I fönstret **skapa namn område** anger du ett namn på namn området `<yourname>-eh-ns-demo`, till exempel. Du kan använda namn områdets namn, men namnet måste vara giltigt för en URL och det måste vara unikt i Azure. 
+4. I fönstret **skapa namn område** anger du ett namn på namn området, till exempel `<yourname>-eh-ns-demo` . Du kan använda namn områdets namn, men namnet måste vara giltigt för en URL och det måste vara unikt i Azure. 
     
 5. Välj en prenumeration och skapa eller Välj en resurs grupp och klicka sedan på **skapa**.
 
@@ -77,7 +77,7 @@ I den här proceduren skapar du först ett namn område för Event Hub och lägg
 
    ![Knappen Lägg till Händelsehubben för att skapa en ny händelsehubben](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-8. Namnge den nya händelsehubben `asa-eh-frauddetection-demo`. Du kan använda ett annat namn. Om du gör det, gör du en anteckning om det, eftersom du behöver namnet senare. Du behöver inte ange andra alternativ för händelsehubben just nu.
+8. Namnge den nya händelsehubben `asa-eh-frauddetection-demo` . Du kan använda ett annat namn. Om du gör det, gör du en anteckning om det, eftersom du behöver namnet senare. Du behöver inte ange andra alternativ för händelsehubben just nu.
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
@@ -89,12 +89,12 @@ Innan en process kan skicka data till en Event Hub måste händelsehubben ha en 
 
 1. I rutan händelse namn område klickar du på **Event Hubs** och klickar sedan på namnet på din nya händelsehubben.
 
-2. I fönstret Event Hub klickar du på **principer för delad åtkomst** och sedan på ** + &nbsp;Lägg till**.
+2. I fönstret Event Hub klickar du på **principer för delad åtkomst** och sedan på ** + &nbsp; Lägg till**.
 
     > [!NOTE]
     > Se till att du arbetar med händelsehubben, inte Event Hub-namnområdet.
 
-3. Lägg till en princip `asa-policy-manage-demo` med namnet och för **anspråk**väljer du **Hantera**.
+3. Lägg till en princip med namnet `asa-policy-manage-demo` och för **anspråk**väljer du **Hantera**.
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
@@ -112,7 +112,7 @@ Innan en process kan skicka data till en Event Hub måste händelsehubben ha en 
 
     `Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo`
 
-    Observera att anslutnings strängen innehåller flera nyckel/värde-par, separerade med semikolon: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`, och `EntityPath`.  
+    Observera att anslutnings strängen innehåller flera nyckel/värde-par, separerade med semikolon: `Endpoint` , `SharedAccessKeyName` , `SharedAccessKey` , och `EntityPath` .  
 
 
 ## <a name="configure-and-start-the-event-generator-application"></a>Konfigurera och starta Event Generator-programmet
@@ -121,7 +121,7 @@ Innan du startar TelcoGenerator-appen måste du konfigurera den så att den skic
 
 ### <a name="configure-the-telcogenerator-app"></a>Konfigurera TelcoGenerator-appen
 
-1. Anteckna `EntityPath` värdet i redigeraren där du kopierade anslutnings strängen och ta sedan bort `EntityPath` paret (Glöm inte att ta bort det semikolon som föregår det). 
+1. Anteckna värdet i redigeraren där du kopierade anslutnings strängen `EntityPath` och ta sedan bort `EntityPath` paret (Glöm inte att ta bort det semikolon som föregår det). 
 
 2. I mappen där du zippade TelcoGenerator. zip-filen öppnar du filen telcodatagen. exe. config i en redigerare. (Det finns mer än en. config-fil så se till att du öppnar rätt.)
 
@@ -130,7 +130,7 @@ Innan du startar TelcoGenerator-appen måste du konfigurera den så att den skic
    * Ange värdet för `EventHubName` nyckeln till Event Hub-namnet (det vill säga till värdet för enhetens sökväg).
    * Ange värdet för `Microsoft.ServiceBus.ConnectionString` nyckeln till anslutnings strängen. 
 
-   `<appSettings>` Avsnittet kommer att se ut som i följande exempel:
+   `<appSettings>`Avsnittet kommer att se ut som i följande exempel:
 
     ```xml
     <appSettings>
@@ -178,9 +178,9 @@ Nu när du har en data ström med samtals händelser kan du konfigurera ett Stre
 
 ### <a name="create-the-job"></a>Skapa jobbet 
 
-1. Klicka på **skapa en resurs** > **Sakernas Internet** > **Stream Analytics jobb**i Azure Portal.
+1. Klicka på **skapa en resurs**  >  **Sakernas Internet**  >  **Stream Analytics jobb**i Azure Portal.
 
-2. Ge jobbet `asa_frauddetection_job_demo`ett namn, ange en prenumeration, en resurs grupp och en plats.
+2. Ge jobbet `asa_frauddetection_job_demo` ett namn, ange en prenumeration, en resurs grupp och en plats.
 
     Det är en bra idé att placera jobbet och händelsehubben i samma region för bästa prestanda och så att du inte betalar för att överföra data mellan regioner.
 
@@ -192,7 +192,7 @@ Nu när du har en data ström med samtals händelser kan du konfigurera ett Stre
 
 ### <a name="configure-job-input"></a>Konfigurera jobbindata
 
-1. På instrument panelen eller fönstret **alla resurser** letar du reda på `asa_frauddetection_job_demo` och väljer Stream Analytics jobb. 
+1. På instrument panelen eller fönstret **alla resurser** letar du reda på och väljer `asa_frauddetection_job_demo` Stream Analytics jobb. 
 2. I avsnittet **Översikt** i fönstret Stream Analytics jobb klickar du på rutan **indatamängd** .
 
    ![Indata-ruta under topologi i fönstret strömmande analys jobb](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
@@ -291,7 +291,7 @@ I många fall behöver inte analysen alla kolumner från indataströmmen. Du kan
 
 Anta att du vill räkna antalet inkommande samtal per region. När du vill utföra mängd funktioner som inventering i strömmande data måste du segmentera strömmen till temporala enheter (eftersom själva data strömmen är i praktiken oändligt). Du gör detta med hjälp av en [funktion](stream-analytics-window-functions.md)för strömnings analys fönster. Sedan kan du arbeta med data i det fönstret som en enhet.
 
-För den här omvandlingen vill du ha en sekvens av temporala fönster som inte överlappar – varje fönster har en diskret uppsättning data som du kan gruppera och aggregera. Den här typen av fönster kallas ett rullande- *fönster*. I fönstret rullande kan du få ett antal inkommande anrop grupperade efter `SwitchNum`, som representerar landet/regionen där anropet kommer. 
+För den här omvandlingen vill du ha en sekvens av temporala fönster som inte överlappar – varje fönster har en diskret uppsättning data som du kan gruppera och aggregera. Den här typen av fönster kallas ett rullande- *fönster*. I fönstret rullande kan du få ett antal inkommande anrop grupperade efter `SwitchNum` , som representerar landet/regionen där anropet kommer. 
 
 1. Ändra frågan i kod redigeraren till följande:
 
@@ -305,7 +305,7 @@ För den här omvandlingen vill du ha en sekvens av temporala fönster som inte 
 
     Den här frågan använder `Timestamp By` nyckelordet i `FROM` satsen för att ange vilket tidsstämpelfält i den indataströmmen som ska användas för att definiera rullande-fönstret. I det här fallet delar fönstret data i segment efter `CallRecTime` fältet i varje post. (Om inget fält har angetts används den tidpunkt då varje händelse kommer till händelsehubben. Se "ankomst tid vs Application Time" i [Stream Analytics språk referens för frågor](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). 
 
-    Projektionen innehåller `System.Timestamp`, som returnerar en tidsstämpel för slutet av varje fönster. 
+    Projektionen innehåller `System.Timestamp` , som returnerar en tidsstämpel för slutet av varje fönster. 
 
     Om du vill ange att du vill använda ett rullande-fönster använder du funktionen [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) i- `GROUP BY` satsen. I funktionen anger du en tidsenhet (var som helst från en mikrosekund till en dag) och en fönster storlek (hur många enheter). I det här exemplet består fönstret rullande av 5-sekunders intervall, så du får ett antal per land/region för var 5: e sekunds värt samtal.
 
@@ -317,9 +317,9 @@ För den här omvandlingen vill du ha en sekvens av temporala fönster som inte 
 
 I det här exemplet bör du tänka på bedräglig användning för att vara anrop som kommer från samma användare men på olika platser inom 5 sekunder från varandra. Samma användare kan till exempel inte legitimt ringa ett samtal från USA och Australien samtidigt. 
 
-Om du vill söka efter dessa fall kan du använda en själv koppling av strömmande data för att ansluta data strömmen till sig själv baserat `CallRecTime` på värdet. Sedan kan du söka efter anrops poster där `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (ursprungsland/region) är inte samma.
+Om du vill söka efter dessa fall kan du använda en själv koppling av strömmande data för att ansluta data strömmen till sig själv baserat på `CallRecTime` värdet. Sedan kan du söka efter anrops poster där `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (ursprungsland/region) är inte samma.
 
-När du använder en anslutning med strömmande data måste du ange vissa gränser för hur långt de matchande raderna kan vara åtskilda i tiden. (Som tidigare nämnts är strömmande data i praktiken oändliga.) Tids gränserna för relationen anges i kopplings `ON` instruktionen med hjälp av `DATEDIFF` funktionen. I det här fallet baseras kopplingen på ett 5 sekunders intervall anrops data.
+När du använder en anslutning med strömmande data måste du ange vissa gränser för hur långt de matchande raderna kan vara åtskilda i tiden. (Som tidigare nämnts är strömmande data i praktiken oändliga.) Tids gränserna för relationen anges i `ON` kopplings instruktionen med hjälp av `DATEDIFF` funktionen. I det här fallet baseras kopplingen på ett 5 sekunders intervall anrops data.
 
 1. Ändra frågan i kod redigeraren till följande: 
 
@@ -337,9 +337,9 @@ När du använder en anslutning med strömmande data måste du ange vissa gräns
     WHERE CS1.SwitchNum != CS2.SwitchNum
     ```
 
-    Den här frågan liknar alla SQL-kopplingar förutom `DATEDIFF` funktionen i kopplingen. Den här versionen `DATEDIFF` av är bara för strömnings analys och måste visas i- `ON...BETWEEN` satsen. Parametrarna är en tidsenhet (sekunder i det här exemplet) och alias för de två källorna för kopplingen. Detta skiljer sig från standard-SQL `DATEDIFF` -funktionen.
+    Den här frågan liknar alla SQL-kopplingar förutom `DATEDIFF` funktionen i kopplingen. Den här versionen av `DATEDIFF` är bara för strömnings analys och måste visas i- `ON...BETWEEN` satsen. Parametrarna är en tidsenhet (sekunder i det här exemplet) och alias för de två källorna för kopplingen. Detta skiljer sig från standard-SQL- `DATEDIFF` funktionen.
 
-    `WHERE` Satsen innehåller villkoret som flaggar det bedrägliga anropet: de ursprungliga växlarna är inte desamma. 
+    `WHERE`Satsen innehåller villkoret som flaggar det bedrägliga anropet: de ursprungliga växlarna är inte desamma. 
 
 2. Klicka på **testa** igen. 
 
@@ -359,7 +359,7 @@ Om du har ett befintligt Blob Storage-konto kan du använda det. I den här sjä
 
 ### <a name="create-an-azure-blob-storage-account"></a>Skapa ett Azure Blob Storage-konto
 
-1. I det övre vänstra hörnet av Azure Portal väljer du **skapa ett resurs** > **lagrings** > **lagrings konto**. Fyll i sidan lagrings konto jobb med **namnet** "asaehstorage", **platsen** har angetts till "östra US", **resurs grupp** inställd på "ASA-händelsehubbnamnområde-ns-RG" (värd lagrings kontot i samma resurs grupp som streaming-jobbet för bättre prestanda). Återstående inställningar kan ha kvar standardvärdena.  
+1. I det övre vänstra hörnet av Azure Portal väljer du **skapa ett resurs**  >  **lagrings**  >  **lagrings konto**. Fyll i sidan lagrings konto jobb med **namnet** "asaehstorage", **platsen** har angetts till "östra US", **resurs grupp** inställd på "ASA-händelsehubbnamnområde-ns-RG" (värd lagrings kontot i samma resurs grupp som streaming-jobbet för bättre prestanda). Återstående inställningar kan ha kvar standardvärdena.  
 
    ![Skapa ett lagrings konto i Azure Portal](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
@@ -420,7 +420,7 @@ Men om du är klar och inte behöver de resurser som du har skapat kan du ta bor
 
 ## <a name="get-support"></a>Få support
 
-Om du behöver ytterligare hjälp kan du prova [Azure Stream Analytics-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du testa [sidan Microsoft Q&en fråga för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

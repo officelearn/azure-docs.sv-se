@@ -4,9 +4,9 @@
   href: ../introduction.md
 - name: Översikt
   items:
-    - name: Introduktion till Azure Data Factory
+    - name: introduktion till Azure Data Factory
       href: data-factory-introduction.md
-    - name: Koncept
+    - name: Begrepp
       items:
         - name: Pipelines och aktiviteter
           href: data-factory-create-pipelines.md
@@ -26,14 +26,14 @@
           href: data-factory-copy-activity-tutorial-using-visual-studio.md
         - name: Azure PowerShell
           href: data-factory-copy-activity-tutorial-using-powershell.md
-        - name: REST API
+        - name: REST-API
           href: data-factory-copy-activity-tutorial-using-rest-api.md
         - name: .NET-API
           href: data-factory-copy-activity-tutorial-using-dotnet-api.md
     - name: Skapa en pipeline för att omvandla data
       href: data-factory-build-your-first-pipeline.md
       items:
-        - name: Azure-portalen
+        - name: Azure Portal
           href: data-factory-build-your-first-pipeline-using-editor.md
         - name: Visual Studio
           href: data-factory-build-your-first-pipeline-using-vs.md
@@ -41,7 +41,7 @@
           href: data-factory-build-your-first-pipeline-using-powershell.md
         - name: Azure Resource Manager-mall
           href: data-factory-build-your-first-pipeline-using-arm.md
-        - name: REST API
+        - name: REST-API
           href: data-factory-build-your-first-pipeline-using-rest-api.md
     - name: Flytta data mellan lokalt system och molnet
       href: data-factory-move-data-between-onprem-and-cloud.md
@@ -201,9 +201,9 @@
       href: data-factory-customer-case-studies.md
     - name: Utbildningsväg
       href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: Priser
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

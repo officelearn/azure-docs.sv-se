@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 599eb527a349278caf2e4e22e9458a9cd2d08d24
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: a6cf348142d694a03da24f32793fc72325701931
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712459"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835231"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
 
@@ -131,4 +131,4 @@ Om du vill ta bort en Hybrid Runbook Worker grupp Linux-datorer använder du sam
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller någon annan moln miljö finns i [köra Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* Information om hur du felsöker dina hybrid Runbook Worker finns i [Felsöka Linux hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#linux).
+* Information om hur du felsöker dina hybrid Runbook Worker finns i [felsöka hybrid Runbook Worker problem – Linux](troubleshoot/hybrid-runbook-worker.md#linux).

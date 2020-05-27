@@ -3,12 +3,12 @@ title: Batch-tjänstens arbets flöde och resurser
 description: Lär dig mer om funktionerna i batch-tjänsten och dess övergripande arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: 8112f6059a14bb18bf1fbf4011ceb074d71b5837
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 5084ae222d0a9da0d8aa171bc89dba48377a9dd4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791136"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835928"
 ---
 # <a name="batch-service-workflow-and-resources"></a>Batch-tjänstens arbets flöde och resurser
 
@@ -47,4 +47,4 @@ I följande avsnitt beskrivs de resurser i batch som möjliggör dina distribuer
 - Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
 - Lär dig hur du utvecklar ett enkelt Batch-aktiverat program med hjälp av [Batch .NET-klientbiblioteket](quick-run-dotnet.md) eller [Python](quick-run-python.md). I de här snabbstarterna beskriver vi ett exempelprogram som använder Batch-tjänsten för att köra en arbetsbelastning på flera beräkningsnoder och förklarar hur du använder Azure Storage för mellanlagring och hämtning av filer i arbetsbelastningar.
 - Hämta och installera [Batch Explorer](https://azure.github.io/BatchExplorer/) och använd verktyget i arbetet med att utveckla Batch-lösningar. Använd Batch Explorer för att skapa, felsöka och övervaka Azure Batch-program.
-- Se community-resurser, inklusive [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), [batch-lagrings platsen](https://github.com/Azure/Batch)och [Azure Batch forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch).
+- Se community-resurser, inklusive [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), [batch-lagrings platsen](https://github.com/Azure/Batch)och [Azure Batch forum](https://docs.microsoft.com/answers/topics/azure-batch.html).

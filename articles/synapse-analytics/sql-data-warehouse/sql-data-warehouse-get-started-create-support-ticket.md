@@ -10,12 +10,12 @@ author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: eaa6ceded9893b278b28d517cbddb303f8469e10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0788f978fd25356b230a7923def6cbbea3dc305
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80350897"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835469"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Begär ande kvot ökar och får support för Azure Synapse Analytics
 
@@ -95,9 +95,9 @@ Om din prenumeration behöver åtkomst i en viss region kan du använda alternat
 
 ![Annan kvot information](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
 
-## <a name="submit-your-request"></a>Skicka in din begäran
+## <a name="submit-your-request"></a>Skicka din begäran
 
-Det sista steget är att fylla i återstående information om din SQL Database support förfrågan. Välj sedan **Nästa: granska + skapa>>** och klicka på **skapa** när du har granskat förfrågnings informationen och skicka begäran.
+Det sista steget är att fylla i återstående information om din SQL Database support förfrågan. Välj sedan **Nästa: Granska + skapa>>** . När du har gått igenom begärandeuppgifterna klickar du på **Skapa** för att skicka begäran.
 
 ## <a name="monitor-a-support-ticket"></a>Övervaka ett supportärende
 
@@ -107,5 +107,5 @@ När du har skickat in support förfrågan kontaktar support teamet för Azure. 
 
 ## <a name="other-resources"></a>Andra resurser
 
-Du kan också ansluta till Azure Synapse Analytics-communityn på [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) eller via [Azure SQL Data Warehouse MSDN-forumet](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
+Du kan också ansluta till Azure Synapse Analytics-communityn på [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) eller via webbplatsen [Microsoft Q&en fråga för Azure SQL Data Warehouse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
 

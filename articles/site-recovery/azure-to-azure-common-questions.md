@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bc2acc4303a270a2bf71f0c9ff249b60a0328a09
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 1ac42a5451da0347779475e96ce557633a02c59f
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983286"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834585"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: katastrof återställning från Azure till Azure
 
@@ -163,7 +163,7 @@ Nej, Site Recovery kommer att behålla alla dina tidigare återställnings punkt
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Hur ändrar jag replikeringsprincipen när replikering har Aktiver ATS på en virtuell dator?
 
-Gå till **Site Recovery valv** > **Site Recovery Infrastructure** > **Replication policies**. Välj den princip som du vill redigera och spara ändringarna. Alla ändringar kommer också att gälla för alla befintliga replikeringar.
+Gå till **Site Recovery valv**  >  **Site Recovery Infrastructure**  >  **Replication policies**. Välj den princip som du vill redigera och spara ändringarna. Alla ändringar kommer också att gälla för alla befintliga replikeringar.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Är alla återställnings punkter en fullständig kopia av den virtuella datorn eller en differentiell?
 
@@ -315,4 +315,4 @@ Ja, både kryptering och kryptering i [vila i Azure](https://docs.microsoft.com/
 
 - [Granska support kraven för Azure-till-Azure](azure-to-azure-support-matrix.md).
 - [Konfigurera Azure-till-Azure-replikering](azure-to-azure-tutorial-enable-replication.md).
-- Om du har frågor när du har läst den här artikeln kan du publicera dem i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+- Om du har frågor när du har läst den här artikeln kan du publicera dem på [sidan Microsoft Q&en fråga för Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).

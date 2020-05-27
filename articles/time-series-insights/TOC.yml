@@ -25,7 +25,7 @@
       items:
         - name: Konfigurera en förhandsversionsmiljö
           href: time-series-insights-update-create-environment.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Allmän tillgänglighet för Azure Time Series Insights
       items:
@@ -69,7 +69,7 @@
               href: time-series-insights-update-query-data-csharp.md
             - name: Power BI-integrering
               href: concepts-power-bi.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Bevilja åtkomst till data
       href: time-series-insights-data-access.md
@@ -120,7 +120,7 @@
         - name: Dataåtkomst (Allmänt tillgänglig)
           href: /rest/api/time-series-insights/ga
           items:
-            - name: Fråga
+            - name: Söka i data
               href: /rest/api/time-series-insights/ga-query
               items:
                 - name: API
@@ -140,7 +140,7 @@
   items:
     - name: Kunddataförfrågningar
       href: time-series-insights-customer-data-requests.md
-    - name: Utvecklarresurser
+    - name: Resurser för utvecklare
       items:
         - name: Kodexempel för Azure Time Series Insights
           href: 'https://github.com/Azure-Samples/Azure-Time-Series-Insights/'
@@ -152,7 +152,7 @@
           href: 'https://docs.microsoft.com/samples/browse/?term=iot'
     - name: Priser och tillgänglighet
       items:
-        - name: Priser
+        - name: Prissättning
           href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
         - name: Priskalkylator
           href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -166,12 +166,12 @@
           href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
-        - name: MSDN-forum
-          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Frågesida på Microsoft Q&A
+          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
     - name: Feedback och forum
       items:
-        - name: MSDN-forum
-          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Frågesida på Microsoft Q&A
+          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
         - name: Förslag och önskemål kring produkter
           href: 'https://feedback.azure.com/forums/906859-azure-time-series-insights'
     - name: Azure-videor

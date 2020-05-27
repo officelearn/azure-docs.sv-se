@@ -3,12 +3,12 @@ title: Felsökning utan data, Application Insights för .NET
 description: Ser du inte data i Azure Application Insights? Prova här.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 2770888c6cfacedcf186ed1612718133cc1ba363
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 882081f28a53e347612a4b30374e294bb7352796
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778683"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835146"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Fel sökning av inga data Application Insights för .NET/.NET Core
 
@@ -261,4 +261,4 @@ dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsight
 Lär dig hur du tar bort Application Insights i Visual Studio genom att följa anvisningarna i [artikeln](../../azure-monitor/app/remove-application-insights.md)om borttagning.
 
 ## <a name="still-not-working"></a>Fungerar fortfarande inte...
-* [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+* [Sidan Microsoft Q&en fråga för Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)

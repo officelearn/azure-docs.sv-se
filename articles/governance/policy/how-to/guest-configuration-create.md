@@ -3,12 +3,12 @@ title: Så här skapar du principer för gäst konfiguration för Windows
 description: Lär dig hur du skapar en princip för Azure Policy gäst konfiguration för Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: d72b9b2dbf4c9f88f94fcfea2a99e6b27fd1fccd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a8231840cc20f03da44d489ae5226e7a0b4e0d48
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647774"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835962"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du principer för gäst konfiguration för Windows
 
@@ -171,6 +171,9 @@ Du kan också implementera [tjänstens slut punkt](../../../storage/common/stora
 Skapa en DSC-konfiguration för att granska inställningar. Följande exempel på PowerShell-skript skapar en konfiguration med namnet **AuditBitLocker**, importerar modulen **PsDscResources** och använder `Service` resursen för att granska för en tjänst som körs. Konfigurations skriptet kan köras från en Windows-eller macOS-dator.
 
 ```powershell
+# Add PSDscResources module to environment
+Install-Module 'PSDscResources'
+
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {

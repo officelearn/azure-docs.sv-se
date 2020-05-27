@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 116922e018410f260b33f4dfd76e5983fbbcc0a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3e90fa3e3f57c1575a7ab09f9ce6941c13adcd1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789332"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834874"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Hantera Project Online-projekt,-uppgifter och-resurser med hjälp av Azure Logic Apps
 
@@ -25,7 +25,7 @@ Med Azure Logic Apps och Project Online Connector kan du skapa automatiserade up
 
 Project Online hjälper dig att planera, prioritera och hantera projekt och projekt portfölj investeringar från nästan var som helst på nästan vilken enhet som helst genom att tillhandahålla kraftfulla funktioner för projekt hantering. Du kan använda Project Online-utlösare som får svar från Project Online och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder i Logi Kap par för att utföra olika uppgifter i Project Online. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -46,7 +46,7 @@ Project Online hjälper dig att planera, prioritera och hantera projekt och proj
    * För tomma Logi Kap par anger du "Project Online" som filter i rutan Sök. 
    Välj den utlösare som du vill använda under listan utlösare. 
 
-     ELLER
+     \- eller -
 
    * För befintliga Logi Kap par väljer du **nytt steg**under steget där du vill lägga till en åtgärd. Skriv "Project Online" som filter i rutan Sök. Under listan åtgärder väljer du den åtgärd som du vill använda.
 
@@ -62,7 +62,7 @@ Teknisk information om utlösare, åtgärder och gränser, som beskrivs av koppl
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

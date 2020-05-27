@@ -5,12 +5,12 @@ author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee602b3aa6c701eb10730f4c5c387175bb070ef3
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282099"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834602"
 ---
 # <a name="azure-service-fabric-support-options"></a>Support alternativ för Azure Service Fabric
 
@@ -51,7 +51,7 @@ Rapportera Azure Service Fabric problem på [Service-Fabric-problem git-lagrings
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow-och MSDN-forum
 
-[Taggen Service Fabric på StackOverflow][stackoverflow] och [Service Fabric forum på MSDN][msdn-forum] används bäst för att ställa frågor om hur plattformen fungerar och hur du kan utföra vissa uppgifter med den.
+[Taggen Service Fabric på StackOverflow][stackoverflow] och [Service Fabric-forumet på MSDN] [MSDN-forum] används bäst för att ställa frågor om hur plattformen fungerar och hur du kan utföra vissa uppgifter med den.
 
 ### <a name="azure-feedback-forum"></a>Azure feedback-forum
 
@@ -67,7 +67,7 @@ Det finns inget betalt support alternativ för dessa för hands versioner. Anvä
 [Service Fabric versioner som stöds](service-fabric-versions.md)
 
 <!--references-->
-[msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
+[Microsoft Q&A question page]: https://docs.microsoft.com/answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs

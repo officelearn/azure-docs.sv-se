@@ -6,12 +6,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 04e32a88dcfb9f069e51b2f18207155b95da37d6
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e7a190792714e1dd1a54da7e674e63d4453c548e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744356"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835078"
 ---
 # <a name="compose-dsc-configurations"></a>Skriva DSC-konfigurationer
 
@@ -42,8 +42,9 @@ När kompileringen har slutförts visas den nya konfigurationen på fliken **kom
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kom igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md)
-- [Aktivera konfiguration av Azure Automation tillstånd](automation-dsc-onboarding.md)
-- [Kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md)
-- [Konfigurera kontinuerlig distribution med choklad](automation-dsc-cd-chocolatey.md)
-- [Prissättning för Azure Automations tillstånds konfiguration](https://azure.microsoft.com/pricing/details/automation/)
+- Information om hur du aktiverar noder finns i [aktivera Azure Automation tillstånds konfiguration](automation-dsc-onboarding.md).
+- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
+- Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [Konfigurera kontinuerlig distribution med choklad](automation-dsc-cd-chocolatey.md).
+- Pris information finns i pris information för [Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
+- En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

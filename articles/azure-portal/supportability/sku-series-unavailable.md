@@ -7,12 +7,12 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: b0f0762ded6804c0b0d90a19223c082f0fb8fd49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a88cb4ff2385edd3c867c84774df1d0e21422be
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843656"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835996"
 ---
 # <a name="region-or-sku-unavailable"></a>Otillgänglig region eller SKU
 
@@ -68,7 +68,7 @@ Om du inte kan hitta en lämplig region eller SKU skapar du en [support förfrå
 
 1. För **problem typ**väljer du **Välj typ av problem**.
 
-1. I **Välj problem typ**väljer du ett alternativ, till exempel kan inte **komma åt min prenumeration eller resurs** > **mitt problem inte visas ovan**. Välj **Spara**.
+1. I **Välj problem typ**väljer du ett alternativ, till exempel kan inte **komma åt min prenumeration eller resurs**  >  **mitt problem inte visas ovan**. Välj **Spara**.
 
    ![Ange ett problem för begäran](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
@@ -80,7 +80,7 @@ Om du inte kan hitta en lämplig region eller SKU skapar du en [support förfrå
 
 ## <a name="send-us-your-suggestions"></a>Skicka förslag till oss
 
-Vi är alltid öppna för feedback och förslag! Skicka oss dina [förslag](https://feedback.azure.com/forums/266794-support-feedback). Dessutom kan du engagera oss på [Twitter](https://twitter.com/azuresupport) -eller MSDN- [Forum](https://social.msdn.microsoft.com/Forums/azure).
+Vi är alltid öppna för feedback och förslag! Skicka oss dina [förslag](https://feedback.azure.com/forums/266794-support-feedback). Dessutom kan du engagera oss på [Twitter](https://twitter.com/azuresupport) eller på [sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/products/azure).
 
 ## <a name="learn-more"></a>Läs mer
 

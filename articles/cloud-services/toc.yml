@@ -54,7 +54,7 @@
               href: cloud-services-dotnet-install-dotnet.md
         - name: Konfigurera Fjärrskrivbord
           items:
-            - name: Portal
+            - name: Portalen
               href: cloud-services-role-enable-remote-desktop-new-portal.md
             - name: PowerShell
               href: cloud-services-role-enable-remote-desktop-powershell.md
@@ -191,9 +191,9 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Utbildningsväg
       href: 'https://azure.microsoft.com/documentation/learning-paths/cloud-services/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment'
-    - name: Priser
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

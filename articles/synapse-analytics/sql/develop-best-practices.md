@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 858dfa8282a06feab877bcea65de47b8455133dc
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9a291971ce0edead9ca28a47f7ad0689b0f65547
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697302"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834959"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Bästa metoder för utveckling för Synapse SQL
 I den här artikeln beskrivs vägledning och bästa praxis när du utvecklar din lösning för data lager. 
@@ -166,7 +166,7 @@ När CETAS genererar Parquet-filer skapas statistik automatiskt när den första
 
 ### <a name="next-steps"></a>Nästa steg
 
-Om du behöver information som inte anges i den här artikeln använder du "Sök efter dokument" på vänster sida av den här sidan för att söka i alla dokument i SQL-poolen.  [SQL-poolens forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) är en plats där du kan ställa frågor till andra användare och till produkt gruppen för SQL-poolen.  
+Om du behöver information som inte anges i den här artikeln använder du "Sök efter dokument" på vänster sida av den här sidan för att söka i alla dokument i SQL-poolen.  [Sidan Microsoft Q&en fråga för SQL-poolen](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) är en plats där du kan ställa frågor till andra användare och till produkt gruppen för SQL-poolen.  
 
 Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  Om du föredrar att ställa dina frågor på Stack Overflow, har vi också en [Azure SQL-pool Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

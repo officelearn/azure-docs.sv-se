@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 4ea29888d4dcf589e3e5d4dfe594f5f4bff2287e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3327f0bdaff641055cf84ab205d847f0fb73bfe8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559975"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834619"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Visa och hämta Azure aktivitets logg händelser
 
@@ -39,7 +39,7 @@ Du kan filtrera aktivitets logg händelser efter följande fält:
 ## <a name="categories-in-the-activity-log"></a>Kategorier i aktivitets loggen
 Varje händelse i aktivitets loggen har en viss kategori som beskrivs i följande tabell. Fullständig information om scheman för dessa kategorier finns i [händelse schema för Azure aktivitets logg](activity-log-schema.md). 
 
-| Kategori | Beskrivning |
+| Kategori | Description |
 |:---|:---|
 | Administrativ | Innehåller posten över alla åtgärder för att skapa, uppdatera, ta bort och åtgärd som utförs via Resource Manager. Exempel på administrativa händelser är att _skapa en virtuell dator_ och _ta bort nätverks säkerhets grupp_.<br><br>Varje åtgärd som utförs av en användare eller ett program som använder Resource Manager är modellerad som en åtgärd på en viss resurs typ. Om åtgärds typen är _Skriv_, _ta bort_eller _åtgärd_registreras posterna för både start och lyckad eller misslyckad åtgärd i den administrativa kategorin. Administrativa händelser inkluderar även eventuella ändringar av rollbaserad åtkomst kontroll i en prenumeration. |
 | Service Health | Innehåller posten för eventuella service Health-incidenter som har inträffat i Azure. Ett exempel på en Service Health händelse _SQL Azure i östra USA drabbas av drift stopp_. <br><br>Service Health-händelser finns på sex sorter: _åtgärd krävs_, _stöd för återställning_, _incident_, _Underhåll_, _information_eller _säkerhet_. Dessa händelser skapas endast om du har en resurs i prenumerationen som skulle påverkas av händelsen.
@@ -48,7 +48,7 @@ Varje händelse i aktivitets loggen har en viss kategori som beskrivs i följand
 | Automatisk skalning | Innehåller posten för alla händelser som rör driften av autoskalning-motorn baserat på de inställningar för autoskalning som du har definierat i din prenumeration. Ett exempel på en autoskalning-händelse är autoskalning- _åtgärden misslyckades_. |
 | Rekommendation | Innehåller rekommendations händelser från Azure Advisor. |
 | Säkerhet | Innehåller posten för eventuella aviseringar som genererats av Azure Security Center. Ett exempel på en säkerhets händelse är _misstänkt dubbel tilläggs fil som körs_. |
-| Princip | Innehåller poster med åtgärder som utförs av alla åtgärder som utförs av Azure Policy. Exempel på princip händelser är _granskning_ och _neka_. Varje åtgärd som utförs av principen är modellerad som en åtgärd på en resurs. |
+| Policy | Innehåller poster med åtgärder som utförs av alla åtgärder som utförs av Azure Policy. Exempel på princip händelser är _granskning_ och _neka_. Varje åtgärd som utförs av principen är modellerad som en åtgärd på en resurs. |
 
 ## <a name="view-change-history"></a>Visa ändrings historik
 
@@ -112,7 +112,7 @@ Get-AzLog -MaxRecord 1000
 
 
 ## <a name="cli"></a>CLI
-Använd [AZ övervaka aktivitet – logg](cli-samples.md#view-activity-log-for-a-subscription) för att hämta aktivitets loggen från cli. Här följer några vanliga exempel.
+Använd [AZ övervaka aktivitet – logg](../samples/cli-samples.md#view-activity-log-for-a-subscription) för att hämta aktivitets loggen från cli. Här följer några vanliga exempel.
 
 
 Visa alla tillgängliga alternativ.

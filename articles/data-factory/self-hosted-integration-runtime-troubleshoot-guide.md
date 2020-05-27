@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/07/2019
 ms.author: abnarain
-ms.openlocfilehash: f298b331d53eb8bab67a6f99194065dc5f889236
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 94e214c55a0109beb85cd08ce87303e5bd0f8016
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414882"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835435"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
@@ -45,7 +45,7 @@ Den egna värdbaserade integrerings körningen kan inte ansluta till Data Factor
     ```
         
    > [!NOTE]     
-   > URL: en för tjänsten kan variera beroende på din Data Factory plats. Du hittar tjänst-URL: en under**integrerings körningar** > i **ADF UI** > **anslutningar** > **Redigera egen värd för IR** > -**noder** > **Visa tjänst-URL: er**.
+   > URL: en för tjänsten kan variera beroende på din Data Factory plats. Du hittar tjänst-URL: en **ADF UI**under  >  **Connections**  >  **integrerings körningar**i ADF UI  >  **-anslutningar redigera egen värd för IR**  >  **Nodes**  >  **-noder Visa tjänst-URL: er**.
             
     Följande är det förväntade svaret:
             
@@ -54,8 +54,8 @@ Den egna värdbaserade integrerings körningen kan inte ansluta till Data Factor
 1. Om du inte får det förväntade svaret använder du någon av följande metoder som passar din situation:
             
     * Om du får ett meddelande om att det inte gick att lösa problemet, finns det ett Domain Name System (DNS-problem). Kontakta nätverks teamet för att åtgärda problemet.
-    * Om du får ett meddelande om att SSL/TLS-certifikat inte är betrott, kontrollerar du om https://wu2.frontend.clouddatahub.net/ certifikatet för är betrott på datorn och installerar sedan det offentliga certifikatet med hjälp av certifikat hanteraren. Den här åtgärden bör minimera problemet.
-    * Gå till **Windows** > **logg boken (loggar)** > **program-och tjänst loggar** > **integration runtime** och kontrol lera eventuella problem som orsakas av DNS, brand Väggs regel eller företagets nätverks inställningar. (Om du upptäcker ett sådant problem stänger du anslutningen.) Eftersom alla företag har anpassade nätverks inställningar kan du kontakta nätverks teamet för att felsöka problemen.
+    * Om du får ett meddelande om att SSL/TLS-certifikat inte är betrott, kontrollerar du om certifikatet för https://wu2.frontend.clouddatahub.net/ är betrott på datorn och installerar sedan det offentliga certifikatet med hjälp av certifikat hanteraren. Den här åtgärden bör minimera problemet.
+    * Gå till **Windows**  >  **logg boken (loggar)**  >  **program-och tjänst loggar**  >  **integration runtime** och kontrol lera eventuella problem som orsakas av DNS, brand Väggs regel eller företagets nätverks inställningar. (Om du upptäcker ett sådant problem stänger du anslutningen.) Eftersom alla företag har anpassade nätverks inställningar kan du kontakta nätverks teamet för att felsöka problemen.
 
 1. Om proxyn har kon figurer ATS på integration runtime med egen värd, kontrollerar du att proxyservern kan komma åt tjänstens slut punkt. Ett exempel kommando finns i [PowerShell, webb förfrågningar och proxyservrar](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
                 
@@ -98,7 +98,7 @@ Det här problemet uppstår när noder inte kan kommunicera med varandra.
 
 #### <a name="resolution"></a>Lösning
 
-1. Logga in på den nod-värdbaserade virtuella datorn. Under **program-och tjänst loggar** > **integration runtime**öppnar du Loggboken och filtrerar alla fel loggar.
+1. Logga in på den nod-värdbaserade virtuella datorn. Under **program-och tjänst loggar**  >  **integration runtime**öppnar du Loggboken och filtrerar alla fel loggar.
 
 1. Kontrol lera om fel loggen innehåller följande fel: 
     
@@ -135,7 +135,7 @@ For more help with troubleshooting, try the following resources:
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
+*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Mapping data flows performance guide](concepts-data-flow-performance.md)

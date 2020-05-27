@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: f6dea00bf3b3e8a58f42da8fd8ad59ccec2dea72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17c73866a11aae23efea90073f64b61808c13a35
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537805"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834721"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Använd tomma Edge-noder på Apache Hadoop kluster i HDInsight
 
@@ -61,17 +61,18 @@ När du har skapat en Edge-nod kan du ansluta till Edge-noden med SSH och köra 
 > [!WARNING]
 > Anpassade komponenter som är installerade på Edge-noden får kommersiellt skälig support från Microsoft. Detta kan resultera i att lösa problem som du stöter på. Eller så kan du hänvisas till community-resurser för att få hjälp. Följande är några av de mest aktiva webbplatserna för att få hjälp från communityn:
 >
-> * [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
+> * [Microsoft Q&en fråge sida för HDInsight] (https://docs.microsoft.com/answers/topics/azure-hdinsight.html
+
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
-> Om du använder en Apache-teknik kanske du kan hitta hjälp genom Apache-projekt webbplatser på [https://apache.org](https://apache.org), till exempel [Apache Hadoop](https://hadoop.apache.org/) webbplats.
+> Om du använder en Apache-teknik kanske du kan hitta hjälp genom Apache-projekt webbplatser på [https://apache.org](https://apache.org) , till exempel [Apache Hadoop](https://hadoop.apache.org/) webbplats.
 
 > [!IMPORTANT]
 > Ubuntu-avbildningar blir tillgängliga för nya HDInsight-kluster inom tre månader efter att de har publicerats. Från och med januari 2019 korrigeras **inte** kluster som körs (inklusive Edge-noder) automatiskt. Kunder måste använda skript åtgärder eller andra mekanismer för att korrigera ett kluster som körs.  Mer information finns i [OS-uppdatering för HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Lägga till en Edge-nod i ett befintligt kluster
 
-I det här avsnittet använder du en Resource Manager-mall för att lägga till en Edge-nod i ett befintligt HDInsight-kluster.  Du hittar Resource Manager-mallen i [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager-mallen anropar en skript åtgärd som https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.shfinns på. Skriptet utför inga åtgärder.  Det är att demonstrera en anrops skript åtgärd från en Resource Manager-mall.
+I det här avsnittet använder du en Resource Manager-mall för att lägga till en Edge-nod i ett befintligt HDInsight-kluster.  Du hittar Resource Manager-mallen i [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager-mallen anropar en skript åtgärd som finns på https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh . Skriptet utför inga åtgärder.  Det är att demonstrera en anrops skript åtgärd från en Resource Manager-mall.
 
 1. Välj följande bild för att logga in på Azure och öppna Azure Resource Manager-mallen i Azure Portal.
 
@@ -89,11 +90,11 @@ I det här avsnittet använder du en Resource Manager-mall för att lägga till 
 1. Kontrol lera **att jag godkänner de allmänna villkoren som anges ovan**och välj sedan **köp** för att skapa Edge-noden.
 
 > [!IMPORTANT]  
-> Se till att välja Azure-resurs gruppen för det befintliga HDInsight-klustret.  Annars visas fel meddelandet "det går inte att utföra den begärda åtgärden på en kapslad resurs. Det gick inte&lt;att hitta den överordnade resursens kluster namn>.
+> Se till att välja Azure-resurs gruppen för det befintliga HDInsight-klustret.  Annars visas fel meddelandet "det går inte att utföra den begärda åtgärden på en kapslad resurs. Det gick inte att hitta den överordnade resursens &lt; kluster namn>.
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Lägg till en Edge-nod när du skapar ett kluster
 
-I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsight-kluster med en Edge-nod.  Du hittar Resource Manager-mallen i [galleriet för Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Resource Manager-mallen anropar en skript åtgärd som https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.shfinns på. Skriptet utför inga åtgärder.  Det är att demonstrera en anrops skript åtgärd från en Resource Manager-mall.
+I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsight-kluster med en Edge-nod.  Du hittar Resource Manager-mallen i [galleriet för Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Resource Manager-mallen anropar en skript åtgärd som finns på https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh . Skriptet utför inga åtgärder.  Det är att demonstrera en anrops skript åtgärd från en Resource Manager-mall.
 
 1. Skapa ett HDInsight-kluster om du inte har något ännu.  Se [Kom igång med Hadoop i HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -125,7 +126,7 @@ Du kan lägga till flera Edge-noder i ett HDInsight-kluster.  Konfigurationen av
 
 ## <a name="access-an-edge-node"></a>Åtkomst till en Edge-nod
 
-SSH-slutpunkten för &lt;Edge-noden är EdgeNodeName>. &lt;Kluster namn>-SSH.azurehdinsight.net:22.  Till exempel new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
+SSH-slutpunkten för Edge-noden är &lt; EdgeNodeName>. &lt; Kluster namn>-ssh.azurehdinsight.net:22.  Till exempel new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
 
 Edge-noden visas som ett program på Azure Portal.  Portalen ger dig information om hur du kommer åt Edge-noden med SSH.
 

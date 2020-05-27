@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 4b265bb574895e4728ad93ee25c9dad0da226ea4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60fde4ca1d8aaf47367fcdb4b5dc7c73753b7496
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240291"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834772"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Attitydanalys för Twitter i realtid i Azure Stream Analytics
 
@@ -29,7 +29,7 @@ Ett företag som har en nyhets medie webbplats är intresse rad av att få en f�
 
 För att kunna identifiera trender i ämnen i real tid på Twitter behöver företaget real tids analys av tweet-volymen och sentiment för viktiga ämnen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här instruktions guiden använder du ett klient program som ansluter till Twitter och letar efter Tweets som har vissa hashtagg (som du kan ställa in). Om du vill köra programmet och analysera tweets med Azure streaming Analytics måste du ha följande:
 
@@ -56,7 +56,7 @@ I det här avsnittet skapar du ett namn område för Event Hub och lägger till 
  
 4. När namn rymden har distribuerats går du till resurs gruppen och letar upp namn området för händelsehubben i listan med Azure-resurser. 
 
-5. I det nya namn området väljer ** + &nbsp;du händelsehubben**. 
+5. I det nya namn området väljer du ** + &nbsp; händelsehubben**. 
 
 6. Namnge den nya händelsehubben *socialtwitter-händelsehubbnamnområde*. Du kan använda ett annat namn. Om du gör det, gör du en anteckning om det, eftersom du behöver namnet senare. Du behöver inte ange andra alternativ för händelsehubben.
  
@@ -89,7 +89,7 @@ Innan en process kan skicka data till en händelsehubben, behöver händelsehubb
    Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=;EntityPath=socialtwitter-eh
    ```
 
-   Observera att anslutnings strängen innehåller flera nyckel/värde-par, separerade med semikolon: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`, och `EntityPath`.  
+   Observera att anslutnings strängen innehåller flera nyckel/värde-par, separerade med semikolon: `Endpoint` , `SharedAccessKeyName` , `SharedAccessKey` , och `EntityPath` .  
 
    > [!NOTE]
    > Av säkerhets nivå har delar av anslutnings strängen i exemplet tagits bort.
@@ -154,7 +154,7 @@ Nu när tweet-händelser strömmas i real tid från Twitter, kan du konfigurera 
 
 1. I ditt Stream Analytics jobb väljer du **indata** från den vänstra menyn under **jobb sto pol Ogin**.
 
-2. ** +Välj &nbsp;Lägg till Stream-indata** > -**händelsehubben.** Fyll i det **nya indata** -formuläret med följande information:
+2. Välj ** + &nbsp; Lägg till Stream-indata**-händelsehubben  >  **Event Hub**. Fyll i det **nya indata** -formuläret med följande information:
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
@@ -205,12 +205,12 @@ I den här instruktions guiden skriver du de aggregerade tweet-händelserna frå
 
 1. I avsnittet **jobb sto pol Ogin** på den vänstra navigerings menyn väljer du **utdata**. 
 
-2. På sidan **utdata** klickar du på ** + &nbsp;Lägg till** och **blob-lagring/data Lake Storage Gen2**:
+2. På sidan **utdata** klickar du på ** + &nbsp; Lägg till** och **blob-lagring/data Lake Storage Gen2**:
 
-   * **Utdata-alias**: Använd namnet `TwitterStream-Output`. 
+   * **Utdata-alias**: Använd namnet `TwitterStream-Output` . 
    * **Import alternativ**: Välj **Välj lagring från dina prenumerationer**.
    * **Lagrings konto**. Välj ditt lagringskonto.
-   * **Container**. Välj **Skapa ny** och ange `socialtwitter`.
+   * **Container**. Välj **Skapa ny** och ange `socialtwitter` .
    
 4. Välj **Spara**.   
 
@@ -225,7 +225,7 @@ Du har angett jobbets indata, fråga och utdata. Du är redo att starta Stream A
 3. På sidan **starta jobb** väljer du **nu** **Start tid för jobbets utdata**och väljer sedan **Starta**.
 
 ## <a name="get-support"></a>Få support
-Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

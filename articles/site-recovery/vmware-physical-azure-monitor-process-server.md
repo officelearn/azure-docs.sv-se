@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 296254db83a065623b692d7947c130dfd71cd413
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257074"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835061"
 ---
 # <a name="monitor-the-process-server"></a>Övervaka processervern
 
@@ -59,11 +59,11 @@ Processervern genererar ett antal hälso aviseringar som sammanfattas i följand
 ![Varning][yellow] | Ledigt utrymme i cache-mappen < 30% under de senaste 15 minuterna
 ![Varning][yellow] | Site Recovery övervakar väntande/utgående data var femte minut och beräknar att data i processervern inte kan överföras till Azure inom 30 minuter.
 ![Varning][yellow] | Process Server-tjänsterna körs inte under de senaste 15 minuterna
-![Kritisk][red] | CPU-användning > 95% under de senaste 15 minuterna
-![Kritisk][red] | Minnes användning > 95% under de senaste 15 minuterna
-![Kritisk][red] | Ledigt utrymme i cache-mappen < 25% under de senaste 15 minuterna
-![Kritisk][red] | Site Recovery övervakar väntande/utgående data var femte minut och beräknar att data i processervern inte kan överföras till Azure inom 45 minuter.
-![Kritisk][red] | Inget pulsslag från processervern i 15 minuter.
+![Kritiskt][red] | CPU-användning > 95% under de senaste 15 minuterna
+![Kritiskt][red] | Minnes användning > 95% under de senaste 15 minuterna
+![Kritiskt][red] | Ledigt utrymme i cache-mappen < 25% under de senaste 15 minuterna
+![Kritiskt][red] | Site Recovery övervakar väntande/utgående data var femte minut och beräknar att data i processervern inte kan överföras till Azure inom 45 minuter.
+![Kritiskt][red] | Inget pulsslag från processervern i 15 minuter.
 
 ![Tabell nyckel](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 
@@ -96,7 +96,7 @@ Du kan också övervaka process servrar i valvet under **Site Recovery-infrastru
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du har problem med process servrar följer du vår [fel söknings vägledning](vmware-physical-azure-troubleshoot-process-server.md)
-- Om du behöver mer hjälp kan du publicera din fråga i [Azure Site Recovery-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+- Om du behöver mer hjälp kan du publicera din fråga på [sidan Microsoft Q&en fråga för Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png

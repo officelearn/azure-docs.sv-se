@@ -4,12 +4,12 @@ description: Den här artikeln innehåller svar på vanliga frågor om Language 
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 79cee94a0f04cb89aa65f65cde63e48b6f078d2c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592856"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835010"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -333,4 +333,4 @@ Videor:
 
 Mer information om LUIS finns i följande resurser:
 * [Stack Overflow frågor taggade med LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [MSDN Language Understanding intelligent Services (LUIS)-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Sidan Microsoft Q&en fråga för MSDN Language Understanding intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)

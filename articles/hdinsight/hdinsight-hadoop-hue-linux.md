@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: dea7e8d5679c8c5a14d6a4253b8a4b36343e6ed8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fabc8b7b2a97b75959eb7d82723d6af6bc55bbe5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887103"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835486"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installera och använda nyans på HDInsight Hadoop-kluster
 
@@ -33,7 +33,7 @@ Nyans är en uppsättning webb program som används för att interagera med ett 
 > [!WARNING]  
 > Komponenter som ingår i HDInsight-klustret stöds fullt ut och Microsoft Support hjälper till att isolera och lösa problem som rör dessa komponenter.
 >
-> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Detta kan resultera i att lösa problemet eller be dig att engagera tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, t. ex. [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Apache-projekt har även projekt webbplatser [https://apache.org](https://apache.org)på, till exempel: [Hadoop](https://hadoop.apache.org/).
+> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Detta kan resultera i att lösa problemet eller be dig att engagera tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, till exempel: [Microsoft Q&en fråge sida för HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) [https://stackoverflow.com](https://stackoverflow.com) . Apache-projekt har även projekt webbplatser på [https://apache.org](https://apache.org) , till exempel: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="install-hue-using-script-actions"></a>Installera nyans med skript åtgärder
 
@@ -76,7 +76,7 @@ Du kan bara ha ett användar konto med nyans i vanliga kluster. Aktivera [Enterp
 
     Detta är värd namnet för den primära huvudnoden där nyans webbplatsen finns.
 
-1. Använd webbläsaren för att öppna nyans portalen på `http://HOSTNAME:8888`. Ersätt HOSTNAME med det namn som du fick i föregående steg.
+1. Använd webbläsaren för att öppna nyans portalen på `http://HOSTNAME:8888` . Ersätt HOSTNAME med det namn som du fick i föregående steg.
 
    > [!NOTE]  
    > När du loggar in för första gången uppmanas du att skapa ett konto för att logga in på nyans portalen. De autentiseringsuppgifter som du anger här kommer att begränsas till portalen och är inte relaterade till de autentiseringsuppgifter för administratörer eller SSH-användare som du angav när klustret etableras.
@@ -107,7 +107,7 @@ Du kan bara ha ett användar konto med nyans i vanliga kluster. Aktivera [Enterp
 > [!NOTE]  
 > Filen för nyans-filen kan bara visa innehållet i standard behållaren som är associerad med HDInsight-klustret. Eventuella ytterligare lagrings konton/behållare som du kanske har associerat med klustret kommer inte att vara tillgängliga via fil läsaren. Dock är de ytterligare behållare som är kopplade till klustret alltid tillgängliga för Hive-jobben. Om du till exempel anger kommandot `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net` i Hive-redigeraren kan du även se innehållet i ytterligare behållare. I det här kommandot är **newcontainer** inte standard behållaren som är associerad med ett kluster.
 
-## <a name="important-considerations"></a>Att tänka på
+## <a name="important-considerations"></a>Viktiga överväganden
 
 1. Skriptet som används för att installera nyans installerar bara det på den primära huvudnoden i klustret.
 
@@ -123,7 +123,7 @@ Du kan bara ha ett användar konto med nyans i vanliga kluster. Aktivera [Enterp
 
    Detta beror på ett känt problem. Som en lösning kan du ändra Ambari så att den aktiva Resource Manager också körs på den primära huvudnoden.
 
-1. Nyansen förstår WebHDFS medan HDInsight-kluster använder Azure Storage `wasbs://`med hjälp av. Det anpassade skriptet som används med skript åtgärd installerar därför WebWasb, som är en WebHDFS-kompatibel tjänst för att kommunicera med WASB. Så även om nyans portalen säger HDFS på platser (t. ex. När du flyttar musen över **fil läsaren**) ska den tolkas som WASB.
+1. Nyansen förstår WebHDFS medan HDInsight-kluster använder Azure Storage med hjälp av `wasbs://` . Det anpassade skriptet som används med skript åtgärd installerar därför WebWasb, som är en WebHDFS-kompatibel tjänst för att kommunicera med WASB. Så även om nyans portalen säger HDFS på platser (t. ex. När du flyttar musen över **fil läsaren**) ska den tolkas som WASB.
 
 ## <a name="next-steps"></a>Nästa steg
 

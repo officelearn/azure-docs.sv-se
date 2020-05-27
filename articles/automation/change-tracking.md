@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: ab091ba413a8429a8fea131c643cceee7007f927
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4f6ae1ad5b0f3904b84d47316c11aa1a67531a28
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744370"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835112"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Översikt över Ändringsspårning och inventering
 
@@ -79,7 +79,7 @@ Du kan klicka på en ändring eller händelse om du vill visa information om den
 
 * Händelser
 * Daemons
-* Filer
+* Files
 * Register
 * Programvara
 * Microsoft-tjänster
@@ -182,7 +182,7 @@ För att optimera prestanda spårar Log Analytics-agenten bara ändringar. Om du
 
 En viktig funktion i Ändringsspårning och inventering är aviseringar om ändringar i konfigurations läget för din hybrid miljö. Många användbara åtgärder är tillgängliga för att utlösa svar på aviseringar, till exempel åtgärder på Azure Functions, Automation-runbooks, Webhooks och liknande. Aviseringar om ändringar i **C:\Windows\System32\drivers\etc\hosts** -filen för en dator är en lämplig applikation av aviseringar för ändringsspårning-och inventerings data. Det finns många fler scenarier för aviseringar, inklusive de fråge scenarier som definierats i nästa tabell. 
 
-|Söka i data  |Beskrivning  |
+|Söka i data  |Description  |
 |---------|---------|
 |ConfigurationChange <br>&#124; där ConfigChangeType = = "Files" och FileSystemPath innehåller "c: \\ Windows \\ system32- \\ drivrutiner \\ "|Användbart för att spåra ändringar i systemkritiska filer.|
 |ConfigurationChange <br>&#124; där FieldsChanged innehåller "FileContentChecksum" och FileSystemPath = = "c: \\ Windows \\ system32- \\ drivrutiner \\ osv \\ "|Användbart för att spåra ändringar i nyckel konfigurationsfiler.|
@@ -195,7 +195,10 @@ En viktig funktion i Ändringsspårning och inventering är aviseringar om ändr
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera Ändringsspårning och inventering](change-tracking-file-contents.md)
-* [Loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md)
-* [Felsöka Ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md)
-* [Felsöka ändringar på en virtuell Azure-dator](automation-tutorial-troubleshoot-changes.md)
+* Information om hur du arbetar med Ändringsspårning och inventering finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
+* Information om hur du aktiverar funktionen från en Runbook finns i [aktivera ändringsspårning och inventering från en Runbook](automation-enable-changes-from-runbook.md).
+* Information om hur du aktiverar funktionen från ett Automation-konto finns i [aktivera ändringsspårning och inventering från ett Automation-konto](automation-enable-changes-from-auto-acct.md).
+* Om du vill aktivera funktionen genom att bläddra i Azure Portal, se [aktivera ändringsspårning och inventering från Azure Portal](automation-onboard-solutions-from-browse.md).
+* Om du vill aktivera funktionen från en virtuell Azure-dator kan du läsa [aktivera ändringsspårning och inventering från en virtuell Azure-dator](automation-enable-changes-from-vm.md).
+* Om du behöver söka i loggar som lagras i din Log Analytics-arbetsyta, se [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
+* Information om hur du felsöker funktions fel finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

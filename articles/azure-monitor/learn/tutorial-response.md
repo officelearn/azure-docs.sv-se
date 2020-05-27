@@ -7,23 +7,23 @@ author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8af1acb67961de105e5bf5900d7b10c437cb30d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77670380"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835877"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Svara på händelser med Azure Monitor-aviseringar
 Med aviseringar i Azure Monitor kan du identifiera viktig information på Log Analytics-lagringsplatsen. De skapas från varningsregler som automatiskt kör regelbundna loggsökningar. Om resultatet från loggsökningen matchar särskilda kriterier, skapas en aviseringspost som kan konfigureras till en automatisk åtgärd.  Den här självstudien är en fortsättning på självstudien [Skapa och dela instrumentpaneler med Log Analytics-data](tutorial-logs-dashboards.md).   
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa en varningsregel
 > * Konfigurera en åtgärdsgrupp som skickar ett e-postmeddelande
 
-Du måste ha en befintlig virtuell dator [som är ansluten till Log Analytics-arbetsytan](../../azure-monitor/learn/quick-collect-azurevm.md) för att kunna utföra exemplet i självstudien.  
+Du måste ha en befintlig virtuell dator [som är ansluten till Log Analytics-arbetsytan](quick-collect-azurevm.md) för att kunna utföra exemplet i självstudien.  
 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
@@ -69,4 +69,4 @@ I den här självstudien har du lärt dig hur varningsregler proaktivt kan ident
 Följ den här länken om du vill se inbyggda skriptexempel för Log Analytics.  
 
 > [!div class="nextstepaction"]
-> [Skriptexempel för Log Analytics](../../azure-monitor/platform/powershell-samples.md)
+> [Skriptexempel för Log Analytics](../samples/powershell-samples.md)

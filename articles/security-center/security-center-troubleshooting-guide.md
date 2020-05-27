@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 47502e693b897a57517d267924cc6c2752c10440
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e26744c2003bd55b33b638b15775c52abbe1dc32
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585331"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836013"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 
@@ -81,7 +81,7 @@ Det finns två installations scenarier som kan ge olika resultat när du install
 
 **Övervakningstillstånd** definierar anledningen till att Security Center inte kan övervaka virtuella datorer och datorer som initierats för automatisk etablering. I följande tabell visas steg för värden, beskrivningar och lösningar för **övervakningstillstånd**.
 
-| Övervakningstillstånd | Beskrivning | Lösningsanvisningar |
+| Övervakningstillstånd | Description | Lösningssteg |
 |---|---|---|
 | Väntande agentinstallation | Installationen av Log Analytics-agenten körs fortfarande.  Installationen kan ta upp till några timmar. | Vänta tills den automatiska installationen är slutförd. |
 | Energisparläge inaktiverat | Den virtuella datorn har stoppats.  Log Analytics agenten kan bara installeras på en virtuell dator som kör. | Starta om den virtuella datorn. |
@@ -105,10 +105,10 @@ I följande tabell visas resurser som krävs för kommunikation.
 
 | Agentresurs | Portar | Kringgå HTTPS-kontroll |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Ja |
-| *.oms.opinsights.azure.com | 443 | Ja |
-| *.blob.core.windows.net | 443 | Ja |
-| *.azure-automation.net | 443 | Ja |
+| *.ods.opinsights.azure.com | 443 | Yes |
+| *.oms.opinsights.azure.com | 443 | Yes |
+| *.blob.core.windows.net | 443 | Yes |
+| *.azure-automation.net | 443 | Yes |
 
 Om du får problem med att komma igång med agenten, kan du hitta mer information i artikeln [Felsökning av problem med att komma igång med Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
@@ -132,7 +132,7 @@ Om du har problem med att läsa in instrumentpanelen för Security Center ska du
 
 ## <a name="contacting-microsoft-support"></a>Kontakta Microsoft Support
 
-Vissa problem kan identifieras med hjälp av riktlinjerna i den här artikeln, andra hittar du också dokumenterade i Security Centers offentliga [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). Men om du behöver ytterligare fel sökning kan du öppna en ny supportbegäran med hjälp av **Azure Portal** enligt nedan:
+Vissa problem kan identifieras med hjälp av rikt linjerna i den här artikeln, andra du kan också hitta dokumenterade på sidan Security Center offentlig [Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-security-center.html). Men om du behöver ytterligare fel sökning kan du öppna en ny supportbegäran med hjälp av **Azure Portal** enligt nedan:
 
 ![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 

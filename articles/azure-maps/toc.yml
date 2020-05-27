@@ -259,6 +259,20 @@
           href: 'https://docs.microsoft.com/rest/api/maps/traffic'
         - name: Vädertjänst
           href: 'https://docs.microsoft.com/rest/api/maps/weather'
+        - name: Maps Creator-tjänst
+          items:
+            - name: Aliastjänst
+              href: 'https://docs.microsoft.com/rest/api/maps/alias'
+            - name: Konverteringstjänst
+              href: 'https://docs.microsoft.com/rest/api/maps/conversion'
+            - name: Datauppsättningstjänst
+              href: 'https://docs.microsoft.com/rest/api/maps/dataset'
+            - name: Feature State-tjänst
+              href: 'https://docs.microsoft.com/rest/api/maps/featurestate'
+            - name: Rutuppsättningstjänst
+              href: 'https://docs.microsoft.com/rest/api/maps/tileset'
+            - name: WFS-tjänst
+              href: 'https://docs.microsoft.com/rest/api/maps/wfs'
         - name: Kontohantering för Maps
           href: 'https://docs.microsoft.com/rest/api/maps-management'
     - name: JavaScript

@@ -60,9 +60,39 @@
 - name: Exempel
   items:
     - name: Azure CLI
-      href: cli-samples.md
+      items:
+        - name: Skapa en VM-skalningsuppsättning
+          href: ./scripts/cli-sample-create-simple-scale-set.md
+        - name: Skapa en skalningsuppsättning från en anpassad virtuell datoravbildning
+          href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
+        - name: Installera program till en skalningsuppsättning
+          href: ./scripts/cli-sample-install-apps.md
+        - name: Skapa och anslut diskar till en skalningsuppsättning
+          href: ./scripts/cli-sample-attach-disks.md
+        - name: Aktivera värdbaserad automatisk skalning
+          href: ./scripts/cli-sample-enable-autoscale.md
+        - name: Skapa en skalningsuppsättning med en zon
+          href: ./scripts/cli-sample-single-availability-zone-scale-set.md
+        - name: Skapa en zonredundant skalningsuppsättning
+          href: ./scripts/cli-sample-zone-redundant-scale-set.md
     - name: PowerShell
-      href: powershell-samples.md
+      items:
+        - name: Skapa en enkel VM-skalningsuppsättning
+          href: ./scripts/powershell-sample-create-simple-scale-set.md
+        - name: Skapa en fullständig VM-skalningsuppsättning
+          href: ./scripts/powershell-sample-create-complete-scale-set.md
+        - name: Skapa en skalningsuppsättning från en anpassad virtuell datoravbildning
+          href: ./scripts/powershell-sample-create-scale-set-from-custom-image.md
+        - name: Installera program till en skalningsuppsättning
+          href: ./scripts/powershell-sample-install-apps.md
+        - name: Skapa och anslut diskar till en skalningsuppsättning
+          href: ./scripts/powershell-sample-attach-disks.md
+        - name: Aktivera värdbaserad automatisk skalning
+          href: ./scripts/powershell-sample-enable-autoscale.md
+        - name: Skapa en skalningsuppsättning med en zon
+          href: ./scripts/powershell-single-av-zone-scale-set.md
+        - name: Skapa en zonredundant skalningsuppsättning
+          href: ./scripts/powershell-sample-zone-redundant-scale-set.md
     - name: Inbyggda Azure Policy-program
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e87b6ee4739818e25ee069986e299f8205d44a2a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343311"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837877"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -158,7 +158,7 @@ Azure disks-reservationen köps för en bestämd region och SKU (som P30 i USA, 
 **Vad händer när reservationen för Azure disks upphör att gälla?**    
 Du får e-postmeddelanden 30 dagar innan det går ut och sedan på förfallo datumet. När reservationen går ut fortsätter de distribuerade diskarna att köras och debiteras enligt de senaste priserna enligt principen [betala per](https://azure.microsoft.com/pricing/details/managed-disks/)användning.
 
-### <a name="azure-shared-disks"></a>Azure delade diskar
+### <a name="azure-shared-disks"></a>Delade diskar i Azure
 
 **Stöds funktionen delade diskar för ohanterade diskar eller sid-blobar?**
 
@@ -302,7 +302,7 @@ Nej. Azure Site Recovery Azure till Azure-skydd för virtuella datorer med Manag
 
 **Kan jag migrera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
-Ja
+Yes
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks och Kryptering för lagringstjänst
 
@@ -340,7 +340,7 @@ Ja. Alla hanterade ögonblicks bilder och avbildningar krypteras automatiskt.
 
 **Kan jag konvertera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
-Ja
+Yes
 
 **Kommer en exporterad virtuell hård disk från en hanterad disk eller en ögonblicks bild också att krypteras?**
 
@@ -455,6 +455,6 @@ Vi stöder cachelagring av värdar för ReadOnly och läsning/skrivning på disk
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
 
-Om din fråga inte visas här kan vi hjälpa oss och vi hjälper dig att hitta ett svar. Du kan skicka en fråga i slutet av den här artikeln i kommentarerna. Om du vill delta i Azure Storage teamet och andra community-medlemmar om den här artikeln använder du MSDN [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+Om din fråga inte visas här kan vi hjälpa oss och vi hjälper dig att hitta ett svar. Du kan skicka en fråga i slutet av den här artikeln i kommentarerna. Om du vill delta i Azure Storage-teamet och andra community-medlemmar om den här artikeln använder du [sidan MSDN Microsoft Q&en fråga för Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 Om du vill begära funktioner skickar du dina förfrågningar och idéer till [Azure Storage feedback-forumet](https://feedback.azure.com/forums/217298-storage).

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1613b21658e3ecf89cfe895462258ec5b8b93c6d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6032478dfc45d3d4ca1488913356718ab188e057
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118984"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872044"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>Snabb start: söka efter bilder med API för bildsökning i Bing och Java 
 
@@ -25,7 +25,7 @@ Använd den här snabb starten för att lära dig hur du skickar Sök begär and
 
 Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) med ytterligare fel hantering och anteckningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Java Development Kit (JDK)](https://aka.ms/azure-jdks)
 
@@ -61,12 +61,12 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
 
 Använd variablerna från föregående steg för att formatera en Sök-URL för API-begäran. URL – koda Sök termen innan du lägger till den i begäran.
 
-    ```java
-    // construct the search request URL (in the form of endpoint + query string)
-    URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
-    HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-    ```
+```java
+// construct the search request URL (in the form of endpoint + query string)
+URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
+HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+```
 
 ## <a name="receive-and-process-the-json-response"></a>Ta emot och bearbeta JSON-svaret
 

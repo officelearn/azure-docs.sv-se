@@ -8,42 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 42ac6cac972374dbd1db42b75742212046d2ce3e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 24dd1e719b9eb401038d47c4d1c42139258f36f9
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383140"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872058"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Snabb start: utför en nyhets sökning med Node. js och Nyhetssökning i Bing REST API
 
-Använd den här snabbstarten för att göra ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en sökfråga till API:et och visar rådataresultatet.
+Använd den här snabb starten för att göra ditt första anrop till API för nyhetssökning i Bing. Det här enkla JavaScript-programmet skickar en Sök fråga till API: et och visar JSON-svaret.
 
-Även om det här programmet är skrivet i JavaScript och körs i Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i Java Script och körs i Node. js, är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 
 ## <a name="prerequisites"></a>Krav
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
-
-* [Begäransbiblioteket för JavaScript](https://github.com/request/request)
+* [Java Script Request-biblioteket](https://github.com/request/request).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny JavaScript-fil i din favorit-IDE eller -redigerare och ange strikthet och https-krav.
+1. Skapa en ny JavaScript-fil i din favorit-IDE eller-redigerare och ange sträng-och HTTPS-krav.
 
     ```javascript
     'use strict';
     let https = require('https');
     ```
 
-2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. 
+2. Skapa variabler för API-slutpunkten, Sök väg för nyhets-API, din prenumerations nyckel och Sök villkor. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. 
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -54,38 +53,42 @@ Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-S
 
 ## <a name="handle-and-parse-the-response"></a>Hantera och parsa svaret
 
-1. Definiera en funktion med namnet `response_handler` som tar ett HTTP-anrop, `response`, som en parameter. Utför följande steg inom den här funktionen:
+1. Definiera en funktion med namnet `response_handler` som tar ett HTTP-anrop, `response`, som parameter. 
 
-    1. Definiera en variabel så att den innehåller brödtexten i JSON-svaret.  
-        ```javascript
-        let response_handler = function (response) {
-            let body = '';
-        };
-        ```
+   Lägg till kod i den här funktionen i stegen som följer.
 
-    2. Lagra svarets brödtext när flaggan för **data** anropas.
-        ```javascript
-        response.on('data', function (d) {
-            body += d;
-        });
-        ```
+2. Definiera en variabel så att den innehåller brödtexten i JSON-svaret.  
 
-    3. När en **slut** flagga signaleras kan JSON och huvuden visas.
+    ```javascript
+    let response_handler = function (response) {
+        let body = '';
+    };
+    ```
 
-        ```javascript
-        response.on('end', function () {
-            console.log('\nRelevant Headers:\n');
-            for (var header in response.headers)
-                // header keys are lower-cased by Node.js
-                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                     console.log(header + ": " + response.headers[header]);
-            body = JSON.stringify(JSON.parse(body), null, '  ');
-            console.log('\nJSON Response:\n');
-            console.log(body);
-         });
-        ```
+3. Lagra bröd texten i svaret när `data` flaggan anropas.
 
-## <a name="json-response"></a>JSON-svar
+    ```javascript
+    response.on('data', function (d) {
+        body += d;
+    });
+    ```
+
+3. När en `end` flagga signaleras kan JSON och huvuden visas.
+
+    ```javascript
+    response.on('end', function () {
+        console.log('\nRelevant Headers:\n');
+        for (var header in response.headers)
+            // header keys are lower-cased by Node.js
+            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                 console.log(header + ": " + response.headers[header]);
+        body = JSON.stringify(JSON.parse(body), null, '  ');
+        console.log('\nJSON Response:\n');
+        console.log(body);
+     });
+    ```
+
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 

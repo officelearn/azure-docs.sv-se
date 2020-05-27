@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bbb6acd4e976d345daa99cde7635febc3755963f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169734"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873830"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Snabbstart: Använda PHP för att anropa API för webbsökning i Bing  
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få JSON-svaret. Detta Node. js-program skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att göra ditt första anrop till API för webbsökning i Bing. Detta Node. js-program skickar en Sök förfrågan till API: et och visar JSON-svaret. Även om det här programmet är skrivet i Java Script är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,7 +33,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 ## <a name="enable-secure-http-support"></a>Aktivera stöd för säkert HTTP
 
-Innan vi sätter igång letar du upp `php.ini` och avkommenterar den här raden:
+Innan vi börjar kan du leta upp php. ini och ta bort kommentaren till den här raden:
 
 ```php
 ; extension=php_openssl.dll
@@ -41,9 +41,13 @@ Innan vi sätter igång letar du upp `php.ini` och avkommenterar den här raden:
 
 ## <a name="create-a-project-and-define-variables"></a>Skapa ett projekt och definiera variabler
 
-Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram. Glöm inte att lägga till de inledande och avslutande taggarna `<?php` och `?>`.
+1. Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram. Lägg till inledande och avslutande Taggar: `<?php` och `?>` .
 
-Några variabler måste anges innan vi kan fortsätta. `$endpoint`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. Bekräfta att `$endpoint` är korrekt och ersätt värdet `$accesskey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `$term`.
+2. För `$endpoint` värdet kan du använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. 
+
+3. Bekräfta att `$endpoint` värdet är rätt och Ersätt `$accesskey` värdet med en giltig prenumerations nyckel från ditt Azure-konto. 
+
+4. Du kan också anpassa Sök frågan genom att ersätta värdet för `$term` .
 
 ```php
 $accessKey = 'enter key here';
@@ -53,7 +57,7 @@ $term = 'Microsoft Cognitive Services';
 
 ## <a name="construct-a-request"></a>Skapa en begäran
 
-Koden deklarerar en funktion som heter `BingWebSearch` och som används för att konstruera begäranden till API för webbsökning i Bing. Den tar tre argument: `$url`, `$key` och `$query`.
+Den här koden deklarerar en funktion `BingWebSearch` som kallas som används för att skapa begär anden till API för webbsökning i Bing. Den tar tre argument: `$url`, `$key` och `$query`.
 
 ```php
 function BingWebSearch ($url, $key, $query) {
@@ -113,7 +117,7 @@ if (strlen($accessKey) == 32) {
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det sista steget är att verifiera koden och köra den! Om du vill jämföra din kod med vår finns det fullständiga programmet här:
+Det sista steget är att validera din kod och köra den. Om du vill jämföra din kod med vår finns det fullständiga programmet här:
 
 ```php
 <?php
@@ -155,7 +159,7 @@ if (strlen($accessKey) == 32) {
 ?>
 ```
 
-## <a name="sample-response"></a>Exempelsvar
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.  
 
@@ -284,6 +288,6 @@ Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsva
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie om app på en sida för Bing-webbsökning](../tutorial-bing-web-search-single-page-app.md)
+> [Själv studie kurs om API för webbsökning i Bing enkel sida](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

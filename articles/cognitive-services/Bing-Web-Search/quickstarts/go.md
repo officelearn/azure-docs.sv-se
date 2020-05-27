@@ -8,20 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 589f7884f390ae57df4e946bcd34ca3bda629ed8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d0bd9dfa8dc115ae10831d997dccc8000a1ae25
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74978806"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873900"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Snabb start: söka på webben med hjälp av Webbsökning i Bing REST API och gå
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få JSON-svaret. Det här Go-programmet skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i Go så är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att göra ditt första anrop till API för webbsökning i Bing. Det här Go-programmet skickar en Sök förfrågan till API: et och visar JSON-svaret. Även om det här programmet skrivs i farten är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+
+ Kod exemplen i den här snabb starten kräver bara kärn bibliotek. Det finns inga externa beroenden.  
 
 ## <a name="prerequisites"></a>Krav
 Här följer några saker som du behöver innan du kör den här snabbstarten:
@@ -29,13 +31,11 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 * [Go-binärfiler](https://golang.org/dl/)
 * En prenumerationsnyckel
 
-Den här snabbstarten kräver endast **kärnbibliotek**. Det finns inga externa beroenden.  
-
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## <a name="create-a-project-and-import-core-libraries"></a>Skapa ett projekt och importera kärnbibliotek
 
-Skapa ett nytt Go-projekt i valfri IDE eller redigeringsprogram. Importera sedan `net/http` för begäranden, `ioutil` för att läsa svaret, `time` och `encoding/json` för att hantera JSON samt `fmt` för att skriva ut utdata.
+Skapa ett nytt Go-projekt i valfri IDE eller redigeringsprogram. Sedan kan du importera `net/http` för begär Anden, `ioutil` läsa svaret `time` och `encoding/json` Hantera JSON och `fmt` skriva ut utdata.
 
 ```go
 package main
@@ -111,7 +111,13 @@ type BingAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Deklarera main-funktionen och definiera variabler  
 
-Den här koden deklarerar main-funktionen och ställer in nödvändiga variabler. `endpoint`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`.
+Den här koden deklarerar huvud funktionen och anger de variabler som krävs: 
+
+1. För `endpoint` värdet kan du använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. 
+
+2. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto. 
+ 
+3. Du kan också anpassa Sök frågan genom att ersätta värdet för `searchTerm` .
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -170,7 +176,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Hantera svaret
 
-Kommer du ihåg den struct som vi skapade tidigare? Vi kommer att använda den för att formatera svaret och skriva ut sökresultaten.
+Använd den struktur som vi skapade tidigare för att formatera svaret och skriva ut Sök resultaten.
 
 ```go
 // Create a new answer.  
@@ -187,7 +193,7 @@ for _, result := range ans.WebPages.Value {
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det sista steget är att verifiera koden och köra den! Om du vill jämföra din kod med vår finns det fullständiga programmet här:
+Det sista steget är att validera din kod och köra den. Om du vill jämföra din kod med vår finns det fullständiga programmet här:
 
 ```go
 package main
@@ -305,9 +311,9 @@ func main() {
 }
 ```
 
-## <a name="sample-response"></a>Exempelsvar  
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
-Svar från API för webbsökning i Bing returneras som JSON. Detta exempel svar har formaterats med hjälp `BingAnswer` av struct och visar `result.Name` och `result.URL`.
+Svar från API för webbsökning i Bing returneras som JSON. Detta exempel svar har formaterats med hjälp av `BingAnswer` struct och visar `result.Name` och `result.URL` .
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
@@ -324,6 +330,6 @@ Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/magazine/m
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie om app på en sida för Bing-webbsökning](../tutorial-bing-web-search-single-page-app.md)
+> [Själv studie kurs om API för webbsökning i Bing enkel sida](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

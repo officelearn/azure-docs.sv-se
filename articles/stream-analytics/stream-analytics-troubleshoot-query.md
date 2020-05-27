@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: a55515be478781a2f2448924c209a3348ae462c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd2440ecf04bb4481b5497317e0acd2641710ccf
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133315"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836880"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Felsöka Azure Stream Analytics frågor
 
@@ -77,11 +77,11 @@ Du kan sedan skriva om frågan så här:
 
 Starta nu jobbet igen och låt det köras i några minuter. Fråga sedan temp1 och temp2 med Visual Studio Cloud Explorer för att skapa följande tabeller:
 
-**temp1-tabell**
-![Välj i temp1 tabell Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+**temp1-tabell** 
+ ![ Välj i temp1 tabell Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
-**temp2-tabell**
-![Välj i temp2 tabell Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+**temp2-tabell** 
+ ![ Välj i temp2 tabell Stream Analytics fråga](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Som du kan se har temp1 och temp2 båda data och kolumnen namn är korrekt ifylld i temp2. Men eftersom det fortfarande inte finns några data i utdata är något fel:
 
@@ -103,7 +103,7 @@ Den här gången är data i utdata formaterade och ifyllda som förväntat.
 
 ## <a name="get-help"></a>Få hjälp
 
-Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

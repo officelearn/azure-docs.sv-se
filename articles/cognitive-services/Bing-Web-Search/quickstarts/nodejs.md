@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 54f4b38e01b51289319390779a140346befc6f0c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4a96f31588e199d5696e2d9eff351051d46c1f96
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76168808"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873964"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Snabb start: söka på webben med hjälp av Webbsökning i Bing REST API och Node. js
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få JSON-svaret. Detta Node. js-program skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att göra ditt första anrop till API för webbsökning i Bing. Detta Node. js-program skickar en Sök förfrågan till API: et och visar JSON-svaret. Även om det här programmet är skrivet i Java Script är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,8 +33,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Skapa ett projekt och deklarera nödvändiga moduler
 
-Skapa ett nytt Node.js-projekt i valfri IDE eller redigeringsprogram.
-Kopiera sedan kodavsnittet nedan till projektet i en fil med namnet `search.js`.
+Skapa ett nytt Node.js-projekt i valfri IDE eller redigeringsprogram. Kopiera sedan följande kodfragment till projektet i en fil med namnet search. js:
 
 ```javascript
 // Use this simple app to query the Bing Web Search API and get a JSON response.
@@ -44,9 +43,9 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Ange prenumerationsnyckeln
 
-I det här kodavsnittet används miljövariabeln `AZURE_SUBSCRIPTION_KEY` till att lagra din prenumerationsnyckel. Det här är en bra idé så att nyckeln inte exponeras oavsiktligt när du distribuerar koden. Gå till [sidan med API: er](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) för att leta upp din prenumerations nyckel.
+Det här kodfragmentet använder `AZURE_SUBSCRIPTION_KEY` miljövariabeln för att lagra din prenumerations nyckel, vilket är en bra idé att förhindra oavsiktlig exponering av nycklar när du distribuerar kod. Se [dina API: er](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7)för att leta upp din prenumerations nyckel.
 
-Om du inte är bekant med miljövariabler, eller om du vill köra den här appen så snabbt som möjligt, kan du ersätta `process.env['AZURE_SUBSCRIPTION_KEY']` med din prenumerationsnyckel angiven som en sträng.
+Om du inte känner till användningen av miljövariabler, eller om du vill köra den här appen så snabbt som möjligt, ersätter du `process.env['AZURE_SUBSCRIPTION_KEY']` med din prenumerations nyckel uppsättning som en sträng.
 
 ```javascript
 const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
@@ -57,7 +56,15 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>Skapa funktionen som ska göra begäran
 
-Den här funktionen gör en säker GET-förfrågan och sparar sökfrågan som en frågeparameter i sökvägen. `hostname`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.  `encodeURIComponent` används till att kommentera ut ogiltiga tecken och prenumerationsnyckeln skickas i en rubrik. Återanropet tar emot ett [svar](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) som prenumererar på händelsen `data` för att sammanställa JSON-texten, händelsen `error` för att logga eventuella problem och händelsen `end` för att veta när meddelandet ska betraktas som färdigt. När du är klar skriver appen ut relevanta intressanta rubriker och texter. Du kan experimentera med olika färger och vilket djup som passar dig bäst. Med djupet `1` får du en bra översikt över svaret.
+Den här funktionen gör en säker GET-begäran och sparar Sök frågan som en frågeparameter i sökvägen. 
+
+1. För `hostname` värdet kan du använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.  
+
+2. Används `encodeURIComponent` för att undanta ogiltiga tecken. Prenumerations nyckeln skickas i en rubrik. 
+
+3. Återanropet tar emot ett [svar](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) som prenumererar på händelsen `data` för att sammanställa JSON-texten, händelsen `error` för att logga eventuella problem och händelsen `end` för att veta när meddelandet ska betraktas som färdigt. 
+
+4. När appen har slutförts skrivs relevanta rubriker och meddelande text ut. Du kan justera färgerna och ange djupet som passar dina inställningar. Ett djup i `1` ger en bra sammanfattning av svaret.
 
 ```javascript
 function bingWebSearch(query) {
@@ -87,7 +94,7 @@ function bingWebSearch(query) {
 
 ## <a name="get-the-query"></a>Hämta frågan
 
-Låt oss titta på programmets argument och leta efter frågan. Det första argumentet är sökvägen till noden, det andra är vårt filnamn och det tredje är själva frågan. Om det inte finns någon fråga används standardfrågan ”Microsoft Cognitive Services”.
+Låt oss titta på programmets argument och leta efter frågan. Det första argumentet är sökvägen till noden, det andra är vårt fil namn och den tredje är din fråga. Om det inte finns någon fråga används standardfrågan ”Microsoft Cognitive Services”.
 
 ```javascript
 const query = process.argv[2] || 'Microsoft Cognitive Services'
@@ -95,7 +102,7 @@ const query = process.argv[2] || 'Microsoft Cognitive Services'
 
 ## <a name="make-a-request-and-print-the-response"></a>Göra en begäran och skriva ut svaret
 
-Nu när allt har definierats kan vi anropa vår funktion!
+Nu när allt har definierats kan vi anropa vår funktion.
 
 ```javascript
 bingWebSearch(query)
@@ -103,7 +110,7 @@ bingWebSearch(query)
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det sista steget är att köra koden: `node search.js "<your query>"`.
+Det sista steget är att köra koden med kommandot: `node search.js "<your query>"` .
 
 Om du vill jämföra din kod med vår finns det fullständiga programmet här:
 
@@ -140,7 +147,7 @@ const query = process.argv[2] || 'Microsoft Cognitive Services'
 bingWebSearch(query)
 ```
 
-## <a name="sample-response"></a>Exempelsvar
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.
 
@@ -269,6 +276,6 @@ Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsva
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie om app på en sida för Bing-webbsökning](../tutorial-bing-web-search-single-page-app.md)
+> [Själv studie kurs om API för webbsökning i Bing enkel sida](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

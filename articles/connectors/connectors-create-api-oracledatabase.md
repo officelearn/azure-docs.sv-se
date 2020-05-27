@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: 5b4f016b53c6c42831d5f5ae08a30ec8ac176e6e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773380"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836285"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Kom igång med Oracle Database Connector
 
@@ -30,7 +30,7 @@ Den här anslutningen har inte stöd för följande objekt:
 
 Den här artikeln visar hur du använder Oracle Database Connector i en Logic app.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Oracle-versioner som stöds: 
     * Oracle 9 och senare
@@ -122,7 +122,7 @@ Visa eventuella utlösare och åtgärder som definierats i Swagger och se även 
 
 ## <a name="get-some-help"></a>Få hjälp
 
-[Azure Logic Apps-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) är en bra plats för att ställa frågor, besvara frågor och se vad andra Logic Apps användare gör. 
+[Sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) är en bra plats för att ställa frågor, besvara frågor och se vad andra Logic Apps användare gör. 
 
 Du kan hjälpa till att förbättra Logic Apps och anslutningar genom att rösta och skicka dina idéer till [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish) . 
 

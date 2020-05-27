@@ -11,15 +11,15 @@
   items:
     - name: Visa åtkomst för en användare
       href: check-access.md
+    - name: ARM-mall
+      displayName: Resource Manager
+      href: quickstart-role-assignments-template.md
 - name: Självstudier
   items:
     - name: Bevilja en användare åtkomst – portalen
       href: quickstart-assign-role-user-portal.md
     - name: Bevilja en användare åtkomst – PowerShell
       href: tutorial-role-assignments-user-powershell.md
-    - name: Bevilja en användare åtkomst – Resource Manager-mall
-      displayName: 'ARM, resource manager template'
-      href: tutorial-role-assignments-user-template.md
     - name: Bevilja en grupp åtkomst – PowerShell
       href: tutorial-role-assignments-group-powershell.md
     - name: Skapa en anpassad roll – PowerShell
@@ -67,7 +67,8 @@
           href: role-assignments-cli.md
         - name: REST-API
           href: role-assignments-rest.md
-        - name: Mall
+        - name: ARM-mall
+          displayName: Resource Manager
           href: role-assignments-template.md
     - name: Visa lista över nekade tilldelningar
       items:
@@ -113,8 +114,8 @@
       href: /cli/azure/role?view=azure-cli-latest
     - name: REST-API
       href: /rest/api/authorization/
-    - name: Mallar för Resurshanteraren
-      displayName: ARM
+    - name: ARM-mallar
+      displayName: Resource Manager
       items:
         - name: Rolltilldelningar
           href: /azure/templates/microsoft.authorization/roleassignments

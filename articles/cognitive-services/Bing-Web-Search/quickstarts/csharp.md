@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: cf12b279cf7bcb20aa655646ce34fb9df2bda016
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c13931c7ab7c084b635abb7080f97de6d4bf4bb
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76167671"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873896"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Snabb start: söka på webben med hjälp av Webbsökning i Bing REST API och C #
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få JSON-svaret. Det här C#-programmet skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att göra ditt första anrop till API för webbsökning i Bing. Det här C#-programmet skickar en Sök förfrågan till API: et och visar JSON-svaret. Även om det här programmet är skrivet i C# är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+
+Det här exempel programmet i den här snabb starten använder bara .NET Core-klasser.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -30,13 +32,11 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 * Linux/macOS: [Mono](https://www.mono-project.com/)  
 * En prenumerationsnyckel
 
-I det här exempelprogrammet används endast .NET Core-klasser.
-
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-dependencies"></a>Skapa ett projekt och deklarera beroenden
 
-Skapa ett nytt projekt i Visual Studio eller Mono. Använd sedan den här koden för att importera nödvändiga namnrymder och typer.
+Skapa ett nytt projekt i Visual Studio eller Mono. Använd följande kod för att importera nödvändiga namn rymder och typer:
 
 ```csharp
 using System;
@@ -62,7 +62,13 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Några variabler måste anges innan vi kan fortsätta.  `uriBase`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. Bekräfta att `uriBase` är giltigt och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`. Kom ihåg att lägga till den här `Program` koden i klassen som anges ovan.
+Några variabler måste anges innan vi kan fortsätta. Lägg till den här koden i den `Program` klass som du skapade i föregående avsnitt: 
+
+1. För `uriBase` värdet kan du använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. 
+
+2. Bekräfta att `uriBase` är giltigt och Ersätt `accessKey` värdet med en prenumerations nyckel från ditt Azure-konto. 
+
+3. Du kan också anpassa Sök frågan genom att ersätta värdet för `searchTerm` . 
 
 ```csharp
 // Enter a valid subscription key.
@@ -78,9 +84,9 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Deklarera Main-metoden
 
-`Main()` Metoden är obligatorisk och det är den första metoden som anropas när programmet startas. I det här programmet verifierar huvudmetoden `accessKey`, gör en begäran och skriver ut svaret.
+`Main()`Metoden är obligatorisk och är den första metoden som anropas när du startar programmet. I det här programmet verifierar huvudmetoden `accessKey`, gör en begäran och skriver ut svaret.
 
-Tänk på att `main()` är beroende av metoder som skapas i de avsnitt som följer.
+`main()`Metoden är beroende av metoder som du skapar i nästa avsnitt.
 
 ```csharp
 static void Main()
@@ -109,7 +115,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>Skapa en struct för sökresultat
 
-Den här structen returnerar sökresultat med relevanta rubriker. Den anropas när du gör en begäran till API för webbsökning i Bing för att skapa ett resultat objekt.
+Skapa en struktur som returnerar Sök resultat med relevanta rubriker. Du anropar det när du gör en begäran till API för webbsökning i Bing för att skapa ett resultat objekt.
 
 ```csharp
 // Returns search results with headers.
@@ -158,7 +164,7 @@ static SearchResult BingWebSearch(string searchQuery)
 
 ## <a name="format-the-response"></a>Formatera svaret
 
-Den här metoden formaterar JSON-svaret, främst vad gäller indentering och att lägga till radbrytningar.
+Den här metoden formaterar JSON-svaret, främst genom att dra in och lägga till rad brytningar.
 
 ```csharp
 /// <summary>
@@ -235,9 +241,9 @@ static string JsonPrettyPrint(string json)
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det sista steget är att köra koden! Om du vill jämföra din kod med vår [finns exempelkoden på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingWebSearchv7.cs).
+Det sista steget är att köra din kod. Om du vill jämföra din kod med oss, se [exempel koden på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingWebSearchv7.cs).
 
-## <a name="sample-response"></a>Exempelsvar
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.  
 
@@ -366,6 +372,6 @@ Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsva
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie om app på en sida för Bing-webbsökning](../tutorial-bing-web-search-single-page-app.md)
+> [Själv studie kurs om API för webbsökning i Bing enkel sida](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

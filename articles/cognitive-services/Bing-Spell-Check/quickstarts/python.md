@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 3350ff4bc810666f7b772607c2983d86902f5ffc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 7f1da47d913b76edb42aab82f588a2b218eac854
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744051"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869347"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och python
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Python-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Python-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. 
+
+Även om det här programmet är skrivet i python är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -29,14 +31,14 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="initialize-the-application"></a>Initiera programmet
 
-1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och lägg till följande importinstruktion.
+1. Skapa en ny python-fil i din favorit-IDE eller-redigerare och Lägg till följande import uttryck:
 
    ```python
    import requests
    import json
    ```
 
-2. Skapa variabler för den text som du vill stavningskontrollera, prenumerationsnyckeln och slutpunkten för stavningskontroll i Bing. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för den text som du vill stavningskontrollera, prenumerationsnyckeln och slutpunkten för stavningskontroll i Bing. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -52,8 +54,12 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     data = {'text': example_text}
     ```
 
-2. Lägg till parametrarna för begäran. Lägg till din marknads kod efter `mkt=` . Marknads koden är landet/regionen som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=` . Läget är antingen `proof` (fångar de flesta stavnings-och grammatikfel) eller `spell` (fångar de flesta stavfel men inte lika många grammatiska fel).
+2. Lägg till parametrarna för din begäran: 
 
+   a. Tilldela din marknads kod till- `mkt` parametern med `=` operatorn. Marknads koden är koden för landet/regionen som du gör begäran från. 
+
+   b. Lägg till `mode` parametern med `&` operatorn och tilldela sedan läget för stavnings kontroll. Läget kan vara antingen `proof` (fångar de flesta stavfel/grammatikfel) eller `spell` (fångar de flesta stavfel, men inte lika många grammatiska fel). 
+ 
     ```python
     params = {
         'mkt':'en-us',
@@ -61,7 +67,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
         }
     ```
 
-3. Lägg till ett `Content-Type`-huvud och din prenumerationsnyckel i `Ocp-Apim-Subscription-Key`-huvudet.
+3. Lägg till ett `Content-Type` sidhuvud och din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken.
 
     ```python
     headers = {
@@ -72,7 +78,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="send-the-request-and-read-the-response"></a>Skicka begäran och läsa svaret
 
-1. Skicka POST-begäran med hjälp av biblioteket för begäranden.
+1. Skicka POST-begäran med hjälp av begär ande biblioteket.
 
     ```python
     response = requests.post(endpoint, headers=headers, params=params, data=data)
@@ -88,7 +94,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="run-the-application"></a>Kör programmet
 
-Om du använder kommando raden använder du följande kommando för att köra programmet.
+Om du använder kommando raden använder du följande kommando för att köra programmet:
 
 ```bash
 python <FILE_NAME>.py
@@ -139,7 +145,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
+> [Skapa en enkelsidig webbapp](../tutorials/spellcheck.md)
 
 - [Vad är API för stavningskontroll i Bing?](../overview.md)
-- [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [API för stavningskontroll i Bing v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

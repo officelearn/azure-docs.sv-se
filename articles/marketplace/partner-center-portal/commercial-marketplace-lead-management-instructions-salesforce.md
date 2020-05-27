@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 7d64b8914fa0b109dfc662a97a7f84d94e3491ec
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7fbe27845164eb7711d3531173fb440c5a3570f4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789716"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849151"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Konfigurera ledar hantering för Salesforce
 
@@ -31,7 +31,7 @@ Den här artikeln beskriver hur du konfigurerar ditt Salesforce-system för att 
 
        ![Salesforce-installation](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
 
-    1. På sidan **installation** går du till **plattforms verktyg** > **funktions inställningar** > **marknadsföring** > **webb-till-lead**.
+    1. På sidan **installation** går du till **plattforms verktyg**  >  **funktions inställningar**  >  **marknadsföring**  >  **webb-till-lead**.
 
         ![Salesforce webb-till-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
@@ -41,7 +41,7 @@ Den här artikeln beskriver hur du konfigurerar ditt Salesforce-system för att 
 
        ![Klassisk Salesforce-installation](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
 
-    1. På sidan **installation** väljer du **skapa** > **Anpassa** > **leads** > **webb-till-lead**.
+    1. På sidan **installation** väljer du **skapa**  >  **Anpassa**  >  **leads**  >  **webb-till-lead**.
 
         ![Salesforce-klassiskt webb-till-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
 
@@ -52,7 +52,7 @@ Den här artikeln beskriver hur du konfigurerar ditt Salesforce-system för att 
 
     ![Salesforce-konfiguration för webb-till-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
 
-1. När du **skapar ett webb-till-lead-formulär**kontrollerar du `Include reCAPTCHA in HTML` att inställningen är avmarkerad och väljer **generera**.
+1. När du **skapar ett webb-till-lead-formulär**kontrollerar du att `Include reCAPTCHA in HTML` inställningen är avmarkerad och väljer **generera**.
 
     ![Salesforce skapa ett webb-till-lead-formulär](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
 
@@ -70,9 +70,9 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 
 1. Välj ditt erbjudande och gå till fliken **erbjudande konfiguration** .
 
-1. Under avsnittet **ledar hantering** väljer du **Anslut**. 
+1. Under avsnittet **kund leads** väljer du **Anslut**.
 
-    ![Knappen Anslut till hanterings avsnitt för lead](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-salesforce/customer-leads.png" alt-text="Kund ledare":::
 
 1. I popup-fönstret **anslutnings information** väljer du **Salesforce** som **lead-mål** och klistrar in `oid` värdet från det webb-till-lead-formulär som du skapade i fältet **organisations-ID** .
 

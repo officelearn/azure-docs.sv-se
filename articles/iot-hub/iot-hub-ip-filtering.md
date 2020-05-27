@@ -5,14 +5,14 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: 74ee9506d7b21e5f0654c8a46976b4d5c63b5197
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 742706f4daa518faf06e5c8b735e679f345f1279
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649370"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849902"
 ---
 # <a name="use-ip-filters"></a>Använda IP-filter
 
@@ -39,17 +39,19 @@ Alla anslutnings försök från en IP-adress som matchar en IP-regel som avvisar
 
 Som standard är **IP-filter** rutnätet i portalen för en IoT Hub tomt. Den här standardinställningen innebär att navet accepterar anslutningar från alla IP-adresser. Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0.
 
-![IoT Hub inställningar för standard-IP-filter](./media/iot-hub-ip-filtering/ip-filter-default.png)
+Gå till sidan Inställningar för IP-filter genom att välja **nätverk**, **offentlig åtkomst**och sedan välja **valda IP-intervall**:
+
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>Lägga till eller redigera en regel för IP-filter
 
 Om du vill lägga till en regel för IP-filter väljer du **+ Lägg till IP-filterlista**.
 
-![Lägga till en IP-filterlista till en IoT-hubb](./media/iot-hub-ip-filtering/ip-filter-add-rule.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Lägga till en IP-filterlista till en IoT-hubb":::
 
 När du har valt **Lägg till IP-filterlista**fyller du i fälten.
 
-![När du har valt Lägg till en filter regel för IP](./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="När du har valt Lägg till en filter regel för IP":::
 
 * Ange ett **namn** för IP-filterlistan. Detta måste vara en unik, SKIFT läges okänslig, alfanumerisk sträng på upp till 128 tecken. Endast ASCII 7-bitars alfanumeriska tecken plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` godkänns.
 
@@ -59,7 +61,7 @@ När du har valt **Lägg till IP-filterlista**fyller du i fälten.
 
 När du har fyllt i fälten väljer du **Spara** för att spara regeln. En avisering visas som meddelar dig att uppdateringen pågår.
 
-![Meddelande om att spara en regel för IP-filter](./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="Meddelande om att spara en regel för IP-filter":::
 
 Alternativet **Lägg till** är inaktiverat när du når Max gränsen på 10 IP-filter.
 
@@ -69,7 +71,7 @@ Om du vill redigera en befintlig regel väljer du de data som du vill ändra, g�
 
 Om du vill ta bort en IP-filterlista väljer du pappers korgs ikonen på raden och väljer sedan **Spara**. Regeln tas bort och ändringen sparas.
 
-![Ta bort en IoT Hub IP-filterlista](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Ta bort en IoT Hub IP-filterlista":::
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Hämta och uppdatera IP-filter med Azure CLI
 
@@ -159,11 +161,10 @@ Du kan ändra ordningen på dina IP filter-regler i rutnätet genom att klicka p
 
 Klicka på **Spara**om du vill spara din nya regel ordning för IP-filter.
 
-![Ändra ordning på IoT Hub IP-filter regler](./media/iot-hub-ip-filtering/ip-filter-rule-order.png)
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="Ändra ordning på IP-filter reglerna för IoT HUb":::
 
 ## <a name="next-steps"></a>Nästa steg
 
 För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 * [IoT Hub mått](iot-hub-metrics.md)

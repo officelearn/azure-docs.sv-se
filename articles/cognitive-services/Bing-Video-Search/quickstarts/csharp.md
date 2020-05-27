@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 28c900adadf7d942c9e331e7b77a369db64acf55
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d9d69d4550a5cd4a162795261b7ab3d8b59b7297
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382709"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848948"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och C #
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla C#-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att göra ditt första anrop till API för videosökning i Bing. Det här enkla C#-programmet skickar en HTTP-videosök fråga till API: et och visar JSON-svaret. Även om det här programmet är skrivet i C# är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) tillsammans med ytterligare kommentarer om hantering av fel, funktioner och kodanteckningar.
 
 ## <a name="prerequisites"></a>Krav
 * En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
-* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
+* Om du använder Linux/MacOS kan du köra det här programmet med hjälp av [mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny konsollösning i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
+1. Skapa en ny konsollösning i Visual Studio. Lägg sedan till följande namn rymder i huvud kod filen:
 
     ```csharp
     using System;
@@ -42,7 +42,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
     using System.Collections.Generic;
     ```
 
-2. Lägg till variabler för din prenumerationsnyckel, slutpunkt och sökvillkor. `uriBase`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Lägg till variabler för din prenumerationsnyckel, slutpunkt och sökvillkor. För `uriBase` värdet kan du använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```csharp
     const string accessKey = "enter your key here";
@@ -50,33 +50,34 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
     const string searchTerm = "kittens";
     ```
 
-### <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Skapa en struct för att formatera sökresultaten från API för videosökning i Bing
+## <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Skapa en struct för att formatera sökresultaten från API för videosökning i Bing
 
-1. Definiera en `SearchResult`-struct som ska innehålla bildsökningsresultatet och JSON-rubrikinformation.
+Definiera en `SearchResult`-struct som ska innehålla bildsökningsresultatet och JSON-rubrikinformation.
 
-    ```csharp
-    struct SearchResult
-        {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
-        }
-    ```
+```csharp
+struct SearchResult
+    {
+        public String jsonResult;
+        public Dictionary<String, String> relevantHeaders;
+    }
+```
 
 ## <a name="create-and-handle-a-video-search-request"></a>Skapa och hantera en videosökningsbegäran
 
-Skapa en metod med namnet `BingVideoSearch` för att utföra anrop till API:et och ange returtypen som `SearchResult`-structen som skapades tidigare. Utför följande steg i metoden:
+1. Skapa en metod med namnet `BingVideoSearch` för att utföra anropet till API: et och ange retur typen till den `SearchResult` struct som skapades tidigare. 
 
-1. Konstruera URI för sökbegäran. Observera att sökordet toSearch måste vara formaterat innan det läggs till i strängen.
+   Lägg till kod till den här metoden i stegen som följer.
 
-    ```csharp
-    
+1. Konstruera URI för sökbegäran. Formatera Sök termen `toSearch` innan du lägger till den i strängen.
+
+    ```csharp    
     static SearchResult BingVideoSearch(string toSearch){
     
         var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
     //...
     ```
 
-2. Utför webbegäran genom att lägga till din nyckel till rubriken `Ocp-Acpim-Subscription-Key` och använd ett `HttpWebResponse`-objekt för att lagra API-svaret. Använd sedan en `StreamReader` för att hämta JSON-sträng.
+2. Utför webbegäran genom att lägga till din nyckel till rubriken `Ocp-Acpim-Subscription-Key` och använd ett `HttpWebResponse`-objekt för att lagra API-svaret. Använd sedan en `StreamReader` för att hämta JSON-strängen.
 
     ```csharp
     //...
@@ -89,7 +90,7 @@ Skapa en metod med namnet `BingVideoSearch` för att utföra anrop till API:et o
 
 ## <a name="process-the-result"></a>Bearbeta resultatet
 
-1. Skapa sökresultatsobjektet och extrahera Bing-HTTP-rubriker. Returnerar objektet `searchResult`. 
+1. Skapa sökresultatsobjektet och extrahera Bing-HTTP-rubriker. Returnera sedan `searchResult` objektet. 
 
     ```csharp
     var searchResult = new SearchResult();
@@ -105,7 +106,7 @@ Skapa en metod med namnet `BingVideoSearch` för att utföra anrop till API:et o
     return searchResult;
     ```
 
-2. Du kan sedan skriva ut svaret.
+2. Skriv ut svaret.
 
     ```csharp
     Console.WriteLine(result.jsonResult);

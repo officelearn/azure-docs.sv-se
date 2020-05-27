@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d5a0f7517d2649ceac45e68c2e7a5d574a7c25d1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254448"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848049"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics utdata till Azure Cosmos DB  
 Azure Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) för JSON-utdata, aktivera dataarkivering och frågor med låg latens i OSTRUKTURERAde JSON-data. Det här dokumentet beskriver några metod tips för att implementera den här konfigurationen.
@@ -64,7 +64,7 @@ Om du vill spara *alla* dokument, inklusive de som har ett duplicerat ID, byter 
 Azure Cosmos DB skalar automatiskt partitioner utifrån din arbets belastning. Vi rekommenderar därför [obegränsade](../cosmos-db/partition-data.md) behållare som metod för att partitionera data. När Stream Analytics skriver till obegränsade behållare, används så många parallella skrivare som föregående frågeuttryck eller schema för inschemat.
 
 > [!NOTE]
-> Azure Stream Analytics stöder endast obegränsade behållare med partitionsnyckel på den högsta nivån. Stöds till exempel `/region` . Kapslade partitionsnyckel (till exempel `/region/name`) stöds inte. 
+> Azure Stream Analytics stöder endast obegränsade behållare med partitionsnyckel på den högsta nivån. Stöds till exempel `/region` . Kapslade partitionsnyckel (till exempel `/region/name` ) stöds inte. 
 
 Beroende på ditt val av partitionsnyckel kan du få den här _varningen_:
 
@@ -72,7 +72,7 @@ Beroende på ditt val av partitionsnyckel kan du få den här _varningen_:
 
 Det är viktigt att välja en partitionsnyckel som har ett antal distinkta värden och som gör att du kan distribuera din arbets belastning jämnt över dessa värden. Som en naturlig artefakt för partitionering begränsas begär Anden som involverar samma partitionsnyckel av det maximala data flödet för en enda partition. 
 
-Lagrings storleken för dokument som tillhör samma partitionsnyckel är begränsad till 10 GB. En idealisk partitionsnyckel är en som ofta visas som ett filter i dina frågor och har tillräckligt med kardinalitet för att säkerställa att din lösning är skalbar.
+Lagrings storleken för dokument som tillhör samma partitionsnyckel är begränsad till 20 GB. En idealisk partitionsnyckel är en som ofta visas som ett filter i dina frågor och har tillräckligt med kardinalitet för att säkerställa att din lösning är skalbar.
 
 En partitionsnyckel är också en avgränsning för transaktioner i lagrade procedurer och utlösare för Azure Cosmos DB. Du bör välja partitionsnyckel så att dokument som förekommer tillsammans i transaktioner delar samma partitionsnyckel. Artikeln [partitionering i Azure Cosmos DB](../cosmos-db/partitioning-overview.md) ger mer information om hur du väljer en partitionsnyckel.
 
@@ -105,14 +105,14 @@ Om du använder Azure Cosmos DB som utdata i Stream Analytics genereras följand
 
 ![Informations fält för en Azure Cosmos DB-utdataström](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-|Field           | Beskrivning|
+|Fält           | Beskrivning|
 |-------------   | -------------|
 |Utdataalias    | Ett alias som refererar till utdata i din Stream Analytics fråga.|
 |Prenumeration    | Azure-prenumerationen.|
 |Konto-ID      | Azure Cosmos DB kontots namn eller slut punkts-URI.|
 |Kontonyckel     | Den delade åtkomst nyckeln för det Azure Cosmos DB kontot.|
 |Databas        | Namnet på Azure Cosmos DBs databasen.|
-|Containerns namn | Behållarens namn, till exempel `MyContainer`. En behållare med `MyContainer` namnet måste finnas.  |
+|Containerns namn | Behållarens namn, till exempel `MyContainer` . En behållare med namnet `MyContainer` måste finnas.  |
 |Dokument-ID     | Valfritt. Kolumn namnet i utmatnings händelser som används som den unika nyckel som infognings-eller uppdaterings åtgärder måste baseras på. Om du låter den vara tom infogas alla händelser, utan uppdaterings alternativ.|
 
 När du har konfigurerat Azure Cosmos DB utdata kan du använda den i frågan som mål för en [into-instruktion](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). När du använder en Azure Cosmos DB utdata på samma sätt [måste en partitionsnyckel anges explicit](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). 

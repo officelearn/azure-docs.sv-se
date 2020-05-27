@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 9c31c6ca4ccb5ff328faa5db1803134aa6b0c873
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 16b44b3a4496e98f8b6b643bf76aa5aa7ce593c6
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701131"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849101"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Skapa en Power BI-app för Microsoft AppSource
 
@@ -53,7 +53,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På den här sidan visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
+Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Ett exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -62,7 +62,7 @@ Den innehåller länkar för att utföra åtgärder på det här erbjudandet bas
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
 
-### <a name="connect-lead-management"></a>Anslut lead-hantering
+### <a name="customer-leads"></a>Kund ledare
 
 När du publicerar ditt erbjudande till Marketplace med partner Center måste du ansluta det till ditt CRM-system (Customer Relations hip Management). På så sätt kan du ta emot kund kontakt information så snart någon uttrycker intresse för eller använder produkten.
 
@@ -159,7 +159,7 @@ Namnet:
 
 Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

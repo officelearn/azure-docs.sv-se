@@ -4,12 +4,12 @@ description: Lär dig hur du skapar ett privat Azure Kubernetes service-kluster 
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: a09781efd58c29acbd8ca445b58b89c04daa94f8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 49776fb50eabeef8238e54c7a2f3128c99c2514b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674368"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849696"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Skapa ett privat Azure Kubernetes service-kluster
 
@@ -102,7 +102,8 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 * Det går inte att använda IP-auktoriserade intervall för den privata API-serverns slut punkt, de gäller bara för den offentliga API-servern
 * Tillgänglighetszoner stöds för närvarande för vissa regioner, se början av det här dokumentet 
 * [Begränsningar för Azure Private Link-tjänsten][private-link-service] gäller för privata kluster.
-* Inget stöd för integrering av Azure DevOps-integreringen med privata kluster
+* Inget stöd för virtuella noder i ett privat kluster för att snurra privat Azure Container Instances (ACI) i ett privat virtuellt Azure-nätverk
+* Inget stöd för Azure DevOps Microsoft-värdbaserat agenter med privata kluster. Överväg att använda [egen värdbaserade agenter][devops-agents]. 
 * För kunder som behöver aktivera Azure Container Registry för att fungera med privata AKS måste det Container Registry virtuella nätverket vara peer-kopplat med agent klustrets virtuella nätverk.
 * Inget aktuellt stöd för Azure dev Spaces
 * Inget stöd för att konvertera befintliga AKS-kluster till privata kluster
@@ -120,4 +121,4 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-
+[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops

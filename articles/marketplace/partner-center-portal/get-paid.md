@@ -6,14 +6,14 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: bdef440fb8273dbbc5053d1c4eb6607fba0cdab3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744562"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849033"
 ---
-# <a name="getting-paid-in-commercial-marketplace"></a>Få betalt på kommersiell marknads plats
+# <a name="getting-paid-in-the-commercial-marketplace"></a>Få betalt i den kommersiella marknads platsen
 
 Här är några viktiga uppgifter om att erhålla betalning för dina erbjudanden, tillägg och marknadsförings intäkter.
 
@@ -43,17 +43,15 @@ Du kan också välja att ange ett kostnads fritt pris som du väljer på en best
 
 Tänk på att det pris du väljer kan omfatta försäljning eller mervärdes skatt som kunderna måste betala. Mer information finns i [skatte information för betalat erbjudande](tax-details-paid-transactions.md).
 
-
 ## <a name="payout-reporting"></a>Utbetalningsrapporter
 
 Du kan komma åt information om din betalnings information och hämta rapporter i **utbetalnings sammanfattningen** av [partner Center](https://partner.microsoft.com/dashboard). Mer information om den information som visas här och hur vi kategoriserar de pengar du får finns i [Översikt över utbetalnings översikt](payout-summary-overview.md).
-
 
 ## <a name="payout-time-frame"></a>Tidsram för utbetalning
 
 Betalningar görs varje månad (förutsatt att det tillämpliga betalnings tröskelvärdet har uppfyllts och du inte har lagt till ditt utbetalnings belopp enligt beskrivningen nedan). Vi skickar vanligt vis alla betalningar som förfaller under en månad med den 15: e dagen i den månaden. Observera att betalningar i allmänhet tar mellan 3 och 10 ytterligare arbets dagar för att uppnå ditt utbetalnings konto. Mer information finns i [betalnings trösklar, metoder och tids ramar](payment-thresholds-methods-timeframes.md).
 
-##  <a name="payout-hold-status"></a>Status för utbetalning
+## <a name="payout-hold-status"></a>Status för utbetalning
 
 Som standard skickar vi betalningar varje månad enligt beskrivningen ovan. Du kan dock välja att ställa in dina utbetalningar för ett program som är spärrat, vilket hindrar oss från att skicka betalningar till ditt konto. Om du väljer att spärra dina inbetalningar kommer vi att fortsätta att registrera alla intäkter som du får och ange informationen i din **utbetalnings Sammanfattning**. Vi kommer dock inte att skicka några betalningar till ditt konto förrän du tar bort spärren.
 

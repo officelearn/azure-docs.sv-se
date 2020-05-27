@@ -4,12 +4,12 @@ description: 'Slut punkten v3-API: er för fråga förutsägelse har ändrats. A
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: d6e5981bcdc81383454c65d3cf7b6c1195b70a4a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 84afcbcd348c3fd91014096877de2315722b53a0
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653861"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849339"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Förutsägelse slut punkt ändringar för v3
 
@@ -283,4 +283,4 @@ V2-API: t är inte inaktuellt i minst 9 månader efter för hands versionen av v
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd v3 API-dokumentationen för att uppdatera befintliga REST-anrop till LUIS [slut punkts](https://aka.ms/luis-api-v3) -API: er.
+Använd v3 API-dokumentationen för att uppdatera befintliga REST-anrop till LUIS [slut punkts](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) -API: er.

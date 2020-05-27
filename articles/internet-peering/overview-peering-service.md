@@ -3,17 +3,17 @@ title: Peering-anslutning vs. peering-tjänsten
 titleSuffix: Azure
 description: Peering-anslutning vs. peering-tjänsten
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: 6c1205fcacd3d7228f1aecf1e603b66d9e1fcee5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 5/22/2020
+ms.author: derekol
+ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75775707"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849390"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Peering-anslutning vs. peering-tjänsten
 
@@ -38,15 +38,15 @@ I bilden ovan ansluter varje avdelnings kontor i ett globalt företag till den n
 
 **Kund förmåner för peering service:**
 * Bästa offentliga routning via Internet till Microsoft Cloud tjänster för optimala prestanda och tillförlitlighet.
-* Möjlighet att välja alternativet föredra SP för att ansluta till Microsoft Cloud.
+* Möjlighet att välja önskad tjänst leverantör att ansluta till Microsoft Cloud.
 * Trafik insikter, till exempel latens rapportering, och prefix övervakning.
 * Optimala nätverks hopp (som humle) från Microsoft Cloud.
 * Route Analytics och statistik-händelser för Border Gateway Protocol ([BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)) väg avvikelser (läckage/kapning) och för optimal routning.
 
 ## <a name="peering-service-partnership-requirements"></a>Partner krav för peering service
-* Anslutning till Microsoft Cloud på en plats närmast kunden. En partner tjänst leverantör kommer att dirigera användar trafik till Microsoft Edge närmast användaren. På samma sätt dirigerar Microsoft trafik (med BGP-tagg) till den gräns som är närmast användaren och SP att leverera trafiken till användaren på samma sätt som i trafik mot användaren.
+* Anslutning till Microsoft Cloud på en plats närmast kunden. En partner tjänst leverantör kommer att dirigera användar trafik till Microsoft Edge närmast användaren. På samma sätt dirigerar Microsoft trafik (med BGP-tagg) till den gräns plats som är närmast användaren och tjänst leverantören att leverera trafiken till användaren på samma sätt som för användaren.
 * Partnern upprätthåller hög tillgänglighet, högt data flöde och Geo-redundant anslutning med Microsofts globala nätverk.
-* Partner kan använda sin befintliga peering för att stödja peering-tjänsten om den uppfyller kravet
+* Partner kan använda sin befintliga peering för att stödja peering-tjänsten om den uppfyller kravet.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 Vanliga frågor och svar om vanliga frågor finns i [peering service – Vanliga frågor och svar](service-faqs.md).

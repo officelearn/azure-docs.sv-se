@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: efb9e8b8abdcb442e2c5c4d8bfd1b2e1e60865ce
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b7b3556896f2d8bb8fea7ffc4543356e248df60d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197858"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848829"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Ta bort TLS 1,0 och 1,1 från användning med Azure cache för Redis
 
@@ -31,12 +31,12 @@ Den här artikeln innehåller allmänna råd om hur du identifierar beroenden f�
 
 Datumen när ändringarna börjar gälla:
 
-| Molnet               | Start datum för fas 1 | Start datum för fas 2      |
-|---------------------|--------------------|-------------------------|
-| Azure (global)      |  13 januari 2020  | 11 maj 2020            |
-| Azure Government    |  13 mars 2020    | 11 maj 2020            |
-| Azure Tyskland       |  13 mars 2020    | 11 maj 2020            |
-| Azure Kina         |  13 mars 2020    | 11 maj 2020            |
+| Molnet                | Start datum för fas 1 | Start datum för fas 2      |
+|----------------------|--------------------|-------------------------|
+| Azure (global)       |  13 januari 2020  | 11 maj 2020            |
+| Azure Government     |  13 mars 2020    | 11 maj 2020            |
+| Azure Tyskland        |  13 mars 2020    | 11 maj 2020            |
+| Azure Kina 21Vianet |  13 mars 2020    | 11 maj 2020            |
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Kontrol lera om programmet redan är kompatibelt
 
@@ -55,7 +55,12 @@ Redis .NET-klienter använder den tidigaste TLS-versionen som standard på .NET 
 
 ### <a name="net-core"></a>.NET Core
 
-Redis .NET Core-klienter använder den senaste TLS-versionen som standard.
+Redis .NET Core-klienter är standardvärdet för standard TLS-versionen för OS som är beroende av själva operativ systemet. 
+
+Operativ systemets TLS-version kan variera beroende på när operativ systemet släpptes och om några andra korrigeringar har ändrat standard-TLS-versionen. Även om det inte finns någon fullständig information om det här, för Windows-operativsystem hittar du mer information [här](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12). 
+
+Men om du använder ett gammalt operativ system eller bara vill vara säker på att vi rekommenderar att du konfigurerar den önskade TLS-versionen manuellt via klienten.
+
 
 ### <a name="java"></a>Java
 

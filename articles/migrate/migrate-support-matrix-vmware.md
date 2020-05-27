@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för utvärdering av virtuella VMware-datorer med Azure Migrate Server-utvärdering.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: a0d05c56670c54aca25232a86b5a0e89d2f0bcfd
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0ec7006ce240df8c6e07afffa886e78ca9bc2a4d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983660"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849373"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -39,9 +39,9 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **autentiseringsuppgifter för vCenter** | För identifiering av appar krävs ett vCenter Server konto med skrivskyddad åtkomst, och behörigheter har Aktiver ATS för Virtual Machines > gäst åtgärder.
 **Autentiseringsuppgifter för virtuell dator** | App Discovery stöder för närvarande att en autentiseringsuppgift används för alla Windows-servrar och en autentiseringsuppgift för alla Linux-servrar.<br/><br/> Du skapar ett gäst användar konto för virtuella Windows-datorer och ett vanligt/vanligt användar konto (icke-sudo åtkomst) för alla virtuella Linux-datorer.
 **VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill identifiera. <br/> VMware Tools-versionen måste vara senare än 10.2.0.
-**PowerShell** | Virtuella datorer måste ha PowerShell version 2,0 eller senare installerat.
+**PowerShell** | Virtuella Windows-datorer måste ha PowerShell version 2,0 eller senare installerat.
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill identifiera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
-**Gränser** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
+**Begränsningar** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
 
 
 
@@ -87,7 +87,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill identifiera. <br/> VMware Tools-versionen måste vara senare än 10.2.0.
 **PowerShell** | Virtuella datorer måste ha PowerShell version 2,0 eller senare installerat.
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill identifiera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
-**Gränser** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
+**Begränsningar** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
 
 
 ## <a name="agentless-dependency-analysis-requirements"></a>Krav för beroende analys av agent
@@ -105,7 +105,7 @@ Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identif
 **Agenter som krävs** | Ingen agent krävs på de datorer som du vill analysera.
 **VMware-verktyg** | VMware-verktyg (senare än 10,2) måste installeras och köras på varje virtuell dator som du vill analysera.
 **vCenter Server autentiseringsuppgifter** | Beroende visualisering behöver ett vCenter Server-konto med skrivskyddad åtkomst och behörigheter som är aktiverade för Virtual Machines > gäst åtgärder. 
-**PowerShell** | Virtuella datorer måste ha PowerShell version 2,0 eller senare installerat.
+**PowerShell** | Virtuella Windows-datorer måste ha PowerShell version 2,0 eller senare installerat.
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill analysera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
 
 

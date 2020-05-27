@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6f7335b92d7c26b33f9b156d434d895a1bca40c2
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: fa1be31f90bd14c1f22d9e389132487094ecb4ff
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835401"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849764"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Redigera grafiska runbooks i Azure Automation
 
@@ -34,7 +34,7 @@ Med kontrollen arbets yta kan du utforma din Runbook. Du kan lägga till aktivit
 
 Med biblioteks kontrollen kan du välja vilka [aktiviteter](#use-activities) som ska läggas till i din Runbook. Du lägger till dem på arbets ytan, där du kan ansluta dem till andra aktiviteter. Biblioteks kontrollen inkluderar de avsnitt som definieras i följande tabell.
 
-| Section | Description |
+| Section | Beskrivning |
 |:--- |:--- |
 | Cmdletar |Alla cmdletar som kan användas i din Runbook. Cmdletar är ordnade efter modul. Alla moduler som du har installerat i ditt Automation-konto är tillgängliga. |
 | Runbooks |Runbooks i ditt Automation-konto. Du kan lägga till dessa Runbooks i arbets ytan som ska användas som underordnade Runbooks. Endast Runbooks av samma kärn typ som den Runbook som redige ras visas. För grafiska runbooks visas endast PowerShell-baserade Runbooks. För grafiska PowerShell Workflow-Runbooks visas bara PowerShell Workflow-baserade Runbooks. |
@@ -69,7 +69,7 @@ I följande exempel har cmdleten [Get-AzVM](https://docs.microsoft.com/powershel
 
 När du anger ett värde för en parameter väljer du en data källa för att avgöra hur värdet anges. De data källor som är tillgängliga för en viss parameter beror på giltiga värden för den parametern. Null är till exempel inte ett tillgängligt alternativ för en parameter som inte tillåter Null-värden.
 
-| Datakälla | Description |
+| Datakälla | Beskrivning |
 |:--- |:--- |
 | Konstant värde |Ange ett värde för parametern. Den här data källan är bara tillgänglig för följande data typer: Int32, Int64, String, Boolean, DateTime, switch. |
 | Aktivitetens utdata |Använd utdata från en aktivitet som föregår den aktuella aktiviteten i arbets flödet. Alla giltiga aktiviteter visas. Använd bara den aktivitet som genererar utdata för parametervärdet. Om aktiviteten matar ut ett objekt med flera egenskaper kan du ange namnet på en speciell egenskap när du har valt aktiviteten. |
@@ -151,7 +151,7 @@ Du kan skapa en länk mellan två aktiviteter genom att välja käll aktivitet o
 
 Välj länken för att konfigurera dess egenskaper på bladet konfiguration. Egenskaperna inkluderar länk typen, som beskrivs i följande tabell.
 
-| Länktyp | Description |
+| Länktyp | Beskrivning |
 |:--- |:--- |
 | Pipeline |Mål aktiviteten körs en gång för varje objekts utdata från käll aktiviteten. Mål aktiviteten körs inte om käll aktiviteten resulterar i inga utdata. Utdata från käll aktiviteten är tillgängligt som ett objekt. |
 | Sequence |Mål aktiviteten körs bara en gång när den tar emot utdata från käll aktiviteten. Utdata från käll aktiviteten är tillgängligt som en matris med objekt. |
@@ -257,7 +257,7 @@ Varje indataparameter definieras av egenskaperna i följande tabell:
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | Name | Krävs. Parameterns namn. Namnet måste vara unikt inom runbooken. Det måste börja med en bokstav och får bara innehålla bokstäver, siffror och under streck. Namnet får inte innehålla blank steg. |
-| Description |Valfritt. Beskrivning av syftet med indataparametern. |
+| Beskrivning |Valfritt. Beskrivning av syftet med indataparametern. |
 | Typ | Valfritt. Datatyp förväntas för parametervärdet. Azure Portal ger en lämplig kontroll för data typen för varje parameter när du uppmanas att ange indata. Parameter typer som stöds är sträng, Int32, Int64, decimal, Boolean, DateTime och Object. Om du inte väljer någon datatyp används strängen som standard.|
 | Obligatorisk | Valfritt. Inställning som anger om ett värde måste anges för parametern. Om du väljer `yes` måste du ange ett värde när Runbook startas. Om du väljer `no` krävs inget värde när runbooken startas och ett standardvärde kan användas. Det går inte att starta runbooken om du inte anger något värde för varje obligatorisk parameter som inte har något definierat standardvärde. |
 | Standardvärde | Valfritt. Det värde som används för en parameter om det inte skickas i när runbooken startas. Om du vill ange ett standardvärde väljer du `Custom` . Välj `None` om du inte vill ange något standardvärde. |
@@ -268,7 +268,7 @@ Grafisk redigering sparar data som skapats av en aktivitet som inte har någon u
 
 ## <a name="work-with-powershell-expressions"></a>Arbeta med PowerShell-uttryck
 
-En av fördelarna med grafisk redigering är att du kan skapa en Runbook med minimal kunskap om PowerShell. För närvarande behöver du veta lite av PowerShell för att fylla i vissa [parameter värden](#use-activities) och för att ange [länk villkor](#use-links-for-workflow). Det här avsnittet ger en snabb introduktion till PowerShell-uttryck. Fullständig information om PowerShell finns i [skript med Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx).
+En av fördelarna med grafisk redigering är att du kan skapa en Runbook med minimal kunskap om PowerShell. För närvarande behöver du veta lite av PowerShell för att fylla i vissa [parameter värden](#use-activities) och för att ange [länk villkor](#use-links-for-workflow). Det här avsnittet ger en snabb introduktion till PowerShell-uttryck. Fullständig information om PowerShell finns i [skript med Windows PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 
 ### <a name="use-a-powershell-expression-as-a-data-source"></a>Använda ett PowerShell-uttryck som en data Källa
 

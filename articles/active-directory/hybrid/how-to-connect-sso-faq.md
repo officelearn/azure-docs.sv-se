@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7241c8dfbedb24f95c29ea9e1c3f763218a5668d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: feea0266b3a724f3d85944073a47e260277cc362
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72025670"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860026"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar
 
@@ -37,7 +37,7 @@ Sömlös SSO är en kostnads fri funktion och du behöver inte några betalda ve
 
 **F: är sömlös enkel inloggning tillgänglig i [Microsoft Azure Tyskland molnet](https://www.microsoft.de/cloud-deutschland) och [Microsoft Azure Government molnet](https://azure.microsoft.com/features/gov/)?**
 
-Nej. Sömlös SSO är bara tillgängligt i den globala instansen av Azure AD.
+Sömlös SSO är tillgängligt för Azure Government molnet. Om du vill ha mer information kan du Visa [hybrid identitets överväganden för Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
 
 **F: vilka program utnyttjar `domain_hint` eller `login_hint` parameter kapaciteten för sömlös enkel inloggning?**
 
@@ -45,24 +45,24 @@ Nedan visas en icke-fullständig lista över program som kan skicka dessa parame
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
-| Åtkomstpanel | https:\//myapps.Microsoft.com/contoso.com |
-| Outlook på webben | https:\//Outlook.Office365.com/contoso.com |
-| Office 365 portaler | https:\//portal.office.com? domain_hint = contoso. com, https:\//www.Office.com? domain_hint = contoso. com |
+| Åtkomstpanel | https: \/ /myapps.Microsoft.com/contoso.com |
+| Outlook på webben | https: \/ /Outlook.Office365.com/contoso.com |
+| Office 365 portaler | https: \/ /Portal.Office.com? domain_hint = contoso. com, https: \/ /www.office.com? domain_hint = contoso. com |
 
-Dessutom får användarna en tyst inloggnings upplevelse om ett program skickar inloggnings förfrågningar till Azure ADs slut punkter som har kon figurer ATS som klienter, dvs. https:\//login.microsoftonline.com/contoso.com/<.. > eller https:\//login.microsoftonline.com/<tenant_ID>/<.. > – i stället för Azure AD: s vanliga slut punkt – det vill\/säga https:/login.microsoftonline.com/common/<... >. Nedan visas en icke-fullständig lista över program som utför dessa typer av inloggnings förfrågningar.
+Dessutom får användarna en tyst inloggnings upplevelse om ett program skickar inloggnings förfrågningar till Azure ADs slut punkter som har kon figurer ATS som klienter, dvs. https: \/ /login.microsoftonline.com/contoso.com/<.. > eller https: \/ /login.microsoftonline.com/<tenant_ID>/<.. > – i stället för Azure AD: s vanliga slut punkt – det vill säga https: \/ /login.microsoftonline.com/common/<... >. Nedan visas en icke-fullständig lista över program som utför dessa typer av inloggnings förfrågningar.
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
-| sharepoint online | https:\//contoso.SharePoint.com |
-| Azure Portal | https:\//Portal.Azure.com/contoso.com |
+| sharepoint online | https: \/ /contoso.SharePoint.com |
+| Azure Portal | https: \/ /Portal.Azure.com/contoso.com |
 
 I tabellerna ovan ersätter du "contoso.com" med ditt domän namn för att komma till rätt program-URL: er för din klient.
 
 Om du vill att andra program använder vår tysta inloggnings upplevelse kan du berätta i feedback-avsnittet.
 
-**F: har sömlös SSO- `Alternate ID` stöd som användar namn i stället `userPrincipalName`för?**
+**F: har sömlös SSO `Alternate ID` -stöd som användar namn i stället för `userPrincipalName` ?**
 
-Ja. Sömlös SSO stöder `Alternate ID` som användar namn när det konfigureras i Azure AD Connect som visas [här](how-to-connect-install-custom.md). Inte alla stöd `Alternate ID`för Office 365-program. Läs dokumentationen för det specifika programmet för support policyn.
+Ja. Sömlös SSO stöder `Alternate ID` som användar namn när det konfigureras i Azure AD Connect som visas [här](how-to-connect-install-custom.md). Inte alla stöd för Office 365-program `Alternate ID` . Läs dokumentationen för det specifika programmet för support policyn.
 
 **F: Vad är skillnaden mellan enkel inloggnings upplevelsen från [Azure AD Join](../active-directory-azureadjoin-overview.md) och sömlös enkel inloggning?**
 
@@ -74,9 +74,9 @@ Du kan använda både Azure AD Join och sömlös SSO på din klient. Dessa två 
 
 Ja, det här scenariot kräver version 2,1 eller senare av [arbets platsen – Anslut till klienten](https://www.microsoft.com/download/details.aspx?id=53554).
 
-**F: Hur kan jag återställa Kerberos-dekrypterings nyckeln för `AZUREADSSOACC` dator kontot?**
+**F: Hur kan jag återställa Kerberos-dekrypterings nyckeln för `AZUREADSSO` dator kontot?**
 
-Det är viktigt att ofta rulla över Kerberos-dekrypterings nyckeln för `AZUREADSSOACC` dator kontot (som representerar Azure AD) som skapats i din lokala AD-skog.
+Det är viktigt att ofta rulla över Kerberos-dekrypterings nyckeln för `AZUREADSSO` dator kontot (som representerar Azure AD) som skapats i din lokala AD-skog.
 
 >[!IMPORTANT]
 >Vi rekommenderar starkt att du går igenom Kerberos-dekrypterings nyckeln minst var 30: e dag.
@@ -87,13 +87,13 @@ Följ de här stegen på den lokala server där du kör Azure AD Connect:
 
    1. Börja med att ladda ned och installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
    2. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
-   3. Importera den sömlös SSO PowerShell-modulen med hjälp av `Import-Module .\AzureADSSO.psd1`det här kommandot:.
-   4. Kör PowerShell som administratör. I PowerShell anropar `New-AzureADSSOAuthenticationContext`du. Det här kommandot ska ge dig en popup-meny för att ange klient organisationens autentiseringsuppgifter för global administratör.
-   5. Anropa `Get-AzureADSSOStatus | ConvertFrom-Json`. Med det här kommandot får du en lista över AD-skogar (se listan "domäner") där funktionen har Aktiver ATS.
+   3. Importera den sömlös SSO PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1` .
+   4. Kör PowerShell som administratör. I PowerShell anropar du `New-AzureADSSOAuthenticationContext` . Det här kommandot ska ge dig en popup-meny för att ange klient organisationens autentiseringsuppgifter för global administratör.
+   5. Anropa `Get-AzureADSSOStatus | ConvertFrom-Json` . Med det här kommandot får du en lista över AD-skogar (se listan "domäner") där funktionen har Aktiver ATS.
 
    **Steg 2. Uppdatera Kerberos-dekrypterings nyckeln på varje AD-skog som den har ställts in på**
 
-   1. Anropa `$creds = Get-Credential`. När du uppmanas till det anger du autentiseringsuppgifter för domän administratören för den avsedda AD-skogen.
+   1. Anropa `$creds = Get-Credential` . När du uppmanas till det anger du autentiseringsuppgifter för domän administratören för den avsedda AD-skogen.
 
    > [!NOTE]
    >Användar namnet för domän administratörs behörighet måste anges i formatet SAM-kontonamn (contoso\johndoe eller contoso. com\johndoe). Vi använder domän delen av användar namnet för att hitta domänkontrollanten i domän administratören med hjälp av DNS.
@@ -101,7 +101,7 @@ Följ de här stegen på den lokala server där du kör Azure AD Connect:
    >[!NOTE]
    >Det domän administratörs konto som används får inte vara medlem i gruppen för skyddade användare. I så fall kommer åtgärden att Miss Miss läge.
 
-   2. Anropa `Update-AzureADSSOForest -OnPremCredentials $creds`. Det här kommandot uppdaterar Kerberos-dekrypterings nyckeln för `AZUREADSSOACC` dator kontot i den här särskilda AD-skogen och uppdaterar det i Azure AD.
+   2. Anropa `Update-AzureADSSOForest -OnPremCredentials $creds` . Det här kommandot uppdaterar Kerberos-dekrypterings nyckeln för `AZUREADSSO` dator kontot i den här särskilda AD-skogen och uppdaterar det i Azure AD.
    3. Upprepa föregående steg för varje AD-skog som du har konfigurerat funktionen på.
 
    >[!IMPORTANT]
@@ -128,9 +128,9 @@ Följ de här stegen på den lokala server där du kör Azure AD Connect:
 
    1. Börja med att ladda ned och installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
    2. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
-   3. Importera den sömlös SSO PowerShell-modulen med hjälp av `Import-Module .\AzureADSSO.psd1`det här kommandot:.
-   4. Kör PowerShell som administratör. I PowerShell anropar `New-AzureADSSOAuthenticationContext`du. Det här kommandot ska ge dig en popup-meny för att ange klient organisationens autentiseringsuppgifter för global administratör.
-   5. Anropa `Enable-AzureADSSO -Enable $false`.
+   3. Importera den sömlös SSO PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1` .
+   4. Kör PowerShell som administratör. I PowerShell anropar du `New-AzureADSSOAuthenticationContext` . Det här kommandot ska ge dig en popup-meny för att ange klient organisationens autentiseringsuppgifter för global administratör.
+   5. Anropa `Enable-AzureADSSO -Enable $false` .
 
    >[!IMPORTANT]
    >Att inaktivera sömlös SSO med PowerShell ändrar inte tillstånd i Azure AD Connect. Sömlös SSO visas som aktive rad på **inloggnings sidan för ändrings användare** .
@@ -141,11 +141,11 @@ Följ de här stegen på den lokala server där du kör Azure AD Connect:
 
    1. Börja med att ladda ned och installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
    2. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
-   3. Importera den sömlös SSO PowerShell-modulen med hjälp av `Import-Module .\AzureADSSO.psd1`det här kommandot:.
-   4. Kör PowerShell som administratör. I PowerShell anropar `New-AzureADSSOAuthenticationContext`du. Det här kommandot ska ge dig en popup-meny för att ange klient organisationens autentiseringsuppgifter för global administratör.
-   5. Anropa `Get-AzureADSSOStatus | ConvertFrom-Json`. Med det här kommandot får du en lista över AD-skogar (se listan "domäner") där funktionen har Aktiver ATS.
+   3. Importera den sömlös SSO PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1` .
+   4. Kör PowerShell som administratör. I PowerShell anropar du `New-AzureADSSOAuthenticationContext` . Det här kommandot ska ge dig en popup-meny för att ange klient organisationens autentiseringsuppgifter för global administratör.
+   5. Anropa `Get-AzureADSSOStatus | ConvertFrom-Json` . Med det här kommandot får du en lista över AD-skogar (se listan "domäner") där funktionen har Aktiver ATS.
 
-   **Steg 3. Ta manuellt bort `AZUREADSSOACCT` dator kontot från varje AD-skog som visas i listan.**
+   **Steg 3. Ta manuellt bort `AZUREADSSO` dator kontot från varje AD-skog som visas i listan.**
 
 ## <a name="next-steps"></a>Nästa steg
 

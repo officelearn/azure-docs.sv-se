@@ -3,12 +3,12 @@ title: Så här inaktiverar du funktioner i Azure Functions
 description: Lär dig hur du inaktiverar och aktiverar funktioner i Azure Functions.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 8922edb7aaa41bcf50dcce5257b6600f1bde224a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ee701e8df8faddef9bbdb16e7a1048c4dc2e40a5
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115581"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848747"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Så här inaktiverar du funktioner i Azure Functions
 
@@ -122,7 +122,8 @@ eller
 
 I det andra exemplet inaktive ras funktionen när det finns en app-inställning med namnet IS_DISABLED och har värdet `true` eller 1.
 
-Du kan redigera filen i Azure Portal eller använda knapparna **Aktivera** och **inaktivera** på funktionens **översikts** sida. Portal växeln fungerar genom att ändra *Function. JSON* -filen.
+>[!IMPORTANT]  
+>Portalen använder nu program inställningar för att inaktivera v1. x-funktioner. När en program inställning står i konflikt med function. JSON-filen kan ett fel uppstå. Du bör ta bort `disabled` egenskapen från function. JSON-filen för att förhindra fel. 
 
 
 ## <a name="next-steps"></a>Nästa steg

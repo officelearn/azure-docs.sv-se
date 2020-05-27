@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 357cc85991ac88aef4fd0958e2bc776373f56dc8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c43abc6c87b88e9fc4a15d4ca5d5506389a8a81a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448367"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849628"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och PHP
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla JavaScript-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i JavaScript och använder Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
-Exempelkoden skrevs för att fungera med PHP 5.6.
+Använd den här snabb starten för att göra ditt första anrop till API för videosökning i Bing. Detta enkla PHP-program skickar en HTTP-videosök fråga till API: et och visar JSON-svaret. Exempel koden skrivs för att fungera i PHP 5,6.
 
-Se [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) för teknisk information om API:erna.
+Även om det här programmet är skrivet i PHP är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -34,10 +33,10 @@ Se [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices-bingse
 
 [API för videosökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returnerar videoresultat från Bings sökmotor.
 
-1. Kontrollera att stöd för säker HTTP är aktiverat i `php.ini` enligt beskrivningen i kodkommentaren.
+1. Aktivera säkert HTTP-stöd i `php.ini` filen genom att ta bort kommentaren till `;extension=php_openssl.dll` raden, enligt beskrivningen i följande kod.
 2. Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram.
 3. Lägg till koden nedan.
-4. Ersätt värdet `$accessKey` med en giltig åtkomstnyckel för din prenumeration. `$endpoint`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+4. Ersätt värdet `$accessKey` med en giltig åtkomstnyckel för din prenumeration. För `$endpoint` värdet kan du använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 5. Kör programmet.
 
 ```php

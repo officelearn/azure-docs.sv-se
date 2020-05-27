@@ -3,12 +3,12 @@ title: Använda PowerShell för att säkerhetskopiera DPM-arbetsbelastningar
 description: Lär dig hur du distribuerar och hanterar Azure Backup för Data Protection Manager (DPM) med PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: ea1de4a328721deafc8a4706ad4597cec3c3defe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73b6d07c9d74ab7f8af5d91e992bb1ae457f964c
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194592"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848185"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
 
@@ -103,7 +103,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Installera Azure Backup-agenten på en DPM-server
 
-Innan du installerar Azure Backup Agent måste du hämta installations programmet och presentera det på Windows Server. Du kan hämta den senaste versionen av installations programmet från [Microsoft Download Center](https://aka.ms/azurebackup_agent) eller från Recovery Services valvets instrument panels sida. Spara installations programmet på en lättillgänglig plats som `C:\Downloads\*`.
+Innan du installerar Azure Backup Agent måste du hämta installations programmet och presentera det på Windows Server. Du kan hämta den senaste versionen av installations programmet från [Microsoft Download Center](https://aka.ms/azurebackup_agent) eller från Recovery Services valvets instrument panels sida. Spara installations programmet på en lättillgänglig plats som `C:\Downloads\*` .
 
 Installera agenten genom att köra följande kommando i en upphöjd PowerShell-konsol **på DPM-servern**:
 
@@ -113,7 +113,7 @@ MARSAgentInstaller.exe /q
 
 Detta installerar agenten med alla standard alternativ. Installationen tar några minuter i bakgrunden. Om du inte anger alternativet */nu* öppnas fönstret **Windows Update** i slutet av installationen för att söka efter uppdateringar.
 
-Agenten visas i listan över installerade program. Om du vill se en lista över installerade program går du till **kontroll panelen** > **program** > **program och funktioner**.
+Agenten visas i listan över installerade program. Om du vill se en lista över installerade program går du till **kontroll panelen**  >  **program**  >  **program och funktioner**.
 
 ![Agent installerad](./media/backup-dpm-automation/installed-agent-listing.png)
 
@@ -127,7 +127,7 @@ MARSAgentInstaller.exe /?
 
 De tillgängliga alternativen är:
 
-| Alternativ | Information | Default |
+| Alternativ | Information | Standard |
 | --- | --- | --- |
 | /q |Tyst installation |- |
 | /p: "plats" |Sökväg till installationsmappen för Azure Backup agenten. |C:\Program\Microsoft Azure Recovery Services agent |
@@ -154,7 +154,7 @@ $credsfilename
 C:\downloads\testvault\_Sun Apr 10 2016.VaultCredentials
 ```
 
-På DPM-servern kör du cmdleten [Start-OBRegistration](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obregistration?view=winserver2012-ps) för att registrera datorn med valvet.
+På DPM-servern kör du cmdleten [Start-OBRegistration](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obregistration) för att registrera datorn med valvet.
 
 ```powershell
 $cred = $credspath + $credsfilename
@@ -177,7 +177,7 @@ När DPM-servern har registrerats med Recovery Services-valvet börjar den med s
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Alla ändringar görs i det här lokala PowerShell- ```$setting``` objektet och det fullständiga objektet allokeras till DPM och Azure Backup att spara dem med cmdleten [set-DPMCloudSubscriptionSetting](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) . Du måste använda ```–Commit``` flaggan för att se till att ändringarna är sparade. Inställningarna tillämpas inte och används av Azure Backup om det inte bekräftas.
+Alla ändringar görs i det här lokala PowerShell-objektet ```$setting``` och det fullständiga objektet allokeras till DPM och Azure Backup att spara dem med cmdleten [set-DPMCloudSubscriptionSetting](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) . Du måste använda ```–Commit``` flaggan för att se till att ändringarna är sparade. Inställningarna tillämpas inte och används av Azure Backup om det inte bekräftas.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -185,7 +185,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 ## <a name="networking"></a>Nätverk
 
-Om anslutningen till DPM-datorn till Azure Backup tjänsten på Internet är via en proxyserver, bör inställningarna för proxyservern tillhandahållas för lyckade säkerhets kopieringar. Detta görs med hjälp ```-ProxyServer```av och ```-ProxyPort``` ```-ProxyUsername``` och ```ProxyPassword``` parametrarna med cmdleten [set-DPMCloudSubscriptionSetting](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) . I det här exemplet finns det ingen proxyserver, så vi rensar explicit all proxy-relaterad information.
+Om anslutningen till DPM-datorn till Azure Backup tjänsten på Internet är via en proxyserver, bör inställningarna för proxyservern tillhandahållas för lyckade säkerhets kopieringar. Detta görs med hjälp av ```-ProxyServer``` och ```-ProxyPort``` ```-ProxyUsername``` och ```ProxyPassword``` parametrarna med cmdleten [set-DPMCloudSubscriptionSetting](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) . I det här exemplet finns det ingen proxyserver, så vi rensar explicit all proxy-relaterad information.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
@@ -205,13 +205,13 @@ Azure Backup-agenten som körs på DPM-servern behöver tillfällig lagring för
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-I exemplet ovan kommer mellanlagringsområdet att ställas in på *C:\StagingArea* i PowerShell-objektet ```$setting```. Kontrol lera att den angivna mappen redan finns, eller att det inte går att utföra den slutliga incheckningen av prenumerations inställningarna.
+I exemplet ovan kommer mellanlagringsområdet att ställas in på *C:\StagingArea* i PowerShell-objektet ```$setting``` . Kontrol lera att den angivna mappen redan finns, eller att det inte går att utföra den slutliga incheckningen av prenumerations inställningarna.
 
 ### <a name="encryption-settings"></a>Krypteringsinställningar
 
 De säkerhets kopierings data som skickas till Azure Backup krypteras för att skydda data sekretessen. Krypterings lösen frasen är "Password" för att dekryptera data vid tidpunkten för återställningen. Det är viktigt att hålla denna information säker och säker när den har kon figurer ATS.
 
-I exemplet nedan konverterar det första kommandot strängen ```passphrase123456789``` till en säker sträng och tilldelar den skyddade strängen till variabeln med namnet. ```$Passphrase``` det andra kommandot anger den säkra strängen i ```$Passphrase``` som lösen ord för att kryptera säkerhets kopior.
+I exemplet nedan konverterar det första kommandot strängen ```passphrase123456789``` till en säker sträng och tilldelar den skyddade strängen till variabeln med namnet ```$Passphrase``` . det andra kommandot anger den säkra strängen i ```$Passphrase``` som lösen ord för att kryptera säkerhets kopior.
 
 ```powershell
 $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPlainText -Force
@@ -268,7 +268,7 @@ Listan över servrar där DPM-agenten är installerad och hanteras av DPM-server
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}
 ```
 
-Nu ska du hämta listan över data källor ```$server``` med hjälp av cmdleten [Get-DPMDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019) . I det här exemplet filtreras vi efter den `D:\` volym som vi vill konfigurera för säkerhets kopiering. Den här data källan läggs sedan till i skydds gruppen med hjälp av cmdleten [Add-DPMChildDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019) . Kom ihåg att använda objektet ```$MPG``` *ändrings* bara skydds grupp för att göra tilläggen.
+Nu ska du hämta listan över data källor med ```$server``` hjälp av cmdleten [Get-DPMDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019) . I det här exemplet filtreras vi efter den volym `D:\` som vi vill konfigurera för säkerhets kopiering. Den här data källan läggs sedan till i skydds gruppen med hjälp av cmdleten [Add-DPMChildDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019) . Kom ihåg att använda objektet *ändrings* bara skydds grupp ```$MPG``` för att göra tilläggen.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains "D:\" }
@@ -310,7 +310,7 @@ Set-DPMPolicyObjective –ProtectionGroup $MPG -OnlineRetentionRangeList $RRlist
 
 ### <a name="set-the-backup-schedule"></a>Ange schema för säkerhets kopiering
 
-DPM ställer in ett standard schema för säkerhets kopiering automatiskt om du anger skydds ```Set-DPMPolicyObjective``` målet med hjälp av cmdleten. Om du vill ändra standard scheman använder du cmdleten [Get-DPMPolicySchedule](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmpolicyschedule?view=systemcenter-ps-2019) följt av cmdleten [set-DPMPolicySchedule](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmpolicyschedule?view=systemcenter-ps-2019) .
+DPM ställer in ett standard schema för säkerhets kopiering automatiskt om du anger skydds målet med hjälp av ```Set-DPMPolicyObjective``` cmdleten. Om du vill ändra standard scheman använder du cmdleten [Get-DPMPolicySchedule](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmpolicyschedule?view=systemcenter-ps-2019) följt av cmdleten [set-DPMPolicySchedule](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmpolicyschedule?view=systemcenter-ps-2019) .
 
 ```powershell
 $onlineSch = Get-DPMPolicySchedule -ProtectionGroup $mpg -LongTerm Online
@@ -328,11 +328,11 @@ I exemplet ovan ```$onlineSch``` är en matris med fyra element som innehåller 
 3. ```$onlineSch[2]```innehåller månads schema
 4. ```$onlineSch[3]```innehåller års schema
 
-Så om du behöver ändra vecko schema måste du referera till ```$onlineSch[1]```.
+Så om du behöver ändra vecko schema måste du referera till ```$onlineSch[1]``` .
 
 ### <a name="initial-backup"></a>Den första säkerhetskopieringen
 
-När du säkerhetskopierar en data källa för första gången, måste DPM skapa en inledande replik som skapar en fullständig kopia av data källan som ska skyddas på DPM-replikens volym. Den här aktiviteten kan antingen schemaläggas en angiven tid eller aktive ras manuellt, med hjälp av cmdleten [set-DPMReplicaCreationMethod](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmreplicacreationmethod?view=systemcenter-ps-2019) med parametern ```-NOW```.
+När du säkerhetskopierar en data källa för första gången, måste DPM skapa en inledande replik som skapar en fullständig kopia av data källan som ska skyddas på DPM-replikens volym. Den här aktiviteten kan antingen schemaläggas en angiven tid eller aktive ras manuellt, med hjälp av cmdleten [set-DPMReplicaCreationMethod](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmreplicacreationmethod?view=systemcenter-ps-2019) med parametern ```-NOW``` .
 
 ```powershell
 Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
@@ -366,7 +366,7 @@ $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 
 ## <a name="restore-data-protected-on-azure"></a>Återställa skyddade data i Azure
 
-Att återställa data är en kombination av ```RecoverableItem``` ett objekt och ```RecoveryOption``` ett objekt. I föregående avsnitt fick vi en lista över säkerhets kopierings punkter för en data källa.
+Att återställa data är en kombination av ett ```RecoverableItem``` objekt och ett ```RecoveryOption``` objekt. I föregående avsnitt fick vi en lista över säkerhets kopierings punkter för en data källa.
 
 I exemplet nedan visar vi hur du återställer en virtuell Hyper-V-dator från Azure Backup genom att kombinera säkerhets kopierings punkter med målet för återställning. Det här exemplet innehåller:
 

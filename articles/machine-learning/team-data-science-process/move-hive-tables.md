@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 625d9d5c5ecf095d4acbff625754b2065f184536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d5e44d6b34a16f03d4ca1f82453f1f6e9f074917
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251666"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860621"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och läsa in data från Azure Blob Storage
 
@@ -30,7 +30,7 @@ Den här artikeln förutsätter att du har:
 * Fjärråtkomst till klustret, inloggad och öppnade kommando rads konsolen Hadoop. Om du behöver instruktioner, se [hantera Apache Hadoop kluster](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Ladda upp data till Azure Blob Storage
-Om du har skapat en virtuell Azure-dator genom att följa anvisningarna [i Konfigurera en virtuell Azure-dator för avancerad analys](../../machine-learning/data-science-virtual-machine/overview.md), bör den här skript filen ha hämtats till mappen *\\C\\\<: användare\>\\användar\\namn dokument data science scripts* på den virtuella datorn. Dessa Hive-frågor kräver bara att du anger ett data schema och Azure Blob Storage-konfigurationen i lämpliga fält för att kunna skickas.
+Om du har skapat en virtuell Azure-dator genom att följa anvisningarna i [Konfigurera en virtuell Azure-dator för avancerad analys](../../machine-learning/data-science-virtual-machine/overview.md), bör den här skript filen ha hämtats till mappen *C: \\ användare \\ \< användar namn \> \\ dokument \\ data science scripts* på den virtuella datorn. Dessa Hive-frågor kräver bara att du anger ett data schema och Azure Blob Storage-konfigurationen i lämpliga fält för att kunna skickas.
 
 Vi antar att data för Hive-tabeller är i ett **okomprimerat** tabell format och att data har överförts till standard (eller till en ytterligare) behållare för det lagrings konto som används av Hadoop-klustret.
 
@@ -54,7 +54,7 @@ När du skickar en Hive-fråga kan du också styra målet för utdata från Hive
 ### <a name="submit-hive-queries-through-hadoop-command-line-in-headnode-of-hadoop-cluster"></a><a name="headnode"></a>Skicka Hive-frågor via Hadoop-kommandoraden i huvudnoden för Hadoop-kluster
 Om Hive-frågan är komplex kan du skicka den direkt i noden Head i Hadoop-klustret så att den blir snabbare än att skicka den till en Hive-redigerare eller Azure PowerShell skript.
 
-Logga in på noden Head i Hadoop-klustret, öppna Hadoop-kommandoraden på Skriv bordet i head-noden och ange kommandot `cd %hive_home%\bin`.
+Logga in på noden Head i Hadoop-klustret, öppna Hadoop-kommandoraden på Skriv bordet i head-noden och ange kommandot `cd %hive_home%\bin` .
 
 Det finns tre sätt att skicka Hive-frågor på Hadoop-kommando raden:
 
@@ -68,7 +68,7 @@ Du kan köra kommandot som `hive -e "<your hive query>;` att skicka enkla Hive-f
 ![Kommando för att skicka Hive-fråga med utdata från Hive-fråga](./media/move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-hql-files"></a>Skicka Hive-frågor i '. HQL '-filer
-När Hive-frågan är mer komplicerad och innehåller flera rader är det inte praktiskt att redigera frågor på kommando raden eller i Hive-konsolen. Ett alternativ är att använda en text redigerare i noden Head i Hadoop-klustret för att spara Hive-frågor i en. HQL-fil i en lokal katalog i head-noden. Sedan kan Hive-frågan i filen ". HQL" skickas genom att `-f` använda argumentet enligt följande:
+När Hive-frågan är mer komplicerad och innehåller flera rader är det inte praktiskt att redigera frågor på kommando raden eller i Hive-konsolen. Ett alternativ är att använda en text redigerare i noden Head i Hadoop-klustret för att spara Hive-frågor i en. HQL-fil i en lokal katalog i head-noden. Sedan kan Hive-frågan i filen ". HQL" skickas genom att använda `-f` argumentet enligt följande:
 
     hive -f "<path to the '.hql' file>"
 
@@ -93,7 +93,7 @@ Om du vill returnera Hive-frågeresultaten till en lokal katalog på Head-noden 
 
     hive -e "<hive query>" > <local path in the head node>
 
-I följande exempel skrivs utdata från Hive-frågan till i en fil `hivequeryoutput.txt` i katalogen. `C:\apps\temp`
+I följande exempel skrivs utdata från Hive-frågan till i en fil `hivequeryoutput.txt` i katalogen `C:\apps\temp` .
 
 ![Utdata för Hive-fråga](./media/move-hive-tables/output-hive-results-1.png)
 
@@ -103,7 +103,7 @@ Du kan också spara Hive-frågeresultaten till en Azure-Blob, inom standard beh�
 
     insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-I följande exempel skrivs utdata från Hive-frågan till en BLOB-katalog `queryoutputdir` inom standard behållaren för Hadoop-klustret. Här behöver du bara ange katalog namnet utan BLOB-namnet. Ett fel uppstår om du anger både katalog-och blob-namn, till `wasb:///queryoutputdir/queryoutput.txt`exempel.
+I följande exempel skrivs utdata från Hive-frågan till en BLOB-katalog `queryoutputdir` inom standard behållaren för Hadoop-klustret. Här behöver du bara ange katalog namnet utan BLOB-namnet. Ett fel uppstår om du anger både katalog-och blob-namn, till exempel `wasb:///queryoutputdir/queryoutput.txt` .
 
 ![Utdata för Hive-fråga](./media/move-hive-tables/output-hive-results-2.png)
 
@@ -112,7 +112,7 @@ Om du öppnar standard behållaren för Hadoop-klustret med hjälp av Azure Stor
 ![Azure Storage Explorer visar utdata från Hive-frågan](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="submit-hive-queries-with-the-hive-editor"></a><a name="hive-editor"></a>Skicka Hive-frågor med Hive-redigeraren
-Du kan också använda fråga konsolen (Hive-redigeraren) genom att ange en webb adress med formatet *https:\//\<Hadoop-kluster namn>. azurehdinsight.net/Home/HiveEditor* i en webbläsare. Du måste vara inloggad i se den här konsolen och så att du behöver autentiseringsuppgifterna för Hadoop-klustret här.
+Du kan också använda fråga konsolen (Hive-redigeraren) genom att ange en webb adress med formatet *https: \/ / \< Hadoop-kluster namn>. azurehdinsight.net/Home/HiveEditor* i en webbläsare. Du måste vara inloggad i se den här konsolen och så att du behöver autentiseringsuppgifterna för Hadoop-klustret här.
 
 ### <a name="submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a>Skicka Hive-frågor med Azure PowerShell-kommandon
 Du kan också använda PowerShell för att skicka Hive-frågor. Instruktioner finns i [Skicka Hive-jobb med PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -137,11 +137,11 @@ Här är den Hive-fråga som skapar en Hive-tabell.
 
 Här följer beskrivningar av de fält som du behöver för att ansluta till och andra konfigurationer:
 
-* **databas namn\>: namnet på den databas som du vill \<** skapa. Om du bara vill använda standard databasen kan frågan "*skapa databas...*" utelämnas.
-* **tabell namn\>: namnet på den tabell som du vill skapa i den angivna \<** databasen. Om du vill använda standard databasen kan tabellen anges direkt av * \<tabell namn\> * utan \<databas namn\>.
-* **fält avgränsare\>: avgränsare som avgränsar fält i data filen som ska överföras till Hive-tabellen. \<**
-* **rad avgränsare\>: avgränsare som avgränsar rader i data filen. \<**
-* **lagrings\>plats: Azure Storage plats där du vill spara data för Hive-tabeller. \<** Om du inte anger *plats \<lagrings plats\>* lagras databasen och tabellerna i *Hive/lager/* katalog i standard behållaren för Hive-klustret som standard. Om du vill ange lagrings platsen måste lagrings platsen finnas i standard behållaren för databasen och tabellerna. Den här platsen måste refereras till platsen i förhållande till standard behållaren för klustret i formatet *"wasb:///\<Directory 1>/"* eller *"\<wasb:///Directory 1>/\<Directory 2>/"* osv. När frågan har körts skapas de relativa katalogerna i standard behållaren.
+* ** \< databas namn \> **: namnet på den databas som du vill skapa. Om du bara vill använda standard databasen kan frågan "*skapa databas...*" utelämnas.
+* ** \< tabell namn \> **: namnet på den tabell som du vill skapa i den angivna databasen. Om du vill använda standard databasen kan tabellen anges direkt av * \< tabell namn \> * utan \< databas namn \> .
+* ** \< fält avgränsare \> **: avgränsare som avgränsar fält i data filen som ska överföras till Hive-tabellen.
+* ** \< rad avgränsare \> **: avgränsare som avgränsar rader i data filen.
+* ** \< lagrings \> plats**: Azure Storage plats där du vill spara data för Hive-tabeller. Om du inte anger *plats \< lagrings plats \> *lagras databasen och tabellerna i *Hive/lager/* katalog i standard behållaren för Hive-klustret som standard. Om du vill ange lagrings platsen måste lagrings platsen finnas i standard behållaren för databasen och tabellerna. Den här platsen måste refereras till platsen i förhållande till standard behållaren för klustret i formatet *"wasb:/// \< directory 1>/"* eller *"wasb:/// \< Directory 1>/ \< Directory 2>/"* osv. När frågan har körts skapas de relativa katalogerna i standard behållaren.
 * **TBLPROPERTIES ("Skip. header. line. Count" = "1")**: om data filen har en rubrik rad måste du lägga till den här egenskapen **i slutet** av frågan *CREATE TABLE* . Annars läses rubrik raden in som en post i tabellen. Om data filen inte har någon rubrik rad kan den här konfigurationen utelämnas i frågan.
 
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Läs in data till Hive-tabeller
@@ -149,7 +149,7 @@ Här är den Hive-fråga som läser in data i en Hive-tabell.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **sökväg till BLOB-\>data: om BLOB-filen som ska överföras till Hive-tabellen finns i standard behållaren för HDInsight Hadoop-klustret ska sökvägen till BLOB-data vara i formatet "wasb://Directory in the container>/BLOB File name>". \<** * \<\> * *\<\<* BLOB-filen kan också finnas i ytterligare en behållare för HDInsight Hadoop-klustret. I det här fallet ska * \<sökvägen till BLOB\> -data* vara i formatet *' wasb://\<container Name>\<lagrings konto namn>.\<blob.Core.Windows.net/BLOB-filnamn> '*.
+* ** \< sökväg till BLOB- \> data**: om BLOB-filen som ska överföras till Hive-tabellen finns i standard behållaren för HDInsight Hadoop-klustret ska * \< sökvägen till BLOB- \> data* vara i formatet *"wasb:// \< Directory in the container>/ \< BLOB File name>"*. BLOB-filen kan också finnas i ytterligare en behållare för HDInsight Hadoop-klustret. I det här fallet ska * \< sökvägen till BLOB \> -data* vara i formatet *"wasb:// \< container Name> @ \< lagrings konto namn>. blob.Core.Windows.net/ \< BLOB File name>"*.
 
   > [!NOTE]
   > BLOB-data som ska överföras till Hive-tabellen måste finnas i standard eller ytterligare behållare för lagrings kontot för Hadoop-klustret. I annat fall Miss lyckas *inläsnings data* frågan så att den inte kan komma åt data.
@@ -174,7 +174,7 @@ Här är Hive-frågan som skapar en partitionerad tabell och läser in data i de
     LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-När du frågar efter partitionerade tabeller rekommenderar vi att du lägger till ett partitionsschema i **början** av- `where` satsen, vilket förbättrar Sök effektiviteten.
+När du frågar efter partitionerade tabeller rekommenderar vi att du lägger till ett partitionsschema i **början** av `where` -satsen, vilket förbättrar Sök effektiviteten.
 
     select
         field1, field2, ..., fieldN
@@ -216,7 +216,7 @@ Välj data från den externa tabellen i steg 1 och infoga dem i ORC-tabellen
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Om textfile-tabellens * \<databas\>namn\< . det externa textfile-\> tabell namnet* innehåller partitioner, i steg 3 väljer kommandot variabeln partition som ett fält i den returnerade data uppsättningen. `SELECT * FROM <database name>.<external textfile table name>` Infogar den i * \<databas namnet\>.\< Det gick inte\> att Orc tabell namnet* eftersom * \<det är ett databas namn\>.\< Orc tabell namnet\> * har inte variabeln partition som ett fält i tabell schemat. I så fall måste du särskilt välja de fält som ska infogas i * \<databas namnet\>.\< Orc tabell namn\> * enligt följande:
+> Om TEXTFILE-tabellens * \< databas namn \> . \< det externa textfile- \> tabell namnet* innehåller partitioner, i steg 3 `SELECT * FROM <database name>.<external textfile table name>` väljer kommandot variabeln partition som ett fält i den returnerade data uppsättningen. Infogar den i * \< databas namnet \> . \< Det gick inte \> att Orc tabell namnet* eftersom det är * \< ett databas namn \> . \< ORC tabell namnet \> * har inte variabeln partition som ett fält i tabell schemat. I så fall måste du särskilt välja de fält som ska infogas i * \< databas namnet \> . \< ORC tabell namn \> * enligt följande:
 >
 >
 
@@ -225,7 +225,7 @@ Välj data från den externa tabellen i steg 1 och infoga dem i ORC-tabellen
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Det är säkert att ta bort den * \<externa text filens\> tabell namn* när du använder följande fråga när alla data har infogats i * \<databas namnet\>.\< ORC tabell namn\>*:
+Det är säkert att ta bort den * \< externa text filens \> tabell namn* när du använder följande fråga när alla data har infogats i * \< databas namnet \> . \< ORC tabell namn \> *:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

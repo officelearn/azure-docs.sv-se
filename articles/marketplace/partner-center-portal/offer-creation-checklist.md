@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 60111b6a23c76314383c5f95be3eb4b38f90d3e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80281348"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850019"
 ---
 # <a name="saas-offer-creation-checklist"></a>Checklista för skapande av SaaS-erbjudande
 
@@ -58,7 +58,7 @@ På sidan erbjudande konfiguration kan du välja olika kanaler och sälja rörel
 | Kanaler  | Valfritt. Standard: inte att du valde CSP (åter försäljare)-kanalen.  |
 | Test Drive | Valfritt. Standard: ingen testen het har Aktiver ATS.  |
 | Typ av test enhet | Krävs om den är aktive rad en testen het. Standard: inget har valts. Alternativ: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 för kund engagemang, Dynamics 365 for Operations, Logic app, Power BI.  |
-| Lead-hantering – Anslut till ett CRM-system | Krävs om du säljer via Microsoft eller om du har en lista över erbjudanden som "kontakta mig". Standard: inget CRM-system är anslutet. CRM-alternativ: Azure Table, Azure-Blob, Dynamics CRM Online, HTTPs-slutpunkt, Marketo, Salesforce  |
+| Kund ledare – Anslut till ett CRM-system | Krävs om du säljer via Microsoft eller om du har en lista över erbjudanden som "kontakta mig". Standard: inget CRM-system är anslutet. CRM-alternativ: Azure Table, Azure-Blob, Dynamics CRM Online, HTTPs-slutpunkt, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Sidan Egenskaper
 

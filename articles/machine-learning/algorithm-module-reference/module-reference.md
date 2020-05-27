@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/13/2020
-ms.openlocfilehash: c46c21b5662b924552f850f226a12c7350b4625a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: 53cfb983579c8a02ed6c1d80ff4821efa5950298
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458211"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848219"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritm & module-referens för Azure Machine Learning designer (för hands version)
 
@@ -27,15 +27,15 @@ Hjälp med att välja algoritmer finns i
 * [Lathund-blad för Azure Machine Learning algorithm](../algorithm-cheat-sheet.md)
 
 > [!TIP]
-> I en pipeline i designern kan du hämta information om en speciell modul. Välj modulen och välj sedan länken **mer hjälp** i fönstret **snabb hjälp** .
+> I en pipeline i designern kan du hämta information om en speciell modul. Välj länken **Läs mer** i modulen modul vid hovring i modulen i modulen modul eller i den högra rutan i modulen.
 
 ## <a name="data-preparation-modules"></a>Moduler för data förberedelse
 
 
 | Funktioner | Beskrivning | Modul |
 | --- |--- | --- |
-| Indata och utdata | Flytta data från moln källor till din pipeline. Skriv resultaten eller mellanliggande data till Azure Storage, en SQL-databas eller Hive, medan du kör en pipeline eller Använd moln lagring för att utbyta data mellan pipeliner.  | [Ange data manuellt](enter-data-manually.md) <br/> [Exportera data](export-data.md) <br/> [Importera data](import-data.md) |
-| Dataomvandling | Åtgärder för data som är unika för maskin inlärning, till exempel normaliserande eller diskretisering data, Dimensional reducering och konvertering av data mellan olika fil format.| [Lägga till kolumner](add-columns.md) <br/> [Lägga till rader](add-rows.md) <br/> [Använda matematisk åtgärd](apply-math-operation.md) <br/> [Använda SQL-transformering](apply-sql-transformation.md) <br/> [Rensa data som saknas](clean-missing-data.md) <br/> [Beskärningsvärden](clip-values.md) <br/> [Konvertera till CSV](convert-to-csv.md) <br/> [Konvertera till datamängd](convert-to-dataset.md) <br/> [Konvertera till indikatorvärden](convert-to-indicator-values.md) <br/> [Redigera metadata](edit-metadata.md) <br/> [Koppla data](join-data.md) <br/> [Normalisera Data](normalize-data.md) <br/> [Partitionera och prova](partition-and-sample.md)  <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Välja kolumntranformering](select-columns-transform.md) <br/> [Välja kolumner i datauppsättning](select-columns-in-dataset.md) <br/> [Dela data](split-data.md) |
+| Data indata och utdata | Flytta data från moln källor till din pipeline. Skriv resultaten eller mellanliggande data till Azure Storage, en SQL-databas eller Hive, medan du kör en pipeline eller Använd moln lagring för att utbyta data mellan pipeliner.  | [Ange data manuellt](enter-data-manually.md) <br/> [Exportera data](export-data.md) <br/> [Importera data](import-data.md) |
+| Data omvandling | Åtgärder för data som är unika för maskin inlärning, till exempel normaliserande eller diskretisering data, Dimensional reducering och konvertering av data mellan olika fil format.| [Lägga till kolumner](add-columns.md) <br/> [Lägga till rader](add-rows.md) <br/> [Använda matematisk åtgärd](apply-math-operation.md) <br/> [Använda SQL-transformering](apply-sql-transformation.md) <br/> [Rensa data som saknas](clean-missing-data.md) <br/> [Beskärningsvärden](clip-values.md) <br/> [Konvertera till CSV](convert-to-csv.md) <br/> [Konvertera till datamängd](convert-to-dataset.md) <br/> [Konvertera till indikatorvärden](convert-to-indicator-values.md) <br/> [Redigera metadata](edit-metadata.md) <br/> [Gruppera data till lager platser](group-data-into-bins.md) <br/> [Koppla data](join-data.md) <br/> [Normalisera Data](normalize-data.md) <br/> [Partitionera och prova](partition-and-sample.md)  <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Välja kolumntranformering](select-columns-transform.md) <br/> [Välja kolumner i datauppsättning](select-columns-in-dataset.md) <br/> [Dela data](split-data.md) |
 | Val av funktion | Välj en delmängd av relevanta, användbara funktioner som du kan använda när du skapar en analys modell. | [Filterbaserat funktionsval](filter-based-feature-selection.md) <br/> [Permutationfunktionsprioritet](permutation-feature-importance.md) |
 | Statistiska funktioner | Tillhandahålla en mängd olika statistiska metoder för data vetenskap. | [Sammanfatta data](summarize-data.md)|
 
@@ -51,11 +51,11 @@ Hjälp med att välja algoritmer finns i
 
 | Funktioner | Beskrivning | Modul |
 | --- |--- | --- |
-| Modellträning | Kör data via algoritmen. |  [Träna klustringsmodellen](train-clustering-model.md) <br/> [Träningsmodell](train-model.md)  <br/> [Finjustera hyperparametrar för modell](tune-model-hyperparameters.md) |
+| Modell träning | Kör data via algoritmen. |  [Träna klustringsmodellen](train-clustering-model.md) <br/> [Träningsmodell](train-model.md)  <br/> [Finjustera hyperparametrar för modell](tune-model-hyperparameters.md) |
 | Bedömnings-och utvärderings modell | Mät noggrannheten för den tränade modellen. | [Använda transformering](apply-transformation.md) <br/> [Tilldela data till kluster](assign-data-to-clusters.md) <br/> [Korsvalidera modell](cross-validate-model.md) <br/> [Utvärdera modell](evaluate-model.md) <br/> [Poängmodell](score-model.md) |
 | Python-språk | Skriv kod och bädda in den i en modul för att integrera python med din pipeline. | [Skapa Python-modell](create-python-model.md) <br/> [Köra Python-skript](execute-python-script.md) |
 | R-språk | Skriv kod och bädda in den i en modul för att integrera R med din pipeline. | [Köra R-skript](execute-r-script.md) |
-| Textanalys | Tillhandahåll specialiserade beräknings verktyg för att arbeta med både strukturerad och ostrukturerad text. | [Extrahera N-Gram-funktioner från text](extract-n-gram-features-from-text.md) <br/> [Funktions-hash](feature-hashing.md) <br/> [Förbearbeta text](preprocess-text.md) <br/> [Latent Dirichlet-allokering](latent-dirichlet-allocation.md) |
+| Textanalys | Tillhandahåll specialiserade beräknings verktyg för att arbeta med både strukturerad och ostrukturerad text. |  [Konvertera ord till vektor](convert-word-to-vector.md) <br/> [Extrahera N-Gram-funktioner från text](extract-n-gram-features-from-text.md) <br/> [Funktions-hash](feature-hashing.md) <br/> [Förbearbeta text](preprocess-text.md) <br/> [Latent Dirichlet-allokering](latent-dirichlet-allocation.md) |
 | Rekommendation | Bygg rekommendationers modeller. | [Utvärdera rekommenderare](evaluate-recommender.md) <br/> [Poäng för SVD-rekommenderare](score-svd-recommender.md) <br/> [Träna SVD-rekommenderare](train-SVD-recommender.md) |
 | Avvikelseidentifiering | Bygg modeller för avvikelse identifiering. | [PCA-baserad avvikelseidentifiering](pca-based-anomaly-detection.md) <br/> [Träna avvikelseidentifieringsmodell](train-anomaly-detection-model.md) |
 

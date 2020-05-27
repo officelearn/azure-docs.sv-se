@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: c03a7b89fee188d8a22cfb8ddcd73920ce43f43a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c3892cfe3f8bd6966f5bd00c0747590eef3bc50d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649149"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860535"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Konfigurera din App Service-eller Azure Functions-app för att använda Azure AD-inloggning
 
@@ -100,7 +100,7 @@ Utför följande steg:
 1. Under **autentiseringsproviders**väljer du **Azure Active Directory**.
 1. I **hanterings läge**väljer du **avancerat** och konfigurerar app service autentisering enligt följande tabell:
 
-    |Fält|Description|
+    |Fält|Beskrivning|
     |-|-|
     |Klientorganisations-ID| Använd **program-ID: t (klient)** för appens registrering. |
     |Utfärdar-URL| Använd `<authentication-endpoint>/<tenant-id>/v2.0` och Ersätt * \< autentiserings slut punkts>* med [slut punkten för autentiseringen för din moln miljö](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (t. ex. " https://login.microsoft.com " för Global Azure), och ersätter även * \< klient-ID>* med den **katalog (klient)-ID** som program registreringen skapades i. Det här värdet används för att omdirigera användare till rätt Azure AD-klient, samt för att hämta lämpliga metadata för att fastställa lämpliga token för signerings nycklar och token Issuer-anspråk till exempel. `/v2.0`Avsnittet kan utelämnas för program som använder AAD v1. |
@@ -157,7 +157,7 @@ Nu har du konfigurerat ett daemon-klientcertifikat som kan komma åt din App Ser
 ## <a name="next-steps"></a><a name="related-content"> </a>Nästa steg
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
+* [Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service](app-service-web-tutorial-auth-aad.md)
 <!-- URLs. -->
 
 [Azure Portal]: https://portal.azure.com/

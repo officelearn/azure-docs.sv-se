@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2020
+ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: f71bffd1db023ece19071bb8f71ec49a855e828b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6909bcbc67680f9205af8a79782907d4671d668b
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654657"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860723"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -45,12 +45,12 @@ Under trycknings regler definierar kriterierna för vilka aviseringar automatisk
 
 - Ignorera aviseringar som utlöses för ofta för att vara användbara
 
-[Lär dig mer om att ignorera aviseringar från Azure Security Center skydd mot hot](alerts-suppression-rules.md).
+Lär dig mer om att [Ignorera aviseringar från Azure Security Center skydd mot hot](alerts-suppression-rules.md).
 
 
 ### <a name="virtual-machine-vulnerability-assessment-is-now-generally-available"></a>Utvärdering av säkerhets risker för virtuella datorer är nu allmänt tillgänglig
 
-Security Center standard nivån innehåller nu en inbyggd sårbarhets bedömning för virtuella datorer utan extra avgift. Det här tillägget drivs av Qualys men rapporterar sina resultat direkt tillbaka till Security Center. Du behöver inte en Qualys-licens eller ens ett Qualys-konto – allt hanteras sömlöst i Security Center.
+Security Center standard nivån innehåller nu en integrerad sårbarhets bedömning för virtuella datorer utan extra avgift. Det här tillägget drivs av Qualys men rapporterar sina resultat direkt tillbaka till Security Center. Du behöver inte en Qualys-licens eller ens ett Qualys-konto – allt hanteras sömlöst i Security Center.
 
 Den nya lösningen kan kontinuerligt genomsöka dina virtuella datorer för att hitta sårbarheter och visa resultaten i Security Center. 
 
@@ -58,7 +58,7 @@ Använd den nya säkerhets rekommendationen för att distribuera lösningen:
 
 "Aktivera den inbyggda lösningen för sårbarhets bedömning på virtuella datorer (drivs av Qualys)"
 
-[Läs mer](built-in-vulnerability-assessment.md).
+Lär dig mer om [Security Center s integrerade sårbarhets bedömning för virtuella datorer](built-in-vulnerability-assessment.md).
 
 
 
@@ -72,7 +72,7 @@ Den här uppdateringen ger följande ändringar i den här funktionen:
 
 - Rekommendationen har endast Aktiver ATS om det finns öppna hanterings portar.
 
-[Lär dig mer om funktionen för JIT-åtkomst](security-center-just-in-time.md).
+Lär dig mer om [funktionen för JIT-åtkomst](security-center-just-in-time.md).
 
 
 ### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>Anpassade rekommendationer har flyttats till en separat säkerhets kontroll
@@ -122,14 +122,6 @@ Lär dig mer om Windows Defender sårbarhet Guard i [skapa och distribuera en pr
 Läs mer om säkerhets kontroller i [förbättrade säkra poäng (för hands version) i Azure Security Center](secure-score-security-controls.md).
 
 
-
-
-
-
-
-
-
-
 ### <a name="custom-policies-with-custom-metadata-are-now-generally-available"></a>Anpassade principer med anpassade metadata är nu allmänt tillgängliga
 
 Anpassade principer är nu en del av Security Center rekommendationer, säkra poäng och kontroll panelen för regler för efterlevnad. Den här funktionen är nu allmänt tillgänglig och gör att du kan utöka din organisations täckning för säkerhets utvärdering i Security Center. 
@@ -138,7 +130,23 @@ Skapa ett anpassat initiativ i Azure policy, Lägg till principer till den och p
 
 Nu har vi även lagt till alternativet för att redigera metadata för anpassade rekommendationer. Alternativen för metadata omfattar allvarlighets grad, reparations steg, Hot information och mycket annat.  
 
-[Lär dig mer om att förbättra dina anpassade rekommendationer med detaljerad information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+Lär dig mer om [att förbättra dina anpassade rekommendationer med detaljerad information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+
+
+### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>Analys funktioner för krasch dumpning migrera till fil lös attack identifiering 
+
+Vi integrerar Windows Crash dump Analysis-identifieringen (CDA) i en [fil med filbaserad attack identifiering](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless). Med filbaserad attack identifierings analys får du förbättrade versioner av följande säkerhets aviseringar för Windows-datorer: kod inmatning identifierad, maskerad Windows-modul identifierad, shellcode identifierad och misstänkt kod segment identifierat.
+
+Några av fördelarna med den här över gången:
+
+- **Proaktivt identifiering av skadlig kod** – CDA-metoden som väntar på att krascher ska ske och sedan kör analys för att hitta aktiv skadlig kod. Genom att använda filbaserad attack identifiering får du proaktiv identifiering av minnes minnes hot medan de körs. 
+
+- **Omfattande aviseringar** – säkerhets aviseringar från fil igenkännings identifiering inkluderar berikade objekt som inte är tillgängliga från CDA, till exempel information om aktiva nätverks anslutningar. 
+
+- **Varnings agg regering** – när CDA har identifierat flera angrepps mönster i en enda kraschdump utlöses det flera säkerhets aviseringar. Vid fil lös angrepp kombineras alla identifierade angrepps mönster från samma process till en enda avisering, vilket tar bort behovet av att korrelera flera aviseringar.
+
+- **Lägre krav på din Log Analytics-arbetsyta** – krasch dum par som innehåller potentiellt känsliga data kommer inte längre att överföras till Log Analytics-arbetsytan.
+
 
 
 ## <a name="april-2020"></a>April 2020
@@ -159,7 +167,7 @@ Nu kan du lägga till standarder som till exempel:
 
 Dessutom har vi nyligen lagt till **Azures säkerhets benchmark**, de Microsoft-baserade Azure-/regionsspecifika rikt linjerna för säkerhet och efterlevnad av praxis som baseras på vanliga ramverk för efterlevnad. Ytterligare standarder kommer att stödjas på instrument panelen när de blir tillgängliga.  
  
-[Läs mer om hur du anpassar uppsättningen med standarder på instrument panelen för](update-regulatory-compliance-packages.md)regelefterlevnad.
+Läs mer om hur [du anpassar uppsättningen med standarder på instrument panelen för](update-regulatory-compliance-packages.md)regelefterlevnad.
 
 
 ### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>Identitets rekommendationer ingår nu i Azure Security Center kostnads fri nivå
@@ -174,8 +182,9 @@ Exempel på identitets-och åtkomst rekommendationer är:
 
 Om du har prenumerationer på den kostnads fria pris nivån kommer deras säkra resultat att påverkas av den här ändringen eftersom de aldrig utvärderades för identitets-och åtkomst säkerhet.
 
-[Lär dig mer om identitets-och åtkomst rekommendationer](recommendations-reference.md#recs-identity).
-[Läs mer om övervakning av identitet och åtkomst](security-center-identity-access.md).
+Lär dig mer om [identitets-och åtkomst rekommendationer](recommendations-reference.md#recs-identity).
+
+Läs mer om [övervakning av identitet och åtkomst](security-center-identity-access.md).
 
 
 ## <a name="march-2020"></a>Mars 2020
@@ -188,7 +197,7 @@ Varje säkerhets program innehåller flera arbets flöden för incident svar. De
 
 Mer information om automatiska och manuella Security Center-funktioner för att köra arbets flöden finns i [arbets flödes automatisering](workflow-automation.md).
 
-Information om hur du skapar Logic Apps finns i [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Lär dig mer om att [skapa Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integrering av Azure Security Center med administrations Center för Windows
@@ -200,7 +209,7 @@ När du har flyttat en server från Windows administrations Center till Azure Se
 - Visa säkerhets aviseringar och rekommendationer i Security Center tillägget för Windows administrations Center.
 - Visa säkerhets position och hämta ytterligare detaljerad information om dina hanterade Windows administrations Center-servrar i Security Center inom Azure Portal (eller via ett API).
 
-Läs mer om hur du [integrerar Azure Security Center med administrations Center för Windows](windows-admin-center-integration.md).
+Läs mer om [hur du integrerar Azure Security Center med administrations Center för Windows](windows-admin-center-integration.md).
 
 
 ### <a name="protection-for-azure-kubernetes-service"></a>Skydd för Azure Kubernetes-tjänsten
@@ -215,8 +224,9 @@ Security Center försvaret omfattar:
 - **Säkerhets rekommendationer** – användbara rekommendationer som hjälper dig att följa säkerhets metoder för AKS. Dessa rekommendationer ingår i dina säkra Poäng för att se till att de visas som en del av din organisations säkerhets position. Ett exempel på en AKS rekommendation som du kan se är "rollbaserad åtkomst kontroll ska användas för att begränsa åtkomsten till ett Kubernetes service-kluster".
 - **Hot skydd** – genom kontinuerlig analys av din AKS-distribution, Security Center varnar dig om hot och skadlig aktivitet som har identifierats på värd-och AKS kluster nivå.
 
-[Läs mer om Azure Kubernetes Services-integrering med Security Center](azure-kubernetes-service-integration.md).
-[Läs mer om behållar säkerhetsfunktionerna i Security Center](container-security.md).
+Lär dig mer om [Azure Kubernetes Services-integration med Security Center](azure-kubernetes-service-integration.md).
+
+Läs mer om [behållar säkerhetsfunktionerna i Security Center](container-security.md).
 
 
 ### <a name="improved-just-in-time-experience"></a>Förbättrad just-in-Time-upplevelse
@@ -226,7 +236,7 @@ Funktionerna, åtgärden och gränssnittet för Azure Security Center just-in-Ti
 - **Motiverings fält** – när du begär åtkomst till en virtuell dator (VM) via sidan just-in-time i Azure Portal, är ett nytt valfritt fält tillgängligt för att ange en motivering för begäran. Information som anges i det här fältet kan spåras i aktivitets loggen. 
 - **Automatisk rensning av redundanta regler för just-in-Time (JIT)** – när du uppdaterar en JIT-princip körs automatiskt ett rensnings verktyg för att kontrol lera giltigheten för hela ruleset. Verktyget söker efter avvikelser mellan regler i principen och reglerna i NSG. Om ett matchnings fel upptäcks i rensnings verktyget, bestäms orsaken och när det är säkert att göra det, tar bort inbyggda regler som inte behövs längre. Rengöringen tar aldrig bort regler som du har skapat. 
 
-[Lär dig mer om funktionen för JIT-åtkomst](security-center-just-in-time.md).
+Lär dig mer om [funktionen för JIT-åtkomst](security-center-just-in-time.md).
 
 
 ### <a name="two-security-recommendations-for-web-applications-deprecated"></a>Två säkerhets rekommendationer för webb program som är föråldrade
@@ -241,7 +251,9 @@ Två säkerhets rekommendationer relaterade till webb program är föråldrade:
 
 Dessa rekommendationer visas inte längre i Security Center listan över rekommendationer. De relaterade principerna kommer inte längre att ingå i initiativet med namnet "Security Center default".
 
-[Läs mer om säkerhets rekommendationer](recommendations-reference.md).
+Läs mer om [säkerhets rekommendationer](recommendations-reference.md).
+
+
 
 ## <a name="february-2020"></a>Februari 2020
 
@@ -263,4 +275,4 @@ Nu finns en förbättrad version av den säkra poängen-funktionen i Azure Secur
 
 Bekanta dig med de säkra Poäng ändringarna under förhands gransknings fasen och bestäm andra åtgärder som kan hjälpa dig att skydda din miljö ytterligare.
 
-Läs mer i [förbättrade säkra poäng (för hands version) i Azure Security Center](secure-score-security-controls.md).
+Läs mer om [förbättrade säkra poäng (för hands version) i Azure Security Center](secure-score-security-controls.md).

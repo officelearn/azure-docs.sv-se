@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 08/01/2019
-ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/26/2020
+ms.openlocfilehash: e37bd22e0bd0f750ef7b4ae9cc8465ed5292883e
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68976865"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860995"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Snabb start: skapa en Azure Data Catalog
 
@@ -23,9 +23,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 ## <a name="prerequisites"></a>Krav
 
+> [!Note]
+> På grund av säkerhets kraven i Azure har Azure Data Catalog Transport Layer Security (TLS) 1,2. TLS 1,0 och TLS 1,1 har inaktiverats. Du kan stöta på fel när du kör registrerings verktyget om datorn inte har uppdaterats för TLS 1,2. Se [aktivera Transport Layer Security (1,2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2) för att uppdatera datorn för TLS 1,2.
+
 För att komma igång måste du ha:
 
-* En [Microsoft Azure](https://azure.microsoft.com/)-prenumeration.
+* En [Microsoft Azure](https://azure.microsoft.com/) prenumeration.
 * Du måste ha en egen [Azure Active Directory-klient](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 Om du vill konfigurera Data Catalog måste du vara ägare eller medägare till en Azure-prenumeration.
@@ -34,7 +37,7 @@ Om du vill konfigurera Data Catalog måste du vara ägare eller medägare till e
 
 Du kan bara etablera en datakatalog per organisation (Azure Active Directory-domän). Om ägaren eller medägaren av en Azure-prenumeration som tillhör den här Azure Active Directorys domänen redan har skapat en katalog kan du därför inte skapa en katalog igen även om du har flera Azure-prenumerationer. Du kan testa om en katalog har skapats av en användare i din Azure Active Directory-domän genom att gå till [startsidan för Azure Data Catalog](http://azuredatacatalog.com) och kontrollera om du ser katalogen. Om en katalog redan har skapats för dig hoppar du över följande procedur och går till nästa avsnitt.
 
-1. Gå till [Azure Portal](https://portal.azure.com) > **skapa en resurs** och välj **Data Catalog**.
+1. Gå till [Azure Portal](https://portal.azure.com)  >  **skapa en resurs** och välj **Data Catalog**.
 
     ![Knappen Azure Data Catalog skapa](media/data-catalog-get-started/data-catalog-create.png)
 

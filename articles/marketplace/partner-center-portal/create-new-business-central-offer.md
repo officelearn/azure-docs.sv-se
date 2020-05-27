@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: f8fb7a3858b8991b2dc27bd07fe6c4b004be28df
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 04de89624dd0e6857e96327bb408cf8700a1f6a2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701358"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848892"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Skapa ett erbjudande för Dynamics 365 for Business Central
 
@@ -67,7 +67,7 @@ Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärdering
 
 #### <a name="contact-me"></a>Kontakta mig
 
-Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Relations hip Management). Kunden uppmanas att ange behörighet för att dela sin information. Dessa kund uppgifter, tillsammans med erbjudande namnet, ID: t och Marketplace-källan där de hittade ditt erbjudande, skickas till det CRM-system som du har konfigurerat. Mer information om hur du konfigurerar din CRM finns i [Anslut lead management](#connect-lead-management). 
+Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Relations hip Management). Kunden uppmanas att ange behörighet för att dela sin information. Dessa kund uppgifter, tillsammans med erbjudande namnet, ID: t och Marketplace-källan där de hittade ditt erbjudande, skickas till det CRM-system som du har konfigurerat. Mer information om hur du konfigurerar din CRM finns i [kund leads](#customer-leads).
 
 ### <a name="test-drive"></a>Test enhet
 
@@ -94,7 +94,7 @@ Välj bland följande alternativ:
 - [Metod tips för marknadsföring av test enheter](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Översikt över test enheter](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (se till att blockering av popup-fönster är inaktiverat)
 
-## <a name="connect-lead-management"></a>Anslut lead-hantering
+### <a name="customer-leads"></a>Kund ledare
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -139,7 +139,7 @@ Det namn som du anger här visas för kunder som rubrik på din erbjudande lista
 
 Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan användas i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -201,7 +201,7 @@ Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. 
 
 Välj **Spara utkast** innan du fortsätter.
 
-## <a name="availability"></a>Tillgängligt
+## <a name="availability"></a>Tillgänglighet
 
 På den här sidan får du alternativ för var och hur du gör ditt erbjudande tillgängligt.
 

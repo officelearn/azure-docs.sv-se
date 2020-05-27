@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2020
-ms.openlocfilehash: 0b2f67424589958d5d81e01c2efee525311ee33c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 05/26/2020
+ms.openlocfilehash: a03fcf5748eaa215aa90b70dbd11e788e8beb3e4
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836376"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860978"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Skapa och konfigurera en Log Analytics arbets yta i Azure Monitor med PowerShell
 Den här artikeln innehåller två kod exempel som visar hur du skapar och konfigurerar en Log Analytics arbets yta i Azure Monitor.  
@@ -21,7 +21,7 @@ Den här artikeln innehåller två kod exempel som visar hur du skapar och konfi
 > Log Analytics kallades tidigare Operational Insights, vilket är anledningen till att det är det namn som används i cmdletarna.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Dessa exempel fungerar med version 1.0.0 eller senare av modulen AZ. OperationalInsights.
 
 ## <a name="create-workspace"></a>Skapa arbetsyta
@@ -211,6 +211,13 @@ I exemplet ovan har regexDelimiter definierats som " \\ n" för ny rad. Logg avg
 | `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> där + är + eller a- <br> där zzzz tids förskjutning | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\/((19|20)[0-9][0-9]):([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\s[\\+|\\-][0-9]{4})` | | |
 | `yyyy-MM-ddTHH:mm:ss` <br> T är en literal bokstav T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
+## <a name="troubleshooting"></a>Felsökning
+När du skapar en arbets yta som har tagits bort under de senaste 14 dagarna och i [läget för mjuk borttagning](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)kan åtgärden ha olika resultat beroende på konfigurationen för arbets ytan:
+1. Om du anger samma namn på arbets ytan, resurs gruppen, prenumerationen och regionen som i den borttagna arbets ytan återställs din arbets yta, inklusive dess data, konfiguration och anslutna agenter.
+2. Om du använder samma arbets ytans namn, men en annan resurs grupp, prenumeration eller region, får du ett fel meddelande om att arbets ytans namn *är inte unikt*eller *i konflikt*. Om du vill åsidosätta den mjuka borttagningen och permanent ta bort arbets ytan och skapa en ny arbets yta med samma namn, följer du dessa steg för att återställa arbets ytan och utföra permanent borttagning:
+   * [Återställa](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) din arbets yta
+   * [Ta bort](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) arbets ytan permanent
+   * Skapa en ny arbets yta med samma arbets ytans namn
 
 
 ## <a name="next-steps"></a>Nästa steg

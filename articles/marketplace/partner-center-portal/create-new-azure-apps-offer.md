@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 2885df9e64bdbfa21eaaa38f423b90554f767cd7
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: ace85727680ecf6d62860ac2239a8c0b68ae6e0e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773295"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848795"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -128,7 +128,7 @@ Mer information om publicerings krav för varje program plan finns i [lösnings 
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
 
-På sidan **erbjudande konfiguration** kan du konfigurera en test-enhet och lead-hantering för ditt erbjudande. 
+På sidan **erbjudande konfiguration** kan du konfigurera en test-enhet och lead-hantering för ditt erbjudande.
 
 ### <a name="test-drive"></a>Test enhet
 
@@ -141,7 +141,7 @@ Mer information finns i [Testa ditt erbjudande på den kommersiella marknads pla
 >[!Note]
 >Eftersom alla Azure-program implementeras med hjälp av en Azure Resource Manager-mall är den enda typen av test enhet som är tillgänglig för en Azure Application en [Azure Resource Manager baserad test enhet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-## <a name="lead-management"></a>Leadhantering
+### <a name="customer-leads"></a>Kund ledare
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 

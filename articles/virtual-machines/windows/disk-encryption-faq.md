@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a6748ef520b3d03727aca045660f7563f75b200d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d9374f83110176e6705e2c6cca6c7794738a8c6e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828346"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848846"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Windows-datorer
 
@@ -48,8 +48,6 @@ I artikeln [Azure Disk Encryption översikt](disk-encryption-overview.md) visas 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Kan jag kryptera både start-och data volymer med Azure Disk Encryption?
 
 Du kan kryptera både start-och data volymer, men du kan inte kryptera data utan att först kryptera operativ system volymen.
-
-När du har krypterat operativ system volymen stöds inte kryptering på operativ system volymen.
 
 ## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Kan jag kryptera en demonterad volym med Azure Disk Encryption?
 

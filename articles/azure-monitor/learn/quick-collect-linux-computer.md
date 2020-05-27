@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1da862a7994d7db5ee8c9f090119e14f19c6b13a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 05dd9f6c2f1f08ec0e420bd4257d2c26e1963e5b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637897"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850070"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Snabb start: samla in data från en Linux-dator i en hybrid miljö med Azure Monitor
 
@@ -26,7 +26,7 @@ ms.locfileid: "80637897"
 
 Information om vilka konfigurationer som stöds finns i [Windows operativ system](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) och [konfigurationen för nätverks brand väggen](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
  
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -87,7 +87,7 @@ Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    Följande kommando innehåller `-p` proxy-parametern och exempel-syntaxen när autentisering krävs av proxyservern:
+    Följande kommando innehåller proxy- `-p` parametern och exempel-syntaxen när autentisering krävs av proxyservern:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -99,7 +99,7 @@ Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    Följande kommando innehåller `-p` proxy-parametern och exempel-syntaxen när autentisering krävs av proxyservern:
+    Följande kommando innehåller proxy- `-p` parametern och exempel-syntaxen när autentisering krävs av proxyservern:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
@@ -115,11 +115,11 @@ Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
 
 Azure Monitor kan samla in händelser från Linux syslog och prestanda räknare som du anger för analys och rapportering på längre sikt. Det kan också vidta åtgärder när ett visst villkor upptäcks. Följ dessa steg om du vill konfigurera insamling av händelser från Linux Syslog och flera vanliga prestandaräknare till att börja med.  
 
-1. I det nedre vänstra hörnet av Azure Portal väljer du **fler tjänster**. I rutan Sök anger du **Log Analytics**. När du skriver filtreras listan baserat på dina inaktuella inaktuella inaktuella inaktuella. Välj **Log Analytics arbets ytor**.
+1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du Log Analytics. När du skriver filtreras listan baserat på dina inaktuella inaktuella inaktuella inaktuella. Välj **Log Analytics arbets ytor** och i listan över Log Analytics arbets ytor, väljer du den arbets yta som du söker efter och väljer **Avancerade inställningar** för arbets ytan **Log Analytics** .
 
 2. Välj **data**och välj sedan **syslog**.  
 
-3. Du lägger till syslog genom att skriva in namnet på loggen. Ange **syslog** och välj sedan plus tecknet **+**.  
+3. Du lägger till syslog genom att skriva in namnet på loggen. Ange **syslog** och välj sedan plus tecknet **+** .  
 
 4. Avmarkera allvarlighetsgraderna **Info**, **Meddelande** och **Felsök** i tabellen. 
 

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/19/2020
-ms.openlocfilehash: 5ab71ee67b66cacbcd1b23fa35d6f424021fa9cc
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.date: 05/26/2020
+ms.openlocfilehash: 3784eda2db5f375f04cdde84108a78ae277baf60
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757553"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860672"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
@@ -57,16 +57,6 @@ Du kan ta bort en arbets yta med [PowerShell](https://docs.microsoft.com/powersh
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
-### <a name="troubleshooting"></a>Felsökning
-
-Du måste ha minst *Log Analytics deltagar* behörighet för att kunna ta bort en arbets yta.<br>
-Om du får ett fel meddelande *är namnet på arbets ytan redan används eller är i* *konflikt* när du skapar en arbets yta. det kan vara sedan:
-* Namnet på arbets ytan är inte tillgängligt och används av någon i din organisation eller av en annan kund.
-* Arbets ytan har tagits bort under de senaste 14 dagarna och dess namn är reserverat för mjuk borttagnings perioden. Om du vill åsidosätta den mjuka borttagningen och ta bort arbets ytan permanent för att skapa en ny arbets yta med samma namn, följer du dessa steg för att återställa arbets ytan först och utföra permanent borttagning:<br>
-   1. [Återställ](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) din arbets yta.
-   2. [Ta bort](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) arbets ytan permanent.
-   3. Skapa en ny arbets yta med samma arbets ytans namn.
-
 ## <a name="permanent-workspace-delete"></a>Permanent borttagning av arbets yta
 Metoden mjuk borttagning får inte plats i vissa scenarier som utveckling och testning, där du måste upprepa en distribution med samma inställningar och arbets ytans namn. I sådana fall kan du ta bort arbets ytan permanent och "åsidosätta" den mjuka borttagnings perioden. Borttagnings åtgärden för permanent arbets yta frigör arbets ytans namn och du kan skapa en ny arbets yta med samma namn.
 
@@ -74,22 +64,21 @@ Metoden mjuk borttagning får inte plats i vissa scenarier som utveckling och te
 > [!IMPORTANT]
 > Använd permanent borttagnings åtgärd för arbets ytor med försiktighet eftersom den inte kan återställas och att du inte kan återställa din arbets yta och dess data.
 
-Borttagning av permanent arbets yta kan för närvarande utföras via REST API.
+Om du vill ta bort arbets ytan permanent använder du [arbets ytorna – ta bort](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) rest-begäran med en tvingande tagg:
 
-> [!NOTE]
-> Alla API-förfrågningar måste innehålla en token Authorization-token i begär ande huvudet.
->
-> Du kan hämta token med:
-> - [Appregistreringar](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
-> - Navigera till Azure Portal med hjälp av Developer-konsolen (F12) i webbläsaren. Titta i en av **batchen?** instanser för Authentication-strängen under **begärandehuvuden**. Detta kommer att finnas i mönstret *auktorisering: Bearer <token> *. Kopiera och Lägg till detta i API-anropet som visas i exemplen.
-> - Gå till webbplatsen för Azure REST-dokumentation. Tryck på **prova** på valfritt API, kopiera Bearer-token och Lägg till den i ditt API-anrop.
-Om du vill ta bort arbets ytan permanent använder du [arbets ytorna – ta bort REST API-]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) anrop med en tvingande tagg:
->
-> ```rst
-> DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
-> Authorization: Bearer eyJ0eXAiOiJKV1Qi….
-> ```
-Där ' eyJ0eXAiOiJKV1Qi... ' representerar fullständig token för autentisering.
+```rst
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
+Authorization: Bearer <token>
+```
+
+Du kan också köra åtgärden från webbplatsen för Azure REST-dokumentation:
+1.  Navigera till [arbets ytor – ta bort](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) REST API och klicka på **testa**. 
+2.  Ange information om arbets ytan som du vill ta bort permanent
+3.  E en ny parameter *Force* med värdet *True*
+4.  Klicka på ikonen "+" till höger om värdet. Detta lägger till *Force = True* i URI: n i begäran
+5.  Klicka på knappen *Kör*
+
+Svaret ska vara 200 OK
 
 ## <a name="recover-workspace"></a>Återställ arbets yta
 När du tar bort en Log Analytics arbets yta oavsiktligt eller avsiktligt, placerar tjänsten arbets ytan i ett mjuk borttagnings tillstånd, vilket gör att den inte är tillgänglig för någon åtgärd. Namnet på den borttagna arbets ytan bevaras under perioden för mjuk borttagning och kan inte användas för att skapa en ny arbets yta. Efter den mjuka borttagnings perioden går det inte att återskapa arbets ytan, den är schemalagd för permanent borttagning och dess namn som den släppts och kan användas för att skapa en ny arbets yta.
@@ -123,6 +112,13 @@ PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-nam
 Arbets ytan och alla dess data tas tillbaka efter återställnings åtgärden. Lösningar och länkade tjänster togs bort permanent från arbets ytan när den togs bort och de bör konfigureras om så att arbets ytan försätts i det tidigare konfigurerade läget. Vissa data kanske inte är tillgängliga för frågan efter arbets ytans återställning tills de associerade lösningarna har installerats om och deras scheman har lagts till i arbets ytan.
 
 > [!NOTE]
-> * Arbets ytans återställning stöds inte i [Azure Portal](https://portal.azure.com). 
 > * När du återskapar en arbets yta under den mjuka borttagnings perioden visas en indikation på att namnet på arbets ytan redan används. 
-> 
+ 
+### <a name="troubleshooting"></a>Felsökning
+Du måste ha minst *Log Analytics deltagar* behörighet för att kunna ta bort en arbets yta.<br>
+Om du får ett fel meddelande *är namnet på arbets ytan redan används eller är i* *konflikt* när du skapar en arbets yta. det kan vara sedan:
+* Namnet på arbets ytan är inte tillgängligt och används av någon i din organisation eller av en annan kund.
+* Arbets ytan har tagits bort under de senaste 14 dagarna och dess namn är reserverat för mjuk borttagnings perioden. Om du vill åsidosätta den mjuka borttagningen och ta bort arbets ytan permanent för att skapa en ny arbets yta med samma namn, följer du dessa steg för att återställa arbets ytan först och utföra permanent borttagning:<br>
+   1. [Återställ](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) din arbets yta.
+   2. [Ta bort](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) arbets ytan permanent.
+   3. Skapa en ny arbets yta med samma arbets ytans namn.

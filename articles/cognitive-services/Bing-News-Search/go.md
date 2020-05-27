@@ -8,29 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: aaeb905c9cdc1e7b74e21d3c191f6a24a94fcd7d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e18605b75e4fcfcd8f2793e06801c309f9f23965
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053815"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869292"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Snabb start: Hämta nyhets resultat med hjälp av Nyhetssökning i Bing REST API och gå
 
 I den här snabb starten används språket Go för att anropa API för nyhetssökning i Bing. Resultaten innehåller namn och URL: er för nyhets källor som identifieras av frågesträngen.
 
 ## <a name="prerequisites"></a>Krav
-* Installera [Go-binärfilerna](https://golang.org/dl/)
-* Installera go-spew-biblioteket för IT-skrivare för att visa resultaten
-    * Installera det här biblioteket:`$ go get -u https://github.com/davecgh/go-spew`
+* Installera [Go-binärfilerna](https://golang.org/dl/).
+* Installera go-spew-biblioteket om du vill använda en djup, snygg skrivare för att visa resultatet. Använd det här kommandot för att installera biblioteket: `$ go get -u https://github.com/davecgh/go-spew` .
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-a-project-and-import-libraries"></a>Skapa ett projekt och importera bibliotek
 
-Skapa ett nytt go-projekt i din IDE eller redigeraren. Importera `net/http` sedan för begär Anden `ioutil` , för att läsa svaret och `encoding/json` för att hantera JSON-texten för resultat. Go-spew-biblioteket krävs för att parsa JSON. 
+Skapa ett nytt go-projekt i din IDE eller redigeraren. Sedan kan `net/http` du importera för begär Anden, `ioutil` för att läsa svaret, `encoding/json` för att hantera JSON-texten för resultat och `go-spew` biblioteket för att parsa JSON-resultatet. 
 
 ```go
 package main
@@ -47,7 +46,7 @@ import (
 
 ## <a name="create-a-struct-to-format-the-news-search-results"></a>Skapa en STRUCT för att formatera nyhets Sök resultatet
 
-Structen `NewsAnswer` formaterar de data som anges i svaret. Svars-JSON är på flera nivåer och är ganska komplex.  Följande implementering täcker grunderna.
+I `NewsAnswer` struct formaterar du data som angetts i svars-JSON, som är flera nivåer och komplexa. Följande implementering täcker grunderna:
 
 ```go
 // This struct formats the answer provided by the Bing News Search API.
@@ -87,7 +86,7 @@ type NewsAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Deklarera main-funktionen och definiera variabler  
 
-Följande kod deklarerar huvud funktionen och tilldelar obligatoriska variabler. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+Följande kod deklarerar huvud funktionen och tilldelar de variabler som krävs. Bekräfta att slut punkten är korrekt och ersätt sedan `token` värdet med en giltig prenumerations nyckel från ditt Azure-konto. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ```go
 func main() {
@@ -108,7 +107,7 @@ func main() {
 
 ## <a name="query-and-header"></a>Fråga och rubrik
 
-Lägg till frågesträngen och åtkomst nyckel rubriken
+Lägg till frågesträngen och åtkomst nyckel rubriken.
 
 ```go
 // Add the query to the request.  
@@ -139,7 +138,7 @@ if err != nil {
 
 ## <a name="send-the-request"></a>Skicka begäran
 
-Skicka begäran och Läs resultaten med hjälp `ioutil`av.
+Skicka begäran och Läs resultaten med hjälp av `ioutil` .
 
 ```go
 resp, err := client.Do(req)
@@ -160,7 +159,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Hantera svaret
 
-`Unmarshall` Funktionen extraherar information från JSON-texten som returneras av nyhetssökning-API: et.  Sedan kan du Visa noder från resultaten med hjälp av `go-spew` den Pretty skrivaren.
+`Unmarshall`Funktionen extraherar information från JSON-texten som returneras av API för nyhetssökning i Bing. Sedan kan du Visa noder från resultaten med en `go-spew` speciell skrivare.
 
 ```go
 // Create a new answer object 
@@ -181,7 +180,7 @@ spew.Dump(result.Name, result.URL)
 
 ## <a name="results"></a>Resultat
 
-Resultaten innehåller namn och URL för varje resultat.
+Följande utdata innehåller namnet och URL: en för varje resultat:
 
 ```
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"

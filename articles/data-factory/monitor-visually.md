@@ -1,5 +1,5 @@
 ---
-title: Övervaka Azure Data Factory visuellt
+title: Övervaka Azure-datafabriker visuellt
 description: Lär dig att visuellt övervaka Azures data fabriker
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 9a81ab58335e968e5ce4816de85ed1b63bc93455
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 44a95430ece9c55bb088ae5b968c33691f25b4c5
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699601"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860832"
 ---
-# <a name="visually-monitor-azure-data-factory"></a>Övervaka Azure Data Factory visuellt
+# <a name="visually-monitor-azure-data-factory"></a>Övervaka Azure-datafabriker visuellt
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -142,7 +142,7 @@ Om du klickar på ikonen öppnas en förbruknings rapport över resurser som anv
 
 ![Övervaka förbrukning](media/monitor-visually/monitor-consumption-2.png)
 
-Du kan koppla värdena till [pris Kalkylatorn för Azure]. ( https://azure.microsoft.com/pricing/details/data-factory/) för att beräkna kostnaden för pipeline-körningen. Mer information om Azure Data Factory priser finns i [förstå priser](pricing-concepts.md).
+Du kan koppla värdena till [pris Kalkylatorn för Azure](https://azure.microsoft.com/pricing/details/data-factory/) för att beräkna kostnaden för pipeline-körningen. Mer information om Azure Data Factory priser finns i [förstå priser](pricing-concepts.md).
 
 > [!NOTE]
 > De här värdena som returneras av pris kalkylatorn är en uppskattning. Det visar inte exakt det belopp du debiteras per Azure Data Factory 
@@ -170,7 +170,7 @@ Välj **informations** ikonen längst ned till vänster. Välj sedan **guidade v
 
 Du kan generera aviseringar för mått som stöds i Data Factory. Välj **övervaka**  >  **aviseringar & mått** på sidan Data Factory övervakning för att komma igång.
 
-![Sidan Data Factory Monitor](media/monitor-visually/alerts01.png)
+![Sidan Data Factory Monitor](media/monitor-visually/start-page.png)
 
 En introduktion till sju minuter och demonstration av den här funktionen finns på följande video:
 
@@ -180,31 +180,31 @@ En introduktion till sju minuter och demonstration av den här funktionen finns 
 
 1.  Välj **ny aviserings regel** för att skapa en ny avisering.
 
-    ![Knappen Ny varnings regel](media/monitor-visually/alerts02.png)
+    ![Knappen Ny varnings regel](media/monitor-visually/new-alerts.png)
 
 1.  Ange regel namnet och välj allvarlighets grad för avisering.
 
-    ![Rutor för regel namn och allvarlighets grad](media/monitor-visually/alerts03.png)
+    ![Rutor för regel namn och allvarlighets grad](media/monitor-visually/name-and-severity.png)
 
 1.  Välj aviserings villkoret.
 
-    ![Box för mål villkor](media/monitor-visually/alerts04.png)
+    ![Box för mål villkor](media/monitor-visually/add-criteria-1.png)
 
-    ![Lista över kriterier](media/monitor-visually/alerts05.png)
+    ![Lista över kriterier](media/monitor-visually/add-criteria-2.png)
 
 1.  Konfigurera aviserings logiken. Du kan skapa en avisering för det valda måttet för alla pipeliner och motsvarande aktiviteter. Du kan också välja en viss aktivitets typ, ett aktivitets namn, ett pipelin namn eller en feltyp.
 
-    ![Alternativ för att konfigurera aviserings logik](media/monitor-visually/alerts06.png)
+    ![Alternativ för att konfigurera aviserings logik](media/monitor-visually/alert-logic.png)
 
 1.  Konfigurera e-post, SMS, push och röst meddelanden för aviseringen. Skapa en åtgärds grupp eller Välj en befintlig för aviserings meddelanden.
 
-    ![Alternativ för att konfigurera meddelanden](media/monitor-visually/alerts07.png)
+    ![Alternativ för att konfigurera meddelanden](media/monitor-visually/configure-notification-1.png)
 
-    ![Alternativ för att lägga till ett meddelande](media/monitor-visually/alerts08.png)
+    ![Alternativ för att lägga till ett meddelande](media/monitor-visually/configure-notification-2.png)
 
 1.  Skapa varnings regeln.
 
-    ![Alternativ för att skapa en varnings regel](media/monitor-visually/alerts09.png)
+    ![Alternativ för att skapa en varnings regel](media/monitor-visually/create-alert-rule.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

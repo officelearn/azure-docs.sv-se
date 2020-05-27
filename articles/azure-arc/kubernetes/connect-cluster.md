@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
-ms.openlocfilehash: 690955f0e7d18f9a784b4c9a2fa1733442cb70dc
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 962b6a17743ea2beed1e16503739c55c83babbce
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780022"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860553"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
 
@@ -154,7 +154,7 @@ Helm release deployment succeeded
 Lista de anslutna klustren:
 
 ```console
-az connectedk8s list -g AzureArcTest
+az connectedk8s list -g AzureArcTest -o table
 ```
 
 **Utdataparametrar**
@@ -218,5 +218,5 @@ Om du vill ta bort agenterna i klustret måste du köra `az connectedk8s delete`
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda GitOps i ett anslutet kluster](./use-gitops-connected-cluster.md)
+* [Använd GitOps i ett anslutet kluster](./use-gitops-connected-cluster.md)
 * [Använd Azure Policy för att styra kluster konfigurationen](./use-azure-policy.md)

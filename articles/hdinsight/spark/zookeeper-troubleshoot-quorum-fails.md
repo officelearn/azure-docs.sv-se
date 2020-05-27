@@ -6,54 +6,124 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/20/2019
-ms.openlocfilehash: 41ac109e5c5379e6085dd57a3fcd8119915558fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: dc93121d7565b95b9bd604160028659f3a741b0c
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133276"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860502"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Apache ZooKeeper servern kan inte bilda ett kvorum i Azure HDInsight
 
-Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
+I den här artikeln beskrivs fel söknings steg och möjliga lösningar på problem som rör Zookeepers i Azure HDInsight-kluster.
 
-## <a name="issue"></a>Problem
+## <a name="symptoms"></a>Symtom
 
-Apache ZooKeeper servern är ohälsosam, kan symptom vara: både resurs hanterare/namnservrar är i vänte läge, enkla HDFS-åtgärder fungerar inte, `zkFailoverController` har stoppats och kan inte startas, garn/Spark/livy-jobb fungerar inte på grund av ZooKeeper-fel. Det kan också hända att LLAP daemon inte startar på säkra Spark-eller Interactive Hive-kluster. Du kan se ett fel meddelande som liknar:
+* Båda resurs hanterarna går in i vänte läge
+* Namenodes är både i vänte läge
+* Spark-, Hive-och garn-jobb eller Hive-frågor Miss lyckas på grund av Zookeeper-anslutningsfel
+* LLAP-daemonen kan inte startas på säkra Spark eller säkra interaktiva Hive-kluster
 
+## <a name="sample-log"></a>Exempel logg
+
+Du kan se ett fel meddelande som liknar:
+
+```output
+2020-05-05 03:17:18.3916720|Lost contact with Zookeeper. Transitioning to standby in 10000 ms if connection is not reestablished.
+Message
+2020-05-05 03:17:07.7924490|Received RMFatalEvent of type STATE_STORE_FENCED, caused by org.apache.zookeeper.KeeperException$NoAuthException: KeeperErrorCode = NoAuth
+...
+2020-05-05 03:17:08.3890350|State store operation failed 
+2020-05-05 03:17:08.3890350|Transitioning to standby state
 ```
-19/06/19 08:27:08 ERROR ZooKeeperStateStore: Fatal Zookeeper error. Shutting down Livy server.
-19/06/19 08:27:08 INFO LivyServer: Shutting down Livy server.
+
+## <a name="related-issues"></a>Relaterade problem
+
+* Tjänster med hög tillgänglighet, t. ex. garn, NameNode och livy, kan gå ned av många olika orsaker.
+* Bekräfta från de loggar som den är relaterad till Zookeeper-anslutningar
+* Kontrol lera att problemet inträffar upprepade gånger (Använd inte dessa lösningar för ett eller flera fall)
+* Jobb kan tillfälligt stängas på grund av problem med Zookeeper-anslutningen
+
+## <a name="common-causes-for-zookeeper-failure"></a>Vanliga orsaker till Zookeeper-fel
+
+* Hög CPU-användning på Zookeeper-servrarna
+  * Om du ser nära 100% varaktig CPU-användning på Zookeeper-servrarna i Ambari-ANVÄNDARGRÄNSSNITTET kan Zookeeper-sessionerna öppnas under den tiden och tids gränsen överskrids
+* Zookeeper-klienter rapporterar frekventa tids gränser
+  * I loggarna för Resource Manager, Namenode och andra, kommer du att se frekventa tids gränser för klient anslutning
+  * Detta kan leda till förlust av kvorum, frekventa växlingar och andra problem
+
+## <a name="check-for-zookeeper-status"></a>Kontrol lera status för Zookeeper
+
+* Hitta Zookeeper-servrarna från/etc/hosts-filen eller från Ambari-ANVÄNDARGRÄNSSNITTET
+* Kör följande kommando
+  * `echo stat | nc <ZOOKEEPER_HOST_IP> 2181`(eller 2182)  
+  * Port 2181 är Apache Zookeeper-instansen
+  * Port 2182 används av HDInsight-Zookeeper (för att tillhandahålla hektar för tjänster som inte har något inbyggt)
+  * Om kommandot inte visar några utdata innebär det att Zookeeper-servrarna inte körs
+  * Om servrarna är igång inkluderar resultatet statics av klient anslutningar och annan statistik
+
+```output
+Zookeeper version: 3.4.6-8--1, built on 12/05/2019 12:55 GMT
+Clients:
+ /10.2.0.57:50988[1](queued=0,recved=715,sent=715)
+ /10.2.0.57:46632[1](queued=0,recved=138340,sent=138347)
+ /10.2.0.34:14688[1](queued=0,recved=264653,sent=353420)
+ /10.2.0.52:49680[1](queued=0,recved=134812,sent=134814)
+ /10.2.0.57:50614[1](queued=0,recved=19812,sent=19812)
+ /10.2.0.56:35034[1](queued=0,recved=2586,sent=2586)
+ /10.2.0.52:63982[1](queued=0,recved=72215,sent=72217)
+ /10.2.0.57:53024[1](queued=0,recved=19805,sent=19805)
+ /10.2.0.57:45126[1](queued=0,recved=19621,sent=19621)
+ /10.2.0.56:41270[1](queued=0,recved=1348743,sent=1348788)
+ /10.2.0.53:59097[1](queued=0,recved=72215,sent=72217)
+ /10.2.0.56:41088[1](queued=0,recved=788,sent=802)
+ /10.2.0.34:10246[1](queued=0,recved=19575,sent=19575)
+ /10.2.0.56:40944[1](queued=0,recved=717,sent=717)
+ /10.2.0.57:45466[1](queued=0,recved=19861,sent=19861)
+ /10.2.0.57:59634[0](queued=0,recved=1,sent=0)
+ /10.2.0.34:14704[1](queued=0,recved=264622,sent=353355)
+ /10.2.0.57:42244[1](queued=0,recved=49245,sent=49248)
+
+Latency min/avg/max: 0/3/14865
+Received: 238606078
+Sent: 239139381
+Connections: 18
+Outstanding: 0
+Zxid: 0x1004f99be
+Mode: follower
+Node count: 133212
 ```
 
-I Zookeeper-servern loggar in på en Zookeeper-värd\*vid/var/log/Zookeeper/Zookeeper-Zookeeper-Server-. out, kan du också se följande fel:
+## <a name="cpu-load-peaks-up-every-hour"></a>CPU-belastningen går upp varje timme
 
-```
-2020-02-12 00:31:52,513 - ERROR [CommitProcessor:1:NIOServerCnxn@178] - Unexpected Exception:
-java.nio.channels.CancelledKeyException
-```
+* Logga in på Zookeeper-servern och kontrol lera/etc/crontab
+* Om det finns några Tim jobb som körs just nu, slumpar du Start tiden över olika Zookeeper-servrar.
+  
+## <a name="purging-old-snapshots"></a>Rensa gamla ögonblicks bilder
 
-## <a name="cause"></a>Orsak
+* Zookeepers har kon figurer ATS för att rensa gamla ögonblicks bilder automatiskt
+* De sista 30 ögonblicks bilderna bevaras som standard
+* Antalet ögonblicks bilder som kvarhålls styrs av konfigurations nyckeln `autopurge.snapRetainCount` . Du hittar den här egenskapen i följande filer:
+  * `/etc/zookeeper/conf/zoo.cfg`för Hadoop-Zookeeper
+  * `/etc/hdinsight-zookeeper/conf/zoo.cfg`för HDInsight-Zookeeper
+* Ange `autopurge.snapRetainCount` värdet 3 och starta om Zookeeper-servrarna
+  * Hadoop Zookeeper-konfigurationen kan uppdateras och tjänsten kan startas om via Ambari
+  * Stoppa och starta om HDInsight-Zookeeper manuellt
+    * `sudo lsof -i :2182`ger dig det process-ID som ska stoppas
+    * `sudo python /opt/startup_scripts/startup_hdinsight_zookeeper.py`
+* Rensa inte ögonblicks bilder manuellt – borttagning av ögonblicks bilder manuellt kan leda till data förlust
 
-När volymen av Snapshot-filer är skadad, kommer ZooKeeper-servern inte att kunna bilda ett kvorum, vilket medför att ZooKeeper relaterade tjänster inte är felfria. ZooKeeper-servern tar inte bort gamla Snapshot-filer från dess data katalog, i stället är det en regelbunden uppgift som ska utföras av användare för att underhålla healthiness för ZooKeeper. Mer information finns i [ZooKeeper-styrkor och begränsningar](https://zookeeper.apache.org/doc/r3.3.5/zookeeperAdmin.html#sc_strengthsAndLimitations).
+## <a name="cancelledkeyexception-in-the-zookeeper-server-log-doesnt-require-snapshot-cleanup"></a>CancelledKeyException i Zookeeper-serverloggen kräver inte ögonblicks bild rensning
 
-## <a name="resolution"></a>Lösning
-
-Kontrol lera ZooKeeper data `/hadoop/zookeeper/version-2` katalog `/hadoop/hdinsight-zookeeper/version-2` och ta reda på om ögonblicks bildens fil storlek är stor. Utför följande steg om det finns stora ögonblicks bilder:
-
-1. Kontrol lera status för andra ZooKeeper-servrar i samma kvorum för att se till att de fungerar bra med kommandot "`echo stat | nc {zk_host_ip} 2181 (or 2182)`".  
-
-1. Logga in på den problematiska ZooKeeper-värden, säkerhetskopiera ögonblicks `/hadoop/zookeeper/version-2` bilder `/hadoop/hdinsight-zookeeper/version-2`och transaktions loggar i och rensa sedan filerna i de två katalogerna. 
-
-1. Starta om den problematiska ZooKeeper-servern i Ambari eller på ZooKeeper-värden. Starta sedan om tjänsten som har problem.
+* Detta undantag innebär vanligt vis att klienten inte längre är aktiv och att servern inte kan skicka ett meddelande
+* Detta undantag indikerar också att Zookeeper-klienten avslutar sessioner för tidigt
+* Leta efter de andra problemen som beskrivs i det här dokumentet
 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
 - Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
-
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-
 - Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 429a342fcc5dd69e1ae8d0be5611e908e216b2d1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 51afa118be75c7e9ea2cb6e394d27cc39a58de0b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659690"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849662"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -63,6 +63,7 @@ En privat länk resurs är mål målet för en specifik privat slut punkt. Följ
 |**Azure Database for PostgreSQL-enskild server** | Microsoft. DBforPostgreSQL/servers    | postgresqlServer |
 |**Azure Database for MySQL** | Microsoft. DBforMySQL/servers    | mysqlServer |
 |**Azure Database för MariaDB** | Microsoft. DBforMariaDB/servers    | mariadbServer |
+|**Azure IoT Hub** | Microsoft. Devices/IotHubs    | iotHub |
 |**Azure Key Vault** | Microsoft. nyckel valv/-valv    | valv |
 |**Azure Kubernetes-tjänst – Kubernetes-API** | Microsoft. container service/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft. search/searchService| searchService|  
@@ -117,7 +118,7 @@ Fullständig detaljerad information om metod tips och rekommendationer för att 
 Följande tabell innehåller en lista med kända begränsningar när du använder privata slut punkter: 
 
 
-|Begränsning |Description |Åtgärd  |
+|Begränsning |Beskrivning |Åtgärd  |
 |---------|---------|---------|
 |Regler för nätverks säkerhets gruppen (NSG) och användardefinierade vägar gäller inte för privat slut punkt    |NSG stöds inte för privata slut punkter. Medan undernät som innehåller den privata slut punkten kan ha NSG kopplade till sig, gäller inte reglerna för trafik som bearbetas av den privata slut punkten. Du måste ha [aktiverat tvingande nätverks principer](disable-private-endpoint-network-policy.md) för att distribuera privata slut punkter i ett undernät. NSG tillämpas fortfarande på andra arbets belastningar som finns i samma undernät. Vägar i alla klient under nät kommer att använda ett/32-prefix, och om du ändrar standarduppförandet för routning krävs ett liknande UDR  | Styr trafiken genom att använda NSG regler för utgående trafik på käll klienter. Distribuera enskilda vägar med/32-prefix för att åsidosätta privata slut punkts vägar. NSG flödes loggar och övervaknings information för utgående anslutningar stöds fortfarande och kan användas        |
 

@@ -3,12 +3,12 @@ title: Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 description: Innehåller en översikt över support inställningar och begränsningar vid säkerhets kopiering av virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 01c81257ab2cc9882ec1d388702a00f58694a7e4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: b331fe757fc18029aa270f805c72150161a38f47
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724266"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849424"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -172,7 +172,7 @@ Delad lagring| Säkerhets kopiering av virtuella datorer med klusterdelad volym 
 
 ### <a name="backup-of-azure-virtual-machines-with-up-to-32-disks"></a>Säkerhets kopiering av virtuella Azure-datorer med upp till 32 diskar
 
-Azure Backup stöder nu säkerhets kopiering av virtuella Azure-datorer med upp till 32 anslutna diskar.  Den här funktionen finns i offentlig för hands version i USA, västra centrala.  Om du är intresse rad av den här funktionen i andra regioner kan du registrera dig för den begränsade för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com .  
+Azure Backup stöder nu säkerhets kopiering av virtuella Azure-datorer med upp till 32 anslutna diskar.  Den här funktionen finns i en offentlig för hands version i västra centrala USA, centrala Kanada, sydöstra Asien, södra Brasilien, Östra Kanada, centrala Frankrike, södra Indien, centrala Indien, Östra Japan, västra Japan, Storbritannien, västra Storbritannien, södra centrala Korea, södra Australien  Om du är intresse rad av den här funktionen i andra regioner kan du registrera dig för den begränsade för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com .  
 
 >[!NOTE]
 >Azure Backup stöder endast upp till 16 diskar för virtuella Azure-datorer med ohanterade diskar eller klassiska virtuella datorer.
@@ -231,10 +231,10 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---
-Lokala Windows-datorer utan DPM/MABS | NA | ![Ja][green]
+Lokala Windows-datorer utan DPM/MABS | NA | ![Yes][green]
 Virtuella Azure-datorer | NA | NA
-Lokala/virtuella Azure-datorer med DPM | ![Ja][green] | ![Ja][green]
-Lokala/virtuella Azure-datorer med MABS | ![Ja][green] | ![Ja][green]
+Lokala/virtuella Azure-datorer med DPM | ![Yes][green] | ![Ja][green]
+Lokala/virtuella Azure-datorer med MABS | ![Yes][green] | ![Ja][green]
 
 ## <a name="next-steps"></a>Nästa steg
 

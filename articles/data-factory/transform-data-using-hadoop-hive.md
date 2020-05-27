@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 01/15/2019
-ms.openlocfilehash: 8c5c917e12b1314c40763f58a7723a4df787ffa0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2019
+ms.openlocfilehash: 877c1719a76f23f8446164b641dc2dac84261e0e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418940"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849288"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformera data med Hadoop Hive-aktivitet i Azure Data Factory
 
@@ -58,17 +58,17 @@ Om du är nybörjare på Azure Data Factory läser du [Introduktion till Azure D
 }
 ```
 ## <a name="syntax-details"></a>Information om syntax
-| Egenskap            | Beskrivning                                                  | Krävs |
+| Egenskap            | Beskrivning                                                  | Obligatorisk |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| name                | Namn på aktiviteten                                         | Ja      |
-| description         | Text som beskriver vad aktiviteten används för                | Nej       |
-| typ                | För Hive-aktivitet är aktivitets typen HDinsightHive        | Ja      |
-| linkedServiceName   | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
-| scriptLinkedService | Referens till en Azure Storage länkad tjänst som används för att lagra Hive-skriptet som ska köras. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Nej       |
-| scriptPath          | Ange sökvägen till skript filen som lagras i Azure Storage som refereras av scriptLinkedService. Fil namnet är Skift läges känsligt. | Ja      |
-| getDebugInfo        | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av scriptLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
-| ogiltiga           | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Nej       |
-| definierar             | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | Nej       |
+| name                | Namn på aktiviteten                                         | Yes      |
+| beskrivning         | Text som beskriver vad aktiviteten används för                | No       |
+| typ                | För Hive-aktivitet är aktivitets typen HDinsightHive        | Yes      |
+| linkedServiceName   | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Yes      |
+| scriptLinkedService | Referens till en Azure Storage länkad tjänst som används för att lagra Hive-skriptet som ska köras. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten.  | No       |
+| scriptPath          | Ange sökvägen till skript filen som lagras i Azure Storage som refereras av scriptLinkedService. Fil namnet är Skift läges känsligt. | Yes      |
+| getDebugInfo        | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av scriptLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | No       |
+| ogiltiga           | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | No       |
+| definierar             | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | No       |
 | queryTimeout        | Tids gräns värde för fråga (i minuter). Gäller när HDInsight-klustret är med Enterprise Security Package aktiverat. | Nej       |
 
 ## <a name="next-steps"></a>Nästa steg

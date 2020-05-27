@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 57b6bf06e34068b5560829838eb9ee1315df6cde
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778299"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868071"
 ---
 Azure Shared disks (för hands version) är en ny funktion för Azure Managed disks som möjliggör anslutning av en hanterad disk till flera virtuella datorer samtidigt. Genom att ansluta en hanterad disk till flera virtuella datorer kan du antingen distribuera nya eller migrera befintliga klustrade program till Azure.
 
@@ -37,14 +37,14 @@ Delade hanterade diskar erbjuder inget fullständigt hanterat fil system som kan
 
 ### <a name="windows"></a>Windows
 
-De flesta Windows-baserade klustring bygger på WSFC, som hanterar all kärn infrastruktur för kommunikation i kluster noder, vilket gör att dina program kan dra nytta av parallella åtkomst mönster. WSFC aktiverar både CSV-och icke-CSV-baserade alternativ beroende på din version av Windows Server. Mer information finns i [skapa ett redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Den mesta Windows-baserade klustringen bygger på WSFC, som hanterar all kärninfrastruktur för klusternodkommunikation, vilket gör att programmen kan dra nytta av parallella åtkomstmönster. WSFC möjliggör både CSV- och icke-CSV-baserade alternativ, beroende på vilken version av Windows Server du använder. Mer information finns i [Create a failover cluster](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster) (Skapa ett redundanskluster).
 
-Några populära program som körs på WSFC inkluderar:
+Några populära program som körs på WSFC är:
 
-- SQL Server instanser av WSFC-kluster (FCI)
-- Skalbar fil server (SoFS)
-- Fil server för allmänt bruk (IW-arbetsbelastning)
-- Användar profil disk för fjärr skrivbords server (RDS UPD)
+- Redundansklusterinstanser för SQL (SQL Server Failover Cluster Instances (FCI))
+- Skalbar filserver (Scale-out File Server (SoFS))
+- Filserver för allmän användning (IW-arbetsbelastning)
+- Användarprofildisk för fjärrskrivbordsserver (Remote Desktop Server User Profile Disk (RDS UPD))
 - SAP ASCS/SCS
 
 ### <a name="linux"></a>Linux
@@ -85,7 +85,7 @@ Flödet är följande:
 
 Ultra disks ger ytterligare en begränsning, för totalt två begränsningar. På grund av detta kan Ultra disks reservations flöde fungera på det sätt som beskrivs i det tidigare avsnittet, eller så kan det begränsa och distribuera prestanda mer detaljerat.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text=" ":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="En bild av en tabell som visar den skrivskyddade eller Läs-/Skriv behörighet för reservations innehavaren, registrerad och andra.":::
 
 ## <a name="ultra-disk-performance-throttles"></a>Prestanda begränsningar för Ultra disk
 
@@ -119,22 +119,16 @@ I följande exempel beskrivs några scenarier som visar hur begränsningen kan f
 
 Följande är ett exempel på en WSFC med två noder som använder klusterdelade volymer. Med den här konfigurationen har båda de virtuella datorerna samtidig skriv åtkomst till disken, vilket leder till att ReadWrite-begränsningen delas mellan de två virtuella datorerna och att den skrivskyddade begränsningen inte används.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV två-noder, Ultra-exempel":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV två-noder, Ultra-exempel":::
 
 #### <a name="two-node-cluster-without-cluster-share-volumes"></a>Två nods kluster utan kluster resurs volymer
 
 Följande är ett exempel på en WSFC-kluster med två noder som inte använder klusterdelade volymer. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att ReadWrite-begränsningen används exklusivt för den primära virtuella datorn och den skrivskyddade begränsning som används av den sekundära.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Två noder för CSV: inga CSV Ultra disk-exempel":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Två noder för CSV: inga CSV Ultra disk-exempel":::
 
 #### <a name="four-node-linux-cluster"></a>Linux-kluster med fyra noder
 
 Följande är ett exempel på en 4-nods Linux-kluster med en enda skrivare och tre skalbara läsare. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att ReadWrite-begränsningen används exklusivt för den primära virtuella datorn och den skrivskyddade begränsning som delas av de sekundära virtuella datorerna.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Exempel på fyra noder med ultralåg begränsning":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Exempel på fyra noder med ultralåg begränsning":::

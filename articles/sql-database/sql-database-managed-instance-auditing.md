@@ -12,15 +12,15 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/27/2020
-ms.openlocfilehash: 7656944af16db650ec1fea36f0bdefc81b99922e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/26/2020
+ms.openlocfilehash: 66c2c5e52ef81f74f7177af897f33eec4ae1779e
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654620"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860651"
 ---
-# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Komma igång med granskning av hanterad Azure SQL Database-instans
+# <a name="azure-sql-database-managed-instance-auditing"></a>Azure SQL Database Hanterad instans granskning
 
 Granskning av [hanterade instanser](sql-database-managed-instance.md) spårar databas händelser och skriver dem till en Gransknings logg i ditt Azure Storage-konto. Granskning gör även följande:
 
@@ -37,7 +37,9 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
    1. Navigera till Azure Storage där du vill lagra gransknings loggarna.
 
       > [!IMPORTANT]
-      > Använd ett lagrings konto i samma region som den hanterade instansen för att undvika läsning/skrivningar över flera regioner. Om ditt lagrings konto ligger bakom en Virtual Network eller en brand vägg kan du se [bevilja åtkomst från ett virtuellt nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
+      > - Använd ett lagrings konto i samma region som den hanterade instansen för att undvika läsning/skrivningar över flera regioner. 
+      > - Om ditt lagrings konto ligger bakom en Virtual Network eller en brand vägg kan du se [bevilja åtkomst från ett virtuellt nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
+      > - Om du ändrar kvarhållningsperioden från 0 (obegränsad kvarhållning) till ett annat värde, Observera att kvarhållning endast kommer att gälla för loggar som skrivits efter att kvarhållning har ändrats (loggar som skrivits under perioden när kvarhållning hade värdet obegränsat bevaras, även efter att kvarhållning har Aktiver ATS).
 
    1. I lagrings kontot går du till **Översikt** och klickar på **blobbar**.
 

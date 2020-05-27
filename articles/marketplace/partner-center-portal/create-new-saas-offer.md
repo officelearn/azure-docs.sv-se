@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: eb7f527885d1d49fe09407c3cbce109a098056f9
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3c922675619fc877d9d97a43b69a15f5ca4f393e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744661"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849118"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace
 
@@ -120,7 +120,7 @@ Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärdering
 
 #### <a name="contact-me"></a>Kontakta mig
 
-Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Relations hip Management). Kunden uppmanas att ange behörighet för att dela sin information. Dessa kund uppgifter, tillsammans med erbjudande namnet, ID: t och Marketplace-källan där de hittade ditt erbjudande, skickas till det CRM-system som du har konfigurerat. Mer information om hur du konfigurerar din CRM finns i [Anslut lead management](#connect-lead-management).
+Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Relations hip Management). Kunden uppmanas att ange behörighet för att dela sin information. Dessa kund uppgifter, tillsammans med erbjudande namnet, ID: t och Marketplace-källan där de hittade ditt erbjudande, skickas till det CRM-system som du har konfigurerat. Mer information om hur du konfigurerar din CRM finns i [kund leads](#customer-leads).
 
 #### <a name="example-marketplace-offer-listing"></a>Exempel på Marketplace-erbjudande
 
@@ -140,7 +140,7 @@ Mer information finns i [Testa ditt erbjudande på den kommersiella marknads pla
 - [Rekommenderade tekniska metoder](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Översikt](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF, se till att blockering av popup-fönster är inaktiverat)
 
-### <a name="connect-lead-management"></a>Anslut lead-hantering
+### <a name="customer-leads"></a>Kund ledare
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 

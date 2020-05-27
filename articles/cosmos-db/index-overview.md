@@ -1,17 +1,17 @@
 ---
 title: Indexering i Azure Cosmos DB
 description: Förstå hur indexering fungerar i Azure Cosmos DB, olika typer av index, till exempel intervall, spatialdata, sammansatta index som stöds.
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.author: thweiss
-ms.openlocfilehash: fb3467e60ada92c90a84d8e89f6b5f5e94ca42e8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 05/21/2020
+ms.author: tisande
+ms.openlocfilehash: df9135c39c1ff27abe8915c221185fca517a5614
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746418"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849798"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – Översikt
 
@@ -105,7 +105,7 @@ Azure Cosmos DB stöder för närvarande tre typer av index.
    ```
 
    ```sql
-   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   SELECT * FROM c WHERE STRINGEQUALS(c.property, "value")
    ```
 
 - `ORDER BY`skickar

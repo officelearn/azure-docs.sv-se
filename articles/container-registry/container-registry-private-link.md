@@ -3,12 +3,12 @@ title: Konfigurera privat länk
 description: Konfigurera en privat slut punkt i ett behållar register och aktivera åtkomst över en privat länk i ett lokalt virtuellt nätverk
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: 93cdbab8bcdaa9787373407fe8d6619dd5fd49c6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: da51a35b66b793294f146c5a0a30b6a91d8aa01b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701412"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850053"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Konfigurera en privat Azure-länk för ett Azure Container Registry 
 
@@ -26,7 +26,7 @@ Den här funktionen är tillgänglig i tjänst nivån **Premium** container Regi
 
 * För att kunna använda Azure CLI-stegen i den här artikeln rekommenderas Azure CLI version 2.6.0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli]. Eller kör i [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * Om du inte redan har ett behållar register skapar du ett (Premium-nivå krävs) och [importerar](container-registry-import-images.md) en exempel avbildning, till exempel `hello-world` från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register.
-* Om du vill konfigurera register åtkomst med en privat länk i en annan Azure-prenumeration måste du registrera resurs leverantören för Azure Container Registry i den prenumerationen. Till exempel:
+* Om du vill konfigurera register åtkomst med en privat länk i en annan Azure-prenumeration måste du registrera resurs leverantören för Azure Container Registry i den prenumerationen. Ett exempel:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of private link>
@@ -299,7 +299,7 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Inaktivera offentlig åtkomst – Portal
 
 1. I portalen navigerar du till ditt behållar register och väljer **inställningar > nätverk**.
-1. På fliken **offentlig åtkomst** , i **Tillåt offentlig åtkomst**, väljer du **inaktive rad**. Välj sedan **Spara**.
+1. På fliken **offentlig åtkomst** , i **Tillåt offentligt nätverks åtkomst**, väljer du **inaktive rad**. Välj sedan **Spara**.
 
 ## <a name="validate-private-link-connection"></a>Verifiera anslutning till privat länk
 
@@ -351,7 +351,7 @@ Docker hämtar avbildningen till den virtuella datorn.
 
 Hantera ett registers privata slut punkts anslutningar med hjälp av Azure Portal eller med hjälp av kommandon i kommando gruppen [AZ ACR Private-Endpoint-Connection][az-acr-private-endpoint-connection] . Åtgärderna inkluderar Godkänn, ta bort, Visa, avvisa eller Visa information om ett registers privata slut punkts anslutningar.
 
-Om du till exempel vill visa en lista över anslutningar för privata slut punkter för ett register kör du kommandot [AZ ACR Private-Endpoint-Connection List][az-acr-private-endpoint-connection-list] . Till exempel:
+Om du till exempel vill visa en lista över anslutningar för privata slut punkter för ett register kör du kommandot [AZ ACR Private-Endpoint-Connection List][az-acr-private-endpoint-connection-list] . Ett exempel:
 
 ```azurecli
 az acr private-endpoint-connection list \

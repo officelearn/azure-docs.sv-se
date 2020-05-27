@@ -60,6 +60,32 @@
           href: learn/tutorial-app-dashboards.md
 - name: Exempel
   items:
+    - name: Mallar för Resurshanteraren
+      items:
+        - name: Översikt
+          href: samples/resource-manager-samples.md
+        - name: Agenter
+          href: samples/resource-manager-agent.md
+        - name: Aviseringar
+          items:
+            - name: Logga aviseringsregler
+              href: samples/resource-manager-alerts-log.md
+            - name: Måttaviseringsregler
+              href: samples/resource-manager-alerts-metric.md
+            - name: Åtgärdsgrupper
+              href: samples/resource-manager-action-groups.md
+        - name: Diagnostikinställningar
+          href: samples/resource-manager-diagnostic-settings.md
+        - name: Log Analytics-arbetsytor
+          href: samples/resource-manager-workspace.md
+        - name: Loggfrågor
+          href: samples/resource-manager-log-queries.md
+        - name: Arbetsböcker
+          href: samples/resource-manager-workbooks.md
+        - name: Azure Monitor för containrar
+          href: samples/resource-manager-container-insights.md
+        - name: Azure Monitor för virtuella datorer
+          href: samples/resource-manager-vminsights.md
     - name: Azure CLI
       href: samples/cli-samples.md
     - name: Azure PowerShell

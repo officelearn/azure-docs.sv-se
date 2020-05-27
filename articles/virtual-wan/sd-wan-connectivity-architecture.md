@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: sukishen
-ms.openlocfilehash: 17db9d615dcdd78ca50f88b5dad72d596bf29276
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 9b935c1f612e7634bad86818cd8331fba0078a9d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402480"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860587"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>SD – WAN-anslutning med Azure Virtual WAN
 
@@ -39,7 +39,7 @@ SD-WAN-CPE fortsätter att vara den plats där trafik optimering och val av sök
 
 I den här modellen kanske en del leverantörs trafik optimering baserat på trafik egenskaper i real tid inte stöds eftersom anslutningen till det virtuella WAN-nätverket är över IPsec och IPsec-VPN-gatewayen avslutas på den virtuella WAN-gatewayen. Till exempel är dynamisk Sök vägs val i grenen CPE möjligt på grund av att gren enheten utbyter olika information om nätverks paket med en annan SD-WAN-nod, vilket innebär att den bästa länken kan användas för olika prioriterade trafik dynamiskt på grenen. Den här funktionen kan vara användbar i områden där senaste mil optimering (gren till närmaste Microsoft-POP) krävs.
 
-Med Virtual WAN kan användarna få val av Azure-sökvägar, vilket är principbaserad Sök vägs val över flera ISP-länkar från grenen CPE till virtuella WAN-gatewayer. Med det virtuella WAN-nätverket kan du konfigurera flera länkar (sökvägar) från samma SD-WAN-gren CPE. varje länk representerar en dubbel tunnel anslutning från en unik offentlig IP-adress för SD-WAN-CPE till två olika instanser av Azure Virtual WAN-gatewayen. SD-WAN-leverantörer kan implementera den mest optimala sökvägen till Azure, baserat på de trafik principer som anges av deras princip motor på CPE-länkarna.
+Med Virtual WAN kan användarna få val av Azure-sökvägar, vilket är principbaserad Sök vägs val över flera ISP-länkar från grenen CPE till virtuella WAN-gatewayer. Med det virtuella WAN-nätverket kan du konfigurera flera länkar (sökvägar) från samma SD-WAN-gren CPE. varje länk representerar en dubbel tunnel anslutning från en unik offentlig IP-adress för SD-WAN-CPE till två olika instanser av Azure Virtual WAN-gatewayen. SD-WAN-leverantörer kan implementera den mest optimala sökvägen till Azure, baserat på de trafik principer som anges av deras princip motor på CPE-länkarna. På Azure-slutpunkten behandlas alla anslutningar på samma sätt.
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Indirekt Interconnect-modell
 

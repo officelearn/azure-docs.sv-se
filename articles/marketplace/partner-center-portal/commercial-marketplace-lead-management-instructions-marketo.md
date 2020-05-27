@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789886"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849193"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Använd Marketo för att hantera affärs marknads platser
 
@@ -59,8 +59,8 @@ Den här artikeln beskriver hur du konfigurerar ett Marketo CRM-system för att 
 
     Ett annat sätt att räkna ut dessa värden:
 
-    - Server-ID finns i URL: en för din Marketo-instans, till exempel `serverID.marketo.com`.
-    - Hämta din prenumerations Munchkin-ID genom att gå till din **Administratörs** > **Munchkin** -meny i fältet **Munchkin konto-ID** eller från den första delen av Marketo REST API värd under domän `https://{Munchkin ID}.mktorest.com`:.
+    - Server-ID finns i URL: en för din Marketo-instans, till exempel `serverID.marketo.com` .
+    - Hämta din prenumerations Munchkin-ID genom att gå till din **Administratörs**  >  **Munchkin** -meny i fältet **Munchkin konto-ID** eller från den första delen av Marketo REST API värd under domän: `https://{Munchkin ID}.mktorest.com` .
     - Formulär-ID är ID för Inbäddnings kod formuläret som du skapade i steg 7 för att dirigera leads från Marketplace.
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Konfigurera ditt erbjudande för att skicka leads till Marketo
@@ -71,9 +71,9 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 
 1. Välj ditt erbjudande och gå till fliken **erbjudande konfiguration** .
 
-1. Under avsnittet **ledar hantering** väljer du **Anslut**. 
+1. Under avsnittet **kund leads** väljer du **Anslut**.
 
-    ![Knappen Anslut till hanterings avsnitt för lead](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Kund ledare":::
 
 1. Välj **Marketo** för **lead-målet**i popup-fönstret **anslutnings information** .
 

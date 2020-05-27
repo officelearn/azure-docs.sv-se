@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03f6e3d6edde51598b1d148469aceb1ff3b3d636
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: ed8c3563f9a17a30e0d5df5f00c35f34510d6029
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203424"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848931"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Massredigera användare i Azure Active Directory
 
@@ -39,7 +39,7 @@ Ladda ned och fyll i mallen för Mass uppladdning av CSV så att du kan skapa Az
 Raderna i en Hämtad CSV-mall är följande:
 
 - **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
-- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt*&gt;. Till exempel `Name [displayName] Required`. Vissa äldre versioner av mallen kan ha små variationer.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Till exempel `Name [displayName] Required`. Vissa äldre versioner av mallen kan ha små variationer.
 - **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
 ### <a name="additional-guidance"></a>Mer information
@@ -52,7 +52,7 @@ Raderna i en Hämtad CSV-mall är följande:
 ## <a name="to-create-users-in-bulk"></a>Så här skapar du användare i grupp
 
 1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett konto som är en användar administratör i organisationen.
-1. I Azure AD väljer **du användare** > **Mass skapande**.
+1. I Azure AD väljer **du användare**  >  **Mass skapande**.
 1. På sidan **skapa användare av grupp** väljer du **Hämta** för att ta emot en giltig CSV-fil (kommaavgränsade värden) för användar egenskaper och lägger sedan till Lägg till användare som du vill skapa.
 
    ![Välj en lokal CSV-fil där du visar de användare som du vill lägga till](./media/users-bulk-add/upload-button.png)
@@ -66,7 +66,7 @@ Raderna i en Hämtad CSV-mall är följande:
 1. När din fil klarar valideringen väljer du **Skicka** för att starta den Azure Mass åtgärd som importerar de nya användarna.
 1. När importen är klar visas ett meddelande om status för Mass åtgärds jobbet.
 
-Om det finns fel kan du hämta och Visa resultat filen på resultat sidan för **Mass åtgärder** . Filen innehåller orsaken för varje fel.
+Om det finns fel kan du hämta och Visa resultat filen på resultat sidan för **Mass åtgärder** . Filen innehåller orsaken för varje fel. Fil överföringen måste matcha den angivna mallen och innehålla de exakta kolumn namnen.
 
 ## <a name="check-status"></a>Kontrollera status
 

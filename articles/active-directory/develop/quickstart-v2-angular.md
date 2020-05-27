@@ -12,17 +12,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 4b6a2481c18314a44470a020033ffdc4ba1d7259
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f457e876cb9484fce29cba35c7570572b2771aed
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81380018"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860060"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett angulande Enkels Ides program
-
-> [!IMPORTANT]
-> Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av den här funktionen kan ändras före allmän tillgänglighet (GA).
 
 I den här snabb starten använder du ett kod exempel för att lära dig hur ett särskilt SPA-program (Single-Side Application) kan logga in användare som har personliga Microsoft-konton, arbets konton eller skol konton. En vinkel-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API.
 
@@ -51,7 +48,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > 1. Logga in på [Azure-portalen](https://portal.azure.com).
 > 1. Om ditt konto har åtkomst till fler än en klient väljer du ditt konto längst upp till höger och ställer in din portal-session till den Azure AD-klient som du vill använda.
 > 1. Följ anvisningarna för att [Registrera ett program på en sida](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) i Azure Portal.
-> 1. Lägg till en ny plattform i fönstret **verifiering** i appens registrering och registrera omdirigerings- `http://localhost:4200/`URI: n:.
+> 1. Lägg till en ny plattform i fönstret **verifiering** i appens registrering och registrera omdirigerings-URI: n: `http://localhost:4200/` .
 > 1. I den här snabb starten används det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md). Välj de **implicita beviljande** inställningarna för **ID-tokens** och **åtkomsttoken**. ID-token och åtkomsttoken krävs eftersom den här appen loggar in användare och anropar ett API.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -73,7 +70,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > [!div renderon="docs"]
 >#### <a name="step-3-configure-the-javascript-app"></a>Steg 3: Konfigurera JavaScript-appen
 >
-> I mappen *src/app* redigerar du *app. module. TS* och anger värdena `clientId` och `authority` under. `MsalModule.forRoot`
+> I mappen *src/app* redigerar du *app. module. TS* och anger `clientId` `authority` värdena och under `MsalModule.forRoot` .
 >
 >```javascript
 >MsalModule.forRoot({
@@ -102,9 +99,9 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >|Värdenamn|Beskrivning|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|På sidan **Översikt** i program registreringen är det här ditt **program (klient) ID-** värde. |
->|Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud-eller globala Azure-molnet **https://login.microsoftonline.com**anger du. För nationella moln (till exempel Kina), se [nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+>|Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du **https://login.microsoftonline.com** . För nationella moln (till exempel Kina), se [nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
 >|Enter_the_Tenant_Info_Here| Ange ett av följande alternativ: om programmet har stöd *för konton i den här organisations katalogen*ersätter du det här värdet med katalogen (klient) ID: t eller klient namnet (till exempel **contoso.Microsoft.com**). Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**. Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med **konsumenter**. |
->|Enter_the_Redirect_Uri_Here|Ersätt med **http://localhost:4200**.|
+>|Enter_the_Redirect_Uri_Here|Ersätt med **http://localhost:4200** .|
 >|cacheLocation  | Valfritt Ange webb läsar lagring för autentiseringens tillstånd. Standardvärdet är **SessionStorage**.   |
 >|storeAuthStateInCookie  | Valfritt Identifiera biblioteket som lagrar status för autentiseringsbegäran. Detta tillstånd krävs för att validera autentiserings flöden i webbläsarens cookies. Den här cookien är inställd för Internet Explorer och Edge för att hantera dessa två webbläsare. Mer information finns i [kända problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
 > > [!TIP]
@@ -129,7 +126,7 @@ Om du använder Node.js:
    npm start
    ```
 
-1. Bläddra till **http://localhost:4200/**.
+1. Bläddra till **http://localhost:4200/** .
 1. Välj **inloggning**.
 1. Välj **profil** för att anropa Microsoft Graph.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4f467e061ad52fdcc6d1e8706bb902088b237c24
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68943447"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848778"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Självstudie: Azure Active Directory integrering med PolicyStat
 
@@ -80,10 +80,9 @@ Om du vill konfigurera och testa enkel inloggning med PolicyStat i Azure AD mås
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera PolicyStat-enkel inloggning](#configure-policystat-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa PolicyStat test User](#create-policystat-test-user)** – om du vill ha en motsvarighet till Britta Simon i PolicyStat som är länkad till Azure AD-representation av användare.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+3. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+4. **[Skapa PolicyStat test User](#create-policystat-test-user)** – om du vill ha en motsvarighet till Britta Simon i PolicyStat som är länkad till Azure AD-representation av användare.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -164,25 +163,7 @@ Utför följande steg för att konfigurera enkel inloggning med PolicyStat i Azu
    
     ![Menyn administratör](./media/policystat-tutorial/ic808633.png "Menyn administratör")
 
-3. I avsnittet **installation** väljer du **Aktivera integrering av enkel inloggning**.
-   
-    ![Konfiguration av enkel inloggning](./media/policystat-tutorial/ic808634.png "Konfiguration av enkel inloggning")
-
-4. Klicka på **Konfigurera attribut**och utför sedan följande steg i avsnittet **Konfigurera attribut** :
-   
-    ![Konfiguration av enkel inloggning](./media/policystat-tutorial/ic808635.png "Konfiguration av enkel inloggning")
-   
-    a. I text rutan **attribut för användar namn** skriver du **UID**.
-
-    b. I text rutan för **första** namnattribut skriver du **FirstName** för User **Britta**.
-
-    c. I text rutan för det **sista namnattributet** skriver du **LastName** för User **Simon**.
-
-    d. Skriv **EmailAddress** för användare `BrittaSimon@contoso.com`i text rutan för **e-postattribut** .
-
-    e. Klicka på **Spara ändringar**.
-
-5. Klicka på **IDP metadata**och utför sedan följande steg i avsnittet **IDP metadata** :
+3. Klicka på **IDP metadata**och utför sedan följande steg i avsnittet **IDP metadata** :
    
     ![Konfiguration av enkel inloggning](./media/policystat-tutorial/ic808636.png "Konfiguration av enkel inloggning")
    
@@ -190,33 +171,26 @@ Utför följande steg för att konfigurera enkel inloggning med PolicyStat i Azu
 
     b. Klicka på **Spara ändringar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+4. Klicka på **Konfigurera attribut**och utför sedan följande steg i avsnittet **Konfigurera attribut** :
+   
+    a. I text rutan **attribut för användar namn** skriver du **UID**.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+    b. I text rutan för det **första** namnattributet skriver du ditt förnamn för attributet anspråk från Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+    c. I text rutan för det **sista** namnattributet skriver du det sista namnet för attributet anspråk från Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+    d. I text rutan **email-attribut** skriver du ditt e-postattribut anspråks namn från Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-2. Välj **ny användare** överst på skärmen.
+    e. Klicka på **Spara ändringar**.
 
-    ![Knappen Ny användare](common/new-user.png)
+5. I avsnittet **installation** väljer du **Aktivera integrering av enkel inloggning**.
+   
+    ![Konfiguration av enkel inloggning](./media/policystat-tutorial/ic808634.png "Konfiguration av enkel inloggning")
 
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I fältet **användar namn** brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till PolicyStat.
+I det här avsnittet aktiverar du ditt eget konto för att använda enkel inloggning med Azure genom att bevilja åtkomst till PolicyStat.
 
 1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **PolicyStat**.
 
@@ -234,7 +208,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I dialog rutan **användare och grupper** väljer du ditt konto i listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
@@ -260,4 +234,3 @@ När du klickar på panelen PolicyStat på åtkomst panelen, bör du loggas in a
 - [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

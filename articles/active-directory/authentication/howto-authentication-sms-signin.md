@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/26/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 517ff16cd1cbf9bfe31404d3b1b3993a02d6dae9
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 450e6aa1b22806fbd4d142e47caee720d7f63648
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871567"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860179"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurera och aktivera användare för SMS-baserad autentisering med hjälp av Azure Active Directory (för hands version)
 
@@ -38,9 +38,9 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 * En Azure Active Directory klient som är associerad med din prenumeration.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * Du behöver *Global administratörs* behörighet i Azure AD-klienten för att aktivera SMS-baserad autentisering.
-* Varje användare som är aktive rad i principen för autentiseringsmetoden för SMS måste vara licensierad, även om de inte använder den. Varje aktive rad användare måste ha någon av följande Azure AD-, Office 365-eller Microsoft 365-licenser:
+* Varje användare som är aktive rad i principen för autentiseringsmetoden för SMS måste vara licensierad, även om de inte använder den. Varje aktive rad användare måste ha någon av följande Azure AD-, EMS-Microsoft 365-licenser:
     * [Azure AD Premium P1 eller P2][azuread-licensing]
-    * [Microsoft 365 (M365) F1 eller F3][m365-firstline-workers-licensing] eller [Office 365 F1][o365-f1] eller [F3][o365-f3]
+    * [Microsoft 365 (M365) F1 eller F3][m365-firstline-workers-licensing]
     * [Enterprise Mobility + Security (EMS) E3 eller E5][ems-licensing] eller [Microsoft 365 (M365) E3 eller E5][m365-licensing]
 
 ## <a name="limitations"></a>Begränsningar

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 2ecca18e9de02bfe5f3bcb972d0b4034ab8012ac
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791025"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848030"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Använd Azure Table Storage för att hantera leads på kommersiella marknads platser
 
@@ -123,7 +123,7 @@ Exemplet skapar ett flöde som automatiskt skickar ett e-postmeddelande när ett
 
 1. I fönstret **villkor** väljer du **Välj ett värde**. Välj sedan **uttryck** i popup-fönstret.
 
-1. Klistra `length(body('Get_entities')?['value'])` in i **FX** -rutan. Välj **OK** för att lägga till den här funktionen. 
+1. Klistra in `length(body('Get_entities')?['value'])` i **FX** -rutan. Välj **OK** för att lägga till den här funktionen. 
 
 1. Så här slutför du konfigurationen av villkoret:
     1. Select **är större än** i den nedrullningsbara listan.
@@ -151,7 +151,7 @@ Exemplet skapar ett flöde som automatiskt skickar ett e-postmeddelande när ett
 
     1. **Till**: Ange en e-postadress för alla som får det här meddelandet.
     1. **Ämne**: Ange ett ämne för e-postmeddelandet. Ett exempel är **nya leads!**
-    1. **Brödtext**: Lägg till den text som du vill inkludera i varje e-post (valfritt) och klistra in `body('Get_entities')?['value']`.
+    1. **Brödtext**: Lägg till den text som du vill inkludera i varje e-post (valfritt) och klistra in `body('Get_entities')?['value']` .
 
     >[!NOTE]
     >Du kan infoga ytterligare statiska eller dynamiska data punkter i bröd texten i det här e-postmeddelandet.
@@ -182,8 +182,9 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 
 1. Gå till installations sidan för **erbjudandet** för ditt erbjudande.
 
-1. Välj **Anslut** under avsnittet **ledar hantering** .
-     ![Leadhantering](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
+1. Under avsnittet **kund leads** väljer du **Anslut**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Kund ledare":::
 
 1. I popup-fönstret **anslutnings information** väljer du Azure- **tabell** för lead- **målet**. 
      ![Lead-hantering, anslutnings information](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

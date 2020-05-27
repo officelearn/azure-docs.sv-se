@@ -1,30 +1,30 @@
 ---
 title: Etablera en anpassad pool från en hanterad avbildning
 description: Skapa en batch-pool från en hanterad avbildnings resurs för att etablera Compute-noder med program vara och data för ditt program.
-ms.topic: article
-ms.date: 09/16/2019
-ms.openlocfilehash: b08c6a609516bcebaca64cf1c186d75887b098e3
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.topic: conceptual
+ms.date: 05/22/2020
+ms.openlocfilehash: fbb336ff9d3d53cc53004c577e291afdba7702f6
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780214"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847998"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Använd en hanterad avbildning för att skapa en pool med virtuella datorer
 
-Om du vill skapa en anpassad avbildning för batch-poolens virtuella datorer kan du antingen använda det [delade avbildnings galleriet](batch-sig-images.md)eller en *hanterad avbildnings* resurs.
+Om du vill skapa en anpassad avbildning för batch-poolens virtuella datorer kan du använda en hanterad avbildning för att skapa ett [delat avbildnings Galleri](batch-sig-images.md). Att bara använda en hanterad avbildning stöds också, men endast för API-versioner upp till och inklusive 2019-08-01.
 
-> [!TIP]
+> [!IMPORTANT]
 > I de flesta fall bör du skapa anpassade avbildningar med hjälp av den delade avbildnings galleriet. Genom att använda det delade avbildnings galleriet kan du etablera pooler snabbare, skala större kvantiteter av virtuella datorer och förbättra tillförlitligheten vid etablering av virtuella datorer. Mer information finns i [använda galleriet för delade avbildningar för att skapa en anpassad pool](batch-sig-images.md).
 
 ## <a name="prerequisites"></a>Krav
 
-- **En hanterad avbildnings resurs**. Om du vill skapa en pool med virtuella datorer med en anpassad avbildning måste du ha eller skapa en hanterad avbildnings resurs i samma Azure-prenumeration och region som batch-kontot. Avbildningen bör skapas från ögonblicks bilder av den virtuella datorns OS-disk och eventuellt anslutna data diskar. Mer information och steg för att förbereda en hanterad avbildning finns i följande avsnitt.
+- **En hanterad avbildnings resurs**. Om du vill skapa en pool med virtuella datorer med en anpassad avbildning måste du ha eller skapa en hanterad avbildnings resurs i samma Azure-prenumeration och region som batch-kontot. Avbildningen bör skapas från ögonblicks bilder av den virtuella datorns OS-disk och eventuellt anslutna data diskar.
   - Använd en unik anpassad avbildning för varje pool som du skapar.
-  - Om du vill skapa en pool med avbildningen med hjälp av batch-API: erna anger du **resurs-ID** för avbildningen, som är av typen `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage` . Använd **namnet** på bilden om du vill använda portalen.  
+  - Om du vill skapa en pool med avbildningen med hjälp av batch-API: erna anger du **resurs-ID** för avbildningen, som är av typen `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage` .
   - Den hanterade avbildnings resursen måste finnas för att poolens livstid ska kunna skalas och kan tas bort när poolen har tagits bort.
 
-- **Autentisering med Azure Active Directory (AAD)**. Batch-klientens API måste använda AAD-autentisering. Azure Batch stöd för AAD dokumenteras i [autentisera batch service-lösningar med Active Directory](batch-aad-auth.md).
+- **Azure Active Directory autentisering (Azure AD)**. Batch-klientens API måste använda Azure AD-autentisering. Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory).
 
 ## <a name="prepare-a-custom-image"></a>Förbereda en anpassad avbildning
 
@@ -34,16 +34,14 @@ I Azure kan du förbereda en hanterad avbildning från:
 - En generaliserad virtuell Azure-dator med Managed disks
 - En generaliserad lokal virtuell hård disk som laddats upp till molnet
 
-För att skala batch-pooler på ett tillförlitligt sätt med en anpassad avbildning rekommenderar vi att du skapar en hanterad avbildning med *bara* den första metoden: använda ögonblicks bilder av den virtuella datorns diskar. Se följande steg för att förbereda en virtuell dator, ta en ögonblicks bild och skapa en avbildning från ögonblicks bilden.
+Vi rekommenderar att du skapar den hanterade avbildningen på ett tillförlitligt sätt *med hjälp av* den första metoden: med hjälp av ögonblicks bilder av den virtuella datorns diskar för att skala batch-pooler tillförlitligt Följande steg visar hur du förbereder en virtuell dator, tar en ögonblicks bild och skapar en hanterad avbildning från ögonblicks bilden.
 
 ### <a name="prepare-a-vm"></a>Förbered en virtuell dator
 
 Om du skapar en ny virtuell dator för avbildningen använder du en Azure Marketplace-avbildning från första part som stöds av batch som bas avbildning för din hanterade avbildning. Endast första parts bilder kan användas som en bas avbildning. Om du vill få en fullständig lista över referens för Azure Marketplace-avbildningar som stöds av Azure Batch, se [noden List Node agent SKU: er](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) .
 
 > [!NOTE]
-> Du kan inte använda en avbildning från tredje part som har ytterligare licens-och inköps villkor som bas avbildning. Information om dessa Marketplace-avbildningar finns i rikt linjerna för virtuella [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) -eller [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) -datorer.
+> Du kan inte använda en avbildning från tredje part som har ytterligare licens-och inköps villkor som bas avbildning. Information om dessa Marketplace-avbildningar finns i rikt linjerna för virtuella [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) -eller [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) -datorer.
 
 - Se till att den virtuella datorn har skapats med en hanterad disk. Det här är standard lagrings inställningen när du skapar en virtuell dator.
 - Installera inte Azure-tillägg, till exempel tillägget för anpassat skript, på den virtuella datorn. Om avbildningen innehåller ett förinstallerat tillägg kan Azure drabbas av problem när du distribuerar batch-poolen.
@@ -59,29 +57,70 @@ En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård 
 
 Om du vill skapa en hanterad avbildning från en ögonblicks bild använder du kommando rads verktyg i Azure, till exempel kommandot [AZ image Create](/cli/azure/image) . Du kan skapa en avbildning genom att ange en ögonblicks bild av en OS-disk och eventuellt en eller flera ögonblicks bilder av data diskar.
 
-## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>Skapa en pool från en anpassad avbildning i portalen
+## <a name="create-a-pool-from-a-custom-image"></a>Skapa en pool från en anpassad avbildning
 
-När du har sparat din anpassade avbildning och du känner till resurs-ID eller namn skapar du en batch-pool från avbildningen. Följande steg visar hur du skapar en pool från Azure Portal.
+När du har hittat resurs-ID: t för den hanterade avbildningen skapar du en anpassad avbildnings-pool från avbildningen. Följande steg visar hur du skapar en anpassad avbildning med hjälp av antingen batch-tjänsten eller batch Management.
 
 > [!NOTE]
-> Om du skapar poolen med någon av batch-API: erna kontrollerar du att identiteten som du använder för AAD-autentisering har behörighet till avbildnings resursen. Se [autentisera batch service-lösningar med Active Directory](batch-aad-auth.md).
+> Se till att identiteten som du använder för Azure AD-autentisering har behörighet till avbildnings resursen. Se [autentisera batch service-lösningar med Active Directory](batch-aad-auth.md).
 >
 > Resursen för den hanterade avbildningen måste finnas i poolens livstid. Om den underliggande resursen tas bort kan poolen inte skalas.
 
-1. Navigera till ditt Batch-konto i Azure Portal. Det här kontot måste finnas i samma prenumeration och region som den resurs grupp som innehåller den anpassade avbildningen.
-2. I fönstret **Inställningar** till vänster väljer du meny alternativet **pooler** .
-3. I fönstret **pooler** väljer du kommandot **Lägg till** .
-4. I fönstret **Lägg till pool** väljer du **anpassad avbildning (Linux/Windows)** från List rutan **avbildnings typ** . Välj avbildnings namnet (kort form för resurs-ID) i list rutan **anpassad VM-avbildning** .
-5. Välj rätt **utgivare/erbjudande/SKU** för din anpassade avbildning.
-6. Ange de återstående nödvändiga inställningarna, inklusive **nodens storlek**, **dedikerade noder**och **noder med låg prioritet**samt önskade valfria inställningar.
+### <a name="batch-service-net-sdk"></a>Batch-tjänst, .NET SDK
 
-    Till exempel för en anpassad avbildning av Microsoft Windows Server Data Center 2016 visas fönstret **Lägg till pool** enligt nedan:
+```csharp
+private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
+{
+    return new VirtualMachineConfiguration(
+        imageReference: imageReference,
+        nodeAgentSkuId: "batch.node.windows amd64");
+}
 
-    ![Lägg till pool från anpassad Windows-avbildning](media/batch-custom-images/add-pool-custom-image.png)
-  
-Om du vill kontrol lera om en befintlig pool är baserad på en anpassad avbildning, se egenskapen **operativ system** i avsnittet resurs Sammanfattning i fönstret **pool** . Om poolen skapades från en anpassad avbildning, anges den som **anpassad VM-avbildning**.
+private static ImageReference CreateImageReference()
+{
+    return new ImageReference(
+        virtualMachineImageId: "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image definition name}");
+}
 
-Alla anpassade avbildningar som är associerade med en pool visas i poolens **egenskaps** fönster.
+private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
+{
+    try
+    {
+        CloudPool pool = batchClient.PoolOperations.CreatePool(
+            poolId: PoolId,
+            targetDedicatedComputeNodes: PoolNodeCount,
+            virtualMachineSize: PoolVMSize,
+            virtualMachineConfiguration: vmConfiguration);
+
+        pool.Commit();
+    }
+```
+
+### <a name="batch-management-rest-api"></a>REST API för Batch Management
+
+REST API-URI
+
+```http
+ PUT https://management.azure.com/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Batch/batchAccounts/{account name}/pools/{pool name}?api-version=2020-03-01
+```
+
+Begärandetext
+
+```json
+ {
+   "properties": {
+     "vmSize": "{VM size}",
+     "deploymentConfiguration": {
+       "virtualMachineConfiguration": {
+         "imageReference": {
+           "id": "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image name}"
+         },
+         "nodeAgentSkuId": "{Node Agent SKU ID}"
+       }
+     }
+   }
+ }
+```
 
 ## <a name="considerations-for-large-pools"></a>Att tänka på för stora pooler
 
@@ -113,4 +152,5 @@ Mer information om hur du använder Packer för att skapa en virtuell dator finn
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Lär dig hur du använder det [delade avbildnings galleriet](batch-sig-images.md) för att skapa en anpassad pool.
 - En djupgående översikt över batch finns i [batch-tjänstens arbets flöde och resurser](batch-service-workflow-features.md).

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2019
-ms.openlocfilehash: 3c2e9d5634916c3713b7e3380c0496611d8f60a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: e6ef8fb7dfd98a509b0b89e049c70169dafbe134
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77656287"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860570"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Skapa en Log Analytics arbets yta i Azure Portal
 Använd menyn **Log Analytics arbets ytor** för att skapa en arbets yta för Log Analytics med hjälp av Azure Portal. En Log Analytics-arbetsyta är en unik miljö för Azure Monitor loggdata. Varje arbets yta har sin egen data lagrings plats och konfiguration, och data källor och lösningar har kon figurer ATS för att lagra data i en viss arbets yta. Du behöver en Log Analytics arbets yta om du vill samla in data från följande källor:
@@ -27,7 +27,7 @@ För andra källor, till exempel virtuella Azure-datorer och virtuella Windows-e
 *  [Samla in data från hybrid Linux-datorer](../learn/quick-collect-linux-computer.md)
 *  [Samla in data från hybrid Windows-dator](quick-collect-windows-computer.md)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
@@ -50,6 +50,14 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 3. När du har angett den nödvändiga informationen i fönsterrutan **Log Analytics-arbetsyta** klickar du på **OK**.  
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
+
+## <a name="troubleshooting"></a>Felsökning
+När du skapar en arbets yta som har tagits bort under de senaste 14 dagarna och i [läget för mjuk borttagning](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)kan åtgärden ha olika resultat beroende på konfigurationen för arbets ytan:
+1. Om du anger samma namn på arbets ytan, resurs gruppen, prenumerationen och regionen som i den borttagna arbets ytan återställs din arbets yta, inklusive dess data, konfiguration och anslutna agenter.
+2. Om du använder samma arbets ytans namn, men en annan resurs grupp, prenumeration eller region, får du ett fel meddelande *om att arbets ytans namn redan används. Försök*med ett annat. Om du vill åsidosätta den mjuka borttagningen och permanent ta bort arbets ytan och skapa en ny arbets yta med samma namn, följer du dessa steg för att återställa arbets ytan och utföra permanent borttagning:
+   - [Återställa](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) din arbets yta
+   - [Ta bort](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) arbets ytan permanent
+   - Skapa en ny arbets yta med samma arbets ytans namn
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har en arbets yta tillgänglig kan du konfigurera insamling av övervakning, köra loggs ökningar för att analysera dessa data och lägga till en hanterings lösning för att tillhandahålla ytterligare data och analytiska insikter. 

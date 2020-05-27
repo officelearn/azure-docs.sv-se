@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a875cee7e6796a2c865bde4a62f2f0463eb12130
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f66a5ba491a5afed4007f73b88a38719ec71fb63
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78967742"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849203"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Salesforce
 
@@ -93,8 +93,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     Enterprise-konto: `https://<subdomain>.my.salesforce.com`
 
     Developer-konto: `https://<subdomain>-dev-ed.my.salesforce.com`
+    
+    b. I text rutan **svars-URL** skriver du värdet med följande mönster:
 
-    b. I textrutan **Identifierare** anger du värdet med följande mönster:
+    Enterprise-konto: `https://<subdomain>.my.salesforce.com`
+
+    Developer-konto: `https://<subdomain>-dev-ed.my.salesforce.com`
+
+    c. I textrutan **Identifierare** anger du värdet med följande mönster:
 
     Enterprise-konto: `https://<subdomain>.my.salesforce.com`
 
@@ -119,7 +125,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -229,7 +235,7 @@ När du klickar på Salesforce-panelen i åtkomstpanelen bör du automatiskt log
 
 1. När du har loggat in igen visas programmets start sida.
 
-    ![Salesforce Mobile app](media/salesforce-tutorial/mobile-app5.png) ![Salesforce-mobilapp](media/salesforce-tutorial/mobile-app6.png)
+    ![Salesforce Mobile app ](media/salesforce-tutorial/mobile-app5.png) ![ Salesforce-mobilapp](media/salesforce-tutorial/mobile-app6.png)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

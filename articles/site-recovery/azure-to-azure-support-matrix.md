@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 8101f00f4ffc3735becbad2ecde26f5a208ff4a1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 970046f000a844ce6ee7207ad1bb33f4a327a63d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744821"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848115"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -231,6 +231,7 @@ Kylning och frekvent lagring | Stöds inte | Virtuella dator diskar stöds inte 
 Azure Storage brand väggar för virtuella nätverk  | Stöds | Aktivera [Tillåt betrodda Microsoft-tjänster](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)om du begränsar åtkomsten till virtuella nätverk till lagrings konton.
 Generell användning v2-lagrings konton (både frekvent och låg frekvent nivå) | Stöds | Transaktions kostnader ökar avsevärt jämfört med generell användning v1-lagrings konton
 Generation 2 (UEFI-start) | Stöds
+NVMe-diskar | Stöds inte
 
 >[!IMPORTANT]
 > Undvik prestanda problem genom att följa skalbarhet för virtuella dator diskar och prestanda mål för virtuella [Linux](../virtual-machines/linux/disk-scalability-targets.md) -eller [Windows](../virtual-machines/windows/disk-scalability-targets.md) -datorer. Om du använder standardinställningarna skapar Site Recovery de nödvändiga diskarna och lagrings kontona baserat på käll konfigurationen. Om du anpassar och väljer dina egna inställningar följer du diskens skalbarhet och prestanda mål för dina virtuella käll datorer.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 01d188e0e39888297ff8d6a57129a3a17e1654fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8072dec6b5f5dbd35c86573dd43d3925a271bc43
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249274"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849679"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Övervaka Azure-resurser med Azure Monitor
 När du har viktiga program och affärs processer som förlitar sig på Azure-resurser, vill du övervaka resurserna för deras tillgänglighet, prestanda och drift. I den här artikeln beskrivs övervaknings data som genereras av Azure-resurser och hur du kan använda funktionerna i Azure Monitor för att analysera och varna för dessa data.
@@ -100,7 +100,7 @@ Vissa tjänster tillhandahåller verktyg utöver standard funktionerna i Azure M
 
 Om en tjänst har Azure Monitor insikter kan du komma åt den från **övervakning** i varje resurs meny. Få till gång till alla insikter och lösningar från **Azure Monitor** -menyn.
 
-![Insights](media/monitor-azure-resource/insights.png)
+![Insikter](media/monitor-azure-resource/insights.png)
 
 ### <a name="metrics"></a>Mått
 Analysera mått i Azure Portal med hjälp av [Metrics Explorer](../platform/metrics-getting-started.md) som är tillgängligt på meny alternativet **mått** för de flesta tjänsterna. Med det här verktyget kan du arbeta med enskilda mått eller kombinera flera för att identifiera korrelationer och trender. 

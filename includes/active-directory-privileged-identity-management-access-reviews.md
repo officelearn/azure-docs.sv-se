@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/29/2019
-ms.author: rolyon
+ms.date: 05/26/2020
+ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67476256"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868065"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Skapa en eller flera åtkomst granskningar
 
@@ -36,13 +36,14 @@ ms.locfileid: "67476256"
     ![Användarens omfång att granska roll medlemskap för](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > Om du väljer mer än en roll skapas flera åtkomst granskningar. Om du till exempel väljer fem roller skapas fem olika åtkomst granskningar.
+    > - Roller som väljs här inkluderar både [permanenta och berättigade roller](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
+    > - Om du väljer mer än en roll skapas flera åtkomst granskningar. Om du till exempel väljer fem roller skapas fem olika åtkomst granskningar.
 
-    Om du skapar en åtkomst granskning av Azure AD-roller, visar följande ett exempel på listan granska medlemskap.
+    Om du skapar en åtkomst granskning av **Azure AD-roller**, visar följande ett exempel på listan granska medlemskap.
 
     ![Fönstret granska medlemskap visar Azure AD-roller som du kan välja](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    Om du skapar en åtkomst granskning av Azures resurs roller visar följande ett exempel på listan granska medlemskap.
+    Om du skapar en åtkomst granskning av **Azures resurs roller**visar följande bild ett exempel på listan granska medlemskap.
 
     ![Rutan granska medlemskap visar de Azure-resurstilldelningar du kan välja](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 

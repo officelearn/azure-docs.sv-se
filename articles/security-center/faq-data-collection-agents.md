@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0dbad1a94479430426dae47df7ca3a3ecd9dc980
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436199"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849050"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Vanliga frågor och svar om data insamling, agenter och arbets ytor
 
@@ -49,6 +49,22 @@ Virtuella Windows-eller Linux IaaS-datorer är kvalificerade om:
 - Den virtuella datorn körs.
 - Windows eller Linux [Azure Virtual Machine agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) är installerad.
 - Den virtuella datorn används inte som en installation av en brand vägg för webbaserade program eller nästa generations brand vägg.
+
+
+## <a name="where-is-the-default-log-analytics-workspace-created"></a>Var skapas standard arbets ytan Log Analytics?
+
+Platsen för standard arbets ytan beror på din Azure-region:
+
+- För virtuella datorer i USA och Brasilien är arbets ytans plats USA
+- För virtuella datorer i Kanada är arbets ytans plats Kanada
+- För virtuella datorer i Europa är platsen för arbets ytan Europa
+- För virtuella datorer i Storbritannien är arbets ytans plats i Storbritannien
+- För virtuella datorer i Asien, östra och Sydostasien arbets ytans plats är Asien
+- För virtuella datorer i Korea är platsen för arbets ytan Korea
+- För virtuella datorer i Indien är platsen för arbets ytan Indien
+- För virtuella datorer i Japan är platsen för arbets ytan Japan
+- För virtuella datorer i Kina är arbets ytans plats Kina
+- För virtuella datorer i Australien är arbets ytan Australien
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Kan jag ta bort standard arbets ytor som skapats av Security Center?

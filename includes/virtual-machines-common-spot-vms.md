@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4063751a71cd9cecc424dfe3daddaecfd9ea4071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f8d55669798765cf24e13e95b261cbe4f0e9e3a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421909"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868012"
 ---
 Med hjälp av virtuella datorer kan du dra nytta av vår outnyttjade kapacitet till betydande besparingar. Vid alla tidpunkter när Azure behöver kapaciteten tillbaka, tar Azure-infrastrukturen bort virtuella datorer. De virtuella datorerna är därför fantastiska för arbets belastningar som kan hantera avbrott som bearbetnings jobb, utvecklings-/test miljöer, stora beräknings arbets belastningar med mera.
 
@@ -35,7 +35,7 @@ Användare kan välja att ta emot meddelanden i den virtuella datorn via [Azure 
 | Priset för den virtuella datorn har blivit nu > det högsta priset. | Den virtuella datorn har avlägsnats. Du får ett 30 s-meddelande innan du börjar med den faktiska borttagningen. | 
 | Efter avlägsnandet går priset för den virtuella datorn tillbaka till < det högsta priset. | Den virtuella datorn kommer inte att startas om automatiskt. Du kan starta om den virtuella datorn själv och debiteras enligt det aktuella priset. |
 | Om max priset är inställt på`-1` | Den virtuella datorn kommer inte att avlägsnas av prissättnings skäl. Det högsta priset är det aktuella priset, upp till priset för virtuella datorer med standard typ. Du debiteras aldrig enligt standard priset.| 
-| Ändra Max priset | Du måste frigöra den virtuella datorn för att ändra det högsta priset. Frigör den virtuella datorn, ange t. ex. ett nytt max pris och uppdatera sedan den virtuella datorn. |
+| Ändra Max priset | Du måste frigöra den virtuella datorn för att ändra det högsta priset. Frigör den virtuella datorn, ange ett nytt max pris och uppdatera den virtuella datorn. |
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -52,7 +52,7 @@ Virtuella datorer kan distribueras till vilken region som helst, förutom Micros
 Priser för virtuella datorer i virtuella datorer är varierande, baserat på region och SKU. Mer information finns i prissättning för virtuella datorer för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
 
-Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) med upp till 5 decimaler. Värdet `0.98765`skulle till exempel vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset så `-1`kommer den virtuella datorn inte att avlägsnas baserat på priset. Priset för den virtuella datorn är det aktuella priset för dekor pris eller priset för en standard-VM, som någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot.
+Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) med upp till 5 decimaler. Värdet skulle till exempel `0.98765` vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset så `-1` kommer den virtuella datorn inte att avlägsnas baserat på priset. Priset för den virtuella datorn är det aktuella priset för dekor pris eller priset för en standard-VM, som någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot.
 
 
 ##  <a name="frequently-asked-questions"></a>Vanliga frågor och svar
@@ -85,13 +85,13 @@ Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) me
 
 | Azure-kanaler               | Tillgänglighet för Azure-VM-VM       |
 |------------------------------|-----------------------------------|
-| Enterprise-avtal         | Ja                               |
-| Betala per användning                | Ja                               |
+| Enterprise-avtal         | Yes                               |
+| Betala per användning                | Yes                               |
 | Cloud Service Provider (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Microsoft-kundavtal | Ja                               |
-| Fördelar                     | Inte tillgängligt                     |
-| Sponsrat                    | Inte tillgängligt                     |
-| Kostnadsfri utvärderingsversion                   | Inte tillgängligt                     |
+| Microsoft-kundavtal | Yes                               |
+| Fördelar                     | Inte tillgänglig                     |
+| Sponsrat                    | Inte tillgänglig                     |
+| Kostnadsfri utvärderingsversion                   | Inte tillgänglig                     |
 
 
 **F:** Var kan jag skicka frågor?

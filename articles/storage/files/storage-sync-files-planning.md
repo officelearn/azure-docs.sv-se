@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a079f42f63e232c21a52bd108b34c3b022dcee5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176098"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869727"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 
@@ -60,7 +60,7 @@ När du distribuerar Azure File Sync rekommenderar vi att:
 - Betala till ett lagrings kontos IOPS-begränsningar när du distribuerar Azure-filresurser. Vi rekommenderar att du mappar fil resurser 1:1 med lagrings konton, men det kanske inte alltid är möjligt på grund av olika begränsningar och begränsningar, både från din organisation och från Azure. Om det inte går att ha en enda fil resurs som har distribuerats i ett lagrings konto bör du överväga vilka resurser som ska vara hög aktiva och vilka resurser som är mindre aktiva för att säkerställa att de hetaste fil resurserna inte placeras i samma lagrings konto tillsammans.
 
 ## <a name="windows-file-server-considerations"></a>Windows fil Server-överväganden
-Om du vill aktivera Sync-funktionen på Windows Server måste du installera den Azure File Sync nedladdnings bara agenten. Azure File Sync agenten innehåller två huvud komponenter: `FileSyncSvc.exe`, den bakgrunds fönster tjänst som ansvarar för att övervaka ändringar på Server slut punkter och initiera svarssessioner, och `StorageSync.sys`ett fil system filter som aktiverar moln nivåer och snabb haveri beredskap.  
+Om du vill aktivera Sync-funktionen på Windows Server måste du installera den Azure File Sync nedladdnings bara agenten. Azure File Sync agenten innehåller två huvud komponenter: `FileSyncSvc.exe` , den bakgrunds fönster tjänst som ansvarar för att övervaka ändringar på Server slut punkter och initiera svarssessioner, och `StorageSync.sys` ett fil system filter som aktiverar moln nivåer och snabb haveri beredskap.  
 
 ### <a name="operating-system-requirements"></a>Operativsystemskrav
 Azure File Sync stöds med följande versioner av Windows Server:
@@ -160,7 +160,7 @@ I följande tabell visas interop-tillstånd för NTFS-fil system funktioner:
 
 <a id="files-skipped"></a>Azure File Sync kommer också att hoppa över vissa temporära filer och systemmappar:
 
-| Fil/mapp | Obs! |
+| Fil/mapp | Anteckning |
 |-|-|
 | pagefile.sys | Filinformation till system |
 | Desktop. ini | Filinformation till system |
@@ -275,7 +275,7 @@ Azure File Sync fungerar inte med NTFS EFS (NTFS Encrypted File System) eller kr
 ### <a name="encryption-in-transit"></a>Kryptering under överföring
 
 > [!NOTE]
-> Azure File Sync tjänsten tar bort stöd för TLS 1.0 och 1,1 i augusti 2020. Alla Azure File Sync agent versioner som stöds använder redan TLS 1.2 som standard. Användning av en tidigare version av TLS kan uppstå om TLS 1.2 inaktiverades på servern eller om en proxyserver används. Om du använder en proxyserver rekommenderar vi att du kontrollerar proxykonfigurationen. Azure File Sync tjänst regioner som läggs till efter 5/1/2020 endast stöder TLS 1.2 och stöd för TLS 1.0 och 1,1 kommer att tas bort från befintliga regioner i augusti 2020.  Mer information finns i [fel söknings guiden](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
+> Azure File Syncs tjänsten kommer att ta bort stöd för TLS 1.0 och 1,1 den 1 augusti 2020. Alla Azure File Sync agent versioner som stöds använder redan TLS 1.2 som standard. Användning av en tidigare version av TLS kan uppstå om TLS 1.2 inaktiverades på servern eller om en proxyserver används. Om du använder en proxyserver rekommenderar vi att du kontrollerar proxykonfigurationen. Azure File Sync service regioner som läggs till efter 5/1/2020 endast stöder TLS 1.2 och stöd för TLS 1.0 och 1,1 kommer att tas bort från befintliga regioner den 1 augusti 2020.  Mer information finns i [fel söknings guiden](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
 
 Azure File Sync-agenten kommunicerar med lagrings tjänsten för synkronisering och Azure-filresursen med hjälp av Azure File Sync REST-protokollet och det protokoll som används, och båda använder alltid HTTPS via port 443. Azure File Sync skickar inte okrypterade begär Anden via HTTP. 
 
@@ -354,7 +354,7 @@ Om du har en befintlig Windows-fil Server kan Azure File Sync installeras direkt
 
 - Skapa server slut punkter för din gamla fil resurs och den nya fil resursen och låt Azure File Sync synkronisera data mellan server slut punkterna. Fördelen med den här metoden är att det är mycket enkelt att överprenumerera lagringen på den nya fil servern, eftersom Azure File Sync är beroende av moln nivåer. När du är klar kan du klippa över slutanvändare till fil resursen på den nya servern och ta bort den gamla fil resursens Server slut punkt.
 
-- Skapa bara en server slut punkt på den nya fil servern och kopiera data till från den gamla fil resursen med `robocopy`hjälp av. Beroende på topologin för fil resurser på din nya server (hur många resurser du har på varje volym, hur det kostar varje volym osv.) kan du tillfälligt behöva etablera ytterligare lagrings utrymme eftersom det förväntas att `robocopy` från den gamla servern till den nya servern i det lokala data centret kommer att bli snabbare än Azure File Sync att flytta data till Azure.
+- Skapa bara en server slut punkt på den nya fil servern och kopiera data till från den gamla fil resursen med hjälp av `robocopy` . Beroende på topologin för fil resurser på din nya server (hur många resurser du har på varje volym, hur det kostar varje volym osv.) kan du tillfälligt behöva etablera ytterligare lagrings utrymme eftersom det förväntas att `robocopy` från den gamla servern till den nya servern i det lokala data centret kommer att bli snabbare än Azure File Sync att flytta data till Azure.
 
 Du kan också använda Data Box-enhet för att migrera data till en Azure File Sync-distribution. I de flesta fall, när kunder vill använda Data Box-enhet för att mata in data, gör de det eftersom de tror att de kommer att öka hastigheten på sin distribution, eller så kan de hjälpa till med begränsade bandbredds scenarier. Även om det är sant att när du använder en Data Box-enhet för att mata in data i din Azure File Sync-distribution minskar bandbredds användningen, kommer det förmodligen att gå snabbare för de flesta scenarier för att kunna använda en data uppladdning online via en av de metoder som beskrivs ovan. Mer information om hur du använder Data Box-enhet för att mata in data i din Azure File Sync-distribution finns i [migrera data till Azure File Sync med Azure Data Box](storage-sync-offline-data-transfer.md).
 

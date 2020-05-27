@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a15de41dc2dce4cae0a6155bfce8a8a2001b9a8b
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3abf7b4acfae5e90d0b3f6781b8fbbf0f6f1427d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798802"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860604"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -114,7 +114,7 @@ Användare med den här rollen kan skapa, läsa, uppdatera och ta bort alla anpa
 > [!IMPORTANT]
 > IEF princip administratör för B2 är en mycket känslig roll som bör tilldelas mycket begränsad till organisationer i produktion.Aktiviteter av dessa användare bör granskas noga, särskilt för organisationer i produktion.
 
-### <a name="billing-administrator"></a>[Faktureringsadministratör](#billing-administrator-permissions)
+### <a name="billing-administrator"></a>[Fakturerings administratör](#billing-administrator-permissions)
 
 Gör inköp, hanterar prenumerationer, hanterar supportärenden och övervakar tjänstens hälsa.
 
@@ -307,6 +307,21 @@ Användare med den här rollen kan övervaka alla meddelanden i meddelande centr
 
 Användare i den här rollen kan övervaka meddelanden och råd om hälso uppdateringar i [Office 365 meddelande Center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) för deras organisation på konfigurerade tjänster som Exchange, Intune och Microsoft Teams. Meddelande Center läsare får veckovis e-postsammandrag av inlägg, uppdateringar och kan dela meddelande Center inlägg i Office 365. I Azure AD kommer användare som tilldelats den här rollen bara att ha skrivskyddad åtkomst till Azure AD-tjänster, till exempel användare och grupper. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
 
+### <a name="modern-commerce-administrator"></a>[Modern Commerce-administratör](#modern-commerce-administrator-permissions)
+Använd inte. Den här rollen tilldelas automatiskt från Commerce och är inte avsedd eller stöds inte för någon annan användning. Se information nedan.
+
+Rollen som modern Commerce-administratör ger vissa användare behörighet att komma åt Microsoft 365 administrations Center och se de vänstra navigerings posterna för **Start**, **fakturering**och **support**. Innehållet som är tillgängligt i dessa områden styrs av handelstilldelade [roller](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) som har tilldelats användare för att hantera produkter som de har köpt för sig själva eller din organisation. Detta kan omfatta uppgifter som att betala fakturor, eller för åtkomst till fakturerings konton och fakturerings profiler. 
+
+Användare med rollen som modern Commerce-administratör har vanligt vis administratörs behörighet i andra Microsoft-inköps system, men har inte rollen som global administratör eller fakturerings administratör för åtkomst till administrations centret. 
+
+**När tilldelas rollen modern Commerce-administratör?**
+* **Självbetjänings köp i Microsoft 365 administrations Center** – självbetjänings köp ger användarna möjlighet att prova nya produkter genom att köpa eller registrera sig för dem på egen hand. Dessa produkter hanteras i administrations centret. Användare som gör ett självbetjänings köp tilldelas en roll i Commerce-systemet och rollen som modern Commerce-administratör så att de kan hantera sina inköp i administrations centret. Administratörer kan blockera självbetjänings köp (för Power BI, Power Apps, energi automatisering) via [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Mer information finns i [vanliga frågor och svar om att köpa självbetjäning](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Köp från Microsofts kommersiella marknads platser** – som liknar självbetjänings köp, när en användare köper en produkt eller tjänst från Microsoft AppSource eller Azure Marketplace, tilldelas rollen som modern Commerce-administratör om de inte har rollen som global administratör eller fakturerings administratör. I vissa fall kan användarna blockeras från att göra dessa inköp. Mer information finns på [Microsofts kommersiella marknads platser](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).   
+* **Förslag från Microsoft** – ett förslag är ett formellt erbjudande från Microsoft för din organisation att köpa produkter och tjänster från Microsoft. När den person som accepterar förslaget inte har rollen som global administratör eller fakturerings administratör i Azure AD, tilldelas de både en handelsbestämd roll för att slutföra förslaget och rollen som modern Commerce-administratör för att få åtkomst till administrations centret. När de får åtkomst till administrations centret kan de endast använda funktioner som har godkänts av sin handelsbestämd roll. 
+* **Handelsrelaterade roller** – vissa användare har tilldelats handelsrelaterade roller. Om en användare inte är en global administratör eller fakturerings administratör får han eller hon rollen som modern Commerce-administratör så att de kan komma åt administrations centret.  
+
+Om rollen som modern Commerce-administratör är otilldelad från en användare förlorar han eller hon åtkomst till Microsoft 365 administrations Center. Om de hanterade produkter, antingen för sig själva eller för din organisation, kan de inte hantera dem. Detta kan inkludera att tilldela licenser, ändra betalnings metoder, betala fakturor eller andra aktiviteter för att hantera prenumerationer. 
+
 ### <a name="network-administrator"></a>[Nätverks administratör](#network-administrator-permissions)
 
 Användare i den här rollen kan granska rekommendationer för nätverks perimeter arkitektur från Microsoft som baseras på telemetri från användarens platser. Nätverks prestanda för Office 365 förlitar sig på noggrann företags nätverks perimeter arkitektur som är allmänt specifik för användaren. Med den här rollen kan du redigera identifierade användar platser och konfigurera nätverks parametrar för de platserna för att under lätta förbättrad telemetri och bättre design rekommendationer. 
@@ -466,7 +481,7 @@ Användare i den här rollen kan felsöka kommunikations problem i Microsoft Tea
 
 Användare med den här rollen kan hantera alla aspekter av arbets belastningen Microsoft Teams via Microsoft Teams & Skype för Business administrations Center och respektive PowerShell-moduler. Detta omfattar bland annat alla hanterings verktyg som rör telefoni, meddelanden, möten och själva teamet. Den här rollen ger dessutom möjlighet att skapa och hantera alla Office 365-grupper, hantera support biljetter och övervaka tjänstens hälsa.
 
-### <a name="user-administrator"></a>[Användaradministratör](#user-administrator-permissions)
+### <a name="user-administrator"></a>[Användar administratör](#user-administrator-permissions)
 
 Användare med den här rollen kan skapa användare och hantera alla aspekter av användare med vissa begränsningar (se nedan) och kan uppdatera principer för lösen ordets giltighets tid. Dessutom kan användare med den här rollen skapa och hantera alla grupper. Den här rollen omfattar även möjligheten att skapa och hantera användar visningar, hantera support biljetter och övervaka tjänstens hälsa. Användar administratörer har inte behörighet att hantera vissa användar egenskaper för användare i de flesta administratörs roller. Användare med den här rollen har inte behörighet att hantera MFA. Rollerna som är undantag till den här begränsningen visas i följande tabell.
 
@@ -474,7 +489,7 @@ Användare med den här rollen kan skapa användare och hantera alla aspekter av
 | --- | --- |
 |Allmänna behörigheter|<p>Skapa användare och grupper</p><p>Skapa och hantera användarvyer</p><p>Hantera Office-support biljetter<p>Uppdatera principer för förfallo datum för lösen ord|
 |<p>För alla användare, inklusive alla administratörer</p>|<p>Hantera licenser</p><p>Hantera alla användar egenskaper utom användarens huvud namn</p>
-|Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Rapport läsare<li>Användaradministratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
+|Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Rapport läsare<li>Användar administratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
 
 > [!IMPORTANT]
 > Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Ett exempel:
@@ -1318,6 +1333,23 @@ Kan endast läsa meddelanden och uppdateringar för sin organisation i meddeland
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | Microsoft. Office365. messageCenter/meddelanden/läsa | Läs meddelanden i Microsoft. Office365. messageCenter. |
 
+### <a name="modern-commerce-administrator-permissions"></a>Behörigheter för modern Commerce-administratör
+Kan hantera kommersiella inköp för ett företag, en avdelning eller ett team. 
+
+> [!NOTE]
+> Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i roll beskrivning ovan.
+>
+>
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft. Commerce. fakturering/partners/Läs | Läsa partner egenskap för O365-fakturering. |
+| Microsoft. Commerce. volumeLicenseServiceCenter/upplånade/allTasks | Hantera alla aspekter av Volume Licensing Service Center. |
+| Microsoft. Directory/Organization/Basic/Update | Uppdatera grundläggande egenskaper för organisation i Azure Active Directory. |
+| Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
+| Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
+
+
 ### <a name="network-administrator-permissions"></a>Nätverks administratörs behörighet
 Kan hantera nätverks platser och granska Enterprise Network design Insights för Microsoft 365 program vara som tjänst program.
 
@@ -1810,7 +1842,7 @@ Azure DevOps-administratör | Azure DevOps-administratör | e3973bdf-4987-49ae-8
 Azure Information Protection administratör | Azure Information Protection administratör | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C IEF Keys-administratör | B2C IEF Keys-administratör | aaf43236-0c0d-4d5f-883a-6955382ac081
 B2C IEF-princip administratör | B2C IEF-princip administratör | 3edaf663-341e-4475-9f94-5c398ef6c070
-Faktureringsadministratör | Faktureringsadministratör | b0f54661-2d74-4c50-afa3-1ec803f12efe
+Fakturerings administratör | Faktureringsadministratör | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Molnprogramadministratör | Moln program administratör | 158c047a-c907-4556-b7ef-446551a6b5f7
 Moln enhets administratör | Moln enhets administratör | 7698a772-787b-4ac8-901f-60d6b08affd2
 Företagsadministratör | Global administratör | 62e90394-69f5-4237-9190-012177145e10
@@ -1838,10 +1870,11 @@ Support administratör | Support administratör | 729827e3-9c14-49f7-bb1b-9608f1
 Hybrid identitets administratör | Hybrid identitets administratör | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
 Administratör för Intune-tjänsten | Intune-administratör | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala-administratör | Kaizala-administratör | 74ef975b-6605-40af-a5d2-b9539d836353
-Licens administratör | Licens administratör | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
+Licens administratör | Licensadministratör | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Administratör för Lync-tjänsten | Skype for Business-administratör | 75941009-915a-4869-abe7-691bff18279e
 Meddelande Center sekretess läsare | Meddelande Center sekretess läsare | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Meddelande Center läsare | Meddelande Center läsare | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Modern Commerce-administratör | Modern Commerce-administratör | d24aef57-1500-4070-84db-2666f29cf966
 Nätverks administratör | Nätverks administratör | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Office Apps-administratör | Office Apps-administratör | 2b745bdf-0803-4d80-aa65-822c4493daac
 Support för partner 1 | Visas inte eftersom det inte ska användas | 4ba39ca4-527c-499a-b93d-d9b492c50246
@@ -1866,7 +1899,7 @@ Support tekniker för Teams kommunikation | Support tekniker för Teams kommunik
 Support specialist för Teams kommunikation | Support specialist för Teams kommunikation | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Team tjänst administratör | Team tjänst administratör | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Användare | Visas inte eftersom det inte kan användas | a0b1b346-4d3e-4e8b-98f8-753987be4970
-Administratör för användar konton | Användar administratör | fe930be7-5e62-47db-91af-98c3a49a38b1
+Administratör för användar konton | Användaradministratör | fe930be7-5e62-47db-91af-98c3a49a38b1
 Anslutning till arbets plats enhet | Inaktuell | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>Föråldrade roller

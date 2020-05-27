@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 75baddbefc2babf73fee18cafe07177a3f0fb6f2
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 1a027eb4cb3351934738319f342afac8d8407e6f
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701024"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848812"
 ---
 # <a name="create-an-azure-container-offer"></a>Skapa ett erbjudande för Azure Container
 
@@ -48,7 +48,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Till exempel:
+Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Ett exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -59,7 +59,7 @@ Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Till
 
 Följ dessa steg för att konfigurera erbjudandet.
 
-### <a name="connect-lead-management--optional"></a>Anslut lead management – valfritt
+### <a name="customer-leads--optional"></a>Kund ledare – valfritt
 
 När du publicerar erbjudandet till den kommersiella marknads platsen med partner Center kan du ansluta det till ditt CRM-system (Customer Relations hip Management). På så sätt kan du ta emot kund kontakt information så snart någon uttrycker intresse för eller använder produkten.
 
@@ -144,7 +144,7 @@ En kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt oc
 
 En mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

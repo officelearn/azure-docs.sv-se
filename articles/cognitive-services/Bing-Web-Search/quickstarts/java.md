@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1fdeffb5ee5b1e2d66fbf5586d307cd8d8b78858
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0fa70cfb287cc4a68892ada1044283a996d8dd50
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76166734"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873918"
 ---
 # <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Snabb start: Använd Java för att söka på webben med Webbsökning i Bing REST API, en Azure-tjänst för inlärning
 
-I den här snabb starten ska du använda ett Java-program för att göra ditt första anrop till API för webbsökning i Bing och ta emot JSON-svaret. Java-programmet skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+I den här snabb starten ska du använda ett Java-program för att göra ditt första anrop till API för webbsökning i Bing. Java-programmet skickar en Sök förfrågan till API: et och visar JSON-svaret. Även om det här programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -49,7 +49,7 @@ import com.google.gson.JsonParser;
 
 ### <a name="declare-gson-in-the-maven-pom-file"></a>Deklarera Gson i Maven POM-filen
 
-Om du använder Maven deklarerar du Gson i `POM.xml`. Hoppa över det här steget om du har installerat Gson lokalt.
+Om du använder maven deklarerar du Gson i POM. xml. Hoppa över det här steget om du har installerat Gson lokalt.
 
 ```xml
 <dependency>
@@ -61,7 +61,7 @@ Om du använder Maven deklarerar du Gson i `POM.xml`. Hoppa över det här stege
 
 ## <a name="declare-the-bingwebsearch-class"></a>Deklarera klassen BingWebSearch
 
-Deklarera klassen `BingWebSearch`. Den innehåller största delen av den kod vi granskar i den här snabbstarten, inklusive `main`-metoden.  
+Deklarera klassen `BingWebSearch`. Den innehåller merparten av koden som vi läser i den här snabb starten, inklusive `main()` metoden.  
 
 ```java
 public class BingWebSearch {
@@ -73,7 +73,13 @@ public class BingWebSearch {
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Den här koden ställer in `subscriptionKey`, `host`, `path` och `searchTerm`. `host`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. Ersätt värdet `subscriptionKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`. Kom ihåg att lägga till den här `BingWebSearch` koden i klassen som anges ovan.
+I följande kod anges `subscriptionKey` , `host` , `path` och `searchTerm` . Lägg till den här koden i den `BingWebSearch` klass som beskrivs i föregående avsnitt:
+
+1. För `host` värdet kan du använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. 
+
+2. Ersätt värdet `subscriptionKey` med en giltig prenumerationsnyckel från ditt Azure-konto. 
+
+3. Du kan också anpassa Sök frågan genom att ersätta värdet för `searchTerm` . 
 
 ```java
 // Enter a valid subscription key.
@@ -91,7 +97,7 @@ static String searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="construct-a-request"></a>Skapa en begäran
 
-Den här metoden, som finns i klassen `BingWebSearch`, konstruerar `url`, tar emot och parsar svaret samt extraherar Bing-relaterade HTTP-huvuden.  
+`SearchWeb()`Metoden, som ingår i `BingWebSearch` klassen, konstruerar `url` , tar emot och tolkar svaret och extraherar Bing-relaterade HTTP-huvuden.  
 
 ```java
 public static SearchResults SearchWeb (String searchQuery) throws Exception {
@@ -137,7 +143,7 @@ public static String prettify(String json_text) {
 
 ## <a name="declare-the-main-method"></a>Deklarera main-metoden
 
-Den här metoden krävs och det är den första metoden som anropas när programmet startas. I det här programmet innehåller den kod som verifierar `subscriptionKey`, gör en begäran och skriver ut JSON-svaret.
+`main()`Metoden är obligatorisk och är den första metoden som anropas när du startar programmet. I det här programmet innehåller den kod som validerar `subscriptionKey` , gör en begäran och skriver sedan ut JSON-svaret.
 
 ```java
 public static void main (String[] args) {
@@ -167,7 +173,7 @@ public static void main (String[] args) {
 
 ## <a name="create-a-container-class-for-search-results"></a>Skapa en containerklass för sökresultat
 
-Containerklassen `SearchResults` är utanför klassen `BingWebSearch`. Den innehåller relevanta rubriker och JSON-data för svaret.
+`SearchResults`Container klassen definieras utanför `BingWebSearch` klassen. Den innehåller relevanta rubriker och JSON-data för svaret.
 
 ```java
 class SearchResults{
@@ -182,7 +188,7 @@ class SearchResults{
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det sista steget är att kompilera koden och köra den! Nedan visas kommandona:
+Det sista steget är att kompilera koden och köra den. Använd följande kommandon:
 
 ```powershell
 javac BingWebSearch.java -classpath ./gson-2.8.5.jar -encoding UTF-8
@@ -191,7 +197,7 @@ java -cp ./gson-2.8.5.jar BingWebSearch
 
 Om du vill jämföra din kod med vår [finns exempelkoden på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingWebSearchv7.java).
 
-## <a name="sample-response"></a>Exempelsvar
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.
 
@@ -320,6 +326,6 @@ Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsva
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie om app på en sida för Bing-webbsökning](../tutorial-bing-web-search-single-page-app.md)
+> [Själv studie kurs om API för webbsökning i Bing enkel sida](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]  

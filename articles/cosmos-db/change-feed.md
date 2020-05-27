@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e36e95aeb25c83ccd94f11e25bfe9f1b8f7bfdad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb3f7f3d641f33e4b4deb1775600595cc382f68e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984869"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873981"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Ändringsflöde i Azure Cosmos DB
 
@@ -27,14 +27,14 @@ Den här funktionen stöds för närvarande av följande Azure Cosmos DB-API: er
 
 | **Klientdrivrutiner** | **SQL-API** | **Azure Cosmos DB s API för Cassandra** | **API för Azure Cosmos DB för MongoDB** | **Gremlin-API**|**Tabell-API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | Ja | Ja | Ja | Ja | Nej |
-|Java|Ja|Ja|Ja|Ja|Nej|
-|Python|Ja|Ja|Ja|Ja|Nej|
-|Node/JS|Ja|Ja|Ja|Ja|Nej|
+| .NET | Ja | Ja | Ja | Ja | Inga |
+|Java|Ja|Ja|Ja|Ja|Inga|
+|Python|Ja|Ja|Ja|Ja|Inga|
+|Node/JS|Ja|Ja|Ja|Ja|Inga|
 
 ## <a name="change-feed-and-different-operations"></a>Ändra feed och olika åtgärder
 
-Idag visas alla infogningar och uppdateringar i ändrings flödet. Det går inte att filtrera ändrings flödet för för en speciell typ av åtgärd. Ett möjligt alternativ är att lägga till en "mjuk markör" på objektet för uppdateringar och filter baserat på det vid bearbetning av objekt i ändrings flödet.
+Idag visas alla infogningar och uppdateringar i ändrings flödet. Det går inte att filtrera ändrings flödet för en speciell typ av åtgärd. Ett möjligt alternativ är att lägga till en "mjuk markör" på objektet för uppdateringar och filter baserat på det vid bearbetning av objekt i ändrings flödet.
 
 Den aktuella ändrings flödet loggar inte borttagningar. Precis som i föregående exempel kan du lägga till en mjuk markör för de objekt som tas bort. Du kan till exempel lägga till ett attribut i objektet som kallas "borttaget" och ange det som "true" och ange ett TTL-värde för objektet, så att det kan tas bort automatiskt. Du kan läsa ändrings flödet för historiska objekt (den senaste ändringen som motsvarar objektet, det innehåller inte mellanliggande ändringar), till exempel objekt som har lagts till fem år sedan. Du kan läsa ändrings flödet så långt tillbaka som dess ursprung, men om ett objekt tas bort tas det bort från ändrings flödet.
 

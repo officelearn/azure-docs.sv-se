@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5f3e05752967be8872c0e6fd9008bfae05d950fa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9400558f8ea26199a2f7ac406fd6d94647243e11
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169540"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873805"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Ruby för att anropa API för webbsökning i Bing  
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få JSON-svaret. Detta ruby-program skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att göra ditt första anrop till API för webbsökning i Bing. Detta ruby-program skickar en Sök förfrågan till API: et och visar JSON-svaret. Även om det här programmet är skrivet i ruby är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,7 +33,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Skapa ett projekt och deklarera nödvändiga moduler
 
-Skapa ett nytt Ruby-projekt i valfri IDE eller redigeringsprogram. Kräv sedan `net/https` för begäranden, `uri` för URI-hantering och `json` för att parsa svaret.
+Skapa ett nytt Ruby-projekt i valfri IDE eller redigeringsprogram. Kräv sedan `net/https` begär Anden, `uri` för URI-hantering och `json` för att parsa svaret.
 
 ```ruby
 require 'net/https'
@@ -43,7 +43,13 @@ require 'json'
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Några variabler måste anges innan vi kan fortsätta. `uri`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. Bekräfta att `uri` och `path` är giltiga och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `term`.
+Några variabler måste anges innan vi kan fortsätta:
+
+1. För `uri` värdet kan du använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. 
+
+2. Bekräfta att `uri` värdena och `path` ska vara giltiga och Ersätt `accessKey` värdet med en prenumerations nyckel från ditt Azure-konto. 
+
+3. Du kan också anpassa Sök frågan genom att ersätta värdet för `term` .
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"
@@ -60,7 +66,7 @@ end
 
 ## <a name="make-a-request"></a>Skapa en begäran
 
-Använd den här koden för att skapa en begäran och hantera svaret.
+Använd den här koden för att göra en begäran och hantera svaret:
 
 ```ruby
 # Construct the endpoint uri.
@@ -96,7 +102,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det sista steget är att verifiera koden och köra den! Om du vill jämföra din kod med vår finns det fullständiga programmet här:
+Det sista steget är att validera din kod och köra den. Om du vill jämföra din kod med vår finns det fullständiga programmet här:
 
 ```ruby
 require 'net/https'
@@ -135,7 +141,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## <a name="sample-response"></a>Exempelsvar
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.
 
@@ -264,6 +270,6 @@ Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsva
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie om app på en sida för Bing-webbsökning](../tutorial-bing-web-search-single-page-app.md)
+> [Själv studie kurs om API för webbsökning i Bing enkel sida](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

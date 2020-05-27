@@ -1,21 +1,14 @@
 ---
 title: 'Snabb start: testa kunskaps bas med batch-frågor'
-titleSuffix: Azure Cognitive Services
-description: ''
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+description: Använd batch-testverktyget QnA Maker för att testa kunskaps baserna i din QnA Maker-resurs för förväntade svar, förtroende poäng och frågor om flera inaktivitet.
 ms.topic: quickstart
-ms.date: 02/08/2020
-ms.author: diberry
-ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/26/2020
+ms.openlocfilehash: 9845b7c7cc19550c450a1eb00ec02731ef2d9d44
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756709"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873663"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Snabb start: testa kunskaps bas med batch-frågor och förväntade svar
 
@@ -26,7 +19,7 @@ Använd batch-testverktyget QnA Maker för att testa kunskaps baserna i din QnA 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Skapa antingen en QNA Maker tjänst](create-publish-knowledge-base.md) eller Använd en befintlig tjänst som använder det engelska språket.
 * Ladda ned [exempel `.docx` filen med flera turn](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
-* Hämta [batch-testverktyget](https://aka.ms/qnamakerbatchtestingtool), extrahera den körbara filen `.zip` från filen.
+* Hämta [batch-testverktyget](https://aka.ms/qnamakerbatchtestingtool), extrahera den körbara filen från `.zip` filen.
 
 ## <a name="sign-into-qna-maker-portal"></a>Logga in på QnA Maker Portal
 
@@ -44,7 +37,7 @@ Använd batch-testverktyget QnA Maker för att testa kunskaps baserna i din QnA 
 
 1. I **steg 4**konfigurerar du inställningarna med följande tabell:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |--|--|
     |**Aktivera extrahering av flera adresser från URL: er, PDF-eller docx-filer.**|Markerad|
     |**Standard svars text**| `Batch test - default answer not found.`|
@@ -64,15 +57,15 @@ Använd batch-testverktyget QnA Maker för att testa kunskaps baserna i din QnA 
     |--|--|
     |Publicerad värd|`https://YOUR-RESOURCE-NAME.azurewebsites.net`|
     |Publicerad nyckel|`XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`(32 tecken sträng visas efter `Endpoint` )|
-    |App-ID|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(36 tecken sträng visas som en del `POST`av) |
+    |App-ID|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(36 tecken sträng visas som en del av `POST` ) |
 
 ## <a name="create-batch-test-file-with-question-ids"></a>Skapa batch-testfilen med fråga-ID
 
-För att kunna använda batch-testverktyget skapar du en fil `batch-test-data-1.tsv` med namnet med en text redigerare. Filen måste ha följande kolumner avgränsade med en flik.
+För att kunna använda batch-testverktyget skapar du en fil med namnet `batch-test-data-1.tsv` med en text redigerare. Filen måste ha följande kolumner avgränsade med en flik.
 
-|Fält för TSV-indatafiler|Obs!|Exempel|
+|Fält för TSV-indatafiler|Anteckningar|Exempel|
 |--|--|--|
-|Kunskaps bas-ID|Ditt kunskaps bas-ID finns på publicerings sidan. Testa flera kunskaps banker i samma tjänst samtidigt i en enda fil med hjälp av olika kunskaps bas-ID: n i en enda fil.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(36 tecken sträng visas som en del `POST`av) |
+|Kunskaps bas-ID|Ditt kunskaps bas-ID finns på publicerings sidan. Testa flera kunskaps banker i samma tjänst samtidigt i en enda fil med hjälp av olika kunskaps bas-ID: n i en enda fil.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(36 tecken sträng visas som en del av `POST` ) |
 |Fråga|Den frågetext som en användare skulle ange. 1 000-Character max.|`How do I sign out?`|
 |Metadatataggar|valfri|`topic:power`använder _nyckeln: värde_ format|
 |Övre parameter|valfri|`25`|
@@ -99,7 +92,7 @@ Lägg sedan till några frågor, liknande dessa frågor, men inte exakt samma p�
 > [!CAUTION]
 > Se till att varje kolumn är avgränsad med en tabb-avgränsare. Inledande eller avslutande blank steg läggs till i kolumn data och gör att programmet returnerar undantag när typen eller storleken är felaktig.
 
-Batch-testfilen när den öppnas i Excel ser ut som följande bild. Kunskaps bas-ID: t har `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` ersatts av säkerhet. Se till att kolumnen visar ditt kunskaps bas-ID för ditt eget batch-test.
+Batch-testfilen när den öppnas i Excel ser ut som följande bild. Kunskaps bas-ID: t har ersatts av `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` säkerhet. Se till att kolumnen visar ditt kunskaps bas-ID för ditt eget batch-test.
 
 > [!div class="mx-imgBorder"]
 > ![Mata in den första versionen av. tsv-filen från batch-test](../media/batch-test/batch-test-1-input.png)
@@ -118,7 +111,7 @@ Testet slutförs och `out.tsv` filen skapas:
 > [!div class="mx-imgBorder"]
 > ![Mata ut den första versionen av. tsv-filen från batch-test](../media/batch-test/batch-test-1-output.png)
 
-Kunskaps bas-ID: t har `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` ersatts av säkerhet. För ditt eget batch-test visar kolumnen ditt kunskaps bas-ID.
+Kunskaps bas-ID: t har ersatts av `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` säkerhet. För ditt eget batch-test visar kolumnen ditt kunskaps bas-ID.
 
 Test resultatet av förtroende poängen, i den fjärde kolumnen, visar de tre främsta frågorna returnerade en poäng på 100 som förväntat eftersom varje fråga är exakt samma som den visas i kunskaps basen. De senaste tre frågorna, med en ny formulering av frågan, returnerar inte 100 som säkerhets poäng. För att öka poängen både för testet och användarna måste du lägga till fler alternativa frågor i kunskaps basen.
 
@@ -169,9 +162,9 @@ Det finns två huvud scenarier för batch-testning:
 
 Följande procedur förutsätter att scenariot är att bearbeta chatt loggar med
 
-1. Skapa en ny batch- `batch-test-data-2.tsv`testfil för att inkludera valfria data. Lägg till de 6 raderna från den ursprungliga batch-testfilen och Lägg sedan till ID för metadata, topp och QnA-par för varje rad.
+1. Skapa en ny batch-testfil för att inkludera valfria data `batch-test-data-2.tsv` . Lägg till de 6 raderna från den ursprungliga batch-testfilen och Lägg sedan till ID för metadata, topp och QnA-par för varje rad.
 
-    För att simulera den automatiserade processen med att kontrol lera ny text från Chat-loggar mot kunskaps basen ställer du in metadata för varje kolumn till `topic:power`samma värde:.
+    För att simulera den automatiserade processen med att kontrol lera ny text från Chat-loggar mot kunskaps basen ställer du in metadata för varje kolumn till samma värde: `topic:power` .
 
     > [!div class="mx-imgBorder"]
     > ![Mata in en annan version av. tsv-filen från batch-test](../media/batch-test/batch-test-2-input.png)

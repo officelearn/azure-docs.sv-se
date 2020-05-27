@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 26a4ae7d1a2ef253c0cb62f6bb53f83152676595
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e7c5e00f2e5565393ff46dbb06b30991ebcfc01f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590272"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873709"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
 
@@ -127,6 +127,16 @@ Om programmet som finns på den virtuella server delen av en Load Balancer förs
 Om ett internt Load Balancer har kon figurer ATS i ett virtuellt nätverk och en av de virtuella datorerna för en deltagar Server försöker komma åt den interna Load Balancer-frontend, kan fel uppstå när flödet mappas till den ursprungliga virtuella datorn. Det här scenariot stöds inte. Granska [begränsningar](concepts.md#limitations) för en detaljerad diskussion.
 
 **Lösning** Det finns flera sätt att avblockera det här scenariot, inklusive att använda en proxy. Utvärdera Application Gateway eller andra tredjeparts-proxyservrar (till exempel nginx eller haproxy). Mer information om Application Gateway finns i [Översikt över Application Gateway](../application-gateway/application-gateway-introduction.md)
+
+**Information** Interna belastningsutjämnare översätter inte utgående, ursprungliga anslutningar till klient delen av en intern Load Balancer eftersom båda finns i privata IP-adressutrymme. Publika belastningsutjämnare tillhandahåller [utgående anslutningar](load-balancer-outbound-connections.md) från privata IP-adresser i det virtuella nätverket till offentliga IP-adresser. För interna belastningsutjämnare gör den här metoden att du undviker möjliga SNAT-portar i ett unikt internt IP-adressutrymme, där översättning inte krävs.
+
+En sido effekt är att om ett utgående flöde från en virtuell dator i backend-poolen försöker använda ett flöde till klient delen av den interna Load Balancer i poolen _och_ som mappas tillbaka till sig själv, matchar inte de två benen i flödet. Eftersom de inte matchar, Miss lyckas flödet. Flödet lyckas om flödet inte mappades tillbaka till samma virtuella dator i backend-poolen som skapade flödet till klient delen.
+
+När flödet mappar tillbaka till sig själv, visas det utgående flödet som härstammar från den virtuella datorn till klient delen och motsvarande inkommande flöde visas som härstammar från den virtuella datorn till sig själv. Från gäst operativ systemets visnings punkt matchar de inkommande och utgående delarna av samma flöde inte i den virtuella datorn. TCP-stacken känner inte igen de hälften av samma flöde som en del av samma flöde. Källan och målet matchar inte. När flödet mappar till en annan virtuell dator i backend-poolen matchar hälften av flödet och den virtuella datorn kan svara på flödet.
+
+Symptomet för det här scenariot är tillfälligt anslutnings-timeout när flödet återgår till samma server del som initierade flödet. Vanliga lösningar är infogning av ett proxy-lager bakom den interna Load Balancer och användnings regler för direkt Server retur (DSR). Mer information finns i [flera klient delar för Azure Load Balancer](load-balancer-multivip-overview.md).
+
+Du kan kombinera ett internt Load Balancer med valfri tredjeparts-proxy eller använda interna [Application Gateway](../application-gateway/application-gateway-introduction.md) för proxy-scenarier med http/https. Även om du kan använda en offentlig Load Balancer för att undvika det här problemet, är det här scenariot känsligt för [SNAT-belastning](load-balancer-outbound-connections.md#snat). Undvik den andra metoden om du inte noggrant hanterar den.
 
 ## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Symptom: det går inte att ändra backend-porten för en befintlig LB-regel för en belastningsutjämnare vars VM Scale Set har distribuerats i backend-poolen. 
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Orsak: Server dels porten kan inte ändras för en belastnings Utjämnings regel som används av en hälso avsökning för belastningsutjämnaren som refereras till av en skalnings uppsättning för virtuella datorer.

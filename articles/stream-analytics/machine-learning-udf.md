@@ -7,19 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 07fa72f086b676723279ee4b8efd927beb2692f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c232ab06d2b3a28dad7ae98a8f22f457778fd3e6
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81481975"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874072"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrera Azure Stream Analytics med Azure Machine Learning (förhands granskning)
 
 Du kan implementera maskin inlärnings modeller som en användardefinierad funktion (UDF) i dina Azure Stream Analytics jobb för att utföra resultat i real tid och förutsägelser på dina strömmande indata. Med [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) kan du använda alla populära verktyg för öppen källkod, till exempel Tensorflow, scikit-lära eller PyTorch, för att prepa, träna och distribuera modeller.
-
-> [!NOTE]
-> Den här funktionen finns i offentlig för hands version. Du kan bara komma åt den här funktionen på Azure Portal med hjälp av länken för för [hands versionen av Stream Analytics Portal](https://aka.ms/asaportalpreview). Den här funktionen är också tillgänglig i den senaste versionen av [Stream Analytics Tools för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -31,7 +28,7 @@ Slutför följande steg innan du lägger till en Machine Learning-modell som en 
 
 3. Kontrol lera att din webb tjänst accepterar och returnerar JSON-serialiserade data.
 
-4. Distribuera din modell på [Azure Kubernetes service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) för storskaliga produktions distributioner. Om webb tjänsten inte kan hantera antalet begär Anden som kommer från jobbet försämras prestanda för ditt Stream Analytics jobb, vilket påverkar svars tiden. Modeller som distribuerats på Azure Container Instances stöds inte idag, men kommer att bli tillgängliga under de kommande månaderna.
+4. Distribuera din modell på [Azure Kubernetes service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) för storskaliga produktions distributioner. Om webb tjänsten inte kan hantera antalet begär Anden som kommer från jobbet försämras prestanda för ditt Stream Analytics jobb, vilket påverkar svars tiden. Modeller som distribueras på Azure Container Instances stöds bara när du använder Azure Portal.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Lägga till en maskin inlärnings modell i ditt jobb
 
@@ -73,7 +70,7 @@ Stream Analytics har endast stöd för att skicka en parameter för Azure Machin
 
 ## <a name="pass-multiple-input-parameters-to-the-udf"></a>Skicka flera indataparametrar till UDF
 
-De vanligaste exempel på indata till Machine Learning-modeller är numpy-matriser och DataFrames. Du kan skapa en matris med ett JavaScript-skript UDF och skapa en JSON-serialiserad DataFrame med `WITH` hjälp av-satsen.
+De vanligaste exempel på indata till Machine Learning-modeller är numpy-matriser och DataFrames. Du kan skapa en matris med ett JavaScript-skript UDF och skapa en JSON-serialiserad DataFrame med hjälp av- `WITH` satsen.
 
 ### <a name="create-an-input-array"></a>Skapa en indatakälla
 

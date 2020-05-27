@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: f3be10929a9a0df23529348f2c62e35f2ebaa850
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a807af3ffe14da943786051a3ece03b777a0edf5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75770721"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873615"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Skapa ett Kubernetes dev-utrymme: Visual Studio och .NET Core med Azure dev Spaces
 
@@ -50,7 +50,7 @@ I den här guiden får du lära dig hur du:
 1. Välj **Granska + skapa** och välj sedan **Skapa** när du är klar.
 
 ## <a name="get-the-visual-studio-tools"></a>Hämta Visual Studio-verktygen
-Installera den senaste versionen av [Visual Studio](https://www.visualstudio.com/vs/). För Visual Studio 2019 i Windows måste du installera arbets belastningen Azure Development. För Visual Studio 2017 i Windows måste du installera arbets belastningen ASP.NET och webb utveckling samt [Visual Studio Tools för Kubernetes](https://aka.ms/get-azds-visualstudio).
+Installera den senaste versionen av [Visual Studio 2019](https://www.visualstudio.com/vs/) i Windows med arbets belastningen Azure Development.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Skapa en webbapp som körs i en container
 

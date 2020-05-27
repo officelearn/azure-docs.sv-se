@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Beskriver hur du konfigurerar ett Azure Kubernetes service-kluster för Azure dev Spaces
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 00f8262f3008ce9ba82726960f78d18395458a2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6b158ca7f425e8b7c492c27521dba588a508b534
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241730"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873550"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Så här konfigurerar du ett kluster för Azure dev Spaces
 
@@ -18,7 +18,7 @@ Med Azure dev Spaces får du flera sätt att snabbt iterera och felsöka Kuberne
 
 ## <a name="prepare-your-aks-cluster"></a>Förbereda ditt AKS-kluster
 
-För att förbereda ditt AKS-kluster för dev Spaces kontrollerar du att ditt AKS-kluster finns i en region [som stöds av Azure dev Spaces][supported-regions] och du kör Kubernetes 1.10.3 eller senare. Om du vill aktivera Azure dev Spaces i klustret från Azure Portal navigerar du till klustret, klickar på *dev Spaces*, ändrar *Använd dev Spaces* till *Ja*och klickar på *Spara*. Du kan också aktivera Azure dev Spaces från Azure CLI genom att `az aks use-dev-spaces`köra.
+För att förbereda ditt AKS-kluster för dev Spaces kontrollerar du att ditt AKS-kluster finns i en region [som stöds av Azure dev Spaces][supported-regions] och du kör Kubernetes 1.10.3 eller senare. Om du vill aktivera Azure dev Spaces i klustret från Azure Portal navigerar du till klustret, klickar på *dev Spaces*, ändrar *Använd dev Spaces* till *Ja*och klickar på *Spara*. Du kan också aktivera Azure dev Spaces från Azure CLI genom att köra `az aks use-dev-spaces` .
 
 Ett exempel på hur du konfigurerar ett AKS-kluster för dev Spaces finns i snabb starten för [team utveckling][quickstart-team].
 
@@ -50,7 +50,7 @@ För att kunna använda Azure dev Spaces måste det finnas minst ett dev-utrymme
 
 När ett namn område anges som ett dev-utrymme lägger kontrollanten till *azds.io/Space=True* -etiketten i namn området för att identifiera den som ett dev-utrymme. Det inledande dev-utrymmet som du skapar eller anger är markerat som standard när du förbereder klustret. När ett blank steg är markerat används det av Azure dev Spaces för att skapa nya arbets belastningar.
 
-Du kan använda klient sidans verktyg för att skapa nya dev-Spaces och ta bort befintliga dev-sidor. Det går inte att ta bort *standard* dev-utrymmet på grund av en begränsning i Kubernetes. Kontrollanten tar också bort alla befintliga Kubernetes-namnområden med namnet *azds* för att `azds` undvika konflikter med kommandot som används av klient sidans verktyg.
+Du kan använda klient sidans verktyg för att skapa nya dev-Spaces och ta bort befintliga dev-sidor. Det går inte att ta bort *standard* dev-utrymmet på grund av en begränsning i Kubernetes. Kontrollanten tar också bort alla befintliga Kubernetes-namnområden med namnet *azds* för att undvika konflikter med `azds` kommandot som används av klient sidans verktyg.
 
 Kubernetes webhook-åtkomstkontroll används för att injicera poddar med tre behållare under distribution för instrumentering: en devspaces-proxy-behållare, en devspaces-proxy-init-behållare och en devspaces-build-behållare. **Alla tre dessa behållare körs med rot åtkomst i ditt AKS-kluster.** De använder också samma tjänst huvud namn som ditt AKS-kluster använder för att skapa tjänst anrop till andra Azure dev Spaces-komponenter.
 
@@ -78,7 +78,7 @@ Med verktyg på klient sidan kan användaren:
 
 När ditt program körs, kan verktyg på klient sidan också:
 * Tar emot och visar STDOUT och stderr från ditt program som körs i AKS.
-* Använder [Port-Forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) för att tillåta webb åtkomst till ditt program med http\/:/localhost.
+* Använder [Port-Forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) för att tillåta webb åtkomst till ditt program med http: \/ /localhost.
 * Bifogar en fel sökare till det program som körs i AKS.
 * Synkroniserar käll koden till ditt dev-utrymme när en ändring identifieras för stegvisa versioner, vilket möjliggör snabb iteration.
 * Gör att du kan ansluta din utvecklings dator direkt till ditt AKS-kluster.
@@ -86,7 +86,7 @@ När ditt program körs, kan verktyg på klient sidan också:
 Du kan använda klient sidans verktyg från kommando raden som en del av `azds` kommandot. Du kan också använda verktyget på klient sidan med:
 
 * Visual Studio Code med [tillägget Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Visual Studio med [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools).
+* Visual Studio med arbets belastningen Azure Development.
 
 ## <a name="next-steps"></a>Nästa steg
 

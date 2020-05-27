@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Lär dig hur du aktiverar Azure dev Spaces i ett AKS-kluster och installerar verktyg på klient sidan.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: a6b3be5ceba5e60b99b2f75e060f3321cd3151f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3666eeb995c73615c522200a3619d785814ea0b5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898954"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873525"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Aktivera Azure dev Spaces i ett AKS-kluster och installera verktyg på klient Sidan
 
@@ -47,9 +47,9 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-`use-dev-spaces` Kommandot installerar även Azure dev Spaces cli.
+`use-dev-spaces`Kommandot installerar även Azure dev Spaces cli.
 
-Använd `azds remove` kommandot för att ta bort Azure dev Spaces från ditt AKS-kluster. Ett exempel:
+Använd kommandot för att ta bort Azure dev Spaces från ditt AKS-kluster `azds remove` . Ett exempel:
 
 ```azurecli
 $ azds remove -g MyResourceGroup -n MyAKS
@@ -84,7 +84,6 @@ Du kan använda Azure dev Spaces-verktyg på klient sidan för att interagera me
 
 * I [Visual Studio Code][vscode]installerar du [tillägget Azure dev Spaces][vscode-extension].
 * Installera arbets belastningen Azure Development i [Visual Studio 2019][visual-studio].
-* I Visual Studio 2017 installerar du arbets belastningen webb utveckling och [Visual Studio Tools för Kubernetes][visual-studio-k8s-tools].
 * Ladda ned och installera [Windows][cli-win], [Mac][cli-mac]eller [Linux][cli-linux] cli.
 
 ## <a name="next-steps"></a>Nästa steg

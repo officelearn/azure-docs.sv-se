@@ -1,18 +1,18 @@
 ---
 title: Installera Hybrid Cloud Extension (HCX)
-description: Konfigurera VMWare Hybrid Cloud Extension (HCX)-lösningen för Azure VMWare-lösningen (AVS) privat moln
+description: Konfigurera VMware Hybrid Cloud Extension (HCX)-lösningen för Azure VMware-lösningen (AVS) privat moln
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 74bc0dece2fc565aebc6e5301ef7a36187d6a250
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: dc5f7f82b83c82538b2d5a7b4c87131afb3fcc20
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83776477"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873650"
 ---
-# <a name="install-hcx-for-azure-vmware-solution"></a>Installera HCX för Azure VMWare-lösning
+# <a name="install-hcx-for-azure-vmware-solution"></a>Installera HCX för Azure VMware-lösning
 
-I den här artikeln går vi igenom procedurerna för att ställa in VMWare Hybrid Cloud Extension (HCX)-lösningen för ditt moln i Azure VMWare-lösningen (AVS). HCX Advanced (standard installation) stöder upp till tre externa platser, där varje extern plats kräver att en HCX Enterprise Manager eller Connector har installerats och Aktiver ATS.
+I den här artikeln går vi igenom procedurerna för att ställa in VMware Hybrid Cloud Extension (HCX)-lösningen för ditt moln i Azure VMware-lösningen (AVS). HCX Advanced (standard installation) stöder upp till tre externa platser, där varje extern plats kräver att en HCX Enterprise Manager eller Connector har installerats och Aktiver ATS.
 HCX möjliggör migrering av VMware-arbetsbelastningar till molnet och andra anslutna platser via olika inbyggda HCX-typer som stöds. Om fler än tre platser krävs kan kunder välja att aktivera HCX Enterprise-tillägget via support. HCX Enterprise ger ytterligare avgifter för kunder efter allmän tillgänglighet (GA) men innehåller [ytterligare funktioner](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 Noggrant granska [innan du börjar](#before-you-begin), [program versions krav](#software-version-requirements)och [förutsättningar](#prerequisites) först. 

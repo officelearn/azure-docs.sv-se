@@ -3,13 +3,13 @@ title: Skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster
 description: Lär dig hur du snabbt skapar ett Kubernetes-kluster, distribuerar ett program i en Windows Server-behållare i Azure Kubernetes service (AKS) med hjälp av PowerShell.
 services: container-service
 ms.topic: article
-ms.date: 05/12/2020
-ms.openlocfilehash: d488935a9f45d775578179cb58423d882a1cee27
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 05/26/2020
+ms.openlocfilehash: c0c4849d76676cf165dbb051fbd904c28a98fa3b
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725048"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873574"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med PowerShell
 
@@ -24,9 +24,6 @@ Den här artikeln förutsätter grundläggande kunskaper om Kubernetes-koncept. 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 Om du väljer att använda PowerShell lokalt kräver den här artikeln att du installerar AZ PowerShell-modulen och ansluter till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) . Mer information om hur du installerar AZ PowerShell-modulen finns i [installera Azure PowerShell][install-azure-powershell].
-
-> [!IMPORTANT]
-> I den här artikeln används en för hands version av PowerShell-modulen AZ. AKS. Du måste installera den separat från AZ PowerShell-modulen med hjälp av följande kommando: `Install-Module -Name Az.AKS -AllowPrerelease -RequiredVersion 1.1.0-preview` . När för hands versions versionen av PowerShell-modulen AZ. AKS är allmänt tillgänglig blir den en del av framtida versioner av AZ PowerShell-modulen och är tillgängliga internt från Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 

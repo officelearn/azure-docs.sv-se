@@ -1,21 +1,14 @@
 ---
 title: Vad är QnA Maker-tjänsten?
-titleSuffix: Azure Cognitive Services
 description: QnA Maker är en molnbaserad NLP-tjänst som enkelt skapar ett naturligt samtals lager över dina data. Den kan användas för att hitta det mest lämpliga svaret för alla angivna språk från en särskild språk version, från din anpassade kunskaps bas (KB) information.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 02/21/2020
-ms.author: diberry
-ms.openlocfilehash: 2863a086343b0a5d3bc69ae319dbe93d557bcb4a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/26/2020
+ms.openlocfilehash: 5962ab2294a19c600beb00816394d96059bd4108
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80052931"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873713"
 ---
 # <a name="what-is-the-qna-maker-service"></a>Vad är tjänsten QnA Maker?
 
@@ -38,7 +31,7 @@ När en QnA Maker kunskaps bas har publicerats skickar ett klient program en fr�
 
 ![Ställ en robot till en fråga och få svar från kunskaps bas innehållet](../media/qnamaker-overview-learnabout/bot-chat-with-qnamaker.png)
 
-|Steg|Action|
+|Steg|Åtgärd|
 |:--|:--|
 |1|Klient programmet skickar användarens _fråga_ (text i sina egna ord), "Hur gör jag för att program mässigt uppdatera min kunskaps bas?" till din kunskaps bas slut punkt.|
 |2|QnA Maker använder den utbildade kunskaps basen för att tillhandahålla rätt svar och eventuella uppföljnings instruktioner som kan användas för att förfina sökningen efter det bästa svaret. QnA Maker returnerar ett JSON-formaterat svar.|

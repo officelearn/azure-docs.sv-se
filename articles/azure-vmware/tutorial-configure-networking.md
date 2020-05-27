@@ -1,20 +1,20 @@
 ---
-title: Självstudie – Konfigurera nätverk för ditt privata VMWare-moln i Azure
+title: Självstudie – Konfigurera nätverk för ditt privata VMware-moln i Azure
 description: Lär dig att skapa och konfigurera de nätverk som behövs för att distribuera ditt privata moln i Azure
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 41043b98a6e270d8d9f4373de7876b3fcae86747
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 5a8086f78f465f52d0f9107932c09c4690f505e8
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837625"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873852"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Självstudie: Konfigurera nätverk för ditt privata VMWare-moln i Azure
 
 Ett privat moln i Azure VMware-lösningen (AVS) kräver ett virtuellt nätverk. Eftersom AVS inte stöder din lokala vCenter under för hands versionen krävs ytterligare steg för integrering med din lokala miljö. Att konfigurera en ExpressRoute-krets och en Virtual Network Gateway krävs också och kommer att åtgärdas i den här självstudien.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -68,7 +68,7 @@ På fliken grundläggande på sidan **Skapa virtuell nätverksgateway** anger du
 | **Prenumeration** | Värdet är redan ifyllt med den prenumeration som resurs gruppen tillhör. |
 | **Resursgrupp** | Det här värdet är redan ifyllt för den aktuella resurs gruppen. Detta bör vara den resurs grupp som du skapade i ett tidigare test. |
 | **Namn** | Ange ett unikt namn för den virtuella Nätverksgatewayen. |
-| **Nationella** | Välj den geografiska platsen för den virtuella Nätverksgatewayen. |
+| **Region** | Välj den geografiska platsen för den virtuella Nätverksgatewayen. |
 | **Typ av Gateway** | Välj **ExpressRoute**. |
 | **VPN-typ** | Välj **Routningsbaserad**. |
 | **SKU** | Låt standardvärdet vara **standard:** |
@@ -128,4 +128,4 @@ I den här självstudiekursen lärde du dig att:
 Fortsätt till nästa självstudie och lär dig hur du skapar en hopp ruta som används för att ansluta till din miljö så att du kan hantera ditt privata moln lokalt.
 
 > [!div class="nextstepaction"]
-> [Åtkomst till privat moln](tutorial-access-private-cloud.md)
+> [Få åtkomst till privat moln](tutorial-access-private-cloud.md)

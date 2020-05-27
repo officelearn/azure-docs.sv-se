@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 777d11a129f02d1a2f5c796dea0af438ca81ba8c
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: baf309a93f8ba976cb6511c05ba5032ad07a0fc9
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735631"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874043"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Lägg till Azure-roll tilldelningar med Azure Resource Manager mallar
 
@@ -26,7 +26,7 @@ ms.locfileid: "82735631"
 
 ## <a name="get-object-ids"></a>Hämta objekt-ID: n
 
-Om du vill tilldela en roll måste du ange ID: t för användaren, gruppen eller programmet som du vill tilldela rollen till. ID: t har formatet: `11111111-1111-1111-1111-111111111111`. Du kan hämta ID: t med hjälp av Azure Portal, Azure PowerShell eller Azure CLI.
+Om du vill tilldela en roll måste du ange ID: t för användaren, gruppen eller programmet som du vill tilldela rollen till. ID: t har formatet: `11111111-1111-1111-1111-111111111111` . Du kan hämta ID: t med hjälp av Azure Portal, Azure PowerShell eller Azure CLI.
 
 ### <a name="user"></a>Användare
 
@@ -173,7 +173,7 @@ Om du vill använda mallen måste du ange följande indata:
 ```
 
 > [!NOTE]
-> Den här mallen är inte idempotenta om inte `roleNameGuid` samma värde anges som en parameter för varje distribution av mallen. Om inget `roleNameGuid` anges, genereras ett nytt GUID som standard vid varje distribution och efterföljande distributioner kommer att Miss förväntas `Conflict: RoleAssignmentExists` med ett fel.
+> Den här mallen är inte idempotenta om inte samma `roleNameGuid` värde anges som en parameter för varje distribution av mallen. Om inget anges `roleNameGuid` , genereras ett nytt GUID som standard vid varje distribution och efterföljande distributioner kommer att Miss förväntas med ett `Conflict: RoleAssignmentExists` fel.
 
 Roll tilldelningens omfattning bestäms från distributions nivån. Här är exempel på [New-AzResourceGroupDeployment-](/powershell/module/az.resources/new-azresourcegroupdeployment) och [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) -kommandon för hur du startar distributionen i ett resurs grupps omfång.
 
@@ -293,7 +293,7 @@ Följande visar ett exempel på roll tilldelningen deltagare till en användare 
 
 ### <a name="new-service-principal"></a>Nytt huvud namn för tjänsten
 
-Om du skapar ett nytt huvud namn för tjänsten och sedan omedelbart försöker tilldela en roll till tjänstens huvud namn kan roll tilldelningen inte utföras i vissa fall. Om du till exempel skapar en ny hanterad identitet och sedan försöker tilldela en roll till tjänstens huvud namn i samma Azure Resource Manager mall kan roll tilldelningen Miss Miss förväntat. Orsaken till det här felet är förmodligen en fördröjning i replikeringen. Tjänstens huvud namn skapas i en region. roll tilldelningen kan dock inträffa i en annan region som ännu inte har replikerat tjänstens huvud namn. För att åtgärda det här scenariot ska du `principalType` ställa in `ServicePrincipal` egenskapen till när roll tilldelningen skapas.
+Om du skapar ett nytt huvud namn för tjänsten och sedan omedelbart försöker tilldela en roll till tjänstens huvud namn kan roll tilldelningen inte utföras i vissa fall. Om du till exempel skapar en ny hanterad identitet och sedan försöker tilldela en roll till tjänstens huvud namn i samma Azure Resource Manager mall kan roll tilldelningen Miss Miss förväntat. Orsaken till det här felet är förmodligen en fördröjning i replikeringen. Tjänstens huvud namn skapas i en region. roll tilldelningen kan dock inträffa i en annan region som ännu inte har replikerat tjänstens huvud namn. För att åtgärda det här scenariot ska du ställa in `principalType` egenskapen till `ServicePrincipal` när roll tilldelningen skapas.
 
 Följande mall visar:
 
@@ -358,6 +358,15 @@ az group deployment create --resource-group ExampleGroup2 --template-file rbac-t
 Följande visar ett exempel på roll tilldelningen deltagare till ett nytt hanterat identitets tjänst huvud objekt när du har distribuerat mallen.
 
 ![Roll tilldelning för en ny hanterad identitets tjänstens huvud namn](./media/role-assignments-template/role-assignment-template-msi.png)
+
+## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
+
+Ta bort roll tilldelningen i Azure RBAC för att ta bort åtkomst till en Azure-resurs. Det finns inget sätt att ta bort en roll tilldelning med hjälp av en mall. Om du vill ta bort en roll tilldelning måste du använda andra verktyg som till exempel:
+
+- [Azure Portal](role-assignments-portal.md#remove-a-role-assignment)
+- [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
+- [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+- [REST-API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Nästa steg
 

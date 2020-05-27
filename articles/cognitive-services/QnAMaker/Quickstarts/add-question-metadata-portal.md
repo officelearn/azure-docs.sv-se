@@ -1,20 +1,14 @@
 ---
 title: 'Snabb start: Lägg till frågor och svar i QnA Maker Portal'
 description: Den här snabb starten visar hur du lägger till frågor och svars uppsättningar med metadata så att användarna kan hitta rätt svar på sina frågor.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/08/2020
-ms.author: diberry
-ms.openlocfilehash: f067bae55c38fc783c12bf9d0bc6fbcdf881e4e4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/26/2020
+ms.openlocfilehash: fc8bac425723e9194c447f1cf6ee13547c09d772
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756679"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873693"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabb start: Lägg till frågor och svar med QnA Maker Portal
 
@@ -82,11 +76,11 @@ Genom att lägga till metadata till en fråga och en svars uppsättning kan klie
 
 1. Välj **visnings alternativ**och välj sedan **Visa metadata**.
 
-1. För det QnA-par som du nyss lade till väljer du **Lägg till metadata-Taggar**och `service` lägger sedan till namnet `search`på och värdet för. Det ser ut så här `service:search`:.
+1. För det QnA-par som du nyss lade till väljer du **Lägg till metadata-Taggar**och lägger sedan till namnet på `service` och värdet för `search` . Det ser ut så här: `service:search` .
 
-1. Lägg till en annan metadata-tagg `link_in_answer` med namnet och `false`värdet. Det ser ut så här `link_in_answer:false`:.
+1. Lägg till en annan metadata-tagg med namnet `link_in_answer` och värdet `false` . Det ser ut så här: `link_in_answer:false` .
 
-1. Sök efter det första svaret i tabellen, `How large a knowledge base can I create?`.
+1. Sök efter det första svaret i tabellen, `How large a knowledge base can I create?` .
 
 1. Lägg till metadata-par för samma två metadata-Taggar:
 

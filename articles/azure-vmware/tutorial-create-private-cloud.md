@@ -3,12 +3,12 @@ title: Självstudie – distribuera vSphere-kluster i Azure
 description: Lär dig att distribuera ett vSphere-kluster i Azure med hjälp av Azure VMWare-lösning (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 6a192454367f2e6ca071e9cfe0a9f1a94868cbdb
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: fc753f43563650357cf43c102e94f0057b62a406
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977715"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873739"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Självstudie: Distribuera ett privat AVS-moln i Azure
 
@@ -16,7 +16,7 @@ Med Azure VMware-lösningen (AVS) kan du distribuera ett vSphere-kluster i Azure
 
 Eftersom AVS inte tillåter att du hanterar ditt privata moln med din lokala vCenter vid lanseringen måste du utföra ytterligare konfiguration av och anslutning till en lokal vCenter-instans, ett virtuellt nätverk med mera. Dessa procedurer och relaterade krav kommer att behandlas i den här själv studie serien.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett privat AVS-moln
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="register-the-resource-provider"></a>Registrera resursprovidern
 
-För att kunna använda Azure VMWare-lösningen måste du först registrera resurs leverantören. I följande exempel registreras resurs leverantören med din prenumeration.
+För att kunna använda Azure VMware-lösningen måste du först registrera resurs leverantören. I följande exempel registreras resurs leverantören med din prenumeration.
 
 ```azurecli-interactive
 az provider register -n Microsoft.AVS --subscription <your subscription ID>
@@ -48,7 +48,7 @@ Du kan skapa ett privat AVS-moln med hjälp av [Azure Portal](#azure-portal) ell
 
 ### <a name="azure-portal"></a>Azure Portal
 
-I Azure Portal väljer du **+ skapa en ny resurs**. I text rutan **Sök i Marketplace** och välj `Azure VMware Solution` **Azure VMware-lösning** i listan. I fönstret **Azure VMware-lösning** väljer du **skapa**
+I Azure Portal väljer du **+ skapa en ny resurs**. I text rutan **Sök i Marketplace** `Azure VMware Solution` och välj **Azure VMware-lösning** i listan. I fönstret **Azure VMware-lösning** väljer du **skapa**
 
 Ange värden för fälten på fliken **grundläggande** . I följande tabell visas en detaljerad lista över egenskaperna.
 
@@ -98,7 +98,7 @@ Om du vill skapa ett moln privat moln måste du ange ett resurs grupp namn, ett 
 |---------|---------|
 |Resurs grupps namn     | Namnet på den resurs grupp som du distribuerar det privata molnet till.        |
 |Namn på privat moln     | Namnet på det privata molnet.        |
-|Plats     | Den plats som används för det privata molnet         |
+|Location     | Den plats som används för det privata molnet         |
 |Kluster storlek     | Klustrets storlek. Minimivärdet är 3.         |
 |Nätverks block     | CIDR-intervallet som ska användas för det privata molnet. Vi rekommenderar att det är unikt från din lokala miljö och din Azure-miljö.        |
 

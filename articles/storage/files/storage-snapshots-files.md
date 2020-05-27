@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e09887b8000a0aeb52879d5306bc0a00da5141f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b50407b3ea7389388577d229f67a4e4baca4296d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176149"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873578"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över resursögonblicksbilder för Azure Files 
 Azure Files ger möjlighet att ta bort ögonblicks bilder av fil resurser. Dela ögonblicks bilder fångar resurs statusen vid den tidpunkten. I den här artikeln beskriver vi vilka funktioner som delar ögonblicks bilder och hur du kan dra nytta av dem i ditt anpassade användnings fall.
@@ -37,7 +37,7 @@ När en resurs ögonblicks bild har skapats kan den läsas, kopieras eller tas b
 
 Delning av ögonblicks bilder ges på fil resurs nivå. Hämtning ges på enskild filnivå, så att enskilda filer kan återställas. Du kan återställa en fullständig fil resurs med hjälp av SMB, REST API, portalen, klient biblioteket eller PowerShell/CLI-verktyget.
 
-En resurs ögonblicks bild av en fil resurs är identisk med bas fil resursen. Den enda skillnaden är att ett **datetime** -värde läggs till i resurs-URI: n för att ange den tid då resurs ögonblicks bilden togs. Om en fil resurs-URI t. ex. är\/http:/storagesample.Core.File.Windows.net/MyShare, liknar resursens ögonblicks bilds-URI följande:
+En resurs ögonblicks bild av en fil resurs är identisk med bas fil resursen. Den enda skillnaden är att ett **datetime** -värde läggs till i resurs-URI: n för att ange den tid då resurs ögonblicks bilden togs. Om en fil resurs-URI t. ex. är http: \/ /storagesample.Core.File.Windows.net/MyShare, liknar resursens ögonblicks bilds-URI följande:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -80,7 +80,7 @@ När du kör en infrastruktur på Azure kan du automatisera säkerhets kopiering
 
 Innan du distribuerar Schemaläggaren för resurs ögonblicks bilder bör du ta hänsyn till din resurs frekvens för ögonblicks bilder och inställningarna för kvarhållning för att undvika onödiga kostnader.
 
-Resurs ögonblicks bilder tillhandahåller bara skydd på filnivå. Resurs ögonblicks bilder förhindrar inte borttagning av fat-fingrar på en fil resurs eller ett lagrings konto. För att skydda ett lagrings konto från oavsiktliga borttagningar kan du låsa lagrings kontot eller resurs gruppen.
+Resurs ögonblicks bilder tillhandahåller bara skydd på filnivå. Resurs ögonblicks bilder förhindrar inte borttagning av fat-fingrar på en fil resurs eller ett lagrings konto. För att skydda ett lagrings konto från oavsiktlig borttagning kan du antingen [Aktivera mjuk borttagning](storage-files-prevent-file-share-deletion.md)eller låsa lagrings kontot och/eller resurs gruppen.
 
 ## <a name="next-steps"></a>Nästa steg
 - Arbeta med resurs ögonblicks bilder i:

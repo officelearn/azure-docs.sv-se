@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: c1af1142faca76cc58b6b3ca9a7106bc0433ea18
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 998558192891e1e7cbd24acd229f963925d3715f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74976374"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873766"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Python för att anropa API för webbsökning i Bing  
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få JSON-svaret. Det här python-programmet skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att göra ditt första anrop till API för webbsökning i Bing. Det här python-programmet skickar en Sök förfrågan till API: et och visar JSON-svaret. Även om det här programmet är skrivet i python är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Det här exemplet körs som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Välj Start binder-märket:
+Det här exemplet körs som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Om du vill köra den väljer du Start binder-märket:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
@@ -34,28 +34,30 @@ Det här exemplet körs som en Jupyter-anteckningsbok på [MyBinder](https://myb
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Ersätt värdet `subscription_key` med en giltig prenumerationsnyckel från ditt Azure-konto.
+1. Ersätt värdet `subscription_key` med en giltig prenumerationsnyckel från ditt Azure-konto.
 
-```python
-subscription_key = "YOUR_ACCESS_KEY"
-assert subscription_key
-```
+   ```python
+   subscription_key = "YOUR_ACCESS_KEY"
+   assert subscription_key
+   ```
 
-Deklarera slutpunkten för API för webbsökning i Bing. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Deklarera slutpunkten för API för webbsökning i Bing. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
-```python
-search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
-```
+   ```python
+   search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
+   ```
 
-Du kan anpassa sökfrågan genom att ersätta värdet för `search_term`.
+3. Du kan också anpassa Sök frågan genom att ersätta värdet för `search_term` .
 
-```python
-search_term = "Azure Cognitive Services"
-```
+   ```python
+   search_term = "Azure Cognitive Services"
+   ```
 
 ## <a name="make-a-request"></a>Skapa en begäran
 
-Det här blocket använder `requests`-biblioteket för att anropa API för webbsökning i Bing och returnerar resultatet som ett JSON-objekt. API-nyckeln skickas i `headers`-ordlistan, och söktermen samt frågeparametrarna skickas i `params`-ordlistan. Se dokumentationen till [API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) för en fullständig lista över alternativ och parametrar.
+I den här koden används `requests` biblioteket för att anropa API för webbsökning i Bing och returnera resultaten som ett JSON-objekt. API-nyckeln skickas i `headers`-ordlistan, och söktermen samt frågeparametrarna skickas i `params`-ordlistan. 
+
+En fullständig lista över alternativ och parametrar finns i [API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
 
 ```python
 import requests
@@ -69,7 +71,7 @@ search_results = response.json()
 
 ## <a name="format-and-display-the-response"></a>Formatera och visa svaret
 
-`search_results` Objektet innehåller Sök Resultat och metadata som relaterade frågor och sidor. Den här koden använder `IPython.display`-biblioteket för att formatera och visa svaret i webbläsaren.
+`search_results`Objektet innehåller Sök resultaten och sådana metadata som relaterade frågor och sidor. Den här koden använder `IPython.display`-biblioteket för att formatera och visa svaret i webbläsaren.
 
 ```python
 from IPython.display import HTML
@@ -84,11 +86,11 @@ HTML("<table>{0}</table>".format(rows))
 
 ## <a name="sample-code-on-github"></a>Exempelkod på GitHub
 
-Om du vill köra den här koden lokalt [finns det fullständiga exemplet på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingWebSearchv7.py).
+Om du vill köra den här koden lokalt, se det fullständiga [exemplet som finns på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingWebSearchv7.py).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie om app på en sida för Bing-webbsökning](../tutorial-bing-web-search-single-page-app.md)
+> [Själv studie kurs om API för webbsökning i Bing enkel sida](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

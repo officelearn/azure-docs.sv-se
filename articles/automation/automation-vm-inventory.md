@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
 ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5142286bc50620d5a12a0722b3c4f9b8b75f5b73
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745270"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830624"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Hantera inventeringsinsamling från virtuella datorer
 
@@ -112,7 +112,7 @@ Om du vill skapa en ny dator grupp klickar du på **+ skapa en dator grupp**. De
 
 ## <a name="disconnect-your-vm-from-management"></a>Koppla bort den virtuella datorn från hantering
 
-Ta bort den virtuella datorn från inventerings hantering:
+Ta bort den virtuella datorn från Ändringsspårning och inventerings hantering:
 
 1. I den vänstra rutan i Azure Portal väljer du **Log Analytics**och väljer sedan den arbets yta som du använde när du aktiverade den virtuella datorn för ändringsspårning och inventering.
 2. Öppna menyn **resurs** på sidan Log Analytics.
@@ -127,6 +127,6 @@ Ta bort den virtuella datorn från inventerings hantering:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera Ändringsspårning och inventering](change-tracking-file-contents.md)
-* [Spåra program varu ändringar i din miljö med ändringsspårning](../log-analytics/log-analytics-change-tracking.md).
-* [Uppdateringshantering i Azure](../operations-management-suite/oms-solution-update-management.md).
+* Information om hur du arbetar med funktionen finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
+* Om du vill veta mer om spårning av program varu ändringar, se [spåra program varu ändringar i din miljö med ändringsspårning](../log-analytics/log-analytics-change-tracking.md).
+* Information om hur du felsöker allmänna problem med funktionen finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

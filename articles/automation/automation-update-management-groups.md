@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 792f69c900853d76dc260ad1de2e635e47bb2b4a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c440862f1379983d4644fe99f33207456f747d23
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744390"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830947"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Använd dynamiska grupper med Uppdateringshantering
 
@@ -49,4 +49,4 @@ En dynamisk grupp för datorer som inte är Azure-datorer använder sparade sök
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md)
+Information om hur du arbetar med Uppdateringshantering finns i [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).

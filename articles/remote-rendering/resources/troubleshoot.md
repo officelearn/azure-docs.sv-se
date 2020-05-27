@@ -5,16 +5,21 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b518b2b92ba6d2529ffdefce754a3b29b74fb21b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b6cb9c70de27e40c62d6a7adeece5cb39554c090
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674287"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844580"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
 Den här sidan listar vanliga problem som stör Azure-fjärrrendering och sätt att lösa dem.
+
+## <a name="cant-link-storage-account-to-arr-account"></a>Det går inte att länka lagrings kontot till ARR-kontot
+
+Ibland visas inte det fjärranslutna åter givnings kontot under [länkningen av ett lagrings konto](../how-tos/create-an-account.md#link-storage-accounts) . Åtgärda problemet genom att gå till kontot ARR i Azure Portal och välja **identitet** under gruppen **Inställningar** till vänster. Kontrol lera att **status** har angetts till **på**.
+![Unity Frame debugger](./media/troubleshoot-portal-identity.png)
 
 ## <a name="client-cant-connect-to-server"></a>Klienten kan inte ansluta till servern
 

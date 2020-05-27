@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: b9b72fb9e80c588eb3e6642d0228bffa50b35c6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58757dba9a8956d97c19269c2ac913d801f73746
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681303"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844513"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Skapa ett Azure Remote Rendering-konto
 
@@ -81,9 +81,12 @@ Nu förutsätts det att du har ett lagrings konto. Navigera till lagrings kontot
 
 ![IAM för lagrings konto](./media/azure-add-role-assignment.png)
 
-* Den första rollen som ska tilldelas är **ägare** som visas i skärm bilden ovan. 
-* Välj **fjärrstyrt konto** i list rutan ***tilldela åtkomst till** .
+* Den första rollen som ska tilldelas är **ägare** som visas i skärm bilden ovan.
+* Välj **fjärrstyrt konto** från List rutan **tilldela åtkomst till** .
 * Välj din prenumeration och fjärråter givnings konto i de sista List rutorna.
+
+> [!WARNING]
+> Om ditt konto för fjärrrendering inte visas i listan, se det här [fel söknings avsnittet](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Upprepa att lägga till nya roller två gånger för respektive val i list rutan **roll** :
 * **Lagringskontodeltagare**
@@ -95,6 +98,6 @@ Om du har lagt till alla tre roller har ditt Azure Remote rendering-konto åtkom
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Autentisering](authentication.md)
+* [Anspråksautentisering](authentication.md)
 * [Använda Azure-frontend-API: er för autentisering](frontend-apis.md)
 * [PowerShell-exempelskript](../samples/powershell-example-scripts.md)

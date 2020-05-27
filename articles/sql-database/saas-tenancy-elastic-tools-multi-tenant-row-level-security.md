@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: fc08916967b4d64667065373cf2d0828a05069d0
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 0d41e1cb1d022ffd9eff2320d462304c6f1a8a9d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890949"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836642"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Program med flera klienter med elastiska databas verktyg och säkerhet på radnivå
 
@@ -36,7 +36,7 @@ Målet är att använda [data beroende](sql-database-elastic-scale-data-dependen
 
 ## <a name="download-the-sample-project"></a>Hämta exempel projektet
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Använda Visual Studio (2012 eller högre)
 - Skapa tre Azure SQL-databaser
@@ -53,18 +53,18 @@ Skapa och kör programmet. Den här körningen startar starter av elastiska data
 
 Observera att eftersom RLS ännu inte har Aktiver ATS i Shard-databaserna visar var och en av dessa tester ett problem: innehavare kan se Bloggar som inte tillhör dem och programmet hindras inte från att infoga en blogg för fel klient. Resten av den här artikeln beskriver hur du löser problemen genom att tvinga klient isolering med RLS. Det finns två steg:
 
-1. **Program nivå**: ändra program koden så att den alltid anger aktuellt TENANTID i sessionens\_kontext när du har öppnat en anslutning. Detta exempel projekt anger redan TenantId på det här sättet.
-2. **Datanivå**: skapa en säkerhets princip för RLS i varje Shard-databas för att filtrera rader baserat på det TenantId\_som lagras i sessionen. Skapa en princip för var och en av dina Shard-databaser, annars filtreras inte rader i Shards med flera innehavare.
+1. **Program nivå**: ändra program koden så att den alltid anger aktuellt TENANTID i sessionens \_ kontext när du har öppnat en anslutning. Detta exempel projekt anger redan TenantId på det här sättet.
+2. **Datanivå**: skapa en säkerhets princip för RLS i varje Shard-databas för att filtrera rader baserat på det TenantId som lagras i sessionen \_ . Skapa en princip för var och en av dina Shard-databaser, annars filtreras inte rader i Shards med flera innehavare.
 
-## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. program nivå: Ange TenantId i SESSION\_-kontexten
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. program nivå: Ange TenantId i SESSION- \_ kontexten
 
-Först ansluter du till en Shard-databas med hjälp av API: er för data beroende routning i klient biblioteket för Elastic Database. Programmet måste fortfarande meddela databasen som TenantId använder anslutningen. TenantId talar om vilken säkerhets princip för RLS som rader måste filtreras efter som tillhör andra klienter. Lagra aktuellt TenantId i [\_sessions-kontexten](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) för anslutningen.
+Först ansluter du till en Shard-databas med hjälp av API: er för data beroende routning i klient biblioteket för Elastic Database. Programmet måste fortfarande meddela databasen som TenantId använder anslutningen. TenantId talar om vilken säkerhets princip för RLS som rader måste filtreras efter som tillhör andra klienter. Lagra aktuellt TenantId i [sessions- \_ kontexten](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) för anslutningen.
 
-Ett alternativ till SESSION\_Context är att använda [Sammanhangs\_information](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Men SESSIONs\_-kontexten är ett bättre alternativ. Det\_är enklare att använda sessions-kontexten, den returnerar null som standard och stöder nyckel/värde-par.
+Ett alternativ till SESSION \_ Context är att använda [Sammanhangs \_ information](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Men SESSIONs- \_ kontexten är ett bättre alternativ. \_Det är enklare att använda sessions-kontexten, den returnerar null som standard och stöder nyckel/värde-par.
 
 ### <a name="entity-framework"></a>Entity Framework
 
-För program som använder Entity Framework är den enklaste metoden att ställa in SESSIONens\_kontext i ElasticScaleContext-åsidosättningen som beskrivs i [data beroende routning med EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Skapa och kör en SqlCommand som anger TenantId i sessionen\_i kontexten till shardingKey som har angetts för anslutningen. Returnera sedan anslutnings utjämning via data beroende routning. På så sätt behöver du bara skriva kod en gång för att ställa in\_sessions-kontexten.
+För program som använder Entity Framework är den enklaste metoden att ställa in SESSIONens \_ kontext i ElasticScaleContext-åsidosättningen som beskrivs i [data beroende routning med EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Skapa och kör en SqlCommand som anger TenantId i sessionen i \_ kontexten till shardingKey som har angetts för anslutningen. Returnera sedan anslutnings utjämning via data beroende routning. På så sätt behöver du bara skriva kod en gång för att ställa in SESSIONs- \_ kontexten.
 
 ```csharp
 // ElasticScaleContext.cs
@@ -122,7 +122,7 @@ public static SqlConnection OpenDDRConnection(
 // ...
 ```
 
-Nu anges SESSIONs\_kontexten automatiskt med det angivna TenantId när ElasticScaleContext anropas:
+Nu anges SESSIONs \_ kontexten automatiskt med det angivna TenantId när ElasticScaleContext anropas:
 
 ```csharp
 // Program.cs
@@ -146,7 +146,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### <a name="adonet-sqlclient"></a>ADO.NET SqlClient
 
-För program som använder ADO.NET SqlClient skapar du en wrapper-funktion runt metoden ShardMap. OpenConnectionForKey. Ange att omslutningen automatiskt ska ange TenantId\_i sessionens kontext till det aktuella TenantId innan en anslutning returneras. För att säkerställa att\_sessions sammanhang alltid är inställt, bör du bara öppna anslutningar med den här funktionen.
+För program som använder ADO.NET SqlClient skapar du en wrapper-funktion runt metoden ShardMap. OpenConnectionForKey. Ange att omslutningen automatiskt ska ange TenantId i SESSIONens \_ kontext till det aktuella TenantId innan en anslutning returneras. För att säkerställa att SESSIONs \_ sammanhang alltid är inställt, bör du bara öppna anslutningar med den här funktionen.
 
 ```csharp
 // Program.cs
@@ -216,16 +216,16 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Skapa en säkerhets princip för att filtrera de rader som varje innehavare har åtkomst till
 
-Nu när programmet ställer in en SESSIONSNYCKEL\_med aktuellt tenantid innan du frågar, kan en RLS-säkerhets princip filtrera frågor och utesluta rader som har ett annat TenantId.
+Nu när programmet ställer in en SESSIONSNYCKEL \_ med aktuellt tenantid innan du frågar, kan en RLS-säkerhets princip filtrera frågor och utesluta rader som har ett annat TenantId.
 
 RLS implementeras i Transact-SQL. En användardefinierad funktion definierar åtkomst logiken och en säkerhets princip binder funktionen till valfritt antal tabeller. För det här projektet:
 
-1. Funktionen kontrollerar att programmet är anslutet till databasen och att TenantId som lagras i SESSIONens\_kontext matchar tenantid för en specifik rad.
+1. Funktionen kontrollerar att programmet är anslutet till databasen och att TenantId som lagras i SESSIONens \_ kontext matchar tenantid för en specifik rad.
     - Programmet är anslutet, i stället för någon annan SQL-användare.
 
 2. Ett FILTER-predikat tillåter att rader som uppfyller TenantId-filtret passerar för URVALs-, UPPDATERINGs-och BORTTAGNINGs frågor.
     - Ett BLOCK-predikat förhindrar att rader som inte uppfyller filtret infogas eller uppdateras.
-    - Om SESSION\_context inte har angetts returnerar funktionen null och inga rader är synliga eller kan infogas.
+    - Om SESSION \_ context inte har angetts returnerar funktionen null och inga rader är synliga eller kan infogas.
 
 Om du vill aktivera RLS på alla Shards kör du följande T-SQL med hjälp av antingen Visual Studio (SSDT), SSMS eller PowerShell-skriptet som ingår i projektet. Eller om du använder [Elastic Database jobb](elastic-jobs-overview.md)kan du automatisera körningen av det här T-SQL på alla Shards.
 
@@ -268,7 +268,7 @@ GO
 
 ### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>Lägg till standard begränsningar för att automatiskt fylla TenantId för infogningar
 
-Du kan ange en standard begränsning för varje tabell för att automatiskt fylla i TenantId med det värde som lagras i\_sessionens kontext när rader infogas. Ett exempel följer.
+Du kan ange en standard begränsning för varje tabell för att automatiskt fylla i TenantId med det värde som lagras i SESSIONens \_ kontext när rader infogas. Ett exempel följer.
 
 ```sql
 -- Create default constraints to auto-populate TenantId with the
@@ -301,14 +301,14 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 > [!NOTE]
-> Om du använder standard begränsningar för ett Entity Framework-projekt rekommenderar vi att du *inte* tar med kolumnen TenantId i din EF-datamodell. Den här rekommendationen beror på att Entity Framework frågor automatiskt tillhandahåller standardvärden som åsidosätter standard begränsningar som skapats i T-SQL\_och som använder session context.
+> Om du använder standard begränsningar för ett Entity Framework-projekt rekommenderar vi att du *inte* tar med kolumnen TenantId i din EF-datamodell. Den här rekommendationen beror på att Entity Framework frågor automatiskt tillhandahåller standardvärden som åsidosätter standard begränsningar som skapats i T-SQL och som använder SESSION \_ context.
 > Om du vill använda standard begränsningar i exempelprojektet, till exempel, bör du ta bort TenantId från DataClasses.cs (och köra Lägg till migrering i Package Manager-konsolen) och använda T-SQL för att se till att fältet endast finns i databas tabellerna. På så sätt anger EF automatiskt felaktiga standardvärden när data infogas.
 
 ### <a name="optional-enable-a-superuser-to-access-all-rows"></a>Valfritt Aktivera en *superanvändare* för åtkomst till alla rader
 
 Vissa program kanske vill skapa en *superanvändare* som har åtkomst till alla rader. En superanvändare kan aktivera rapportering för alla klienter på alla Shards. Eller en superanvändare kan utföra delade sammanslagnings åtgärder på Shards som involverar flytt av klient rader mellan databaser.
 
-Om du vill aktivera en superanvändare skapar du en`superuser` ny SQL-användare (i det här exemplet) i varje Shard-databas. Ändra sedan säkerhets principen med en ny predika-funktion som ger användaren åtkomst till alla rader. En sådan funktion anges härnäst.
+Om du vill aktivera en superanvändare skapar du en ny SQL-användare ( `superuser` i det här exemplet) i varje Shard-databas. Ändra sedan säkerhets principen med en ny predika-funktion som ger användaren åtkomst till alla rader. En sådan funktion anges härnäst.
 
 ```sql
 -- New predicate function that adds superuser logic.
@@ -357,7 +357,7 @@ Elastiska databas verktyg och säkerhet på radnivå kan användas tillsammans f
 
 ## <a name="questions-and-feature-requests"></a>Frågor och funktions begär Anden
 
-Om du har frågor kan du kontakta oss i [SQL Database-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Och Lägg till eventuella funktions förfrågningar till [forumen SQL Database feedback](https://feedback.azure.com/forums/217321-sql-database/).
+Om du har frågor kan du kontakta oss på [sidan Microsoft Q&en fråga för SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html). Och Lägg till eventuella funktions förfrågningar till [forumen SQL Database feedback](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png

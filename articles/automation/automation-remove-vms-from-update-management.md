@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 29d6edd5463de78bba039e4ed6219575d924ac10
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 26a38c0851643fbd6446acddd99a05abf8d5b26c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749146"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836659"
 ---
 # <a name="remove-vms-from-update-management"></a>Ta bort virtuella datorer från Uppdateringshantering
 
@@ -40,12 +40,7 @@ När du är klar med att distribuera uppdateringar av virtuella datorer i din mi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md)
-* [Ta bort länken mellan arbets ytan och automation-kontot för Uppdateringshantering](automation-unlink-workspace-update-management.md)
-* [Aktivera Uppdateringshantering från ett Automation-konto](automation-onboard-solutions-from-automation-account.md)
-* [Aktivera Uppdateringshantering från Azure Portal](automation-onboard-solutions-from-browse.md)
-* [Aktivera Uppdateringshantering från en Runbook](automation-onboard-solutions.md)
-* [Aktivera Uppdateringshantering från en virtuell Azure-dator](automation-onboard-solutions-from-vm.md)
-* [Felsöka Uppdateringshantering problem](troubleshoot/update-management.md)
-* [Felsök problem med Windows Update-agenten](troubleshoot/update-agent-issues.md)
-* [Felsök problem med Linux-uppdaterings agent](troubleshoot/update-agent-issues-linux.md)
+* Information om hur du fortsätter att arbeta med Uppdateringshantering finns i [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).
+* Information om hur du löser allmänna funktions problem finns i [felsöka uppdateringshantering problem](troubleshoot/update-management.md).
+* Problem med Windows Update-agenten finns i [Felsöka problem med Windows Update-agenten](troubleshoot/update-agent-issues.md).
+* Information om problem med Linux Update-agenten finns i [Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).

@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/24/2020
-ms.openlocfilehash: 10b53da1ef277d7a3d6ab7c850192ce8f08ded68
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.date: 05/22/2020
+ms.openlocfilehash: 1418b26a2a498c43ff61f42b2761c59cbca5d0f4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712680"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837152"
 ---
 # <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Skapa ett Automation-konto med hjälp av en Azure Resource Manager mall
 
@@ -26,6 +26,8 @@ Mallen automatiserar inte aktiveringen av virtuella datorer i Azure eller icke-A
 
 >[!NOTE]
 >Det går inte att skapa Automation-kör som-kontot när du använder en Azure Resource Manager-mall. Information om hur du skapar ett Kör som-konto manuellt från portalen eller med PowerShell finns i [Hantera kör som-konton](manage-runas-account.md).
+
+När du har slutfört de här stegen måste du [Konfigurera diagnostikinställningar](automation-manage-send-joblogs-log-analytics.md) för ditt Automation-konto så att Runbook-jobbets status och jobb strömmar skickas till den länkade Log Analytics-arbetsytan. 
 
 ## <a name="api-versions"></a>API-versioner
 
@@ -310,6 +312,4 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en PowerShell-runbook](automation-first-runbook-textual-powershell.md)
-* [Skapa en PowerShell Workflow-Runbook](automation-first-runbook-textual.md)
-* [Skapa en Python-runbook](automation-first-runbook-textual-python2.md)
+Om du vill vidarebefordra status och jobb strömmar för Runbook-jobb till den länkade Log Analytics arbets ytan granskar du [vidarebefordra Azure Automation jobb data till Azure Monitor loggar](automation-manage-send-joblogs-log-analytics.md). Detta konfigurerar diagnostikinställningar för Automation-kontot med hjälp av Azure PowerShell kommandon för att slutföra integrationen av att skicka loggar till arbets ytan för analys. 

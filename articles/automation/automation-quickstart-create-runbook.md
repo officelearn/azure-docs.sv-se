@@ -6,12 +6,12 @@ ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: a784ddbc2ab1298bec3e2dc21469785163d7a228
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 0717a7ac3cc663ff68ba96864aa5d37732337ca5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712000"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836744"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Skapa en Azure Automation-runbook
 
@@ -98,4 +98,4 @@ Ta bort din runbook när den inte längre behövs. Det gör du genom att markera
 I den här snabbstarten har du skapat, redigerat, testat och publicerat en runbook och startat ett runbookjobb. Om du vill lära dig mer om Automation-runbooks fortsätter du till artikeln om olika runbooktyper du kan skapa och använda i Automation.
 
 > [!div class="nextstepaction"]
-> [Automation-anvisningar – Runbooktyper](./automation-runbook-types.md)
+> [Azure Automation Runbook-typer](./automation-runbook-types.md)

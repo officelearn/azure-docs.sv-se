@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 65f21450f194175af37c6c198468978392cee462
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd32d176b3e8821236f39dd1677d6dbe78b40adb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195170"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836081"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Stöd för program vara med öppen källkod i Azure HDInsight
 
@@ -40,7 +40,7 @@ Som användare av klustret kan du installera eller använda i din arbets belastn
 > [!WARNING]  
 > Komponenter som ingår i HDInsight-klustret stöds fullt ut. Microsoft Support hjälper till att isolera och lösa problem som rör dessa komponenter.
 >
-> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Microsoft Support kanske kan lösa problemet. Du kan också be dig att engagera tillgängliga kanaler för teknikerna med öppen källkod där djupgående expertis för tekniken hittas. Många Community-webbplatser kan användas. Exempel är [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) och [Stack Overflow](https://stackoverflow.com).
+> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Microsoft Support kanske kan lösa problemet. Du kan också be dig att engagera tillgängliga kanaler för teknikerna med öppen källkod där djupgående expertis för tekniken hittas. Många Community-webbplatser kan användas. Exempel är [Microsoft Q&en fråge sida för HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) och [Stack Overflow](https://stackoverflow.com).
 >
 > Apache-projekt har också projekt webbplatser på [Apache-webbplatsen](https://apache.org). Ett exempel är [Hadoop](https://hadoop.apache.org/).
 
@@ -48,7 +48,7 @@ Som användare av klustret kan du installera eller använda i din arbets belastn
 
 HDInsight-tjänsten tillhandahåller flera olika sätt att använda anpassade komponenter. Samma nivå av support gäller, oavsett hur en komponent används eller installeras i klustret. I följande tabell beskrivs de vanligaste sätten att använda anpassade komponenter i HDInsight-kluster:
 
-|Användning |Beskrivning |
+|Användning |Description |
 |---|---|
 |Jobb överföring|Hadoop eller andra typer av jobb som kör eller använder anpassade komponenter kan skickas till klustret.|
 |Kluster anpassning|När klustret skapas kan du ange ytterligare inställningar och anpassade komponenter som är installerade på klusternoderna.|

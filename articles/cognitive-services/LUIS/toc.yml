@@ -181,6 +181,8 @@
       href: luis-get-started-get-intent-from-browser.md
     - name: Migrera
       items:
+        - name: Översikt
+          href: migration.md
         - name: Migrera från sammansatt entitet
           href: migrate-from-composite-entity.md
         - name: Migrera till redigeringsresurs

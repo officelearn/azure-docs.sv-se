@@ -5,18 +5,14 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 1bd94beaa40f6ff793b50e261138cc31453f7016
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 22cb49c414e21e5c47330f2c67fc2cf30e3364b2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749167"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836676"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>Ta bort virtuella datorer från Ändringsspårning och inventering
-
-## <a name="sign-in-to-azure"></a>Logga in på Azure
-
-Logga in på Azure Portal på https://portal.azure.com.
 
 När du är klar med att distribuera ändringar av virtuella datorer i din miljö kan du ta bort dem från [ändringsspårning-och inventerings](change-tracking.md) funktionen.
 
@@ -40,12 +36,5 @@ När du är klar med att distribuera ändringar av virtuella datorer i din milj�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över Ändringsspårning och inventering](change-tracking.md)
-* [Hantera Ändringsspårning och inventering](change-tracking-file-contents.md)
-* [Ta bort länken mellan arbets ytan och automation-kontot för Ändringsspårning och inventering](automation-unlink-workspace-change-tracking.md)
-* [Aktivera Ändringsspårning och inventering från ett Automation-konto](automation-enable-changes-from-auto-acct.md)
-* [Aktivera Ändringsspårning och inventering från Azure Portal](automation-enable-changes-from-browse.md)
-* [Aktivera Ändringsspårning och inventering från en Runbook](automation-enable-changes-from-runbook.md)
-* [Aktivera Ändringsspårning och inventering från en virtuell Azure-dator](automation-enable-changes-from-vm.md)
-* [Felsöka ändringar på en virtuell Azure-dator](automation-tutorial-troubleshoot-changes.md)
-* [Felsöka Ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md)
+* Information om hur du fortsätter att arbeta med Ändringsspårning och inventering finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
+* Information om hur du löser allmänna funktions problem finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

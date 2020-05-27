@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc68b53137175042f586ee83bc045f0fbbca38f7
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f7e24e1b4546c76348e61e3c2736fcfe4b66410d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713292"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836948"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integrera med Azure Monitor loggar
 
@@ -30,7 +30,7 @@ Azure Monitor-loggar ger bättre drifts insyn i konfigurations data för Automat
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna börja skicka konfigurations rapporter för automatiserings tillstånd till Azure Monitor loggar behöver du:
 
@@ -191,15 +191,14 @@ Azure Automation diagnostik skapar du två kategorier med poster i Azure Monitor
 | ResourceType | AUTOMATIONACCOUNTS. |
 | CorrelationId |GUID som är den efterföljande rapportens korrelations-ID. |
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt finns i [Azure Automation tillstånds konfiguration](automation-dsc-overview.md).
-- Information om hur du kommer igång finns i [komma igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md).
-- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
+- En översikt finns i [Översikt över Azure Automation tillstånds konfiguration](automation-dsc-overview.md).
+- Information om hur du kommer igång finns i [Kom igång med Azure Automation tillstånds konfiguration](automation-dsc-getting-started.md).
+- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
 - En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - Pris information finns i pris information för [Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
-- Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [kontinuerlig distribution med Azure Automation tillstånds konfiguration och choklad](automation-dsc-cd-chocolatey.md).
+- Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [Konfigurera kontinuerlig distribution med choklad](automation-dsc-cd-chocolatey.md).
 - Mer information om hur du skapar olika Sök frågor och granskar konfigurations loggarna för Automation-tillstånd med Azure Monitor loggar finns [i loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
 - Mer information om Azure Monitor loggar och data insamlings källor finns i [samla in Azure Storage-data i Azure Monitor loggar översikt](../azure-monitor/platform/collect-azure-metrics-logs.md).

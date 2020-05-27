@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: a3893c8d19c89b639e0584f203cbcd1adf7e2dee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: edea04e15fe5b844654f250a22a05a753f0df123
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80474841"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836404"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 
@@ -32,10 +32,10 @@ Vi vill höra från våra kunder så att vi kan fokusera på att åtgärda probl
 ## <a name="known-issues"></a><a id="issues"/>Kända problem
 ### <a name="media-services-general-issues"></a><a id="general_issues"/>Media Services allmänna problem
 
-| Problem | Beskrivning |
+| Problem | Description |
 | --- | --- |
 | Det finns flera vanliga HTTP-huvuden i REST API. |Om du utvecklar Media Services program med hjälp av REST API, ser du att några vanliga HTTP-huvudfält (inklusive CLIENT-REQUEST-ID, begärande-ID och retur-CLIENT-REQUEST-ID) inte stöds. Rubrikerna kommer att läggas till i en framtida uppdatering. |
-| Procent-encoding är inte tillåtet. |Media Services använder värdet för egenskapen IAssetFile.Name när du skapar URL: er för strömmande innehåll (till exempel `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Därför är procent kodning inte tillåten. Värdet för namn egenskapen får inte ha något av följande [%-encoding-reserverade tecken](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! * ' ();: @ &= + $,/?% # [] ". Det kan också finnas en "." för fil namns tillägget. |
+| Procent-encoding är inte tillåtet. |Media Services använder värdet för egenskapen IAssetFile.Name när du skapar URL: er för strömmande innehåll (till exempel `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters` ). Därför är procent kodning inte tillåten. Värdet för namn egenskapen får inte ha något av följande [%-encoding-reserverade tecken](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! * ' ();: @ &= + $,/?% # [] ". Det kan också finnas en "." för fil namns tillägget. |
 | ListBlobs-metoden som ingår i Azure Storage SDK version 3. x Miss lyckas. |Media Services genererar SAS-URL: er baserat på [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) -versionen. Om du vill använda Storage SDK för att lista blobbar i en BLOB-behållare använder du metoden [CloudBlobContainer. ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) som ingår i Storage SDK version 2. x. |
 | Den Media Services begränsnings metoden begränsar resursanvändningen för program som gör orimliga begär anden till tjänsten. Tjänsten kan returnera HTTP-statuskod "tjänst ej tillgänglig" 503. |Mer information finns i beskrivningen av HTTP-statuskoden 503 i [Media Services fel koder](media-services-encoding-error-codes.md). |
 | När du frågar entiteter returneras en gräns på 1 000 entiteter vid en tidpunkt eftersom den offentliga REST-versionen 2 begränsar frågeresultat till 1 000-resultat. |Använd hoppa över och ta (.NET)/Top (REST) enligt beskrivningen i [det här .net-exemplet](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) och [det här REST API exemplet](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
@@ -253,13 +253,13 @@ Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/azur
 ## <a name="august-2015-release"></a><a id="august_changes_15"></a>Version augusti 2015
 * Media Services SDK för Java-version 0.8.0-versionen och nya exempel är nu tillgängliga. Mer information finns i:
     
-* Azure Media Player har uppdaterats med stöd för flera ljud strömmar. Mer information finns i [det här blogg inlägget](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
+* Azure Media Player har uppdaterats med stöd för flera ljud strömmar. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
 ## <a name="july-2015-release"></a><a id="july_changes_15"></a>Version juli 2015
-* Den allmänna tillgängligheten för Media Encoder Standard annonserades. Mer information finns i [det här blogg inlägget](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+* Den allmänna tillgängligheten för Media Encoder Standard annonserades. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
     Media Encoder Standard använder för inställningar enligt beskrivningen i [det här avsnittet](https://go.microsoft.com/fwlink/?LinkId=618336). När du använder en för inställning för 4K-kodningar hämtar du den reserverade enhets typen Premium. Mer information finns i [skala kodning](media-services-scale-media-processing-overview.md).
-* Real tids textning i real tid användes med Media Services och Media Player. Mer information finns i [det här blogg inlägget](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
+* Real tids textning i real tid användes med Media Services och Media Player. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK-uppdateringar
 Media Services .NET SDK är nu version 3.4.0.0. Följande uppdateringar har gjorts: 
@@ -573,7 +573,7 @@ Följande funktioner var nya i november-versionen av SDK:
 <!-- Images. -->
 
 <!--- URLs. --->
-[Azure Media Services MSDN-forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Microsoft Q&A question page for Azure Media Services]: https://docs.microsoft.com/answers/topics/azure-media-services.html
 [Azure Media Services REST API referens]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Inkommande metadata]: https://msdn.microsoft.com/library/azure/dn783120.aspx

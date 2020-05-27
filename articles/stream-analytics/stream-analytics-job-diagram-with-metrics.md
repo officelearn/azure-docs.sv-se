@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 00e1175cc85f1c34260c5e03ed3f81ac25cf7448
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426079"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836506"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Datadriven felsökning med hjälp av jobbdiagrammet
 
@@ -79,7 +79,7 @@ Om föregående processteg är en ingångs processor använder du måtten för i
 
 
 ## <a name="get-help"></a>Få hjälp
-Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+Om du behöver ytterligare hjälp kan du prova vår [sida om Microsoft Q&en fråga för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Stream Analytics](stream-analytics-introduction.md)

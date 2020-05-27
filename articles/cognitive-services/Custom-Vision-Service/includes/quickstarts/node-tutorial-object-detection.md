@@ -3,16 +3,16 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: 6120e78edb31970f84244bdc25a64b3573cd5c3c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cc4cd4b099a37ef103e2da79b8c15269008e7423
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134091"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837883"
 ---
 Den här artikeln visar hur du kommer igång med Custom Vision SDK med Node. js för att skapa en modell för objekt identifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa ditt eget Node.js-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Node.js 8](https://www.nodejs.org/en/download/) eller senare installerat.
 - [npm](https://www.npmjs.com/) installerat.
@@ -45,6 +45,7 @@ const fs = require('fs');
 const util = require('util');
 const TrainingApi = require("@azure/cognitiveservices-customvision-training");
 const PredictionApi = require("@azure/cognitiveservices-customvision-prediction");
+const msRest = require("@azure/ms-rest-js");
 
 const setTimeoutPromise = util.promisify(setTimeout);
 
@@ -57,7 +58,8 @@ const endPoint = "https://<my-resource-name>.cognitiveservices.azure.com/"
 
 const publishIterationName = "detectModel";
 
-const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
+const credentials = new msRest.ApiKeyCredentials({ inHeader: { "Training-key": trainingKey } });
+const trainer = new TrainingApi.TrainingAPIClient(credentials, endPoint);
 
 /* Helper function to let us use await inside a forEach loop.
  * This lets us insert delays between image uploads to accommodate the rate limit.
@@ -197,7 +199,9 @@ await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIt
 Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
 ```javascript
-    const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);
+    const predictor_credentials = new msRest.ApiKeyCredentials({ inHeader: { "Prediction-key": predictionKey } });
+    const predictor = new PredictionApi.PredictionAPIClient(predictor_credentials, endPoint);
+
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_od_image.jpg`);
 
     const results = await predictor.detectImage(sampleProject.id, publishIterationName, testFile)
@@ -210,7 +214,7 @@ Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förut
 })()
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Kör *sample.js*.
 

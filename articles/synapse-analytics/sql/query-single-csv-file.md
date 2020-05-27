@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c0e4208f4f9a01bc42d4c6134ec3ec4fb1cb19fd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 41c4a8940cc49a3859a2511f0de65d0019817078
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744287"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836557"
 ---
 # <a name="query-csv-files"></a>Fråga CSV-filer
 
@@ -27,12 +27,9 @@ I den här artikeln får du lära dig hur du frågar en enkel CSV-fil med SQL p�
 
 Alla ovanstående variationer kommer att täckas av nedan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Läs följande artiklar innan du läser resten av den här artikeln:
-
-- [Installation vid första tiden](query-data-storage.md#first-time-setup)
-- [Förutsättningar](query-data-storage.md#prerequisites)
+Ditt första steg är att **skapa en databas** där tabellerna ska skapas. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
 ## <a name="windows-style-new-line"></a>Ny rad i Windows-format
 
@@ -45,8 +42,9 @@ Fil för hands version:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV',
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
@@ -72,7 +70,8 @@ Fil för hands version:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
+        BULK 'csv/population-unix/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a'
@@ -99,7 +98,8 @@ Fil för hands version:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr/population.csv',
+        BULK 'csv/population-unix-hdr/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         FIRSTROW = 2
@@ -126,7 +126,8 @@ Fil för hands version:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-quoted/population.csv',
+        BULK 'csv/population-unix-hdr-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
@@ -158,7 +159,8 @@ Fil för hands version:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-escape/population.csv',
+        BULK 'csv/population-unix-hdr-escape/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
@@ -189,7 +191,8 @@ Fil för hands version:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-tsv/population.csv',
+        BULK 'csv/population-unix-hdr-tsv/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR ='\t',
         ROWTERMINATOR = '0x0a',
@@ -219,14 +222,15 @@ Följande fråga returnerar antalet distinkta lands-/region namn i en fil och an
 SELECT
     COUNT(DISTINCT country_name) AS countries
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV',
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
 WITH (
-    --[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2 2
+    --[country_code] VARCHAR (5),
+    [country_name] VARCHAR (100) 2
     --[year] smallint,
     --[population] bigint
 ) AS [r]

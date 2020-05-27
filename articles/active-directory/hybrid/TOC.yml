@@ -278,6 +278,8 @@
           href: how-to-connect-sync-feature-scheduler.md
         - name: Skapa och anpassa en synkroniseringsregel
           href: how-to-connect-create-custom-sync-rule.md
+        - name: Slutpunkts-API för Azure AD Connect-synkronisering v2
+          href: how-to-connect-sync-endpoint-api-v2.md
         - name: Tjänsthanterare för Azure AD Connect-synkronisering
           items:
             - name: Hantera åtgärdsfliken för tjänsthanteraren

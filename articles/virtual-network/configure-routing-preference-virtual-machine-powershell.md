@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 1b23340840c2b88ea3f4f9927364bd3e01d8d55a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8325d63881c72a795e3b9e9a6d1d8498c84972ad
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598446"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829332"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Konfigurera Dirigerings inställningar för en virtuell dator med hjälp av Azure PowerShell
 
@@ -32,7 +32,7 @@ Den här artikeln visar hur du skapar en virtuell dator med en offentlig IP-adre
 ## <a name="register-the-feature-for-your-subscription"></a>Registrera funktionen för din prenumeration
 Funktionen routning för inställningar är för närvarande en för hands version. Registrera funktionen för din prenumeration på följande sätt:
 ```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp

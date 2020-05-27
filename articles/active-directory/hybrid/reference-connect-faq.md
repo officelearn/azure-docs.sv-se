@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5aa30bc819531ee8cc9cd337648a6cbc661bb29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ad8990512cb09f6048b169c1d0c0a259a62b61b
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77149821"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827156"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect vanliga frågor och svar
 
@@ -218,7 +218,7 @@ Ja, du måste fortfarande uppgradera till version 1.1.750.0 eller senare. Aktive
 Du behöver inte känna till det användar namn och lösen ord som ursprungligen användes för att uppgradera Azure AD Connect. Använd valfritt Azure AD-konto som har rollen global administratör.
 
 **F: Hur kan jag ta reda på vilken version av Azure AD Connect jag använder?**  
-Du kan kontrol lera vilken version av Azure AD Connect som är installerad på servern genom att gå till kontroll panelen och leta upp den installerade versionen av Microsoft Azure AD Anslut genom att välja **program** > **program och funktioner**, som du ser här:
+Du kan kontrol lera vilken version av Azure AD Connect som är installerad på servern genom att gå till kontroll panelen och leta upp den installerade versionen av Microsoft Azure AD Anslut genom att välja **program**  >  **program och funktioner**, som du ser här:
 
 ![Azure AD Connect version på kontroll panelen](./media/reference-connect-faq/faq1.png)
 
@@ -265,9 +265,9 @@ Om du behöver hjälp med att uppgradera till en nyare version av Azure AD Conne
 
 * Sök i KB efter tekniska lösningar på vanliga problem med att avbryta frågor om stöd för Azure AD Connect.
 
-[Azure Active Directory forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+[Sidan Microsoft Q&en fråga för Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
-* Sök efter tekniska frågor och svar eller Ställ egna frågor genom att gå till [Azure AD-communityn](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+* Sök efter tekniska frågor och svar eller Ställ egna frågor genom att gå till [Azure AD-communityn](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
 
 [Få support för Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 

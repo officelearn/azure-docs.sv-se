@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 94bcba80e5768d57e3dc97bed1a74a8369ac60b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9e35f5c9288860056a910f54f9601b2178a628bb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422895"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828091"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Ändra nyckelvalvsklient-ID efter en prenumerationsflytt
 
@@ -61,4 +61,4 @@ Om du använder MSI måste du också uppdatera MSI-identiteten eftersom den gaml
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har några frågor om Azure Key Vault kan du besöka [Azure Key Vault-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Om du har frågor om Azure Key Vault går du till [sidan Microsoft Q&en fråga för Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

@@ -8,12 +8,12 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 04/27/2020
-ms.openlocfilehash: c9ac8d7ea465a26d29bf8f8fbc15dcefaf9d7575
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2edd5b661240b6156cf8a02059b2b9a668c402f3
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187287"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829128"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Felsöka data flöden i Azure Data Factory
 
@@ -82,7 +82,7 @@ Om du vill ha mer fel söknings hjälp kan du prova följande resurser:
 *  [Data Factory blogg](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory funktions begär Anden](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure-videor](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
+*  [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum för Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter-information om Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Prestanda guide för ADF-mappning av data flöden](concepts-data-flow-performance.md)

@@ -11,16 +11,16 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: b27b046d53a45c91d0a55a468758386437a7a6a5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9606bf0108186cd73adbdb38aef3ac428da229d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739672"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828414"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Återställa ditt arbets-eller skol lösen ord med hjälp av säkerhets information
 
-Om du har glömt lösen ordet till ditt arbets-eller skol konto, fick du aldrig ett lösen ord från din organisation eller har låsts av ditt konto, kan du använda din säkerhets information och din mobila enhet för att återställa lösen ordet till ditt arbets-eller skol konto. Administratören måste aktivera den här funktionen så att du kan ställa in din information och återställa ditt eget lösen ord.
+Om du har glömt lösen ordet till ditt arbets-eller skol konto, fick du aldrig ett lösen ord från din organisation eller har låsts av ditt konto, kan du använda din säkerhets information och din mobila enhet för att återställa lösen ordet till ditt arbets-eller skol konto. Administratören måste aktivera den här funktionen så att du kan ställa in din information och [återställa ditt eget lösen ord](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
 
 Om du känner till ditt lösen ord, men vill ändra det, kan du läsa avsnittet [ändra lösen ords steg](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) i den här artikeln.
 
@@ -155,7 +155,7 @@ Om din administratör har aktiverat funktionen kan du se en länk för att **åt
 
 Här följer några vanliga fel och deras lösningar:
 
-|Problem|Beskrivning|Lösning|
+|Problem|Description|Lösning|
 | --- | --- | --- |
 |Jag får ett fel när jag försöker ändra mitt lösen ord. |Ditt lösen ord har ett ord, en fras eller ett mönster som gör ditt lösen ord lätt att gissa.| Försök igen med ett starkare lösen ord.|
 |När jag har angett mitt användar-ID går jag till en sida med texten "kontakta administratören".|Microsoft har fastställt att lösen ordet för ditt användar konto hanteras av administratören i en lokal miljö. Det innebär att du inte kan återställa ditt lösen ord från länken "det går inte att komma åt ditt konto". |Kontakta administratören om du vill ha mer hjälp.|

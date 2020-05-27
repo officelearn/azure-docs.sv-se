@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f08161daf1d9c1a4431d9e3fba3ca741d88b16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 95d1ffec6a849cb97a6151717c3e30dc362b1403
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743339"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826612"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Gör så här: Aktivera lösen ords återställning från Windows inloggnings skärm
 
@@ -30,7 +30,7 @@ För datorer som kör Windows 7, 8, 8,1 och 10 kan du göra det möjligt för an
 - Vissa leverantörer av autentiseringsuppgifter för tredje part är kända för att orsaka problem med den här funktionen.
 - Att inaktivera UAC via ändring av [register nyckeln EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) är känt för att orsaka problem.
 - Den här funktionen fungerar inte för nätverk med 802.1 x-nätverksautentisering distribuerad och alternativet "utför omedelbart före användar inloggning". Nätverk med nätverksautentiseringen 802.1x distribuerad rekommenderas att använda datorautentisering för att aktivera funktionen.
-- Hybrid Azure AD-anslutna datorer måste ha en nätverks anslutning till en domänkontrollant för att kunna använda det nya lösen ordet och uppdatera cachelagrade autentiseringsuppgifter.
+- Hybrid Azure AD-anslutna datorer måste ha en nätverks anslutning till en domänkontrollant för att kunna använda det nya lösen ordet och uppdatera cachelagrade autentiseringsuppgifter. Det innebär att enheterna måste antingen vara i organisationens interna nätverk eller på ett VPN med nätverks åtkomst till en lokal domänkontrollant. 
 - Om du använder en avbildning innan du kör Sysprep kontrollerar du att webbcachen har rensats för den inbyggda administratören innan du utför CopyProfile-steget. Mer information om det här steget finns i Support artikeln [dåliga prestanda när du använder anpassad standard användar profil](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Följande inställningar är kända för att störa möjligheten att använda och återställa lösen ord på Windows 10-enheter
     - Om Ctrl + Alt + del krävs av en princip i versioner av Windows 10 innan v1809, kommer **Återställ lösen ord** inte att fungera.
@@ -66,7 +66,7 @@ Att distribuera konfigurationsändringen för att aktivera lösenordsåterställ
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Skapa en princip för enhetskonfiguration i Intune
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) och klicka på **Intune**.
-1. Skapa en ny enhets konfigurations profil genom att gå till **enhets konfiguration** > **profiler** > **Skapa profil**
+1. Skapa en ny enhets konfigurations profil genom att gå till **enhets konfiguration**  >  **profiler**  >  **Skapa profil**
    - Ge profilen ett beskrivande namn
    - Du kan också ange en beskrivning av profilen
    - Plattform **Windows 10 och senare**
@@ -97,7 +97,7 @@ Azure AD-granskningsloggen innehåller information om IP-adressen och klienttype
 
 ![Exempel på lösen ords återställning i Windows 7 i Azure AD-gransknings loggen](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-När användarna återställer sina lösen ord från inloggnings skärmen på en Windows 10-enhet skapas ett tillfälligt konto med låg `defaultuser1` behörighet som heter. Det här kontot används för att skydda processen för lösenordsåterställning. Själva kontot har ett slumpmässigt genererat lösen ord, visas inte för enhets inloggning och tas automatiskt bort när användaren återställer lösen ordet. Det `defaultuser` kan finnas flera profiler men de kan ignoreras på ett säkert sätt.
+När användarna återställer sina lösen ord från inloggnings skärmen på en Windows 10-enhet skapas ett tillfälligt konto med låg behörighet `defaultuser1` som heter. Det här kontot används för att skydda processen för lösenordsåterställning. Själva kontot har ett slumpmässigt genererat lösen ord, visas inte för enhets inloggning och tas automatiskt bort när användaren återställer lösen ordet. `defaultuser`Det kan finnas flera profiler men de kan ignoreras på ett säkert sätt.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Lösen ords återställning för Windows 7, 8 och 8,1
 
@@ -141,7 +141,7 @@ Om ytterligare loggning krävs kan en register nyckel på datorn ändras för at
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Om du vill aktivera utförlig loggning skapar du `REG_DWORD: "EnableLogging"`en och anger den till 1.
+- Om du vill aktivera utförlig loggning skapar du en `REG_DWORD: "EnableLogging"` och anger den till 1.
 - Om du vill inaktivera utförlig loggning ändrar `REG_DWORD: "EnableLogging"` du till 0.
 
 ## <a name="what-do-users-see"></a>Vad ser användarna

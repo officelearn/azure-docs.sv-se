@@ -3,12 +3,12 @@ title: För hands version – lär dig Azure Policy för Kubernetes
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt. Det här är en förhandsversion av funktionen.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fb66510b55f9d3f08ab8e058bb8f67fb1954db6f
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 0d663d7bf7ce70c605551422f600258943d1efd7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800347"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828635"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Förstå Azure Policy för Kubernetes-kluster (för hands version)
 
@@ -21,7 +21,7 @@ Azure Policy utökar [Gatekeeper](https://github.com/open-policy-agent/gatekeepe
 Azure Policy för Kubernetes har stöd för följande kluster miljöer:
 
 - [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md)
-- [Azure Arc-aktiverad Kubernetes](../../../azure-arc/kubernetes/overview.md)
+- [Azure Arc-aktiverade Kubernetes](../../../azure-arc/kubernetes/overview.md)
 - [AKS-motor](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
@@ -33,7 +33,7 @@ Utför följande åtgärder för att aktivera och använda Azure Policy med ditt
 
 1. Konfigurera ditt Kubernetes-kluster och installera tillägget:
    - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
-   - [Azure Arc-aktiverad Kubernetes](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
+   - [Azure Arc-aktiverade Kubernetes](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [AKS-motor](#install-azure-policy-add-on-for-aks-engine)
 
 1. [Förstå Azure Policy språk för Kubernetes](#policy-language)
@@ -403,7 +403,7 @@ Hitta de inbyggda princip definitionerna för att hantera klustret med hjälp av
 
 1. Ange **parameter värden** 
 
-   - Om du vill undanta Kubernetes-namnrymder från princip utvärdering anger du listan över namn områden i undantag för parameter **namn område**. Vi rekommenderar att du undantar: _Kube-system_ 
+   - Om du vill undanta Kubernetes-namnrymder från princip utvärdering anger du listan över namn områden i undantag för parameter **namn område**. Vi rekommenderar att du undantar: _Kube-system_, _Gatekeeper-system_och _Azure-Arc_.
 
 1. Välj **Granska + skapa**.
 

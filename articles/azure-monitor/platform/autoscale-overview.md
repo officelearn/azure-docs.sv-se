@@ -4,12 +4,12 @@ description: Autoskala i Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 08b39fce046ea9dee02ddf6ffe34971b81c3b5b7
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4403c2957cb2d2d9d4af98d64cdb5177ae3d0726
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928711"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828992"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Översikt över autoskalning i Microsoft Azure
 Den här artikeln beskriver vad Microsoft Azure autoskalning är, dess fördelar och hur du kommer igång med det.  
@@ -33,7 +33,7 @@ Följande förklaring gäller för delarna i föregående diagram.
 
 ## <a name="resource-metrics"></a>Resursmått
 Resurserna genererar Mät värden, dessa mått hanteras senare av regler. Måtten kommer via olika metoder.
-Skalnings uppsättningar för virtuella datorer använder telemetridata från Azure Diagnostics-agenter medan telemetri för webbappar och moln tjänster kommer direkt från Azure-infrastrukturen. En viss statistik som används ofta är processor användning, minnes användning, antal trådar, Kölängd och disk användning. En lista över vilka telemetridata du kan använda finns i [Autoskala vanliga mått](../../azure-monitor/platform/autoscale-common-metrics.md).
+Skalnings uppsättningar för virtuella datorer använder telemetridata från Azure Diagnostics-agenter medan telemetri för webbappar och moln tjänster kommer direkt från Azure-infrastrukturen. En viss statistik som används ofta är processor användning, minnes användning, antal trådar, Kölängd och disk användning. En lista över vilka telemetridata du kan använda finns i [Autoskala vanliga mått](autoscale-common-metrics.md).
 
 ## <a name="custom-metrics"></a>Anpassade mått
 Du kan också använda dina egna anpassade mått som dina program kan skickas till. Om du har konfigurerat dina program så att de skickar mått till Application Insights kan du utnyttja dessa mått för att fatta beslut om att skala eller inte.
@@ -78,7 +78,7 @@ Den fullständiga listan över konfigurerbara fält och beskrivningar finns i RE
 
 Kod exempel finns i
 
-* [Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md)  
+* [Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets](autoscale-virtual-machine-scale-sets.md)  
 * [Skala REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Horisontell vs vertikal skalning
@@ -89,20 +89,20 @@ Den lodräta skalningen är däremot annorlunda. Det behåller samma antal virtu
 ## <a name="methods-of-access"></a>Åtkomst metoder
 Du kan ställa in autoskalning via
 
-* [Azure Portal](../../azure-monitor/platform/autoscale-get-started.md)
-* [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
-* [Plattformsoberoende kommandoradsgränssnitt (CLI):](../../azure-monitor/platform/cli-samples.md#autoscale)
+* [Azure Portal](autoscale-get-started.md)
+* [PowerShell](powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+* [Plattformsoberoende kommandoradsgränssnitt (CLI):](../samples/cli-samples.md#autoscale)
 * [REST-API:et för Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Tjänster som stöds för autoskalning
 | Tjänst | Schema & dokument |
 | --- | --- |
-| Web Apps |[Skalnings Web Apps](../../azure-monitor/platform/autoscale-get-started.md) |
+| Web Apps |[Skalnings Web Apps](autoscale-get-started.md) |
 | Cloud Services |[Autoskala en moln tjänst](../../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: klassisk |[Skala klassiska tillgänglighets uppsättningar för virtuella datorer](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtual Machines: Windows Scale Sets |[Skala skalnings uppsättningar för virtuella datorer i Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtual Machines: Linux Scale Sets |[Skala skalnings uppsättningar för virtuella datorer i Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Virtual Machines: Windows-exempel |[Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Virtual Machines: Windows-exempel |[Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets](autoscale-virtual-machine-scale-sets.md) |
 | API Management tjänst|[Skala en Azure API Management-instans automatiskt](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 | Azure Datautforskaren-kluster|[Hantera skalning av Azure Datautforskaren-kluster för att hantera ändring efter frågan](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
 | Azure App Service |[Skala upp en app i Azure App-tjänsten](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
@@ -110,9 +110,9 @@ Du kan ställa in autoskalning via
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om autoskalning använder du genom gången av autoskalning som listas tidigare eller hänvisar till följande resurser:
 
-* [Azure Monitor vanliga mått för autoskalning](../../azure-monitor/platform/autoscale-common-metrics.md)
-* [Metodtips för autoskalning i Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Använda åtgärder för autoskalning för att skicka aviseringar via e-post och webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [Azure Monitor vanliga mått för autoskalning](autoscale-common-metrics.md)
+* [Metodtips för autoskalning i Azure Monitor](autoscale-best-practices.md)
+* [Använda åtgärder för autoskalning för att skicka aviseringar via e-post och webhook](autoscale-webhook-email.md)
 * [Skala REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Felsöka Virtual Machine Scale Sets autoskalning](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 

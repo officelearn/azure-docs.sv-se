@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 93fb896dfc373a7402bbb3d1a38a655088d27fdf
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a45aa8299d61e89f2a21bc9c53de3a88f88cbb93
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735926"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827904"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Konfigurera datorer till ett önskat tillstånd
 
@@ -25,9 +25,7 @@ Med Azure Automation tillstånds konfiguration kan du ange konfigurationer för 
 
 I den här självstudien använder vi en enkel [DSC-konfiguration](/powershell/scripting/dsc/configurations/configurations) som garanterar att IIS är installerat på den virtuella datorn.
 
-## <a name="prerequisites"></a>Krav
-
-För att slutföra den här kursen behöver du:
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
 - En Azure Resource Manager virtuell dator (inte klassisk) som kör Windows Server 2008 R2 eller senare. Anvisningar om hur du skapar en virtuell dator finns [i skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
@@ -163,9 +161,10 @@ Om du vill avregistrera en nod från Azure Automation tillstånds konfigurations
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md)
-* [Aktivera konfiguration av Azure Automation tillstånd](automation-dsc-onboarding.md)
-* [Kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md)
-* [Cmdletar för Azure Automation tillstånds konfiguration](/powershell/module/azurerm.automation/#automation)
-* [Prissättning för Azure Automations tillstånds konfiguration](https://azure.microsoft.com/pricing/details/automation/)
-- [Konfigurera kontinuerlig distribution med choklad](automation-dsc-cd-chocolatey.md)
+- Information om hur du kommer igång finns i [Kom igång med Azure Automation tillstånds konfiguration](automation-dsc-getting-started.md).
+- Information om hur du aktiverar noder finns i [aktivera Azure Automation tillstånds konfiguration](automation-dsc-onboarding.md).
+- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
+- Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [Konfigurera kontinuerlig distribution med choklad](automation-dsc-cd-chocolatey.md).
+- Pris information finns i pris information för [Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
+- En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

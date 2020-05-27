@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 3ca3e9074f28d66068d49b80915e98600759d9be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7568a8a80550677e1608e1a8a52ebeacce765c81
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68568282"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826425"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Distribuerade transaktioner över molndatabaser
 
@@ -143,9 +143,9 @@ Använd DMV: er (Dynamic Management views) i SQL DB för att övervaka status oc
 
 Dessa DMV: er är särskilt användbara:
 
-* **sys.DM\_för\_att\_omlasta aktiva transaktioner**: Visar aktiva transaktioner och deras status. I kolumnen UOW (enhets arbete) kan du identifiera de olika underordnade transaktioner som tillhör samma distribuerade transaktion. Alla transaktioner inom samma distribuerade transaktion bär samma UOW-värde. Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms174302.aspx) .
-* sys.dm: ger ytterligare information om transaktioner, till exempel placering av transaktionen i loggen. **\_\_\_** Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms186957.aspx) .
-* **sys.DM\_-\_startlås**: innehåller information om de lås som för närvarande innehas av pågående transaktioner. Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms190345.aspx) .
+* **sys.DM för att \_ omlasta \_ aktiva \_ transaktioner**: Visar aktiva transaktioner och deras status. I kolumnen UOW (enhets arbete) kan du identifiera de olika underordnade transaktioner som tillhör samma distribuerade transaktion. Alla transaktioner inom samma distribuerade transaktion bär samma UOW-värde. Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms174302.aspx) .
+* **sys.DM \_ : \_ \_ **ger ytterligare information om transaktioner, till exempel placering av transaktionen i loggen. Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms186957.aspx) .
+* **sys.DM \_ - \_ startlås**: innehåller information om de lås som för närvarande innehas av pågående transaktioner. Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms190345.aspx) .
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -157,7 +157,7 @@ Följande begränsningar gäller för närvarande för Elastic Database-transakt
 
 ## <a name="next-steps"></a>Nästa steg
 
-För frågor kan du kontakta oss i [SQL Database-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) och för funktions förfrågningar, lägga till dem i [forumen för SQL Database feedback](https://feedback.azure.com/forums/217321-sql-database/).
+För frågor kan du kontakta oss på [sidan Microsoft Q&en fråga för SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html) och för funktions förfrågningar kan du lägga till dem i [SQL Database feedback-forumet](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

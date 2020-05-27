@@ -90,7 +90,7 @@
           href: logic-apps-exception-handling.md
         - name: Hantera stora meddelanden
           href: logic-apps-handle-large-messages.md
-        - name: 'Hantera problem med bandbreddsbegränsning eller 429-fel '
+        - name: Hantera problem med bandbreddsbegränsning eller 429-fel
           href: handle-throttling-problems-429-errors.md
         - name: Skydda
           items:
@@ -416,8 +416,8 @@
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc'
     - name: Videoklipp
       href: 'https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelogicapps'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-logic-apps.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-logic-apps'
     - name: Twitter

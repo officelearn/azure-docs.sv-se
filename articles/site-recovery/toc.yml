@@ -388,6 +388,8 @@
               href: service-updates-how-to.md
             - name: Ta bort ett valv
               href: delete-vault.md
+    - name: Site Recovery-stöd för närhetsplaceringsgrupper
+      href: how-to-enable-replication-proximity-placement-groups.md
     - name: Haveriberedskap för appar
       items:
         - name: Om haveriberedskap för lokala appar
@@ -514,8 +516,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blogg
       href: 'https://azure.microsoft.com/blog/tag/azure-site-recovery/'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-site-recovery.html'
     - name: Utbildningsväg
       href: /learn/azure/
     - name: Prissättning

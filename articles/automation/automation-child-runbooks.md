@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5c562fb43966fda203e92cc5003ef3c85945364b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c15ed6e9409bee71a778986d8f38ae1ab126c180
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742838"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828652"
 ---
 # <a name="create-modular-runbooks"></a>Skapa modulära runbooks
 
@@ -22,7 +22,7 @@ Det finns två sätt att anropa en underordnad Runbook och det finns distinkta s
 |:--- |:--- |:--- |
 | Jobb |Underordnade runbooks körs i samma jobb som överordnade. |Ett separat jobb skapas för den underordnade runbooken. |
 | Körnings- |Överordnad runbook väntar på att underordnad runbook ska slutföras innan du fortsätter. |Överordnad Runbook fortsätter omedelbart efter att underordnad Runbook har startats *eller* överordnad Runbook väntar tills det underordnade jobbet har slutförts. |
-| Resultat |Överordnad runbook kan hämta utdata direkt från underordnad runbook. |Överordnad Runbook måste hämta utdata från underordnat Runbook-jobb *eller* överordnad Runbook kan hämta utdata direkt från underordnad Runbook. |
+| Utdata |Överordnad runbook kan hämta utdata direkt från underordnad runbook. |Överordnad Runbook måste hämta utdata från underordnat Runbook-jobb *eller* överordnad Runbook kan hämta utdata direkt från underordnad Runbook. |
 | Parametrar |Värden för parametrar i underordnad runbook anges separat och kan använda alla datatyper. |Värden för underordnade Runbook-parametrar måste kombineras till en enskild hash. Den här hash-koden kan bara innehålla enkla, matris-och objekt data typer som använder JSON-serialisering. |
 | Automation-konto |Överordnad Runbook kan bara använda underordnad Runbook i samma Automation-konto. |Överordnad Runbooks kan använda en underordnad Runbook från alla Automation-konton, från samma Azure-prenumeration och till och med från en annan prenumeration som du har en anslutning till. |
 | Publicera |Underordnad runbook måste publiceras innan överordnad runbook publiceras. |Underordnad Runbook publiceras när som helst innan överordnad Runbook startas. |
@@ -117,5 +117,5 @@ Start-AzAutomationRunbook `
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Starta en runbook i Azure Automation](start-runbooks.md)
-* [Runbook-utdata och meddelanden i Azure Automation](automation-runbook-output-and-messages.md)
+* Information om hur du kör en Runbook finns [i starta en Runbook i Azure Automation](start-runbooks.md).
+* För övervakning av Runbook-åtgärd, se [Runbook-utdata och meddelanden i Azure Automation](automation-runbook-output-and-messages.md).

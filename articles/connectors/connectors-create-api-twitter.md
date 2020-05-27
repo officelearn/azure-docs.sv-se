@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 8ffd0fd558cf759fadd912de9dff4acf49d9659f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2db6d614c3c12cb1be87724e79d79a16769d6b8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789094"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829604"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Övervaka och hantera Twitter genom att använda Azure Logic Apps
 
@@ -23,7 +23,7 @@ Med Azure Logic Apps och Twitter-anslutningen kan du skapa automatiserade uppgif
 
 Du kan använda utlösare som får svar från ditt Twitter-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Twitter-konto. Du kan också använda andra åtgärder för att använda utdata från Twitter-åtgärder. Till exempel, när en ny tweet med en angiven hashtagg visas, kan du skicka meddelanden med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -46,16 +46,16 @@ Du kan använda utlösare som får svar från ditt Twitter-konto och göra utdat
    * För tomma Logi Kap par anger du "Twitter" som filter i rutan Sök. 
    Välj den utlösare som du vill använda under listan utlösare. 
 
-     ELLER
+     \- eller -
 
    * För befintliga Logic Apps: 
    
      * Under det sista steget där du vill lägga till en åtgärd väljer du **nytt steg**. 
 
-       ELLER
+       \- eller -
 
      * Mellan stegen där du vill lägga till en åtgärd flyttar du pekaren över pilen mellan stegen. 
-     Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+     Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
      
        I rutan Sök anger du "Twitter" som filter. 
        Under listan åtgärder väljer du den åtgärd som du vill använda.
@@ -84,7 +84,7 @@ Teknisk information om utlösare, åtgärder och gränser, som beskrivs av koppl
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure Management – Azure-styrning
 description: Översikt över hanterings områden för Azure-program och-resurser med länkar till innehåll på hanterings verktyg för Azure.
-ms.date: 12/06/2018
+ms.date: 05/22/2020
 ms.topic: overview
-ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e293ab743b7c3b49a13cab97200c136a9bd044f5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75980908"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828155"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Översikt över hanterings tjänster i Azure
 
@@ -18,7 +18,7 @@ Hantering syftar på uppgifter och processer som krävs för att underhålla fö
 
 Följande diagram visar de olika hanteringsområdena som krävs för att underhålla alla program och resurser. Dessa olika områden kan ses som en livs cykel. Varje zon krävs i kontinuerliga framgångar över livs längd för en resurs. Den här resurs livs cykeln börjar med den första distributionen, genom fortsatta åtgärder och slutligen när den dras tillbaka.
 
-![Hanterings ämnes områden i Azure](../monitoring/media/management-overview/management-capabilities.png)
+:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Hanterings ämnes områden i Azure" border="false":::
 
 Ingen enskild Azure-tjänst fyller fullständigt kraven i ett visst hanterings utrymme. I stället realiseras varje tjänst av flera tjänster som arbetar tillsammans. Vissa tjänster, till exempel Application Insights, tillhandahåller riktade övervaknings funktioner för webb program. Andra, som Azure Monitor loggar, lagrar hanterings data för andra tjänster. Med den här funktionen kan du analysera data av olika typer som samlas in av olika tjänster.
 
@@ -36,7 +36,9 @@ Genom att automatisera dessa uppgifter kan du undvika redundans, minimera din ti
 ## <a name="govern"></a>Styrning
 
 Styrning tillhandahåller mekanismer och processer för att behålla kontrollen över dina program och resurser i Azure. Det omfattar att planera initiativ och att fatta beslut om strategiska prioriteringar.
-Styrning i Azure implementeras främst genom två tjänster. Med [Azure policy](./policy/overview.md) kan du skapa, tilldela och hantera princip definitioner för att tillämpa regler för dina resurser. Den här funktionen håller resurserna i överensstämmelse med företagets standarder. Med [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) kan du spåra moln användning och utgifter för dina Azure-resurser och andra moln leverantörer.
+Styrning i Azure implementeras främst genom två tjänster. Med [Azure policy](./policy/overview.md) kan du skapa, tilldela och hantera princip definitioner för att tillämpa regler för dina resurser.
+Den här funktionen håller resurserna i överensstämmelse med företagets standarder.
+Med [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) kan du spåra moln användning och utgifter för dina Azure-resurser och andra moln leverantörer.
 
 ## <a name="secure"></a>Skydda
 

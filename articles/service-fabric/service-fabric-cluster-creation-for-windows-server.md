@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 9133a7087285aa6e01a2431bf1a65dfa3c6f8857
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a42797b51d811ee9427c9b77f8ea59a24c00feee
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189104"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827972"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Skapa ett fristående kluster som körs på Windows Server
 Du kan använda Azure Service Fabric för att skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server. Det innebär att du kan distribuera och köra Service Fabric program i vilken miljö som helst som innehåller en uppsättning anslutna Windows Server-datorer, vara den lokalt eller med någon annan moln leverantör. Service Fabric innehåller ett installations paket för att skapa Service Fabric-kluster som kallas fristående Windows Server-paket. Traditionella Service Fabric kluster i Azure är tillgängliga som en hanterad tjänst, medan fristående Service Fabric kluster är självbetjäning. Mer information om skillnaderna finns i [jämföra Azure och fristående Service Fabric kluster](./service-fabric-deploy-anywhere.md).
@@ -25,7 +25,7 @@ Den här artikeln vägleder dig genom stegen för att skapa ett Service Fabric f
 <a id="getsupport"></a>
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Få stöd för Service Fabric för Windows Server-paket
-* Fråga communityn om Service Fabric fristående paket för Windows Server i [Azure Service Fabric-forumet](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
+* Fråga communityn om Service Fabric fristående paketet för Windows Server på [sidan Microsoft Q&en fråga för Azure-Service Fabric](https://docs.microsoft.com/answers/topics/azure-service-fabric.html).
 * Öppna en biljett för [professionell support för Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Lär dig mer om Professional support från Microsoft [här](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Du kan också få support för det här paketet som en del av [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
 * Mer information finns i [Support alternativ för Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
@@ -109,7 +109,7 @@ Klusteradministratören som distribuerar och konfigurerar klustret måste ha adm
 
 #### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>Scenario C: skapa ett frånkopplat kluster (Internet-frånkopplat)
 Service Fabric Runtime-paketet hämtas automatiskt när klustret skapas. När du distribuerar ett kluster till datorer som inte är anslutna till Internet måste du ladda ned Service Fabric Runtime-paketet separat och ange sökvägen till det när klustret skapas.
-Runtime-paketet kan laddas ned separat från en annan dator som är ansluten till Internet vid [nedladdnings länk-Service Fabric runtime-Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Kopiera Runtime-paketet till den plats där du distribuerar det frånkopplade klustret från och skapa klustret genom att `CreateServiceFabricCluster.ps1` köra med `-FabricRuntimePackagePath` den parameter som anges, som i det här exemplet: 
+Runtime-paketet kan laddas ned separat från en annan dator som är ansluten till Internet vid [nedladdnings länk-Service Fabric runtime-Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Kopiera Runtime-paketet till den plats där du distribuerar det frånkopplade klustret från och skapa klustret genom `CreateServiceFabricCluster.ps1` att köra med den `-FabricRuntimePackagePath` parameter som anges, som i det här exemplet: 
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
@@ -144,7 +144,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Steg 3: visualisera klustret med hjälp av Service Fabric Explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett bra verktyg för att visualisera klustret och hantera program.  Service Fabric Explorer är en tjänst som körs i klustret och som du kommer åt via en webbläsare genom att gå till `http://localhost:19080/Explorer`.
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett bra verktyg för att visualisera klustret och hantera program.  Service Fabric Explorer är en tjänst som körs i klustret och som du kommer åt via en webbläsare genom att gå till `http://localhost:19080/Explorer` .
 
 Instrumentpanelen för klustret innehåller en översikt över klustret, inklusive en sammanfattning av program- och nodhälsan. Nodvyn visar klustrets fysiska layout. För en viss nod kan du inspektera vilka program som har kod distribuerad på noden.
 
@@ -172,7 +172,7 @@ Det här skriptet kan köras på alla datorer som har administratörs åtkomst t
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Telemetri-data som samlas in och hur de ska avanmälas
-Som standard samlar produkten in telemetri på Service Fabric användning för att förbättra produkten. Best Practices Analyzer som körs som en del av installations programmet för att kontrol lera [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)anslutningen till. Om det inte går att komma åt, Miss lyckas installationen om du inte väljer att använda telemetri.
+Som standard samlar produkten in telemetri på Service Fabric användning för att förbättra produkten. Best Practices Analyzer som körs som en del av installations programmet för att kontrol lera anslutningen till [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) . Om det inte går att komma åt, Miss lyckas installationen om du inte väljer att använda telemetri.
 
 1. Pipelinen för telemetri försöker överföra följande data till [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) en gång varje dag. Det är en bra uppladdning och har ingen inverkan på kluster funktionerna. Telemetri skickas endast från den nod som kör den primära hanteraren för växling vid fel. Inga andra noder skickar ut telemetri.
 2. Telemetrin består av följande:

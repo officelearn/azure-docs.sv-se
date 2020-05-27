@@ -83,8 +83,6 @@
       href: high-availability-disaster-recovery.md
     - name: Miljövariabler för uppgiftens körtid
       href: batch-compute-node-environment-variables.md
-    - name: Batch-integrering med Azure-principer
-      href: batch-integration-policies.md
 - name: Anvisningar
   items:
     - name: Hantera Batch-konton

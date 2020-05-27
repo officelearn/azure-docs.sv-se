@@ -8,22 +8,24 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 83ee59ca4353cd1af6c613e7624ee15f21b0a27e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 84b5cd8a59103f60249da861238acb45f8aa2fd5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650918"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871702"
 ---
 # <a name="suppressing-alerts-from-azure-security-centers-threat-protection"></a>Ignorera aviseringar från Azure Security Center hot skydd
 
 På den här sidan förklaras hur du kan använda undertrycks regler för varningar för att förhindra falska positiva identifieringar eller andra oönskade säkerhets varningar i Azure Security Center.
 
-## <a name="availability"></a>Tillgängligt
+## <a name="availability"></a>Tillgänglighet
 
 - Versions tillstånd: för **hands version**
-- Obligatoriska roller: säkerhets administratör och ägare kan skapa/ta bort regler. Säkerhets läsare och läsare kan visa regler.
-- Moln: alla (global, National, myndigheter och suverän)
+- Obligatoriska roller: **säkerhets administratör** och **ägare** kan skapa/ta bort regler. **Säkerhets läsare** och **läsare** kan visa regler.
+- Moln 
+    - ✔ Kommersiella moln
+    - ✔ National/suverän (US Gov, Kina gov, övrigt gov)
 
 
 ## <a name="introduction-to-suppression-rules"></a>Introduktion till undertrycks regler

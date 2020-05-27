@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9dce9e2f63afc50e367d650f93f293b974d912e9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f07efc8fd77f1c34ef96d31f55089726942d05df
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199556"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871226"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -205,9 +205,12 @@ Om ditt tidigare dator certifikat har upphört att gälla och ett nytt certifika
 
 ### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government ytterligare steg
 
-För kunder som använder Azure Government Cloud krävs följande ytterligare konfigurations steg på varje NPS-server:
+För kunder som använder Azure Government Cloud krävs följande ytterligare konfigurations steg på varje NPS-server.
 
-1. Öppna **Registereditorn** på NPS-servern.
+> [!IMPORTANT]
+> Konfigurera bara de här register inställningarna om du är Azure Government kund.
+
+1. Om du är Azure Government kund öppnar du **Registereditorn** på NPS-servern.
 1. Navigera till `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Ange följande nyckel värden:
 
     | Registernyckel       | Värde |
@@ -248,7 +251,7 @@ När du aktiverar MFA för en RADIUS-klient med hjälp av NPS-tillägget, krävs
 
 Om du har användare som inte är registrerade för MFA kan du bestämma vad som händer när de försöker autentisera sig. Använd register inställningen *REQUIRE_USER_MATCH* i register Sök vägen *HKLM\Software\Microsoft\AzureMFA* för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ:
 
-| Tangent | Värde | Standardvärde |
+| Tangent | Värde | Standard |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Inte angivet (motsvarar sant) |
 

@@ -8,29 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 836012c11d16810172c27fb948e1185f99f7de83
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a0fb6bc96441fe36713d931e561c6d1e272b7819
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446648"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872621"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Snabb start: Hämta image Insights med hjälp av Visuell sökning i Bing REST API och gå
 
-I den här snabb starten används programmeringsspråket Go för att anropa API för visuell sökning i Bing och Visa resultat. En POST-begäran laddar upp en avbildning till API-slutpunkten. Resultaten innehåller URL: er och beskrivande information om bilder som liknar den överförda avbildningen.
+Använd den här snabb starten för att göra ditt första anrop till API för visuell sökning i Bing med hjälp av programmeringsspråket go. En POST-begäran laddar upp en avbildning till API-slutpunkten. Resultaten innehåller URL: er och beskrivande information om bilder som liknar den överförda avbildningen.
 
 ## <a name="prerequisites"></a>Krav
 
 * Installera [Go-binärfilerna](https://golang.org/dl/).
-* Den spew djupgående Pretty-skrivaren används för att visa resultat. Du kan installera go-spew med `$ go get -u https://github.com/davecgh/go-spew` kommandot.
+* Installera go-spew djup Pretty-skrivaren, som används för att visa resultat. Om du vill installera go-spew använder du `$ go get -u https://github.com/davecgh/go-spew` kommandot.
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="project-and-libraries"></a>Projekt och bibliotek
 
-Skapa ett Go-projekt i din IDE eller redigeraren. Importera `net/http` sedan för begär Anden `ioutil` , för att läsa svaret och `encoding/json` för att hantera JSON-texten för resultat. `go-spew` Biblioteket används för att PARSa JSON-resultat.
+Skapa ett Go-projekt i din IDE eller redigeraren. Importera sedan `net/http` för begär Anden, `ioutil` för att läsa svaret och `encoding/json` för att hantera JSON-texten för resultat. Använd `go-spew` biblioteket för att parsa JSON-resultat.
 
 ```go
 package main
@@ -52,7 +52,7 @@ import (
 
 ## <a name="struct-to-format-results"></a>Struct för att formatera resultat
 
-`BingAnswer` Strukturen format data som returneras i JSON-svaret, som är flera nivåer och komplexa. Följande implementering täcker några av grunderna:
+`BingAnswer`Strukturen format data som returneras i JSON-svaret, som är flera nivåer och komplexa. Följande implementering täcker några av grunderna:
 
 ```go
 type BingAnswer struct {
@@ -109,7 +109,12 @@ type BingAnswer struct {
 
 ## <a name="main-function-and-variables"></a>Huvud funktion och variabler  
 
-Följande kod deklarerar huvud funktionen och tilldelar obligatoriska variabler. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto. `batchNumber` Är ett GUID som krävs för inledande och avslutande gränser för post-data. `fileName` Variabeln identifierar bild filen för inlägget. `endpoint`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs:
+Följande kod deklarerar huvud funktionen och tilldelar nödvändiga variabler: 
+
+1. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto. 
+2. För `batchNumber` tilldelar du ett GUID som krävs för inledande och avslutande gränser för post-data. 
+3. För `fileName` tilldelar du avbildnings filen som ska användas för inlägget. 
+4. För `endpoint` kan du använda den globala slut punkten i följande kod eller använda den anpassade slut [domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ```go
 func main() {
@@ -159,7 +164,12 @@ func main() {
 
 ## <a name="boundaries-of-post-body"></a>Text gränser för inlägg
 
-En POST-begäran till Visuell sökning-slutpunkten kräver inledande och avslutande gränser som omger POST-data. Den inledande avgränsningen innehåller ett batch-nummer, innehålls typ identifierare `Content-Disposition: form-data; name="image"; filename=`och fil namnet för den bild som ska skickas. Den avslutande kanten är helt enkelt batch-numret. Dessa funktioner ingår inte i `main` blocket:
+En POST-begäran till Visuell sökning-slutpunkten kräver inledande och avslutande gränser för att sätta POST-data. Dessa funktioner ingår inte i `main()` blocket.
+
+Den inledande avgränsningen innehåller ett batch-nummer, innehålls typ identifierare `Content-Disposition: form-data; name="image"; filename=` och fil namnet för den bild som ska skickas. 
+
+Den avslutande kanten innehåller bara batch-numret. 
+
 
 ```go
 func BuildFormDataStart(batNum string, fileName string) string{
@@ -178,7 +188,7 @@ func BuildFormDataEnd(batNum string) string{
 ```
 ## <a name="add-image-bytes-to-post-body"></a>Lägg till bild byte för INLÄGGs text
 
-Det här kod segmentet skapar en POST-begäran som innehåller bild data:
+Följande kod skapar en POST-begäran som innehåller bild data:
 
 ```go
 func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, string) {
@@ -226,7 +236,7 @@ resp, err := client.Do(req)
 
 ## <a name="handle-the-response"></a>Hantera svaret
 
-`Unmarshall` Funktionen extraherar information från JSON-texten som returneras av visuell sökning-API: et. Den `go-spew` Pretty skrivaren visar resultatet:
+`Unmarshall`Funktionen extraherar information från JSON-texten som returneras av visuell sökning-API: et. Den `go-spew` Pretty skrivaren visar resultatet.
 
 ```go
     // Create a new answer.  
@@ -249,7 +259,7 @@ resp, err := client.Do(req)
 
 ## <a name="results"></a>Resultat
 
-Resultaten identifierar bilder som liknar den bild som finns i INLÄGGs texten. De användbara fälten är `WebSearchUrl` och `Name`:
+Resultaten identifierar bilder som liknar den bild som finns i INLÄGGs texten. De användbara fälten är `WebSearchUrl` och `Name` .
 
 ```go
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {

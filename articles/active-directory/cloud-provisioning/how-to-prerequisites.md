@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 553ecc971235b5ba7d55a2dcb6963200919a3480
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 55f2167552e21973d304f98693be022683fdf661
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853458"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870932"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Krav för Azure AD Connect Cloud-etablering
 Den här artikeln innehåller rikt linjer för hur du väljer och använder Azure Active Directory (Azure AD) Anslut moln etablering som din identitets lösning.
@@ -60,18 +60,13 @@ Kör [IdFix-verktyget](https://docs.microsoft.com/office365/enterprise/prepare-d
         | **8080** (valfritt) | Agenter rapporterar sin status var 10: e minut via port 8080, om port 443 inte är tillgänglig. Den här statusen visas i Azure AD-portalen. |
      
    - Om brand väggen tillämpar regler enligt de ursprungliga användarna öppnar du portarna för trafik från Windows-tjänster som körs som en nätverks tjänst.
-   - Om din brand vägg eller proxy låter dig ange säkra suffix lägger du till anslutningar till \*. msappproxy.net och \*. ServiceBus.Windows.net. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka.
+   - Om din brand vägg eller proxy låter dig ange säkra suffix lägger du till anslutningar till \* . msappproxy.net och \* . ServiceBus.Windows.net. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka.
    - Dina agenter behöver åtkomst till login.windows.net och login.microsoftonline.com för inledande registrering. Öppna brand väggen för dessa URL: er även.
-   - För certifikat validering, avblockera följande URL: er: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 och\.www Microsoft.com:80. Dessa URL: er används för certifikat validering med andra Microsoft-produkter, så du kanske redan har dessa URL: er avblockerade.
+   - För certifikat validering, avblockera följande URL: er: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 och www \. Microsoft.com:80. Dessa URL: er används för certifikat validering med andra Microsoft-produkter, så du kanske redan har dessa URL: er avblockerade.
 
-### <a name="verify-the-port"></a>Verifiera porten
-För att kontrol lera att Azure lyssnar på port 443 och att agenten kan kommunicera med den, använder du följande URL:
+>[!NOTE]
+> Det finns inte stöd för att installera moln etablerings agenten på Windows Server Core.
 
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
-
-Det här testet kontrollerar att dina agenter kan kommunicera med Azure via port 443. Öppna en webbläsare och gå till föregående URL från servern där agenten är installerad.
-
-![Verifiering av portens tillgänglighet](media/how-to-install/verify2.png)
 
 ### <a name="additional-requirements"></a>Ytterligare krav
 - [Microsoft .NET Framework-4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 

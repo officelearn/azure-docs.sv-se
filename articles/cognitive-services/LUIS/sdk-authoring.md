@@ -2,14 +2,14 @@
 title: 'Snabb start: Language Understanding (LUIS) redigerings klient bibliotek'
 description: Kom igång med LUIS-klient biblioteket med den här snabb starten. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
 ms.topic: quickstart
-ms.date: 01/14/2020
+ms.date: 05/22/2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 614d40bb3e5bc8b83a2307b89cd517fdf7913dbe
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: dab36a7688e510b4a23f285deedf7d670cd78d10
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77524452"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871276"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Snabb start: Language Understanding (LUIS) redigerings klient bibliotek
 
@@ -33,6 +33,6 @@ Kom igång med klient biblioteket Language Understanding (LUIS). Följ de här s
 >[Använd SDK för att fråga efter förutsägelse slut punkten](sdk-query-prediction-endpoint.md)
 
 * [Vad är API: et för Language Understanding (LUIS)?](what-is-luis.md)
-* [Vad är det senaste?](whats-new.md)
+* [Nyheter](whats-new.md)
 * [Avsikter](luis-concept-intent.md), [entiteter](luis-concept-entity-types.md)och [exempel yttranden](luis-concept-utterance.md)och [färdiga entiteter](luis-reference-prebuilt-entities.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs).

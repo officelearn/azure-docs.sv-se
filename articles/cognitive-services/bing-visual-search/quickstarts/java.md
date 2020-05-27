@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: fe323fc27062ad1bee9abdfaf3408430e28523a9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3d52a58e3e890ff3baff31322096038d06a1bee6
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446618"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872586"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och Java
 
-Använd den här snabb starten för att göra ditt första anrop till API för visuell sökning i Bing och visa resultatet. Java-programmet överför en avbildning till API: et och visar den information som returneras. Även om det här programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att göra ditt första anrop till API för visuell sökning i Bing. Java-programmet överför en avbildning till API: et och visar den information som returneras. Även om det här programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -52,7 +52,7 @@ Använd den här snabb starten för att göra ditt första anrop till API för v
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Skapa variabler för din API-slutpunkt, prenumerationsnyckel och sökvägen till din bild. `endpoint`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs:
+2. Skapa variabler för din API-slutpunkt, prenumerationsnyckel och sökvägen till din bild. För `endpoint` värdet kan du använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
@@ -61,7 +61,7 @@ Använd den här snabb starten för att göra ditt första anrop till API för v
     ```
 
     
-    När du laddar upp en lokal avbildning måste formulär data innehålla `Content-Disposition` sidhuvudet. Du måste ange `name` parametern till "image" och du kan ange `filename` parametern till valfri sträng. Innehållet i formuläret är en bilds binära data. Den maximala bild storlek som du kan ladda upp är 1 MB.
+3. När du laddar upp en lokal avbildning måste formulär data innehålla `Content-Disposition` sidhuvudet. Ange `name` parametern till "image" och ange `filename` parametern till bildens fil namn. Innehållet i formuläret är en bilds binära data. Den maximala bild storlek som du kan ladda upp är 1 MB.
     
     ```
     --boundary_1234-abcd
@@ -74,7 +74,7 @@ Använd den här snabb starten för att göra ditt första anrop till API för v
 
 ## <a name="create-the-json-parser"></a>Skapa JSON-parsern
 
-Skapa en metod för att göra JSON-svaret från API: et mer `JsonParser`läsbart med:
+Skapa en metod för att göra JSON-svaret från API: et lättare att läsa med hjälp av `JsonParser` .
 
 ```java
 public static String prettify(String json_text) {
@@ -87,13 +87,13 @@ public static String prettify(String json_text) {
 
 ## <a name="construct-the-search-request-and-query"></a>Konstruera sökbegäran och fråga
 
-1. I appens huvud metod skapar du en HTTP-klient med hjälp `HttpClientBuilder.create().build();`av:
+1. I programmets main-metod skapar du en HTTP-klient med hjälp av `HttpClientBuilder.create().build();` .
 
     ```java
     CloseableHttpClient httpClient = HttpClientBuilder.create().build();
     ```
 
-2. Skapa ett `HttpEntity` objekt för att ladda upp avbildningen till API: et:
+2. Skapa ett `HttpEntity` objekt för att ladda upp avbildningen till API: et.
 
     ```java
     HttpEntity entity = MultipartEntityBuilder
@@ -102,7 +102,7 @@ public static String prettify(String json_text) {
         .build();
     ```
 
-3. Skapa ett `httpPost` objekt med din slut punkt och ange att rubriken ska använda din prenumerations nyckel:
+3. Skapa ett `httpPost` objekt med din slut punkt och ange att rubriken ska använda din prenumerations nyckel.
 
     ```java
     HttpPost httpPost = new HttpPost(endpoint);
@@ -112,14 +112,14 @@ public static String prettify(String json_text) {
 
 ## <a name="receive-and-process-the-json-response"></a>Ta emot och bearbeta JSON-svaret
 
-1. Använd `HttpClient.execute()` metoden för att skicka en begäran till API: et och lagra svaret i ett `InputStream` objekt:
+1. Använd `HttpClient.execute()` metoden för att skicka en begäran till API: et och lagra svaret i ett `InputStream` objekt.
     
     ```java
     HttpResponse response = httpClient.execute(httpPost);
     InputStream stream = response.getEntity().getContent();
     ```
 
-2. Lagra JSON-strängen och skriv ut svaret:
+2. Lagra JSON-strängen och skriv ut svaret.
 
     ```java
     String json = new Scanner(stream).useDelimiter("\\A").next();

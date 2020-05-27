@@ -8,33 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1c424c75a4df193ec412355607c68abeda0560a5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 77795e654a2f3824a877b28c8d006090c0de7d15
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448499"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873219"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Snabb start: utföra en nyhets sökning med python och Nyhetssökning i Bing REST API
 
-Använd den här snabbstarten för att göra ditt första anrop till API för nyhetssökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en sökfråga till API:et och bearbetar resultatet. Även om det här programmet är skrivet i Python är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att göra ditt första anrop till API för nyhetssökning i Bing. Det här enkla python-programmet skickar en Sök fråga till API: et och bearbetar JSON-resultatet. 
 
-Du kan köra det här kodexemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder: 
+Även om det här programmet är skrivet i python är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingNewsSearchAPI.ipynb)
+Om du vill köra det här kod exemplet som en Jupyter Notebook på en- [binder](https://mybinder.org)väljer du **Start binder** -märket: 
+
+[![Starta binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingNewsSearchAPI.ipynb)
 
 Källkoden till det här exemplet finns även på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingNewsSearchv7.py).
-
-## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera begärandemodulen. Skapa variabler för din prenumerationsnyckel, en slutpunkt och ett sökvillkor. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera begärandemodulen. Skapa variabler för din prenumerations nyckel, slut punkt och Sök villkor. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ```python
 import requests
@@ -44,18 +44,18 @@ search_term = "Microsoft"
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
 ```
 
-### <a name="create-parameters-for-the-request"></a>Skapa parametrar för begäran
+## <a name="create-parameters-for-the-request"></a>Skapa parametrar för begäran
 
-1. Lägg till din prenumerationsnyckel i en ny ordlista med hjälp av `"Ocp-Apim-Subscription-Key"` som nyckel. Gör samma sak för sökparametrarna.
+Lägg till din prenumerationsnyckel i en ny ordlista med hjälp av `Ocp-Apim-Subscription-Key` som nyckel. Gör samma sak för sökparametrarna.
 
-    ```python
-    headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
-    params  = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
-    ```
+```python
+headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
+params  = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
+```
 
 ## <a name="send-a-request-and-get-a-response"></a>Skicka en begäran och få ett svar
 
-1. Använd begärandebiblioteket för att anropa API för visuell sökning i Bing med hjälp av prenumerationsnyckeln och de ordlisteobjekt som skapades i föregående steg.
+1. Använd begär ande biblioteket för att anropa API för visuell sökning i Bing med din prenumerations nyckel och de Dictionary-objekt som du skapade i föregående steg.
 
     ```python
     response = requests.get(search_url, headers=headers, params=params)
@@ -63,15 +63,15 @@ search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
     search_results = response.json()
     ```
 
-2. `search_results` innehåller svaret från API:et som ett JSON-objekt. Öppna beskrivningarna för den artikel som finns i svaret.
+2. Få åtkomst till beskrivningar av artiklarna som finns i svaret från API: et, som lagras i `search_results` som JSON-objekt. 
     
     ```python
     descriptions = [article["description"] for article in search_results["value"]]
     ```
 
-## <a name="displaying-the-results"></a>Visa resultaten
+## <a name="display-the-results"></a>Visa resultaten
 
-Dessa beskrivningar kan sedan återges som en tabell med sökordet markerat i **fetstil**.
+Dessa beskrivningar kan sedan återges som en tabell med sökordet markerat i fetstil.
 
 ```python
 from IPython.display import HTML

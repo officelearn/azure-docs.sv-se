@@ -1,30 +1,22 @@
 ---
-title: Metodtips
+title: Bästa praxis
 description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
-ms.date: 04/03/2020
+ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: f7d2add5fb30e3efdfb761364babf2211c3c254f
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 0fa6c5e1d7e770468a14c66af9b99b32a7827eb1
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725813"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871361"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
-I den här artikeln beskrivs en samling bästa metoder för att använda tjänsten Azure Batch effektivt och effektivt. De här bästa metoderna är härledda från vår erfarenhet med batch och erfarenheterna av batch-kunder. Det är viktigt att förstå den här artikeln för att undvika design fall GRO par, potentiella prestanda problem och anti-mönster när du utvecklar och använder batch.
-
-I den här artikeln får du lära dig:
-
-> [!div class="checklist"]
-> - Vilka är bästa praxis
-> - Varför du bör använda bästa praxis
-> - Vad kan inträffa om du inte följer de bästa metoderna
-> - Så här följer du de bästa metoderna
+I den här artikeln beskrivs en samling metod tips för att använda tjänsten Azure Batch effektivt och effektivt, baserat på verklig erfarenhet med batch. Läs den här artikeln för att undvika design fall GRO par, potentiella prestanda problem och anti-mönster när du utvecklar och använder batch.
 
 ## <a name="pools"></a>Pooler
 
-Batch-pooler är beräknings resurserna för att köra jobb i batch-tjänsten. I följande avsnitt får du vägledning om bästa praxis att följa när du arbetar med batch-pooler.
+[Pooler](nodes-and-pools.md#pools) är beräknings resurserna för att köra jobb i batch-tjänsten. I följande avsnitt finns rekommendationer för att arbeta med batch-pooler.
 
 ### <a name="pool-configuration-and-naming"></a>Konfiguration av pooler och namngivning
 
@@ -61,98 +53,121 @@ Allokeringsfel för pooler kan inträffa när som helst under första allokering
 
 ### <a name="unplanned-downtime"></a>Oplanerat stillestånd
 
-Batch-pooler kan uppleva stillestånds händelser i Azure. Detta är viktigt att tänka på när du planerar och utvecklar ditt scenario eller ett arbets flöde för batch.
+Batch-pooler kan uppleva stillestånds händelser i Azure. Tänk på detta när du planerar och utvecklar ditt scenario eller ett arbets flöde för batch.
 
-Om en nod Miss lyckas försöker batch automatiskt återställa de här Compute-noderna åt dig. Detta kan utlösa en omschemaläggningen av alla pågående aktiviteter på den nod som återställs. Se [utforma för nya försök](#designing-for-retries-and-re-execution) för att lära dig mer om avbrutna uppgifter.
+Om en nod Miss lyckas försöker batch automatiskt återställa de här Compute-noderna åt dig. Detta kan utlösa en omschemaläggningen av alla pågående aktiviteter på den nod som återställs. Se [utforma för nya försök](#design-for-retries-and-re-execution) för att lära dig mer om avbrutna uppgifter.
 
-- **Azure-region beroende** Vi rekommenderar att du inte är beroende av en enda Azure-region om du har en tids känslig eller produktions belastning. Även om det är sällsynt, finns det problem som kan påverka en hel region. Om din bearbetning till exempel behöver starta vid en angiven tidpunkt, kan du överväga att skala upp poolen i din primära region på ett *bra sätt innan du börjar med start tiden*. Om poolens skalning Miss lyckas kan du återgå till att skala upp en pool i en säkerhets kopierings region (eller regioner). Pooler över flera konton i olika regioner ger en klar och lättillgänglig säkerhets kopia om något går fel med en annan pool. Mer information finns i [utforma ditt program för hög tillgänglighet](high-availability-disaster-recovery.md).
+### <a name="azure-region-dependency"></a>Azure-region beroende
+
+Vi rekommenderar att du inte är beroende av en enda Azure-region om du har en tids känslig eller produktions belastning. Även om det är sällsynt, finns det problem som kan påverka en hel region. Om din bearbetning till exempel behöver starta vid en angiven tidpunkt, kan du överväga att skala upp poolen i din primära region på ett *bra sätt innan du börjar med start tiden*. Om poolens skalning Miss lyckas kan du återgå till att skala upp en pool i en säkerhets kopierings region (eller regioner). Pooler över flera konton i olika regioner ger en klar och lättillgänglig säkerhets kopia om något går fel med en annan pool. Mer information finns i [utforma ditt program för hög tillgänglighet](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Jobb
 
-Ett jobb är en behållare som är utformad för att innehålla hundratals, tusentals eller till och med miljon tals uppgifter.
+Ett [jobb](jobs-and-tasks.md#jobs) är en behållare som är utformad för att innehålla hundratals, tusentals eller till och med miljon tals uppgifter. Följ dessa rikt linjer när du skapar jobb.
 
-- **Publicera många aktiviteter i ett jobb** Att använda ett jobb för att köra en enskild uppgift är ineffektivt. Till exempel är det mer effektivt att använda ett enda jobb som innehåller 1000 uppgifter i stället för att skapa 100-jobb som innehåller 10 aktiviteter. Att köra 1000-jobb, var och en med en enda uppgift, är den minst effektiva, långsammast och mest dyra metoden att ta.
+### <a name="fewer-jobs-more-tasks"></a>Färre jobb, fler aktiviteter
 
-    Skapa inte en batch-lösning som kräver tusentals samtidigt av aktiva jobb. Det finns ingen kvot för aktiviteter, så du kan köra så många uppgifter som möjligt under så få jobb som möjligt, så att du effektivt kan använda [jobbets och jobb schema kvoterna](batch-quota-limit.md#resource-quotas).
+Att använda ett jobb för att köra en enskild uppgift är ineffektivt. Till exempel är det mer effektivt att använda ett enda jobb som innehåller 1000 uppgifter i stället för att skapa 100-jobb som innehåller 10 aktiviteter. Att köra 1000-jobb, var och en med en enda uppgift, är den minst effektiva, långsammast och mest dyra metoden att ta.
 
-- **Jobbets livs längd** Ett batch-jobb har en obegränsad livs längd tills det tas bort från systemet. Ett jobbs tillstånd anger om det kan acceptera fler aktiviteter för schemaläggning eller inte. Ett jobb flyttas inte automatiskt till slutfört tillstånd om det inte uttryckligen avslutas. Detta kan aktive ras automatiskt via egenskapen [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) eller [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+Därför bör du se till att du inte utformar en batch-lösning som kräver tusentals aktiva jobb samtidigt. Det finns ingen kvot för aktiviteter, så att du kör många aktiviteter under så få jobb som möjligt effektivt använder dina [jobb-och jobb schema kvoter](batch-quota-limit.md#resource-quotas).
+
+### <a name="job-lifetime"></a>Jobbets livs längd
+
+Ett batch-jobb har en obegränsad livs längd tills det tas bort från systemet. Dess status anger om den kan acceptera fler aktiviteter för schemaläggning eller inte.
+
+Ett jobb flyttas inte automatiskt till slutfört tillstånd om det inte uttryckligen avslutas. Detta kan aktive ras automatiskt via egenskapen [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) eller [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
 
 Det finns ett [aktivt standard jobb och en kvot för jobb schema](batch-quota-limit.md#resource-quotas). Jobb och jobb scheman i slutfört tillstånd räknas inte över till den här kvoten.
 
 ## <a name="tasks"></a>Aktiviteter
 
-Aktiviteter är enskilda enheter av arbete som utgör ett jobb. Aktiviteter skickas av användaren och schemaläggs av batch på för att beräkna noder. Det finns flera design aspekter att fatta när du skapar och kör uppgifter. I följande avsnitt beskrivs vanliga scenarier och hur du utformar dina aktiviteter för att hantera problem och utföra effektiva åtgärder.
+[Aktiviteter](jobs-and-tasks.md#tasks) är enskilda enheter av arbete som utgör ett jobb. Aktiviteter skickas av användaren och schemaläggs av batch på för att beräkna noder. Det finns flera design aspekter att fatta när du skapar och kör uppgifter. I följande avsnitt beskrivs vanliga scenarier och hur du utformar dina aktiviteter för att hantera problem och utföra effektiva åtgärder.
 
-- **Spara uppgifts data som en del av uppgiften.**
-    Compute-noder är av sin natur. Det finns många funktioner i batch, till exempel autopool och autoskalning som gör det enkelt för noder att försvinna. När noder lämnar poolen (på grund av en storleks ändring eller en pool borttagning) raderas även alla filer på noderna. Därför rekommenderar vi att innan en aktivitet slutförs, flyttas utmatningen från noden som körs på och till ett varaktigt lager, på samma sätt som om en aktivitet Miss lyckas bör det flyttas loggar som krävs för att diagnosticera felet till ett varaktigt lager. Batch har integrerat stöd Azure Storage för att ladda upp data via [OutputFiles](batch-task-output-files.md), samt en rad olika delade fil system, eller så kan du utföra överföringen själv i dina uppgifter.
+### <a name="save-task-data"></a>Spara uppgifts data
 
-### <a name="task-lifetime"></a>Aktivitetens livs längd
+Compute-noder är av sin natur. Det finns många funktioner i batch, till exempel autopool och autoskalning som gör det enkelt för noder att försvinna. När noder lämnar poolen (på grund av en storleks ändring eller en pool borttagning) raderas även alla filer på noderna. Därför bör en aktivitet flytta utdatan från noden som den körs på och till en varaktig lagring innan den är klar. Om en aktivitet Miss lyckas bör den flytta de loggar som krävs för att diagnostisera misslyckandet till ett varaktigt lager.
 
-- **Ta bort uppgifter när de är klara.**
-    Ta bort aktiviteter när de inte längre behövs eller ange en [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) . Om en `retentionTime` har angetts rensar batch automatiskt disk utrymmet som används av aktiviteten när det `retentionTime` upphör att gälla.
+Batch har integrerat stöd Azure Storage för att ladda upp data via [OutputFiles](batch-task-output-files.md), samt en rad olika delade fil system, eller så kan du utföra överföringen själv i dina uppgifter.
 
-    Att ta bort uppgifter utför två saker. Det garanterar att du inte har en version av aktiviteterna i jobbet, genom att skicka frågor till/hitta den aktivitet du är intresse rad av (eftersom du måste filtrera igenom de slutförda uppgifterna). Den rensar också motsvarande uppgifts data på noden (anges `retentionTime` har inte redan nåtts). På så sätt ser du till att noderna inte fyller i aktivitets data och slut på disk utrymme.
+### <a name="manage-task-lifetime"></a>Hantera uppgifts livs längd
 
-### <a name="task-submission"></a>Uppgifts överföring
+Ta bort aktiviteter när de inte längre behövs eller ange en [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) . Om en `retentionTime` har angetts rensar batch automatiskt disk utrymmet som används av aktiviteten när det `retentionTime` upphör att gälla.
 
-- **Skicka in ett stort antal aktiviteter i en samling.**
-    Aktiviteter kan skickas på en enskild basis eller i samlingar. Skicka uppgifter i [samlingar](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) på upp till 100 i taget när du utför Mass inlämning av uppgifter för att minska omkostnader och överförings tider.
+Att ta bort uppgifter utför två saker. Det garanterar att du inte har en version av aktiviteterna i jobbet, vilket kan göra det svårare att fråga/hitta den uppgift som du är intresse rad av (eftersom du måste filtrera genom de slutförda uppgifterna). Den rensar också motsvarande uppgifts data på noden (anges `retentionTime` har inte redan nåtts). På så sätt kan du se till att dina noder inte fyller i aktivitets data och att det inte får slut på disk utrymme.
 
-### <a name="task-execution"></a>Uppgifts körning
+### <a name="submit-large-numbers-of-tasks-in-collection"></a>Skicka in ett stort antal uppgifter i samlingen
 
-- **Välja Max aktiviteter per nod** Batch stöder oversubscribing-aktiviteter på noder (som kör fler aktiviteter än en nod har kärnor). Det är upp till dig att se till att aktiviteterna anpassas till noderna i poolen. Du kan till exempel ha en försämrad upplevelse om du försöker schemalägga åtta uppgifter som varje använder 25% CPU-användning på en nod (i en pool med `maxTasksPerNode = 8` ).
+Aktiviteter kan skickas på en enskild basis eller i samlingar. Skicka uppgifter i [samlingar](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) på upp till 100 i taget när du utför Mass inlämning av uppgifter för att minska omkostnader och överförings tider.
 
-### <a name="designing-for-retries-and-re-execution"></a>Design för nya försök och omkörning
+### <a name="set-max-tasks-per-node-appropriately"></a>Ange Max aktiviteter per nod på lämpligt sätt
+
+Batch stöder oversubscribing-aktiviteter på noder (som kör fler aktiviteter än en nod har kärnor). Det är upp till dig att se till att aktiviteterna anpassas till noderna i poolen. Du kan till exempel ha en försämrad upplevelse om du försöker schemalägga åtta uppgifter som varje använder 25% CPU-användning på en nod (i en pool med `maxTasksPerNode = 8` ).
+
+### <a name="design-for-retries-and-re-execution"></a>Design för nya försök och ny körning
 
 Aktiviteter kan göras om automatiskt med batch. Det finns två typer av återförsök: User-styrd och Internal. Användar kontrollerade återförsök anges av aktivitetens [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet). När ett program som anges i uppgiften avslutas med en slutkod som inte är noll, görs ett nytt försök till värdet för `maxTaskRetryCount` .
 
 Även om det är sällsynt, kan en aktivitet omprövas internt på grund av att det inte går att uppdatera beräknings noden, till exempel att det inte går att uppdatera det interna läget eller ett haveri på noden medan aktiviteten körs. Aktiviteten provas på samma Compute-nod, om möjligt, upp till en intern gräns innan den ger aktiviteten och en uppskjuten aktivitet som ska schemaläggas om av batch, eventuellt på en annan Compute-nod.
 
-- **Bygg tåliga uppgifter** Aktiviteter bör utformas för att motstå fel och försöka hantera försök igen. Detta är särskilt viktigt för tids krävande uppgifter. Det gör du genom att se till att uppgifterna genererar samma resultat även om de körs mer än en gång. Ett sätt att åstadkomma detta är att göra dina uppgifter till "måls sökning". Ett annat sätt är att se till att uppgifterna är idempotenta (uppgifter kommer att ha samma resultat oavsett hur många gånger de körs).
+Det finns inga design skillnader när du kör aktiviteter på dedikerade eller låg prioritets noder. Om en aktivitet avbryts vid körning på en nod med låg prioritet eller avbryts på grund av ett haveri på en dedikerad nod, begränsas båda situationerna genom att aktiviteten ändras till att motstå felen.
 
-    Ett vanligt exempel är en uppgift för att kopiera filer till en Compute-nod. En enkel metod är en uppgift som kopierar alla angivna filer varje gång den körs, vilket är ineffektivt och inte är konstruerat för att motstå felen. Skapa i stället en aktivitet för att se till att filerna finns på Compute-noden. en uppgift som inte kopierar om filer som redan finns. På det här sättet hämtar uppgiften där den slutade om den avbröts.
+### <a name="build-durable-tasks"></a>Bygg tåliga uppgifter
 
-- **Noder med låg prioritet** Det finns inga design skillnader när du kör aktiviteter på dedikerade eller låg prioritets noder. Om en aktivitet avbryts vid körning på en nod med låg prioritet eller avbryts på grund av ett haveri på en dedikerad nod, begränsas båda situationerna genom att aktiviteten ändras till att motstå felen.
+Aktiviteter bör utformas för att motstå fel och försöka hantera försök igen. Detta är särskilt viktigt för tids krävande uppgifter. Det gör du genom att se till att uppgifterna genererar samma resultat även om de körs mer än en gång. Ett sätt att åstadkomma detta är att göra dina uppgifter till "måls sökning". Ett annat sätt är att se till att uppgifterna är idempotenta (uppgifter kommer att ha samma resultat oavsett hur många gånger de körs).
 
-- **Körnings tid för aktivitet** Undvik uppgifter med kort körnings tid. Aktiviteter som bara körs för en till två sekunder är inte idealiska. Du bör försöka göra en stor mängd arbete i en enskild uppgift (10 sekunders tid på upp till timmar eller dagar). Om varje aktivitet körs i en minut (eller mer) är tids gränsen för schemaläggningen som en bråkdel av den totala beräknings tiden liten.
+Ett vanligt exempel är en uppgift för att kopiera filer till en Compute-nod. En enkel metod är en uppgift som kopierar alla angivna filer varje gång den körs, vilket är ineffektivt och inte är konstruerat för att motstå felen. Skapa i stället en aktivitet för att se till att filerna finns på Compute-noden. en uppgift som inte kopierar om filer som redan finns. På det här sättet hämtar uppgiften där den slutade om den avbröts.
+
+### <a name="avoid-short-execution-time"></a>Undvik kort körnings tid
+
+Aktiviteter som bara körs för en till två sekunder är inte idealiska. Du bör försöka göra en stor mängd arbete i en enskild uppgift (10 sekunders tid på upp till timmar eller dagar). Om varje aktivitet körs i en minut (eller mer) är tids gränsen för schemaläggningen som en bråkdel av den totala beräknings tiden liten.
+
 
 ## <a name="nodes"></a>Noder
 
-- **Start aktiviteter ska vara idempotenta** Precis som andra uppgifter ska nodens start aktivitet vara idempotenta eftersom den kommer att köras igen varje gång noden startas. En idempotenta-uppgift är bara en som ger ett konsekvent resultat vid körning flera gånger.
+En [Compute-nod](nodes-and-pools.md#nodes) är en virtuell Azure-dator (VM) eller en virtuell moln tjänst som är dedikerad för bearbetning av en del av programmets arbets belastning. Följ dessa rikt linjer när du arbetar med noder.
 
-- **Hantera tids krävande tjänster via gränssnittet för operativ system tjänster.**
-    Ibland måste det finnas behov av att köra en annan Agent tillsammans med batch-agenten i noden, t. ex. för att samla in data från noden och rapportera den. Vi rekommenderar att dessa agenter distribueras som OS-tjänster, till exempel en Windows-tjänst eller en Linux `systemd` -tjänst.
+### <a name="idempotent-start-tasks"></a>Idempotenta start uppgifter
 
-    När de här tjänsterna körs får de inte ta fillås på några filer i batch-hanterade kataloger på noden, eftersom annars kan batch inte ta bort dessa kataloger på grund av fillås. Om du till exempel installerar en Windows-tjänst i en start aktivitet, i stället för att starta tjänsten direkt från arbets katalogen starta aktivitet, kopierar du filerna någon annan stans (om filerna bara finns hoppar du över kopian). Installera tjänsten från den platsen. När batch kör om din start uppgift, tar den bort start uppgiftens arbets katalog och skapar den igen. Detta fungerar eftersom tjänsten har fillås på den andra katalogen, inte start katalogen för start uppgiften.
+Precis som med andra uppgifter ska nodens [Start aktivitet](jobs-and-tasks.md#start-task) vara idempotenta, eftersom den kommer att köras varje gång noden startas. En idempotenta-uppgift är bara en som ger ett konsekvent resultat vid körning flera gånger.
 
-- **Undvik att skapa katalog Knut punkter i Windows** Katalog kopplingar, ibland kallade katalog hårda länkar, är svåra att hantera under aktivitets-och jobb rensning. Använd symlinks (mjuka länkar) i stället för hårda länkar.
+### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Hantera tids krävande tjänster via gränssnittet för operativ system tjänster
 
-- **Samla in batch-agentens loggar om det är problem** Om du upptäcker ett problem som involverar beteendet för en nod eller aktiviteter som körs på en nod, rekommenderar vi att du samlar in batch-agentens loggar innan du avallokerar noderna i fråga. Batch agent-loggarna kan samlas in med hjälp av API: t Ladda upp batch-tjänst loggar. Dessa loggar kan levereras som en del av ett support ärende till Microsoft och hjälper till med problem fel sökning och lösning.
+Ibland måste du köra en annan Agent tillsammans med batch-agenten i noden. Du kanske till exempel vill samla in data från noden och rapportera dem. Vi rekommenderar att dessa agenter distribueras som OS-tjänster, till exempel en Windows-tjänst eller en Linux `systemd` -tjänst.
 
-## <a name="security"></a>Säkerhet
+När de här tjänsterna körs får de inte ta fillås på några filer i batch-hanterade kataloger på noden, eftersom annars kan batch inte ta bort dessa kataloger på grund av fillås. Om du t. ex. installerar en Windows-tjänst i en start aktivitet, i stället för att starta tjänsten direkt från arbets katalogen starta aktivitet, kopierar du filerna någon annan stans (eller om filerna redan finns, hoppa över kopian). Installera sedan tjänsten från den platsen. När batch kör om din start uppgift, tar den bort start uppgiftens arbets katalog och skapar den igen. Detta fungerar eftersom tjänsten har fillås på den andra katalogen, inte arbets katalogen för start aktiviteten.
 
-### <a name="security-isolation"></a>Säkerhets isolering
+### <a name="avoid-creating-directory-junctions-in-windows"></a>Undvik att skapa katalog Knut punkter i Windows
 
-Om ditt scenario kräver att du isolerar jobb från varandra i isolerings syfte bör du isolera dessa jobb genom att ha dem i separata pooler. En pool är säkerhets isolerings gränser i batch och som standard är två pooler inte synliga eller kan kommunicera med varandra. Undvik att använda separata batch-konton som ett sätt att isolera.
+Katalog kopplingar, ibland kallade katalog hårda länkar, är svåra att hantera under aktivitets-och jobb rensning. Använd symlinks (mjuka länkar) i stället för hårda länkar.
 
-## <a name="moving"></a>Flyttat
+### <a name="collect-the-batch-agent-logs"></a>Samla in batch agent-loggar
 
-### <a name="move-batch-account-across-regions"></a>Flytta batch-konto mellan regioner
+Om du upptäcker ett problem som involverar beteendet för en nod eller aktiviteter som körs på en nod, ska du samla in batch-agentens loggar innan du avallokerar noderna i fråga. Batch agent-loggarna kan samlas in med hjälp av API: t Ladda upp batch-tjänst loggar. Dessa loggar kan levereras som en del av ett support ärende till Microsoft och hjälper till med problem fel sökning och lösning.
 
-Det finns olika scenarier där du vill flytta ditt befintliga batch-konto från en region till en annan. Till exempel kanske du vill flytta till en annan region som en del av Disaster Recovery-planeringen.
+## <a name="isolation-security"></a>Isolerings säkerhet
 
-Azure Batch-konton kan inte flyttas från en region till en annan. Du kan dock använda en Azure Resource Manager mall för att exportera den befintliga konfigurationen av ditt batch-konto.  Du kan sedan mellanlagra resursen i en annan region genom att exportera batch-kontot till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen. När du har överfört mallen till den nya regionen måste du återskapa certifikat, jobb scheman och programpaket. Kom ihåg att ta bort det ursprungliga batch-kontot eller resurs gruppen för att genomföra ändringarna och slutföra flyttningen av batch-kontot.
+Om ditt scenario kräver att du isolerar jobb från varandra i isolerings syfte, gör du det genom att ha dem i separata pooler. En pool är säkerhets isolerings gränser i batch och som standard är två pooler inte synliga eller kan kommunicera med varandra. Undvik att använda separata batch-konton som ett sätt att isolera.
+
+## <a name="moving-batch-accounts-across-regions"></a>Flytta batch-konton över regioner
+
+Det finns scenarier där det kan vara bra att flytta ett befintligt batch-konto från en region till en annan. Till exempel kanske du vill flytta till en annan region som en del av Disaster Recovery-planeringen.
+
+Azure Batch-konton kan inte flyttas direkt från en region till en annan. Du kan dock använda en Azure Resource Manager mall för att exportera den befintliga konfigurationen av ditt batch-konto. Du kan sedan mellanlagra resursen i en annan region genom att exportera batch-kontot till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen.
+
+När du har överfört mallen till den nya regionen måste du återskapa certifikat, jobb scheman och programpaket. Kom ihåg att ta bort det ursprungliga batch-kontot eller resurs gruppen för att genomföra ändringarna och slutföra flyttningen av batch-kontot.
 
 Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-## <a name="connectivity-to-the-batch-service"></a>Anslutning till batch-tjänsten
+## <a name="connectivity"></a>Anslutning
+
+Läs följande vägledning när du överväger anslutningen i dina batch-lösningar.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Nätverks säkerhets grupper (NSG: er) och användardefinierade vägar (UDR)
 
 När du konfigurerar [batch-pooler i ett virtuellt nätverk](batch-virtual-network.md)bör du se till att du noga följer rikt linjerna för användningen av `BatchNodeManagement` Service Tag-numret, portarna, protokollen och riktningen för regeln.
-Användningen av service tag gen rekommenderas och inte de underliggande IP-adresserna för batch-tjänsten eftersom de kan ändras med tiden. Om IP-adresser för batch-tjänsten används direkt kan det vara instabilt, avbrott eller avbrott för batch-pooler när batch-tjänsten uppdaterar IP-adresser som används över tid. Om du för närvarande använder batch-tjänstens IP-adresser i dina NSG-regler, rekommenderar vi att du växlar till att använda tjänst tag gen.
+Användningen av service tag gen rekommenderas i stället för att använda de underliggande IP-adresserna för batch-tjänsten. Detta beror på att IP-adresserna kan ändras med tiden. Användning av IP-adresser för batch-tjänsten direkt kan orsaka instabilitet, avbrott eller avbrott för dina batch-pooler.
 
-För användardefinierade vägar måste du se till att du har en process på plats för att uppdatera batch-tjänstens IP-adresser regelbundet i routningstabellen som ändringen över tid. Information om hur du hämtar en lista över IP-adresser för batch-tjänsten finns i [tjänst märkning lokalt](../virtual-network/service-tags-overview.md). IP-adresserna för batch-tjänsten kommer att associeras med `BatchNodeManagement` Service Tag-numret (eller den regionala variant som matchar ditt batch-kontoområdet).
+För användardefinierade vägar (UDR) ser du till att du har en process för att uppdatera batch-tjänstens IP-adresser med jämna mellanrum i routningstabellen, eftersom dessa adresser ändras med tiden. Information om hur du hämtar en lista över IP-adresser för batch-tjänsten finns i [tjänst Taggar lokalt](../virtual-network/service-tags-overview.md). IP-adresserna för batch-tjänsten kommer att associeras med `BatchNodeManagement` Service Tag-numret (eller den regionala variant som matchar ditt batch-kontoområdet).
 
 ### <a name="honoring-dns"></a>DNS-inlöst
 
@@ -164,3 +179,25 @@ Om dina begär Anden tar emot HTTP-svar på 5xx nivå och det finns ett "anslutn
 
 Se till att dina batch-betjäna klienter har lämpliga principer för återförsök på plats för att automatiskt försöka utföra begär anden igen, även under normal drift och inte enbart under några tids perioder för tjänste underhåll. Dessa principer för återförsök bör omfatta ett intervall på minst 5 minuter. Funktioner för automatisk återförsök tillhandahålls med olika batch-SDK: er, till exempel [.net RetryPolicyProvider-klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
 
+## <a name="batch-node-underlying-dependencies"></a>Underliggande beroenden för batch-noden
+
+Tänk på följande beroenden och begränsningar när du utformar dina batch-lösningar.
+
+### <a name="system-created-resources"></a>System-skapade resurser
+
+Azure Batch skapar och hanterar en uppsättning användare och grupper på den virtuella datorn, som inte ska ändras. Det här är skillnaderna:
+
+#### <a name="windows"></a>Windows
+
+- En användare med namnet **PoolNonAdmin**
+- En användar grupp med namnet **WATaskCommon**
+
+#### <a name="linux"></a>Linux
+
+- En användare med namnet **_azbatch**
+
+### <a name="file-cleanup"></a>Fil rensning
+
+Batch försöker aktivt rensa arbets katalogen som aktiviteter körs i, när deras kvarhållningsperiod upphör att gälla. Alla filer som skrivs utanför katalogen är [ditt ansvar att rensa upp](#manage-task-lifetime) för att undvika att fylla i disk utrymme. 
+
+Den automatiserade rensningen av arbets katalogen blockeras om du kör en tjänst i Windows från startTask arbets katalog, på grund av att mappen fortfarande används. Detta leder till försämrade prestanda. Åtgärda detta genom att ändra katalogen för tjänsten till en separat katalog som inte hanteras av batch.

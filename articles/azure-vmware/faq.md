@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 6d8e87dd52871b82109ccc794af04244efe95b06
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854600"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873305"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Vanliga frågor om för hands versionen av Azure VMware-lösningen (AVS)
 
@@ -17,7 +17,7 @@ Svar på vanliga frågor om Azure VMware-lösning (AVS).
 
 ## <a name="general"></a>Allmänt
 
-**Vad är Azure VMware Solution (AVS)?**
+**Vad är Azure VMware-lösning (AVS)?**
 
 Eftersom företag eftersträvar IT-modernisering strategier för att förbättra flexibiliteten i verksamheten, minska kostnaderna och påskynda innovationen, har hybrid moln plattformarna uppfyllts som viktigare för kunders digitala omvandling. AVS kombinerar VMwares SDDC-programvara (Software Defined Data Center) med Microsoft Azure globalt moln tjänst eko system. AVS-lösningen hanteras för att uppfylla kraven på prestanda, tillgänglighet, säkerhet och efterlevnad.
 
@@ -45,7 +45,7 @@ Vissa integreringar och användnings fall kan utvärderas från fall till fall.
 
 **Kan jag migrera virtuella vSphere-datorer från lokala miljöer till AVS-privata moln?**
 
-Ja. Migrering av virtuella datorer och vMotion kan användas för att flytta virtuella datorer till ett privat moln om standard Cross vCenter [vMotionhttps://kb.vmware.com/s/article/210695-krav] [] är uppfyllda.
+Ja. Migrering av virtuella datorer och vMotion kan användas för att flytta virtuella datorer till ett privat moln om standard Cross vCenter [vMotion-krav] [ https://kb.vmware.com/s/article/210695 ] är uppfyllda.
 
 **Krävs en speciell version av vSphere i lokala miljöer?**
 
@@ -66,6 +66,35 @@ Det finns ingen ändring av den befintliga Azure VMware-lösningen från CloudSi
 **Kan jag migrera från Azure VMware-lösningen från CloudSimple till den här nya lösningen?**
 
 Ja, Azure VMware-lösningen stöder migrering med välbekanta VMware-verktyg som HCX. För kunder som är intresserade av att migrera till den nya lösningen kan du använda ditt Microsoft-konto-team för att utforska alternativ och tillgänglig support.
+
+<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**Hur gör jag för att begära en värd kvot ökning för en befintlig Azure VMware-lösning?**
+
+Du kan begära en kvot ökning genom att [skicka en support förfrågan](..\azure-portal\supportability\how-to-create-azure-support-request.md). Kvot hanterings teamet utvärderar begäran och godkänner den inom tre arbets dagar.  
+
+> [!IMPORTANT]
+> Innan du kan begära en kvot ökning måste du kontrol lera att du [registrerar resurs leverantören för **Microsoft. AVS** ](tutorial-create-private-cloud.md) i Azure Portal.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource providers och-typer](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
+
+1. I Azure Portal, under **Hjälp + Support**, skapa en **ny supportbegäran** och ange följande information för biljetten:
+   - **Typ av problem:** Produkt
+   - **Prenumeration:** Ditt prenumerations-ID
+   - **Tjänst:**  Azure VMware-lösning 
+   - **Sammanfattning:** Kvot ökning
+   - **Problem typ:** Problem med kapacitets hantering
+   - **Problem under typ:** Kund förfrågan om ytterligare värd kvot/-kapacitet
+
+1. I beskrivningen av support ärendet på fliken information anger du:
+   - Antal ytterligare noder   
+   - Node-SKU
+   - Region
+
+   > [!NOTE] 
+   > Som standard kommer minst fyra noder att beviljas.
+
+1. Klicka på **Granska + skapa** för att skicka begäran.
 
 ## <a name="compute-network-and-storage"></a>Beräkning, nätverk och lagring
 

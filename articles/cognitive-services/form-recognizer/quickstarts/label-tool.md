@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691341"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871381"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
@@ -22,7 +22,7 @@ I den här snabb starten använder du formulär tolken REST API med verktyget f�
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten måste du ha:
 
@@ -143,6 +143,7 @@ Därefter skapar du taggar (etiketter) och tillämpar dem på de text element so
     > * Etikettera värden som de visas i formuläret. Försök inte att dela upp ett värde i två delar med två olika taggar. Ett adress fält ska till exempel märkas med en enda tagg även om det sträcker sig över flera rader.
     > * Ta inte med nycklar i dina märkta fält &mdash; enbart värdena.
     > * Tabell data ska identifieras automatiskt och är tillgängliga i den slutgiltiga JSON-filen för utdata. Men om modellen inte kan identifiera alla tabell data kan du tagga dessa fält manuellt. Tagga varje cell i tabellen med en annan etikett. Om dina formulär har tabeller med varierande antal rader, se till att du tagga minst ett formulär med största möjliga tabell.
+    > * Om du vill ta bort en Använd tagg väljer du rektangeln i dokument visningen och trycker på Delete-tangenten.
 
 ![Huvud redigerings fönster i exempel etikett verktyg](../media/label-tool/main-editor.png)
 
@@ -164,6 +165,27 @@ Följande värde typer och varianter stöds för närvarande:
     * standard, `dmy` , `mdy` ,`ymd`
 * `time`
 * `integer`
+
+> [!NOTE]
+> Se följande regler för datum format:
+> 
+> Följande tecken kan användas som avgränsare för DMY datum: `, - / . \` . Det går inte att använda blank steg som avgränsare. Ett exempel:
+> * 01, 01, 2020
+> * 01-01-2020
+> * 01/01/2020
+>
+> Dagen och månaden kan skrivas med en eller två siffror och året kan vara två eller fyra siffror:
+> * 1-1-2020
+> * 1-01-20
+>
+> Om en DMY datum sträng har åtta siffror är avgränsaren valfri:
+> * 01012020
+> * 01 01 2020
+>
+> Månaden kan också skrivas som fullständigt eller kort namn. Om namnet används är avgränsnings tecken valfria:
+> * 01/jan/2020
+> * 01Jan2020
+> * 01 jan 2020
 
 ## <a name="train-a-custom-model"></a>Träna en anpassad modell
 

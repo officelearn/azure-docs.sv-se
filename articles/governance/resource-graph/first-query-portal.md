@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: din första portal fråga'
 description: I den här snabb starten följer du stegen för att köra din första fråga från Azure Portal med Azure Resource Graph Explorer.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74406803"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872091"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer
 
@@ -29,25 +29,25 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 1. I **fråga 1** -delen av fönstret anger du frågan `Resources | project name, type | limit 5` och väljer **Kör fråga**.
 
    > [!NOTE]
-   > Eftersom den här frågan inte tillhandahåller en sorterings modifierare, `order by`till exempel att köra den här frågan flera gånger, är det troligt att en annan uppsättning resurser skapas per begäran.
+   > Eftersom den här frågan inte tillhandahåller en sorterings modifierare, till exempel `order by` att köra den här frågan flera gånger, är det troligt att en annan uppsättning resurser skapas per begäran.
 
 1. Granska fråge svaret på fliken **resultat** . Välj fliken **meddelanden** om du vill visa information om frågan, inklusive antalet resultat och varaktighet för frågan. Eventuella fel visas under den här fliken.
 
-1. Uppdatera frågan till `order by` egenskapen **Name** : `Resources | project name, type | limit 5 | order by name asc`. Välj sedan **Kör fråga**.
+1. Uppdatera frågan till `order by` egenskapen **Name** : `Resources | project name, type | limit 5 | order by name asc` . Välj sedan **Kör fråga**.
 
    > [!NOTE]
-   > Om du kör den här frågan flera kommer den, precis som den första frågan, sannolikt att resultera i olika resurser vid varje begäran. Ordningen på frågekommandona är viktig. I det här exemplet kommer `order by` efter `limit`. Det begränsar först frågeresultaten och sorterar sedan dem.
+   > Om du kör den här frågan flera kommer den, precis som den första frågan, sannolikt att resultera i olika resurser vid varje begäran. Ordningen på frågekommandona är viktig. I det här exemplet kommer `order by` efter `limit`. Den här kommando ordningen begränsar först frågeresultaten och beställer dem.
 
-1. Uppdatera frågan till `order by` först egenskapen **namn** och sedan `limit` till de fem främsta resultaten:. `Resources | project name, type | order by name asc | limit 5` Välj sedan **Kör fråga**.
+1. Uppdatera frågan till först `order by` egenskapen **namn** och sedan `limit` till de fem främsta resultaten: `Resources | project name, type | order by name asc | limit 5` . Välj sedan **Kör fråga**.
 
-När den slutliga frågan körs flera gånger, förutsatt att ingenting i din miljö ändras, är resultaten som returneras konsekventa och som förväntat – beställt av egenskapen **namn** , men fortfarande begränsat till de fem främsta resultaten.
+När den slutliga frågan körs flera gånger, förutsatt att ingenting i din miljö ändras, är resultatet som returneras konsekvent och beställt av egenskapen **namn** , men fortfarande begränsat till de fem främsta resultaten.
 
 ### <a name="schema-browser"></a>Schema webbläsare
 
 Schema webbläsaren finns i den vänstra rutan i resurs diagram Utforskaren. I den här listan över resurser visas alla _resurs typer_ av Azure-resurser som båda stöds av Azures resurs diagram och som finns i en klient som du har åtkomst till. Om du expanderar en resurs typ eller underEgenskaper visas underordnade egenskaper som kan användas för att skapa en resurs diagram fråga.
 
-Välja resurs typ platser `where type =="<resource type>"` i rutan fråga. Att välja ett av de underordnade egenskaperna `where <propertyName> == "INSERT_VALUE_HERE"` läggs till i rutan fråga.
-Schema läsaren är ett bra sätt att identifiera egenskaper för användning i frågor. Se till att ersätta _infoga\_värde\_här_ med ditt eget värde, justera frågan med villkor, operatorer och funktioner för att uppnå dina avsedda resultat.
+Välja resurs typ platser `where type =="<resource type>"` i rutan fråga. Att välja ett av de underordnade egenskaperna läggs till `where <propertyName> == "INSERT_VALUE_HERE"` i rutan fråga.
+Schema läsaren är ett bra sätt att identifiera egenskaper för användning i frågor. Se till att ersätta _infoga \_ värde \_ här_ med ditt eget värde, justera frågan med villkor, operatorer och funktioner för att uppnå dina avsedda resultat.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Skapa ett diagram från resurs diagram frågan
 
@@ -97,7 +97,7 @@ Prova följande exempel på instrument paneler för att tillhandahålla exempel 
   [![Exempel bild för instrument panelens exempel #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
 
 > [!NOTE]
-> Antalet och diagram i exempel skärmarna ovan kan skärm bilderna variera beroende på din Azure-miljö.
+> Antal och diagram i exempel skärmarna ovan, beror på din Azure-miljö.
 
 1. Välj och ladda ned exempel instrument panel som du vill utvärdera.
 

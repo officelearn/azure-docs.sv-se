@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 911172bd6ef9c08419e74828657c8bdb2f8d1b30
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4b72f94548a5222fcb950141e983007efde7fe4e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930649"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871196"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage brand väggar och virtuella nätverk
 
@@ -223,7 +223,7 @@ Du kan hantera virtuella nätverks regler för lagrings konton via Azure Portal,
     ```
 
     > [!TIP]
-    > Om du vill lägga till en regel för ett undernät i ett virtuellt nätverk som tillhör en annan Azure AD-klient använder du ett fullständigt kvalificerat undernät-ID\<i formatet "\>/Subscriptions/\<Subscription-ID\>/resourceGroups/\<resourceGroup-name\>/providers/Microsoft.Network/virtualNetworks/\<VNet-name\>/subnets/Subnet-Name".
+    > Om du vill lägga till en regel för ett undernät i ett virtuellt nätverk som tillhör en annan Azure AD-klient använder du ett fullständigt kvalificerat undernät-ID i formatet "/Subscriptions/ \< Subscription-ID \> /resourceGroups/ \< resourceGroup-name \> /providers/Microsoft.Network/virtualNetworks/ \< VNet-name \> /subnets/ \< Subnet-name \> ".
     >
     > Du kan använda parametern **Subscription** för att hämta Undernäts-ID: t för ett VNet som tillhör en annan Azure AD-klient.
 
@@ -237,7 +237,7 @@ Du kan hantera virtuella nätverks regler för lagrings konton via Azure Portal,
 > [!IMPORTANT]
 > Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka**eller att nätverks regler inte har någon påverkan.
 
-## <a name="grant-access-from-an-internet-ip-range"></a>Bevilja åtkomst från ett Internet-IP-intervall
+## <a name="grant-access-from-an-internet-ip-range"></a>Bevilja åtkomst från ett IP-intervall på internet
 
 Du kan konfigurera lagrings konton så att de tillåter åtkomst från vissa offentliga IP-adressintervall för Internet. Den här konfigurationen beviljar åtkomst till vissa Internetbaserade tjänster och lokala nätverk och blockerar allmän Internet trafik.
 
@@ -246,7 +246,7 @@ Tillhandahålla tillåtna Internet adress intervall med [CIDR-notering](https://
    > [!NOTE]
    > Små adress intervall som använder sig av prefixlängden "/31" eller "/32" stöds inte. Dessa intervall ska konfigureras med hjälp av enskilda IP-adressintervall.
 
-IP-nätverks regler tillåts endast för **offentliga Internet** -IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med _10. *_, _172,16. *_ - _172,31. *_ och _192,168. *_.
+IP-nätverks regler tillåts endast för **offentliga Internet** -IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med _10. *_, _172,16. *_  -  _172,31. *_ och _192,168. *_.
 
    > [!NOTE]
    > IP-nätverksanslutningar har ingen påverkan på begär Anden som kommer från samma Azure-region som lagrings kontot. Använd [regler för virtuella nätverk](#grant-access-from-a-virtual-network) för att tillåta begäran om samma region.
@@ -276,7 +276,7 @@ Du kan hantera IP-nätverks regler för lagrings konton via Azure Portal, PowerS
 
 1. Kontrol lera att du har valt att tillåta åtkomst från **valda nätverk**.
 
-1. Om du vill bevilja åtkomst till ett Internet-IP-intervall anger du IP-adressen eller adress intervallet (i CIDR-format) under **brand Väggs** > **adress intervall**.
+1. Om du vill bevilja åtkomst till ett Internet-IP-intervall anger du IP-adressen eller adress intervallet (i CIDR-format) under **brand Väggs**  >  **adress intervall**.
 
 1. Om du vill ta bort en IP-nätverks regel klickar du på pappers korgs ikonen bredvid adress intervallet.
 
@@ -392,6 +392,7 @@ Inställningen **Tillåt betrodda Microsoft-tjänster...** tillåter också att 
 | Azure Container Registry Tasks | Microsoft. ContainerRegistry/register | ACR-aktiviteter kan komma åt lagrings konton när du skapar behållar avbildningar. |
 | Azure Data Factory             | Microsoft. DataFactory/fabriker        | Ger åtkomst till lagrings konton via ADF-körningen. |
 | Azure Data Share               | Microsoft. DataShare/konton           | Ger åtkomst till lagrings konton via data resurs. |
+| Azure IoT Hub                  | Microsoft. Devices/IotHubs              | Tillåter att data från en IoT-hubb skrivs till Blob Storage. [Läs mer](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft. Logic/arbets flöden              | Gör att Logic Apps kan komma åt lagrings konton. [Läs mer](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Azure Machine Learning-tjänsten | Microsoft.MachineLearningServices      | Auktoriserade Azure Machine Learning arbets ytor skriver experiment, modeller och loggar till Blob Storage och läser data. [Läs mer](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | Tillåter import och export av data från vissa SQL Database instanser med PolyBase. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |

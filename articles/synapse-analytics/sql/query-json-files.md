@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 870d4f053b85c70e800c352aaf908899b7863082
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7a8c9083ecbadbf63cf0ac65dc1803b478e939fe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828380"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873392"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga JSON-filer med SQL på begäran (för hands version) i Azure Synapse Analytics
 
 I den här artikeln får du lära dig hur du skriver en fråga med SQL på begäran (för hands version) i Azure Synapse Analytics. Frågans mål är att läsa JSON-filer. Format som stöds visas i [OpenRowSet](develop-openrowset.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ditt första steg är att **skapa en databas** där du ska köra frågorna. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
@@ -70,7 +70,7 @@ FROM
 
 ## <a name="query-json-files-using-json_value"></a>Fråga JSON-filer med JSON_VALUE
 
-Frågan nedan visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta skalära värden (title, Publisher) från en bok med titeln *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda artiklar*:
+Frågan nedan visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta skalära värden (title, Publisher) från en bok med titeln *Probabilistic och statistiska metoder i Cryptology, en introduktion enligt valda ämnen*:
 
 ```sql
 SELECT
@@ -119,7 +119,7 @@ WHERE
 
 ## <a name="query-json-files-using-openjson"></a>Fråga JSON-filer med openjson
 
-Följande fråga använder [openjson](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Den kommer att hämta objekt och egenskaper i en bok *med titeln Probabilistic och statistiska metoder i Cryptology, en introduktion av valda artiklar*:
+Följande fråga använder [openjson](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Den kommer att hämta objekt och egenskaper i en bok med titeln *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda ämnen*:
 
 ```sql
 SELECT

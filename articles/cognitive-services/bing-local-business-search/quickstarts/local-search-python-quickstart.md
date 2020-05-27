@@ -8,38 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/29/2019
+ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: c7e7ef7f052fccfea18b246f41109d5fa7528b4b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3a90d5455c0664ceabf80647fc94a37ad0c716b5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75379751"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873032"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Snabb start: skicka en fråga till API: et för lokal sökning i Bing i python
 
-Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet skrivs i python är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
+Använd den här snabb starten för att lära dig hur du skickar begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet skrivs i python är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-Det här exempel programmet hämtar lokala svars data från API: et för `hotel in Bellevue`Sök frågan.
+Det här exempel programmet hämtar lokala svars data från API: et för en Sök fråga.
 
 ## <a name="prerequisites"></a>Krav
 
-* [Python](https://www.python.org/) 2. x eller 3. x
- 
-Du måste ha ett [COGNITIVE Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Bing-API: er. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd den åtkomst nyckel som tillhandahålls av den kostnads fria utvärderings versionen.  Se även Priser för Cognitive Services –API för Bing-sökning.
+* [Python](https://www.python.org/) 2. x eller 3. x.
+* Ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. I den här snabb starten räcker den [kostnads fria utvärderings versionen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) . Spara API-nyckeln som anges när du aktiverar din kostnads fria utvärderings version. Mer information finns i [Cognitive Services priser – Bing-sökning API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="run-the-complete-application"></a>Kör hela programmet
 
-Följande kod hämtar lokaliserade resultat. De implementeras i följande steg:
+Följande exempel hämtar lokaliserade resultat, som implementeras i följande steg:
 1. Deklarera variabler för att specificera slutpunkten med hjälp av värd och sökväg.
 2. Ange Frågeparametern. 
-3. Definiera den sökfunktion som skapar begäran och lägger till nyckeln Ocp-Apim-Subscription-Key.
-4. Ange nyckeln Ocp-Apim-Subscription-Key. 
+3. Definiera Sök funktionen som skapar begäran och lägger till `Ocp-Apim-Subscription-Key` rubriken.
+4. Ange `Ocp-Apim-Subscription-Key` sidhuvudet. 
 5. Upprätta anslutningen och skicka begäran.
 6. Skriv ut JSON-resultaten.
 
-Här följer den fullständiga koden för demon:
+Den fullständiga koden för den här demon är följande:
 
 ```python
 import http.client, urllib.parse
@@ -70,4 +69,4 @@ print (json.dumps(json.loads(result), indent=4))
 ## <a name="next-steps"></a>Nästa steg
 - [Lokal affärs sökning Java snabb start](local-search-java-quickstart.md)
 - [Snabb start för lokal affärs sökning i C#](local-quickstart.md)
-- [Snabb start för lokal Business search-nod](local-search-node-quickstart.md)
+- [Snabb start för lokal Business search Node. js](local-search-node-quickstart.md)

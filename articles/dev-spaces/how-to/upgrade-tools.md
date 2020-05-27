@@ -5,12 +5,12 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 description: Lär dig hur du uppgraderar kommando rads verktyg för Azure dev Spaces, Visual Studio Code extension och Visual Studio extension
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: 748ed4699591a21a5a09da924e093011b0813b46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dad455b834bbef046b295b2cba040831a74f757
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265238"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873485"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Uppgradera Azure dev Spaces-verktyg
 
@@ -35,11 +35,9 @@ az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group>
 
 När du har installerat uppdateras tillägget automatiskt. Du kan behöva läsa in tillägget igen för att använda de nya funktionerna. I VS Code öppnar du fönstret **tillägg** , väljer tillägget **Azure dev Spaces** och väljer **Läs in igen**.
 
-## <a name="update-the-visual-studio-extension"></a>Uppdatera Visual Studio-tillägget
+## <a name="update-visual-studio"></a>Uppdatera Visual Studio
 
-Precis som med andra tillägg och uppdateringar meddelar Visual Studio dig när det finns en tillgänglig uppdatering för Visual Studio-verktygen för Kubernetes, som innehåller Azure dev Spaces. Leta efter en flagg ikon längst upp till höger på skärmen.
-
-Om du vill uppdatera verktygen i Visual Studio väljer du meny alternativet **verktyg > tillägg och uppdateringar** och väljer sedan **uppdateringar**på vänster sida. Hitta **Visual Studio Tools för Kubernetes** och klicka på knappen **Uppdatera** .
+Azure dev Spaces är en del av arbets belastningen Azure Development och ingår i alla Visual Studio-uppdateringar.
 
 ## <a name="next-steps"></a>Nästa steg
 

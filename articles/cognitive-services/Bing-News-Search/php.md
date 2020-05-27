@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 79f00e4138d0fecdc7320235dd9c496033693d2b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ecdcfc7d90f61443cc6947680df9bbf9d9b9514e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383105"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873234"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Snabb start: utföra en nyhets sökning med PHP och Nyhetssökning i Bing REST API
 
-Använd den här snabbstarten för att göra ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en sökfråga till API:et och visar rådataresultatet.
+Använd den här snabb starten för att göra ditt första anrop till API för nyhetssökning i Bing. Detta enkla PHP-program skickar en Sök fråga till API: et och visar JSON-svaret.
 
-Även om det här programmet är skrivet i PHP, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i PHP är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -30,18 +30,18 @@ Använd den här snabbstarten för att göra ditt första anrop till API för bi
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Se även Priser för Cognitive Services –API för Bing-sökning.
+Mer information finns i [Cognitive Services priser – Bing-sökning API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
-[API:et för nyhetssökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returnerar nyhetsresultat från Bings sökmotor.
+Följ dessa steg om du vill köra programmet:
 
-1. Kontrollera att stöd för säker HTTP är aktiverat i `php.ini` enligt beskrivningen i kodkommentaren.
+1. Aktivera säkert HTTP-stöd i `php.ini` filen genom att ta bort kommentaren till `;extension=php_openssl.dll` raden, enligt beskrivningen i kod kommentaren.
 2. Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram.
 3. Lägg till koden nedan.
 4. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
-5. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
-5. Kör programmet.
+5. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+6. Kör programmet.
 
 ```php
 <?php
@@ -103,7 +103,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Svar**
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 

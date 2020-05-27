@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9f5f841bd7fd33d4d6c7dcd1a1f7ab754610b973
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448422"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869896"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och ruby
 
-Använd den här snabbstarten för att skicka ditt första anrop till REST API för stavningskontroll i Bing med hjälp av Ruby. Det här enkla programmet skickar en begäran till API:et och returnerar en lista över ord som det inte kände igen följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
+Använd den här snabbstarten för att skicka ditt första anrop till REST API för stavningskontroll i Bing med hjälp av Ruby. Det här enkla programmet skickar en begäran till API: et och returnerar en lista med föreslagna korrigeringar. 
+
+Även om det här programmet är skrivet i ruby är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -30,7 +32,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till REST API f
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny Ruby-fil i valfri IDE eller redigeringsprogram och lägg till följande krav. 
+1. Skapa en ny ruby-fil i din favorit redigerare eller IDE och Lägg till följande krav: 
 
     ```ruby
     require 'net/http'
@@ -38,7 +40,11 @@ Använd den här snabbstarten för att skicka ditt första anrop till REST API f
     require 'json'
     ```
 
-2. Skapa variabler för din prenumerationsnyckel, slutpunkts-URI och sökväg. Skapa dina begärandeparametrar genom att lägga till parametern `mkt=` i din marknad samt `&mode` till bevisläget `proof`. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för din prenumerations nyckel, slut punkts-URI och sökväg. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. Skapa parametrarna för begäran:
+
+   a. Tilldela din marknads kod till- `mkt` parametern med `=` operatorn. Marknads koden är koden för landet/regionen som du gör begäran från. 
+
+   b. Lägg till `mode` parametern med `&` operatorn och tilldela sedan läget för stavnings kontroll. Läget kan vara antingen `proof` (fångar de flesta stavfel/grammatikfel) eller `spell` (fångar de flesta stavfel, men inte lika många grammatiska fel). 
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -59,7 +65,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till REST API f
    })
    ```
 
-2. Skapa en begäran med hjälp av den URI som skapats ovan. Lägg till nyckeln till `Ocp-Apim-Subscription-Key`-rubriken.
+2. Skapa en begäran med hjälp av den URI som skapats tidigare. Lägg till nyckeln till `Ocp-Apim-Subscription-Key`-rubriken.
 
     ```ruby
     request = Net::HTTP::Post.new(uri)
@@ -82,15 +88,13 @@ Använd den här snabbstarten för att skicka ditt första anrop till REST API f
     puts result
     ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
-Skapa och kör ditt projekt.
+Skapa och kör ditt projekt. Om du använder kommando raden använder du följande kommando för att köra programmet:
 
-Om du använder kommando raden använder du följande kommando för att köra programmet.
-
-```bash
-ruby <FILE_NAME>.rb
-```
+   ```bash
+   ruby <FILE_NAME>.rb
+   ```
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 
@@ -137,7 +141,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
+> [Skapa en enkelsidig webbapp](../tutorials/spellcheck.md)
 
 - [Vad är API för stavningskontroll i Bing?](../overview.md)
-- [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [API för stavningskontroll i Bing v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

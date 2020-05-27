@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 373e7838327d11b1b54278ee0c16c6e6ae554b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2d4090934a940809fe75ad70e0650eb1c9353f1
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253500"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872719"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN från Verizon Premium Rules Engine-funktioner
 
@@ -20,150 +20,9 @@ Den här artikeln innehåller detaljerade beskrivningar av de tillgängliga funk
 
 Den tredje delen av en regel är funktionen. En funktion definierar vilken typ av åtgärd som ska tillämpas på den typ av begäran som identifieras av en uppsättning matchnings villkor.
 
-## <a name="access-features"></a>Åtkomst funktioner
 
-Dessa funktioner är utformade för att styra åtkomsten till innehåll.
+De senaste funktionerna finns i [dokumentationen om Verizon Rules Engine](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Actions).
 
-Name | Syfte
------|--------
-[Neka åtkomst (403)](#deny-access-403) | Anger om alla förfrågningar avvisas med ett 403-förbjudet svar.
-[Token-autentisering](#token-auth) | Anger om tokenbaserad autentisering används för en begäran.
-[Nekad token-auktoriseringskod](#token-auth-denial-code) | Bestämmer vilken typ av svar som returneras till en användare när en begäran nekas på grund av tokenbaserad autentisering.
-[Ignorera URL-fall för token auth](#token-auth-ignore-url-case) | Anger om URL-jämförelser gjorda av tokenbaserad autentisering är Skift läges känsliga.
-[Parameter för token-autentisering](#token-auth-parameter) | Anger om den token-baserade autentiseringens frågesträngs parameter ska byta namn.
-
-## <a name="caching-features"></a>Funktioner för cachelagring
-
-Dessa funktioner är utformade för att anpassa när och hur innehållet ska cachelagras.
-
-Name | Syfte
------|--------
-[Bandbredds parametrar](#bandwidth-parameters) | Anger om bandbredds begränsnings parametrar (till exempel ec_rate och ec_prebuf) är aktiva.
-[Bandbredds begränsning](#bandwidth-throttling) | Begränsar bandbredden för det svar som tillhandahålls av "POP (Point-of-Presence").
-[Kringgå cacheminne](#bypass-cache) | Anger om begäran ska kringgå cachelagring.
-[Hantering av Cache-Control-huvud](#cache-control-header-treatment) | Styr genereringen av `Cache-Control` sidhuvuden med pop när den externa funktionen för max ålder är aktiv.
-[Cache-nyckel frågesträng](#cache-key-query-string) | Bestämmer om cache-nyckeln inkluderar eller exkluderar frågesträngs parametrar som är associerade med en begäran.
-[Cache-omarbetning av nyckel](#cache-key-rewrite) | Skriver om den cache-nyckel som är kopplad till en begäran.
-[Slutför cache-fyllning](#complete-cache-fill) | Bestämmer vad som händer när en begäran resulterar i en partiell cache missar i en POP.
-[Komprimera filtyper](#compress-file-types) | Definierar fil formaten för de filer som är komprimerade på servern.
-[Standard intern max ålder](#default-internal-max-age) | Fastställer standardvärdet för max-ålder för POP to Origin Server cache-omverifiering.
-[Hantering av förfallo datum för huvud](#expires-header-treatment) | Styr genereringen av `Expires` sidhuvuden med en pop när den externa maximala ålders funktionen är aktiv.
-[Extern högsta ålder](#external-max-age) | Fastställer Max-ålders intervallet för webbläsare till POP-cache-omverifiering.
-[Framtvinga intern max ålder](#force-internal-max-age) | Fastställer Max-ålders intervallet för start till ursprungs serverns cache-omverifiering.
-[Stöd för H. 264 (HTTP progressiv nedladdning)](#h264-support-http-progressive-download) | Bestämmer vilka typer av H. 264-filformat som kan användas för att strömma innehåll.
-[Svara på no-cache-begäran](#honor-no-cache-request) | Anger om en HTTP-klients begär Anden om att begäran vidarebefordras till ursprungs servern.
-[Ignorera ursprung no-cache](#ignore-origin-no-cache) | Bestämmer om CDN ignorerar vissa direktiv som hanteras från en ursprungs Server.
-[Ignorera områden som inte går att uppfylla](#ignore-unsatisfiable-ranges) | Avgör vilket svar som returneras till klienter när en begäran genererar ett begärt intervall av 416 som inte uppfyller kraven.
-[Intern Max-inaktuell](#internal-max-stale) | Styr hur lång tid det normala förfallo datumet för en cachelagrad till gång kan hanteras från en POP när POP inte kan omverifiera den cachelagrade till gången med ursprungs servern.
-[Partiell cache-delning](#partial-cache-sharing) | Anger om en begäran kan generera delvis cachelagrat innehåll.
-[Förvalidera cachelagrat innehåll](#prevalidate-cached-content) | Anger om cachelagrat innehåll är kvalificerat för tidig omverifiering innan dess TTL går ut.
-[Uppdatera cache-filer med noll byte](#refresh-zero-byte-cache-files) | Bestämmer hur en HTTP-klientbegäran för en cache-till-0-byte hanteras av pop.
-[Ange status koder för cachelagring](#set-cacheable-status-codes) | Definierar den uppsättning med status koder som kan leda till cachelagrat innehåll.
-[Inaktuell innehålls leverans vid fel](#stale-content-delivery-on-error) | Anger om förfallet cachelagrat innehåll levereras när ett fel uppstår under cache-omverifieringen eller när det begärda innehållet hämtas från kund ursprungs servern.
-[Inaktuell vid omverifiering](#stale-while-revalidate) | Förbättrar prestandan genom att tillåta pop att betjäna inaktuella klient till beställaren medan omverifieringen sker.
-
-## <a name="comment-feature"></a>Kommentars funktion
-
-Den här funktionen är utformad för att ge ytterligare information i en regel.
-
-Name | Syfte
------|--------
-[Kommentar](#comment) | Tillåter att en anteckning läggs till i en regel.
-
-## <a name="header-features"></a>Rubrik funktioner
-
-Dessa funktioner är utformade för att lägga till, ändra eller ta bort huvuden från begäran eller svaret.
-
-Name | Syfte
------|--------
-[Ålders svars rubrik](#age-response-header) | Anger om ett ålders svars huvud ingår i svaret som skickas till beställaren.
-[Felsöka cache-svarshuvuden](#debug-cache-response-headers) | Bestämmer om ett svar kan innehålla huvudet X-EC-debug-svar, som innehåller information om cache-principen för den begärda till gången.
-[Ändra huvudet för klientbegäran](#modify-client-request-header) | Skriver över, lägger till eller tar bort en rubrik från en begäran.
-[Ändra huvudet för klient svaret](#modify-client-response-header) | Skriver över, lägger till eller tar bort en rubrik från ett svar.
-[Ange IP-adress för anpassade klienter](#set-client-ip-custom-header) | Tillåter att IP-adressen för den begär ande klienten läggs till i begäran som en anpassad begär ande rubrik.
-
-## <a name="logging-features"></a>Loggnings funktioner
-
-Dessa funktioner är utformade för att anpassa data som lagras i råa loggfiler.
-
-Name | Syfte
------|--------
-[Anpassat logg fält 1](#custom-log-field-1) | Anger formatet och det innehåll som är kopplat till det anpassade logg fältet i en rå loggfil.
-[Frågesträng för logg](#log-query-string) | Anger om en frågesträng lagras tillsammans med URL: en i Access-loggar.
-
-
-<!---
-## Optimize
-
-These features determine whether a request will undergo the optimizations provided by Edge Optimizer.
-
-Name | Purpose
------|--------
-Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
-Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
-
-### Edge Optimizer
-**Purpose:** Determines whether Edge Optimizer can be applied to a request.
-
-If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
-
-- The requested content must use an edge CNAME URL.
-- The edge CNAME referenced in the URL must correspond to a site whose configuration has been activated in a rule.
-
-This feature requires the ADN platform and the Edge Optimizer feature.
-
-Value|Result
--|-
-Enabled|Indicates that the request is eligible for Edge Optimizer processing.
-Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
-
-**Default Behavior:** Disabled
-
-
-### Edge Optimizer - Instantiate Configuration
-**Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
-
-This feature requires the ADN platform and the Edge Optimizer feature.
-
-Key information:
-
-- Instantiation of a site configuration is required before requests to the corresponding edge CNAME can be processed by Edge Optimizer.
-- This instantiation only needs to be performed a single time per site configuration. A site configuration that has been instantiated will remain in that state until the Edge Optimizer – Instantiate Configuration feature that references it is removed from the rule.
-- The instantiation of a site configuration does not mean that all requests to the corresponding edge CNAME will automatically be processed by Edge Optimizer. The Edge Optimizer feature determines whether an individual request will be processed.
-
-If the desired site does not appear in the list, then you should edit its configuration and verify that the Active option has been marked.
-
-**Default Behavior:** Site configurations are inactive by default.
---->
-
-## <a name="origin-features"></a>Ursprungs funktioner
-
-Dessa funktioner är utformade för att styra hur CDN kommunicerar med en ursprungs Server.
-
-Name | Syfte
------|--------
-[Maximalt antal Keep-Alive-begäranden](#maximum-keep-alive-requests) | Definierar det maximala antalet begär Anden för en Keep-Alive-anslutning innan den stängs.
-[Särskilda rubriker för proxy](#proxy-special-headers) | Definierar den uppsättning CDN-Specific begärandehuvuden som vidarebefordras från en POP till en ursprungs Server.
-
-## <a name="specialty-features"></a>Special funktioner
-
-Dessa funktioner ger avancerade användare avancerade funktioner.
-
-Name | Syfte
------|--------
-[HTTP-metoder för cachelagring](#cacheable-http-methods) | Anger en uppsättning ytterligare HTTP-metoder som kan cachelagras i nätverket.
-[Brödtext storlek för cache-begäran](#cacheable-request-body-size) | Definierar tröskelvärdet för att avgöra om ett POST-svar kan cachelagras.
-[Användar variabel](#user-variable) | Endast för internt bruk.
-
-## <a name="url-features"></a>URL-funktioner
-
-Dessa funktioner tillåter att en begäran omdirigeras eller skrivs om till en annan URL.
-
-Name | Syfte
------|--------
-[Följ omdirigeringar](#follow-redirects) | Bestämmer om begär Anden kan omdirigeras till det värdnamn som definierats i det plats huvud som returneras av en kund ursprungs Server.
-[URL-omdirigering](#url-redirect) | Omdirigerar begär Anden via plats rubriken.
-[URL-omskrivning](#url-rewrite)  | Skriver om URL: en för begäran.
 
 ## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Azure CDN från Verizon Premium Rules-funktioner referens
 
@@ -255,7 +114,7 @@ Disabled|Leder till att pop cachelagrar resurser enligt den cachelagrade princip
 Viktig information:
 
 - Den här funktionen förutsätter att GET-svar alltid ska cachelagras. Därför bör GET HTTP-metoden inte tas med när du anger den här funktionen.
-- Den här funktionen stöder bara POST HTTP-metoden. Aktivera cachelagring av svar genom att ställa in `POST`den här funktionen på.
+- Den här funktionen stöder bara POST HTTP-metoden. Aktivera cachelagring av svar genom att ställa in den här funktionen på `POST` .
 - Som standard är endast förfrågningar vars brödtext är mindre än 14 KB cachelagrade. Använd funktionen storleks gräns för begär ande brödtext för att ange den maximala text storleken för begäran.
 
 **Standard beteende:** Endast GET-svar cachelagras.
@@ -299,9 +158,9 @@ Det enklaste sättet att uppnå den här typen av konfiguration är att placera 
 Värde|Resultat
 --|--
 Skriv över|Säkerställer att följande åtgärder utförs:<br/> – Skriver över `Cache-Control` rubriken som genereras av ursprungs servern. <br/>– Lägger till `Cache-Control` rubriken som skapats av den externa Max-Age-funktionen till svaret.
-Släpp igenom|Säkerställer att `Cache-Control` sidhuvudet som skapas av den externa Max-Age-funktionen aldrig läggs till i svaret. <br/> Om ursprungs servern genererar en `Cache-Control` rubrik skickas den till slutanvändaren. <br/> Om ursprungs servern inte skapar någon `Cache-Control` rubrik kan det här alternativet orsaka att svars huvudet inte innehåller någon `Cache-Control` rubrik.
-Lägg till om det saknas|Om ett `Cache-Control` sidhuvud inte har tagits emot från ursprungs servern, lägger det här alternativet till `Cache-Control` rubriken som produceras av den externa Max-ålders funktionen. Det här alternativet är användbart för att se till att alla till `Cache-Control` gångar tilldelas ett sidhuvud.
-Ta bort| Det här alternativet säkerställer att `Cache-Control` en rubrik inte ingår i huvud svaret. Om en `Cache-Control` rubrik redan har tilldelats tas den bort från svars huvudet.
+Släpp igenom|Säkerställer att `Cache-Control` sidhuvudet som skapas av den externa Max-Age-funktionen aldrig läggs till i svaret. <br/> Om ursprungs servern genererar en `Cache-Control` rubrik skickas den till slutanvändaren. <br/> Om ursprungs servern inte skapar någon `Cache-Control` Rubrik kan det här alternativet orsaka att svars huvudet inte innehåller någon `Cache-Control` rubrik.
+Lägg till om det saknas|Om ett `Cache-Control` sidhuvud inte har tagits emot från ursprungs servern, lägger det här alternativet till `Cache-Control` rubriken som produceras av den externa Max-ålders funktionen. Det här alternativet är användbart för att se till att alla till gångar tilldelas ett `Cache-Control` sidhuvud.
+Ta bort| Det här alternativet säkerställer att en `Cache-Control` rubrik inte ingår i huvud svaret. Om en `Cache-Control` rubrik redan har tilldelats tas den bort från svars huvudet.
 
 **Standard beteende:** Skriva över.
 
@@ -338,7 +197,7 @@ Om du vill duplicera funktionen "no-cache" för cachelagring av frågesträngar 
 
 Följande exempel på användning för den här funktionen är en exempel förfrågan och standard-cache-nyckeln:
 
-- **Exempel förfrågan:** http://wpc.0001.&lt;D omain&gt;/800001/Origin/Folder/Asset.htm? SessionID = 1234&språk = en&UserID = 01
+- **Exempel förfrågan:** http://wpc.0001.&lt ;D omain &gt; /800001/Origin/Folder/Asset.htm? SessionID = 1234&language = EN&UserID = 01
 - **Standard-cache-nyckel:** /800001/Origin/Folder/Asset.htm
 
 ##### <a name="include"></a>Inkludera
@@ -456,7 +315,7 @@ Den här funktionen kan inte associeras med följande matchnings villkor på det
 - Klientens IP-adress
 - Cookie-parameter
 - Cookie-parameter regex
-- Land/region
+- Land
 - Enhet
 - Microsoft Edge CNAME
 - Refererande domän
@@ -487,8 +346,8 @@ Internet medie typ|Beskrivning
 text/ren|Filer med oformaterad text
 text/html| HTML-filer
 text/css|Sammanhängande formatmallar (CSS)
-Application/x – Java Script|Javascript
-program/java script|Javascript
+Application/x – Java Script|JavaScript
+program/java script|JavaScript
 
 Viktig information:
 
@@ -569,9 +428,9 @@ Disabled|Svars huvudet för X-EG-debug kommer att undantas från svaret.
 
 Viktig information:
 
-- Den här åtgärden kan bara utföras för svar från en ursprungs server som inte har tilldelat en max ålders `Cache-Control` angivelse `Expires` i eller-huvudet.
+- Den här åtgärden kan bara utföras för svar från en ursprungs server som inte har tilldelat en max ålders angivelse i `Cache-Control` eller- `Expires` huvudet.
 - Den här åtgärden kan inte utföras för till gångar som inte anses vara cacheable.
-- Den här åtgärden påverkar inte webbläsare till POP-cache-omverifieringar. De här typerna av omverifieringar bestäms av `Cache-Control` de `Expires` eller rubrikerna som skickas till webbläsaren, som kan anpassas med den externa Max åldern.
+- Den här åtgärden påverkar inte webbläsare till POP-cache-omverifieringar. De här typerna av omverifieringar bestäms av de `Cache-Control` eller `Expires` rubrikerna som skickas till webbläsaren, som kan anpassas med den externa Max åldern.
 - Resultatet av den här åtgärden har ingen underrättad inverkan på svarshuvuden och det innehåll som returneras från pop för ditt innehåll, men det kan påverka mängden resigning-trafik som skickas från pop till din ursprungs Server.
 - Konfigurera den här funktionen genom att:
     - Välj den status kod som standard intern max ålder kan användas för.
@@ -588,7 +447,7 @@ Den här funktionen kan inte associeras med följande matchnings villkor på det
 - Klientens IP-adress
 - Cookie-parameter
 - Cookie-parameter regex
-- Land/region
+- Land
 - Enhet
 - Edge CNAME
 - Refererande domän
@@ -637,8 +496,8 @@ Det enklaste sättet att uppnå den här typen av konfiguration är att placera 
 Värde|Resultat
 --|--
 Skriv över|Säkerställer att följande åtgärder utförs:<br/>– Skriver över `Expires` rubriken som genereras av ursprungs servern.<br/>– Lägger till `Expires` rubriken som skapats av den externa Max-Age-funktionen till svaret.
-Släpp igenom|Säkerställer att `Expires` sidhuvudet som skapas av den externa Max-Age-funktionen aldrig läggs till i svaret. <br/> Om ursprungs servern skapar ett `Expires` sidhuvud skickas den till slutanvändaren. <br/>Om ursprungs servern inte skapar någon `Expires` rubrik kan det här alternativet orsaka att svars huvudet inte innehåller något `Expires` sidhuvud.
-Lägg till om det saknas| Om ett `Expires` sidhuvud inte har tagits emot från ursprungs servern, lägger det här alternativet till `Expires` rubriken som skapats av den externa Max-ålders funktionen. Det här alternativet är användbart för att se till att alla till gångar `Expires` tilldelas ett sidhuvud.
+Släpp igenom|Säkerställer att `Expires` sidhuvudet som skapas av den externa Max-Age-funktionen aldrig läggs till i svaret. <br/> Om ursprungs servern skapar ett `Expires` sidhuvud skickas den till slutanvändaren. <br/>Om ursprungs servern inte skapar någon `Expires` Rubrik kan det här alternativet orsaka att svars huvudet inte innehåller något `Expires` sidhuvud.
+Lägg till om det saknas| Om ett `Expires` sidhuvud inte har tagits emot från ursprungs servern, lägger det här alternativet till `Expires` rubriken som skapats av den externa Max-ålders funktionen. Det här alternativet är användbart för att se till att alla till gångar tilldelas ett `Expires` sidhuvud.
 Ta bort| Säkerställer att en `Expires` rubrik inte ingår i huvudets svar. Om en `Expires` rubrik redan har tilldelats tas den bort från svars huvudet.
 
 **Standard beteende:** Skriva över
@@ -653,14 +512,14 @@ Ta bort| Säkerställer att en `Expires` rubrik inte ingår i huvudets svar. Om 
 
 **Syfte:** Fastställer Max-ålders intervallet för webbläsare till POP-cache-omverifiering. Med andra ord kan du kontrol lera hur lång tid som ska gå innan en webbläsare söker efter en ny version av en till gång från en POP.
 
-När den här funktionen aktive ras skapas `Cache-Control: max-age` och `Expires` läggs sidhuvuden från pop och skickas till http-klienten. Som standard kommer de här rubrikerna skriva över de rubriker som skapats av ursprungs servern. Men hanterings funktionerna för Cache-Control och Expires-huvud kan användas för att ändra det här beteendet.
+När den här funktionen aktive ras skapas `Cache-Control: max-age` och läggs `Expires` sidhuvuden från pop och skickas till http-klienten. Som standard kommer de här rubrikerna skriva över de rubriker som skapats av ursprungs servern. Men hanterings funktionerna för Cache-Control och Expires-huvud kan användas för att ändra det här beteendet.
 
 Viktig information:
 
 - Den här åtgärden påverkar inte start-till-serverns cache-omverifieringar. De här typerna av omverifieringar bestäms av `Cache-Control` och `Expires` rubrikerna som tas emot från ursprungs servern och kan anpassas med de interna standardålders-och slutdatumen för högsta ålder.
 - Konfigurera den här funktionen genom att ange ett heltals värde och välja önskad tidsenhet (till exempel sekunder, minuter, timmar osv.).
-- Om du ställer in den här funktionen på ett negativt värde skickas pop `Cache-Control: no-cache` -servrar `Expires` en och en tid som har angetts i tidigare med varje svar till webbläsaren. Även om en HTTP-klient inte cachelagrar svaret kommer den här inställningen inte att påverka pop: s möjlighet att cachelagra svaret från ursprungs servern.
-- När du ställer in tidsenheten på "off" inaktive ras den här funktionen. - `Cache-Control` Och `Expires` -rubrikerna som cachelagras med svaret från ursprungs servern skickas till webbläsaren.
+- Om du ställer in den här funktionen på ett negativt värde skickas pop- `Cache-Control: no-cache` servrar en och en `Expires` tid som har angetts i tidigare med varje svar till webbläsaren. Även om en HTTP-klient inte cachelagrar svaret kommer den här inställningen inte att påverka pop: s möjlighet att cachelagra svaret från ursprungs servern.
+- När du ställer in tidsenheten på "off" inaktive ras den här funktionen. - `Cache-Control` Och- `Expires` rubrikerna som cachelagras med svaret från ursprungs servern skickas till webbläsaren.
 
 **Standard beteende:** Rund
 
@@ -697,8 +556,8 @@ Disabled|Begär Anden kommer inte att omdirigeras.
 
 Viktig information:
 
-- Den här funktionen åsidosätter det högsta ålders intervallet som `Cache-Control` definieras `Expires` i eller huvuden som genereras från en ursprungs Server.
-- Den här funktionen påverkar inte webbläsare till POP-cache-omverifieringar. De här typerna av omverifieringar bestäms av `Cache-Control` de `Expires` eller rubrikerna som skickas till webbläsaren.
+- Den här funktionen åsidosätter det högsta ålders intervallet som definieras i `Cache-Control` eller `Expires` huvuden som genereras från en ursprungs Server.
+- Den här funktionen påverkar inte webbläsare till POP-cache-omverifieringar. De här typerna av omverifieringar bestäms av de `Cache-Control` eller `Expires` rubrikerna som skickas till webbläsaren.
 - Den här funktionen har ingen undersökande påverkan på svaret som skickas av en POP till beställaren. Det kan dock påverka mängden resigning-trafik som skickas från pop-servern till ursprungs servern.
 - Konfigurera den här funktionen genom att:
     - Välj den status kod för vilken en intern max ålder ska tillämpas.
@@ -715,7 +574,7 @@ Den här funktionen kan inte associeras med följande matchnings villkor på det
 - Klientens IP-adress
 - Cookie-parameter
 - Cookie-parameter regex
-- Land/region
+- Land
 - Enhet
 - Edge CNAME
 - Refererande domän
@@ -756,7 +615,7 @@ Viktig information:
 
 **Syfte:** Anger om en HTTP-klients begär Anden om antal cachen ska vidarebefordras till ursprungs servern.
 
-En begäran om no-cache inträffar när HTTP-klienten skickar `Cache-Control: no-cache` en och/ `Pragma: no-cache` eller-rubrik i http-begäran.
+En begäran om no-cache inträffar när HTTP-klienten skickar en `Cache-Control: no-cache` och/eller `Pragma: no-cache` -rubrik i http-begäran.
 
 Värde|Resultat
 --|--
@@ -765,7 +624,7 @@ Disabled|Återställer standard beteendet. Standard beteendet är att förhindra
 
 För all produktions trafik rekommenderar vi starkt att du lämnar den här funktionen i inaktiverat standard läge. Annars går det inte att avskärma ursprungs servrar från slutanvändare som oavsiktligt kan utlösa många förfrågningar om cachelagring vid uppdatering av webb sidor eller från de många populära medie spelare som kodas för att skicka ett no-cache-huvud med varje video förfrågan. Den här funktionen kan dock vara användbar om du vill använda en viss icke-produktion för mellanlagrings-eller test kataloger för att tillåta att nytt innehåll hämtas på begäran från ursprungs servern.
 
-Den cache-status som rapporteras för en begäran som kan vidarebefordras till en ursprungs server på grund av den här `TCP_Client_Refresh_Miss`funktionen. Rapporten cache Statuss, som är tillgänglig i modulen huvud rapportering, ger statistisk information efter cache-status. Med den här rapporten kan du spåra antalet och procent andelen begär Anden som vidarebefordras till en ursprungs server på grund av den här funktionen.
+Den cache-status som rapporteras för en begäran som kan vidarebefordras till en ursprungs server på grund av den här funktionen `TCP_Client_Refresh_Miss` . Rapporten cache Statuss, som är tillgänglig i modulen huvud rapportering, ger statistisk information efter cache-status. Med den här rapporten kan du spåra antalet och procent andelen begär Anden som vidarebefordras till en ursprungs server på grund av den här funktionen.
 
 **Standard beteende:** Inaktiverats.
 
@@ -799,7 +658,7 @@ Den här funktionen kan inte associeras med följande matchnings villkor på det
 - Klientens IP-adress
 - Cookie-parameter
 - Cookie-parameter regex
-- Land/region
+- Land
 - Enhet
 - Edge CNAME
 - Refererande domän
@@ -848,7 +707,7 @@ Om POP inte kan upprätta en anslutning till ursprungs servern vid ett försök 
 
 Observera att det här tidsintervallet startar när till gångens max ålder upphör att gälla, inte när den misslyckade omverifieringen sker. Den längsta period under vilken en till gång kan hanteras utan en lyckad omautentisering är därför den tid som anges av kombinationen av max-ålder plus Max-inaktuell. Om till exempel en till gång cachelagrades vid 9:00 med en högsta ålder på 30 minuter och en högsta-inaktuell på 15 minuter skulle ett misslyckat omverifierings försök på 9:44 leda till att en slutanvändare tar emot den inaktuella cachelagrade till gången, medan ett misslyckat omverifierings försök vid 9:46 skulle resultera i att slutanvändaren tar emot en 504 Gateway-timeout.
 
-Alla värden som har kon figurer ATS för den här `Cache-Control: must-revalidate` funktionen `Cache-Control: proxy-revalidate` ersätts av eller huvuden tas emot från ursprungs servern. Om något av dessa huvuden tas emot från ursprungs servern när en till gång ursprungligen cachelagras, kommer POP inte att betjäna en inaktuell cachelagrad till gång. I sådana fall, om POP inte kan omverifiera med ursprunget när till gångens Max ålders intervall har upphört att gälla, returnerar POP en 504 Gateway-tidsgräns.
+Alla värden som har kon figurer ATS för den här funktionen ersätts av `Cache-Control: must-revalidate` eller `Cache-Control: proxy-revalidate` huvuden tas emot från ursprungs servern. Om något av dessa huvuden tas emot från ursprungs servern när en till gång ursprungligen cachelagras, kommer POP inte att betjäna en inaktuell cachelagrad till gång. I sådana fall, om POP inte kan omverifiera med ursprunget när till gångens Max ålders intervall har upphört att gälla, returnerar POP en 504 Gateway-tidsgräns.
 
 Viktig information:
 
@@ -867,7 +726,7 @@ Den här funktionen kan inte associeras med följande matchnings villkor på det
 - Klientens IP-adress
 - Cookie-parameter
 - Cookie-parameter regex
-- Land/region
+- Land
 - Enhet
 - Edge CNAME
 - Refererande domän
@@ -1168,7 +1027,7 @@ Disabled|Ursprungs serverns fel vidarebefordras till beställaren.
 Viktig information:
 
 - Beteendet för den här funktionen varierar beroende på vald tidsenhet.
-    - **Tidsenhet:** Ange en tids längd och välj en tidsenhet (till exempel sekunder, minuter, timmar osv.) för att tillåta inaktuell innehålls leverans. Den här typen av installation tillåter CDN att förlänga den tids längd som den kan leverera innehåll innan verifiering krävs enligt följande formel: **TTL** + **inaktuell vid omvaliderings tid**
+    - **Tidsenhet:** Ange en tids längd och välj en tidsenhet (till exempel sekunder, minuter, timmar osv.) för att tillåta inaktuell innehålls leverans. Den här typen av installation tillåter CDN att förlänga den tids längd som den kan leverera innehåll innan verifiering krävs enligt följande formel: **TTL**  +  **inaktuell vid omvaliderings tid**
     - **Av:** Välj "off" om du vill kräva omverifiering innan en begäran om inaktuellt innehåll kan hanteras.
         - Ange ingen tids längd eftersom den inte är tillämplig och kommer att ignoreras.
 
@@ -1322,25 +1181,25 @@ Vi rekommenderar starkt att du använder en absolut URL. Användning av en relat
 
 **Exempel scenario**
 
-Det här exemplet visar hur du omdirigerar en kant-CNAME-URL som matchar den här grundläggande CDN-URL:\/en: http:/Marketing.azureedge.net/Brochures
+Det här exemplet visar hur du omdirigerar en kant-CNAME-URL som matchar den här grundläggande CDN-URL: en: http: \/ /Marketing.azureedge.net/Brochures
 
-Kvalificerings begär Anden kommer att omdirigeras till denna grundläggande CNAME-URL:\/http:/CDN.mydomain.com/resources
+Kvalificerings begär Anden kommer att omdirigeras till denna grundläggande CNAME-URL: http: \/ /CDN.mydomain.com/resources
 
-Den här URL-omdirigeringen kan uppnås genom följande konfiguration ![: URL-omdirigering](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Den här URL-omdirigeringen kan uppnås genom följande konfiguration: ![ URL-omdirigering](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Viktiga punkter:**
 
 - Funktionen URL-omdirigering definierar de URL: er för begäran som ska omdirigeras. Det innebär att ytterligare matchnings villkor inte krävs. Även om matchnings villkoret har definierats som "Always", kommer endast begär Anden som pekar på mappen "broschyrer" på kund ursprunget "marknadsföring" att omdirigeras.
 - Alla matchande begär Anden kommer att omdirigeras till den gräns CNAME-URL som definierats i mål alternativet.
     - Exempel scenario #1:
-        - Exempel förfrågan (CDN-URL): http\/:/Marketing.azureedge.net/Brochures/widgets.pdf
-        - URL för begäran (efter omdirigering):\/http:/CDN.mydomain.com/resources/widgets.pdf  
+        - Exempel förfrågan (CDN-URL): http: \/ /Marketing.azureedge.net/Brochures/widgets.pdf
+        - URL för begäran (efter omdirigering): http: \/ /CDN.mydomain.com/resources/widgets.pdf  
     - Exempel scenario #2:
-        - Exempel förfrågan (Edge CNAME URL): http:\//Marketing.mydomain.com/Brochures/widgets.pdf
-        - URL för begäran (efter omdirigering):\/http:/CDN.mydomain.com/resources/widgets.pdf exempel scenario
+        - Exempel förfrågan (Edge CNAME URL): http: \/ /Marketing.mydomain.com/Brochures/widgets.pdf
+        - URL för begäran (efter omdirigering): http: \/ /CDN.mydomain.com/resources/widgets.pdf exempel scenario
     - Exempel scenario #3:
-        - Exempel förfrågan (Edge CNAME URL): http:\//Brochures.mydomain.com/campaignA/Final/productC.ppt
-        - URL för begäran (efter omdirigering):\/http:/CDN.mydomain.com/resources/campaignA/Final/productC.ppt 
+        - Exempel förfrågan (Edge CNAME URL): http: \/ /Brochures.mydomain.com/campaignA/Final/productC.ppt
+        - URL för begäran (efter omdirigering): http: \/ /CDN.mydomain.com/resources/campaignA/Final/productC.ppt 
 - Variabeln Request schema (% {Scheme}) används i alternativet mål, vilket säkerställer att begärans schema förblir oförändrat efter omdirigering.
 - URL-segmenten som fångades från begäran läggs till i den nya URL: en via "$1".
 
@@ -1367,17 +1226,17 @@ Alternativ|Beskrivning
 
 **Exempel scenario 1**
 
-Det här exemplet visar hur du omdirigerar en kant-CNAME-URL som matchar den här grundläggande CDN-URL\/: en: http:/Marketing.azureedge.net/Brochures/
+Det här exemplet visar hur du omdirigerar en kant-CNAME-URL som matchar den här grundläggande CDN-URL: en: http: \/ /Marketing.azureedge.net/Brochures/
 
-Kvalificerings begär Anden kommer att omdirigeras till denna grundläggande CNAME-URL:\/http:/MyOrigin.azureedge.net/Resources/
+Kvalificerings begär Anden kommer att omdirigeras till denna grundläggande CNAME-URL: http: \/ /MyOrigin.azureedge.net/Resources/
 
-Den här URL-omdirigeringen kan uppnås genom följande konfiguration ![: URL-omdirigering](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Den här URL-omdirigeringen kan uppnås genom följande konfiguration: ![ URL-omdirigering](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Exempel scenario 2**
 
 Det här exemplet visar hur du omdirigerar en kant-CNAME-URL från VERSALer till gemener med reguljära uttryck.
 
-Den här URL-omdirigeringen kan uppnås genom följande konfiguration ![: URL-omdirigering](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Den här URL-omdirigeringen kan uppnås genom följande konfiguration: ![ URL-omdirigering](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 **Viktiga punkter:**
 
@@ -1416,13 +1275,10 @@ Den här funktionen innehåller matchande villkor som måste uppfyllas innan den
 **Syfte:** Endast för internt bruk.
 
 [Tillbaka till början](#azure-cdn-from-verizon-premium-rules-engine-features)
-
-</br>
-
 ## <a name="next-steps"></a>Nästa steg
 
 - [Regel motor referens](cdn-verizon-premium-rules-engine-reference.md)
-- [Regel motor villkorliga uttryck](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
-- [Regel motor matchnings villkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Regelmotor – villkorliga uttryck](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
+- [Regelmotor – matchningsvillkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Åsidosätt HTTP-beteende med regel motorn](cdn-verizon-premium-rules-engine.md)
 - [Översikt över Azure CDN](cdn-overview.md)

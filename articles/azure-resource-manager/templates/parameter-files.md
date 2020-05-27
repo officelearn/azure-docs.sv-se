@@ -3,12 +3,12 @@ title: Skapa parameterfil
 description: Skapa parameter fil för att överföra värden under distributionen av en Azure Resource Manager-mall
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: a1a1f703594f8eaa572ea38ecef88b4cd6ba5a4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9845bbb9e14288a01fb7836db260a2baf484395
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682899"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873097"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Skapa parameter fil för Resource Manager
 
@@ -193,7 +193,7 @@ Om du vill distribuera till olika miljöer skapar du mer än en parameter fil. N
 
 Du kan använda infogade parametrar och en lokal parameter fil i samma distributions åtgärd. Du kan till exempel ange vissa värden i den lokala parameter filen och lägga till andra värden i den under distributionen. Om du anger värden för en parameter i både den lokala parameter filen och den infogade värdet, prioriteras det infogade värdet.
 
-Men när du använder en extern parameter fil kan du inte skicka andra värden antingen infogade eller från en lokal fil. Alla infogade parametrar ignoreras. Ange alla parameter värden i den externa filen.
+Det går att använda en extern parameter fil, genom att tillhandahålla URI: n till filen. När du gör detta kan du inte skicka andra värden antingen infogade eller från en lokal fil. Alla infogade parametrar ignoreras. Ange alla parameter värden i den externa filen.
 
 ## <a name="parameter-name-conflicts"></a>Parameter namns konflikter
 

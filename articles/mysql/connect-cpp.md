@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
-ms.date: 3/18/2020
-ms.openlocfilehash: c09327e208719d31b1ae1587c14d0223269abfa9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 5/26/2020
+ms.openlocfilehash: a8c922912cae72e1b4344d4d970ec9f3b4949d9f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80062589"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871519"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Connector/C++ för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett C++-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är bekant med att utveckla med C++ och att du inte har arbetat med Azure Database for MySQL.
@@ -29,6 +29,9 @@ Du måste också:
 - Installera [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
 - Installera [Boost](https://www.boost.org/)
 
+> [!IMPORTANT] 
+> Se till att den IP-adress som du ansluter från har lagts till i serverns brand Väggs regler med hjälp av [Azure Portal](./howto-manage-firewall-using-portal.md) eller [Azure CLI](./howto-manage-firewall-using-cli.md)
+
 ## <a name="install-visual-studio-and-net"></a>Installera Visual Studio och .NET
 Stegen i det här avsnittet förutsätter att du är van att utveckla med .NET.
 
@@ -40,8 +43,8 @@ Stegen i det här avsnittet förutsätter att du är van att utveckla med .NET.
 ### <a name="configure-visual-studio"></a>**Konfigurera Visual Studio**
 1. Från Visual Studio, Project-> egenskaper-> länkar – > allmänna > ytterligare biblioteks kataloger lägger du till katalogen "\lib\opt" (till exempel: C:\Program Files (x86) \MySQL\MySQL Connector C++ 1.1.9 \ lib\opt) för C++-anslutaren.
 2. Från Visual Studio: Projekt -> Egenskaper -> C/C++ -> Allmänt > Ytterligare inkluderingskataloger:
-   - Lägg till katalogen "\include" för c++ Connector (till exempel: C:\Program Files (x86) \MySQL\MySQL Connector C++ 1.1.9 \ include\).
-   - Lägg till förstärknings bibliotekets rot Katalog (till exempel: C:\\)boost_1_64_0.
+   - Lägg till katalogen "\include" för c++ Connector (till exempel: C:\Program Files (x86) \MySQL\MySQL Connector C++ 1.1.9 \ include \) .
+   - Lägg till förstärknings bibliotekets rot Katalog (till exempel: C:\ boost_1_64_0 \) .
 3. Från Visual Studio: Projekt -> Egenskaper -> Linker -> Indata -> Ytterligare beroenden, lägg till **mysqlcppconn.lib** i textfältet.
 4. Antingen kopierar du **mysqlcppconn.dll** från biblioteksmappen C++ connector i steg 3 till samma katalog som den körbara programfilen eller lägger till den i miljövariabeln så att programmet kan hitta den.
 

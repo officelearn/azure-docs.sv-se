@@ -4,12 +4,12 @@ description: Ta reda på vilka portar och adresser som krävs för att styra utg
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: d723f7b1e7331e65d17dca5873b891ec46d76c0e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 194e799daf107220c28404001d223e521dceeb3f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207181"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870893"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Styra utgående trafik för klusternoder i Azure Kubernetes service (AKS)
 
@@ -51,14 +51,14 @@ Följande utgående portar/nätverks regler krävs för ett AKS-kluster:
 * TCP-port *443*
 * TCP [IPAddrOfYourAPIServer]: 443 krävs om du har en app som behöver kommunicera med API-servern.  Den här ändringen kan anges efter att klustret har skapats.
 * TCP-port *9000*, TCP-port *22* och UDP-port *1194* för tunnelns front-Pod för att kommunicera med tunnel slut på API-servern.
-    * Mer information finns i **. HCP.\< Location\>. azmk8s.io* och **. tun.\< Location\>. azmk8s.io* -adresser i följande tabell.
+    * Mer information finns i **. HCP. \< Location \> . azmk8s.io* och **. tun. \< Location \> . azmk8s.io* -adresser i följande tabell.
 * UDP-port *123* för NTP-tidssynkronisering (Network Time Protocol) (Linux-noder).
 * UDP-port *53* för DNS krävs också om du har poddar direkt åtkomst till API-servern.
 
 Följande FQDN/program-regler krävs:
 
 > [!IMPORTANT]
-> ***. blob.Core.Windows.net och aksrepos.azurecr.io** är inte längre obligatoriska FQDN-regler för utgående låsning.  För befintliga kluster utför du [en uppgraderings åtgärd för klustret][aks-upgrade] med `az aks upgrade` hjälp av kommandot för att ta bort dessa regler.
+> ***. blob.Core.Windows.net och aksrepos.azurecr.io** är inte längre obligatoriska FQDN-regler för utgående låsning.  För befintliga kluster utför du [en uppgraderings åtgärd för klustret][aks-upgrade] med hjälp av `az aks upgrade` kommandot för att ta bort dessa regler.
 
 > [!IMPORTANT]
 > *. cdn.mscr.io har ersatts av *. data.mcr.microsoft.com för Azures offentliga moln regioner. Uppgradera dina befintliga brand Väggs regler för att ändringarna ska börja gälla.
@@ -67,8 +67,8 @@ Följande FQDN/program-regler krävs:
 
 | FQDN                       | Port      | Användning      |
 |----------------------------|-----------|----------|
-| *.hcp. \<location\>. azmk8s.io | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \<plats\> * med den region där ditt AKS-kluster har distribuerats. |
-| *.tun. \<location\>. azmk8s.io | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \<plats\> * med den region där ditt AKS-kluster har distribuerats. |
+| *. HCP. \< Location \> . azmk8s.io | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \< plats \> * med den region där ditt AKS-kluster har distribuerats. |
+| *. tun. \< Location \> . azmk8s.io | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \< plats \> * med den region där ditt AKS-kluster har distribuerats. |
 | *. cdn.mscr.io       | HTTPS: 443 | Den här adressen krävs för MCR-lagring som backas upp av Azure-Content Delivery Network (CDN). |
 | mcr.microsoft.com          | HTTPS: 443 | Den här adressen krävs för att komma åt avbildningar i Microsoft Container Registry (MCR). Det här registret innehåller bilder/diagram från första part (till exempel Moby osv.) som krävs för att klustret ska fungera under uppgradering och skalning av klustret |
 | *. data.mcr.microsoft.com             | HTTPS: 443 | Den här adressen krävs för MCR-lagring som backas upp av Azure Content Delivery Network (CDN). |
@@ -82,8 +82,8 @@ Följande FQDN/program-regler krävs:
 
 | FQDN                       | Port      | Användning      |
 |----------------------------|-----------|----------|
-| *.hcp. \<location\>. CX.prod.service.azk8s.cn | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \<plats\> * med den region där ditt AKS-kluster har distribuerats. |
-| *.tun. \<location\>. CX.prod.service.azk8s.cn | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \<plats\> * med den region där ditt AKS-kluster har distribuerats. |
+| *. HCP. \< Location \> . CX.prod.service.azk8s.cn | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \< plats \> * med den region där ditt AKS-kluster har distribuerats. |
+| *. tun. \< Location \> . CX.prod.service.azk8s.cn | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \< plats \> * med den region där ditt AKS-kluster har distribuerats. |
 | *. azk8s.cn        | HTTPS: 443 | Den här adressen krävs för att ladda ned nödvändiga binärfiler och avbildningar|
 | mcr.microsoft.com          | HTTPS: 443 | Den här adressen krävs för att komma åt avbildningar i Microsoft Container Registry (MCR). Det här registret innehåller bilder/diagram från första part (till exempel Moby osv.) som krävs för att klustret ska fungera under uppgradering och skalning av klustret |
 | *. cdn.mscr.io       | HTTPS: 443 | Den här adressen krävs för MCR-lagring som backas upp av Azure-Content Delivery Network (CDN). |
@@ -97,8 +97,8 @@ Följande FQDN/program-regler krävs:
 
 | FQDN                       | Port      | Användning      |
 |----------------------------|-----------|----------|
-| *.hcp. \<location\>. CX.AKS.Containerservice.Azure.us | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \<plats\> * med den region där ditt AKS-kluster har distribuerats. |
-| *.tun. \<location\>. CX.AKS.Containerservice.Azure.us | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \<plats\> * med den region där ditt AKS-kluster har distribuerats. |
+| *. HCP. \< Location \> . CX.AKS.Containerservice.Azure.us | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \< plats \> * med den region där ditt AKS-kluster har distribuerats. |
+| *. tun. \< Location \> . CX.AKS.Containerservice.Azure.us | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Den här adressen krävs för nodens <-> API-server kommunikation. Ersätt * \< plats \> * med den region där ditt AKS-kluster har distribuerats. |
 | mcr.microsoft.com          | HTTPS: 443 | Den här adressen krävs för att komma åt avbildningar i Microsoft Container Registry (MCR). Det här registret innehåller bilder/diagram från första part (till exempel Moby osv.) som krävs för att klustret ska fungera under uppgradering och skalning av klustret |
 |*. cdn.mscr.io              | HTTPS: 443 | Den här adressen krävs för MCR-lagring som backas upp av Azure-Content Delivery Network (CDN). |
 | *. data.mcr.microsoft.com             | HTTPS: 443 | Den här adressen krävs för MCR-lagring som backas upp av Azure Content Delivery Network (CDN). |
@@ -147,9 +147,9 @@ Följande FQDN/program-regler krävs för AKS-kluster som har Azure dev-utrymmen
 | FQDN                                    | Port      | Användning      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS: 443 | Den här adressen används för att hämta Linux Alpine och andra Azure dev Spaces-bilder |
-| gcr.io | HTTP: 443 | Den här adressen används för att hämta Helm/till-avbildningar |
-| storage.googleapis.com | HTTP: 443 | Den här adressen används för att hämta Helm/till-avbildningar |
-| azds-\<GUID\>. \<location\>. azds.io | HTTPS: 443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE%\.azds\settings.JSON |
+| gcr.io | HTTPS: 443 | Den här adressen används för att hämta Helm/till-avbildningar |
+| storage.googleapis.com | HTTPS: 443 | Den här adressen används för att hämta Helm/till-avbildningar |
+| azds- \< GUID \> . \< Location \> . azds.io | HTTPS: 443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE% \. azds\settings.JSON |
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Obligatoriska adresser och portar för AKS-kluster med Azure Policy (i offentlig för hands version) aktiverat
 
@@ -162,7 +162,7 @@ Följande FQDN/program-regler krävs för AKS-kluster som har Azure Policy aktiv
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS: 443 | Adressen används för att Azure Policy ska fungera korrekt. (för närvarande i för hands version i AKS) |
 | raw.githubusercontent.com | HTTPS: 443 | Den här adressen används för att hämta de inbyggda principerna från GitHub för att säkerställa korrekt drift av Azure Policy. (för närvarande i för hands version i AKS) |
-| *. GK. \<location\>. azmk8s.io | HTTPS: 443    | Azure Policy tillägg som pratar med Gatekeeper audit-slutpunkten som körs på huvud servern för att hämta gransknings resultatet. |
+| *. GK. \< Location \> . azmk8s.io | HTTPS: 443    | Azure Policy tillägg som pratar med Gatekeeper audit-slutpunkten som körs på huvud servern för att hämta gransknings resultatet. |
 | dc.services.visualstudio.com | HTTPS: 443 | Azure Policy tillägg som skickar telemetridata till program insikter-slutpunkten. |
 
 ## <a name="required-by-windows-server-based-nodes-enabled"></a>Krävs av Windows Server-baserade noder aktiverade
@@ -172,7 +172,7 @@ Följande FQDN/applikations regler krävs för att använda Windows Server-baser
 | FQDN                                    | Port      | Användning      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS: 443 | Installera Windows-relaterade binärfiler |
-| mp.microsoft.com, www<span></span>. msftconnecttest.com, ctldl.windowsupdate.com | HTTP: 80 | Installera Windows-relaterade binärfiler |
+| mp.microsoft.com, www <span></span> . msftconnecttest.com, ctldl.windowsupdate.com | HTTP: 80 | Installera Windows-relaterade binärfiler |
 | kms.core.windows.net | TCP: 1688 | Installera Windows-relaterade binärfiler |
 
 ## <a name="next-steps"></a>Nästa steg

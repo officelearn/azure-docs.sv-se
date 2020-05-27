@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 92011495f5f746b18a7706ed2f9583548cc51286
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: fd5617af2da9aa00cb75deb82f83be29db78d79d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836707"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873495"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -94,7 +94,7 @@ Se [Application Gateway-undernätets storleks överväganden](https://docs.micro
 
 Ja. Förutom flera instanser av en specifik Application Gateway distribution kan du etablera en annan unik Application Gateway resurs till ett befintligt undernät som innehåller en annan Application Gateway resurs.
 
-Ett enda undernät har inte stöd för både Standard_v2-och standard Application Gateway tillsammans.
+Ett enda undernät har inte stöd för både v2-och v1-Application Gateway SKU: er.
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>Stöder Application Gateway v2 användardefinierade vägar (UDR)?
 
@@ -211,7 +211,7 @@ Se [ordning för bearbetnings regler](https://docs.microsoft.com/azure/applicati
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Vad indikerar värd fältet för anpassade avsökningar?
 
-Fältet värd anger namnet som avsökningen ska skickas till när du har konfigurerat multisite på Application Gateway. Använd annars 127.0.0.1. Det här värdet skiljer sig från värd namnet för den virtuella datorn. Formatet \<är Protocol\>://\<Host\>:\<port\>\<Sök väg\>.
+Fältet värd anger namnet som avsökningen ska skickas till när du har konfigurerat multisite på Application Gateway. Använd annars 127.0.0.1. Det här värdet skiljer sig från värd namnet för den virtuella datorn. Formatet är \< Protocol \> :// \< Host \> : \< port \> \< Sök väg \> .
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Kan jag bara tillåta Application Gateway åtkomst till några få käll-IP-adresser?
 
@@ -246,7 +246,7 @@ Men om du vill använda Application Gateway v2 med endast privat IP kan du följ
     
     e. Det går inte att blockera utgående Internet anslutning. Annars är det problem med loggning, mått osv.
 
-Exempel på NSG-konfiguration för privat IP- ![åtkomst: Application Gateway v2 NSG-konfiguration endast för privat IP-åtkomst](./media/application-gateway-faq/appgw-privip-nsg.png)
+Exempel på NSG-konfiguration för privat IP-åtkomst: ![ Application Gateway v2 NSG-konfiguration endast för privat IP-åtkomst](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ## <a name="configuration---tls"></a>Konfiguration – TLS
 
@@ -334,8 +334,8 @@ Nej, Använd endast alfanumeriska tecken i PFX-filens lösen ord.
 
 ### <a name="what-is-an-ingress-controller"></a>Vad är en ingångs kontroll?
 
-Med Kubernetes kan du `deployment` skapa `service` och-resurs för att exponera en grupp poddar internt i klustret. För att exponera samma tjänst externt definieras en [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) resurs som tillhandahåller belastnings utjämning, TLS-avslutning och namnbaserade virtuella värdar.
-För att tillfredsställa den här `Ingress` resursen krävs en ingångs kontroll som lyssnar efter eventuella ändringar `Ingress` av resurser och konfigurerar belastnings Utjämnings principerna.
+Med Kubernetes kan `deployment` du skapa och- `service` resurs för att exponera en grupp poddar internt i klustret. För att exponera samma tjänst externt [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) definieras en resurs som tillhandahåller belastnings utjämning, TLS-avslutning och namnbaserade virtuella värdar.
+För att tillfredsställa den här `Ingress` resursen krävs en ingångs kontroll som lyssnar efter eventuella ändringar av `Ingress` resurser och konfigurerar belastnings Utjämnings principerna.
 
 På Application Gateway ingångs styrenheten kan [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) användas som ingress för en [Azure Kubernetes-tjänst](https://azure.microsoft.com/services/kubernetes-service/) även kallat ett AKS-kluster.
 
@@ -357,7 +357,7 @@ Alla loggar samlas in var 60: e sekund. Mer information finns i [backend-hälsoh
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Hur gör jag för att veta om mina medlemmar i Server delens medlemmar är felfria?
 
-Verifiera hälsan med hjälp av PowerShell- `Get-AzApplicationGatewayBackendHealth` cmdleten eller portalen. Mer information finns i [Application Gateway Diagnostics](application-gateway-diagnostics.md).
+Verifiera hälsan med hjälp av PowerShell-cmdleten `Get-AzApplicationGatewayBackendHealth` eller portalen. Mer information finns i [Application Gateway Diagnostics](application-gateway-diagnostics.md).
 
 ### <a name="whats-the-retention-policy-for-the-diagnostic-logs"></a>Vad är bevarande principen för diagnostikloggar?
 
@@ -409,7 +409,7 @@ Men om du vill använda Application Gateway v2 med endast privat IP kan du följ
     
     e. Det går inte att blockera utgående Internet anslutning. Annars är det problem med loggning, mått och så vidare.
 
-Exempel på NSG-konfiguration för privat IP- ![åtkomst: Application Gateway v2 NSG-konfiguration endast för privat IP-åtkomst](./media/application-gateway-faq/appgw-privip-nsg.png)
+Exempel på NSG-konfiguration för privat IP-åtkomst: ![ Application Gateway v2 NSG-konfiguration endast för privat IP-åtkomst](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Stöder Application Gateway SameSite för tillhörighets-cookie?
 Ja, Chrome- [webbläsarens](https://www.chromium.org/Home) [V80-uppdatering](https://chromiumdash.appspot.com/schedule) introducerade ett mandat på HTTP cookies utan SameSite-attribut som ska behandlas som SameSite = lax. Det innebär att den Application Gateway tillhörighets-cookien inte skickas av webbläsaren i en tredjeparts kontext. För att stödja det här scenariot infogar Application Gateway en annan cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga *ApplicationGatewayAffinity* -cookien.  Dessa cookies liknar varandra, men cookien *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till: *SameSite = none; Säker*. De här attributen upprätthåller tröga sessioner även för frågor mellan ursprung. Mer information finns i [avsnittet cookie-baserad tillhörighet](configuration-overview.md#cookie-based-affinity) .

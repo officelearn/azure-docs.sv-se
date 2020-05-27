@@ -8,32 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/29/2019
+ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 8ff70bea8d0e4810b6d5a0d35853077ed0a630cd
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c50222c645926a6e48995e6c66d7844adc02699f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74665193"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873005"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Snabb start: skicka en fråga till API: et för lokal sökning i Bing med Java
 
-Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
+Använd den här snabb starten för att lära dig hur du skickar begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet är skrivet i Java, är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-Det här exempel programmet hämtar lokala svars data från API: et för `hotel in Bellevue`Sök frågan.
+Det här exempel programmet hämtar lokala svars data från API: et för en Sök fråga.
 
 ## <a name="prerequisites"></a>Krav
 
-* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* Ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. I den här snabb starten räcker den [kostnads fria utvärderings versionen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) . Spara API-nyckeln som anges när du aktiverar din kostnads fria utvärderings version. Mer information finns i [Cognitive Services priser – Bing-sökning API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-Du måste ha ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som tillhandahålls när du aktiverar din kostnadsfria utvärderingsversion.  Se även Priser för Cognitive Services –API för Bing-sökning.
-
-Det här exempel programmet hämtar lokala svars data från frågan för ett *hotell i Bellevue*.
 
 ## <a name="create-the-request"></a>Skapa begäran 
 
-Följande kod skapar en `WebRequest`, ställer in åtkomst nyckel rubriken och lägger till en frågesträng för "hotell i Bellevue".  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
+Följande kod skapar en `WebRequest` , ställer in åtkomst nyckel rubriken och lägger till en frågesträng för *hotell i Bellevue*.  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
 
 ```java
     // construct URL of search request (endpoint + query string)
@@ -51,11 +49,11 @@ Följande kod skapar en `WebRequest`, ställer in åtkomst nyckel rubriken och l
 
 ## <a name="run-the-complete-application"></a>Kör hela programmet
 
-API: t för lokal sökning i Bing returnerar resultat från Bing Search-motorn.
+Följande kod använder API: et för lokal sökning i Bing för att returnera Sök Resultat från Bing Search-motorn. Kör den här koden genom att följa dessa steg:
 1. Hämta eller installera gson-biblioteket.
 2. Skapa ett nytt Java-projekt i dem IDE eller det redigeringsprogram som du föredrar.
 3. Lägg till koden nedan.
-4. Ersätt värdet för subscriptionKey med en giltig åtkomstnyckel för din prenumeration.
+4. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
 5. Kör programmet.
 
 ```java
@@ -165,6 +163,6 @@ public class LocalSearchCls {
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [Snabb start för lokal affärs sökning](local-quickstart.md)
-- [Snabb start för lokal Business search-nod](local-search-node-quickstart.md)
+- [Snabb start för lokal affärs sökning i C#](local-quickstart.md)
+- [Snabb start för lokal Business search Node. js](local-search-node-quickstart.md)
 - [Snabb start för att söka i lokalt företag](local-search-python-quickstart.md)

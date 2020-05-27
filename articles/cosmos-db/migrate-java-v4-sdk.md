@@ -5,19 +5,19 @@ author: anfeldma-ms
 ms.author: anfeldma
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/26/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 929fa936cdb864fd9b84f8feba55ef01ae6fed9c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: d7028018501c5e6580d7345938a739ccc983ff48
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984712"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873261"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrera ditt program till att använda Azure Cosmos DB Java SDK v4
 
 > [!IMPORTANT]  
-> Mer information om det här SDK: n finns i Azure Cosmos DB Java SDK v4-viktig information, [maven-lagringsplats](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4- [prestanda tips](performance-tips-java-sdk-v4-sql.md)och Azure Cosmos DB [fel söknings guide](troubleshoot-java-sdk-v4-sql.md)för Java SDK v4.
+> Mer information om det här SDK: n finns i Azure Cosmos DB Java SDK v4- [viktig information](sql-api-sdk-java-v4.md), [maven-lagringsplats](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4- [prestanda tips](performance-tips-java-sdk-v4-sql.md)och Azure Cosmos DB [fel söknings guide](troubleshoot-java-sdk-v4-sql.md)för Java SDK v4.
 >
 
 Den här artikeln beskriver hur du uppgraderar ditt befintliga Java-program som använder en äldre Azure Cosmos DB Java SDK till den nyare Azure Cosmos DB Java SDK 4,0 för Core (SQL) API. Azure Cosmos DB Java SDK v4 motsvarar `com.azure.cosmos` paketet. Du kan använda instruktionerna i det här dokumentet om du migrerar ditt program från någon av följande Azure Cosmos DB Java-SDK: er: 

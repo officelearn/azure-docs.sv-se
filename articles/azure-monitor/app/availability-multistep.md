@@ -2,14 +2,13 @@
 title: Övervaka med webbtester med flera steg – Azure Application insikter
 description: Konfigurera webb program med flera steg för att övervaka dina webb program med Azure Application insikter
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.reviewer: sdash
-ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655948"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873355"
 ---
 # <a name="multi-step-web-tests"></a>Webbtester med flera steg
 
@@ -17,13 +16,16 @@ Du kan övervaka en inspelad sekvens av webb adresser och interaktioner med en w
 
 > [!NOTE]
 > Webbtester med flera steg är beroende av Visual Studio webtest-filer. Det [meddelade](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) att Visual Studio 2019 är den senaste versionen med webbtest-funktioner. Det är viktigt att förstå att även om inga nya funktioner läggs till, så stöds inte webbtest-funktioner i Visual Studio 2019 och kommer fortfarande att stödjas under produktens support livs cykel. Azure Monitor produkt teamet har fått frågor om framtida tillgänglighets test för flera steg [här](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
+> </br>
+> Webbtester med flera steg **stöds inte** i [Azure Government](https://docs.microsoft.com/azure/azure-government/) molnet.
+
 
 ## <a name="pre-requisites"></a>Förutsättningar
 
 * Visual Studio 2017 Enterprise eller senare.
 * Webb prestanda och belastnings test verktyg i Visual Studio.
 
-För att hitta de förberedande verktyg som krävs. Starta **Visual Studio Installer** > -fel sökning av**enskilda komponenter** > **och testa** > **verktyg för webb prestanda och belastnings testning**.
+För att hitta de förberedande verktyg som krävs. Starta **Visual Studio Installer**  >  -fel sökning av**enskilda komponenter**  >  **och testa**  >  **verktyg för webb prestanda och belastnings testning**.
 
 ![Skärm bild av Visual Studio Installer-gränssnittet med enskilda komponenter som marker ATS med en kryss ruta bredvid objektet för webb prestanda och belastnings test verktyg](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -39,7 +41,7 @@ Vägledning om hur du skapar Visual Studio-webbtester finns i den [officiella Vi
 
 ## <a name="upload-the-web-test"></a>Ladda upp webb testet
 
-1. I Application Insights portal i fönstret tillgänglighet väljer du **skapa test** > **test typ** > **webb test för flera steg**.
+1. I Application Insights portal i fönstret tillgänglighet väljer du **skapa test**  >  **test typ**  >  **webb test för flera steg**.
 
 2. Ange test platser, frekvens och aviserings parametrar.
 
@@ -64,7 +66,7 @@ Vägledning om hur du skapar Visual Studio-webbtester finns i den [officiella Vi
 |----|----|----|
 |**Nära real tid (för hands version)** | Vi rekommenderar att du använder aviseringar i nästan real tid. Konfigurationen av den här typen av avisering görs efter att ditt tillgänglighets test har skapats.  |
 |**Klassisk** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|
-|**Tröskelvärde för aviserings plats**|Vi rekommenderar minst 3/5 platser. Den optimala relationen mellan aviserings platsens tröskelvärde och antalet test platser är **tröskelvärdet för aviserings platsens tröskel** = **antal test platser – 2, med minst fem test platser.**|
+|**Tröskelvärde för aviserings plats**|Vi rekommenderar minst 3/5 platser. Den optimala relationen mellan aviserings platsens tröskelvärde och antalet test platser är **tröskelvärdet för aviserings platsens tröskel**  =  **antal test platser – 2, med minst fem test platser.**|
 
 ## <a name="configuration"></a>Konfiguration
 

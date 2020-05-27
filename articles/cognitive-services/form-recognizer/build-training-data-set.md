@@ -9,18 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 71ad7c5dd3ad74082da552cd3c45142bc0c2d624
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9342d87318eb6a5248c75d2333fb5e2a4cbef8f4
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75380634"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873296"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Skapa en tränings data uppsättning för en anpassad modell
 
-När du använder den anpassade modellen för formulär igenkänning kan du ange dina egna utbildnings data så att modellen kan träna till dina branschspecifika formulär. Du kan träna en modell med fem ifyllda formulär eller ett tomt formulär (du måste inkludera ordet "tomt" i fil namnet) plus två ifyllda formulär. Även om du har tillräckligt med ifyllda formulär för att träna med kan du förbättra modellens precision genom att lägga till ett tomt formulär i din tränings data uppsättning.
+När du använder den anpassade modellen för formulär igenkänning kan du ange dina egna utbildnings data så att modellen kan träna till dina branschspecifika formulär. 
 
-Om du vill använda manuellt märkta utbildnings data, bör du börja med minst fem formulär av samma typ. Du kan fortfarande använda omärkta formulär och ett tomt formulär i samma data uppsättning.
+Om du är utbildning utan manuella etiketter kan du använda fem ifyllda formulär eller ett tomt formulär (du måste inkludera ordet "tomt" i fil namnet) plus två ifyllda formulär. Även om du har tillräckligt med ifyllda formulär kan du förbättra modellens precision genom att lägga till ett tomt formulär i din tränings data uppsättning.
+
+Om du vill använda manuellt märkta utbildnings data måste du börja med minst fem ifyllda formulär av samma typ. Du kan fortfarande använda omärkta formulär och ett tomt formulär utöver den obligatoriska data uppsättningen.
 
 ## <a name="training-data-tips"></a>Tips om tränings data
 
@@ -42,9 +44,11 @@ Se till att din tränings data uppsättning också följer inmatnings kraven fö
 
 När du har lagt samman uppsättningen med formulär dokument som du ska använda för utbildning måste du ladda upp den till en Azure Blob Storage-behållare. Om du inte vet hur du skapar ett Azure Storage-konto med en behållare följer du [Azure Storage snabb start för Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
+Om du vill använda manuellt märkta data måste du också ladda upp *. labels. JSON* och *. OCR. JSON* -filer som motsvarar dina utbildnings dokument. Du kan använda [exempel etikett verktyget](./quickstarts/label-tool.md) (eller ditt eget användar gränssnitt) för att generera dessa filer.
+
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organisera dina data i undermappar (valfritt)
 
-Som standard använder [träna anpassad modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) -API bara formulär dokument som finns i roten för din lagrings behållare. Du kan dock träna med data i undermappar om du anger den i API-anropet. Normalt är bröd texten i det [anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) anropet för träna följande formulär, där `<SAS URL>` är URL: en för signaturen för delad åtkomst för din behållare:
+Som standard använder [träna anpassad modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) -API bara formulär dokument som finns i roten för din lagrings behållare. Du kan dock träna med data i undermappar om du anger den i API-anropet. Normalt har själva bröd texten i det [anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) anropet följande format, där `<SAS URL>` är URL: en för signaturen för delad åtkomst för din behållare:
 
 ```json
 {
@@ -52,7 +56,7 @@ Som standard använder [träna anpassad modell](https://westus2.dev.cognitive.mi
 }
 ```
 
-Om du lägger till följande innehåll i begär ande texten tränar API: n med dokument som finns i undermappar. `"prefix"` Fältet är valfritt och begränsar tränings data uppsättningen till filer vars sökvägar börjar med den angivna strängen. Värdet `"Test"`, till exempel, kommer att orsaka att API: t bara tittar på de filer eller mappar som börjar med ordet "test".
+Om du lägger till följande innehåll i begär ande texten tränar API: n med dokument som finns i undermappar. `"prefix"`Fältet är valfritt och begränsar tränings data uppsättningen till filer vars sökvägar börjar med den angivna strängen. Värdet `"Test"` , till exempel, kommer att orsaka att API: t bara tittar på de filer eller mappar som börjar med ordet "test".
 
 ```json
 {
@@ -69,6 +73,7 @@ Om du lägger till följande innehåll i begär ande texten tränar API: n med d
 
 Nu när du har lärt dig hur du skapar en tränings data uppsättning följer du en snabb start för att träna en anpassad formulär igenkännings modell och börja använda den i formulären.
 
-* [Snabb start: träna en modell och extrahera formulär data med hjälp av sväng](./quickstarts/curl-train-extract.md)
-* [Snabb start: träna en modell och extrahera formulär data med hjälp av REST API med python](./quickstarts/python-train-extract.md)
+* [Träna en modell och extrahera formulär data med hjälp av sväng](./quickstarts/curl-train-extract.md)
+* [Träna en modell och extrahera formulär data med hjälp av REST API och python](./quickstarts/python-train-extract.md)
+* [Träna med etiketter med hjälp av verktyget för exempel märkning](./quickstarts/label-tool.md)
 * [Träna med etiketter med hjälp av REST API och Python](./quickstarts/python-labeled-data.md)

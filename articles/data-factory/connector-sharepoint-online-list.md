@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 90ceb2b716df429eaf4541f13cfa96cb9e0eac7d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745222"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871920"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Kopiera data från SharePoint Online-listan med Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,7 +52,7 @@ SharePoint-listans Online Connector använder tjänstens huvud namns autentiseri
     > [!NOTE]
     > Den här åtgärden kräver behörighet för SharePoint Online-webbplatsens ägare. Du kan hitta ägaren genom att gå till start sidan för webbplatsen – > Klicka på "X-medlemmar" i det högra hörnet-> Markera som har rollen "ägare".
 
-    1. Öppna SharePoint Online-webbplatsens länk, t. ex. `https://[your_site_url]/_layouts/15/appinv.aspx` (Ersätt klient organisation och plats namn).
+    1. Öppna SharePoint Online-webbplatsens länk, t. ex. `https://[your_site_url]/_layouts/15/appinv.aspx` (Ersätt webbplats-URL: en).
     2. Sök efter det program-ID som du har registrerat, Fyll i de tomma fälten och klicka på "skapa".
 
         - App-domän:`localhost.com`
@@ -81,12 +81,12 @@ Följande egenskaper stöds för en länkad SharePoint Online-lista:
 
 | **Egenskap**        | **Beskrivning**                                              | **Obligatoriskt** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
-| typ                | Egenskapen Type måste anges till: **SharePointOnlineList**.  | Ja          |
-| siteUrl             | SharePoint Online-webbplatsens URL, `https://contoso.sharepoint.com/sites/siteName` t. ex.. | Ja          |
-| servicePrincipalId  | Program-ID för programmet som är registrerat i Azure Active Directory. | Ja          |
-| servicePrincipalKey | Programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja          |
-| tenantId            | Det klient-ID som ditt program finns under.          | Ja          |
-| connectVia          | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från [nödvändiga komponenter](#prerequisites)tidigare i den här artikeln. Om inget värde anges används standard Azure Integration Runtime. | Nej           |
+| typ                | Egenskapen Type måste anges till: **SharePointOnlineList**.  | Yes          |
+| siteUrl             | SharePoint Online-webbplatsens URL, `https://contoso.sharepoint.com/sites/siteName` t. ex.. | Yes          |
+| servicePrincipalId  | Program-ID för programmet som är registrerat i Azure Active Directory. | Yes          |
+| servicePrincipalKey | Programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
+| tenantId            | Det klient-ID som ditt program finns under.          | Yes          |
+| connectVia          | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från [nödvändiga komponenter](#prerequisites)tidigare i den här artikeln. Om inget värde anges används standard Azure Integration Runtime. | No           |
 
 **Exempel:**
 
@@ -114,8 +114,8 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens **typ** -egenskap måste anges till **SharePointOnlineLResource**. | Ja |
-| listName | Namnet på SharePoint Online-listan. | Ja |
+| typ | Data uppsättningens **typ** -egenskap måste anges till **SharePointOnlineLResource**. | Yes |
+| listName | Namnet på SharePoint Online-listan. | Yes |
 
 **Exempel**
 
@@ -147,9 +147,9 @@ Om du vill kopiera data från SharePoint Online-listan stöds följande egenskap
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SharePointOnlineListSource**. | Ja |
-| DocumentDB | Anpassade alternativ för OData-frågor för att filtrera data. Exempel: `"$top=10&$select=Title,Number"`. | Nej |
-| httpRequestTimeout | Tids gränsen (i sekund) för HTTP-begäran för att få ett svar. Standardvärdet är 300 (5 minuter). | Nej |
+| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SharePointOnlineListSource**. | Yes |
+| DocumentDB | Anpassade alternativ för OData-frågor för att filtrera data. Exempel: `"$top=10&$select=Title,Number"`. | No |
+| httpRequestTimeout | Tids gränsen (i sekund) för HTTP-begäran för att få ett svar. Standardvärdet är 300 (5 minuter). | No |
 
 **Exempel**
 

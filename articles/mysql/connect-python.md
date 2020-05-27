@@ -9,13 +9,13 @@ ms.custom:
 - seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/09/2020
-ms.openlocfilehash: c9ea155f3cc71dd961a3780e3b188a6d062606bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 5/26/2020
+ms.openlocfilehash: 827a34999cc3f4d90344915a9b57492a0f31bafe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067903"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870035"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Snabb start: Använd python för att ansluta och fråga efter data med Azure Database for MySQL
 
@@ -28,6 +28,9 @@ Det här avsnittet förutsätter att du är bekant med att utveckla med python, 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - En Azure Database for MySQL-server. [Skapa en Azure Database for MySQL-server med Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) eller [skapa en Azure Database for MySQL-server med Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
+> [!IMPORTANT] 
+> Se till att den IP-adress som du ansluter från har lagts till i serverns brand Väggs regler med hjälp av [Azure Portal](./howto-manage-firewall-using-portal.md) eller [Azure CLI](./howto-manage-firewall-using-cli.md)
+
 ## <a name="install-python-and-the-mysql-connector"></a>Installera Python och MySQL Connector
 
 Installera python och MySQL Connector för python på datorn med hjälp av följande steg: 
@@ -35,13 +38,13 @@ Installera python och MySQL Connector för python på datorn med hjälp av följ
 > [!NOTE]
 > Den här snabb starten använder en RAW SQL-frågeprincip för att ansluta till MySQL. Om du använder ett webb ramverk använder du den rekommenderade anslutningen för ramverket, till exempel [MySqlClient](https://pypi.org/project/mysqlclient/) för django.
 
-1. Hämta och installera [Python 3,7 eller senare](https://www.python.org/downloads/) för ditt operativ system. Se till att lägga till python till `PATH`din, eftersom MySQL-anslutaren kräver det.
+1. Hämta och installera [Python 3,7 eller senare](https://www.python.org/downloads/) för ditt operativ system. Se till att lägga till python till din `PATH` , eftersom MySQL-anslutaren kräver det.
    
-1. Öppna en kommando tolk eller `bash` ett gränssnitt och kontrol lera python-versionen genom `python -V` att köra med versalen V-växeln.
+1. Öppna en kommando tolk eller ett `bash` gränssnitt och kontrol lera python-versionen genom `python -V` att köra med versalen V-växeln.
    
-1. `pip` Paket installations programmet ingår i de senaste versionerna av python. Uppdatera `pip` till den senaste versionen genom att `pip install -U pip`köra. 
+1. `pip`Paket installations programmet ingår i de senaste versionerna av python. Uppdatera `pip` till den senaste versionen genom att köra `pip install -U pip` . 
    
-   Om `pip` inte är installerat kan du ladda ned och installera det `get-pip.py`med. Mer information finns i [installationen](https://pip.pypa.io/en/stable/installing/). 
+   Om `pip` inte är installerat kan du ladda ned och installera det med `get-pip.py` . Mer information finns i [installationen](https://pip.pypa.io/en/stable/installing/). 
    
 1. Använd `pip` för att installera MySQL Connector för python och dess beroenden:
    
@@ -70,12 +73,12 @@ Hämta anslutnings informationen som du behöver för att ansluta till Azure Dat
 För varje kod exempel i den här artikeln:
 
 1. Skapa en ny fil i en text redigerare.
-1. Lägg till kod exemplet i filen. I koden ersätter `<mydemoserver>`du plats hållarna `<myadmin>`, `<mypassword>`, och `<mydatabase>` med värdena för MySQL-servern och databasen.
+1. Lägg till kod exemplet i filen. I koden ersätter du `<mydemoserver>` `<myadmin>` `<mypassword>` plats hållarna,, och `<mydatabase>` med värdena för MySQL-servern och databasen.
 1. Spara filen i en projektmapp med fil namns tillägget *. py* , till exempel *C:\pythonmysql\createtable.py* eller */Home/username/pythonmysql/createTable.py*.
-1. Du kör koden genom att öppna en kommando tolk eller `bash` ett gränssnitt och ändra katalogen till projektmappen, till exempel `cd pythonmysql`. Skriv `python` kommandot följt av fil namnet, till exempel `python createtable.py`, och tryck på RETUR. 
+1. Du kör koden genom att öppna en kommando tolk eller ett `bash` gränssnitt och ändra katalogen till projektmappen, till exempel `cd pythonmysql` . Skriv `python` kommandot följt av fil namnet, till exempel `python createtable.py` , och tryck på RETUR. 
    
    > [!NOTE]
-   > Om *python. exe* inte hittas i Windows kan du behöva lägga till python-sökvägen i miljövariabeln PATH, eller ange den fullständiga sökvägen till *python. exe*, till exempel `C:\python27\python.exe createtable.py`.
+   > Om *python. exe* inte hittas i Windows kan du behöva lägga till python-sökvägen i miljövariabeln PATH, eller ange den fullständiga sökvägen till *python. exe*, till exempel `C:\python27\python.exe createtable.py` .
 
 ## <a name="create-a-table-and-insert-data"></a>Skapa en tabell och infoga data
 

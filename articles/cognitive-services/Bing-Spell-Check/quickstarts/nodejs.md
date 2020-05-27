@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 72afc4f6e03b24e545ad18948119d418970cddf3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3a98308716696f677f04db66e83ff4e9d5d08c85
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747581"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869851"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och Node. js
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Detta enkla Node-program skickar en begäran till API: et och returnerar en lista med ord som inte identifierades, följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Node. js är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla JavaScript-programmet skickar en begäran till API: et och returnerar en lista med föreslagna korrigeringar. 
+
+Även om det här programmet är skrivet i Java Script är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -30,7 +32,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange stränghet och Kräv `https` . Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange stränghet och Kräv `https` . Skapa sedan variabler för din API-slutpunkts värd, sökväg och din prenumerations nyckel. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```javascript
     'use strict';
@@ -41,7 +43,11 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Skapa variabler för dina Sök parametrar och den text som du vill kontrol lera. Lägg till din marknads kod efter `mkt=` . Marknads koden är landet/regionen som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=` . Läget är antingen `proof` (fångar de flesta stavnings-och grammatikfel) eller `spell` (fångar de flesta stavfel men inte lika många grammatiska fel).
+2. Skapa variabler för Sök parametrarna och den text som du vill kontrol lera: 
+
+   a. Tilldela din marknads kod till- `mkt` parametern med `=` operatorn. Marknads koden är koden för landet/regionen som du gör begäran från. 
+
+   b. Lägg till `mode` parametern med `&` operatorn och tilldela sedan läget för stavnings kontroll. Läget kan vara antingen `proof` (fångar de flesta stavfel/grammatikfel) eller `spell` (fångar de flesta stavfel, men inte lika många grammatiska fel).
 
     ```javascript
     let mkt = "en-US";
@@ -52,7 +58,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="create-the-request-parameters"></a>Skapa begärandeparametrar
 
-Skapa dina begärandeparametrar genom att skapa ett nytt objekt med en `POST`-metod. Lägg till sökvägen genom att lägga till slutpunktssökvägen och frågesträngen. Lägg till din prenumerationsnyckel i `Ocp-Apim-Subscription-Key`-huvudet.
+Skapa dina begärandeparametrar genom att skapa ett nytt objekt med en `POST`-metod. Lägg till sökvägen genom att lägga till slutpunktssökvägen och frågesträngen. Lägg sedan till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken.
 
 ```javascript
 let request_params = {
@@ -69,7 +75,7 @@ let request_params = {
 
 ## <a name="create-a-response-handler"></a>Skapa en svarshanterare
 
-Skapa en funktion som heter `response_handler` för att ta JSON-svaret från API:et och skriva ut det. Skapa en variabel för svarstexten. Lägg till svaret när en `data`-flagga tas emot med hjälp av `response.on()`. När en `end`-flagga tas emot skriver du ut JSON-brödtexten till konsolen.
+Skapa en funktion som heter `response_handler` för att ta JSON-svaret från API:et och skriva ut det. Skapa en variabel för svarstexten. Lägg till svaret när en `data` flagga tas emot med hjälp av `response.on()` . När en `end` flagga har tagits emot skriver du ut JSON-texten till-konsolen.
 
 ```javascript
 let response_handler = function (response) {
@@ -89,7 +95,7 @@ let response_handler = function (response) {
 
 ## <a name="send-the-request"></a>Skicka begäran
 
-Anropa API:et med hjälp av `https.request()` med begärandeparametrarna samt svarshanteraren. Skriv texten till API:et och avsluta begäran efteråt.
+Anropa API: et med hjälp av `https.request()` parametrarna för begäran och svars hanteraren. Skriv texten till API: et och avsluta begäran.
 
 ```javascript
 let req = https.request (request_params, response_handler);
@@ -100,13 +106,13 @@ req.end ();
 
 ## <a name="run-the-application"></a>Kör programmet
 
-Skapa och kör ditt projekt.
+1. Skapa och kör ditt projekt.
 
-Om du använder kommando raden använder du följande kommandon för att skapa och köra programmet.
+1. Om du använder kommando raden använder du följande kommando för att skapa och köra programmet:
 
-```bash
-node <FILE_NAME>.js
-```
+   ```bash
+   node <FILE_NAME>.js
+   ```
 
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
@@ -154,7 +160,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
+> [Skapa en enkelsidig webbapp](../tutorials/spellcheck.md)
 
 - [Vad är API för stavningskontroll i Bing?](../overview.md)
-- [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [API för stavningskontroll i Bing v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

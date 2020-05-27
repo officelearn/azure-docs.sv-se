@@ -8,36 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a3e98afacf85bde8180253078cb53eae9a03d2f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c3ce10b6d3acb947d3fde6e3c872a2c2a83ddb69
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383620"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871142"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Snabb start: utföra en nyhets sökning med Java och Nyhetssökning i Bing REST API
 
-Använd den här snabbstarten för att göra ditt första anrop till API för nyhetssökning i Bing och visa JSON-svaret. Det här enkla Java-programmet skickar en nyhetssökfråga till API:et och visar svaret.
+Använd den här snabb starten för att göra ditt första anrop till API för nyhetssökning i Bing. Det här enkla Java-programmet skickar en nyhets Sök fråga till API: et och visar JSON-svaret.
 
-Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 
+Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java). 
 
 ## <a name="prerequisites"></a>Krav
 
-* [Java Development Kit(JDK) 7 eller 8](https://aka.ms/azure-jdks)
-
-* [Gson-biblioteket](https://github.com/google/gson)
+* [Java Development Kit (JDK) 7 eller 8](https://aka.ms/azure-jdks).
+* [Gson-biblioteket](https://github.com/google/gson).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera följande bibliotek.
+1. Skapa ett nytt Java-projekt i din favorit-IDE eller-redigerare och importera följande bibliotek:
 
     ```java
     import java.net.*;
@@ -50,7 +49,7 @@ Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     import com.google.gson.JsonParser;
     ```
 
-2. Skapa en ny klass med variabler för API-slutpunkten, din prenumerationsnyckel och sökvillkor. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa en ny klass. Lägg till variabler för API-slutpunkten, din prenumerations nyckel och Sök termen. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -64,7 +63,7 @@ Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Sa
 
 ## <a name="construct-the-search-request-and-receive-a-json-response"></a>Konstruera sökbegäran och ta emot ett JSON-svar
 
-1. Använd variablerna från det sista steget för att formatera en sök-URL för API-begäran. Observera att sökordet måste vara URL-kodat innan det läggs till i begäran.
+1. Använd variablerna från föregående steg för att formatera en Sök-URL för API-begäran. URL – koda Sök termen innan du lägger till den i begäran.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -75,7 +74,7 @@ Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     }
     ```
 
-2. Ta emot JSON-svaret från API för nyhetssökning i Bing och konstruera resultatobjektet.
+2. Ta emot JSON-svaret från API för nyhetssökning i Bing och skapa resultat objekt.
 
     ```java
     // receive JSON body
@@ -88,6 +87,7 @@ Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Sa
 ## <a name="process-the-json-response"></a>Bearbeta JSON-svaret
 
 1. Separera Bing-relaterade HTTP-huvuden från JSON-texten och stäng sedan strömmen och returnera API-svaret.
+
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -101,7 +101,8 @@ Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     return results;
     ```
 
-2. Skapa en metod för att parsa och omserialisera JSON
+2. Skapa en metod för att parsa och serialisera JSON-resultaten.
+
     ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
@@ -112,8 +113,9 @@ Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     }
     ```
 
-3. I programmets huvudmetod anropar du sökmetoden och visar svaret.
-    ```csharp
+3. Anropa Sök metoden i appens huvud metod och visa resultaten.
+
+    ```java
    public static void main (String[] args) {
        System.out.println("Searching the Web for: " + searchTerm);
        SearchResults result = SearchNews(searchTerm);
@@ -126,7 +128,7 @@ Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     }
     ```
 
-## <a name="json-response"></a>JSON-svar
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 

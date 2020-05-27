@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
-ms.openlocfilehash: 166847325fa9094136f1c2a143f1751420f05f66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb76151a3f952f932cc533b771283b5d45382366
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240916"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873453"
 ---
 # <a name="store-sync-and-query-mobile-application-data-from-the-cloud"></a>Lagra, synkronisera och fråga mobil program data från molnet
 Oavsett vilken typ av program du skapar kommer du troligen att generera och bearbeta data. Ditt programs användare har höga förväntningar. De vill att programmet ska fungera snabbt och smidigt, under alla omständigheter. De flesta program fungerar också på flera enheter. Du kan komma åt ditt program från en stationär eller en mobil enhet. Flera användare kan använda programmet samtidigt och dela data med förväntad åtkomst till data som direkt och i real tid.
@@ -22,21 +22,6 @@ Dina program användare har inte alltid Internet anslutning. Program är utforma
 Microsoft tillhandahåller en mängd olika tjänster som eliminerar behovet av att skapa servrar, välja din databas eller oroa dig för skalning eller säkerhet för att ge så omfattande erfarenheter som möjligt. Dessa tjänster ger en bra utvecklare som gör det möjligt att lagra program data i molnet med hjälp av SQL-eller NoSQL-API: er. Du kan också synkronisera data på alla enheter och göra det möjligt för programmet att fungera med eller utan en nätverks anslutning för att skapa skalbara och robusta program.
 
 Använd följande tjänster för att hantera och lagra data i mobila program i molnet.
-
-## <a name="visual-studio-app-center"></a>Visual Studio App Center
-[App Center data](/appcenter/data/) är en data hanterings tjänst. Den gör det möjligt för program att hantera, bevara och synkronisera program data i molnet över olika enheter och plattformar i scenarier med online-och offline-läge. App Center data skalningar som bygger på Azure Cosmos DB, och är i takt med att användar basen och antalet program växer. Det garanterar låg latens, hög tillgänglighet och hög skalbarhet för alla dina data.
-
-**Huvudfunktioner**
-- Enkel etablering till en ny Azure Cosmos DB databas eller en befintlig Azure Cosmos DB databas från Visual Studio App Center-portalen.
-- NoSQL Database-stöd för att enkelt lagra, synkronisera och fråga program data.
-- Den här tjänsten är byggd ovanpå Azure Cosmos DB och ärver de flesta viktiga funktioner som erbjuds av Azure Cosmos DB och kan skalas globalt för att möta dina affärs behov.
-- Synkronisering online och offline för att synkronisera data mellan enheter.
-- Klient-SDK: er för mobila klienter som du kan använda för att enkelt hantera privata program data.
-- Plattforms stöd för iOS, Android, Xamarin och reagera inbyggd.
-
-**Referenser**
-- [Registrera dig med Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-- [Kom igång med App Center data](/appcenter/data/getting-started)
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) är en globalt distribuerad databas tjänst för flera modeller. Du kan använda den för att bygga program med plan skala. Med Azure Cosmos DB kan du elastisk och oberoende skala data flöde och lagring i valfritt antal Azure-regioner över hela världen. Du kan dra nytta av snabb, ensiffriga millisekunder för data åtkomst med hjälp av dina favorit-API-ytor. Dessa ytor är SQL, MongoDB, Cassandra, tables eller Gremlin. Azure Cosmos DB unikt tillhandahåller omfattande service avtal (service avtal) för data flöde, svars tid, tillgänglighet och konsekvens.

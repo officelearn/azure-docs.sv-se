@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: e6fa490285582c827b8704496fb7a20a7eb9cfbc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1aa2545f3bd4e7558c99a31dca43f65510bab59e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166027"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872144"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes: Visual Studio & .NET Core – Azure dev Spaces
 
@@ -31,7 +31,7 @@ Med Azure dev Spaces kan du också felsöka och iterera med:
 ## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
-- Visual Studio 2019 på Windows med arbets belastningen Azure Development installerad. Du kan också använda Visual Studio 2017 i Windows med arbets belastningen webb utveckling och [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools) installerat. Om du inte har Visual Studio installerat kan du ladda ned det [här](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 på Windows med arbets belastningen Azure Development installerad. Om du inte har Visual Studio installerat kan du ladda ned det [här](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
 
@@ -94,7 +94,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-I exemplet ovan är `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/`den offentliga URL: en. 
+I exemplet ovan är den offentliga URL: en `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/` . 
 
 Välj **Felsök** och **Starta fel sökning**. Efter några sekunder startar tjänsten och Visual Studio öppnar en webbläsare med tjänstens offentliga URL. Om en webbläsare inte öppnas automatiskt går du till tjänstens offentliga URL i en webbläsare och interagerar med tjänsten som körs i ditt utvecklings utrymme.
 
@@ -120,7 +120,7 @@ Om Visual Studio fortfarande är anslutet till ditt dev-utrymme klickar du på k
 
 När du kör tjänsten i Kubernetes med en fel sökare ansluten har du fullständig åtkomst till felsöknings information som anrops stack, lokala variabler och undantags information.
 
-Ta bort Bryt punkten genom att placera markören på rad 20 `Controllers/HomeController.cs` i och trycka på *F9*.
+Ta bort Bryt punkten genom att placera markören på rad 20 i `Controllers/HomeController.cs` och trycka på *F9*.
 
 ## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 

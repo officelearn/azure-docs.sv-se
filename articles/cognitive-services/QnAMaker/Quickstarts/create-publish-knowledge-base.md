@@ -2,13 +2,13 @@
 title: 'Snabb start: skapa, träna och publicera kunskaps bas – QnA Maker'
 description: Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på hur du skapar en QnA Maker kunskaps bas från en enkel webb sida med vanliga frågor och svar för att besvara frågor QnA Maker.
 ms.topic: conceptual
-ms.date: 02/08/2020
-ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/26/2020
+ms.openlocfilehash: a35cbdea2d40e4b0df0ce0f0b36f1b6bf60dd42e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756818"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871401"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
@@ -17,7 +17,7 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 ## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
-> * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+> * Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 > * En QnA Maker [resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) som skapats i Azure Portal. Kom ihåg Azure Active Directory ID, prenumeration, QnA-resurs namn som du valde när du skapade resursen.
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>Skapa din första QnA Maker kunskaps bas
@@ -34,13 +34,13 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 
 1. I **steg 3**väljer du din Active Directory, prenumeration, tjänst (resurs) och språket för alla kunskaps baser som skapats i tjänsten.
 
-   ![Skärm bild av att välja en QnA Maker tjänst kunskaps bas](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
-
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Skärm bild av att välja en QnA Maker tjänst kunskaps bas":::
+    
 1. I **steg 3**namnger du kunskaps basen **mitt exempel på QNA KB**.
 
 1. I **steg 4**konfigurerar du inställningarna med följande tabell:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |--|--|
     |**Aktivera extrahering av flera adresser från URL: er, PDF-eller docx-filer.**|Markerad|
     |**Standard svars text**| `Quickstart - default answer not found.`|
@@ -64,9 +64,9 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    ![ Lägg till frågan som text och svaret formaterat med markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Lägg till frågan som text och svaret formaterat med markdown.":::
 
-    Markdown-symbolen, `*`används för punkter. `\n` Används för en ny rad.
+    Markdown-symbolen, `*` används för punkter. `\n`Används för en ny rad.
 
     På sidan **Redigera** visas markdown. När du använder **test** panelen senare ser du att markdown visas som den ska.
 
@@ -81,7 +81,7 @@ I det övre högra hörnet väljer du **Spara och träna** för att spara dina �
 
     `How many Azure services are used by a knowledge base?`
 
-    ![ Ange ett exempel på en användar fråga i text rutan. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Ange ett exempel på en användar fråga i text rutan.":::
 
 1. Välj **Granska** för att undersöka svaret i detalj. Test fönstret används för att testa dina ändringar i kunskaps basen innan du publicerar din kunskaps bas.
 
@@ -131,7 +131,7 @@ När du gör ändringar i kunskaps basen och återpublicerar behöver du inte vi
 
     Chatt-roboten svarar med ett svar från din kunskaps bas.
 
-    ![Ange en användar fråga i test-webbchatten.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Ange en användar fråga i test-webbchatten.":::
 
 ## <a name="what-did-you-accomplish"></a>Vad gjorde du?
 

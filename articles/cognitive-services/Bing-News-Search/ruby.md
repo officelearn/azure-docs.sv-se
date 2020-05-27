@@ -8,21 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ce1ef2b6c586ddd688bacb755d7c6f2ffd16a0a5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ad52116e11f9d89bf55a23692ae4e27f53b51319
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448540"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873408"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Snabb start: utföra en nyhets sökning med ruby och Nyhetssökning i Bing REST API
 
-Använd den här snabbstarten för att göra ditt första anrop till API för nyhetssökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en sökfråga till API:et och bearbetar resultatet.
+Använd den här snabb starten för att göra ditt första anrop till API för nyhetssökning i Bing. Det här enkla ruby-programmet skickar en Sök fråga till API: et och bearbetar JSON-svaret.
 
-Även om det här programmet är skrivet i Python är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
+Även om det här programmet är skrivet i ruby är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. 
+
+Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -32,7 +34,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för ny
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. importera följande paket till din kodfil.
+1. Importera följande paket till din kod fil:
 
     ```ruby
     require 'net/https'
@@ -40,7 +42,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för ny
     require 'json'
     ```
 
-2. Skapa variabler för API-slutpunkten, din webbadress för nyhetssökning och din sökterm. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för API-slutpunkten, nyhets Sök-URL: en, din prenumerations nyckel och Sök termen. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```ruby
     accessKey = "enter key here"
@@ -51,7 +53,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för ny
 
 ## <a name="format-and-make-an-api-request"></a>Formatera och göra en API-begäran
 
-Använd variablerna från det sista steget för att formatera en sök-URL för API-begäran. Skicka sedan begäran.
+Använd variablerna från föregående steg för att formatera en Sök-URL för API-begäran. Skicka sedan begäran.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -64,7 +66,7 @@ end
 
 ## <a name="process-and-print-the-json-response"></a>Bearbeta och skriv ut JSON-svaret
 
-När du har fått svar kan du parsa JSON och skriva ut både svarstexten och dess rubriker:
+När svaret har tagits emot tolkar du JSON och skriver sedan både svars texten och dess huvuden.
 
 ```ruby
 puts "\nRelevant Headers:\n\n"
@@ -78,7 +80,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## <a name="json-response"></a>JSON-svar
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
@@ -177,4 +179,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ensidesapp](tutorial-bing-news-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)

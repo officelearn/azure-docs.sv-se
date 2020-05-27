@@ -8,45 +8,47 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: e19f582084bec6915f95cf16fd8571b8d99da6fd
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 20c5ef930af8cc279f63432e9e3a14a0767ca592
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75379648"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870365"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och ruby
 
-I den här snabb starten används ruby-programmeringsspråket för att anropa Visuell sökning i Bing och Visa resultat. En POST-begäran laddar upp en avbildning till API-slutpunkten. Resultaten innehåller URL: er och beskrivande information om bilder som liknar den överförda avbildningen.
+Använd den här snabb starten för att göra ditt första anrop till API för visuell sökning i Bing med hjälp av ruby-programmeringsspråket. En POST-begäran laddar upp en avbildning till API-slutpunkten. Resultaten innehåller URL: er och beskrivande information om bilder som liknar den överförda avbildningen.
 
 ## <a name="prerequisites"></a>Krav
 
-Så här kör du den här snabb starten:
-
-* Installera [Ruby 2,4 eller senare](https://www.ruby-lang.org/en/downloads/)
-* Hämta en prenumerations nyckel:
+* Installera [Ruby 2,4 eller senare](https://www.ruby-lang.org/en/downloads/).
+* Hämta en prenumerations nyckel.
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="project-and-required-modules"></a>Projekt och obligatoriska moduler
 
-Skapa ett nytt ruby-projekt i din IDE eller redigeraren. Importera `net/http`, `uri` och `json` för att hantera JSON-texten för resultat. `base64` Biblioteket används för att koda fil namn strängen: 
+Skapa ett nytt ruby-projekt i din IDE eller redigeraren. Importera `net/http` , `uri` och `json` för att hantera JSON-texten för resultat. Importera `base64` biblioteket som kodar fil namn strängen. 
 
-```
+```ruby
 require 'net/https'
 require 'uri'
 require 'json'
 require 'base64'
-
 ```
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Följande kod tilldelar obligatoriska variabler. Bekräfta att slut punkten är korrekt och Ersätt `accessKey` värdet med en prenumerations nyckel från ditt Azure-konto.  `batchNumber` Är ett GUID som krävs för inledande och avslutande gränser för post-data.  `fileName` Variabeln identifierar bild filen för inlägget.  `if` Block test för en giltig prenumerations nyckel.
+Följande kod deklarerar huvud funktionen och tilldelar nödvändiga variabler: 
 
-```
+1. Bekräfta att slutpunkten är korrekt och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. 
+2. För `batchNumber` tilldelar du ett GUID som krävs för inledande och avslutande gränser för post-data. 
+3. För `fileName` tilldelar du avbildnings filen som ska användas för inlägget. 
+4. Använd ett `if` block för att testa en giltig prenumerations nyckel.
+
+```ruby
 accessKey = "ACCESS-KEY"
 uri  = "https://api.cognitive.microsoft.com"
 path = "/bing/v7.0/images/visualsearch"
@@ -63,40 +65,40 @@ end
 
 ## <a name="form-data-for-post-request"></a>Formulär data för POST-begäran
 
-De avbildnings data som ska ANSLÅs omges av inledande och avslutande gränser. Följande funktioner anger gränserna:
+1. Sätt de bild data som ska skickas efter inledande och avslutande gränser. Följande funktioner anger gränserna:
 
-```
-def BuildFormDataStart(batNum, fileName)
-    startBoundary = "--batch_" + batNum
-    return startBoundary + "\r\n" + "Content-Disposition: form-data; name=\"image\"; filename=" + "\"" + fileName + "\"" + "\r\n\r\n"   
-end
+   ```ruby
+   def BuildFormDataStart(batNum, fileName)
+       startBoundary = "--batch_" + batNum
+       return startBoundary + "\r\n" + "Content-Disposition: form-data; name=\"image\"; filename=" + "\"" + fileName + "\"" + "\r\n\r\n"    
+   end
 
-def BuildFormDataEnd(batNum)
-    return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
-end
-```
+   def BuildFormDataEnd(batNum)
+       return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
+   end
+   ```
 
-Skapa sedan slut punkts-URI och en matris som innehåller POST texten.  Använd funktionen Previous för att läsa in start gränser i matrisen. Läs avbildnings filen till matrisen. Läs sedan slut gränserna till matrisen:
+2. Skapa slut punkts-URI och en matris som innehåller POST texten. Använd funktionen Previous för att läsa in start gränser i matrisen. Läs avbildnings filen till matrisen och Läs sedan slut gränserna i matrisen.
 
-```
-uri = URI(uri + path)
-print uri
-print "\r\n\r\n"
+   ```ruby
+   uri = URI(uri + path)
+   print uri
+   print "\r\n\r\n"
 
-post_body = []
+   post_body = []
 
-post_body << BuildFormDataStart(batchNumber, fileName)
+   post_body << BuildFormDataStart(batchNumber, fileName)
 
-post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
+   post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
-post_body << BuildFormDataEnd(batchNumber)
-```
+   post_body << BuildFormDataEnd(batchNumber)
+   ```
 
 ## <a name="create-the-http-request"></a>Skapa HTTP-begäran
 
-Ange `Ocp-Apim-Subscription-Key` sidhuvudet.  Skapa begäran. Tilldela sedan rubriken och innehålls typen. Delta i INLÄGGs texten som skapades tidigare till begäran:
+Ange `Ocp-Apim-Subscription-Key` sidhuvudet. Skapa begäran och tilldela sedan rubriken och innehålls typen. Delta i INLÄGGs texten som du skapade tidigare i begäran.
 
-```
+```ruby
 header = {'Ocp-Apim-Subscription-Key': accessKey}
 request = Net::HTTP::Post.new(uri)  # , 'ImageKnowledge' => 'ImageKnowledge'
 
@@ -108,9 +110,9 @@ request.body = post_body.join
 
 ## <a name="request-and-response"></a>Begäran och svar
 
-Ruby skickar begäran och hämtar svaret med följande kodrad:
+Ruby skickar begäran och hämtar svaret med följande kod:
 
-```
+```ruby
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
    http.request(request)
 end
@@ -121,7 +123,7 @@ end
 
 Skriv ut rubrikerna för svaret och Använd JSON-biblioteket för att formatera utdata:
 
-```
+```ruby
 puts "\nRelevant Headers:\n\n"
 response.each_header do |key, value|
     if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
@@ -134,11 +136,11 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ```
 
-## <a name="results"></a>Resultat
+## <a name="json-response"></a>JSON-svar
 
 Följande JSON är ett segment av utdata:
 
-```
+```JSON
 Relevant Headers:
 
 bingapis-traceid: 6E19E78D4FEC4A61AB4F85977EEDB8E6
@@ -284,5 +286,5 @@ JSON Response:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Visuell sökning i Bing översikt](../overview.md)
-> [skapar en visuell sökning webb program med en enda sida](../tutorial-bing-visual-search-single-page-app.md)
+> [Vad är API för visuell sökning i Bing?](../overview.md) 
+>  [Bygg en visuell sökning webb program med en enda sida](../tutorial-bing-visual-search-single-page-app.md)

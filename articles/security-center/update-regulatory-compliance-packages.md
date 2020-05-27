@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 7a017f9485ec847c0a2c045e4c511b6a68db0cb2
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 6ba0be3a6fba35e413270dd6770f5d3f47586b5e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889918"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873324"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Anpassa uppsättningen standarder i din instrument panel för regelefterlevnad
 
@@ -29,7 +29,7 @@ Azure Security Center jämför kontinuerligt konfigurationen av dina resurser me
 
 Bransch standarder, reglerande standarder och benchmarks visas i Security Center som *efterlevnadsprinciper*.  Varje paket är ett initiativ som definieras i Azure Policy. Om du vill visa efterföljande data som har mappats som utvärderingar på din instrument panel lägger du till ett kompatibilitetstillstånd i hanterings gruppen eller prenumerationen från sidan **säkerhets princip** . (Läs mer om Azure Policy och initiativ i [arbeta med säkerhets principer](tutorial-security-policy.md).)
 
-När du har registrerat en standard eller benchmark för ditt valda omfång, visas standarden i instrument panelen för kontroll av efterlevnad med alla associerade efterlevnadsprinciper som har mappats som utvärderingar. Du kan också hämta sammanfattnings rapporter för alla standarder som har publicerats.
+När du har registrerat en standard eller benchmark för ditt valda omfång tilldelar den initiativet till omfånget och standarden visas i instrument panelen för kontroll av efterlevnad med alla associerade efterlevnadsprinciper som har mappats som utvärderingar. Du kan också hämta sammanfattnings rapporter för alla standarder som har publicerats.
 
 Microsoft spårar också gällande regelverk och förbättrar automatiskt täckningen i några av paketen över tid. När Microsoft släpper ut nytt innehåll för initiativet (nya principer som mappar till fler kontroller i standarden) visas det ytterligare innehållet automatiskt på din instrument panel.
 

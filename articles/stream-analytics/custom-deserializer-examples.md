@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 5cde80bf3205557884dfe8f2b8f5e79031bbca69
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: b7994754d3ca9c43fe7935b2b52c42f2f113b1d3
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612069"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873044"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Läs in inläsningar i alla format med anpassade .NET-deserialiserare
 
@@ -20,9 +20,9 @@ Med anpassade deserialiserade .NET kan ditt Azure Stream Analytics jobb läsa da
 
 ## <a name="net-custom-deserializer"></a>Anpassad deserialiserare för .NET
 
-Följande kod exempel är de gränssnitt som definierar den anpassade deserialiseraren och implementera `StreamDeserializer<T>`.
+Följande kod exempel är de gränssnitt som definierar den anpassade deserialiseraren och implementera `StreamDeserializer<T>` .
 
-`UserDefinedOperator`är Bask Lassen för alla anpassade streaming-operatörer. Den initieras `StreamingContext`, som innehåller en kontext som omfattar mekanismen för att publicera diagnostik för vilken du behöver felsöka eventuella problem med deserialiseraren.
+`UserDefinedOperator`är Bask Lassen för alla anpassade streaming-operatörer. Den initieras `StreamingContext` , som innehåller en kontext som omfattar mekanismen för att publicera diagnostik för vilken du behöver felsöka eventuella problem med deserialiseraren.
 
 ```csharp
     public abstract class UserDefinedOperator
@@ -33,19 +33,19 @@ Följande kod exempel är de gränssnitt som definierar den anpassade deserialis
 
 Följande kodfragment är deserialiseringen för strömmande data. 
 
-Överhoppade fel ska genereras med `IStreamingDiagnostics` hjälp av `UserDefinedOperator`initierings metoden. Alla undantag behandlas som fel och deserialiseraren kommer att återskapas. Efter ett visst antal fel, kommer jobbet att hamna i fel tillstånd.
+Överhoppade fel ska genereras med hjälp av `IStreamingDiagnostics` `UserDefinedOperator` initierings metoden. Alla undantag behandlas som fel och deserialiseraren kommer att återskapas. Efter ett visst antal fel, kommer jobbet att hamna i fel tillstånd.
 
-`StreamDeserializer<T>`deserialiserar en data ström till objekt av `T`typen. Följande villkor måste vara uppfyllda:
+`StreamDeserializer<T>`deserialiserar en data ström till objekt av typen `T` . Följande villkor måste vara uppfyllda:
 
 1. T är en klass eller en struktur.
 1. Alla offentliga fält i T är antingen
     1. En av [SByte-, byte-, Short-, ushort-, int-, uint-, Long-, DateTime-, String-, Float-, Double]-eller deras null-motsvarigheter.
     1. En annan struct eller klass som följer samma regler.
     1. Matris av typen `T2` som följer samma regler.
-    1. IList`T2` där T2 följer samma regler.
+    1. IList `T2` där T2 följer samma regler.
     1. Saknar rekursiva typer.
 
-Parametern `stream` är den data ström som innehåller det serialiserade objektet. `Deserialize`Returnerar en `T` instans samling.
+Parametern `stream` är den data ström som innehåller det serialiserade objektet. `Deserialize`Returnerar en instans samling `T` .
 
 ```csharp
     public abstract class StreamDeserializer<T> : UserDefinedOperator
@@ -112,7 +112,7 @@ message MessageBodyProto {
 }
 ```
 
-Att `protoc.exe` köra från **Google. protobuf. Tools** -NuGet genererar en. CS-fil med definitionen. Den genererade filen visas inte här.
+`protoc.exe`Att köra från **Google. protobuf. Tools** -NuGet genererar en. CS-fil med definitionen. Den genererade filen visas inte här. Du måste se till att den version av protobuf-NuGet som du använder i Stream Analytics-projektet matchar den protobuf-version som användes för att generera indatamängden. 
 
 Följande kodfragment är deserialiserings-implementeringen som förutsätter att den genererade filen ingår i projektet. Den här implementeringen är bara en tunn omslutning över den genererade filen.
 
@@ -219,7 +219,7 @@ Följande JavaScript-kod är ett exempel på formatet .NET deserialiserare när 
 }  
 ```
 
-`serializationClassName`ska vara en klass som implementerar `StreamDeserializer<T>`. Detta beskrivs i följande avsnitt.
+`serializationClassName`ska vara en klass som implementerar `StreamDeserializer<T>` . Detta beskrivs i följande avsnitt.
 
 ## <a name="region-support"></a>Stöd för regioner
 
@@ -252,6 +252,6 @@ När du har implementerat deserialiseraren kan du hjälpa andra genom att dela d
 
 Om du har angett protobuf-format med schema som innehåller MapField-typ, kan du inte implementera en anpassad deserialiserare. Vi arbetar på att stödja den här typen som går framåt.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [.NET-anpassade deserialiserare för Azure Stream Analytics moln jobb](custom-deserializer.md)

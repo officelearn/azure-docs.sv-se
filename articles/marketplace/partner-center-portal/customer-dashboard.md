@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: b8492a6740eb9acfa20fbbe5dd5beed5e985fafc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dcb9f554b214813439ab8753cf21e7d11a0fba56
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744596"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872559"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för kunder i Commercial Marketplace-analys
 
@@ -99,6 +99,7 @@ Tabellen **kund information** visar en numrerad lista över de 1000 främsta kun
 - Om poster är över 1000 kommer exporterade data att placeras asynkront på en nedladdnings sida under de närmaste 30 dagarna.
 - Filter kan tillämpas på tabellen för att visa endast de data som du är intresse rad av. Data kan filtreras efter företags namn, kund-ID, marknads plats prenumerations-ID, typ av Azure-licens, förvärvs datum, datum förlorat, kund-e-post, kund land/region/delstat/stad/post, kund språk och så vidare.
 - När ett erbjudande köps av en skyddad kund kommer information i **kundens detaljerade data** att maskeras (* * * * * * * *).
+- Kund dimensions information som företagets namn, kund namn och kund-e-post finns på en organisations-ID-nivå, inte på Azure Marketplace-eller AppSource transaktions nivå.
 
 ### <a name="customer-page-filters"></a>Kund sid filter
 

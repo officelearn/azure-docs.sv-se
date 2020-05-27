@@ -8,31 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 62e975121c05bd4fde2438480f7042b0957a9c82
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: da7d210140bf348e734f16cef2aaa01caf7e4f8b
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475610"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873120"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Snabb start: skicka en fråga till API för lokal sökning i Bing i C #
 
-Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet är skrivet i C#, är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
+Använd den här snabb starten för att lära dig hur du skickar begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet är skrivet i C#, är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-Det här exempel programmet hämtar lokala svars data från API: et för `hotel in Bellevue`Sök frågan.
+Det här exempel programmet hämtar lokala svars data från API: et för en Sök fråga.
 
 ## <a name="prerequisites"></a>Krav
 
 * En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
-
-Du måste ha ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten.  Se även Priser för Cognitive Services –API för Bing-sökning.
+* Ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. I den här snabb starten räcker den [kostnads fria utvärderings versionen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) . Spara API-nyckeln som anges när du aktiverar din kostnads fria utvärderings version. Mer information finns i [Cognitive Services priser – Bing-sökning API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-the-request"></a>Skapa begäran 
 
-Följande kod skapar en `WebRequest`, ställer in åtkomst nyckel rubriken och lägger till en frågesträng för "restaurang i Bellevue".  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
+Följande kod skapar en `WebRequest` , ställer in åtkomst nyckel rubriken och lägger till en frågesträng för *restaurang i Bellevue*.  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
 
 ```csharp
     // Replace the accessKey string value with your valid access key.
@@ -54,10 +53,10 @@ Följande kod skapar en `WebRequest`, ställer in åtkomst nyckel rubriken och l
 
 ## <a name="run-the-complete-application"></a>Kör hela programmet
 
-API: t för lokal sökning i Bing returnerar lokaliserade Sök Resultat från Bing Search-motorn.
-1. Skapa en ny konsollösning i Visual Studio (Community Edition går bra).
+Följande kod använder API: et för lokal sökning i Bing för att returnera lokaliserade Sök Resultat från Bing Search-motorn. Du kan använda den här koden genom att följa dessa steg:
+1. Skapa en ny konsol lösning i Visual Studio (community-utgåvan räcker).
 2. Ersätt Program.cs med koden nedan.
-3. Ersätt accessKey-värdet med en åtkomst nyckel som är giltig för din prenumeration.
+3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```csharp
@@ -210,5 +209,5 @@ namespace localSearch
 
 ## <a name="next-steps"></a>Nästa steg
 - [Lokal affärs sökning Java snabb start](local-search-java-quickstart.md)
-- [Snabb start för lokal Business search-nod](local-search-node-quickstart.md)
+- [Snabb start för lokal Business search Node. js](local-search-node-quickstart.md)
 - [Snabb start för att söka i lokalt företag](local-search-python-quickstart.md)

@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6151bbd9f056ef95c0875b83c7b6fccb732aebfe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450997"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870961"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planera en Azure Active Directory distribution av lösen ords återställning via självbetjäning
 
@@ -131,7 +131,7 @@ När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga f�
 | Affärs roll/persona| Azure AD-roll (om det behövs) |
 | - | - |
 | Nivå 1-helpdesk| Lösenordsadministratör |
-| Nivå 2-supportavdelningen| Användar administratör |
+| Nivå 2-supportavdelningen| Användaradministratör |
 | SSPR-administratör| Global administratör |
 
 
@@ -149,19 +149,19 @@ Information om hur du skapar en grupp finns i så här [skapar du en grupp och l
 
 Följande inställningar krävs för att aktivera SSPR tillsammans med rekommenderade värden.
 
-| Område | Inställning | Värde |
+| Område | Inställningen | Värde |
 | --- | --- | --- |
 | **Egenskaper för SSPR** | Återställning av lösen ord för självbetjäning har Aktiver ATS | **Vald** grupp för pilot/ **alla** för produktion |
 | **Autentiseringsmetoder** | Autentiseringsmetoder som krävs för registrering | Alltid 1 mer än vad som krävs för återställning |
 |   | Autentiseringsmetoder som krävs för att återställa | En eller två |
-| **Register** | Kräv att användare registrerar sig vid inloggning | Ja |
+| **Registrering** | Kräv att användare registrerar sig vid inloggning | Yes |
 |   | Antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation | 90 – 180 dagar |
-| **Meddelanden** | Meddela användare om lösenordsåterställning | Ja |
-|   | Meddela alla administratörer när andra administratörer återställer sina lösenord | Ja |
-| **Anpassning** | Anpassa supportavdelningen-länk | Ja |
+| **Meddelanden** | Meddela användare om lösenordsåterställning | Yes |
+|   | Meddela alla administratörer när andra administratörer återställer sina lösenord | Yes |
+| **Anpassning** | Anpassa supportavdelningen-länk | Yes |
 |   | E-post eller URL för anpassad helpdesk | Support webbplats eller e-postadress |
-| **Lokal integration** | Skriv tillbaka lösen ord till lokal AD | Ja |
-|   | Tillåt att användare låser upp kontot utan att återställa lösen ordet | Ja |
+| **Lokal integration** | Skriv tillbaka lösen ord till lokal AD | Yes |
+|   | Tillåt att användare låser upp kontot utan att återställa lösen ordet | Yes |
 
 ### <a name="sspr-properties"></a>Egenskaper för SSPR
 

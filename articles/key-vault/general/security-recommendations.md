@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 0da1a3019124f62aba6a959ce9104c85bd85d3fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28b768e421ac72be363ab187312e52ba15d34970
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81616488"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872997"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Säkerhetsrekommendationer för Azure Key Vault
 
@@ -30,7 +30,7 @@ Några av rekommendationerna som ingår i den här artikeln kan övervakas autom
 
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
-|Aktivera mjuk borttagning | [Mjuk borttagning](overview-soft-delete.md)) gör att du kan återställa borttagna valv och valv objekt |  - |
+|Aktivera mjuk borttagning | Med [mjuk borttagning](overview-soft-delete.md) kan du återställa borttagna valv och valv objekt |  - |
 | Begränsa åtkomsten till valv data  | Följ principen om minsta behörighet och begränsa vilka medlemmar i organisationen som har åtkomst till valv data |  - |
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering

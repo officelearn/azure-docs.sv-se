@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 5bae53c04867233138929867c4895e7f6a2f2149
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: ead0041e26b5dff5cfd81b6fa02b7efff6e6e9d1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838781"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831202"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Använd Query parallellisering i Azure Stream Analytics
 Den här artikeln visar hur du kan dra nytta av parallellisering i Azure Stream Analytics. Du lär dig hur du skalar Stream Analytics jobb genom att konfigurera inpartitioner och justera analys frågans definition.
@@ -315,7 +315,7 @@ Använd fönstret mått i ditt Azure Stream Analytics jobb för att identifiera 
 
 ## <a name="get-help"></a>Få hjälp
 
-Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

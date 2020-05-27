@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 07ae08f87c9a3e788944a48f6d5a24e2b076d16f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: db5c35db271f84a88fdc03f4f0178ee1c35f727e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732333"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834330"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Få åtkomst till Azure Key Vault bakom en brandvägg
 
@@ -31,7 +31,7 @@ Det finns vissa varianter beroende på din konfiguration och miljö.
 
 ## <a name="ports"></a>Portar
 
-All trafik till nyckelvalvet för alla tre funktioner (autentisering, hantering och dataplanåtkomst) går över HTTPS: port 443. Det är dock ibland HTTP (port 80)-trafik för CRL. Klienter som har stöd för OCSP ska inte komma åt CRL, [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl)men kan ibland komma fram.  
+All trafik till nyckelvalvet för alla tre funktioner (autentisering, hantering och dataplanåtkomst) går över HTTPS: port 443. Det är dock ibland HTTP (port 80)-trafik för CRL. Klienter som har stöd för OCSP ska inte komma åt CRL, men kan ibland komma fram [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl) .  
 
 ## <a name="authentication"></a>Autentisering
 
@@ -39,8 +39,8 @@ Nyckelvalv-klientprogram behöver åtkomst till Azure Active Directory-slutpunkt
 
 | Typ av huvudkonto | Slutpunkt:port |
 | --- | --- |
-| Användare som använder Microsoft-konto<br> (till exempel user@hotmail.com) |**EAN**<br> login.microsoftonline.com:443<br><br> **Azure Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure för amerikanska myndigheter:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443<br><br> och <br>login.live.com:443 |
-| Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto med Azure AD (t.ex. user@contoso.com) |**EAN**<br> login.microsoftonline.com:443<br><br> **Azure Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure för amerikanska myndigheter:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
+| Användare som använder Microsoft-konto<br> (till exempel user@hotmail.com) |**EAN**<br> login.microsoftonline.com:443<br><br> **Azure Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure amerikanska myndigheter:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443<br><br> och <br>login.live.com:443 |
+| Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto med Azure AD (t.ex. user@contoso.com) |**EAN**<br> login.microsoftonline.com:443<br><br> **Azure Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure amerikanska myndigheter:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
 | Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto, plus Active Directory Federation Services (AD FS) eller annan federerad slutpunkt (t.ex. user@contoso.com) |Alla slutpunkter för ett arbets- eller skolkonto, plus AD FS eller andra federerade slutpunkter |
 
 Det finns andra möjliga avancerade scenarier. Se [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-scenarios.md), [Integrera program med Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) och [Active Directory-autentiseringsprotokoll](https://msdn.microsoft.com/library/azure/dn151124.aspx) för mer information.  
@@ -51,8 +51,8 @@ För hantering av Nyckelvalv (CRUD och inställning av åtkomstprincip) måste k
 
 | Typ av åtgärd | Slutpunkt:port |
 | --- | --- |
-| Kontrollplanåtgärder för Nyckelvalv<br> via Azure Resource Manager |**EAN**<br> management.azure.com:443<br><br> **Azure Kina:**<br> management.chinacloudapi.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |
-| Microsoft Graph-API |**EAN**<br> graph.microsoft.com:443<br><br> **Azure Kina:**<br> graph.chinacloudapi.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> graph.microsoft.com:443<br><br> **Azure Germany:**<br> graph.cloudapi.de:443 |
+| Kontrollplanåtgärder för Nyckelvalv<br> via Azure Resource Manager |**EAN**<br> management.azure.com:443<br><br> **Azure Kina:**<br> management.chinacloudapi.cn:443<br><br> **Azure amerikanska myndigheter:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |
+| Microsoft Graph API |**EAN**<br> graph.microsoft.com:443<br><br> **Azure Kina:**<br> graph.chinacloudapi.cn:443<br><br> **Azure amerikanska myndigheter:**<br> graph.microsoft.com:443<br><br> **Azure Germany:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Åtgärder i Nyckelvalv
 
@@ -60,7 +60,7 @@ Vid all hantering och kryptografiska åtgärder för nyckelvalvsobjekt (nycklar 
 
 | Typ av åtgärd | Slutpunkt:port |
 | --- | --- |
-| Åtgärder inklusive kryptografiska åtgärder på nycklar, skapa, läsa, uppdatera och ta bort nycklar och hemligheter, ställa in eller få taggar och andra attribut för nyckelvalvobjekt (nycklar eller hemligheter) |**EAN**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure Kina:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
+| Åtgärder inklusive kryptografiska åtgärder på nycklar, skapa, läsa, uppdatera och ta bort nycklar och hemligheter, ställa in eller få taggar och andra attribut för nyckelvalvobjekt (nycklar eller hemligheter) |**EAN**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure Kina:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure amerikanska myndigheter:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>IP-adressintervall
 
@@ -74,4 +74,4 @@ Autentisering och identiteter (Azure Active Directory) är en global tjänst och
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har frågor om Key Vault kan du gå till [Azure Key Vault forumen](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Om du har frågor om Key Vault går du till [sidan Microsoft Q&en fråga för Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

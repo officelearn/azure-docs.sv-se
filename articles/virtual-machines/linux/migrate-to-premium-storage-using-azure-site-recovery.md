@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 0d03c2df720a4e3ccf57fe0be00c2af4fcf72eb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03e26c344284541116a5b98bc330804b71a64e28
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944836"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833783"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium Storage med Azure Site Recovery
 
@@ -62,7 +62,7 @@ Detta är Azure-kraven för det här migrerings scenariot:
 * Ett virtuellt Azure-nätverk som de virtuella datorerna ska ansluta till när de skapas vid en redundansväxling. Det virtuella Azure-nätverket måste finnas i samma region som det som Site Recovery körs i.
 * Ett Azure standard Storage-konto för att lagra loggar för replikering. Detta kan vara samma lagrings konto för de virtuella dator diskar som migreras.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Förstå relevanta komponenter för migrerings scenario i föregående avsnitt.
 * Planera stillestånds tiden genom att lära dig om [redundans i Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -74,13 +74,13 @@ Du kan använda Site Recovery för att migrera virtuella Azure IaaS-datorer mell
 ### <a name="step-1-create-a-recovery-services-vault"></a>Steg 1: skapa ett Recovery Services-valv
 
 1. Öppna [Azure Portal](https://portal.azure.com).
-2. Välj **skapa en** > **Management** > **säkerhets kopia** av resurs hantering och **Site Recovery (OMS)**. Alternativt kan du välja **Bläddra** > **Recovery Services valv** > **Lägg till**. 
+2. Välj **skapa en**  >  **Management**  >  **säkerhets kopia** av resurs hantering och **Site Recovery (OMS)**. Alternativt kan du välja **Bläddra**  >  **Recovery Services valv**  >  **Lägg till**. 
 3. Ange en region som de virtuella datorerna ska replikeras till. För migrering i samma region väljer du den region där dina virtuella käll datorer och käll lagrings konton är. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Steg 2: Välj skydds mål 
 
 1. Öppna [Azure Portal](https://portal.azure.com)på den virtuella datorn där du vill installera konfigurations servern.
-2. Gå till**Inställningar** > för **Recovery Services valv** > **Site Recovery** > **steg 1: Förbered infrastruktur** > **skydds mål**.
+2. Gå till inställningar för **Recovery Services valv**  >  **Settings**  >  **Site Recovery**  >  **steg 1: Förbered infrastruktur**  >  **skydds mål**.
 
    ![Bläddra till rutan skydds mål][2]
 
@@ -90,7 +90,7 @@ Du kan använda Site Recovery för att migrera virtuella Azure IaaS-datorer mell
 
 ### <a name="step-3-set-up-the-source-environment-configuration-server"></a>Steg 3: Konfigurera käll miljön (konfigurations servern)
 
-1. Ladda ned **Azure Site Recovery enhetliga installations** -och valv registrerings nyckeln genom att gå till fönstret **förbereda infrastruktur** > **förbereda källa** > **Lägg till Server** . 
+1. Ladda ned **Azure Site Recovery enhetliga installations** -och valv registrerings nyckeln genom att gå till fönstret **förbereda infrastruktur**  >  **förbereda källa**  >  **Lägg till Server** . 
  
    Du kommer att behöva valv registrerings nyckeln för att köra den enhetliga installationen. Nyckeln är giltig i fem dagar efter att du har genererat den.
 
@@ -123,7 +123,7 @@ Du kan använda Site Recovery för att migrera virtuella Azure IaaS-datorer mell
 
 ### <a name="step-4-set-up-the-target-environment"></a>Steg 4: Konfigurera mål miljön
 
-Välj **Förbered infrastruktur** > **mål**och ange den distributions modell som du vill använda för virtuella datorer efter redundansväxlingen. Du kan välja **klassisk** eller **Resource Manager**, beroende på ditt scenario.
+Välj **Förbered infrastruktur**  >  **mål**och ange den distributions modell som du vill använda för virtuella datorer efter redundansväxlingen. Du kan välja **klassisk** eller **Resource Manager**, beroende på ditt scenario.
 
 ![Mål fönster][10]
 
@@ -152,7 +152,7 @@ Om du vill kontrol lera att konfigurations servern har kopplats till den replike
    Den felande virtuella datorn har två tillfälliga diskar: en från den primära virtuella datorn och den andra som skapades under etableringen av den virtuella datorn i återställnings regionen. Om du vill undanta den temporära disken före replikeringen installerar du mobilitets tjänsten innan du aktiverar replikering. Mer information om hur du undantar den temporära disken finns i [undanta diskar från replikering](../../site-recovery/vmware-walkthrough-overview.md).
 
 2. Aktivera replikering på följande sätt:
-   1. Välj **Replikera program** > **källa**. När du har aktiverat replikering för första gången väljer du **+ Replikera** i valvet för att aktivera replikering för ytterligare datorer.
+   1. Välj **Replikera program**  >  **källa**. När du har aktiverat replikering för första gången väljer du **+ Replikera** i valvet för att aktivera replikering för ytterligare datorer.
    2. I steg 1 ställer du in **källa** som processerver.
    3. I steg 2 anger du distributions modellen efter redundansväxling, ett Premium Storage-konto som ska migreras till, ett standard lagrings konto för att spara loggar och ett virtuellt nätverk för att inte fungera.
    4. I steg 3 lägger du till skyddade virtuella datorer med IP-adress. (Du kan behöva en intern IP-adress för att hitta dem.)
@@ -173,14 +173,14 @@ Du kan välja en distributions modell efter redundans efter dina behov. Om du v�
 
 ### <a name="step-8-run-a-test-failover"></a>Steg 8: köra ett redundanstest
 
-Du kan kontrol lera om din replikering är slutförd genom att välja din Site Recovery instans och sedan välja **Inställningar** > **replikerade objekt**. Du kommer att se status och procent av din replikeringsprincip. 
+Du kan kontrol lera om din replikering är slutförd genom att välja din Site Recovery instans och sedan välja **Inställningar**  >  **replikerade objekt**. Du kommer att se status och procent av din replikeringsprincip. 
 
 När den inledande replikeringen är klar kan du köra ett redundanstest för att verifiera din strategi för replikering. Detaljerade anvisningar om redundanstest finns i [köra ett redundanstest i Site Recovery](../../site-recovery/vmware-walkthrough-overview.md). 
 
 > [!NOTE]
 > Innan du kör en redundansväxling kontrollerar du att din VM-och Replikerings strategi uppfyller kraven. Mer information om att köra ett redundanstest finns i [testa redundans till Azure i Site Recovery](../../site-recovery/site-recovery-test-failover-to-azure.md).
 
-Du kan se status för redundanstest i **Inställningar** > **jobb** > *YOUR_FAILOVER_PLAN_NAME*. I fönstret kan du se en analys av stegen och resultatet av lyckade/misslyckade resultat. Om redundanstestning Miss lyckas i något steg väljer du steget för att kontrol lera fel meddelandet. 
+Du kan se status för redundanstest i **Inställningar**  >  **jobb**  >  *YOUR_FAILOVER_PLAN_NAME*. I fönstret kan du se en analys av stegen och resultatet av lyckade/misslyckade resultat. Om redundanstestning Miss lyckas i något steg väljer du steget för att kontrol lera fel meddelandet. 
 
 ### <a name="step-9-run-a-failover"></a>Steg 9: köra en redundansväxling
 
@@ -203,7 +203,7 @@ Site Recovery skapar en VM-instans vars typ är samma som eller liknar en Premiu
 ## <a name="troubleshooting"></a>Felsökning
 
 * [Övervaka och Felsök skydd för virtuella datorer och fysiska servrar](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Microsoft Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
+* [Sidan Microsoft Q&en fråga för Microsoft Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)
 
 ## <a name="next-steps"></a>Nästa steg
 

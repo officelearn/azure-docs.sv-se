@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d66a96baa182672ecbfc9d617f82728812f0f27
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4dcc095648111348a6935225a6aa10798109f76e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743860"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832240"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Distribuera en Amazon Web Services virtuell dator med en Runbook
 
 I den här artikeln får du lära dig hur du kan utnyttja Azure Automation för att etablera en virtuell dator i din AWS-prenumeration (Amazon Web Service) och ge den virtuella datorn ett särskilt namn – som AWS refererar till som "tagga" den virtuella datorn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha ett Azure Automation-konto och en Amazon Web Services-prenumeration (AWS). Mer information om hur du konfigurerar ett Azure Automation konto och konfigurerar det med dina autentiseringsuppgifter för AWS-prenumerationer, finns [i Konfigurera autentisering med Amazon Web Services](automation-config-aws-account.md). Det här kontot ska skapas eller uppdateras med dina autentiseringsuppgifter för AWS-prenumeration innan du fortsätter, när du refererar till det här kontot i avsnitten nedan.
 
@@ -99,6 +99,9 @@ Se till att AWS PowerShell-modulen har importer ATS till Azure Automation.
 
 ## <a name="next-steps"></a>Nästa steg
  
-* [Azure Automation Runbook-typer](automation-runbook-types.md)
-* [Hantera Runbooks i Azure Automation](manage-runbooks.md)
-* [Inbyggt stöd för PowerShell-skript i Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+* För att ta reda på vilka Runbooks som stöds, se[Azure Automation Runbook-typer](automation-runbook-types.md).
+* Information om hur du arbetar med Runbooks finns [i hantera Runbooks i Azure Automation](manage-runbooks.md).
+* Mer information om PowerShell finns i [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview).
+* Skript stöd finns i [stöd för interna PowerShell-skript i Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

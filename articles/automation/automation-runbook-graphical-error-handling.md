@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: e517516715871f3fbcdcab6383e6452523773363
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 26a4a3dbd54256fbc193fba299d0f7504f407254
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743879"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832273"
 ---
 # <a name="handle-errors-in-graphical-runbooks"></a>Hantera fel i grafiska runbooks
 
@@ -65,6 +65,4 @@ Fel länkar flödar från dessa aktiviteter till en enskild `error management` k
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Redigera grafiska runbooks i Azure Automation](automation-graphical-authoring-intro.md#use-links-for-workflow)
-* [Runbook-körning i Azure Automation](automation-runbook-execution.md)
-* [Hantera Runbooks i Azure Automation](manage-runbooks.md)
+* Information om hur du löser grafiska Runbook-fel finns i [Felsöka Runbook-problem](troubleshoot/runbooks.md).

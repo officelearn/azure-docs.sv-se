@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.author: b-juche
-ms.openlocfilehash: 7dfc17825fab6c9a5f0d832318cb1d57271c56da
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 6cb3fa56e679bc911f12e99379152fc8e1fb7526
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625565"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832847"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -45,7 +45,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    AD-webbtjänster    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    E.t.       |    Eko svar    |
+    |    ICMPv4             |    Ej tillämpligt       |    Eko svar    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -58,7 +58,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    SAM/LSA            |    445       |    UDP           |
     |    W32Time            |    123       |    UDP           |
 
-* Platstopologi för mål Active Directory Domain Services måste följa bästa praxis, särskilt det virtuella Azure-VNet där Azure NetApp Files distribueras.  
+* Platstopologi för mål Active Directory Domain Services måste följa rikt linjerna, i synnerhet det virtuella Azure-VNet där Azure NetApp Files distribueras.  
 
     Adress utrymmet för det virtuella nätverk där Azure NetApp Files distribueras måste läggas till på en ny eller befintlig Active Directory plats (där en domänkontrollant som kan kontaktas av Azure NetApp Files är). 
 
@@ -79,7 +79,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
     For example, if your Active Directory has only the AES-128 capability, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory does not have any Kerberos encryption capability, Azure NetApp Files uses DES by default.  
 
-    You can enable the account options in the properties of the Active Directory Users and Computers MMC console:   
+    You can enable the account options in the properties of the Active Directory Users and Computers Microsoft Management Console (MMC):   
 
     ![Active Directory Users and Computers MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
 -->
@@ -98,7 +98,7 @@ Du kan använda önskade [Active Directory platser och tjänste](https://docs.mi
 
 Om du vill hitta plats namnet när du använder tillägg kan du kontakta den administrativa gruppen i organisationen som ansvarar för Active Directory Domain Services. Exemplet nedan visar plugin-programmet för Active Directory platser och tjänster där plats namnet visas: 
 
-![Active Directory-platser och -tjänster](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-and-services.png)
+![Active Directory-platser och -tjänster](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-services.png)
 
 När du konfigurerar en AD-anslutning för Azure NetApp Files anger du plats namnet i området för fältet **AD-plats namn** .
 
@@ -111,15 +111,15 @@ Ytterligare AADDS-överväganden gäller för Azure NetApp Files:
 * Se till att VNet eller undernät där AADDS har distribuerats finns i samma Azure-region som Azure NetApp Files-distributionen.
 * Om du använder ett annat VNet i den region där Azure NetApp Files distribueras, bör du skapa en peering mellan de två virtuella nätverk.
 * Azure NetApp Files stöd `user` och `resource forest` typer.
-* För synkronisering av typ kan du välja `All` eller `Scoped`.   
-    Om du väljer `Scoped`, se till att rätt Azure AD-grupp har valts för åtkomst till SMB-resurser.  Om du är osäker kan du använda den här typen `All` av synkronisering.
+* För synkronisering av typ kan du välja `All` eller `Scoped` .   
+    Om du väljer `Scoped` , se till att rätt Azure AD-grupp har valts för åtkomst till SMB-resurser.  Om du är osäker kan du använda den här `All` typen av synkronisering.
 * Du måste använda Enterprise-eller Premium-SKU: n. Standard-SKU: n stöds inte.
 
 När du skapar en Active Directory anslutning noterar du följande information för AADDS:
 
 * Du hittar information om **primärt**DNS-, **sekundärt DNS**-och **AD DNS-domännamn** på AADDS-menyn.  
 För DNS-servrar används två IP-adresser för att konfigurera Active Directory-anslutningen. 
-* **Sökvägen till organisationsenheten** är `OU=AADDC Computers`.  
+* **Sökvägen till organisationsenheten** är `OU=AADDC Computers` .  
 Den här inställningen konfigureras i **Active Directory anslutningar** under **NetApp-konto**:
 
   ![Sökväg till organisationsenhet](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
@@ -152,11 +152,20 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
 
         Tjänsten kommer att skapa ytterligare dator konton i Active Directory efter behov.
 
+        > [!IMPORTANT] 
+        > Att byta namn på SMB-serverns prefix när du har skapat Active Directory anslutningen är störande. Du måste montera om befintliga SMB-resurser när du har bytt namn på SMB-serverns prefix.
+
     * **Sökväg till organisationsenhet**  
         Det här är LDAP-sökvägen för organisationsenheten (OU) där SMB-serverns dator konton kommer att skapas. Det vill säga OU = den andra nivån, OU = första nivån. 
 
-        Om du använder Azure NetApp Files med Azure Active Directory Domain Services är `OU=AADDC Computers` organisationsenhetens sökväg när du konfigurerar Active Directory för ditt NetApp-konto.
-        
+        Om du använder Azure NetApp Files med Azure Active Directory Domain Services är organisationsenhetens sökväg `OU=AADDC Computers` när du konfigurerar Active Directory för ditt NetApp-konto.
+
+     * **Användare av säkerhets kopierings princip**  
+        Du kan inkludera ytterligare konton som kräver förhöjd behörighet för det dator konto som skapas för användning med Azure NetApp Files. De angivna kontona kommer att kunna ändra NTFS-behörigheter på fil-eller mappnivå. Du kan till exempel ange ett icke-privilegierat tjänst konto som används för att migrera data till en SMB-filresurs i Azure NetApp Files.  
+
+        > [!IMPORTANT] 
+        > Om du använder användar funktionen för säkerhets kopierings policyn krävs vit listning. Skicka e-post anffeedback@microsoft.com med ditt prenumerations-ID för att begära den här funktionen. 
+
     * Autentiseringsuppgifter, inklusive ditt **användar namn** och **lösen ord**
 
     ![Anslut Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
@@ -185,7 +194,7 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
 
         Ett volym namn måste vara unikt inom varje pool för kapacitet. Det måste innehålla minst tre tecken. Du kan använda alla alfanumeriska tecken.   
 
-        Du kan inte `default` använda som volym namn.
+        Du kan inte använda `default` som volym namn.
 
     * **Pool för kapacitet**  
         Ange den pool där du vill att volymen ska skapas.
@@ -231,8 +240,8 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
 
 Som standard har en ny volym behörigheten **alla/fullständig behörighet** till resurs. Medlemmar i gruppen domän administratörer kan ändra resurs behörigheter genom att använda dator hantering på det dator konto som används för den Azure NetApp Files volymen.
 
-![Resurs behörigheter för](../media/azure-netapp-files/smb-mount-path.png) 
-![SMB Mount-sökväg](../media/azure-netapp-files/set-share-permissions.png) 
+![](../media/azure-netapp-files/smb-mount-path.png) 
+Resurs behörigheter för SMB Mount-sökväg ![](../media/azure-netapp-files/set-share-permissions.png) 
 
 ### <a name="ntfs-file-and-folder-permissions"></a>NTFS-fil-och mappbehörigheter  
 

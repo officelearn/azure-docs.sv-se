@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9cdde8d1142ec47f835e4a06e7fe2e843d796a3a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d60885f7dbcd090e4f2172015787bc34d4ee7bcf
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743932"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832511"
 ---
 # <a name="manage-role-permissions-and-security"></a>Hantera rollbehörigheter och säkerhet
 
@@ -43,7 +43,7 @@ I följande tabeller beskrivs de angivna behörigheterna för varje roll. Detta 
 
 En ägare kan hantera allt, inklusive åtkomst. Följande tabell visar de behörigheter som har beviljats för rollen:
 
-|Åtgärder|Beskrivning|
+|Åtgärder|Description|
 |---|---|
 |Microsoft. Automation/automationAccounts/|Skapa och hantera resurser av alla typer.|
 
@@ -425,6 +425,6 @@ När en användare som är tilldelad rollen som Automation-operatör i Runbook-o
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera RBAC med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Starta en runbook i Azure Automation](start-runbooks.md)
-* [Azure Automation Runbook-typer](automation-runbook-types.md)
+* Om du vill veta mer om PowerShell RBAC, se [hantera RBAC med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* Mer information om typer av Runbooks finns i [Azure Automation Runbook-typer](automation-runbook-types.md).
+* Information om hur du startar en Runbook finns [i starta en Runbook i Azure Automation](start-runbooks.md).

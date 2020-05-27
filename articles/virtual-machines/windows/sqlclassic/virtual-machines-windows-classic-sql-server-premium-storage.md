@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 07e8d2b6bd22029a4b6556ada62985167807eb77
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75965676"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833939"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på Virtual Machines
 
@@ -142,7 +142,7 @@ Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 1. Observera DiskName och LUN.
 
     ![DisknameAndLUN][2]
-1. Fjärr skrivbord till den virtuella datorn. Gå sedan till **dator hantering** | **Enhetshanteraren** | **disk enheter**. Titta på egenskaperna för var och en av de "Microsoft Virtual disks"
+1. Fjärr skrivbord till den virtuella datorn. Gå sedan till **dator hantering**  |  **Enhetshanteraren**  |  **disk enheter**. Titta på egenskaperna för var och en av de "Microsoft Virtual disks"
 
     ![VirtualDiskProperties][3]
 1. LUN-numret här är en referens till det LUN-nummer som du anger när du kopplar den virtuella hård disken till den virtuella datorn.
@@ -271,7 +271,7 @@ $pass = "mycomplexpwd4*"
 $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
 #Add Data and Log Disks to VM Config
-#Note the size specified ‘-DiskSizeInGB 1023’, this attaches 2 x P30 Premium Storage Disk Type
+#Note the size specified '-DiskSizeInGB 1023', this attaches 2 x P30 Premium Storage Disk Type
 #Utilising the Premium Storage enabled Storage account
 
 $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
@@ -681,7 +681,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Steg 2: öka de tillåtna felen för resurser \<valfria>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Steg 2: öka de tillåtna felen för resurser \< valfria>
 
 På vissa resurser som tillhör din Always tillgänglighets grupp finns det begränsningar för hur många fel som kan inträffa under en period, där kluster tjänsten försöker starta om resurs gruppen. Vi rekommenderar att du ökar detta medan du går igenom den här proceduren, eftersom om du inte manuellt redundansväxlas och utlöser redundans genom att stänga av datorer som du kan komma nära den här gränsen.
 
@@ -691,7 +691,7 @@ Det skulle vara försiktig med att göra detta i Klusterhanteraren för växling
 
 Ändra Max felen till 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Steg 3: Lägg till IP-adressresurs för kluster \<grupp alternativ>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Steg 3: Lägg till IP-adressresurs för kluster grupp \< alternativ>
 
 Om du bara har en IP-adress för kluster gruppen och detta är justerat till moln under nätet, är du uppmärksam på om du oavsiktligt tar offline alla klusternoder i molnet i nätverket, så kan klustrets IP-resurs och kluster nätverks namn inte anslutas. I den här situationen förhindrar den uppdateringar till andra kluster resurser.
 
@@ -1249,7 +1249,7 @@ För att lägga till i IP-adress, se tillägget, steg 14.
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Azure-Premium Storage](../disks-types.md)
-* [Virtuella datorer](https://azure.microsoft.com/services/virtual-machines/)
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 * [SQL Server i Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->

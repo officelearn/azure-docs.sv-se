@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 920755e128f10a79a056d47813b1b65d8633c937
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 9d8d87e0a2fb21603802f533a3566aa6743a9a79
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628750"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831899"
 ---
 # <a name="troubleshoot-input-connections"></a>Felsöka indataanslutningar
 
@@ -141,7 +141,7 @@ För frågor där tre eller flera indata är anslutna till samma Event Hubs kons
 
 ## <a name="get-help"></a>Få hjälp
 
-Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

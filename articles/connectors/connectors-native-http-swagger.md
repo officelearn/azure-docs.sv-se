@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: b34fdc36bd0b1ce294a92b2ae8fa5da01568e5a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5c00dc64dd39ba2fdbb734f4e9749fbe42e246e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74787377"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831933"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Anropa REST-slutpunkter genom att använda Azure Logic Apps
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http + Swagger-anslutningen kan du automatisera arbets flöden som regelbundet anropar en REST-slutpunkt via en [Swagger-fil](https://swagger.io) genom att skapa Logi Kap par. HTTP + Swagger-utlösare och åtgärder fungerar på samma sätt som [http-utlösaren och åtgärden,](connectors-native-http.md) men ger en bättre upplevelse i Logic App Designer genom att exponera API-strukturen och utdata som beskrivs av Swagger-filen. Om du vill implementera en avsöknings utlösare följer du det avsöknings mönster som beskrivs i [skapa anpassade API: er som anropar andra API: er, tjänster och system från Logic Apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -82,7 +82,7 @@ Den här inbyggda åtgärden gör en HTTP-begäran till URL: en för Swagger-fil
 
 1. Under steget där du vill lägga till åtgärden HTTP + Swagger väljer du **nytt steg**.
 
-   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Skriv "Swagger" som filter i rutan Sök i designern. I listan **åtgärder** väljer du åtgärden **http + Swagger** .
 
@@ -137,25 +137,25 @@ Du kan referera till en Swagger-fil som inte finns eller som inte uppfyller krav
 
 1. [Ladda upp Swagger-filen till BLOB-behållaren](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), antingen via [Azure Portal](https://portal.azure.com) eller [Azure Storage Explorer](https://storageexplorer.com/).
 
-1. Om du vill referera till filen i BLOB-behållaren använder du en HTTPS-länk som följer detta format, vilket är Skift läges känsligt:
+1. Om du vill referera till filen i BLOB-behållaren hämtar du HTTPS-URL: en som följer det här formatet, vilket är Skift läges känsligt, från Azure Storage Explorer:
 
-   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<swagger-file-name>`
+   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<complete-swagger-file-name>?<query-parameters>`
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
 Här är mer information om utdata från en HTTP + Swagger-utlösare eller åtgärd. HTTP + Swagger-anropet returnerar denna information:
 
-| Egenskapsnamn | Typ | Beskrivning |
+| Egenskapsnamn | Typ | Description |
 |---------------|------|-------------|
 | sidhuvud | objekt | Huvudena från begäran |
 | body | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
 | statuskod | int | Status koden från begäran |
 |||
 
-| Statuskod | Beskrivning |
+| Statuskod | Description |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Accepterad |
+| 202 | Har godkänts |
 | 400 | Felaktig begäran |
 | 401 | Behörighet saknas |
 | 403 | Förbjudet |

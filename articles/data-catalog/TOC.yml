@@ -12,7 +12,7 @@
   items:
     - name: Registrera datatillgångar
       href: register-data-assets-tutorial.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Vanliga scenarier
       href: data-catalog-common-scenarios.md
@@ -20,7 +20,7 @@
       href: data-catalog-dsr.md
     - name: Börja använda Azure Data Catalog
       href: data-catalog-adopting-data-catalog.md
-    - name: Förutsättningar
+    - name: Krav
       href: data-catalog-prerequisites.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: data-catalog-frequently-asked-questions.md
@@ -68,9 +68,9 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Kortkommandon för Azure Data Catalog
       href: data-catalog-keyboard-shortcuts.md
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog'
-    - name: Priser
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-catalog.html'
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/data-catalog/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

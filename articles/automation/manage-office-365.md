@@ -4,18 +4,18 @@ description: Den här artikeln beskriver hur du använder Azure Automation för 
 services: automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: cbd01f3868f44d975e0822a7812262d9e15ca299
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 322e2a3679ed29ab9ecc4cdc3c6e1fe4d0f20276
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745347"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831183"
 ---
 # <a name="manage-office-365-services"></a>Hantera Office 365-tjänster
 
 Du kan använda Azure Automation för hantering av Office 365-prenumerations tjänster för produkter som Microsoft Word och Microsoft Outlook. Interaktioner med Office 365 aktive ras av [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Se [använda Azure AD i Azure Automation för att autentisera till Azure](automation-use-azure-ad.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna hantera Office 365-prenumerations tjänster i Azure Automation.
 
@@ -111,7 +111,7 @@ Om du vill publicera och sedan schemalägga din Runbook, se [Hantera Runbooks i 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera Runbooks i Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks)
-* [Använda moduler i Azure Automation](shared-resources/modules.md)
-* [Hantera autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md)
-* [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview)
+* Information om användning av autentiseringsuppgifter finns [i Hantera autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md).
+* Information om moduler finns [i hantera moduler i Azure Automation](shared-resources/modules.md).
+* Om du behöver starta en Runbook kan du läsa [starta en Runbook i Azure Automation](start-runbooks.md).
+* Information om PowerShell finns i [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview).

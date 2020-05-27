@@ -3,34 +3,20 @@ title: Administration i Azure EA-portalen
 description: I den här artikeln förklaras några vanliga uppgifter som administratörer utför i Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 2b2ec7a5954649c36cf9da5d7933c83eec67faa3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a3551b4f09202b33cee768a69f31a6c5d5d36777
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692647"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648209"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
 I den här artikeln förklaras några vanliga uppgifter som administratörer utför i Azure EA-portalen (https://ea.azure.com). Azure EA-portalen är en onlinehanteringsportal där kunder kan hantera kostnaden för sina Azure EA-tjänster. Grundläggande information om Azure EA-portalen finns i artikeln [Kom igång med Azure EA-portalen](ea-portal-get-started.md).
-
-## <a name="add-a-new-enterprise-administrator"></a>Lägga till en ny företagsadministratör
-
-Företagsadministratörer har fullständig behörighet i hanteringen av en Azure EA-registrering. Den första Azure EA-administratören skapades när EA-avtalet tecknades. Du kan dock när som helst lägga till och ta bort administratörer. Det är bara befintliga administratörer som kan lägga till nya administratörer. Du kan läsa mer om att lägga till fler företagsadministratörer i [Skapa en ny företagsadministratör](ea-portal-get-started.md#create-another-enterprise-administrator). Mer information om roller och uppgifter för faktureringsprofiler finns i [Roller och uppgifter för faktureringsprofiler](understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-## <a name="update-user-state-from-pending-to-active"></a>Uppdatera användarstatus från Väntar till Aktiv
-
-När nya kontoinnehavare först läggs till i en Azure EA-registrering är deras status _väntande_. När en ny kontoinnehavare får sitt aktiveringsmail kan kontoinnehavaren logga in och aktivera sitt konto. När kontoinnehavaren aktiverar sitt konto uppdateras kontostatusen från _väntande_ till _aktiv_. Kontoinnehavaren måste läsa varningsmeddelandet och välja **Fortsätt**. Nya användare kan uppmanas att ange sitt för- och efternamn och skapa ett handelskonto. I så fall måste personen ange den nödvändiga informationen innan kontot aktiveras.
-
-## <a name="add-a-department-admin"></a>Lägga till en avdelningsadministratör
-
-När en Azure EA-administratör skapar en avdelning så kan Azure-företagsadministratören lägga till avdelningsadministratörer och koppla dem till en avdelning. En avdelningsadministratör kan skapa nya konton. Nya konton behövs till att skapa Azure EA-prenumerationer.
-
-Du kan läsa mer om att lägga till en avdelningsadministratör under [Skapa en Azure EA-avdelningsadministratör](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="associate-an-account-to-a-department"></a>Associera ett konto med en avdelning
 
@@ -114,108 +100,6 @@ När en användare läggs till som kontoinnehavare via Azure EA-portalen konvert
 
 Dev/Test-erbjudandet gäller för närvarande inte för Azure Gov-kunder.
 
-## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Överföra ett företagskonto till en ny registrering
-
-Vid en kontoöverföring flyttas en kontoägare från en registrering till en annan. Alla relaterade prenumerationer under kontoägaren flyttas till målregistreringen. Använd en kontoöverföring om det finns flera aktiva registreringar och du bara vill flytta specifika kontoägare.
-
-Det här avsnittet tillhandahålls endast i informationssyfte eftersom åtgärden inte kan utföras av en företagsadministratör. Det krävs en supportbegäran för att överföra ett företagskonto till en ny registrering.
-
-Tänk på följande när du ska överföra ett företagskonto till en ny registrering:
-
-- Det är bara de konton som anges i förfrågan som överförs. Om du väljer alla konton så överförs samtliga.
-- Källregistreringen behåller statusen aktiv eller utvidgad. Du kan fortsätta att använda registreringen tills den upphör att gälla.
-
-### <a name="prerequisites"></a>Krav
-
-När du begär en kontoöverföring ska du ange följande information:
-
-- Numret på målregistreringen, kontonamnet och e-postadressen för kontoägaren för kontot som ska överföras
-- För källregistreringen, registreringsnumret och kontot som ska överföras
-
-Här är några andra saker du bör tänka på innan en kontoöverföring:
-
-- Du behöver godkännande från en EA-administratör för mål- och källregistreringen
-- Om en kontoöverföring inte uppfyller dina behov kan du överväga en registreringsöverföring.
-- Kontoöverföringen överför alla tjänster och prenumerationer som tillhör aktuella konton.
-- När överföringen är klar visas det överförda kontot som inaktivt under källregistreringen och som aktivt under målregistreringen.
-- Kontot visar ett slutdatum som motsvarar aktuellt överföringsdatum för källregistreringen och startdatum för målregistreringen.
-- All användning som utförts på kontot innan det aktuella överföringsdatumet finns kvar under källregistreringen.
-
-
-## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Överföra en företagsregistrering till en ny registrering
-
-En registreringsöverföring är lämpligt när:
-
-- Åtagandeperioden för en aktuell registrering har gått ut.
-- En registrering har status som förfallen/förlängd och ett nytt avtal förhandlas.
-- Du har flera registreringar och vill kombinera alla konton och faktureringen under en enda registrering.
-
-Det här avsnittet tillhandahålls endast i informationssyfte eftersom åtgärden inte kan utföras av en företagsadministratör. Det krävs en supportbegäran för att överföra en företagsregistrering till en ny.
-
-När du begär att en hel företagsregistrering ska överföras till en ny registrering utförs följande åtgärder:
-
-- Alla tjänster, prenumerationer, konton, avdelningar och hela registreringsstrukturen, inklusive alla EA-avdelningsadministratörer, överförs till en ny målregistrering.
-- Registreringsstatus ställs in som _Överförd_. Den överförda registreringen är bara tillgänglig för rapporter om historisk användning.
-- Du kan inte lägga till roller eller prenumerationer i en överförd registrering. Statusen Överförd förhindrar ytterligare användning mot registreringen.
-- Eventuella saldon för ekonomiska åtaganden i registreringen går förlorade, inklusive framtida avtal.
--    Om registreringen du överför från innehåller RI-köp blir inköpspriset för RI kvar källregistreringen, men alla RI-förmåner överförs för användning i den nya registreringen.
--    Engångsavgiften för köp på Marketplace och alla månatliga fasta avgifter som redan påförts på den gamla registreringen överförs inte till den nya registreringen. Förbrukningsbaserade Marketplace-debiteringar överförs.
-
-### <a name="effective-transfer-date"></a>Effektivt överföringsdatum
-
-Den effektiva överföringsdagen kan vara på eller efter startdatumet för målregistreringen.
-
-Användning i källregistreringen debiteras mot det ekonomiska åtagandet eller som en överförbrukning. Användning efter det effektiva överföringsdatumet överförs till den nya registreringen och debiteras där.
-
-### <a name="prerequisites"></a>Krav
-
-När du begär överföring av en registrering ska du ange följande information:
-
-- För källregistreringen, registreringsnumret.
-- För målregistreringen, registreringsnumret som överföringen ska göras till.
-- Det effektiva datumet för överföringen av registreringen kan vara målregistreringens startdatum eller något senare datum. Det valda datumet påverkar inte användningen i eventuella fakturor för överförbrukning som redan har utfärdats.
-
-Här är några andra saker du bör tänka på innan du överför en registrering:
-
-- Det krävs godkännande från EA-administratörer för både mål- och källregistrering.
-- Om överföring av en registrering inte uppfyller dina behov kan du överväga en kontoöverföring.
-- Källregistreringens status uppdateras till Överförd och är bara tillgänglig för rapportering av tidigare användning.
-
-### <a name="monetary-commitment"></a>Ekonomiskt åtagande
-
-Ekonomiska åtaganden kan inte överföras mellan registreringar. Saldon för ekonomiska åtaganden är avtalsmässigt bundna till den registrering där åtagandet beställdes. Ekonomiska åtaganden överförs inte när konton eller registreringar överförs.
-
-### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Inga tjänster påverkas av konto- och registreringsöverföringar
-
-Det förekommer inga avbrott under en konto- eller registreringsöverföring. De kan genomföras samma dag som förfrågan inkommer om du anger all nödvändig information.
-
-## <a name="change-account-owner"></a>Ändra kontoägare
-
-Du kan överföra prenumerationer från en kontoinnehavare till en annan i Azure EA-portalen. Mer information finns i [Ändra kontoinnehavare](ea-portal-get-started.md#change-account-owner).
-
-## <a name="subscription-transfer-effects"></a>Åtgärder som utförs vid överföring av prenumerationer
-
-När du överför en Azure-prenumeration till ett konto i samma klientorganisation i Azure Active Directory så behåller alla användare, grupper och huvudnamn för tjänster med [rollbaserad åtkomst (RBAC)](../../role-based-access-control/overview.md) för hantering av resurser sin åtkomst.
-
-Så här visar du användare med rollbaserad åtkomst för prenumerationen:
-
-1. Öppna **Prenumerationer** i Azure-portalen.
-2. Välj den prenumeration du vill visa och välj sedan **Åtkomstkontroll (IAM)** .
-3. Välj **Rolltilldelningar**. På sidan med rolltilldelningar ser du alla användare som har rollbaserad åtkomst för prenumerationen.
-
-Om prenumerationen överförs till ett konto i en annan klientorganisation i Azure AD så kommer alla användare, grupper och huvudnamn för tjänster med [rollbaserad åtkomst (RBAC)](../../role-based-access-control/overview.md) för hantering av resurser att _förlora_ sin behörighet. Även utan rollbaserad åtkomst kan användare få åtkomst till prenumerationen via olika säkerhetsmekanismer. Här är några exempel:
-
-- Hanteringscertifikat som ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [Skapa och ladda upp ett hanteringscertifikat för Azure](../../cloud-services/cloud-services-certs-create.md).
-- Åtkomstnycklar för tjänster som Storage. Mer information finns i [kontoöversikten för Azure Storage](../../storage/common/storage-account-overview.md).
-- Autentiseringsuppgifter för fjärråtkomst för tjänster som Azure Virtual Machines.
-
-Om mottagaren behöver begränsa åtkomsten till sina Azure-resurser bör denne överväga att uppdatera eventuella hemligheter som är associerade med tjänsten. De flesta resurser kan uppdateras med hjälp av följande steg:
-
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj **Alla resurser** i hubbmenyn.
-3. Välj resursen.
-4. Välj **Inställningar** på resurssidan för att visa och uppdatera befintliga hemligheter.
-
 ## <a name="delete-subscription"></a>Ta bort prenumeration
 
 Ta bort en prenumeration där du är kontoinnehavare:
@@ -260,60 +144,6 @@ Så här lägger du till en kontakt:
 Den nya meddelandekontakten visas i avsnittet **Meddelandekontakt**. Om du vill ändra meddelandefrekvensen markerar du meddelandekontakten och väljer pennsymbolen till höger om den markerade raden. Ställ in frekvensen som **varje dag**, **varje vecka**, **varje månad** eller **aldrig**.
 
 Du kan välja att hoppa över livscykelmeddelandena _täckningsperiodens slutdatum närmar sig_ och _datumet för inaktivering och avetablering närmar sig_. Om du hoppar över livscykelmeddelandena skickas inga meddelanden om slutdatumet för täckningsperioden eller avtalet.
-
-## <a name="manage-partner-administrators"></a>Hantera partneradministratörer
-
-Varje partneradministratör i Azure EA-portalen kan lägga till eller ta bort andra partneradministratörer. Partneradministratörer är associerade med partnerorganisationerna för indirekta registreringar och är inte direkt associerade med registreringarna.
-
-### <a name="add-a-partner-administrator"></a>Lägga till en partneradministratör
-
-Om du vill visa en lista över alla registreringar som är associerade till samma partnerorganisation som den aktuella användaren klickar du på fliken **Enrollment** (Registrering) och väljer en önskad registreringsruta.
-
-1. Logga in som partneradministratör.
-1. Välj **Hantera** i det vänstra navigeringsfältet.
-1. Välj fliken **Partner**.
-1. Välj **+ Lägg till administratör** och fyll i e-postadress, meddelandekontakt och meddelandeinformation.
-1. Välj **Lägg till**.
-
-### <a name="remove-a-partner-administrator"></a>Ta bort en partneradministratör
-
-Om du vill visa en lista över alla registreringar som är associerade till samma partnerorganisation som den aktuella användaren väljer du fliken **Enrollment** (Registrering) och väljer en önskad registreringsruta.
-
-1. Logga in som partneradministratör.
-1. Välj **Hantera** i det vänstra navigeringsfältet.
-1. Välj fliken **Partner**.
-1. Under avsnittet Administrator (Administratör) väljer du lämplig rad för den administratör du vill ta bort.
-1. Välj X-symbolen till höger.
-1. Bekräfta att du vill ta bort.
-
-## <a name="manage-partner-notifications"></a>Hantera partnermeddelanden
-
-Partneradministratörer kan hantera hur ofta de ska få användningsmeddelanden för sina registreringar. De får automatiskt ett meddelande om utestående saldo varje vecka. De kan ändra hur ofta enskilda meddelanden ska skickas till varje månad, varje vecka, varje dag eller aldrig.
-
-Om ett meddelande till en användare uteblir gör du så här för att kontrollera att användarens meddelandeinställningar är korrekta.
-
-1. Logga in på Azure EA-portalen som partneradministratör.
-2. Välj **Hantera** och sedan fliken **Partner**.
-3. Granska listan med administratörer i avsnittet Administrator (Administratör).
-4. Om du vill redigera meddelandeinställningarna hovrar du över administratören och väljer pennsymbolen.
-5. Öka meddelandefrekvensen och livscykelmeddelandena efter behov.
-6. Lägg till en kontakt om det behövs och välj **Lägg till**.
-7. Välj **Spara**.
-
-![Exempel som visar rutan Lägg till kontakt ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
-
-## <a name="view-enrollments-for-partner-administrators"></a>Visa registreringar för partneradministratörer
-
-Partneradministratörer kan visa en lista över alla direkta och indirekta registreringar i Azure EA-portalen. Rutor som innehåller en översikt över alla registreringar visas med registreringsnummer, registreringens namn, saldo och överförbrukningsbelopp.
-
-### <a name="view-a-list-of-enrollments"></a>Visa en lista över registreringar
-
-1. Logga in som partneradministratör.
-1. Välj **Hantera** i navigeringsfältet till vänster på sidan.
-1. Välj fliken **Registrering**.
-1. Markera rutan för registrering.
-
-En vy över alla registreringar blir kvar högst upp på sidan, med rutor för varje registrering. Dessutom kan du navigera mellan registreringar genom att välja det aktuella registreringsnumret på navigeringsfältet till vänster på sidan. En utfällning visas där du kan söka efter registreringar eller välja en annan registrering genom att välja lämplig ruta.
 
 ## <a name="azure-sponsorship-offer"></a>Azure-sponsringserbjudande
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21d850f03fdca300085c864a12611acb968aa8
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 2619af2959aa7d475c3e6bab9c8db55212ed0af4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582963"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845958"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domän namn i Azure Active Directory
 
@@ -49,6 +49,10 @@ Du kan lägga till upp till 900 hanterade domän namn. Om du konfigurerar alla d
 
 Om du vill lägga till ett domän namn på tredje nivån, till exempel "europe.contoso.com" i din katalog, bör du först lägga till och verifiera den andra nivå domänen, till exempel contoso.com. Under domänen verifieras automatiskt av Azure AD. Om du vill se att den under domän som du har lagt till har verifierats uppdaterar du domän listan i webbläsaren.
 
+Anteckning
+
+Om du redan har lagt till en contoso.com-domän i en Azure AD-klient kan du också lägga till under domänen europe.contoso.com till en andra Azure AD-klient. När du lägger till under domänen uppmanas du att lägga till en TXT-post i DNS-hosting-providern.
+
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Vad du gör om du ändrar DNS-registratorn för ditt anpassade domän namn
 
 Om du ändrar DNS-registratorn finns det inga ytterligare konfigurations åtgärder i Azure AD. Du kan fortsätta att använda domän namnet med Azure AD utan avbrott. Om du använder det anpassade domän namnet med Office 365, Intune eller andra tjänster som är beroende av anpassade domän namn i Azure AD, kan du läsa dokumentationen för dessa tjänster.
@@ -67,7 +71,7 @@ Du måste ändra eller ta bort alla sådana resurser i Azure AD-katalogen innan 
 
 ### <a name="forcedelete-option"></a>Alternativet ForceDelete
 
-Du kan **ForceDelete** ett domän namn i [Azure AD Admin Center](https://aad.portal.azure.com) eller använda [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Dessa alternativ använder en asynkron åtgärd och uppdaterar alla referenser från det anpassade domän namnet som "user@contoso.com" till det initiala standard domän namnet som "user@contoso.onmicrosoft.com." 
+Du kan **ForceDelete** ett domän namn i [Azure AD Admin Center](https://aad.portal.azure.com) eller använda [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Dessa alternativ använder en asynkron åtgärd och uppdaterar alla referenser från det anpassade domän namnet som " user@contoso.com " till det initiala standard domän namnet som " user@contoso.onmicrosoft.com ." 
 
 Om du vill anropa **ForceDelete** i Azure Portal måste du se till att det finns färre än 1000 referenser till domän namnet och alla referenser där Exchange är etablerings tjänsten måste uppdateras eller tas bort i [administrations centret för Exchange](https://outlook.office365.com/ecp/). Detta omfattar Exchange mail-aktiverade säkerhets grupper och distribuerade listor. Mer information finns i [ta bort e-postaktiverade säkerhets grupper](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). **ForceDelete** -åtgärden lyckas inte heller om något av följande stämmer:
 
@@ -90,10 +94,10 @@ Ett fel returneras när:
 **F: Varför går det inte att ta bort domänen med ett fel som säger att jag har Exchange-hanterade grupper på det här domän namnet?** <br>
 **A:** Idag tillhandahålls vissa grupper som e-postaktiverade säkerhets grupper och distribuerade listor av Exchange och måste rensas manuellt i [administrations Center för Exchange (UK)](https://outlook.office365.com/ecp/). Det kan finnas en kvarvarande ProxyAddresses som förlitar sig på det anpassade domän namnet och måste uppdateras manuellt till ett annat domän namn. 
 
-**F: Jag är inloggad som\@administratör contoso.com men jag kan inte ta bort domän namnet "contoso.com"?**<br>
-**A:** Du kan inte referera till det anpassade domän namn som du försöker ta bort i ditt användar konto namn. Se till att det globala administratörs kontot använder det initiala standard domän namnet (. onmicrosoft.com) admin@contoso.onmicrosoft.com, till exempel. Logga in med ett annat globalt administratörs konto som till admin@contoso.onmicrosoft.com exempel eller ett annat anpassat domän namn, till exempel "fabrikam.com" admin@fabrikam.comdär kontot finns.
+**F: Jag är inloggad som administratör \@ contoso.com men jag kan inte ta bort domän namnet "contoso.com"?**<br>
+**A:** Du kan inte referera till det anpassade domän namn som du försöker ta bort i ditt användar konto namn. Se till att det globala administratörs kontot använder det initiala standard domän namnet (. onmicrosoft.com), till exempel admin@contoso.onmicrosoft.com . Logga in med ett annat globalt administratörs konto som till exempel admin@contoso.onmicrosoft.com eller ett annat anpassat domän namn, till exempel "fabrikam.com" där kontot finns admin@fabrikam.com .
 
-**F: Jag klickade på knappen Ta bort domän `In Progress` och se status för borttagnings åtgärden. Hur lång tid tar det? Vad händer om det Miss lyckas?**<br>
+**F: Jag klickade på knappen Ta bort domän och se `In Progress` status för borttagnings åtgärden. Hur lång tid tar det? Vad händer om det Miss lyckas?**<br>
 **A:** Åtgärden ta bort domän är en asynkron bakgrunds aktivitet som byter namn på alla referenser till domän namnet. Den bör slutföras inom en minut eller två. Om det inte går att ta bort domänen kontrollerar du att du inte har:
 
 * Appar som kon figurer ATS på domän namnet med appIdentifierURI

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec59aa830fe314332d17091f17ef81d4a1d65470
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 09399f59e61ded49fef5a2388900b7b478111119
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833412"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847233"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Maxient utföra Manager-programvara
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Maxient med program
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -69,7 +69,7 @@ Konfigurera och testa Azure AD SSO med Maxient utföra Manager-programvara. För
 Om du vill konfigurera och testa Azure AD SSO med Maxient utföra Manager-programvara slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan autentiseras för användning med Maxient utföra Manager-programvaran
-    1. **[Tilldela alla användare att använda Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-Maxient-Conduct-Manager-Software)** – så att alla på din institution kan autentisera sig.
+    1. **[Tilldela alla användare att använda Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** – så att alla på din institution kan autentisera sig.
 1. **[Testa Azure AD-installationen med Maxient](#test-with-maxient)** – för att kontrol lera om konfigurationen fungerar och rätt attribut släpps
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO

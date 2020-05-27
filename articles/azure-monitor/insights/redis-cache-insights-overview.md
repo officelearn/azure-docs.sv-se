@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 0e1bb015025c2ea9c720aca5d72faef01926cc33
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: d892c58413803ff65fbd8ca8b25a61bc5ffeb26f
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800013"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847369"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Utforska Azure Monitor för Azure cache för Redis (för hands version)
 
@@ -34,8 +34,6 @@ Den ger:
 - **Analys** av en viss Azure-cache för Redis-resurs. Du kan diagnostisera problem och se en detaljerad analys av användning, fel, kapacitet och åtgärder. Välj någon av dessa kategorier för att se en detaljerad vy över relevant information.  
 
 - **Anpassning** av den här funktionen, som är byggd ovanpå Azure Monitor mallar för arbets böcker. Med den här funktionen kan du ändra vilka mått som visas och ändra eller ange tröskelvärden som överensstämmer med dina gränser. Du kan spara ändringarna i en anpassad arbets bok och sedan fästa arbets boks diagram på Azure-instrumentpaneler.
-
-- **Anpassning** av den här upplevelsen är byggd ovanpå Azure Monitor mallar för arbets böcker. Med den här funktionen kan du ändra vilka mått som visas och ändra eller ange tröskelvärden som överensstämmer med dina gränser. Du kan spara ändringarna i en anpassad arbets bok och sedan fästa arbets boks diagram på Azure-instrumentpaneler.
 
 Den här funktionen kräver inte att du aktiverar eller konfigurerar något. Azure cache för Redis-information samlas in som standard.
 
@@ -81,7 +79,7 @@ När du väljer resurs namnet Azure cache för Redis markerat i blått visas sta
 - **Cachemissar**
 - **Fel (max)**
 
-### <a name="operations"></a>Åtgärder
+### <a name="operations"></a>Operations
 
 När du väljer **åtgärder** överst på sidan öppnas **Åtgärds** tabellen i arbets boks mal len. Den visar dessa kolumner:
 

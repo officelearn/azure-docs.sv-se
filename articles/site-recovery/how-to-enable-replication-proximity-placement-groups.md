@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: ac5b7db6986afd260c5267bda83489b0ce8b606c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 204ac3be46ac7ba0e1ea96e50379ca417b1299ce
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837432"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847641"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replikera virtuella Azure-datorer som körs i närhets placerings grupper till en annan region
 
@@ -28,7 +28,7 @@ I ett typiskt scenario kan du ha dina virtuella datorer som körs i en närhets 
 -  Om en tillgänglighets uppsättning fästs på en närhets placerings grupp och under redundansväxling/failback-datorer i tillgänglighets uppsättningen har en tilldelnings begränsning skapas de virtuella datorerna utanför både tillgänglighets uppsättningen och närhets placerings gruppen.
 -  Site Recovery för närhets placerings grupper stöds inte för ohanterade diskar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Kontrol lera att du har modulen Azure PowerShell AZ. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
@@ -187,5 +187,11 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
     ```
 8. Kör ett redundanstest [.](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-8-run-a-test-failover)
 
+
+## <a name="next-steps"></a>Nästa steg
+
+Följ stegen som beskrivs [här](https://docs.microsoft.com/azure/site-recovery/vmware-azure-prepare-failback)om du vill utföra skydd och återställning efter fel för VMware till Azure.
+
+Om du vill utföra redundans för Hyper-V till Azure följer du stegen som beskrivs [här](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover) och utför återställning efter fel genom att följa stegen som beskrivs [här](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-failback).
 
 Mer information finns i [redundansväxlingen i Site Recovery](site-recovery-failover.md).

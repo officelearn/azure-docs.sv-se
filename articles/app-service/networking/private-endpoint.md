@@ -4,21 +4,22 @@ description: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 05/12/2020
+ms.date: 05/25/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6a95c021153a458a4e3f804e64724b73ea1f1937
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4c48a2fad927812cc45543243b48a2df81acf73b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198823"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846961"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slut punkter för Azure Web App (för hands version)
 
 > [!Note]
+> I för hands versionen av uppdateringen släpptes funktionen data exfiltrering Protection.
 > Förhands granskningen är tillgänglig i regionerna USA och USA, västra 2, för alla PremiumV2 Windows-och Linux-Web Apps och elastiska Premium-funktioner. 
 
 Du kan använda privat slut punkt för din Azure-webbapp för att tillåta klienter som finns i ditt privata nätverk att säkert komma åt appen via privat länk. Den privata slut punkten använder en IP-adress från ditt Azure VNet-adressutrymme. Nätverks trafik mellan en klient i ditt privata nätverk och webbappen går igenom VNet och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
@@ -27,6 +28,7 @@ Med hjälp av privat slut punkt för din webbapp kan du:
 
 - Skydda din webbapp genom att konfigurera den privata slut punkten och eliminera offentlig exponering.
 - Anslut säkert till en webbapp från lokala nätverk som ansluter till VNet med en VPN-eller ExpressRoute-peering.
+- Undvik eventuella data exfiltrering från ditt VNet. 
 
 Om du bara behöver en säker anslutning mellan ditt VNet och din webbapp är en tjänst slut punkt den enklaste lösningen. Om du också behöver komma åt webbappen från lokala platser via en Azure-Gateway, ett regionalt, interaktivt VNet eller ett globalt peer-baserat VNet är den privata slut punkten lösningen.  
 
@@ -52,7 +54,7 @@ Från ett säkerhets perspektiv:
 - NÄTVERKSKORTet för den privata slut punkten kan inte ha en associerad NSG.
 - Under nätet som är värd för den privata slut punkten kan ha en NSG associerad, men du måste inaktivera principerna för nätverks principer för den privata slut punkten: se [inaktivera nätverks principer för privata slut punkter][disablesecuritype]. Därför kan du inte filtrera efter NSG åtkomst till din privata slut punkt.
 - När du aktiverar privat slut punkt till din webbapp utvärderas inte konfigurationen av [åtkomst begränsningar][accessrestrictions] för webbappen.
-- Du kan minska risken för data exfiltrering från VNet genom att ta bort alla NSG-regler där målet är tagga Internet eller Azure-tjänster. Men om du lägger till en privat slut punkt för webb program i ditt undernät kan du komma åt alla webbappar som finns i samma distributions stämpel och exponeras för Internet.
+- Du kan eliminera risken för data exfiltrering från VNet genom att ta bort alla NSG-regler där målet är tagga Internet eller Azure-tjänster. När du distribuerar en privat slut punkt för en webbapp kan du bara komma åt just den här webbappen via den privata slut punkten. Om du har en annan webbapp måste du distribuera en annan dedikerad privat slut punkt för den här andra webbappen.
 
 I webb-HTTP-loggfilerna för din webbapp hittar du klientens käll-IP. Detta implementeras med hjälp av TCP-proxy-protokollet och vidarebefordrar klientens IP-egenskap till webbappen. Mer information finns i [Hämta anslutnings information med hjälp av TCP proxy v2][tcpproxy].
 
@@ -69,7 +71,7 @@ Om du behöver använda kudu-konsolen eller kudu REST API (distribution med Azur
 - PrivateEndpointIP yourwebappname.azurewebsites.net 
 - PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Pris information finns i [priser för privata Azure-länkar][pricing].
 
@@ -77,7 +79,7 @@ Pris information finns i [priser för privata Azure-länkar][pricing].
 
 När du använder Azure Function i elastisk Premium-plan med privat slut punkt, för att köra eller köra funktionen i Azure-webbportalen, måste du ha direkt åtkomst till nätverket eller så får du ett HTTP 403-fel. I andra ord måste webbläsaren kunna komma åt den privata slut punkten för att köra funktionen från Azure-webbportalen. 
 
-Under för hands versionen exponeras bara produktions platsen bakom den privata slut punkten, och andra platser kan bara användas av en offentlig slut punkt.
+Under för hands versionen exponeras bara produktions platsen bakom den privata slut punkten. andra platser måste ha nått sin offentliga slut punkt.
 
 Vi förbättrar den privata länk funktionen och den privata slut punkten regelbundet. Läs [den här artikeln][pllimitations] för uppdaterad information om begränsningar.
 

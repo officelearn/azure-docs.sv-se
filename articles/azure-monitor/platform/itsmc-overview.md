@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0ae621791fb989fbb1fdab6a045bc8e9707bc74
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274546"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846536"
 ---
-# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med Anslutningsprogram för hantering av IT-tjänster (ITSM)
+# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 
 ![Anslutningsprogram för hantering av IT-tjänster (ITSM) symbol](media/itsmc-overview/itsmc-symbol.png)
 
-Med Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) kan du ansluta Azure och en ITSM-produkt (IT Service Management) som stöds.
+Med ITMS-anslutningsprogrammet (anslutningsprogram för hantering av IT-tjänster) kan du ansluta Azure och en ITSM-produkt/-tjänst (hantering av IT-tjänster (ITSM)) som stöds.
 
 Azure-tjänster som Log Analytics och Azure Monitor innehåller verktyg för att identifiera, analysera och felsöka problem med dina Azure-och icke-Azure-resurser. Arbets objekt som är relaterade till ett problem finns dock vanligt vis i en ITSM produkt/tjänst. ITSM-anslutningen innehåller en dubbelriktad anslutning mellan Azure-och ITSM-verktyg som hjälper dig att lösa problem snabbare.
 
@@ -57,7 +57,7 @@ Innan du kan skapa en anslutning måste du lägga till ITSM-anslutningsprogram-l
 3. I avsnittet **OMS-arbetsyta** väljer du den Azure Log Analytics-arbetsyta där du vill installera lösningen.
    >[!NOTE]
    > * Som en del av den pågående över gången från Microsoft Operations Management Suite (OMS) till Azure Monitor, kallas OMS-arbetsytor nu Log Analytics arbets ytor.
-   > * ITSM-anslutningsprogram kan bara installeras i Log Analytics arbets ytor i följande regioner: östra USA, västra 2; USA, södra centrala USA, västra centrala USA, centrala Kanada, Västeuropa, södra Storbritannien, Sydostasien, Östra Japan, centrala Indien, sydöstra Australien.
+   > * ITSM-anslutningsprogram kan bara installeras i Log Analytics arbets ytor i följande regioner: östra USA, västra 2; USA, södra centrala USA, västra centrala USA, Fairfax, centrala Kanada, Västeuropa, södra Storbritannien, Sydostasien, Östra Japan, centrala Indien, sydöstra Australien.
 
 4. I avsnittet **Inställningar för OMS-arbetsyta** väljer du den ResourceGroup där du vill skapa lösnings resursen.
 
@@ -209,7 +209,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 - Stängd av
 - Källa
 - Tilldelad till
-- Titel
+- Rubrik
 - Typ
 - Kategori
 - Status
@@ -235,7 +235,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 
 | Log Analytics fält | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Antal |
+| ServiceDeskId_s| Tal |
 | IncidentState_s | Status |
 | Urgency_s |Angelägenhetsgrad |
 | Impact_s |Påverkan|
@@ -247,7 +247,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | AssignedTo_s | Tilldelad  |
 | Category_s | Kategori |
 | Title_s|  Kort beskrivning |
-| Description_s|  Obs! |
+| Description_s|  Anteckningar |
 | CreatedDate_t|  Inleddes |
 | ClosedDate_t| stängd|
 | ResolvedDate_t|Matchat|
@@ -257,7 +257,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 
 | Log Analytics | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Antal |
+| ServiceDeskId_s| Tal |
 | CreatedBy_s | Begärd av |
 | ClosedBy_s | Stängd av |
 | AssignedTo_s | Tilldelad  |
@@ -290,7 +290,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 2. Om data från ServiceNow inte kommer att synkroniseras till Log Analytics, se till att ServiceNow-instansen inte är i vilo läge. ServiceNow dev-instanser går ibland till ström spar läge när de är inaktiva under en längre tid. Annars kan du rapportera problemet.
 3. Om Log Analytics-aviseringar om brand, men arbets objekt inte skapas i ITSM-produkten eller om konfigurations objekt inte skapas/länkas till arbets objekt eller för någon annan allmän information, tittar du på följande platser:
    -  ITSMC: lösningen visar en sammanfattning av anslutningar/arbets objekt/datorer osv. Klicka på panelen som visar **kopplings status**, som gör att du kan **Logga sökningen** med den relevanta frågan. Mer information hittar du i logg posterna med LogType_S som fel.
-   - Sidan **loggs ökning** : Visa fel-/relaterad information direkt med frågan `*`ServiceDeskLog_CL`*`.
+   - Sidan **loggs ökning** : Visa fel-/relaterad information direkt med frågan `*` ServiceDeskLog_CL `*` .
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Felsöka Service Manager Web App-distribution
 1.  Om det uppstår problem med distributionen av webbappar kontrollerar du att du har tillräcklig behörighet i prenumerationen som nämns skapa/distribuera resurser.
@@ -300,7 +300,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 
 ## <a name="contact-us"></a>Kontakta oss
 
-Om du har frågor eller feedback på Anslutningsprogram för hantering av IT-tjänster (ITSM) kan du kontakta oss [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)på.
+Om du har frågor eller feedback på Anslutningsprogram för hantering av IT-tjänster (ITSM) kan du kontakta oss på [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com) .
 
 ## <a name="next-steps"></a>Nästa steg
 [Lägg till ITSM produkter/tjänster i anslutningsprogram för hantering av IT-tjänster (ITSM)](../../azure-monitor/platform/itsmc-connections.md).

@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d76564443860ba0342651c2c1dbb90300c94be1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 550c025807b1ec3d0d5b8fb54f4b358c9f1ec6d3
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647312"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846043"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -107,7 +107,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure Data Factory 
 - [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
-- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+- [GRÄNSSNITTET](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 
 ### <a name="azure-functions"></a>Azure Functions
@@ -124,6 +124,16 @@ I följande lista kan du konfigurera hanterad identitet för Azure Functions (i 
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
+### <a name="azure-iot-hub"></a>Azure IoT Hub
+
+Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Tilldelat system | ![Tillgänglig][check] | ![Tillgänglig][check] | Inte tillgänglig | ![Tillgänglig][check] |
+| Tilldelad användare | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+
+I följande lista kan du konfigurera hanterad identitet för Azure Data Factory v2 (i regioner där det finns):
+
+- [Azure Portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
 ### <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -175,7 +185,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machi
 - [Azure Portal](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager mallar](qs-configure-template-windows-vm.md)
+- [Azure Resource Manager-mallar](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 
@@ -192,7 +202,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machi
 - [Azure Portal](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager mallar](qs-configure-template-windows-vm.md)
+- [Azure Resource Manager-mallar](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 

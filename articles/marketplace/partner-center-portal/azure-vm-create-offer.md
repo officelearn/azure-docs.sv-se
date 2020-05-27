@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 957d7911a1373504265c014e3ba141c150e60c2a
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a64908eb639a44c6bc9d742e84ebb4d01082d49d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800596"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847930"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
@@ -73,7 +73,7 @@ Ditt tekniska team bör ha en grundläggande förståelse och erfarenhet av föl
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Azure Marketplace-erbjudandet och i Azure PowerShell och Azure CLI, om tillämpligt.
-- Använd bara gemena bokstäver och siffror. ID: t kan innehålla bindestreck och under streck, men inte blank steg och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet *https://azuremarketplace.microsoft.com/marketplace/../test-offer-1* .
+- Använd bara gemena bokstäver och siffror. ID: t kan innehålla bindestreck och under streck, men inte blank steg och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
 Ange ett **erbjudande alias**. Erbjudandets alias är det namn som används för erbjudandet i Partner Center.
@@ -96,7 +96,7 @@ Ytterligare resurser för test enheter:
 - [Metodtips för marknadsföring](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Hämta Test Drive-översikten](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF-fil (se till att blockering av popup-fönster är inaktiverat).
 
-### <a name="lead-management"></a>Leadhantering
+### <a name="customer-leads"></a>Kund ledare
 
 När du publicerar erbjudandet till den kommersiella marknads platsen med partner Center ansluter du det till ditt CRM-system (Customer Relations hip Management). På så sätt kan du ta emot kund kontakt information så snart någon uttrycker intresse för eller använder produkten. Att ansluta till en CRM krävs om du vill aktivera en testen het (se föregående avsnitt). Annars är det valfritt att ansluta till en CRM.
 

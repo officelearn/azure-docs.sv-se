@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 7a4fc57b3be8dd59997ef2bfc9624892cf726160
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: a2be74f6c9178577f86e5522e37e7c210643dd07
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790991"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847829"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Använd en HTTPS-slutpunkt för att hantera affärs marknads platser
 
@@ -183,7 +183,7 @@ I den här artikeln beskrivs hur du skapar ett nytt flöde i Energis par för at
 
 Du kan testa konfigurationen med [Postman](https://app.getpostman.com/app/download/win64). En online-hämtning av Postman är tillgänglig för Windows. 
 
-1. Starta Postman och välj **ny** > **begäran** för att ställa in ditt test verktyg. 
+1. Starta Postman och välj **ny**  >  **begäran** för att ställa in ditt test verktyg. 
 
    ![Förfrågan om att ställa in ditt test verktyg](./media/commercial-marketplace-lead-management-instructions-https/postman-request.png)
 
@@ -229,8 +229,9 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 
 1. Välj ditt erbjudande och gå till fliken **erbjudande konfiguration** .
 
-1. Under avsnittet **ledar hantering** väljer du **Anslut**. 
-    ![Knappen Anslut till ledar hantering](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+1. Under avsnittet **kund leads** väljer du **Anslut**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-https/customer-leads.png" alt-text="Kund ledare":::
 
 1. I popup-fönstret **anslutnings information** väljer du https- **slutpunkt** för lead- **målet**. Klistra in HTTP POST-URL: en från flödet som du skapade genom att följa tidigare steg i URL-fältet för **https-slutpunkt** .
     ![Anslutnings information kontakta e-post](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)

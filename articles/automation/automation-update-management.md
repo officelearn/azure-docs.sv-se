@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Uppdateringshantering
 description: Den här artikeln innehåller en översikt över den Uppdateringshantering funktionen som implementerar uppdateringar för dina Windows-och Linux-datorer.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2020
+ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4a48841a1c1f5225e5ce53c46c69bd3d29f6fe59
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4c27fa26b19b870f90f2e7d6ecd34f1f3c083323
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830709"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847336"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
@@ -97,7 +97,7 @@ I följande tabell visas operativ system som inte stöds:
 
 |Operativsystem  |Anteckningar  |
 |---------|---------|
-|Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.        |
+|Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.<br> Den rekommenderade metoden för Azure Windows Virtual Desktop (WVD)<br> för att hantera uppdateringar är [Windows Update för Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) för hantering av klient datorer för Windows 10. |
 |Windows Server 2016 Nano Server     | Stöds inte.       |
 |Azure Kubernetes service-noder | Stöds inte. Använd korrigerings processen som beskrivs i [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
 
@@ -165,7 +165,7 @@ Mer information om uppdateringar av hanterings paket finns i [anslut Operations 
 
 I följande tabell beskrivs de anslutna källor som Uppdateringshantering stöder:
 
-| Ansluten källa | Stöds | Description |
+| Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
 | Windows-agenter |Yes |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och startar sedan installationen av nödvändiga uppdateringar. |
 | Linux-agenter |Yes |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och startar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
@@ -206,7 +206,7 @@ Följ anvisningarna i [ansluta datorer utan Internet åtkomst](../azure-monitor/
 
 I följande tabell definieras de klassificeringar som Uppdateringshantering stöder för Windows-uppdateringar. 
 
-|Klassificering  |Description  |
+|Klassificering  |Beskrivning  |
 |---------|---------|
 |Kritiska uppdateringar     | En uppdatering för ett särskilt problem som åtgärdar en kritisk, ej säkerhetsrelaterad bugg.        |
 |Säkerhetsuppdateringar     | En uppdatering för en produktspecifik, säkerhetsrelaterad fråga.        |
@@ -219,7 +219,7 @@ I följande tabell definieras de klassificeringar som Uppdateringshantering stö
 
 Nästa tabell definierar de klassificeringar som stöds för Linux-uppdateringar.
 
-|Klassificering  |Description  |
+|Klassificering  |Beskrivning  |
 |---------|---------|
 |Kritiska uppdateringar och säkerhetsuppdateringar     | Uppdateringar för ett enskilt problem eller ett produktspecifik, säkerhetsrelaterat problem.         |
 |Övriga uppdateringar     | Alla andra uppdateringar som inte är kritiska eller som inte är av säkerhets uppdateringar.        |
@@ -255,13 +255,5 @@ Här är hur du kan aktivera Uppdateringshantering och välja datorer som ska ha
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du arbetar med Uppdateringshantering finns i [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).
-* Om du behöver rikta en dynamisk VM-grupp för uppdateringar kan du läsa [Använd dynamiska grupper med uppdateringshantering](automation-update-management-groups.md).
-* Om du vill aktivera funktionen med hjälp av en Azure Resource Manager-mall, se [aktivera uppdateringshantering med Azure Resource Manager mall](automation-update-management-deploy-template.md).
-* Information om hur du aktiverar funktionen från en Runbook finns i [aktivera uppdateringshantering från en Runbook](automation-onboard-solutions.md).
-* Information om hur du aktiverar funktionen från ett Automation-konto finns i [aktivera uppdateringshantering från ett Automation-konto](automation-onboard-solutions-from-automation-account.md).
-* Om du vill aktivera funktionen genom att bläddra i Azure Portal, se [aktivera uppdateringshantering från Azure Portal](automation-onboard-solutions-from-browse.md).
-* Om du vill aktivera funktionen från en virtuell Azure-dator kan du läsa [aktivera uppdateringshantering från en virtuell Azure-dator](automation-onboard-solutions-from-vm.md).
-* Om du behöver söka i loggar som lagras i din Log Analytics-arbetsyta, se [fråga uppdateringshantering loggar](automation-update-management-query-logs.md).
-* Information om hur du felsöker funktions fel finns i [felsöka uppdateringshantering problem](troubleshoot/update-management.md).
-* Fel sökning av problem med Windows Update-agenten finns i [Felsöka problem med Windows Update-agenten](troubleshoot/update-agent-issues.md).
-* Information om hur du felsöker problem med Linux-uppdaterings agent finns i [Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).
+
+* Läs vanliga frågor om Uppdateringshantering i [Azure Automation vanliga frågor och svar](automation-faq.md).

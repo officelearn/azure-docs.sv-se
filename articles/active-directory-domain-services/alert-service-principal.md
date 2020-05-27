@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 175bfe63176b78c5aeafc7147c46dd5ab1110325
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f72e98213977a09b97cab9966ec69194cd8439e8
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71257969"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845975"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Kända problem: aviseringar för tjänstens huvud namn i Azure Active Directory Domain Services
 
@@ -40,7 +40,7 @@ Följ stegen nedan om du vill kontrol lera vilket tjänst huvud namn som saknas 
 1. Välj **företags program**. Välj *alla program* på list menyn **program typ** och välj sedan **Använd**.
 1. Sök efter vart och ett av program-ID: na. Om det inte finns något befintligt program följer du *lösnings* stegen för att skapa tjänstens huvud namn eller registrera namn området igen.
 
-    | Program-ID:t | Lösning |
+    | Program-ID | Lösning |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Återskapa ett tjänst huvud namn som saknas](#recreate-a-missing-service-principal) |
     | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Registrera Microsoft. AAD-namnrymden igen](#re-register-the-microsoft-aad-namespace) |
@@ -102,7 +102,7 @@ Om du vill återskapa Azure AD-programmet som används för synkronisering av au
     $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
-    Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
+    Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
 När du har tagit bort båda programmen återskapas automatiskt Azure-plattformen och försök görs att återuppta Lösenordssynkronisering. Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och tar bort aviseringen.

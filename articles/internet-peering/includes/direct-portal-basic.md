@@ -3,19 +3,19 @@ title: ta med fil
 titleSuffix: Azure
 description: ta med fil
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: include
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: 00c24212706555667ad4680c086ece24f15ca59a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/22/2020
+ms.author: derekol
+ms.openlocfilehash: e2804c8f9b1af89ac0ea86ec14136df66d900060
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678526"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846194"
 ---
-1. Välj **skapa en resurs** > **Se alla**.
+1. Välj **skapa en resurs**  >  **Se alla**.
 
     > [!div class="mx-imgBorder"]
     > ![Sök peering](../media/setup-seeall.png)

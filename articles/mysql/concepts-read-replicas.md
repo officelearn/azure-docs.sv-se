@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/4/2020
-ms.openlocfilehash: cb82b3223d50c66b4d6c176a274d5ccf8d510911
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: d9d600b4ac34e4608b7747bee0e0a704ad2ab3be
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792113"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846060"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
@@ -61,7 +61,7 @@ Det finns dock begränsningar att tänka på:
 
 Om en huvud server inte har några befintliga replik servrar startar originalet om första gången för att förbereda sig för replikering.
 
-När du startar arbets flödet skapa replik skapas en tom Azure Database for MySQL-server. Den nya servern fylls med de data som fanns på huvud servern. Skapande tiden beror på mängden data i huvud servern och tiden sedan den senaste veckovis fullständiga säkerhets kopieringen. Tiden kan vara från några minuter till flera timmar.
+När du startar arbets flödet skapa replik skapas en tom Azure Database for MySQL-server. Den nya servern fylls med de data som fanns på huvud servern. Skapande tiden beror på mängden data i huvud servern och tiden sedan den senaste veckovis fullständiga säkerhets kopieringen. Tiden kan vara från några minuter till flera timmar. Replik servern skapas alltid i samma resurs grupp och samma prenumeration som huvud servern. Om du vill skapa en replik server till en annan resurs grupp eller en annan prenumeration kan du [Flytta replik servern](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) när du har skapat den.
 
 Varje replik är aktive rad för att utöka lagringen [automatiskt](concepts-pricing-tiers.md#storage-auto-grow). Funktionen för automatisk storleks ökning gör att repliken kan hålla sig uppdaterad med de data som replikeras till den och förhindrar ett avbrott i replikeringen som orsakas av fel i lagrings utrymmet.
 
@@ -85,7 +85,7 @@ Ange lösen ordet för användar kontot vid prompten.
 
 Azure Database for MySQL anger måttet för **replikeringsfördröjning i sekunder** i Azure Monitor. Måttet är endast tillgängligt för repliker.
 
-Detta mått beräknas med hjälp av `seconds_behind_master` måttet som är tillgängligt `SHOW SLAVE STATUS` i MySQL-kommandot.
+Detta mått beräknas med hjälp av `seconds_behind_master` måttet som är tillgängligt i MySQL- `SHOW SLAVE STATUS` kommandot.
 
 Ange en avisering för att meddela dig när fördröjningen för replikering når ett värde som inte är acceptabelt för din arbets belastning.
 
@@ -144,11 +144,11 @@ Följande Server parametrar är låsta på både huvud-och replik servern:
 - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-[`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) Parametern är låst på replik servrarna. 
+[`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler)Parametern är låst på replik servrarna. 
 
 Om du vill uppdatera en av parametrarna ovan på huvud servern, tar du bort replik servrar, uppdaterar parametervärdet i huvud servern och återskapar repliker.
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 
 - Globala transaktions-ID: n (GTID) stöds inte.
 - Det finns inte stöd för att skapa en replik av en replik.

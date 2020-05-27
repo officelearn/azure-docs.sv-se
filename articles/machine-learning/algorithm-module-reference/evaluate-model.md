@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: f69a3f61c288b320399d1b3abfc632c93261c540
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983371"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847420"
 ---
 # <a name="evaluate-model-module"></a>Utvärdera modell modul
 
@@ -49,7 +49,7 @@ Använd den här modulen för att mäta noggrannheten för en utbildad modell. D
 
 ## <a name="results"></a>Resultat
 
-När du har kört **utvärdera modell**högerklickar du på modulen och väljer **visualisera utvärderings resultat** för att se resultatet.
+När du har kört **utvärdera modell**väljer du modulen för att öppna navigerings panelen **utvärdera modell** till höger.  Välj sedan fliken **utdata + loggar** och på den fliken har avsnittet **data utdata** flera ikoner.   **Visualiserings** ikonen har en stapeldiagram och är ett första sätt att se resultatet.
 
 Om du ansluter data uppsättningar till båda indata för **utvärdera modell**kommer resultatet att innehålla mått för båda data uppsättningarna eller båda modellerna.
 Modellen eller data som är kopplade till den vänstra porten visas först i rapporten följt av måtten för data uppsättningen eller modellen som är kopplad till rätt port.  

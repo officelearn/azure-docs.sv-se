@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f90a6dd94a498b6de6b5e2ec8381180483d0ac8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28467dbaabb0b84bf7da9f2ae28d6405699b2c6b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113161"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845754"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA genom att använda nätverks princip Server tillägget för Azure
 
@@ -228,9 +228,9 @@ I det här avsnittet konfigurerar du VPN-servern för att använda RADIUS-autent
 
 2. I Serverhanteraren väljer du **verktyg**och sedan **Routning och fjärråtkomst**.
 
-3. I fönstret **Routning och fjärråtkomst** högerklickar du på ** \<Server namn> (lokalt)** och väljer sedan **Egenskaper**.
+3. I fönstret **Routning och fjärråtkomst** högerklickar du på ** \< Server namn> (lokalt)** och väljer sedan **Egenskaper**.
 
-4. I ** \<egenskaps fönstret Server namn> (lokal)** väljer du fliken **säkerhet** .
+4. I ** \< egenskaps fönstret server namn> (lokal)** väljer du fliken **säkerhet** .
 
 5. På fliken **säkerhet** under **autentiseringsprovider**väljer du **RADIUS-autentisering**och väljer sedan **Konfigurera**.
 
@@ -245,9 +245,9 @@ I det här avsnittet konfigurerar du VPN-servern för att använda RADIUS-autent
     b. För den **delade hemligheten**väljer du **ändra**och anger sedan det delade hemliga lösen ord som du skapade och registrerade tidigare.
 
     c. I rutan **tids gräns (sekunder)** anger du ett värde på **30**.  
-    Timeout-värdet är nödvändigt för att tillåta tillräckligt med tid för att slutföra den andra autentiserings faktorn.
+    Timeout-värdet är nödvändigt för att tillåta tillräckligt med tid för att slutföra den andra autentiserings faktorn. Vissa VPN eller regioner kräver timeout-inställningar som är längre än 30 sekunder för att förhindra att användare tar emot flera telefonsamtal. Om användarna upplever det här problemet ökar du timeout-värdet **(sekunder)** i steg om 30 sekunder tills problemet inte återkommer.
 
-    ![Fönstret Lägg till RADIUS-server konfigurera timeout](./media/howto-mfa-nps-extension-vpn/image16.png)
+    ![Fönstret Lägg till RADIUS-server konfigurera timeout](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
 8. Välj **OK**.
 
@@ -376,7 +376,7 @@ Om du vill använda skriptet anger du fil namns tillägget med Azure Active Dire
 
     ![Köra konfigurations skriptet AzureMfsNpsExtnConfigSetup. ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 
-    Om du får ett säkerhets fel på grund av TLS aktiverar du TLS 1,2 med `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` hjälp av kommandot från PowerShell-prompten.
+    Om du får ett säkerhets fel på grund av TLS aktiverar du TLS 1,2 med hjälp av `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` kommandot från PowerShell-prompten.
     
     När skriptet har verifierat installationen av PowerShell-modulen visas Azure Active Directory PowerShell-modulens inloggnings fönster.
 

@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: bcc1c6ffe7cdec4aed325a67969235ae993a5109
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b37f9be5eb3313cc451e65f90d7f2713c68806d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77614833"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845992"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Avancerat skydd för Azure Cosmos DB (för hands version)
 
@@ -36,11 +36,15 @@ Avancerat skydd för Azure Cosmos DB identifierar avvikande aktiviteter som visa
 
 - **Ovanlig data extrahering**: den här aviseringen utlöses när en klient extraherar en ovanlig mängd data från ett Azure Cosmos DB-konto. Detta kan vara symptom på vissa data exfiltrering som utförs för att överföra alla data som lagras i kontot till ett externt data lager.
 
-## <a name="set-up-advanced-threat-protection"></a>Konfigurera Avancerat skydd
 
-### <a name="set-up-atp-using-the-portal"></a>Konfigurera ATP med portalen
 
-1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
+## <a name="configure-advanced-threat-protection"></a>Konfigurera Advanced Threat Protection
+
+Du kan konfigurera Avancerat skydd på flera sätt, som beskrivs i följande avsnitt.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com/) .
 
 2. Från Azure Cosmos DB-kontot går du till menyn **Inställningar** och väljer **avancerad säkerhet**.
 
@@ -51,14 +55,14 @@ Avancerat skydd för Azure Cosmos DB identifierar avvikande aktiviteter som visa
     * Klicka på alternativet **Avancerat skydd** för att ställa in det på **på**.
     * Klicka på **Spara** för att spara den nya eller uppdaterade Advanced Threat Protection-principen.   
 
-### <a name="set-up-atp-using-rest-api"></a>Konfigurera ATP med REST API
+### <a name="rest-api"></a>[REST-API](#tab/rest-api)
 
 Använd REST API-kommandon för att skapa, uppdatera eller Hämta inställningen för avancerat skydd för ett bestämt Azure Cosmos DB konto.
 
 * [Avancerat skydd – skapa](https://go.microsoft.com/fwlink/?linkid=2099745)
 * [Avancerat skydd – Hämta](https://go.microsoft.com/fwlink/?linkid=2099643)
 
-### <a name="set-up-atp-using-azure-powershell"></a>Konfigurera ATP med Azure PowerShell
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Använd följande PowerShell-cmdletar:
 
@@ -66,12 +70,12 @@ Använd följande PowerShell-cmdletar:
 * [Hämta Avancerat skydd](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
 * [Inaktivera Avancerat skydd](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
 
-### <a name="using-azure-resource-manager-templates"></a>Använda Azure Resource Manager-mallar
+### <a name="arm-template"></a>[ARM-mall](#tab/arm-template)
 
-Använd en Azure Resource Manager-mall för att konfigurera Cosmos DB med avancerat skydd aktiverat.
+Använd en Azure Resource Manager ARM-mall (ARM) för att konfigurera Cosmos DB med avancerat skydd aktiverat.
 Mer information finns i [skapa ett CosmosDB-konto med avancerat skydd](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
 
-### <a name="using-azure-policy"></a>Använda Azure Policy
+### <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 
 Använd en Azure Policy för att aktivera avancerat skydd mot Cosmos DB.
 
@@ -90,6 +94,9 @@ Använd en Azure Policy för att aktivera avancerat skydd mot Cosmos DB.
 
 
 1. Ange de andra parametrarna och klicka på **tilldela**.
+
+
+
 
 ## <a name="manage-atp-security-alerts"></a>Hantera säkerhets aviseringar för ATP
 

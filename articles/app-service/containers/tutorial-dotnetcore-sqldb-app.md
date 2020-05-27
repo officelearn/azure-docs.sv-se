@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/23/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 5bd20f98b10989da0a66acbf45b99d724664cf5d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c2ed68c18cc7845d45bebffc31842879353f2c2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82208133"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846944"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Självstudie: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service på Linux
 
@@ -23,7 +23,7 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 
 ![app som körs i App Service i Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * skapa en SQL Database i Azure
@@ -59,7 +59,7 @@ cd dotnetcore-sqldb-tutorial
 
 Exempelprojektet innehåller en grundläggande CRUD-app (create-read-update-delete) med [Entity Framework Core](https://docs.microsoft.com/ef/core/).
 
-### <a name="run-the-application"></a>Köra appen
+### <a name="run-the-application"></a>Kör programmet
 
 Kör följande kommandon för att installera de nödvändiga paketen, köra databasmigreringar och starta programmet.
 
@@ -91,7 +91,7 @@ För SQL Database används [Azure SQL Database](/azure/sql-database/) i den här
 
 I Cloud Shell skapar du en SQL Database logisk server med [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) kommandot.
 
-Ersätt * \<Server namnet>* plats hållaren med ett *unikt* SQL Database namn. Det här namnet används som en del av den globalt unika SQL Database slut punkten `<server-name>.database.windows.net`. Giltiga tecken är `a` - `z` `0` -, `9`, `-`. Ersätt * \<också DB-username>* och * \<DB-Password>* med ett användar namn och lösen ord som du själv väljer. 
+Ersätt * \< server namnet>* plats hållaren med ett *unikt* SQL Database namn. Det här namnet används som en del av den globalt unika SQL Database slut punkten `<server-name>.database.windows.net` . Giltiga tecken är `a` - `z` , `0` - `9` , `-` . Ersätt också * \< db-username>* och * \< db-Password>* med ett användar namn och lösen ord som du själv väljer. 
 
 
 ```azurecli-interactive
@@ -130,7 +130,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 > Du kan begränsa brandväggsregeln ännu mer genom att [endast använda de utgående IP-adresser som används av din app](../overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
-I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta * \<IP-adressen>* med [din lokala IPv4 IP-adress](https://www.whatsmyip.org/).
+I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta * \< IP-adressen>* med [din lokala IPv4 IP-adress](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az sql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
@@ -152,7 +152,7 @@ Hämta anslutnings strängen med hjälp av [`az sql db show-connection-string`](
 az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
 ```
 
-I kommandot utdata ersätter * \<du användar namn>* och * \<lösen ord>* med de autentiseringsuppgifter för databas administratören som du använde tidigare.
+I kommandot utdata ersätter du * \< användar namn>* och * \< lösen ord>* med de autentiseringsuppgifter för databas administratören som du använde tidigare.
 
 Detta är anslutningssträngen för .NET Core-appen. Kopiera den för senare bruk.
 
@@ -180,7 +180,7 @@ services.AddDbContext<MyDatabaseContext>(options =>
 
 Din app är för närvarande ansluten till en lokal SQLite-databas. Nu när du konfigurerade en Azure SQL Database, återskapar du den första migreringen för att rikta den mot målet. 
 
-Kör följande kommandon från lagrings platsens rot. Ersätt * \<anslutnings Strängs>* med den anslutnings sträng som du skapade tidigare.
+Kör följande kommandon från lagrings platsens rot. Ersätt * \< anslutnings strängs>* med den anslutnings sträng som du skapade tidigare.
 
 ```
 # Delete old migrations
@@ -237,13 +237,13 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 ### <a name="configure-connection-string"></a>Konfigurera anslutnings sträng
 
-Om du vill ange anslutnings strängar för din Azure-app [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) använder du kommandot i Cloud Shell. I följande kommando ersätter * \<du App-Name->*, samt parametern * \<anslutnings sträng>* med den anslutnings sträng som du skapade tidigare.
+Om du vill ange anslutnings strängar för din Azure-app använder du [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) kommandot i Cloud Shell. I följande kommando ersätter du * \< app-name->*, samt parametern * \< anslutnings sträng>* med den anslutnings sträng som du skapade tidigare.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
 ```
 
-I ASP.NET Core kan du använda den här namngivna anslutnings strängen (`MyDbConnection`) med standard mönstret, till exempel vilken anslutnings sträng som anges i *appSettings. JSON*. I det här fallet `MyDbConnection` definieras även i din *appSettings. JSON*. När du kör i App Service prioriteras den anslutnings sträng som definieras i App Service över anslutnings strängen som definierats i *appSettings. JSON*. Koden använder *appSettings. JSON* -värdet under lokal utveckling och samma kod använder App Service-värdet när det distribueras.
+I ASP.NET Core kan du använda den här namngivna anslutnings strängen ( `MyDbConnection` ) med standard mönstret, till exempel vilken anslutnings sträng som anges i *appSettings. JSON*. I det här fallet `MyDbConnection` definieras även i din *appSettings. JSON*. När du kör i App Service prioriteras den anslutnings sträng som definieras i App Service över anslutnings strängen som definierats i *appSettings. JSON*. Koden använder *appSettings. JSON* -värdet under lokal utveckling och samma kod använder App Service-värdet när det distribueras.
 
 Information om hur anslutnings strängen refereras i din kod finns i [Konfigurera appen för att ansluta till produktions databasen](#configure-app-to-connect-to-production-database).
 
@@ -314,6 +314,10 @@ dotnet ef migrations add AddProperty
 dotnet ef database update
 ```
 
+> [!NOTE]
+> Om du öppnar ett nytt terminalfönster måste du ange anslutnings strängen till produktions databasen i terminalen, precis som du gjorde i [Kör Database-migreringar till produktions databasen](#run-database-migrations-to-the-production-database).
+>
+
 ### <a name="use-the-new-property"></a>Använda den nya egenskapen
 
 Gör några ändringar i koden så att du använder egenskapen `Done`. För att göra självstudien enklare ska du bara ändra vyerna `Index` och `Create` så att du ser hur egenskapen fungerar.
@@ -368,6 +372,10 @@ Kör appen lokalt.
 dotnet run
 ```
 
+> [!NOTE]
+> Om du öppnar ett nytt terminalfönster måste du ange anslutnings strängen till produktions databasen i terminalen, precis som du gjorde i [Kör Database-migreringar till produktions databasen](#run-database-migrations-to-the-production-database).
+>
+
 Öppna webbläsaren och navigera till `http://localhost:5000/`. Du kan nu lägga till en att-göra-uppgift och markera **Klart**. Den ska sedan visas på din startsida som en slutförd uppgift. Kom ihåg att vyn `Edit` inte innehåller fältet `Done` eftersom du inte ändrade vyn `Edit`.
 
 ### <a name="publish-changes-to-azure"></a>Publicera ändringar till Azure
@@ -403,7 +411,7 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 > Projektets loggnivå är redan inställd på `Information` i *appsettings.json*.
 > 
 
-Om du vill starta logg strömningen [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) använder du kommandot i Cloud Shell.
+Om du vill starta logg strömningen använder du [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) kommandot i Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group myResourceGroup
@@ -411,7 +419,7 @@ az webapp log tail --name <app-name> --resource-group myResourceGroup
 
 Uppdatera Azure-app i webbläsaren så hämtas webbtrafik när loggströmningen har startats. Du kan nu se konsolloggarna som skickas till terminalen. Om du inte ser konsolloggarna omedelbart kan du titta efter igen efter 30 sekunder.
 
-Om du vill stoppa logg strömningen när som `Ctrl` + `C`helst skriver du.
+Om du vill stoppa logg strömningen när som helst skriver du `Ctrl` + `C` .
 
 Mer information om att anpassa ASP.NET Core-loggar finns i [Loggning i ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 

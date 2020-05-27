@@ -3,12 +3,12 @@ title: Lås resurser för att förhindra ändringar
 description: Förhindra att användare uppdaterar eller tar bort kritiska Azure-resurser genom att använda ett lås för alla användare och roller.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 6bd595e3c676c8521470a1f5a00fe782e83dc840
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2060a7ed2de4956eb15bc85fb1a905705e21f813
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683746"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847675"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsa resurser för att förhindra oväntade ändringar
 
@@ -240,7 +240,7 @@ I begäran inkluderar du ett JSON-objekt som anger egenskaperna för låset.
     } 
 
 ## <a name="next-steps"></a>Nästa steg
-* Information om hur du strukturerar dina resurser logiskt genom [att använda taggar för att organisera dina resurser](tag-resources.md)
+* Mer information om hur du strukturerar resurserna logiskt finns i [använda taggar för att organisera dina resurser](tag-resources.md).
 * Du kan tillämpa begränsningar och konventioner i din prenumeration med anpassade principer. Mer information finns i [Vad är Azure Policy?](../../governance/policy/overview.md).
 * Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

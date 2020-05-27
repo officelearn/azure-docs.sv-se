@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 2e4de91034de0d036cd99e265949ba85a5939180
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: b62122e7ce981a73fe8b8b3028c123054e16330d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629335"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847607"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Använd CloudEvents v 1.0-schemat med Event Grid
 Förutom dess [standard händelse schema](event-schema.md)har Azure Event Grid inbyggt stöd för händelser i [JSON-implementeringen av CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) och [http-protokoll bindning](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) är en [öppen specifikation](https://github.com/cloudevents/spec/blob/v1.0/spec.md) för att beskriva händelse data.
@@ -61,7 +61,7 @@ Här är ett exempel på en Azure Blob Storage-händelse i CloudEvents-format:
 
 En detaljerad beskrivning av tillgängliga fält, deras typer och definitioner i CloudEvents v 1.0 finns [här](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
-Rubrik värden för händelser som levereras i CloudEvents-schemat och Event Grid schemat är samma förutom för `content-type`. Detta huvud värde är `"content-type":"application/cloudevents+json; charset=utf-8"`för CloudEvents-schemat. För Event Grid schema är `"content-type":"application/json; charset=utf-8"`detta huvud värde.
+Rubrik värden för händelser som levereras i CloudEvents-schemat och Event Grid schemat är samma förutom för `content-type` . Detta huvud värde är för CloudEvents-schemat `"content-type":"application/cloudevents+json; charset=utf-8"` . För Event Grid schema är detta huvud värde `"content-type":"application/json; charset=utf-8"` .
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Konfigurera Event Grid för CloudEvents
 
@@ -192,7 +192,7 @@ module.exports = function (context, req) {
         // If the request is for subscription validation, send back the validation code
         
         context.log('Validate request received');
-        context.res = { status: 200, body: { "ValidationResponse": code } };
+        context.res = { status: 200 };
         context.res.headers.append('Webhook-Allowed-Origin', 'eventgrid.azure.net');
     }
     else

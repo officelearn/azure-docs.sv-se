@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 076edc62a467701eaf0de23f280cdaf2abd945de
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 9ac7640dd8b63c72bac83c98e07cf861fb26c870
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792725"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845806"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Använd Azure Blob Storage för att hantera affärs marknads platser
 
@@ -74,9 +74,9 @@ ms.locfileid: "82792725"
 När du är redo att konfigurera ledar hanterings informationen för ditt erbjudande i publicerings portalen följer du stegen nedan:
 
 1. Gå till sidan med **installations programmet** för erbjudandet.
-2. Välj **Anslut** under avsnittet ledar hantering.
+2. Under avsnittet **kund leads** väljer du **Anslut**.
 
-    ![Connect-erbjudande](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-offer.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Kund ledare":::
 
 3. I popup-fönstret anslutnings information väljer du Azure- **BLOB** för lead-målet.
 
@@ -85,7 +85,7 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 4. Ange **behållar namnet** och **lagrings kontots anslutnings sträng** som du fick från att följa dessa anvisningar.
 
     * Exempel på container namn:`marketplaceleadcontainer`
-    * Exempel på anslutnings sträng för lagrings konto: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![anslutnings information](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
+    * Exempel på anslutnings sträng för lagrings konto: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![ anslutnings information](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
 5. Välj **Spara**.
 

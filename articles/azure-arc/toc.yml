@@ -4,15 +4,12 @@
   items:
     - name: Vad är Azure Arc för servrar?
       href: ./servers/overview.md
-- name: Exempel
-  items:
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./servers/policy-samples.md
 - name: Anvisningar
   items:
     - name: Ansluta till Azure Arc
       items:
+        - name: Översikt över Connected Machine-agent
+          href: ./servers/agent-overview.md
         - name: Ansluta datorer till Azure Arc från Microsoft Azure-portalen
           href: ./servers/onboard-portal.md
         - name: Ansluta datorer i stor skala med ett huvudnamn för tjänsten
@@ -23,3 +20,8 @@
       items:
         - name: Hantera agent
           href: ./servers/manage-agent.md
+- name: Exempel
+  items:
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./servers/policy-samples.md

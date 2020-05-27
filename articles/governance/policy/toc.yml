@@ -77,7 +77,7 @@
     - name: Arbetsflöden för att utforma princip som kod
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
-    - name: Azure Policy för Kubernetes
+    - name: Azure Policy för Kubernetes (förhandsversion)
       displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
       href: ./concepts/policy-for-kubernetes.md
     - name: Granska virtuella datorer med gästkonfiguration

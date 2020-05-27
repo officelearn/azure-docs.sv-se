@@ -5,26 +5,26 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/18/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 57383668ef025b46d0bae1f98c5ed5cd75417c63
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 4d548c1b7614503919de2725acb02d7f808ceb93
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715041"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83806331"
 ---
-## <a name="run-the-spx-tool"></a>Köra SPX-verktyget
+## <a name="run-the-speech-cli"></a>Kör tal-CLI
 
-Nu är du redo att köra SPX-verktyget för att översätta tal till text på ett annat språk.
+Nu är du redo att köra tal-CLI för att översätta tal till text på ett annat språk.
 
-Från kommando raden ändrar du till den katalog som innehåller den binära fil som innehåller SPX-verktyget och skriver:
+Från kommando raden ändrar du till den katalog som innehåller den binära filen för tal-CLI och skriver:
 
 ```bash
 spx translate --microphone --target de-DE
 ```
 
-SPX-verktyget översätter naturligt språk som talas på engelska i text som skrivs ut på tyska.
+Tal-CLI översätter naturligt språk som talas på engelska i text som skrivs ut på tyska.
 Stoppa verktyget genom att trycka på RETUR.
 
 > [!NOTE]
-> SPX-verktyget får engelska som standard. Du kan välja ett annat språk [från tal-till-text-tabellen](../../../../language-support.md).
+> Tal-CLI är som standard engelska. Du kan välja ett annat språk [från tal-till-text-tabellen](../../../../language-support.md).
 > Exempel: Lägg till `--source ja-JP` för att identifiera japanskt tal.

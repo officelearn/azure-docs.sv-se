@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8b466dca9f3af55e3c11b39b3fbdac315af3675
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789852"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798578"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Lead-hantering för kommersiell marknads plats
 
@@ -86,7 +86,7 @@ Leads är kunder som distribuerar dina produkter från Marketplace. Oavsett om p
 
 **Var kan jag få hjälp med att ställa in mitt lead-mål?** 
 
-Du hittar dokumentation på [Hämta kund leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) eller skicka in ett support ärende till [Hjälp och support](https://partner.microsoft.com/support/v2/?stage=1). Välj erbjudande typ och lead-hantering. 
+Du hittar dokumentation på [Hämta kund leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) eller skicka in ett support ärende till [Hjälp och support](https://aka.ms/marketplacepublishersupport). Välj erbjudande typ och lead-hantering. 
 
 **Är jag tvungen att konfigurera ett lead-mål för att publicera ett erbjudande på Marketplace?**
 
@@ -116,7 +116,7 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 | \<Namn på erbjudande> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 | \< Namn på erbjudande> 
 
 OID = 00Do0000000ZHog 
 
@@ -183,7 +183,7 @@ Leadet skrivs bara när du väljer Azure BLOB Storage som ditt lead-mål. Växla
 
 **Jag har fått ett e-postmeddelande från Marketplace, varför kan jag inte hitta något lead i min CRM?**  
 
-Det är möjligt att slutanvändarens e-postdomän är från. edu. Av säkerhets skäl skickar vi inte personliga identifierbara data från. edu-domän. Skicka ett support ärende till [Hjälp och support](https://partner.microsoft.com/support/v2/?stage=1).
+Det är möjligt att slutanvändarens e-postdomän är från. edu. Av säkerhets skäl skickar vi inte personliga identifierbara data från. edu-domän. Skicka ett support ärende till [Hjälp och support](https://aka.ms/marketplacepublishersupport).
 
 **Jag har konfigurerat Azure Table/Azure-BLOBBEN som mitt lead-mål, hur kan jag se leads?** 
 
@@ -193,7 +193,7 @@ Du kan komma åt blobben eller tabellen från Azure Portal, eller så kan du lad
 
 Ja, följ instruktionerna för att konfigurera Azure Table + Function i dokumentationen [här](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md). 
 
-**Jag har konfigurerat Salesforce som mitt lead-mål, varför kan jag inte hitta några leads?** 
+**Jag har konfigurerat Salesforce som mitt lead-mål, varför kan jag inte hitta några leads?**
 
 Kontrol lera om webb-till-lead-formuläret är ett obligatoriskt fält baserat på en listruta. Om du väljer Ja växlar du över fältet till ett fält som inte är obligatoriskt.  
  

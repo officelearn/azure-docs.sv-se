@@ -4,23 +4,23 @@ description: Den här artikeln innehåller en översikt och viktiga fördelar me
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/21/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 6c7fcb1429438ee024cb226b63cfcdcab05ed9f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16aac5c765c36c49919685ee58e8034786ddf1ae
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79498589"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797365"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Introduktion till Azure Cosmos DB etcd-API (för hands version)
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller för verksamhetskritiska program. Den erbjuder nyckel färdig global distribution, elastisk skalning av data flöde och lagring, ensiffriga millisekunder i svars tider vid 99 percentil och garanterad hög tillgänglighet, allt backas upp av branschledande service avtal.
 
-[Etcd](https://github.com/etcd-io/etcd) är ett distribuerat nyckel/värde-lager. I [Kubernetes](https://kubernetes.io/)används etcd för att lagra status och konfigurationen för Kubernetes-klustren. Att säkerställa tillgänglighet, tillförlitlighet och prestanda hos etcd är avgörande för den övergripande kluster hälsa, skalbarhet, elastisk tillgänglighet och prestanda för ett Kubernetes-kluster. 
+[Etcd](https://github.com/etcd-io/etcd) är ett distribuerat nyckel/värde-lager. I [Kubernetes](https://kubernetes.io/)används etcd för att lagra status och konfigurationen för Kubernetes-klustren. Att säkerställa tillgänglighet, tillförlitlighet och prestanda hos etcd är avgörande för den övergripande kluster hälsa, skalbarhet, elastisk tillgänglighet och prestanda för ett Kubernetes-kluster.
 
-Med etcd-API: et i Azure Cosmos DB kan du använda Azure Cosmos DB som server dels Arkiv för [Azure Kubernetes](../aks/index.yml). etcd-API i Azure Cosmos DB är för närvarande en för hands version. Azure Cosmos DB implementerar etcd-Wire-protokollet. Med [etcd-API](high-availability.md): n i Azure Cosmos DB får utvecklare automatiskt en mycket tillförlitlig, [globalt distribuerad](distribute-data-globally.md) Kubernetes. Med det här API: et kan utvecklare skala Kubernetes State Management i en fullständigt hanterad PaaS-tjänst. 
+Med etcd-API: et i Azure Cosmos DB kan du använda Azure Cosmos DB som server dels Arkiv för Azure Kubernetes. etcd-API i Azure Cosmos DB är för närvarande en för hands version. Azure Cosmos DB implementerar etcd-Wire-protokollet. Med [etcd-API](high-availability.md): n i Azure Cosmos DB får utvecklare automatiskt en mycket tillförlitlig, [globalt distribuerad](distribute-data-globally.md) Kubernetes. Med det här API: et kan utvecklare skala Kubernetes State Management i en fullständigt hanterad PaaS-tjänst. 
 
 > [!NOTE]
 > Till skillnad från andra API: er i Azure Cosmos DB kan du inte etablera ett etcd-API-konto via Azure Portal, CLI eller SDK: er. Du kan etablera ett etcd-API-konto genom att bara distribuera Resource Manager-mallen. detaljerade anvisningar finns i [så här etablerar du Azure-Kubernetes med Azure Cosmos DB](bootstrap-kubernetes-cluster.md) artikel. Azure Cosmos DB etcd-API: n är i begränsad för hands version. Du kan [Registrera dig för förhands granskningen](https://aka.ms/cosmosetcdapi-signup)genom att fylla i registrerings formuläret.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c23360360f97babebe9efe8afecc6a27052faad5
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: f633c1816e9e2e977c52ab99b66a26f7d2c4d8e2
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758441"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800769"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Objekt replikering för block-blobar (för hands version)
 
@@ -54,7 +54,7 @@ När du skapar en replikeringsprincip, kopieras som standard bara nya block blob
 
 Du kan också ange ett eller flera filter som en del av en replikeringsprincip för att filtrera block blobbar efter prefix. När du anger ett prefix kopieras bara blobbar som matchar det prefixet i käll behållaren till mål behållaren.
 
-Käll-och mål behållarna måste finnas innan du kan ange dem i en regel. När du har skapat replikeringsprincipen blir mål behållaren skrivskyddad. Försök att skriva till mål containern Miss lyckas med felkoden 409 (konflikt). Du kan dock anropa åtgärden [Ange BLOB-nivå](/rest/api/storageservices/set-blob-tier.md) på en BLOB i mål behållaren för att flytta den till en annan åtkomst nivå. Du kan till exempel flytta blobbar i mål behållaren till Arkiv nivån för att spara kostnader.
+Käll-och mål behållarna måste finnas innan du kan ange dem i en regel. När du har skapat replikeringsprincipen blir mål behållaren skrivskyddad. Försök att skriva till mål containern Miss lyckas med felkoden 409 (konflikt). Du kan dock anropa åtgärden [Ange BLOB-nivå](/rest/api/storageservices/set-blob-tier) på en BLOB i mål behållaren för att flytta den till en annan åtkomst nivå. Du kan till exempel flytta blobbar i mål behållaren till Arkiv nivån för att spara kostnader.
 
 ## <a name="about-the-preview"></a>Om för hands versionen
 

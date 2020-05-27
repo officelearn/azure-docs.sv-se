@@ -1,16 +1,16 @@
 ---
-title: Lär dig Azure Policy för Kubernetes
-description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt.
+title: För hands version – lär dig Azure Policy för Kubernetes
+description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt. Det här är en förhandsversion av funktionen.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 738b6ae0a2482d1229fdbfe89d0c3dd99a33ec6e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: fb66510b55f9d3f08ab8e058bb8f67fb1954db6f
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772768"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800347"
 ---
-# <a name="understand-azure-policy-for-kubernetes-clusters"></a>Förstå Azure Policy för Kubernetes-kluster
+# <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Förstå Azure Policy för Kubernetes-kluster (för hands version)
 
 Azure Policy utökar [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, en OPA- _webhook_ för [Open policy-agenten](https://www.openpolicyagent.org/) () för att tillämpa i skala och skydda dina kluster på ett centraliserat, konsekvent sätt. Azure Policy gör det möjligt att hantera och rapportera om kompatibilitetstillstånd för dina Kubernetes-kluster från en plats. Tillägget fungerar med följande funktioner:
 
@@ -49,6 +49,9 @@ Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst fun
 1. Du behöver Azure CLI-versionen 2.0.62 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 1. Registrera resurs leverantörer och för hands versions funktioner.
+
+   > [!CAUTION]
+   > När du registrerar en funktion på en prenumeration kan du inte avregistrera den funktionen. När du har aktiverat vissa för hands versions funktioner kan standarderna användas för alla AKS-kluster och sedan skapas i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
 
    - Azure Portal:
 

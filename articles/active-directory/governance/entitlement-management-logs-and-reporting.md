@@ -16,12 +16,12 @@ ms.date: 04/14/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59a508d03730a51e793a5e30e2c99a91af77ce8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87bb08e08bca3a9f715590098cfaa22ce7da8017
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380203"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799509"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Arkivera loggar och rapportera om hantering av Azure AD-berättigande i Azure Monitor
 
@@ -158,10 +158,10 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-Du kan autentisera och associera PowerShell-sessionen med den prenumerationen med hjälp av ett kommando `Connect-AzAccount –Subscription $subs[0].id`som. Mer information om hur du autentiserar till Azure från PowerShell, inklusive icke-interaktivt, finns i [Logga in med Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
+Du kan autentisera och associera PowerShell-sessionen med den prenumerationen med hjälp av ett kommando som `Connect-AzAccount –Subscription $subs[0].id` . Mer information om hur du autentiserar till Azure från PowerShell, inklusive icke-interaktivt, finns i [Logga in med Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
 ).
 
-Om du har flera Log Analytics arbets ytor i den prenumerationen returnerar cmdleten [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) listan över arbets ytor. Sedan kan du hitta den som har Azure AD-loggarna. `CustomerId` Fältet som returneras av denna cmdlet är detsamma som värdet för "arbetsyte-ID" som visas i Azure Portal i Översikt över arbets ytan Log Analytics.
+Om du har flera Log Analytics arbets ytor i den prenumerationen returnerar cmdleten [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) listan över arbets ytor. Sedan kan du hitta den som har Azure AD-loggarna. `CustomerId`Fältet som returneras av denna cmdlet är detsamma som värdet för "arbetsyte-ID" som visas i Azure Portal i Översikt över arbets ytan Log Analytics.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace
@@ -189,5 +189,5 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Nästa steg:
-- [Skapa interaktiva rapporter med Azure Monitor arbets böcker](../../azure-monitor/app/usage-workbooks.md) 
+- [Skapa interaktiva rapporter med Azure Monitor arbets böcker](../../azure-monitor/platform/workbooks-overview.md) 
 

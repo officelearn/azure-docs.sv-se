@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 05/21/2020
 ms.author: apimpm
-ms.openlocfilehash: 93f66f3c030b9845b58083a992e1e1f11aa37f9c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 92473dc7553286867a33100d7328dd0320d55823
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196989"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799921"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -136,9 +136,9 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 
     | Azure-miljö | Slutpunkter                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure, offentlig      | <ul><li>gcs.prod.monitoring.core.windows.net (**ny**)</li><li>prod.warmpath.msftcloudes.com (**ska vara inaktuell**)</li><li>shoebox2.metrics.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3.metrics.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3-black.prod.metrics.microsoftmetrics.com (**ny**)</li><li>prod3-black.prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3-red.prod.metrics.microsoftmetrics.com (**ny**)</li><li>prod3-red.prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3.metrics.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
-    | Azure Kina 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3.metrics.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
+    | Azure, offentlig      | <ul><li>gcs.prod.monitoring.core.windows.net (**ny**)</li><li>prod.warmpath.msftcloudes.com (**ska vara inaktuell**)</li><li>global.prod.microsoftmetrics.com (**ny**)</li><li>global.metrics.nsatc.net (**ska vara inaktuell**)</li><li>shoebox2.prod.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3-black.prod.microsoftmetrics.com (**ny**)</li><li>prod3-black.prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3-red.prod.microsoftmetrics.com (**ny**)</li><li>prod3-red.prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>global.prod.microsoftmetrics.com (**ny**)</li><li>global.metrics.nsatc.net (**ska vara inaktuell**)</li><li>shoebox2.prod.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Kina 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com (**ny**)</li><li>global.metrics.nsatc.net (**ska vara inaktuell**)</li><li>shoebox2.prod.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
   > Ändringen av kluster ovan med DNS-zon **. nsatc.net** till **. microsoftmetrics.com** är oftast en DNS-ändring. Klustrets IP-adress kommer inte att ändras.
@@ -203,7 +203,7 @@ För varje extra skalnings enhet med API Management krävs ytterligare två IP-a
 
 IP-adresserna delas av **Azure-miljön**. När tillåtna IP-adresser för inkommande begär Anden som marker ATS med **Global** måste vara vit listas tillsammans med den **landsspecifika** IP-adressen.
 
-| **Azure-miljö**|   **Nationella**|  **IP-adress**|
+| **Azure-miljö**|   **Region**|  **IP-adress**|
 |-----------------|-------------------------|---------------|
 | Azure, offentlig| Södra centrala USA (global)| 104.214.19.224|
 | Azure, offentlig| Norra centrala USA (global)| 52.162.110.80|

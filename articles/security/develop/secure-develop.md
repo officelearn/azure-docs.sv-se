@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a36ac44fa861b902bfcc370472a2a87e036e5de6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 58f5d2e641cfe4913d6a06621b663d8a61cd00bb
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654995"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800294"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller för att tänka på när du utvecklar program för molnet. Säkerhets frågor och koncept som du bör tänka på under implementerings-och verifierings faserna i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla ett säkrare program.
@@ -38,7 +38,7 @@ Innan du checkar in kod kan du göra [kod granskningar](https://docs.microsoft.c
 
 ### <a name="perform-static-code-analysis"></a>Utföra analys av statisk kod
 
-[Statisk kod analys](https://www.owasp.org/index.php/Static_Code_Analysis) (även kallat *käll kods analys*) utförs vanligt vis som en del av en kod granskning. Statisk kod analys avser ofta att köra statiska kod analys verktyg för att hitta potentiella sårbarheter i kod som inte körs genom att använda metoder som [bismaks kontroll](https://en.wikipedia.org/wiki/Taint_checking) och [data flödes analys](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Statisk kod analys](https://owasp.org/www-community/controls/Static_Code_Analysis) (även kallat *käll kods analys*) utförs vanligt vis som en del av en kod granskning. Statisk kod analys avser ofta att köra statiska kod analys verktyg för att hitta potentiella sårbarheter i kod som inte körs genom att använda metoder som [bismaks kontroll](https://en.wikipedia.org/wiki/Taint_checking) och [data flödes analys](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace erbjuder [utvecklingsverktyg](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) som utför statisk kod analys och hjälper till med kod granskningar.
 

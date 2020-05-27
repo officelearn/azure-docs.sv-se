@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 2387f14a537c15c891bff968573bf4d698c01770
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 542861afe49d03a179a9740d5a58b9d27e0d7f20
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211308"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797660"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Övervaka Key Vault-tjänsten med Azure Monitor för Key Vault (för hands version)
 Azure Monitor för Key Vault (för hands version) tillhandahåller omfattande övervakning av dina nyckel valv genom att leverera en enhetlig vy över dina Key Vault förfrågningar, prestanda, misslyckade och svars tider.
@@ -212,4 +212,4 @@ Du kan redigera den befintliga arbets boken genom att använda redigerings läge
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om arbets böckerna i scenarier är utformade för att stödja, hur du skapar nya och anpassar befintliga rapporter och mer genom att granska [skapa interaktiva rapporter med Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+Lär dig mer om arbets böckerna i scenarier är utformade för att stödja, hur du skapar nya och anpassar befintliga rapporter och mer genom att granska [skapa interaktiva rapporter med Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).

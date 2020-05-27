@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 877616f6fd31bdfbe193bd8f03efb3f79317ad42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2da0cd2ede33abe8ebbe3616192349112fb24bae
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535377"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797505"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en översikt över tillgängliga metoder för att visualisera logg-och mått data som lagras i Azure Monitor.
@@ -19,7 +19,7 @@ Den här artikeln innehåller en översikt över tillgängliga metoder för att 
 Visualiseringar som diagram och diagram kan hjälpa dig att analysera dina övervaknings data och gå ned på problem och identifiera mönster. Beroende på vilket verktyg du använder kan du också välja att dela visualiseringar med andra användare i och utanför organisationen.
 
 ## <a name="workbooks"></a>Arbetsböcker
-[Arbets böcker](../azure-monitor/app/usage-workbooks.md) är interaktiva dokument som ger djupgående insikter om dina data, undersökningar och samarbete i teamet. Vissa exempel där arbets böcker är användbara är fel söknings guider och incident Postmortem.
+[Arbets böcker](../azure-monitor/platform/workbooks-overview.md) är interaktiva dokument som ger djupgående insikter om dina data, undersökningar och samarbete i teamet. Vissa exempel där arbets böcker är användbara är fel söknings guider och incident Postmortem.
 
 ![Arbetsbok](media/visualizations/workbook.png)
 
@@ -137,7 +137,7 @@ Med [vyer i Azure Monitor](platform/view-designer.md) kan du skapa anpassade vis
 - Lär dig mer om [data som samlas in av Azure Monitor](platform/data-platform.md).
 - Lär dig om [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md).
 - Lär dig mer om [vyer i Azure Monitor](platform/view-designer.md).
-- Lär dig mer om [arbets böcker](../azure-monitor/app/usage-workbooks.md).
+- Lär dig mer om [arbets böcker](../azure-monitor/platform/workbooks-overview.md).
 - Lär dig mer om att [Importera loggdata till Power BI](../azure-monitor/platform/powerbi.md).
 - Lär dig mer om [Grafana-Azure Monitor data källans plugin-program](../azure-monitor/platform/grafana-plugin.md).
 

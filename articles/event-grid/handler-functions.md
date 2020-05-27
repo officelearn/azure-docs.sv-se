@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 3ff3c0013cb7a373461b997b9922612763461b8d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0152a9fc11562744f83ab9d20466a3dcc8e2e6e0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598110"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800421"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Azure Function som händelse hanterare för Event Grid händelser
 
@@ -31,6 +31,26 @@ Mer information finns i [Event Grid utlösare för Azure Functions](../azure-fun
 | [Självstudie: strömma Big data till ett informations lager](event-grid-event-hubs-integration.md) | När Event Hubs skapar en Infångnings fil, Event Grid skickar en händelse till en Function-app. Appen hämtar insamlings filen och migrerar data till ett data lager. |
 | [Självstudie: Azure Service Bus till Azure Event Grid integrations exempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus ämne till en Function-app och en Logic-app. |
 
+## <a name="rest-example-for-put"></a>REST-exempel (för placering)
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "AzureFunction",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Web/sites/<FUNCTION APP NAME>/functions/<FUNCTION NAME>",
+                "maxEventsPerBatch": 1,
+                "preferredBatchSizeInKilobytes": 64
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över händelse hanterare som stöds finns i artikeln [händelse hanterare](event-handlers.md) . 

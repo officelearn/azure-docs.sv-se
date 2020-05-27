@@ -4,12 +4,12 @@ description: Lär dig hur du skapar ett Azure Batch-konto på Azure-portalen fö
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: adc333498e0b3074aaa40d40e076ae62c1759524
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 6cccef176e3e5ba0f4774a5897f082c4847a4005
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778597"
+ms.locfileid: "83800260"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Skapa ett Batch-konto med Azure Portal
 
@@ -52,6 +52,9 @@ För bakgrund om batch-konton och scenarier, se [batch-tjänstens arbets flöde 
 ## <a name="view-batch-account-properties"></a>Visa egenskaper för ett Batch-konto
 
 När kontot har skapats kan du välja kontot för att komma åt dess inställningar och egenskaper. Du kan komma åt alla kontoinställningar och kontoegenskaper från den vänstra menyn.
+
+> [!NOTE]
+> Namnet på batch-kontot är dess ID och kan inte ändras. Om du behöver ändra namnet på ett batch-konto måste du ta bort kontot och skapa ett nytt med det avsedda namnet.
 
 ![Sidan för Batch-kontot på Azure Portal][account_blade]
 

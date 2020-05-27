@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6df27dde997bd34e86b1bb340817648bfe68f2c4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77667201"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797603"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Kontinuerlig övervakning med Azure Monitor
 
@@ -74,7 +74,7 @@ En viktig aspekt av övervakningen meddelar proaktivt administratörer om eventu
 Att se till att din utveckling och verksamhet har åtkomst till samma telemetri och verktyg, så att de kan visa mönster i hela din miljö och minimera genomsnitts tiden för att identifiera (MTTD) och genomsnittlig tid för att återställa (MTTR).
 
 - Förbered [anpassade instrument paneler](../azure-monitor/learn/tutorial-app-dashboards.md) baserat på vanliga mått och loggar för de olika rollerna i din organisation. Instrument paneler kan kombinera data från alla Azure-resurser.
-- Förbered [arbets böcker](../azure-monitor/app/usage-workbooks.md) för att säkerställa kunskaps delning mellan utveckling och åtgärder. Dessa kan förberedas som dynamiska rapporter med mått diagram och logg frågor, eller till och med fel söknings guider som förbereds av utvecklare som hjälper kund support eller åtgärder för att hantera grundläggande problem.
+- Förbered [arbets böcker](../azure-monitor/platform/workbooks-overview.md) för att säkerställa kunskaps delning mellan utveckling och åtgärder. Dessa kan förberedas som dynamiska rapporter med mått diagram och logg frågor, eller till och med fel söknings guider som förbereds av utvecklare som hjälper kund support eller åtgärder för att hantera grundläggande problem.
 
 ## <a name="continuously-optimize"></a>Optimera kontinuerligt
  Övervakning är en av de grundläggande aspekterna av populära bygge-mått – lär dig filosofi, som regelbundet rekommenderar att du kontinuerligt spårar dina KPI: er och användar beteende mått och sedan striving för att optimera dem genom att planera iterationer. Azure Monitor hjälper dig att samla in mått och loggar som är relevanta för din verksamhet och för att lägga till nya data punkter i nästa distribution vid behov.

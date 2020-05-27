@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 86e1bc088c3e4327fbd0b9ad4a05e7c42c3fb776
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: f8b34f1678d39471a1d0b91756ac93a01cbfedba
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773492"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800169"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: skapa ett Azure Red Hat OpenShift 4-kluster
 
@@ -28,7 +28,6 @@ Om du väljer att installera och använda CLI lokalt kräver den här självstud
 
 Om du vill skapa ett Azure Red Hat OpenShift-kluster kontrollerar du följande behörigheter för ditt Azure-konto och användare:
 
-[!div class="mx-tdBreakAll"]
 |Behörigheter|Resurs grupp som innehåller VNet|Användaren körs`az aro create`|Tjänstens huvud namn angavs som`–client-id`|
 |----|:----:|:----:|:----:|
 |**Administratör för användaråtkomst**|X|X| |

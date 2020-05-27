@@ -1,7 +1,7 @@
 ---
-title: Grunderna i SPX – tal service
+title: Grunderna för tal-CLI
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder kommando rads verktyget SPX för att arbeta med talet SDK utan kod och minimal konfiguration.
+description: Lär dig hur du använder kommando verktyget för tal-CLI för att arbeta med tal tjänsten utan kod och minimal konfiguration.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 31c1d50962b2710fbeb249c61c8b3c144762be43
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 2e75e177c1a5af13c1907b3a1abc9218096e8d45
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715655"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800674"
 ---
-# <a name="learn-the-basics-of-spx"></a>Lär dig grunderna i SPX
+# <a name="learn-the-basics-of-the-speech-cli"></a>Lär dig grunderna i tal-CLI
 
-I den här artikeln får du lära dig de grundläggande användnings mönstren i SPX, ett kommando rads verktyg för att använda tal tjänsten utan att skriva kod. Du kan snabbt testa huvud funktionerna i tal tjänsten, utan att skapa utvecklings miljöer eller skriva kod, för att se om dina användnings fall kan uppfyllas korrekt. Dessutom är SPX produktions klart och kan användas för att automatisera enkla arbets flöden i tal tjänsten med hjälp av `.bat` eller Shell-skript.
+I den här artikeln får du lära dig de grundläggande användnings mönstren för tal-CLI, ett kommando rads verktyg för att använda tal tjänsten utan att skriva kod. Du kan snabbt testa huvud funktionerna i tal tjänsten, utan att skapa utvecklings miljöer eller skriva kod, för att se om dina användnings fall kan uppfyllas korrekt. Dessutom är tal CLI produktions klart och kan användas för att automatisera enkla arbets flöden i tal tjänsten med hjälp av `.bat` eller Shell-skript.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -31,15 +31,15 @@ I det här avsnittet visas några grundläggande SPX-kommandon som ofta är anv�
 spx recognize --microphone
 ```
 
-När du har angett kommandot börjar SPX att lyssna efter ljud på den aktuella aktiva inmatnings enheten och stoppa efter att du har klickat på `ENTER` . Det inspelade talet identifieras och konverteras sedan till text i konsolens utdata. Text till tal-syntes är också enkelt att göra med hjälp av SPX. 
+När du har angett kommandot börjar SPX att lyssna efter ljud på den aktuella aktiva inmatnings enheten och stoppa efter att du har klickat på `ENTER` . Det inspelade talet identifieras och konverteras sedan till text i konsolens utdata. Text till tal-syntes är också enkelt att göra med hjälp av tal CLI. 
 
 Genom att köra följande kommando tar du med den angivna texten som indata och skriver ut det syntetiska talet till den aktuella aktiva utdataenheten.
 
 ```shell
-spx synthesize --text "Testing synthesis using SPX" --speakers
+spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 ```
 
-Förutom tal igenkänning och syntes kan du också göra tal översättning med SPX. Precis som i tal igenkännings kommandot ovan, kör du följande kommando för att avbilda ljud från standard mikrofonen och utföra översättning till text på mål språket.
+Förutom tal igenkänning och syntes kan du också göra tal översättning med tal-CLI. Precis som i tal igenkännings kommandot ovan, kör du följande kommando för att avbilda ljud från standard mikrofonen och utföra översättning till text på mål språket.
 
 ```shell
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
@@ -59,7 +59,7 @@ Kommandona i föregående avsnitt är bra för att snabbt se hur röst tjänsten
 
 ## <a name="batch-speech-recognition"></a>Tal igenkänning för batch
 
-Om du har en katalog med ljudfiler är det enkelt att använda SPX för att snabbt köra batch-tal igenkänning. Kör bara följande kommando, som pekar på din katalog med `--files` kommandot. I det här exemplet lägger du till `\*.wav` katalogen för att identifiera alla `.wav` filer som finns i katalogen. Ange dessutom `--threads` argumentet för att köra igenkänningen på 10 parallella trådar.
+Om du har en katalog med ljudfiler är det enkelt att använda tal-CLI för att snabbt köra batch-tal igenkänning. Kör bara följande kommando, som pekar på din katalog med `--files` kommandot. I det här exemplet lägger du till `\*.wav` katalogen för att identifiera alla `.wav` filer som finns i katalogen. Ange dessutom `--threads` argumentet för att köra igenkänningen på 10 parallella trådar.
 
 > [!NOTE]
 > `--threads`Argumentet kan också användas i nästa avsnitt för `spx synthesize` kommandon och de tillgängliga trådarna beror på CPU: n och dess aktuella inläsnings procent.
@@ -76,11 +76,11 @@ De tal utdata som identifieras skrivs till `speech_output.tsv` med hjälp av `--
 
 ## <a name="batch-text-to-speech-synthesis"></a>Sammanfattning av text till tal-sats
 
-Det enklaste sättet att köra batch text-till-tal är att skapa en ny `.tsv` (tabbavgränsad) fil och använda `--foreach` kommandot i SPX. Tänk på följande fil `text_synthesis.tsv` :
+Det enklaste sättet att köra batch text-till-tal är att skapa en ny `.tsv` (tabbavgränsad) fil och använda `--foreach` kommandot i tal-cli. Tänk på följande fil `text_synthesis.tsv` :
 
     audio.output    text
     C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using SPX to run batch-synthesis.
+    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
     C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
 
  Sedan kör du ett kommando för att peka på `text_synthesis.tsv` , utföra syntes på varje `text` fält och skriva resultatet till motsvarande `audio.output` sökväg som en `.wav` fil. 
@@ -99,7 +99,7 @@ Men om du har en `.tsv` fil som följande exempel, med kolumn rubriker som **int
 
     wav_path    str_text
     C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using SPX to run batch-synthesis.
+    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
     C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
 
 Du kan åsidosätta dessa fält namn med rätt argument med hjälp av följande syntax i `--foreach` anropet. Detta är samma anrop som ovan.

@@ -324,17 +324,17 @@
               href: ./partner-center-portal/create-azure-container-technical-assets.md
             - name: Skapa ett Azure Container-erbjudande
               href: ./partner-center-portal/create-azure-container-offer.md
-        - name: Erbjudande för virtuella datorer
+        - name: Erbjudande på virtuella datorer
           items:
             - name: Skapa ett erbjudande för virtuella datorer i Azure
               href: ./partner-center-portal/azure-vm-create-offer.md
-            - name: Skapa tekniska tillgångar för virtuella Azure-datorer
+            - name: Skapa tekniska tillgångar för en virtuell Azure-dator
               items:
-                - name: Skapa tekniska tillgångar för virtuella Azure-datorer
+                - name: Skapa tekniska tillgångar för en virtuell Azure-dator
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Vanliga frågor och svar om tekniska tillgångar för virtuella Azure-datorer
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Certifiera en avbildning av en virtuell Azure-dator
+                - name: Certifiera en Azure VM-avbildning
                   href: ./partner-center-portal/azure-vm-image-certification.md
                 - name: SAS-URI
                   items:

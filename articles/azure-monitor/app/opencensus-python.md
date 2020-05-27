@@ -6,12 +6,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bbc9fe8d53f231f590dba7e2bd493633c39a1383
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 6b8343d08962d8ce749e1160b0226b68571571f8
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701515"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815731"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurera Azure Monitor för ditt python-program
 
@@ -39,7 +39,7 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
    | Inställningen        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar den app som du övervakar |
-   | **Resurs grupp**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för Application Insights data |
+   | **Resource Group**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för Application Insights data |
    | **Position** | USA, östra | En plats nära dig, eller nära var din app finns |
 
 1. Välj **Skapa**.
@@ -254,13 +254,13 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
 
 Som standard skickar mått export verktyget en uppsättning standard mått till Azure Monitor. Du kan inaktivera detta genom att ställa in `enable_standard_metrics` flaggan på `False` i konstruktorn för mått export verktyget.
 
-    ```python
-    ...
-    exporter = metrics_exporter.new_metrics_exporter(
-      enable_standard_metrics=False,
-      connection_string='InstrumentationKey=<your-instrumentation-key-here>')
-    ...
-    ```
+```python
+...
+exporter = metrics_exporter.new_metrics_exporter(
+  enable_standard_metrics=False,
+  connection_string='InstrumentationKey=<your-instrumentation-key-here>')
+...
+```
 Nedan visas en lista över standard mått som har skickats för närvarande:
 
 - Tillgängligt minne (byte)
@@ -338,8 +338,8 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
 
 4. Export verktyget kommer att skicka loggdata till Azure Monitor. Du kan hitta data under `traces` . 
 
-> [!NOTE]
-> `traces`i den här kontexten är inte samma sak som `Tracing` . `traces`avser den typ av telemetri som visas i Azure Monitor när du använder `AzureLogHandler` . `Tracing`refererar till ett begrepp i openräkning och relaterar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
+    > [!NOTE]
+    > `traces`i den här kontexten är inte samma sak som `Tracing` . `traces`avser den typ av telemetri som visas i Azure Monitor när du använder `AzureLogHandler` . `Tracing`refererar till ett begrepp i openräkning och relaterar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
 5. Om du vill formatera dina logg meddelanden kan du använda `formatters` i det inbyggda python- [loggnings-API: et](https://docs.python.org/3/library/logging.html#formatter-objects).
 
@@ -371,8 +371,8 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
     ```
 
 6. Du kan också lägga till anpassade egenskaper till dina logg meddelanden i argumentet *extra* nyckelord med hjälp av fältet custom_dimensions. De visas som nyckel/värde-par i `customDimensions` i Azure Monitor.
-> [!NOTE]
-> För att den här funktionen ska fungera måste du skicka en ord lista till fältet custom_dimensions. Om du skickar argument av någon annan typ kommer loggaren att ignorera dem.
+    > [!NOTE]
+    > För att den här funktionen ska fungera måste du skicka en ord lista till fältet custom_dimensions. Om du skickar argument av någon annan typ kommer loggaren att ignorera dem.
 
     ```python
     import logging
@@ -395,25 +395,25 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
 
 En python-räkning spårar inte automatiskt och skickar `exception` telemetri. De skickas genom att `AzureLogHandler` använda undantag via python-loggnings biblioteket. Du kan lägga till anpassade egenskaper precis som med normal loggning.
 
-    ```python
-    import logging
-    
-    from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
-    logger = logging.getLogger(__name__)
-    # TODO: replace the all-zero GUID with your instrumentation key.
-    logger.addHandler(AzureLogHandler(
-        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+```python
+import logging
 
-    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+from opencensus.ext.azure.log_exporter import AzureLogHandler
 
-    # Use properties in exception logs
-    try:
-        result = 1 / 0  # generate a ZeroDivisionError
-    except Exception:
-        logger.exception('Captured an exception.', extra=properties)
-    ```
+logger = logging.getLogger(__name__)
+# TODO: replace the all-zero GUID with your instrumentation key.
+logger.addHandler(AzureLogHandler(
+    connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+)
+
+properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+
+# Use properties in exception logs
+try:
+    result = 1 / 0  # generate a ZeroDivisionError
+except Exception:
+    logger.exception('Captured an exception.', extra=properties)
+```
 Eftersom du måste logga undantag explicit är det upp till användaren i hur de vill logga ohanterade undantag. Openräkning begränsar inte begränsningar för hur en användare vill göra detta, så länge de uttryckligen loggar en telemetri för undantag.
 
 #### <a name="sampling"></a>Samling

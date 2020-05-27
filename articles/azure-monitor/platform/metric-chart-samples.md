@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1aaeb853a67b36a21a09db57e015029d10cd0c36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 00935762a5e19ec47074021aff59992fd3b801bf
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77660878"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797450"
 ---
 # <a name="metric-chart-examples"></a>Exempel på mått diagram 
 
@@ -52,5 +52,5 @@ I mått väljaren väljer du ditt lagrings konto och måttet för **transaktione
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om Azure Monitor- [arbetsböcker](../../azure-monitor/app/usage-workbooks.md)
+* Lär dig mer om Azure Monitor- [arbetsböcker](../../azure-monitor/platform/workbooks-overview.md)
 * Läs mer om [Metric Explorer](metrics-charts.md)

@@ -4,12 +4,12 @@ description: Så här skapar du en batch-pool i ett virtuellt Azure-nätverk så
 ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e973968e3396fbe714be5540244b867b7092e00
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 559cf3bc145deeed78b91def9d36211f885005d6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779587"
+ms.locfileid: "83797510"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch pool i ett virtuellt nätverk
 
@@ -49,13 +49,13 @@ När du har skapat ditt VNet och tilldelat ett undernät, kan du skapa en batch-
 
 Du kan ha krav i din organisation för att omdirigera (tvinga) Internet-baserad trafik från undernät tillbaka till din lokala plats för inspektion och loggning. Du kanske har aktiverat Tvingad tunnel trafik för undernät i ditt VNet.
 
-Du måste lägga till följande [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md) för under nätet för att säkerställa att beräknings noder för Azure Batch pool fungerar i ett VNet som har Tvingad tunnel trafik aktiverat:
+Du måste lägga till följande [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md) (UDR) för under nätet för att säkerställa att Compute-noder i Azure Batch fungerar i ett VNet där Tvingad tunnel trafik är aktive rad:
 
-* Batch-tjänsten måste kommunicera med datornoder för att schemalägga aktiviteter. Om du vill aktivera den här kommunikationen lägger du till en användardefinierad väg för varje IP-adress som används av batch-tjänsten i den region där ditt batch-konto finns. Information om hur du hämtar listan över IP-adresser för batch-tjänsten finns i [tjänst Taggar lokalt](../virtual-network/service-tags-overview.md). IP-adresserna för batch-tjänsten kommer att associeras med `BatchNodeManagement` Service Tag-numret (eller den regionala variant som matchar ditt batch-kontoområdet).
+* Batch-tjänsten måste kommunicera med datornoder för att schemalägga aktiviteter. Om du vill aktivera den här kommunikationen lägger du till en UDR för varje IP-adress som används av batch-tjänsten i den region där ditt batch-konto finns. Information om hur du hämtar listan över IP-adresser för batch-tjänsten finns i [tjänst Taggar lokalt](../virtual-network/service-tags-overview.md).
 
 * Se till att den utgående trafiken till Azure Storage (särskilt webb adresserna i formuläret `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` och `<account>.blob.core.windows.net` ) inte är blockerad via den lokala nätverks enheten.
 
-När du lägger till en användardefinierad väg definierar du vägen för varje relaterat kommando-IP-adressprefix och anger **nästa hopp typ** till **Internet**. Se följande exempel:
+När du lägger till en UDR definierar du vägen för varje relaterat batch-IP-adressprefix och anger **nästa hopp typ** till **Internet**. Se följande exempel:
 
 ![Användardefinierad väg](./media/batch-virtual-network/user-defined-route.png)
 

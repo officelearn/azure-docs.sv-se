@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c26b4e04970dd6c35fc6a71a1aade94d949b520
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74028130"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816190"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Hantera konton för nöd åtkomst i Azure AD
 
@@ -39,12 +39,12 @@ En organisation kan behöva använda ett konto för nöd åtkomst i följande si
 
 ## <a name="create-emergency-access-accounts"></a>Skapa konton för nöd åtkomst
 
-Skapa två eller fler konton för nöd åtkomst. Dessa konton ska vara molnbaserade konton som använder \*. onmicrosoft.com-domänen och som inte är federerade eller synkroniserade från en lokal miljö.
+Skapa två eller fler konton för nöd åtkomst. Dessa konton ska vara molnbaserade konton som använder \* . onmicrosoft.com-domänen och som inte är federerade eller synkroniserade från en lokal miljö.
 
 När du konfigurerar de här kontona måste följande krav uppfyllas:
 
 - Kontona för nöd åtkomst ska inte vara kopplade till någon enskild användare i organisationen. Se till att dina konton inte är anslutna till några mobila mobil telefoner, maskinvaru-token som reser med enskilda anställda eller andra autentiseringsuppgifter som är specifika för anställda. Den här försiktighets tjänsten omfattar instanser där en enskild medarbetare inte kan kontaktas när autentiseringsuppgiften behövs. Det är viktigt att se till att alla registrerade enheter hålls på en känd, säker plats som har flera sätt att kommunicera med Azure AD.
-- Den autentiseringsmekanism som används för ett konto för nöd åtkomst bör skilja sig från det som används av andra administrativa konton, inklusive andra konton för nöd åtkomst.  Om till exempel din normala Administratörs inloggning är via lokal MFA, är Azure MFA en annan mekanism.  Men om Azure MFA är din primära del av autentiseringen för dina administrativa konton, kan du överväga att använda en annan metod för dessa, till exempel att använda villkorlig åtkomst med en tredjepartsleverantör-provider från tredje part.
+- Den autentiseringsmekanism som används för ett konto för nöd åtkomst bör skilja sig från det som används av andra administrativa konton, inklusive andra konton för nöd åtkomst.  Om till exempel din normala Administratörs inloggning är via lokal MFA, är Azure MFA en annan mekanism.  Men om Azure MFA är din primära del av autentiseringen för dina administrativa konton, kan du överväga att använda olika metoder för dessa, till exempel att använda villkorlig åtkomst med en tredjepartsleverantör-Provider via [anpassade kontroller](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
 - Enheten eller autentiseringsuppgiften får inte förfalla eller vara i omfånget för automatisk rensning på grund av bristande användning.  
 - Du bör göra roll tilldelningen global administratör permanent för dina konto för nöd åtkomst. 
 
@@ -79,7 +79,7 @@ Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter frå
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Hämta objekt-ID: n för rast glas kontona
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som tilldelats rollen användar administratör.
-1. Välj **Azure Active Directory** > **användare**.
+1. Välj **Azure Active Directory**  >  **användare**.
 1. Sök efter kontot för Bryt glas och välj användarens namn.
 1. Kopiera och spara attribut för objekt-ID så att du kan använda det senare.
 1. Upprepa föregående steg för andra rast glass konton.
@@ -89,7 +89,7 @@ Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter frå
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som tilldelats rollen övervaknings deltagare i Azure Monitor.
 1. Välj **alla tjänster**", ange" Log Analytics "i sökningen och välj sedan **Log Analytics arbets ytor**.
 1. Välj en arbetsyta.
-1. I arbets ytan väljer du **aviseringar** > **ny aviserings regel**.
+1. I arbets ytan väljer du **aviseringar**  >  **ny aviserings regel**.
     1. Under **resurs**kontrollerar du att prenumerationen är den som du vill associera varnings regeln med.
     1. Välj **Lägg till**under **villkor**.
     1. Välj **anpassad loggs ökning** under **signal namn**.

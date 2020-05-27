@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: beb5a0f7ad3733aaf12b0880af4fba23a705a7e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670941"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797685"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Skicka användar kontext-ID: n för att aktivera användnings upplevelser i Azure Application Insights
 
@@ -22,7 +22,7 @@ Med Application Insights kan du övervaka och spåra dina användare via en upps
 - [Användare, sessioner, händelser](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 - [Trattar](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 - [Kvarhållning](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) Kohorter
-- [Arbetsböcker](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 
 För att kunna spåra vad en användare använder med tiden behöver Application Insights ett ID för varje användare eller session. Inkludera följande ID: n i varje anpassad händelse-eller sid visning.
 
@@ -134,4 +134,4 @@ namespace MvcWebRole.Telemetry
     - [Användare, sessioner och händelser](usage-segmentation.md)
     - [Trattar](usage-funnels.md)
     - [Kvarhållning](usage-retention.md)
-    - [Arbetsböcker](../../azure-monitor/app/usage-workbooks.md)
+    - [Arbetsböcker](../../azure-monitor/platform/workbooks-overview.md)

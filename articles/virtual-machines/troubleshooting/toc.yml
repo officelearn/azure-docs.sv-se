@@ -95,6 +95,8 @@
           href: troubleshoot-guide-windows-boot-manager-menu.md
         - name: Den virtuella datorn svarar inte på grund av uppdatering
           href: unresponsive-vm-apply-windows-update.md
+        - name: Den virtuella datorn svarar inte när grupprincipen tillämpas
+          href: unresponsive-vm-apply-group-policy.md
 - name: Det går inte att ansluta till min virtuella dator
   items:
     - name: RDP

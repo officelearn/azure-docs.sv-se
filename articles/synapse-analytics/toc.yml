@@ -44,6 +44,8 @@
       href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Självstudier
   items:
+    - name: Kom igång
+      href: get-started.md
     - name: Köra Apache Spark-program för Spark-pooler
       href: ./spark/intellij-tool-synapse.md
     - name: Spark-jobbdefinitioner

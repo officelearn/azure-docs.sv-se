@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 57728c3dcbb0dd88ae954ec711ffa4827e14579d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: fb7ddce34a32d7108587bf1a3d47be4b31214535
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743846"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832290"
 ---
 # <a name="monitor-runbook-output"></a>Övervaka utdata från runbooks
 
@@ -18,11 +18,11 @@ De flesta Azure Automation runbooks har någon form av utdata. Utdata kan vara e
 
 I följande tabell beskrivs en kort beskrivning av varje data ström med dess beteende i Azure Portal för publicerade Runbooks och vid [testning av en Runbook](automation-testing-runbook.md). Utdataströmmen är den huvud data ström som används för kommunikation mellan Runbooks. De andra strömmarna klassificeras som meddelande strömmar som är avsedda att kommunicera information till användaren. 
 
-| Strömma | Beskrivning | Publicerad | Testa |
+| Strömma | Description | Publicerad | Testa |
 |:--- |:--- |:--- |:--- |
 | Fel |Felmeddelande avsett för användaren. Till skillnad från ett undantag fortsätter Runbook efter ett fel meddelande som standard. |Skrivs till jobb historik |Visas i fönstret Testa utdata |
 | Felsökning |Meddelanden avsedda för en interaktiv användare. Bör inte användas i Runbooks. |Skrivs inte till jobb historik |Visas inte i fönstret Testa utdata |
-| Resultat |Objekt som ska användas av andra Runbooks. |Skrivs till jobb historik |Visas i fönstret Testa utdata |
+| Utdata |Objekt som ska användas av andra Runbooks. |Skrivs till jobb historik |Visas i fönstret Testa utdata |
 | Förlopp |Poster som genereras automatiskt före och efter varje aktivitet i Runbooken. Runbooken bör inte försöka skapa egna status poster eftersom de är avsedda för en interaktiv användare. |Skrivs till jobb historiken endast om förlopps loggning har Aktiver ATS för Runbook |Visas inte i fönstret Testa utdata |
 | Verbose |Meddelanden som ger allmän eller felsöknings information. |Skrivs till jobb historiken endast om utförlig loggning har Aktiver ATS för Runbook |Visas endast i fönstret för att testa utdata om `VerbosePreference` variabeln är inställd på Fortsätt i Runbook |
 | Varning |Varningsmeddelande avsett för användaren. |Skrivs till jobb historik |Visas i fönstret Testa utdata |
@@ -259,6 +259,7 @@ Mer information om hur du konfigurerar integrering med Azure Monitor loggar för
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Runbook-körning i Azure Automation](automation-runbook-execution.md)
-* [Skapa modulära runbooks](automation-child-runbooks.md)
-* [PowerShell-dokument](/powershell/scripting/overview)
+* Information om hur du arbetar med Runbooks finns [i hantera Runbooks i Azure Automation](manage-runbooks.md).
+* Mer information om PowerShell finns i [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview).
+* * En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: f2a2ee7a2806a753ffd159c91ed782634e74c704
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: ede385670dec6629cc3e75a9d09c0ceb14362bdc
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838693"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119388"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsprogram för Azure Logic Apps
 
@@ -94,10 +94,10 @@ Logic Apps innehåller inbyggda utlösare och åtgärder så att du kan skapa sc
 
 |   |   |   |   |
 |---|---|---|---|
-| [![][schedule-icon]<br>**Schema** för API-ikon][schedule-doc] | – Kör en Logi Kap par på en angiven upprepning, från grundläggande till avancerade scheman med [ **upprepnings** utlösaren][schedule-recurrence-doc]. <p>– Kör en Logi Kap par som måste hantera data i kontinuerliga segment med en [utlösare för **glidnings fönster** ][schedule-sliding-window-doc]. <p>– Pausa din Logic app under en angiven varaktighet med [ **fördröjnings** åtgärden][schedule-delay-doc]. <p>– Pausa din Logi Kap par fram till angivet datum och tid med [ **fördröjningen innan** åtgärden][schedule-delay-until-doc]. | [![API-][batch-icon]<br>ikon**batch**][batch-doc] | – Bearbeta meddelanden i batchar med utlösaren **batch-meddelanden** . <p>– Anropa Logi Kap par som har befintliga batch-utlösare med åtgärden **skicka meddelanden till batch** . |
-| [![API][http-icon]<br>**-ikon http**][http-doc] | Anropa HTTP-eller HTTPS-slutpunkter med utlösare och åtgärder för HTTP. Andra inbyggda HTTP-utlösare och åtgärder inkluderar [http + Swagger][http-swagger-doc] och [http + webhook][http-webhook-doc]. | [![API-][http-request-icon]<br>**ikon**][http-request-doc] | – Gör ditt Logic app-anrop från andra appar eller tjänster, Utlös på Event Grid resurs händelser eller Utlös på svar till Azure Security Center aviseringar med utlösaren för **begäran** . <p>– Skicka svar till en app eller tjänst med **svars** åtgärden. |
-| [![API-][azure-api-management-icon]<br>ikon**Azure <br>API Management**][azure-api-management-doc] | Anropa utlösare och åtgärder som definierats av dina egna API: er som du hanterar och publicerar med Azure API Management. | [![API-][azure-app-services-icon]<br>**ikon <br>Azure App tjänster**][azure-app-services-doc] | Anropa Azure API Apps eller Web Apps som finns på Azure App Service. Utlösare och åtgärder som definieras av dessa appar visas som alla andra utlösare och åtgärder för första klass när Swagger ingår.|
-| [![API-][azure-logic-apps-icon]<br>ikon**Azure <br>Logic Apps**][nested-logic-app-doc] | Anropa andra Logi Kap par som börjar med **begär** ande utlösare. |
+| [![Schema för API-ikon ][schedule-icon]<br> **Schedule**][schedule-doc] | – Kör en Logi Kap par på en angiven upprepning, från grundläggande till avancerade scheman med [ **upprepnings** utlösaren][schedule-recurrence-doc]. <p>– Kör en Logi Kap par som måste hantera data i kontinuerliga segment med en [utlösare för **glidnings fönster** ][schedule-sliding-window-doc]. <p>– Pausa din Logic app under en angiven varaktighet med [ **fördröjnings** åtgärden][schedule-delay-doc]. <p>– Pausa din Logi Kap par fram till angivet datum och tid med [ **fördröjningen innan** åtgärden][schedule-delay-until-doc]. | [![API-ikon ][batch-icon]<br> **batch**][batch-doc] | – Bearbeta meddelanden i batchar med utlösaren **batch-meddelanden** . <p>– Anropa Logi Kap par som har befintliga batch-utlösare med åtgärden **skicka meddelanden till batch** . |
+| [![API ][http-icon]<br> **-ikon http**][http-doc] | Anropa HTTP-eller HTTPS-slutpunkter med utlösare och åtgärder för HTTP. Andra inbyggda HTTP-utlösare och åtgärder inkluderar [http + Swagger][http-swagger-doc] och [http + webhook][http-webhook-doc]. | [![API- ][http-request-icon]<br> **Request** ikon][http-request-doc] | – Gör ditt Logic app-anrop från andra appar eller tjänster, Utlös på Event Grid resurs händelser eller Utlös på svar till Azure Security Center aviseringar med utlösaren för **begäran** . <p>– Skicka svar till en app eller tjänst med **svars** åtgärden. |
+| [![API-ikon ][azure-api-management-icon]<br> **Azure API <br> Management**][azure-api-management-doc] | Anropa utlösare och åtgärder som definierats av dina egna API: er som du hanterar och publicerar med Azure API Management. | [![API-ikon ][azure-app-services-icon]<br> **Azure app <br> tjänster**][azure-app-services-doc] | Anropa Azure API Apps eller Web Apps som finns på Azure App Service. Utlösare och åtgärder som definieras av dessa appar visas som alla andra utlösare och åtgärder för första klass när Swagger ingår.|
+| [![API-ikon ][azure-logic-apps-icon]<br> **Azure Logic <br> Apps**][nested-logic-app-doc] | Anropa andra Logi Kap par som börjar med **begär** ande utlösare. |
 |||||
 
 ### <a name="run-code-from-logic-apps"></a>Kör kod från Logic Apps
@@ -106,7 +106,7 @@ Logic Apps innehåller inbyggda åtgärder för att köra din egen kod i din Log
 
 |   |   |   |   |
 |---|---|---|---|
-| [![API-][azure-functions-icon]<br>ikon**Azure Functions**][azure-functions-doc] | Anropa Azure Functions som kör anpassade kods tycken (C# eller Node. js) från dina Logic Apps. | [![][inline-code-icon]<br>**Infogad kod** för API-ikon][azure-functions-doc] | Lägg till och kör kods tycken för JavaScript-kod från dina Logic Apps. |
+| [![API-ikon ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc] | Anropa Azure Functions som kör anpassade kods tycken (C# eller Node. js) från dina Logic Apps. | [![][inline-code-icon]<br>**Infogad kod** för API-ikon][inline-code-doc] | Lägg till och kör kods tycken för JavaScript-kod från dina Logic Apps. |
 |||||
 
 ### <a name="control-workflow"></a>Kontroll arbets flöde
@@ -115,9 +115,9 @@ Logic Apps innehåller inbyggda åtgärder för att strukturera och kontrol lera
 
 |   |   |   |   |
 |---|---|---|---|
-| [![][condition-icon]<br>**Villkor** för inbyggd ikon][condition-doc] | Utvärdera ett villkor och kör olika åtgärder baserat på om villkoret är sant eller falskt. | [![Inbyggd ikon][for-each-icon]<br>**för varje**][for-each-doc] | Utför samma åtgärder på varje objekt i en matris. |
-| [![Inbyggda ikon][scope-icon]<br>**omfång**][scope-doc] | Gruppera åtgärder i *omfattningar*, som får sin egen status efter att åtgärderna i omfånget har körts. | [![][switch-icon]<br>**Växel** för inbyggd ikon][switch-doc] | Gruppera åtgärder i *fall*, som tilldelas unika värden förutom standard fallet. Kör bara det fall vars tilldelade värde matchar resultatet från ett uttryck, ett objekt eller en token. Kör standard fallet om inga matchningar finns. |
-| [![Inbyggd ikon][terminate-icon]<br>**Avsluta**][terminate-doc] | Stoppa ett aktivt Logic app-arbetsflöde som körs. | [![Inbyggd ikon][until-icon]<br>**tills**][until-doc] | Upprepa åtgärder tills det angivna villkoret är sant eller så har status ändrats. |
+| [![Villkor för inbyggd ikon ][condition-icon]<br> **Condition**][condition-doc] | Utvärdera ett villkor och kör olika åtgärder baserat på om villkoret är sant eller falskt. | [![Inbyggd ikon ][for-each-icon]<br> **för varje**][for-each-doc] | Utför samma åtgärder på varje objekt i en matris. |
+| [![Inbyggda ikon ][scope-icon]<br> **omfång**][scope-doc] | Gruppera åtgärder i *omfattningar*, som får sin egen status efter att åtgärderna i omfånget har körts. | [![Växel för inbyggd ikon ][switch-icon]<br> **Switch**][switch-doc] | Gruppera åtgärder i *fall*, som tilldelas unika värden förutom standard fallet. Kör bara det fall vars tilldelade värde matchar resultatet från ett uttryck, ett objekt eller en token. Kör standard fallet om inga matchningar finns. |
+| [![Inbyggd ikon ][terminate-icon]<br> **Avsluta**][terminate-doc] | Stoppa ett aktivt Logic app-arbetsflöde som körs. | [![Inbyggd ikon ][until-icon]<br> **tills**][until-doc] | Upprepa åtgärder tills det angivna villkoret är sant eller så har status ändrats. |
 |||||
 
 ### <a name="manage-or-manipulate-data"></a>Hantera eller manipulera data
@@ -126,9 +126,9 @@ Logic Apps innehåller inbyggda åtgärder för att arbeta med data utdata och d
 
 |   |   |
 |---|---|
-| [![Inbyggda ikon][data-operations-icon]<br>**data åtgärder**][data-operations-doc] | Utför åtgärder med data: <p>- **Skriv**: skapa en enstaka utdata från flera indata med olika typer. <br>- **Skapa CSV-tabell**: skapa en kommaavgränsad tabell (CSV) från en matris med JSON-objekt. <br>- **Skapa HTML-tabell**: skapa en HTML-tabell från en matris med JSON-objekt. <br>- **Filtrera matris**: skapa en matris från objekt i en annan matris som uppfyller dina kriterier. <br>- **Anslut**: skapa en sträng från alla objekt i en matris och avgränsa dessa objekt med angiven avgränsare. <br>- **Parsa JSON**: skapa användarvänliga token från egenskaper och deras värden i JSON-innehåll så att du kan använda dessa egenskaper i ditt arbets flöde. <br>- **Välj**: skapa en matris med JSON-objekt genom att transformera objekt eller värden i en annan matris och mappa dessa objekt till angivna egenskaper. |
+| [![Inbyggda ikon ][data-operations-icon]<br> **data åtgärder**][data-operations-doc] | Utför åtgärder med data: <p>- **Skriv**: skapa en enstaka utdata från flera indata med olika typer. <br>- **Skapa CSV-tabell**: skapa en kommaavgränsad tabell (CSV) från en matris med JSON-objekt. <br>- **Skapa HTML-tabell**: skapa en HTML-tabell från en matris med JSON-objekt. <br>- **Filtrera matris**: skapa en matris från objekt i en annan matris som uppfyller dina kriterier. <br>- **Anslut**: skapa en sträng från alla objekt i en matris och avgränsa dessa objekt med angiven avgränsare. <br>- **Parsa JSON**: skapa användarvänliga token från egenskaper och deras värden i JSON-innehåll så att du kan använda dessa egenskaper i ditt arbets flöde. <br>- **Välj**: skapa en matris med JSON-objekt genom att transformera objekt eller värden i en annan matris och mappa dessa objekt till angivna egenskaper. |
 | ![Inbyggd ikon][date-time-icon]<br>**Datum tid** | Utföra åtgärder med tidsstämplar: <p>- **Lägg till i tid**: Lägg till det angivna antalet enheter i en tidstämpel. <br>- **Konvertera tidszon**: konvertera en tidsstämpel från käll tids zonen till mål tids zonen. <br>- **Aktuell tid**: returnera den aktuella tidsstämpeln som en sträng. <br>- **Hämta framtida tid**: returnera den aktuella tidsstämpeln och de angivna tidsenheterna. <br>- **Hämta föregående tid**: returnera den aktuella tidsstämpeln minus de angivna tidsenheterna. <br>- **Subtrahera från tid**: subtrahera ett antal tidsenheter från en tidsstämpel. |
-| [![Inbyggda Icon][variables-icon]<br>-**variabler**][variables-doc] | Utföra åtgärder med variabler: <p>- **Lägg till matris variabel**: infoga ett värde som det sista objektet i en matris som lagras av en variabel. <br>- **Lägg till i sträng variabel**: infoga ett värde som sista tecken i en sträng som lagras av en variabel. <br>- **Minska variabeln**: minska en variabel med ett konstantvärde. <br>- **Increment-variabel**: öka en variabel med ett konstant värde. <br>- **Initiera variabel**: skapa en variabel och deklarera dess datatyp och initialt värde. <br>- **Ange variabel**: tilldela ett annat värde till en befintlig variabel. |
+| [![Inbyggda Icon- ][variables-icon]<br> **variabler**][variables-doc] | Utföra åtgärder med variabler: <p>- **Lägg till matris variabel**: infoga ett värde som det sista objektet i en matris som lagras av en variabel. <br>- **Lägg till i sträng variabel**: infoga ett värde som sista tecken i en sträng som lagras av en variabel. <br>- **Minska variabeln**: minska en variabel med ett konstantvärde. <br>- **Increment-variabel**: öka en variabel med ett konstant värde. <br>- **Initiera variabel**: skapa en variabel och deklarera dess datatyp och initialt värde. <br>- **Ange variabel**: tilldela ett annat värde till en befintlig variabel. |
 |  |  |
 
 <a name="managed-api-connectors"></a>
@@ -139,13 +139,13 @@ Logic Apps tillhandahåller de här populära standard anslutningarna för autom
 
 |   |   |   |   |
 |---|---|---|---|
-| [![API-][azure-service-bus-icon]<br>ikon**Azure Service Bus**][azure-service-bus-doc] | Hantera asynkrona meddelanden, sessioner och ämnesprenumerationer med det anslutningsprogram som oftast används i Logic Apps. | [![API-][sql-server-icon]<br>ikon**SQL Server**][sql-server-doc] | Anslut till din SQL Server lokalt eller en Azure SQL Database i molnet så att du kan hantera poster, köra lagrade procedurer eller köra frågor. |
-| [![API-][azure-blob-storage-icon]<br>ikon**Azure<br>Blob Storage**][azure-blob-storage-doc] | Anslut till ditt lagrings konto så att du kan skapa och hantera BLOB-innehåll. | [![API-][office-365-outlook-icon]<br>ikon**Office<br>365 Outlook**][office-365-outlook-doc] | Anslut till ditt Office 365-e-postkonto så att du kan skapa och hantera e-post, uppgifter, Kalender händelser och möten, kontakter, förfrågningar och mycket annat. |
-| [![API][sftp-ssh-icon]<br>**-ikon SFTP – SSH**][sftp-ssh-doc] | Anslut till SFTP-servrar som du kan komma åt från Internet med hjälp av SSH så att du kan arbeta med dina filer och mappar. | [![API-][sharepoint-online-icon]<br>**ikon<br>SharePoint Online**][sharepoint-online-doc] | Anslut till SharePoint Online så att du kan hantera filer, bilagor, mappar med mera. | 
-| [![API-][dynamics-365-icon]<br>ikon**Dynamics<br> 365**][dynamics-365-doc] | Anslut till ditt Dynamics 365-konto så att du kan skapa och hantera poster, artiklar med mera. | [![API-][azure-queues-icon]<br>**ikon <br>Azure-köer**][azure-queues-doc] | Anslut till ditt Azure Storage-konto så att du kan skapa och hantera köer och meddelanden |
-| [![API][ftp-icon]<br>**-ikon FTP**][ftp-doc] | Anslut till FTP-servrar som du kan komma åt från Internet så att du kan arbeta med dina filer och mappar. | [![API-][file-system-icon]<br>**ikon <br>fil system**][file-system-doc] | Anslut till din lokala fil resurs så att du kan skapa och hantera filer. |
-| [![API-][azure-event-hubs-icon]<br>ikon**Azure-Event Hubs**][azure-event-hubs-doc] | Använda och publicera händelser via en Event Hub. Du kan till exempel hämta utdata från din Logic app med Event Hubs och sedan skicka utdata till en leverantör av real tids analys. | [![API-][azure-event-grid-icon]<br>ikon**Azure Event**<br>**Grid**][azure-event-grid-doc] | Övervaka händelser som publicerats av en Event Grid, till exempel när Azure-resurser eller resurser från tredje part ändras. |
-| [![API-][salesforce-icon]<br>ikon**Salesforce**][salesforce-doc] | Anslut till ditt Salesforce-konto så att du kan skapa och hantera objekt, till exempel poster, jobb, objekt med mera. | [![API-][twitter-icon]<br>ikon**Twitter**][twitter-doc] | Anslut till ditt Twitter-konto så att du kan hantera tweets, följare, din tids linje och mer. Spara din tweets i SQL, Excel eller SharePoint. |
+| [![API-ikon ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc] | Hantera asynkrona meddelanden, sessioner och ämnesprenumerationer med det anslutningsprogram som oftast används i Logic Apps. | [![API-ikon ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Anslut till din SQL Server lokalt eller en Azure SQL Database i molnet så att du kan hantera poster, köra lagrade procedurer eller köra frågor. |
+| [![API-ikon ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | Anslut till ditt lagrings konto så att du kan skapa och hantera BLOB-innehåll. | [![API-ikon ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Anslut till ditt Office 365-e-postkonto så att du kan skapa och hantera e-post, uppgifter, Kalender händelser och möten, kontakter, förfrågningar och mycket annat. |
+| [![API ][sftp-ssh-icon]<br> **-ikon SFTP – SSH**][sftp-ssh-doc] | Anslut till SFTP-servrar som du kan komma åt från Internet med hjälp av SSH så att du kan arbeta med dina filer och mappar. | [![API-ikon ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Anslut till SharePoint Online så att du kan hantera filer, bilagor, mappar med mera. | 
+| [![API-ikon ][dynamics-365-icon]<br> **Dynamics <br> 365**][dynamics-365-doc] | Anslut till ditt Dynamics 365-konto så att du kan skapa och hantera poster, artiklar med mera. | [![API-ikon ][azure-queues-icon]<br> **Azure- <br> köer**][azure-queues-doc] | Anslut till ditt Azure Storage-konto så att du kan skapa och hantera köer och meddelanden |
+| [![API ][ftp-icon]<br> **-ikon FTP**][ftp-doc] | Anslut till FTP-servrar som du kan komma åt från Internet så att du kan arbeta med dina filer och mappar. | [![API-ikon ][file-system-icon]<br> **fil <br> system**][file-system-doc] | Anslut till din lokala fil resurs så att du kan skapa och hantera filer. |
+| [![API-ikon ][azure-event-hubs-icon]<br> **Azure-Event Hubs**][azure-event-hubs-doc] | Använda och publicera händelser via en Event Hub. Du kan till exempel hämta utdata från din Logic app med Event Hubs och sedan skicka utdata till en leverantör av real tids analys. | [![API-ikon ][azure-event-grid-icon]<br> **Azure Event** <br> **Grid**][azure-event-grid-doc] | Övervaka händelser som publicerats av en Event Grid, till exempel när Azure-resurser eller resurser från tredje part ändras. |
+| [![API-ikon ][salesforce-icon]<br> **Salesforce**][salesforce-doc] | Anslut till ditt Salesforce-konto så att du kan skapa och hantera objekt, till exempel poster, jobb, objekt med mera. | [![API-ikon ][twitter-icon]<br> **Twitter**][twitter-doc] | Anslut till ditt Twitter-konto så att du kan hantera tweets, följare, din tids linje och mer. Spara din tweets i SQL, Excel eller SharePoint. |
 |||||
 
 <a name="on-premises-connectors"></a>
@@ -156,8 +156,8 @@ Här följer några vanliga standard anslutningar som Logic Apps ger åtkomst ti
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-| [![API-][biztalk-server-icon]<br>ikon**BizTalk** <br> **Server**][biztalk-server-doc] | [![API-][file-system-icon]<br>**ikon <br>fil system**][file-system-doc] | [![API-][ibm-db2-icon]<br>ikon**IBM DB2**][ibm-db2-doc] | [![API-][ibm-informix-icon]<br>ikon**IBM** <br> **Informix**][ibm-informix-doc] | [![API-][mysql-icon]<br>ikon**MySQL**][mysql-doc] |
-| [![API-][oracle-db-icon]<br>ikon**Oracle DB**][oracle-db-doc] | [![API-][postgre-sql-icon]<br>ikon**postgresql**][postgre-sql-doc] | [![API-][sharepoint-server-icon]<br>**ikon <br>SharePoint Server**][sharepoint-server-doc] | [![API-][sql-server-icon]<br>**ikon <br>SQL Server**][sql-server-doc] | [![API-][teradata-icon]<br>ikon**Teradata**][teradata-doc] |
+| [![API-ikon ][biztalk-server-icon]<br> **BizTalk** <br> **Server**][biztalk-server-doc] | [![API-ikon ][file-system-icon]<br> **fil <br> system**][file-system-doc] | [![API-ikon ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc] | [![API-ikon ][ibm-informix-icon]<br> **IBM** <br> **Informix**][ibm-informix-doc] | [![API-ikon ][mysql-icon]<br> **MySQL**][mysql-doc] |
+| [![API-ikon ][oracle-db-icon]<br> **Oracle DB**][oracle-db-doc] | [![API-ikon ][postgre-sql-icon]<br> **postgresql**][postgre-sql-doc] | [![API-ikon ][sharepoint-server-icon]<br> **SharePoint <br> Server**][sharepoint-server-doc] | [![API-ikon ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc] | [![API-ikon ][teradata-icon]<br> **Teradata**][teradata-doc] |
 |||||
 
 <a name="integration-account-connectors"></a>
@@ -168,9 +168,9 @@ Logic Apps tillhandahåller standard anslutningar för att skapa B2B-lösningar 
 
 |   |   |   |   |
 |---|---|---|---|
-| [![API-][as2-icon]<br>**ikon <br>AS2-avkodning**][as2-doc] | [![API-][as2-icon]<br>**ikon <br>AS2-kodning**][as2-doc] | [![API-][edifact-icon]<br>**ikon <br>EDIFACT-avkodning**][edifact-decode-doc] | [![API-][edifact-icon]<br>**ikon <br>EDIFACT-kodning**][edifact-encode-doc] |
-| [![API-][flat-file-decode-icon]<br>ikon**Flat <br>fil-avkodning**][flat-file-decode-doc] | [![API-][flat-file-encode-icon]<br>ikon**Flat <br>fil kodning**][flat-file-encode-doc] | [![API-][integration-account-icon]<br>**ikon <br>integrations konto**][integration-account-doc] | [![API-][liquid-icon]<br>ikon**flytande** <br> **transformeringar**][json-liquid-transform-doc] |
-| [![API-][x12-icon]<br>**ikon <br>X12-avkodning**][x12-decode-doc] | [![API-][x12-icon]<br>**ikon <br>X12-kodning**][x12-encode-doc] | [![][xml-transform-icon]<br>**XML-** <br> **transformeringar** för API-ikon][xml-transform-doc] | [![API][xml-validate-icon]<br>**-ikon <br>XML-verifiering**][xml-validate-doc] |  
+| [![API-ikon ][as2-icon]<br> **AS2- <br> avkodning**][as2-doc] | [![API-ikon ][as2-icon]<br> **AS2- <br> kodning**][as2-doc] | [![API-ikon ][edifact-icon]<br> **EDIFACT- <br> avkodning**][edifact-decode-doc] | [![API-ikon ][edifact-icon]<br> **EDIFACT- <br> kodning**][edifact-encode-doc] |
+| [![API-ikon ][flat-file-decode-icon]<br> **flat fil- <br> avkodning**][flat-file-decode-doc] | [![API-ikon ][flat-file-encode-icon]<br> **flat fil <br> kodning**][flat-file-encode-doc] | [![API-ikon ][integration-account-icon]<br> **integrations <br> konto**][integration-account-doc] | [![API-ikon ][liquid-icon]<br> **flytande** <br> **transformeringar**][json-liquid-transform-doc] |
+| [![API-ikon ][x12-icon]<br> **X12- <br> avkodning**][x12-decode-doc] | [![API-ikon ][x12-icon]<br> **X12- <br> kodning**][x12-encode-doc] | [![][xml-transform-icon]<br>**XML-** <br> **transformeringar** för API-ikon][xml-transform-doc] | [![API ][xml-validate-icon]<br> **-ikon XML- <br> verifiering**][xml-validate-doc] |  
 |||||
 
 <a name="enterprise-connectors"></a>
@@ -181,7 +181,7 @@ Logic Apps tillhandahåller de här företags anslutningarna för åtkomst till 
 
 |   |   |   |
 |---|---|---|
-| [![API-][ibm-3270-icon]<br>ikon**IBM 3270**][ibm-3270-doc] | [![API-][ibm-mq-icon]<br>ikon**IBM MQ**][ibm-mq-doc] | [![API-][sap-icon]<br>ikon**SAP**][sap-connector-doc] |
+| [![API-ikon ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc] | [![API-ikon ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc] | [![API-ikon ][sap-icon]<br> **SAP**][sap-connector-doc] |
 ||||
 
 <a name="ise-connectors"></a>
@@ -192,11 +192,11 @@ För logi Kap par som du skapar och kör en isolerad [integrerings tjänst milj�
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-[![API-][as2-icon]<br>ikon**AS2**][as2-doc] | [![API-][azure-automation-icon]<br>**ikon <br>Azure Automation**][azure-automation-doc] | [![API-][azure-blob-storage-icon]<br>ikon**Azure<br>Blob Storage**][azure-blob-storage-doc] | [![API-][azure-cosmos-db-icon]<br>ikon**Azure <br> Cosmos DB**][azure-cosmos-db-doc] | [![API-][azure-event-hubs-icon]<br>ikon**Azure <br>Event Hub**][azure-event-hubs-doc] |
-[![API-][azure-event-grid-icon]<br>ikon**Azure <br>Event Grid**][azure-event-grid-doc] | [![API-][azure-file-storage-icon]<br>ikon**Azure<br>File Storage**][azure-file-storage-doc] | [![API-][azure-key-vault-icon]<br>ikon**Azure <br>Key Vault**][azure-key-vault-doc] | [![API-][azure-monitor-logs-icon]<br>**ikon <br>Azure Monitor loggar**][azure-monitor-logs-doc] | [![API][azure-service-bus-icon]<br>**-ikon Azure <br>Service Bus**][azure-service-bus-doc] |
-| [![API-][azure-sql-data-warehouse-icon]<br>ikon**Azure SQL <br>Data Warehouse**][azure-sql-data-warehouse-doc] | [![API-][azure-table-storage-icon]<br>ikon**Azure <br>Table Storage**][azure-table-storage-doc] | [![API-][azure-queues-icon]<br>**ikon <br>Azure-köer**][azure-queues-doc] | [![API-][edifact-icon]<br>ikon**EDIFACT**][edifact-doc] | [![API-][file-system-icon]<br>**ikon <br>fil system**][file-system-doc] |
-| [![API][ftp-icon]<br>**-ikon FTP**][ftp-doc] | [![API-][ibm-3270-icon]<br>ikon**IBM 3270**][ibm-3270-doc] | [![API-][ibm-db2-icon]<br>ikon**IBM DB2**][ibm-db2-doc] | [![API-][ibm-mq-icon]<br>ikon**IBM MQ**][ibm-mq-doc] | [![API-][sap-icon]<br>ikon**SAP**][sap-connector-doc] |
-| [![API][sftp-ssh-icon]<br>**-ikon SFTP – SSH**][sftp-ssh-doc] | [![API][smtp-icon]<br>**-ikon SMTP**][smtp-doc] | [![API-][sql-server-icon]<br>**ikon <br>SQL Server**][sql-server-doc] | [![API-][x12-icon]<br>ikon**X12**][x12-doc] |
+[![API-ikon ][as2-icon]<br> **AS2**][as2-doc] | [![API-ikon ][azure-automation-icon]<br> **Azure <br> Automation**][azure-automation-doc] | [![API-ikon ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | [![API-ikon ][azure-cosmos-db-icon]<br> **Azure Cosmos <br> db**][azure-cosmos-db-doc] | [![API-ikon ][azure-event-hubs-icon]<br> **Azure Event <br> Hub**][azure-event-hubs-doc] |
+[![API-ikon ][azure-event-grid-icon]<br> **Azure Event <br> Grid**][azure-event-grid-doc] | [![API-ikon ][azure-file-storage-icon]<br> **Azure File <br> Storage**][azure-file-storage-doc] | [![API-ikon ][azure-key-vault-icon]<br> **Azure Key <br> Vault**][azure-key-vault-doc] | [![API-ikon ][azure-monitor-logs-icon]<br> **Azure Monitor <br> loggar**][azure-monitor-logs-doc] | [![API ][azure-service-bus-icon]<br> **-ikon Azure Service <br> Bus**][azure-service-bus-doc] |
+| [![API-ikon ][azure-sql-data-warehouse-icon]<br> **Azure SQL data <br> Warehouse**][azure-sql-data-warehouse-doc] | [![API-ikon ][azure-table-storage-icon]<br> **Azure Table <br> Storage**][azure-table-storage-doc] | [![API-ikon ][azure-queues-icon]<br> **Azure- <br> köer**][azure-queues-doc] | [![API-ikon ][edifact-icon]<br> **EDIFACT**][edifact-doc] | [![API-ikon ][file-system-icon]<br> **fil <br> system**][file-system-doc] |
+| [![API ][ftp-icon]<br> **-ikon FTP**][ftp-doc] | [![API-ikon ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc] | [![API-ikon ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc] | [![API-ikon ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc] | [![API-ikon ][sap-icon]<br> **SAP**][sap-connector-doc] |
+| [![API ][sftp-ssh-icon]<br> **-ikon SFTP – SSH**][sftp-ssh-doc] | [![API ][smtp-icon]<br> **-ikon SMTP**][smtp-doc] | [![API-ikon ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc] | [![API-ikon ][x12-icon]<br> **X12**][x12-doc] |
 ||||||
 
 Mer information finns i de här ämnena:
@@ -388,6 +388,7 @@ Om du vill anropa API: er som kör anpassad kod eller som inte är tillgängliga
 [http-response-doc]: ./connectors-native-reqres.md "Svara på HTTP-begäranden från dina Logic Apps"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "Ring upp REST-slutpunkter från dina Logic Apps"
 [http-webhook-doc]: ./connectors-native-webhook.md "Vänta på vissa händelser från HTTP-eller HTTPS-slutpunkter"
+[inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Lägg till och kör kods tycken för JavaScript-kod från dina Logic Apps"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrera logikappar med kapslade arbetsflöden"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Välja och filtrera matriser med frågeåtgärden"
 [schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Köra Logi Kap par baserade på ett schema"

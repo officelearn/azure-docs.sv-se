@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 2e843216bf973033868e75c027b11d27ddfe2e93
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3207ffca6fd0fbc943f4a2873b8b6c9029d565af
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757474"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022802"
 ---
 # <a name="server-side-performance-queries"></a>Prestandafrågor på serversidan
 
@@ -18,7 +18,7 @@ Prestanda för bästa åter givning på servern är avgörande för stabila bild
 
 Den mest påverkan som påverkar åter givnings prestanda är modellens indata. Du kan justera indata enligt beskrivningen i [Konfigurera modell konverteringen](../../how-tos/conversion/configure-model-conversion.md).
 
-Program prestanda på klient sidan kan vara en Flask hals. För en djupgående analys av prestanda på klient sidan rekommenderar vi att du utför en [prestanda spårning](../../how-tos/performance-tracing.md).
+Program prestanda på klient sidan kan vara en Flask hals. Vi rekommenderar att du tar en djupgående analys av prestanda på klient sidan [:::no-loc text="performance trace":::](../../how-tos/performance-tracing.md) .
 
 ## <a name="clientserver-timeline"></a>Tids linje för klient/server
 

@@ -9,27 +9,27 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 6acf9301367ae2c6947f6935c43f420d3d7cac65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb9e12f29c148ea6854dde57456d8cf796cc8c34
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655018"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994076"
 ---
 # <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrera Azure AD Domain Services från den klassiska virtuella nätverks modellen till Resource Manager
 
 Azure Active Directory Domain Services (AD DS) stöder en engångs flytt för kunder som för närvarande använder den klassiska virtuella nätverks modellen till den virtuella nätverks modellen i Resource Manager. Azure AD DS-hanterade domäner som använder distributions modellen för Resource Manager ger ytterligare funktioner, till exempel detaljerade lösen ords principer, gransknings loggar och konto utelåsnings skydd.
 
-Den här artikeln beskriver fördelarna och överväganden för migrering, och de steg som krävs för att migrera en befintlig Azure AD DS-instans.
+Den här artikeln beskriver överväganden för migrering och sedan de steg som krävs för att migrera en befintlig Azure AD DS-instans. Några av fördelarna finns i [fördelar med migreringen från den klassiska distributions modellen för Resource Manager i Azure AD DS][migration-benefits].
 
 > [!NOTE]
 > I 2017 blev Azure AD Domain Services tillgänglig som värd i ett Azure Resource Manager nätverk. Sedan dess har vi kunnat bygga en säkrare tjänst med Azure Resource Manager moderna funktioner. Eftersom Azure Resource Manager distributioner fullständigt ersätter klassiska distributioner, kommer Azure AD DS klassiska virtuella nätverks distributioner att dras tillbaka den 1 mars 2023.
 >
-> Mer information finns i meddelande om [officiellt utfasning](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
+> Mer information finns i meddelandet om [officiellt utfasnings meddelande](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ## <a name="overview-of-the-migration-process"></a>Översikt över migreringsprocessen
 
-Migreringsprocessen tar en befintlig Azure AD DS-instans som körs i ett klassiskt virtuellt nätverk och flyttar den till ett befintligt virtuellt Resource Manager-nätverk. Migreringen utförs med hjälp av *PowerShell och har* två huvud stadier för körning och *migrering*.
+Migreringsprocessen tar en befintlig Azure AD DS-instans som körs i ett klassiskt virtuellt nätverk och flyttar den till ett befintligt virtuellt Resource Manager-nätverk. Migreringen utförs med PowerShell och har två huvud stadier för körning: *förberedelse* och *migrering*.
 
 ![Översikt över migreringsprocessen för Azure AD DS](media/migrate-from-classic-vnet/migration-overview.png)
 
@@ -40,21 +40,6 @@ I *förberedelse* fasen tar Azure AD DS en säkerhets kopia av domänen för att
 I *migreringstabellen* kopieras de underliggande virtuella diskarna för domän kontrol Lanterna från den klassiska Azure AD DS-hanterade domänen till att skapa de virtuella datorerna med distributions modellen för Resource Manager. Den hanterade domänen i Azure AD DS återskapas sedan, som innehåller LDAPs och DNS-konfiguration. Synkronisering till Azure AD startas om och LDAP-certifikat återställs. Det finns inget behov av att ansluta datorer till en hanterad domän i Azure AD DS – de fortsätter att vara anslutna till den hanterade domänen och kör utan ändringar.
 
 ![Migrering av Azure AD DS](media/migrate-from-classic-vnet/migration-process.png)
-
-## <a name="migration-benefits"></a>Fördelar med migrering
-
-När du flyttar en Azure AD DS-hanterad domän med den här migreringsprocessen undviker du att behöva ansluta datorer till den hanterade domänen eller ta bort Azure AD DS-instansen och skapa en från grunden. De virtuella datorerna fortsätter att vara anslutna till den Azure AD DS-hanterade domänen i slutet av migreringsprocessen.
-
-Efter migrering tillhandahåller Azure AD DS många funktioner som bara är tillgängliga för domäner som använder virtuella Resource Manager-nätverk, till exempel:
-
-* Stöd för detaljerade lösen ords principer.
-* Skydd för AD-konto utelåsning.
-* E-postmeddelanden om aviseringar på den hanterade domänen i Azure AD DS.
-* Gransknings loggar med Azure Monitor.
-* Azure Files-integrering
-* HD Insights-integrering
-
-Azure AD DS-hanterade domäner som använder ett virtuellt Resource Manager-nätverk hjälper dig att hålla dig uppdaterad med de senaste nya funktionerna. Stöd för Azure AD DS med klassiska virtuella nätverk är att bli inaktuellt i framtiden.
 
 ## <a name="example-scenarios-for-migration"></a>Exempel scenarier för migrering
 
@@ -158,11 +143,11 @@ Migreringen till distributions modellen för Resource Manager och det virtuella 
 
 | Steg    | Utförd genom  | Beräknad tid  | Driftstopp  | Återställa/återställa? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [Steg 1 – uppdatera och leta upp det nya virtuella nätverket](#update-and-verify-virtual-network-settings) | Azure Portal | 15 minuter | Ingen stillestånds tid krävs | Ej tillämpligt |
+| [Steg 1 – uppdatera och leta upp det nya virtuella nätverket](#update-and-verify-virtual-network-settings) | Azure Portal | 15 minuter | Ingen stillestånds tid krävs | Saknas |
 | [Steg 2 – förbereda den Azure AD DS-hanterade domänen för migrering](#prepare-the-managed-domain-for-migration) | PowerShell | 15 – 30 minuter i genomsnitt | Stillestånds tiden för Azure AD DS startar när kommandot har slutförts. | Återställa och återställa tillgängligt. |
 | [Steg 3 – flytta den hanterade Azure AD DS-domänen till ett befintligt virtuellt nätverk](#migrate-the-managed-domain) | PowerShell | 1 – 3 timmar i genomsnitt | En domänkontrollant är tillgänglig när kommandot har slutförts. avbrotts tiden är slut. | Vid ett haveri är både återställningen (självbetjäning) och återställning tillgängliga. |
 | [Steg 4 – testa och vänta på replik domänkontrollanten](#test-and-verify-connectivity-after-the-migration)| PowerShell och Azure Portal | 1 timme eller mer, beroende på antalet tester | Båda domän kontrol Lanterna är tillgängliga och bör fungera normalt. | Ej tillämpligt. När den första virtuella datorn har migrerats finns det inget alternativ för att återställa eller återställa. |
-| [Steg 5 – valfria konfigurations steg](#optional-post-migration-configuration-steps) | Azure Portal och virtuella datorer | Ej tillämpligt | Ingen stillestånds tid krävs | Ej tillämpligt |
+| [Steg 5 – valfria konfigurations steg](#optional-post-migration-configuration-steps) | Azure Portal och virtuella datorer | Saknas | Ingen stillestånds tid krävs | Saknas |
 
 > [!IMPORTANT]
 > Du undviker ytterligare nedtid genom att läsa igenom all den här artikel och vägledningen för migrering innan du påbörjar migreringsprocessen. Migreringsprocessen påverkar tillgängligheten för Azure AD DS-domänkontrollanter under en viss tids period. Användare, tjänster och program kan inte autentisera mot den hanterade domänen under migreringsprocessen.
@@ -367,6 +352,7 @@ Med din Azure AD DS-hanterade domän migrerad till distributions modellen för R
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [tshoot-ldaps]: tshoot-ldaps.md
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
+[migration-benefits]: concepts-migration-benefits.md
 
 <!-- EXTERNAL LINKS -->
 [powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/

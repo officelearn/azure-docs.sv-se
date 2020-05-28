@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: ff9e5ff099bba7af9cac9862103ef63aa0169545
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0694d6f093864231206ec2282b6d358c57ed1dc4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418759"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022137"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 
@@ -40,11 +40,11 @@ I den här självstudiekursen får du göra följande:
 
 I den här självstudien används Azure-portalen. Du kan använda andra metoder för att interagera med Azure Data Factory (se Snabbstarter i innehållsförteckningen).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 * **Azure Storage konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa artikeln [skapa ett lagrings konto](../storage/common/storage-account-create.md) för steg för att skapa ett.
-* **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
 
 ### <a name="create-blob-table"></a>Skapa blob-tabell
 
@@ -129,7 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**:
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **data och analys**  >  **Data Factory**:
 
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 

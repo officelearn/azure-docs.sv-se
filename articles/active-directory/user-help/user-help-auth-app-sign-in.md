@@ -31,7 +31,7 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
   >[!Important]
   >Den här telefonens inloggnings metod fungerar bara med ditt arbets-eller skol konto och personliga Microsoft-konton. Dina konton som inte kommer från Microsoft kräver att du använder den vanliga verifierings processen med två faktorer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda Microsoft Authenticator-appen måste du:
 

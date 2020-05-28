@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d9059c9386af6fab6bb1068d6a9e64b763206f94
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69f63615d3c5f10bdcef071e18a7379ecf52338e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74929196"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119311"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Visual Studio
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "74929196"
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Azure Resource Manager mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
@@ -44,7 +44,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 > [!NOTE] 
 > Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -53,7 +53,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 3. Du måste ha följande installerat på datorn: 
    * Visual Studio 2013 eller Visual Studio 2015
    * Hämta Azure SDK för Visual Studio 2013 eller Visual Studio 2015. Gå till [Azures hämtningssida](https://azure.microsoft.com/downloads/) och klicka på **VS 2013** eller **VS 2015** i **.NET**-avsnittet.
-   * Hämta det senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Du kan också uppdatera plugin-programmet genom att göra följande: i menyn klickar du på **verktyg** -> **tillägg och uppdateringar** -> **online** -> **Visual Studio-galleriet** -> **Microsoft Azure Data Factory verktyg för Visual Studio** -> **Update**.
+   * Hämta det senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Du kan också uppdatera plugin-programmet genom att göra följande: i menyn klickar du på **verktyg**  ->  **tillägg och uppdateringar**  ->  **online**  ->  **Visual Studio-galleriet**  ->  **Microsoft Azure Data Factory verktyg för Visual Studio**  ->  **Update**.
 
 ## <a name="steps"></a>Steg
 Här är de steg du utför som en del av de här självstudierna:
@@ -108,7 +108,7 @@ Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-da
 ### <a name="create-the-azure-sql-linked-service"></a>Skapa den länkade Azure SQL-tjänsten
 1. Högerklicka på noden **Länkade tjänster** i **Solution Explorer** igen, peka på **Lägg till** och klicka på **Nytt objekt**. 
 2. Den här gången väljer du **Länkad Azure SQL-tjänst** och klickar på **Lägg till**. 
-3. I **filen AzureSqlLinkedService1. JSON** `<servername>`ersätter du `<databasename>`,, `<username@servername>`och `<password>` med namnen på din Azure SQL-Server, databas, ditt användar konto och lösen ord.    
+3. I **filen AzureSqlLinkedService1. JSON**ersätter du, `<servername>` `<databasename>` , `<username@servername>` och `<password>` med namnen på din server, databas, användar konto och lösen ord.    
 4. Spara filen **AzureSqlLinkedService1.json**. 
     
     Mer information om de här JSON-egenskaperna finns i [Anslutningsapp för Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties).
@@ -436,7 +436,7 @@ Lägg till en konfigurationsfil för varje miljö genom att utföra följande st
         "AzureSqlLinkedService1": [
             {
                 "name": "$.properties.typeProperties.connectionString",
-                "value":  "Server=tcp:<Azure SQL server name>.database.windows.net,1433;Database=<Azure SQL datbase>;User ID=<Username>;Password=<Password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value":  "Server=tcp:<logical SQL server name>.database.windows.net,1433;Database=<Azure SQL datbase>;User ID=<Username>;Password=<Password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         ]
     }

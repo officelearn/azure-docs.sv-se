@@ -31,6 +31,8 @@
       href: storage-files-networking-overview.md
     - name: Om molnnivåindelning
       href: storage-sync-cloud-tiering.md
+    - name: Förhindra oavsiktlig databorttagning
+      href: storage-files-prevent-file-share-deletion.md
     - name: Om lagringskonton
       href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Ögonblicksbilder av Azure-filresurser
@@ -118,6 +120,8 @@
           href: storage-sync-files-server-registration.md
         - name: Lägga till en serverslutpunkt för Azure File Sync
           href: storage-sync-files-server-endpoint.md
+        - name: Aktivera mjuk borttagning
+          href: storage-files-enable-soft-delete.md
         - name: Hantera lagring i moln som inte är beroende av Azure
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Hantera dataredundans

@@ -28,7 +28,7 @@ I den här artikeln får du lära dig att:
 >**Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar** finns nu i för hands version.<br>
 >Registrera dig för för hands versionen genom att skriva till oss påAskAzureBackupTeam@microsoft.com
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för för registrering gör](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) i avsnitten för att konfigurera databasen för säkerhets kopiering.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: afdd9b1b063d0a82c8cdb27ef01b412daaa9f1df
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6dc94cca66370daa307a21daa6c96a778baed08c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198910"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017638"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
 
@@ -27,7 +27,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 **Uppskattad tidsåtgång:** 45 minuter
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 - [Azure Storage vanliga klient bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
@@ -500,7 +500,7 @@ Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar f
 - Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
   - [Kom igång med Azure Table Storage med hjälp av .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) om du vill lagra strukturerade data.
   - [Kom igång med Azure Blob Storage med hjälp av .NET](../blobs/storage-dotnet-how-to-use-blobs.md) om du vill lagra ostrukturerade data.
-  - [Anslut till SQL Database med hjälp av .NET (C#)](../../sql-database/sql-database-connect-query-dotnet-core.md) för att lagra relationsdata.
+  - [Anslut till SQL Database med hjälp av .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) för att lagra relationsdata.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
 [.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409

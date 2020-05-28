@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: c2b67989cbffb03eb182b4de2bf471a02ee33e7b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: e3bf279142383ccdb3e82ffee49bd593640bb937
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628001"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996830"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -27,11 +27,10 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 ### <a name="new-features"></a>Nya funktioner
 * **SDK-stöd för Forms IGENKÄNNING API v 2.0 offentlig för hands version** Den här månaden utökade vi vår tjänst support för att inkludera en för hands versions-SDK för formulär igenkännings versionen v 2.0 (för hands version). Använd länkarna nedan för att komma igång med ditt val av språk: 
-   * [.NET SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer)
-   * [Java SDK](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
-   * [Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
-   * [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)
-
+   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview)
+   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-previewr)
+   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview)
 
   Den nya SDK: n stöder alla funktioner i v 2.0-REST API för formulär igenkänning. Du kan till exempel träna en modell med eller utan etiketter och extrahera text, nyckel värde par och tabeller från dina formulär, extrahera data från kvitton med den förbyggda tjänsten för inaktuella inleveranser och extrahera text och tabeller med layout tjänsten från dina dokument. Du kan dela din feedback på SDK: erna via [feedback-formuläret för SDK](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -39,6 +38,10 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
    * [Skapa en kopierings auktorisering](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) REST API
    * [Kopiera en anpassad modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) REST API 
 
+### <a name="security-improvements"></a>Förbättringar av säkerhet
+
+* Kundhanterade nycklar är nu tillgängliga för FormRecognizer. Mer information finns i [data kryptering i vila för formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest).
+* Använd hanterade identiteter för åtkomst till Azure-resurser med Azure Active Directory. Mer information finns i [ge åtkomst till hanterade identiteter](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Mars 2020 
 
@@ -50,7 +53,7 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
   * `number`
     * objekt`currency`
   * `date` 
-    * standard, `dmy`, `mdy`,`ymd`
+    * standard, `dmy` , `mdy` ,`ymd`
   * `time`
   * `integer`
 
@@ -64,7 +67,7 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
   > [!div class="mx-imgBorder"]
   > ![Tabell visualisering med verktyget för exempel etiketter](./media/whats-new/formre-table-viz.png)
 
-    De extraherade tabellerna är tillgängliga i JSON-utdata `"pageResults"`under.
+    De extraherade tabellerna är tillgängliga i JSON-utdata under `"pageResults"` .
 
   > [!IMPORTANT]
   > Etiketterade tabeller stöds inte. Om tabeller inte känns igen och extrated automatiskt kan du bara märka dem som nyckel/värde-par. När du har namngett tabeller som nyckel/värde-par, förser du varje cell med ett unikt värde.

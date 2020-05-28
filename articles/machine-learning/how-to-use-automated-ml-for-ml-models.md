@@ -1,5 +1,5 @@
 ---
-title: Använda autoML för att skapa modeller & distribuera
+title: Använda AutoML för att skapa modeller & distribuera
 titleSuffix: Azure Machine Learning
 description: Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning.
 services: machine-learning
@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: nibaccam
-author: tsikiksr
+author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 03/10/2020
-ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/20/2020
+ms.openlocfilehash: 20d98f8eb4971d2aba1ecfbf8abeaba261cde8c4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653845"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115866"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,7 +27,7 @@ För ett slut punkt till slut punkts exempel kan du prova [självstudien för at
 
 [Konfigurera automatiserade maskin inlärnings experiment](how-to-configure-auto-train.md) med Azure Machine Learning SDK för en python-kod baserad upplevelse.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -66,7 +66,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
     1. Granska **inställningarna och för hands versions** formuläret för noggrannhet. Formuläret fylls i intelligent baserat på filtypen. 
 
-        Fält| Description
+        Fält| Beskrivning
         ----|----
         Fil format| Definierar layout och typ av data som lagras i en fil.
         Avgränsare| Ett eller flera tecken för att ange avgränsningen mellan separata, oberoende regioner i oformaterad text eller andra data strömmar.
@@ -93,7 +93,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Välj **skapa en ny beräkning** för att konfigurera din beräknings kontext för det här experimentet.
 
-    Fält|Description
+    Fält|Beskrivning
     ---|---
     Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
     Storlek för virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
@@ -117,17 +117,19 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Valfritt Visa ytterligare konfigurations inställningar: ytterligare inställningar som du kan använda för att styra utbildnings jobbet bättre. Annars tillämpas standardvärdena utifrån experiment val och data. 
 
-    Ytterligare konfigurationer|Description
+    Ytterligare konfigurationer|Beskrivning
     ------|------
     Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#explore-model-metrics).
-    Automatisk funktionalisering| Välj det här alternativet om du vill aktivera eller inaktivera förbearbetningen som gjorts genom automatisk maskin inlärning. För bearbetning inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner. Stöds inte för aktivitets typen tids serie prognos. [Läs mer om för bearbetning](#featurization). 
+    Automatisk funktionalisering| Välj det här alternativet om du vill aktivera eller inaktivera funktionalisering som gjorts av automatisk maskin inlärning. Automatisk funktionalisering innehåller automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner. Stöds inte för aktivitets typen tids serie prognos. [Läs mer om funktionalisering](how-to-configure-auto-features.md#featurization). 
     Förklara bästa modell | Välj om du vill aktivera eller inaktivera för att visa att den rekommenderade bästa modellen är klar
     Blockerad algoritm| Välj algoritmer som du vill undanta från utbildnings jobbet.
     Avslutnings kriterium| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (timmar)*: hur lång tid det tar att köra utbildnings jobbet. <br> *Mät*värdes tröskel: minsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
     Validering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. [Läs mer om kors validering](how-to-configure-auto-train.md).
     Samtidighet| *Max. antal samtidiga iterationer*: maximalt antal pipelines (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer.
 
-1. Valfritt Visa funktionalisering-inställningar: om du väljer att aktivera **Automatisk funktionalisering** i formuläret för **ytterligare konfigurations inställningar** är det här formuläret där du anger vilka kolumner som featurizations ska utföras på och väljer vilket statistisk värde som ska användas för det saknade värdet imputations.
+1. Valfritt Visa funktionalisering-inställningar: om du väljer att aktivera **Automatisk funktionalisering** i formuläret för **ytterligare konfigurations inställningar** tillämpas standard funktionalisering-teknikerna. I **Visa funktionalisering-inställningar** kan du ändra dessa standardvärden och anpassa dem efter behov. Lär dig hur du [anpassar featurizations](#customize-featurization). 
+
+    ![Aktivitets typ formulär för Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 <a name="profile"></a>
 
@@ -138,7 +140,7 @@ Du kan få en mängd olika sammanfattnings statistik över din data uppsättning
 >[!NOTE]
 > Tomma poster visas för funktioner med irrelevanta typer.
 
-Statistik|Description
+Statistik|Beskrivning
 ------|------
 Funktion| Namn på den kolumn som sammanfattas.
 Profil| Infogad visualisering baserat på den härledda typen. Strängar, booleska värden och datum har till exempel värde antal, medan decimaler (numeriska värden) har ungefärligt histogram. På så sätt får du en snabb förståelse för data fördelningen.
@@ -155,58 +157,19 @@ Varians| Mått på hur långt spridning av den här kolumnens data är från det
 Snedhet| Mått på hur olika data från den här kolumnen kommer från en normal distribution.
 Toppighet| Mått på hur mycket data som har staplats i den här kolumnens data jämförs med en normal distribution.
 
-<a name="featurization"></a>
+## <a name="customize-featurization"></a>Anpassa funktionalisering
 
-## <a name="advanced-featurization-options"></a>Avancerade alternativ för funktionalisering
+I formuläret **funktionalisering** kan du aktivera/inaktivera automatisk funktionalisering och anpassa inställningarna för automatisk funktionalisering för ditt experiment. För att öppna det här formuläret, se steg 10 i avsnittet [skapa och köra experiment](#create-and-run-experiment) . 
 
-Automatisk maskin inlärning erbjuder förbehandling och data guardrails automatiskt, för att hjälpa dig att identifiera och hantera potentiella problem med dina data, t. ex. [överanpassning och data som bryts](concept-manage-ml-pitfalls.md#prevent-over-fitting). 
+I följande tabell sammanfattas de anpassningar som för närvarande är tillgängliga via Studio. 
 
-### <a name="preprocessing"></a>Förbearbeta
+Kolumn| Anpassning
+---|---
+Ingår | Anger vilka kolumner som ska ingå i utbildningen.
+Funktions typ| Ändra värde typen för den markerade kolumnen.
+Räkna med| Välj det värde som du vill använda för att ange värden för saknade värden i dina data.
 
-> [!NOTE]
-> Om du planerar att exportera dina Auto ML-skapade modeller till en [ONNX-modell](concept-onnx.md), stöds bara de funktionalisering-alternativ som anges med * i ONNX-formatet. Lär dig mer om [att konvertera modeller till ONNX](concept-automated-ml.md#use-with-onnx). 
-
-|Förbehandlings &nbsp; steg| Description |
-| ------------- | ------------- |
-|Släpp hög kardinalitet eller inga varians funktioner * |Ta bort dessa från inlärnings-och validerings uppsättningar, inklusive funktioner med alla värden som saknas, samma värde på alla rader eller med mycket hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
-|Imputerade värden som saknas * |För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det mest frekventa värdet.|
-|Generera ytterligare funktioner * |För DateTime-funktioner: år, månad, dag, veckodag, dag på år, kvartal, vecka på år, timme, minut och sekund.<br/><br/>För text funktioner: term frekvens baserat på unigrams, bi-gram och Tri-Character-gram.|
-|Transformera och koda *|Numeriska funktioner med få unika värden omvandlas till kategoriska-funktioner.<br/><br/>En-frekvent kodning utförs för kategoriska med låg kardinalitet. för hög kardinalitet, en-frekvent-hash-kodning.|
-|Word-inbäddningar|Text upplärda som konverterar vektorer med text-token till menings vektorer med en förtränad modell. Varje ords inbäddnings vektor i ett dokument sammanställs tillsammans för att skapa en dokument funktions vektor.|
-|Mål kodningar|För kategoriska-funktioner, mappar varje kategori med genomsnittligt målvärde för Regressions problem och till sannolikheten för varje klass för klassificerings problem. Frekvens-baserad viktning och mellanliggande kors validering används för att minska överbelastningen av mappningen och bruset som orsakas av glesa data kategorier.|
-|Kodning av text mål|För text inmatare används en staplad linjär modell med ord uppsättnings ord för att generera sannolikheten för varje klass.|
-|Vikt på bevis (WoE)|Beräknar WoE som ett mått på korrelation av kategoriska-kolumner till mål kolumnen. Det beräknas som loggen för förhållandet mellan sannolikheten i förhållande till inaktuella klasser. Det här steget matar ut en numerisk funktions kolumn per klass och tar bort behovet av att explicit kräva att värden som saknas och avvikare behandlas.|
-|Kluster avstånd|Tågen a k: kluster modell på alla numeriska kolumner.  Utdata k nya funktioner, en ny numerisk funktion per kluster, som innehåller avståndet från varje exempel till centroid för varje kluster.|
-
-### <a name="data-guardrails"></a>Data guardrails
-
-Data guardrails tillämpas när automatisk funktionalisering har Aktiver ATS eller validering har värdet Auto. Med data guardrails kan du identifiera potentiella problem med dina data (t. ex. saknade värden, klass obalans) och hjälpa till att vidta korrigerande åtgärder för förbättrade resultat. 
-
-Användare kan granska data guardrails i Studio på fliken **data guardrails** i en automatisk ml-körning eller genom att ange ```show_output=True``` när ett experiment ska skickas med python SDK. 
-
-#### <a name="data-guardrail-states"></a>Data Guardrail-tillstånd
-
-Data guardrails visar ett av tre tillstånd: **godkänd**, **klar**eller **alertd**.
-
-Stat| Beskrivning
-----|----
-Parametrarna| Inga data problem upptäcktes och ingen användar åtgärd krävs. 
-Klart| Ändringarna tillämpades på dina data. Vi rekommenderar att användarna granskar korrigerings åtgärderna automatiserade ML för att se till att ändringarna överensstämmer med de förväntade resultaten. 
-Aviserad| Ett data problem som inte kunde åtgärdas har upptäckts. Vi uppmuntrar användare att ändra och åtgärda problemet. 
-
->[!NOTE]
-> Tidigare versioner av automatiserade ML-experiment visade ett fjärde tillstånd: **fast**. Nyare **experiment visar inte**det här läget och alla guardrails som visade det **fasta** läget kommer nu att visas.   
-
-I följande tabell beskrivs de data guardrails som stöds för närvarande och de associerade statusvärdena som användarna kan komma att komma åt när de skickar experimentet.
-
-Guardrail|Status|Villkor &nbsp; för &nbsp; utlösare
----|---|---
-Funktions värden saknas Imputation |**Parametrarna** <br><br><br> **Klar**| Inga funktions värden som saknas hittades i dina tränings data. Läs mer om det [saknade värdet Imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Funktions värden som saknas upptäcktes i dina tränings data och tillräknades.
-Funktions hantering med hög kardinalitet |**Parametrarna** <br><br><br> **Klar**| Dina indata analyserades och inga funktioner för hög kardinalitet upptäcktes. Lär dig mer om [funktions identifiering med hög kardinalitet.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Funktioner för hög kardinalitet upptäcktes i dina indata och hanterades.
-Verifiering av delad hantering |**Klar**| *Validerings konfigurationen har ställts in på Auto och tränings data innehöll **färre** än 20 000 rader.* <br> Varje iteration av den tränade modellen verifierades genom kors validering. Läs mer om [verifierings data.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *Validerings konfigurationen har ställts in på Auto och tränings data innehöll **mer** än 20 000 rader.* <br> Indata har delats in i en tränings data uppsättning och en validerings data uppsättning för att verifiera modellen.
-Identifiering av klass balansering |**Parametrarna** <br><br><br><br> **Aviserad** | Dina indata analyserades och alla klasser är balanserade i dina tränings data. En data mängd betraktas som balanserade om varje klass har god representation i data uppsättningen, mätt enligt antal och samplings förhållandet. <br><br><br> Obalanserade klasser upptäcktes i dina indata. Åtgärda problemet genom att korrigera modell bias. Läs mer om [obalanserade data.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
-Identifiering av minnes problem |**Parametrarna** <br><br><br><br> **Klar** |<br> Det valda {horisont-, fördröjnings-, rullande Window}-värdet har analyser ATS och inga potentiella minnes problem har identifierats. Lär dig mer om [Prognosticering-konfigurationer](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) för tids serier. <br><br><br>De valda värdena för {Horisont, fördröjning, rullande fönster} analyserades och kan orsaka att experimentet får slut på minne. Inställningarna för fördröjningen eller rullande fönster har inaktiverats.
-Frekvens identifiering |**Parametrarna** <br><br><br><br> **Klar** |<br> Tids serien analyserades och alla data punkter justeras med den frekvens som upptäcktes. <br> <br> Tids serien analyserades och data punkter som inte överensstämmer med den identifierade frekvensen upptäcktes. Dessa data punkter togs bort från data uppsättningen. Lär dig mer om [förberedelse av data för tids serie prognoser.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
+![Aktivitets typ formulär för Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>Kör experimentet och visa resultaten
 
@@ -243,7 +206,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
     Fält| Värde
     ----|----
     Namn| Ange ett unikt namn för din distribution.
-    Description| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
+    Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
     Compute-typ| Välj den typ av slut punkt som du vill distribuera: *Azure Kubernetes service (AKS)* eller *Azure Container Instance (ACI)*.
     Compute-namn| *Gäller endast för AKS:* Välj namnet på det AKS-kluster som du vill distribuera till.
     Aktivera autentisering | Välj för att tillåta tokenbaserad eller nyckelbaserad autentisering.
@@ -255,6 +218,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
     Menyn *Avancerat* erbjuder standard distributions funktioner, till exempel inställningar för [data insamling](how-to-enable-app-insights.md) och resursutnyttjande. Om du vill åsidosätta dessa standardinställningar gör du det på den här menyn.
 
 1. Välj **Distribuera**. Distributionen kan ta ungefär 20 minuter att slutföra.
+    När distributionen har påbörjats visas fliken **modell information** . Se distributions förloppet under avsnittet **distributions status** i fönstret **Egenskaper** . 
 
 Nu har du en fungerande webb tjänst för att generera förutsägelser! Du kan testa förutsägelserna genom att fråga tjänsten från [Power BI inbyggda Azure Machine Learning-supporten](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

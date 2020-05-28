@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 8a69cb83492fabc692886fe6966a147de3bcbb04
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780852"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022222"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Vanliga frågor och svar
 
@@ -44,6 +44,14 @@ Mer information finns i [kapacitets planering för HDInsight-kluster](https://do
 
 Se [resurs typer i Azure HDInsight-kluster](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters).
 
+### <a name="what-are-the-best-practices-for-creating-large-hdinsight-clusters"></a>Vilka är de bästa metoderna för att skapa stora HDInsight-kluster?
+
+1. Rekommendera att konfigurera HDInsight-kluster med en [anpassad Ambari-databas](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db) för att förbättra klustrets skalbarhet.
+2. Använd [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) för att skapa HDInsight-kluster för att dra nytta av högre bandbredd och andra prestanda egenskaper för Azure Data Lake Storage Gen2.
+3. Huvudnoderna bör vara tillräckligt stor för att rymma flera huvud tjänster som körs på dessa noder.
+4. Vissa arbets belastningar, till exempel interaktiva frågor, behöver också större Zookeeper-noder. Kontrol lera att det finns minst 8 kärn virtuella datorer.
+5. Vid Hive och Spark använder du [externa Hive-metaarkiv](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores).
+
 ## <a name="individual-components"></a>Enskilda komponenter
 
 ### <a name="can-i-install-additional-components-on-my-cluster"></a>Kan jag installera ytterligare komponenter i mitt kluster?
@@ -68,7 +76,7 @@ Nej, det går inte att köra Apache Kafka och Apache Spark i samma HDInsight-klu
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Hur gör jag för att ändra tidszon i Ambari?
 
-1. Öppna Ambari-webbgränssnittet `https://CLUSTERNAME.azurehdinsight.net`på, där kluster namn är namnet på klustret.
+1. Öppna Ambari-webbgränssnittet på `https://CLUSTERNAME.azurehdinsight.net` , där kluster namn är namnet på klustret.
 2. I det övre högra hörnet väljer du admin | Autentiseringsinställningar. 
 
    ![Ambari-inställningar](media/hdinsight-faq/ambari-settings.png)
@@ -79,9 +87,9 @@ Nej, det går inte att köra Apache Kafka och Apache Spark i samma HDInsight-klu
 
 ## <a name="metastore"></a>Metaarkiv
 
-### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-server"></a>Hur kan jag migrera från det befintliga metaarkiv till Azure SQL Server? 
+### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-database"></a>Hur kan jag migrera från den befintliga metaarkiv till Azure SQL Database? 
 
-Information om hur du migrerar från SQL Server till Azure SQL Server finns i [Självstudier: migrera SQL Server till en databas eller en databas i poolen Azure SQL Database offline med DMS](../dms/tutorial-sql-server-to-azure-sql.md).
+Information om hur du migrerar från SQL Server till Azure SQL Database finns i [Självstudier: migrera SQL Server till en enskild databas eller en databas i poolen Azure SQL Database offline med DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 
 ### <a name="is-the-hive-metastore-deleted-when-the-cluster-is-deleted"></a>Tas Hive-metaarkiv bort när klustret tas bort?
 
@@ -133,7 +141,7 @@ Ja, du kan distribuera en ytterligare virtuell dator i samma undernät som ett H
 
 - Edge-noder: du kan lägga till en annan Edge-nod i klustret, enligt beskrivningen i [använda tomma Edge-noder i Apache Hadoop kluster i HDInsight](hdinsight-apps-use-edge-node.md).
 
-- Fristående noder: du kan lägga till en fristående virtuell dator i samma undernät och komma åt klustret från den virtuella datorn med hjälp av den privata slut `https://<CLUSTERNAME>-int.azurehdinsight.net`punkten. Mer information finns i [kontrol lera nätverks trafik](./control-network-traffic.md).
+- Fristående noder: du kan lägga till en fristående virtuell dator i samma undernät och komma åt klustret från den virtuella datorn med hjälp av den privata slut punkten `https://<CLUSTERNAME>-int.azurehdinsight.net` . Mer information finns i [kontrol lera nätverks trafik](./control-network-traffic.md).
 
 ### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>Ska jag lagra data på den lokala hård disken på en Edge-nod?
 
@@ -203,7 +211,7 @@ LLAP har Aktiver ATS av säkerhets skäl (Apache Ranger), inte prestanda. Använ
 
 ### <a name="how-can-i-add-additional-aad-groups-after-creating-an-esp-cluster"></a>Hur kan jag lägga till ytterligare AAD-grupper efter att ha skapat ett ESP-kluster?
 Det finns två sätt att uppnå det här målet: 1 – du kan återskapa klustret och lägga till ytterligare grupper när klustret skapas. Om du använder omfångs synkronisering i AAD-DS ser du till att grupp B ingår i den omfångs synkroniseringen.
-2 – Lägg till gruppen som en kapslad under grupp för den tidigare gruppen som användes för att skapa ESP-klustret. Om du till exempel har skapat ett ESP-kluster med en `A`grupp kan du senare använda Lägg till `B` grupp som en kapslad under `A` grupp av och efter ungefär en timme kommer det att synkroniseras och vara tillgängligt i klustret automatiskt. 
+2 – Lägg till gruppen som en kapslad under grupp för den tidigare gruppen som användes för att skapa ESP-klustret. Om du till exempel har skapat ett ESP-kluster med en grupp `A` kan du senare använda Lägg till grupp `B` som en kapslad under grupp av `A` och efter ungefär en timme kommer det att synkroniseras och vara tillgängligt i klustret automatiskt. 
 
 ## <a name="storage"></a>Storage
 
@@ -276,14 +284,14 @@ Du använder sparade skript för att anpassa nya arbetsnoder som läggs till i k
 
 Du kan använda följande REST-slutpunkter för att hämta nödvändig information i JSON-format. Använd grundläggande autentiseringsscheman för att göra begär Anden.
 
-- `Tez Query View`: *https:\//\<kluster namn>. azurehdinsight.net/WS/v1/Timeline/HIVE_QUERY_ID/*
-- `Tez Dag View`: *https:\//\<kluster namn>. azurehdinsight.net/WS/v1/Timeline/TEZ_DAG_ID/*
+- `Tez Query View`: *https: \/ / \<cluster name> . azurehdinsight.net/WS/v1/Timeline/HIVE_QUERY_ID/*
+- `Tez Dag View`: *https: \/ / \<cluster name> . azurehdinsight.net/WS/v1/Timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Hur gör jag för att hämta konfigurations information från HDI-kluster med hjälp av en Azure Active Directory användare?
 
 Om du vill förhandla rätt autentiserings-token med din AAD-användare går du igenom gatewayen med hjälp av följande format:
 
-* https://`<cluster dnsname>`. azurehdinsight.NET/API/v1/Clusters/testclusterdem/stack_versions/1/repository_versions/1 
+* https:// `<cluster dnsname>` . azurehdinsight.NET/API/v1/Clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
 ### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>Hur gör jag för att använda Ambari RESTful API för att övervaka garn prestanda?
 

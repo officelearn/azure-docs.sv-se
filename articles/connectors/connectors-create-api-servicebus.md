@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50f43283d1113a5beb05b5898514623be37e5de9
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76261627"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142001"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Exchange-meddelanden i molnet med hjälp av Azure Logic Apps och Azure Service Bus
 
@@ -29,7 +29,7 @@ Du kan använda utlösare som får svar från Service Bus och göra utdata tillg
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -60,7 +60,7 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
       ![Kopiera Service Bus namn områdets anslutnings sträng](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Om du vill kontrol lera att anslutnings strängen är kopplad till din Service Bus-namnrymd eller en meddelande enhet, till exempel en kö, söker du efter `EntityPath`  parameterns anslutnings sträng. Om du hittar den här parametern är anslutnings strängen för en speciell entitet och är inte rätt sträng som ska användas med din Logic app.
+   > Om du vill kontrol lera att anslutnings strängen är kopplad till din Service Bus-namnrymd eller en meddelande enhet, till exempel en kö, söker du efter `EntityPath`   parameterns anslutnings sträng. Om du hittar den här parametern är anslutnings strängen för en speciell entitet och är inte rätt sträng som ska användas med din Logic app.
 
 ## <a name="add-service-bus-trigger"></a>Lägg till Service Bus-utlösare
 
@@ -114,7 +114,7 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
 
 1. Under steget där du vill lägga till en åtgärd väljer du **nytt steg**.
 
-   Eller om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (**+**) som visas och välj **Lägg till en åtgärd**.
+   Eller om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**i rutan Sök anger du "Azure Service Bus" som filter. I listan åtgärder väljer du den åtgärd som du vill använda. 
 
@@ -152,11 +152,21 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
 
 1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
 
+<a name="sequential-convoy"></a>
+
+## <a name="send-correlated-messages-in-order"></a>Skicka korrelerade meddelanden i ordning
+
+När du behöver skicka relaterade meddelanden i en viss ordning kan du använda det [ *sekventiella konvojmönster* -mönstret](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) med hjälp av [Azure Service Bus Connector](../connectors/connectors-create-api-servicebus.md). Korrelerade meddelanden har en egenskap som definierar relationen mellan dessa meddelanden, till exempel ID för [sessionen](../service-bus-messaging/message-sessions.md) i Service Bus.
+
+När du skapar en Logic app kan du välja den **korrelerade leveransen med hjälp av Service Bus-sessioner** , som implementerar det sekventiella konvojmönster-mönstret. Mer information finns i [skicka relaterade meddelanden i ordning](../logic-apps/send-related-messages-sequential-convoy.md).
+
+<a name="connector-reference"></a>
+
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
 Service Bus-anslutningen kan spara upp till 1 500 unika sessioner i taget från en Service Bus till kopplingens cacheminne. Om antalet sessioner överskrider den här gränsen tas gamla sessioner bort från cachen. Mer information finns i [Message sessions](../service-bus-messaging/message-sessions.md).
 
-För annan teknisk information om utlösare, åtgärder och begränsningar, som beskrivs av kopplingens OpenAPI (tidigare Swagger), granskar du kopplingens [referens sida](/connectors/servicebus/). Mer information om Azure Service Bus meddelanden finns i [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)?
+För annan teknisk information om utlösare, åtgärder och begränsningar, som beskrivs av kopplingens Swagger beskrivning, granskar du [kopplings referens sidan](/connectors/servicebus/). Mer information om Azure Service Bus meddelanden finns i [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)?
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,52 +1,44 @@
 ---
-title: Arbeta med scope-konfigurationer för Azure Automation Uppdateringshantering
-description: Den här artikeln beskriver hur du arbetar med scope-konfigurationer när du använder Uppdateringshantering.
+title: Begränsa Azure Automation Uppdateringshantering distributions omfång
+description: Den här artikeln beskriver hur du använder scope-konfigurationer för att begränsa omfånget för en Uppdateringshantering-distribution.
 services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 23ec49f2d68cf376ef0beb118d8bf69ada7bc0de
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 72065b388f348da1d268f875a10d5b13d2f8cf3b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832035"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117403"
 ---
-# <a name="work-with-scope-configurations-for-update-management"></a>Arbeta med scope-konfigurationer för Uppdateringshantering
+# <a name="limit-update-management-deployment-scope"></a>Begränsa Uppdateringshantering distributions omfång
 
-Den här artikeln beskriver hur du kan arbeta med scope-konfigurationer när du använder funktionen [uppdateringshantering](automation-update-management.md) på virtuella datorer. 
+Den här artikeln beskriver hur du arbetar med scope-konfigurationer när du använder funktionen [uppdateringshantering](automation-update-management.md) för att distribuera uppdateringar och korrigeringar till dina virtuella datorer. Mer information finns i [mål övervakning av lösningar i Azure Monitor (för hands version)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="about-scope-configurations"></a>Om scope-konfigurationer
 
-Logga in på Azure Portal på https://portal.azure.com.
+En omfattnings konfiguration är en grupp med en eller flera sparade sökningar (frågor) som används för att begränsa omfånget för Uppdateringshantering till vissa datorer. Omfattnings konfigurationen används inom Log Analytics arbets ytan för att rikta in de datorer som ska aktive ras. När du lägger till en dator för att ta emot uppdateringar från Uppdateringshantering läggs datorn också till i en sparad sökning i arbets ytan.
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Kontrol lera omfattnings konfigurationen
+## <a name="set-the-scope-limit"></a>Ange omfattnings gräns
 
-Uppdateringshantering använder en omfattnings konfiguration i arbets ytan Log Analytics för att rikta in de datorer som ska aktive ras för funktionen. Omfattnings konfigurationen är en grupp med en eller flera sparade sökningar som används för att begränsa omfånget för funktionen till vissa datorer. För att få åtkomst till scope-konfigurationerna:
+Begränsa omfånget för din Uppdateringshantering-distribution:
 
-1. I Automation-kontot under **relaterade resurser**väljer du **arbets yta**. 
+1. I ditt Automation-konto väljer du **länkad arbets yta** under **relaterade resurser**.
 
-2. Välj arbets ytan under **data källor för arbets yta**och välj **omfång**.
+2. Klicka på **gå till arbets yta**.
 
-3. Om den valda arbets ytan inte har Uppdateringshantering funktionen aktive rad, skapas `MicrosoftDefaultScopeConfig-Updates` omfattnings konfigurationen. 
+3. Välj **scope-konfigurationer (för hands version)** under **arbets ytans data källor**.
 
-4. Om den valda arbets ytan redan har funktionen aktive rad, distribueras den inte om, och omfattnings konfigurationen läggs inte till i den. 
+4. Välj ellipsen till höger om `MicrosoftDefaultScopeConfig-Updates` omfattnings konfigurationen och klicka på **Redigera**. 
 
-5. Välj ellipsen i någon av konfigurationerna för omfattningar och klicka sedan på **Redigera**. 
+5. I redigerings fönstret expanderar du **Välj dator grupper**. I fönstret dator grupper visas sparade sökningar som används för att skapa omfattnings konfigurationen. Den sparade sökningen som används av Uppdateringshantering är:
 
-6. I redigerings fönstret väljer du **Välj dator grupper**. I fönstret dator grupper visas sparade sökningar som används för att skapa omfattnings konfigurationen.
+    |Name     |Kategori  |Alias  |
+    |---------|---------|---------|
+    |MicrosoftDefaultComputerGroup     | Uppdateringar        | Updates__MicrosoftDefaultComputerGroup         |
 
-## <a name="view-a-saved-search"></a>Visa en sparad sökning
-
-När en dator läggs till Uppdateringshantering läggs den också till i en sparad sökning i din arbets yta. Den sparade sökningen är en fråga som innehåller mål datorerna.
-
-1. Navigera till din Log Analytics arbets yta och välj **sparade sökningar** under **Allmänt**. Den sparade sökningen som används av Uppdateringshantering är:
-
-|Name     |Kategori  |Alias  |
-|---------|---------|---------|
-|MicrosoftDefaultComputerGroup     | Uppdateringar        | Updates__MicrosoftDefaultComputerGroup         |
-
-2. Välj den sparade sökningen för att visa frågan som används för att fylla i gruppen. Följande bild visar frågan och dess resultat:
+6. Välj den sparade sökningen för att visa och redigera frågan som används för att fylla i gruppen. Följande bild visar frågan och dess resultat:
 
     ![Sparade sökningar](media/automation-scope-configurations-update-management/logsearch.png)
 

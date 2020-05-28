@@ -3,15 +3,15 @@ title: Lär dig hur du hanterar databaskonton i Azure Cosmos DB
 description: Lär dig hur du hanterar Azure Cosmos DB-resurser med hjälp av mallarna Azure Portal, PowerShell, CLI och Azure Resource Manager
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 24eec27f0bc6357942420595a1318e3eb0945a5f
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 76e8167a5d0dc83a5cc1b238d3015594278e344d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82745032"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116696"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
 
@@ -43,7 +43,7 @@ Information om hur du [skapar Azure Cosmos DB konto med Azure Resource Manager m
 
 1. Gå till ditt Azure Cosmos-konto och öppna menyn **replikera data globalt** .
 
-1. Om du vill lägga till regioner väljer du sexhörningarna på kartan med **+** den etikett som motsvarar din önskade region (er). Om du vill lägga till en region väljer du alternativet **+ Lägg till region** och väljer en region i den nedrullningsbara menyn.
+1. Om du vill lägga till regioner väljer du sexhörningarna på kartan med den **+** etikett som motsvarar din önskade region (er). Om du vill lägga till en region väljer du alternativet **+ Lägg till region** och väljer en region i den nedrullningsbara menyn.
 
 1. Om du vill ta bort regioner avmarkerar du en eller flera regioner från kartan genom att välja de blå sexhörningarna med kryssmarkeringar. Eller välj ”papperskorgsikonen” (🗑) intill regionen på höger sida.
 
@@ -81,7 +81,7 @@ Se [aktivera flera-Write-regioner med PowerShell](manage-with-powershell.md#mult
 
 ### <a name="resource-manager-template"></a><a id="configure-multiple-write-regions-arm"></a>Resource Manager-mall
 
-Ett konto kan migreras från en huvud server till flera Masters genom att distribuera Resource Manager-mallen som används för att skapa kontot `enableMultipleWriteLocations: true`och inställningen. Följande Azure Resource Manager mall är en minimal mall som används för att distribuera ett Azure Cosmos-konto för SQL-API med två regioner och flera Skriv platser är aktiverade.
+Ett konto kan migreras från en huvud server till flera Masters genom att distribuera Resource Manager-mallen som används för att skapa kontot och inställningen `enableMultipleWriteLocations: true` . Följande Azure Resource Manager mall är en minimal mall som används för att distribuera ett Azure Cosmos-konto för SQL-API med två regioner och flera Skriv platser är aktiverade.
 
 ```json
 {

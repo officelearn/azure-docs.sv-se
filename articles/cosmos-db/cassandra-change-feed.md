@@ -4,15 +4,15 @@ description: Lär dig hur du använder ändrings flöden i Azure Cosmos DB API f
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 43743f62b08bb00403f5dac88682d06daab757a4
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 3707ee81c0e50ae028ad7e0bf8178e2f3eff2c64
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872555"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115229"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Ändra feed i Azure Cosmos DB API för Cassandra
 
@@ -22,7 +22,7 @@ I följande exempel visas hur du hämtar en ändrings-feed på alla rader i en A
 
 I varje iteration fortsätter frågan vid de senaste punkt ändringarna lästes, med hjälp av växlings status. Vi kan se en kontinuerlig ström med nya ändringar i tabellen i utrymmet. Vi kommer att se ändringar av rader som infogas eller uppdateras. Att titta efter borttagnings åtgärder med hjälp av Change feed i API för Cassandra stöds inte för närvarande.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```C#
     //set initial start time for pulling the change feed
@@ -113,7 +113,7 @@ I varje iteration fortsätter frågan vid de senaste punkt ändringarna lästes,
 
 Du kan lägga till primär nyckeln i frågan för att få ändringarna till en enskild rad efter primär nyckel. I följande exempel visas hur du spårar ändringar för raden där "user_id = 1"
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1

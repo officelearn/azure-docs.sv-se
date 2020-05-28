@@ -12,17 +12,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: a47550771180411277d21f7acf47ad0a28b6fb9e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8030e44e85958495714f441303461722b6b96bf4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209527"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115442"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (klassisk) REST API felkoder
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
- 
 Följande felkoder kan returneras av en åtgärd på en Azure Machine Learning Studio (klassisk)-webb tjänst.
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (HTTP-status kod 400)
@@ -35,30 +33,30 @@ Den här fel klassen innebär att ett argument som angetts någonstans var ogilt
 | ---------- |--------------|
 | BadParameterValue | Det angivna parametervärdet uppfyller inte parameter regeln för parametern |
 | BadSubscriptionId | Det prenumerations-ID som används för att räkna med är inte det som finns i resursen |
-| BadVersionCall | En ogiltig versions parameter skickades under API- {0}anropet:. Kontrol lera API-hjälp sidan för att skicka rätt version och försök igen. |
-| BatchJobInputsNotSpecified | Följande obligatoriska indatatyper har inte angetts med begäran: {0}. Kontrol lera att alla indata har angetts och försök igen. |
-| BatchJobInputsTooManySpecified | Begäran angav fler indata än vad som har definierats i tjänsten. Lista över godkända indatatyper: {0}. Kontrol lera att alla indata har angetts korrekt och försök igen. |
-| BlobNameTooLong | Azure Blob Storage-sökvägen som tillhandahölls för diagnostiska utdata {0}är för lång:. Förkorta sökvägen och försök igen. |
-| BlobNotFound | Det gick inte att komma åt den angivna {0}Azure-blobben.  Azure-fel meddelande {1}:. |
+| BadVersionCall | En ogiltig versions parameter skickades under API-anropet: {0} . Kontrol lera API-hjälp sidan för att skicka rätt version och försök igen. |
+| BatchJobInputsNotSpecified | Följande obligatoriska indatatyper har inte angetts med begäran: {0} . Kontrol lera att alla indata har angetts och försök igen. |
+| BatchJobInputsTooManySpecified | Begäran angav fler indata än vad som har definierats i tjänsten. Lista över godkända indatatyper: {0} . Kontrol lera att alla indata har angetts korrekt och försök igen. |
+| BlobNameTooLong | Azure Blob Storage-sökvägen som tillhandahölls för diagnostiska utdata är för lång: {0} . Förkorta sökvägen och försök igen. |
+| BlobNotFound | Det gick inte att komma åt den angivna Azure-blobben {0} .  Azure-fel meddelande: {1} . |
 | ContainerIsEmpty | Inget namn har angetts för Azure Storage-behållaren. Ange ett giltigt behållar namn och försök igen. |
 | ContainerSegmentInvalid | Ogiltigt behållar namn. Ange ett giltigt behållar namn och försök igen. |
-| ContainerValidationFailed | Det gick inte att verifiera BLOB-behållaren {0}. fel meddelande:. |
+| ContainerValidationFailed | Det gick inte att verifiera BLOB-behållaren. fel meddelande: {0} . |
 | DataTypeNotSupported | Den angivna data typen stöds inte. Ange giltiga data typer och försök igen. |
 | DuplicateInputInBatchCall | Batch-begäran är ogiltig. Det går inte att ange både enstaka och flera inmatade samtidigt. Ta bort ett av dessa objekt från begäran och försök igen. |
-| ExpiryTimeInThePast | Den angivna förfallo tiden är i det förflutna: {0}. Ange en framtida förfallo tid i UTC och försök igen. Ange förfallo tid till NULL om du aldrig vill upphöra att gälla. |
+| ExpiryTimeInThePast | Den angivna förfallo tiden är i det förflutna: {0} . Ange en framtida förfallo tid i UTC och försök igen. Ange förfallo tid till NULL om du aldrig vill upphöra att gälla. |
 | IncompleteSettings | Inställningarna för diagnostik är ofullständiga. |
 | InputBlobRelativeLocationInvalid | Inget Azure Storage-BLOB-namn har angetts. Ange ett giltigt BLOB-namn och försök igen. |
-| InvalidBlob | Ogiltig BLOB-specifikation för BLOB {0}:. Kontrol lera att anslutnings strängen/relativ sökväg eller specifikationer för SAS-token är korrekta och försök igen. |
-| InvalidBlobConnectionString | Anslutnings strängen som angetts för en av blobarna för indata/utdata är ogiltig {0}:. Korrigera detta och försök igen. |
-| InvalidBlobExtension | BLOB-referensen {0} : har ett fil namns tillägg som är ogiltigt eller saknas. Fil namns tillägg som stöds för den här utdatatypen är: "{1}". |
-| InvalidInputNames | Ett eller flera ogiltiga tjänst indatatyper har angetts i begäran {0}:. Mappa indata till rätt tjänst indata och försök igen. |
-| InvalidOutputOverrideName | Ogiltigt namn på åsidosättning av {0}utdata:. Tjänsten har ingen utmatnings nod med det här namnet. Ange rätt namn på utdatafilen för att åsidosätta (Skift läges känslighet gäller). |
-| InvalidQueryParameter | Ogiltig frågeparameter{0}. {1} |
+| InvalidBlob | Ogiltig BLOB-specifikation för BLOB: {0} . Kontrol lera att anslutnings strängen/relativ sökväg eller specifikationer för SAS-token är korrekta och försök igen. |
+| InvalidBlobConnectionString | Anslutnings strängen som angetts för en av blobarna för indata/utdata är ogiltig: {0} . Korrigera detta och försök igen. |
+| InvalidBlobExtension | BLOB-referensen: {0} har ett fil namns tillägg som är ogiltigt eller saknas. Fil namns tillägg som stöds för den här utdatatypen är: " {1} ". |
+| InvalidInputNames | Ett eller flera ogiltiga tjänst indatatyper har angetts i begäran: {0} . Mappa indata till rätt tjänst indata och försök igen. |
+| InvalidOutputOverrideName | Ogiltigt namn på åsidosättning av utdata: {0} . Tjänsten har ingen utmatnings nod med det här namnet. Ange rätt namn på utdatafilen för att åsidosätta (Skift läges känslighet gäller). |
+| InvalidQueryParameter | Ogiltig frågeparameter {0} . {1} |
 | MissingInputBlobInformation | BLOB-information för Azure Storage saknas. Ange en giltig anslutnings sträng och relativ sökväg eller URI och försök igen. |
 | MissingJobId | Inget jobb-ID har angetts. Ett jobb-ID returneras när ett jobb skickas för första gången. Kontrol lera att jobb-ID: t är korrekt och försök igen. |
 | MissingKeys | Inga nycklar har angetts eller så har en primär eller sekundär nyckel inte angetts. |
 | MissingModelPackage | Inget modell paket-ID eller modell paket har angetts. Ange ett giltigt modell paket-ID eller modell paket och försök igen. |
-| MissingOutputOverrideSpecification | Begäran saknar BLOB-specifikationen för åsidosättning {0}av utdata. Ange en giltig BLOB-plats med begäran eller ta bort utmatnings specifikationen om Ingen åsidosättning av platsen önskas. |
+| MissingOutputOverrideSpecification | Begäran saknar BLOB-specifikationen för åsidosättning av utdata {0} . Ange en giltig BLOB-plats med begäran eller ta bort utmatnings specifikationen om Ingen åsidosättning av platsen önskas. |
 | MissingRequestInput | Webb tjänsten förväntar sig en indata, men inga indata angavs. Se till att giltiga indata tillhandahålls baserat på de publicerade indataportarna i modellen och försök igen. |
 | MissingRequiredGlobalParameters | Alla nödvändiga webb tjänst parametrar har inte angetts. Kontrol lera att parametrarna som förväntades för modulerna är korrekta och försök igen. |
 | MissingRequiredOutputOverrides | När du anropar en krypterad tjänst slut punkt är det obligatoriskt att överföra åsidosättningar av utdata för alla tjänstens utdata. Åsidosättningar som saknas för den här tiden för dessa utdata:{0} |
@@ -73,10 +71,10 @@ Den här fel klassen innebär att ett argument som angetts någonstans var ogilt
 | UnexpectedParameter | Oväntade parametrar har angetts. Kontrol lera att alla parameter namn är rättstavade, endast förväntade parametrar skickas och försök igen. |
 | UnknownError | Okänt fel. |
 | UserParameterInvalid | {0} |
-| WebServiceConcurrentRequestRequirementInvalid | Det går inte att ändra kraven {0} för samtidiga begär Anden för webb tjänsten. |
+| WebServiceConcurrentRequestRequirementInvalid | Det går inte att ändra kraven för samtidiga begär Anden för {0} webb tjänsten. |
 | WebServiceIdInvalid | Ogiltigt webb tjänst-ID har angetts. Webb tjänst-ID ska vara ett giltigt GUID. |
-| WebServiceTooManyConcurrentRequestRequirement | Det går inte att ange krav för samtidiga begär anden till mer än {0}. |
-| WebServiceTypeInvalid | En ogiltig webb tjänst typ har angetts. Kontrol lera att den giltiga webb tjänst typen är korrekt och försök igen. Giltiga webb tjänst typer: {0}. |
+| WebServiceTooManyConcurrentRequestRequirement | Det går inte att ange krav för samtidiga begär anden till mer än {0} . |
+| WebServiceTypeInvalid | En ogiltig webb tjänst typ har angetts. Kontrol lera att den giltiga webb tjänst typen är korrekt och försök igen. Giltiga webb tjänst typer: {0} . |
  
 ## <a name="baduserargument-http-status-code-400"></a>BadUserArgument (HTTP-status kod 400)
  
@@ -85,7 +83,7 @@ Ogiltigt användar argument har angetts.
 | Felkod | Användar meddelande |
 | ---------- |--------------|
 | InputMismatchError | Indata stämmer inte överens med indata-portens schema. |
-| InputParseError | Parsning av indatamängds vektor misslyckades.  Kontrol lera att inmatnings vektorn har rätt antal kolumner och data typer.  Ytterligare information: {0}. |
+| InputParseError | Parsning av indatamängds vektor misslyckades.  Kontrol lera att inmatnings vektorn har rätt antal kolumner och data typer.  Ytterligare information: {0} . |
 | MissingRequiredGlobalParameters | Parameter (er) som förväntas av webb tjänsten saknas. Kontrol lera att alla nödvändiga parametrar som förväntas av webb tjänsten är korrekta och försök igen. |
 | UnexpectedParameter | Kontrol lera att endast de nödvändiga parametrarna som förväntas av webb tjänsten har skickats och försök igen. |
 | UserParameterInvalid | {0} |
@@ -96,7 +94,7 @@ Begäran är ogiltig i den aktuella kontexten.
  
 | Felkod | Användar meddelande |
 | ---------- |--------------|
-| CannotStartJob | Det går inte att starta jobbet eftersom det är {0} i tillstånd. |
+| CannotStartJob | Det går inte att starta jobbet eftersom det är i {0} tillstånd. |
 | IncompatibleModel | Modellen är inte kompatibel med den begärda versionen. Begär ande versionen stöder bara DataTables-utdata. |
 | MultipleInputsNotAllowed | Modellen tillåter inte flera indata. |
  
@@ -178,7 +176,7 @@ Ett internt fel inträffade i körningen.
 | ClusterConfigBlobMisconfigured |  |
 | ContainerProcessTerminatedWithSystemError | Container processen kraschade med systemfel |
 | ContainerProcessTerminatedWithUnknownError | Container processen kraschade med ett okänt fel |
-| ContainerValidationFailed | Det gick inte att verifiera BLOB-behållaren {0}. fel meddelande:. |
+| ContainerValidationFailed | Det gick inte att verifiera BLOB-behållaren. fel meddelande: {0} . |
 | DeleteWebServiceResourceFailed |  |
 | ExceptionDeserializationError |  |
 | FailedGettingApiDocument |  |
@@ -193,7 +191,7 @@ Ett internt fel inträffade i körningen.
 | ModuleLoadFailed |  |
 | ModuleObjectCloneFailed |  |
 | OutputConversionFailed |  |
-| PortDataTypeNotSupported | Port-ID{0} = har en datatyp som inte stöds: {1}. |
+| PortDataTypeNotSupported | Port-ID = {0} har en datatyp som inte stöds: {1} . |
 | ResourceDownload |  |
 | ResourceLoadFailed |  |
 | ServiceUrisNotFound |  |
@@ -201,7 +199,7 @@ Ett internt fel inträffade i körningen.
 | UnexpectedScoreStatus |  |
 | UnknownBackendErrorResponse |  |
 | UnknownError |  |
-| UnknownJobStatusCode | Okänd jobb status kod {0}. |
+| UnknownJobStatusCode | Okänd jobb status kod {0} . |
 | UnknownModuleError |  |
 | UpdateWebServiceResourceFailed |  |
 | WebServiceGroupNotFound |  |
@@ -239,7 +237,7 @@ Tjänsten är inte tillgänglig för tillfället.
 | Felkod | Användar meddelande |
 | ---------- |--------------|
 | NoMoreResources | Det finns inga tillgängliga resurser för begäran. |
-| RequestThrottled | Begäran begränsades för {0} slut punkten. Maximal samtidighet för slut punkten är {1}. |
+| RequestThrottled | Begäran begränsades för {0} slut punkten. Maximal samtidighet för slut punkten är {1} . |
 | TooManyConcurrentRequests | För många samtidiga förfrågningar har skickats. |
 | TooManyHostsBeingInitialized | För många värdar initieras på samma gång. Överväg att begränsa/försöka igen. |
 | TooManyHostsBeingInitializedPerModel | För många värdar initieras på samma gång. Överväg att begränsa/försöka igen. |

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 05/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: 23ba8b12651c4de05fd8fb0b2721839beb36a7a6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 398f1495fdfc9da7273ff372fbb57a6ba304c490
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660454"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117697"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET bulk utförar-bibliotek: Hämta information 
 
@@ -21,7 +21,7 @@ ms.locfileid: "83660454"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node. js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
@@ -73,6 +73,10 @@ ms.locfileid: "83660454"
 ### <a name="200-preview"></a><a name="2.0.0-preview"/>2.0.0 – för hands version
 
 * .NET standard 2,0 har lagts till som en av de mål ramverk som stöds för att utförar-biblioteket ska fungera med .NET Core-program.
+
+### <a name="189"></a><a name="1.8.9"/>1.8.9
+
+* Ett problem har åtgärd ATS med BulkDeleteAsync när värden med Escaped offerter skickades som indataparametrar.
 
 ### <a name="188"></a><a name="1.8.8"/>1.8.8
 

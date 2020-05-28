@@ -1,7 +1,7 @@
 ---
 title: Metadata med GenerateAnswer-API – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Med QnA Maker kan du lägga till metadata, i form av nyckel/värde-par, till din fråga/svars uppsättning. Du kan filtrera resultat till användar frågor och lagra ytterligare information som kan användas i uppföljnings konversationer.
+description: Med QnA Maker kan du lägga till metadata, i form av nyckel/värde-par, till dina fråge-/svars par. Du kan filtrera resultat till användar frågor och lagra ytterligare information som kan användas i uppföljnings konversationer.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: diberry
-ms.openlocfilehash: 8785484efec119f15ef53feefbd6e94181cd159a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 171efd0e5750555130588f783c4a858def11afec
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659558"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993515"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer-API och metadata
 
 Använd GenerateAnswer-API: et för att få det förväntade svaret till en användares fråga. När du publicerar en kunskaps bas kan du se information om hur du använder det här API: et på sidan **publicera** . Du kan också konfigurera API: et för att filtrera svar baserat på metadata-Taggar och testa kunskaps basen från slut punkten med parametern testa frågesträngen.
 
-Med QnA Maker kan du lägga till metadata, i form av nyckel-och värdepar, till dina frågor och svar. Du kan sedan använda den här informationen för att filtrera resultat till användar frågor och lagra ytterligare information som kan användas i uppföljnings konversationer. Mer information finns i [Knowledge Base](../Concepts/knowledge-base.md).
+Med QnA Maker kan du lägga till metadata, i form av nyckel-och värdepar, till dina par frågor och svar. Du kan sedan använda den här informationen för att filtrera resultat till användar frågor och lagra ytterligare information som kan användas i uppföljnings konversationer. Mer information finns i [Knowledge Base](../Concepts/knowledge-base.md).
 
 <a name="qna-entity"></a>
 
@@ -37,7 +37,7 @@ Varje QnA-entitet har ett unikt och beständigt ID. Du kan använda ID: t för a
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Få svars prognoser med GenerateAnswer-API: et
 
-Du kan använda [GenerateAnswer-API: et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) i din robot eller ditt program för att fråga din kunskaps bas med en användar fråga, för att få den bästa matchningen från frågan och svars uppsättningarna.
+Du kan använda [GenerateAnswer-API: et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) i din robot eller ditt program för att fråga din kunskaps bas med en användar fråga, för att få den bästa matchningen från frågan och svars paren.
 
 <a name="generateanswer-endpoint"></a>
 
@@ -196,7 +196,7 @@ Eftersom resultat endast krävs för restaurang "Paradise" kan du ange ett filte
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Använd fråge-och svars resultat för att hålla konversations kontext
 
-Svaret på GenerateAnswer innehåller motsvarande metadatainformation för den matchade frågan och svars uppsättningen. Du kan använda den här informationen i klient programmet för att lagra kontexten för den tidigare konversationen för användning i senare konversationer.
+Svaret på GenerateAnswer innehåller motsvarande metadatainformation för den matchade frågan och svars paret. Du kan använda den här informationen i klient programmet för att lagra kontexten för den tidigare konversationen för användning i senare konversationer.
 
 ```json
 {

@@ -3,12 +3,12 @@ title: Översikt över Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs Azure Monitor för behållare som övervakar AKS container Insights-lösning och det värde den ger genom att övervaka hälso tillståndet för dina AKS-kluster och Container Instances i Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 3ff2c35ae9f5838447ce90e2a020649427920a43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5bd951f7dcb2def62893df48709f1e57bd340bb2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275235"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118084"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Översikt över Azure Monitor för containrar
 
@@ -48,7 +48,7 @@ Azure Monitor för behållare ger en omfattande övervaknings upplevelse som anv
 
 De största skillnaderna vid övervakning av ett Windows Server-kluster jämfört med ett Linux-kluster är följande:
 
-- Minnets RSS-mått är inte tillgängligt för Windows-noden och behållare.
+- Windows saknar RSS-mått för minnet och är därför inte tillgängligt för Windows-noden och behållare. Arbets minnet är tillgängligt. Lär dig mer om [minnes hantering i Windows](https://docs.microsoft.com/windows/win32/memory/working-set).
 - Information om disk lagrings kapacitet är inte tillgänglig för Windows-noder.
 - Behållar loggar är inte tillgängliga för behållare som körs i Windows-noder.
 - Stöd för Live data (för hands version) är tillgängligt med undantag för Windows container-loggar.

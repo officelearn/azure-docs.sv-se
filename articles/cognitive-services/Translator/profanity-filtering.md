@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 864f6a6d92306c40713f66b526c8a8df1683d3c4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7ebfe766e6362a3f62e70db8bf2dcae370aceee3
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586804"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996167"
 ---
 # <a name="add-profanity-filtering-with-the-translator"></a>Lägg till svordomar filtrering med Translator
 
@@ -29,7 +29,7 @@ Metoden Översätt () använder parametern "alternativ", som innehåller det nya
 |ProfanityAction-värde | Åtgärd | Exempel: källa-Japansk | Exempel: Target – engelska|
 | :---|:---|:---|:---|
 | Noaction | Standard. Samma som att inte ställa in alternativet. Svordomar skickas från källa till mål. | 彼は変態です från en omfattande | Han är en Jerk. |
-| Klassificera | Svordomar ord omges av XML-taggar som är \< svordomar>... \< /Profanity>. | 彼は変態です från en omfattande | Han är en \< svordom>Jerk \< /Profanity>. |
+| Klassificera | Svordomar ord omges av XML-taggar \<profanity> ... \</profanity> . | 彼は変態です från en omfattande | Han är en \<profanity> Jerk \</profanity> . |
 | Borttagen | Svordomar-ord tas bort från utdata utan ersättning. | 彼は från en omfattande | Han är en. |
 
 ## <a name="next-steps"></a>Nästa steg

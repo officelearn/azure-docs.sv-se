@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 78cb58bca9b06b6dcf8549eefa5ebf0eb2b4b01c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b1660c3a6d3bfe262493722c5aad0a08778b1964
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409322"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119144"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av Azure Portal
 
@@ -64,8 +64,8 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
-* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
+## <a name="prerequisites"></a>Förutsättningar
+* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
 * **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Skapa en container med namnet adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Skapa en datatabell i din SQL-databas
@@ -152,7 +152,7 @@ END
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-2. På den vänstra menyn väljer du **skapa en resurs** > **analys** > **Data Factory**:
+2. På den vänstra menyn väljer du **skapa en resurs**  >  **analys**  >  **Data Factory**:
 
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -196,9 +196,9 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 8. För **länkad tjänst**väljer du **ny**och utför sedan följande steg:
 
     1. Ange **AzureSqlDatabaseLinkedService** som **namn**.
-    2. Välj din Azure SQL-Server som **Server namn**.
+    2. Välj servern som **Server namn**.
     3. Välj ditt **databas namn** i list rutan.
-    4. Ange**lösen ordet**för **användar namnet** & .
+    4. Ange lösen ordet för **användar namnet**  &  **Password**.
     5. Om du vill testa anslutningen till Azure SQL-databasen klickar du på **Testanslutning**.
     6. Klicka på **Slutför**.
     7. Bekräfta att **AzureSqlDatabaseLinkedService** har valts för den **länkade tjänsten**.
@@ -258,7 +258,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 27. I fönstret **Ange egenskaper** bekräftar du att **AzureStorageLinkedService** har valts för den **länkade tjänsten**. Välj sedan **Slutför**.
 28. Gå till fliken **anslutning** i SinkDataset och utför följande steg:
     1. I fältet **fil Sök väg** anger du **adftutorial/incrementalcopy**. **adftutorial** är blobcontainerns namn och **incrementalcopy** är mappens namn. Det här kodfragmentet förutsätter att du har en blobcontainer med namnet adftutorial i din blob-lagring. Skapa containern om den inte finns, eller ställ in den för namnet på en befintlig. Azure Data Factory skapar automatiskt utdatamappen **incrementalcopy** om den inte finns. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobcontainer.
-    2. För **fil** delen av fältet **fil Sök väg** väljer du **Lägg till dynamiskt innehåll [ALT + P]** och anger `@CONCAT('Incremental-', pipeline().RunId, '.txt')`sedan i det öppnade fönstret. Välj sedan **Slutför**. Filnamnet genereras dynamiskt med uttrycket. Varje pipelinekörning har ett unikt ID. Kopieringsaktiviteten använder körnings-ID för att generera filnamnet.
+    2. För **fil** delen av fältet **fil Sök väg** väljer du **Lägg till dynamiskt innehåll [ALT + P]** och anger sedan `@CONCAT('Incremental-', pipeline().RunId, '.txt')` i det öppnade fönstret. Välj sedan **Slutför**. Filnamnet genereras dynamiskt med uttrycket. Varje pipelinekörning har ett unikt ID. Kopieringsaktiviteten använder körnings-ID för att generera filnamnet.
 
 28. Växla till **pipeline**-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster.
 29. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignerytan. **Anslut** gröna utdata (lyckades) från aktiviteten **Kopiera** till den **lagrade proceduraktiviteten**.

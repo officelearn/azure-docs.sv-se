@@ -1,26 +1,25 @@
 ---
 title: Språk som stöds i Azure Functions
-description: Lär dig vilka språk som stöds (GA) och vilka som är experimentella eller i för hands versionen.
+description: Lär dig vilka språk som stöds (GA) och som finns i förhands granskningen och hur du kan utöka funktions utvecklingen till andra språk.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 029ea753439dca3093bf214a5adfb6d58a1fe567
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74942264"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994909"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Språk som stöds i Azure Functions
 
-I den här artikeln beskrivs de support nivåer som erbjuds för språk som du kan använda med Azure Functions.
+I den här artikeln beskrivs de support nivåer som erbjuds för språk som du kan använda med Azure Functions. Den beskriver också strategier för att skapa funktioner med språk som inte stöds internt.
 
 ## <a name="levels-of-support"></a>Support nivåer
 
-Det finns tre support nivåer:
+Det finns två support nivåer:
 
 * **Allmänt tillgänglig (ga)** – fullständigt stöd och godkänd för produktions användning.
 * För **hands version** – stöds ännu inte, men förväntas komma att uppnå GA-status i framtiden.
-* **Experimentell** – stöds inte och kan överges i framtiden. ingen garanti för eventuell för hands version eller GA-status.
 
 ## <a name="languages-by-runtime-version"></a>Språk efter körnings version 
 
@@ -28,15 +27,11 @@ Det finns tre support nivåer:
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-### <a name="experimental-languages"></a>Experimentella språk
+## <a name="custom-handlers-preview"></a>Anpassade hanterare (förhands granskning) 
 
-Experiment språken i version 1. x skalar inte bra och har inte stöd för alla bindningar.
+Anpassade hanterare är lätta webb servrar som tar emot händelser från den Azure Functions värden. Alla språk som stöder HTTP-primitiver kan implementera en anpassad hanterare. Det innebär att anpassade hanterare kan användas för att skapa funktioner i språk som inte stöds officiellt. Läs mer i [Azure Functions anpassade hanterare (för hands version)](functions-custom-handlers.md).
 
-Använd inte experimentella funktioner för något som du förlitar dig på, eftersom det inte finns något offentligt stöd för dem. Support ärenden bör inte öppnas för problem med experimentella språk. 
-
-Senare körnings versioner stöder inte experiment språk. Stöd för nya språk läggs bara till om språket kan användas i produktionen. 
-
-### <a name="language-extensibility"></a>Språk utökning
+## <a name="language-extensibility"></a>Språk utökning
 
 Från och med version 2. x är körnings miljön utformad för att erbjuda [språk utöknings barhet](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Java Script-och Java-språken i 2. x-körningsmiljön har skapats med den här utökningen.
 

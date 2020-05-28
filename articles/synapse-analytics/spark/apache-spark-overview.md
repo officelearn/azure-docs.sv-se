@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 470cc8cc16c8bdb32bac32a7227690899abb9c51
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 291e81261f8841b3d4629b077f0a244f10aa1fd8
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644678"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118576"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Vad är Apache Spark i Azure Synapse Analytics
 
@@ -41,7 +41,7 @@ Spark-pooler i Azure Synapse erbjuder en fullständigt hanterad Spark-tjänst. F
 | Stöd för Azure Data Lake Storage generation 2| Spark-pooler i Azure Synapse kan använda Azure Data Lake Storage generation 2 och BLOB Storage. Mer information om Data Lake Storage finns i [Översikt över Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
 | Integrering med tredje parts IDEs | Azure Synapse tillhandahåller ett IDE-plugin-program för [JetBrains "IntelliJ-idé](https://www.jetbrains.com/idea/) som är användbar för att skapa och skicka program till en spark-pool. |
 | Förinstallerade Anaconda-bibliotek |Spark-pooler i Azure Synapse levereras med Anaconda-bibliotek förinstallerade. [Anaconda](https://docs.continuum.io/anaconda/) innehåller närmare 200 bibliotek för Machine Learning, dataanalys, visualisering med mera. |
-| Skalbarhet | Apache Spark i Azure Synapse-pooler kan aktivera automatisk skalning, så att pooler skalar upp och ned efter behov. Dessutom kan Spark-pooler stängas utan data förlust eftersom alla data lagras i Azure Storage eller Data Lake Storage. |
+| Skalbarhet | Apache Spark i Azure Synapse-pooler kan aktivera automatisk skalning, så att pooler skalas genom att lägga till eller ta bort noder efter behov. Dessutom kan Spark-pooler stängas utan data förlust eftersom alla data lagras i Azure Storage eller Data Lake Storage. |
 
 Spark-pooler i Azure Synapse innehåller följande komponenter som är tillgängliga på pooler som standard.
 

@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: a807af3ffe14da943786051a3ece03b777a0edf5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ba90cbc8bc0267f1fba8c9495886bdc8ce2ac5e3
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873615"
+ms.locfileid: "83995912"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Skapa ett Kubernetes dev-utrymme: Visual Studio och .NET Core med Azure dev Spaces
 
@@ -26,28 +26,59 @@ I den här guiden får du lära dig hur du:
 > [!Note]
 > **Om du får fastna när som** helst kan du läsa avsnittet [fel sökning](troubleshooting.md) .
 
+## <a name="install-the-azure-cli"></a>Installera Azure CLI
+Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklarmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+### <a name="sign-in-to-azure-cli"></a>Logga in på Azure CLI
+Logga in i Azure. Skriv in följande kommando i ett terminalfönster:
+
+```azurecli
+az login
+```
+
+> [!Note]
+> Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free).
+
+#### <a name="if-you-have-multiple-azure-subscriptions"></a>Om du har flera Azure-prenumerationer ...
+Du kan visa dina prenumerationer genom att köra: 
+
+```azurecli
+az account list --output table
+```
+
+Leta upp prenumerationen som har *värdet sant* för *IsDefault*.
+Om det här inte är den prenumeration som du vill använda kan du ändra standardprenumerationen:
+
+```azurecli
+az account set --subscription <subscription ID>
+```
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
-1. Logga in på Azure Portal på https://portal.azure.com.
-1. Välj **Skapa en resurs** > sök efter **Kubernetes** > välj **Kubernetes Service** > **Skapa**.
+I kommando tolken skapar du resurs gruppen i en [region som stöder Azure dev Spaces][supported-regions].
 
-   Utför följande steg under varje rubrik i formuläret *skapa Kubernetes-kluster* och kontrol lera att din valda [region stöder Azure dev Spaces][supported-regions].
+```azurecli
+az group create --name MyResourceGroup --location <region>
+```
 
-   - **Projekt information**: Välj en Azure-prenumeration och en ny eller befintlig Azure-resurs grupp.
-   - **KLUSTERINFORMATION**: ange namn, region, version och DNS-prefix för AKS-klustret.
-   - **SKALNING**: välj en VM-storlek för AKS-agentnoderna och sedan antalet noder. Om du håller på att komma igång med Azure Dev Spaces är en nod tillräckligt för att utforska alla funktioner. Antalet noder kan enkelt justeras när som helst efter att klustret har distribuerats. Observera att VM-storleken inte kan ändras efter att ett AKS-kluster har skapats. Men när ett AKS-kluster har distribuerats kan du enkelt skapa ett nytt AKS-kluster med större virtuella datorer och använda Dev Spaces för att distribuera till större kluster igen om du behöver skala upp.
+Skapa ett Kubernetes-kluster med följande kommando:
 
-   ![Konfigurationsinställningar för Kubernetes](media/common/Kubernetes-Create-Cluster-2.PNG)
+```azurecli
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
+```
 
+Det tar några minuter att skapa klustret.
 
-   Välj **Nästa: Autentisering** när det är klart.
+### <a name="configure-your-aks-cluster-to-use-azure-dev-spaces"></a>Konfigurera ditt AKS-kluster för att använda Azure Dev Spaces
 
-1. Välj din önskade inställning för rollbaserad åtkomstkontroll (RBAC). Azure Dev Spaces har stöd för kluster med RBAC aktiverat eller inaktiverat.
+Ange följande Azure CLI-kommando med hjälp av den resursgrupp som innehåller ditt AKS-kluster och AKS-klusternamn. Kommandot konfigurerar ditt kluster med stöd för Azure Dev Spaces.
 
-    ![RBAC-inställning](media/common/k8s-RBAC.PNG)
-
-1. Välj **Granska + skapa** och välj sedan **Skapa** när du är klar.
+   ```azurecli
+   az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+   ```
+   
+> [!IMPORTANT]
+> Azure Dev Spaces-konfigurationsprocessen tar bort namnområdet `azds` i klustret, om det finns.
 
 ## <a name="get-the-visual-studio-tools"></a>Hämta Visual Studio-verktygen
 Installera den senaste versionen av [Visual Studio 2019](https://www.visualstudio.com/vs/) i Windows med arbets belastningen Azure Development.

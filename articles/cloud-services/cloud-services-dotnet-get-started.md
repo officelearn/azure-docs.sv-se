@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ce69e3c783ad8d2fb42be4c358cd1c292bbe026
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75386739"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015377"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -42,7 +42,7 @@ Under den här kursen får du lära dig hur du kör både klient- och serverdele
 * Hur du laddar upp filer och lagrar dem i Azure Blob-tjänsten.
 * Hur du använder Azure-kötjänsten för kommunikation mellan nivåer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Kursen förutsätter att du förstår [grundläggande koncept om Azure-molntjänster](cloud-services-choose-me.md), t.ex. termerna *webbroll* och *arbetsroll*.  Det förutsätts även att du kan använda [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- eller [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projekt i Visual Studio. Exempelprogrammet använder MVC, men större delen av kursen gäller också Web Forms.
 
 Du kan köra appen lokalt utan en Azure-prenumeration, men du behöver en prenumeration för att kunna distribuera programmet i molnet. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) eller [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -152,7 +152,7 @@ När appen körs i molnet använder den en molnbaserad databas.
 8. Markera **Ge Azure-tjänster åtkomst till servern**.
 9. Klicka på **Välj** för den nya servern.
 
-    ![Ny SQL Database-server](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![Ny server](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Klicka på **Skapa**.
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
@@ -331,7 +331,7 @@ När lösningen har skapats granskar du koden som är unik för molntjänstproje
     ![Nytt molntjänstprojekt](./media/cloud-services-dotnet-get-started/newcsproj.png)
 5. När du ser dialogrutan **New ASP.NET Project** (Nytt ASP.NET-projekt) för webbrollen, väljer du MVC-mallen och klickar sedan på **Change Authentication** (Ändra autentisering).
 
-    ![Ändra autentisering](./media/cloud-services-dotnet-get-started/chgauth.png)
+    ![Välj autentisering](./media/cloud-services-dotnet-get-started/chgauth.png)
 6. I dialogrutan **Change Authentication** (Ändra autentisering) väljer du **No Authentication** (Ingen autentisering) och klickar sedan på **OK**.
 
     ![Ingen autentisering](./media/cloud-services-dotnet-get-started/noauth.png)
@@ -353,7 +353,7 @@ När lösningen har skapats granskar du koden som är unik för molntjänstproje
 6. Leta upp NuGet-paketet *Microsoft.WindowsAzure.ConfigurationManager* och installera det i arbetsrollsprojektet.
 
 ### <a name="set-project-references"></a>Ange projektreferenser
-1. Ange en referens till ContosoAdsCommon-projektet i ContosoAdsWeb-projektet. Högerklicka på projektet ContosoAdsWeb och klicka sedan på **referenser** - **Lägg till referenser**. Välj **Solution – Projects** (Lösning – Projekt) i den vänstra rutan i dialogrutan **Reference Manager** (Referenshanterare). Välj sedan **ContosoAdsCommon** och klicka på **OK**.
+1. Ange en referens till ContosoAdsCommon-projektet i ContosoAdsWeb-projektet. Högerklicka på projektet ContosoAdsWeb och klicka sedan på **referenser**  -  **Lägg till referenser**. Välj **Solution – Projects** (Lösning – Projekt) i den vänstra rutan i dialogrutan **Reference Manager** (Referenshanterare). Välj sedan **ContosoAdsCommon** och klicka på **OK**.
 2. Ange en referens till ContosoAdsCommon-projektet i ContosoAdsWorker-projektet.
 
     ContosoAdsCommon innehåller Entity Framework-datamodellen och -kontextklassen som kommer att användas både av klientdelen och serverdelen.
@@ -398,7 +398,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 ### <a name="add-code-files"></a>Lägga till kodfiler
 I det här avsnittet får du kopiera kodfiler från den hämtade lösningen till den nya lösningen. I följande avsnitt visas och förklaras viktiga delar av den här koden.
 
-Om du vill lägga till filer i ett projekt eller en mapp högerklickar du på projektet eller mappen och klickar på **Lägg till** - **befintligt objekt**. Välj de filer du vill ha och klicka sedan på **Add** (Lägg till). Om du blir tillfrågad om du vill ersätta befintliga filer klickar du på **Yes** (Ja).
+Om du vill lägga till filer i ett projekt eller en mapp högerklickar du på projektet eller mappen och klickar på **Lägg till**  -  **befintligt objekt**. Välj de filer du vill ha och klicka sedan på **Add** (Lägg till). Om du blir tillfrågad om du vill ersätta befintliga filer klickar du på **Yes** (Ja).
 
 1. Ta bort filen *Class1.cs* i ContosoAdsCommon-projektet och lägg i stället till filerna *Ad.cs* och *ContosoAdscontext.cs* från det hämtade projektet.
 2. Lägg till följande filer från det hämtade projektet i ContosoAdsWeb-projektet.

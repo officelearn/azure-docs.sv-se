@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 22744ecbced40b3195f4d047227b1e2a37228102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f79d0e917ba741e72e2bbecd4a1f94a4c99e5393
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260909"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996065"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Översikt över Service Bus transaktions bearbetning
 
@@ -36,8 +36,8 @@ Service Bus stöder grupperingsåtgärder mot en enskild meddelandeenhet (kö, �
 
 De åtgärder som kan utföras inom ett transaktions omfång är följande:
 
-* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, obeställbara meddelanden kön, DeadletterAsync, skjuta upp, DeferAsync, RenewLock, RenewLockAsync 
+* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**:,,,,,,, `Complete` `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` ,`RenewLockAsync` 
 
 Receive-åtgärder ingår inte, eftersom det förutsätts att programmet hämtar meddelanden med hjälp av läget [PeekLock ReceiveMode. PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) , i vissa mottagnings slingor eller med ett [motringningen OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) -motanrop, och öppnar bara ett transaktions omfång för bearbetning av meddelandet.
 
@@ -45,7 +45,7 @@ Dispositionen av meddelandet (fullständig, överge, obeställbara meddelanden, 
 
 ## <a name="transfers-and-send-via"></a>Överföringar och "Skicka via"
 
-Om du vill aktivera transaktionell överlämnande av data från en kö till en processor, och sedan till en annan kö, Service Bus stöder *överföringar*. I en överförings åtgärd skickar en sändare först ett meddelande till en *överförings kö*, och överförings kön flyttar omedelbart meddelandet till den avsedda målkön med samma robusta överförings implementering som funktionen för automatisk vidarebefordring förlitar sig på. Meddelandet allokeras aldrig till överförings köns logg på ett sätt som är synligt för överförings köns konsumenter.
+Om du vill aktivera transaktionell överlämnande av data från en kö till en processor, och sedan till en annan kö, Service Bus stöder *överföringar*. I en överförings åtgärd skickar en sändare först ett meddelande till en *överförings kö*, och överförings kön flyttar omedelbart meddelandet till den avsedda målkön med samma robusta överförings implementering som funktionen för vidarebefordran är beroende av. Meddelandet allokeras aldrig till överförings köns logg på ett sätt som är synligt för överförings köns konsumenter.
 
 Kraften i denna transaktions funktion blir tydlig när själva överförings kön är källan till avsändarens indatameddelande. Med andra ord kan Service Bus överföra meddelandet till målkön "via" överförings kön, samtidigt som en fullständig (eller överskjutande eller obeställbara meddelanden) utförs i Indataporten, allt i en atomisk åtgärd. 
 
@@ -97,13 +97,16 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 }
 ```
 
+## <a name="timeout"></a>Timeout
+En transaktions tids gräns efter 2 minuter. Timern för transaktioner startar när den första åtgärden i transaktionen börjar. 
+
 ## <a name="next-steps"></a>Nästa steg
 
 I följande artiklar finns mer information om Service Bus köer:
 
 * [Använd Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
-* [Kedja Service Bus entiteter med automatisk vidarebefordran](service-bus-auto-forwarding.md)
-* [Exempel på automatisk vidarebefordran](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
+* [Kedja Service Bus entiteter med vidarebefordran](service-bus-auto-forwarding.md)
+* [Exempel på autoforward](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
 * [Atomiska transaktioner med Service Bus exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
 * [Azure-köer och Service Bus köer jämförs](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

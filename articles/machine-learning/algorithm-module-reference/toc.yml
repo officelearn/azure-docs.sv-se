@@ -32,6 +32,8 @@
       href: clean-missing-data.md
     - name: Redigera metadata
       href: edit-metadata.md
+    - name: Gruppera data till lagerplatser
+      href: group-data-into-bins.md
     - name: Koppla data
       href: join-data.md
     - name: Normalisera Data
@@ -130,6 +132,8 @@
       href: execute-r-script.md
 - name: Textanalys
   items:
+    - name: Konvertera Word till vektor
+      href: convert-word-to-vector.md
     - name: Extrahera N-Gram-funktioner från text
       href: extract-n-gram-features-from-text.md
     - name: Funktions-hash

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 344ad8e106c119c1de59570d1ec4e3df5e1cc8af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a59d9291d1eaa4aa87d40914679e39c9cbf29cee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417112"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112645"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata-aktivitet i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,8 +56,8 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
 - När du använder hämta metadata-aktivitet mot en mapp kontrollerar du att du har behörigheten lista/kör till den aktuella mappen.
-- För Amazon S3 och Google Cloud Storage `lastModified` gäller Bucket och nyckeln, men inte den virtuella mappen, och `exists` gäller även för Bucket och nyckeln, men inte till prefixet eller den virtuella mappen.
-- För Azure Blob Storage gäller `lastModified` för behållaren och blobben, men inte i den virtuella mappen.
+- För Amazon S3 och Google Cloud Storage `lastModified` gäller Bucket och nyckeln, men inte den virtuella mappen, och gäller även för `exists` Bucket och nyckeln, men inte till prefixet eller den virtuella mappen.
+- För Azure Blob Storage `lastModified` gäller för behållaren och blobben, men inte i den virtuella mappen.
 - `lastModified`filtret används för närvarande för att filtrera underordnade objekt, men inte den angivna mappen/filen.
 - Wildcard-filter i mappar/filer stöds inte för aktiviteten hämta metadata.
 
@@ -66,7 +66,7 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 | Koppling/metadata | hierarkistruktur | Antal | finns |
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
-| [Azure SQL Database Hanterad instans](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Hanterad Azure SQL-instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
 | [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
@@ -77,7 +77,7 @@ Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält
 | Typ av metadata | Beskrivning |
 |:--- |:--- |
 | itemName | Filens eller mappens namn. |
-| itemType | Typ av fil eller mapp. Returnerat värde `File` är `Folder`eller. |
+| itemType | Typ av fil eller mapp. Returnerat värde är `File` eller `Folder` . |
 | ikoner | Filens storlek i byte. Gäller endast för filer. |
 | Create | Datum/tid för filen eller mappen har skapats. |
 | lastModified | Datum och tid då filen eller mappen senast ändrades. |
@@ -85,13 +85,13 @@ Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält
 | contentMD5 | MD5 av filen. Gäller endast för filer. |
 | hierarkistruktur | Data strukturen för filen eller Relations databas tabellen. Returnerat värde är en lista med kolumn namn och kolumn typer. |
 | Antal | Antalet kolumner i filen eller Relations tabellen. |
-| finns| Om en fil, mapp eller tabell finns. Observera att om `exists` anges i fält listan Hämta metadata, kommer aktiviteten inte att kunna köras även om filen, mappen eller tabellen inte finns. `exists: false` I stället returneras i utdata. |
+| finns| Om en fil, mapp eller tabell finns. Observera att om anges `exists` i fält listan Hämta metadata, kommer aktiviteten inte att kunna köras även om filen, mappen eller tabellen inte finns. I stället `exists: false` returneras i utdata. |
 
 >[!TIP]
 >När du vill kontrol lera att det finns en fil, mapp eller tabell, anger `exists` du i fält listan Hämta metadata-aktivitet. Sedan kan du kontrol lera `exists: true/false` resultatet i aktivitetens utdata. Om `exists` inte anges i fält listan, kommer get metadata-aktiviteten inte att fungera om objektet inte hittas.
 
 >[!NOTE]
->När du hämtar metadata från fil Arkiv och konfigurerar `modifiedDatetimeStart` eller `modifiedDatetimeEnd`, kommer `childItems` i-utdata bara att innehålla filer på den angivna sökvägen som har en senaste ändrings tid inom det angivna intervallet. I innehåller inte objekt i undermappar.
+>När du hämtar metadata från fil Arkiv och konfigurerar `modifiedDatetimeStart` eller `modifiedDatetimeEnd` , `childItems` kommer i-utdata bara att innehålla filer på den angivna sökvägen som har en senaste ändrings tid inom det angivna intervallet. I innehåller inte objekt i undermappar.
 
 ## <a name="syntax"></a>Syntax
 
@@ -137,7 +137,7 @@ Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält
 
 För närvarande kan aktiviteten hämta metadata returnera följande typer av metadatainformation:
 
-Egenskap | Beskrivning | Krävs
+Egenskap | Beskrivning | Obligatorisk
 -------- | ----------- | --------
 Fält lista | De typer av metadatainformation som krävs. Mer information om metadata som stöds finns i avsnittet [metadata-alternativ](#metadata-options) i den här artikeln. | Ja 
 data uppsättning | Referens data uppsättningen vars metadata ska hämtas av aktiviteten hämta metadata. I avsnittet [funktioner](#capabilities) finns information om anslutnings program som stöds. Information om syntax för data uppsättning finns i specifika anslutnings avsnitt. | Ja
@@ -146,7 +146,7 @@ storeSettings | Använd när du använder data uppsättning för format typ. | N
 
 ## <a name="sample-output"></a>Exempel på utdata
 
-Resultatet från hämta metadata visas i aktivitetens utdata. Nedan visas två exempel som visar omfattande metadata-alternativ. Använd följande mönster om du vill använda resultatet i en efterföljande aktivitet: `@{activity('MyGetMetadataActivity').output.itemName}`.
+Resultatet från hämta metadata visas i aktivitetens utdata. Nedan visas två exempel som visar omfattande metadata-alternativ. Använd följande mönster om du vill använda resultatet i en efterföljande aktivitet: `@{activity('MyGetMetadataActivity').output.itemName}` .
 
 ### <a name="get-a-files-metadata"></a>Hämta metadata för en fil
 

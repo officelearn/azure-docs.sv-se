@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6534e7d3a05434855503a9cbf1e675aa11799984
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: aab64e173b02ae991f7071da785434fa742de7de
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857787"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994705"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Haveri beredskap och redundans för lagrings konto
 
@@ -26,8 +26,6 @@ Azure Storage stöder redundans för geo-redundanta lagrings konton. Med konto r
 Det finns ett konto för redundans för allmänna v1-, General-Purpose v2-och Blob Storage-konto typer med Azure Resource Manager distributioner. Redundansväxling av kontot stöds för alla offentliga regioner men är inte tillgänglig i suveräna eller nationella moln för tillfället.
 
 Den här artikeln beskriver koncepten och processen som är inblandade i ett konto för redundans och beskriver hur du förbereder ditt lagrings konto för återställning med minsta möjliga mängd kund påverkan. Information om hur du startar en redundansväxling av ett konto i Azure Portal eller PowerShell finns i [initiera ett konto redundansväxling](storage-initiate-account-failover.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b8a01b5f2f5ec64fea014468356408220f9c4f1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4de0686dbca803b9008c1b56c512a90fcfe2b3c0
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721378"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022443"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Flytta data till SQL Server på en virtuell Azure-dator
 
@@ -38,7 +38,7 @@ Det här dokumentet förutsätter att SQL-kommandon körs från SQL Server Manag
 >
 >
 
-## <a name="prerequisites"></a><a name="prereqs"></a>Krav
+## <a name="prerequisites"></a><a name="prereqs"></a>Förutsättningar
 Den här självstudien förutsätter att du har:
 
 * En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
@@ -62,7 +62,7 @@ BCP är ett kommando rads verktyg som installeras med SQL Server och är ett av 
 >
 >
 
-1. Se till att databasen och tabellerna skapas på mål SQL Servers databasen. Här är ett exempel på hur du gör med kommandona `Create Database` och `Create Table` :
+1. Se till att databasen och tabellerna skapas på mål SQL Servers databasen. Här är ett exempel på hur du gör med `Create Database` `Create Table` kommandona och:
 
     ```sql
     CREATE DATABASE <database_name>
@@ -174,7 +174,7 @@ Du kan också använda följande migrerings strategier:
 Vi beskriver vart och ett av följande alternativ:
 
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>Distribuera en SQL Server-databas till en Microsoft Azure VM-guide
-Att **distribuera en SQL Server databas till en Microsoft Azure VM-guide** är ett enkelt och rekommenderat sätt att flytta data från en lokal SQL Server-instans till SQL Server på en virtuell Azure-dator. Detaljerade anvisningar och en beskrivning av andra alternativ finns i [Migrera en databas till SQL Server på en virtuell Azure-dator](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md).
+Att **distribuera en SQL Server databas till en Microsoft Azure VM-guide** är ett enkelt och rekommenderat sätt att flytta data från en lokal SQL Server-instans till SQL Server på en virtuell Azure-dator. Detaljerade anvisningar och en beskrivning av andra alternativ finns i [Migrera en databas till SQL Server på en virtuell Azure-dator](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
 
 ### <a name="export-to-flat-file"></a><a name="export-flat-file"></a>Exportera till flat fil
 Du kan använda olika metoder för att massredigera data från en lokal SQL Server som dokumenteras i avsnittet [Mass import och export av data (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) . Det här dokumentet kommer att gälla för Mass kopierings programmet (BCP) som exempel. När data har exporter ATS till en platt fil kan den importeras till en annan SQL Server med Mass import.
@@ -210,9 +210,9 @@ En skärm bild av alternativen för databas säkerhets kopiering/återställning
 ![SQL Server import verktyg][1]
 
 ## <a name="resources"></a>Resurser
-[Migrera en databas till SQL Server på en virtuell Azure-dator](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)
+[Migrera en databas till SQL Server på en virtuell Azure-dator](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md)
 
-[Översikt över SQL Server på Azure Virtual Machines](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+[Översikt över SQL Server på Azure Virtual Machines](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 [1]: ./media/move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/move-sql-server-virtual-machine/database_migration_wizard.png

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
-ms.openlocfilehash: 5abc216e182d7becd9d6f42e0f566ee96d09c2a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f0b738f394c4a544ddb31e25b4570890ccfa9235
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79479259"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995878"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Azure Functions anpassade hanterare (förhands granskning)
 
@@ -20,9 +20,9 @@ Anpassade hanterare är lätta webb servrar som tar emot händelser från Functi
 
 Anpassade hanterare passar bäst för situationer där du vill:
 
-- Implementera en Functions-app på ett språk som ligger utanför de språk som stöds
-- Implementera en Functions-app i en språk version eller runtime stöds inte som standard
-- Få detaljerad kontroll över appens körnings miljö
+- Implementera en Function-app på ett språk som inte stöds officiellt.
+- Implementera en Function-app i en språk version eller runtime stöds inte som standard.
+- Ger mer detaljerad kontroll över körnings miljön för Function-appar.
 
 Med anpassade hanterare stöds alla [utlösare och indata-och utgående bindningar](./functions-triggers-bindings.md) via [tilläggs paket](./functions-bindings-register.md).
 
@@ -73,7 +73,7 @@ En anpassad hanterare definieras genom att konfigurera *Host. JSON* -filen med i
 }
 ```
 
-`httpWorker` Avsnittet pekar på ett mål som definieras av `defaultExecutablePath`. Körnings målet kan antingen vara ett kommando, en körbar fil eller en fil där webb servern är implementerad.
+`httpWorker`Avsnittet pekar på ett mål som definieras av `defaultExecutablePath` . Körnings målet kan antingen vara ett kommando, en körbar fil eller en fil där webb servern är implementerad.
 
 För skriptbaserade appar `defaultExecutablePath` pekar du på skript språkets körning och `defaultWorkerPath` pekar på skript filens plats. I följande exempel visas hur en JavaScript-app i Node. js konfigureras som en anpassad hanterare.
 
@@ -89,7 +89,7 @@ För skriptbaserade appar `defaultExecutablePath` pekar du på skript språkets 
 }
 ```
 
-Du kan också skicka argument med hjälp `arguments` av matrisen:
+Du kan också skicka argument med hjälp av `arguments` matrisen:
 
 ```json
 {
@@ -123,11 +123,11 @@ Nytto lasten för begäran för rena HTTP-funktioner är nytto lasten för RAW H
 
 En annan typ av funktion som innehåller antingen indata, utgående bindningar eller utlöses via en annan händelse källa än HTTP har en anpassad nytto last för begäran.
 
-Följande kod representerar en nytto last för begäran. Nytto lasten innehåller en JSON-struktur med två `Data` medlemmar `Metadata`: och.
+Följande kod representerar en nytto last för begäran. Nytto lasten innehåller en JSON-struktur med två medlemmar: `Data` och `Metadata` .
 
-`Data` Medlemmen innehåller nycklar som matchar indata och utlösnings namn som definieras i matrisen för bindningar i *Function. JSON* -filen.
+`Data`Medlemmen innehåller nycklar som matchar indata och utlösnings namn som definieras i matrisen för bindningar i *Function. JSON* -filen.
 
-`Metadata` Medlemmen inkluderar [metadata som genereras från händelse källan](./functions-bindings-expressions-patterns.md#trigger-metadata).
+`Metadata`Medlemmen inkluderar [metadata som genereras från händelse källan](./functions-bindings-expressions-patterns.md#trigger-metadata).
 
 De bindningar som definierats i följande *funktion. JSON* -fil:
 
@@ -179,11 +179,11 @@ En nytto last för begäran som liknar det här exemplet returneras:
 
 Efter konvention formateras funktions svaren som nyckel/värde-par. Nycklar som stöds är:
 
-| <nobr>Nytto Last nyckel</nobr>   | Datatyp | Anmärkningar                                                      |
+| <nobr>Nytto Last nyckel</nobr>   | Datatyp | Kommentarer                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | JSON      | Innehåller svars värden som definieras av `bindings` matrisen *Function. JSON* -filen.<br /><br />Om en funktion till exempel har kon figurer ATS med en utgående bindning för Blob Storage med namnet BLOB, `Outputs` innehåller en nyckel med `blob`namnet, som är inställd på blobens värde. |
+| `Outputs`     | JSON      | Innehåller svars värden som definieras av `bindings` matrisen *Function. JSON* -filen.<br /><br />Om en funktion till exempel har kon figurer ATS med en utgående bindning för Blob Storage med namnet BLOB, `Outputs` innehåller en nyckel med namnet `blob` , som är inställd på blobens värde. |
 | `Logs`        | matris     | Meddelanden visas i loggarna Functions-anrop.<br /><br />När du kör i Azure visas meddelanden i Application Insights. |
-| `ReturnValue` | sträng    | Används för att tillhandahålla ett svar när utdata har kon figurer `$return` ATS som i *Function. JSON* -filen. |
+| `ReturnValue` | sträng    | Används för att tillhandahålla ett svar när utdata har kon figurer ATS som `$return` i *Function. JSON* -filen. |
 
 Se [exemplet för en exempel nytto Last](#bindings-implementation).
 
@@ -196,7 +196,7 @@ Anpassade hanterare kan implementeras på alla språk som stöder HTTP-händelse
 
 ## <a name="http-only-function"></a>Funktionen endast HTTP
 
-Följande exempel visar hur du konfigurerar en HTTP-utlöst funktion utan ytterligare bindningar eller utdata. Scenariot som implementeras i det här exemplet innehåller `http` en funktion som `GET` heter `POST` som accepterar en eller.
+Följande exempel visar hur du konfigurerar en HTTP-utlöst funktion utan ytterligare bindningar eller utdata. Scenariot som implementeras i det här exemplet innehåller en funktion `http` som heter som accepterar en `GET` eller `POST` .
 
 Följande kodfragment visar hur en begäran till funktionen består.
 
@@ -233,7 +233,7 @@ I en mapp med namnet *http*konfigurerar *Function. JSON* -filen http-utlöst fun
 }
 ```
 
-Funktionen har kon figurer ATS för att `GET` acceptera `POST` både-och-begär Anden och resultatvärdet anges via ett `res`argument med namnet.
+Funktionen har kon figurer ATS för att acceptera både- `GET` och- `POST` begär Anden och resultatvärdet anges via ett argument med namnet `res` .
 
 I roten av appen är *Host. JSON* -filen konfigurerad att köra Node. js och peka `server.js` filen.
 
@@ -274,18 +274,18 @@ app.post("/hello", (req, res) => {
 });
 ```
 
-I det här exemplet används Express för att skapa en webb server som hanterar HTTP-händelser och är inställd på att lyssna efter begär `FUNCTIONS_HTTPWORKER_PORT`Anden via.
+I det här exemplet används Express för att skapa en webb server som hanterar HTTP-händelser och är inställd på att lyssna efter begär Anden via `FUNCTIONS_HTTPWORKER_PORT` .
 
-Funktionen definieras i sökvägen till `/hello`. `GET`begär Anden hanteras genom att returnera ett enkelt JSON-objekt och `POST` begär Anden har åtkomst till begär ande texten `req.body`via.
+Funktionen definieras i sökvägen till `/hello` . `GET`begär Anden hanteras genom att returnera ett enkelt JSON-objekt och `POST` begär Anden har åtkomst till begär ande texten via `req.body` .
 
-Vägen för funktionen order finns `/hello` här och inte `/api/hello` eftersom Functions-värden proxyerar begäran till den anpassade hanteraren.
+Vägen för funktionen order finns här `/hello` och inte `/api/hello` eftersom Functions-värden proxyerar begäran till den anpassade hanteraren.
 
 >[!NOTE]
->`FUNCTIONS_HTTPWORKER_PORT` Är inte den offentliga porten som används för att anropa funktionen. Den här porten används av Functions-värden för att anropa den anpassade hanteraren.
+>`FUNCTIONS_HTTPWORKER_PORT`Är inte den offentliga porten som används för att anropa funktionen. Den här porten används av Functions-värden för att anropa den anpassade hanteraren.
 
 ## <a name="function-with-bindings"></a>Funktion med bindningar
 
-Scenariot som implementeras i det här exemplet innehåller `order` en funktion med `POST` namnet som godkänner en med en nytto last som representerar en produkt order. När en order skickas till funktionen skapas ett Queue Storage meddelande och ett HTTP-svar returneras.
+Scenariot som implementeras i det här exemplet innehåller en funktion med namnet `order` som godkänner en `POST` med en nytto last som representerar en produkt order. När en order skickas till funktionen skapas ett Queue Storage meddelande och ett HTTP-svar returneras.
 
 ```http
 POST http://127.0.0.1:7071/api/order HTTP/1.1
@@ -379,9 +379,9 @@ app.post("/order", (req, res) => {
 });
 ```
 
-I det här exemplet används Express för att skapa en webb server som hanterar HTTP-händelser och är inställd på att lyssna efter begär `FUNCTIONS_HTTPWORKER_PORT`Anden via.
+I det här exemplet används Express för att skapa en webb server som hanterar HTTP-händelser och är inställd på att lyssna efter begär Anden via `FUNCTIONS_HTTPWORKER_PORT` .
 
-Funktionen definieras i sökvägen till `/order` .  Vägen för funktionen order finns `/order` här och inte `/api/order` eftersom Functions-värden proxyerar begäran till den anpassade hanteraren.
+Funktionen definieras i sökvägen till `/order` .  Vägen för funktionen order finns här `/order` och inte `/api/order` eftersom Functions-värden proxyerar begäran till den anpassade hanteraren.
 
 När `POST` förfrågningar skickas till den här funktionen exponeras data genom några punkter:
 
@@ -390,7 +390,7 @@ När `POST` förfrågningar skickas till den här funktionen exponeras data geno
 
 Funktionens svar är formaterat i ett nyckel/värde-par där `Outputs` medlemmen innehåller ett JSON-värde där nycklarna matchar de utdata som definieras i *Function. JSON* -filen.
 
-Genom att `message` ange ett värde som motsvarar det meddelande som kom från begäran, `res` och till det förväntade http-svaret, skickar den här funktionen ett meddelande till Queue Storage och returnerar ett HTTP-svar.
+Genom att ange ett värde `message` som motsvarar det meddelande som kom från begäran, och `res` till det förväntade http-svaret, skickar den här funktionen ett meddelande till Queue Storage och returnerar ett HTTP-svar.
 
 ## <a name="debugging"></a>Felsökning
 

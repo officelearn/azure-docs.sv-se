@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c58c99faa83d6f04ac37d03789202e111f1b06d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: f879ebd2f3628b8282342d730a5f3957cf2a615f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611168"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994996"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
->Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` klistra in ![den här URL:](./media/whats-new/feed-icon-16x16.png) en i din RSS feed reader-ikon feed reader.
+>Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in den här URL: en `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Active+Directory%22&locale=en-us` i din ![ RSS feed reader-ikon ](./media/whats-new/feed-icon-16x16.png) feed reader.
 
 Azure AD tar emot förbättringar kontinuerligt. För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
 
@@ -487,7 +487,7 @@ Azure Monitor integrering med Azure AD-loggar finns nu i Azure Government. Du ka
 **Tjänste kategori:** Identitets skydd  
 **Produkt kapacitet:** & skydd för identitets säkerhet
 
-Vi är glada att kunna dela att vi nu har lanserat den uppdaterade [Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs) upplevelsen på [Microsoft Azure Government portalen](https://portal.azure.us/). Mer information finns i [blogg inlägget för meddelande](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667).
+Vi är glada att kunna dela att vi nu har lanserat den uppdaterade [Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs)   upplevelsen på [Microsoft Azure Government portalen](https://portal.azure.us/). Mer information finns i [blogg inlägget för meddelande](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667).
 
 ---
 
@@ -544,7 +544,7 @@ Nu kan kunder som har kostnads fria klient organisationer komma åt [inloggnings
 **Tjänste kategori:** Grupp hantering  
 **Produkt kapacitet:** Samarbete
 
-För att ge kunderna ett mer flexibelt sätt att skapa katalog grupper som bäst uppfyller deras behov har vi ersatt alternativet för **katalog grupper** **från** > gruppen**allmänna** inställningar i Azure Portal med en länk till [dynamisk grupp dokumentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership). Vi har förbättrat vår dokumentation för att inkludera fler instruktioner så att administratörer kan skapa grupper med alla användare som inkluderar eller undantar gäst användare.
+För att ge kunderna ett mer flexibelt sätt att skapa katalog grupper som bäst uppfyller deras behov har vi ersatt alternativet för **katalog grupper** **från gruppen**  >  **allmänna** inställningar i Azure Portal med en länk till [dynamisk grupp dokumentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership). Vi har förbättrat vår dokumentation för att inkludera fler instruktioner så att administratörer kan skapa grupper med alla användare som inkluderar eller undantar gäst användare.
 
 ---
 
@@ -658,7 +658,7 @@ Mitt konto, det enda steget för att hantera slut användar kontots behov, är n
 **Tjänste kategori:** Min profil/konto  
 **Produkt kapacitet:** Slut användar upplevelser
  
-Den nya slut användar upplevelsen för mitt konto kommer att uppdatera URL `https://myaccount.microsoft.com` : en till nästa månad. Hitta mer information om upplevelsen och alla självbetjänings funktioner som det erbjuder för slutanvändare i [mitt konto Portal hjälp](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview).
+Den nya slut användar upplevelsen för mitt konto kommer att uppdatera URL: en till `https://myaccount.microsoft.com` Nästa månad. Hitta mer information om upplevelsen och alla självbetjänings funktioner som det erbjuder för slutanvändare i [mitt konto Portal hjälp](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview).
 
 ---
  
@@ -789,7 +789,7 @@ Mer information om de nya säkerhets standarderna finns i [Vad är säkerhets in
 **Tjänste kategori:** Autentiseringar (inloggningar)  
 **Produkt kapacitet:** Användarautentisering
 
-Som en del av en säker standard modell för cookies, ändrar Chrome 80-webbläsaren hur den behandlar cookies utan `SameSite` attributet. Alla cookies som inte anger `SameSite` attributet behandlas som om det var inställt på, `SameSite=Lax`vilket leder till att Chrome blockerar vissa scenarier mellan domänens cookie-delning som din app kan vara beroende av. Om du vill behålla det äldre Chrome-beteendet kan `SameSite=None` du använda attributet och lägga `Secure` till ytterligare ett attribut, så att cookies från flera platser bara kan nås via HTTPS-anslutningar. Chrome har schemalagts för att slutföra den här ändringen senast den 4 februari 2020.
+Som en del av en säker standard modell för cookies, ändrar Chrome 80-webbläsaren hur den behandlar cookies utan `SameSite` attributet. Alla cookies som inte anger `SameSite` attributet behandlas som om det var inställt på `SameSite=Lax` , vilket leder till att Chrome blockerar vissa scenarier mellan domänens cookie-delning som din app kan vara beroende av. Om du vill behålla det äldre Chrome-beteendet kan du använda `SameSite=None` attributet och lägga till ytterligare ett `Secure` attribut, så att cookies från flera platser bara kan nås via HTTPS-anslutningar. Chrome har schemalagts för att slutföra den här ändringen senast den 4 februari 2020.
 
 Vi rekommenderar att alla utvecklare testar sina appar med hjälp av den här vägledningen:
 
@@ -797,7 +797,7 @@ Vi rekommenderar att alla utvecklare testar sina appar med hjälp av den här v�
 
 - Ange standardvärdet för attributet **SameSite** till **none**.
 
-- Lägg till ytterligare `SameSite` ett attribut för **Secure**.
+- Lägg till ytterligare ett `SameSite` attribut för **Secure**.
 
 Mer information finns i [kommande SameSite cookie-ändringar i ASP.net och ASP.net Core](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/) och [potentiella avbrott till kund webbplatser och Microsofts produkter och tjänster i Chrome version 79 och senare](https://support.microsoft.com/help/4522904/potential-disruption-to-microsoft-services-in-chrome-beta-version-79).
 

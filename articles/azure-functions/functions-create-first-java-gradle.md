@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: 34aab24bf39e387715cfa5783b801d45ed488750
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a366a199338539ba8e599bd5f406838f4e7bd21c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732727"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996659"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Använd Java och Gradle för att skapa och publicera en funktion i Azure
 
@@ -19,7 +19,7 @@ Den här artikeln visar hur du skapar och publicerar ett Java-Function-projekt f
 > [!NOTE]
 > Om Gradle inte är ditt fördelaktiga utvecklingsverktyg kan du ta en titt på våra liknande själv studie kurser för Java-utvecklare med [maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [IntelliJ-idé](/azure/developer/java/toolkit-for-intellij/quickstart-functions) och vs- [kod](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna utveckla funktioner med hjälp av Java måste du ha följande installerat:
 
@@ -60,7 +60,7 @@ azurefunctions {
 Öppna den nya function. java-filen från sökvägen *src/main/Java* i en text redigerare och granska den genererade koden. Den här koden är en [http-utlöst](functions-bindings-http-webhook.md) funktion som upprepar bröd texten i begäran. 
 
 > [!div class="nextstepaction"]
-> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=generate-project)
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
@@ -93,14 +93,16 @@ curl -w "\n" http://localhost:7071/api/HttpExample --data AzureFunctions
 Förväntade utdata är följande:
 
 <pre>
-Hello AzureFunctions!
+Hello, AzureFunctions
 </pre>
 
-[Funktions nyckeln](functions-bindings-http-webhook-trigger.md#authorization-keys) är inte obligatorisk när den körs lokalt.  
+> [!NOTE]
+> Om du anger authLevel till `FUNCTION` eller `ADMIN` , krävs inte [funktions nyckeln](functions-bindings-http-webhook-trigger.md#authorization-keys) när du kör lokalt.  
+
 Använd `Ctrl+C` i terminalen för att stoppa funktionskoden.
 
 > [!div class="nextstepaction"]
-> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=local-run)
 
 ## <a name="deploy-the-function-to-azure"></a>Distribuera funktionen till Azure
 
@@ -128,10 +130,10 @@ Detta skapar följande resurser i Azure, baserat på värdena i filen build. gra
 
 Distributionen paketerar också projektfilerna och distribuerar dem till den nya Function-appen med hjälp av [zip-distribution](functions-deployment-technologies.md#zip-deploy), där läget Kör-från-paket är aktiverat.
 
-Eftersom HTTP-utlösaren som `authLevel = AuthorizationLevel.FUNCTION`vi publicerade använder måste du hämta funktions nyckeln för att anropa funktions slut punkten över http. Det enklaste sättet att hämta funktions nyckeln är från [Azure Portal].
+AuthLevel för HTTP-utlösare i exempel projekt är `ANONYMOUS` , vilket kommer att hoppa över autentiseringen. Men om du använder andra authLevel som `FUNCTION` eller `ADMIN` måste du hämta funktions nyckeln för att anropa funktions slut punkten över http. Det enklaste sättet att hämta funktions nyckeln är från [Azure Portal].
 
 > [!div class="nextstepaction"]
-> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=deploy)
 
 ## <a name="get-the-http-trigger-url"></a>Hämta URL: en för HTTP-utlösaren
 
@@ -139,9 +141,9 @@ Du kan hämta den URL som krävs för att utlösa din funktion med funktions tan
 
 1. Bläddra till [Azure Portal], logga in, ange _APPNAME_ för din Function-app i **Sök** överst på sidan och tryck på RETUR.
  
-1. I din Function-app expanderar du Functions **(skrivskyddad)**, väljer din funktion och väljer sedan **</> Hämta funktions webb adress** längst upp till höger. 
+1. I din Function-app väljer du **funktioner**, väljer din funktion och klickar sedan på **</> Hämta funktions webb adress** längst upp till höger. 
 
-    ![Kopiera funktionswebbadressen från Azure Portal](./media/functions-create-java-maven/get-function-url-portal.png)
+    :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Kopiera funktionswebbadressen från Azure Portal":::
 
 1. Välj **Standard (funktions nyckel)** och välj **Kopiera**. 
 
@@ -149,20 +151,20 @@ Nu kan du använda den kopierade URL: en för att få åtkomst till din funktion
 
 ## <a name="verify-the-function-in-azure"></a>Verifiera funktionen i Azure
 
-För att kontrol lera att funktionen App körs på `cURL`Azure med, ersätter du URL: en från exemplet nedan med den URL som du kopierade från portalen.
+För att kontrol lera att funktionen App körs på Azure med `cURL` , ersätter du URL: en från exemplet nedan med den URL som du kopierade från portalen.
 
 ```console
-curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpExample?code=zYRohsTwBlZ68YF.... --data AzureFunctions
+curl -w "\n" http://azure-functions-sample-demo.azurewebsites.net/api/HttpExample --data AzureFunctions
 ```
 
-Detta skickar en POST-begäran till funktions slut punkten `AzureFunctions` med i bröd texten i begäran. Du ser följande svar.
+Detta skickar en POST-begäran till funktions slut punkten med `AzureFunctions` i bröd texten i begäran. Du ser följande svar.
 
 <pre>
-Hello AzureFunctions!
+Hello, AzureFunctions
 </pre>
 
 > [!div class="nextstepaction"]
-> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
+> [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=verify-deployment)
 
 ## <a name="next-steps"></a>Nästa steg
 

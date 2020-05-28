@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 556cce9e18c812759ccb6c4b8ee2c91c4cef2b5a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b4c44f0097b2896a063f3f3922760860e1d4a22
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658892"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118302"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Transact-SQL-funktioner som stöds i Azure Synapse SQL
 
@@ -42,7 +42,7 @@ Med förbruknings modeller i Synapse SQL kan du använda olika databas objekt. J
 | **[Tabell index](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                           | Ja | Nej |
 | **[Table-partitioner](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | Ja | Nej |
 | **[Statistik](develop-tables-statistics.md)**            | Ja | Ja |
-| **[Resurs klasser och samtidighet](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Ja    | Nej |
+| **[Hantering av arbets belastning, resurs klasser och concurrency-kontroll](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Ja    | Nej |
 
 ## <a name="query-language"></a>Frågespråk
 
@@ -50,7 +50,7 @@ Frågespråket som används i Synapse SQL kan ha olika funktioner som stöds ber
 
 |   | Etablerats | Utan server |
 | --- | --- | --- |
-| **SELECT-uttryck** | Ja. Transact-SQL-frågeuttryck [för XML/för JSON](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [match](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) och [predict](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) stöds inte. | Ja. Transact-SQL-frågeuttryck [för XML](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)-, [match](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)-, [predict](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)-och frågetipset-tips stöds inte. [Offset/Fetch](/sql/t-sql/queries/select-order-by-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#using-offset-and-fetch-to-limit-the-rows-returned) och [PIVOT/unpivot](/sql/t-sql/queries/from-using-pivot-and-unpivot?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) kan bara användas för att fråga efter data i temporära tabeller (inte externa data). |
+| **SELECT-uttryck** | Ja. Transact-SQL-frågeuttryck [för XML/för JSON](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [match](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)och [predict](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) stöds inte. | Ja. Transact-SQL-frågeuttryck [för XML](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)-, [match](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)-, [predict](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)-och frågetipset-tips stöds inte. [Offset/Fetch](/sql/t-sql/queries/select-order-by-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#using-offset-and-fetch-to-limit-the-rows-returned) och [PIVOT/unpivot](/sql/t-sql/queries/from-using-pivot-and-unpivot?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) kan användas för att fråga system objekt (inte externa data). |
 | **Infoga instruktion** | Ja | Nej |
 | **UPDATE-instruktion** | Ja | Nej |
 | **TA bort instruktion** | Ja | Nej |
@@ -77,20 +77,31 @@ Synapse SQL gör att du kan använda inbyggda säkerhetsfunktioner för att skyd
 | --- | --- | --- |
 | **Inloggningar** | Ej tillämpligt (endast inneslutna användare stöds i databaser) | Ja |
 | **Användare** |  Ej tillämpligt (endast inneslutna användare stöds i databaser) | Ja |
-| **[Inneslutna användare](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** | Ja. **Obs:** endast en AAD-användare kan vara obegränsad administratör | Ja |
-| **Azure Active Directory autentisering (AAD)**| Ja, AAD-användare | Ja, AAD-inloggningar och användare |
-| **AAD-autentisering genom att lagra** | Ja | Ja |
+| **[Inneslutna användare](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** | Ja. **Obs:** endast en Azure AD-användare kan vara obegränsad administratör | Ja |
+| **SQL username/Password Authentication**| Ja | Ja |
+| **Azure Active Directory autentisering (AAD)**| Ja, Azure AD-användare | Ja, Azure AD-inloggningar och användare |
+| **Storage Azure Active Directory (AAD) genom strömnings autentisering** | Ja | Ja |
 | **Autentisering av SAS-token för lagring** | Nej | Ja, Använd [databasens begränsade autentiseringsuppgifter](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) i den [externa data källan](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) eller på instans nivåns [autentiseringsuppgifter](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
 | **Autentisering av lagrings åtkomst nyckel** | Ja, Använd [databasens begränsade autentiseringsuppgifter](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) i den [externa data källan](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Nej |
-| **Autentisering med hanterad identitet för lagring** | Ja, med [hanterad tjänstidentitet autentiseringsuppgift](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Ja, med hjälp av `Managed Identity` autentiseringsuppgifter. |
+| **Autentisering med [hanterad identitet](../security/synapse-workspace-managed-identity.md) för lagring** | Ja, med [hanterad tjänstidentitet autentiseringsuppgift](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Ja, med hjälp av `Managed Identity` autentiseringsuppgifter. |
 | **Autentisering av lagrings program identitet** | [Ja](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Nej |
 | **Behörigheter-objekt nivå** | Ja, inklusive möjlighet att bevilja, neka och återkalla behörigheter för användare | Ja, inklusive möjlighet att bevilja, neka och återkalla behörigheter för användare/inloggningar på de system objekt som stöds |
 | **Behörigheter – schema nivå** | Ja, inklusive möjlighet att bevilja, neka och återkalla behörigheter för användare/inloggningar i schemat | Ja, inklusive möjlighet att bevilja, neka och återkalla behörigheter för användare/inloggningar i schemat |
 | **Behörigheter – [databas nivå](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** | Ja | Ja |
 | **Behörigheter- [Server nivå](/sql/relational-databases/security/authentication-access/server-level-roles)** | Nej | Ja, sysadmin och andra Server roller stöds |
+| **Behörigheter- [säkerhet på kolumn nivå](/azure/synapse-analytics/sql-data-warehouse/column-level-security?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Ja | Ja |
 | **Roller/grupper** | Ja (databas omfattning) | Ja (både server-och databas omfattning) |
 | **Funktioner för säkerhets &amp; identitet** | Vissa säkerhets funktioner och operatorer för Transact-SQL:,,,,,,,, `CURRENT_USER` `HAS_DBACCESS` `IS_MEMBER` `IS_ROLEMEMBER` `SESSION_USER` `SUSER_NAME` `SUSER_SNAME` `SYSTEM_USER` `USER` `USER_NAME` , `EXECUTE AS` ,`OPEN/CLOSE MASTER KEY` | Vissa Transact-SQL-säkerhetsfunktioner och-operatorer:,,,,,,,,, `CURRENT_USER` `HAS_DBACCESS` `HAS_PERMS_BY_NAME` ,, `IS_MEMBER', 'IS_ROLEMEMBER` `IS_SRVROLEMEMBER` `SESSION_USER` `SUSER_NAME` `SUSER_SNAME` `SYSTEM_USER` `USER` `USER_NAME` `EXECUTE AS` och `REVERT` . Säkerhets funktioner kan inte användas för att fråga externa data (lagra resultatet i variabeln som kan användas i frågan).  |
 | **DATABASENS BEGRÄNSADE AUTENTISERINGSUPPGIFTER** | Ja | Ja |
+| **SERVERNS BEGRÄNSADE AUTENTISERINGSUPPGIFTER** | Nej | Ja |
+| **Säkerhet på radnivå** | [Ja](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&view=sql-server-ver15) | Nej |
+| **Transparent datakryptering (TDE)** | [Ja](/azure/sql-database/transparent-data-encryption-azure-sql?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=azure-portal) | Nej | 
+| **Klassificering av data identifierings &** | [Ja](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Nej |
+| **Sårbarhets bedömning** | [Ja](/azure/sql-database/sql-vulnerability-assessment?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Nej |
+| **Advanced Threat Protection** | [Ja](/azure/sql-database/sql-database-threat-detection-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+| **Granskning** | [Ja](/azure/sql-database/sql-database-auditing?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Nej |
+| **[Brandväggsregler](../security/synapse-workspace-ip-firewall.md)**| Ja | Ja |
+| **[Privat slut punkt](../security/synapse-workspace-managed-private-endpoints.md)**| Ja | Ja |
 
 SQL-pool och SQL på begäran använder standard Transact-SQL-språk för att fråga data. För detaljerade skillnader, se [språk referens för Transact-SQL](/sql/t-sql/language-reference).
 
@@ -119,7 +130,8 @@ Data som analyseras kan lagras på olika lagrings typer. I följande tabell visa
 | --- | --- | --- |
 | **Intern lagring** | Ja | Nej |
 | **Azure Data Lake v2** | Ja | Ja |
-| **Azure-Blob Storage** | Ja | Ja |
+| **Azure Blob Storage** | Ja | Ja |
+| **Azure CosmosDB Analytical Storage** | Nej | Ja med [Synapse-länken](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (se för [hands versionen av gated](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#limitations)) |
 
 ## <a name="data-formats"></a>Data format
 
@@ -133,6 +145,7 @@ Data som analyseras kan lagras i olika lagrings format. I följande tabell visas
 | **Hive-ORC** | [Ja](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Nej |
 | **Hive RC** | [Ja](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Nej |
 | **JSON** | Ja | [Ja](query-json-files.md) |
+| **Avro** | Nej | Nej |
 | **[Delta – sjö](https://delta.io/)** | Nej | Nej |
 | **[COMMON data service](https://docs.microsoft.com/common-data-model/)** | Nej | Nej |
 

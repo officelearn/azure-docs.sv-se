@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 2277aa3de5955efe5a3e4cb938fa557352f89006
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 554e3fa07ef733c443371aca6f1621770686895a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217962"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119017"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Hantera en webb tjänst med hjälp av webb tjänst portalen Azure Machine Learning Studio (klassisk)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Du kan hantera dina Machine Learning nya och klassiska webb tjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom de klassiska webb tjänsterna och de nya webb tjänsterna baseras på olika underliggande tekniker, har du något annat hanterings möjligheter för var och en av dem.
 

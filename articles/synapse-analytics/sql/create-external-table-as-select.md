@@ -9,30 +9,29 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cbf6d42f3b1d130a6bf89f07bd3a7009ff0e8fa8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d73e895371764d9dd28290648551d84181e022cd
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647518"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117581"
 ---
 # <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Lagra frågeresultat till lagring med SQL på begäran (för hands version) med Azure Synapse Analytics
 
 I den här artikeln får du lära dig hur du lagrar frågeresultat till lagring med SQL på begäran (för hands version).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Ditt första steg är att granska artiklarna nedan och se till att du uppfyller kraven:
+Ditt första steg är att **skapa en databas** där du ska köra frågorna. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används för att läsa data i dessa exempel.
 
-- [Installation vid första tiden](query-data-storage.md#first-time-setup)
-- [Förutsättningar](query-data-storage.md#prerequisites)
+Följ anvisningarna i den här artikeln för att skapa data källor, autentiseringsuppgifter för databaser och externa fil format som används för att skriva data till utmatnings lagringen.
 
 ## <a name="create-external-table-as-select"></a>Skapa extern tabell som Välj
 
 Du kan använda instruktionen skapa extern tabell som SELECT (CETAS) för att lagra frågeresultatet till Storage.
 
 > [!NOTE]
-> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat. Om du inte har skapat en databas läser du [installations programmet för första gången](query-data-storage.md#first-time-setup). Du måste ändra plats för den externa data källan för data källan för att kunna peka på platsen som du har Skriv behörighet för. 
+> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat.
 
 ```sql
 USE [mydbname];
@@ -63,8 +62,9 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
-        FORMAT='CSV'
+        BULK 'csv/population-unix/population.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
     ) WITH (
         CountryCode varchar(4),
         CountryName varchar(64),
@@ -79,7 +79,7 @@ FROM
 Du kan använda den externa tabellen som skapats via CETAS som en vanlig extern tabell.
 
 > [!NOTE]
-> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat. Om du inte har skapat en databas läser du [installations programmet för första gången](query-data-storage.md#first-time-setup).
+> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat.
 
 ```sql
 USE [mydbname];

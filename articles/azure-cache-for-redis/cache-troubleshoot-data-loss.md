@@ -27,7 +27,7 @@ Azure cache för Redis tar inte bort nycklar när de har lagrats i minnet. Den t
 
 Om du upptäcker att nycklarna har försvunnit från cacheminnet kontrollerar du följande möjliga orsaker:
 
-| Orsak | Description |
+| Orsak | Beskrivning |
 |---|---|
 | [Nyckel förfallo datum](#key-expiration) | Nycklarna tas bort på grund av timeout-inställningar. |
 | [Nyckel borttagning](#key-eviction) | Nycklarna tas bort under minnes belastningen. |
@@ -86,7 +86,7 @@ Alla Azure cache för Redis-instanser på standard-eller Premium-nivån konfigur
 
 Om de flesta eller alla nycklar har försvunnit från cacheminnet kontrollerar du följande möjliga orsaker:
 
-| Orsak | Description |
+| Orsak | Beskrivning |
 |---|---|
 | [Nyckel tömning](#key-flushing) | Nycklar har rensats manuellt. |
 | [Felaktigt databas val](#incorrect-database-selection) | Azure cache för Redis är inställt på att använda en databas som inte är standard. |

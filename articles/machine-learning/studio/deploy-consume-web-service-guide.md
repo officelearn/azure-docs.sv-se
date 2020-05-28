@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 29852eb0920f7bb32464d91e0be65c7dcb03325c
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 9104470a2346052ed17c670ccc39215ff77ef51f
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627967"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118412"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (klassiska) webb tjänster: distribution och användning
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Du kan använda Azure Machine Learning Studio (klassisk) för att distribuera Machine Learning-arbetsflöden och-modeller som webb tjänster. Dessa webb tjänster kan sedan användas för att anropa maskin inlärnings modeller från program via Internet för att göra förutsägelser i real tid eller i batchläge. Eftersom webb tjänsterna är RESTful kan du anropa dem från olika programmeringsspråk och plattformar, till exempel .NET och Java, och från program som Excel.
 

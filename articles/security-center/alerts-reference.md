@@ -35,7 +35,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#windows-machines)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**En inloggning från en skadlig IP-adress har identifierats**|En lyckad fjärrautentisering för kontot "Tristan. schleining" och processen "advapi" inträffade, men inloggnings-IP-adressen (x. x. x) har tidigare rapporter ATS som skadlig eller mycket ovanlig. Ett lyckat angrepp har förmodligen inträffat.|-|Hög|
 |**En inloggning från en skadlig IP-adress har identifierats. [sett flera gånger]**|En lyckad fjärrautentisering för kontot IUSR_10001 och processen "advapi" inträffade, men inloggnings-IP-adressen (x. x. x) har tidigare rapporter ATS som skadlig eller mycket ovanlig. Ett lyckat angrepp har förmodligen inträffat. Filer med fil namns tilläggen. scr är skärmsläckare och finns vanligt vis i och körs i Windows system katalog.|-|Hög|
@@ -125,7 +125,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#linux-machines)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**En kernel-modul lästes in**|En kernel-modul lästes in på värden% {komprometterad värd} med kommandot% {Command som används} av användaren% {user}.|-|Låg|
 |**En kernel-modul togs bort**|En kernel-modul togs bort från värden% {komprometterad värd} med kommandot% {Command som används} av användaren% {user}.|-|Medium|
@@ -214,7 +214,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#app-services)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**Ett försök att köra Linux-kommandon på en Windows App Service**|Analyser av App Service processer upptäckte ett försök att köra ett Linux-kommando på en Windows-App Service. Den här åtgärden kördes av webb programmet. Det här beteendet visas ofta under kampanjer som utnyttjar en sårbarhet i ett gemensamt webb program.|-|Medium|
 |**En IP-adress som är ansluten till Azure App Service FTP-gränssnittet hittades i Hot information**|App Service FTP-loggar har identifierat en anslutning från en käll adress som hittades i Hot intelligens-flödet. Under den här anslutningen har en användare till gång till de sidor som listats.|-|Medium|
@@ -239,7 +239,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#azure-containers)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**Behållare med en känslig volym montering har identifierats**|Kubernetes Gransknings logg analys upptäckte en ny behållare med en känslig volym montering. Den volym som upptäcktes är en hostPath-typ som monterar en känslig fil eller mapp från noden till behållaren. Om behållaren komprometteras kan angriparen använda den här monteringen för att få åtkomst till noden.|PrivilegeEscalation|Medium|
 |**Utvinnings behållare för digital valuta har identifierats**|Kubernetes Gransknings logg analys har identifierat en behållare som har en avbildning kopplad till ett verktyg för digital valuta utvinning.|Körnings-|Hög|
@@ -254,7 +254,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#azure-containers)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**Privilegie rad behållare upptäcktes**|Dator loggar indikerar att en privilegie rad Docker-behållare körs. En privilegie rad behållare har fullständig åtkomst till värdens resurser. Om en angripare har komprometterats kan en angripare använda den privilegierade behållaren för att få åtkomst till värddatorn.|PrivilegeEscalation/körning|Låg|
 |**Privilegie rad kommando körning i behållare**|Dator loggar indikerar att ett privilegie rad kommando kördes i en Docker-behållare. Ett privilegie rad kommando har utökade privilegier på värddatorn.|PrivilegeEscalation|Låg|
@@ -270,7 +270,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#data-sql)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**En möjlig sårbarhet vid SQL-inmatning**|Ett program har genererat en felaktig SQL-instruktion i databasen. Detta kan tyda på en möjlig sårbarhet vid SQL-injektering. Det finns två möjliga orsaker till en felaktig instruktion. Ett fel i program koden kan ha konstruerat den felaktiga SQL-instruktionen. Eller, program kod eller lagrade procedurer har inte sanerat användarindata vid konstruktion av den felaktiga SQL-instruktionen, som kan utnyttjas för SQL-inmatning.|-|Medium|
 |**Försök till inloggning av ett potentiellt skadligt program**|Ett potentiellt skadligt program har använts för att komma åt databasen. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen en attack som använder vanliga verktyg.|Avsökning|Hög|
@@ -288,7 +288,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#azure-storage)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**Åtkomst från en Tor-nod till ett lagrings konto**|Anger att det här kontot har öppnats från en IP-adress som kallas en aktiv stängningsmodul för Tor (en maskera proxy). Allvarlighets graden för den här aviseringen tar hänsyn till den autentiseringstyp som används (om det finns någon) och om detta är första fallet för sådan åtkomst. Potentiella orsaker kan vara en angripare som har åtkomst till ditt lagrings konto med hjälp av Tor eller en legitim användare som har åtkomst till ditt lagrings konto med hjälp av Tor.|Avsökning/utnyttjande|Hög|
 |**Åtkomst från en ovanlig plats till ett lagrings konto**|Anger att åtkomst mönstret har ändrats till ett Azure Storage-konto. Någon har åtkomst till det här kontot från en IP-adress som ansågs okänd vid jämförelse med senaste aktivitet. Antingen har en angripare fått åtkomst till kontot eller så har en legitim användare anslutits från en ny eller ovanlig geografisk plats. Ett exempel på den senare är fjärrunderhåll från ett nytt program eller en ny utvecklare.|Utnyttjande|Låg|
@@ -309,7 +309,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#cosmos-db)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**Åtkomst från en ovanlig plats till ett Cosmos DB konto**|Anger att åtkomst mönstret har ändrats till ett Azure Cosmos DB-konto. Någon har använt det här kontot från en okänd IP-adress jämfört med senaste aktivitet. Antingen har en angripare åtkomst till kontot eller så har en legitim användare åtkomst till den från en ny och ovanlig geografisk plats. Ett exempel på den senare är fjärrunderhåll från ett nytt program eller en ny utvecklare.|Utnyttjande|Medium|
 |**Ovanlig mängd data som extraherats från ett Cosmos DB konto**|Indikerar att det har ändrats ett data extraherings mönster från ett Azure Cosmos DB konto. Någon har extraherat en ovanlig mängd data jämfört med senaste aktivitet. En angripare kan ha extraherat en stor mängd data från en Azure Cosmos DB databas (till exempel data exfiltrering eller läckage eller en obehörig överföring av data). Eller så kanske en legitim användare eller ett program har extraherat en ovanlig mängd data från en behållare (till exempel för aktiviteten underhålls säkerhets kopiering).|Exfiltrering|Medium|
@@ -320,7 +320,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#network-layer)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**Nätverkskommunikation med en skadlig dator upptäcktes**|Analysen av nätverks trafik anger att datorn (IP% {offer IP}) har kommunicerat med vad som möjligen är ett kommando-och kontroll Center. När den komprometterade resursen är en belastningsutjämnare eller en Programgateway kan den misstänkta aktiviteten indikera att en eller flera av resurserna i backend-poolen (av belastningsutjämnaren eller programgatewayen) har kommunicerat med vad som möjligen är ett kommando-och kontroll Center.|-|Medium|
 |**Möjlig komprometterad dator upptäcktes**|Hot information anger att datorn (på IP% {Machine IP}) kan ha komprometterats av en skadlig kod av typen Conficker. Conficker var en dator mask som är avsedd för Microsoft Windows-operativsystemet och upptäcktes först i november 2008. Conficker infekterade miljon tals datorer, inklusive myndigheter, företags-och hem datorer i över 200 länder/regioner, vilket gör det till den största kända datorn Worm-infektion sedan den 2003 Welchia Worm.|-|Medium|
@@ -345,7 +345,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#management-layer)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**Aktivitet från anonyma IP-adresser**|Användares aktivitet från en IP-adress som har identifierats som en anonym proxy-IP-adress har identifierats.<br>Dessa proxyservrar används av personer som vill dölja deras enhets IP-adress och som kan användas för skadliga avsikter. Den här identifieringen använder en Machine Learning-algoritm som minskar falska positiva identifieringar, till exempel felmärkta IP-adresser som används ofta av användare i organisationen.|-|Medium|
 |**Aktivitet från ovanligt land**|Aktivitet från en plats som inte nyligen har ägt rum eller någonsin varit besökt av någon användare i organisationen har inträffat.<br>Den här identifieringen tar hänsyn till tidigare aktivitets platser för att fastställa nya och ovanliga platser. Motorn för avvikelse identifiering lagrar information om tidigare platser som används av användare i organisationen.|-|Medium|
@@ -364,7 +364,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#azure-keyvault)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**Åtkomst från en TOR-stängningsmodul till en Key Vault**|Den Key Vault har öppnats av någon som använder TOR IP-anonymisering för att dölja deras plats.Skadliga aktörer försöker ofta dölja sin plats vid försök att få obehörig åtkomst till Internet-anslutna resurser.|-|Medium|
 |**Hög mängd åtgärder i en Key Vault**|En större mängd Key Vault åtgärder har utförts jämfört med historiska data. Key Vault aktivitet är vanligt vis samma över tid. Detta kan vara en legitim förändring i aktiviteten. Alternativt kan din infrastruktur bli komprometterad och ytterligare undersökningar krävs.|-|Medium|
@@ -382,7 +382,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](threat-protection.md#azure-ddos)
 
-|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Severity|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
 |**DDoS-attack identifierad för offentlig IP**|DDoS-attack identifierad för offentlig IP (IP-adress) och begränsas.|Avsökning|Hög|
 |**DDoS-attack minimerad för offentlig IP**|DDoS-attack minimerad för offentlig IP (IP-adress).|Avsökning|Låg|

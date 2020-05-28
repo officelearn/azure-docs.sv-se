@@ -11,16 +11,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: dc4a2f83f59ab94d1bff8a005b37124f2822c72b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 45acac646fece808065d12081bdc28eff92a1b79
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209425"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119336"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Aktivera loggning för webb tjänster för Azure Machine Learning Studio (klassisk)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Det här dokumentet innehåller information om loggnings funktionerna i Machine Learning Studio (klassiska) webb tjänster. Loggning ger ytterligare information, utöver bara ett fel nummer och ett meddelande, som kan hjälpa dig att felsöka anrop till API: erna Machine Learning Studio (klassisk).  
 
@@ -28,7 +26,7 @@ Det här dokumentet innehåller information om loggnings funktionerna i Machine 
 
 Du aktiverar loggning från den [Azure Machine Learning Studio (klassiska) webb tjänst](https://services.azureml.net) portalen. 
 
-1. Logga in på den Azure Machine Learning Studio (klassiska) webb tjänst portalen på [https://services.azureml.net](https://services.azureml.net). För en klassisk webb tjänst kan du också gå till portalen genom att klicka på **ny webb tjänst upplevelse** på sidan Machine Learning Studio (klassisk) webb tjänster i Studio (klassisk).
+1. Logga in på den Azure Machine Learning Studio (klassiska) webb tjänst portalen på [https://services.azureml.net](https://services.azureml.net) . För en klassisk webb tjänst kan du också gå till portalen genom att klicka på **ny webb tjänst upplevelse** på sidan Machine Learning Studio (klassisk) webb tjänster i Studio (klassisk).
 
    ![Länk till nya webb tjänst upplevelser](./media/web-services-logging/new-web-services-experience-link.png)
 

@@ -11,18 +11,18 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e393b653ecb9e9d7b8eff277b91215ccc5bf6342
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 282222aad68df94ea9eff4151d31eb5e488bca81
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770830"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117046"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Snabb start: skapa och fråga en Synapse SQL-pool med hjälp av Azure Portal
 
 Skapa och fråga snabbt en Synapse SQL-pool (data lager) i Azure Synapse Analytics (tidigare SQL DW) med hjälp av Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -37,7 +37,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Skapa en SQL-pool
 
-Informations lager skapas med SQL-pool i Azure Synapse Analytics. En SQL-pool skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och i en [logisk Azure SQL-server](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Informations lager skapas med SQL-pool i Azure Synapse Analytics. En SQL-pool skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas i en Azure- [resurs grupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och i en [logisk SQL-Server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Följ dessa steg om du vill skapa en SQL-pool som innehåller **AdventureWorksDW** -exempel data.
 
@@ -64,7 +64,7 @@ Följ dessa steg om du vill skapa en SQL-pool som innehåller **AdventureWorksDW
 
    ![ändra prestanda nivå för informations lager](./media/create-data-warehouse-portal/create-sql-pool-performance-level.png)  
 
-   Mer information om prestanda nivåer finns i [Hantera beräkning i Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
+   Mer information om prestanda nivåer finns i [Hantera beräkning i Azure Synapse Analytics](sql-data-warehouse-manage-compute-overview.md).
 
 5. Välj **ytterligare inställningar**. under **Använd befintliga data**väljer du **exempel** så att AdventureWorksDW skapas som exempel databas.
 
@@ -76,16 +76,16 @@ Följ dessa steg om du vill skapa en SQL-pool som innehåller **AdventureWorksDW
 
    ![Välj Skapa](./media/create-data-warehouse-portal/create-sql-pool-create.png)
 
-6. I verktygsfältet väljer du **meddelanden** för att övervaka distributions processen.
+7. I verktygsfältet väljer du **meddelanden** för att övervaka distributions processen.
 
    ![avisering](./media/create-data-warehouse-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
-Azure Synapse-tjänsten skapar en brand vägg på server nivå. Den här brand väggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser. Följ dessa steg för att skapa en [brandväggsregel på servernivå](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) för klientens IP-adress.
+Azure Synapse-tjänsten skapar en brand vägg på server nivå. Den här brand väggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser. Följ dessa steg för att skapa en [brandväggsregel på servernivå](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) för klientens IP-adress.
 
 > [!NOTE]
-> Azure-Synapse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
+> Azure-Synapse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till servern om inte din IT-avdelning öppnar port 1433.
 
 1. När distributionen är klar väljer du **alla tjänster** i den vänstra menyn. Välj **databaser**, Välj stjärnan bredvid **Azure Synapse Analytics** för att lägga till Azure Synapse Analytics i dina favoriter.
 
@@ -99,24 +99,24 @@ Azure Synapse-tjänsten skapar en brand vägg på server nivå. Den här brand v
 
    ![serverinställningar](./media/create-data-warehouse-portal/server-settings.png)
 
-5. Sidan **brand Väggs inställningar** för SQL Database servern öppnas.
+5. Sidan **brand Väggs inställningar** för servern öppnas.
 
    ![brandväggsregler för server](./media/create-data-warehouse-portal/server-firewall-rule.png)
 
 6. Om du vill lägga till din aktuella IP-adress i en ny brand Väggs regel väljer du **Lägg till klient-IP** i verktygsfältet. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
 
-7. Välj **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
+7. Välj **Spara**. En brand Väggs regel på server nivå skapas för din aktuella IP-adress som öppnar port 1433 på servern.
 
 8. Välj **OK** och stäng sedan sidan **brand Väggs inställningar** .
 
-Nu kan du ansluta till SQL-servern och dess SQL-pooler med hjälp av den här IP-adressen. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter kan du använda ServerAdmin-kontot som du skapade tidigare.
+Nu kan du ansluta till servern och dess SQL-pooler med hjälp av den här IP-adressen. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter kan du använda ServerAdmin-kontot som du skapade tidigare.
 
 > [!IMPORTANT]
 > Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Välj **av** på den här sidan och välj sedan **Spara** för att inaktivera brand väggen för alla Azure-tjänster.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Hämta det fullständigt kvalificerade servernamnet
 
-Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du använder det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
+Hämta det fullständigt kvalificerade Server namnet för servern i Azure Portal. Du använder det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -128,7 +128,7 @@ Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Por
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ansluta till servern som serveradministratör
 
-I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) för att upprätta en anslutning till Azure SQL-servern.
+I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) för att upprätta en anslutning till servern.
 
 1. Öppna SQL Server Management Studio.
 
@@ -196,7 +196,7 @@ Följ dessa steg för att rensa resurser som du inte längre behöver.
 
 3. Om du vill ta bort SQL-poolen så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
 
-4. Om du vill ta bort den SQL-Server som du har skapat väljer du **sqlpoolservername.Database.Windows.net** i föregående bild och väljer sedan **ta bort**. Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
+4. Om du vill ta bort den server som du har skapat väljer du **sqlpoolservername.Database.Windows.net** i föregående bild och väljer sedan **ta bort**. Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
 
 5. Om du vill ta bort resurs gruppen väljer du **myResourceGroup**och väljer sedan **ta bort resurs grupp**.
 

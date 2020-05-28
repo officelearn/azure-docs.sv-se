@@ -1,29 +1,29 @@
 ---
 title: Design kunskaps bas – QnA Maker
-description: En QnA Maker kunskaps bas består av en uppsättning fråge-och svars uppsättningar (QnA) och valfria metadata som är associerade med varje QnA-par.
+description: En QnA Maker kunskaps bas består av en uppsättning fråga-och-svar-par (QnA) och valfria metadata som är kopplade till varje QnA-par.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756782"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993005"
 ---
-# <a name="question-and-answer-set-concepts"></a>Koncept för frågor och svars uppsättningar
+# <a name="question-and-answer-pair-concepts"></a>Begrepp för frågor och svars par
 
-En kunskaps bas består av fråge-och svars uppsättningar (QnA).  Varje uppsättning har ett svar och en uppsättning innehåller all information som är kopplad till det _svaret_. Ett svar kan likna en databas rad eller en data struktur instans.
+En kunskaps bas består av QnA-par (frågor och svar).  Varje par har ett svar och ett par innehåller all information som är kopplad till det _svaret_. Ett svar kan likna en databas rad eller en data struktur instans.
 
-## <a name="question-and-answer-sets"></a>Uppsättningar med frågor och svar
+## <a name="question-and-answer-pairs"></a>Frågor och svar-par
 
-De **obligatoriska** inställningarna i en fråga-och-svar-uppsättning (QNA) är:
+De **obligatoriska** inställningarna i ett QNA-par (fråga-and-Answer) är:
 
 * en **Frågetext** för användar frågan, som används för att QNA Maker maskin inlärning, för att justera med texten i användarens fråga med annan formulering men samma svar
-* svaret **–** uppsättningens svar är svaret som returneras när en användar fråga matchas med den associerade frågan
+* **svaret** – parets svar är svaret som returneras när en användar fråga matchas med den associerade frågan
 
-Varje uppsättning representeras av ett **ID**.
+Varje par representeras av ett **ID**.
 
-De **valfria** inställningarna för en uppsättning är:
+De **valfria** inställningarna för ett par är:
 
 * **Andra typer av frågor** – detta hjälper QNA Maker att returnera rätt svar för en större mängd olika frågor ordföljder
 * **Metadata**: metadata är taggar som är associerade med ett QNA-par och som representeras som nyckel/värde-par. Metadata-Taggar används för att filtrera QnA-par och begränsa den mängd som frågan ska matchas över.

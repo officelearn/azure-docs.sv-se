@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 8d0b49b73ef6b67653fbf32db1174880a51d432d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a3d3b990c750e96b840676097bb3677606bf68b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81412948"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118352"
 ---
 # <a name="azure-data-factory-faq"></a>Vanliga frågor och svar om Azure Data Factory
 
@@ -83,7 +83,7 @@ Eftersom den första offentliga för hands versionen i 2017 har Data Factory lag
 
 -    Stöd för tre fler konfigurationer/varianter av Azure SQL Database som är värdar för SSIS-databasen (SSISDB) för projekt/paket:
 -    SQL Database med tjänst slut punkter för virtuellt nätverk
--    Hanterad instans
+-    SQL-hanterad instans
 -    Elastisk pool
 -    Stöd för ett Azure Resource Manager virtuellt nätverk ovanpå ett klassiskt virtuellt nätverk för att bli inaktuellt i framtiden, vilket gör att du kan mata in/ansluta din Azure-SSIS integration runtime till ett virtuellt nätverk som har kon figurer ATS för SQL Database med tjänst slut punkter för virtuella nätverk/MI/lokal data åtkomst. Mer information finns även i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).
 -    Stöd för Azure Active Directory (Azure AD)-autentisering och SQL-autentisering för att ansluta till SSISDB, vilket ger Azure AD-autentisering med din Data Factory hanterade identitet för Azure-resurser
@@ -177,7 +177,7 @@ Ja. Du kan definiera standardvärden för parametrarna i pipelinen.
 Ja. Varje aktivitet i pipelinen kan använda det parameter värde som skickas till pipelinen och köras med `@parameter` konstruktionen. 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Kan en aktivitets utmatnings egenskap användas i en annan aktivitet? 
-Ja. En aktivitets utdata kan förbrukas i en efterföljande aktivitet `@activity` med konstruktionen.
+Ja. En aktivitets utdata kan förbrukas i en efterföljande aktivitet med `@activity` konstruktionen.
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Hur gör jag för att hantera null-värden korrekt i en aktivitets utdata? 
 Du kan använda `@coalesce` konstruktionen i uttrycken för att hantera null-värden på ett smidigt sätt. 

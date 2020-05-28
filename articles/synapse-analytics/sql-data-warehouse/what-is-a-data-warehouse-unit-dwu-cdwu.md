@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: db282bae92ec14c1cb4f6a61b61d435814b0f13c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3c2bdd2dcd5fcef62c0a4691160c5457d19f196
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408051"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112604"
 ---
 # <a name="data-warehouse-units-dwus"></a>Informations lager enheter (DWU: er)
 
@@ -72,7 +72,7 @@ Varje prestanda nivå använder en något annorlunda mått enhet för sina infor
 
 Både DWU: er och cDWUs har stöd för att skala upp eller ned och pausa beräkningen när du inte behöver använda data lagret. De här åtgärderna är alla på begäran. Gen2 använder en lokal diskbaserad cache på Compute-noderna för att förbättra prestandan. När du skalar eller pausar systemet blir cacheminnet inställt och så en period av cache-uppvärmning krävs innan optimala prestanda uppnås.  
 
-Varje SQL Server (till exempel myserver.database.windows.net) har en kvot för [databas transaktions enhet (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) som tillåter ett angivet antal informations lager enheter. Mer information finns i [kapacitets gränser för arbets belastnings hantering](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Varje SQL Server (till exempel myserver.database.windows.net) har en kvot för [databas transaktions enhet (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) som tillåter ett angivet antal informations lager enheter. Mer information finns i [kapacitets gränser för arbets belastnings hantering](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
 ## <a name="capacity-limits"></a>Kapacitetsbegränsningar
 
@@ -107,7 +107,7 @@ Inbyggda roller för Azure-resurser, till exempel SQL DB-deltagare och SQL Serve
 Så här visar du den aktuella DWU-inställningen:
 
 1. Öppna SQL Server Object Explorer i Visual Studio.
-2. Anslut till huvud databasen som är kopplad till den logiska SQL Database servern.
+2. Anslut till huvud databasen som är kopplad till den logiska SQL-servern.
 3. Välj från vyn sys. database_service_objectives dynamisk hantering. Här är ett exempel:
 
 ```sql
@@ -149,7 +149,7 @@ Med T-SQL kan du Visa den aktuella DWUsettings, ändra inställningarna och kont
 
 Så här ändrar du DWU: er:
 
-1. Anslut till huvud databasen som är kopplad till den logiska SQL Database servern.
+1. Anslut till huvud databasen som är associerad med servern.
 2. Använd instruktionen [Alter Database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) tsql. I följande exempel anges service nivå målet till DW1000c för databasen MySQLDW.
 
 ```Sql
@@ -185,7 +185,7 @@ Det går inte att kontrol lera databasens tillstånd för skalnings åtgärder m
 
 Så här kontrollerar du status för DWU-ändringar:
 
-1. Anslut till huvud databasen som är kopplad till den logiska SQL Database servern.
+1. Anslut till huvud databasen som är associerad med servern.
 2. Skicka följande fråga för att kontrol lera databasens tillstånd.
 
 ```sql

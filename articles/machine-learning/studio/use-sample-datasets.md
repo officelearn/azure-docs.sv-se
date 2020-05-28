@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: b7b8606f7f15f8d6fdd66681a1c7ade60ff506f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9bdf1cd8832d311a71276fa18d407a5b4dd98d24
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217790"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115495"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Använd exempel data uppsättningarna i Azure Machine Learning Studio (klassisk)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [top]: #machine-learning-sample-datasets
 
@@ -46,7 +44,7 @@ En delmängd av databasen för 1994-inventering, med hjälp av att arbeta vuxna 
 <p></p>
 <b>Användning:</b> Klassificera personer som använder demografiska till att förutsäga om en person får över 50 000 per år.
 <p></p>
-<b>Relaterad forskning:</b> Kohavi, R., Becker, B., (1996). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
+<b>Relaterad forskning:</b> Kohavi, R., Becker, B., (1996). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
@@ -67,7 +65,7 @@ Risk poängen är inlednings vis kopplad till automatiskt pris. Den justeras sed
 <p></p>
 <b>Användning:</b> Förutsäg risk poängen med hjälp av funktioner, regression eller multivarierad klassificering. 
 <p></p>
-<b>Relaterad forskning:</b> Schlimmer, J.C. (1987). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
+<b>Relaterad forskning:</b> Schlimmer, J.C. (1987). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
@@ -98,7 +96,7 @@ Donator data inkluderar de månader sedan senaste donationen) och frekvens, elle
 <p></p>
 <b>Användning:</b> Målet är att förutsäga över klassificeringen om givaren donerade blod i mars 2007, där 1 anger en donator under mål perioden och 0 en icke-donator. 
 <p></p>
-<b>Relaterad forskning:</b> Yeh, I.C., (2008). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap
+<b>Relaterad forskning:</b> Yeh, I.C., (2008). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang och, tagg-mobilnät, "kunskaps identifiering på RFM-modell med Bernoulli Sequence", expert system med program, 2008,<a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -111,7 +109,7 @@ En av tre cancer data uppsättningar som tillhandahålls av Oncology-Institutet 
 <p></p>
 <b>Användning:</b> Klassificera typ av cancer, baserat på 9 attribut, varav vissa är linjära och vissa är kategoriska. 
 <p></p>
-<b>Relaterad forskning:</b> Wohlberg, W.H., gata, W.N., & Mangasarian, O.L. (1995). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
+<b>Relaterad forskning:</b> Wohlberg, W.H., gata, W.N., & Mangasarian, O.L. (1995). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
@@ -164,7 +162,7 @@ En samling simulerade energi profiler, baserat på 12 olika byggnads former. Byg
 <p></p>
 <b>Användning:</b> Använd antingen regression eller klassificering för att förutsäga energi effektivitets betyget baserat på ett av två faktiska värde svar. För klassificering i flera klasser, är processvariabeln Response till närmaste heltal. 
 <p></p>
-<b>Relaterad forskning:</b> Xifara, A. & Tsanas, A. (2012). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
+<b>Relaterad forskning:</b> Xifara, A. & Tsanas, A. (2012). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
@@ -189,7 +187,7 @@ Register över flyg Plans införslar och avgångser i USA från oktober 2011.
 <p></p>
 <b>Användning:</b> Förutsäg fördröjningar i flygningen. 
 <p></p>
-<b>Relaterad forskning:</b> Från amerikanska avd. <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>
+<b>Relaterad forskning:</b> Från amerikanska <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a> avd.
   </td>
 </tr>
 
@@ -200,9 +198,9 @@ Innehåller väder data, till exempel temperatur-och fuktighets index och vridni
 <p></p>
 <b>Användning:</b> Detta är en svår Regressions uppgift där målet är att förutsäga den brända arean i skogs bränder. 
 <p></p>
-<b>Relaterad forskning:</b> Cortez, P., & Morais, A. (2008). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap
+<b>Relaterad forskning:</b> Cortez, P., & Morais, A. (2008). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap
 <p></p>
-[Cortez och Morais, 2007] P. Cortez och en. Morais. En data utvinnings metod för att förutsäga skogen utlöses med hjälp av meteorologiska data. I J. Neves, M. F. Santos och J. Machado EDS., nya trender i artificiell intelligens, åtgärder hos 13 EPIA 2007-portugisiska-konferensen om artificiell intelligens, december, Guimarães, Portugal, s. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Tillgängligt på: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez och Morais, 2007] P. Cortez och en. Morais. En data utvinnings metod för att förutsäga skogen utlöses med hjälp av meteorologiska data. I J. Neves, M. F. Santos och J. Machado EDS., nya trender i artificiell intelligens, åtgärder hos 13 EPIA 2007-portugisiska-konferensen om artificiell intelligens, december, Guimarães, Portugal, s. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Tillgängligt på: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a> .
   </td>
 </tr>
 
@@ -229,7 +227,7 @@ Detta är kanske den bästa kända databasen som finns i dokumentationen för m�
 <p></p>
 <b>Användning:</b> Förutsäg Iris-typen från mätningarna.  
 <p></p>
-<b>Relaterad forskning:</b> Fisher, R.A. (1988). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
+<b>Relaterad forskning:</b> Fisher, R.A. (1988). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
@@ -248,7 +246,7 @@ Data visar bränsle förbrukning för olika bilenheter i km per liter. Den inneh
 <p></p>
 <b>Användning:</b> Förutsäga bränsle ekonomin baserat på tre multivärdeiga diskreta attribut och fem kontinuerliga attribut. 
 <p></p>
-<b>Relaterad forskning:</b> StatLib, Carnegie Mellon University, (1993). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
+<b>Relaterad forskning:</b> StatLib, Carnegie Mellon University, (1993). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
@@ -258,7 +256,7 @@ En delmängd av data från National Institute of diabetes och databasen för sam
 <p></p>
 <b>Användning:</b> Förutsäg om ämnet har diabetes (binära klassificering). 
 <p></p>
-<b>Relaterad forskning:</b> Sigillito, V. (1990). Machine Learning <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml-lagringsplats för</a>. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
+<b>Relaterad forskning:</b> Sigillito, V. (1990). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml för</a>. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
@@ -268,7 +266,7 @@ En uppsättning metadata om kunder, inklusive demografiska och preferenser.
 <p></p>
 <b>Användning:</b> Använd den här data uppsättningen, i kombination med de andra två restaurang data uppsättningarna, för att träna och testa ett rekommenderat system. 
 <p></p>
-<b>Relaterad forskning:</b> Bache, K. och Lichman, M. (2013). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap.
+<b>Relaterad forskning:</b> Bache, K. och Lichman, M. (2013). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap.
   </td>
 </tr>
 
@@ -279,7 +277,7 @@ En uppsättning metadata om restauranger och deras funktioner, till exempel livs
 <p></p>
 <b>Användning:</b> Använd den här data uppsättningen, i kombination med de andra två restaurang data uppsättningarna, för att träna och testa ett rekommenderat system. 
 <p></p>
-<b>Relaterad forskning:</b> Bache, K. och Lichman, M. (2013). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap.
+<b>Relaterad forskning:</b> Bache, K. och Lichman, M. (2013). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap.
   </td>
 </tr>
 
@@ -290,7 +288,7 @@ Innehåller omdömen från användare till restauranger på en skala från 0 til
 <p></p>
 <b>Användning:</b> Använd den här data uppsättningen, i kombination med de andra två restaurang data uppsättningarna, för att träna och testa ett rekommenderat system. 
 <p></p>
-<b>Relaterad forskning:</b> Bache, K. och Lichman, M. (2013). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap.
+<b>Relaterad forskning:</b> Bache, K. och Lichman, M. (2013). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap.
   </td>
 </tr>
 
@@ -303,7 +301,7 @@ Den här data uppsättningen innehåller en serie poster från stål anlöpning-
 <p></p>
 Stål betyg följer en angiven standard som definieras av SAE och andra organisationer. Du letar efter en speciell klass (klass variabel) och vill förstå de värden som behövs. 
 <p></p>
-<b>Relaterad forskning:</b> Sterling, D. & Buntine, W. (NA). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap
+<b>Relaterad forskning:</b> Sterling, D. & Buntine, W. (NA). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information och dator vetenskap
 <p></p>
 Du hittar en användbar guide till stål betyg här:<a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -324,7 +322,7 @@ Data har bearbetats för att skapa ett överdrivet kluster med den långa axeln 
 <p></p>
 Observera också att antalet bakgrunds händelser (h, för hadronic duschar) är uppskattat. I verkliga mätningar representerar h-eller brus klassen majoriteten av händelserna. 
 <p></p>
-<b>Relaterad forskning:</b> Bock, R.K. (1995). Machine Learning-lagringsplats <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>för. Irvine, CA: University of Kalifornien, skol information </td>
+<b>Relaterad forskning:</b> Bock, R.K. (1995). Machine Learning-lagringsplats för <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornien, skol information </td>
 </tr>
 
 <tr>
@@ -345,7 +343,7 @@ Väder data täcker observationer som gjorts från flyg platsens väderleks stat
 <tr>
   <td>Wikipedia SP 500-datauppsättning</td>
   <td>
-Data härleds från Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) baserat på artiklar i varje S&P 500-företag, lagrade som XML-data.
+Data härleds från Wikipedia ( <a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a> ) baserat på artiklar i varje S&P 500-företag, lagrade som XML-data.
 <p></p>
 Innan du överför till Azure Machine Learning Studio (klassisk) bearbetades data uppsättningen på följande sätt:
 <ul>
@@ -393,7 +391,7 @@ Data uppsättningen har laddats ned och lagrats i Azure Blob Storage (<a href="h
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2. topics. qrels. csv</a></td>
   <td>
-Ämnes tilldelningar för nyhets artiklar i RCV1-v2 Reuters News-datauppsättningen. En nyhets artikel kan tilldelas till flera ämnen. Formatet på&lt;varje rad är "ämnes namn&gt; &lt;dokument-ID&gt; 1". Data uppsättningen innehåller ämnes tilldelningar 2.6 M. Data uppsättningen gjordes tillgänglig av David. D. Lewis.
+Ämnes tilldelningar för nyhets artiklar i RCV1-v2 Reuters News-datauppsättningen. En nyhets artikel kan tilldelas till flera ämnen. Formatet på varje rad är " &lt; ämnes namn &gt; &lt; dokument-ID &gt; 1". Data uppsättningen innehåller ämnes tilldelningar 2.6 M. Data uppsättningen gjordes tillgänglig av David. D. Lewis.
   </td>
 </tr>
 

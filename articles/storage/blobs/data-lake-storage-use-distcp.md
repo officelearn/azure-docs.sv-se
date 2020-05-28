@@ -21,7 +21,7 @@ Du kan använda [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/Dis
 
 DistCp innehåller en rad kommando rads parametrar och vi rekommenderar att du läser den här artikeln för att optimera användningen av den. Den här artikeln visar grundläggande funktioner när du fokuserar på att kopiera data till ett hierarkiskt namn områdes konto som är aktiverat.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Ett befintligt Azure Storage-konto utan Data Lake Storage Gen2 funktioner (hierarkiskt namn område) aktiverat.

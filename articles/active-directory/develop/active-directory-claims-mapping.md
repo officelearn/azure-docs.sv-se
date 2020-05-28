@@ -435,7 +435,7 @@ Principer för anspråks mappning kan bara tilldelas till tjänstens huvud objek
 
 I Azure AD är många scenarier möjliga när du kan anpassa anspråk som skickas i tokens för särskilda tjänst huvud namn. I det här avsnittet går vi igenom några vanliga scenarier som hjälper dig att grepp hur du använder princip typen för anspråks mappning.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för tjänstens huvud namn. Om du är nybörjare på Azure AD rekommenderar vi att du [Lär dig hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.
 

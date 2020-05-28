@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131751"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117519"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azures Visuellt innehåll tjänst ger utvecklare till gång till avancerade algoritmer som bearbetar bilder och retur information, beroende på vilka visuella funktioner du är intresse rad av. Visuellt innehåll kan till exempel avgöra om en bild innehåller innehåll som är olämpligt för barn eller om den kan hitta alla mänskliga ansikten i en bild.
+Azures Visuellt innehåll tjänst ger utvecklare till gång till avancerade algoritmer som bearbetar bilder och returnerar information baserat på de visuella funktioner som du är intresse rad av. Visuellt innehåll kan till exempel avgöra om en bild innehåller innehåll som är olämpligt för barn, hitta vissa varumärken eller objekt eller hitta mänskliga ansikten.
 
-Du kan använda Visuellt innehåll i ditt program via ett inbyggt SDK eller genom att anropa REST API direkt. Den här sidan beskriver allmänt vad du kan göra med Visuellt innehåll.
+Du kan använda Visuellt innehåll i ditt program via ett klient biblioteks-SDK eller genom att anropa REST API direkt. Den här sidan beskriver allmänt vad du kan göra med Visuellt innehåll.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Visuellt innehåll för digital till gångs hantering
 
@@ -32,9 +32,9 @@ Visuellt innehåll kan sätta många moder scenarier för Digital Asset Manageme
 
 ## <a name="analyze-images-for-insight"></a>Analysera bilder för att få insikter
 
-Du kan analysera bilder för att identifiera och få insikter om bildernas visuella egenskaper och kännetecken. Alla funktioner i tabellen nedan tillhandahålls av [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-API:et.
+Du kan analysera bilder för att ge insikter om sina visuella funktioner och egenskaper. Alla funktioner i tabellen nedan tillhandahålls av [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-API:et.
 
-| Action | Beskrivning |
+| Åtgärd | Beskrivning |
 | ------ | ----------- |
 |**[Tagga visuella egenskaper](concept-tagging-images.md)**|Identifiera och tagga visuella egenskaper i en bild, från tusentals identifierbara objekt, levande varelser, landskap och åtgärder. När taggarna är tvetydiga eller inte vanliga kunskaper innehåller API-svaret tips för att klargöra taggens kontext. Taggar är inte begränsade till huvudföremålet på bilden, som till exempel en person i förgrunden, utan finns även för saker som bakgrund (inomhus eller utomhus), möbler, verktyg, växter, djur, accessoarer, saker och så vidare.|
 |**[Upptäcka objekt](concept-object-detection.md)**| Objektidentifiering liknar taggar, men API:n returnerar avgränsningsfältets koordinater för varje tagg som tillämpas. Om en bild exempelvis innehåller en hund, en katt och en person, kommer identifieringsåtgärden visa en lista över dessa objekt tillsammans med deras koordinater i bilden. Du kan använda den här funktionen till att bearbeta ytterligare relationer mellan objekt i en bild. Du får även veta när det finns flera instanser av samma tagg i en bild.|
@@ -45,12 +45,12 @@ Du kan analysera bilder för att identifiera och få insikter om bildernas visue
 |**[Identifiera bildtyper](concept-detecting-image-types.md)**|Identifiera olika kännetecken om en bild som t. ex. om det är en teckning eller om den kan vara ClipArt.|
 |**[Identifiera domänspecifikt innehåll](concept-detecting-domain-content.md)**|Använd domänmodeller för att upptäcka och identifiera domänspecifikt innehåll i en bild, till exempel kändisar och landmärken. Om en bild till exempel innehåller personer kan Visuellt innehåll använda en domän modell för kändisar för att avgöra om de personer som identifieras i avbildningen är kända kändisar.|
 |**[Identifiera färgschema](concept-detecting-color-schemes.md)**|Analysera användningen av färg i en bild. Visuellt innehåll kan avgöra om en bild är svartvit eller i färg samt identifiera vilka färger som är basfärger och vilka färger som är accentfärger i färgbilder.|
-|**[Generera en miniatyr](concept-generating-thumbnails.md)**|Analysera innehållet i en bild för att generera en lämplig miniatyrbild för den. Visuellt innehåll genererar först en högkvalitativ miniatyr och sedan analyseras objekten i bilden för att fastställa *intresseområdet*. Visuellt innehåll beskär sedan bilden för att den ska uppfylla kraven för intresseområdet. Den genererade miniatyrbilden kan vid behov anges med proportioner som skiljer sig från proportionerna på den ursprungliga bilden.|
+|**[Skapa en miniatyrbild](concept-generating-thumbnails.md)**|Analysera innehållet i en bild för att generera en lämplig miniatyrbild för den. Visuellt innehåll genererar först en högkvalitativ miniatyr och sedan analyseras objekten i bilden för att fastställa *intresseområdet*. Visuellt innehåll beskär sedan bilden för att den ska uppfylla kraven för intresseområdet. Den genererade miniatyrbilden kan vid behov anges med proportioner som skiljer sig från proportionerna på den ursprungliga bilden.|
 |**[Hämta ett intresseområde](concept-generating-thumbnails.md#area-of-interest)**|Analysera innehållet i en bild för att returnera koordinaterna för *intresseområdet*. I stället för att beskära bilden och generera en miniatyr, returnerar Visuellt innehåll områdets avgränsnings Rams koordinater, så det anropande programmet kan ändra den ursprungliga avbildningen efter behov.|
 
 ## <a name="extract-text-from-images"></a>Extrahera text från bilder
 
-Du kan använda Visuellt innehåll [Read](concept-recognizing-text.md#read-api) API för att extrahera tryckt och handskriven text från bilder till en maskin läsnings bar tecken ström. Read API använder våra senaste modeller och arbetar med text på en rad olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, brev och whiteboardtavlor. För närvarande är engelska och spanska de enda språk som stöds.
+Du kan använda Visuellt innehåll [Read](concept-recognizing-text.md#read-api) API för att extrahera utskrift och handskriven text från bilder till en maskin läsnings bar tecken ström. Read API använder de senaste modellerna och fungerar med text på en rad olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, brev och whiteboardtavlor. Den fungerar för sju olika språk (se [språk stöd](./language-support.md)).
 
 Du kan också använda [OCR-API (optisk tecken läsning)](concept-recognizing-text.md#ocr-optical-character-recognition-api) för att extrahera utskriven text på flera språk. Om det behövs korrigerar OCR rotationen av den tolkade texten och anger ramkoordinater för varje ord. OCR har stöd för 25 olika språk och identifierar automatiskt språket för den tolkade texten.
 

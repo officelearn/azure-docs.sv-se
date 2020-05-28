@@ -7,12 +7,12 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: 678e91126c04d5b299d9234a1602580260c5aee6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aef8c026fad631396e58716e65640f5792ad07c8
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81425093"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116786"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrera Key Vault med en privat Azure-länk
 
@@ -22,7 +22,7 @@ En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och 
 
 Mer information finns i [Vad är en privat Azure-länk?](../../private-link/private-link-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill integrera ett nyckel valv med en privat Azure-länk behöver du följande:
 
@@ -66,19 +66,19 @@ Nu kommer du att kunna se den konfigurerade privata slut punkten. Nu har du möj
 
 Om du redan har ett nyckel valv kan du skapa en privat länk anslutning genom att följa dessa steg:
 
-1. Logga in på Azure-portalen. 
+1. Logga in på Azure Portal. 
 1. I Sök fältet skriver du in "nyckel valv"
 1. Välj nyckel valvet i listan som du vill lägga till en privat slut punkt för.
 1. Välj fliken nätverk under Inställningar
 1. Välj fliken anslutningar för privata slut punkter överst på sidan
 1. Välj knappen "+ privat slut punkt" överst på sidan.
 
-    ![Avbildnings](../media/private-link-service-3.png) ![bild](../media/private-link-service-4.png)
+    ![Avbildnings ](../media/private-link-service-3.png) ![ bild](../media/private-link-service-4.png)
 
 Du kan välja att skapa en privat slut punkt för alla Azure-resurser med hjälp av det här bladet. Du kan antingen använda List menyerna för att välja en resurs typ och välja en resurs i din katalog, eller så kan du ansluta till en Azure-resurs med hjälp av ett resurs-ID. Lämna alternativet "integrera med den privata zonens DNS" oförändrat.  
 
-![Avbildnings](../media/private-link-service-3.png)
-![bild](../media/private-link-service-4.png)
+![Avbildnings ](../media/private-link-service-3.png)
+ ![ bild](../media/private-link-service-4.png)
 
 ## <a name="establish-a-private-link-connection-to-key-vault-using-cli"></a>Upprätta en anslutning till en privat länk till Key Vault med CLI
 
@@ -124,7 +124,7 @@ az network private-dns zone create --resource-group {RG} --name privatelink.vaul
 ```
 ### <a name="link-private-dns-zone-to-virtual-network"></a>Länka Privat DNS zon till Virtual Network 
 ```console
-az network private-dns link vnet create --resoruce-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
 ```
 ### <a name="create-a-private-endpoint-automatically-approve"></a>Skapa en privat slut punkt (Godkänn automatiskt) 
 ```console
@@ -235,7 +235,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 Mer information finns i [Azure Private Link service: begränsningar](../../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Läs mer om [Azures privata länk](../../private-link/private-link-service-overview.md)
 - Läs mer om [Azure Key Vault](overview.md)

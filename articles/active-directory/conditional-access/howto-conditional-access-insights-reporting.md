@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2a2b4864232892f1940de5c8fe46fa23879c92f3
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641591"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112778"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Villkorlig åtkomst insikter och rapportering
 
 Med arbets boken för villkorlig åtkomst i insikter och rapporter kan du förstå hur principer för villkorlig åtkomst fungerar i organisationen över tid. Under inloggningen kan en eller flera principer för villkorlig åtkomst tillämpas, bevilja åtkomst om vissa beviljande kontroller är uppfyllda eller nekar åtkomst i övrigt. Eftersom flera principer för villkorlig åtkomst kan utvärderas under varje inloggning kan du använda arbets boken insikter och rapportering för att undersöka effekten av en enskild princip eller en delmängd av alla principer.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill aktivera arbets boken insikter och rapportering måste klienten ha en Log Analytics arbets yta för att behålla inloggnings loggar data. Användare måste ha Azure AD Premium P1-eller P2-licenser för att kunna använda villkorlig åtkomst.
 
@@ -98,6 +98,23 @@ Visa nedbrytningen av användare eller inloggningar för varje villkor. Du kan f
 Du kan också undersöka inloggnings tilläggen för en speciell användare genom att söka efter inloggningar längst ned i instrument panelen. Frågan till vänster visar de vanligaste användarna. Om du väljer en användare filtreras frågan till höger.  
 
 ## <a name="troubleshooting"></a>Felsökning
+
+### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Varför fungerar inte frågor på grund av ett behörighets fel?
+
+För att du ska kunna komma åt arbets boken behöver du rätt Azure AD-behörigheter samt Log Analytics arbets ytans behörigheter. Så här testar du om du har rätt behörighet för arbets ytan genom att köra en exempel logg analys fråga:
+
+1. Logga in på **Azure-portalen**.
+1. Bläddra till **Azure Active Directory**  >  **loggar**.
+1. Skriv `SigninLogs` i rutan fråga och välj **Kör**.
+1. Om frågan inte returnerar några resultat kanske arbets ytan inte har kon figurer ATS korrekt. 
+
+![Felsöka misslyckade frågor](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
+
+Mer information om hur du strömmar inloggnings loggar i Azure AD till en Log Analytics arbets yta finns i artikeln [integrera Azure AD-loggar med Azure Monitor loggar](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Varför är parametern för villkorlig åtkomst tom?
+
+Listan med principer genereras genom att granska principerna som utvärderas för den senaste inloggnings händelsen. Om det inte finns några nya inloggningar i din klient organisation kan du behöva vänta några minuter på att arbets boken ska läsa in listan över principer för villkorlig åtkomst. Detta kan inträffa direkt efter att du har konfigurerat Log Analytics eller kan ta längre tid om en klient organisation inte har senaste inloggnings aktivitet.
 
 ### <a name="why-is-the-workbook-taking-a-long-time-to-load"></a>Varför tar det lång tid att läsa in arbets boken?  
 

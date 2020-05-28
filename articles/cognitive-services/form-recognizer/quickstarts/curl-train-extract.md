@@ -7,22 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 32756187852de0834afc1dc034d3f7419f0c8087
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fd240abee3bb19b3c54650756a3329d4d1ef8ae5
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77118402"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113524"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med vändning
 
 I den här snabb starten använder du Azures formulär tolken REST API med sväng för att träna och skapa Poäng för att extrahera nyckel/värde-par och tabeller.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
 - [spiralen](https://curl.haxx.se/windows/) är installerad.
@@ -43,7 +43,7 @@ Om du vill träna en formulär igenkännings modell med dokumenten i din Azure B
 
 1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
 1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
-1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
 
 ```bash
 curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
@@ -63,9 +63,9 @@ När du har startat träna-åtgärden använder du en ny åtgärd, **[hämtar an
 curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
-Du får ett `200 (Success)` svar med en JSON-text i följande format. Lägg märke `"status"` till fältet. Detta kommer att ha värdet `"ready"` när inlärningen är klar. Om modellen inte är avslutad måste du fråga tjänsten igen genom att köra kommandot på nytt. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
+Du får ett `200 (Success)` svar med en JSON-text i följande format. Lägg märke till `"status"` fältet. Detta kommer att ha värdet `"ready"` när inlärningen är klar. Om modellen inte är avslutad måste du fråga tjänsten igen genom att köra kommandot på nytt. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
 
-`"modelId"` Fältet innehåller ID: t för den modell som du tränar. Du behöver detta för nästa steg.
+`"modelId"`Fältet innehåller ID: t för den modell som du tränar. Du behöver detta för nästa steg.
 
 ```json
 { 
@@ -160,7 +160,7 @@ Använd följande API för att fråga resultatet av analys åtgärden.
 curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyzeResults/<result ID>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
-Du får ett `200 (Success)` svar med en JSON-text i följande format. Utdatan har kort ATS för enkelhetens skull. Lägg märke `"status"` till fältet längst ned. Detta kommer att ha värdet `"succeeded"` när analys åtgärden har slutförts. Om analys åtgärden inte har slutförts måste du fråga tjänsten igen genom att köra kommandot på nytt. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
+Du får ett `200 (Success)` svar med en JSON-text i följande format. Utdatan har kort ATS för enkelhetens skull. Lägg märke till `"status"` fältet längst ned. Detta kommer att ha värdet `"succeeded"` när analys åtgärden har slutförts. Om analys åtgärden inte har slutförts måste du fråga tjänsten igen genom att köra kommandot på nytt. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
 
 Huvud nyckel/värde paret associationer och tabeller finns i `"pageResults"` noden. Om du även har angett oformaterad text extrahering genom *includeTextDetails* URL-parameter, `"readResults"` visar noden innehållet och positionerna för all text i dokumentet.
 

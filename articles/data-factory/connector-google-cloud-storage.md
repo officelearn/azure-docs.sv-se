@@ -33,7 +33,7 @@ Den här Google Cloud Storage-anslutningen stöds för följande aktiviteter:
 
 Mer specifikt stöder den här Google Cloud Storage-anslutningen kopiering av filer som-är eller parsar filer med [fil format och komprimerings-codec som stöds](supported-file-formats-and-compression-codecs.md). Den använder GC GENERATIONERs S3-kompatibla interoperabilitet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande konfiguration krävs på ditt Google Cloud Storage-konto:
 

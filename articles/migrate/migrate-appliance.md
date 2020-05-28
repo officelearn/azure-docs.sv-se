@@ -157,9 +157,9 @@ Typ av operativsystem | datorn. SummaryConfig.GuestFullName
 Start typ | datorn. Config. firmware
 Antal kärnor | datorn. Config. Hardware. NumCPU
 Minne (MB) | datorn. Config. Hardware. MemoryMB
-Antal diskar | datorn. Config. Hardware. Device. ToList (). FindAll (x => är VirtualDisk). Count
-Lista över disk storlekar | datorn. Config. Hardware. Device. ToList (). FindAll (x => är VirtualDisk)
-Lista med nätverkskort | datorn. Config. Hardware. Device. ToList (). FindAll (x => är VirtualEthernet). Count
+Antal diskar | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualDisk). Count
+Lista över disk storlekar | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualDisk)
+Lista med nätverkskort | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualEthernet). Count
 CPU-användning | processor. Usage. genomsnitt
 Minnes användning |minnes användning. genomsnitt
 **Per disk information** | 

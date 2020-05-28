@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: e8ae3cbbca926a97bf90f4ac1104d4f082b332fd
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0ff1f19a30be8c4ca40a980459901fd9224a6626
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835622"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996626"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -102,6 +102,24 @@ Om du använder zon redundans för ditt namn område måste du utföra några yt
     <name>-s3.servicebus.windows.net
     ```
 3. Kör nslookup för var och en med suffix S1, S2 och S3 för att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighets zoner. 
+
+### <a name="where-can-i-find-client-ip-sending-or-receiving-msgs-to-my-namespace"></a>Var hittar jag klient-IP skickar eller tar emot meddelanden till mitt namn område?
+Börja med att aktivera [IP-filtrering](event-hubs-ip-filtering.md) i namn området. 
+
+Aktivera sedan diagnostikloggar för [Event Hubs händelser för virtuella nätverks anslutningar](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) genom att följa anvisningarna i [Aktivera diagnostikloggar](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). IP-adressen som anslutningen nekas till visas.
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka-integrering
 

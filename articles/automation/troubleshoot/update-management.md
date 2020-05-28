@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83735896"
 ---
-# <a name="troubleshoot-update-management-issues"></a>Felsöka Uppdateringshantering problem
+# <a name="troubleshoot-update-management-issues"></a>Felsöka problem med Uppdateringshantering
 
 Den här artikeln beskriver problem som du kan köra när du distribuerar Uppdateringshantering-funktionen på dina datorer. Det finns en agent fel sökare för Hybrid Runbook Worker agenten för att fastställa det underliggande problemet. Mer information om fel sökning finns i [Felsöka problem med Windows Update-agenten](update-agent-issues.md) och [Felsöka problem med problem med Linux-uppdaterings agenten](update-agent-issues-linux.md). Information om andra funktions distributions problem finns i [fel sökning av problem med funktions distribution](onboarding.md).
 

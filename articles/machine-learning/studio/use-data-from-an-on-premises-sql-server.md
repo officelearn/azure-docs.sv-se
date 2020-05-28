@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 648dbdb7e9e9d1b20c55d3fa5b314b7e4657d5e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 890486214eb67be26479b122c88c7a6b640b8ade
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204190"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117793"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Utföra analyser med Azure Machine Learning Studio (klassisk) med hjälp av en lokal SQL Server-databas
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Företag som arbetar med lokala data skulle till exempel kunna dra nytta av molnets skala och flexibilitet för sina arbets belastningar för Machine Learning. Men de vill inte störa sina aktuella affärs processer och arbets flöden genom att flytta sina lokala data till molnet. Azure Machine Learning Studio (klassisk) har nu stöd för att läsa data från en lokal SQL Server-databas och sedan träna och värdera en modell med dessa data. Du behöver inte längre kopiera och synkronisera data mellan molnet och den lokala servern manuellt. I stället kan modulen **Importera data** i Azure Machine Learning Studio (klassisk) nu läsa direkt från den lokala SQL Server databasen för dina utbildnings-och Poäng uppgifter.
 
@@ -70,7 +68,7 @@ Du hittar detaljerad information om installations krav, installations steg och f
 I den här genom gången ska du konfigurera ett Azure Data Factory Integration Runtime på en Azure Machine Learning arbets yta, konfigurera den och sedan läsa data från en lokal SQL Server databas.
 
 > [!TIP]
-> Innan du börjar inaktiverar du webbläsarens blockering av popup-fönster för `studio.azureml.net`. Om du använder Google Chrome-webbläsaren kan du ladda ned och installera en av de många plugin-program som är tillgängliga i Google Chrome WebStore [Klicka en gång till app-tillägget](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
+> Innan du börjar inaktiverar du webbläsarens blockering av popup-fönster för `studio.azureml.net` . Om du använder Google Chrome-webbläsaren kan du ladda ned och installera en av de många plugin-program som är tillgängliga i Google Chrome WebStore [Klicka en gång till app-tillägget](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
 >
 > [!NOTE]
 > Azure Data Factory egen värd Integration Runtime tidigare kallades tidigare Data Management Gateway. I steg-för-steg-självstudierna kan du fortsätta att referera till den som en gateway.  

@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c4c50ba53bc40ad6ae6fc60b3992f9ab992eb268
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8ad945e20e1274025595620e08f264863297892
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79204570"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117360"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Snabb start: skapa ditt första data vetenskaps experiment i Azure Machine Learning Studio (klassisk)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -55,7 +53,7 @@ Den här datauppsättningen innehåller poster för ett antal olika bilar, inklu
 
 Så här gör du för att få datauppsättningen till experimentet.
 
-1. Skapa ett nytt experiment genom att klicka på **+ ny** längst ned i fönstret Machine Learning Studio (klassisk). Välj **experiment** >  **tomt experiment**.
+1. Skapa ett nytt experiment genom att klicka på **+ ny** längst ned i fönstret Machine Learning Studio (klassisk). Välj **experiment**  >   **tomt experiment**.
 
 1. Experimentet får ett standardnamn som visas överst i arbetsytan. Markera texten och byt namn på den till ett mer beskrivande namn, exempelvis **Förutsägelse av bilpriser**. Namnet behöver inte vara unikt.
 

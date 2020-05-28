@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: b7489c49b7469feacfd5b982615419741d286998
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: d0f12274f3cbc0cd2726097e0507079cb858d59f
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849713"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116561"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -49,13 +49,13 @@ Inga beteende ändringar för den här versionen. För att komma igång med komm
 Följande ändringar sker i kommande versioner. 
 
 ### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Utfasning av Spark 2,1 och 2,2 i HDInsight 3,6 Spark-kluster
-Från och med juli 1 2020 kommer kunderna inte att kunna skapa nya Spark-kluster med Spark 2,1 och 2,2 på HDInsight 3,6. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Överväg att gå vidare till Spark 2,3 i HDInsight 3,6 och 30 2020 för att undvika potentiell system/support-avbrott.
+Från och med 1 juli 2020 kommer kunderna inte att kunna skapa nya Spark-kluster med Spark 2,1 och 2,2 på HDInsight 3,6. Befintliga kluster kommer att köras i befintligt skick utan stöd från Microsoft. Överväg att flytta till Spark 2,3 på HDInsight 3,6 den 30 juni 2020 för att undvika potentiell system/support-avbrott. Mer information finns i [migrera Apache Spark 2,1-och 2,2-arbetsbelastningar till 2,3 och 2,4](./spark/migrate-versions.md).
 
 ### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Utfasning av Spark 2,3 i HDInsight 4,0 Spark-kluster
-Från och med juli 1 2020 kommer kunderna inte att kunna skapa nya Spark-kluster med Spark 2,3 på HDInsight 4,0. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Överväg att flytta till Spark 2,4 på HDInsight 4,0 senast i juni 30 2020 för att undvika system/support-avbrott.
+Från och med 1 juli 2020 kommer kunderna inte att kunna skapa nya Spark-kluster med Spark 2,3 på HDInsight 4,0. Befintliga kluster kommer att köras i befintligt skick utan stöd från Microsoft. Överväg att flytta till Spark 2,4 på HDInsight 4,0 den 30 juni 2020 för att undvika potentiell system/support-avbrott. Mer information finns i [migrera Apache Spark 2,1-och 2,2-arbetsbelastningar till 2,3 och 2,4](./spark/migrate-versions.md).
 
 ### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Utfasning av Kafka 1,1 i HDInsight 4,0 Kafka-kluster
-Från och med juli 1 2020 kommer kunderna inte att kunna skapa nya Kafka-kluster med Kafka 1,1 på HDInsight 4,0. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Överväg att flytta till Kafka 2,1 på HDInsight 4,0 senast i juni 30 2020 för att undvika system/support-avbrott.
+Från och med 1 2020 juli kommer kunder inte att kunna skapa nya Kafka-kluster med Kafka 1,1 på HDInsight 4,0. Befintliga kluster kommer att köras i befintligt skick utan stöd från Microsoft. Överväg att flytta till Kafka 2,1 på HDInsight 4,0 senast i juni 30 2020 för att undvika system/support-avbrott. Mer information finns i [migrera Apache Kafka-arbetsbelastningar till Azure HDInsight 4,0](./kafka/migrate-versions.md).
 
 ### <a name="hbase-20-to-216"></a>HBase 2,0 till 2.1.6
 I den kommande HDInsight 4,0-versionen kommer HBase-versionen att uppgraderas från version 2,0 till 2.1.6

@@ -12,16 +12,14 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: 1308f658b6ae7c8f46b989f8205568fa195fb4aa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3f2456370d6f74e5d34c6b387247a6de442acea7
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209357"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115453"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Använd Azure Machine Learning Studio (klassiska) webb tjänst parametrar
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 En Azure Machine Learning-webbtjänst skapas genom att publicera ett experiment som innehåller moduler med konfigurerbara parametrar. I vissa fall kanske du vill ändra modulens beteende medan webb tjänsten körs. Med *webb tjänst parametrar* kan du göra det här. 
 

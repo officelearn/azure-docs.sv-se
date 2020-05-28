@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b907663971e7a8a7c3b2c6cac95c38131e1ccb26
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 47714be27cd4588b9bdf481750974394d3738985
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74931739"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119279"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av .NET-API:et
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "74931739"
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Azure Resource Manager mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -43,7 +43,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 > 
 > Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -66,7 +66,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
     ```powershell
     Get-AzSubscription
     ```
-4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt;NameOfAzureSubscription** &gt; med namnet på din Azure-prenumeration.
+4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt; NameOfAzureSubscription** &gt; med namnet på din Azure-prenumeration.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -116,7 +116,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 
 * Klientorganisations-ID
 * Prenumerations-ID:t
-* Program-ID:t
+* Program-ID
 * Lösenord (anges i det första kommandot)
 
 ## <a name="walkthrough"></a>Genomgång
@@ -134,7 +134,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
    2. Kör följande kommando för att installera Azure Active Directory-paketet (du använder Active Directory-API i koden): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Lägg till följande **appSetttings**-avsnitt i filen **App.config**. De här inställningarna används av helper-metoden: **GetAuthorizationHeader**.
 
-    Ersätt värden för ** &lt;program-&gt;ID**, ** &lt;lösen ord&gt;**, ** &lt;prenumerations-ID&gt;** och ** &lt;klient-ID&gt; ** med dina egna värden.
+    Ersätt värden för ** &lt; program- &gt; ID**, ** &lt; lösen ord &gt; **, ** &lt; prenumerations-ID &gt; **och ** &lt; klient-ID &gt; ** med dina egna värden.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -240,7 +240,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 9. Lägg till följande kod som skapar en **länkad Azure SQL-tjänst** till **Main**-metoden.
 
    > [!IMPORTANT]
-   > Ersätt **servername**, **databasename**, **username** och **password** med namnen för Azure SQL-servern, databasen, användaren och lösenordet.
+   > Ersätt **servername**, **databasename**, **username**och **Password** med namnen på din server, databas, användare och lösen ord.
 
     ```csharp
     // create a linked service for output data store: Azure SQL Database
@@ -511,7 +511,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
     John, Doe
     Jane, Doe
     ```
-18. Kör exemplet genom att klicka på **Felsök** -> **Starta fel sökning** på menyn. När du ser **Getting run details of a data slice** (Hämta körningsdata för en datorsektor) väntar du några minuter och trycker sedan på **Retur**.
+18. Kör exemplet genom att klicka på **Felsök**  ->  **Starta fel sökning** på menyn. När du ser **Getting run details of a data slice** (Hämta körningsdata för en datorsektor) väntar du några minuter och trycker sedan på **Retur**.
 19. Använd Azure-portalen och kontrollera att datafabriken **APITutorialFactory** har skapats med följande artefakter:
     * Länkad tjänst: **LinkedService_AzureStorage**
     * DataSet: **InputDataset** och **OutputDataset**.

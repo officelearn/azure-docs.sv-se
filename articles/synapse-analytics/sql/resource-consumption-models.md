@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: e078893b3bbe0ef5661cd87bad62b320f78ceb5d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424862"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112759"
 ---
 # <a name="azure-synapse-analytics-sql-resource-consumption"></a>Användning av SQL-resursanvändning för Azure Synapse Analytics
 
@@ -77,7 +77,7 @@ När du ökar informations lager enheter är du linjärt ökande data bearbetnin
 
 #### <a name="capacity-limits"></a>Kapacitetsbegränsningar
 
-Varje SQL Server (till exempel myserver.database.windows.net) har en kvot för [databas transaktions enhet (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) som tillåter ett angivet antal informations lager enheter. Mer information finns i [kapacitets gränser för arbets belastnings hantering](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
+Varje SQL Server (till exempel myserver.database.windows.net) har en kvot för [databas transaktions enhet (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) som tillåter ett angivet antal informations lager enheter. Mer information finns i [kapacitets gränser för arbets belastnings hantering](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ### <a name="how-many-data-warehouse-units-do-i-need"></a>Hur många data lager enheter behöver jag
 
@@ -106,7 +106,7 @@ Inbyggda roller för Azure-resurser, till exempel SQL DB-deltagare och SQL Serve
 Så här visar du den aktuella DWU-inställningen:
 
 1. Öppna SQL Server Object Explorer i Visual Studio.
-2. Anslut till huvud databasen som är kopplad till den logiska SQL Database servern.
+2. Anslut till huvud databasen som är kopplad till den logiska SQL-servern.
 3. Välj från vyn sys. database_service_objectives dynamisk hantering. Här är ett exempel:
 
 ```sql
@@ -148,7 +148,7 @@ Med T-SQL kan du Visa den aktuella DWUsettings, ändra inställningarna och kont
 
 Så här ändrar du DWU: er:
 
-1. Anslut till huvud databasen som är kopplad till den logiska SQL Database servern.
+1. Anslut till huvud databasen som är associerad med servern.
 2. Använd instruktionen [Alter Database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) tsql. I följande exempel anges service nivå målet till DW1000c för databasen MySQLDW.
 
 ```Sql
@@ -184,7 +184,7 @@ Det går inte att kontrol lera databasens tillstånd för skalnings åtgärder m
 
 Så här kontrollerar du status för DWU-ändringar:
 
-1. Anslut till huvud databasen som är kopplad till den logiska SQL Database servern.
+1. Anslut till huvud databasen som är associerad med servern.
 2. Skicka följande fråga för att kontrol lera databasens tillstånd.
 
 ```sql

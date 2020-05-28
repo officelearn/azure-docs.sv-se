@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 0324044d93f12f6ac6ec96ff1a31be8ee02ada41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e928a6b54e53f9076ffe184ed4868e7741661d7e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414701"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118820"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Felsöka SSIS Integration Runtime Management i Azure Data Factory
 
@@ -30,27 +30,27 @@ Om du stöter på ett problem under etableringen eller avetableringen av SSIS IR
 
 Om felkoden är InternalServerError har tjänsten tillfälliga problem och du bör försöka igen senare. Kontakta Azure Data Factory support-teamet om det inte går att göra ett nytt försök.
 
-I annat fall kan tre större externa beroenden orsaka fel: en Azure SQL Database Server eller en hanterad instans, ett anpassat installations skript och en virtuell nätverks konfiguration.
+Annars kan tre större externa beroenden orsaka fel: Azure SQL Database eller Azure SQL-hanterad instans, ett anpassat installations skript och en konfiguration för virtuellt nätverk.
 
-## <a name="azure-sql-database-server-or-managed-instance-issues"></a>Problem med Azure SQL Database Server eller hanterade instanser
+## <a name="sql-database-or-sql-managed-instance-issues"></a>Problem med SQL Database eller SQL-hanterad instans
 
-En Azure SQL Database-server eller en hanterad instans krävs om du etablerar SSIS IR med en SSIS-katalogdatabas. SSIS IR måste kunna komma åt Azure SQL Database-servern eller den hanterade instansen. Dessutom ska kontot för Azure SQL Database-servern eller den hanterade instansen ha behörighet att skapa en SSIS-katalogdatabas (SSISDB). Om det uppstår ett fel visas en felkod med ett detaljerat SQL-undantagsmeddelande i Data Factory-portalen. Använd informationen i följande lista för att felsöka felkoderna.
+SQL Database-eller SQL-hanterad instans krävs om du konfigurerar SSIS IR med en SSIS-katalog databas. SSIS IR måste kunna komma åt SQL Database eller SQL-hanterad instans. Inloggnings kontot för SQL Database eller SQL-hanterad instans måste också ha behörighet att skapa en SSIS-katalog databas (SSISDB). Om det uppstår ett fel visas en felkod med ett detaljerat SQL-undantagsmeddelande i Data Factory-portalen. Använd informationen i följande lista för att felsöka felkoderna.
 
 ### <a name="azuresqlconnectionfailure"></a>AzureSqlConnectionFailure
 
 Det här felet kan uppstå när du etablerar en ny SSIS IR eller medan IR körs. Om det här felet uppstår under IR-etableringen får du kanske ett detaljerat SqlException-meddelande i felmeddelandet som anger något av följande problem:
 
-* Ett problem med nätverksanslutning. Kontrollera om det går att komma åt värddatornamnet för SQL Server eller hanterad instans. Kontrollera även att ingen brandvägg eller nätverkssäkerhetsgrupp (NSG) blockerar SSIS IR-åtkomst till servern.
+* Ett problem med nätverksanslutning. Kontrol lera om värd namnet för SQL Database eller SQL-hanterad instans är tillgängligt. Kontrollera även att ingen brandvägg eller nätverkssäkerhetsgrupp (NSG) blockerar SSIS IR-åtkomst till servern.
 * Inloggningen misslyckades under SQL-autentisering. Det angivna kontot kan inte logga in på SQL Server-databasen. Se till att du anger rätt användarkonto.
 * Inloggningen misslyckades under Microsoft Azure Active Directory-autentisering (Azure AD) (hanterad identitet). Lägg till den hanterade identiteten för din fabrik till en AAD-grupp och se till att den hanterade identiteten har åtkomstbehörighet till din katalogdatabasserver.
 * Tidsgräns för anslutning. Det här felet orsakas alltid av en säkerhetsrelaterad konfiguration. Vi rekommenderar att du gör följande:
   1. Skapa en ny virtuell dator.
   1. Anslut den virtuella datorn till samma Microsoft Azure Virtual Network av IR om IR finns i ett virtuellt nätverk.
-  1. Installera SSMS och kontrol lera status för Azure SQL Database Server eller hanterad instans.
+  1. Installera SSMS och kontrol lera status för SQL Database-eller SQL-hanterad instans.
 
-För andra problem löser du det problem som visas i det detaljerade felmeddelandet för SQL-undantag. Om det fortfarande är problem kontaktar du supportteamet för Azure SQL Database-servern eller hanterad instans.
+För andra problem löser du det problem som visas i det detaljerade felmeddelandet för SQL-undantag. Om du fortfarande har problem kan du kontakta support teamet för SQL Database eller SQL-hanterad instans.
 
-Om felet uppstår när IR körs förhindrar ändringar i en nätverkssäkerhetsgrupp eller brandvägg förmodligen SSIS IR-arbetsnoden från att komma åt Azure SQL Database-servern eller den hanterade instansen. Avblockera SSIS IR-arbetsnoden så att den kan komma åt Azure SQL Database-servern eller den hanterade instansen.
+Om du ser felet när IR körs, förhindrar nätverks säkerhets gruppen eller brand Väggs ändringar förmodligen SSIS IR Worker-noden från att komma åt SQL Database-eller SQL-hanterad instans. Avblockera noden SSIS IR Worker så att den kan komma åt SQL Database-eller SQL-hanterad instans.
 
 ### <a name="catalogcapacitylimiterror"></a>CatalogCapacityLimitError
 
@@ -65,20 +65,20 @@ Möjliga lösningar är följande:
 
 ### <a name="catalogdbbelongstoanotherir"></a>CatalogDbBelongsToAnotherIR
 
-Det här felet innebär att Azure SQL Database-servern eller den hanterade instansen redan har en SSISDB och att den används av en annan IR. Du behöver antingen ange en annan Azure SQL Database-server eller hanterad instans eller ta bort befintlig SSISDB och sedan starta om den nya IR:en.
+Det här felet innebär att SQL Database-eller SQL-hanterad instans redan har en SSISDB och att den används av en annan IR. Du måste antingen ange en annan SQL Database eller SQL-hanterad instans eller ta bort den befintliga SSISDB och starta om den nya IR-filen.
 
 ### <a name="catalogdbcreationfailure"></a>CatalogDbCreationFailure
 
 Felet kan uppstå på grund av någon av följande orsaker:
 
 * Det användarkonto som har konfigurerats för SSIS IR har inte behörighet att skapa databasen. Du kan bevilja användaren behörighet att skapa databasen.
-* En överskriden tidsgräns inträffar när databasen skapas, till exempel en tidsgräns för körning eller för databasåtgärd. Du bör försöka åtgärden på nytt senare. Om det nya försöket inte fungerar kontaktar du supportteamet för Azure SQL Database-servern eller hanterad instans.
+* En överskriden tidsgräns inträffar när databasen skapas, till exempel en tidsgräns för körning eller för databasåtgärd. Du bör försöka åtgärden på nytt senare. Om försöket inte fungerar kan du kontakta support teamet för SQL Database eller SQL-hanterad instans.
 
-För andra problem läser du felmeddelandet om SQL-undantag och åtgärdar det problem som beskrivs i felinformationen. Om det fortfarande är problem kontaktar du supportteamet för Azure SQL Database-servern eller hanterad instans.
+För andra problem läser du felmeddelandet om SQL-undantag och åtgärdar det problem som beskrivs i felinformationen. Om du fortfarande har problem kan du kontakta support teamet för SQL Database eller SQL-hanterad instans.
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Den här typen av fel meddelande ser ut så här: "ogiltigt objekt namn" Catalog. catalog_properties "." I så fall har du redan en databas med namnet SSISDB men den skapades inte av SSIS IR, eller så är databasen i ett ogiltigt tillstånd som orsakas av fel under den senaste SSIS IR-etableringen. Du kan frigöra den befintliga databasen med namnet SSISDB, eller så kan du konfigurera en ny Azure SQL Database-server eller en hanterad instans för IR.
+Den här typen av fel meddelande ser ut så här: "ogiltigt objekt namn" Catalog. catalog_properties "." I så fall har du redan en databas med namnet SSISDB men den skapades inte av SSIS IR, eller så är databasen i ett ogiltigt tillstånd som orsakas av fel under den senaste SSIS IR-etableringen. Du kan släppa den befintliga databasen med namnet SSISDB, eller så kan du konfigurera en ny SQL Database-eller SQL-hanterad instans för IR.
 
 ## <a name="custom-setup-issues"></a>Anpassade installations problem
 

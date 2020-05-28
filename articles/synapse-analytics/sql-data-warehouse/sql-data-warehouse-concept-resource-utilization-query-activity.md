@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7c09e9d9f93ead6f894c954f647ebe33918cf41d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e80ff74ad1dec25c815a9dd28a04133502b82085
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653010"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012916"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Övervaka resursutnyttjande och fråga aktivitet i Azure Synapse Analytics
 
@@ -26,7 +26,7 @@ Azure Synapse Analytics ger en omfattande övervaknings upplevelse inom Azure Po
 
 Följande mått är tillgängliga i Azure Portal för SQL i Synapse. Dessa mått är uppdelade via [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
 
-| Mått namn             | Description                                                  | Sammansättningstyp |
+| Mått namn             | Beskrivning                                                  | Sammansättningstyp |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
 | CPU-procent          | CPU-användning över alla noder för data lagret      | Genomsn, min, max    |
 | Data IO-procent      | I/o-användning över alla noder för data lagret       | Genomsn, min, max    |
@@ -49,7 +49,7 @@ Följande mått är tillgängliga i Azure Portal för SQL i Synapse. Dessa mått
 Saker att tänka på när du visar mått och ställer in aviseringar:
 
 - DWU som används representerar en övergripande **representation av användningen** i SQL-poolen och är inte avsedd att vara en omfattande indikator för användning. För att avgöra om du vill skala upp eller ned bör du ta hänsyn till alla faktorer som kan påverkas av DWU, till exempel samtidighet, minne, tempdb och adaptiv cache-kapacitet. Vi rekommenderar att du [Kör arbets belastningen på olika DWU-inställningar](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) för att avgöra vad som fungerar bäst för att uppfylla dina affärs mål.
-- Misslyckade och lyckade anslutningar rapporteras för ett visst informations lager – inte för den logiska servern
+- Misslyckade och lyckade anslutningar rapporteras för ett visst informations lager – inte för själva servern.
 - Minnes procent visar användningen även om informations lagret är i inaktivt läge – det visar inte den aktiva minnes användningen för arbets belastningen. Använd och spåra det här måttet tillsammans med andra (tempdb, Gen2 cache) för att fatta ett holistiskt beslut om skalning för ytterligare cache-kapacitet ökar arbets belastnings prestandan för att uppfylla dina krav.
 
 ## <a name="query-activity"></a>Fråga aktivitet

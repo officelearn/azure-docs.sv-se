@@ -71,19 +71,19 @@ Om du är nybörjare på Azure Data Factory läser du [Introduktion till Azure D
 
 | Egenskap          | Beskrivning                              | Obligatorisk |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Namn på aktiviteten                     | Yes      |
-| beskrivning       | Text som beskriver vad aktiviteten används för | No       |
-| typ              | För Hadoop streaming-aktivitet är aktivitets typen HDInsightStreaming | Yes      |
-| linkedServiceName | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Yes      |
-| mappning            | Anger namnet på den körbara filen för mapper | Yes      |
-| minskning           | Anger namnet på den programbegränsande körbara filen | Yes      |
-| kombinations          | Anger namnet på den kombinerade program filen | No       |
-| fileLinkedService | Referens till en Azure Storage länkad tjänst som används för att lagra mapparna Mapper, kombinerare och minska program som ska köras. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | No       |
-| filePath          | Ange en matris med sökvägen till mapparna Mapper, kombinerare och Minskare som lagras i Azure Storage som refereras av fileLinkedService. Sökvägen är skiftlägeskänslig. | Yes      |
-| indata             | Anger WASB-sökvägen till indatafilen för mapper. | Yes      |
-| utdata            | Anger WASB-sökvägen till utdatafilen för minsknings filen. | Yes      |
-| getDebugInfo      | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av scriptLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | No       |
-| ogiltiga         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | No       |
+| name              | Namn på aktiviteten                     | Ja      |
+| description       | Text som beskriver vad aktiviteten används för | Nej       |
+| typ              | För Hadoop streaming-aktivitet är aktivitets typen HDInsightStreaming | Ja      |
+| linkedServiceName | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
+| mappning            | Anger namnet på den körbara filen för mapper | Ja      |
+| minskning           | Anger namnet på den programbegränsande körbara filen | Ja      |
+| kombinations          | Anger namnet på den kombinerade program filen | Nej       |
+| fileLinkedService | Referens till en Azure Storage länkad tjänst som används för att lagra mapparna Mapper, kombinerare och minska program som ska köras. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Nej       |
+| filePath          | Ange en matris med sökvägen till mapparna Mapper, kombinerare och Minskare som lagras i Azure Storage som refereras av fileLinkedService. Sökvägen är skiftlägeskänslig. | Ja      |
+| indata             | Anger WASB-sökvägen till indatafilen för mapper. | Ja      |
+| utdata            | Anger WASB-sökvägen till utdatafilen för minsknings filen. | Ja      |
+| getDebugInfo      | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av scriptLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
+| ogiltiga         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Nej       |
 | definierar           | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | Nej       | 
 
 ## <a name="next-steps"></a>Nästa steg

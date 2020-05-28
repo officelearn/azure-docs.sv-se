@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: bd6f04ca7e24e380ad657f967284704ad613375a
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856069"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996405"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -20,12 +20,12 @@ Azure Application Gateway består av flera komponenter som du kan konfigurera p�
 
 ![Flödes diagram för Application Gateway-komponenter](./media/configuration-overview/configuration-overview1.png)
 
-Den här bilden illustrerar ett program som har tre lyssnare. De första två är lyssnare för flera platser för `http://acme.com/*` respektive `http://fabrikam.com/*`. Båda lyssnar på port 80. Den tredje är en grundläggande lyssnare som har slut punkt till slut punkt Transport Layer Security (TLS), tidigare kallat Secure Sockets Layer (SSL) avslutades.
+Den här bilden illustrerar ett program som har tre lyssnare. De första två är lyssnare för flera platser för `http://acme.com/*` respektive `http://fabrikam.com/*` . Båda lyssnar på port 80. Den tredje är en grundläggande lyssnare som har slut punkt till slut punkt Transport Layer Security (TLS), tidigare kallat Secure Sockets Layer (SSL) avslutades.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Virtuellt Azure-nätverk och dedikerat undernät
 
@@ -219,14 +219,12 @@ När du skapar en Programgateway med hjälp av Azure Portal skapar du en standar
 
 När du skapar en regel väljer du mellan [ *Basic* och *Path-based*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
-- Välj Basic om du vill vidarebefordra alla begär Anden på den associerade lyssnaren (till exempel *blogg<i></i>. contoso.com/\*)* till en enda backend-pool.
+- Välj Basic om du vill vidarebefordra alla begär Anden på den associerade lyssnaren (till exempel *blogg <i></i> . contoso.com/ \* )* till en enda backend-pool.
 - Välj sökväg – baserat om du vill dirigera begär Anden från särskilda URL-sökvägar till särskilda backend-pooler. Sök vägs mönstret används bara på sökvägen till URL: en, inte dess frågeparametrar.
 
 #### <a name="order-of-processing-rules"></a>Bearbetnings ordning för regler
 
-För v1 SKU bearbetas mönster matchning av inkommande begär anden i den ordning som Sök vägarna visas i sökvägen till URL-sökvägen för den Sök vägs baserade regeln. Om en begäran matchar mönstret i två eller flera sökvägar i Sök vägs kartan matchas den sökväg som anges först. Och begäran vidarebefordras till Server delen som är kopplad till den sökvägen.
-
-För v2-SKU: n är en exakt matchning högre prioritet än Sök vägs ordning i mappningen till URL-sökvägen. Om en begäran matchar mönstret i två eller flera sökvägar vidarebefordras begäran till Server delen som är associerad med den sökväg som exakt matchar begäran. Om sökvägen i den inkommande begäran inte exakt matchar någon sökväg i kartan bearbetas mönster matchningen av begäran i listan Sök vägs ordning för Sök vägs-baserad regel.
+För v1-och v2-SKU bearbetas mönster matchning av inkommande begär anden i den ordning som Sök vägarna visas i sökvägen till URL-sökvägen för den Sök vägs baserade regeln. Om en begäran matchar mönstret i två eller flera sökvägar i Sök vägs kartan matchas den sökväg som anges först. Och begäran vidarebefordras till Server delen som är kopplad till den sökvägen.
 
 ### <a name="associated-listener"></a>Associerad lyssnare
 
@@ -250,7 +248,7 @@ För en sökväg-baserad regel lägger du till flera Server dels-HTTP-inställni
 
 ### <a name="redirection-setting"></a>Inställning för omdirigering
 
-Om omdirigering har kon figurer ATS för en grundläggande regel omdirigeras alla begär Anden på den associerade lyssnaren till målet. Detta är *Global* omdirigering. Om omdirigering har kon figurer ATS för en Sök vägs baserad regel omdirigeras endast begär anden i ett särskilt plats område. Ett exempel är ett shopping vagns områden som betecknas av */Cart/\**. Detta är en *Path-baserad* omdirigering.
+Om omdirigering har kon figurer ATS för en grundläggande regel omdirigeras alla begär Anden på den associerade lyssnaren till målet. Detta är *Global* omdirigering. Om omdirigering har kon figurer ATS för en Sök vägs baserad regel omdirigeras endast begär anden i ett särskilt plats område. Ett exempel är ett shopping vagns områden som betecknas av */Cart/ \* *. Detta är en *Path-baserad* omdirigering.
 
 Mer information om omdirigering finns i [Application Gateway omdirigerings översikt](redirect-overview.md).
 
@@ -378,7 +376,7 @@ För en anpassad domän vars befintliga anpassade DNS-namn mappas till App Servi
 
 Den här funktionen ersätter *värd* rubriken i den inkommande begäran på programgatewayen med det värdnamn som du anger.
 
-Om *www.contoso.com* till exempel anges i inställningen **värd namn** , ändras den ursprungliga begäran *`https://appgw.eastus.cloudapp.azure.com/path1` till *`https://www.contoso.com/path1` när begäran vidarebefordras till backend-servern.
+Om *www.contoso.com* till exempel anges i inställningen **värd namn** , ändras den ursprungliga begäran * `https://appgw.eastus.cloudapp.azure.com/path1` till * `https://www.contoso.com/path1` när begäran vidarebefordras till backend-servern.
 
 ## <a name="back-end-pool"></a>Serverdelspool
 

@@ -99,7 +99,7 @@ Om du vill konfigurera TDE via PowerShell måste du vara ansluten som Azure-äga
 
 Använd följande cmdlets för Azure SQL Database och Azure-Synapse:
 
-| Cmdlet | Beskrivning |
+| Cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Aktiverar eller inaktiverar transparent data kryptering för en databas.|
 | [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Hämtar transparent data krypterings tillstånd för en databas. |
@@ -120,7 +120,7 @@ Hantera TDE med hjälp av Transact-SQL.
 
 Anslut till databasen med en inloggning som är en administratör eller medlem av **DBManager** -rollen i huvud databasen.
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) | Ange kryptering vid/från krypterar eller dekrypterar en databas |
 | [sys. dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Returnerar information om krypterings tillstånd för en databas och dess tillhör ande databas krypterings nycklar |
@@ -136,7 +136,7 @@ Hantera TDE med hjälp av REST API.
 Om du vill konfigurera TDE via REST API måste du vara ansluten som Azure-ägare, deltagare eller SQL Security Manager.
 Använd följande uppsättning kommandon för Azure SQL Database och Azure-Synapse:
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 |[Skapa eller uppdatera Server](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Lägger till en Azure Active Directory identitet till en server. (används för att bevilja åtkomst till Key Vault)|
 |[Skapa eller uppdatera server nyckel](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Lägger till en Key Vault nyckel till en server.|

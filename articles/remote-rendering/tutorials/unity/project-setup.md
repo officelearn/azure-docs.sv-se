@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: 33801316e4c0446865169560bb42f98052acba70
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d68a3b1291d2e001c535a0c5a6b0c754c9d2b2e1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679599"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021355"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Självstudie: Konfigurera ett Unity-projekt från grunden
 
@@ -25,7 +25,7 @@ I den här självstudien lär du dig:
 > * Läser in modeller till en åter givnings session.
 > * Visar anslutnings statistik.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här självstudien behöver du:
 
@@ -44,13 +44,13 @@ För den här självstudien behöver du:
 ## <a name="create-a-new-unity-project"></a>Skapa ett nytt Unity-projekt
 
 Skapa ett nytt projekt från Unity Hub.
-I det här exemplet antar vi att projektet skapas i en mapp med namnet `RemoteRendering`.
+I det här exemplet antar vi att projektet skapas i en mapp med namnet `RemoteRendering` .
 
 ![nytt projekt fönster](media/new-project.png)
 
 ## <a name="configure-the-projects-manifest"></a>Konfigurera projektets manifest
 
-Du måste ändra filen `Packages/manifest.json` som finns i din Unity Project-mapp. Öppna filen i en text redigerare och Lägg till raderna i listan nedan:
+Du måste ändra filen som finns `Packages/manifest.json` i din Unity Project-mapp. Öppna filen i en text redigerare och Lägg till raderna i listan nedan:
 
 ```json
 {
@@ -77,9 +77,9 @@ När du har ändrat och sparat manifestet uppdateras Unity automatiskt. Bekräft
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Se till att du har den senaste versionen av paketet
 
 Följande steg säkerställer att ditt projekt använder den senaste versionen av Remote rendering-paketet.
-1. Välj paketet i fönstret projekt och klicka på paket ikonen: ![välja paket ikonen](media/package-icons.png)
-1. I kontrollen klickar du på "Visa i paket hanteraren": ![paket kontroll](media/package-properties.png)
-1. På sidan Package Manager för Remote rendering Package, se om uppdaterings knappen är tillgänglig. Om så är fallet uppdaterar paketet till den senaste tillgängliga versionen: ![arr-paketet i paket hanteraren](media/package-manager.png)
+1. Välj paketet i projekt fönstret och klicka på :::no-loc text="package"::: ikonen: ![ välja paket ikonen](media/package-icons.png)
+1. I kontrollen klickar du på "Visa i paket hanteraren": ![ paket kontroll](media/package-properties.png)
+1. På sidan Package Manager för Remote rendering Package, se om uppdaterings knappen är tillgänglig. Om så är fallet uppdaterar paketet till den senaste tillgängliga versionen: ![ arr-paketet i paket hanteraren](media/package-manager.png)
 1. Ibland kan det leda till fel i-konsolen vid uppdatering av paketet. Om detta inträffar kan du försöka stänga och öppna projektet igen.
 
 ## <a name="configure-the-camera"></a>Konfigurera kameran
@@ -90,11 +90,11 @@ Välj den **primära Camera** -noden.
 
     ![Återställ kamera omvandling](media/camera-reset-transform.png)
 
-1. Ange **Rensa flaggor** till *solid färg*
+1. Ange **:::no-loc text="Clear flags":::** till*:::no-loc text="Solid Color":::*
 
-1. Ange **bakgrund** till *svart*
+1. Ange **:::no-loc text="Background":::** till*:::no-loc text="Black":::*
 
-1. Ställ in **urklipps planen** till *nära = 0,3* och *mycket = 20*. Det innebär att rendera kommer att vara en klipps geometri som är närmare än 30 cm eller längre än 20 meter.
+1. Ange **:::no-loc text="Clipping Planes":::** till *nära = 0,3* och *mycket = 20*. Det innebär att rendera kommer att vara en klipps geometri som är närmare än 30 cm eller längre än 20 meter.
 
     ![Egenskaper för Unity-kamera](media/camera-properties.png)
 
@@ -109,10 +109,10 @@ Välj den **primära Camera** -noden.
 1. Välj **grafik** till vänster.
 1. Ändra inställningen för inställnings **pipelinen för skript åter givning** till *HybridRenderingPipeline*. Hoppa över det här steget om den universella rendera pipelinen inte används.
 
-    ![ändra inställningarna](media/settings-graphics-lwrp.png) för Project Graphics ibland-gränssnittet fyller inte i listan över tillgängliga pipelin typer från paketen. i så fall måste *HybridRenderingPipeline* -till gången dras till fältet manuellt: ![ändra inställningarna för Project-grafik](media/hybrid-rendering-pipeline.png)
+    ![ändra inställningarna för Project Graphics ](media/settings-graphics-lwrp.png) ibland-gränssnittet fyller inte i listan över tillgängliga pipelin typer från paketen. i så fall måste *HybridRenderingPipeline* -till gången dras till fältet manuellt: ![ ändra inställningarna för Project-grafik](media/hybrid-rendering-pipeline.png)
 1. Välj **spelare** till vänster.
 1. Välj fliken **universell Windows-plattform inställningar**
-1. Ändra **XR-inställningarna** så att de stöder Windows Mixed ![Reality: Player-inställningar](media/xr-player-settings.png)
+1. Ändra **XR-inställningarna** så att de stöder Windows Mixed Reality: ![ Player-inställningar](media/xr-player-settings.png)
 1. Välj inställningarna som i skärm bilden ovan:
     1. Aktivera **virtuell verklighet som stöds**
     1. Ange **djup formatet** *16-bitars djup*
@@ -309,7 +309,7 @@ Om detta Miss lyckas, se till att du har angett konto informationen korrekt i eg
 
 ![Session som startar utdata](media/create-session-output.png)
 
-I det här läget har Azure etablering av en server för dig och start av en virtuell dator för virtuell åter givning. Detta tar vanligt vis **3 till 5 minuter**. När den virtuella datorn är klar körs vårt Unity `OnSessionStatusChanged` -skript återanrop och kommer att skriva ut den nya sessionens status:
+I det här läget har Azure etablering av en server för dig och start av en virtuell dator för virtuell åter givning. Detta tar vanligt vis **3 till 5 minuter**. När den virtuella datorn är klar körs vårt Unity-skript `OnSessionStatusChanged` återanrop och kommer att skriva ut den nya sessionens status:
 
 ![Redo utdata för session](media/create-session-output-2.png)
 
@@ -420,7 +420,7 @@ När du trycker på *Play*får du nu tre knappar i visnings området: **Skapa se
 Funktionen **AutoStartSessionAsync** används för att simulera knappens tryck utanför redigeraren.
 
 > [!TIP]
-> Det går att öppna sessioner som har stoppats, som har upphört att gälla eller som är i fel tillstånd. Även om de inte kan användas för rendering längre, kan du fråga efter information när du har öppnat en inaktiv session. Koden ovan kontrollerar en sessions status i `ARRService_OnSessionStarted`, för att stoppa automatiskt när sessionen har blivit oanvändbar.
+> Det går att öppna sessioner som har stoppats, som har upphört att gälla eller som är i fel tillstånd. Även om de inte kan användas för rendering längre, kan du fråga efter information när du har öppnat en inaktiv session. Koden ovan kontrollerar en sessions status i `ARRService_OnSessionStarted` , för att stoppa automatiskt när sessionen har blivit oanvändbar.
 
 Med den här funktionen kan du nu skapa och återanvända sessioner, vilket bör förbättra ditt utvecklings arbets flöde avsevärt.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74327560"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014918"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure HDInsight
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett Azure Data Lake Storage Gen2-lagringskonto som har konfigurerats för HDInsight**
 
@@ -128,7 +128,7 @@ Som en del av Apache Hive-jobbet importerar du data från CSV-filen till en Apac
    nano flightdelays.hql
    ```
 
-2. Ändra följande text genom att `<container-name>` ersätta plats hållarna och `<storage-account-name>` med namnet på din behållare och ditt lagrings konto. Kopiera och klistra sedan in texten i nano-konsolen genom att trycka på Skift-tangenten tillsammans med höger musknapp.
+2. Ändra följande text genom att ersätta `<container-name>` `<storage-account-name>` plats hållarna och med namnet på din behållare och ditt lagrings konto. Kopiera och klistra sedan in texten i nano-konsolen genom att trycka på Skift-tangenten tillsammans med höger musknapp.
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -244,12 +244,12 @@ Du behöver namnet på servern från SQL-databasen för den här åtgärden. Slu
    sudo apt-get --assume-yes install freetds-dev freetds-bin
    ```
 
-6. När installationen är klar använder du följande kommando för att ansluta till SQL Database-servern.
+6. När installationen är klar använder du följande kommando för att ansluta till SQL Database.
 
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Ersätt platshållaren `<server-name>` med lösenordet för namnet på SQL Database-servern.
+   * Ersätt `<server-name>` plats hållaren med namnet på den logiska SQL-servern.
 
    * Ersätt platshållaren `<admin-login>` med administratörsinloggningen för SQL Database.
 

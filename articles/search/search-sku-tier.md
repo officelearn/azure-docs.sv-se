@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617719"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119212"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en pris nivå för Azure Kognitiv sökning
 
@@ -41,7 +41,7 @@ Nivåerna särskiljs av:
 
 Nivån som du väljer avgör fakturerings priset. Följande skärm bild från Azure Portal visar tillgängliga nivåer, minus priser (som du hittar i portalen och på [prissättnings sidan](https://azure.microsoft.com/pricing/details/search/). **Kostnads fri**, **Basic**och **standard** är de vanligaste nivåerna.
 
-**Kostnads fri** skapar en begränsad Sök tjänst för mindre projekt, inklusive snabb starter och självstudier. Internt, repliker och partitioner som delas mellan flera prenumeranter. Du kan inte skala en kostnads fri tjänst eller köra betydande arbets belastningar.
+**Kostnads fri** skapar en begränsad Sök tjänst för mindre projekt, inklusive snabb starter och självstudier. Internt delas repliker och partitioner mellan flera prenumeranter. Du kan inte skala en kostnads fri tjänst eller köra betydande arbets belastningar.
 
 **Basic** och **standard** är de vanligaste fakturerbara nivåerna, med **standard standarden** . Med dedikerade resurser under kontrollen kan du distribuera större projekt, optimera prestanda och ange kapaciteten.
 

@@ -105,7 +105,7 @@ Det här exemplet baseras på användningen av Beeline-klienten från en SSH-ans
 
     Dessa uttryck gör följande:
 
-    |Instruktion |Beskrivning |
+    |Instruktion |Description |
     |---|---|
     |TA BORT TABELL|Om tabellen finns, tas den bort.|
     |SKAPA EXTERN TABELL|Skapar en **extern** tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.|
@@ -168,7 +168,7 @@ Det här exemplet är en fortsättning från föregående exempel. Använd följ
 
     Dessa uttryck gör följande:
 
-    |Instruktion |Beskrivning |
+    |Instruktion |Description |
     |---|---|
     |CREATE TABLE OM DEN INTE FINNS|Om tabellen inte redan finns skapas den. Eftersom det **externa** nyckelordet inte används skapar den här instruktionen en intern tabell. Interna tabeller lagras i Hive-datalagret och hanteras fullständigt av Hive.|
     |LAGRAD SOM ORC|Lagrar data i optimerade rad kolumners (ORC)-format. ORC-formatet är ett mycket optimerat och effektivt format för att lagra Hive-data.|

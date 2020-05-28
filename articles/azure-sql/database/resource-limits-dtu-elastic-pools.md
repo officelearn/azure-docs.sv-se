@@ -49,7 +49,7 @@ För Azure SQL Database elastiska pooler visar följande tabeller de resurser so
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Max lagrings alternativ per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt |
 | Max antal databaser per pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maximalt antal samtidiga sessioner per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
@@ -68,7 +68,7 @@ För Azure SQL Database elastiska pooler visar följande tabeller de resurser so
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 |
 | Max lagrings alternativ per pool (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt |
 | Max antal databaser per pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maximalt antal samtidiga sessioner per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -87,7 +87,7 @@ För Azure SQL Database elastiska pooler visar följande tabeller de resurser so
 |:---|---:|---:|---:| ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 |
 | Max lagrings alternativ per pool (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt |
 | Max antal databaser per pool <sup>1</sup> | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>2</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maximalt antal samtidiga sessioner per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |

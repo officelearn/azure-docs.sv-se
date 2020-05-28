@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f328b86d07a997ea761b4381f1d6a2f8a1dae269
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: dc40668ec7008042b5f1600214184cbf8bba4701
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683076"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119090"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Vad är automatisk maskin inlärning (AutoML)?
 
@@ -35,14 +35,15 @@ Data experter, analytiker och utvecklare i olika branscher kan använda automati
 
 ### <a name="classification"></a>Klassificering
 
-Klassificering är en vanlig maskin inlärnings uppgift. Klassificering är en typ av övervakad inlärning där modeller lär sig använda tränings data och tillämpa dem på nya data. Azure Machine Learning erbjuder featurizations specifikt för dessa uppgifter, till exempel djup neurala Network text featurizers för klassificering. Läs mer om [funktionalisering-alternativ](how-to-use-automated-ml-for-ml-models.md#featurization). 
+Klassificering är en vanlig maskin inlärnings uppgift. Klassificering är en typ av övervakad inlärning där modeller lär sig använda tränings data och tillämpa dem på nya data. Azure Machine Learning erbjuder featurizations specifikt för dessa uppgifter, till exempel djup neurala Network text featurizers för klassificering. Läs mer om [funktionalisering-alternativ](how-to-configure-auto-features.md#featurization). 
 
 Det huvudsakliga målet med klassificerings modeller är att förutsäga vilka kategorier nya data kommer att ingå i baserat på inlärnings data. Vanliga klassificerings exempel är bedrägeri identifiering, hand SKRIFTS igenkänning och objekt identifiering.  Läs mer och se ett exempel på [klassificering med automatiserad maskin inlärning](tutorial-train-models-with-aml.md).
 
 Se exempel på klassificering och automatisk maskin inlärning i de här python-anteckningarna: [bedrägeri identifiering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [marknads förutsägelse](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)och [diskussions grupps data klassificering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
 
 ### <a name="regression"></a>Regression
-Regressions aktiviteter liknar klassificeringen och är också en gemensam övervakad utbildnings uppgift. Azure Machine Learning erbjuder [featurizations specifikt för dessa uppgifter](how-to-use-automated-ml-for-ml-models.md#featurization).
+
+Regressions aktiviteter liknar klassificeringen och är också en gemensam övervakad utbildnings uppgift. Azure Machine Learning erbjuder [featurizations specifikt för dessa uppgifter](how-to-configure-auto-features.md#featurization).
 
 Det skiljer sig från klassificeringen där förutsägande utdatakolumner är kategoriska. Regressions modeller förutsäger numeriska utmatnings värden baserat på oberoende förförutsägelser. Syftet med regressionen är att hjälpa till att upprätta relationen mellan de oberoende förutsägande variablerna genom att uppskatta hur en variabel påverkar de andra. Till exempel, bil pris baserat på funktioner som gas mil, säkerhets klassificering osv. Läs mer och se ett exempel på [regression med automatiserad maskin inlärning](tutorial-auto-train-models.md).
 
@@ -99,20 +100,21 @@ När modell byggnaden automatiseras, kan du också [lära dig hur viktiga eller 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
-<a name="preprocess"></a>
 
-## <a name="preprocessing"></a>Förbearbeta
+## <a name="feature-engineering"></a>Funktionstekniker
 
-I varje automatiserad maskin inlärnings experiment förbehandlas dina data med hjälp av standard metoderna och kan du välja genom avancerad förbearbetning.
+Funktions teknik är en process där du använder domän information om data för att skapa funktioner som hjälper ML-algoritmer att lära sig bättre. I Azure Machine Learning används skalnings-och normaliserings tekniker för att under lätta funktions teknikerna. De här teknikerna och funktions teknikerna kallas gemensamt för funktionalisering.
+
+För automatiserade maskin inlärnings experiment används funktionalisering automatiskt, men kan också anpassas baserat på dina data. [Läs mer om vad funktionalisering ingår](how-to-configure-auto-features.md#featurization).  
 
 > [!NOTE]
-> Automatiserad bearbetning av Machine Learning för bearbetning (funktions normalisering, hantering av saknade data, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma för bearbetnings steg som tillämpas på dina indata-data automatiskt.
+> Automatiserade funktionalisering-steg för Machine Learning (funktions normalisering, hantering av data som saknas, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma funktionalisering-steg som tillämpades under träningen på dina indata automatiskt.
 
-### <a name="automatic-preprocessing-standard"></a>Automatisk för bearbetning (standard)
+### <a name="automatic-featurization-standard"></a>Automatisk funktionalisering (standard)
 
-I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt eller normaliseras för att hjälpa algoritmerna att fungera bra.  I modell utbildningen används en av följande skalnings-eller normaliserings tekniker för varje modell. Lär dig hur autoML bidrar till [att förhindra överanpassning och obalanserade data](concept-manage-ml-pitfalls.md) i dina modeller.
+I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt eller normaliseras för att hjälpa algoritmerna att fungera bra. I modell utbildningen används en av följande skalnings-eller normaliserings tekniker för varje modell. Lär dig hur AutoML bidrar till [att förhindra överanpassning och obalanserade data](concept-manage-ml-pitfalls.md) i dina modeller.
 
-|Skala &nbsp; & &nbsp; normalisering| Description |
+|Skala &nbsp; & &nbsp; normalisering| Beskrivning |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardisera funktioner genom att ta bort medelvärdet och skalan till enhets avvikelse  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transformerar funktioner genom att skala varje funktion efter minsta och högsta värde för kolumnen  |
@@ -122,15 +124,15 @@ I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt
 | [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |Den här transformeringen utför linjär minskning genom trunkering av sammansatta värde diskompositioner (SVD). I motsats till PCA centrerar denna uppskattning inte data innan du beräknar ett uppdelnings värde för en enkel värde, vilket innebär att det fungerar med scipy. glesa matriser effektivt |
 | [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Varje exempel (det vill säga varje rad i data matrisen) med minst en komponent som inte är noll skalas om oberoende av andra prover så att dess norm (L1 eller L2) är lika med ett |
 
-### <a name="advanced-preprocessing--featurization"></a>Avancerad för bearbetning & funktionalisering
+### <a name="customize-featurization"></a>Anpassa funktionalisering
 
-Ytterligare avancerade för bearbetnings-och funktionalisering är också tillgängliga, till exempel data guardrails, kodning och transformeringar. [Läs mer om vad funktionalisering ingår](how-to-use-automated-ml-for-ml-models.md#featurization). Aktivera den här inställningen med:
+Ytterligare funktioner teknik tekniker som, kodning och transformeringar är också tillgängliga. 
 
-+ Azure Machine Learning Studio: aktivera **Automatisk funktionalisering** i avsnittet **Visa ytterligare konfiguration** [med de här stegen](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+Aktivera den här inställningen med:
 
-+ Python SDK: ange `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` för [ `AutoMLConfig` klassen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
++ Azure Machine Learning Studio: aktivera **Automatisk funktionalisering** i avsnittet **Visa ytterligare konfiguration** [med de här stegen](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-
++ Python SDK: ange `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` i [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) -objektet. Läs mer om hur du [aktiverar funktionalisering] ((How-to-Configure-Auto-features.md). 
 
 ## <a name="ensemble-models"></a><a name="ensemble"></a>Ensemble-modeller
 

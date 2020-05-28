@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/01/2020
 ms.topic: tutorial
-ms.openlocfilehash: db1f6a53121e05b29f7e3441af027985a141bc2e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d995e9a5cdb6fc18532e0c3533959e9feece908
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81310201"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021253"
 ---
 # <a name="tutorial-working-with-remote-entities-in-unity"></a>Självstudie: arbeta med fjär entiteter i enhet
 
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Flytta fjär entiteter runt.
 > * Använd klipp ut plan för att titta inuti objekt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här själv studie Kursen bygger vidare på [Självstudier: Konfigurera ett Unity-projekt från grunden](project-setup.md).
 
@@ -192,7 +192,7 @@ public class RemoteModelEntity : MonoBehaviour
 }
 ```
 > [!CAUTION]
-> Tilldela inte det här skriptet till något Game-objekt eftersom det kommer att tilldelas program mässigt av koden nedan.
+> Tilldela inte det här skriptet till något Unity Game-objekt eftersom det kommer att tilldelas program mässigt av koden nedan.
 
 Härnäst måste vi utöka vår *RemoteRaycaster* för att lägga till *RemoteModelEntity* -komponenten till objektet som vi nyss har valt.
 

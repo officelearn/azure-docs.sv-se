@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: f48a54f2f220d83720d4a3233e2fb97a9efa64ff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5c08108625b6b8584422d6d79a3b6ad7014bd79b
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654686"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020633"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Säkerhets rekommendationer – en referens guide
 
@@ -32,7 +32,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 
 ## <a name="network-recommendations"></a><a name="recs-network"></a>Nätverksrekommendationer
 
-|Rekommendation|Beskrivning & relaterad princip|Severity|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|Rekommendation|Beskrivning & relaterad princip|Allvarlighetsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
 |----|----|----|----|----|
 |**Rekommendationer för anpassningsbar nätverks härdning bör tillämpas på virtuella datorer som är riktade mot Internet**|Kunder på standard pris nivån ser den här rekommendationen när funktionen anpassad nätverks härdning hittar en överdriven NSG-regel.<br>(Relaterad princip: anpassningsbara nätverks härdnings rekommendationer bör tillämpas på virtuella datorer som är riktade mot Internet)|Hög|N|Virtuell dator|
 |**Alla nätverks portar bör vara begränsade på NSG som är kopplade till den virtuella datorn**|Skärp nätverks säkerhets grupperna för dina Internet-riktade virtuella datorer genom att begränsa åtkomsten till dina befintliga Tillåt-regler.<br>Den här rekommendationen utlöses när en port öppnas för *alla* källor (förutom portarna 22, 3389, 5985, 5986, 80 och 1443).<br>(Relaterad princip: åtkomst via Internet-slutpunkt ska begränsas)|Hög|N|Virtuell dator|
@@ -50,7 +50,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 
 ## <a name="container-recommendations"></a><a name="recs-containers"></a>Rekommendationer för containers
 
-|Rekommendation|Beskrivning & relaterad princip|Severity|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|Rekommendation|Beskrivning & relaterad princip|Allvarlighetsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
 |----|----|----|----|----|
 |**Auktoriserade IP-intervall ska definieras på Kubernetes Services**|Begränsa åtkomsten till Kubernetes Service Management-API genom att endast bevilja API-åtkomst till IP-adresser i vissa intervall. Vi rekommenderar att du konfigurerar auktoriserade IP-intervall så att endast program från tillåtna nätverk kan komma åt klustret.<br>(Relaterad princip: [för hands version]: tillåtna IP-adressintervall bör definieras för Kubernetes Services)|Hög|N|Beräknings resurser (behållare)|
 |**Pod säkerhets principer bör definieras för att minska angrepps vektorn genom att ta bort onödiga program behörigheter (förhands granskning)**|Definiera Pod säkerhets principer för att minska angrepps vektorn genom att ta bort onödiga program privilegier. Vi rekommenderar att du konfigurerar Pod säkerhets principer så att poddar endast kan komma åt resurser som de har åtkomst till.<br>(Relaterad princip: [för hands version]: Pod säkerhets principer bör definieras på Kubernetes-tjänster)|Medium|N|Beräknings resurser (behållare)|
@@ -62,7 +62,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 
 ## <a name="app-service-recommendations"></a><a name="recs-appservice"></a>App Service rekommendationer
 
-|Rekommendation|Beskrivning & relaterad princip|Severity|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|Rekommendation|Beskrivning & relaterad princip|Allvarlighetsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
 |----|----|----|----|----|
 |**Webb program bör endast vara tillgängliga via HTTPS**|Aktivera "endast HTTPS"-åtkomst för webb program. Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå.<br>(Relaterad princip: webb programmet bör endast vara tillgängligt via HTTPS)|Medium|**Y**|App Service|
 |**Funktionsapp bör endast vara tillgängligt via HTTPS**|Aktivera "endast HTTPS"-åtkomst för Function Apps. Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå.<br>(Relaterad princip: Funktionsapp bör endast vara tillgänglig via HTTPS)|Medium|**Y**|App Service|
@@ -79,7 +79,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 
 ## <a name="compute-and-app-recommendations"></a><a name="recs-computeapp"></a>Beräknings-och program rekommendationer
 
-|Rekommendation|Beskrivning & relaterad princip|Severity|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|Rekommendation|Beskrivning & relaterad princip|Allvarlighetsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
 |----|----|----|----|----|
 |**Diagnostikloggar i Azure Stream Analytics ska vara aktive rad**|Aktivera loggar och behåll dem på ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Azure Stream Analytics ska vara aktive rad)|Låg|**Y**|Beräknings resurser (Stream Analytics)|
 |**Diagnostikloggar i batch-konton måste vara aktiverade**|Aktivera loggar och behåll dem på ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i batch-konton måste vara aktive rad)|Låg|**Y**|Beräknings resurser (batch)|
@@ -117,7 +117,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 
 ## <a name="virtual-machine-scale-set-recommendations"></a><a name="recs-vmscalesets"></a>Rekommendationer för skalnings uppsättning för virtuell dator
 
-|Rekommendation|Beskrivning & relaterad princip|Severity|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|Rekommendation|Beskrivning & relaterad princip|Allvarlighetsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
 |----|----|----|----|----|
 |**Diagnostikloggar i Virtual Machine Scale Sets ska vara aktive rad**|Aktivera loggar och behåll dem i upp till ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte. Detta är användbart när en säkerhets incident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Virtual Machine Scale Sets ska vara aktive rad)|Låg|N|Skaluppsättning för virtuella datorer|
 |**Hälso fel i Endpoint Protection bör åtgärdas på virtuella datorers skalnings uppsättningar**|Åtgärda problem med slut punkts skydd på den virtuella datorns skalnings uppsättningar för att skydda dem mot hot och sårbarheter.<br>(Ingen relaterad princip beroende på "Endpoint Protection-lösning ska installeras på Virtual Machine Scale Sets")|Låg|N|Skaluppsättning för virtuella datorer|
@@ -130,18 +130,18 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 
 ## <a name="data-and-storage-recommendations"></a><a name="recs-datastorage"></a>Rekommendationer för data och lagring
 
-|Rekommendation|Beskrivning & relaterad princip|Severity|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|Rekommendation|Beskrivning & relaterad princip|Allvarlighetsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
 |----|----|----|----|----|
 |**Åtkomst till lagrings konton med brand väggar och virtuella nätverkskonfigurationer bör begränsas**|Granska obegränsad nätverks åtkomst i brand Väggs inställningarna för ditt lagrings konto. Konfigurera i stället nätverks regler så att endast program från tillåtna nätverk kan komma åt lagrings kontot. Om du vill tillåta anslutningar från vissa Internet-eller lokala klienter kan du bevilja åtkomst till trafik från vissa virtuella Azure-nätverk eller offentliga IP-adressintervall för Internet.<br>(Relaterad princip: granska obegränsad nätverks åtkomst till lagrings konton)|Låg|N|Lagringskonto|
 |**Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser**|Avancerad data säkerhet (ADS) är ett enhetligt paket som tillhandahåller avancerade funktioner för SQL-säkerhet. Den identifierar och klassificerar känsliga data, Ytors och minimerar potentiella databas sårbarheter och identifierar avvikande aktiviteter som kan tyda på ett hot mot databasen. ADS debiteras med $15 per hanterad SQL Server.<br>(Relaterad princip: avancerad data säkerhet ska aktive ras på SQL-hanterade instanser)|Hög|**Y**|SQL|
 |**Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar**|Avancerad data säkerhet (ADS) är ett enhetligt paket som tillhandahåller avancerade funktioner för SQL-säkerhet. Den identifierar och klassificerar känsliga data, Ytors och minimerar potentiella databas sårbarheter och identifierar avvikande aktiviteter som kan tyda på ett hot mot databasen. ADS debiteras med $15 per SQL Server.<br>(Relaterad princip: avancerad data säkerhet ska vara aktiverat på dina SQL-servrar)|Hög|**Y**|SQL|
 |**En Azure Active Directory administratör bör tillhandahållas för SQL-servrar**|Etablera en Azure AD-administratör för SQL-servern för att aktivera Azure AD-autentisering. Azure AD-autentisering möjliggör förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster.<br>(Relaterad princip: gransknings etablering av en Azure Active Directory administratör för SQL Server)|Hög|N|SQL|
-|**Granskning på SQL Server måste vara aktiverat**|Aktivera granskning för Azure SQL-servrar. (Endast Azure SQL-tjänsten. Inkluderar inte SQL som körs på dina virtuella datorer.)<br>(Relaterad princip: granskning ska aktive ras på avancerade data säkerhets inställningar på SQL Server)|Låg|**Y**|SQL|
+|**Granskning på SQL Server måste vara aktiverat**|Aktivera granskning för servrar. (Endast Azure SQL Database-tjänsten. Inkluderar inte SQL som körs på dina virtuella datorer.)<br>(Relaterad princip: granskning ska aktive ras på avancerade data säkerhets inställningar på SQL Server)|Låg|**Y**|SQL|
 |**Diagnostikloggar i Azure Data Lake Store ska vara aktive rad**|Aktivera loggar och behåll dem på ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Azure Data Lake Store ska vara aktive rad)|Låg|**Y**|Data Lake Store|
 |**Diagnostikloggar i Data Lake Analytics ska vara aktive rad**|Aktivera loggar och behåll dem på ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Data Lake Analytics ska vara aktive rad)|Låg|**Y**|Data Lake Analytics|
 |**Endast säkra anslutningar till din Redis Cache ska vara aktiverade**|Aktivera endast anslutningar via SSL till Azure cache för Redis. Användningen av säkra anslutningar säkerställer autentiseringen mellan servern och tjänsten och skyddar data i överföring från nätverks lager attacker, till exempel man-in-the-Middle, avlyssning och session-kapning.<br>(Relaterad princip: endast säkra anslutningar till Redis Cache ska vara aktiverade)|Hög|N|Redis|
 |**Säker överföring till lagringskonton ska vara aktiverat**|Säker överföring är ett alternativ som tvingar ditt lagrings konto att endast godkänna begär Anden från säkra anslutningar (HTTPS). HTTPS säkerställer autentiseringen mellan servern och tjänsten och skyddar data i överföring från nätverks lager attacker, till exempel man-in-the-Middle, avlyssning och session-kapning.<br>(Relaterad princip: säker överföring till lagrings konton ska vara aktive rad)|Hög|N|Lagringskonto|
-|**Känsliga data i dina SQL-databaser bör klassificeras**|Azure SQL DB data Discovery & klassificering innehåller funktioner för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. När dina data har klassificerats kan du använda Azure SQL DB Auditing för att granska åtkomst och övervaka känsliga data. Azure SQL DB aktiverar även avancerade hot skydds funktioner som skapar intelligenta aviseringar baserat på ändringar i åtkomst mönster till känsliga data.<br>(Relaterad princip: [för hands version]: känsliga data i dina SQL-databaser ska klassificeras)|Hög|N|SQL|
+|**Känsliga data i dina SQL-databaser bör klassificeras**|Azure SQL Database data identifiering & klassificering innehåller funktioner för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. När dina data har klassificerats kan du använda Azure SQL Database granskning för att granska åtkomst och övervaka känsliga data. Azure SQL Database aktiverar även avancerade hot skydds funktioner som skapar intelligenta aviseringar baserat på ändringar i åtkomst mönstren för känsliga data.<br>(Relaterad princip: [för hands version]: känsliga data i dina SQL-databaser ska klassificeras)|Hög|N|SQL|
 |**Lagrings konton ska migreras till nya Azure Resource Manager resurser**|Använd nya Azure Resource Manager för dina lagrings konton för att tillhandahålla säkerhets förbättringar, till exempel: starkare åtkomst kontroll (RBAC), bättre granskning, Resource Manager-baserad distribution och styrning, åtkomst till hanterade identiteter, åtkomst till nyckel valv för hemligheter och Azure AD-baserad autentisering och stöd för taggar och resurs grupper för enklare säkerhets hantering.<br>(Relaterad princip: lagrings konton ska migreras till nya Azure Resource Manager-resurser)|Låg|N|Lagringskonto|
 |**transparent datakryptering på SQL-databaser ska aktive ras**|Aktivera transparent data kryptering för att skydda data i vila och uppfylla kraven på efterlevnad.<br>(Relaterad princip: transparent datakryptering på SQL-databaser ska vara aktive rad)|Låg|**Y**|SQL|
 |**Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar**|En sårbarhets bedömning kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter.<br>(Relaterad princip: sårbarhets bedömning ska vara aktive rad på dina SQL-servrar)|Hög|**Y**|SQL|
@@ -153,7 +153,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 
 ## <a name="identity-and-access-recommendations"></a><a name="recs-identity"></a>Identitets-och åtkomst rekommendationer
 
-|Rekommendation|Beskrivning & relaterad princip|Severity|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|Rekommendation|Beskrivning & relaterad princip|Allvarlighetsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
 |----|----|----|----|----|
 |**MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration**|Aktivera Multi-Factor Authentication (MFA) för alla prenumerations konton med Läs behörighet för att förhindra en överträdelse av konton eller resurser.<br>(Relaterad princip: MFA ska vara aktiverat på konton med Läs behörigheter för din prenumeration)|Hög|N|Prenumeration|
 |**MFA ska vara aktiverat på konton med Skriv behörighet för din prenumeration**|Aktivera Multi-Factor Authentication (MFA) för alla prenumerations konton med Skriv behörighet för att förhindra en överträdelse av konton eller resurser.<br>(Relaterad princip: MFA ska vara aktiverat på konton med Skriv behörighet för din prenumeration)|Hög|N|Prenumeration|
@@ -171,7 +171,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 
 ## <a name="deprecated-recommendations"></a>Föråldrade rekommendationer
 
-|Rekommendation|Beskrivning & relaterad princip|Severity|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|Rekommendation|Beskrivning & relaterad princip|Allvarlighetsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
 |----|----|----|----|----|
 |**Åtkomst till App Services bör vara begränsad**|Begränsa åtkomsten till din App Services genom att ändra nätverks konfigurationen för att neka inkommande trafik från intervall som är för breda.<br>(Relaterad princip: [för hands version]: åtkomst till App Services ska vara begränsad)|Hög|N|App Service|
 |**Reglerna för webb program på IaaS NSG: er bör vara härdade**|Skärp nätverks säkerhets gruppen (NSG) för dina virtuella datorer som kör webb program, med NSG-regler som kan tillåtas med avseende på webb program portar.<br>(Relaterad princip: NSG: er-reglerna för webb program på IaaS bör vara härdade)|Hög|N|Virtuell dator|

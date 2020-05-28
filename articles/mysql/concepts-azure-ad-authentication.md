@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 0c56652b4e098213bae0c69d4be5ac77e1b1393c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a94b2897b3e84688cd7dc5c7bca96a0f7a4449d1
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635296"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142086"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
@@ -74,6 +74,7 @@ När du har autentiserat mot Active Directory kan du hämta en token. Denna toke
 
 ## <a name="additional-considerations"></a>Annat som är bra att tänka på
 
+- Azure Active Directory autentisering är endast tillgängligt för MySQL 5,7 och senare.
 - Det går bara att konfigurera en Azure AD-administratör för en Azure Database for MySQL-server när som helst.
 - Endast en Azure AD-administratör för MySQL kan ansluta till Azure Database for MySQL med ett Azure Active Directory konto. Active Directory-administratören kan konfigurera efterföljande Azure AD Database-användare.
 - Om en användare tas bort från Azure AD kommer den användaren inte längre att kunna autentisera med Azure AD och därför kommer den inte längre att kunna hämta en åtkomsttoken för den användaren. I det här fallet, även om den matchande användaren fortfarande kommer att finnas i databasen, går det inte att ansluta till servern med den användaren.

@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar en privat Azure-länk för att få åt
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 05/27/2020
 ms.author: thweiss
-ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: c5b82e8cdea49f8dd761844ff5492df0ad109943
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697878"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116669"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
 
@@ -398,7 +398,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Till exempel:
+I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Ett exempel:
 
 * Ett Gremlin-API-konto kan nås från både Gremlin-och SQL-API-konton.
 * Ett Tabell-API konto kan nås från både tabell-och SQL-API-konton.
@@ -618,9 +618,11 @@ Följande situationer och resultat är möjliga när du använder en privat län
 
 * Om du inte konfigurerar några brand Väggs regler kan all trafik komma åt ett Azure Cosmos-konto som standard.
 
-* Om du konfigurerar offentlig trafik eller en tjänst slut punkt och skapar privata slut punkter, auktoriseras olika typer av inkommande trafik av motsvarande typ av brand Väggs regel.
+* Om du konfigurerar offentlig trafik eller en tjänst slut punkt och skapar privata slut punkter, auktoriseras olika typer av inkommande trafik av motsvarande typ av brand Väggs regel. Om en privat slut punkt konfigureras i ett undernät där tjänstens slut punkt också har kon figurer ATS:
+  * trafik till det databas konto som mappats av den privata slut punkten dirigeras via privat slut punkt,
+  * trafik till andra databas konton från under nätet dirigeras via tjänst slut punkten.
 
-* Om du inte konfigurerar någon offentlig trafik eller tjänst slut punkt och skapar privata slut punkter kan du bara komma åt Azure Cosmos-kontot via de privata slut punkterna. Om du inte konfigurerar offentlig trafik eller en tjänst slut punkt efter att alla godkända privata slut punkter har avvisats eller tagits bort, är kontot öppet för hela nätverket.
+* Om du inte konfigurerar någon offentlig trafik eller tjänst slut punkt och skapar privata slut punkter kan du bara komma åt Azure Cosmos-kontot via de privata slut punkterna. Om du inte konfigurerar offentlig trafik eller en tjänst slut punkt efter att alla godkända privata slut punkter har avvisats eller tagits bort, är kontot öppet för hela nätverket, såvida inte PublicNetworkAccess har angetts till Disabled (se avsnittet nedan).
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Blockera offentlig nätverks åtkomst när kontot skapas
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: a835e67b1091a55c832955d8dac8615289a6d99e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ad257d0bea38d03803bf2be44313a3e086e7654c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418706"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118169"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
 
@@ -38,10 +38,10 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * *Azure Storage konto*. Du kan använda blob-lagringen som *källa* för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett allmänt lagrings konto](../storage/common/storage-account-create.md).
-* *Azure SQL Database*. Du använder databasen som *mottagare* för datalagringen. Om du inte har en Azure SQL Database, se [skapa en Azure SQL-databas](../sql-database/sql-database-single-database-get-started.md).
+* *Azure SQL Database*. Du använder databasen som *mottagare* för datalagringen. Om du inte har en Azure SQL Database, se [skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
 * *Visual Studio*. Genom gången i den här artikeln används Visual Studio 2019.
 * *[Azure SDK för .net](/dotnet/azure/dotnet-tools)*.
 * *Azure Active Directory program*. Om du inte har ett Azure Active Directory program kan du läsa avsnittet [skapa ett Azure Active Directory program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) i [How to: använda portalen för att skapa ett Azure AD-program](../active-directory/develop/howto-create-service-principal-portal.md). Kopiera följande värden för användning i senare steg: **program (klient) ID**, **autentiseringsnyckel**och **katalog (klient) ID**. Tilldela programmet till **deltagar** rollen genom att följa anvisningarna i samma artikel.
@@ -81,7 +81,7 @@ Skapa sedan en SQL-tabell för mottagare:
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Ge Azure-tjänster åtkomst till SQL-servern. Se till att du tillåter åtkomst till Azure-tjänster i din Azure SQL-Server så att tjänsten Data Factory kan skriva data till din Azure SQL-Server. Gör så här för att kontrollera och aktivera den här inställningen:
+2. Ge Azure-tjänster åtkomst till SQL Database. Se till att du tillåter åtkomst till Azure-tjänster på servern så att Data Factory-tjänsten kan skriva data till SQL Database. Gör så här för att kontrollera och aktivera den här inställningen:
 
     1. Gå till [Azure Portal](https://portal.azure.com) för att hantera din SQL Server. Sök efter och välj **SQL-servrar**.
 
@@ -104,7 +104,7 @@ Skapa ett C# .NET-konsol program med Visual Studio.
 
 Installera sedan de biblioteks paket som krävs med hjälp av NuGet Package Manager.
 
-1. I meny raden väljer du **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
+1. I meny raden väljer du **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen**.
 2. I fönstret **Package Manager-konsol** kör du följande kommandon för att installera paket. Information om Azure Data Factory NuGet-paketet finns i [Microsoft. Azure. Management. DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```package manager console
@@ -133,7 +133,7 @@ Följ de här stegen för att skapa en Data Factory-klient.
 
 2. Lägg till följande kod i `Main` metoden som anger variabler. Ersätt 14 plats hållarna med dina egna värden.
 
-    Om du vill se en lista över Azure-regioner där Data Factory för närvarande är tillgängligt, se [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Välj **Sök** > **Analytics**analys > **Data Factory**under List rutan **produkter** . I list rutan **regioner** väljer du sedan de regioner som intresserar dig. Ett rutnät visas med tillgänglighets status för Data Factory produkter för dina valda regioner.
+    Om du vill se en lista över Azure-regioner där Data Factory för närvarande är tillgängligt, se [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Välj **Products** **Sök**  >  **analys**  >  **Data Factory**under List rutan produkter. I list rutan **regioner** väljer du sedan de regioner som intresserar dig. Ett rutnät visas med tillgänglighets status för Data Factory produkter för dina valda regioner.
 
     > [!NOTE]
     > Data lager, till exempel Azure Storage och Azure SQL Database, och beräkningarna, till exempel HDInsight, som Data Factory användning kan finnas i andra regioner än vad du väljer för Data Factory.
@@ -309,7 +309,7 @@ Console.WriteLine(
 
 ### <a name="create-a-dataset-for-sink-azure-sql-database"></a>Skapa en datauppsättning för Azure SQL Database-mottagaren
 
-Lägg till följande kod i `Main` metoden som skapar en Azure SQL Database- *datauppsättning*. Information om vilka egenskaper och information som stöds finns i [Azure SQL Database data uppsättnings egenskaper](connector-azure-sql-database.md#dataset-properties).
+Lägg till följande kod i `Main` metoden som skapar en *Azure SQL Database-datauppsättning*. Information om vilka egenskaper och information som stöds finns i [Azure SQL Database data uppsättnings egenskaper](connector-azure-sql-database.md#dataset-properties).
 
 Du definierar en datauppsättning som representerar mottagardata i Azure SQL Database. Den här data mängden refererar till den Azure SQL Database länkade tjänsten som du skapade i föregående steg. Den anger också vilken SQL-tabell som innehåller de kopierade data.
 
@@ -337,7 +337,7 @@ Console.WriteLine(
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-Lägg till följande kod i- `Main` metoden som skapar en *pipeline med en kopierings aktivitet*. I den här självstudien innehåller den här pipelinen `CopyActivity`en aktivitet:, som tar i BLOB-datauppsättningen som källa och SQL-datauppsättningen som mottagare. Information om information om kopierings aktiviteter finns [i Kopiera aktivitet i Azure Data Factory](copy-activity-overview.md).
+Lägg till följande kod i- `Main` metoden som skapar en *pipeline med en kopierings aktivitet*. I den här självstudien innehåller den här pipelinen en aktivitet: `CopyActivity` , som tar i BLOB-datauppsättningen som källa och SQL-datauppsättningen som mottagare. Information om information om kopierings aktiviteter finns [i Kopiera aktivitet i Azure Data Factory](copy-activity-overview.md).
 
 ```csharp
 // Create a pipeline with copy activity
@@ -432,7 +432,7 @@ Nu ska du infoga koden för att kontrol lera pipelinens körnings tillstånd och
 
 ## <a name="run-the-code"></a>Kör koden
 
-Bygg programmet genom att välja **build** > **build-lösning**. Starta sedan programmet genom att välja **Felsök** > **Starta fel sökning**och verifiera pipeline-körningen.
+Bygg programmet genom att välja **build**  >  **build-lösning**. Starta sedan programmet genom att välja **Felsök**  >  **Starta fel sökning**och verifiera pipeline-körningen.
 
 Konsolen skriver ut förloppet för skapandet av en datafabrik, den länkade tjänsten, datauppsättningar, pipeline och pipelinekörning. Sedan kontrolleras status för pipelinekörningen. Vänta tills du ser körnings informationen för kopierings aktiviteten med Läs-och skriv storlek för data. Sedan kan du använda verktyg som SQL Server Management Studio (SSMS) eller Visual Studio för att ansluta till mål Azure SQL Database och kontrol lera om mål tabellen som du har angett innehåller de kopierade data.
 

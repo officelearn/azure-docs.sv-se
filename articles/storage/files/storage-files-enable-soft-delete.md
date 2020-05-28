@@ -1,6 +1,6 @@
 ---
 title: Aktivera mjuk borttagning – Azure-filresurser
-description: Lär dig hur du aktiverar mjuk borttagning på Azure-filresurser för data återställning och förhindrar oavsiktlig borttagning.
+description: Lär dig hur du aktiverar mjuk borttagning (för hands version) på Azure-filresurser för data återställning och förhindrar oavsiktlig borttagning.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.date: 05/26/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 70081114995d46e7c5db7c9549cfce2fdff42975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: a31fc675ca32697ece1fe7240112bb5610feda9d
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116501"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142103"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Aktivera mjuk borttagning på Azure-filresurser
 
-Azure Storage erbjuder mjuk borttagning för fil resurser så att du enkelt kan återställa dina data när de tas bort av misstag av ett program eller annan lagrings konto användare. Mer information om mjuk borttagning finns i [så här förhindrar du oavsiktlig borttagning av Azure-filresurser](storage-files-prevent-file-share-deletion.md).
+Azure Storage erbjuder mjuk borttagning för fil resurser (för hands version) så att du enkelt kan återställa dina data när de tas bort av misstag av ett program eller annan lagrings konto användare. Mer information om mjuk borttagning finns i [så här förhindrar du oavsiktlig borttagning av Azure-filresurser](storage-files-prevent-file-share-deletion.md).
 
 I följande avsnitt visas hur du aktiverar och använder mjuk borttagning för Azure-filresurser på ett befintligt lagrings konto:
 

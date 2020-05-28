@@ -12,41 +12,46 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/26/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c953c43ff119d42cdadcd2aba6e15f69765afc2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6415214e5d6b71d174e5117c1cf1e41af381334c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745444"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013606"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
-Syftet med den här självstudien är att visa de steg du behöver utföra för att importera Worker-profiler från arbets dagar till både Active Directory och Azure Active Directory, med valfri Skriv-och användar namn för e-postadress och användar namn till arbets dag.
+Syftet med den här självstudien är att visa de steg som du måste utföra för att etablera Worker-profiler från Workday till lokala Active Directory (AD).
+
+>[!NOTE]
+>Använd den här självstudien om de användare som du vill etablera från Workday behöver ett lokalt AD-konto och ett Azure AD-konto. 
+>* Om användarna från Workday bara behöver Azure AD-konto (endast molnbaserade användare) kan du läsa självstudien om hur du [konfigurerar arbets dag till Azure AD](workday-inbound-cloud-only-tutorial.md) -etableringen. 
+>* Om du vill konfigurera tillbakaskrivning av attribut, till exempel e-postadress, användar namn och telefonnummer från Azure AD till Workday, kan du läsa självstudien om hur du [konfigurerar tillbakaskrivning av workday](workday-writeback-tutorial.md).
+
 
 ## <a name="overview"></a>Översikt
 
-[Azure Active Directory användar etablerings tjänsten](../app-provisioning/user-provisioning.md) integreras med [personalavdelningen-API: t för arbets dagar](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) för att etablera användar konton. Azure AD använder den här anslutningen för att aktivera följande användar etablerings arbets flöden:
+[Azure Active Directory användar etablerings tjänsten](../app-provisioning/user-provisioning.md) integreras med [personalavdelningen-API: t för arbets dagar](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) för att etablera användar konton. Arbets flöden för användar etablering av arbets dagar som stöds av Azure AD-tjänsten för användar etablering möjliggör automatisering av följande personal-och identitets cykel hanterings scenarier:
 
-* **Etablera användare till Active Directory** etablera valda uppsättningar av användare från arbets dagar till en eller flera Active Directory-domäner.
-
-* **Etablering av enbart moln användare till Azure Active Directory** i scenarier där lokala Active Directory inte används, kan användarna tillhandahållas direkt från arbets dagar till Azure Active Directory med hjälp av Azure AD-tjänsten för användar etablering.
-
-* **Skriv tillbaka e-postadress och användar namn till Workday** – Azure AD-tjänsten för användar etablering kan skriva e-postadresser och användar namn från Azure AD tillbaka till arbets dagen.
-
-### <a name="what-human-resources-scenarios-does-it-cover"></a>Vilka scenarier för mänskliga resurser omfattar det?
-
-Arbets flöden för användar etablering av arbets dagar som stöds av Azure AD-tjänsten för användar etablering möjliggör automatisering av följande personal-och identitets cykel hanterings scenarier:
-
-* **Anställning av nya anställda** – när en ny medarbetare läggs till i arbets dagen skapas ett användar konto automatiskt i Active Directory, Azure Active Directory, och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md), med Skriv-tillbaka till Workday-e-postadressen.
+* **Anställning av nya anställda** – när en ny medarbetare läggs till i arbets dagen skapas ett användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md), med skriv skydd för IT-hanterad kontakt information till Workday.
 
 * **Uppdateringar av anställda och profiler** – när en medarbetar post uppdateras i Workday (t. ex. namn, titel eller chef) uppdateras deras användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
 * **Anställdas uppsägningar** – när en medarbetare avslutas på arbets dagen inaktive ras användar kontot automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
 * **Anställdas återställningar** – när en medarbetare återställs på arbets dagen kan deras gamla konto automatiskt återaktiveras eller etableras på nytt (beroende på din preferens) för att Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
+
+### <a name="whats-new"></a>Nyheter
+Det här avsnittet innehåller de senaste förbättringarna för arbets dag integrering. Om du vill ha en lista över omfattande uppdateringar, planerade ändringar och arkiv, kan du besöka sidan [Nyheter i Azure Active Directory?](../fundamentals/whats-new.md) 
+
+* **Maj 2020 – möjlighet att göra tillbakaskrivning av telefonnummer till Workday:** Förutom e-post och användar namn kan du nu tillbakaskrivning av arbets telefonnummer och mobiltelefon nummer från Azure AD till Workday. Mer information finns i [själv studie kursen om tillbakaskrivning av appar](workday-writeback-tutorial.md).
+
+* **April 2020 – stöd för den senaste versionen av WWS-API: t (Workday Web Services):** Med två gånger om året i mars och september levererar arbets dagar funktions rika uppdateringar som hjälper dig att möta dina affärs mål och ändra personal kraven. För att hålla dig uppdaterad med de nya funktionerna som levereras av workday kan du nu ange den WWS-API-version som du vill använda i anslutnings-URL: en. Mer information om hur du anger dag-API-versionen finns i avsnittet om hur du [konfigurerar arbets dag anslutning](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory). 
+
+* **Jan 2020 – möjlighet att ställa in AD accountExpires-attribut:** Med funktionen [NumFromDate](../app-provisioning/functions-for-customizing-application-data.md#numfromdate) kan du nu mappa datum fält för arbets dagar som *EndContractDate* eller *StatusTerminationDate*. 
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Vem är den här användar etablerings lösningen som passar bäst för?
 
@@ -67,7 +72,7 @@ Den här användar etablerings lösningen i Workday passar utmärkt för:
 I det här avsnittet beskrivs den grundläggande användar etablerings lösnings arkitekturen för vanliga hybrid miljöer. Det finns två relaterade flöden:
 
 * **Auktoritativt Tim data flöde – från Workday till lokal Active Directory:** I dessa flödes händelser (t. ex. nya anställningar, överföringar, uppsägningar) sker först i molnets arbets dag, HR-klient och händelse data flödar till lokala Active Directory via Azure AD och etablerings agenten. Beroende på händelsen kan det leda till att du skapar/uppdaterar/aktiverar/inaktiverar-åtgärder i AD.
-* **Flöde för tillbakaskrivning av e-post och användar namn – från lokala Active Directory till arbets dag:** När kontot har skapats i Active Directory synkroniseras det med Azure AD via Azure AD Connect och e-post och username-attribut kan skrivas tillbaka till Workday.
+* **Tillbakaskrivning flöde – från lokala Active Directory till arbets dag:** När kontot har skapats i Active Directory synkroniseras det med Azure AD via Azure AD Connect och information som e-post, användar namn och telefonnummer kan skrivas tillbaka till arbets dagen.
 
 ![Översikt](./media/workday-inbound-tutorial/wd_overview.png)
 
@@ -79,145 +84,16 @@ I det här avsnittet beskrivs den grundläggande användar etablerings lösnings
 4. Azure AD Connect etablerings agenten använder ett tjänst konto för att lägga till/uppdatera AD-konto data.
 5. Azure AD Connect/AD Sync-motorn kör delta-synkronisering för att hämta uppdateringar i AD.
 6. Active Directory uppdateringarna synkroniseras med Azure Active Directory.
-7. Om tillbakaskrivning-anslutaren för arbets dagar har kon figurer ATS skriver den tillbaka e-postattributet och användar namnet till Workday, baserat på det matchande attributet som används.
+7. Om tillbakaskrivning-appen för [Workday](workday-writeback-tutorial.md) har kon figurer ATS skriver den tillbaka attribut som e-post, användar namn och telefonnummer till Workday.
 
 ## <a name="planning-your-deployment"></a>Planera distributionen
 
-Innan du påbörjar din arbets dags integrering kontrollerar du kraven nedan och läser följande vägledning om hur du matchar dina nuvarande Active Directory arkitektur-och användar etablerings krav med den eller de lösningar som tillhandahålls av Azure Active Directory. Det finns även en omfattande [distributions plan](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) med planerings kalkyl blad som hjälper dig att samar beta med din arbets kamrats integrerings partner och dina HR-intressenter.
+Att konfigurera arbets dagar för att Active Directory användar etablering kräver betydande planering som omfattar olika aspekter, till exempel:
+* Konfiguration av Azure AD Connect etablerings agenten 
+* Antal arbets dagar till AD User Provisioning-appar som ska distribueras
+* Välja rätt matchnings-ID, attributmappning, transformering och omfångs filter
 
-I det här avsnittet beskrivs följande aspekter av planeringen:
-
-* [Förutsättningar](#prerequisites)
-* [Välja etablerings anslutnings program som ska distribueras](#selecting-provisioning-connector-apps-to-deploy)
-* [Planera distribution av Azure AD Connect etablerings agent](#planning-deployment-of-azure-ad-connect-provisioning-agent)
-* [Integrera med flera Active Directory domäner](#integrating-with-multiple-active-directory-domains)
-* [Planera arbets dag för att Active Directory mappning av användarattribut och transformeringar](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
-
-### <a name="prerequisites"></a>Krav
-
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
-
-* En giltig Azure AD Premium P1 eller en högre prenumerations licens för varje användare som kommer att skickas från Workday och tillhandahålls till antingen lokalt Active Directory eller Azure Active Directory.
-* Global administratörs åtkomst till Azure AD för att konfigurera etablerings agenten
-* En arbets dag implementerings klient för testning och integrering
-* Administratörs behörighet i Workday för att skapa en system integrations användare och göra ändringar för att testa medarbetar data i test syfte
-* För att användar etablering ska kunna Active Directory krävs en server som kör Windows Server 2012 eller senare med .NET 4.7.1 + runtime för att vara värd för den [lokala etablerings agenten](https://go.microsoft.com/fwlink/?linkid=847801)
-* [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) för synkronisering av användare mellan Active Directory och Azure AD
-
-### <a name="selecting-provisioning-connector-apps-to-deploy"></a>Välja etablerings anslutnings program som ska distribueras
-
-För att under lätta etablering av arbets flöden mellan arbets dagar och Active Directory tillhandahåller Azure AD flera etablerings anslutnings program som du kan lägga till från Azure AD App-galleriet:
-
-![Azure AD App Galleri](./media/workday-inbound-tutorial/wd_gallery.png)
-
-* **Arbets dag för att Active Directory användar etablering** – den här appen underlättar etablering av användar konton från arbets dagar till en enda Active Directory domän. Om du har flera domäner kan du lägga till en instans av den här appen från Azure AD App-galleriet för varje Active Directory domän som du behöver etablera till.
-
-* **Arbets dag till Azure AD-användar etablering** – medan Azure AD Connect är verktyget som ska användas för att synkronisera Active Directory användare till Azure Active Directory, kan den här appen användas för att under lätta etablering av enbart moln användare från arbets dagar till en enda Azure Active Directory klient.
-
-* **Tillbakaskrivning av workday** – den här appen underlättar skrivningen av användarens e-postadresser från Azure Active Directory till Workday.
-
-> [!TIP]
-> Den vanliga appen "Workday" används för att konfigurera enkel inloggning mellan arbets dagar och Azure Active Directory.
-
-Använd diagrammet besluts flöde nedan för att se vilka etablerings appar för Workday som är relevanta för ditt scenario.
-    ![Besluts flöde](./media/workday-inbound-tutorial/wday_app_flowchart.png "Besluts flöde")
-
-Använd innehålls förteckningen för att gå till relevant del av den här självstudien.
-
-### <a name="planning-deployment-of-azure-ad-connect-provisioning-agent"></a>Planera distribution av Azure AD Connect etablerings agent
-
-> [!NOTE]
-> Det här avsnittet är endast relevant om du planerar att distribuera arbets dagen för att Active Directory användar etablerings appen. Du kan hoppa över detta om du distribuerar en tillbakaskrivning av arbets dagar eller arbets dag till Azure AD User Provisioning-appen.
-
-För etablerings lösningen för användarens arbets dag till AD krävs distribution av en eller flera etablerings agenter på servrar som kör Windows 2012 R2 eller senare med minst 4 GB RAM-minne och .NET 4.7.1 + Runtime. Följande överväganden måste beaktas innan du installerar etablerings agenten:
-
-* Se till att värd servern som kör etablerings agenten har nätverks åtkomst till mål AD-domänen
-* Konfigurations guiden för etablerings agent registrerar agenten hos Azure AD-klienten och registrerings processen kräver åtkomst till *. msappproxy.net över TLS-porten 443. Se till att de utgående brand Väggs reglerna är på plats som aktiverar den här kommunikationen. Agenten stöder [konfiguration av utgående https-proxy](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
-* Etablerings agenten använder ett tjänst konto för att kommunicera med lokala AD-domän (er). Innan du installerar agenten rekommenderar vi att du skapar ett tjänst konto med domän administratörs behörighet och ett lösen ord som inte upphör att gälla.  
-* Under konfigurationen av etablerings agenten kan du välja domänkontrollanter som ska hantera etablerings begär Anden. Om du har flera geografiskt distribuerade domänkontrollanter installerar du etablerings agenten på samma plats som den önskade domänkontrollanten för att förbättra tillförlitligheten och prestandan för lösningen från slut punkt till slut punkt.
-* För hög tillgänglighet kan du distribuera mer än en etablerings agent och registrera den för att hantera samma uppsättning lokala AD-domäner.
-
-> [!IMPORTANT]
-> I produktions miljöer rekommenderar Microsoft att du har minst 3 etablerings agenter som kon figurer ATS med Azure AD-klienten för hög tillgänglighet.
-
-### <a name="integrating-with-multiple-active-directory-domains"></a>Integrera med flera Active Directory domäner
-
-> [!NOTE]
-> Det här avsnittet är endast relevant om du planerar att distribuera arbets dagen för att Active Directory användar etablerings appen. Du kan hoppa över detta om du distribuerar en tillbakaskrivning av arbets dagar eller arbets dag till Azure AD User Provisioning-appen.
-
-Beroende på din Active Directory topologi måste du bestämma antalet användar etablerings anslutnings program och antalet etablerings agenter som ska konfigureras. Nedan visas några vanliga distributions mönster som du kan referera till när du planerar distributionen.
-
-#### <a name="deployment-scenario-1--single-workday-tenant---single-ad-domain"></a>Distributions scenario #1: enskild arbets dag innehavare-> enskild AD-domän
-
-I det här scenariot har du en arbets dag-klient och du vill etablera användare till en enda mål-AD-domän. Här är den rekommenderade produktions konfigurationen för den här distributionen.
-
-|   |   |
-| - | - |
-| Nej. för etablerings agenter som ska distribueras lokalt | 3 (för hög tillgänglighet och redundans) |
-| Nej. av workday till etablering av appar för AD-användare att konfigurera i Azure Portal | 1 |
-
-  ![Scenario 1](./media/workday-inbound-tutorial/dep_scenario1.png)
-
-#### <a name="deployment-scenario-2--single-workday-tenant---multiple-child-ad-domains"></a>Distributions scenario #2: enskild arbets dag klient-> flera underordnade AD-domäner
-
-I det här scenariot ingår etablering av användare från arbets dagar till flera underordnade domäner i en skog. Här är den rekommenderade produktions konfigurationen för den här distributionen.
-
-|   |   |
-| - | - |
-| Nej. för etablerings agenter som ska distribueras lokalt | 3 (för hög tillgänglighet och redundans) |
-| Nej. av workday till etablering av appar för AD-användare att konfigurera i Azure Portal | en app per underordnad domän |
-
-  ![Scenario 2](./media/workday-inbound-tutorial/dep_scenario2.png)
-
-#### <a name="deployment-scenario-3--single-workday-tenant---disjoint-ad-forests"></a>Distributions scenario #3: enskild arbets dag klient-> åtskilda AD-skogar
-
-I det här scenariot ingår etablering av användare från Workday till domäner i åtskilda AD-skogar. Här är den rekommenderade produktions konfigurationen för den här distributionen.
-
-|   |   |
-| - | - |
-| Nej. för etablerings agenter som ska distribueras lokalt | 3 per åtskild AD-skog |
-| Nej. av workday till etablering av appar för AD-användare att konfigurera i Azure Portal | en app per underordnad domän |
-
-  ![Scenario 3](./media/workday-inbound-tutorial/dep_scenario3.png)
-
-### <a name="planning-workday-to-active-directory-user-attribute-mapping-and-transformations"></a>Planera arbets dag för att Active Directory mappning av användarattribut och transformeringar
-
-> [!NOTE]
-> Det här avsnittet är endast relevant om du planerar att distribuera arbets dagen för att Active Directory användar etablerings appen. Du kan hoppa över detta om du distribuerar en tillbakaskrivning av arbets dagar eller arbets dag till Azure AD User Provisioning-appen.
-
-Innan du konfigurerar användar etablering till en Active Directory domän bör du tänka på följande frågor. Svaren på dessa frågor avgör hur dina områdes filter och mappningar av attribut måste anges.
-
-* **Vilka användare i arbets dagar måste tillhandahållas till den här Active Directory skogen?**
-
-  * *Exempel: användare där Workday-attributet "Company" innehåller värdet "contoso" och attributet "Worker_Type" innehåller "regular"*
-
-* **Hur dirigeras användare till olika organisationsenheter (OU)?**
-
-  * *Exempel: användarna dirigeras till organisationsenheter som motsvarar en arbets plats, enligt definitionen i attributen "kommun" och "Country_Region_Reference"*
-
-* **Hur ska följande attribut fyllas i Active Directory?**
-
-  * Eget namn (CN)
-    * *Exempel: Använd User_ID-värde för arbets dag, enligt vad som anges av personal*
-
-  * Medarbetar-ID (Anställningsnr)
-    * *Exempel: Använd Worker_ID-värde för arbets dag*
-
-  * SAM-kontonamn (sAMAccountName)
-    * *Exempel: Använd User_ID-värde för arbets dag, filtrerat via ett Azure AD-etablerings uttryck för att ta bort otillåtna tecken*
-
-  * Användarens huvud namn (userPrincipalName)
-    * *Exempel: Använd User_ID-värdet för arbets dagar, med ett Azure AD-etablerings uttryck för att lägga till ett domän namn*
-
-* **Hur ska användarna matchas mellan arbets dagar och Active Directory?**
-
-  * *Exempel: användare med ett angivet arbets dag "Worker_ID"-värde matchas med Active Directory användare där "Anställningsnr" har samma värde. Om Worker_ID-värdet inte hittas i Active Directory skapar du en ny användare.*
-  
-* **Innehåller Active Directory skogen redan de användar-ID som krävs för att matcha logiken ska fungera?**
-
-  * *Exempel: om den här installationen är en ny distribution av arbets dagar rekommenderar vi att Active Directory fylls i automatiskt med rätt arbets dagar Worker_ID värden (eller unikt ID-värde för val) för att bevara den matchande logiken så enkel som möjligt.*
-
-Hur du konfigurerar och konfigurerar dessa särskilda etablerings anslutnings program är föremål för de återstående avsnitten i den här självstudien. Vilka appar du väljer att konfigurera beror på vilka system du behöver etablera till och hur många Active Directory domäner och Azure AD-klienter som finns i din miljö.
+I [Cloud HR Deployment plan](../app-provisioning/plan-cloud-hr-provision.md) finns det en omfattande rikt linjer och rekommenderade metod tips. 
 
 ## <a name="configure-integration-system-user-in-workday"></a>Konfigurera användare av integrations systemet på arbets dagen
 
@@ -238,14 +114,16 @@ Ett gemensamt krav på alla tilldelnings anslutningar för arbets dagar är att 
 
 1. Logga in på din Workday-klient med ett administratörs konto. I **programmet Workday**anger du skapa användare i rutan Sök och klickar sedan på **skapa integrations system användare**.
 
-   ![Skapa användare](./media/workday-inbound-tutorial/wd_isu_01.png "Skapa användare")
+   >[!div class="mx-imgBorder"] 
+   >![Skapa användare](./media/workday-inbound-tutorial/wd_isu_01.png "Skapa användare")
 2. Slutför **användar uppgiften skapa integrations system** genom att ange ett användar namn och lösen ord för en ny integrations system användare.  
   
    * Lämna alternativet **Kräv nytt lösen ord vid nästa inloggning** omarkerat, eftersom den här användaren kommer att logga in program mässigt.
    * Lämna timeout-värdet i **sessionen** med standardvärdet 0, vilket hindrar användarens sessioner från timeout för tidigt.
    * Välj alternativet **Tillåt inte UI-sessioner** eftersom det ger ett extra säkerhets lager som förhindrar att en användare med lösen ordet för integrations systemet loggar in på arbets dagen.
 
-   ![Skapa integrations system användare](./media/workday-inbound-tutorial/wd_isu_02.png "Skapa integrations system användare")
+   > [!div class="mx-imgBorder"]
+   > ![Skapa integrations system användare](./media/workday-inbound-tutorial/wd_isu_02.png "Skapa integrations system användare")
 
 ### <a name="creating-an-integration-security-group"></a>Skapa en integrerings säkerhets grupp
 
@@ -255,7 +133,8 @@ I det här steget ska du skapa en obegränsad eller begränsad integrerings syst
 
 1. Ange skapa säkerhets grupp i rutan Sök och klicka sedan på **skapa säkerhets grupp**.
 
-    ![CreateSecurity-grupp](./media/workday-inbound-tutorial/wd_isu_03.png "CreateSecurity-grupp")
+   > [!div class="mx-imgBorder"]
+   > ![CreateSecurity-grupp](./media/workday-inbound-tutorial/wd_isu_03.png "CreateSecurity-grupp")
 2. Slutför aktiviteten **skapa säkerhets grupp** . 
 
    * Det finns två typer av säkerhets grupper på arbets dagen:
@@ -264,11 +143,13 @@ I det här steget ska du skapa en obegränsad eller begränsad integrerings syst
    * Kontrol lera med din arbets kamrats integrations partner att du väljer lämplig säkerhets grupp typ för integreringen.
    * När du känner till grupp typen väljer du **säkerhets grupp för integrerings systemet (** ej begränsad) eller **integrations systemets säkerhets grupp (begränsat)** från List rutan **typ av säkerhets grupp för innehavare** .
 
-     ![CreateSecurity-grupp](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity-grupp")
+     > [!div class="mx-imgBorder"]
+     >![CreateSecurity-grupp](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity-grupp")
 
 3. När säkerhets gruppen har skapats visas en sida där du kan tilldela medlemmar till säkerhets gruppen. Lägg till den nya integrations system användaren som skapades i föregående steg i den här säkerhets gruppen. Om du använder *begränsad* säkerhets grupp måste du också välja rätt organisations omfång.
 
-    ![Redigera säkerhets grupp](./media/workday-inbound-tutorial/wd_isu_05.png "Redigera säkerhets grupp")
+   >[!div class="mx-imgBorder"]
+   >![Redigera säkerhets grupp](./media/workday-inbound-tutorial/wd_isu_05.png "Redigera säkerhets grupp")
 
 ### <a name="configuring-domain-security-policy-permissions"></a>Konfigurera behörigheter för domän säkerhets princip
 
@@ -277,8 +158,8 @@ I det här steget beviljar du princip behörigheter för domän säkerhet för W
 **Så här konfigurerar du behörigheter för domän säkerhets princip:**
 
 1. Ange **domän säkerhets konfiguration** i sökrutan och klicka sedan på **säkerhets konfigurations rapport**för länk domän.  
-
-    ![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_06.png "Domän säkerhets principer")  
+   >[!div class="mx-imgBorder"]
+   >![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_06.png "Domän säkerhets principer")  
 2. I text rutan **domän** söker du efter följande domäner och lägger till dem i filtret en i taget.  
    * *Etablering av externt konto*
    * *Worker-data: arbetare*
@@ -289,23 +170,26 @@ I det här steget beviljar du princip behörigheter för domän säkerhet för W
    * *Worker-data: affärs titel i arbets profil*
    * *Workday-konton*
    
-     ![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_07.png "Domän säkerhets principer")  
+     >[!div class="mx-imgBorder"]
+     >![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_07.png "Domän säkerhets principer")  
 
-     ![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_08.png "Domän säkerhets principer") 
+     >[!div class="mx-imgBorder"]
+     >![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_08.png "Domän säkerhets principer") 
 
      Klicka på **OK**.
 
 3. I rapporten som visas, väljer du ellipsen (...) som visas bredvid **externt konto etablering** och klickar på meny alternativet **domän-> redigera säkerhets princip behörigheter**
-
-    ![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_09.png "Domän säkerhets principer")  
+   >[!div class="mx-imgBorder"]
+   >![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_09.png "Domän säkerhets principer")  
 
 4. På sidan **Redigera behörigheter för domän säkerhets princip** rullar du ned till avsnittets **integrerings behörigheter**. Klicka på "+"-tecknet för att lägga till integrations system gruppen i listan över säkerhets grupper med **Get** -och **Placera** -integrerings behörigheter.
-
-    ![Redigera behörighet](./media/workday-inbound-tutorial/wd_isu_10.png "Redigera behörighet")  
+   >[!div class="mx-imgBorder"]
+   >![Redigera behörighet](./media/workday-inbound-tutorial/wd_isu_10.png "Redigera behörighet")  
 
 5. Klicka på "+"-tecknet för att lägga till integrations system gruppen i listan över säkerhets grupper med **Get** -och **Placera** -integrerings behörigheter.
 
-    ![Redigera behörighet](./media/workday-inbound-tutorial/wd_isu_11.png "Redigera behörighet")  
+   >[!div class="mx-imgBorder"]
+   >![Redigera behörighet](./media/workday-inbound-tutorial/wd_isu_11.png "Redigera behörighet")  
 
 6. Upprepa steg 3-5 ovan för var och en av dessa återstående säkerhets principer:
 
@@ -321,24 +205,30 @@ I det här steget beviljar du princip behörigheter för domän säkerhet för W
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Konfigurera säkerhets princip behörigheter för affärs process
 
-I det här steget ska du bevilja princip behörigheter för affärs processer för Worker-data till säkerhets gruppen. Det här steget krävs för att ställa in tillbakaskrivning av tillbakaskrivning-appen för arbets dagar.
+I det här steget ska du bevilja princip behörigheter för affärs processer för Worker-data till säkerhets gruppen. 
+
+> [!NOTE]
+> Det här steget krävs endast för att ställa in tillbakaskrivning av tillbakaskrivning-appen för arbets dagar.
 
 **Så här konfigurerar du säkerhets princip behörigheter för affärs processer:**
 
 1. Ange **affärs process princip** i sökrutan och klicka sedan på aktiviteten **Redigera säkerhets princip för affärs process** .  
 
-    ![Säkerhets principer för affärs processer](./media/workday-inbound-tutorial/wd_isu_12.png "Säkerhets principer för affärs processer")  
+   >[!div class="mx-imgBorder"]
+   >![Säkerhets principer för affärs processer](./media/workday-inbound-tutorial/wd_isu_12.png "Säkerhets principer för affärs processer")  
 
 2. I text rutan **affärs process typ** söker du efter *kontakt* och väljer affärs process för **arbets kontakt ändring** och klickar på **OK**.
 
-    ![Säkerhets principer för affärs processer](./media/workday-inbound-tutorial/wd_isu_13.png "Säkerhets principer för affärs processer")  
+   >[!div class="mx-imgBorder"]
+   >![Säkerhets principer för affärs processer](./media/workday-inbound-tutorial/wd_isu_13.png "Säkerhets principer för affärs processer")  
 
 3. På sidan **Redigera säkerhets princip för affärs process** bläddrar du till avsnittet **ändra arbets kontakt information (webb tjänst)** .
     
 
 4. Välj och Lägg till den nya säkerhets gruppen för integrerings systemet i listan över säkerhets grupper som kan initiera begäran om webb tjänster. 
 
-    ![Säkerhets principer för affärs processer](./media/workday-inbound-tutorial/wd_isu_15.png "Säkerhets principer för affärs processer")  
+   >[!div class="mx-imgBorder"]
+   >![Säkerhets principer för affärs processer](./media/workday-inbound-tutorial/wd_isu_15.png "Säkerhets principer för affärs processer")  
 
 5. Klicka på **färdig**. 
 
@@ -347,13 +237,45 @@ I det här steget ska du bevilja princip behörigheter för affärs processer f�
 **Så här aktiverar du säkerhets princip ändringar:**
 
 1. Ange aktivera i sökrutan och klicka sedan på länken **Aktivera väntande säkerhets princip ändringar**.
-
-    ![Inaktivera](./media/workday-inbound-tutorial/wd_isu_16.png "Aktivera")
+   >[!div class="mx-imgBorder"]
+   >![Inaktivera](./media/workday-inbound-tutorial/wd_isu_16.png "Aktivera")
 
 1. Starta åtgärden aktivera väntande säkerhets princip ändringar genom att ange en kommentar för gransknings syfte och klicka sedan på **OK**.
 1. Slutför uppgiften på nästa skärm genom att markera kryss rutan **Bekräfta**och klicka sedan på **OK**.
 
-    ![Aktivera väntande säkerhet](./media/workday-inbound-tutorial/wd_isu_18.png "Aktivera väntande säkerhet")  
+   >[!div class="mx-imgBorder"]
+   >![Aktivera väntande säkerhet](./media/workday-inbound-tutorial/wd_isu_18.png "Aktivera väntande säkerhet")  
+
+## <a name="configure-active-directory-service-account"></a>Konfigurera Active Directory tjänst konto
+
+I det här avsnittet beskrivs de behörigheter för AD-tjänstkontot som krävs för att installera och konfigurera Azure AD Connect etablerings agenten.
+
+### <a name="permissions-required-to-run-the-provisioning-agent-installer"></a>Behörigheter som krävs för att köra installations programmet för etablerings agenten
+När du har identifierat Windows Server som ska vara värd för etablerings agenten loggar du in på Server värden med hjälp av antingen lokal administratör eller autentiseringsuppgifter för domän administratören. Agent installations processen skapar säkra filer för nyckel lagring och uppdaterar tjänst profil konfigurationen på värd servern. Detta kräver administratörs åtkomst på den server som är värd för agenten. 
+
+### <a name="permissions-required-to-configure-the-provisioning-agent-service"></a>Behörigheter som krävs för att konfigurera etablerings Agent tjänsten
+Använd stegen nedan för att konfigurera ett tjänst konto som kan användas för etablering av agent åtgärder. 
+1.  Öppna snapin-modulen *Active Directory användare och datorer* på AD-domänkontrollanten. 
+2.  Skapa en ny domän användare (exempel: *provAgentAdmin*)  
+3.  Högerklicka på ORGANISATIONSENHETen eller domän namnet och välj *delegera kontroll* som ska öppna *guiden Delegera kontroll*. 
+
+> [!NOTE] 
+> Om du vill begränsa etablerings agenten till att endast skapa och läsa användare från en viss ORGANISATIONSENHET i testnings syfte, rekommenderar vi att du delegerar kontrollen på rätt ORGANISATIONSENHET under test körningarna.
+
+4. Klicka på **Nästa** på Välkomst skärmen. 
+5. På skärmen **Välj användare eller grupper** lägger du till den domän användare som du skapade i steg 2. Klicka på **Nästa**.
+   >[!div class="mx-imgBorder"]
+   >![Lägg till skärm](./media/workday-inbound-tutorial/delegation-wizard-01.png "Lägg till skärm")
+
+6. På skärmen **uppgifter som ska delegeras** väljer du följande aktiviteter: 
+   * Skapa, ta bort och hantera användar konton
+   * Läs all användar information
+
+   >[!div class="mx-imgBorder"]
+   >![Skärmen uppgifter](./media/workday-inbound-tutorial/delegation-wizard-02.png "Skärmen uppgifter")
+
+7. Klicka på **Nästa** och **Spara** konfigurationen
+
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Konfigurera användar etablering från arbets dagar till Active Directory
 
@@ -377,7 +299,7 @@ Det här avsnittet innehåller steg för etablering av användar konton från ar
 
 4. Välj **Lägg till ett program**och välj kategorin **alla** .
 
-5. Sök efter **arbets plats etablering till Active Directory**och Lägg till den appen från galleriet.
+5. Sök efter **arbets dag för att Active Directory användar etablering**och Lägg till den appen från galleriet.
 
 6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**.
 
@@ -385,7 +307,8 @@ Det här avsnittet innehåller steg för etablering av användar konton från ar
 
 8. Klicka på den informations banderoll som visas för att ladda ned etablerings agenten. 
 
-   ![Hämta agent](./media/workday-inbound-tutorial/pa-download-agent.png "Ladda ned agent skärm")
+   >[!div class="mx-imgBorder"]
+   >![Hämta agent](./media/workday-inbound-tutorial/pa-download-agent.png "Ladda ned agent skärm")
 
 
 ### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Del 2: installera och konfigurera lokala etablerings agenter
@@ -402,30 +325,36 @@ För att etablera till Active Directory lokalt måste etablerings agenten instal
 
 1. Starta installations programmet för etablerings agenten, Godkänn villkoren och klicka på knappen **Installera** .
 
-   ![Installations skärm](./media/workday-inbound-tutorial/pa_install_screen_1.png "Installations skärm")
+   >[!div class="mx-imgBorder"]
+   >![Installations skärm](./media/workday-inbound-tutorial/pa_install_screen_1.png "Installations skärm")
    
 1. När installationen är klar startas guiden och du kan se fönstret **Anslut Azure AD** . Klicka på knappen **autentisera** för att ansluta till Azure AD-instansen.
 
-   ![Ansluta till Azure Active Directory](./media/workday-inbound-tutorial/pa_install_screen_2.png "Ansluta till Azure Active Directory")
+   >[!div class="mx-imgBorder"]
+   >![Ansluta till Azure Active Directory](./media/workday-inbound-tutorial/pa_install_screen_2.png "Ansluta till Azure Active Directory")
    
-1. Autentisera till Azure AD-instansen med hjälp av autentiseringsuppgifter för global administratör.
+1. Autentisera till Azure AD-instansen med autentiseringsuppgifter för Hybrid identitets administratör.
 
-   ![Admin-autentisering](./media/workday-inbound-tutorial/pa_install_screen_3.png "Admin-autentisering")
+   >[!div class="mx-imgBorder"]
+   >![Admin-autentisering](./media/workday-inbound-tutorial/pa_install_screen_3.png "Admin-autentisering")
 
    > [!NOTE]
    > Autentiseringsuppgifter för Azure AD-Admin används endast för att ansluta till din Azure AD-klient. Agenten lagrar inte autentiseringsuppgifterna lokalt på servern.
 
 1. Efter en lyckad autentisering med Azure AD visas skärmen **anslut Active Directory** . I det här steget anger du ditt AD-domännamn och klickar på knappen **Lägg till katalog** .
 
-   ![Lägg till katalog](./media/workday-inbound-tutorial/pa_install_screen_4.png "Lägg till katalog")
+   >[!div class="mx-imgBorder"]
+   >![Lägg till katalog](./media/workday-inbound-tutorial/pa_install_screen_4.png "Lägg till katalog")
   
 1. Nu uppmanas du att ange de autentiseringsuppgifter som krävs för att ansluta till AD-domänen. På samma skärm kan du använda **prioriteten Välj** domänkontrollant för att ange domänkontrollanter som agenten ska använda för att skicka etablerings begär Anden.
 
-   ![Domänautentiseringsuppgifter](./media/workday-inbound-tutorial/pa_install_screen_5.png)
+   >[!div class="mx-imgBorder"]
+   >![Domänautentiseringsuppgifter](./media/workday-inbound-tutorial/pa_install_screen_5.png)
    
 1. När du har konfigurerat domänen visas en lista över konfigurerade domäner i installations programmet. På den här skärmen kan du upprepa steg #5 och #6 för att lägga till fler domäner eller klicka på **Nästa** för att fortsätta med agent registreringen.
 
-   ![Konfigurerade domäner](./media/workday-inbound-tutorial/pa_install_screen_6.png "Konfigurerade domäner")
+   >[!div class="mx-imgBorder"]
+   >![Konfigurerade domäner](./media/workday-inbound-tutorial/pa_install_screen_6.png "Konfigurerade domäner")
 
    > [!NOTE]
    > Om du har flera AD-domäner (t. ex. na.contoso.com, emea.contoso.com) lägger du till varje domän separat i listan.
@@ -433,19 +362,23 @@ För att etablera till Active Directory lokalt måste etablerings agenten instal
    
 1. Granska konfigurations informationen och klicka på **Bekräfta** för att registrera agenten.
   
-   ![Bekräfta skärm](./media/workday-inbound-tutorial/pa_install_screen_7.png "Bekräfta skärm")
+   >[!div class="mx-imgBorder"]
+   >![Bekräfta skärm](./media/workday-inbound-tutorial/pa_install_screen_7.png "Bekräfta skärm")
    
 1. Konfigurations guiden visar förloppet för agent registreringen.
   
-   ![Agent registrering](./media/workday-inbound-tutorial/pa_install_screen_8.png "Agent registrering")
+   >[!div class="mx-imgBorder"]
+   >![Agent registrering](./media/workday-inbound-tutorial/pa_install_screen_8.png "Agent registrering")
    
 1. När agent registreringen är klar kan du klicka på **Avsluta** för att avsluta guiden.
-  
-   ![Avsluta skärm](./media/workday-inbound-tutorial/pa_install_screen_9.png "Avsluta skärm")
+
+   >[!div class="mx-imgBorder"]
+   >![Avsluta skärm](./media/workday-inbound-tutorial/pa_install_screen_9.png "Avsluta skärm")
    
 1. Verifiera installationen av agenten och se till att den körs genom att öppna snapin-modulen "tjänster" och leta efter tjänsten "Microsoft Azure AD ansluta etablerings agent"
-  
-   ![Tjänster](./media/workday-inbound-tutorial/services.png)
+
+   >[!div class="mx-imgBorder"]
+   >![Tjänster](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Del 3: Konfigurera anslutning till arbets dagar och Active Directory i etablerings appen
 I det här steget upprättar vi anslutningen till arbets dagar och Active Directory i Azure Portal. 
@@ -458,14 +391,18 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
 
    * **Lösen ord för arbets dag –** Ange lösen ordet för system kontot för Workday-integrering
 
-   * **URL för Workday webb tjänster-API –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut så här: `https://wd3-impl-services1.workday.com/ccx/service/contoso4` , där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng.
+   * **URL för Workday webb tjänster-API –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. URL: en avgör vilken version av webb tjänstens API för Workday som används av anslutningen. 
+   
+     | URL-format | WWS-API-version som används | XPATH-ändringar krävs |
+     |------------|----------------------|------------------------|
+     | https://####.workday.com/ccx/service/tenantName | v-21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Yes |
 
-     > [!NOTE]
-     > Som standard använder appen Workday-webbtjänster (WWS) v 21.1 om ingen versions information anges i URL: en. Använd URL-formatet om du vill använda en viss WWS API-version:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Exempel: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
-     
-     > [!NOTE]
-     > Om du använder en WWS API v-30.0 och senare, innan du aktiverar etablerings jobbet, uppdaterar du **XPath API-uttryck** under **attribut mappning-> avancerade alternativ-> redigera attributlistan för arbets dagar** som refererar till avsnittet [Hantera din konfiguration och ditt](#managing-your-configuration) Workday- [attribut referens](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
+      > [!NOTE]
+     > Om ingen versions information anges i URL: en använder appen Workday-WWS (Web Services) och inga ändringar krävs för standard-XPATH API-uttryck som levereras med appen. Om du vill använda en viss WWS API-version anger du versions nummer i URL: en <br>
+     > Exempel: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v34.0` <br>
+     > <br> Om du använder en WWS API v-30.0 +, innan du aktiverar etablerings jobbet, uppdaterar du **XPath API-uttryck** under **attribut mappning-> avancerade alternativ-> redigera attributlistan för arbets dagar** som refererar till avsnittet [Hantera din konfiguration och ditt](#managing-your-configuration) Workday- [attribut referens](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
 
    * **Active Directory skog –** "Namnet på din Active Directory domän, som registrerat hos agenten. Använd List rutan för att välja mål domän för etablering. Det här värdet är vanligt vis en sträng som: *contoso.com*
 
@@ -482,7 +419,8 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
 
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas, kontrol lera att autentiseringsuppgifterna för arbets dag och de AD-autentiseringsuppgifter som kon figurer ATS för Agent installationen är giltiga.
 
-     ![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
+     >[!div class="mx-imgBorder"]
+     >![Azure-portalen](./media/workday-inbound-tutorial/wd_1.png)
 
    * När autentiseringsuppgifterna har sparats visar avsnittet **mappningar** standard mappningen **Synkronisera arbets uppgifter för arbets dagar till lokalt Active Directory**
 
@@ -546,8 +484,8 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
          * **Endast vid skapande** – Använd endast den här mappningen för åtgärder för att skapa användare
 
 1. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
-
-   ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
+   >[!div class="mx-imgBorder"]
+   >![Azure-portalen](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>Nedan visas några exempel på attribut mappningar mellan arbets dagar och Active Directory, med några vanliga uttryck
 
@@ -570,7 +508,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | **Firm**         | company   |     |  Skapa + uppdatera |
 | **SupervisoryOrganization**  | avdelning  |     |  Skapa + uppdatera |
 | **ManagerReference**   | manager  |     |  Skapa + uppdatera |
-| **BusinessTitle**   |  rubrik     |     |  Skapa + uppdatera | 
+| **BusinessTitle**   |  title     |     |  Skapa + uppdatera | 
 | **AddressLineData**    |  streetAddress  |     |   Skapa + uppdatera |
 | **Kommuner**   |   l   |     | Skapa + uppdatera |
 | **CountryReferenceTwoLetter**      |   företag |     |   Skapa + uppdatera |
@@ -582,164 +520,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | **Fax**      | facsimileTelephoneNumber     |     |    Skapa + uppdatera |
 | **Mobilt**  |    mobil       |     |       Skapa + uppdatera |
 | **LocalReference** |  preferredLanguage  |     |  Skapa + uppdatera |                                               
-| **Switch ( \[ kommun \] , "OU = standard användare, OU = användare, OU = standard, OU = platser, DC = contoso, DC = com", "Borås", "OU = standard användare, OU = användare, OU = Borås, OU = platser, DC = contoso, DC = com", "Austin", "OU = standard användare, OU = användare, OU = Austin, OU = locations, DC = contoso, DC = com", "Seattle", "OU = standard användare, OU = användare, OU = Seattle, OU = locations, DC = contoso, DC = com", "London", "OU = standard användare, OU = användare, OU = London, OU = locations, DC = contoso, DC = com")**  | parentDistinguishedName     |     |  Skapa + uppdatera |
-
-När du har slutfört konfigurationen av attributmappning kan du nu [Aktivera och starta användar etablerings tjänsten](#enable-and-launch-user-provisioning).
-
-## <a name="configuring-user-provisioning-to-azure-ad"></a>Konfigurera användar etablering i Azure AD
-
-I följande avsnitt beskrivs hur du konfigurerar användar etablering från Workday till Azure AD för distributioner i molnet.
-
-* [Lägga till Azure AD Provisioning Connector-appen och skapa anslutningen till arbets dagen](#part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday)
-* [Konfigurera mappar för Workday och Azure AD-attribut](#part-2-configure-workday-and-azure-ad-attribute-mappings)
-* [Aktivera och starta användar etablering](#enable-and-launch-user-provisioning)
-
-> [!IMPORTANT]
-> Följ bara anvisningarna nedan om du bara har molnbaserade användare som behöver tillhandahållas till Azure AD och inte lokalt Active Directory.
-
-### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Del 1: lägga till Azure AD Provisioning Connector-appen och skapa anslutningen till arbets dagen
-
-**Konfigurera arbets dagar för att Azure Active Directory etablering för endast moln användare:**
-
-1. Gå till <https://portal.azure.com>.
-
-2. I Azure Portal söker du efter och väljer **Azure Active Directory**.
-
-3. Välj **företags program**och sedan **alla program**.
-
-4. Välj **Lägg till ett program**och välj sedan kategorin **alla** .
-
-5. Sök efter **arbets dag till Azure AD-etablering**och Lägg till den appen från galleriet.
-
-6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**.
-
-7. Ändra **etablerings** **läget** till **automatiskt**.
-
-8. Slutför avsnittet **admin credentials** enligt följande:
-
-   * **Workday-användarnamn** – Ange användar namnet för kontot för arbets dag integrerings systemet, med namnet på klient organisationen som lagts till. Bör se ut ungefär så här:username@contoso4
-
-   * **Lösen ord för arbets dag –** Ange lösen ordet för system kontot för Workday-integrering
-
-   * **URL för Workday webb tjänster-API –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut så här: `https://wd3-impl-services1.workday.com/ccx/service/contoso4` , där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng. Om den här URL: en inte är känd kan du samar beta med din prenumerations partner eller support representant för din arbets plats för att fastställa rätt URL som ska användas.
-
-     > [!NOTE]
-     > Som standard använder appen Workday Web Services v-21.1 om ingen versions information anges i URL: en. Använd URL-formatet om du vill använda en viss API-version för Workday-webb tjänster:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Exempel: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
-
-
-   * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
-
-   * Klicka på knappen **Testa anslutning** .
-
-   * Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas, kontrol lera att URL: en för arbets dagar och autentiseringsuppgifter är giltiga i arbets dagen.
-
-### <a name="part-2-configure-workday-and-azure-ad-attribute-mappings"></a>Del 2: Konfigurera mappningar för Workday och Azure AD-attribut
-
-I det här avsnittet ska du konfigurera hur användar data flödar från arbets dagar till Azure Active Directory endast för molnbaserade användare.
-
-1. På fliken etablering under **mappningar**klickar du på **Synkronisera arbetare till Azure AD**.
-
-2. I fältet **käll objekt omfånget** kan du välja vilka uppsättningar av användare i arbets dagar som ska ingå i omfånget för etablering till Azure AD, genom att definiera en uppsättning attributbaserade filter. Standard omfånget är "alla användare i Workday". Exempel filter:
-
-   * Exempel: omfång till användare med Worker-ID: n mellan 1000000 och 2000000
-
-      * Attribut: WorkerID
-
-      * Operator: REGEX-matchning
-
-      * Värde: (1 [0-9] [0-9] [0-9] [0-9] [0-9] [0-9])
-
-   * Exempel: endast eventualtillgångar och inte vanliga anställda
-
-      * Attribut: ContingentID
-
-      * Operator: är inte NULL
-
-3. I fältet **mål objekts åtgärder** kan du globalt filtrera vilka åtgärder som utförs i Azure AD. **Skapa** och **Uppdatera** är de vanligaste.
-
-4. I avsnittet **mappningar för attribut** kan du definiera hur enskilda Workday-attribut mappar ska Active Directory attribut.
-
-5. Klicka på en befintlig attributmappning för att uppdatera den, eller klicka på **Lägg till ny mappning** längst ned på skärmen för att lägga till nya mappningar. En mappning för enskilda attribut stöder följande egenskaper:
-
-   * **Mappnings typ**
-
-      * **Direct** – skriver värdet för attributet Workday till attributet AD, utan ändringar
-
-      * **Konstant** – Skriv ett statiskt, konstant sträng värde till attributet AD
-
-      * **Uttryck** – gör att du kan skriva ett anpassat värde till attributet AD, baserat på ett eller flera Workday-attribut. [Mer information finns i den här artikeln om uttryck](../app-provisioning/functions-for-customizing-application-data.md).
-
-   * **Källattribut** – attributet användare från Workday. Om det attribut som du letar efter inte finns kan du läsa mer i [Anpassa listan med användar](#customizing-the-list-of-workday-user-attributes)-och Workday-användarattribut.
-
-   * **Standardvärde** – valfritt. Om källattributet har ett tomt värde, skrivs värdet i stället av mappningen.
-            Den vanligaste konfigurationen är att lämna detta tomt.
-
-   * **Target** -attribut – användarattribut i Azure AD.
-
-   * **Matcha objekt med det här attributet** – om det här attributet ska användas för att unikt identifiera användare mellan Workday och Azure AD. Det här värdet anges vanligt vis i fältet Worker-ID för arbets dag, som vanligt vis mappas till ID-attributet för personal (ny) eller ett tillägg i Azure AD.
-
-   * **Matchnings prioritet** – flera matchande attribut kan anges. När det finns flera, utvärderas de i den ordning som definieras av det här fältet. Så fort en matchning hittas utvärderas inga ytterligare matchande attribut.
-
-   * **Använd den här mappningen**
-
-     * **Alltid** – Använd den här mappningen för både skapande av användare och uppdaterings åtgärder
-
-     * **Endast vid skapande** – Använd endast den här mappningen för åtgärder för att skapa användare
-
-6. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
-
-När du har slutfört konfigurationen av attributmappning kan du nu [Aktivera och starta användar etablerings tjänsten](#enable-and-launch-user-provisioning).
-
-## <a name="configuring-azure-ad-attribute-writeback-to-workday"></a>Konfigurera Azure AD-attributet tillbakaskrivning till Workday
-
-Följ de här anvisningarna för att konfigurera tillbakaskrivning av användarens e-postadresser och användar namn från Azure Active Directory till Workday.
-
-* [Lägga till appen tillbakaskrivning Connector och skapa anslutningen till arbets dagen](#part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday)
-* [Konfigurera mappningar av tillbakaskrivning av attribut](#part-2-configure-writeback-attribute-mappings)
-* [Aktivera och starta användar etablering](#enable-and-launch-user-provisioning)
-
-### <a name="part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday"></a>Del 1: lägga till appen tillbakaskrivning Connector och skapa anslutningen till arbets dagen
-
-**Konfigurera tillbakaskrivning av workday-anslutning:**
-
-1. Gå till <https://portal.azure.com>.
-
-2. I Azure Portal söker du efter och väljer **Azure Active Directory**.
-
-3. Välj **företags program**och sedan **alla program**.
-
-4. Välj **Lägg till ett program**och välj sedan kategorin **alla** .
-
-5. Sök efter **tillbakaskrivning av arbets dagar**och Lägg till den appen från galleriet.
-
-6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**.
-
-7. Ändra **etablerings** **läget** till **automatiskt**.
-
-8. Slutför avsnittet **admin credentials** enligt följande:
-
-   * **Administratörens användar** namn – Ange användar namnet för kontot för arbets dag integrerings systemet med klient domän namnet tillagt. Bör se ut ungefär så här: *username \@ contoso4*
-
-   * **Administratörs lösen ord –** Ange lösen ordet för system kontot för Workday-integrering
-
-   * **Klient-URL –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut så här: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources` , där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng (om det behövs).
-
-   * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
-
-   * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas, kontrol lera att URL: en för arbets dagar och autentiseringsuppgifter är giltiga i arbets dagen.
-
-### <a name="part-2-configure-writeback-attribute-mappings"></a>Del 2: Konfigurera mappningar för tillbakaskrivning av attribut
-
-I det här avsnittet ska du konfigurera hur tillbakaskrivning av attribut flödar från Azure AD till Workday. För närvarande stöder kopplingen bara tillbakaskrivning av e-postadress och användar namn till Workday.
-
-1. På fliken etablering under **mappningar**klickar du på **Synkronisera Azure Active Directory användare till arbets dag**.
-
-2. I fältet **käll objekt omfånget** kan du välja att filtrera, vilka uppsättningar av användare i Azure Active Directory ska få sina e-postadresser skrivna tillbaka till Workday. Standard omfånget är "alla användare i Azure AD".
-
-3. I avsnittet **mappningar av attribut** uppdaterar du matchnings-ID: t för att ange attributet i Azure Active Directory där arbets dagar Worker-ID eller medarbetar-ID lagras. En populär matchnings metod är att synkronisera arbets dagens ID för arbets dagar eller anställnings-ID till extensionAttribute1-15 i Azure AD och sedan använda det här attributet i Azure AD för att matcha användare tillbaka till arbets dagen.
-
-4. Vanligt vis mappar du Azure AD *userPrincipalName* -attributet till ett Workday *UserID* -attribut och mappar Azure AD *mail-* attributet till attributet Workday *EmailAddress* . Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
+| **Switch ( \[ kommun \] , "OU = standard användare, DC = contoso, DC = com", "Borås", "OU = Borås, OU = användare, DC = contoso, DC = com", "Austin", "OU = Austin, OU = användare, DC = contoso, DC = com", "Seattle", "OU = Seattle, OU = användare, DC = contoso, DC = com", "London", "OU = London, OU = användare, DC = contoso, DC = com")**  | parentDistinguishedName     |     |  Skapa + uppdatera |
 
 När du har slutfört konfigurationen av attributmappning kan du nu [Aktivera och starta användar etablerings tjänsten](#enable-and-launch-user-provisioning).
 
@@ -759,8 +540,10 @@ När du har slutfört konfigurationen av appar för arbets dag etablering kan du
 4. Gå till fliken **gransknings loggar** i Azure Portal för att se vilka åtgärder som etablerings tjänsten har utfört. I gransknings loggarna visas alla enskilda synkroniseringsfel som utförs av etablerings tjänsten, t. ex. vilka användare som ska läsas ut från Workday och därefter läggs till eller uppdateras till Active Directory. Mer information om hur du granskar gransknings loggarna och åtgärda etablerings felen finns i avsnittet fel sökning.
 
 5. När den inledande synkroniseringen har slutförts skrivs en gransknings sammanfattnings rapport på fliken **etablering** , som visas nedan.
+   > [!div class="mx-imgBorder"]
+   > ![Förlopps indikator för etablering](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-   ![Azure Portal](./media/workday-inbound-tutorial/wd_3.png)
+
 
 ## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
@@ -847,9 +630,11 @@ När Azure AD används i hybrid läge (där det innehåller en blandning av moln
 
 Din feedback är mycket värdefull eftersom det hjälper oss att ange riktning för framtida versioner och förbättringar. Vi välkomnar all feedback och uppmanar dig att skicka in din idé-eller förbättrings förslag i [feedback-forumet för Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory). Om du vill ha mer information om arbets dags integrering väljer du kategorin *SaaS program* och söker med hjälp av nyckelordet *Workday* för att hitta befintlig feedback som rör arbets dagen.
 
-![UserVoice SaaS-appar](media/workday-inbound-tutorial/uservoice_saas_apps.png)
+> [!div class="mx-imgBorder"]
+> ![UserVoice SaaS-appar](media/workday-inbound-tutorial/uservoice_saas_apps.png)
 
-![UserVoice-arbetsdag](media/workday-inbound-tutorial/uservoice_workday_feedback.png)
+> [!div class="mx-imgBorder"]
+> ![UserVoice-arbetsdag](media/workday-inbound-tutorial/uservoice_workday_feedback.png)
 
 När du föreslår en ny idé bör du kontrol lera om någon annan redan har föreslagit en liknande funktion. I så fall kan du rösta på funktionen eller förbättrings förfrågan. Du kan också lämna en kommentar om ditt speciella användnings fall för att visa ditt stöd för idén och demonstrera hur funktionen kommer att vara värdefull för dig.
 
@@ -857,9 +642,7 @@ När du föreslår en ny idé bör du kontrol lera om någon annan redan har fö
 
 #### <a name="what-is-the-ga-version-of-the-provisioning-agent"></a>Vad är en GA-version av etablerings agenten?
 
-* Den GA versionen av etablerings agenten är 1.1.30 och högre.
-* Om agent versionen är mindre än 1.1.30 kör du den offentliga för hands versionen och uppdateras automatiskt till GA-versionen om servern som är värd för agenten har .NET 4.7.1-körning.
-  * Du kan [kontrol lera vilken .NET-version som är](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) installerad på servern. Om servern inte kör .NET 4.7.1 kan du [Ladda ned och installera .NET-4.7.1](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows). Din etablerings agent kommer automatiskt att uppdateras till GA-versionen när du har installerat .NET 4.7.1.
+Se [Azure AD Connect etablerings agent: versions historik](../app-provisioning/provisioning-agent-release-version-history.md) för den senaste ga-versionen av etablerings agenten.  
 
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>Hur gör jag för att känner du till versionen av etablerings agenten?
 
@@ -867,11 +650,12 @@ När du föreslår en ny idé bör du kontrol lera om någon annan redan har fö
 * Gå till **kontroll panelen**  ->  **Avinstallera eller ändra en program** meny
 * Leta efter den version som motsvarar posten **Microsoft Azure AD ansluta etablerings agenten**
 
-  ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
+  >[!div class="mx-imgBorder"]
+  >![Azure-portalen](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>Push-överför Microsoft automatiskt Provisioning agent-uppdateringar?
 
-Ja, Microsoft uppdaterar automatiskt etablerings agenten. Du kan inaktivera automatiska uppdateringar genom att stoppa Windows-tjänsten **Microsoft Azure AD Connect agent updateer**.
+Ja, Microsoft uppdaterar automatiskt etablerings agenten om uppdaterings agenten för Windows-tjänsten **Microsoft Azure AD Connect-agenten** körs.
 
 #### <a name="can-i-install-the-provisioning-agent-on-the-same-server-running-azure-ad-connect"></a>Kan jag installera etablerings agenten på samma server som kör Azure AD Connect?
 
@@ -1273,8 +1057,7 @@ För att göra den här ändringen måste du använda [Workday Studio](https://c
 7. Ange **åtgärd** för att **Get_Workers**
 
 8.    Klicka på den lilla **Konfigurera** -länken under fönstret för svar/svar för att ange dina autentiseringsuppgifter för din arbets dag. Kontrol lera **autentiseringen**och ange sedan användar namn och lösen ord för ditt system konto för ditt system konto för system. Se till att formatera användar namnet som \@ klient organisation och lämna alternativet **WS-Security UsernameToken** markerat.
-
-    ![Workday-Studio](./media/workday-inbound-tutorial/wdstudio2.png)
+   ![Workday-Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. Välj **OK**.
 

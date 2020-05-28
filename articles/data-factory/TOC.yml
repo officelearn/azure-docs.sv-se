@@ -543,6 +543,8 @@
       items:
         - name: Säkerhetsöverväganden vid dataflytt
           href: data-movement-security-considerations.md
+        - name: Dataåtkomststrategier
+          href: data-access-strategies.md
         - name: IP-adresser i Azure Integration Runtime
           href: azure-integration-runtime-ip-addresses.md
         - name: Spara autentiseringsuppgifter i Azure Key Vault

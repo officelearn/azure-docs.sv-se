@@ -38,7 +38,7 @@ Om du vill skapa och hantera hanterade instanser med Azure PowerShell använder 
 > [!TIP]
 > Skript för PowerShell-exempel finns i [snabb starts skript: skapa SQL-hanterad instans med PowerShell-bibliotek](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/).
 
-| Cmdlet | Beskrivning |
+| Cmdlet | Description |
 | --- | --- |
 |[New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|Skapar en hanterad Azure SQL-instans |
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Returnerar information om den hanterade Azure SQL-instansen|
@@ -56,7 +56,7 @@ Om du vill skapa och hantera hanterade instanser med [Azure CLI](/cli/azure)anv�
 > [!TIP]
 > En snabb start för Azure CLI finns i [arbeta med SQL-hanterad instans med hjälp av Azure CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
 
-| Cmdlet | Beskrivning |
+| Cmdlet | Description |
 | --- | --- |
 |[AZ SQL mi Create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Skapar en hanterad instans|
 |[AZ SQL mi-lista](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Visar en lista över tillgängliga hanterade instanser|
@@ -77,7 +77,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera instans databasen n
 > [!IMPORTANT]
 > Du kan inte skapa eller ta bort en hanterad instans med hjälp av Transact-SQL.
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 |[SKAPA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Skapar en ny hanterad instans databas. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
 | [ÄNDRA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Ändrar en Azure SQL-hanterad instans databas.|
@@ -86,7 +86,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera instans databasen n
 
 Använd dessa REST API begär Anden för att skapa och hantera hanterade instanser.
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 |[Hanterade instanser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Skapar eller uppdaterar en hanterad instans.|
 |[Hanterade instanser – ta bort](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Tar bort en hanterad instans.|

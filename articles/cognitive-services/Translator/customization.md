@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: c1928f9aa2c2b011e1cf54b4ef6cfc5cb8251904
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6db43300632ec5b2c4f6c18848442901a40561b0
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588657"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997006"
 ---
 # <a name="customize-your-text-translations"></a>Anpassa dina text översättningar
 
@@ -49,12 +49,12 @@ Mer information om olika anpassnings nivåer som baseras på tillgängliga data 
 
 |   | **)** | **Custom Translator**|
 |:-----|:----:|:----:|
-|Status för anpassnings funktion   | Allmän tillgänglighet  | Allmän tillgänglighet |
-| Text-API-version  | Endast v2   | Endast v3 |
-| SMT-anpassning | Yes   | Nej |
-| Anpassning av NMT | Nej    | Yes |
-| Ny anpassning av enhetligt tal tjänster | Nej    | Yes |
-| [Ingen spårning](https://www.aka.ms/notrace) | Ja  | Ja |
+|Status för anpassnings funktion    | Allmän tillgänglighet    | Allmän tillgänglighet |
+| Text-API-version    | Endast v2    | Endast v3 |
+| SMT-anpassning    | Ja    | Nej |
+| Anpassning av NMT    | Nej    | Ja |
+| Ny anpassning av enhetligt tal tjänster    | Nej    | Ja |
+| [Ingen spårning](https://www.aka.ms/notrace) | Ja    | Ja |
 
 ## <a name="collaborative-translations-framework"></a>Ramverk för samarbets översättningar
 

@@ -16,16 +16,16 @@ ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f878c6f7a59328e2f68ffbaee066bba4a5b6c898
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c84be9a23713080f348daf8dddf0ad6b0390ded
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978132"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014713"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurera Azure Key Vault-integrering för SQL Server på Azure-Virtual Machines (klassisk)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-ps-sql-keyvault.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/azure-key-vault-integration-configure.md)
 > * [Klassisk](../classic/ps-sql-keyvault.md)
 > 
 > 
@@ -53,7 +53,7 @@ I följande tabell visas de parametrar som krävs för att köra PowerShell-skri
 
 | Parameter | Beskrivning | Exempel |
 | --- | --- | --- |
-| **$akvURL** |**Nyckel valvets URL** |"https:\//contosokeyvault.Vault.Azure.net/" |
+| **$akvURL** |**Nyckel valvets URL** |"https: \/ /contosokeyvault.Vault.Azure.net/" |
 | **$spName** |**Tjänstens huvud namn** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Hemlighet för tjänstens huvud namn** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =" |
 | **$credName** |**Namn på autentiseringsuppgifter**: AKV-integreringen skapar autentiseringsuppgifter på SQL-servern som gör att den virtuella datorn kan komma åt nyckelvalvet. Välj ett namn för autentiseringsuppgifterna. |"mycred1" |

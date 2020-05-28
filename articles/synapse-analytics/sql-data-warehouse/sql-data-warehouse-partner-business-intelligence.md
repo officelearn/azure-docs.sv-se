@@ -23,7 +23,7 @@ ms.locfileid: "83698884"
 Om du vill skapa en komplett informations lager lösning med Synapse SQL-pool i Azure Synapse kan du välja mellan en rad olika branschledande verktyg.  I den här artikeln beskrivs Microsoft partner företag med officiella Business Intelligence (BI) lösningar som stöder Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>Våra Business Intelligence-partner
-| Partner | Beskrivning | Länk till webbplats/produkt |
+| Partner | Description | Länk till webbplats/produkt |
 | ------- | ----------- | -------------------- |
 | ![Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Birst**<br>Birst ansluter hela organisationen genom ett nätverk av vävs virtualiserade BI-instanser ovanpå en delad gemensam analys infrastruktur|[Produkt sida](https://www.birst.com/)<br> |
 | ![ClearStory-data](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**ClearStory data (kontinuerliga affärs insikter)**<br>ClearStory-data möjliggör snabb cykel analys över olika data som lagras i Synapse SQL-poolen. ClearStory är en integrerad Spark-baserad plattform och analys av data åtkomst och harmonisering av olika data uppsättningar. De möjliggör snabba, samverkande utforskningar som har stöd för affärs användare för att få snabba insikter. |[Produkt sida](https://www.clearstorydata.com/product/continuous-insights/)<br> |

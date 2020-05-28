@@ -16,12 +16,12 @@ ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a711fa522f6b105eb98d57d4f63afb90be255b3f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262092"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995045"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-åtkomstgranskningar?
 
@@ -78,6 +78,12 @@ Följ dessa steg om du vill skapa en åtkomst granskning:
 
    ![Start sida för åtkomst granskningar](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
+### <a name="creating-access-review-on-a-group-that-can-be-assigned-to-azure-ad-role"></a>Skapa åtkomst granskning för en grupp som kan tilldelas till Azure AD-rollen
+Om du har den senaste versionen av åtkomst granskningar (dina granskare dirigeras till **min åtkomst** som standard) så kan bara global administratör skapa åtkomst granskning för roll tilldelnings bara grupper. Men om du har en äldre version av åtkomst granskningar (dina granskare dirigeras till **åtkomst panelen** som standard), kan både global administratör och användar administratör skapa åtkomst granskningar för grupper som kan tilldelas roller.  
+
+Den nya upplevelsen kommer att distribueras till alla kunder den 1 augusti 2020, men om du vill uppgradera tidigare kan du göra en begäran här – [åtkomst granskningar i Azure AD – uppdaterad gransknings upplevelse i min åtkomst-registrering](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+
+[Lär dig mer om att tilldela grupper till Azure AD-roller](https://go.microsoft.com/fwlink/?linkid=2103037).
 
 ## <a name="learn-about-access-reviews"></a>Lär dig mer om åtkomst granskningar
 
@@ -120,7 +126,7 @@ Här följer några exempel på licens scenarier som hjälper dig att fastställ
 | En administratör skapar en åtkomst granskning av grupp B med 500 användare och tre grupp ägare och tilldelar de tre grupp ägarna som granskare. | 3 licenser för varje grupp ägare som granskare | 3 |
 | En administratör skapar en åtkomst granskning av grupp B med 500 användare. Gör det till en själv granskning. | 500 licenser för varje användare som självgranskare | 500 |
 | En administratör skapar en åtkomst granskning av grupp C med 50 medlems användare och 25 gäst användare. Gör det till en själv granskning. | 50 licenser för varje användare som självgranskare.<br/>(gäst användare omfattas av den obligatoriska 1:5-kvoten) | 50 |
-| En administratör skapar en åtkomst granskning av grupp D med 6 medlems användare och 108 gäst användare. Gör det till en själv granskning. | 6 licenser för varje användare som självgranskare och 16 ytterligare licenser för att hantera alla 108 gäst användare i det begärda 1:5-förhållandet. 6 licenser, som avser 6\*5 = 30 gäst användare. För återstående (108-6\*5) = 78 gäst användare, 78/5 = 16 ytterligare licenser krävs ytterligare licenser. Därför krävs 6 + 16 = 22 licenser. | 22 |
+| En administratör skapar en åtkomst granskning av grupp D med 6 medlems användare och 108 gäst användare. Gör det till en själv granskning. | 6 licenser för varje användare som självgranskare och 16 ytterligare licenser för att hantera alla 108 gäst användare i det begärda 1:5-förhållandet. 6 licenser, som avser 6 \* 5 = 30 gäst användare. För återstående (108-6 \* 5) = 78 gäst användare, 78/5 = 16 ytterligare licenser krävs ytterligare licenser. Därför krävs 6 + 16 = 22 licenser. | 22 |
 
 ## <a name="next-steps"></a>Nästa steg
 

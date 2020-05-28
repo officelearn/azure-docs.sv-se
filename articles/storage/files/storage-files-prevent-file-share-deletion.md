@@ -8,18 +8,18 @@ ms.date: 05/26/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 96e3d5001d11455337ae092776a1a4c5c3738012
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 9ffc065cb877c7f87cd38671f586f0754a42b2b8
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83883074"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141593"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Förhindra oavsiktlig borttagning av Azure-filresurser
 
-Azure Storage har nu mjuk borttagning för fil resurser. Med mjuk borttagning kan du återställa data när de tas bort av misstag av ett program eller annan lagrings konto användare.
+Azure Storage har nu mjuk borttagning för fil resurser (för hands version). Med mjuk borttagning kan du återställa data när de tas bort av misstag av ett program eller annan lagrings konto användare.
 
-## <a name="how-soft-delete-works"></a>Så här fungerar mjuk borttagning
+## <a name="how-soft-delete-preview-works"></a>Så här fungerar mjuk borttagning (för hands version)
 
 När det är aktiverat kan du använda mjuk borttagning för att spara och återställa dina fil resurser när de tas bort. När data tas bort övergår de till ett mjukt borttaget tillstånd i stället för att raderas permanent. Du kan konfigurera hur lång tid det tar för mjuka borttagna data att återställas innan den tas bort permanent.
 
@@ -29,7 +29,7 @@ För mjuk borttagning av Premium-filresurser används fil resurs kvoten (den all
 
 ### <a name="availability"></a>Tillgänglighet
 
-Mjuk borttagning för Azure-filresurser är tillgängligt på alla lagrings nivåer, alla typer av lagrings konton och i varje region som Azure Files är tillgänglig i.
+Mjuk borttagning för Azure-filresurser (för hands version) är tillgängligt på alla lagrings nivåer, alla typer av lagrings konton och i varje region som Azure Files är tillgänglig i.
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 

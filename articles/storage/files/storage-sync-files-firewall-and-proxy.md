@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a5fc469c3db7da45f818230909026cedf6c71a4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37c646e2f08745b2a12df41b6310fb5d3834998b
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101747"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142562"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, vilket möjliggör synkronisering av flera platser och moln nivåer. En lokal server måste därför vara ansluten till Internet. En IT-administratör måste bestämma den bästa sökvägen för att servern ska kunna komma åt Azure Cloud Services.
@@ -59,7 +59,7 @@ Följ stegen nedan om du vill konfigurera inställningar för datorövergripande
      C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
      C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-   - Lägg till avsnittet <system.net> i Machine. config-filerna (under avsnittet <system. serviceModel>).  Ändra 127.0.01:8888 till IP-adressen och porten för proxyservern. 
+   - Lägg till avsnittet < system. net > i Machine. config-filerna (under avsnittet < system. serviceModel >).  Ändra 127.0.01:8888 till IP-adressen och porten för proxyservern. 
      ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -100,54 +100,55 @@ I följande tabell beskrivs de domäner som krävs för kommunikation:
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | När Azure File Sync-agenten har installerats används PKI-URL: en för att hämta mellanliggande certifikat som krävs för att kommunicera med Azure File Sync-tjänsten och Azure-filresursen. OCSP-URL: en används för att kontrol lera status för ett certifikat. |
 
 > [!Important]
-> När trafik till &ast;. One.Microsoft.com tillåts kan trafik till mer än bara synkroniseringstjänsten vara möjlig från-servern. Det finns många fler Microsoft-tjänster som är tillgängliga under under domäner.
+> När trafik tillåts till &ast; . AFS.Azure.net är trafiken bara möjlig för synkroniseringstjänsten. Det finns inga andra Microsoft-tjänster som använder den här domänen.
+> När trafik till &ast; . One.Microsoft.com tillåts kan trafik till mer än bara synkroniseringstjänsten vara möjlig från-servern. Det finns många fler Microsoft-tjänster som är tillgängliga under under domäner.
 
-Om &ast;. One.Microsoft.com är för bred kan du begränsa serverns kommunikation genom att tillåta kommunikation enbart till explicita regionala instanser av Azure Files Sync-tjänsten. Vilken eller vilka instanser som ska väljas beror på den region i lagrings tjänsten för synkronisering som du har distribuerat och registrerat servern på. Regionen kallas "primär slut punkts-URL" i tabellen nedan.
+Om &ast; . AFS.Azure.net eller &ast; . One.Microsoft.com är för brett kan du begränsa serverns kommunikation genom att tillåta kommunikation enbart till explicita regionala instanser av tjänsten Azure Files Sync. Vilken eller vilka instanser som ska väljas beror på den region i lagrings tjänsten för synkronisering som du har distribuerat och registrerat servern på. Regionen kallas "primär slut punkts-URL" i tabellen nedan.
 
 För affärs kontinuitet och haveri beredskap (BCDR) kan du ha angett Azure-filresurser i ett globalt redundant (GRS) lagrings konto. Om så är fallet växlar Azure-filresurserna över till den kopplade regionen vid ett varaktigt regionalt avbrott. Azure File Sync använder samma regionala par som lagring. Så om du använder GRS lagrings konton måste du aktivera ytterligare URL: er så att servern kan kommunicera med den kopplade regionen för Azure File Sync. Tabellen nedan anropar denna "parad region". Det finns dessutom en Traffic Manager-profils-URL som måste aktive ras. Detta säkerställer att nätverks trafiken kan dirigeras sömlöst till den kopplade regionen i händelse av redundans och kallas "identifierings-URL" i tabellen nedan.
 
 | Molnet  | Region | Primär slut punkts-URL | Länkad region | URL för identifiering |
 |--------|--------|----------------------|---------------|---------------|
-| Offentlig |Australien, östra | https:\//Kailani-Aue.One.Microsoft.com | Australien, sydöstra | https:\//TM-Kailani-Aue.One.Microsoft.com |
-| Offentlig |Australien, sydöstra | https:\//Kailani-AUS.One.Microsoft.com | Australien, östra | https:\//TM-Kailani-AUS.One.Microsoft.com |
-| Offentlig | Brasilien, södra | https:\//brazilsouth01.AFS.Azure.net | USA, södra centrala | https:\//TM-brazilsouth01.AFS.Azure.net |
-| Offentlig | Kanada, centrala | https:\//Kailani-CAC.One.Microsoft.com | Kanada, östra | https:\//TM-Kailani-CAC.One.Microsoft.com |
-| Offentlig | Kanada, östra | https:\//Kailani-CAE.One.Microsoft.com | Kanada, centrala | https:\//TM-Kailani.CAE.One.Microsoft.com |
-| Offentlig | Indien, centrala | https:\//Kailani-CIN.One.Microsoft.com | Indien, södra | https:\//TM-Kailani-CIN.One.Microsoft.com |
-| Offentlig | USA, centrala | https:\//Kailani-CUS.One.Microsoft.com | USA, östra 2 | https:\//TM-Kailani-CUS.One.Microsoft.com |
-| Offentlig | Asien, östra | https:\//kailani11.One.Microsoft.com | Sydostasien | https:\//TM-kailani11.One.Microsoft.com |
-| Offentlig | USA, östra | https:\//kailani1.One.Microsoft.com | USA, västra | https:\//TM-kailani1.One.Microsoft.com |
-| Offentlig | USA, östra 2 | https:\//Kailani-ess.One.Microsoft.com | USA, centrala | https:\//TM-Kailani-ess.One.Microsoft.com |
-| Offentlig | Japan, östra | https:\//japaneast01.AFS.Azure.net | Japan, västra | https:\//TM-japaneast01.AFS.Azure.net |
-| Offentlig | Japan, västra | https:\//japanwest01.AFS.Azure.net | Japan, östra | https:\//TM-japanwest01.AFS.Azure.net |
-| Offentlig | Sydkorea, centrala | https:\//koreacentral01.AFS.Azure.net/ | Sydkorea, södra | https:\//TM-koreacentral01.AFS.Azure.net/ |
-| Offentlig | Sydkorea, södra | https:\//koreasouth01.AFS.Azure.net/ | Sydkorea, centrala | https:\//TM-koreasouth01.AFS.Azure.net/ |
-| Offentlig | USA, norra centrala | https:\//northcentralus01.AFS.Azure.net | USA, södra centrala | https:\//TM-northcentralus01.AFS.Azure.net |
-| Offentlig | Europa, norra | https:\//kailani7.One.Microsoft.com | Europa, västra | https:\//TM-kailani7.One.Microsoft.com |
-| Offentlig | USA, södra centrala | https:\//southcentralus01.AFS.Azure.net | USA, norra centrala | https:\//TM-southcentralus01.AFS.Azure.net |
-| Offentlig | Indien, södra | https:\//Kailani-sin.One.Microsoft.com | Indien, centrala | https:\//TM-Kailani-sin.One.Microsoft.com |
-| Offentlig | Sydostasien | https:\//kailani10.One.Microsoft.com | Asien, östra | https:\//TM-kailani10.One.Microsoft.com |
-| Offentlig | Storbritannien, södra | https:\//Kailani-UKS.One.Microsoft.com | Storbritannien, västra | https:\//TM-Kailani-UKS.One.Microsoft.com |
-| Offentlig | Storbritannien, västra | https:\//Kailani-UKW.One.Microsoft.com | Storbritannien, södra | https:\//TM-Kailani-UKW.One.Microsoft.com |
-| Offentlig | USA, västra centrala | https:\//westcentralus01.AFS.Azure.net | USA, västra 2 | https:\//TM-westcentralus01.AFS.Azure.net |
-| Offentlig | Europa, västra | https:\//kailani6.One.Microsoft.com | Europa, norra | https:\//TM-kailani6.One.Microsoft.com |
-| Offentlig | USA, västra | https:\//Kailani.One.Microsoft.com | USA, östra | https:\//TM-Kailani.One.Microsoft.com |
-| Offentlig | USA, västra 2 | https:\//westus201.AFS.Azure.net | USA, västra centrala | https:\//TM-westus201.AFS.Azure.net |
-| Government | US Gov, Arizona | https:\//usgovarizona01.AFS.Azure.us | US Gov, Texas | https:\//TM-usgovarizona01.AFS.Azure.us |
-| Government | US Gov, Texas | https:\//usgovtexas01.AFS.Azure.us | US Gov, Arizona | https:\//TM-usgovtexas01.AFS.Azure.us |
+| Offentlig |Australien, östra | https: \/ /australiaeast01.AFS.Azure.net<br>https: \/ /Kailani-Aue.One.Microsoft.com | Australien, sydöstra | https: \/ /TM-australiaeast01.AFS.Azure.net<br>https: \/ /TM-Kailani-Aue.One.Microsoft.com |
+| Offentlig |Australien, sydöstra | https: \/ /australiasoutheast01.AFS.Azure.net<br>https: \/ /Kailani-AUS.One.Microsoft.com | Australien, östra | https: \/ /TM-australiasoutheast01.AFS.Azure.net<br>https: \/ /TM-Kailani-AUS.One.Microsoft.com |
+| Offentlig | Brasilien, södra | https: \/ /brazilsouth01.AFS.Azure.net | USA, södra centrala | https: \/ /TM-brazilsouth01.AFS.Azure.net |
+| Offentlig | Kanada, centrala | https: \/ /canadacentral01.AFS.Azure.net<br>https: \/ /Kailani-CAC.One.Microsoft.com | Kanada, östra | https: \/ /TM-canadacentral01.AFS.Azure.net<br>https: \/ /TM-Kailani-CAC.One.Microsoft.com |
+| Offentlig | Kanada, östra | https: \/ /canadaeast01.AFS.Azure.net<br>https: \/ /Kailani-CAE.One.Microsoft.com | Kanada, centrala | https: \/ /TM-canadaeast01.AFS.Azure.net<br>https: \/ /TM-Kailani.CAE.One.Microsoft.com |
+| Offentlig | Indien, centrala | https: \/ /centralindia01.AFS.Azure.net<br>https: \/ /Kailani-CIN.One.Microsoft.com | Indien, södra | https: \/ /TM-centralindia01.AFS.Azure.net<br>https: \/ /TM-Kailani-CIN.One.Microsoft.com |
+| Offentlig | USA, centrala | https: \/ /centralus01.AFS.Azure.net<br>https: \/ /Kailani-CUS.One.Microsoft.com | USA, östra 2 | https: \/ /TM-centralus01.AFS.Azure.net<br>https: \/ /TM-Kailani-CUS.One.Microsoft.com |
+| Offentlig | Asien, östra | https: \/ /eastasia01.AFS.Azure.net<br>https: \/ /kailani11.One.Microsoft.com | Sydostasien | https: \/ /TM-eastasia01.AFS.Azure.net<br>https: \/ /TM-kailani11.One.Microsoft.com |
+| Offentlig | USA, östra | https: \/ /eastus01.AFS.Azure.net<br>https: \/ /kailani1.One.Microsoft.com | USA, västra | https: \/ /TM-eastus01.AFS.Azure.net<br>https: \/ /TM-kailani1.One.Microsoft.com |
+| Offentlig | USA, östra 2 | https: \/ /eastus201.AFS.Azure.net<br>https: \/ /Kailani-ess.One.Microsoft.com | USA, centrala | https: \/ /TM-eastus201.AFS.Azure.net<br>https: \/ /TM-Kailani-ess.One.Microsoft.com |
+| Offentlig | Japan, östra | https: \/ /japaneast01.AFS.Azure.net | Japan, västra | https: \/ /TM-japaneast01.AFS.Azure.net |
+| Offentlig | Japan, västra | https: \/ /japanwest01.AFS.Azure.net | Japan, östra | https: \/ /TM-japanwest01.AFS.Azure.net |
+| Offentlig | Sydkorea, centrala | https: \/ /koreacentral01.AFS.Azure.net/ | Sydkorea, södra | https: \/ /TM-koreacentral01.AFS.Azure.net/ |
+| Offentlig | Sydkorea, södra | https: \/ /koreasouth01.AFS.Azure.net/ | Sydkorea, centrala | https: \/ /TM-koreasouth01.AFS.Azure.net/ |
+| Offentlig | USA, norra centrala | https: \/ /northcentralus01.AFS.Azure.net | USA, södra centrala | https: \/ /TM-northcentralus01.AFS.Azure.net |
+| Offentlig | Europa, norra | https: \/ /northeurope01.AFS.Azure.net<br>https: \/ /kailani7.One.Microsoft.com | Europa, västra | https: \/ /TM-northeurope01.AFS.Azure.net<br>https: \/ /TM-kailani7.One.Microsoft.com |
+| Offentlig | USA, södra centrala | https: \/ /southcentralus01.AFS.Azure.net | USA, norra centrala | https: \/ /TM-southcentralus01.AFS.Azure.net |
+| Offentlig | Indien, södra | https: \/ /southindia01.AFS.Azure.net<br>https: \/ /Kailani-sin.One.Microsoft.com | Indien, centrala | https: \/ /TM-southindia01.AFS.Azure.net<br>https: \/ /TM-Kailani-sin.One.Microsoft.com |
+| Offentlig | Sydostasien | https: \/ /southeastasia01.AFS.Azure.net<br>https: \/ /kailani10.One.Microsoft.com | Asien, östra | https: \/ /TM-southeastasia01.AFS.Azure.net<br>https: \/ /TM-kailani10.One.Microsoft.com |
+| Offentlig | Storbritannien, södra | https: \/ /uksouth01.AFS.Azure.net<br>https: \/ /Kailani-UKS.One.Microsoft.com | Storbritannien, västra | https: \/ /TM-uksouth01.AFS.Azure.net<br>https: \/ /TM-Kailani-UKS.One.Microsoft.com |
+| Offentlig | Storbritannien, västra | https: \/ /ukwest01.AFS.Azure.net<br>https: \/ /Kailani-UKW.One.Microsoft.com | Storbritannien, södra | https: \/ /TM-ukwest01.AFS.Azure.net<br>https: \/ /TM-Kailani-UKW.One.Microsoft.com |
+| Offentlig | USA, västra centrala | https: \/ /westcentralus01.AFS.Azure.net | USA, västra 2 | https: \/ /TM-westcentralus01.AFS.Azure.net |
+| Offentlig | Europa, västra | https: \/ /westeurope01.AFS.Azure.net<br>https: \/ /kailani6.One.Microsoft.com | Europa, norra | https: \/ /TM-westeurope01.AFS.Azure.net<br>https: \/ /TM-kailani6.One.Microsoft.com |
+| Offentlig | USA, västra | https: \/ /westus01.AFS.Azure.net<br>https: \/ /Kailani.One.Microsoft.com | USA, östra | https: \/ /TM-westus01.AFS.Azure.net<br>https: \/ /TM-Kailani.One.Microsoft.com |
+| Offentlig | USA, västra 2 | https: \/ /westus201.AFS.Azure.net | USA, västra centrala | https: \/ /TM-westus201.AFS.Azure.net |
+| Myndigheter | US Gov, Arizona | https: \/ /usgovarizona01.AFS.Azure.us | US Gov, Texas | https: \/ /TM-usgovarizona01.AFS.Azure.us |
+| Myndigheter | US Gov, Texas | https: \/ /usgovtexas01.AFS.Azure.us | US Gov, Arizona | https: \/ /TM-usgovtexas01.AFS.Azure.us |
 
 - Om du använder lokalt redundant (LRS) eller zon redundant lagrings konto (ZRS) behöver du bara aktivera URL: en som anges under "primär slut punkts-URL".
 
 - Om du använder globalt redundanta lagrings konton (GRS) aktiverar du tre URL: er.
 
-**Exempel:** Du distribuerar en tjänst för synkronisering av `"West US"` lagring i och registrerar servern med den. URL: erna som gör att servern kan kommunicera till för det här fallet är:
+**Exempel:** Du distribuerar en tjänst för synkronisering av lagring i `"West US"` och registrerar servern med den. URL: erna som gör att servern kan kommunicera till för det här fallet är:
 
-> - https:\//Kailani.One.Microsoft.com (primär slut punkt: USA, västra)
-> - https:\//kailani1.One.Microsoft.com (parad failover-över region: USA, östra)
-> - https:\//TM-Kailani.One.Microsoft.com (identifierings-URL för den primära regionen)
+> - https: \/ /westus01.AFS.Azure.net (primär slut punkt: USA, västra)
+> - https: \/ /eastus01.AFS.Azure.net (parad failover-över region: USA, östra)
+> - https: \/ /TM-westus01.AFS.Azure.net (identifierings-URL för den primära regionen)
 
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Lista över tillåtna Azure File Sync IP-adresser
-Azure File Sync stöder användningen av [service märken](../../virtual-network/service-tags-overview.md)som representerar en grupp IP-adressprefix för en specifik Azure-tjänst. Du kan använda service märken för att skapa brand Väggs regler som möjliggör kommunikation med tjänsten Azure File Sync. Tjänst tag gen för Azure File Sync är `StorageSyncService`.
+Azure File Sync stöder användningen av [service märken](../../virtual-network/service-tags-overview.md)som representerar en grupp IP-adressprefix för en specifik Azure-tjänst. Du kan använda service märken för att skapa brand Väggs regler som möjliggör kommunikation med tjänsten Azure File Sync. Tjänst tag gen för Azure File Sync är `StorageSyncService` .
 
 Om du använder Azure File Sync i Azure kan du använda namnet på service tag gen direkt i nätverks säkerhets gruppen för att tillåta trafik. Mer information om hur du gör detta finns i [nätverks säkerhets grupper](../../virtual-network/security-overview.md).
 
@@ -155,11 +156,11 @@ Om du använder Azure File Sync lokalt kan du använda API: et för service tag 
 
 - Den aktuella listan över IP-adressintervall för alla tjänster som stöder service taggar för Azure-tjänster publiceras varje vecka på Microsoft Download Center i form av ett JSON-dokument. Varje Azure-moln har sitt eget JSON-dokument med de IP-adressintervall som är relevanta för det molnet:
     - [Azure, offentlig](https://www.microsoft.com/download/details.aspx?id=56519)
-    - [Azure amerikanska myndigheter](https://www.microsoft.com/download/details.aspx?id=57063)
+    - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)
     - [Azure Kina](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Tyskland](https://www.microsoft.com/download/details.aspx?id=57064)
 - API: et för identifiering av service tag (för hands version) möjliggör program mässig hämtning av den aktuella listan över service märken. I för hands versionen kan service tag Discovery API returnera information som är mindre aktuell än information som returneras från JSON-dokumenten som publicerats på Microsoft Download Center. Du kan använda API-ytan baserat på inställningarna för Automation:
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
+    - [REST-API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
     - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
     - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
 

@@ -87,7 +87,7 @@ Om du vill hantera en befintlig databas går du till sidan **SQL-databaser** och
 
 Om du vill skapa och hantera servrar, databaser och brand väggar med Azure PowerShell använder du följande PowerShell-cmdletar. Om du behöver installera eller uppgradera PowerShell, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps). Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](elastic-pool-overview.md).
 
-| Cmdlet | Beskrivning |
+| Cmdlet | Description |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Skapar en databas |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|Hämtar en eller flera databaser|
@@ -112,7 +112,7 @@ Om du vill skapa och hantera servrar, databaser och brand väggar med Azure Powe
 
 Använd följande [Azure cli SQL Database](/cli/azure/sql/db) -kommandon för att skapa och hantera servrar, databaser och brand väggar med [Azure CLI](/cli/azure). Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](elastic-pool-overview.md).
 
-| Cmdlet | Beskrivning |
+| Cmdlet | Description |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Skapar en databas|
 |[AZ SQL DB-lista](/cli/azure/sql/db#az-sql-db-list)|Visar alla databaser som hanteras av en server eller alla databaser i en elastisk pool|
@@ -145,7 +145,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera servrar, databaser 
 > [!IMPORTANT]
 > Du kan inte skapa eller ta bort en server med hjälp av Transact-SQL.
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 |[SKAPA databas (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Skapar en ny databas i Azure SQL Database. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
 |[SKAPA databas (Azure-Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Skapar en ny informations lager databas i Azure-Synapse. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
@@ -171,7 +171,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera servrar, databaser 
 
 Använd dessa REST API begär Anden för att skapa och hantera servrar, databaser och brand väggar.
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 |[Servrar-skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Skapar eller uppdaterar en ny server.|
 |[Servrar-ta bort](https://docs.microsoft.com/rest/api/sql/servers/delete)|Tar bort en server.|

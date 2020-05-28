@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1140b65cf56125b23ef3c616e597aafba989b197
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671888"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993870"
 ---
 # <a name="conditional-access-session"></a>Villkorlig åtkomst: session
 
@@ -48,7 +48,7 @@ Appkontroll för villkorsstyrd åtkomst gör att användarens app-åtkomst och s
 
 Mer information finns i artikeln [distribuera appkontroll för villkorsstyrd åtkomst för aktuella appar](/cloud-app-security/proxy-deployment-aad).
 
-## <a name="sign-in-frequency-preview"></a>Inloggnings frekvens (förhands granskning)
+## <a name="sign-in-frequency"></a>Inloggnings frekvens
 
 Inloggnings frekvensen definierar den tids period innan en användare uppmanas att logga in igen vid försök att komma åt en resurs.
 
@@ -66,7 +66,7 @@ Inställningen för inloggnings frekvens fungerar med appar som har implementera
 
 Mer information finns i artikeln [Konfigurera hantering av autentisering med villkorlig åtkomst](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
 
-## <a name="persistent-browser-session-preview"></a>Beständig webbläsarsession (förhands granskning)
+## <a name="persistent-browser-session"></a>Beständig webbläsarsession
 
 Med en beständig webbläsarsession kan användarna vara inloggade när de har stängt och öppnat sina webbläsarfönster igen.
 

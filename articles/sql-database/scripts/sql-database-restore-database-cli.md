@@ -1,6 +1,6 @@
 ---
-title: CLI-exempel – återställning-backup – Azure SQL Database
-description: Exempel skript för Azure CLI för att återställa en enkel Azure SQL-databas till en tidigare tidpunkt från automatiska säkerhets kopieringar
+title: 'Azure CLI: återställa en säkerhets kopia'
+description: Azure CLI-exempel skript för att återställa en databas i Azure SQL Database till en tidigare tidpunkt från automatiska säkerhets kopieringar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,16 +11,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: efb73bc04e3c79740651fecdd98258b8101f84b1
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c33191097afc54189df1099a2d13f606e1516e54
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774280"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022632"
 ---
-# <a name="use-cli-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Använd CLI för att återställa en enkel Azure SQL-databas till en tidigare tidpunkt
+# <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Använd CLI för att återställa en enskild databas i Azure SQL Database till en tidigare tidpunkt
 
-Det här Azure CLI-exemplet återställer en Azure SQL-databas till en viss tidpunkt.  
+Det här Azure CLI-exemplet återställer en enskild databas i Azure SQL Database till en viss tidpunkt.  
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -60,4 +60,4 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare CLI-skriptexempel för SQL Database finns i [Azure SQL Database-dokumentationen](../sql-database-cli-samples.md).
+Ytterligare CLI-skriptexempel för SQL Database finns i [Azure SQL Database-dokumentationen](../../azure-sql/database/az-cli-script-samples-content-guide.md).

@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 5/14/2019
-ms.openlocfilehash: 77b49d8446c7882a155742e8455d77bd1ec110cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb167f121027272330399f8345c90602d93ecbaf
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606196"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113863"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration Runtime
 
@@ -24,21 +24,22 @@ ms.locfileid: "81606196"
 
 Den här artikeln visar hur du aktiverar Azure Active Directory (Azure AD)-autentisering med den hanterade identiteten för din Azure Data Factory (ADF) och använder den i stället för konventionella autentiseringsmetoder (t. ex. SQL-autentisering) för att:
 
-- Skapa en Azure-SSIS Integration Runtime (IR) som i sin tur ska etablera SSIS-SSISDB () i Azure SQL Database Server/hanterad instans för din räkning.
+- Skapa en Azure-SSIS Integration Runtime (IR) som i sin tur ska etablera SSIS-SSISDB () i SQL Database eller SQL-hanterad instans för din räkning.
 
 - Anslut till olika Azure-resurser när du kör SSIS-paket på Azure-SSIS IR.
 
 Mer information om den hanterade identiteten för din ADF finns i [hanterad identitet för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
->-  I det här scenariot används Azure AD-autentisering med den hanterade identiteten för din ADF bara vid skapande och efterföljande start åtgärder för din SSIS IR som i sin tur etablerar och ansluter till SSISDB. För att köra SSIS-paket kommer din SSIS IR fortfarande att ansluta till SSISDB med hjälp av SQL-autentisering med fullständigt hanterade konton som skapas under SSISDB-etableringen.
->-  Om du redan har skapat din SSIS IR med SQL-autentisering kan du inte konfigurera om den för att använda Azure AD-autentisering via PowerShell just nu, men du kan göra det via Azure Portal/ADF-appen. 
+>
+> - I det här scenariot används Azure AD-autentisering med den hanterade identiteten för din ADF bara vid skapande och efterföljande start åtgärder för din SSIS IR som i sin tur etablerar och ansluter till SSISDB. För att köra SSIS-paket kommer din SSIS IR fortfarande att ansluta till SSISDB med hjälp av SQL-autentisering med fullständigt hanterade konton som skapas under SSISDB-etableringen.
+> - Om du redan har skapat din SSIS IR med SQL-autentisering kan du inte konfigurera om den för att använda Azure AD-autentisering via PowerShell just nu, men du kan göra det via Azure Portal/ADF-appen. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="enable-azure-ad-on-azure-sql-database"></a>Aktivera Azure AD på Azure SQL Database
 
-Azure SQL Database servern har stöd för att skapa en databas med en Azure AD-användare. Först måste du skapa en Azure AD-grupp med den hanterade identiteten för din ADF som medlem. Sedan måste du ställa in en Azure AD-användare som Active Directory administratör för din Azure SQL Database-Server och sedan ansluta till den på SQL Server Management Studio (SSMS) med den användaren. Slutligen måste du skapa en innesluten användare som representerar Azure AD-gruppen, så den hanterade identiteten för din ADF kan användas av Azure-SSIS IR för att skapa SSISDB för din räkning.
+SQL Database har stöd för att skapa en databas med en Azure AD-användare. Först måste du skapa en Azure AD-grupp med den hanterade identiteten för din ADF som medlem. Sedan måste du ange en Azure AD-användare som Active Directory administratör för din SQL Database och sedan ansluta till den på SQL Server Management Studio (SSMS) med den användaren. Slutligen måste du skapa en innesluten användare som representerar Azure AD-gruppen, så den hanterade identiteten för din ADF kan användas av Azure-SSIS IR för att skapa SSISDB för din räkning.
 
 ### <a name="create-an-azure-ad-group-with-the-managed-identity-for-your-adf-as-a-member"></a>Skapa en Azure AD-grupp med den hanterade identiteten för din ADF som medlem
 
@@ -46,7 +47,7 @@ Du kan använda en befintlig Azure AD-grupp eller skapa en ny med hjälp av Azur
 
 1.  Installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) -modulen.
 
-2.  Logga in med `Connect-AzureAD`, kör följande cmdlet för att skapa en grupp och spara den i en variabel:
+2.  Logga in med  `Connect-AzureAD` , kör följande cmdlet för att skapa en grupp och spara den i en variabel:
 
     ```powershell
     $Group = New-AzureADGroup -DisplayName "SSISIrGroup" `
@@ -77,13 +78,13 @@ Du kan använda en befintlig Azure AD-grupp eller skapa en ny med hjälp av Azur
     Get-AzureAdGroupMember -ObjectId $Group.ObjectId
     ```
 
-### <a name="configure-azure-ad-authentication-for-azure-sql-database-server"></a>Konfigurera Azure AD-autentisering för Azure SQL Database Server
+### <a name="configure-azure-ad-authentication-for-sql-database"></a>Konfigurera Azure AD-autentisering för SQL Database
 
 Du kan [Konfigurera och hantera Azure AD-autentisering med SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) med följande steg:
 
-1.  I Azure Portal väljer du **alla tjänster** -> **SQL-servrar** i den vänstra navigeringen.
+1.  I Azure Portal väljer du **alla tjänster**  ->  **SQL-servrar** i den vänstra navigeringen.
 
-2.  Välj din Azure SQL Database-Server som ska konfigureras med Azure AD-autentisering.
+2.  Välj din server i SQL Database som ska konfigureras med Azure AD-autentisering.
 
 3.  I avsnittet **Inställningar** på bladet väljer du **Active Directory admin**.
 
@@ -93,21 +94,21 @@ Du kan [Konfigurera och hantera Azure AD-autentisering med SQL](https://docs.mi
 
 6.  I kommando fältet väljer du **Spara.**
 
-### <a name="create-a-contained-user-in-azure-sql-database-server-representing-the-azure-ad-group"></a>Skapa en innesluten användare i Azure SQL Database Server som representerar Azure AD-gruppen
+### <a name="create-a-contained-user-in-sql-database-representing-the-azure-ad-group"></a>Skapa en innesluten användare i SQL Database som representerar Azure AD-gruppen
 
-I nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+I nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   (SSMS).
 
 1. Starta SSMS.
 
-2. I dialog rutan **Anslut till Server** anger du Azure SQL Database serverns namn i fältet **Server namn** .
+2. I dialog rutan **Anslut till Server** anger du Server namnet i fältet **Server namn** .
 
 3. I fältet **autentisering** väljer du **Active Directory-Universal med MFA-stöd** (du kan också använda de andra två Active Directory autentiseringstyper, se [Konfigurera och hantera Azure AD-autentisering med SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
 
-4. I fältet **användar namn** anger du namnet på det Azure AD-konto som du anger som Server administratör, t. ex testuser@xxxonline.com..
+4. I fältet **användar namn** anger du namnet på det Azure AD-konto som du anger som Server administratör, t. ex. testuser@xxxonline.com .
 
 5. Välj **Anslut** och slutför inloggnings processen.
 
-6. Expandera mappen **databaser** -> **system databaser** i **Object Explorer**.
+6. Expandera mappen **Object Explorer** **databaser**  ->  **system databaser** i Object Explorer.
 
 7. Högerklicka på **huvud** databasen och välj **ny fråga**.
 
@@ -145,23 +146,23 @@ I nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs
 
     Kommandot ska slutföras, vilket ger den inneslutna användaren möjlighet att komma åt SSISDB.
 
-## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Aktivera Azure AD på Azure SQL Database hanterade instansen
+## <a name="enable-azure-ad-on-sql-managed-instance"></a>Aktivera Azure AD på SQL-hanterad instans
 
-Azure SQL Database hanterade instansen har stöd för att skapa en databas med den hanterade identiteten för din ADF direkt. Du behöver inte ansluta till den hanterade identiteten för din ADF till en Azure AD-grupp eller skapa en innesluten användare som representerar gruppen i din hanterade instans.
+SQL-hanterad instans har stöd för att skapa en databas med den hanterade identiteten för din ADF direkt. Du behöver inte ansluta till den hanterade identiteten för din ADF till en Azure AD-grupp eller skapa en innesluten användare som representerar gruppen i SQL-hanterad instans.
 
-### <a name="configure-azure-ad-authentication-for-azure-sql-database-managed-instance"></a>Konfigurera Azure AD-autentisering för Azure SQL Database Hanterad instans
+### <a name="configure-azure-ad-authentication-for-azure-sql-managed-instance"></a>Konfigurera Azure AD-autentisering för Azure SQL-hanterad instans
 
-Följ stegen i [etablera en Azure Active Directory administratör för din hanterade instans](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+Följ stegen i [etablera en Azure Active Directory administratör för SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
-### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>Lägg till den hanterade identiteten för din ADF som en användare i Azure SQL Database Hanterad instans
+### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-sql-managed-instance"></a>Lägg till den hanterade identiteten för din ADF som en användare i SQL-hanterad instans
 
-I nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+I nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   (SSMS).
 
 1.  Starta SSMS.
 
-2.  Anslut till din hanterade instans med ett SQL Server konto som är en **sysadmin**. Detta är en tillfällig begränsning som tas bort när Azure AD server-Huvudkonton (inloggningar) för Azure SQL Database Hanterad instans blir GA. Följande fel visas om du försöker använda ett Azure AD-administratörskonto för att skapa inloggningen: MSG 15247, nivå 16, State 1, rad 1 användaren har inte behörighet att utföra den här åtgärden.
+2.  Anslut till SQL-hanterad instans med ett SQL Server konto som är en **sysadmin**. Detta är en tillfällig begränsning som tas bort när Azure AD server-Huvudkonton (inloggningar) för Azure SQL-hanterad instans blir GA. Följande fel visas om du försöker använda ett Azure AD-administratörskonto för att skapa inloggningen: MSG 15247, nivå 16, State 1, rad 1 användaren har inte behörighet att utföra den här åtgärden.
 
-3.  Expandera mappen **databaser** -> **system databaser** i **Object Explorer**.
+3.  Expandera mappen **Object Explorer** **databaser**  ->  **system databaser** i Object Explorer.
 
 4.  Högerklicka på **huvud** databasen och välj **ny fråga**.
 
@@ -188,7 +189,7 @@ I nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Etablera Azure-SSIS IR i Azure Portal/ADF-app
 
-När du etablerar Azure-SSIS IR i Azure Portal/ADF-appen väljer du **Använd AAD-autentisering med den hanterade identiteten för ditt ADF** -alternativ på sidan **SQL-inställningar** . Följande skärm bild visar inställningarna för IR med Azure SQL Database-Server som är värd för SSISDB. För IR med hanterad instans som är värd för SSISDB är **katalog databasens tjänst nivå** och **Tillåt Azure-tjänster åtkomst till** inställningarna inte tillämpliga, medan andra inställningar är desamma.
+När du etablerar Azure-SSIS IR i Azure Portal/ADF-appen väljer du **Använd AAD-autentisering med den hanterade identiteten för ditt ADF** -alternativ på sidan **SQL-inställningar** . Följande skärm bild visar inställningarna för IR med SQL Database vara värd för SSISDB. För IR med SQL-hanterad instans som värd för SSISDB är **katalog databasens tjänst nivå** och **Tillåt Azure-tjänster åtkomst till** inställningarna inte tillämpliga, medan andra inställningar är desamma.
 
 Mer information om hur du skapar en Azure-SSIS IR finns [i skapa en Azure-SSIS integration runtime i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
@@ -198,9 +199,9 @@ Mer information om hur du skapar en Azure-SSIS IR finns [i skapa en Azure-SSIS i
 
 Gör så här för att etablera din Azure-SSIS IR med PowerShell:
 
-1.  Installera [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) -modul.
+1.  Installera [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018)-   modul.
 
-2.  Ange `CatalogAdminCredential` inte parameter i skriptet. Ett exempel:
+2.  Ange inte parameter i skriptet `CatalogAdminCredential` . Ett exempel:
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

@@ -3,12 +3,12 @@ title: Återställa filer och mappar från virtuell Azure-säkerhetskopiering
 description: I den här artikeln lär du dig hur du återställer filer och mappar från en återställnings punkt för en virtuell Azure-dator.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 0cb3b588aadcda232d1a9a07fc6d9336448cb5a5
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757984"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118124"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -228,7 +228,7 @@ Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det
 
 - `download.microsoft.com`
 - URL: er för återställnings tjänsten (geo-Name refererar till den region där Recovery Service-valvet finns)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(För offentliga Azure-geografiska områden)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(För offentliga Azure-regioner)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn`(För Azure Kina-21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us`(För Azure amerikanska myndigheter)
   - `https://pod01-rec2.geo-name.backup.windowsazure.de`(För Azure Germany)

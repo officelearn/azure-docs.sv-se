@@ -7,19 +7,21 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
-ms.openlocfilehash: 32a40f3d4da93318c6d2ec25295c89a7b53141e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 8189228d6707812fb943e9925dc2bbf1b6da4972
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606426"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112814"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Filter omvandling i data flöde för mappning
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Filtret Transforms tillåter rad filtrering baserat på ett villkor. Utdataströmmen innehåller alla rader som matchar filtrerings villkoret. Filter omvandlingen liknar en WHERE-sats i SQL.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -40,7 +42,7 @@ Använd data flödets uttrycks verktyg för att ange ett uttryck för filter vil
 
 ### <a name="example"></a>Exempel
 
-Exemplet nedan är en filter omvandling med namnet `FilterBefore1960` som tar i inkommande data `CleanData`ström. Filter villkoret är uttrycket `year <= 1960`.
+Exemplet nedan är en filter omvandling med namnet `FilterBefore1960` som tar i inkommande data ström `CleanData` . Filter villkoret är uttrycket `year <= 1960` .
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 

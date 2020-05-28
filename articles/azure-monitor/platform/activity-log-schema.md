@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c2f171c79423e0cfe8b57c05b8248679f9ada9f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25517b48ad7dcddffaaeb4ac2f86397d99e0be2c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472749"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017519"
 ---
 # <a name="azure-activity-log-event-schema"></a>Händelse schema för Azure aktivitets logg
 [Azure aktivitets loggen](platform-logs-overview.md) ger inblick i alla händelser på prenumerations nivå som har inträffat i Azure. I den här artikeln beskrivs händelse schemat för varje kategori. 
@@ -287,7 +287,7 @@ Den här kategorin innehåller posten för eventuella resurs hälso händelser s
 
 
 ## <a name="alert"></a>Varning
-Den här kategorin innehåller posten över alla aktiveringar av Azure-aviseringar. Ett exempel på vilken typ av händelse som visas i den här kategorin är "CPU% på myVM har varit över 80 under de senaste 5 minuterna." En rad olika Azure-system har ett varnings begrepp – du kan definiera en regel för viss sortering och få ett meddelande när villkoren matchar regeln. Varje gång som en Azure-aviserings typ som stöds aktive ras, eller villkoret uppfylls för att generera ett meddelande, skickas även en post över aktiveringen till den här kategorin i aktivitets loggen.
+Den här kategorin innehåller posten över alla aktiveringar av klassiska Azure-aviseringar. Ett exempel på vilken typ av händelse som visas i den här kategorin är "CPU% på myVM har varit över 80 under de senaste 5 minuterna." En rad olika Azure-system har ett varnings begrepp – du kan definiera en regel för viss sortering och få ett meddelande när villkoren matchar regeln. Varje gång som en Azure-aviserings typ som stöds aktive ras, eller villkoret uppfylls för att generera ett meddelande, skickas även en post över aktiveringen till den här kategorin i aktivitets loggen.
 
 ### <a name="sample-event"></a>Exempel händelse
 
@@ -655,7 +655,7 @@ Den här kategorin innehåller posten för eventuella nya rekommendationer som g
 | egenskaper. recommendationImpact| Rekommendationens effekt. Möjliga värden är "hög", "medium", "Low" |
 | egenskaper. recommendationRisk| Risk för rekommendationen. Möjliga värden är "Error", "Warning", "none" |
 
-## <a name="policy"></a>Princip
+## <a name="policy"></a>Policy
 
 Den här kategorin innehåller poster med åtgärder som utförs av alla åtgärder som utförs av [Azure policy](../../governance/policy/overview.md). Exempel på typer av händelser som du ser i den här kategorin är _granskning_ och _neka_. Varje åtgärd som utförs av principen är modellerad som en åtgärd på en resurs.
 
@@ -780,7 +780,7 @@ När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händ
 > Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto](diagnostic-logs-append-blobs.md) för information om det här formatet.
 
 
-| Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Obs! |
+| Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Anteckningar |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName är härledda från resourceId. |
@@ -789,12 +789,12 @@ När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händ
 | resultType | status. Value | |
 | resultSignature | under status. värde | |
 | resultDescription | description |  |
-| durationMs | Ej tillämpligt | Alltid 0 |
+| durationMs | Saknas | Alltid 0 |
 | callerIpAddress | httpRequest. clientIpAddress |  |
 | correlationId | correlationId |  |
 | identity | anspråk och egenskaper för auktorisering |  |
 | Nivå | Nivå |  |
-| location | Ej tillämpligt | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
+| location | Saknas | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
 | Egenskaper | egenskaper. eventProperties |  |
 | egenskaper. eventCategory | category | Om Properties. eventCategory inte finns är kategorin "administrativ" |
 | egenskaper. eventName | eventName |  |

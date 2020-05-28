@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: aa4dbfbaff620c25042d2603dab543661ec2cd14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 84df242cdbfedd0cd1442ac4c4da7f4b6139d244
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81410015"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020752"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL Database
 
@@ -67,10 +67,10 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
-* **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). 
+* **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md). 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Skapa källtabeller i din SQL Server-databas
 
@@ -374,7 +374,7 @@ I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
 
 ### <a name="create-the-sql-database-linked-service"></a>Skapa länkad SQL-databastjänst
 
-1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService. JSON** i mappen mappen c:\adftutorials\inccopymultitabletutorial med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt;servername&gt;, &lt;databasens&gt;namn &lt;, användar&gt;namn och &lt;lösen&gt; ord med namnet på din SQL Server databas, namnet på din databas, ditt användar namn och lösen ord innan du sparar filen. 
+1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService. JSON** i mappen mappen c:\adftutorials\inccopymultitabletutorial med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt; servername &gt; , &lt; databasens namn &gt; , &lt; användar namn &gt; och &lt; lösen ord &gt; med namnet på din SQL Server databas, namnet på din databas, ditt användar namn och lösen ord innan du sparar filen. 
 
     ```json
     {  

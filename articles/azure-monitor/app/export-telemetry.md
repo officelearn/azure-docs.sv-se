@@ -2,13 +2,13 @@
 title: Kontinuerlig export av telemetri från Application Insights | Microsoft Docs
 description: Exportera diagnostik-och användnings data till lagring i Microsoft Azure och ladda ned dem därifrån.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: 7284e6305b1028cbcb62041ff8196d06250f4414
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 05/26/2020
+ms.openlocfilehash: 42a96cf014d7d02e440af03bc3a9c1d40e5f0cbc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744867"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017549"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Vill du behålla din telemetri längre än standard kvarhållningsperioden? Eller bearbeta den på ett visst sätt? Kontinuerlig export är idealisk för detta. De händelser som visas i Application Insights-portalen kan exporteras till lagring i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriva vilken kod du behöver för att bearbeta den.  
@@ -53,7 +53,8 @@ Kontinuerlig export **stöder inte** följande funktioner/konfigurationer för A
 
 4. Skapa eller Välj en behållare i lagrings utrymmet.
 
-När du har skapat exporten börjar den. Du får bara data som kommer efter att du har skapat exporten.
+> [!NOTE]
+> När du har skapat exporten kommer nyligen inmatade data att börja flöda till Azure Blob Storage. Vid kontinuerlig export överförs endast nya telemetri som skapas/matas in efter det att kontinuerlig export har Aktiver ATS. Alla data som fanns före aktiveringen av löpande export exporteras inte, och det finns inget stöd för att retroaktivt exportera tidigare skapade data med kontinuerlig export.
 
 Det kan finnas en fördröjning på ungefär en timme innan data visas i lagrings utrymmet.
 

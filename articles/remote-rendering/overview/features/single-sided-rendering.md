@@ -5,29 +5,29 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 97e0456e274adee7d678e373cfd92b5003f3d801
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 1a9f80166e47b17644b37d4bc9b93e1abefe3432
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759106"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022768"
 ---
-# <a name="single-sided-rendering"></a>Enkelsidig rendering
+# <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided":::Render
 
 De flesta åter givnings programmen använder [backend-culling](https://en.wikipedia.org/wiki/Back-face_culling) för att förbättra prestandan. När maskorna klipps av öppen med [Klipp ut plan](cut-planes.md)kommer användarna ofta att titta på bak sidan av trianglar. Om dessa trianglar är slaktade, ser inte resultatet ut som övertygande.
 
 Sättet att förhindra det här problemet på ett tillförlitligt sätt är att rendera trianglar *dubbels idiga*. Eftersom det inte går att använda backend-culling har prestanda effekter, som standard växlar Azure-fjärrrendering endast till dubbels idig åter givning för maskor som skärs med ett klipp plan.
 
-Med inställningen med *Enkels idig åter givning* kan du anpassa det här beteendet.
+Med * :::no-loc text="single-sided"::: åter givnings* inställningen kan du anpassa det här beteendet.
 
 > [!CAUTION]
-> Inställningen för Enkels idig rendering är en experimentell funktion. Den kan tas bort igen i framtiden. Ändra inte standardinställningen, om det inte löser ett kritiskt problem i ditt program.
+> :::no-loc text="single-sided":::Åter givnings inställningen är en experimentell funktion. Den kan tas bort igen i framtiden. Ändra inte standardinställningen, om det inte löser ett kritiskt problem i ditt program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Inställningen med enkel sida åter givning har bara en effekt för maskor som har [konverterats](../../how-tos/conversion/configure-model-conversion.md) med `opaqueMaterialDefaultSidedness` alternativet inställt på `SingleSided` . Som standard är det här alternativet inställt på `DoubleSided` .
+:::no-loc text="single-sided":::Åter givnings inställningen har bara en påverkan för maskor som har [konverterats](../../how-tos/conversion/configure-model-conversion.md) med `opaqueMaterialDefaultSidedness` alternativet inställt på `SingleSided` . Som standard är det här alternativet inställt på `DoubleSided` .
 
-## <a name="single-sided-rendering-setting"></a>Inställning med Enkels idig åter givning
+## <a name="no-loc-textsingle-sided-rendering-setting"></a>:::no-loc text="Single-sided":::åter givnings inställning
 
 Det finns tre olika lägen:
 
@@ -35,9 +35,9 @@ Det finns tre olika lägen:
 
 **DynamicDoubleSiding:** I det här läget, när ett klipp plan överlappar ett nät, växlas det automatiskt till dubbels idig åter givning. Det här läget är standard läget.
 
-**AlwaysDoubleSided:** Tvingar all Enkels idig geometri att renderas dubbels idiga hela tiden. Det här läget exponeras främst så att du enkelt kan jämföra prestanda påverkan mellan enkel sida och dubbels idig åter givning.
+**AlwaysDoubleSided:** Tvingar all Enkels idig geometri att renderas dubbels idiga hela tiden. Det här läget exponeras främst så att du enkelt kan jämföra prestanda påverkan mellan :::no-loc text="single-sided"::: och :::no-loc text="double-sided"::: rendera.
 
-Du kan ändra inställningarna för enkel åter givning på följande sätt:
+Ändra :::no-loc text="single-sided"::: åter givnings inställningarna kan göras på följande sätt:
 
 ```cs
 void ChangeSingleSidedRendering(AzureSession session)

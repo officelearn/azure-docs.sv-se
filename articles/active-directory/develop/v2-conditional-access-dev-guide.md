@@ -25,7 +25,7 @@ ms.locfileid: "83771085"
 
 Funktionen för villkorlig åtkomst i Azure Active Directory (Azure AD) erbjuder ett av flera sätt som du kan använda för att skydda din app och skydda en tjänst. Med villkorlig åtkomst kan utvecklare och företags kunder skydda tjänster på flera olika sätt:
 
-* [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Multifaktorautentisering](../authentication/concept-mfa-howitworks.md)
 * Tillåter endast att Intune-registrerade enheter får åtkomst till vissa tjänster
 * Begränsa användar platser och IP-intervall
 
@@ -91,7 +91,7 @@ Utvecklare kan ta denna utmaning och lägga till den på en ny begäran till Azu
 
 ## <a name="scenarios"></a>Scenarier
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Villkorlig åtkomst i Azure AD är en funktion som ingår i [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Kunder med [Microsoft 365 Business licenser](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också till gång till funktioner för villkorlig åtkomst.
 

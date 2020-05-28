@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 5d641b573a1cad5cac6db6199f5bad5c06151c62
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 7adf9a9701eb2492f0b13a26af1dbaf8de631373
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759089"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021372"
 ---
 # <a name="cut-planes"></a>Klippa ut planer
 
@@ -60,11 +60,11 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 
 Följande egenskaper visas i en klipp Plans komponent:
 
-* **Aktive rad:** Du kan tillfälligt stänga av klipp ut plan genom att inaktivera komponenten. Inaktiverade klipp plan medför inte åter givning av kostnader och räknas inte mot den globala gränsen för klipp ut plan.
+* `Enabled`: Du kan tillfälligt stänga av klipp plan genom att inaktivera komponenten. Inaktiverade klipp plan medför inte åter givning av kostnader och räknas inte mot den globala gränsen för klipp ut plan.
 
-* **Normal:** Anger vilken riktning (+ X,-X, + Y,-Y, + Z,-Z) som används som normal för planet. Den här riktningen är relativ till ägar entitetens orientering. Flytta och rotera entiteten ägare för exakt placering.
+* `Normal`: Anger vilken riktning (+ X,-X, + Y,-Y, + Z,-Z) som används som vanlig plan. Den här riktningen är relativ till ägar entitetens orientering. Flytta och rotera entiteten ägare för exakt placering.
 
-* **FadeColor** och **FadeLength:**
+* `FadeColor` och `FadeLength`:
 
   Om alpha-värdet för *FadeColor* är skilt från noll, kommer pixlarna nära det avskurna planet att tonas mot RGB-delen av FadeColor. Styrkan i alfa kanalen avgör om den ska tonas helt mot tonings färgen eller bara delvis. *FadeLength* definierar över vilket avstånd som den här toningen ska äga rum.
 

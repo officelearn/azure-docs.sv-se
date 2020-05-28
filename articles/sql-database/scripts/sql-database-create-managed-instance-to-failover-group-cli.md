@@ -1,6 +1,6 @@
 ---
-title: CLI-exempel – failover-grupp – Azure SQL Database Hanterad instans
-description: Exempel skript för Azure CLI för att skapa en Azure SQL Database Hanterad instans, lägga till den i en grupp för redundans och testa redundans.
+title: 'Azure CLI: Lägg till hanterad instans i redundans gruppen'
+description: Exempel skript för Azure CLI för att skapa en hanterad Azure SQL-instans, lägga till den i en grupp för redundans och testa redundans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,14 +11,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 792746ec3bfcf429afb7919458b9ac7ec8446b60
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f6c178c1f8813300d3473ad3b788ecd7e7b573e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061849"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115387"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-managed-instance-to-a-failover-group"></a>Använd CLI för att lägga till en Azure SQL Database Hanterad instans i en failover-grupp
+# <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Använd CLI för att lägga till en Azure SQL-hanterad instans i en failover-grupp
 
 Det här Azure CLI-exemplet skapar två hanterade instanser, lägger till dem i en grupp för redundans och testar sedan redundans från den primära hanterade instansen till den sekundära hanterade instansen.
 
@@ -36,7 +36,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ### <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den. Du måste ta bort resurs gruppen två gånger. Om du tar bort resurs gruppen första gången tas den hanterade instansen och virtuella kluster bort, men fel meddelandet `az group delete : Long running operation failed with status 'Conflict'.`kommer att Miss sen. Kör kommandot AZ Group Delete en andra gång för att ta bort eventuella kvarvarande resurser samt resurs gruppen.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den. Du måste ta bort resurs gruppen två gånger. Om du tar bort resurs gruppen första gången tas den hanterade instansen och virtuella kluster bort, men fel meddelandet kommer att Miss sen `az group delete : Long running operation failed with status 'Conflict'.` . Kör kommandot AZ Group Delete en andra gång för att ta bort eventuella kvarvarande resurser samt resurs gruppen.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -53,13 +53,13 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [AZ Network NSG](/cli/azure/network/nsg) | Kommandon för nätverks säkerhets grupp. |
 | [AZ Network NSG Rule](/cli/azure/network/nsg/rule)| Kommandon för nätverks säkerhets regel. |
 | [AZ nätverks väg-tabell](/cli/azure/network/route-table) | Route Table-kommandon. |
-| [AZ SQL mi](/cli/azure/sql/mi) | Kommandon för hanterade instanser. |
+| [AZ SQL mi](/cli/azure/sql/mi) | SQL-hanterade instans kommandon. |
 | [AZ Network Public-IP](/cli/azure/network/public-ip) | Nätverks kommandon för offentlig IP-adress. |
 | [AZ Network VNet-Gateway](/cli/azure/network/vnet-gateway) | Virtual Network Gateway-kommandon |
-| [AZ SQL-instans – redundans-grupp](/cli/azure/sql/instance-failover-group) | Kommandon för redundans grupp för hanterade instanser. |
+| [AZ SQL-instans – redundans-grupp](/cli/azure/sql/instance-failover-group) | SQL-hanterad instans redundans grupp kommandon. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare CLI-skriptexempel för SQL Database finns i [Azure SQL Database-dokumentationen](../sql-database-cli-samples.md).
+Ytterligare CLI-skriptexempel för SQL Database finns i [Azure SQL Database-dokumentationen](../../azure-sql/database/az-cli-script-samples-content-guide.md).

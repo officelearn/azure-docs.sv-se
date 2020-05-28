@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873305"
+ms.locfileid: "84112689"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Vanliga frågor om för hands versionen av Azure VMware-lösningen (AVS)
 
@@ -67,34 +67,7 @@ Det finns ingen ändring av den befintliga Azure VMware-lösningen från CloudSi
 
 Ja, Azure VMware-lösningen stöder migrering med välbekanta VMware-verktyg som HCX. För kunder som är intresserade av att migrera till den nya lösningen kan du använda ditt Microsoft-konto-team för att utforska alternativ och tillgänglig support.
 
-<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**Hur gör jag för att begära en värd kvot ökning för en befintlig Azure VMware-lösning?**
 
-Du kan begära en kvot ökning genom att [skicka en support förfrågan](..\azure-portal\supportability\how-to-create-azure-support-request.md). Kvot hanterings teamet utvärderar begäran och godkänner den inom tre arbets dagar.  
-
-> [!IMPORTANT]
-> Innan du kan begära en kvot ökning måste du kontrol lera att du [registrerar resurs leverantören för **Microsoft. AVS** ](tutorial-create-private-cloud.md) i Azure Portal.  
-> ```azurecli-interactive
-> az provider register -n Microsoft.AVS --subscription <your subscription ID>
-> ```
-> Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource providers och-typer](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
-
-1. I Azure Portal, under **Hjälp + Support**, skapa en **ny supportbegäran** och ange följande information för biljetten:
-   - **Typ av problem:** Produkt
-   - **Prenumeration:** Ditt prenumerations-ID
-   - **Tjänst:**  Azure VMware-lösning 
-   - **Sammanfattning:** Kvot ökning
-   - **Problem typ:** Problem med kapacitets hantering
-   - **Problem under typ:** Kund förfrågan om ytterligare värd kvot/-kapacitet
-
-1. I beskrivningen av support ärendet på fliken information anger du:
-   - Antal ytterligare noder   
-   - Node-SKU
-   - Region
-
-   > [!NOTE] 
-   > Som standard kommer minst fyra noder att beviljas.
-
-1. Klicka på **Granska + skapa** för att skicka begäran.
 
 ## <a name="compute-network-and-storage"></a>Beräkning, nätverk och lagring
 
@@ -164,7 +137,7 @@ Nej, du behöver inte använda NSX lokalt.
 
 **Vad är uppgraderings-och uppdaterings schema för VMware-programvara i ett privat moln?**
 
-Uppgraderingarna av det privata molnet för program varu paketet görs för att hålla program varan i en version av den senaste versionen av program varu buntens form VMware. Program varu versionerna för det privata molnet kan skilja sig från de senaste versionerna av de enskilda program varu komponenterna (ESXi, NSX-T, vCenter, virtuellt SAN).
+Uppgraderingarna av det privata molnet för program varu paketet görs för att hålla program varan i en version av den senaste versionen av program varu paketet från VMware. Program varu versionerna för det privata molnet kan skilja sig från de senaste versionerna av de enskilda program varu komponenterna (ESXi, NSX-T, vCenter, virtuellt SAN).
 
 **Hur ofta uppdateras program stacken för privata moln?**
 
@@ -233,6 +206,35 @@ Stöd för AVS levereras av Microsoft. Observera att du enligt våra rikt linjer
 **Vilka konton behöver jag för att skapa ett privat AVS-moln?**
 
 Du behöver ett Azure-konto i en Azure-prenumeration.
+
+<a name="how-to-request-a-quota-increase-for-avs"></a>**Hur gör jag för att begära en värd kvot ökning för Azure VMware-lösningen?**
+
+Du kan begära en kvot ökning genom att [skicka en support förfrågan](..\azure-portal\supportability\how-to-create-azure-support-request.md). Kvot hanterings teamet utvärderar begäran och godkänner den inom tre arbets dagar.  
+
+> [!IMPORTANT]
+> Innan du kan begära en kvot ökning måste du kontrol lera att du registrerar resurs leverantören för **Microsoft. AVS** i Azure Portal.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource providers och-typer](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+
+1. I Azure Portal, under **Hjälp + Support**, skapa en **ny supportbegäran** och ange följande information för biljetten:
+   - **Typ av problem:** Produkt
+   - **Prenumeration:** Ditt prenumerations-ID
+   - **Tjänst:**  Azure VMware-lösning 
+   - **Sammanfattning:** Kvot ökning
+   - **Problem typ:** Problem med kapacitets hantering
+   - **Problem under typ:** Kund förfrågan om ytterligare värd kvot/-kapacitet
+
+1. I beskrivningen av support ärendet på fliken information anger du:
+   - Antal ytterligare noder   
+   - Node-SKU
+   - Region
+
+   > [!NOTE] 
+   > Som standard kommer minst fyra noder att beviljas.
+
+1. Klicka på **Granska + skapa** för att skicka begäran.
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952

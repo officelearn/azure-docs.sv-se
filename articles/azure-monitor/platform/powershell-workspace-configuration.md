@@ -21,7 +21,7 @@ Den här artikeln innehåller två kod exempel som visar hur du skapar och konfi
 > Log Analytics kallades tidigare Operational Insights, vilket är anledningen till att det är det namn som används i cmdletarna.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Dessa exempel fungerar med version 1.0.0 eller senare av modulen AZ. OperationalInsights.
 
 ## <a name="create-workspace"></a>Skapa arbetsyta

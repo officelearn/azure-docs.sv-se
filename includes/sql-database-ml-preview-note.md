@@ -3,17 +3,18 @@ author: garyericson
 ms.service: sql-database
 ms.subservice: machine-learning
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 05/27/2020
 ms.author: garye
-ms.openlocfilehash: 3e8bdafd8f024e7bd2ab0c9f894bb9d714094ab6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 235aa6b50ef413dacb461320e50dceac7cce460d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80345736"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014204"
 ---
 > [!IMPORTANT]
 > Azure SQL Database Machine Learning Services är för närvarande en för hands version. Registrera dig för för hands versionen är **stängd**för tillfället.
-> 
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> Från och med den 30 juni 2020 kommer stödet att upphöra att gälla och för hands versionen kommer inte att lanseras för allmän tillgänglighet. R-skript som används efter 30 juni 2020 fungerar inte.
+>
+> Information om hur du fortsätter att arbeta med Machine Learning i Azure SQL finns i [ **Machine Learning Services i Azure SQL-hanterad instans** (för hands version)](../articles/azure-sql/managed-instance/machine-learning-services-overview.md).

@@ -4,19 +4,19 @@ description: Skapa en anpassad princip för villkorlig åtkomst för
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2834fd3d4901b6394eabe000f9efc572c2efd497
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3ee7287f2a5cf9491ae91d434caf2f653c853a3
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755076"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995317"
 ---
 # <a name="conditional-access-block-access"></a>Villkorlig åtkomst: blockera åtkomst
 
@@ -43,24 +43,24 @@ Följande steg hjälper dig att skapa principer för villkorlig åtkomst för at
 Den första principen blockerar åtkomst till alla appar förutom Office 365-program om de inte finns på en betrodd plats.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **Tilldelningar** väljer du **Användare och grupper**.
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **molnappar eller åtgärder**väljer du följande alternativ:
    1. Under **Inkludera**väljer du **alla molnappar**.
    1. Under **exkludera**väljer du **Office 365 (för hands version)**, väljer **Välj**och väljer sedan **Slutför**.
 1. Under **villkor**:
-   1. Under **villkor** > **plats**.
+   1. Under **villkor**  >  **plats**.
       1. **Konfigurera** till **Ja**
       1. Under **Inkludera**väljer du **valfri plats**.
       1. Under **exkludera**väljer du **alla betrodda platser**.
-      1. Välj **Klar**.
+      1. Välj **Done** (Klar).
    1. Under **klient program (för hands version)** anger du **Konfigurera** till **Ja**och **väljer sedan** **klart**.
-1. Under **åtkomst kontroller** > **beviljas**väljer du **blockera åtkomst**och väljer sedan **Välj**.
+1. Under **åtkomst kontroller**  >  **beviljas**väljer du **blockera åtkomst**och väljer sedan **Välj**.
 1. Bekräfta inställningarna och ange att **principen** endast ska **rapporteras**.
 1. Välj **skapa** för att skapa för att aktivera principen.
 
@@ -71,9 +71,9 @@ En andra princip skapas nedan för att kräva Multi-Factor Authentication eller 
 1. Under **Tilldelningar** väljer du **Användare och grupper**.
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Klar**.
-1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **Välj appar**, sedan **Office 365 (för hands version)** och väljer **Välj**och sedan **Slutför**.
-1. Under **åtkomst kontroller** > **bevilja**väljer du **bevilja åtkomst**.
+   1. Välj **Done** (Klar).
+1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**, sedan **Office 365 (för hands version)** och väljer **Välj**och sedan **Slutför**.
+1. Under **åtkomst kontroller**  >  **bevilja**väljer du **bevilja åtkomst**.
    1. Välj **Kräv Multi-Factor Authentication** och **Kräv att enheten är markerad som kompatibel** Välj **Välj**.
    1. Se till att **alla markerade kontroller** är markerat.
    1. Välj **Välj**.

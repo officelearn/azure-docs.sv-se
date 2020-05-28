@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 429f46156da728bbc24108090eac8c04f68da71c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4146553d59607e1512d8f15391d143d44815cea9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74084742"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016482"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera katastrof återställning för SQL Server
 
@@ -37,8 +37,8 @@ Distributions typ | BCDR-teknik | Förväntad RTO för SQL Server | Förväntad 
 SQL Server på en virtuell dator i Azure Infrastructure as a Service (VM) eller lokalt.| [Always On-tillgänglighetsgrupp](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | Den tid det tar att göra den sekundära repliken som primär. | Eftersom replikeringen till den sekundära repliken är asynkron finns det vissa data förluster.
 SQL Server på en virtuell Azure IaaS-dator eller lokalt.| [Kluster för växling vid fel (Always on FCI)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | Den tid det tar att redundansväxla noderna. | Eftersom Always on FCI använder delad lagring, är samma vy av lagrings instansen tillgänglig vid redundansväxling.
 SQL Server på en virtuell Azure IaaS-dator eller lokalt.| [Databas spegling (högpresterande läge)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | Den tid det tar att framtvinga tjänsten, som använder speglings servern som en varm standby-Server. | Replikeringen är asynkron. Speglings databasen kan vara en fördröjning bakom huvud databasen. Fördröjningen är vanligt vis liten. Men den kan bli stor om huvud-eller speglings serverns system är hårt belastat.<br/><br/>Logg överföring kan vara ett tillägg till databas spegling. Det är ett fördelaktig alternativ till asynkron databas spegling.
-SQL as Platform as a Service (PaaS) på Azure.<br/><br/>Den här distributions typen innehåller elastiska pooler och Azure SQL Database-servrar. | Aktiv geo-replikering | 30 sekunder efter att redundansväxlingen har utlösts.<br/><br/>När redundans aktive ras för en av de sekundära databaserna, länkas alla andra sekundära sekundära automatiskt till den nya primära. | Återställningen av fem sekunder.<br/><br/>Aktiv geo-replikering använder alltid teknik på SQL Server. Den replikerar allokerade transaktioner asynkront på den primära databasen till en sekundär databas med hjälp av ögonblicks bild isolering.<br/><br/>Sekundär data garanteras att aldrig ha partiella transaktioner.
-SQL as-PaaS har kon figurer ATS med aktiv geo-replikering på Azure.<br/><br/>Den här distributions typen innehåller en SQL Database Hanterad instans, elastiska pooler och SQL Database-servrar. | Automatiska redundansgrupper | RTO på en timme. | Återställningen av fem sekunder.<br/><br/>Grupper för automatisk redundans ger gruppsemantiken ovanpå aktiv geo-replikering. Men samma mekanism för asynkron replikering används.
+SQL as Platform as a Service (PaaS) på Azure.<br/><br/>Den här distributions typen innehåller enkla databaser och elastiska pooler. | Aktiv geo-replikering | 30 sekunder efter att redundansväxlingen har utlösts.<br/><br/>När redundans aktive ras för en av de sekundära databaserna, länkas alla andra sekundära sekundära automatiskt till den nya primära. | Återställningen av fem sekunder.<br/><br/>Aktiv geo-replikering använder alltid teknik på SQL Server. Den replikerar allokerade transaktioner asynkront på den primära databasen till en sekundär databas med hjälp av ögonblicks bild isolering.<br/><br/>Sekundär data garanteras att aldrig ha partiella transaktioner.
+SQL as-PaaS har kon figurer ATS med aktiv geo-replikering på Azure.<br/><br/>Den här distributions typen innehåller en SQL Database hanterade instanser, elastiska pooler och enskilda databaser. | Automatiska redundansgrupper | RTO på en timme. | Återställningen av fem sekunder.<br/><br/>Grupper för automatisk redundans ger gruppsemantiken ovanpå aktiv geo-replikering. Men samma mekanism för asynkron replikering används.
 SQL Server på en virtuell Azure IaaS-dator eller lokalt.| Replikering med Azure Site Recovery | RTO är vanligt vis mindre än 15 minuter. Läs mer i [RTO-SLA som tillhandahålls av Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | En timme för program konsekvens och fem minuter för krasch konsekvens. Om du vill ha lägre återställnings punkt använder du andra BCDR-tekniker.
 
 > [!NOTE]
@@ -71,8 +71,8 @@ När databas nivån körs i Azure-regionen måste du kontrol lera att du har ans
 
 För att förstå hur du kan utforma program för anslutnings överväganden, se följande exempel:
 
-* [Utforma ett program för haveri beredskap för molnet](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-* [Katastrof återställnings strategier för elastisk pool](../sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+* [Utforma ett program för haveri beredskap för molnet](../azure-sql/database/designing-cloud-solutions-for-disaster-recovery.md)
+* [Katastrof återställnings strategier för elastisk pool](../azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 
 ### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>Steg 3: samverka med Always on, aktiv geo-replikering och grupper för automatisk redundans
 
@@ -162,6 +162,6 @@ Site Recovery är Application oberoende. Site Recovery kan skydda alla versioner
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [Site Recovery arkitektur](site-recovery-components.md).
-* För SQL Server i Azure kan du läsa mer om [lösningar för hög tillgänglighet](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions) för återställning i en sekundär Azure-region.
-* För SQL Database kan du läsa mer om alternativen för [verksamhets kontinuitet](../sql-database/sql-database-business-continuity.md) och [hög tillgänglighet](../sql-database/sql-database-high-availability.md) för återställning i en sekundär Azure-region.
-* För SQL Server datorer på plats kan du läsa mer om alternativen för [hög tillgänglighet](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#hybrid-it-disaster-recovery-solutions) för återställning i Azure Virtual Machines.
+* För SQL Server i Azure kan du läsa mer om [lösningar för hög tillgänglighet](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions) för återställning i en sekundär Azure-region.
+* För SQL Database kan du läsa mer om alternativen för [verksamhets kontinuitet](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) och [hög tillgänglighet](../azure-sql/database/high-availability-sla.md) för återställning i en sekundär Azure-region.
+* För SQL Server datorer på plats kan du läsa mer om alternativen för [hög tillgänglighet](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions) för återställning i Azure Virtual Machines.

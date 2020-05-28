@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 05/27/2020
 tags: connectors
-ms.openlocfilehash: 39ab222f64d964e95b16e043c9cdeccd8170ace3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36e22fd92d937271a3859d03367e2a7ef80ef3d2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77651023"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118666"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
@@ -39,7 +39,7 @@ Den här artikeln visar hur du skapar exempel på Logic Apps som integreras med 
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa med i den här artikeln behöver du följande objekt:
 
@@ -49,23 +49,38 @@ Om du vill följa med i den här artikeln behöver du följande objekt:
 
 * Din [SAP-Programserver](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) eller [SAP-meddelande Server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
 
-* Hämta och installera den senaste [lokala datagatewayen](https://www.microsoft.com/download/details.aspx?id=53127) på en lokal dator. Se till att konfigurera din gateway i Azure Portal innan du fortsätter. Gatewayen hjälper dig att komma åt lokala data och resurser på ett säkert sätt. Mer information finns i [installera en lokal datagateway för Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+* [Hämta och installera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md) på den lokala datorn. Skapa sedan [en Azure gateway-resurs](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) för denna gateway i Azure Portal. Gatewayen hjälper dig att komma åt lokala data och resurser på ett säkert sätt. 
+
+  * Vi rekommenderar att du använder en version som stöds av den lokala datagatewayen. Microsoft släpper en ny version varje månad. För närvarande stöder Microsoft de senaste sex versionerna. Om det uppstår ett problem med din gateway kan du försöka att [Uppgradera till den senaste versionen](https://aka.ms/on-premises-data-gateway-installer), som kan innehålla uppdateringar för att lösa problemet.
+
+* [Hämta, installera och konfigurera det senaste SAP-klient biblioteket](#sap-client-library-prerequisites) på samma dator som den lokala datagatewayen.
+
+* Meddelande innehåll som du kan skicka till din SAP-server, till exempel en IDoc-fil, måste vara i XML-format och innehålla namn området för den SAP-åtgärd som du vill använda.
+
+### <a name="sap-client-library-prerequisites"></a>Krav för SAP-klient bibliotek
+
+* Som standard placerar SAP-installationsprogrammet Assembly-filerna i standardmappen för installation. Kopiera Assembly-filerna från standardmappen för installationen till installationsmappen för gateway.
+
+    * Om din SAP-anslutning Miss lyckas med fel meddelandet "kontrol lera konto information och/eller behörigheter och försök igen", kan Assembly-filerna ha fel plats. Se till att du har kopierat Assembly-filerna till installationsmappen för gateway. Använd sedan [logg visaren för .net-sammansättnings bindning för fel sökning](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), vilket gör att du kan kontrol lera att filerna finns på rätt plats.
+
+    * Alternativt kan du välja alternativet **Global Assembly Cache Registration** när du installerar SAP-klient biblioteket.
+
+* Se till att installera den senaste versionen, [SAP Connector (NCo 3,0) för Microsoft .net 3.0.22.0 som kompilerats med .NET Framework 4,0-Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019), av följande anledningar:
+
+    * Tidigare SAP NCo-versioner kan bli död när fler än ett IDoc-meddelande skickas på samma gång. Det här tillståndet blockerar alla senare meddelanden som skickas till SAP-målet, vilket leder till timeout-fel i meddelandet.
+    * Den lokala datagatewayen körs bara på 64-bitars system. Annars får du fel meddelandet "felaktig avbildning" eftersom värd tjänsten för data Gateway inte stöder 32-bitars sammansättningar.
+
+    * Både data Gateway-värdservern och Microsoft SAP-adaptern använder .NET Framework 4,5. SAP-NCo för .NET Framework 4,0 fungerar med processer som använder .NET Runtime 4,0 till 4.7.1. SAP-NCo för .NET Framework 2,0 fungerar med processer som använder .NET Runtime 2,0 till 3,5, men fungerar inte längre med den senaste lokala datagatewayen.
+
+### <a name="snc-prerequisites"></a>SNC-krav
+
+Konfigurera de här inställningarna om du använder SNC (valfritt):
 
 * Om du använder SNC med SSO ser du till att gatewayen körs som en användare som är mappad mot SAP-användaren. Om du vill ändra standard kontot väljer du **Ändra konto**och anger autentiseringsuppgifterna för användaren.
 
   ![Ändra Gateway-konto](./media/logic-apps-using-sap-connector/gateway-account.png)
 
 * Om du aktiverar SNC med en extern säkerhets produkt kopierar du SNC-biblioteket eller-filerna på samma dator där gatewayen är installerad. Några exempel på SNC-produkter är [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), KERBEROS och NTLM.
-
-* Hämta och installera det senaste SAP-klientcertifikatet, som för närvarande är [SAP Connector (NCo 3,0) för Microsoft .net 3.0.22.0 som kompileras med .NET Framework 4,0-Windows 64-bitars (x64)](https://softwaredownloads.sap.com/file/0020000001000932019), på samma dator som den lokala datagatewayen. Installera den här versionen eller senare av följande anledningar:
-
-  * Tidigare SAP NCo-versioner kan bli död när fler än ett IDoc-meddelande skickas på samma gång. Det här tillståndet blockerar alla senare meddelanden som skickas till SAP-målet, vilket leder till timeout-fel i meddelandet.
-  
-  * Den lokala datagatewayen körs bara på 64-bitars system. Annars får du fel meddelandet "felaktig avbildning" eftersom värd tjänsten för data Gateway inte stöder 32-bitars sammansättningar.
-  
-  * Både data Gateway-värdservern och Microsoft SAP-adaptern använder .NET Framework 4,5. SAP-NCo för .NET Framework 4,0 fungerar med processer som använder .NET Runtime 4,0 till 4.7.1. SAP-NCo för .NET Framework 2,0 fungerar med processer som använder .NET Runtime 2,0 till 3,5, men fungerar inte längre med den senaste lokala datagatewayen.
-
-* Meddelande innehåll som du kan skicka till din SAP-server, till exempel en IDoc-fil, måste vara i XML-format och innehålla namn området för den SAP-åtgärd som du vill använda.
 
 <a name="migrate"></a>
 
@@ -88,6 +103,9 @@ I det här exemplet används en Logic-app som du kan utlösa med en HTTP-begära
 ### <a name="add-an-http-request-trigger"></a>Lägg till en HTTP-begäran-utlösare
 
 I Azure Logic Apps måste varje Logi Kap par starta med en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts)som utlöses när en enskild händelse inträffar eller när ett särskilt villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en Logic App-instans och börjar köra appens arbets flöde.
+
+> [!NOTE]
+> När en Logi Kap par tar emot IDoc-paket från SAP, stöder inte [utlösaren](https://docs.microsoft.com/azure/connectors/connectors-native-reqres) "Plain" XML-scheman som genererats av SAP: s WE60 iDOC-dokumentation. Det finns dock stöd för XML-schemat "Plain" för scenarier som skickar meddelanden från Logic Apps *till* SAP. Du kan använda begär ande utlösare med SAP: s XML för IDoc, men inte med IDoc över RFC. Du kan också transformera XML-filen till det format som krävs. 
 
 I det här exemplet skapar du en Logic-app med en slut punkt i Azure så att du kan skicka *http post-begäranden* till din Logic app. När din Logic app tar emot dessa HTTP-förfrågningar utlöses utlösaren och kör nästa steg i arbets flödet.
 
@@ -259,7 +277,7 @@ I det här exemplet används en Logic-app som utlöses när appen tar emot ett m
 
       Logic Apps konfigurerar och testar anslutningen för att kontrol lera att anslutningen fungerar korrekt.
 
-1. Ange de parametrar som krävs baserat på din konfiguration av SAP-systemet.
+1. Ange de [parametrar som krävs](#parameters) baserat på din konfiguration av SAP-systemet.
 
    Du kan också ange en eller flera SAP-åtgärder. Den här listan med åtgärder anger de meddelanden som utlösaren tar emot från din SAP-server via datagatewayen. En tom lista anger att utlösaren tar emot alla meddelanden. Om listan innehåller fler än ett meddelande, tar utlösaren bara emot de meddelanden som anges i listan. Alla andra meddelanden som skickas från din SAP-server avvisas av gatewayen.
 
@@ -284,6 +302,16 @@ Din Logi Kap par är nu redo att ta emot meddelanden från SAP-systemet.
 > [!NOTE]
 > SAP-utlösaren är ingen avsöknings utlösare utan är en webhook-baserad utlösare i stället. Utlösaren anropas från gatewayen endast när det finns ett meddelande, så ingen avsökning krävs.
 
+<a name="parameters"></a>
+
+#### <a name="parameters"></a>Parametrar
+
+Tillsammans med enkla sträng-och siffer inmatningar accepterar SAP-kopplingen följande tabell parametrar ( `Type=ITAB` indata):
+
+* Tabell riktnings parametrar, både indata och utdata, för äldre SAP-versioner.
+* Ändra parametrar, som ersätter tabell riktnings parametrarna för nyare SAP-versioner.
+* Parametrar för hierarkisk tabell
+
 ### <a name="test-your-logic-app"></a>Testa din Logic app
 
 1. Skicka ett meddelande från SAP-systemet för att utlösa din Logic app.
@@ -304,13 +332,13 @@ Här är ett exempel som visar hur du extraherar enskilda IDOCs från ett paket 
 
    ![Lägg till SAP-utlösare i Logic app](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
-1. Hämta rot namn området från XML-IDOC som din Logic app tar emot från SAP. Om du vill extrahera det här namn området från XML-dokumentet lägger du till ett steg som skapar en lokal sträng variabel och lagrar `xpath()` namn området med hjälp av ett uttryck:
+1. Hämta rot namn området från XML-IDOC som din Logic app tar emot från SAP. Om du vill extrahera det här namn området från XML-dokumentet lägger du till ett steg som skapar en lokal sträng variabel och lagrar namn området med hjälp av ett `xpath()` uttryck:
 
    `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
 
    ![Hämta rot namn område från IDOC](./media/logic-apps-using-sap-connector/get-namespace.png)
 
-1. Om du vill extrahera en enskild IDOC lägger du till ett steg som skapar en mat ris variabel och lagrar IDOC- `xpath()` samlingen med hjälp av ett annat uttryck:
+1. Om du vill extrahera en enskild IDOC lägger du till ett steg som skapar en mat ris variabel och lagrar IDOC-samlingen med hjälp av ett annat `xpath()` uttryck:
 
    `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')`
 
@@ -320,7 +348,7 @@ Här är ett exempel som visar hur du extraherar enskilda IDOCs från ett paket 
 
    ![Skicka IDOC till SFTP-server](./media/logic-apps-using-sap-connector/loop-batch.png)
 
-   Varje IDOC måste innehålla rot namn området, vilket är orsaken till att fil innehållet är omslutet i `<Receive></Receive` ett-element tillsammans med rot namn området innan du skickar iDOC till den underordnade appen eller SFTP-servern i det här fallet.
+   Varje IDOC måste innehålla rot namn området, vilket är orsaken till att fil innehållet är omslutet i ett- `<Receive></Receive` element tillsammans med rot namn området innan du skickar iDOC till den underordnade appen eller SFTP-servern i det här fallet.
 
 Du kan använda snabb starts mal len för det här mönstret genom att välja den här mallen i Logic App Designer när du skapar en ny Logic app.
 
@@ -466,7 +494,7 @@ Innan du börjar ska du kontrol lera att du uppfyller de tidigare angivna [föru
 
    | Egenskap | Beskrivning |
    |----------| ------------|
-   | **Sökväg till SNC-bibliotek** | SNC-bibliotekets namn eller sökväg i förhållande till NCo-installations plats eller absolut sökväg. Exempel är `sapsnc.dll` eller `.\security\sapsnc.dll` eller `c:\security\sapsnc.dll`. |
+   | **Sökväg till SNC-bibliotek** | SNC-bibliotekets namn eller sökväg i förhållande till NCo-installations plats eller absolut sökväg. Exempel är `sapsnc.dll` eller `.\security\sapsnc.dll` eller `c:\security\sapsnc.dll` . |
    | **SNC SSO** | När du ansluter via SNC används SNC-identiteten vanligt vis för att autentisera anroparen. Ett annat alternativ är att åsidosätta så att information om användare och lösen ord kan användas för att autentisera anroparen, men linjen är fortfarande krypterad. |
    | **SNC mitt namn** | I de flesta fall kan den här egenskapen utelämnas. Den installerade SNC-lösningen känner vanligt vis till sitt eget SNC-namn. För lösningar som har stöd för flera identiteter kan du behöva ange vilken identitet som ska användas för det aktuella målet eller servern. |
    | **SNC partner namn** | Namnet på backend-SNC. |
@@ -480,7 +508,7 @@ Innan du börjar ska du kontrol lera att du uppfyller de tidigare angivna [föru
 
 ## <a name="safe-typing"></a>Säker inmatning
 
-När du skapar din SAP-anslutning används som standard stark inmatning för att kontrol lera ogiltiga värden genom att utföra XML-verifiering mot schemat. Det här beteendet kan hjälpa dig att identifiera problem tidigare. Alternativet för **säker inmatning** är tillgängligt för bakåtkompatibilitet och kontrollerar sträng längden. Om du väljer **säker inmatning**behandlas dats-typen och Tims-typen i SAP som strängar i stället för motsvarande XML-motsvarigheter, `xs:date` och `xs:time`där `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Säker inmatning påverkar beteendet för all schema generering, att skicka meddelandet för både "har skickats"-nytto lasten och "mottaget"-svaret och utlösaren. 
+När du skapar din SAP-anslutning används som standard stark inmatning för att kontrol lera ogiltiga värden genom att utföra XML-verifiering mot schemat. Det här beteendet kan hjälpa dig att identifiera problem tidigare. Alternativet för **säker inmatning** är tillgängligt för bakåtkompatibilitet och kontrollerar sträng längden. Om du väljer **säker inmatning**behandlas dats-typen och Tims-typen i SAP som strängar i stället för motsvarande XML-motsvarigheter, `xs:date` och `xs:time` där `xmlns:xs="http://www.w3.org/2001/XMLSchema"` . Säker inmatning påverkar beteendet för all schema generering, att skicka meddelandet för både "har skickats"-nytto lasten och "mottaget"-svaret och utlösaren. 
 
 När stark inmatning används (**säker inmatning** är inte aktiverat) mappar schemat dats-och Tims-typerna till fler enkla XML-typer:
 

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.subservice: metrics
-ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: b2d2d14f89fa25bba1a19538c758aa0c930b3964
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837319"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018539"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Anpassade mått i Azure Monitor (förhands granskning)
 
@@ -28,7 +28,7 @@ Anpassade mått kan skickas till Azure Monitor via flera metoder:
 - Instrumentera ditt program genom att använda Azure Application Insights SDK och skicka anpassad telemetri till Azure Monitor. 
 - Installera Windows Azure-diagnostik-tillägget (WAD) på din [virtuella Azure-dator](collect-custom-metrics-guestos-resource-manager-vm.md), [skalnings uppsättning för virtuell dator](collect-custom-metrics-guestos-resource-manager-vmss.md), [klassisk virtuell dator](collect-custom-metrics-guestos-vm-classic.md)eller [klassisk Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md) och skicka prestanda räknare till Azure Monitor. 
 - Installera [InfluxDatain-agenten](collect-custom-metrics-linux-telegraf.md) på din virtuella Azure Linux-dator och skicka mått med hjälp av plugin-programmet för Azure Monitor-utdata.
-- Skicka anpassade mått [direkt till Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Skicka anpassade mått [direkt till Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
 ## <a name="pricing-model-and-rentention"></a>Pris modell och bevarande
 
@@ -51,7 +51,7 @@ För att kunna skicka in anpassade mått till Azure Monitor måste entiteten som
 För att autentisera begäran verifierar Azure Monitor programtoken med hjälp av offentliga Azure AD-nycklar. Den befintliga **övervaknings mått utgivar** rollen har redan den här behörigheten. Den finns i Azure Portal. Tjänstens huvud namn, beroende på vilka resurser som den utvärderar anpassade mått för, kan få rollen som **övervaknings mått utgivar** roll i det omfånget som krävs. Exempel är en prenumeration, en resurs grupp eller en angiven resurs.
 
 > [!TIP]  
-> När du begär en Azure AD-token för att skicka anpassade mått måste du se till att den mål grupp eller resurs som `https://monitoring.azure.com/`token begärs för är. Se till att ta med efterföljande "/".
+> När du begär en Azure AD-token för att skicka anpassade mått måste du se till att den mål grupp eller resurs som token begärs för är `https://monitoring.azure.com/` . Se till att ta med efterföljande "/".
 
 ### <a name="subject"></a>Subjekt
 Den här egenskapen registrerar vilket Azure-resurs-ID som det anpassade måttet rapporteras för. Den här informationen kommer att kodas i URL: en för det API-anrop som görs. Varje API kan bara skicka Mät värden för en enda Azure-resurs.
@@ -189,31 +189,31 @@ Under den offentliga för hands versionen är möjligheten att publicera anpassa
 |Azure-region |Regionalt slut punkts prefix|
 |---|---|
 | **USA och Kanada** | |
-|USA, västra centrala | https:\//westcentralus.Monitoring.Azure.com/ |
-|USA, västra 2       | https:\//westus2.Monitoring.Azure.com/ |
-|USA, norra centrala | https:\//northcentralus.Monitoring.Azure.com
-|USA, södra centrala| https:\//southcentralus.Monitoring.Azure.com/ |
-|USA, centrala      | https:\//centralus.Monitoring.Azure.com |
-|Kanada, centrala | https:\//canadacentral.Monitoring.Azure.comc
-|USA, östra| https:\//eastus.Monitoring.Azure.com/ |
+|USA, västra centrala | https: \/ /westcentralus.Monitoring.Azure.com/ |
+|USA, västra 2       | https: \/ /westus2.Monitoring.Azure.com/ |
+|USA, norra centrala | https: \/ /northcentralus.Monitoring.Azure.com
+|USA, södra centrala| https: \/ /southcentralus.Monitoring.Azure.com/ |
+|USA, centrala      | https: \/ /centralus.Monitoring.Azure.com |
+|Kanada, centrala | https: \/ /canadacentral.Monitoring.Azure.comc
+|USA, östra| https: \/ /eastus.Monitoring.Azure.com/ |
 | **Europa** | |
-|Europa, norra    | https:\//northeurope.Monitoring.Azure.com/ |
-|Europa, västra     | https:\//westeurope.Monitoring.Azure.com/ |
-|Storbritannien, södra | https:\//uksouth.Monitoring.Azure.com
-|Frankrike, centrala | https:\//francecentral.Monitoring.Azure.com |
+|Europa, norra    | https: \/ /northeurope.Monitoring.Azure.com/ |
+|Europa, västra     | https: \/ /westeurope.Monitoring.Azure.com/ |
+|Storbritannien, södra | https: \/ /uksouth.Monitoring.Azure.com
+|Frankrike, centrala | https: \/ /francecentral.Monitoring.Azure.com |
 | **Afrika** | |
-|Sydafrika, norra | https:\//southafricanorth.Monitoring.Azure.com
+|Sydafrika, norra | https: \/ /southafricanorth.Monitoring.Azure.com
 | **Asien** | |
-|Indien, centrala | https:\//centralindia.Monitoring.Azure.com
-|Australien, östra | https:\//australiaeast.Monitoring.Azure.com
-|Japan, östra | https:\//japaneast.Monitoring.Azure.com
-|Sydostasien  | https:\//southeastasia.Monitoring.Azure.com |
-|Asien, östra | https:\//EastAsia.Monitoring.Azure.com
-|Sydkorea, centrala   | https:\//koreacentral.Monitoring.Azure.com
+|Indien, centrala | https: \/ /centralindia.Monitoring.Azure.com
+|Australien, östra | https: \/ /australiaeast.Monitoring.Azure.com
+|Japan, östra | https: \/ /japaneast.Monitoring.Azure.com
+|Sydostasien  | https: \/ /southeastasia.Monitoring.Azure.com |
+|Asien, östra | https: \/ /EastAsia.Monitoring.Azure.com
+|Sydkorea, centrala   | https: \/ /koreacentral.Monitoring.Azure.com
 
 ## <a name="latency-and-storage-retention"></a>Svars tid och lagrings kvarhållning
 
-Det kan ta upp till 2 till 3 minuter att lägga till ett helt nytt mått eller en ny dimension som läggs till i ett mått. I systemet bör data apear på mindre än 30 sekunder 99% av tiden. 
+Det kan ta upp till 2 till 3 minuter att lägga till ett helt nytt mått eller en ny dimension som läggs till i ett mått. I systemet bör data visas i mindre än 30 sekunder 99% av tiden. 
 
 Om du tar bort ett mått eller tar bort en dimension, kan ändringen ta en vecka till en månad som ska tas bort från systemet.
 

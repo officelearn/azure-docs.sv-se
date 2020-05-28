@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 4aa1148e544ff3451aa1cb956bc4a5fb932b9611
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680991"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022188"
 ---
 # <a name="late-stage-reprojection"></a>Omprojektion av sena steg
 
@@ -24,7 +24,7 @@ Båda LSR-lägena förbättrar hologram stabiliteten, även om de har olika begr
 
 ## <a name="choose-lsr-mode-in-unity"></a>Välj LSR-läge i Unity
 
-I Unity-redigeraren går du till *fil > versions inställningar*. Välj *Player-inställningar* längst ned till vänster och kontrol lera sedan under *spelare > XR inställningar > Virtual verklighet sdk: er > Windows Mixed Reality* , om **Aktivera delning av djup buffert** är markerat:
+I Unity-redigeraren går du till *:::no-loc text="File > Build Settings":::* . Välj *:::no-loc text="Player Settings":::* i det nedre vänstra hörnet och kontrol lera sedan under *:::no-loc text="Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality":::* om **:::no-loc text="Enable Depth Buffer Sharing":::** är markerat:
 
 ![Flagga för delning av djup buffert aktive rad](./media/unity-depth-buffer-sharing-enabled.png)
 
@@ -44,7 +44,7 @@ Plan LSR reprojicerar objekten på bästa sätt som ligger nära det angivna pla
 
 ### <a name="configure-planar-lsr-in-unity"></a>Konfigurera plan LSR i Unity
 
-Plan parametrarna härleds från en så kallad *fokus punkt*, som du måste ange för varje bild ruta `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. Se [API för Unity Focus Point](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) för mer information. Om du inte anger en fokus punkt väljs en återställnings punkt åt dig. Den automatiska återställningen leder ofta till underoptimala resultat.
+Plan parametrarna härleds från en så kallad *fokus punkt*, som du måste ange för varje bild ruta `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Se [API för Unity Focus Point](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) för mer information. Om du inte anger en fokus punkt väljs en återställnings punkt åt dig. Den automatiska återställningen leder ofta till underoptimala resultat.
 
 Du kan beräkna fokus punkten själv, men det kan vara bra att basera det på den som beräknas av värden för fjärrrendering. Anropa `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` för att hämta det. Du uppmanas att ange en koordinat-ram där du vill uttrycka fokus punkten. I de flesta fall vill du bara ge resultatet från `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` här.
 

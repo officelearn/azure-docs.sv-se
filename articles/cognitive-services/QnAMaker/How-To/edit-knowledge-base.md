@@ -3,12 +3,12 @@ title: Redigera en kunskaps bas – QnA Maker
 description: Med QnA Maker kan du hantera innehållet i kunskaps basen genom att tillhandahålla en användarvänlig redigerings upplevelse.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 018e733dda06b7785b0a87ea3e08009967213134
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650875"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993583"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Redigera QnA-par i kunskaps basen
 
@@ -57,7 +57,7 @@ Text redigering av svars texten ger dig markdown format från ett enkelt verktyg
     |Funktioner i Rich-Text-redigeraren|Kortkommando|
     |--|--|
     |Växla mellan Rich-Text Editor och markdown. `</>`|CTRL+M|
-    |Breda. **T**|Prod + LB|
+    |Breda. **B**|Prod + LB|
     |Kursiv stil, visas med kursivt ** _i_**|CTRL + I|
     |Osorterad lista||
     |Ordnad lista||
@@ -85,7 +85,7 @@ Alla fält i ett QnA-par kan redige ras, oavsett den ursprungliga data källan. 
 
 ## <a name="delete-a-qna-pair"></a>Ta bort ett QnA-par
 
-Om du vill ta bort en QnA klickar du på ikonen **ta bort** längst till höger på raden QNA. Detta är en permanent åtgärd. Det går inte att återställa. Överväg att exportera dina KB från sidan **publicera** innan du tar bort uppsättningar.
+Om du vill ta bort en QnA klickar du på ikonen **ta bort** längst till höger på raden QNA. Detta är en permanent åtgärd. Det går inte att återställa. Överväg att exportera dina KB från sidan **publicera** innan du tar bort par.
 
 ![Ta bort QnA-par](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -110,7 +110,7 @@ Du kan inte länka QnA-par i svarets metadata.
 
 ## <a name="add-metadata"></a>Lägg till metadata
 
-Lägg till metadata uppsättningar genom att först välja **visnings alternativ**och sedan **Visa metadata**. Kolumnen metadata visas. Välj sedan **+** tecknet för att lägga till en uppsättning med metadata. Den här uppsättningen består av en nyckel och ett värde.
+Lägg till metadata-par genom att först välja **visnings alternativ**och sedan välja **Visa metadata**. Kolumnen metadata visas. Sedan väljer du **+** tecknet för att lägga till ett metadata-par. Det här paret består av en nyckel och ett värde.
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Spara ändringar i QnA-par
 

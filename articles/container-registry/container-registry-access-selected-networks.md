@@ -1,5 +1,5 @@
 ---
-title: Konfigurera offentlig register åtkomst
+title: Konfigurera offentlig registeråtkomst
 description: Konfigurera IP-regler för att aktivera åtkomst till ett Azure Container Registry från valda offentliga IP-adresser eller adress intervall.
 ms.topic: article
 ms.date: 05/19/2020

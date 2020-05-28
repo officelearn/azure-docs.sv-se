@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6344f2c69e7b6407152e752c61c1928ab651a88c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75438881"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119235"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd REST API för att skapa ett Azure Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "75438881"
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Azure Resource Manager mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
@@ -46,7 +46,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 >  
 > Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -70,7 +70,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
      ```PowerShell     
      Get-AzSubscription
      ``` 
-  3. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt;NameOfAzureSubscription** &gt; med namnet på din Azure-prenumeration. 
+  3. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt; NameOfAzureSubscription** &gt; med namnet på din Azure-prenumeration. 
      
      ```PowerShell
      Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -121,7 +121,7 @@ Mer information om egenskaper som JSON finns i [Azure Storage länkade tjänster
 
 ### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.json
 > [!IMPORTANT]
-> Ersätt **servername**, **databasename**, **username** och **password** med namnet på din Azure SQL-server, namnet på SQL-databasen, användarkontot och lösenordet för kontot.  
+> Ersätt **servername**, **databasename**, **username**och **Password** med namnet på servern, namnet på SQL-databasen, användar kontot och lösen ordet för kontot.  
 > 
 >
 
@@ -403,7 +403,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken. Du ange
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Skapa en länkad Azure SQL-tjänst
-I det här steget länkar du Azure SQL-databasen till din datafabrik. Du anger Azure SQL-servernamnet, databasnamnet, användarnamnet och lösenordet i det här avsnittet. Se [Länkad Azure SQL-tjänst](data-factory-azure-sql-connector.md#linked-service-properties) om du vill ha information om JSON-egenskaper som används för att definiera en länkad Azure SQL-tjänst.
+I det här steget länkar du Azure SQL-databasen till din datafabrik. Du anger det logiska SQL Server-namnet, databas namnet, användar namnet och användar lösen ordet i det här avsnittet. Se [Länkad Azure SQL-tjänst](data-factory-azure-sql-connector.md#linked-service-properties) om du vill ha information om JSON-egenskaper som används för att definiera en länkad Azure SQL-tjänst.
 
 1. Tilldela kommandot till variabeln med namnet **cmd**. 
    

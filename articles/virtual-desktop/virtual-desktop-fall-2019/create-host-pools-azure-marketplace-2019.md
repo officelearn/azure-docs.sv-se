@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 741bd94b290560bdc850cbf7bc24ec57104d8a66
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8afc8b70257f07c95b34c4e372e0e7425ae20fcd
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614356"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112669"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudie: skapa en värdbaserad pool med Azure Marketplace
 
@@ -33,7 +33,7 @@ Uppgifterna i den här självstudien innehåller:
 > * Anslut de virtuella datorerna till Active Directory-domänen.
 > * Registrera de virtuella datorerna med det virtuella Windows-skrivbordet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En klient i virtuellt skriv bord. En tidigare [självstudie](tenant-setup-azure-active-directory.md) skapar en klient.
 * [PowerShell-modul för Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/).
@@ -46,7 +46,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Kör Azure Marketplace-erbjudandet för att etablera en ny värdbaserad pool
 
@@ -148,7 +148,7 @@ Så här tilldelar du användare till program gruppen Skriv bord:
    Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
    ```
 
-   Användarens UPN ska matcha användarens identitet i Azure AD, till exempel *user1@contoso.com*. Om du vill lägga till flera användare kör du kommandot för varje användare.
+   Användarens UPN ska matcha användarens identitet i Azure AD, till exempel *user1@contoso.com* . Om du vill lägga till flera användare kör du kommandot för varje användare.
 
 Användare som du lägger till i gruppen Skriv bords program kan logga in på Windows Virtual Desktop med stöd för fjärr skrivbords klienter och se en resurs för ett skrivbord-skrivbord.
 
@@ -162,4 +162,4 @@ Här är de klienter som stöds:
 Du har skapat en adresspool och tilldelat användare åtkomst till Skriv bordet. Du kan fylla i din värd-pool med RemoteApp-program. Mer information om hur du hanterar appar i virtuella Windows-datorer finns i den här självstudien:
 
 > [!div class="nextstepaction"]
-> [Själv studie kurs för hantering av app-grupper](../manage-app-groups.md)
+> [Själv studie kurs för hantering av app-grupper](manage-app-groups-2019.md)

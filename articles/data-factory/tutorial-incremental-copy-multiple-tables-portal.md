@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: 290ddf9a99d421bbf6303675fd544e81b637d070
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4649ac8bbef23711ed45baffa15bb9e8bff8daec
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419280"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119185"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 
@@ -67,9 +67,9 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
-* **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). 
+* **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md). 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Skapa källtabeller i din SQL Server-databas
 
@@ -116,7 +116,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 1. I **Server Explorer**högerklickar du på databasen och väljer **ny fråga**.
 
-1. Kör följande SQL-kommando mot din Azure SQL-databas för att skapa `customer_table` tabeller `project_table`med namnen och:  
+1. Kör följande SQL-kommando mot din Azure SQL-databas för att skapa tabeller med namnen `customer_table` och `project_table` :  
     
     ```sql
     create table customer_table
@@ -135,7 +135,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
     ```
 
 ### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Skapa en annan tabell i Azure SQL-databasen för att lagra värdet för högvattenmärket
-1. Kör följande SQL-kommando mot din Azure SQL-databas för att skapa en `watermarktable` tabell med namnet för att lagra värdet för vattenstämpeln: 
+1. Kör följande SQL-kommando mot din Azure SQL-databas för att skapa en tabell med namnet `watermarktable` för att lagra värdet för vattenstämpeln: 
     
     ```sql
     create table watermarktable
@@ -233,7 +233,7 @@ END
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-2. På den vänstra menyn väljer du **skapa en resurs** > **analys** > **Data Factory**: 
+2. På den vänstra menyn väljer du **skapa en resurs**  >  **analys**  >  **Data Factory**: 
    
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -310,7 +310,7 @@ I det sista steget skapar du en länkad tjänst för att länka SQL Server-datab
 1. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
 
     1. Ange **AzureSqlDatabaseLinkedService** som **namn**. 
-    1. För **Servernamn** väljer du namnet på din Azure SQL-server från den nedrullningsbara listan. 
+    1. För **Server namn**väljer du namnet på din server i list rutan. 
     1. För **Databasnamn** väljer du den Azure SQL-databas där du skapade customer_table och project_table som en del av förberedelserna. 
     1. För **Användarnamn** anger du namnet på en användare som har åtkomst till Azure SQL-databasen. 
     1. För **lösen ord**anger du användarens **lösen ord** . 
@@ -354,7 +354,7 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
     
 1. I fönstret **Lägg till dynamiskt innehåll** väljer du **SinkTableName** i avsnittet **parametrar** . 
  
-1. När du **har**klickat på Slutför@datasetvisas "(). SinkTableName "som tabell namn.
+1. När du **har**klickat på Slutför visas " @dataset (). SinkTableName "som tabell namn.
 
    ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -450,10 +450,10 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
         
 1. Gör så här:
 
-    1. I **egenskaperna för data uppsättningen**, för parametern **SinkTableName** , `@{item().TABLE_NAME}`anger du.
-    1. Som egenskap för **lagrad procedur namn** anger `@{item().StoredProcedureNameForMergeOperation}`du.
-    1. För egenskapen **tabell typ** anger `@{item().TableType}`du.
-    1. För **tabell typ parameter namn**anger `@{item().TABLE_NAME}`du.
+    1. I **egenskaperna för data uppsättningen**, för parametern **SinkTableName** , anger du `@{item().TABLE_NAME}` .
+    1. Som egenskap för **lagrad procedur namn** anger du `@{item().StoredProcedureNameForMergeOperation}` .
+    1. För egenskapen **tabell typ** anger du `@{item().TableType}` .
+    1. För **tabell typ parameter namn**anger du `@{item().TABLE_NAME}` .
 
     ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Dra och släpp aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignytan. Koppla aktiviteten **Copy** (Kopiera) till aktiviteten **Lagrad procedur**. 

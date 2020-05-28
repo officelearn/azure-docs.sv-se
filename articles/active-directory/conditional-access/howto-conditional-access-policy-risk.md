@@ -4,19 +4,19 @@ description: Skapa principer för villkorlig åtkomst för att aktivera identite
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 03/25/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8054d8985596095db32d9262322d7fb0f4aab8c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9cfba377aba30d4687bab4ba7c5a311c70c4905
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295144"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995164"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>Villkorlig åtkomst: riskfylld villkorlig åtkomst
 
@@ -36,7 +36,7 @@ Att aktivera den här principen kräver att alla användare registrerar sig för
 1. Under **tilldelningar**väljer **du användare**.
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer du **Välj exkluderade användare**, väljer din organisations nödfalls åtkomst eller rast glass konton och väljer **Välj**. 
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Ange **tillämpa principen** på **på**.
 1. Klicka på **Spara**.
 
@@ -50,10 +50,10 @@ Microsoft samarbetar med forskare, polis och rättsväsende, flera säkerhetstea
 1. Under **tilldelningar**väljer **du användare**
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer du **Välj exkluderade användare**, väljer din organisations nödfalls åtkomst eller rast glass konton och väljer **Välj**.
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Välj **användar risk**under **villkor**och välj sedan **hög**.
    1. Klicka på **Välj** och sedan på **Slutför**.
-1. Under **kontroller** > **åtkomst**väljer du **Tillåt åtkomst**och väljer sedan **Kräv lösen ords ändring**.
+1. Under **kontroller**  >  **åtkomst**väljer du **Tillåt åtkomst**och väljer sedan **Kräv lösen ords ändring**.
    1. Klicka på **Välj**.
 1. Ange **tillämpa principen** på **på**.
 1. Klicka på **Spara**.
@@ -68,10 +68,10 @@ De flesta användare har ett normalt beteende som kan spåras. När de hamnar ut
 1. Under **tilldelningar**väljer **du användare**
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer du **Välj exkluderade användare**, väljer din organisations nödfalls åtkomst eller rast glass konton och väljer **Välj**.
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **villkor**väljer du **inloggnings risk**och väljer sedan **medel och över**.
    1. Klicka på **Välj** och sedan på **Slutför**.
-1. Under **kontroller** > **åtkomst**väljer du **Tillåt åtkomst**och väljer sedan **Kräv Multi-Factor Authentication**.
+1. Under **kontroller**  >  **åtkomst**väljer du **Tillåt åtkomst**och väljer sedan **Kräv Multi-Factor Authentication**.
    1. Klicka på **Välj**.
 1. Ange **tillämpa principen** på **på**.
 1. Klicka på **Spara**.

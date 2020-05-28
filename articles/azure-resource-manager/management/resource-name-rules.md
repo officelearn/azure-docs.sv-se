@@ -540,7 +540,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | lösningar | arbetsyta | Ej tillämpligt | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
+> | lösningar | arbetsyta | Saknas | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 

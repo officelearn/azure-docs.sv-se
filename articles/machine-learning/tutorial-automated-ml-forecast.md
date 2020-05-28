@@ -10,12 +10,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 05/19/2020
-ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 46c11ef3b3a1fa1a1861f9e944c93ffdf94f7c5a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656568"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118900"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Självstudie: prognostisera efter frågan med automatiserad maskin inlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 > * Utforska experiment resultatet.
 > * Distribuera den bästa modellen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Enterprise Edition Azure Machine Learning-arbetsyta. Om du inte har en arbets yta [skapar du en Enterprise Edition-arbetsyta](how-to-manage-workspace.md). 
     * Automatisk maskin inlärning i Azure Machine Learning Studio är endast tillgängligt för Enterprise Edition-arbetsytor. 
@@ -229,7 +229,7 @@ I den här artikeln finns anvisningar om hur du skapar ett schema för Power BI 
 
 + Lär dig mer om [Automatisk maskin inlärning](concept-automated-ml.md).
 + Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) .
-+ Läs mer om [funktionalisering](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Läs mer om [funktionalisering](how-to-configure-auto-features.md#featurization).
 + Läs mer om [data profilering](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e976b59c0128adef6536e78985e7cf89d256062c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595851"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992716"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Vägledning för dokument format och namngivnings konvention
 
@@ -45,7 +45,7 @@ Dokument kan grupperas i en enda zip-fil och överföras. Den anpassade översä
 
 Varje dokument i zip-filen med fil namns tillägget TXT, HTML, HTM, PDF, DOCX måste följa denna namngivnings konvention:
 
-{dokument namn} \_{språkkod} där {Document Name} är namnet på ditt dokument, {language Code} är ISO-LanguageID (två tecken), vilket indikerar att dokumentet innehåller meningar på det språket. Det måste finnas ett under streck (_) före språk koden.
+{dokument namn} \_ {språkkod} där {Document Name} är namnet på ditt dokument, {language Code} är ISO-LanguageID (två tecken), vilket indikerar att dokumentet innehåller meningar på det språket. Det måste finnas ett under streck (_) före språk koden.
 
 Om du till exempel vill överföra två parallella dokument i ett zip för ett engelskt till spanska-system ska filerna heta "data_en" och "data_es".
 

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: cf5b2b84142c9104ea5b3afa3ad179fd0ec07449
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c8c4bbcfdd8f06d4c2b4759b84a72c5b3cff5a5d
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80370144"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996354"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Menings koppling och justering i parallella dokument
 
@@ -26,7 +26,7 @@ Anpassad översättare lär sig översättningar av meningar en mening i taget. 
 
 ## <a name="pre-aligned-documents"></a>Dokument som är justerade
 
-Om du vet att du har parallella dokument kan du åsidosätta menings justeringen genom att ange textfiler som är justerade för text. Du kan extrahera alla meningar från båda dokumenten till text filen, ordnade en mening per rad och ladda `.align` upp med ett tillägg. `.align` Tillägget signalerar den anpassade översättare som det ska hoppa över menings justeringen.
+Om du vet att du har parallella dokument kan du åsidosätta menings justeringen genom att ange textfiler som är justerade för text. Du kan extrahera alla meningar från båda dokumenten till text filen, ordnade en mening per rad och ladda upp med ett `.align` tillägg. `.align`Tillägget signalerar den anpassade översättare som det ska hoppa över menings justeringen.
 
 För bästa resultat bör du försöka se till att du har en mening per rad i dina filer.Det finns inte några tecken för ny rad i en mening eftersom detta ger dåliga justeringar.
 

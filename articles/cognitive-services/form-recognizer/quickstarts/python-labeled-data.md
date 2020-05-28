@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0fa6785b2c4029dc5eb3f0397b1144616be357fe
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 59f969a920c30bb017e10d2aa233df02d69918e2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594176"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116911"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Träna en formulär igenkännings modell med etiketter med hjälp av REST API och python
 
@@ -26,7 +26,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
-- En uppsättning av minst sex formulär av samma typ. Du kommer att använda dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
+- En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
@@ -34,15 +34,15 @@ För att slutföra den här snabb starten måste du ha:
 
 ## <a name="set-up-training-data"></a>Konfigurera tränings data
 
-Härnäst måste du konfigurera nödvändiga indata. Funktionen märkta data har särskilda inmatnings krav utöver de som behövs för att träna en anpassad modell. 
+Härnäst måste du konfigurera nödvändiga indata. Funktionen märkta data har särskilda inmatnings krav utöver vad som behövs för att träna en anpassad modell utan etiketter.
 
 Kontrol lera att alla utbildnings dokument har samma format. Om du har formulär i flera format, sorterar du dem i undermappar baserat på vanligt format. När du tränar måste du dirigera API: et till en undermapp.
 
 För att kunna träna en modell med märkta data behöver du följande filer som indata i undermappen. Du får lära dig hur du skapar dessa filer nedan.
 
 * **Käll formulär** – formulär att extrahera data från. De typer som stöds är JPEG, PNG, PDF eller TIFF.
-* **Filer med OCR-layout** – JSON-filer som beskriver storlek och positioner för all läsbar text i varje käll formulär. Du använder formatet för formulär tolkens layout för att skapa dessa data. 
-* **Etikettfiler** – JSON-filer som beskriver data etiketter som en användare har angett manuellt.
+* **OCR** -presentationsfiler – dessa är JSON-filer som beskriver storlekarna och positionerna för all läsbar text i varje käll formulär. Du använder formatet för formulär tolkens layout för att skapa dessa data. 
+* **Etikettfiler** – dessa är JSON-filer som beskriver de data etiketter som en användare har angett manuellt.
 
 Alla dessa filer bör ha samma undermapp och ha följande format:
 
@@ -116,7 +116,7 @@ Du behöver filer med OCR-resultat för att tjänsten ska kunna beakta motsvaran
 
 ### <a name="create-the-label-files"></a>Skapa etikettfiler
 
-Etikettfiler innehåller nyckel värdes kopplingar som en användare har angett manuellt. De behövs för etiketterad data träning, men alla källfiler måste ha motsvarande etikett fil. Källfiler utan etiketter kommer att behandlas som vanliga utbildnings dokument. Vi rekommenderar fem eller fler märkta filer för tillförlitlig utbildning.
+Etikettfiler innehåller nyckel värdes kopplingar som en användare har angett manuellt. De behövs för etiketterad data träning, men alla källfiler måste ha motsvarande etikett fil. Källfiler utan etiketter kommer att behandlas som vanliga utbildnings dokument. Vi rekommenderar fem eller fler märkta filer för tillförlitlig utbildning. Du kan använda ett GRÄNSSNITTs verktyg som [exempel verktyget](./label-tool.md) för att generera dessa filer.
 
 När du skapar en etikett fil kan du välja att ange exakta regioner &mdash; för värdena i dokumentet. Detta ger inlärningen ännu högre noggrannhet. Regionerna är formaterade som en uppsättning av åtta värden som motsvarar fyra X, Y-koordinater: övre vänstra, övre högra, nedre högra och nedre vänstra. Koordinaternas värden är mellan noll och ett, skalas till sidans dimensioner.
 
@@ -187,8 +187,8 @@ För varje käll formulär bör motsvarande etikett fil ha det ursprungliga fil 
                 ...
 ```
 
-> [!NOTE]
-> Du kan bara använda en etikett för varje text element och varje etikett kan bara tillämpas en gång per sida. Du kan för närvarande inte tillämpa en etikett på flera sidor.
+> [!IMPORTANT]
+> Du kan bara använda en etikett för varje text element och varje etikett kan bara tillämpas en gång per sida. Du kan inte använda en etikett på flera sidor.
 
 
 ## <a name="train-a-model-using-labeled-data"></a>Träna en modell med hjälp av märkta data
@@ -554,4 +554,7 @@ Vi förstår att det här scenariot är viktigt för våra kunder och vi arbetar
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du använder formulär tolken REST API med python för att träna en modell med manuellt märkta data. Sedan läser du [API-referensens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) för att utforska formulärets tolknings-API i större djup.
+I den här snabb starten har du lärt dig hur du använder formulär tolken REST API med python för att träna en modell med manuellt märkta data. Sedan läser du API-referensens dokumentation för att utforska formulärets tolknings-API i större djup.
+
+> [!div class="nextstepaction"]
+> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

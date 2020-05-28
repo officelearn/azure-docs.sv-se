@@ -4,12 +4,12 @@ description: Förstå tjänster och händelse schema som stöds för Azures resu
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: 7183c0b268342d08fe7c0ed79c7fa589e3e28afe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b7b51417814e74cc7e3559029c9af8c35cbf6f2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128473"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016363"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Tjänster, scheman och kategorier som stöds för Azure-resurs loggar
 
@@ -24,22 +24,22 @@ En kombination av resurs typen (tillgänglig i `resourceId` egenskapen) och `cat
 
 | Name | Obligatorisk/valfri | Beskrivning |
 |---|---|---|
-| time | Krävs | Tids stämplingen (UTC) för händelsen. |
-| resourceId | Krävs | Resurs-ID för den resurs som har orsakat händelsen. För klient tjänster är detta av formatet/Tenants/Tenant-ID/providers/Provider-Name. |
+| time | Obligatorisk | Tids stämplingen (UTC) för händelsen. |
+| resourceId | Obligatorisk | Resurs-ID för den resurs som har orsakat händelsen. För klient tjänster är detta av formatet/Tenants/Tenant-ID/providers/Provider-Name. |
 | tenantId | Krävs för klient loggar | Klient-ID för den Active Directory klient som den här händelsen är kopplad till. Den här egenskapen används bara för loggar på klient nivå, den visas inte i loggar på resurs nivå. |
-| operationName | Krävs | Namnet på åtgärden som representeras av den här händelsen. Om händelsen representerar en RBAC-åtgärd är detta namnet på RBAC-åtgärden (t. ex. Microsoft. Storage/storageAccounts/blobServices/blobbar/Read). Vanligt vis modelleras i form av en Resource Manager-åtgärd, även om de inte är faktiska dokumenterade Resource Manager`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`-åtgärder () |
-| operationVersion | Valfri | Den API-version som är kopplad till åtgärden, om operationName utfördes med hjälp av ett API (t. ex. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Om det inte finns något API som motsvarar den här åtgärden representerar-versionen den åtgärd som är associerad med åtgärden i framtiden. |
-| category | Krävs | Händelsens logg kategori. Kategori är den granularitet som du kan använda för att aktivera eller inaktivera loggar för en viss resurs. Egenskaperna som visas i en händelses egenskaps-BLOB är desamma inom en viss logg kategori och resurs typ. Typiska logg kategorier är "granskning", "körning" och "begäran". |
-| resultType | Valfri | Händelsens status. Vanliga värden är startad, pågår, lyckades, misslyckades, aktivt och löst. |
-| resultSignature | Valfri | Händelsens under status. Om den här åtgärden motsvarar ett REST API-anrop är detta HTTP-statuskod för motsvarande REST-anrop. |
-| resultDescription | Valfri | Den statiska text beskrivningen för den här åtgärden, t. ex. "Hämta lagrings fil". |
-| durationMs | Valfri | Åtgärdens varaktighet i millisekunder. |
-| callerIpAddress | Valfri | IP-adressen för anroparen, om åtgärden motsvarar ett API-anrop som kommer från en entitet med en offentligt tillgänglig IP-adress. |
-| correlationId | Valfri | Ett GUID som används för att gruppera samman en uppsättning relaterade händelser. Normalt, om två händelser har samma operationName men två olika status värden (t. ex. "Startade" och "lyckades") delar samma korrelations-ID. Detta kan även representera andra relationer mellan händelser. |
-| identity | Valfri | En JSON-blob som beskriver identiteten för den användare eller det program som utförde åtgärden. Detta inkluderar vanligt vis auktorisering och anspråk/JWT-token från Active Directory. |
-| Nivå | Valfri | Händelsens allvarlighets grad. Måste vara en av information, varning, fel eller kritisk. |
-| location | Valfri | Den region i resursen som avger händelsen, t. ex. "USA, östra" eller "Frankrike, södra" |
-| properties | Valfri | Eventuella utökade egenskaper som är relaterade till den här specifika kategorin av händelser. Alla anpassade/unika egenskaper måste placeras i det här "del B" av schemat. |
+| operationName | Obligatorisk | Namnet på åtgärden som representeras av den här händelsen. Om händelsen representerar en RBAC-åtgärd är detta namnet på RBAC-åtgärden (t. ex. Microsoft. Storage/storageAccounts/blobServices/blobbar/Read). Vanligt vis modelleras i form av en Resource Manager-åtgärd, även om de inte är faktiska dokumenterade Resource Manager-åtgärder ( `Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>` ) |
+| operationVersion | Valfritt | Den API-version som är kopplad till åtgärden, om operationName utfördes med hjälp av ett API (t. ex. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Om det inte finns något API som motsvarar den här åtgärden representerar-versionen den åtgärd som är associerad med åtgärden i framtiden. |
+| category | Obligatorisk | Händelsens logg kategori. Kategori är den granularitet som du kan använda för att aktivera eller inaktivera loggar för en viss resurs. Egenskaperna som visas i en händelses egenskaps-BLOB är desamma inom en viss logg kategori och resurs typ. Typiska logg kategorier är "granskning", "körning" och "begäran". |
+| resultType | Valfritt | Händelsens status. Vanliga värden är startad, pågår, lyckades, misslyckades, aktivt och löst. |
+| resultSignature | Valfritt | Händelsens under status. Om den här åtgärden motsvarar ett REST API-anrop är detta HTTP-statuskod för motsvarande REST-anrop. |
+| resultDescription | Valfritt | Den statiska text beskrivningen för den här åtgärden, t. ex. "Hämta lagrings fil". |
+| durationMs | Valfritt | Åtgärdens varaktighet i millisekunder. |
+| callerIpAddress | Valfritt | IP-adressen för anroparen, om åtgärden motsvarar ett API-anrop som kommer från en entitet med en offentligt tillgänglig IP-adress. |
+| correlationId | Valfritt | Ett GUID som används för att gruppera samman en uppsättning relaterade händelser. Normalt, om två händelser har samma operationName men två olika status värden (t. ex. "Startade" och "lyckades") delar samma korrelations-ID. Detta kan även representera andra relationer mellan händelser. |
+| identity | Valfritt | En JSON-blob som beskriver identiteten för den användare eller det program som utförde åtgärden. Detta inkluderar vanligt vis auktorisering och anspråk/JWT-token från Active Directory. |
+| Nivå | Valfritt | Händelsens allvarlighets grad. Måste vara en av information, varning, fel eller kritisk. |
+| location | Valfritt | Den region i resursen som avger händelsen, t. ex. "USA, östra" eller "Frankrike, södra" |
+| properties | Valfritt | Eventuella utökade egenskaper som är relaterade till den här specifika kategorin av händelser. Alla anpassade/unika egenskaper måste placeras i det här "del B" av schemat. |
 
 ## <a name="service-specific-schemas-for-resource-logs"></a>Tjänstspecifika scheman för resurs loggar
 Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg kategori. I den här listan visas alla tjänster som gör tillgängliga resurs loggar och länkar till tjänsten och det projektspecifika schemat där det är tillgängligt.
@@ -50,7 +50,7 @@ Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg ka
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API Management resurs loggar](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Programgateways |[Loggning för Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
-| Azure Automation |[Log Analytics för Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
+| Azure Automatisering |[Log Analytics för Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch loggning](../../batch/batch-diagnostics.md) |
 | Azure Database for MySQL | [Azure Database for MySQL diagnostikloggar](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL loggar](../../postgresql/concepts-server-logs.md#resource-logs) |
@@ -74,9 +74,9 @@ Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg ka
 | DDOS-skydd | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
 | Dedikerad Power BI | [Loggning för Power BI Embedded i Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data modell för Azure Backup](../../backup/backup-azure-reports-data-model.md)|
-| Sök |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |
+| Search |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus loggar](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Azure SQL Database loggning](../../sql-database/sql-database-metrics-diag-logging.md) |
+| SQL Database | [Azure SQL Database loggning](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Jobbloggar](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Traffic Manager | [Traffic Manager logg schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtuella nätverk | Schemat är inte tillgängligt. |
@@ -84,7 +84,7 @@ Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg ka
 
 ## <a name="supported-log-categories-per-resource-type"></a>Logg kategorier som stöds per resurs typ
 
-Vissa kategorier kan bara användas för vissa typer av resurser. Det här är en lista över alla som är tillgängliga i ett visst formulär.  Till exempel är inte kategorierna Microsoft. SQL/Server/Databass tillgängliga för alla typer av databaser. Mer information finns i [information om SQL Database diagnostisk loggning](../../sql-database/sql-database-metrics-diag-logging.md). 
+Vissa kategorier kan bara användas för vissa typer av resurser. Det här är en lista över alla som är tillgängliga i ett visst formulär.  Till exempel är inte kategorierna Microsoft. SQL/Server/Databass tillgängliga för alla typer av databaser. Mer information finns i [information om SQL Database diagnostisk loggning](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 |Resurstyp|Kategori|Kategori visnings namn|
 |---|---|---|
@@ -311,7 +311,7 @@ Vissa kategorier kan bara användas för vissa typer av resurser. Det här är e
 |Microsoft. Web/Sites/lotss|AppServiceFileAuditLogs|Gransknings loggar för ändring av webbplats innehåll|
 |Microsoft. Web/Sites/lotss|AppServiceAuditLogs|Åtkomst gransknings loggar|
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Läs mer om resurs loggar](../../azure-monitor/platform/platform-logs-overview.md)
 * [Strömma resurs resurs loggar till **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)

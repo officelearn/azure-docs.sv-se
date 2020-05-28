@@ -3,17 +3,19 @@ title: Distributions historik
 description: Beskriver hur du visar Azure Resource Manager distributions åtgärder med portalen, PowerShell, Azure CLI och REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 1f22bdfac5eb12688a5b5778d4da1505e36ef6bf
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.date: 05/26/2020
+ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816292"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117840"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Visa distributions historik med Azure Resource Manager
 
-Med Azure Resource Manager kan du Visa distributions historiken och granska vissa åtgärder i tidigare distributioner. Du kan se de resurser som har distribuerats och få information om eventuella fel.
+Med Azure Resource Manager kan du Visa distributions historiken. Du kan undersöka vissa åtgärder i tidigare distributioner och se vilka resurser som har distribuerats. Den här historiken innehåller information om eventuella fel.
+
+Distributions historiken för en resurs grupp är begränsad till 800 distributioner. När du närmar dig gränsen raderas distributionerna automatiskt från historiken. Mer information finns i [automatiska borttagningar från distributions historiken](deployment-history-deletions.md).
 
 Information om hur du löser specifika distributions fel finns i [lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](common-deployment-errors.md).
 
@@ -117,7 +119,7 @@ Varje distribution kan innehålla flera åtgärder. Visa distributions åtgärde
 
 1. I sammanfattningen för en distribution väljer du **Åtgärds information**.
 
-    ![Välj distributions åtgärder](./media/deployment-history/get-operation-details.png)
+    ![Välj åtgärds information](./media/deployment-history/get-operation-details.png)
 
 1. Du ser informationen för det steget i distributionen. När ett fel uppstår innehåller informationen fel meddelandet.
 
@@ -210,6 +212,6 @@ Svaret innehåller ett fel meddelande.
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du löser specifika distributions fel finns i [lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](common-deployment-errors.md).
-* Information om hur du använder aktivitets loggarna för att övervaka andra typer av åtgärder finns i [Visa aktivitets loggar för att hantera Azure-resurser](../management/view-activity-logs.md).
+* Information om hur distributioner hanteras i historiken finns i [automatiska borttagningar från distributions historik](deployment-history-deletions.md).
 * Om du vill verifiera distributionen innan du kör den, se [distribuera en resurs grupp med Azure Resource Manager mall](deploy-powershell.md).
 

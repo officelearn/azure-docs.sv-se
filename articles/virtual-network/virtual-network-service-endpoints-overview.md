@@ -13,24 +13,24 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: ae9d219c376aa704be34088a4f7c48c35baa9669
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 4a2a7af23005e3c033d455d52f61cef2b7564b7f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509507"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018760"
 ---
 # <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
 Tjänst slut punkter för Virtual Network (VNet) utökar det privata adress utrymmet för det virtuella nätverket. Slut punkterna utökar också identiteten för ditt VNet till Azure-tjänsterna via en direkt anslutning. Med slutpunkter kan du skydda dina kritiska Azure-tjänstresurser till endast dina virtuella nätverk. Trafik från ditt VNet till Azure-tjänsten förblir alltid på Microsoft Azure-stamnätverket.
 
-Den här funktionen är tillgänglig för följande Azure-tjänster och-regioner. *Microsoft.\* * Resource är i parentes. Aktivera den här resursen från under näts sidan när du konfigurerar tjänstens slut punkter för tjänsten:
+Den här funktionen är tillgänglig för följande Azure-tjänster och-regioner. *Microsoft. \* * Resource är i parentes. Aktivera den här resursen från under näts sidan när du konfigurerar tjänstens slut punkter för tjänsten:
 
 **Allmänt tillgänglig**
 
 - **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft. Storage*): allmänt tillgänglig i alla Azure-regioner.
-- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): allmänt tillgängliga i alla Azure-regioner.
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): allmänt tillgängliga i alla Azure-regioner.
+- **[Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): allmänt tillgängliga i alla Azure-regioner.
+- **[Azure SQL Data Warehouse](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): allmänt tillgängliga i alla Azure-regioner.
 - **[Azure Database for postgresql server](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): allmänt tillgänglig i Azure-regioner där databas tjänsten är tillgänglig.
 - **[Azure Database for MySQL server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): allmänt tillgänglig i Azure-regioner där databas tjänsten är tillgänglig.
 - **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft. SQL*): allmänt tillgänglig i Azure-regioner där databas tjänsten är tillgänglig.
@@ -88,7 +88,7 @@ Tjänstslutpunkter har följande fördelar:
 - Det virtuella nätverket där slutpunkten konfigureras kan vara i samma prenumeration som Azure-tjänstresursen eller i en annan. Mer information om vilka behörigheter som krävs för att konfigurera slutpunkter och skydda Azure-tjänster finns under [Etablering](#provisioning).
 - För tjänster som stöds kan du skydda nya eller befintliga resurser i virtuella nätverk som använder tjänstslutpunkter.
 
-### <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Att tänka på
 
 - När du har aktiverat en tjänst slut punkt har käll-IP-adresserna för virtuella datorer i under näts växeln. Käll-IP-adresserna växlar från att använda offentliga IPv4-adresser för att använda sin privata IPv4-adress vid kommunikation med tjänsten från det under nätet. Befintliga öppna TCP-anslutningar till tjänsten stängs under bytet. Kontrollera att inga kritiska uppgifter körs när du aktiverar eller inaktiverar en tjänstslutpunkt för en tjänst för ett undernät. Kontrollera även att dina program ansluter automatiskt till Azure-tjänster efter IP-adressbytet.
 
@@ -147,9 +147,9 @@ Vanliga frågor och svar [Virtual Network finns i vanliga frågor och svar om se
 
 - [Konfigurera tjänstslutpunkter för virtuellt nätverk](tutorial-restrict-network-access-to-resources.md)
 - [Skydda ett Azure Storage-konto till ett virtuellt nätverk](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Skydda en Azure SQL Database till ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Skydda en Azure SQL Data Warehouse till ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+- [Skydda en Azure SQL Database till ett virtuellt nätverk](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Skydda en Azure SQL Data Warehouse till ett virtuellt nätverk](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Azure Service integration i virtuella nätverk](virtual-network-for-azure-services.md)
 - [Virtual Network tjänst slut punkts principer](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Azure Resource Manager mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
 

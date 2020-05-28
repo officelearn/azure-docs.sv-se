@@ -113,8 +113,6 @@
           href: how-to/ingress-https-nginx.md
         - name: Ansluta din utvecklingsdator till ett AKS-kluster (förhandsversion)
           href: how-to/connect.md
-        - name: Konfigurera ditt Azure Dev Spaces-kluster för att använda Helm 3 (förhandsversion)
-          href: how-to/helm-3.md
     - name: Felsökning
       href: troubleshooting.md
     - name: VANLIGA FRÅGOR OCH SVAR

@@ -1,6 +1,6 @@
 ---
-title: Självstudie`:` Använd en hanterad identitet för att få åtkomst till Azure SQL – Windows-Azure AD
-description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Windows-dator för att få åtkomst till Azure SQL.
+title: Självstudie `:` Använd en hanterad identitet för att komma åt Azure SQL Database-Windows-Azure AD
+description: En själv studie kurs som vägleder dig genom processen med att använda en Windows VM-systemtilldelad hanterad identitet för att få åtkomst till Azure SQL Database.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,68 +14,67 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fc5596c6914b77b09db10528af891d7e6bd0159
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd3d3aeecb66ba332d9c32c944d527ac3a07f2fe
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75977863"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014323"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure SQL
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-I den här självstudien lär du dig att komma åt en Azure SQL-server med en systemtilldelad identitet för en virtuell Windows-dator. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
+Den här självstudien visar hur du använder en systemtilldelad identitet för en virtuell Windows-dator (VM) för att få åtkomst till Azure SQL Database. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
 
 > [!div class="checklist"]
-> * Ge din virtuella dator åtkomst till en Azure SQL-server
-> * Aktivera Azure AD-autentisering för SQL-servern
+>
+> * Ge din VM-åtkomst till Azure SQL Database
+> * Aktivera Azure AD-autentisering
 > * Skapa en innesluten användare i databasen som representerar den virtuella datorns systemtilldelade identitet
-> * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använda den för att köra frågor mot en Azure SQL-server
+> * Hämta en åtkomsttoken med den virtuella dator identiteten och Använd den för att fråga Azure SQL Database
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
 
 ## <a name="enable"></a>Aktivera
 
 [!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
 
-
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-Du kan använda en befintlig SQL-server eller skapa en ny om du vill bevilja en databas i Azure SQL Server åtkomst till din virtuella dator. Om du vill skapa en ny server och en databas med hjälp av Azure-portalen följer du den här [Azure SQL-snabbstarten](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [Azure SQL-dokumentationen](https://docs.microsoft.com/azure/sql-database/).
+Om du vill ge din VM åtkomst till en databas i Azure SQL Database kan du använda en befintlig [logisk SQL-Server](../../azure-sql/database/logical-servers.md) eller skapa en ny. Om du vill skapa en ny server och en databas med hjälp av Azure-portalen följer du den här [Azure SQL-snabbstarten](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [Azure SQL-dokumentationen](https://docs.microsoft.com/azure/sql-database/).
 
 Det finns två steg för att ge den virtuella datorn åtkomst till en databas:
 
-1. Aktivera Azure AD-autentisering för SQL-servern.
+1. Aktivera Azure AD-autentisering för servern.
 2. Skapa en **innesluten användare** i databasen som representerar den virtuella datorns systemtilldelade identitet.
 
 ### <a name="enable-azure-ad-authentication"></a>Aktivera Azure AD-autentisering
 
-**[Konfigurera Azure AD-autentisering för SQL Server](/azure/sql-database/sql-database-aad-authentication-configure):**
+**Så här [konfigurerar du Azure AD-autentisering](/azure/sql-database/sql-database-aad-authentication-configure):**
 
-1.  I Azure-portalen väljer du **SQL-servrar** från det vänstra navigeringsfältet.
-2.  Klicka på den SQL server som ska aktiveras för Azure AD-autentisering.
-3.  I avsnittet **Inställningar** avsnittet på bladet klickar du på **Active Directory-administratör**.
-4.  I kommandofältet klickar du på **Konfigurera administratör**.
-5.  Välj ett Azure AD-användarkonto som ska bli administratör för servern och klicka på **Välj**.
-6.  I kommandofältet klickar du på **Spara**.
+1. I Azure-portalen väljer du **SQL-servrar** från det vänstra navigeringsfältet.
+2. Klicka på den SQL server som ska aktiveras för Azure AD-autentisering.
+3. I avsnittet **Inställningar** avsnittet på bladet klickar du på **Active Directory-administratör**.
+4. I kommandofältet klickar du på **Konfigurera administratör**.
+5. Välj ett Azure AD-användarkonto som ska bli administratör för servern och klicka på **Välj**.
+6. I kommandofältet klickar du på **Spara**.
 
 ### <a name="create-contained-user"></a>Skapa innesluten användare
 
 I det här avsnittet visas hur du skapar en innesluten användare i databasen som representerar den virtuella datorns tilldelade identitet. För det här steget behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Innan du börjar kan det också vara bra att granska följande artiklar för att få bakgrundsinformation om Azure AD-integrering:
 
-- [Universell autentisering med SQL Database och SQL Data Warehouse (SSMS-stöd för MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-- [Konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+* [Universell autentisering med SQL Database och SQL Data Warehouse (SSMS-stöd för MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+* [Konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
-SQL DB kräver unika AAD-visningsnamn. Med detta måste AAD-konton, till exempel användare, grupper och tjänstens huvudnamn (program) och namn på virtuella datorer som aktiverats för hanterad identitet definieras unikt i AAD om sina visningsnamn. SQL DB kontrollerar AADs visnings namn vid T-SQL-skapandet av sådana användare och om det inte är unikt, Miss lyckas begäran att tillhandahålla ett unikt AAD-visnings namn för ett angivet konto.
+SQL Database kräver unika AAD-visnings namn. Med detta måste AAD-konton, till exempel användare, grupper och tjänstens huvudnamn (program) och namn på virtuella datorer som aktiverats för hanterad identitet definieras unikt i AAD om sina visningsnamn. SQL Database kontrollerar AADs visnings namn under T-SQL-skapandet av sådana användare och om det inte är unikt, Miss lyckas begäran att tillhandahålla ett unikt AAD-visnings namn för ett angivet konto.
 
 **Så här skapar du en innesluten användare:**
 
 1. Starta SQL Server Management Studio.
-2. I dialogrutan **Anslut till server** anger du SQL-servernamnet i fältet **Servernamn**.
+2. I dialog rutan **Anslut till Server** anger du Server namnet i fältet **Server namn** .
 3. I fältet **Autentisering** väljer du **Active Directory – Universell med stöd för MFA**.
 4. I fältet **Användarnamn** anger du namnet på det Azure AD-konto som du anger som serveradministratör, till exempel helen@woodgroveonline.com
 5. Klicka på **Alternativ**.
@@ -87,30 +86,30 @@ SQL DB kräver unika AAD-visningsnamn. Med detta måste AAD-konton, till exempel
 
     > [!NOTE]
     > `VMName` i följande kommando är namnet på den virtuella datorn som du har aktiverat systemtilldelad identitet på i avsnittet om förutsättningar.
-    
-    ```
+
+    ```sql
     CREATE USER [VMName] FROM EXTERNAL PROVIDER
     ```
-    
+
     Kommandot bör slutföras utan problem och skapa den inneslutna användaren för den virtuella datorns systemtilldelade identitet.
 11. Rensa frågefönstret, ange följande rad och klicka på **Kör** i verktygsfältet:
 
     > [!NOTE]
     > `VMName` i följande kommando är namnet på den virtuella datorn som du har aktiverat systemtilldelad identitet på i avsnittet om förutsättningar.
-    
-    ```
+
+    ```sql
     ALTER ROLE db_datareader ADD MEMBER [VMName]
     ```
 
     Kommandot bör slutföras utan problem och bevilja den inneslutna användaren möjligheten att läsa hela databasen.
 
-Kod som körs i den virtuella datorn kan nu få en token från den systemtilldelade hanterade identiteten och använda token för att autentisera till SQL-servern.
+Kod som körs i den virtuella datorn kan nu hämta en token med sin tilldelade hanterade identitet och använda token för att autentisera till servern.
 
 ## <a name="access-data"></a>Åtkomst till data
 
 Det här avsnittet visar hur du hämtar en åtkomsttoken med den virtuella datorns systemtilldelade identitet och använder den för att anropa Azure SQL. Azure SQL har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med hanterade identiteter för Azure-resurser kan accepteras direkt. Du använder metoden med **åtkomsttoken** för att skapa en anslutning till SQL. Detta är en del av integreringen av Azure SQL med Azure AD, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 
-Här är ett .NET-kod exempel för att öppna en anslutning till SQL med hjälp av en åtkomsttoken. Koden måste köras på den virtuella datorn om du vill komma åt slutpunkten för den virtuella datorns systemtilldelade hanterade identitet. **.NET Framework 4,6** eller högre eller **.net Core 2,2** eller högre krävs för att använda åtkomsttoken. Ersätt värdena för AZURE-SQL-SERVERNAME och DATABASE i enlighet med detta. Observera resurs-ID: t för Azure `https://database.windows.net/`SQL.
+Här är ett .NET-kod exempel för att öppna en anslutning till SQL med hjälp av en åtkomsttoken. Koden måste köras på den virtuella datorn om du vill komma åt slutpunkten för den virtuella datorns systemtilldelade hanterade identitet. **.NET Framework 4,6** eller högre eller **.net Core 2,2** eller högre krävs för att använda åtkomsttoken. Ersätt värdena för AZURE-SQL-SERVERNAME och DATABASE i enlighet med detta. Observera resurs-ID: t för Azure SQL `https://database.windows.net/` .
 
 ```csharp
 using System.Net;
@@ -144,7 +143,7 @@ catch (Exception e)
 }
 
 //
-// Open a connection to the SQL server using the access token.
+// Open a connection to the server using the access token.
 //
 if (accessToken != null) {
     string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>;";
@@ -156,29 +155,29 @@ if (accessToken != null) {
 
 Du kan snabbt testa konfigurationen av slutpunkt till slutpunkt utan att behöva skriva och distribuera en app på den virtuella datorn med hjälp av PowerShell.
 
-1.  Gå till **Virtuella datorer** på portalen och sedan till den virtuella Windows-datorn. Under **Översikt** klickar du på **Anslut**.
-2.  Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn.
-3.  Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du **PowerShell** i fjärrsessionen.
-4.  Använd PowerShells `Invoke-WebRequest` och skicka en begäran till den lokala hanterade identitetens slutpunkt för att hämta en åtkomsttoken för Azure SQL.
+1. Gå till **Virtuella datorer** på portalen och sedan till den virtuella Windows-datorn. Under **Översikt** klickar du på **Anslut**.
+2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn.
+3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du **PowerShell** i fjärrsessionen.
+4. Använd PowerShells `Invoke-WebRequest` och skicka en begäran till den lokala hanterade identitetens slutpunkt för att hämta en åtkomsttoken för Azure SQL.
 
     ```powershell
         $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
-    
-    Konvertera svaret från ett JSON-objekt till ett PowerShell-objekt. 
-    
+
+    Konvertera svaret från ett JSON-objekt till ett PowerShell-objekt.
+
     ```powershell
     $content = $response.Content | ConvertFrom-Json
     ```
 
     Extrahera åtkomsttoken från svaret.
-    
+
     ```powershell
     $AccessToken = $content.access_token
     ```
 
-5. Öppna en anslutning till SQL-servern. Kom ihåg att ersätta värdena för AZURE-SQL-SERVERNAME och DATABASE.
-    
+5. Öppna en anslutning till servern. Kom ihåg att ersätta värdena för AZURE-SQL-SERVERNAME och DATABASE.
+
     ```powershell
     $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
     $SqlConnection.ConnectionString = "Data Source = <AZURE-SQL-SERVERNAME>; Initial Catalog = <DATABASE>"
@@ -200,15 +199,13 @@ Du kan snabbt testa konfigurationen av slutpunkt till slutpunkt utan att behöva
 
 Kontrollera värdet på `$DataSet.Tables[0]` för att visa resultatet av frågan.
 
-
 ## <a name="disable"></a>Inaktivera
 
 [!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du använder en systemtilldelad hanterad identitet för att få åtkomst till Azure SQL Server. Läs mer om Azure SQL Server här:
+I den här självstudien har du lärt dig hur du använder en systemtilldelad hanterad identitet för att få åtkomst till Azure SQL Database. Mer information om Azure SQL Database finns i:
 
 > [!div class="nextstepaction"]
-> [Azure SQL Database-tjänsten](/azure/sql-database/sql-database-technical-overview)
+> [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)

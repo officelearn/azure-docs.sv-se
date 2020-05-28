@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d97fae777b06625488234eb6d48a74a60a83f4d6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382728"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018726"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
@@ -37,13 +37,13 @@ Den här självstudien omfattar följande uppgifter:
 > * Transformera data med Azure Databricks.
 > * Läs in data i Azure Synapse.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
 > Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
      
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför de här uppgifterna innan du startar självstudien:
 
@@ -93,7 +93,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
     ![Skapa en resurs på Azure Portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png)
 
-    Välj sedan **analys** > **Azure Databricks**.
+    Välj sedan **analys**  >  **Azure Databricks**.
 
     ![Skapa Azure Databricks på Azure Portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-resource-create.png)
 
@@ -370,7 +370,7 @@ Som tidigare nämnts använder Azure Synapse-anslutningen Azure Blob Storage som
    > [!NOTE]
    > Det här exemplet använder `forward_spark_azure_storage_credentials` -flaggan, som gör att Azure-Synapse kan komma åt data från Blob Storage med hjälp av en åtkomst nyckel. Detta är den enda autentiseringsmetoden som stöds.
    >
-   > Om din Azure-Blob Storage är begränsad till att välja virtuella nätverk, kräver Azure Synapse [hanterad tjänstidentitet i stället för åtkomst nycklar](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Detta kommer att orsaka felet "denna begäran har inte behörighet att utföra den här åtgärden."
+   > Om din Azure-Blob Storage är begränsad till att välja virtuella nätverk, kräver Azure Synapse [hanterad tjänstidentitet i stället för åtkomst nycklar](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Detta kommer att orsaka felet "denna begäran har inte behörighet att utföra den här åtgärden."
 
 6. Anslut till SQL-databasen och kontrollera att du ser en databas med namnet **SampleTable**.
 

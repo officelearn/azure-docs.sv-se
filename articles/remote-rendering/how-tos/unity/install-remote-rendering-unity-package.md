@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 86ffe47c009f9e0ae121ffc6ab57bff8fb73210f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3375b28d94956d5c368db4bf3026bdf52ee2d58e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681186"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021151"
 ---
 # <a name="install-the-remote-rendering-package-for-unity"></a>Installera Remote Rendering-paketet för Unity
 
@@ -43,9 +43,9 @@ Mer omfattande instruktioner finns i [självstudien: Konfigurera ett Unity-proje
 
 ## <a name="unity-render-pipelines"></a>Unity Render-pipeline
 
-Fjärrrendering fungerar med både den **universella åter givnings pipelinen** och **standard åter givnings pipelinen**. Av prestanda skäl rekommenderas den universella åter givnings pipelinen.
+Fjärrrendering fungerar med både **:::no-loc text="Universal render pipeline":::** och **:::no-loc text="Standard render pipeline":::** . Av prestanda skäl rekommenderas den universella åter givnings pipelinen.
 
-Om du vill använda **pipeline för universell Render**måste dess paket installeras i Unity. Detta kan antingen göras i enhetens **paket hanterings** gränssnitt (paket namn **Universal RP**, version 7.2.1 eller senare) eller via `Packages/manifest.json` filen, enligt beskrivningen i [själv studie kursen om installation av Unity-projekt](../../tutorials/unity/project-setup.md#configure-the-projects-manifest).
+Om du vill använda **:::no-loc text="Universal render pipeline":::** paketet måste dess paket installeras i Unity. Detta kan antingen göras i enhetens **paket hanterings** gränssnitt (paket namn **Universal RP**, version 7.2.1 eller senare) eller via `Packages/manifest.json` filen, enligt beskrivningen i [själv studie kursen om installation av Unity-projekt](../../tutorials/unity/project-setup.md#configure-the-projects-manifest).
 
 ## <a name="next-steps"></a>Nästa steg
 

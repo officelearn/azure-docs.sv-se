@@ -1,0 +1,65 @@
+---
+title: Machine Learning Services i Azure SQL-hanterad instans (för hands version)
+description: Den här artikeln innehåller en översikt eller Machine Learning Services i Azure SQL-hanterad instans.
+services: sql-database
+ms.service: sql-database
+ms.subservice: machine-learning
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: garyericson
+ms.author: garye
+ms.reviewer: carlrab, davidph
+manager: cgronlun
+ms.date: 05/27/2020
+ms.openlocfilehash: fb74cc3aba3ad37e36a4d7cbe726bde4cb088e90
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84045104"
+---
+# <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services i Azure SQL-hanterad instans (för hands version)
+
+Machine Learning Services är en funktion i Azure SQL-hanterad instans (för hands version) som tillhandahåller maskin inlärning i databasen med stöd för både python-och R-skript. Funktionen innehåller Microsoft python-och R-paket för förutsägelse analys och maskin inlärning med höga prestanda. Relations data kan användas i skript genom lagrade procedurer, T-SQL-skript som innehåller python-eller R-uttryck, eller python-eller R-kod som innehåller T-SQL.
+
+> [!IMPORTANT]
+> Machine Learning Services är en funktion i Azure SQL-hanterad instans som för närvarande finns i en offentlig för hands version.
+> Den här förhands gransknings funktionen är inlednings vis tillgänglig i ett begränsat antal regioner i USA, Europa, och Australien med ytterligare regioner som läggs till senare.
+>
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> [Registrera dig för för hands versionen](#signup) nedan.
+
+## <a name="what-is-machine-learning-services"></a>Vad är Machine Learning Services?
+
+Machine Learning Services i Azure SQL-hanterad instans kan du köra python-och R-skript i-databasen. Du kan använda den för att förbereda och rensa data, utföra funktions teknik och träna, utvärdera och distribuera maskin inlärnings modeller i en databas. Funktionen kör skripten där data finns och eliminerar överföringen av data över nätverket till en annan server.
+
+Använd Machine Learning Services med R/python-stöd i Azure SQL-hanterad instans för att:
+
+- **Kör r-och Python-skript för förberedelse av data och generell användning av data bearbetning** – du kan nu hämta R/Python-skript till Azure SQL-hanterad instans där dina data finns, i stället för att behöva flytta ut data till en annan server för att köra R-och Python-skript. Du kan eliminera behovet av data förflyttning och relaterade problem som rör svars tid, säkerhet och efterlevnad.
+
+- **Träna maskin inlärnings modeller i databasen** – du kan träna modeller med alla algoritmer för öppen källkod. Du kan enkelt skala din utbildning till hela data uppsättningen i stället för att förlita dig på exempel data uppsättningar som hämtas från databasen.
+
+- **Distribuera modeller och skript till produktion i lagrade procedurer** – skripten och de tränade modellerna kan användas helt enkelt genom att de bäddas in i T-SQL-lagrade procedurer. Appar som ansluter till en hanterad Azure SQL-instans kan dra nytta av förutsägelser och intelligens i dessa modeller genom att bara anropa en lagrad procedur. Du kan också använda den inbyggda T-SQL PREDICT-funktionen för att operationalisera modeller för snabba resultat i scenarier med real tids resultat i real tid.
+
+Bas distributioner av python och R ingår i Machine Learning Services. Du kan installera och använda paket och ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-lär, förutom Microsoft-paketen [revoscalepy](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-revoscalepy) och [microsoftml](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-microsoftml) för python, och [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler), [microsoftml](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml), [OLAP](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-olapr)och [sqlrutils](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-sqlrutils) för R.
+
+<a name="signup"></a>
+
+## <a name="sign-up-for-the-preview"></a>Registrera dig för förhandsversionen
+
+Denna begränsade offentliga för hands version omfattas av [villkoren för för hands versionen av Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+
+Om du är intresse rad av att delta i för hands versions programmet och accepterar dessa villkor kan du begära registrering genom att skapa ett support ärende för Azure på [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/) . För "typ av problem" väljer du "teknisk" för "tjänst" Välj "SQL Database Hanterad instans" och för "problem typ" väljer du "Övrigt". I din begäran kan du ange att du vill vara registrerad i begränsad, offentlig för hands version av Machine Learning för SQL-hanterad instans med följande information: namn på logisk server, region och prenumerations-ID.
+
+När du har registrerat dig i programmet kommer Microsoft att publicera dig till den allmänt tillgängliga för hands versionen och aktivera Machine Learning Services för din befintliga eller nya databas.
+
+Machine Learning Services i SQL-hanterad instans rekommenderas inte för produktions arbets belastningar under den offentliga för hands versionen.
+
+## <a name="next-steps"></a>Nästa steg
+
+- Se [viktiga skillnader från SQL Server Machine Learning Services](machine-learning-services-differences.md).
+- Information om hur du använder python i Machine Learning Services finns i [köra Python-skript](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
+- Information om hur du använder R i Machine Learning Services finns i [Kör R-skript](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).

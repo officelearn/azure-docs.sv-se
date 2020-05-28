@@ -3,26 +3,26 @@ title: Support mat ris för säkerhets kopiering av Azure-filresurs
 description: Innehåller en översikt över support inställningar och begränsningar när du säkerhetskopierar Azure-filresurser.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 42578cc83ef193801fa700ec7d136385411e5f79
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 09ca5264280c990db8f57400aef1a876f842a210
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684618"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117687"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Support mat ris för säkerhets kopiering av Azure-filresurs
 
 Du kan använda [tjänsten Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) för att säkerhetskopiera Azure-filresurser. I den här artikeln sammanfattas support inställningarna när du säkerhetskopierar Azure-filresurser med Azure Backup.
 
-## <a name="supported-geos"></a>GEOGRAFISKA områden som stöds
+## <a name="supported-regions"></a>Regioner som stöds
 
-Säkerhets kopiering av Azure-filresurser finns i följande geografiska områden:
+### <a name="ga-regions-for-azure-file-shares-backup"></a>GA-regioner för säkerhets kopiering av Azure-filresurser
 
-**Ga-regioner**:<br>
-Sydöstra Australien (ASE), Kanada, centrala (CNC), västra centrala USA (WCUS), södra centrala USA (SCUS), västra USA 2 (WUS 2). Indien, södra centrala USA (NCUS), Japan, östra (JPE), södra Brasilien (BRS), Asien, sydöstra (SEA), Schweiz, västra (SZW), Förenade Arabemiraten Central (UAC), Norge, östra (NVI), västra Indien (INW), Australien, centrala (KRC), västra Japan (JPW), södra Nord USA (SAN) , Storbritannien, södra (UKS), Storbritannien, västra (UKW), Korea, södra (KRS), Nord Europa (NE), Tyskland, norra (GN), Norge, västra (NWW), södra Afrika (såg), Schweiz, norra (SZN), Tyskland, västra centrala (GWC), Förenade Arabemiraten Nord (UAN), Frankrike Central (FRC), Indien Central (INC), Östra Kanada (CNE), Asien, östra (EA), östra Australien (AE), Central USA (CUS), västra USA (WUS), US Gov, Arizona (UGA), US Gov, Texas (UGT) , US Gov, Virginia (UGV), US DoD, centrala (UDC), US DoD, östra (OMMANDOT)
+Säkerhets kopiering av Azure-filresurser är tillgänglig i alla regioner **utom** : Tyskland, Tyskland (suverän), Tyskland nordöstra (suverän), Kina, östra, Kina, östra 2, Kina, norra, Kina, norra 2, US gov, Iowa
 
-**Regioner som stöds (som en del av förhands granskning) men ännu inte ga**:<br>
-USA, östra (EUS), östra USA 2 (EUS2), Västeuropa (USA)
+### <a name="supported-regions-for-accidental-delete-protection"></a>Regioner som stöds för oavsiktligt borttagnings skydd
+
+USA, västra centrala
 
 ## <a name="supported-storage-accounts"></a>Lagringskonton som stöds
 

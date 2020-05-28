@@ -22,7 +22,7 @@ Ett exempel på en C#-lösning med kod som medföljer den här artikeln finns p�
 > Alternativt kan du konfigurera batch-lösningen så att den visar Application Insights data, till exempel prestanda räknare för virtuella datorer i Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett kostnads fritt, fristående klient verktyg med omfattande funktioner som hjälper dig att skapa, felsöka och övervaka Azure Batch program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows. Se [batch-Insights-lagrings platsen](https://github.com/Azure/batch-insights) för snabb steg för att aktivera Application Insights data i batch Explorer. 
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs)
 
 * [Batch-konto och länkat lagrings konto](batch-account-create-portal.md)

@@ -5,18 +5,14 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 26a38c0851643fbd6446acddd99a05abf8d5b26c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9bb9ee93be4e045b52355255ecb86e54e48e5c5d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836659"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117419"
 ---
 # <a name="remove-vms-from-update-management"></a>Ta bort virtuella datorer från Uppdateringshantering
-
-## <a name="sign-in-to-azure"></a>Logga in på Azure
-
-Logga in på Azure Portal på https://portal.azure.com.
 
 När du är klar med att distribuera uppdateringar av virtuella datorer i din miljö kan du ta bort dem från [uppdateringshantering](automation-update-management.md) -funktionen.
 
@@ -28,7 +24,7 @@ När du är klar med att distribuera uppdateringar av virtuella datorer i din mi
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. Öppna de sparade sökningarna i arbets ytan Log Analytics under **Allmänt**.
+3. I arbets ytan Log Analytics under **Allmänt**går du till sparade sökningar efter omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates` .
 
 4. För den sparade sökningen `MicrosoftDefaultComputerGroup` klickar du på ellipsen till höger och väljer **Redigera**. 
 

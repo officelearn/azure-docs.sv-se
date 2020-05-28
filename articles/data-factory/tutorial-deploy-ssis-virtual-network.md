@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 3dd2be9a9f618f19ae71de8b19115013896b10cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b83049e154afc48334cc6deb576c700ed71d844
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195561"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118147"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Konfigurera en Azure-SQL Server Integration Services (SSIS) integration Runtime (IR) för att ansluta till ett virtuellt nätverk
 
@@ -29,14 +29,14 @@ Stegen är:
 - Konfigurera ett virtuellt nätverk.
 - Anslut Azure-SSIS IR till ett virtuellt nätverk från Azure Data Factory Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-SSIS integration runtime**. Om du inte har en Azure-SSIS integration runtime, [etablera en Azure-SSIS integration runtime i Azure Data Factory](tutorial-deploy-ssis-packages-azure.md) innan du börjar.
 
 - **Användar behörighet**. Den användare som skapar Azure-SSIS IR måste ha [roll tilldelningen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope) minst på Azure Data Factory resurs med något av alternativen nedan:
 
-    - Använd den inbyggda rollen nätverks deltagare. Den här rollen ingår i _Microsoft. Network/\* _ permission, som har en mycket större omfattning än vad som behövs.
-    - Skapa en anpassad roll som endast innehåller nödvändig _Microsoft. Network/virtualNetworks//Join/Action\*-_ behörighet. Om du även vill ta med dina egna offentliga IP-adresser för Azure-SSIS IR när du ansluter till den till ett Azure Resource Manager virtuellt nätverk, kan du även ta med _Microsoft. Network/publicIPAddresses/*/Join/Action-_ behörighet i rollen.
+    - Använd den inbyggda rollen nätverks deltagare. Den här rollen ingår i _Microsoft. Network/ \* _ permission, som har en mycket större omfattning än vad som behövs.
+    - Skapa en anpassad roll som endast innehåller nödvändig _Microsoft. Network/virtualNetworks/ \* /Join/Action-_ behörighet. Om du även vill ta med dina egna offentliga IP-adresser för Azure-SSIS IR när du ansluter till den till ett Azure Resource Manager virtuellt nätverk, kan du även ta med _Microsoft. Network/publicIPAddresses/*/Join/Action-_ behörighet i rollen.
 
 - **Virtuellt nätverk**.
 
@@ -45,8 +45,8 @@ Stegen är:
     - Kontrol lera att det virtuella nätverkets resurs grupp kan skapa och ta bort vissa Azure-nätverks resurser.
     
         Azure-SSIS IR måste skapa vissa nätverks resurser i samma resurs grupp som det virtuella nätverket. Dessa resurser omfattar:
-        - En Azure Load Balancer med namnet * \<GUID>-azurebatch-cloudserviceloadbalancer*
-        - En nätverks säkerhets grupp med namnet *\<GUID>-azurebatch-cloudservicenetworksecuritygroup
+        - En Azure Load Balancer med namnet * \<Guid> -azurebatch-cloudserviceloadbalancer*
+        - En nätverks säkerhets grupp med namnet * \<Guid> -azurebatch-cloudservicenetworksecuritygroup
         - En offentlig Azure-IP-adress med namnet-azurebatch-cloudservicepublicip
     
         De här resurserna kommer att skapas när din Azure-SSIS IR startas. De kommer att tas bort när Azure-SSIS IR stoppar. För att undvika att blockera Azure-SSIS IR från att stoppa kan du inte återanvända de här nätverks resurserna i dina andra resurser.
@@ -86,7 +86,7 @@ Använd Azure Portal för att konfigurera ett virtuellt nätverk innan du förs�
 
     - Kontrol lera att det undernät du väljer har tillräckligt med ledigt adress utrymme för att Azure-SSIS IR ska kunna använda. Lämna tillgängliga IP-adresser för minst två gånger IR-nodnummer. Azure reserverar vissa IP-adresser i varje undernät. De här adresserna kan inte användas. De första och sista IP-adresserna i under näten är reserverade för protokoll överensstämmelse och tre fler adresser används för Azure-tjänster. Mer information finns i finns [det några begränsningar för att använda IP-adresser i dessa undernät?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
     - Välj inte GatewaySubnet för att distribuera en Azure-SSIS IR. Den är dedikerad för virtuella nätverks-gatewayer.
-    - Använd inte ett undernät som uteslutande används av andra Azure-tjänster (till exempel SQL Database Hanterad instans, App Service och så vidare).
+    - Använd inte ett undernät som uteslutande används av andra Azure-tjänster (till exempel SQL Database SQL-hanterad instans, App Service och så vidare).
 
 1. Verifiera att Azure Batch-providern är registrerad i Azure-prenumerationen som har det virtuella nätverket. Eller registrera Azure Batch-providern. Om du redan har ett Azure Batch konto i din prenumeration registreras din prenumeration för Azure Batch. (Om du skapar Azure-SSIS IR i Data Factory Portal registreras Azure Batch-providern automatiskt åt dig.)
 
@@ -137,9 +137,9 @@ När du har konfigurerat ditt Azure Resource Manager virtuella nätverk eller et
 
    1. I **typ**väljer du typ av virtuellt nätverk: klassisk eller Azure Resource Manager. Vi rekommenderar att du väljer ett Azure Resource Manager virtuellt nätverk, eftersom klassiska virtuella nätverk snart kommer att bli föråldrade.
 
-   1. För **VNet-namn**väljer du namnet på ditt virtuella nätverk. Det bör vara samma som används för din Azure SQL Database-Server med tjänst slut punkter för virtuella nätverk eller en hanterad instans med privat slut punkt som värd för SSISDB. Eller bör vara samma som den som är ansluten till ditt lokala nätverk. Annars kan det vara ett virtuellt nätverk för att ta med egna statiska offentliga IP-adresser för Azure-SSIS IR.
+   1. För **VNet-namn**väljer du namnet på ditt virtuella nätverk. Det bör vara samma som används för SQL Database med tjänst slut punkter för virtuella nätverk eller SQL-hanterad instans med privat slut punkt som värd för SSISDB. Eller bör vara samma som den som är ansluten till ditt lokala nätverk. Annars kan det vara ett virtuellt nätverk för att ta med egna statiska offentliga IP-adresser för Azure-SSIS IR.
 
-   1. För **under näts namn**väljer du namnet på under nätet för ditt virtuella nätverk. Det bör vara samma som används för din Azure SQL Database-Server med tjänst slut punkter för virtuella nätverk som värd för SSISDB. Eller bör vara ett annat undernät än det som används för din hanterade instans med privat slut punkt som värd för SSISDB. Annars kan det vara vilket undernät som helst för att ta med egna statiska IP-adresser för Azure-SSIS IR.
+   1. För **under näts namn**väljer du namnet på under nätet för ditt virtuella nätverk. Det bör vara samma som används för SQL-datbase med tjänst slut punkter för virtuella nätverk som värd för SSISDB. Eller bör vara ett annat undernät än det som används för din SQL-hanterade instans med privat slut punkt som värd för SSISDB. Annars kan det vara vilket undernät som helst för att ta med egna statiska IP-adresser för Azure-SSIS IR.
 
    1. Välj **VNet-validering**. Om verifieringen lyckas väljer du **Fortsätt**.
 

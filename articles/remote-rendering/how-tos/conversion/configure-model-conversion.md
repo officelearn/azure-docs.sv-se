@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 83f80f893620a225c928be2ad7ad1679b3a9c465
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 104a583122fa08cf145191b8bcee49ce5f042599
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652227"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021406"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurera modellkonverteringen
 
@@ -74,7 +74,7 @@ Den slutgiltiga skalnings faktorn tillämpas på geometri hörnen och de lokala 
 Centrering är viktigt om käll modellen har förplacerats långt från ursprunget, eftersom problem med flytt ALS precision kan orsaka åter givning av artefakter.
 
 * `opaqueMaterialDefaultSidedness`– Åter givnings motorn förutsätter att ogenomskinligt material är dubbels idiga.
-Om det inte är det avsedda beteendet ska den här parametern anges till "SingleSided". Mer information finns i [enkel sida åter givning](../../overview/features/single-sided-rendering.md).
+Om det inte är det avsedda beteendet ska den här parametern anges till "SingleSided". Mer information finns i [ :::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Åsidosättningar av material
 
@@ -90,7 +90,7 @@ Om det inte är det avsedda beteendet ska den här parametern anges till "Single
 Om en modell definieras med hjälp av gamma avstånd ska dessa alternativ anges till sant.
 
 * `gammaToLinearMaterial`– Konvertera material färger från gamma avstånd till linjärt utrymme
-* `gammaToLinearVertex`-Konvertera hörn färger från gamma avstånd till linjärt utrymme
+* `gammaToLinearVertex`– Konvertera :::no-loc text="vertex"::: färger från gamma avstånd till linjärt utrymme
 
 > [!NOTE]
 > För FBX-filer är inställningarna inställda på `true` som standard. För alla andra filtyper är standardvärdet `false` .
@@ -127,12 +127,12 @@ Varje läge har olika körnings prestanda. I `dynamic` läget skalas prestanda k
 
 * `axis`– Om du vill åsidosätta koordinatsystemet för enhet – vektorer. Standardvärden är `["+x", "+y", "+z"]` . I teorin har FBX-formatet ett sidhuvud där dessa vektorer är definierade och konverteringen använder den informationen för att transformera scenen. GlTF-formatet definierar också ett fast koordinatsystem. I praktiken har vissa till gångar antingen felaktig information i sidhuvudet eller sparats med en annan konvention för koordinerade system. Med det här alternativet kan du åsidosätta koordinatsystemet. Exempel: `"axis" : ["+x", "+z", "-y"]` utbyte Z-axeln och y-axeln och behåll koordinatsystemet genom att invertera Y-axelns riktning.
 
-### <a name="vertex-format"></a>Hörn format
+### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::formatering
 
-Det går att justera hörn formatet för ett nät, till handels precision för minnes besparingar. Med ett lägre minnes utrymme kan du läsa in större modeller eller få bättre prestanda. Men beroende på dina data kan fel format kraftigt påverka åter givnings kvaliteten.
+Det är möjligt att justera :::no-loc text="vertex"::: formatet för ett nät till handels precision för minnes besparingar. Med ett lägre minnes utrymme kan du läsa in större modeller eller få bättre prestanda. Men beroende på dina data kan fel format kraftigt påverka åter givnings kvaliteten.
 
 > [!CAUTION]
-> Att ändra hörn formatet ska vara en sista utväg när modeller inte längre ryms i minnet eller när de optimeras för bästa möjliga prestanda. Ändringar kan enkelt introducera åter givnings artefakter, både uppenbara och diskreta. Om du inte vet vad du ska titta närmare på, bör du inte ändra standardvärdet.
+> Att ändra :::no-loc text="vertex"::: formatet bör vara en sista utväg när modeller inte längre ryms i minnet eller när de optimeras för bästa möjliga prestanda. Ändringar kan enkelt introducera åter givnings artefakter, både uppenbara och diskreta. Om du inte vet vad du ska titta närmare på, bör du inte ändra standardvärdet.
 
 Dessa justeringar är möjliga:
 
@@ -159,11 +159,11 @@ Följande `vertex` avsnitt i `.json` filen är valfritt. För varje del som inte
 
 Genom att tvinga en komponent till `NONE` garanterar vi att utmatnings nätet inte har respektive data ström.
 
-#### <a name="component-formats-per-vertex-stream"></a>Komponent format per hörn ström
+#### <a name="component-formats-per-no-loc-textvertex-stream"></a>Komponent format per :::no-loc text="vertex"::: data ström
 
 De här formaten är tillåtna för respektive komponenter:
 
-| Hörn komponent | Format som stöds (fet = standard) |
+| :::no-loc text="Vertex"::: -komponent | Format som stöds (fet = standard) |
 |:-----------------|:------------------|
 |position| **32_32_32_FLOAT**16_16_16_16_FLOAT |
 |color0| **8_8_8_8_UNSIGNED_NORMALIZED**, ingen |
@@ -178,7 +178,7 @@ De här formaten är tillåtna för respektive komponenter:
 
 Minnes formaten för formaten är följande:
 
-| Format | Description | Byte per hörn |
+| Format | Beskrivning | Byte per:::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|full flytt ALS precision med två komponenter|8
 |16_16_FLOAT|två komponenter halv flytt ALS precision|4
@@ -197,11 +197,11 @@ Minnes formaten för formaten är följande:
 
 #### <a name="example"></a>Exempel
 
-Anta att du har en Photogrammetry-modell som har belysnings-bakade i texturerna. Allt som behövs för att rendera modellen är hörn positioner och textur koordinater.
+Anta att du har en Photogrammetry-modell som har belysnings-bakade i texturerna. Allt som behövs för att återge modellen är :::no-loc text="vertex"::: positioner och textur koordinater.
 
-Som standard måste konverteraren anta att du vill använda PBR-material i en modell vid en viss tidpunkt, så att den genererar `normal` , `tangent` och `binormal` data åt dig. Det innebär att minnes användningen per hörn är `position` (12 byte) + `texcoord0` (8 byte) + `normal` (4 byte) + `tangent` (4 byte) + `binormal` (4 byte) = 32 byte. Större modeller av den här typen kan enkelt ha många miljoner formhörn som resulterar i modeller som kan ta upp flera gigabyte av minnet. Sådana stora mängder data påverkar prestanda och du kan till och med få slut på minne.
+Som standard måste konverteraren anta att du vill använda PBR-material i en modell vid en viss tidpunkt, så att den genererar `normal` , `tangent` och `binormal` data åt dig. Det innebär att minnes användningen per hörn är `position` (12 byte) + `texcoord0` (8 byte) + `normal` (4 byte) + `tangent` (4 byte) + `binormal` (4 byte) = 32 byte. Större modeller av den här typen kan enkelt ha många miljoner :::no-loc text="vertices"::: resultat i modeller som kan ta upp flera gigabyte av minnet. Sådana stora mängder data påverkar prestanda och du kan till och med få slut på minne.
 
-Att veta att du aldrig behöver dynamisk belysning i modellen och att du vet att alla textur koordinater är inom `[0; 1]` räckhåll, du kan ange `normal` , `tangent` och `binormal` till `NONE` och `texcoord0` till hälften precision ( `16_16_FLOAT` ), vilket resulterar i endast 16 byte per hörn. Genom att klippa ut nät data på hälften kan du läsa in större modeller och eventuellt förbättra prestanda.
+Att veta att du aldrig behöver dynamisk belysning i modellen och att du vet att alla textur koordinater är inom `[0; 1]` räckhåll, kan du ange `normal` , `tangent` och `binormal` till `NONE` och `texcoord0` till hälften precision ( `16_16_FLOAT` ), vilket resulterar i endast 16 byte per :::no-loc text="vertex"::: . Genom att klippa ut nät data på hälften kan du läsa in större modeller och eventuellt förbättra prestanda.
 
 ## <a name="typical-use-cases"></a>Typiska användnings fall
 
@@ -215,7 +215,7 @@ Det finns vissa klasser av användnings fall som är kvalificerade för specifik
 
 * När du behöver flytta delar runt, innebär det vanligt vis att du behöver stöd för raycasts eller andra [spatialdata](../../overview/features/spatial-queries.md), så att du kan välja dessa delar på första plats. Å andra sidan, om du inte planerar att flytta något runt, är det mycket troligt att du inte behöver den för att delta i spatiala frågor och därmed kan stänga av `generateCollisionMesh` flaggan. Den här växeln har betydande påverkan på konverterings tider, inläsnings tider och även uppdaterings kostnader per ram.
 
-* Om programmet inte använder [styckat plan](../../overview/features/cut-planes.md)bör flaggan stängas `opaqueMaterialDefaultSidedness` av. Prestanda ökningen är vanligt vis 20%-30%. Klipp ut plan kan fortfarande användas, men det finns ingen back-ansikten när du tittar på de inre delarna av objekt, vilket ser till att det är självklart. Mer information finns i [enkel sida åter givning](../../overview/features/single-sided-rendering.md).
+* Om programmet inte använder [styckat plan](../../overview/features/cut-planes.md)bör flaggan stängas `opaqueMaterialDefaultSidedness` av. Prestanda ökningen är vanligt vis 20%-30%. Klipp ut plan kan fortfarande användas, men det finns ingen back-ansikten när du tittar på de inre delarna av objekt, vilket ser till att det är självklart. Mer information finns i [ :::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
 
 ### <a name="use-case-photogrammetry-models"></a>Användnings fall: Photogrammetry-modeller
 

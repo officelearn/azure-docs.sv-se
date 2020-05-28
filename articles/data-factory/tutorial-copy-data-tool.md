@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: be9395b908461b54b607fff32747ca0d9f20f45c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418668"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022069"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiera data från Azure Blob Storage till en SQL Database med hjälp av Kopiera data-verktyget
 
@@ -38,11 +38,11 @@ I den här självstudien får du göra följande:
 > * Använd verktyget Kopiera data för att skapa en pipeline.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage konto**: Använd Blob Storage som _käll_ data lager. Om du inte har ett Azure Storage konto kan du läsa instruktionerna i [skapa ett lagrings konto](../storage/common/storage-account-create.md).
-* **Azure SQL Database**: använd en SQL Database som data lager för _mottagare_ . Om du inte har en SQL Database kan du läsa anvisningarna i [skapa en SQL Database](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**: använd en SQL Database som data lager för _mottagare_ . Om du inte har en SQL Database kan du läsa anvisningarna i [skapa en SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Skapa en blob och en SQL-tabell
 
@@ -76,11 +76,11 @@ Förbered din Blob Storage och dina SQL Database för självstudien genom att ut
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Ge Azure-tjänster åtkomst till SQL Server. Kontrol lera att inställningen **Tillåt att Azure-tjänster och resurser får åtkomst till den här servern** är aktive rad för den server som kör SQL Database. Med den här inställningen kan Data Factory skriva data till din databasinstans. Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > säkerhets > brand väggar och virtuella nätverk > anger alternativet **Tillåt att Azure-tjänster och resurser får åtkomst till det här server** alternativet för **på**.
+2. Ge Azure-tjänster åtkomst till SQL Server. Kontrol lera att inställningen **Tillåt att Azure-tjänster och resurser får åtkomst till den här servern** är aktive rad för den server som kör SQL Database. Med den här inställningen kan Data Factory skriva data till din databasinstans. Om du vill kontrol lera och aktivera den här inställningen går du till logiska SQL Server > säkerhets > brand väggar och virtuella nätverk > anger alternativet **Tillåt att Azure-tjänster och-resurser får åtkomst till det här server** alternativet till **på**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På den vänstra menyn väljer du **skapa en resurs** > **analys** > **Data Factory**:
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **analys**  >  **Data Factory**:
 
     ![Skapa ny datafabrik](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**.

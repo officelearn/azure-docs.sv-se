@@ -33,7 +33,7 @@ När du använder Azure AD-autentisering för att komma åt Azure Media Services
 
 I den här artikeln beskrivs steg för att få åtkomst till Media Services API. Välj bland följande flikar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Om du inte har ett konto börjar du med en [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services konto med hjälp av Azure Portal](create-account-howto.md).

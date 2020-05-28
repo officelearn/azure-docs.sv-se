@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 64553506f75451c50a87932904f00a7275ea9286
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680263"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021321"
 ---
 # <a name="pbr-materials"></a>PBR-material
 
@@ -26,7 +26,7 @@ PBR-material är inte en universell lösning, men. Det finns material som åters
 
 Dessa egenskaper är gemensamma för allt material:
 
-* **albedoColor:** Den här färgen multipliceras med andra färger, till exempel *albedoMap* -eller *hörn färger*. Om *transparens* är aktiverat på ett material används alfa kanalen för att justera opaciteten, med `1` en helt ogenomskinlig och `0` innebörd som är helt transparent. Standardvärdet är White.
+* **albedoColor:** Den här färgen multipliceras med andra färger, till exempel *albedoMap* eller * :::no-loc text="vertex "::: färger*. Om *transparens* är aktiverat på ett material används alfa kanalen för att justera opaciteten, med en `1` helt ogenomskinlig och innebörd som är `0` helt transparent. Standardvärdet är White.
 
   > [!NOTE]
   > När ett PBR-material är helt transparent, som en helt ren ren glas, visar det fortfarande miljön. Ljusa fläckar som solen är fortfarande synliga i reflektionen. Detta skiljer sig för [färg material](color-materials.md).
@@ -37,9 +37,9 @@ Dessa egenskaper är gemensamma för allt material:
 
 * **textureCoordinateScale** och **textureCoordinateOffset:** skalan multipliceras med UV-texturens koordinater. förskjutningen läggs till i den. Kan användas för att sträcka ut och byta texturer. Standard skalan är (1, 1) och förskjutningen är (0, 0).
 
-* **useVertexColor:** Om masken innehåller hörn färger och det här alternativet är aktiverat multipliceras hörn färgerna med maskarna till *albedoColor* och *albedoMap*. Som standard är hörn färger inaktiverade.
+* **useVertexColor:** Om nätet innehåller :::no-loc text="vertex"::: färger och det här alternativet är aktiverat :::no-loc text="vertex"::: multipliceras maskens färg med *albedoColor* och *albedoMap*. Som standard är *useVertexColor* inaktive rad.
 
-* **isDoubleSided:** Om Double-sidedness är inställt på Sant återges trianglar med det här materialet även om kameran tittar på bak sidorna. För Materials belysning i PBR-material beräknas också korrekt för bak ansikten. Som standard är det här alternativet inaktiverat. Se även [Enkels idig åter givning](single-sided-rendering.md).
+* **isDoubleSided:** Om Double-sidedness är inställt på Sant återges trianglar med det här materialet även om kameran tittar på bak sidorna. För Materials belysning i PBR-material beräknas också korrekt för bak ansikten. Som standard är det här alternativet inaktiverat. Se även [ :::no-loc text="Single-sided"::: åter givning](single-sided-rendering.md).
 
 ## <a name="pbr-material-properties"></a>Egenskaper för PBR-material
 
@@ -47,11 +47,11 @@ Kärn idén med fysiskt baserad åter givning är att använda *BaseColor*, *Ege
 
 * **baseColor:** I PBR-material kallas *albedo-färgen* som *bas färgen*. I Azure Remote rendering finns *albedo färg* -egenskapen redan i de gemensamma material egenskaperna, så det finns ingen ytterligare bas färgs egenskap.
 
-* **grovhet** och **roughnessMap:** grovhet definierar hur grov eller utjämna ytan är. Hårda ytor belyser ljuset i fler riktningar än släta ytor, vilket gör att reflektioner suddigare snarare än skarpa. Värde intervallet är från `0.0` till. `1.0` När `roughness` det är `0.0`lika med är utjämningen skarp. När `roughness` likheter `0.5`blir det suddigt att reflekterar.
+* **grovhet** och **roughnessMap:** grovhet definierar hur grov eller utjämna ytan är. Hårda ytor belyser ljuset i fler riktningar än släta ytor, vilket gör att reflektioner suddigare snarare än skarpa. Värde intervallet är från `0.0` till `1.0` . När `roughness` det är lika med är utjämningen `0.0` skarp. När `roughness` likheter `0.5` blir det suddigt att reflekterar.
 
   Om både ett ojämnhets värde och en ojämnhets karta tillhandahålls, blir det slutliga värdet produkten av de två.
 
-* **metallhet** och **metalnessMap:** i fysik motsvarar den här egenskapen om en yta är ledande eller dielectric. Ledande material har olika reflekterande egenskaper och de tenderar att reflekteras utan albedo-färg. I PBR-material påverkar den här egenskapen hur mycket en yta visar omgivande miljö. Värden sträcker `0.0` sig `1.0`från till. När det är `0.0`en albedo är färgen helt synlig och materialet ser ut som plast eller keramiskt material. När det är så `0.5`är det att det ser ut som målad metall. När det är en `1.0`yta är ytan nästan helt förlorat sin albedo-färg och visar bara omgivningen. Om `metalness` t. ex. `1.0` är `roughness` och `0.0` så ser en yta ut som verklig spegel.
+* **metallhet** och **metalnessMap:** i fysik motsvarar den här egenskapen om en yta är ledande eller dielectric. Ledande material har olika reflekterande egenskaper och de tenderar att reflekteras utan albedo-färg. I PBR-material påverkar den här egenskapen hur mycket en yta visar omgivande miljö. Värden sträcker `0.0` sig från till `1.0` . När `0.0` det är en albedo är färgen helt synlig och materialet ser ut som plast eller keramiskt material. När det är så är `0.5` det att det ser ut som målad metall. När `1.0` det är en yta är ytan nästan helt förlorat sin albedo-färg och visar bara omgivningen. Om t. ex. `metalness` är `1.0` och så `roughness` `0.0` ser en yta ut som verklig spegel.
 
   Om både ett värde för värde och en metall karta anges, är det slutliga värdet produkten av de två.
 
@@ -61,7 +61,7 @@ Kärn idén med fysiskt baserad åter givning är att använda *BaseColor*, *Ege
 
 * **normalMap:** En [Normal Karta](https://en.wikipedia.org/wiki/Normal_mapping) kan tillhandahållas för att simulera detaljerad information.
 
-* **occlusionMap** och **aoScale:** [omgivande ocklusion](https://en.wikipedia.org/wiki/Ambient_occlusion) gör objekt med crevices att titta mer realistiskt genom att lägga till skuggor i Occluded områden. Ocklusion värde sträcker `0.0` sig `1.0`från till `0.0` , där betyder mörkhet ( `1.0` Occluded) och innebär ingen Occlusions. Om en 2D-struktur anges som en ocklusion-karta, aktive ras den och *aoScale* fungerar som en multiplikator.
+* **occlusionMap** och **aoScale:** [omgivande ocklusion](https://en.wikipedia.org/wiki/Ambient_occlusion) gör objekt med crevices att titta mer realistiskt genom att lägga till skuggor i Occluded områden. Ocklusion värde sträcker `0.0` sig från till `1.0` , där `0.0` betyder mörkhet (Occluded) och `1.0` innebär ingen Occlusions. Om en 2D-struktur anges som en ocklusion-karta, aktive ras den och *aoScale* fungerar som en multiplikator.
 
   ![Ocklusion-karta](./media/boom-box-ao2.gif)
 
@@ -69,7 +69,7 @@ Kärn idén med fysiskt baserad åter givning är att använda *BaseColor*, *Ege
 
   Genomskinliga geometrier är dyra att återge. Om du bara behöver hål i en yta, till exempel för löv till ett träd, är det bättre att använda alfa Urklipp i stället.
 
-  ![Meddelande](./media/transparency.png) om genomskinlighet i bilden ovan, hur den högra sfären är helt transparent, men reflektionen är fortfarande synlig.
+  ![Meddelande om genomskinlighet ](./media/transparency.png) i bilden ovan, hur den högra sfären är helt transparent, men reflektionen är fortfarande synlig.
 
   > [!IMPORTANT]
   > Om något material ska växlas från ogenomskinligt till transparent vid körning måste åter givningen använda *TileBasedComposition* [åter givnings läge](../../concepts/rendering-modes.md). Den här begränsningen gäller inte för material som konverteras som genomskinligt material att börja med.

@@ -29,7 +29,7 @@ Du kan använda Automation-runbooks med tre aviserings typer:
 
 När en avisering anropar en Runbook, är det faktiska anropet en HTTP POST-begäran till webhooken. Bröd texten i POST-begäran innehåller ett JSON-formaterat objekt som har användbara egenskaper som är relaterade till aviseringen. I följande tabell visas länkar till nytto Last schema för varje aviserings typ:
 
-|Varning  |Description|Nytto Last schema  |
+|Varning  |Beskrivning|Nytto Last schema  |
 |---------|---------|---------|
 |[Vanlig avisering](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Det vanliga aviserings schema som standardiserar användnings upplevelsen för aviserings meddelanden i Azure idag.|Vanligt schema för aviserings nytto Last|
 |[Aktivitets logg avisering](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande när en ny händelse i Azure aktivitets loggen matchar vissa villkor. Till exempel när en `Delete VM` åtgärd utförs i **myProductionResourceGroup** eller när en ny Azure Service Health-händelse med en aktiv status visas.| [Schema för aktivitets logg aviserings nytto Last](../azure-monitor/platform/activity-log-alerts-webhook.md)        |

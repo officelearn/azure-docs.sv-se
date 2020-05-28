@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 74cad0ab9ffc3eb05219cb9e2c2585e73498c9bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cd07bf86852d608a6d872f4c6b973b0a81b2a1c3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664860"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015300"
 ---
 # <a name="use-azure-sql-database-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Använd Azure SQL Database Hanterad instans med SQL Server Integration Services (SSIS) i Azure Data Factory
 
@@ -24,17 +24,17 @@ ms.locfileid: "83664860"
 
 Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och arbets belastningar till Azure-molnet. Distribuera, köra och hantera SSIS-projekt och paket på Azure SQL Database eller SQL Database Hanterad instans med välbekanta verktyg som SQL Server Management Studio (SSMS). I den här artikeln beskrivs följande olika områden när du använder Azure SQL Database Hanterad instans med Azure-SSIS integration Runtime (IR):
 
-- [Etablera en Azure-SSIS IR med SSIS-katalogen (SSISDB) som hanteras av Azure SQL Database hanterade instansen](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance)
+- [Etablera en Azure-SSIS IR med SSIS-katalogen (SSISDB) som hanteras av Azure SQL Database hanterade instansen](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Köra SSIS-paket av Azure SQL-hanterad instans Agent jobb](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Rensa SSISDB-loggar av Azure SQL-hanterad instans Agent jobb](#clean-up-ssisdb-logs)
 - [Azure-SSIS IR redundans med Azure SQL Database Hanterad instans](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-database-managed-instance)
-- [Migrera lokala SSIS-arbetsbelastningar till SSIS i ADF med Azure SQL Database Hanterad instans som databas arbets belastnings mål](scenario-ssis-migration-overview.md#azure-sql-database-managed-instance-as-database-workload-destination)
+- [Migrera lokala SSIS-arbetsbelastningar till SSIS i ADF med Azure SQL Database Hanterad instans som databas arbets belastnings mål](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
-## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance"></a>Etablera Azure-SSIS IR med SSISDB som hanteras av Azure SQL Database hanterade instansen
+## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Etablera Azure-SSIS IR med SSISDB som hanteras av en Azure SQL-hanterad instans
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-1. [Aktivera Azure Active Directory (Azure AD) på Azure SQL Database hanterade instansen](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance)när du väljer Azure Active Directory autentisering.
+1. [Aktivera Azure Active Directory (Azure AD) på Azure SQL Database hanterade instansen](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance)när du väljer Azure Active Directory autentisering.
 
 1. Välj hur du vill ansluta SQL-hanterad instans, över privat slut punkt eller över offentlig slut punkt:
 
@@ -90,8 +90,8 @@ Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och 
     1. Kontrol lera att det virtuella nätverkets resurs grupp kan skapa och ta bort vissa Azure-nätverks resurser.
 
         Azure-SSIS IR måste skapa vissa nätverks resurser i samma resurs grupp som det virtuella nätverket. Dessa resurser omfattar:
-        - En Azure Load Balancer med namnet * \< GUID>-azurebatch-cloudserviceloadbalancer*
-        - En nätverks säkerhets grupp med namnet * \< Guid>-azurebatch-cloudservicenetworksecuritygroup
+        - En Azure Load Balancer med namnet * \<Guid> -azurebatch-cloudserviceloadbalancer*
+        - En nätverks säkerhets grupp med namnet * \<Guid> -azurebatch-cloudservicenetworksecuritygroup
         - En offentlig Azure-IP-adress med namnet-azurebatch-cloudservicepublicip
 
         De här resurserna kommer att skapas när din Azure-SSIS IR startas. De kommer att tas bort när Azure-SSIS IR stoppar. För att undvika att blockera Azure-SSIS IR från att stoppa kan du inte återanvända de här nätverks resurserna i dina andra resurser.
@@ -147,7 +147,7 @@ Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och 
 
     ![Katalog-offentlig-slutpunkt](./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png)
 
-    Mer information om hur du aktiverar Azure AD-autentisering finns i [Aktivera Azure AD på Azure SQL Database hanterade instansen](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance).
+    Mer information om hur du aktiverar Azure AD-autentisering finns i [Aktivera Azure AD på Azure SQL Database hanterade instansen](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
 1. Anslut Azure-SSIS IR till det virtuella nätverket när det gäller.
 

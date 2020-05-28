@@ -33,7 +33,7 @@ Ett sätt att hämta händelser från aktivitets loggen är att använda Azure P
 
 ## <a name="batch-resource-monitoring"></a>Batch-resurs-övervakning
 
-I batch-programmen använder du batch-API: erna för att övervaka eller fråga efter status för dina resurser, inklusive jobb, aktiviteter, noder och pooler. Till exempel:
+I batch-programmen använder du batch-API: erna för att övervaka eller fråga efter status för dina resurser, inklusive jobb, aktiviteter, noder och pooler. Ett exempel:
 
 * [Räkna aktiviteter och Compute-noder efter tillstånd](batch-get-resource-counts.md)
 * [Skapa frågor för att lista batch-resurser effektivt](batch-efficient-list-queries.md)

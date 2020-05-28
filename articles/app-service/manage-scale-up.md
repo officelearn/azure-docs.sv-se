@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfd9297e80836978b8a185df3fc4659676383802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b8545c4f8c0dc86d83e0711147a1bda608c2897f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75659907"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020174"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Skala upp en app i Azure App Service
 
@@ -62,7 +62,7 @@ Om din app är beroende av andra tjänster, till exempel Azure SQL Database elle
    
     ![Gå till resurs grupp sidan för att skala upp Azure-appen](./media/web-sites-scale/ResourceGroup.png)
 
-    Information om hur du skalar upp den relaterade resursen finns i dokumentationen för den aktuella resurs typen. Om du till exempel vill skala upp en enda SQL Database, se [skala enkla databas resurser i Azure SQL Database](../sql-database/sql-database-single-database-scale.md). Om du vill skala upp en Azure Database for MySQL resurs, se [skala MySQL-resurser](../mysql/concepts-pricing-tiers.md#scale-resources).
+    Information om hur du skalar upp den relaterade resursen finns i dokumentationen för den aktuella resurs typen. Om du till exempel vill skala upp en enda SQL Database, se [skala enkla databas resurser i Azure SQL Database](../azure-sql/database/single-database-scale.md). Om du vill skala upp en Azure Database for MySQL resurs, se [skala MySQL-resurser](../mysql/concepts-pricing-tiers.md#scale-resources).
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>

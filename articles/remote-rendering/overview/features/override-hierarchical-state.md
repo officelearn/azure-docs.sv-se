@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 40857e83457222365e61a224ead19bd1d1d31ae7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5ef5af77831c01ae484398c1f2d8905e5e2bc11e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758987"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021338"
 ---
 # <a name="hierarchical-state-override"></a>Åsidosätta hierarkiskt tillstånd
 
@@ -27,23 +27,23 @@ Du kan till exempel överväga modellen för en bil och du vill byta hela bilen 
 
 Den fasta uppsättning tillstånd som kan åsidosättas är:
 
-* **Dold**: respektive maskor i scen diagrammet är dolda eller visas.
-* **Färgton**: ett renderat objekt kan färgtonas med dess enskilda färg och färgton. Bilden nedan visar färg tonens RIM i ett hjul.
+* **`Hidden`**: Respektive maskor i scen diagrammet är dolda eller visas.
+* **`Tint color`**: Ett renderat objekt kan färgtonas med dess enskilda färg och färgton. Bilden nedan visar färg tonens RIM i ett hjul.
   
   ![Färg nyans](./media/color-tint.png)
 
-* **Se igenom**: geometrin återges som överordnad överordnad, till exempel för att visa de inre delarna av ett objekt. Följande bild visar hela bilen som återges i se-läge, förutom den röda bromsen Caliper:
+* **`See-through`**: Geometrin återges som överordnad, till exempel för att visa de inre delarna av ett objekt. Följande bild visar hela bilen som återges i se-läge, förutom den röda bromsen Caliper:
 
   ![Se igenom](./media/see-through.png)
 
   > [!IMPORTANT]
   > Alternativet för att se igenom fungerar bara när *TileBasedComposition* [åter givnings läge](../../concepts/rendering-modes.md) används.
 
-* **Markerat**: geometrin återges med en [markerings disposition](outlines.md).
+* **`Selected`**: Geometrin återges med en [markerings disposition](outlines.md).
 
   ![Markerings disposition](./media/selection-outline.png)
 
-* **DisableCollision**: geometrin är undantagen från [rums frågor](spatial-queries.md). Den **dolda** flaggan stänger inte av kollisioner, så dessa två flaggor anges ofta tillsammans.
+* **`DisableCollision`**: Geometrin är undantagen från [rums frågor](spatial-queries.md). **`Hidden`** Flaggan påverkar inte flaggan kollisioner, så dessa två flaggor anges ofta tillsammans.
 
 ## <a name="hierarchical-overrides"></a>Hierarkiska åsidosättningar
 
@@ -87,7 +87,7 @@ component->SetState(
 
 ### <a name="tint-color"></a>Färgton
 
-Åsidosättning av färgton är något speciellt i att det finns både ett på/av/på/av/Ärv-tillstånd och en färgad egenskap med färg. Alfa delen av färg tons färgen definierar viktningen för tonings effekterna: om värdet är 0,0 visas inte färg tonen och om värdet är 1,0 kommer objektet att återges med en ren färgton-färg. För in-mellan-värden kommer den slutliga färgen att blandas med färg tonen. Färg tons färgen kan ändras per bild punkt för att uppnå en färganimering.
+`tint color`Åsidosättningen är något speciellt i att det finns både ett på/av/på/av/Ärv-tillstånd och en färgad egenskap. Alfa delen av färg tons färgen definierar viktningen för tonings effekterna: om värdet är 0,0 visas inte färg tonen och om värdet är 1,0 kommer objektet att återges med en ren färgton-färg. För in-mellan-värden kommer den slutliga färgen att blandas med färg tonen. Färg tons färgen kan ändras per bild punkt för att uppnå en färganimering.
 
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 

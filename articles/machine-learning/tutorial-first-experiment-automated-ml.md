@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 03/04/2020
-ms.openlocfilehash: 8af412fb2660625ffb413052b06d4429d7844e70
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cca09f53f90b43713c2b9b764568fb0a6d157c5d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656509"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118965"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Självstudie: skapa en klassificerings modell med automatiserad ML i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -34,7 +34,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 > * Visa experiment information.
 > * Distribuera modellen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
@@ -224,7 +224,7 @@ I den här automatiska självstudien om Machine Learning använde du Azure Machi
 
 + Lär dig mer om [Automatisk maskin inlärning](concept-automated-ml.md).
 + Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) .
-+ Läs mer om [funktionalisering](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Läs mer om [funktionalisering](how-to-configure-auto-features.md#featurization).
 + Läs mer om [data profilering](how-to-use-automated-ml-for-ml-models.md#profile).
 
 

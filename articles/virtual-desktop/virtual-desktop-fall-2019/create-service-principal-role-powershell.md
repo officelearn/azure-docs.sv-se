@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9f87f5387fc97e3b697488b266cb2c3981409294
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ad78fe2ce66511cb75e23a28a30c44b173da9020
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614363"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117729"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Självstudie: skapa tjänstens huvud namn och roll tilldelningar med hjälp av PowerShell
 
@@ -32,7 +32,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Skapa en roll tilldelning i Windows Virtual Desktop.
 > * Logga in på Windows Virtual Desktop genom att använda tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan skapa tjänstens huvud namn och roll tilldelningar måste du göra tre saker:
 
@@ -116,4 +116,4 @@ När du har loggat in ser du till att allt fungerar genom att testa några Windo
 När du har skapat tjänstens huvud namn och tilldelat rollen som en roll i din Windows-klient för virtuella datorer kan du använda den för att skapa en adresspool. Om du vill veta mer om värdar för pooler fortsätter du till självstudien för att skapa en adresspool i Windows Virtual Desktop.
 
  > [!div class="nextstepaction"]
- > [Skapa en värdpool med Azure Marketplace](../create-host-pools-azure-marketplace.md)
+ > [Skapa en värdpool med Azure Marketplace](create-host-pools-azure-marketplace-2019.md)

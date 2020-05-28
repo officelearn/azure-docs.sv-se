@@ -3,12 +3,12 @@ title: Villkorlig distribution med mallar
 description: Beskriver hur du villkorligt distribuerar en resurs i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: f170710118c0e3de6f3643b6216ed55b83b5c7df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 001a1a7d6d15fe29b0f3184b75892f4ec75cef27
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153428"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017502"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Villkorlig distribution i ARM-mallar
 
@@ -35,7 +35,7 @@ Du kan använda villkorlig distribution för att skapa en ny resurs eller använ
 
 När parametern **newOrExisting** har angetts till **New**utvärderas villkoret som sant. Lagrings kontot har distribuerats. Men när **newOrExisting** är inställt på **befintlig**, utvärderas villkoret till falskt och lagrings kontot distribueras inte.
 
-En fullständig exempel mall som använder- `condition` elementet finns i [VM med en ny eller befintlig Virtual Network, lagring och offentlig IP-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+En fullständig exempel mall som använder `condition` -elementet finns i [VM med en ny eller befintlig Virtual Network, lagring och offentlig IP-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
 
 ## <a name="allow-condition"></a>Tillåt villkor
 

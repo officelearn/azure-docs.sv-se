@@ -3,12 +3,12 @@ title: Felsöka säkerhets kopiering av Azure-filresurs
 description: Den här artikeln kan användas som felsökningsinformation om det skulle uppstå problem när du skyddar dina Azure (filresurser).
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3d04a60b8bab5ba764818eab341ac08836b0dfd1
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562091"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116739"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Felsöka problem vid säkerhets kopiering av Azure-filresurser
 
@@ -50,7 +50,7 @@ Försök att registrera igen. Kontakta supporten om problemet kvarstår.
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Det gick inte att ta bort Recovery Services valvet efter borttagning av skydd för en fil resurs
 
-I Azure Portal öppnar du ditt **valv** > **lagrings konto** för**säkerhets kopierings infrastruktur** > och klickar på **avregistrera** för att ta bort lagrings kontona från Recovery Services-valvet.
+I Azure Portal öppnar du ditt **valv**  >  lagrings konto för**säkerhets kopierings infrastruktur**  >  **Storage accounts** och klickar på **avregistrera** för att ta bort lagrings kontona från Recovery Services-valvet.
 
 >[!NOTE]
 >Det går bara att ta bort ett Recovery Services-valv efter att alla lagrings konton har registrerats med valvet.
@@ -276,6 +276,45 @@ Felkod: BMSUserErrorObjectLocked
 Fel meddelande: en annan åtgärd pågår för det valda objektet.
 
 Vänta tills den andra pågående åtgärden har slutförts och försök igen vid ett senare tillfälle.
+
+Från filen: troubleshoot-azure-files.md
+
+## <a name="common-soft-delete-related-errors"></a>Vanliga fel som rör mjuk borttagning
+
+### <a name="usererrorrestoreafsinsoftdeletestate--this-restore-point-is-not-available-as-the-snapshot-associated-with-this-point-is-in-a-file-share-that-is-in-soft-deleted-state"></a>UserErrorRestoreAFSInSoftDeleteState – den här återställnings punkten är inte tillgänglig eftersom ögonblicks bilden som är kopplad till den här punkten finns i en fil resurs som är i läget Soft-Deleted
+
+Felkod: UserErrorRestoreAFSInSoftDeleteState
+
+Fel meddelande: den här återställnings punkten är inte tillgänglig eftersom ögonblicks bilden som är kopplad till den här punkten finns i en fil resurs som är i läget Soft-Deleted.
+
+Du kan inte utföra en återställnings åtgärd när fil resursen är i läget Soft Deleted. Ångra borttagningen av fil resursen från fil portalen eller Använd [skriptet ta bort](scripts/backup-powershell-script-undelete-file-share.md) och försök sedan återställa.
+
+### <a name="usererrorrestoreafsindeletestate--listed-restore-points-are-not-available-as-the-associated-file-share-containing-the-restore-point-snapshots-has-been-deleted-permanently"></a>UserErrorRestoreAFSInDeleteState-listade återställnings punkter är inte tillgängliga eftersom den tillhör ande fil resurs som innehåller återställnings punkt ögonblicks bilderna har tagits bort permanent
+
+Felkod: UserErrorRestoreAFSInDeleteState
+
+Fel meddelande: listade återställnings punkter är inte tillgängliga eftersom den tillhör ande fil resurs som innehåller återställnings punkt ögonblicks bilderna har tagits bort permanent.
+
+Kontrol lera att den säkerhetskopierade fil resursen har tagits bort. Om den var i läget tyst Borttagning kontrollerar du om den mjuka borttagnings perioden är över och återställdes inte tillbaka. I något av dessa fall förlorar du alla ögonblicks bilder permanent och kommer inte att kunna återställa data.
+
+>[!NOTE]
+> Vi rekommenderar att du inte tar bort den säkerhetskopierade fil resursen, eller om den är i läget tyst Borttagning, ångra borttagningen innan perioden för mjuk borttagning upphör, för att undvika att alla återställnings punkter går förlorade.
+
+### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>UserErrorBackupAFSInSoftDeleteState – det gick inte att säkerhetskopiera eftersom Azure-filresursen är i läget Soft-Deleted
+
+Felkod: UserErrorBackupAFSInSoftDeleteState
+
+Fel meddelande: säkerhets kopieringen misslyckades eftersom Azure-filresursen är i läget Soft-Deleted
+
+Ångra borttagningen av fil resursen från fil **portalen** eller genom att använda [borttagnings skriptet](scripts/backup-powershell-script-undelete-file-share.md) för att fortsätta med säkerhets kopieringen och förhindra permanent borttagning av data.
+
+### <a name="usererrorbackupafsindeletestate--backup-failed-as-the-associated-azure-file-share-is-permanently-deleted"></a>UserErrorBackupAFSInDeleteState – det gick inte att säkerhetskopiera eftersom den associerade Azure-filresursen tas bort permanent
+
+Felkod: UserErrorBackupAFSInDeleteState
+
+Fel meddelande: säkerhets kopieringen misslyckades eftersom den associerade Azure-filresursen tas bort permanent
+
+Kontrol lera att den säkerhetskopierade fil resursen har tagits bort permanent. Om ja, stoppa säkerhets kopieringen för fil resursen för att undvika upprepade säkerhets kopierings fel. Information om hur du stoppar skyddet finns i [stoppa skyddet för Azure-filresurs](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
 
 ## <a name="next-steps"></a>Nästa steg
 

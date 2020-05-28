@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 34333d4fe6e9b34a0c8b56cca8123f4ed93a917a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ce147ac6c9b21176c738c21114c331b56bf667f
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218124"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118475"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Distribuera Azure Machine Learning Studio-arbetsytan (klassisk) med Azure Resource Manager
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Genom att använda en mall för Azure Resource Manager distribution sparar du tid genom att ge dig ett skalbart sätt att distribuera sammankopplade komponenter med en mekanism för validering och återförsök. Om du vill konfigurera Azure Machine Learning Studio (klassiska) arbets ytor, till exempel, måste du först konfigurera ett Azure Storage-konto och sedan distribuera din arbets yta. Föreställ dig att göra detta manuellt för hundratals arbets ytor. Ett enklare alternativ är att använda en Azure Resource Manager mall för att distribuera en Studio (klassisk) arbets yta och alla dess beroenden. Den här artikeln vägleder dig genom den här processen steg för steg. En bra översikt över Azure Resource Manager finns i [Azure Resource Manager översikt](../../azure-resource-manager/management/overview.md).
 

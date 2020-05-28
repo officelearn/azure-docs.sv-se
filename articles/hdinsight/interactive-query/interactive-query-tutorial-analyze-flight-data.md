@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 431cd5efbb1087d99fc8521cec7a5c604856dac5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81313746"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021746"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av interaktiv fråga i Azure HDInsight
 
@@ -28,7 +28,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Skapa en tabell i en Azure SQL-databas
 > * Använda Sqoop för att exportera data till en Azure SQL-databas
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett interaktivt Query-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **interaktiv fråga** för **kluster typ**.
 
@@ -68,7 +68,7 @@ Det finns många sätt att överföra data till lagring som är associerade med 
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. Konfigurera en miljö variabel när en SSH-anslutning har upprättats. Ersätt `FILE_NAME`, `SQL_SERVERNAME` `SQL_DATABASE`,, och `SQL_PASWORD` med lämpliga värden. `SQL_USER` Ange sedan kommandot:
+3. Konfigurera en miljö variabel när en SSH-anslutning har upprättats. Ersätt `FILE_NAME` ,,, `SQL_SERVERNAME` `SQL_DATABASE` `SQL_USER` och `SQL_PASWORD` med lämpliga värden. Ange sedan kommandot:
 
     ```bash
     export FILENAME=FILE_NAME
@@ -205,7 +205,7 @@ Det finns många sätt att ansluta till SQL Database och skapa en tabell. Följa
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. När installationen är klar använder du följande kommando för att ansluta till SQL Database-servern.
+2. När installationen är klar använder du följande kommando för att ansluta till SQL Database.
 
     ```bash
     TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD

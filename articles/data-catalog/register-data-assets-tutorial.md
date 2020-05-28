@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68950238"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021610"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Självstudie: registrera data till gångar i Azure Data Catalog
 
@@ -26,11 +26,11 @@ I den här guiden får du lära dig att:
 > * Hantera datatillgångar
 > * Ta bort data till gångar
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång måste du slutföra [snabb](register-data-assets-tutorial.md)starten.
 
-* En [Microsoft Azure](https://azure.microsoft.com/)-prenumeration.
+* En [Microsoft Azure](https://azure.microsoft.com/) prenumeration.
 * Du måste ha en egen [Azure Active Directory-klient](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 Om du vill konfigurera Data Catalog måste du vara ägare eller medägare till en Azure-prenumeration.
@@ -39,7 +39,7 @@ Om du vill konfigurera Data Catalog måste du vara ägare eller medägare till e
 
 ### <a name="register-a-data-source"></a>Registrera en datakälla
 
-Du registrerar data till gångar (tabeller) från ett [Azure SQL Database-exempel](../sql-database/sql-database-single-database-get-started.md), men du kan använda en data källa som stöds om du föredrar att arbeta med data som är välkända och relevanta för din roll. En lista över datakällor som stöds finns i [Datakällor som stöds](data-catalog-dsr.md).
+Du registrerar data till gångar (tabeller) från ett [Azure SQL Database-exempel](../azure-sql/database/single-database-create-quickstart.md), men du kan använda en data källa som stöds om du föredrar att arbeta med data som är välkända och relevanta för din roll. En lista över datakällor som stöds finns i [Datakällor som stöds](data-catalog-dsr.md).
 
 Det Azure SQL Database-namn som vi använder i den här självstudien är *RLSTest*.
 
@@ -71,7 +71,7 @@ Nu kan du registrera data till gångar från Azure SQL Database-exemplet med hj�
 
     2. Välj **produkt**, **ProductCategory**, **ProductDescription**och **ProductModel** genom att trycka på CTRL + Select.
 
-    3. Välj pilen för den **flyttade-markerade pilen** (**>**). Denna åtgärd flyttar alla markerade objekt till listan **Objekt som ska registreras**.
+    3. Välj pilen för den **flyttade-markerade pilen** ( **>** ). Denna åtgärd flyttar alla markerade objekt till listan **Objekt som ska registreras**.
 
           ![Självstudiekurs om Azure Data Catalog – bläddra bland och välj objekt](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 
@@ -295,7 +295,7 @@ I Azure Data Catalog kan du ta bort enstaka eller flera tillgångar.
 
 1. Gå till [startsidan för Azure Data Catalog](https://www.azuredatacatalog.com).
 
-2. I text rutan **Sök** skriver `tags:cycles` du och väljer **RETUR**.
+2. I text rutan **Sök** skriver du `tags:cycles` och väljer **RETUR**.
 
 3. Markera ett objekt i resultat listan och välj **ta bort** i verktygsfältet, som du ser i följande bild:
 

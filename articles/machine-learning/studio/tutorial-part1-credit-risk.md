@@ -10,16 +10,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6fd8573c78d80c950bdeb41ec01e2835def3979a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 09026d7f2aeb25f9a7c4a3c31c4f8d0b4cdb223a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79204281"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117819"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Självstudie 1: förutsägelse kredit risk-Azure Machine Learning Studio (klassisk)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -40,7 +38,7 @@ I den här delen av självstudien ska du:
 
 Du kan sedan använda det här experimentet till att [träna modeller i del 2](tutorial-part2-credit-risk-train.md) och sedan [distribuera dem i del 3](tutorial-part3-credit-risk-deploy.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien förutsätter vi att du har använt Machine Learning Studio (klassisk) minst en gång innan och att du har kunskaper om Machine Learning-koncept. Men vi förväntar oss inte att du är en expert.
 
@@ -58,7 +56,7 @@ Om du vill använda Machine Learning Studio (klassisk) måste du ha en Microsoft
 
 Information om hur du skapar en arbets yta finns i [skapa och dela en Azure Machine Learning Studio (klassisk)-arbets yta](create-workspace.md).
 
-När arbets ytan har skapats öppnar du Machine Learning Studio (klassisk) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Om du har fler än en arbetsyta kan du välja arbetsytan i verktygsfältet i det övre högra hörnet i fönstret.
+När arbets ytan har skapats öppnar du Machine Learning Studio (klassisk) ( [https://studio.azureml.net/Home](https://studio.azureml.net/Home) ). Om du har fler än en arbetsyta kan du välja arbetsytan i verktygsfältet i det övre högra hörnet i fönstret.
 
 ![Välj arbets yta i Studio (klassisk)](./media/tutorial-part1-credit-risk/open-workspace.png)
 
@@ -113,7 +111,7 @@ I båda fallen skapar du en kommaavgränsad version av data i en fil med namnet 
 
 När data har konverterats till CSV-format måste du ladda upp den till Machine Learning Studio (klassisk). 
 
-1. Öppna den Machine Learning Studio (klassiska) start sidan ([https://studio.azureml.net](https://studio.azureml.net)). 
+1. Öppna den Machine Learning Studio (klassiska) start sidan ( [https://studio.azureml.net](https://studio.azureml.net) ). 
 
 2. Klicka på menyn ![Meny](./media/tutorial-part1-credit-risk/menu.png) i det övre vänstra hörnet i fönstret, klicka på **Azure Machine Learning**, välj **Studio** och logga in.
 

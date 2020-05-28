@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 70fafa79c87d19d62ef936b286c82813d8e7fe17
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a2f55798afe7b817ab366e8fa55f07078277352d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208524"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117299"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Skapa flera webb tjänst slut punkter från ett experiment med ML Studio (klassisk) och PowerShell
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Här är ett vanligt problem med Machine Learning: du vill skapa många modeller som har samma utbildnings arbets flöde och använda samma algoritm. Men du vill att de ska ha olika data uppsättningar för utbildning som indata. Den här artikeln visar hur du gör detta i skala i Azure Machine Learning Studio (klassisk) med bara ett enda experiment.
 
@@ -96,7 +94,7 @@ Nu har du skapat 10 slut punkter och alla innehåller samma utbildade modell som
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Uppdatera slut punkterna för att använda separata inlärnings data uppsättningar med PowerShell
 Nästa steg är att uppdatera slut punkterna med modeller som är unikt utbildade för varje kunds individuella data. Men först måste du skapa dessa modeller från utbildnings webb tjänsten för **cykel uthyrning** . Nu ska vi gå tillbaka till webb tjänsten för **cykel uthyrnings utbildning** . Du måste anropa dess BES-slutpunkt 10 gånger med 10 olika data uppsättningar för utbildning för att kunna producera 10 olika modeller. Använd **InovkeAmlWebServiceBESEndpoint** PowerShell-cmdleten för att göra detta.
 
-Du måste också ange autentiseringsuppgifter för ditt Blob Storage-konto i `$configContent`. Dvs, i fälten `AccountName`, `AccountKey`och. `RelativeLocation` Kan vara ett av dina konto namn, som visas på fliken Azure Portal (fliken*lagring* ). **Azure portal** `AccountName` När du klickar på ett lagrings konto `AccountKey` kan du hitta det genom att trycka på knappen **Hantera åtkomst nycklar** längst ned och kopiera den *primära åtkomst nyckeln*. `RelativeLocation` Är sökvägen i förhållande till lagrings utrymmet där en ny modell kommer att lagras. Till exempel pekar sökvägen `hai/retrain/bike_rental/` i följande skript till en behållare med namnet `hai`och `/retrain/bike_rental/` är undermappar. För närvarande kan du inte skapa undermappar via portalens användar gränssnitt, men det finns [flera Azure Storage Explorer](../../storage/common/storage-explorers.md) som gör det möjligt att göra det. Vi rekommenderar att du skapar en ny behållare i lagringen för att lagra nya utbildade modeller (. iLearner-filer) enligt följande: på sidan lagring klickar du på knappen **Lägg till** längst ned och namnger den `retrain`. I sammanfattning är de nödvändiga ändringarna i följande skript kopplade `AccountName`till, `AccountKey`och `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+Du måste också ange autentiseringsuppgifter för ditt Blob Storage-konto i `$configContent` . Dvs, i fälten `AccountName` , `AccountKey` och `RelativeLocation` . `AccountName`Kan vara ett av dina konto namn, som visas på fliken **Azure Portal** (fliken*lagring* ). När du klickar på ett lagrings konto `AccountKey` kan du hitta det genom att trycka på knappen **Hantera åtkomst nycklar** längst ned och kopiera den *primära åtkomst nyckeln*. `RelativeLocation`Är sökvägen i förhållande till lagrings utrymmet där en ny modell kommer att lagras. Till exempel `hai/retrain/bike_rental/` pekar sökvägen i följande skript till en behållare med namnet `hai` och `/retrain/bike_rental/` är undermappar. För närvarande kan du inte skapa undermappar via portalens användar gränssnitt, men det finns [flera Azure Storage Explorer](../../storage/common/storage-explorers.md) som gör det möjligt att göra det. Vi rekommenderar att du skapar en ny behållare i lagringen för att lagra nya utbildade modeller (. iLearner-filer) enligt följande: på sidan lagring klickar du på knappen **Lägg till** längst ned och namnger den `retrain` . I sammanfattning är de nödvändiga ändringarna i följande skript kopplade till `AccountName` , `AccountKey` och `RelativeLocation` (: `"retrain/model' + $seq + '.ilearner"` ).
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service

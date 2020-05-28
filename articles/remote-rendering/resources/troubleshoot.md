@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6cb9c70de27e40c62d6a7adeece5cb39554c090
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 59dc64c952aab6b37e6a779ab1e7e85b9a8ab4b7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844580"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018828"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -29,7 +29,7 @@ Se till att brand väggarna (på enheten, i routrarna osv.) inte blockerar följ
 * **8266 (TCP + UDP)** – krävs för data överföring
 * **5000 (TCP)**, **5433 (tcp)**, **8443 (TCP)** – krävs för [ArrInspector](tools/arr-inspector.md)
 
-## <a name="error-disconnected-videoformatnotavailable"></a>Fel ' frånkopplad: VideoFormatNotAvailable '
+## <a name="error-disconnected-videoformatnotavailable"></a>Fel ' `Disconnected: VideoFormatNotAvailable` '
 
 Kontrol lera att GPU: n stöder maskinvarubaserad video avkodning. Se [Development PC](../overview/system-requirements.md#development-pc).
 
@@ -37,7 +37,7 @@ Om du arbetar på en bärbar dator med två GPU: er, är det möjligt att den GP
 
 ## <a name="h265-codec-not-available"></a>H265-codec är inte tillgänglig
 
-Det finns två orsaker till varför servern kan neka att ansluta till en **codec som inte är tillgänglig** .
+Det finns två orsaker till varför servern kan nekas att ansluta till ett `codec not available` fel.
 
 **H265-codecen är inte installerad:**
 
@@ -107,7 +107,7 @@ Om dessa två steg inte var hjälp, krävs det att ta reda på om video ramar ta
 
 Se vissa [begränsningar för VM-storlek](../reference/limits.md#overall-number-of-polygons).
 
-**Modellen finns inte i vyn Frustum:**
+**Modellen finns inte i kamerans Frustum:**
 
 I många fall visas modellen korrekt men finns utanför kamerans Frustum. En vanlig orsak är att modellen har exporter ATS med en avlägsen Pivot-of-Center-Pivot så att den klipps av kamerans avlägsen urklipps plan. Det hjälper dig att fråga modellens markerings ruta program mässigt och visualisera rutan med enhets uppdelad som en linje eller skriva ut dess värden till fel söknings loggen.
 
@@ -142,7 +142,7 @@ Det kan finnas två problem med den här avgränsnings rutan som leder till osyn
 
 **Pipeline-renderingen omfattar inte åter givnings hookarna:**
 
-Azure Remote rendering-hookar i Unity Render-pipeline för att göra en ram komposition med videon och för att göra omprojektionen. Om du vill kontrol lera att dessa hookar finns öppnar du Meny *fönstret > analys > ram fel sökning*. Aktivera det och se till att det finns två poster för `HolographicRemotingCallbackPass` i pipelinen:
+Azure Remote rendering-hookar i Unity Render-pipeline för att göra en ram komposition med videon och för att göra omprojektionen. Öppna menyn för att kontrol lera att dessa hookar finns *:::no-loc text="Window > Analysis > Frame debugger":::* . Aktivera det och se till att det finns två poster för `HolographicRemotingCallbackPass` i pipelinen:
 
 ![Unity Frame debugger](./media/troubleshoot-unity-pipeline.png)
 

@@ -5,16 +5,16 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 69774c0014aac26c7266620bbe7d06ba37d6023b
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: f4c49be5f5a0f2c89831891dc2640b64fee9fc44
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758817"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022426"
 ---
 # <a name="z-fighting-mitigation"></a>Minskning av Z-fighting
 
-När två ytor överlappar varandra är det inte uppenbart vilken som ska återges ovanpå den andra. Resultatet varierar även per bild punkt, vilket resulterar i visnings beroende artefakter. Det innebär att när kameran eller nätet flyttas flimmer dessa mönster märkbart. Den här artefakten kallas för *z-bekämpning*. För AR-och VR-program är problemet intensifierat eftersom de head-monterade enheterna naturligt alltid flyttar. För att förhindra att visnings programmet för visnings dämpande z-bekämpning är tillgängligt i Azure Remote rendering.
+När två ytor överlappar varandra är det inte uppenbart vilken som ska återges ovanpå den andra. Resultatet varierar även per bild punkt, vilket resulterar i kameravy-beroende artefakter. Det innebär att när kameran eller nätet flyttas flimmer dessa mönster märkbart. Den här artefakten kallas för *z-bekämpning*. För AR-och VR-program är problemet intensifierat eftersom de head-monterade enheterna naturligt alltid flyttar. För att förhindra att visnings programmet för visnings dämpande z-bekämpning är tillgängligt i Azure Remote rendering.
 
 ## <a name="z-fighting-mitigation-modes"></a>Minsknings lägen för Z-bekämpning
 

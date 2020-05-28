@@ -1,18 +1,18 @@
 ---
-title: Lampor
+title: Scen belysning
 description: Beskrivning och egenskaper för ljus källa
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 0a4a226af1347b5302b0c3964889fc072f89e7f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680952"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022154"
 ---
-# <a name="lights"></a>Lampor
+# <a name="scene-lighting"></a>Scen belysning
 
 Som standard tänds de fjärranslutna objekten med hjälp av en [luft rummets ljus](sky.md). För de flesta program är det redan tillräckligt, men du kan lägga till ytterligare ljus källor till scenen.
 
@@ -24,7 +24,7 @@ Som standard tänds de fjärranslutna objekten med hjälp av en [luft rummets lj
 
 ## <a name="common-light-component-properties"></a>Egenskaper för gemensam ljus komponent
 
-Alla ljus typer härleds från den abstrakta Bask `LightComponent` Lassen och delar dessa egenskaper:
+Alla ljus typer härleds från den abstrakta Bask Lassen `LightComponent` och delar dessa egenskaper:
 
 * **Färg:** Färgen på ljuset i [gamma avstånd](https://en.wikipedia.org/wiki/SRGB). Alfa ignoreras.
 
@@ -40,29 +40,29 @@ I Azure fjärrrendering `PointLightComponent` kan inte bara dra ljuset från en 
 
 * **Längd:** Om både `Length` och `Radius` är icke-noll fungerar ljuset som ett rör ljus. Detta kan användas för att simulera Neon-rör.
 
-* **AttenuationCutoff:** Om vänster till (0, 0) är dämpningen av ljuset bara beroende av dess `Intensity`. Du kan dock ange egna min-/max avstånd som ljus styrkan skalas linjärt ned till 0. Den här funktionen kan användas för att genomdriva en mindre mängd påverkan av ett speciellt ljus.
+* **AttenuationCutoff:** Om vänster till (0, 0) är dämpningen av ljuset bara beroende av dess `Intensity` . Du kan dock ange egna min-/max avstånd som ljus styrkan skalas linjärt ned till 0. Den här funktionen kan användas för att genomdriva en mindre mängd påverkan av ett speciellt ljus.
 
 * **ProjectedCubemap:** Om värdet är inställt på ett giltigt [cubemap](../../concepts/textures.md), projiceras texturen på ljusets omgivande geometri. Cubemap färg är modulerad med ljusets färg.
 
 ## <a name="spot-light"></a>Dekor ljus
 
-`SpotLightComponent` Liknar det `PointLightComponent` men ljuset är begränsat till formen av en kon. Konnas orientering definieras av *ägarens negativa z-axel*.
+`SpotLightComponent`Liknar det `PointLightComponent` men ljuset är begränsat till formen av en kon. Konnas orientering definieras av *ägarens negativa z-axel*.
 
 ### <a name="spotlightcomponent-properties"></a>Egenskaper för SpotLightComponent
 
-* **RADIUS:** Samma som för `PointLightComponent`.
+* **RADIUS:** Samma som för `PointLightComponent` .
 
 * **SpotAngleDeg:** Detta intervall definierar den inre och den yttre vinkeln för kon, mätt i grader. Allt inom den inre vinkeln lyser med full ljus styrka. Ett utfall tillämpas mot den yttre vinkel som genererar en Penumbra effekt.
 
 * **FalloffExponent:** Definierar hur skarpa utfalls över gångarna mellan den inre och den yttre kon vinkeln. Ett högre värde resulterar i en skarpare över gång. Standardvärdet på 1,0 resulterar i linjär över gång.
 
-* **AttenuationCutoff:** Samma som för `PointLightComponent`.
+* **AttenuationCutoff:** Samma som för `PointLightComponent` .
 
 * **Projected2dTexture:** Om den är inställd på en giltig [2D-struktur](../../concepts/textures.md)projiceras bilden på geometrin som ljuset skiner på. Texturens färg är modulerad med ljusets färg.
 
 ## <a name="directional-light"></a>Riktat ljus
 
-`DirectionalLightComponent` Simulerar en ljus källa som är oändligt långt bort. Ljuset skiner i riktningen för den *negativa z-axeln i entiteten ägare*. Entitetens position ignoreras.
+`DirectionalLightComponent`Simulerar en ljus källa som är oändligt långt bort. Ljuset skiner i riktningen för den *negativa z-axeln i entiteten ägare*. Entitetens position ignoreras.
 
 Det finns inga ytterligare egenskaper.
 

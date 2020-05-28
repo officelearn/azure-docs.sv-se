@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562210"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997017"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory
 
@@ -236,14 +236,14 @@ Om du vill att schemautlösaren ska starta en pipelinekörning tar du med en pip
 I följande tabell ges en översikt över de viktigaste schemaelementen relaterade till upprepning och schemaläggning i en utlösare:
 
 | JSON-egenskap | Beskrivning |
-|:--- |:--- |
+| --- | --- |
 | **startTime** | Ett datum/tid-värde. För grundläggande scheman gäller värdet för egenskapen **startTime** den första förekomsten. För komplexa scheman startar utlösaren tidigast vid det angivna värdet för **startTime**. |
 | **endTime** | Slutdatum och tidpunkt för utlösaren. Utlösaren körs inte efter angivet slutdatum och sluttid. Värdet för egenskapen kan inte ha passerat. <!-- This property is optional. --> |
 | **timeZone** | Tidszonen. För närvarande stöds bara tidszonen UTC. |
 | **mönster** | Ett upprepningsobjekt som anger upprepningsregler för utlösaren. Upprepningsobjektet har stöd för elementen **frequency** (frekvens), **interval** (intervall), **endTime** (sluttid), **count** (antal) och **schedule** (schema). När du definierar ett upprepningsobjekt är elementet **frequency** obligatoriskt. De andra elementen är valfria. |
 | **frekvens** | Frekvensen som utlösaren ska upprepas med. Du kan använda värden som ”minute”, ”hour”, ”day”, ”week” och ”month”. |
 | **intervall** | Ett positivt heltal som anger intervallet för värdet för **frequency**. Värdet **frequency** bestämmer hur ofta utlösaren ska köras. Om **interval** till exempel är 3 och **frequency** är ”week” (vecka) upprepas utlösaren var tredje vecka. |
-| **Ange** | Upprepningsschemat för utlösaren. En utlösare med ett angivet värde för **frequency** ändrar sin upprepning baserat på ett upprepningsschema. Egenskapen **schedule** innehåller ändringar för upprepningen som baseras på minuter, timmar, veckodagar, dagar i månaden och veckonummer.
+| **Ange** | Upprepningsschemat för utlösaren. En utlösare med ett angivet värde för **frequency** ändrar sin upprepning baserat på ett upprepningsschema. Egenskapen **schedule** innehåller ändringar för upprepningen som baseras på minuter, timmar, veckodagar, dagar i månaden och veckonummer. |
 
 ### <a name="schedule-trigger-example"></a>Exempel på schemaläggning av utlösare
 
@@ -282,18 +282,18 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 ### <a name="schema-defaults-limits-and-examples"></a>Standardvärden för scheman, begränsningar och exempel
 
 | JSON-egenskap | Typ | Obligatorisk | Standardvärde | Giltiga värden | Exempel |
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| --- | --- | --- | --- | --- | --- |
 | **startTime** | sträng | Ja | Inga | ISO 8601 datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **mönster** | objekt | Ja | Inga | Ett upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **intervall** | nummer | Inga | 1 | 1 till 1000 | `"interval":10` |
+| **intervall** | nummer | Nej | 1 | 1 till 1000 | `"interval":10` |
 | **endTime** | sträng | Ja | Inga | Ett datum/tid-värde som representerar en tidpunkt i framtiden | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **Ange** | objekt | Inga | Inga | Ett schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **Ange** | objekt | Nej | Inga | Ett schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Egenskapen startTime
 I följande tabell visas hur egenskapen **startTime** styr körningen av en utlösare:
 
 | startTime-värde | Upprepning utan schema | Upprepning med schema |
-|:--- |:--- |:--- |
+| --- | --- | --- |
 | **Starttiden är i det förflutna** | Beräknar första framtida körningstid efter starttiden och körs vid den tidpunkten.<br /><br />Utför efterföljande körningar baserat på beräkningar från senaste körningstid.<br /><br />Se exemplet som följer den här tabellen. | Utlösaren startar _tidigast_ den angivna starttiden. Den första förekomsten baseras på schemat som beräknas från starttiden.<br /><br />Kör efterföljande körningar baserat på upprepningsschemat. |
 | **Starttiden är i framtiden eller aktuell tid** | Körs en gång på angiven starttid.<br /><br />Utför efterföljande körningar baserat på beräkningar från senaste körningstid. | Utlösaren startar _tidigast_ den angivna start tiden. Den första förekomsten baseras på schemat som beräknas från starttiden.<br /><br />Kör efterföljande körningar baserat på upprepningsschemat. |
 
@@ -315,20 +315,17 @@ Om flera **schema** element anges är utvärderings ordningen från den största
 I följande tabell beskrivs **schedule**-elementen i detalj:
 
 | JSON-element | Beskrivning | Giltiga värden |
-|:--- |:--- |:--- |
-| **fördröjning** | Minuter för den timme då utlösaren körs. |– Heltal<br />– Heltalsmatris|
-| **timmarna** | Timmar på dagen då utlösaren körs. |– Heltal<br />– Heltalsmatris|
-| **weekDays** | Veckodagar då utlösaren körs. Värdet kan bara anges med en veckofrekvens.|<br />– Måndag<br />– Tisdag<br />– Onsdag<br />– Torsdag<br />– Fredag<br />– Lördag<br />– Söndag<br />– Matris med dagvärden (maximal matrisstorlek är 7)<br /><br />Dags värden är inte Skift läges känsliga|
-| **monthlyOccurrences** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. |– Matris med **monthlyOccurrence** -objekt:`{ "day": day, "occurrence": occurrence }`<br />– Attributet **day** är veckodagen som utlösaren körs på. Om egenskapen **monthlyOccurrences** till exempel har **day**-värdet `{Sunday}` innebär det varje söndag i månaden. Attributet **day** är obligatoriskt.<br />– Attributet **occurrence** är förekomsten av **day**-värdet i månaden. Om egenskapen **monthlyOccurrences** till exempel har **day**- och **occurrence**-värdena `{Sunday, -1}` innebär det den sista söndagen i månaden. Attributet **occurrence** är valfritt.|
-| **monthDays** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. |– Ett värde <= -1 och >= -31<br />– Ett värde > = 1 och < = 31<br />– Matris med värden|
+| --- | --- | --- |
+| **fördröjning** | Minuter för den timme då utlösaren körs. |– Heltal<br />– Heltalsmatris |
+| **timmarna** | Timmar på dagen då utlösaren körs. |– Heltal<br />– Heltalsmatris |
+| **weekDays** | Veckodagar då utlösaren körs. Värdet kan bara anges med en veckofrekvens.|<br />– Måndag<br />– Tisdag<br />– Onsdag<br />– Torsdag<br />– Fredag<br />– Lördag<br />– Söndag<br />– Matris med dagvärden (maximal matrisstorlek är 7)<br /><br />Dags värden är inte Skift läges känsliga |
+| **monthlyOccurrences** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. |– Matris med **monthlyOccurrence** -objekt:`{ "day": day, "occurrence": occurrence }`<br />– Attributet **day** är veckodagen som utlösaren körs på. Om egenskapen **monthlyOccurrences** till exempel har **day**-värdet `{Sunday}` innebär det varje söndag i månaden. Attributet **day** är obligatoriskt.<br />– Attributet **occurrence** är förekomsten av **day**-värdet i månaden. Om egenskapen **monthlyOccurrences** till exempel har **day**- och **occurrence**-värdena `{Sunday, -1}` innebär det den sista söndagen i månaden. Attributet **occurrence** är valfritt. |
+| **monthDays** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. |– Ett värde <= -1 och >= -31<br />– Ett värde > = 1 och < = 31<br />– Matris med värden |
 
 ## <a name="tumbling-window-trigger"></a>Utlösare för rullande fönster
 Utlösare för rullande fönster är en typ av utlösare som går igång med jämna tidsintervall från en angiven starttid och behåller sitt tillstånd. Rullande fönster är en serie sammanhängande tidsintervall med fast storlek som inte överlappar.
 
 Mer information om utlösare för rullande fönster och exempel finns i [skapa en utlösare för rullande fönster](how-to-create-tumbling-window-trigger.md).
-
-> [!NOTE]
-> Körningen av rullande Window-utlösare väntar på att *den utlösta pipeline-körningen* ska slutföras. Dess körnings tillstånd visar statusen för den Utlös ande pipeline-körningen. Om till exempel en utlöst pipeline-körning avbryts, markeras den motsvarande körningen av utlösare för rullande-fönster som avbrutits. Detta skiljer sig från beteendet "brand och glöm" i schema utlösaren, vilket har marker ATS som slutfört så länge en pipeline-körning har startats.
 
 ## <a name="event-based-trigger"></a>Händelsebaserad utlösare
 
@@ -342,7 +339,7 @@ Det här avsnittet innehåller exempel på återkommande scheman. Det fokuserar 
 I exemplen förutsätts att **intervallvärdet** är 1 och att värdet för **frekvens** är korrekt enligt schema definitionen. Du kan till exempel inte använda **frequency**-värdet ”day” och samtidigt ha en **monthDays**-modifiering i **schedule**-objektet. Dessa typer av begränsningar beskrivs i tabellen i föregående avsnitt.
 
 | Exempel | Beskrivning |
-|:--- |:--- |
+| --- | --- |
 | `{"hours":[5]}` | Kör kl. 05.00 varje dag. |
 | `{"minutes":[15], "hours":[5]}` | Kör kl. 05.15 varje dag. |
 | `{"minutes":[15], "hours":[5,17]}` | Kör kl. 05.15 och 17.15 varje dag |
@@ -373,15 +370,18 @@ I exemplen förutsätts att **intervallvärdet** är 1 och att värdet för **fr
 ## <a name="trigger-type-comparison"></a>Jämförelse av olika utlösare
 Både utlösare för rullande fönster och schemautlösare körs vid specifika tidpunkter. Hur skiljer de sig åt?
 
+> [!NOTE]
+> Körningen av rullande Window-utlösare väntar på att *den utlösta pipeline-körningen* ska slutföras. Dess körnings tillstånd visar statusen för den Utlös ande pipeline-körningen. Om till exempel en utlöst pipeline-körning avbryts, markeras den motsvarande körningen av utlösare för rullande-fönster som avbrutits. Detta skiljer sig från beteendet "brand och glöm" i schema utlösaren, vilket har marker ATS som slutfört så länge en pipeline-körning har startats.
+
 I följande tabell ges en jämförelse av utlösare för rullande fönster och schemautlösare:
 
-|  | Utlösare för rullande fönster | Schemautlösare |
-|:--- |:--- |:--- |
+| Objekt | Utlösare för rullande fönster | Schemautlösare |
+| --- | --- | --- |
 | **Återfyllnadsscenarier** | Stöds. Pipelinekörningar kan schemaläggas för fönster i det förflutna. | Stöds inte. Pipelinekörningar kan bara köras i tidsperioder från nu och framöver. |
 | **Tillförlitlighet** | 100 % tillförlitlighet. Pipelinekörningar kan schemaläggas i alla fönster från ett angivet startdatum utan luckor. | Mindre tillförlitligt. |
 | **Återförsökskapacitet** | Stöds. Misslyckade pipelinekörningar har återförsöksprincipen 0 som standard, eller en policy som anges av användaren i utlösarens definition. Gör nya försök automatiskt när pipelinen körs fel på grund av samtidighet/Server/begränsnings gränser (det vill säga status koderna 400: användar fel, 429: för många begär Anden och 500: internt Server fel). | Stöds inte. |
 | **Samtidighet** | Stöds. Användare kan uttryckligen ange samtidighetsgränser för utlösaren. Tillåter mellan 1 och 50 utlösta pipelinekörningar samtidigt. | Stöds inte. |
-| **Systemvariabler** | Systemvariablerna **WindowStart** och **WindowEnd** kan användas. Användare kan komma åt `triggerOutputs().windowStartTime` och `triggerOutputs().windowEndTime` som systemvariabler för utlösaren i definitionen av utlösaren. Värdena används som start- respektive sluttid för fönstret. För en utlösare för rullande fönster som körs timme i fönstret 01.00 till 02.00 är till exempel definitionen `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` och `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Stöds inte. |
+| **Systemvariabler** | Tillsammans med @trigger (). scheduledTime och @trigger (). StartTime, stöder den också användningen av systemvariablerna **WindowStart** och **WindowEnd** . Användare kan komma åt `triggerOutputs().windowStartTime` och `triggerOutputs().windowEndTime` som systemvariabler för utlösaren i definitionen av utlösaren. Värdena används som start- respektive sluttid för fönstret. För en utlösare för rullande fönster som körs timme i fönstret 01.00 till 02.00 är till exempel definitionen `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` och `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Stöder endast standard @trigger -(). scheduledTime-och @trigger (). StartTime-variabler. |
 | **Relation pipeline-till-utlösare** | Har stöd för en 1:1-relation. Endast en pipeline kan utlösas. | Har stöd för många:många-relationer. Flera utlösare kan starta en pipeline. En enskild utlösare kan starta flera pipeliner. |
 
 ## <a name="next-steps"></a>Nästa steg

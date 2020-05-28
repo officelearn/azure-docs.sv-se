@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 0f73095f72d07989cdfa309454a2b54efa8e5f95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6a6aaedc1bb4abc5cf02ea1cd081ad48ec78d19
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418770"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118193"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 
@@ -46,7 +46,7 @@ I det här scenariot har vi ett antal tabeller i Azure SQL Database som vi vill 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,7 +59,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 **Förbered Azure SQL Database-källan**:
 
-Skapa en Azure SQL-databas med exempeldata för Adventure Works LT genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). I den här självstudien kopieras alla tabeller från den här exempeldatabasen till SQL Data Warehouse.
+Skapa en Azure SQL-databas med exempeldata för Adventure Works LT genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md). I den här självstudien kopieras alla tabeller från den här exempeldatabasen till SQL Data Warehouse.
 
 **Förbered det mottagande Azure SQL Data Warehouse-datalagret**:
 
@@ -69,7 +69,7 @@ Skapa en Azure SQL-databas med exempeldata för Adventure Works LT genom att fö
 
 ## <a name="azure-services-to-access-sql-server"></a>Azure-tjänster för åtkomst till SQL-servern
 
-Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Data Warehouse. Se till att inställningen **Tillåt åtkomst till Azure-tjänster** är **aktiverad** för Azure SQL-servern. Den här inställningen gör att Data Factory-tjänsten kan läsa data från Azure SQL Database och skriva data till Azure SQL Data Warehouse. Gör så här för att kontrollera och aktivera den här inställningen:
+Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Data Warehouse. Kontrol lera att inställningen **Tillåt åtkomst till Azure** -tjänster **är aktive** rad för servern. Den här inställningen gör att Data Factory-tjänsten kan läsa data från Azure SQL Database och skriva data till Azure SQL Data Warehouse. Gör så här för att kontrollera och aktivera den här inställningen:
 
 1. Klicka på **Alla tjänster** till vänster och klicka på **SQL-servrar**.
 2. Välj din server och klicka på **Brandvägg** under **INSTÄLLNINGAR**.

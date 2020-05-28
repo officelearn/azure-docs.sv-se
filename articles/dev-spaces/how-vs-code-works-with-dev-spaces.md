@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Lär dig hur Visual Studio Code och Azure dev Spaces hjälper dig att felsöka och snabbt iterera dina Kubernetes-program
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 91440e59fdb8c21579ef1f04e78e66f933221ba0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2f6f2ef072748bddee5b3004dc69f3a9c03be16
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240451"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996235"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Hur Visual Studio Code fungerar med Azure dev Spaces
 
@@ -29,13 +29,13 @@ Visual Studio Code och tillägget Azure dev Spaces genererar följande till gån
 * En `azds.yaml` fil, som är [konfigurations filen för Azure dev Spaces][azds-yaml] för ditt projekt
 * En `.vscode` mapp med Visual Studio Code start Configuration för ditt projekt för Java-program med hjälp av maven, Node. js-program och .net Core-program
 
-Dockerfile, Helm-diagrammet och `azds.yaml` -filerna är samma till gångar som genereras när `azds prep`de körs. Dessa filer kan också användas utanför Visual Studio Code för att köra projektet i AKS, som att köra `azds up`. `.vscode` Mappen används endast av Visual Studio Code för att köra projektet i AKS från Visual Studio Code.
+Dockerfile, Helm-diagrammet och- `azds.yaml` filerna är samma till gångar som genereras när de körs `azds prep` . Dessa filer kan också användas utanför Visual Studio Code för att köra projektet i AKS, som att köra `azds up` . `.vscode`Mappen används endast av Visual Studio Code för att köra projektet i AKS från Visual Studio Code.
 
 ## <a name="run-your-service-in-aks"></a>Kör din tjänst i AKS
 
 När du har genererat till gångarna för ditt projekt kan du köra Java, Node. js och .NET Core-tjänster i ett befintligt dev-utrymme från Visual Studio Code. På sidan *fel sökning* i Visual Studio Code kan du anropa Starta-konfigurationen från `.vscode` katalogen för att köra projektet.
 
-Du måste skapa ditt AKS-kluster och aktivera Azure dev Spaces i ditt kluster utanför Visual Studio Code. Du kan till exempel använda Azure CLI eller Azure Portal för att göra den här installationen. Du kan återanvända befintliga Dockerfiles, Helm-diagram `azds.yaml` och filer som skapats utanför Visual Studio Code, till exempel de till gångar som `azds prep`genererats genom att köra. Om du återanvänder till gångar som skapats utanför Visual Studio Code måste du ändå ha en `.vscode` katalog. Den `.vscode` här katalogen kan återskapas av Visual Studio Code och tillägget Azure dev Spaces och dina befintliga till gångar skrivs inte över.
+Du måste skapa ditt AKS-kluster och aktivera Azure dev Spaces i ditt kluster utanför Visual Studio Code. Du kan återanvända befintliga Dockerfiles, Helm-diagram och `azds.yaml` filer som skapats utanför Visual Studio Code, till exempel de till gångar som genererats genom att köra `azds prep` . Om du återanvänder till gångar som skapats utanför Visual Studio Code måste du ändå ha en `.vscode` katalog. Den här `.vscode` katalogen kan återskapas av Visual Studio Code och tillägget Azure dev Spaces och dina befintliga till gångar skrivs inte över.
 
 För .NET Core-projekt måste du ha [C#-tillägget][csharp-extension] installerat för att köra din .net-tjänst från Visual Studio Code. För Java-projekt som använder maven måste du också ha installerat [Java-felsökare för Azure dev Spaces-tillägget][java-extension] samt [maven installerat och konfigurerat][maven] för att köra Java-tjänsten från Visual Studio Code.
 

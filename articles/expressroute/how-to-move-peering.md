@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc5740fef87497d881f689f888e446dbf4d100e1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436845"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019459"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Flytta offentlig peering till Microsoft-peering
 
@@ -33,7 +33,7 @@ För att ansluta till Microsoft-peering måste du konfigurera och hantera NAT. D
 
 Se [asymmetrisk routning med flera nätverks Sök vägar](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) för varningar från asymmetrisk routning innan du konfigurerar Microsoft-peering.
 
-* Om du använder offentlig peering och för närvarande har IP-nätverks regler för offentliga IP-adresser som används för att komma åt [Azure Storage](../storage/common/storage-network-security.md) eller [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), måste du se till att NAT IP-poolen som kon figurer ATS med Microsoft-peering ingår i listan över offentliga IP-adresser för Azure Storage-kontot eller Azure SQL-kontot.<br>
+* Om du använder offentlig peering och för närvarande har IP-nätverks regler för offentliga IP-adresser som används för att komma åt [Azure Storage](../storage/common/storage-network-security.md) eller [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), måste du se till att NAT IP-poolen som kon figurer ATS med Microsoft-peering ingår i listan över offentliga IP-adresser för Azure Storage-kontot eller Azure SQL-kontot.<br>
 * Använd stegen i den här artikeln i den ordning som de presenteras för att flytta till Microsoft-peering utan drift avbrott.
 
 ## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. skapa Microsoft-peering

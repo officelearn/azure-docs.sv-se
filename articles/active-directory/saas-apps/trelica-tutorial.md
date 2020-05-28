@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c68a95530f345d1ec0ed077681ec4cd6eb3775
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 733e7529af5de453462efb1a13c21203681e442c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402447"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994314"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Trelica
 
@@ -34,7 +34,7 @@ Med den här integreringen kan du:
 
 Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -90,9 +90,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal:
     1. I rutan **svars-URL** anger du en URL som har mönstret `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs` .
 
     > [!NOTE]
-    > **Svars-URL** -värdet är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL: en. Kontakta [Trelica-klientens support team](mailto:support@trelica.com) för att få det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för svars-URL:en är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL: en (även kallat ACS).
+    > Du kan hitta detta genom att logga in på Trelica och gå till [konfigurations sidan för SAML Identity providers](https://app.trelica.com/Admin/Profile/SAML) (admin > konto > SAML). Klicka på kopierings knappen bredvid den **(ACS) URL: en** för att placera den i Urklipp, som du kan klistra in i text rutan **svars-URL** i Azure AD.
+    > Läs [dokumentationen för Trelica-hjälpen](https://docs.trelica.com/admin/saml/azure-ad) eller kontakta [Trelica-klientens support team](mailto:support@trelica.com) om du har frågor.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat** . Till höger om **URL för app Federation-Metadata**väljer du kopierings knappen för att kopiera URL: en. Spara webb adressen på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på knappen Kopiera för att kopiera URL för **metadata för app Federation** och sparar den på datorn.
 
     ![Avsnittet SAML-signeringscertifikat med kopierings knappen bredvid URL för app Federation-Metadata](common/copy-metadataurl.png)
 
@@ -128,11 +130,11 @@ I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning me
 
 ## <a name="configure-trelica-sso"></a>Konfigurera Trelica SSO
 
-Om du vill konfigurera enkel inloggning på **Trelica** -sidan skickar du det kopierade URL-värdet för **app Federation-Metadata** till [support teamet för Trelica](mailto:support@trelica.com). De konfigurerar den här inställningen att ha SAML SSO-anslutningen korrekt inställd på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Trelica** -sidan går du till [konfigurations sidan för SAML Identity providers](https://app.trelica.com/Admin/Profile/SAML) (admin > konto > SAML). Klicka på knappen **nytt** . Ange **Azure AD** som namn och välj **metadata från URL: en** för typen metadata. Klistra in **URL: en för app Federation-Metadata** som du tog från Azure AD till URL-fältet för **metadata** i Trelica.
+
+Läs [dokumentationen för Trelica-hjälpen](https://docs.trelica.com/admin/saml/azure-ad) eller kontakta [Trelica-klientens support team](mailto:support@trelica.com) om du har frågor.
 
 ### <a name="create-a-trelica-test-user"></a>Skapa en Trelica-test användare
-
-I det här avsnittet skapar du en användare som heter B. Simon i Trelica.
 
 Trelica stöder just-in-Time-etablering, som är aktiverat som standard. Det finns ingen åtgärd att ta med i det här avsnittet. Om en användare inte redan finns i Trelica skapas en ny efter autentiseringen.
 

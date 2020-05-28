@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 183189253d11638751e1f8283b202f122131b005
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ae8c4f09c0133dde7b0a73b7c2fcd0a28aa22ae3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836319"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013205"
 ---
 # <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integrera Uppdateringshantering med Windows-slutpunkt Configuration Manager
 
@@ -38,7 +38,7 @@ Utför följande steg om du kommer att fortsätta hantera uppdaterings distribut
 1. I Azure Automation väljer du **uppdateringshantering**. Skapa en ny distribution genom att följa stegen som beskrivs i [skapa en uppdaterings distribution](automation-tutorial-update-management.md#schedule-an-update-deployment) och välj **importerade grupper** i list rutan **typ** för att välja lämplig Windows-slutpunkt Configuration Manager samling. Tänk på följande viktiga punkter: a. Om ett underhålls fönster har definierats på den valda Windows-slutpunkten Configuration Manager enhets samling, följer medlemmarna i samlingen den i stället för **varaktighets** inställningen som definierats i den schemalagda distributionen.
     b. Medlemmar i mål samlingen måste ha en anslutning till Internet (antingen direkt, via en proxyserver eller via Log Analytics Gateway).
 
-När du har slutfört uppdaterings distributionen via Azure Automation kommer de mål datorer som är medlemmar i den valda dator gruppen att installera uppdateringar vid den schemalagda tiden från deras lokala klientcachen. Du kan [visa status för uppdateringsdistributionen](automation-tutorial-update-management.md#view-results-of-an-update-deployment) för att övervaka resultatet av distributionen.
+När du har slutfört uppdaterings distributionen via Azure Automation kommer de mål datorer som är medlemmar i den valda dator gruppen att installera uppdateringar vid den schemalagda tiden från deras lokala klientcachen. Du kan [visa status för uppdateringsdistributionen](automation-tutorial-update-management.md#check-deployment-status) för att övervaka resultatet av distributionen.
 
 ## <a name="manage-software-updates-from-azure-automation"></a>Hantera program uppdateringar från Azure Automation
 

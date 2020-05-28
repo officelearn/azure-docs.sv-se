@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 05/25/2020
 ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: 1ac45d88c0af33114106f36798fd56473d18ea28
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: d1e432ef99a3c83fe06c00b15acbb00c630e1be1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798064"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014408"
 ---
 # <a name="workday-attribute-reference"></a>Workday-attributreferens
 
@@ -30,7 +30,7 @@ I tabellen nedan visas en lista över Workday-attribut och motsvarande XPATH-utt
 :::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-no-version-info.png" alt-text="Information om Workday-version":::
 
 
-| \# | Name                                  | API-uttryck för Workday                                                                                                                                                                                                                                                                                                                                                                                       |
+| \# | Namn på Workday-attribut                                  | XPATH API-uttryck för Workday                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Aktiv                                | WD: Worker/WD: Worker \_ -data/WD: anställnings \_ data/WD: arbetar \_ status \_ data/WD: aktiv/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | WD: Worker/WD: Worker- \_ data/WD: anställnings \_ data/WD: positions \_ data/WD: \_ \_ sammanfattnings data för företags webbplats \_ /WD: adress \_ data/WD: adress \_ rads \_ data \[ @wd:Type = adress \_ rad \_ 2 ' \] /text\(\)                                                                                                                                                                                                                             |
@@ -125,7 +125,7 @@ Om du använder WWS API v 30.0 eller senare i anslutnings-URL: en så som visas 
 Information om hur du konfigurerar ytterligare XPATHs finns i avsnittet [Självstudier: hantera konfigurationen](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration). 
 
 
-| \# | Name                                  | XPATH API-uttryck för Workday                                                                                                                                                                                                                                                                                                                                                |
+| \# | Namn på Workday-attribut                                  | XPATH API-uttryck för Workday                                                                                                                                                                                                                                                                                                                                                |
 |----|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Aktiv                                | WD: Worker/WD: Worker \_ -data/WD: anställnings \_ data/WD: arbetar \_ status \_ data/WD: aktiv/text\(\)                                                                                                                                                                                                                                                                                               |
 | 2  | AddressLine2Data                      | WD: Worker/WD: Worker- \_ data/WD: anställnings \_ data/WD: Worker- \_ jobb \_ data \[ @wd:Primary_Job = 1]/WD: positions \_ data/WD: affärs \_ plats \_ Sammanfattning \_ data/WD: adress \_ data/WD: adress \_ rads \_ data \[ @wd:Type = ' adress \_ rad \_ 2 ' \] /text\(\)                                                                                                                                                            |
@@ -208,4 +208,44 @@ Information om hur du konfigurerar ytterligare XPATHs finns i avsnittet [Självs
 | 79 | WorkerType                            | WD: Worker/WD: Worker- \_ data/WD: anställnings \_ data/WD: Worker- \_ jobb \_ data \[ @wd:Primary_Job = 1]/WD: positions \_ data/WD: \_ typ referens för arbetare \_ /WD: ID \[ @wd:type = "anställnings \_ typ \_ -ID" \] /text\(\)                                                                                                                                                                                                 |
 | 80 | WorkSpaceReference                    | WD: Worker/WD: Worker \_ -data/WD: anställnings \_ data/WD: Worker- \_ jobb \_ data \[ @wd:Primary_Job = 1]/WD: positions \_ data/WD: arbets \_ yta\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                  |
 
+## <a name="custom-xpath-values"></a>Anpassade XPATH-värden
+Tabellen nedan innehåller en lista över andra vanliga API-uttryck för OLE som används vid etablering av arbetare från Workday till Active Directory eller Azure AD. Testa de API-uttryck för XPATH som anges här med din version av workday som hänvisar till anvisningarna i avsnitts [självstudien: hantera konfigurationen](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration).
+
+Om du vill lägga till fler attribut till XPATH-tabellen för fördelen med kunder som implementerar den här integreringen, lämnar du en kommentar nedan eller så [bidrar](https://docs.microsoft.com/contribute) direkt till artikeln. 
+
+> [!div class="mx-tdBreakAll"]
+> | \# | Namn på Workday-attribut  | Workday API-version | XPATH API-uttryck för Workday   |
+> |----|-------------------------|---------------------|--------------------------------|
+> | 1  | Universellt ID  | v-30.0 +   | WD: Worker/WD: Worker_Data/WD: Universal_ID/text ()      |
+> | 2  | Användarnamn     | v-30.0 +   | WD: Worker/WD: Worker_Data/WD: User_Account_Data/WD: User_Name/text () |
+> | 3  | ID för hanterings nivå  | v-30.0 +  | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Worker_Job_Data [ @wd:Primary_Job = 1]/WD: Position_Data/WD: Job_Profile_Summary_Data/WD: Management_Level_Reference/WD: ID [ @wd:type = "Management_Level_ID"]/text ()  |
+> | 4 | Hyra avställd | v-30.0 + | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Worker_Status_Data/WD: Hire_Rescinded/text () |
+> | 5 | Tilldelad etablerings grupp | v-21.1 + | WD: Worker/WD: Worker_Data/WD: Account_Provisioning_Data/WD: Provisioning_Group_Assignment_Data [WD: status = ' Assigned ']/WD: Provisioning_Group/text () | 
+
+
+## <a name="supported-xpath-functions"></a>XPATH-funktioner som stöds
+Nedan visas en lista över de XPATH-funktioner som stöds av [Microsoft .net XPath-bibliotek](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) som du kan använda när du skapar ditt XPath API-uttryck. 
+
+* name
+* pågå
+* position
+* sträng
+* under sträng
+* concat
+* del sträng – efter
+* starts-with
+* sträng längd
+* innehåller
+* translate
+* normalisering – utrymme
+* under sträng – före
+* boolean
+* true
+* inte
+* falskt
+* nummer
+* Fastställ
+* fordra
+* round
+* maximal
 

@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1be509f3b82cece3afb1e728a19da4c4d9526195
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 70ed8594be09ab74478f4703aa632b9ce966b5ee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836115"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118014"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
@@ -157,8 +157,4 @@ Här är ett exempel på hur det fungerar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om andra områden i Azure Backup finns i några av de vanliga frågorna om säkerhets kopiering:
-
-- [Recovery Services-valv – vanliga frågor och svar](backup-azure-backup-faq.md)
-- [Säkerhetskopiering av virtuella Azure-datorer – vanliga frågor och svar ](backup-azure-vm-backup-faq.md)
-- [Azure Backup-agent – vanliga frågor och svar](backup-azure-file-folder-backup-faq.md)
+- [Felsöka problem vid säkerhets kopiering av Azure-filresurser](troubleshoot-azure-files.md)

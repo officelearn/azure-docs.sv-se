@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: 7a935fa4c4e91cf8adcd6df467ac56eeecaf46c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9309f431a820b800e652d7fa8afcea8f03a46062
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605945"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114530"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Köra ett SSIS-paket med aktiviteten Lagrad procedur i Azure Data Factory
 
@@ -26,10 +26,10 @@ ms.locfileid: "81605945"
 
 Den här artikeln beskriver hur du kör ett SSIS-paket i en Azure Data Factory pipeline med hjälp av en lagrad procedur aktivitet. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-Genom gången i den här artikeln används en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL Database Hanterad instans.
+I genom gången i den här artikeln används Azure SQL Database som värd för SSIS-katalogen. Du kan också använda en hanterad Azure SQL-instans.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Skapa en Azure-SSIS Integration Runtime
 Skapa en Azure-SSIS integration Runtime om du inte har en genom att följa steg-för-steg-instruktionen i [självstudien: Distribuera SSIS-paket](tutorial-create-azure-ssis-runtime-portal.md).
@@ -86,7 +86,7 @@ I det här steget använder du Data Factory gränssnittet för att skapa en pipe
 4. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst): 
 
     1. Välj **Azure SQL Database** för **typ**.
-    2. Välj **standard** Azure integration runtime för att ansluta till den Azure SQL Database som är `SSISDB` värd för databasen.
+    2. Välj **standard** Azure integration runtime för att ansluta till den Azure SQL Database som är värd för `SSISDB` databasen.
     3. Välj den Azure SQL Database som är värd för SSISDB-databasen för fältet **Server namn** .
     4. Välj **SSISDB** som **databas namn**.
     5. För **användar namn**anger du namnet på den användare som har åtkomst till databasen.
@@ -98,7 +98,7 @@ I det här steget använder du Data Factory gränssnittet för att skapa en pipe
 5. I fönstret Egenskaper växlar du till fliken **lagrad procedur** från fliken **SQL-konto** och utför följande steg: 
 
     1. Välj **Redigera**. 
-    2. I fältet **namn på lagrad procedur** anger `sp_executesql`du. 
+    2. I fältet **namn på lagrad procedur** anger du `sp_executesql` . 
     3. Klicka på **+ ny** i avsnittet **Parametrar för lagrad procedur** . 
     4. För parameterns **namn** anger du **stmt**. 
     5. Ange **sträng**för parameterns **typ** . 
@@ -134,7 +134,7 @@ I det här avsnittet aktiverar du en pipeline-körning och övervakar den sedan.
 
     ![Aktivitetskörningar](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
 
-4. Du kan köra följande **fråga** mot SSISDB-databasen i din Azure SQL-Server för att kontrol lera att paketet körs. 
+4. Du kan köra följande **fråga** mot SSISDB-databasen i SQL Database för att kontrol lera att paketet körs. 
 
     ```sql
     select * from catalog.executions
@@ -157,7 +157,7 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 Du kan antingen använda samma data fabrik som Azure-SSIS IR eller skapa en separat data fabrik. Följande procedur innehåller steg för att skapa en data fabrik. Du skapar en pipeline med en lagrad procedur aktivitet i den här data fabriken. Den lagrade procedur aktiviteten kör en lagrad procedur i SSISDB-databasen för att köra ditt SSIS-paket. 
 
-1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
+1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Exempel: `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -201,7 +201,7 @@ Skapa en länkad tjänst för att länka Azure SQL-databasen som är värd för 
 1. Skapa en JSON-fil med namnet **AzureSqlDatabaseLinkedService. JSON** i mappen **C:\ADF\RunSSISPackage** med följande innehåll: 
 
     > [!IMPORTANT]
-    > Ersätt &lt;servername&gt;, &lt;username&gt;och &lt;Password&gt; med värdena för din Azure SQL Database innan du sparar filen.
+    > Ersätt &lt; servername &gt; , &lt; username &gt; och &lt; password &gt; med värdena för din Azure SQL Database innan du sparar filen.
 
     ```json
     {
@@ -229,7 +229,7 @@ I det här steget skapar du en pipeline med en lagrad procedur aktivitet. Aktivi
 1. Skapa en JSON-fil med namnet **RunSSISPackagePipeline. JSON** i mappen **C:\ADF\RunSSISPackage** med följande innehåll:
 
     > [!IMPORTANT]
-    > Ersätt &lt;mapp-&gt;namn &lt;, projekt&gt;namn &lt;, paket&gt; namn med namn på mapp, projekt och paket i SSIS-katalogen innan du sparar filen. 
+    > Ersätt &lt; mapp-namn &gt; , &lt; projekt &gt; namn, &lt; paket namn &gt; med namn på mapp, projekt och paket i SSIS-katalogen innan du sparar filen. 
 
     ```json
     {
@@ -353,7 +353,7 @@ I föregående steg anropade du pipelinen på begäran. Du kan också skapa en s
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
-    Du kan köra följande fråga mot SSISDB-databasen i din Azure SQL-Server för att kontrol lera att paketet körs. 
+    Du kan köra följande fråga mot SSISDB-databasen i SQL Database för att kontrol lera att paketet körs. 
 
     ```sql
     select * from catalog.executions

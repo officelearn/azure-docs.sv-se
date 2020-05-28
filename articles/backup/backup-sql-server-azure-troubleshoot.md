@@ -3,12 +3,12 @@ title: Felsöka SQL Server säkerhets kopiering av databasen
 description: Felsöknings information för att säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer med Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: cec3f8530d8a48a870c672d418d42d12a62aa2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93e06cc3219d5588c1740220af01950a25fcb52f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183338"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017026"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -20,7 +20,7 @@ Mer information om säkerhets kopierings processen och begränsningar finns i [o
 
 Om du vill konfigurera skydd för en SQL Server-databas på en virtuell dator måste du installera **AzureBackupWindowsWorkload** -tillägget på den virtuella datorn. Om du får felet **UserErrorSQLNoSysadminMembership**innebär det att din SQL Server-instans inte har de säkerhets kopierings behörigheter som krävs. Följ stegen i [Ange VM-behörigheter](backup-azure-sql-database.md#set-vm-permissions)för att åtgärda felet.
 
-## <a name="troubleshoot-discover-and-configure-issues"></a>Felsöka identifierings-och konfigurations problem
+## <a name="troubleshoot-discover-and-configure-issues"></a>Felsöka problem med identifiering och konfigurering
 
 När du har skapat och konfigurerat ett Recovery Services-valv, är det en två stegs process att identifiera databaser och konfigurera säkerhets kopiering.<br>
 
@@ -60,7 +60,7 @@ Ibland kan slumpmässiga problem inträffa i säkerhets kopierings-och återstä
 
 ### <a name="backup-type-unsupported"></a>Säkerhets kopierings typen stöds inte
 
-| Severity | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
+| Allvarlighetsgrad | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|---|
 | Varning | De aktuella inställningarna för den här databasen stöder inte vissa säkerhets kopierings typer som finns i den tillhör ande principen. | <li>Endast en fullständig databas säkerhets kopierings åtgärd kan utföras på huvud databasen. Varken differentiell säkerhets kopiering eller säkerhets kopiering av transaktions logg är möjlig. </li> <li>Alla databaser i den enkla återställnings modellen tillåter inte säkerhets kopiering av transaktions loggar.</li> | Ändra databas inställningarna så att alla säkerhets kopierings typer i principen stöds. Du kan också ändra den aktuella principen så att den bara innehåller de säkerhets kopierings typer som stöds. Annars kommer de säkerhets kopierings typer som inte stöds att hoppas över under schemalagd säkerhets kopiering, eller så kommer säkerhets kopieringen inte att kunna utföra säkerhets kopiering på begäran.
 
@@ -219,7 +219,7 @@ Om innehålls sträng storleken överskrider 20 000 byte, lagras databasfilerna 
 
 ### <a name="override-the-default-target-restore-file-path"></a>Åsidosätt fil Sök vägen för standard målets återställning
 
-Du kan åsidosätta sökvägen till mål återställnings filen under återställnings åtgärden genom att placera en JSON-fil som innehåller mappningen av databas filen till mål återställnings Sök vägen. Skapa en `database_name.json` fil och placera den på platsen `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*`.
+Du kan åsidosätta sökvägen till mål återställnings filen under återställnings åtgärden genom att placera en JSON-fil som innehåller mappningen av databas filen till mål återställnings Sök vägen. Skapa en `database_name.json` fil och placera den på platsen `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*` .
 
 Filens innehåll ska ha följande format:
 
@@ -267,4 +267,4 @@ Den här filen bör placeras innan du utlöser återställnings åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Backup för SQL Server virtuella datorer (offentlig för hands version) finns i [Azure Backup för virtuella SQL-datorer](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
+Mer information om Azure Backup för SQL Server virtuella datorer (offentlig för hands version) finns i [Azure Backup för virtuella SQL-datorer](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup).

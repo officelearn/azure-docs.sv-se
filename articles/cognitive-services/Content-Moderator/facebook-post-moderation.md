@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a9a5fe2eed0c0e6cf990183d321a71a7fabfbbee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76774273"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118643"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Självstudie: måttlig Facebook-inlägg och-kommandon med Azure Content Moderator
 
@@ -28,7 +28,7 @@ I den här självstudiekursen lär du dig att:
 > * Skapa Azure Functions som lyssnar efter HTTP-händelser från Content Moderator och Facebook.
 > * Länka en Facebook-sida till Content Moderator med ett Facebook-program.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 Det här diagrammet illustrerar varje komponent i det här scenariot:
 
@@ -37,7 +37,7 @@ Det här diagrammet illustrerar varje komponent i det här scenariot:
 > [!IMPORTANT]
 > I 2018 implementerade Facebook en striktare först konsumentsajter-princip för Facebook-appar. Du kommer inte att kunna slutföra stegen i den här själv studie kursen om din app inte har granskats och godkänts av Facebooks gransknings teamet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator-tjänsten och få din nyckel.
 - Ett [Facebook-konto](https://www.facebook.com/).
@@ -70,14 +70,14 @@ Logga in på [Azure Portal](https://portal.azure.com/) och följ de här stegen:
     
     | Namn på App-inställning | värde   | 
     | -------------------- |-------------|
-    | cm:TeamId   | Ditt team-ID för Content Moderator  | 
-    | cm:SubscriptionKey | Prenumerationsnyckeln för Content Moderator – Se [Autentiseringsuppgifter](review-tool-user-guide/credentials.md) |
-    | cm:Region | Regionnamnet i Content Moderator utan blanksteg. Du hittar detta i fältet **plats** på fliken **Översikt** i Azure-resursen.|
-    | cm:ImageWorkflow | Namnet på arbetsflödet som ska köras på bilderna |
-    | cm:TextWorkflow | Namnet på arbetsflödet som ska köras på texten |
-    | cm:CallbackEndpoint | URL för CMListener-Funktionsapp som du kommer att skapa senare i den här hand boken |
-    | fb:VerificationToken | En hemlig token som du skapar, används för att prenumerera på Facebook-flöde-händelser |
-    | fb:PageAccessToken | Din åtkomsttoken för Facebooks Graph API upphör inte att gälla och kan dölja/ta bort inlägg åt dig. Du får den här token i ett senare steg. |
+    | `cm:TeamId`   | Ditt team-ID för Content Moderator  | 
+    | `cm:SubscriptionKey` | Prenumerationsnyckeln för Content Moderator – Se [Autentiseringsuppgifter](review-tool-user-guide/credentials.md) |
+    | `cm:Region` | Regionnamnet i Content Moderator utan blanksteg. Du kan hitta det här namnet i fältet **plats** på fliken **Översikt** i Azure-resursen.|
+    | `cm:ImageWorkflow` | Namnet på arbetsflödet som ska köras på bilderna |
+    | `cm:TextWorkflow` | Namnet på arbetsflödet som ska köras på texten |
+    | `cm:CallbackEndpoint` | URL för CMListener-Funktionsapp som du kommer att skapa senare i den här hand boken |
+    | `fb:VerificationToken` | En hemlig token som du skapar, används för att prenumerera på Facebook-flöde-händelser |
+    | `fb:PageAccessToken` | Din åtkomsttoken för Facebooks Graph API upphör inte att gälla och kan dölja/ta bort inlägg åt dig. Du får den här token i ett senare steg. |
 
     Klicka på knappen **Spara** överst på sidan.
 
@@ -144,7 +144,7 @@ Logga in på [Azure Portal](https://portal.azure.com/) och följ de här stegen:
         2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. Uppdatera följande miljövariabler:
     
-        | Nyckel | Värde   | 
+        | Tangent | Värde   | 
         | -------------------- |-------------|
         | appId   | Infoga din Facebook-appidentifierare här  | 
         | appSecret | Infoga din Facebook-apphemlighet här | 

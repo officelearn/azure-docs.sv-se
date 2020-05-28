@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: 214d97822bdb2efbe164c3526939ddbe78777e59
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: eb5e15f5387628fea293c767202ece77b14f656c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890743"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113333"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory 
 
@@ -108,14 +108,14 @@ Azure-SSIS IR kan etableras i offentliga eller privata nätverk.  Åtkomst till 
 
 ### <a name="azure-ssis-ir-compute-resource-and-scaling"></a>Beräkningsresurs och skalning i Azure-SSIS IR
 
-Azure-SSIS IR är ett helt hanterat kluster av virtuella Azure-datorer särskilt avsedda att köras SSIS-paketen. Du kan använda en egen Azure SQL Database eller en hanterad instans server som värd för katalogen med SSIS-projekt/-paket (SSISDB) som ska kopplas till den. Du kan skala upp kraften i beräkningen genom att ange nodstorlek och skala ut den genom att ange antalet noder i klustret. Du kan hantera kostnaden för att köra Azure-SSIS Integration Runtime genom att stoppa och starta den efter önskemål.
+Azure-SSIS IR är ett helt hanterat kluster av virtuella Azure-datorer särskilt avsedda att köras SSIS-paketen. Du kan ta med din egen Azure SQL Database-eller SQL-hanterade instans för katalogen med SSIS-projekt/-paket (SSISDB). Du kan skala upp kraften i beräkningen genom att ange nodstorlek och skala ut den genom att ange antalet noder i klustret. Du kan hantera kostnaden för att köra Azure-SSIS Integration Runtime genom att stoppa och starta den efter önskemål.
 
 Om du vill ha mer information läser du artikeln om hur du skapar och konfigurerar Azure-SSIS IR under ”så här gör du”-guiderna.  När du har skapat den kan du distribuera och hantera dina befintliga SSIS-paket med få eller inga ändringar med välbekanta verktyg, som SQL Server Data Tools (SSDT) och SQL Server Management Studio (SSMS), precis som när du använder SSIS lokalt.
 
 Mer information om Azure-SSIS runtime finns i följande artiklar: 
 
 - [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL Database som värd för SSIS-katalogen. 
-- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln är utökad i självstudien och innehåller instruktioner om hur du använder Azure SQL Database hanterade instansen och ansluter till IR till ett virtuellt nätverk. 
+- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln expanderar i självstudien och innehåller instruktioner om hur du använder SQL-hanterad instans och ansluter till IR till ett virtuellt nätverk. 
 - [Övervaka en Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln visar hur du hämtar information om en Azure-SSIS IR och innehåller beskrivningar av statusar i den returnerade informationen. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den också visar hur du skalar ut Azure-SSIS IR genom att lägga till fler noder i IR. 
 - [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk. Den innehåller också steg för att använda Azure-portalen för att konfigurera ett virtuellt nätverk så att Azure-SSIS IR kan ansluta till ett virtuellt nätverk. 
@@ -161,9 +161,9 @@ När IR med egen värd används för att utföra dataflyttning extraherar den da
 
 Att välja rätt plats för Azure-SSIS IR är viktigt för att uppnå höga prestanda i dina arbetsflöden för extrahering, transformering och laddning (ETL).
 
-- Platsen för din Azure-SSIS IR behöver inte vara samma som platsen för din data fabrik, men den bör vara samma som platsen för din egen Azure SQL Database eller hanterad instans server där SSISDB ska vara värd. På så sätt kan din Azure-SSIS Integration Runtime enkelt få åtkomst till SSISDB utan att det medför överdriven trafik mellan olika platser.
-- Om du inte har en befintlig Azure SQL Database eller hanterad instans server som värd för SSISDB, men du har lokala data källor/destinationer, bör du skapa en ny Azure SQL Database eller hanterad instans server på samma plats som ett virtuellt nätverk som är anslutet till ditt lokala nätverk.  På så sätt kan du skapa Azure-SSIS IR med hjälp av den nya Azure SQL Database eller hanterade instans servern och ansluta till det virtuella nätverket, allt på samma plats, vilket effektivt minimerar data förflyttningar mellan olika platser.
-- Om platsen för din befintliga Azure SQL Database-eller hanterade instans server där SSISDB finns inte är samma som platsen för ett virtuellt nätverk som är anslutet till ditt lokala nätverk, måste du först skapa Azure-SSIS IR med en befintlig Azure SQL Database eller hanterad instans Server och ansluta till ett annat virtuellt nätverk på samma plats, och sedan konfigurera ett virtuellt nätverk till en virtuell nätverks anslutning mellan olika platser.
+- Platsen för din Azure-SSIS IR behöver inte vara samma som platsen för din data fabrik, men den bör vara samma som platsen för din egen Azure SQL Database eller SQL-hanterad instans där SSISDB. På så sätt kan din Azure-SSIS Integration Runtime enkelt få åtkomst till SSISDB utan att det medför överdriven trafik mellan olika platser.
+- Om du inte har en befintlig SQL Database-eller SQL-hanterad instans, men du har lokala data källor/mål, bör du skapa en ny Azure SQL Database eller SQL-hanterad instans på samma plats som ett virtuellt nätverk som är anslutet till ditt lokala nätverk.  På så sätt kan du skapa Azure-SSIS IR med hjälp av den nya Azure SQL Database eller SQL-hanterade instansen och ansluta till det virtuella nätverket, allt på samma plats, vilket effektivt minimerar data förflyttningar mellan olika platser.
+- Om platsen för din befintliga Azure SQL Database-eller SQL-hanterade instans inte är samma som platsen för ett virtuellt nätverk som är anslutet till ditt lokala nätverk, måste du först skapa Azure-SSIS IR med en befintlig Azure SQL Database eller SQL-hanterad instans och ansluta till ett annat virtuellt nätverk på samma plats, och sedan konfigurera ett virtuellt nätverk till en virtuell nätverks anslutning mellan olika platser.
 
 I följande diagram visas platsinställningar för Data Factory och dess Integration Runtime-instanser:
 
@@ -197,4 +197,4 @@ Se följande artiklar:
 
 - [Skapa Azure integration runtime](create-azure-integration-runtime.md)
 - [Skapa Integration Runtime med egen värd](create-self-hosted-integration-runtime.md)
-- [Skapa en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln är utökad i självstudien och innehåller instruktioner om hur du använder Azure SQL Database hanterade instansen och ansluter till IR till ett virtuellt nätverk. 
+- [Skapa en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln expanderar i självstudien och innehåller instruktioner om hur du använder SQL-hanterad instans och ansluter till IR till ett virtuellt nätverk. 

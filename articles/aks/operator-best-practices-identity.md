@@ -5,12 +5,12 @@ description: Lär dig metod tips för kluster operatörer för hur du hanterar a
 services: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0e3569be769fcf70a65cbfee62a3b80a5abdc3b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e02b542f74a2dd7b7e88f1fa075ad6a736895e76
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668319"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020055"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Metod tips för autentisering och auktorisering i Azure Kubernetes service (AKS)
 
@@ -19,6 +19,7 @@ När du distribuerar och underhåller kluster i Azure Kubernetes service (AKS) m
 Den här tips artikeln fokuserar på hur en kluster operatör kan hantera åtkomst och identitet för AKS-kluster. I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
+>
 > * Autentisera AKS-kluster användare med Azure Active Directory
 > * Kontrol lera åtkomst till resurser med hjälp av rollbaserad åtkomst kontroll (RBAC)
 > * Använd en hanterad identitet för att autentisera sig själv med andra tjänster
@@ -62,7 +63,7 @@ rules:
   verbs: ["*"]
 ```
 
-En RoleBinding skapas då som binder Azure AD User *developer1\@-contoso.com* till RoleBinding, som du ser i följande yaml-manifest:
+En RoleBinding skapas då som binder Azure AD User *developer1- \@ contoso.com* till RoleBinding, som du ser i följande yaml-manifest:
 
 ```yaml
 kind: RoleBinding
@@ -80,7 +81,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-När *developer1\@contoso.com* autentiseras mot AKS-klustret har de fullständig behörighet till resurser i namn området *ekonomi-app* . På så sätt kan du logiskt separera och kontrol lera åtkomsten till resurser. Kubernetes RBAC bör användas tillsammans med Azure AD-integration, enligt beskrivningen i föregående avsnitt.
+När *developer1 \@ contoso.com* autentiseras mot AKS-klustret har de fullständig behörighet till resurser i namn området *ekonomi-app* . På så sätt kan du logiskt separera och kontrol lera åtkomsten till resurser. Kubernetes RBAC bör användas tillsammans med Azure AD-integration, enligt beskrivningen i föregående avsnitt.
 
 Om du vill se hur du använder Azure AD-grupper för att kontrol lera åtkomsten till Kubernetes-resurser med RBAC, se [kontrol lera åtkomst till kluster resurser med hjälp av rollbaserade åtkomst kontroller och Azure Active Directory identiteter i AKS][azure-ad-rbac].
 
@@ -97,14 +98,14 @@ Hanterade identiteter för Azure-resurser (som för närvarande implementeras so
 
 När poddar begär åtkomst till en Azure-tjänst omdirigerar nätverks reglerna trafiken till NMI-servern (Node Management Identity). NMI-servern identifierar poddar som begär åtkomst till Azure-tjänster baserat på deras Fjärradress och skickar en fråga till den hanterade identitets styrenheten (MIC). MIC söker efter Azure Identity-mappningar i AKS-klustret och NMI-servern begär sedan en åtkomsttoken från Azure Active Directory (AD) baserat på pod identitets mappning. Azure AD ger åtkomst till NMI-servern, som returneras till pod. Denna åtkomsttoken kan användas av Pod för att sedan begära åtkomst till tjänster i Azure.
 
-I följande exempel skapar en utvecklare en pod som använder en hanterad identitet för att begära åtkomst till en Azure SQL Server-instans:
+I följande exempel skapar en utvecklare en pod som använder en hanterad identitet för att begära åtkomst till Azure SQL Database:
 
 ![Pod-identiteter låter en POD automatiskt begära åtkomst till andra tjänster](media/operator-best-practices-identity/pod-identities.png)
 
 1. Kluster operatör skapar först ett tjänst konto som kan användas för att mappa identiteter när poddar begär åtkomst till tjänster.
 1. NMI-servern och MIC distribueras för att vidarebefordra eventuella Pod-förfrågningar om åtkomsttoken till Azure AD.
 1. En utvecklare distribuerar en POD med en hanterad identitet som begär en åtkomsttoken via NMI-servern.
-1. Token returneras till Pod och används för att få åtkomst till en Azure SQL Server-instans.
+1. Token returneras till Pod och används för att komma åt Azure SQL Database
 
 > [!NOTE]
 > Hanterade Pod-identiteter är ett projekt med öppen källkod och stöds inte av teknisk support för Azure.

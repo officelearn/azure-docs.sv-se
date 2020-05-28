@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: f4de4c25cea251ea0db72bcb435ceb63eb308ff0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22fa0e1cc6bdad109c5dcb82cc08b81d91674f9a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409232"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022462"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av PowerShell
 
@@ -59,11 +59,11 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
 * **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Skapa en container med namnet adftutorial. 
 * **Azure PowerShell**. Följ instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -230,7 +230,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
     ```
 
 ### <a name="create-a-sql-database-linked-service"></a>Skapa en länkad tjänst till SQL-databas
-1. Skapa en JSON-fil med namnet AzureSQLDatabaseLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt;Server&gt;, &lt;databas&gt;, &lt;användar-&gt;ID och &lt;lösen&gt; ord med namnet på din server, databas, användar-ID och lösen ord innan du sparar filen.
+1. Skapa en JSON-fil med namnet AzureSQLDatabaseLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt; Server &gt; , &lt; databas &gt; , &lt; användar-ID &gt; och &lt; lösen ord &gt; med namnet på din server, databas, användar-ID och lösen ord innan du sparar filen.
 
     ```json
     {

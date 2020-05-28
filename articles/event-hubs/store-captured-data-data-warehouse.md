@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 28fa9dddda94845511ead7d8fb7481aff6b6b044
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ef24e78ea88bb0922c0affbe47f2591475024601
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80130852"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016023"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Självstudie: Migrera insamlade Event Hubs data till en SQL Data Warehouse med Event Grid och Azure Functions
 
@@ -22,39 +22,42 @@ Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capt
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
-*   Först måste du skapa en händelsehubb med funktionen **Capture** aktiverad, och ange en Azure Blob-lagringsplats som mål. Data som genereras av WindTurbineGenerator strömmas till händelsehubben och samlas automatiskt in till Azure Storage som Avro-filer. 
-*   Sedan skapar du en Azure Event Grid-prenumeration med Event Hubs-namnområdet som källa och Azure Function-slutpunkten som mål.
-*   När en ny Avro-fil skickas till blob-lagring i Azure Storage av funktionen Event Hubs Capture, meddelar Event Grid blob-lagringens URI till Azure Function. Därefter migreras data av Function från blob-lagringen till ett SQL Data Warehouse.
+- Först måste du skapa en händelsehubb med funktionen **Capture** aktiverad, och ange en Azure Blob-lagringsplats som mål. Data som genereras av WindTurbineGenerator strömmas till händelsehubben och samlas automatiskt in till Azure Storage som Avro-filer.
+- Sedan skapar du en Azure Event Grid-prenumeration med Event Hubs-namnområdet som källa och Azure Function-slutpunkten som mål.
+- När en ny Avro-fil skickas till blob-lagring i Azure Storage av funktionen Event Hubs Capture, meddelar Event Grid blob-lagringens URI till Azure Function. Därefter migreras data av Function från blob-lagringen till ett SQL Data Warehouse.
 
-I den här självstudien gör du följande: 
+I den här självstudien gör du följande:
 
 > [!div class="checklist"]
-> * Distribuera infrastrukturen
-> * Publicera kod till en Functions-app
-> * Skapa en Event Grid-prenumeration från Functions-appen
-> * Strömma exempeldata till Event Hub. 
-> * Verifiera insamlade data i SQL Data Warehouse
+>
+> - Distribuera infrastrukturen
+> - Publicera kod till en Functions-app
+> - Skapa en Event Grid-prenumeration från Functions-appen
+> - Strömma exempeldata till Event Hub.
+> - Verifiera insamlade data i SQL Data Warehouse
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - [Visual studio 2019](https://www.visualstudio.com/vs/). Vid installationen kontrollerar du att du installerar följande arbetsbelastningar: .NET-skrivbordsutveckling, Azure-utveckling, ASP.NET- och webbutveckling, Node.js-utveckling och Python-utveckling
 - Hämta [git-exemplet](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) som exempel lösningen innehåller följande komponenter:
-    - *WindTurbineDataGenerator* – en enkel utgivare som skickar exempeldata från en vindturbin till en Capture-aktiverad händelsehubb
-    - *FunctionDWDumper* – en Azure-funktion som tar emot ett Event Grid-meddelande när en Avro-fil hämtas till blob-lagring i Azure Storage. Den tar emot blobbens URI-sökväg, läser innehållet och skickar data till ett SQL Data Warehouse.
 
-    Det här exemplet använder det senaste Azure. Messaging. EventHubs-paketet. Du kan hitta det gamla exemplet som använder Microsoft. Azure. EventHubs-paketet [här](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). 
+  - *WindTurbineDataGenerator* – en enkel utgivare som skickar exempeldata från en vindturbin till en Capture-aktiverad händelsehubb
+  - *FunctionDWDumper* – en Azure-funktion som tar emot ett Event Grid-meddelande när en Avro-fil hämtas till blob-lagring i Azure Storage. Den tar emot blobbens URI-sökväg, läser innehållet och skickar data till ett SQL Data Warehouse.
+
+  Det här exemplet använder det senaste Azure. Messaging. EventHubs-paketet. Du kan hitta det gamla exemplet som använder Microsoft. Azure. EventHubs-paketet [här](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).
 
 ### <a name="deploy-the-infrastructure"></a>Distribuera infrastrukturen
+
 Använd Azure PowerShell eller Azure CLI för att distribuera den infrastruktur som behövs för den här självstudien med hjälp av den här [Azure Resource Manager-mallen](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). Den här mallen skapar följande resurser:
 
--   Event Hub med funktionen Capture aktiverad
--   Lagringskonto för insamlade händelsedata
--   Azure App Service-plan som värd för funktionsappen
--   Funktionsapp för bearbetning av insamlade händelsefiler
--   SQL Server som värd för informationslagret
--   SQL Data Warehouse för lagring av migrerade data
+- Event Hub med funktionen Capture aktiverad
+- Lagringskonto för insamlade händelsedata
+- Azure App Service-plan som värd för funktionsappen
+- Funktionsapp för bearbetning av insamlade händelsefiler
+- Logisk SQL Server som värd för data lagret
+- SQL Data Warehouse för lagring av migrerade data
 
 Följande avsnitt innehåller Azure CLI- och Azure PowerShell-kommandon för distribution av den infrastruktur som krävs för den här självstudien. Uppdatera namnen på följande objekt innan du kör kommandona: 
 
@@ -62,7 +65,7 @@ Följande avsnitt innehåller Azure CLI- och Azure PowerShell-kommandon för dis
 - Resursgruppens område eller region
 - Event Hubs-namnområde
 - Händelsehubb
-- Azure SQL-server
+- Logisk SQL-Server
 - SQL-användare (och lösenord)
 - Azure SQL-databas
 - Azure Storage 
@@ -71,6 +74,7 @@ Följande avsnitt innehåller Azure CLI- och Azure PowerShell-kommandon för dis
 Det tar en stund för de här skripten att skapa alla Azure-artefakter. Vänta tills skriptet har slutförts innan du fortsätter. Om distributionen av någon anledning misslyckas tar du bort resursgruppen, åtgärdar det rapporterade problemet och kör sedan kommandot igen. 
 
 #### <a name="azure-cli"></a>Azure CLI
+
 Om du vill distribuera mallen med Azure CLI kör du följande kommandon:
 
 ```azurecli-interactive
@@ -91,8 +95,8 @@ New-AzResourceGroup -Name rgDataMigration -Location westcentralus
 New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
+### <a name="create-a-table-in-sql-data-warehouse"></a>Skapa en tabell i SQL Data Warehouse
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>Skapa en tabell i SQL Data Warehouse 
 Skapa en tabell i SQL-informationslagret genom att köra skriptet [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) med [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md) eller Frågeredigeraren i portalen. 
 
 ```sql

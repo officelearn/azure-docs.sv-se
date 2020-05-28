@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: bd67c3b7eed6b3ce3730bd48cda69d85aa276df4
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a3b03c5999454e101640d931a0bef98aa642a8c7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930598"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021474"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänst slut punkter för virtuella nätverk för Azure Key Vault
 
@@ -70,7 +70,7 @@ Här är en lista över betrodda tjänster som har behörighet att komma åt ett
 |Exchange Online & SharePoint Online|Tillåt åtkomst till kund nyckel för Azure Storage tjänst kryptering med [kund nyckel](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Tillåt åtkomst till klient nyckeln för [Azure information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Distribuera Azure Web App-certifikat via Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och informations lager](../../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Azure SQL Database|[Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och informations lager](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Kryptering av data i Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) med en kundhanterad nyckel.|
 |Azure Databricks|[Snabb, enkel och gemensam Apache Spark-baserad analys tjänst](../../azure-databricks/what-is-azure-databricks.md)|

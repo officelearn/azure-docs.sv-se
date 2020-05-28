@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 21c3e3c7ae515f5a740384d202451f61291bc05b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: fe6b047d10b8aef8faf81365cae940b05b3d798c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614349"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117745"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudie: skapa en adresspool för att verifiera tjänst uppdateringar
 
@@ -82,4 +82,4 @@ Tjänst uppdateringar sker varje månad. Om det uppstår allvarliga problem komm
 Nu när du har skapat en pool för validerings värdar kan du lära dig hur du använder Azure Service Health för att övervaka distributionen av virtuella Windows-datorer. 
 
 > [!div class="nextstepaction"]
-> [Konfigurera tjänstaviseringar](../set-up-service-alerts.md)
+> [Konfigurera tjänstaviseringar](set-up-service-alerts-2019.md)

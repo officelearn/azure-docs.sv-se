@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca0e5cedfda1446f86b469501746e87c340b4103
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 29e1bb33b98b1fbc8fcfcd541d0014ca1bc75d8d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614335"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114143"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Självstudie: Konfigurera tjänst aviseringar
 
@@ -29,7 +29,7 @@ I den här självstudien får du lära dig att:
 
 Mer information om Azure Service Health finns i [Azure Health-dokumentationen](https://docs.microsoft.com/azure/service-health/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Självstudie: skapa en klient i Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
 - [Självstudie: skapa tjänstens huvud namn och roll tilldelningar med PowerShell](create-service-principal-role-powershell.md)
@@ -52,7 +52,7 @@ Vi rekommenderar att du skapar tjänst aviseringar för följande typer av häls
 
 Konfigurera tjänst aviseringar:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **service Health.**
 3. Följ anvisningarna i [skapa aktivitets logg aviseringar på tjänst aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) för att konfigurera aviseringar och meddelanden.
 

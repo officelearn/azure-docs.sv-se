@@ -52,8 +52,12 @@
       href: container-instances-region-availability.md
     - name: Relation till dirigeringsverktyg
       href: container-instances-orchestrator-relationship.md
-    - name: Säkerhetsöverväganden
-      href: container-instances-image-security.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
+        - name: Säkerhetsöverväganden
+          href: container-instances-image-security.md
     - name: Virtuellt nätverk
       href: container-instances-virtual-network-concepts.md
 - name: Anvisningar

@@ -1,6 +1,6 @@
 ---
-title: CLI-exempel – kopiera – Azure SQL Database – ny server
-description: Exempel skript för Azure CLI för att kopiera en SQL-databas till en ny server
+title: 'Azure CLI: Kopiera databasen i Azure SQL Database till en ny server'
+description: Exempel skript för Azure CLI för att kopiera en databas i Azure SQL Database till en ny server
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: b7e04d7b1ed51a45e132d088b0dd29377312027c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e7a83478654b848b8e001dd3fea276c5cc9e125a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067484"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022700"
 ---
-# <a name="use-cli-to-copy-a-sql-database-to-a-new-server"></a>Använd CLI för att kopiera en SQL-databas till en ny server
+# <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>Använd CLI för att kopiera en databas i Azure SQL Database till en ny server
 
 Detta exempel på Azure CLI-skript skapar en kopia av en befintlig databas på en ny server.
 
@@ -61,4 +61,4 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare CLI-skriptexempel för SQL Database finns i [Azure SQL Database-dokumentationen](../sql-database-cli-samples.md).
+Ytterligare CLI-skriptexempel för SQL Database finns i [Azure SQL Database-dokumentationen](../../azure-sql/database/az-cli-script-samples-content-guide.md).

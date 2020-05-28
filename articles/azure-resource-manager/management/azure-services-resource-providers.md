@@ -3,12 +3,12 @@ title: Resurs leverantörer efter Azure-tjänster
 description: Visar en lista över alla resurs leverantörs namn områden för Azure Resource Manager och Azure-tjänsten för namn området visas.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 9bb8d91d141997a7dd466d247ddcb0bd364e1c80
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 95846a74f9556fcccb3f583f365679c8ebadecee
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559852"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020157"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resurs leverantörer för Azure-tjänster
 
@@ -69,7 +69,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. DataLakeStore | [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) |
 | Microsoft. data migration | [Azure Database Migration Service](/azure/dms/) |
 | Microsoft. DataShare | [Azure Data Share](/azure/data-share/) |
-| Microsoft. DBforMariaDB | [Azure Database för MariaDB](/azure/mariadb/) |
+| Microsoft. DBforMariaDB | [Azure-databas för MariaDB](/azure/mariadb/) |
 | Microsoft. DBforMySQL | [Azure Database for MySQL](/azure/mysql/) |
 | Microsoft. DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
 | Microsoft. DesktopVirtualization | [Windows Virtual Desktop](/azure/virtual-desktop/) |
@@ -120,7 +120,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. OffAzure | [Azure Migrate](../../migrate/migrate-overview.md) |
 | Microsoft. OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft. peering | [Azure-peering-tjänst](../../peering-service/index.yml) |
+| Microsoft. peering | [Azure Peering Service](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft. Portal | [Azure Portal](/azure/azure-portal/) |
 | Microsoft. PowerBI | [Power BI](/power-bi/power-bi-overview) |
@@ -143,8 +143,8 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. SignalRService | [Azure SignalR Service](../../azure-signalr/index.yml) |
 | Microsoft. SoftwarePlan | Licens |
 | Microsoft. Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
-| Microsoft.Sql | [Azure SQL Database](../../sql-database/index.yml)<br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft. SqlVirtualMachine | [SQL Server på Azure Virtual Machines](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
+| Microsoft.Sql | [Azure SQL Database](../../azure-sql/database/index.yml)<br /> [Hanterad Azure SQL-instans](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
+| Microsoft. SqlVirtualMachine | [SQL Server på Azure Virtual Machines](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
 | Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft. StorageCache | [Azure HPC Cache](/azure/hpc-cache/) |
 | Microsoft. StorageSync | [Storage](../../storage/index.yml) |

@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: e450d9ede3b073d2d1a791b341e4376b40919933
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 0d6ab6152d7025098006c580673848fe0268346b
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116457"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141848"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,11 +49,11 @@ Du kan prova några av de här åtgärderna med hjälp av följande exempel:
 
 | | Azure Portal | Azure PowerShell |
 |---|---|---|
-| Ändra kvarhållning av säkerhets kopior | [SQL Database](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL-hanterad instans](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL Database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL-hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Ändra långsiktig kvarhållning av säkerhets kopior | [SQL Database](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL-hanterad instans-saknas  | [SQL Database](long-term-backup-retention-configure.md)<br/>SQL-hanterad instans-saknas  |
-| Återställa en databas från en tidpunkt | [SQL Database](recovery-using-backups.md#point-in-time-restore) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL-hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| Återställa en borttagen databas | [SQL Database](recovery-using-backups.md) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL-hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| Återställa en databas från Azure Blob Storage | SQL Database-saknas <br/>SQL-hanterad instans-saknas  | SQL Database-saknas <br/>[SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| Ändra kvarhållning av säkerhets kopior | [Enkel databas](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Hanterad instans](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Enkel databas](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Ändra långsiktig kvarhållning av säkerhets kopior | [Enkel databas](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Hanterad instans-saknas  | [Enkel databas](long-term-backup-retention-configure.md)<br/>Hanterad instans-saknas  |
+| Återställa en databas från en tidpunkt | [Enkel databas](recovery-using-backups.md#point-in-time-restore) | [Enkel databas](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| Återställa en borttagen databas | [Enkel databas](recovery-using-backups.md) | [Enkel databas](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| Återställa en databas från Azure Blob Storage | Enkel databas-ej tillämpligt <br/>Hanterad instans-saknas  | Enkel databas-ej tillämpligt <br/>[Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
 
@@ -61,7 +61,7 @@ Du kan prova några av de här åtgärderna med hjälp av följande exempel:
 
 SQL Database-och SQL-hanterad instans stöder självbetjäning för återställning av PITR (Point-in-Time-återställning) genom att automatiskt skapa fullständiga säkerhets kopior, differentiella säkerhets kopior och säkerhets kopior av transaktions loggar. Fullständiga säkerhets kopieringar skapas varje vecka och säkerhets kopior av differentiella databaser skapas vanligt vis var 12: e timme. Säkerhets kopior av transaktions loggar skapas vanligt vis var 5 till 10 minuter. Frekvensen för säkerhets kopiering av transaktions loggar baseras på beräknings storlek och mängden databas aktivitet.
 
-Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en databas har skapats. Den här säkerhets kopian slutförs vanligt vis inom 30 minuter, men det kan ta längre tid när databasen är stor. Den första säkerhets kopieringen kan till exempel ta längre tid på en återställd databas eller en databas kopia. Efter den första fullständiga säkerhetskopian schemaläggs alla ytterligare säkerhetskopieringar obevakat i bakgrunden. Den exakta tids inställningen för alla databas säkerhets kopieringar bestäms av SQL Database-och SQL-hanterad instans eftersom den balanserar den övergripande system belastningen. Du kan inte ändra eller inaktivera säkerhetskopieringsjobben.
+Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en databas har skapats. Den här säkerhets kopian slutförs vanligt vis inom 30 minuter, men det kan ta längre tid när databasen är stor. Den första säkerhets kopieringen kan till exempel ta längre tid på en återställd databas eller en databas kopia. Efter den första fullständiga säkerhetskopian schemaläggs alla ytterligare säkerhetskopieringar obevakat i bakgrunden. Den exakta tiden för alla säkerhets kopieringar av databasen bestäms av SQL Database-eller SQL-hanterade instans tjänsten eftersom den balanserar den övergripande system belastningen. Du kan inte ändra eller inaktivera säkerhetskopieringsjobben.
 
 ### <a name="default-backup-retention-period"></a>Standard bevarande period för säkerhets kopiering
 
@@ -79,20 +79,20 @@ För ytterligare information om LTR, se [långsiktig kvarhållning av säkerhets
 
 ## <a name="backup-storage-consumption"></a>Lagrings förbrukning för säkerhets kopiering
 
-För enskilda databaser i SQL Database och hanterade instanser i SQL-hanterad instans används den här ekvationen för att beräkna den totala användningen av lagring av säkerhets kopior:
+För enskilda databaser och hanterade instanser används den här ekvationen för att beräkna den totala användningen av lagring av säkerhets kopior:
 
 `Total backup storage size = (size of full backups + size of differential backups + size of log backups) – database size`
 
-För databaser i pooler i SQL Database aggregeras den totala lagrings storleken för säkerhets kopior på Poolnivå och beräknas enligt följande:
+För databaser i pooler sammanställs den totala lagrings storleken för säkerhets kopior på Poolnivå och beräknas enligt följande:
 
 `Total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - allocated pool data storage`
 
 Säkerhets kopieringar som inträffar innan kvarhållningsperioden rensas automatiskt baserat på deras tidsstämpel. Eftersom differentiella säkerhets kopior och logg säkerhets kopior kräver en tidigare fullständig säkerhets kopiering för att vara användbara, rensas de samman i varje vecka.
 
 SQL Database-och SQL-hanterad instans beräknar din totala lagring av säkerhets kopior som ett ackumulerat värde. Varje timme rapporteras det här värdet till Azures fakturerings pipeline, som är ansvarig för att aggregera denna användning per timme för att beräkna förbrukningen i slutet av varje månad. När databasen har släppts minskar förbrukningen som säkerhets kopierings ålder. När säkerhets kopieringarna blev äldre än kvarhållningsperioden stoppas faktureringen.
-
+   
    > [!IMPORTANT]
-   > Säkerhets kopior av en databas bevaras för den angivna kvarhållningsperioden, även om databasen har släppts. När du släpper och återskapar en databas ofta kan spara pengar på lagrings-och beräknings kostnader, kan det öka kostnaderna för säkerhets kopiering eftersom Microsoft behåller en säkerhets kopia för den angivna kvarhållningsperioden för varje släppt databas varje gång den släpps.
+   > Säkerhets kopior av en databas bevaras för den angivna kvarhållningsperioden, även om databasen har släppts. När du släpper och återskapar en databas ofta kan spara pengar på lagrings-och beräknings kostnader, kan det öka kostnaderna för säkerhets kopiering eftersom Microsoft behåller en säkerhets kopia för den angivna kvarhållningsperioden för varje släppt databas varje gång den släpps. 
 
 ### <a name="monitor-consumption"></a>Övervaka förbrukning
 
@@ -142,18 +142,21 @@ Lägg till ett filter för **tjänst namn**och välj sedan **SQL-databas** i lis
 
 ## <a name="backup-retention"></a>Kvarhållning av säkerhetskopior
 
-Alla databaser i Microsoft Azure SQL har en standard kvarhållningsperiod för säkerhets kopiering av 7 dagar. Du kan [ändra kvarhållningsperioden för säkerhets kopior](#change-the-pitr-backup-retention-period) till så länge 35 dagar.
+Alla databaser i Microsoft Azure SQL har en standard kvarhållningsperiod för säkerhets kopiering av 7 dagar. Du kan [ändra kvarhållningsperioden för säkerhets kopior](#change-the-pitr-backup-retention-period) till var som helst mellan 1-35 dagar.
 
 Om du tar bort en databas behåller Azure säkerhets kopiorna på samma sätt som en online-databas. Om du till exempel tar bort en Basic-databas som har en kvarhållningsperiod på sju dagar, sparas en säkerhets kopia som är fyra dagar gammal i tre dagar.
 
 Om du behöver behålla säkerhets kopiorna längre än den maximala kvarhållningsperioden kan du ändra egenskaperna för säkerhets kopiering för att lägga till en eller flera långsiktiga kvarhållningsperiod i databasen. Mer information finns i avsnittet om [långsiktig kvarhållning](long-term-retention-overview.md).
 
 > [!IMPORTANT]
-> Om du tar bort servern eller den hanterade instansen raderas även alla databaser som hanteras av servern eller den hanterade instansen. De kan inte återställas. Du kan inte återställa en borttagen Server eller hanterad instans. Men om du har konfigurerat långsiktig kvarhållning för SQL Database raderas inte säkerhets kopiorna för databaserna med LTR, och dessa databaser kan återställas.
+> Att ställa in kvarhållningsperioden för säkerhets kopior till 1 dag (eller till ett värde mellan 1-7) stöds bara via PowerShell eller REST API för tillfället. Den minsta nödvändiga versionen av AZ. SQL-modulen är v 2.6.0, eller så kan den köras via CloudShell som alltid har den senaste AZ. SQL-versionen.
+
+> [!IMPORTANT]
+> Om du tar bort servern eller den hanterade instansen raderas även alla databaser som hanteras av servern eller den hanterade instansen. De kan inte återställas. Du kan inte återställa en borttagen Server eller hanterad instans. Men om du har konfigurerat långsiktig kvarhållning för SQL Database eller hanterade-instansen tas säkerhets kopiorna för databaserna med LTR inte bort, och dessa databaser kan återställas.
 
 ## <a name="encrypted-backups"></a>Krypterade säkerhets kopior
 
-Om databasen är krypterad med TDE krypteras säkerhets kopiorna automatiskt i vila, inklusive LTR-säkerhetskopieringar. När TDE är aktive rad för SQL Database eller SQL-hanterad instans krypteras även säkerhets kopior. Alla nya databaser i Azure SQL konfigureras med TDE aktiverat som standard. Mer information om TDE finns i [Transparent datakryptering med SQL Database-och SQL-hanterad instans](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Om databasen är krypterad med TDE krypteras säkerhets kopiorna automatiskt i vila, inklusive LTR-säkerhetskopieringar. När TDE är aktive rad för SQL Database eller SQL-hanterad instans krypteras även säkerhets kopior. Alla nya databaser i Azure SQL konfigureras med TDE aktiverat som standard. Mer information om TDE finns i [Transparent datakryptering med SQL Database & SQL-hanterad instans](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="backup-integrity"></a>Säkerhets kopierings integritet
 

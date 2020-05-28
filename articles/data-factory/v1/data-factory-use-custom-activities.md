@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2cea9cd1439bce0c55d701539471c463acb8f7e2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265732"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020140"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -42,18 +42,18 @@ Följande genom gång innehåller stegvisa instruktioner för hur du skapar en a
 > - Det går inte att använda en Data Management Gateway från en anpassad aktivitet för att komma åt lokala data källor. För närvarande stöder [Data Management Gateway](data-factory-data-management-gateway.md) endast aktiviteten Kopiera aktivitet och lagrad procedur i Data Factory.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Genom gång: skapa en anpassad aktivitet
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * Visual Studio 2012/2013/2015/2017
 * Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch förutsättningar
 I genom gången kör du dina anpassade .NET-aktiviteter med Azure Batch som en beräknings resurs. **Azure Batch** är en plattformstjänst för effektiv körning av storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Azure Batch schemalägger beräknings intensiva arbete som ska köras på en hanterad **samling virtuella datorer**och kan automatiskt skala beräknings resurser för att uppfylla jobbens behov. En detaljerad översikt över tjänsten Azure Batch finns i artikeln [Azure Batch grundläggande][batch-technical-overview] information.
 
-För självstudien skapar du ett Azure Batch-konto med en pool med virtuella datorer. Här är stegen:
+För självstudien skapar du ett Azure Batch-konto med en pool med virtuella datorer. Gör så här:
 
 1. Skapa ett **Azure Batch konto** med hjälp av [Azure Portal](https://portal.azure.com). Instruktioner finns i artikeln [skapa och hantera en Azure Batch konto][batch-create-account] .
 2. Anteckna Azure Batch konto namn, konto nyckel, URI och poolnamn. Du behöver dem för att skapa en Azure Batch länkad tjänst.
-    1. På Start sidan för Azure Batch konto visas en **URL** i följande format: `https://myaccount.westus.batch.azure.com`. I det här exemplet är ditt **konto** namnet på Azure Batch kontot. URI som du använder i den länkade tjänst definitionen är URL: en utan namnet på kontot. Till exempel: `https://<region>.batch.azure.com`.
+    1. På Start sidan för Azure Batch konto visas en **URL** i följande format: `https://myaccount.westus.batch.azure.com` . I det här exemplet är ditt **konto** namnet på Azure Batch kontot. URI som du använder i den länkade tjänst definitionen är URL: en utan namnet på kontot. Exempel: `https://<region>.batch.azure.com`.
     2. Klicka på **nycklar** i den vänstra menyn och kopiera den **primära åtkomst nyckeln**.
     3. Om du vill använda en befintlig pool klickar du på **pooler** på menyn och noterar **ID** för poolen. Om du inte har en befintlig pool går du vidare till nästa steg.
 2. Skapa en **Azure Batch pool**.
@@ -372,7 +372,7 @@ Metoden returnerar en ord lista som kan användas för att kedja samman anpassad
     > Ange 4.5.2-version av .NET Framework som mål ramverk för projektet: Högerklicka på projektet och klicka på **Egenskaper** för att ange mål ramverk. Data Factory stöder inte anpassade aktiviteter som kompilerats mot .NET Framework versioner senare än 4.5.2.
 
 11. Starta **Utforskaren**och gå till mappen **bin\debug** eller **bin\release** beroende på typ av version.
-12. Skapa en zip-fil **MyDotNetActivity. zip** som innehåller alla binärfiler i mappen \<\bin\Debug i\>Project Folder. Ta med **MyDotNetActivity. pdb** -filen så att du får ytterligare information, till exempel rad nummer i käll koden som orsakade problemet om det uppstod ett fel.
+12. Skapa en zip-fil **MyDotNetActivity. zip** som innehåller alla binärfiler i \<project folder\> mappen \bin\Debug. Ta med **MyDotNetActivity. pdb** -filen så att du får ytterligare information, till exempel rad nummer i käll koden som orsakade problemet om det uppstod ett fel.
 
     > [!IMPORTANT]
     > Alla filer i zip-filen för den anpassade aktiviteten måste vara på den **översta nivån** utan undermappar.
@@ -440,7 +440,7 @@ Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-da
 2. Klicka på **nytt data lager** i kommando fältet och välj **Azure Storage**. Du bör se JSON-skriptet för att skapa en länkad Azure-lagringstjänst i redigeraren.
 
     ![Nytt data lager – Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Ersätt `<accountname>` med namnet på ditt Azure Storage-konto `<accountkey>` och med åtkomst nyckeln för Azure Storage-kontot. Information om hur du hämtar din lagrings åtkomst nyckel finns i [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
+3. Ersätt `<accountname>` med namnet på ditt Azure Storage-konto och `<accountkey>` med åtkomst nyckeln för Azure Storage-kontot. Information om hur du hämtar din lagrings åtkomst nyckel finns i [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
 
     ![Azure Storage gilla tjänsten](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Klicka på **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
@@ -451,7 +451,7 @@ Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-da
     ![Ny beräkning – Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. Gör följande ändringar i JSON-skriptet:
 
-   1. Ange Azure Batch konto namn för egenskapen **accountName** . **URL: en** från **bladet Azure Batch konto** har följande format: `http://accountname.region.batch.azure.com`. För egenskapen **batchUri** i JSON måste du ta bort `accountname.` från URL: en och använda `accountname` for `accountName` JSON-egenskapen.
+   1. Ange Azure Batch konto namn för egenskapen **accountName** . **URL: en** från **bladet Azure Batch konto** har följande format: `http://accountname.region.batch.azure.com` . För egenskapen **batchUri** i JSON måste du ta bort `accountname.` från URL: en och använda `accountname` for `accountName` JSON-egenskapen.
    2. Ange Azure Batch konto nyckeln för **accessKey** -egenskapen.
    3. Ange namnet på den pool som du skapade som en del av kraven för egenskapen **poolName** . Du kan också ange ID: t för poolen i stället för namnet på poolen.
    4. Ange Azure Batch-URI för egenskapen **batchUri** . Exempel: `https://westus.batch.azure.com`.
@@ -1031,7 +1031,7 @@ Exemplet [Azure Data Factory-lokal miljö](https://github.com/gbrueckl/Azure.Dat
 
 [batch-net-library]: ../../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md
-[batch-technical-overview]: ../../batch/batch-technical-overview.md
+[batch-technical-overview]:../../azure-sql/database/sql-database-paas-overview.md
 [batch-get-started]: ../../batch/batch-dotnet-get-started.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md

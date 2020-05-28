@@ -11,16 +11,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 3275a372e496b79da2c9f31258f557389c5b1ee1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3da51d1e08676d2794c6e95e7ffb359aff26084a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209374"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118394"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio (klassiska) webb tjänster som använder moduler för data import och data export
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 När du skapar ett förutsägelse experiment lägger du vanligt vis till en webb tjänst indata och utdata. När du distribuerar experimentet kan konsumenter skicka och ta emot data från webb tjänsten via indata och utdata. För vissa program kan en konsument data vara tillgängliga från en datafeed eller finnas redan i en extern data källa, till exempel Azure Blob Storage. I dessa fall behöver de inte läsa och skriva data med hjälp av webb tjänst indata och utdata. De kan i stället använda BES (batch execution service) för att läsa data från data källan med hjälp av en modul för att importera data och skriva poängsättnings resultatet till en annan data plats med hjälp av en export data-modul.
 
@@ -101,7 +99,7 @@ Distribuera som en klassisk webb tjänst och skapa ett program för att använda
 2. När körningen har slutförts klickar du på **distribuera webb tjänst** och väljer **distribuera webb tjänst [klassisk]**.
 3. På instrument panelen för webb tjänster letar du upp din API-nyckel. Kopiera och spara den för att använda senare.
 4. I **standard slut punkts** tabellen klickar du på länken för **batch-körning** för att öppna API-hjälp sidan.
-5. I Visual Studio skapar du ett C#-konsol program: **nytt** > **projekt** > **Visual C#** > **Windows klassisk Desktop** > **console-app (.NET Framework)**.
+5. I Visual Studio skapar du ett C#-konsol program: **nytt**  >  **projekt**  >  **Visual C#**  >  **Windows klassisk Desktop**  >  **console-app (.NET Framework)**.
 6. På sidan API-hjälp hittar du avsnittet **exempel kod** längst ned på sidan.
 7. Kopiera och klistra in C#-exempel koden i Program.cs-filen och ta bort alla referenser till blob-lagringen.
 8. Uppdatera värdet för variabeln *apiKey* med API-nyckeln Sparad tidigare.
@@ -130,7 +128,7 @@ Distribuera som en ny webb tjänst och skapa ett program för att använda den:
 3. På sidan distribuera experiment anger du ett namn för din webb tjänst och väljer en pris plan och klickar sedan på **distribuera**.
 4. Klicka på **förbruka**på sidan **snabb start** .
 5. I avsnittet **exempel kod** klickar du på **batch**.
-6. I Visual Studio skapar du ett C#-konsol program: **nytt** > **projekt** > **Visual C#** > **Windows klassisk Desktop** > **console-app (.NET Framework)**.
+6. I Visual Studio skapar du ett C#-konsol program: **nytt**  >  **projekt**  >  **Visual C#**  >  **Windows klassisk Desktop**  >  **console-app (.NET Framework)**.
 7. Kopiera och klistra in C#-exempel koden i din Program.cs-fil.
 8. Uppdatera värdet för variabeln *apiKey* med **primär nyckeln** som finns i avsnittet **grundläggande förbruknings information** .
 9. Leta upp *ScoreRequest* -deklarationen och uppdatera värdena för webb tjänst parametrar som skickas till modulerna *Importera data* och *Exportera data* . I det här fallet använder du den ursprungliga frågan, men definierar ett nytt tabell namn.

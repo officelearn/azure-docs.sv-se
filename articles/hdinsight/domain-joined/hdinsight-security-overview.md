@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 91a3c71ecaa8af58e13cb96571fc7afdf618fcdd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 94823445e4f8e3f8d40a219dc23b40f8a5c267c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780087"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996320"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Översikt över företags säkerhet i Azure HDInsight
 
@@ -43,7 +43,7 @@ Med den här inställningen kan företags anställda logga in på klusternoderna
 
 Det bästa sättet för de flesta företag är att se till att inte alla anställda har fullständig åtkomst till alla företags resurser. På samma sätt kan administratören definiera rollbaserade principer för åtkomst kontroll för kluster resurserna. Den här åtgärden är endast tillgänglig i ESP-kluster.
 
-Hadoop-administratören kan konfigurera rollbaserad åtkomst kontroll (RBAC). Konfigurationerna säkra Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md)och [Kafka](apache-domain-joined-run-kafka.md) med Apache Range-plugin-program. Genom att konfigurera RBAC-principer kan du associera behörigheter med en roll i organisationen. Detta skikt gör det lättare att se till att människor bara har de behörigheter som krävs för att utföra sina uppgifter. Med Ranger kan du också granska data åtkomsten för anställda och eventuella ändringar som gjorts i principer för åtkomst kontroll.
+Hadoop-administratören kan konfigurera rollbaserad åtkomst kontroll (RBAC). Konfigurationerna säkra Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md)och [Kafka](apache-domain-joined-run-kafka.md) med Apache Ranger-plugin-program. Genom att konfigurera RBAC-principer kan du associera behörigheter med en roll i organisationen. Detta skikt gör det lättare att se till att människor bara har de behörigheter som krävs för att utföra sina uppgifter. Med Ranger kan du också granska data åtkomsten för anställda och eventuella ändringar som gjorts i principer för åtkomst kontroll.
 
 Administratören kan till exempel konfigurera [Apache Ranger](https://ranger.apache.org/) för att ange åtkomstkontrollprinciper för Hive. Den här funktionen säkerställer filtrering på radnivå och på kolumn nivå (data maskning). Och filtrerar känsliga data från obehöriga användare.
 
@@ -89,8 +89,8 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 | Nätverkssäkerhet | Konfigurera ett [virtuellt nätverk](../hdinsight-plan-virtual-network-deployment.md) |
 |  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../control-network-traffic.md) | Kund |
 |  | Konfigurera [begränsning av utgående trafik](../hdinsight-restrict-outbound-traffic.md) med brand vägg | Kund |
-| Virtualiserad infrastruktur | E.t. | HDInsight (Cloud Provider) |
-| Säkerhet för fysisk infrastruktur | E.t. | HDInsight (Cloud Provider) |
+| Virtualiserad infrastruktur | Saknas | HDInsight (Cloud Provider) |
+| Säkerhet för fysisk infrastruktur | Saknas | HDInsight (Cloud Provider) |
 
 ## <a name="next-steps"></a>Nästa steg
 

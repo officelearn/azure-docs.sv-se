@@ -5,22 +5,22 @@ author: florianborn71
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1f4207a11f3ae3664023fccf6178b6db7cf253b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681316"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021168"
 ---
 # <a name="create-client-side-performance-traces"></a>Samla in klientsidans prestandavarningar
 
 Det finns många orsaker till varför prestandan för Azure-fjärrrendering kanske inte är lika lämplig som du vill. Förutom den rena åter givnings prestandan på moln servern, särskilt kvaliteten på nätverks anslutningen, har en betydande inverkan på upplevelsen. Information om hur du profilerar serverns prestanda finns i avsnittet [prestanda frågor för Server sidan](../overview/features/performance-queries.md).
 
-Det här kapitlet fokuserar på hur du identifierar potentiella Flask halsar på klient sidan genom *prestanda spårning*.
+Det här kapitlet fokuserar på hur du identifierar potentiella Flask halsar på klient sidan via *:::no-loc text="performance traces":::* .
 
 ## <a name="getting-started"></a>Komma igång
 
-Om du är nybörjare på prestanda spårnings funktionen i Windows kommer det här avsnittet att nämna de mest grundläggande villkoren och programmen för att komma igång.
+Om du är nybörjare på Windows :::no-loc text="performance tracing"::: -funktionen kommer det här avsnittet att nämna de mest grundläggande villkoren och programmen för att komma igång.
 
 ### <a name="installation"></a>Installation
 
@@ -37,11 +37,11 @@ När du söker efter information om prestanda spårningar kommer du oundvikligen
 
 **ETW** står för [ **E**- **T**Windows **W**](https://docs.microsoft.com/windows/win32/etw/about-event-tracing). Det är helt enkelt det övergripande namnet för den effektiva spårnings funktionen på kernel-nivå som är inbyggd i Windows. Den kallas *händelse* spårning, eftersom program som stöder ETW genererar händelser för att logga åtgärder som kan hjälpa till att spåra prestanda problem. Som standard genererar operativ systemet händelser för till exempel disk åtkomst, aktivitets växlar och sådana. Program som ARR genererar dessutom anpassade händelser, till exempel om släppta ramar, nätverks fördröjning osv.
 
-**ETL** står för **E**-ventilation **t**. ex. **L**ogging. Det innebär bara att en spårning har samlats in (loggats) och vanligt vis används som fil namns tillägg för filer som lagrar spårnings data. När du gör en spårning får du därför vanligt vis en \*. etl-fil efteråt.
+**ETL** står för **E**-ventilation **t**. ex. **L**ogging. Det innebär bara att en spårning har samlats in (loggats) och vanligt vis används som fil namns tillägg för filer som lagrar spårnings data. När du gör en spårning får du därför vanligt vis en \* . etl-fil efteråt.
 
-**WPR** står för [ **W**Windows **P**erformance **R**ecorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) och är namnet på programmet som startar och stoppar inspelningen av händelse spår. WPR tar en profil fil (\*. wprp) som konfigurerar vilka exakta händelser som ska loggas. En `wprp` sådan fil ingår i arr SDK. När du spårar på en stationär dator kan du starta WPR direkt. När du utför en spårning på HoloLens går du normalt igenom webb gränssnittet i stället.
+**WPR** står för [ **W**Windows **P**erformance **R**ecorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) och är namnet på programmet som startar och stoppar inspelningen av händelse spår. WPR tar en profil fil ( \* . wprp) som konfigurerar vilka exakta händelser som ska loggas. En sådan `wprp` fil ingår i arr SDK. När du spårar på en stationär dator kan du starta WPR direkt. När du utför en spårning på HoloLens går du normalt igenom webb gränssnittet i stället.
 
-**WPA** står för [ **b**Windows **P**erformance **A**nalyzer](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) och är namnet på det GUI-program som används för att öppna \*. etl-filer och gå igenom data för att identifiera prestanda problem. Med WPA kan du sortera data efter olika villkor, Visa data på flera sätt, få mer information och korrelera information.
+**WPA** står för [ **b**Windows **P**erformance **A**nalyzer](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) och är namnet på det GUI-program som används för att öppna \* . etl-filer och gå igenom data för att identifiera prestanda problem. Med WPA kan du sortera data efter olika villkor, Visa data på flera sätt, få mer information och korrelera information.
 
 Även om ETL-spårningar kan skapas på en Windows-enhet (lokal dator, HoloLens, moln server osv.), sparas de vanligt vis på disk och analyseras med WPA på en stationär dator. ETL-filer kan skickas till andra utvecklare så att de får en titt. Tänk på att känslig information, t. ex. fil Sök vägar och IP-adresser, kan fångas in i ETL-spår, även om. Du kan använda ETW på två sätt: om du vill spela in spår eller analysera spår. Inspelnings spårningar är rakt framåt och kräver minimal konfiguration. Analys av spår å andra sidan kräver en vettigt förståelse av både WPA-verktyget och det problem som du undersöker. Allmänt material för Learning WPA anges nedan, samt rikt linjer för hur du tolkar ARR-specifikt spår.
 
@@ -51,7 +51,7 @@ För att identifiera problem med ARR-prestanda bör du prioritera en spårning d
 
 ### <a name="wpr-configuration"></a>WPR-konfiguration
 
-1. Starta [Windows Performance Recorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) från *Start menyn*.
+1. Starta [:::no-loc text="Windows Performance Recorder":::](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) från *Start-menyn*.
 1. Expandera **fler alternativ**
 1. Klicka på **Lägg till profiler...**
 1. Välj filen *AzureRemoteRenderingNetworkProfiling. wprp*. Du hittar den här filen i ARR SDK under *Tools/ETLProfiles*.
@@ -67,7 +67,7 @@ Därefter bör din WPR-konfiguration se ut så här:
 
 ### <a name="recording"></a>Inspelning
 
-Klicka på **Starta** för att börja spela in en spårning. Du kan starta och stoppa inspelningen när som helst. du behöver inte stänga ditt program innan du gör det. Som du kan se behöver du inte ange vilket program som ska spåras, eftersom ETW alltid registrerar en spårning för hela systemet. `wprp` Filen anger vilka typer av händelser som ska registreras.
+Klicka på **Starta** för att börja spela in en spårning. Du kan starta och stoppa inspelningen när som helst. du behöver inte stänga ditt program innan du gör det. Som du kan se behöver du inte ange vilket program som ska spåras, eftersom ETW alltid registrerar en spårning för hela systemet. `wprp`Filen anger vilka typer av händelser som ska registreras.
 
 Klicka på **Spara** för att stoppa inspelningen och ange var ETL-filen ska lagras.
 
@@ -81,7 +81,7 @@ Om du vill registrera en spårning på en HoloLens startar du enheten och anger 
 
 1. Till vänster navigerar du till *prestanda > prestanda spårning*.
 1. Välj **anpassade profiler**
-1. Klicka på **Bläddra...**
+1. Markera**:::no-loc text="Browse...":::**
 1. Välj filen *AzureRemoteRenderingNetworkProfiling. wprp*. Du hittar den här filen i ARR SDK under *Tools/ETLProfiles*.
 1. Klicka på **Starta spårning**
 1. HoloLens registrerar nu en spårning. Se till att utlösa de prestanda problem som du vill undersöka. Klicka sedan på **Stoppa spårning**.

@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c594f269d32bc87b2389c430343f6480e97bc5f6
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084965"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142256"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob Storage-utlösare för Azure Functions
 
 Blob Storage-utlösaren startar en funktion när en ny eller uppdaterad BLOB identifieras. BLOB-innehållet tillhandahålls som [indata till funktionen](./functions-bindings-storage-blob-input.md).
 
-Azure Blob Storage-utlösaren kräver ett allmänt lagrings konto. Om du vill använda ett enbart BLOB-konto, eller om ditt program har särskilda behov, granskar du alternativen för att använda den här utlösaren.
+Azure Blob Storage-utlösaren kräver ett allmänt lagrings konto. Storage v2-konton med [hierarkiska namn rymder](../storage/blobs/data-lake-storage-namespace.md) stöds också. Om du vill använda ett enbart BLOB-konto, eller om ditt program har särskilda behov, granskar du alternativen för att använda den här utlösaren.
 
 Information om konfiguration och konfigurations information finns i [översikten](./functions-bindings-storage-blob.md).
 
@@ -40,7 +40,7 @@ En annan metod för att bearbeta blobbar är att skriva Kömeddelanden som motsv
 
 ## <a name="example"></a>Exempel
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` behållaren.
 
@@ -81,7 +81,7 @@ Strängen `{name}` i BLOB trigger-sökvägen `samples-workitems/{name}` skapar e
 
 Mer information om egenskaper för *Function. JSON* -filen finns i [konfigurations](#configuration) avsnittet förklarar dessa egenskaper.
 
-Här är C#-skript kod som binder till en `Stream`:
+Här är C#-skript kod som binder till en `Stream` :
 
 ```cs
 public static void Run(Stream myBlob, string name, ILogger log)
@@ -90,7 +90,7 @@ public static void Run(Stream myBlob, string name, ILogger log)
 }
 ```
 
-Här är C#-skript kod som binder till en `CloudBlockBlob`:
+Här är C#-skript kod som binder till en `CloudBlockBlob` :
 
 ```cs
 #r "Microsoft.WindowsAzure.Storage"
@@ -196,7 +196,7 @@ public void run(
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Använd följande attribut i [C#-klass bibliotek](functions-dotnet-class-library.md)för att konfigurera en BLOB-utlösare:
 
@@ -246,10 +246,10 @@ Använd följande attribut i [C#-klass bibliotek](functions-dotnet-class-library
 
 Lagrings kontot som ska användas fastställs i följande ordning:
 
-* `BlobTrigger` Attributets `Connection` egenskap.
-* `StorageAccount` Attributet som används för samma parameter som `BlobTrigger` attributet.
-* `StorageAccount` Attributet som används för funktionen.
-* `StorageAccount` Attributet som används för klassen.
+* `BlobTrigger`Attributets `Connection` egenskap.
+* `StorageAccount`Attributet som används för samma parameter som `BlobTrigger` attributet.
+* `StorageAccount`Attributet som används för funktionen.
+* `StorageAccount`Attributet som används för klassen.
 * Standard lagrings kontot för app-inställningen ("AzureWebJobsStorage").
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
@@ -266,7 +266,7 @@ Attribut stöds inte av python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`@BlobTrigger` Attributet används för att ge dig åtkomst till den blob som utlöste funktionen. Mer information finns i [utlösnings exemplet](#example) .
+`@BlobTrigger`Attributet används för att ge dig åtkomst till den blob som utlöste funktionen. Mer information finns i [utlösnings exemplet](#example) .
 
 ---
 
@@ -274,19 +274,19 @@ Attribut stöds inte av python.
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `BlobTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|function. JSON-egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
-|**bastyp** | saknas | Måste anges till `blobTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**riktning** | saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. Undantag anges i [användnings](#usage) avsnittet. |
+|**typ** | saknas | Måste anges till `blobTrigger` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
+|**position** | saknas | Måste anges till `in` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. Undantag anges i [användnings](#usage) avsnittet. |
 |**Namn** | saknas | Namnet på variabeln som representerar blobben i funktions koden. |
 |**sökväg** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) som ska övervakas.  Kan vara ett [BLOB Name-mönster](#blob-name-patterns). |
-|**anslutningen** | **Anslutning** | Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel anger `connection` "unstorage" söker funktions körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna `AzureWebJobsStorage`app-inställningen.<br><br>Anslutnings strängen måste vara för ett allmänt lagrings konto, inte ett [Blob Storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**anslutningen** | **Anslutning** | Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel anger `connection` "unstorage" söker funktions körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna app-inställningen `AzureWebJobsStorage` .<br><br>Anslutnings strängen måste vara för ett allmänt lagrings konto, inte ett [Blob Storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Användning
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
@@ -296,7 +296,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Få åtkomst till BLOB `context.bindings.<NAME>` - `<NAME>` data med WHERE matchar värdet som definierats i *Function. JSON*.
+Få åtkomst till BLOB-data med `context.bindings.<NAME>` WHERE `<NAME>` matchar värdet som definierats i *Function. JSON*.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -304,7 +304,7 @@ Få åtkomst till BLOB-data via parametern som anges som [InputStream](https://d
 
 # <a name="java"></a>[Java](#tab/java)
 
-`@BlobTrigger` Attributet används för att ge dig åtkomst till den blob som utlöste funktionen. Mer information finns i [utlösnings exemplet](#example) .
+`@BlobTrigger`Attributet används för att ge dig åtkomst till den blob som utlöste funktionen. Mer information finns i [utlösnings exemplet](#example) .
 
 ---
 
@@ -320,7 +320,7 @@ I följande exempel visas hur du binder till BLOB-filens namn och tillägg separ
 "path": "input/{blobname}.{blobextension}",
 ```
 
-Om blobben heter *original-Blob1. txt*, är `blobname` värdena för variablerna `blobextension` och i funktions koden *ursprungliga – Blob1* och *txt*.
+Om blobben heter *original-Blob1. txt*, är värdena för `blobname` `blobextension` variablerna och i funktions koden *ursprungliga – Blob1* och *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtrera på BLOB-namn
 
@@ -330,7 +330,7 @@ Följande exempel utlöser bara blobar i `input` behållaren som börjar med str
 "path": "input/original-{name}",
 ```
 
-Om BLOB-namnet är *original-Blob1. txt*, är `name` `Blob1`värdet för variabeln i funktions koden.
+Om BLOB-namnet är *original-Blob1. txt*, är värdet för `name` variabeln i funktions koden `Blob1` .
 
 ### <a name="filter-on-file-type"></a>Filtrera efter filtyp
 
@@ -348,11 +348,11 @@ Om du vill söka efter klammerparenteser i fil namn, escapea klammerparenteser m
 "path": "images/{{20140101}}-{name}",
 ```
 
-Om blobben heter * {20140101}-Soundfile. mp3*, är `name` variabelvärdet i funktions koden *Soundfile. mp3*.
+Om blobben heter * {20140101} -Soundfile. mp3*, `name` är variabelvärdet i funktions koden *Soundfile. mp3*.
 
 ## <a name="metadata"></a>Metadata
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
@@ -383,9 +383,9 @@ Metadata är inte tillgängliga i Java.
 
 Azure Functions runtime ser till att ingen BLOB-utlösnings funktion anropas mer än en gång för samma nya eller uppdaterade blob. För att avgöra om en specifik blob-version har bearbetats upprätthåller *BLOB-kvitton*.
 
-Azure Functions lagrar BLOB-kvitton i en behållare med namnet *Azure-WebJobs-hosts* i Azure Storage-kontot för din Function-app (definieras `AzureWebJobsStorage`av appens inställning). Ett BLOB-kvitto har följande information:
+Azure Functions lagrar BLOB-kvitton i en behållare med namnet *Azure-WebJobs-hosts* i Azure Storage-kontot för din Function-app (definieras av appens inställning `AzureWebJobsStorage` ). Ett BLOB-kvitto har följande information:
 
-* Funktionen triggerd ("*&lt;Function App Name>*. Funktionen. funktions namn>", till exempel:" MyFunctionApp. functions. CopyBlob ") * &lt; *
+* Funktionen triggerd ("* &lt; Function app Name>*. Funktionen. * &lt; funktions namn>*", till exempel:" MyFunctionApp. functions. CopyBlob ")
 * Behållarens namn
 * Blob-typ ("BlockBlob" eller "PageBlob")
 * BLOB-namnet
@@ -399,7 +399,7 @@ När en BLOB-utlösare Miss lyckas för en specifik BLOB, Azure Functions förs�
 
 Om alla fem försöken inte fungerar lägger Azure Functions till ett meddelande i en lagrings kö med namnet *WebJobs-en-Poison*. Det maximala antalet återförsök kan konfigureras. Samma MaxDequeueCount-inställning används för hantering av skadlig blob och meddelande hantering för hantering av skadlig kö. Queue-meddelandet för Poison-blobbar är ett JSON-objekt som innehåller följande egenskaper:
 
-* FunctionId (i format * &lt;funktionens program namn>*. Funktionen. funktions namn>) * &lt; *
+* FunctionId (i format * &lt; funktionens program namn>*. Funktionen. * &lt; funktions namn>*)
 * BlobType ("BlockBlob" eller "PageBlob")
 * ContainerName
 * BlobName
@@ -411,7 +411,7 @@ BLOB-utlösaren använder en kö internt, så det maximala antalet samtidiga fun
 
 [Förbruknings planen](functions-scale.md#how-the-consumption-and-premium-plans-work) begränsar en Function-app på en virtuell dator (VM) till 1,5 GB minne. Minne används av varje intern körning av funktions instansen och av Functions-körningen. Om en BLOB-utlöst funktion läser in hela blobben i minnet är den maximala mängd minne som används av den funktionen bara för blobbar 24 * maximal BLOB-storlek. Till exempel skulle en Function-app med tre BLOB-utlöst funktioner och standardinställningarna ha ett maximalt antal per VM-concurrency på 3 * 24 = 72 funktions anrop.
 
-Java Script-och Java-funktioner läser in hela blobben i minnet och C#-funktionerna gör det om `string`du `Byte[]`binder till, eller Poco.
+Java Script-och Java-funktioner läser in hela blobben i minnet och C#-funktionerna gör det om du binder till `string` , `Byte[]` eller Poco.
 
 ## <a name="polling"></a>Avsöknings
 

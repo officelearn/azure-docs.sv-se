@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f911b36d4f38d9b769cf34e4e2326ed1cb52da80
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75771265"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022819"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Flera klient delar för Azure Load Balancer
 
@@ -146,7 +146,7 @@ Målet för det inkommande flödet är klient delens IP-adress på loopback-grä
 
 Observera att det här exemplet inte ändrar mål porten. Även om detta är ett flytande IP-scenario stöder Azure Load Balancer också att definiera en regel för att skriva om Server dels mål porten och att den skiljer sig från klient delens målport.
 
-Typ av flytande IP-regel är grunden för flera konfigurations mönster för belastnings utjämning. Ett exempel som för närvarande är tillgängligt är [SQL AlwaysOn med flera Listener](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) -konfigurationer. Med tiden kommer vi att dokumentera fler av dessa scenarier.
+Typ av flytande IP-regel är grunden för flera konfigurations mönster för belastnings utjämning. Ett exempel som för närvarande är tillgängligt är [SQL AlwaysOn med flera Listener](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) -konfigurationer. Med tiden kommer vi att dokumentera fler av dessa scenarier.
 
 ## <a name="limitations"></a>Begränsningar
 

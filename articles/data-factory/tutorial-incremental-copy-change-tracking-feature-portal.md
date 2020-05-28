@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 40e4fed9755edc2204c7b6b24a003995a14212d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfe7a88cd02b109124b9d35247aa2d4cbc5373c5
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415430"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116605"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsinformation
 
@@ -69,12 +69,12 @@ I den här självstudien skapar du två pipelines som utför följande två åtg
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
-* **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
+## <a name="prerequisites"></a>Förutsättningar
+* **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
 * **Azure Storage konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa artikeln [skapa ett lagrings konto](../storage/common/storage-account-create.md) för steg för att skapa ett. Skapa en container med namnet **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Skapa en datatabell i din Azure SQL-databas
-1. Starta **SQL Server Management Studio** och anslut till din Azure SQL-server.
+1. Starta **SQL Server Management Studio**och anslut till SQL Database.
 2. I **Server Explorer** högerklickar du på **databasen** och väljer **Ny fråga**.
 3. Kör följande SQL-kommando mot din Azure SQL-databas för att skapa en tabell med namnet `data_source_table` som datakällagring.  
 
@@ -154,7 +154,7 @@ Installera de senaste Azure PowerShell-modulerna genom att följa anvisningarna 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**:
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **data och analys**  >  **Data Factory**:
 
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -216,8 +216,8 @@ I det här steget länkar du Azure SQL-databasen till datafabriken.
 3. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
 
     1. Ange **AzureSqlDatabaseLinkedService** i fältet **Namn**.
-    2. Välj din Azure SQL-server i fältet **Servernamn**.
-    4. Välj din Azure SQL-databas i fältet **Databasnamn**.
+    2. Välj servern för fältet **Server namn** .
+    4. Välj din databas för fältet **databas namn** .
     5. Ange användarens namn i fältet **Användarnamn**.
     6. Ange användarens lösenord i fältet **Lösenord**.
     7. Testa anslutningen genom att klicka på **Testa anslutning**.
@@ -263,7 +263,7 @@ I det här steget skapar du en datamängd för att representera data som kopiera
 
     1. Välj **AzureStorageLinkedService** för **Länkad tjänst**.
     2. Ange **adftutorial/incchgtracking** för **mappdelen** i **filePath**.
-    3. Ange ** \@concat ("stegvis", pipeline (). RunId, '. txt ')** för en fil del av **fil** **Sök vägen**.  
+    3. Ange ** \@ concat ("stegvis", pipeline (). RunId, '. txt ')** för en fil del av **fil** **Sök vägen**.  
 
        ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 

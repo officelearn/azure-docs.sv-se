@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 70ed795032c3d6d46aa57afaf5b5ece94bc74ea9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869818"
+ms.locfileid: "83995981"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och Java
 
@@ -23,7 +23,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 Även om det här programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Java Development Kit (JDK) 7 eller senare.
 
@@ -59,9 +59,9 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 1. Skapa en funktion som heter `check()` för att skapa och skicka API-begäran. I den här funktionen lägger du till koden som anges i nästa steg. Skapa en sträng för parametrarna för begäran:
 
-   a. Tilldela din marknads kod till- `mkt` parametern med `=` operatorn. 
+   1. Tilldela din marknads kod till- `mkt` parametern med `=` operatorn. 
 
-   b. Lägg till `mode` parametern med `&` operatorn och tilldela sedan läget för stavnings kontroll. 
+   1. Lägg till `mode` parametern med `&` operatorn och tilldela sedan läget för stavnings kontroll. 
 
    ```java
    public static void check () throws Exception {

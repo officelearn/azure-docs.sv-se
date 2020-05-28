@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: 9c776a32b4a35c72fc40a16afb87db9896a763cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5120e7ca3a29f12066343e5c4a81d6e51278f9ef
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75611074"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020412"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Anpassa SQL information Protection-principen i Azure Security Center (för hands version)
  
@@ -29,7 +29,7 @@ Information Protection är en avancerad säkerhets funktion för att upptäcka, 
 - Säkerhets scenarier som övervakning (granskning) och aviseringar vid avvikande åtkomst till känsliga data
 - Kontrol lera åtkomst till och härdning av säkerheten för data lager som innehåller mycket känsliga data
  
-[Sql information Protection](../sql-database/sql-database-data-discovery-and-classification.md) implementerar den här paradigmen för dina SQL-datalager, som för närvarande stöds för Azure SQL Database. SQL Information Protection identifierar och klassificerar automatiskt potentiellt känsliga data, innehåller en etikett för att permanent tagga känsliga data med klassificerings attribut, och innehåller en detaljerad instrument panel som visar databasens klassificerings tillstånd. Dessutom beräknar den resultat uppsättnings känslighet för SQL-frågor, så att frågor som extraherar känsliga data kan granskas explicit och att data kan skyddas. Mer information om SQL-Information Protection finns i [Azure SQL Database identifiering och klassificering av data](../sql-database/sql-database-data-discovery-and-classification.md).
+[Sql information Protection](../azure-sql/database/data-discovery-and-classification-overview.md) implementerar den här paradigmen för dina SQL-datalager, som för närvarande stöds för Azure SQL Database. SQL Information Protection identifierar och klassificerar automatiskt potentiellt känsliga data, innehåller en etikett för att permanent tagga känsliga data med klassificerings attribut, och innehåller en detaljerad instrument panel som visar databasens klassificerings tillstånd. Dessutom beräknar den resultat uppsättnings känslighet för SQL-frågor, så att frågor som extraherar känsliga data kan granskas explicit och att data kan skyddas. Mer information om SQL-Information Protection finns i [Azure SQL Database identifiering och klassificering av data](../azure-sql/database/data-discovery-and-classification-overview.md).
  
 Klassificerings mekanismen baseras på två primära konstruktioner som utgör klassificeringens taxonomier, **Etiketter** och **informations typer**.
 - **Etiketter** – huvudattributen för klassificering som används för att definiera känslighets nivån för de data som lagras i kolumnen. 
@@ -79,7 +79,7 @@ När din information Protection-princip är fullständigt definierad och Sparad,
  
 ## <a name="next-steps"></a>Nästa steg
  
-I den här artikeln har du lärt dig hur du definierar en princip för SQL-Information Protection i Azure Security Center. Mer information om hur du använder SQL-Information Protection för att klassificera och skydda känsliga data i dina SQL-databaser finns i [Azure SQL Database identifiering och klassificering av data](../sql-database/sql-database-data-discovery-and-classification.md). 
+I den här artikeln har du lärt dig hur du definierar en princip för SQL-Information Protection i Azure Security Center. Mer information om hur du använder SQL-Information Protection för att klassificera och skydda känsliga data i dina SQL-databaser finns i [Azure SQL Database identifiering och klassificering av data](../azure-sql/database/data-discovery-and-classification-overview.md). 
 
 Mer information om säkerhets principer och data säkerhet i Azure Security Center finns i följande artiklar:
  

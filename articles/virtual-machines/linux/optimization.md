@@ -18,7 +18,7 @@ ms.locfileid: "83774157"
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att skapa en virtuell Linux-dator (VM) från kommando raden eller från portalen. Den här självstudien visar hur du ser till att du har konfigurerat för att optimera prestandan på Microsoft Azures plattformen. I det här avsnittet används en virtuell Ubuntu-Server, men du kan också skapa en virtuell Linux-dator med [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här avsnittet förutsätter att du redan har en fungerande Azure-prenumeration ([kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/)) och redan har etablerad en virtuell dator till din Azure-prenumeration. Kontrol lera att du har det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat i din Azure-prenumeration med [AZ-inloggning](/cli/azure/reference-index) innan du [skapar en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS-disk

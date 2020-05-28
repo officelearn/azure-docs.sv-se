@@ -10,16 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 1f47b4532a009694d4167c08f6f04312f8020acc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 095f3396c483f4b8f80ab6c31ee369f2082f560c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673483"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83998085"
 ---
 Denna Postmanbaserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**Postman**](https://www.getpostman.com/).
 * Du måste ha
@@ -64,7 +64,7 @@ I en tidigare snabb start lades metadata till i två QnA-par för att skilja mel
     }
     ```
 
-    Frågan är bara ett enda ord, `size` som kan returnera någon av de två frågorna och svars uppsättningarna. `strictFilters`Matrisen visar svaret för att minska till bara `qna_maker` svaren.
+    Frågan är bara ett enstaka ord, `size` som kan returnera något av de två frågorna och svars paren. `strictFilters`Matrisen visar svaret för att minska till bara `qna_maker` svaren.
 
 1. Svaret innehåller bara det svar som uppfyller filter kriterierna.
 
@@ -103,12 +103,12 @@ I en tidigare snabb start lades metadata till i två QnA-par för att skilja mel
     }
     ```
 
-    Om det finns en fråga och en svars uppsättning som inte uppfyllde Sök termen men som uppfyller filtret, returneras den inte. I stället returneras det allmänna svaret `No good match found in KB.` .
+    Om det finns ett fråge-och svars par som inte uppfyllde Sök termen men som uppfyller filtret, returneras det inte. I stället returneras det allmänna svaret `No good match found in KB.` .
 
 ## <a name="use-debug-query-property"></a>Använd egenskapen Felsök fråga
 
 > [!NOTE]
->Vi rekommenderar inte att du använder debug-poreperty för alla beroenden. Den här egenskapen har lagts till för att hjälpa produkt teamet vid fel sökning. 
+>Vi rekommenderar inte att du använder debug-poreperty för alla beroenden. Den här egenskapen har lagts till för att hjälpa produkt teamet vid fel sökning.
 
 Felsöknings information hjälper dig att förstå hur det returnerade svaret har fastställts. Även om det är användbart är det inte nödvändigt. Om du vill generera ett svar med felsöknings information lägger du till `debug` egenskapen:
 

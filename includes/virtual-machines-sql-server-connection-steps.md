@@ -4,15 +4,15 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d679767f1a4be3ecdcf1811662c72dbbe2df33a0
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67187284"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014798"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Öppna TCP-portar i Windows-brandväggen för standardinstansen av databasmotorn
-1. Anslut till den virtuella datorn med Fjärrskrivbord. Detaljerade instruktioner om hur du ansluter till den virtuella datorn finns i [Öppna den virtuella SQL-datorn med Fjärrskrivbord](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
+1. Anslut till den virtuella datorn med Fjärrskrivbord. Detaljerade instruktioner om hur du ansluter till den virtuella datorn finns i [Öppna den virtuella SQL-datorn med Fjärrskrivbord](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md#remotedesktop).
 2. När du är inloggad skriver du **WF. msc**på Start skärmen och trycker sedan på RETUR.
    
     ![Starta brandväggsprogrammet](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
@@ -29,7 +29,7 @@ ms.locfileid: "67187284"
     **Säkerhetstips:** Du får ytterligare skydd om du markerar **Tillåt anslutningen om den är säker**. Välj det här alternativet om du vill konfigurera ytterligare säkerhetsalternativ i din miljö.
    
     ![Tillåta anslutningar](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
-8. Markera **Offentlig**, **Privat** och **Domän** i dialogrutan **Profil**. Klicka sedan på **Nästa**.
+8. Markera **Offentlig**, **Privat** och **Domän** i dialogrutan **Profil**. Klicka på **Nästa**.
    
     **Säkerhetstips:**  Om du väljer **Offentlig** tillåts åtkomst via Internet. Välj alltid en mer restriktiv profil om det är möjligt.
    

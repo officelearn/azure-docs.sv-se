@@ -9,16 +9,14 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 6afd222730a9864e0b8edd681b1ce919b03c3be8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21bb8253d94ca91ee1baffb6de1f47ca34e9a7d0
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204298"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117549"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>PowerShell-moduler för Azure Machine Learning Studio (klassisk)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Med hjälp av PowerShell-moduler kan du hantera dina Studio (klassiska) resurser och till gångar program mässigt, till exempel arbets ytor, data uppsättningar och webb tjänster.
 
@@ -68,4 +66,4 @@ PowerShell Classic kan installeras tillsammans med antingen AZ eller AzureRM fö
 ## <a name="next-steps"></a>Nästa steg
 Läs den fullständiga dokumentationen i PowerShell-modulen:
 * [Klassisk PowerShell](https://aka.ms/amlps)
-* [Azure PowerShell AZ](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)
+* [Azure PowerShell Az](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)

@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b80d20084f45dd2212cdc03f9c7417a67833d887
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583122"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116617"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD-programproxy-kopplingar
 
@@ -175,9 +175,9 @@ och Windows-prestandaräknare.
 
 ![Lägg till räknare i anslutningen med prestanda övervakaren](./media/application-proxy-connectors/performance-monitor.png)
 
-Anslutningarna har både administratörs-och sessions loggar. Administratörs loggarna innehåller nyckel händelser och deras fel. Sessionens loggar innehåller alla transaktioner och deras bearbetnings information.
+Anslutningarna har både **Administratörs** -och **sessions** loggar. I **Administratörs** loggen ingår nyckel händelser och deras fel. I **sessionsnyckeln** ingår alla transaktioner och deras bearbetnings information.
 
-Om du vill se loggarna går du till Loggboken, öppnar menyn **Visa** och aktiverar **Visa analytiska loggar och fel söknings loggar**. Gör sedan det möjligt för dem att börja samla in händelser. Dessa loggar visas inte i Webbprogramproxy i Windows Server 2012 R2, eftersom kopplingarna baseras på en senare version.
+Öppna **Loggboken** och gå till **program-och tjänst loggar**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**för att se loggarna. Välj **Visa analytiska loggar och fel söknings loggar**på **Visa** -menyn om du vill visa loggen för **sessionen** . Loggen för **sessionen** används vanligt vis för fel sökning och är inaktive rad som standard. Aktivera det för att börja samla in händelser och inaktivera det när det inte längre behövs.
 
 Du kan kontrol lera tjänstens status i fönstret tjänster. Anslutningen består av två Windows-tjänster: den faktiska anslutningen och uppdateraren. Båda måste köras hela tiden.
 

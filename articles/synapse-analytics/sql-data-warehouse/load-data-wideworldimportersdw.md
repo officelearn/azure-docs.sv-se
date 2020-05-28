@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 16263a23c978e3486ff7c5d9281117f850cb885c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14868b2642b2b77ce6bc7315e58a7ae2dc0f115d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80744362"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019936"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Självstudie: läsa in data till Azure Synapse Analytics SQL-pool
 
@@ -46,7 +46,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Skapa ett tomt informations lager i SQL-poolen
 
-En SQL-pool skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). SQL-poolen skapas i en [Azure-resurs grupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och i en [logisk Azure SQL-Server](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+En SQL-pool skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). SQL-poolen skapas i en [Azure-resurs grupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och i en [logisk SQL-Server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Följ de här stegen för att skapa en tom SQL-pool.
 
@@ -73,11 +73,11 @@ Följ de här stegen för att skapa en tom SQL-pool.
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
     | **Position** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
-    ![skapa databasserver](./media/load-data-wideworldimportersdw/create-database-server.png)
+    ![skapa server](./media/load-data-wideworldimportersdw/create-database-server.png)
 
 1. **Välj prestanda nivå**. Skjutreglaget som standard är inställt på **DW1000c**. Flytta skjutreglaget uppåt och nedåt för att välja önskad prestanda skala.
 
-    ![skapa databasserver](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
+    ![skapa server 2](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
 1. På sidan **ytterligare inställningar** ställer du in **Använd befintliga data** till ingen och låter **sorteringen** vara standard *SQL_Latin1_General_CP1_CI_AS*.
 
@@ -87,10 +87,10 @@ Följ de här stegen för att skapa en tom SQL-pool.
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
-Azure Synapse Analytics-tjänsten skapar en brand vägg på server nivå som förhindrar att externa program och verktyg ansluter till servern eller några databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser.  Följ dessa steg för att skapa en [brandväggsregel på servernivå](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) för klientens IP-adress.
+Azure Synapse Analytics-tjänsten skapar en brand vägg på server nivå som förhindrar att externa program och verktyg ansluter till servern eller några databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser.  Följ dessa steg för att skapa en [brandväggsregel på servernivå](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) för klientens IP-adress.
 
 > [!NOTE]
-> Azure Synapse Analytics SQL-poolen kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
+> Azure Synapse Analytics SQL-poolen kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till servern om inte din IT-avdelning öppnar port 1433.
 >
 
 1. När distributionen är klar söker du efter namnet på din pool i sökrutan i navigerings menyn och väljer resursen SQL-pool. Välj servernamnet.
@@ -100,7 +100,7 @@ Azure Synapse Analytics-tjänsten skapar en brand vägg på server nivå som fö
 1. Välj servernamnet.
     ![servernamn](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Välj **Visa brand Väggs inställningar**. Sidan **brand Väggs inställningar** för SQL-adresspoolen öppnas.
+1. Välj **Visa brand Väggs inställningar**. Sidan **brand Väggs inställningar** för servern öppnas.
 
     ![serverinställningar](./media/load-data-wideworldimportersdw/server-settings.png)
 
@@ -108,9 +108,9 @@ Azure Synapse Analytics-tjänsten skapar en brand vägg på server nivå som fö
 
     ![brandväggsregler för server](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
-1. Välj **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
+1. Välj **Spara**. En brand Väggs regel på server nivå skapas för din aktuella IP-adress som öppnar port 1433 på servern.
 
-Nu kan du ansluta till SQL-servern med din klient-IP-adress. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter använder du serveradmin-kontot som du skapade tidigare.  
+Nu kan du ansluta till servern med din klient-IP-adress. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter använder du serveradmin-kontot som du skapade tidigare.  
 
 > [!IMPORTANT]
 > Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan och klicka sedan på **Spara** för att inaktivera brandväggen för alla Azure-tjänster.
@@ -123,7 +123,7 @@ Det fullständigt kvalificerade Server namnet är det som används för att ansl
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ansluta till servern som serveradministratör
 
-I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) för att upprätta en anslutning till Azure SQL-servern.
+I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) för att upprätta en anslutning till servern.
 
 1. Öppna SQL Server Management Studio.
 
@@ -1087,7 +1087,7 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 3. Om du vill undvika framtida avgifter kan du ta bort informationslagret. Om du vill ta bort informationslagret så att du varken debiteras för beräkning eller lagring klickar du på **Ta bort**.
 
-4. Om du vill ta bort den SQL-server som du har skapat klickar du på **sample-svr.database.windows.net** i föregående bild och sedan på **Ta bort**.  Var försiktig: om du tar bort servern tas nämligen alla databaser som servern har tilldelats bort.
+4. Om du vill ta bort den server som du har skapat klickar du på **Sample-SVR.Database.Windows.net** i föregående bild och sedan på **ta bort**.  Var försiktig: om du tar bort servern tas nämligen alla databaser som servern har tilldelats bort.
 
 5. Om du vill ta bort resursgruppen klickar du på **SampleRG** och sedan på **Ta bort resursgrupp**.
 

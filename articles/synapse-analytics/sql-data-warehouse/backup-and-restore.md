@@ -11,12 +11,12 @@ ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 1d82c7c22bb5aeb2740884b0d7ede4a4d8f07f86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea9a9430f9abee6179bacd4f999b7eeca92a8129
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631220"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020854"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Säkerhets kopiering och återställning i Azure Synapse SQL-poolen
 
@@ -30,7 +30,7 @@ En *data lager återställning* är ett nytt informations lager som skapas från
 
 ## <a name="automatic-restore-points"></a>Automatiska återställningspunkter
 
-Ögonblicks bilder är en inbyggd funktion i tjänsten som skapar återställnings punkter. Du behöver inte aktivera den här funktionen. SQL-poolen bör dock vara i ett aktivt tillstånd för skapande av återställnings punkter. Om SQL-poolen har pausats ofta kan automatiska återställnings punkter inte skapas, så se till att skapa en användardefinierad återställnings punkt innan du pausar SQL-poolen. Det går inte att ta bort automatiska återställnings punkter av användare eftersom tjänsten använder dessa återställnings punkter för att underhålla service avtal för återställning.
+Ögonblicks bilder är en inbyggd funktion som skapar återställnings punkter. Du behöver inte aktivera den här funktionen. SQL-poolen bör dock vara i ett aktivt tillstånd för skapande av återställnings punkter. Om SQL-poolen har pausats ofta kan automatiska återställnings punkter inte skapas, så se till att skapa en användardefinierad återställnings punkt innan du pausar SQL-poolen. Det går inte att ta bort automatiska återställnings punkter av användare eftersom tjänsten använder dessa återställnings punkter för att underhålla service avtal för återställning.
 
 Ögonblicks bilder av ditt informations lager tas under dagen som skapar återställnings punkter som är tillgängliga i sju dagar. Kvarhållningsperioden kan inte ändras. SQL-poolen har stöd för ett återställnings punkt mål på 8 timmar. Du kan återställa ditt informations lager i den primära regionen från någon av de ögonblicks bilder som tagits under de senaste sju dagarna.
 
@@ -65,7 +65,7 @@ Följande visar information om återställnings punkter för återställnings pu
 När du släpper en SQL-pool skapas en slutgiltig ögonblicks bild som sparas i sju dagar. Du kan återställa SQL-poolen till den sista återställnings punkten som skapas vid borttagning. Om SQL-poolen släpps i pausat läge tas ingen ögonblicks bild. I det scenariot ser du till att skapa en användardefinierad återställnings punkt innan du släpper SQL-poolen.
 
 > [!IMPORTANT]
-> Om du tar bort en logisk SQL Server-instans raderas även alla databaser som tillhör instansen och de kan inte återställas. Det går inte att återställa en borttagen Server.
+> Om du tar bort servern som är värd för en SQL-pool, tas även alla databaser som tillhör servern bort och kan inte återställas. Det går inte att återställa en borttagen Server.
 
 ## <a name="geo-backups-and-disaster-recovery"></a>Geo-säkerhets kopiering och haveri beredskap
 
@@ -96,7 +96,7 @@ Om du vill återställa ett borttaget eller pausat data lager kan du [skapa ett 
 
 ## <a name="cross-subscription-restore"></a>Återställning mellan prenumerationer
 
-Om du behöver återställa direkt mellan prenumerationen kan du rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Återställ till en annan logisk server och [Flytta](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) servern över prenumerationer för att utföra en återställning mellan prenumerationer.
+Om du behöver återställa direkt mellan prenumerationen kan du rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Återställ till en annan server och [Flytta](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) servern över prenumerationer för att utföra en återställning mellan prenumerationer.
 
 ## <a name="geo-redundant-restore"></a>Geo-redundant återställning
 
@@ -107,4 +107,4 @@ Du kan [återställa SQL-poolen](sql-data-warehouse-restore-from-geo-backup.md#r
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om haveri planering finns i [Översikt över affärs kontinuitet](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Mer information om haveri planering finns i [Översikt över affärs kontinuitet](../../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)

@@ -3,15 +3,15 @@ title: Konfigurera och läsa loggar med Azure Functions-utlösare för Cosmos DB
 description: Lär dig hur du exponerar loggarna i pipeline för Azure Functions loggning när du använder Azure Functions utlösare för Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 5ff747b225f8984bcaafd80015e85a9f014bdb50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8bd53eda7197c1083f5eca70bb8602137c9fb1a8
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441833"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117131"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Konfigurera och läsa loggar när du använder Azure Functions-utlösare för Cosmos DB
 
@@ -25,7 +25,7 @@ Hälso loggarna beskriver hur Azure Functions utlösare för Cosmos DB fungerar 
 
 ## <a name="enabling-logging"></a>Aktivera loggning
 
-Om du vill aktivera loggning när du använder Azure Functions utlösare `host.json` för Cosmos DB, letar du upp filen i Azure Functions-projektet eller Azure Functions app och [konfigurerar önskad loggnings nivå](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Du måste aktivera spårningarna `Host.Triggers.CosmosDB` som visas i följande exempel:
+Om du vill aktivera loggning när du använder Azure Functions utlösare för Cosmos DB, letar du upp `host.json` filen i Azure Functions-projektet eller Azure Functions app och [konfigurerar önskad loggnings nivå](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Du måste aktivera spårningarna `Host.Triggers.CosmosDB` som visas i följande exempel:
 
 ```js
 {
@@ -39,7 +39,7 @@ Om du vill aktivera loggning när du använder Azure Functions utlösare `host.j
 }
 ```
 
-När Azure-funktionen har distribuerats med den uppdaterade konfigurationen visas Azure Functions utlösare för Cosmos DB loggar som en del av dina spår. Du kan visa loggarna i den konfigurerade Logging-providern under *kategorin* `Host.Triggers.CosmosDB`.
+När Azure-funktionen har distribuerats med den uppdaterade konfigurationen visas Azure Functions utlösare för Cosmos DB loggar som en del av dina spår. Du kan visa loggarna i den konfigurerade Logging-providern under *kategorin* `Host.Triggers.CosmosDB` .
 
 ## <a name="query-the-logs"></a>Skicka frågor till loggarna
 

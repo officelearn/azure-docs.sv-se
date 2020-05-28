@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: da29785547d1b6eb4b38d07f020ba885dc5137ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7bd0afe4d0ea01671c996a0f536151d943e4fca7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767594"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013018"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Köra apache Sqoop-jobb i HDInsight med sväng
 
@@ -22,11 +22,11 @@ Lär dig hur du använder en sväng för att köra apache Sqoop-jobb på ett Apa
 
 Sväng används för att demonstrera hur du kan interagera med HDInsight genom att använda RAW HTTP-begäranden för att köra, övervaka och hämta resultatet av Sqoop-jobb. Detta fungerar med hjälp av WebHCat-REST API (tidigare kallat Templeton) som tillhandahålls av ditt HDInsight-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [konfiguration av test miljö](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) från att [använda Apache Sqoop med Hadoop i HDInsight](./hdinsight-use-sqoop.md).
 
-* En klient för att fråga Azure SQL Database. Överväg att använda [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md) eller [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md).
+* En klient för att fråga Azure SQL Database. Överväg att använda [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) eller [Visual Studio Code](../../azure-sql/database/connect-query-vscode.md).
 
 * [Sväng](https://curl.haxx.se/). Sväng är ett verktyg för att överföra data från eller till ett HDInsight-kluster.
 
@@ -41,7 +41,7 @@ Använd sväng för att exportera data med Apache Sqoop-jobb från Azure Storage
 > [!NOTE]  
 > När du använder Curl eller annan REST-kommunikation med WebHCat, måste du autentisera begärandena genom att ange användarnamn och lösenord för HDInsight-klustrets administratör. Du måste också använda klustrets namn som en del av den URI (Uniform Resource Identifier) som används för att skicka begäranden till servern.
 
-För kommandona i det här avsnittet ersätter `USERNAME` du med användaren att autentisera till klustret och ersätter `PASSWORD` med lösen ordet för användar kontot. Ersätt `CLUSTERNAME` med namnet på klustret.
+För kommandona i det här avsnittet ersätter du `USERNAME` med användaren att autentisera till klustret och ersätter `PASSWORD` med lösen ordet för användar kontot. Ersätt `CLUSTERNAME` med namnet på klustret.
 
 REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda säker HTTP (HTTPS) för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 
@@ -91,7 +91,7 @@ REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wik
        {"id":"job_1415651640909_0026"}
        ```
 
-1. Använd följande kommando för att kontrol lera jobbets status. Ersätt `JOBID` med värdet som returnerades i föregående steg. Om returvärdet `{"id":"job_1415651640909_0026"}` `JOBID` t `job_1415651640909_0026`. ex. är. Ändra plats efter `jq` behov.
+1. Använd följande kommando för att kontrol lera jobbets status. Ersätt `JOBID` med värdet som returnerades i föregående steg. Om returvärdet t `{"id":"job_1415651640909_0026"}` `JOBID` . ex. är `job_1415651640909_0026` . Ändra plats efter `jq` behov.
 
     ```cmd
     set JOBID=job_1415651640909_0026
@@ -104,7 +104,7 @@ REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wik
    > [!NOTE]  
    > Denna förfrågan returnerar ett JavaScript Object Notation (JSON)-dokument med information om jobbet. JQ används för att hämta endast State-värdet.
 
-1. När jobbets tillstånd har ändrats till **lyckades**kan du hämta resultatet från Azure Blob Storage. Den `statusdir` parameter som skickades med frågan innehåller platsen för utdatafilen. i det här fallet `wasb:///example/data/sqoop/curl`. Den här adressen lagrar utdata från jobbet i `example/data/sqoop/curl` katalogen på den standard lagrings behållare som används av ditt HDInsight-kluster.
+1. När jobbets tillstånd har ändrats till **lyckades**kan du hämta resultatet från Azure Blob Storage. Den `statusdir` parameter som skickades med frågan innehåller platsen för utdatafilen, i det här fallet `wasb:///example/data/sqoop/curl` . Den här adressen lagrar utdata från jobbet i `example/data/sqoop/curl` katalogen på den standard lagrings behållare som används av ditt HDInsight-kluster.
 
     Du kan använda Azure Portal för att komma åt stderr-och stdout-blobbar.
 

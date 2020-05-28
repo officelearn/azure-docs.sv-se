@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81454653"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012984"
 ---
 # <a name="azure-encryption-overview"></a>Översikt över Azure-kryptering
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller en översikt över hur kryptering används i Micro
 
 ## <a name="encryption-of-data-at-rest"></a>Kryptering av data i vila
 
-Data i vila innehåller information som finns i beständig lagring på fysiska media, i valfritt digitalt format. Mediet kan innehålla filer på magnetiska eller optiska medier, arkiverade data och säkerhets kopior av data. Microsoft Azure erbjuder en mängd data lagrings lösningar som uppfyller olika behov, inklusive fil-, disk-, blob-och tabell lagring. Microsoft tillhandahåller även kryptering för att skydda [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md)och Azure Data Lake.
+Data i vila innehåller information som finns i beständig lagring på fysiska media, i valfritt digitalt format. Mediet kan innehålla filer på magnetiska eller optiska medier, arkiverade data och säkerhets kopior av data. Microsoft Azure erbjuder en mängd data lagrings lösningar som uppfyller olika behov, inklusive fil-, disk-, blob-och tabell lagring. Microsoft tillhandahåller även kryptering för att skydda [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md)och Azure Data Lake.
 
 Data kryptering i vila är tillgängligt för tjänster i SaaS (program vara som en tjänst), PaaS (Platform as a Service) och IaaS-moln (Infrastructure as a Service). Den här artikeln sammanfattar och tillhandahåller resurser som hjälper dig att använda Azures krypterings alternativ.
 
@@ -85,11 +85,11 @@ Slutligen kan du också använda Azure Storage klient bibliotek för Java för a
 
 ### <a name="encryption-of-data-at-rest-with-azure-sql-database"></a>Kryptering av data i vila med Azure SQL Database
 
-[Azure SQL Database](../../sql-database/sql-database-technical-overview.md) är en allmän Relations databas tjänst i Azure som stöder strukturer som Relations data, JSON, spatial och XML. SQL Database stöder både kryptering på Server sidan via funktionen transparent datakryptering (TDE) och kryptering på klient sidan via funktionen Always Encrypted.
+[Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) är en allmän Relations databas tjänst i Azure som stöder strukturer som Relations data, JSON, spatial och XML. SQL Database stöder både kryptering på Server sidan via funktionen transparent datakryptering (TDE) och kryptering på klient sidan via funktionen Always Encrypted.
 
 #### <a name="transparent-data-encryption"></a>Transparent datakryptering
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) används för att kryptera [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md)och [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) datafiler i real tid med hjälp av en databas krypterings nyckel (DEK) som lagras i databasens start post för tillgänglighet under återställningen.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) används för att kryptera [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)och [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) datafiler i real tid med hjälp av en databas krypterings nyckel (DEK) som lagras i databasens start post för tillgänglighet under återställningen.
 
 TDE skyddar data och loggfiler med hjälp av AES-krypteringsalgoritmer (3DES och Triple Data Encryption Standard). Kryptering av databas filen utförs på sidnivå. Sidorna i en krypterad databas krypteras innan de skrivs till disk och dekrypteras när de läses in i minnet. TDE är nu aktiverat som standard på nyligen skapade Azure SQL-databaser.
 

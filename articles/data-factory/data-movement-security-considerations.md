@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 6496e5c953b3dd5e387a79906b22645ba4a24b4f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416470"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019987"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhets överväganden för data förflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -47,7 +47,7 @@ Data Factory har certifierats för:
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Om du är intresse rad av Azure-kompatibilitet och hur Azure skyddar sin egen infrastruktur kan du gå till [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). För den senaste listan över alla Azure Compliance- https://aka.ms/AzureComplianceerbjudanden kontrollerar du.
+Om du är intresse rad av Azure-kompatibilitet och hur Azure skyddar sin egen infrastruktur kan du gå till [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). För den senaste listan över alla Azure Compliance-erbjudanden kontrollerar du https://aka.ms/AzureCompliance .
 
 I den här artikeln granskar vi säkerhets aspekter i följande två scenarier för data förflyttning: 
 
@@ -155,6 +155,12 @@ I följande avbildningar visas användningen av integration runtime med egen vä
 
 ### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Brand Väggs konfigurationer och lista över tillåtna inställningar för IP-adresser
 
+> [!NOTE] 
+> Du kan behöva hantera portar eller ställa in listan över tillåtna för domäner på företags brand Väggs nivå enligt de respektive data källorna. I den här tabellen används endast Azure SQL Database, Azure SQL Data Warehouse och Azure Data Lake Store som exempel.
+
+> [!NOTE] 
+> Mer information om data åtkomst strategier i Azure Data Factory finns i [den här artikeln](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
+
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Brand Väggs krav för lokalt/privat nätverk    
 I ett företag körs en företags brand vägg på den centrala routern i organisationen. Windows-brandväggen körs som en daemon på den lokala datorn där den lokala integrerings körningen är installerad. 
 
@@ -178,7 +184,7 @@ Vissa data lager i molnet kräver också att du tillåter IP-adressen för den d
 
 Följande moln data lager kräver att du tillåter IP-adressen för den egen värdbaserade integration runtime-datorn. Vissa av dessa data lager kan som standard inte kräva listan över tillåtna. 
 
-- [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
+- [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)

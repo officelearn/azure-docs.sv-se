@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 63db1810cbdd2133bc0577530325351997b31f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b0238d8026bff435fce9c03b6517efb6a55311d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70139268"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019919"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory-exempel
 > [!NOTE]
@@ -62,7 +62,7 @@ Du kan använda panelen **exempel pipelines** på Start sidan för din data fabr
 3. I bladet **exempel på pipelines** klickar du på det **exempel** som du vill distribuera.
 
     ![Exempel på pipeline-blad](./media/data-factory-samples/SampleTile.png)
-4. Ange konfigurations inställningar för exemplet. Till exempel Azure Storage-kontots namn och konto nyckel, Azure SQL Server-namn, databas, användar-ID och lösen ord, osv.
+4. Ange konfigurations inställningar för exemplet. Till exempel Azure Storage-kontots namn och konto nyckel, logiskt SQL Server-namn, databas, användar-ID och lösen ord, osv.
 
     ![Exempel blad](./media/data-factory-samples/SampleBlade.png)
 5. När du är klar med att ange konfigurations inställningarna klickar du på **skapa** för att skapa/distribuera exempel pipeliner och länkade tjänster/tabeller som används av pipelinen.
@@ -75,12 +75,12 @@ Du kan använda panelen **exempel pipelines** på Start sidan för din data fabr
     ![Bladet Datafabrik](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Exempel i Visual Studio
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande installerat på datorn:
 
 * Visual Studio 2013 eller Visual Studio 2015
 * Hämta Azure SDK för Visual Studio 2013 eller Visual Studio 2015. Gå till [Azures hämtningssida](https://azure.microsoft.com/downloads/) och klicka på **VS 2013** eller **VS 2015** i **.NET**-avsnittet.
-* Hämta det senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Om du använder Visual Studio 2013 kan du också uppdatera plugin-programmet genom att göra följande: på menyn klickar du på **verktyg** -> **tillägg och uppdateringar** -> **online** -> **Visual Studio-galleriet** -> **Microsoft Azure Data Factory verktyg för Visual Studio** -> **Update**.
+* Hämta det senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Om du använder Visual Studio 2013 kan du också uppdatera plugin-programmet genom att göra följande: på menyn klickar du på **verktyg**  ->  **tillägg och uppdateringar**  ->  **online**  ->  **Visual Studio-galleriet**  ->  **Microsoft Azure Data Factory verktyg för Visual Studio**  ->  **Update**.
 
 ### <a name="use-data-factory-templates"></a>Använda Data Factory mallar
 1. Klicka på **Arkiv** på menyn, peka på **nytt**och klicka på **projekt**.

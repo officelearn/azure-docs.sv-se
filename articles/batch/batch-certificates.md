@@ -21,7 +21,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83764340"
 ---
-# <a name="using-certificates-with-batch"></a>Använda certifikat med batch
+# <a name="using-certificates-with-batch"></a>Använda certifikat med Batch
 
 För närvarande är det främsta skälet att använda certifikat med batch är om du har program som körs i pooler som behöver autentiseras med en slut punkt. 
 

@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 39ebdb6937b03d72365e9d3785af9571ebb66186
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f21e8ad8944340bf1f6bd97786b2d06c426ad934
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836064"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117217"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Aktivera Uppdateringshantering från en runbook
 
@@ -103,7 +103,6 @@ Du måste ha aktiverat Uppdateringshantering för att en virtuell Azure-dator sk
 
 * Information om hur du schemalägger en Runbook finns i [hantera scheman i Azure Automation](shared-resources/schedules.md).
 * Om du vill använda Uppdateringshantering för virtuella datorer läser du [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).
-* För konfiguration av omfattningar, se [arbeta med scope-konfigurationer](automation-scope-configurations-update-management.md).
 * Om du inte längre behöver Log Analytics arbets ytan går du till anvisningar i [ta bort länk till arbets yta från Automation-konto för uppdateringshantering](automation-unlink-workspace-update-management.md).
 * Om du vill ta bort virtuella datorer från Uppdateringshantering, se [ta bort virtuella datorer från uppdateringshantering](automation-remove-vms-from-update-management.md).
 * Information om hur du felsöker allmänna Uppdateringshantering fel finns i [felsöka uppdateringshantering problem](troubleshoot/update-management.md).

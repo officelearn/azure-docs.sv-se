@@ -4,19 +4,19 @@ description: Skapa en anpassad princip för villkorlig åtkomst för att kräva 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e8a8b0926575b5a40a8c0ca7820e31827434ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af82a9d19f8dee9062d15a58e83ee3c2a8c59af6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755211"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995436"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Villkorlig åtkomst: Kräv MFA för administratörer
 
@@ -32,7 +32,7 @@ Microsoft rekommenderar att du behöver MFA på följande roller minst:
 * Lösenordsadministratör
 * Säkerhetsadministratör
 * SharePoint-administratör
-* Användar administratör
+* Användaradministratör
 
 Organisationer kan välja att inkludera eller exkludera roller som de ser bäst.
 
@@ -50,7 +50,7 @@ Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att 
 Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kräver att de tilldelade administrativa rollerna utför Multi-Factor Authentication.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
@@ -64,12 +64,12 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kr
       * Lösenordsadministratör
       * Säkerhetsadministratör
       * SharePoint-administratör
-      * Användar administratör
+      * Användaradministratör
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Klar**.
-1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **alla molnappar**och väljer sedan **Slutför**.
-1. Under **villkor** > **klient program (för hands version)** anger du **Konfigurera** till **Ja**och väljer **klart**.
-1. Under **åtkomst kontroller** > **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.
+   1. Välj **Done** (Klar).
+1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **alla molnappar**och väljer sedan **Slutför**.
+1. Under **villkor**  >  **klient program (för hands version)** anger du **Konfigurera** till **Ja**och väljer **klart**.
+1. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.
 

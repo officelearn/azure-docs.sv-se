@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0e7089e7c674f324c2c3d293661c518b41731b9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942958"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021865"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database säkerhetsfunktioner    
 Azure SQL Database tillhandahåller en Relations databas tjänst i Azure. För att skydda kunddata och tillhandahålla starka säkerhetsfunktioner som kunderna förväntar sig av en Relations databas tjänst, SQL Database ha egna uppsättningar med säkerhetsfunktioner. Dessa funktioner bygger på de kontroller som ärvs från Azure.
@@ -31,13 +31,13 @@ Azure SQL Database tillhandahåller en Relations databas tjänst i Azure. För a
 Azure SQL Database stöder endast tabular data stream-protokollet (TDS), som kräver att databasen är tillgänglig enbart för TCP/1433-standardporten.
 
 ### <a name="azure-sql-database-firewall"></a>Azure SQL Database brand vägg
-För att skydda kund information, Azure SQL Database innehåller en brand Väggs funktion som standard förhindrar all åtkomst till SQL Database-servern, som visas nedan.
+För att skydda kund information, Azure SQL Database innehåller en brand Väggs funktion som standard förhindrar all åtkomst till SQL Database som visas nedan.
 
 ![Azure SQL Database brand vägg](./media/infrastructure-sql/sql-database-firewall.png)
 
 Gateway-brandväggen kan begränsa adresser, vilket ger kunderna detaljerad kontroll för att ange intervall med acceptabla IP-adresser. Brand väggen beviljar åtkomst baserat på den ursprungliga IP-adressen för varje begäran.
 
-Kunder kan få brand Väggs konfiguration genom att använda en hanterings portal eller program mässigt med hjälp av Azure SQL Database hanterings REST API. Azure SQL Database Gateway-brandväggen som standard förhindrar all kund-TDS-åtkomst till Azure SQL Database-instanser. Kunder måste konfigurera åtkomst med hjälp av åtkomst kontrol listor (ACL: er) för att tillåta Azure SQL Database anslutningar via käll-och mål-Internet adresser, protokoll och port nummer.
+Kunder kan få brand Väggs konfiguration genom att använda en hanterings portal eller program mässigt med hjälp av Azure SQL Database hanterings REST API. Azure SQL Database Gateway-brandväggen som standard förhindrar all kund-TDS-åtkomst till Azure SQL Database. Kunder måste konfigurera åtkomst med hjälp av åtkomst kontrol listor (ACL: er) för att tillåta Azure SQL Database anslutningar via käll-och mål-Internet adresser, protokoll och port nummer.
 
 ### <a name="dosguard"></a>DoSGuard
 DOS-attacker (Denial of Service) minskas med en SQL Database Gateway-tjänst som kallas DoSGuard. DoSGuard aktivt spårar misslyckade inloggningar från IP-adresser. Om det finns flera misslyckade inloggningar från en viss IP-adress inom en viss tids period, blockeras IP-adressen från åtkomst till alla resurser i tjänsten under en fördefinierad tids period.

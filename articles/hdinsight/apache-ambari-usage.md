@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
-ms.openlocfilehash: 466c170985715be52a90d579c19ca23aefefe2e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e40367e07fcda572cca73a3c01d9036e322c85c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77067401"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020106"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Apache Ambari-användning i Azure HDInsight
 
@@ -24,7 +24,7 @@ All kluster konfiguration ska göras via Ambari- [användargränssnittet](./hdin
 
 HDInsight-redundansväxlingen ansvarar också för att uppdatera IP-adressen för huvudnoden-värden, som pekar på den aktuella aktiva Head-noden. Alla Ambari-agenter har kon figurer ATS för att rapportera sitt tillstånd och pulsslag till huvudnoden-värden. Redundansväxlingen är en uppsättning tjänster som körs på varje nod i klustret, om de inte körs, kanske inte huvudnoden-redundansväxlingen fungerar som de ska och du kommer att få HTTP 502 när du försöker få åtkomst till Ambari-servern.
 
-För att kontrol lera vilken huvudnoden som är aktiv, är ett sätt att använda SSH till en av noderna i klustret `ping headnodehost` och sedan köra och jämföra IP-adressen med den som finns i de två huvudnoderna.
+För att kontrol lera vilken huvudnoden som är aktiv, är ett sätt att använda SSH till en av noderna i klustret och sedan köra `ping headnodehost` och jämföra IP-adressen med den som finns i de två huvudnoderna.
 
 Om tjänster för redundansväxling inte körs kanske huvudnoden redundans inte sker korrekt, vilket kan leda till att inte Ambari-servern körs. Så här kontrollerar du om styrenheter för redundans körs:
 
@@ -56,7 +56,7 @@ Detta är sekvensen av tjänst start vid start:
 
 ## <a name="ambari-database"></a>Ambari-databas
 
-HDInsight skapar SQL Azure databasen under huven att fungera som databas för Ambari-servern. Standard [tjänst nivån är S0](../sql-database/sql-database-elastic-pool-scale.md).
+HDInsight skapar SQL Azure databasen under huven att fungera som databas för Ambari-servern. Standard [tjänst nivån är S0](../azure-sql/database/elastic-pool-scale.md).
 
 För alla kluster med antalet arbetsnoder som är större än 16 när klustret skapas, är S2 databas tjänst nivån.
 

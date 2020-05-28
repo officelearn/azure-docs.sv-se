@@ -5,39 +5,27 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4b8bf6a3f583e4c17f61e0a46911990ac5cc827c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 6afa3d4d2d62541a51c3bab85843d41b48397100
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830488"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118778"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Hantera ändringsspårning och inventering
 
-Azure Automation aktiverar funktionen [ändringsspårning och inventering](change-tracking.md) för datorer i din miljö. Funktionen spårar och gör tillgängliga ändringar i register nycklar, filer, innehåll och liknande. Den här artikeln innehåller procedurer för att arbeta med den här funktionen.
+När du lägger till en ny fil eller register nyckel som ska spåras aktiverar Azure Automation för [ändringsspårning och inventering](change-tracking.md). Den här artikeln beskriver hur du konfigurerar spårning, granskar spårnings resultat och hanterar aviseringar när ändringar upptäcks.
 
-## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>Aktivera fullständig Ändringsspårning-och inventerings funktion
+Innan du använder procedurerna i den här artikeln bör du kontrol lera att du har aktiverat Ändringsspårning och inventering på dina virtuella datorer med någon av följande metoder:
 
-Om du har aktiverat [Azure Security Center fil integritets övervakning (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)kan du använda funktionen fullständig ändringsspårning och inventering för dina datorer enligt beskrivningen nedan. Inställningarna tas inte bort av den här processen.
-
-> [!NOTE]
-> Aktivering av funktionen fullständig Ändringsspårning och inventering kan orsaka ytterligare kostnader. Se [Automation-prissättning](https://azure.microsoft.com/pricing/details/automation/).
-
-1. Ta bort övervaknings lösningen genom att gå till arbets ytan och hitta den i [listan över installerade övervaknings lösningar](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
-2. Klicka på namnet på lösningen för att öppna sammanfattnings sidan och klicka sedan på **ta bort**, enligt beskrivningen i [ta bort en övervaknings lösning](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Om du vill återaktivera Ändringsspårning och inventering navigerar du till Automation-kontot och väljer **ändrings spårning** eller **inventering** under **konfigurations hantering**.
-4. Välj Log Analytics arbets yta och Automation-konto, bekräfta inställningarna för arbets ytan och klicka på **Aktivera**.
-
-## <a name="enable-machines-for-change-tracking-and-inventory"></a><a name="onboard"></a>Aktivera datorer för Ändringsspårning och inventering
-
-Om du vill börja spåra ändringar måste du aktivera Ändringsspårning och inventering i Azure Automation. Här är de rekommenderade och de sätt som stöds för att aktivera den här funktionen för dina datorer: 
-
-* [Aktivera från en virtuell dator](automation-onboard-solutions-from-vm.md)
-* [Aktivera från att söka efter flera datorer](automation-onboard-solutions-from-browse.md)
-* [Aktivera från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md)
-* [Aktivera i en Azure Automation Runbook](automation-onboard-solutions.md)
+* [Aktivera Ändringsspårning och inventering från ett Automation-konto](automation-enable-changes-from-auto-acct.md)
+* [Aktivera Ändringsspårning och inventering genom att bläddra i Azure Portal](automation-enable-changes-from-browse.md)
+* [Aktivera Ändringsspårning och inventering från en runbook](automation-enable-changes-from-runbook.md)
+* [Aktivera Ändringsspårning och inventering från en virtuell Azure-dator](automation-enable-changes-from-vm.md)
 
 ## <a name="track-files"></a>Spåra filer
+
+Du kan använda Ändringsspårning och inventering för att spåra ändringar i filer och mappar/kataloger. Det här avsnittet beskriver hur du konfigurerar fil spårning i Windows och på Linux.
 
 ### <a name="configure-file-tracking-on-windows"></a>Konfigurera fil spårning i Windows
 
@@ -46,7 +34,7 @@ Använd följande steg för att konfigurera fil spårning på Windows-datorer:
 1. I ditt Automation-konto väljer du **ändrings spårning** under **konfigurations hantering**. 
 2. Klicka på **Redigera inställningar** (kugg hjuls symbolen).
 3. På sidan konfiguration av arbets yta väljer du **Windows-filer**och klickar sedan på **+ Lägg** till för att lägga till en ny fil som ska spåras.
-4. I fönstret Lägg till Windows-fil för Ändringsspårning anger du informationen för filen som ska spåras och klickar på **Spara**. I följande tabell definieras de egenskaper som du kan använda för informationen.
+4. I fönstret Lägg till Windows-fil för Ändringsspårning anger du informationen för filen eller mappen som ska spåras och klickar på **Spara**. I följande tabell definieras de egenskaper som du kan använda för informationen.
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
@@ -54,7 +42,7 @@ Använd följande steg för att konfigurera fil spårning på Windows-datorer:
     |Objektnamn     | Eget namn på filen som ska spåras.        |
     |Grupp     | Ett grupp namn för logisk gruppering av filer.        |
     |Ange sökväg     | Sökvägen för att söka efter filen, till exempel **c:\Temp \\ \* . txt**. Du kan också använda miljövariabler, till exempel `%winDir%\System32\\\*.*` .       |
-    |Sökvägstyp     | Typ av sökväg. Möjliga värden är fil och katalog.        |    
+    |Sökvägstyp     | Typ av sökväg. Möjliga värden är File och Folder.        |    
     |Rekursion     | Sant om rekursion används vid sökning efter objektet som ska spåras och falskt annars.        |    
     |Ladda upp fil innehåll | Sant om du vill överföra fil innehåll på spårade ändringar och annars FALSE.|
 
@@ -78,7 +66,7 @@ Använd följande steg för att konfigurera fil spårning på Linux-datorer:
     |Sökvägstyp     | Typ av sökväg. Möjliga värden är fil och katalog.        |
     |Rekursion     | Sant om rekursion används vid sökning efter objektet som ska spåras och falskt annars.        |
     |Använda Sudo     | Sant om du vill använda sudo vid sökning efter objektet och annars FALSE.         |
-    |Länkar     | Inställning som avgör hur symboliska länkar ska hanteras när du bläddrar i kataloger. Möjliga värden:<br> IGNORE-ignorerar symboliska länkar och inkluderar inte de filer/kataloger som refereras.<br>Följ – följer de symboliska länkarna under rekursion och inkluderar även de filer/kataloger som refereras till.<br>Hantera – följer de symboliska länkarna och tillåter ändring av returnerat innehåll. **Obs!** det här alternativet rekommenderas inte eftersom det inte stöder hämtning av fil innehåll.    |
+    |Länkar     | Inställning som avgör hur symboliska länkar ska hanteras när du bläddrar i kataloger. Möjliga värden:<br> IGNORE-ignorerar symboliska länkar och inkluderar inte de filer/kataloger som refereras.<br>Följ – följer de symboliska länkarna under rekursion och inkluderar även de filer/kataloger som refereras till.<br>Hantera – följer de symboliska länkarna och tillåter ändring av returnerat innehåll.<br>**Obs:** Alternativet hantera rekommenderas inte eftersom det inte stöder hämtning av fil innehåll.    |
     |Ladda upp fil innehåll | Sant om du vill överföra fil innehåll på spårade ändringar och annars FALSE. |
 
 5. Se till att du anger true för **Ladda upp fil innehåll**. Med den här inställningen aktive ras spårning av fil innehåll för den angivna fil Sök vägen.
@@ -87,23 +75,22 @@ Använd följande steg för att konfigurera fil spårning på Linux-datorer:
 
 ## <a name="track-file-contents"></a>Spåra fil innehåll
 
-Med fil innehålls spårning kan du visa innehållet i en fil före och efter en spårad ändring. Funktionen sparar fil innehållet till ett lagrings konto när varje ändring sker. Här följer några regler som du följer när du spårar fil innehåll:
+Med fil innehålls spårning kan du visa innehållet i en fil före och efter en spårad ändring. Funktionen sparar fil innehållet till ett [lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview) när varje ändring sker. Här följer några regler som du följer när du spårar fil innehåll:
 
 * Ett standard lagrings konto som använder distributions modellen för Resource Manager krävs för att lagra fil innehåll. 
-
 * Använd inte lagrings konton för Premium-och klassiska distributions modeller. Se [om Azure Storage-konton](../storage/common/storage-create-storage-account.md).
-
-* Det lagrings konto som du använder kan endast anslutas till ett Automation-konto.
-
-* [Ändringsspårning och inventering](change-tracking.md) är aktiverat i ditt Automation-konto.
+* Du kan bara ansluta lagrings kontot till ett Automation-konto.
+* [Ändringsspårning och inventering](change-tracking.md) måste vara aktiverat i ditt Automation-konto.
 
 ### <a name="enable-tracking-for-file-content-changes"></a>Aktivera spårning av ändringar i fil innehåll
+
+Använd följande steg för att aktivera spårning av ändringar i fil innehåll:
 
 1. I Azure Portal öppnar du ditt Automation-konto och väljer sedan **ändrings spårning** under **konfigurations hantering**.
 2. Klicka på **Redigera inställningar** (kugg hjuls symbolen).
 3. Välj **fil innehåll** och klicka på **Länka**. Det här alternativet öppnar fönstret Lägg till innehålls plats för Ändringsspårning.
 
-   ![Aktivera innehålls plats](./media/change-tracking-file-contents/enable.png)
+   ![Lägg till innehålls plats](./media/change-tracking-file-contents/enable.png)
 
 4. Välj den prenumeration och det lagrings konto som ska användas för att lagra filens innehåll. 
 
@@ -123,7 +110,7 @@ När Ändringsspårning och inventeringen upptäcker en ändring av en spårad f
 
 1. I Azure Portal öppnar du ditt Automation-konto och väljer sedan **ändrings spårning** under **konfigurations hantering**.
 
-2. Välj en fil i listan över ändringar och välj **Visa fil innehålls ändringar** för att se innehållet i filen. I fönstret ändrings information visas fil informationen standard före och efter.
+2. Välj en fil i listan över ändringar och välj **Visa fil innehålls ändringar** för att se innehållet i filen. I fönstret ändrings information visas fil informationen standard före och efter för varje egenskap.
 
    ![Ändra information](./media/change-tracking-file-contents/change-details.png)
 
@@ -133,7 +120,7 @@ När Ändringsspårning och inventeringen upptäcker en ändring av en spårad f
 
 Använd följande steg för att konfigurera register nyckel spårning på Windows-datorer:
 
-1. I ditt Automation-konto väljer du **ändrings spårning** under **konfigurations hantering**. 
+1. I Azure Portal öppnar du ditt Automation-konto och väljer sedan **ändrings spårning** under **konfigurations hantering**. 
 2. Klicka på **Redigera inställningar** (kugg hjuls symbolen).
 3. På sidan konfiguration av arbets yta väljer du **Windows-registret**.
 4. Klicka på **+ Lägg** till för att lägga till en ny register nyckel som ska spåras.
@@ -144,35 +131,35 @@ Använd följande steg för att konfigurera register nyckel spårning på Window
     |Enabled     | Sant om en inställning tillämpas och annars FALSE.        |
     |Objektnamn     | Eget namn på register nyckeln som ska spåras.        |
     |Grupp     | Grupp namn för register nycklar för logisk gruppering.        |
-    |Windows-registernyckel   | Nyckel namn med sökväg, till exempel **HKEY_LOCAL_MACHINE \Software\microsoft\windows\currentversion\explorer\user Shell Folders\Common Startup**.      |
+    |Windows-registernyckel   | Nyckel namn med sökväg, till exempel `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup` .      |
 
 ## <a name="search-logs-for-change-records"></a>Sök efter loggar för ändrings poster
 
 Du kan utföra olika sökningar mot Azure Monitor loggar för ändrings poster. När sidan ändrings spårning är öppen klickar du på **Log Analytics** för att öppna sidan loggar. Följande tabell innehåller exempel på loggs ökningar för ändrings poster.
 
-|Söka i data  |Description  |
+|Söka i data  |Beskrivning  |
 |---------|---------|
-|ConfigurationData<br>&#124; där ConfigDataType = = "Microsoft-tjänster" och SvcStartupType = = Auto "<br>&#124; där SvcState = = "stoppad"<br>&#124; sammanfatta arg_max (TimeGenerated, *) av SoftwareName, dator         | Visar de senaste inventerings posterna för Microsoft-tjänster som har ställts in på auto men som har rapporter ATS som stoppade. Resultaten är begränsade till den senaste posten för det angivna program namnet och datorn.    |
-|ConfigurationChange<br>&#124; där ConfigChangeType = = "Software" och ChangeCategory = = "borttaget"<br>&#124; order by TimeGenerated DESC|Visar ändrings poster för borttagen program vara.|
+|`ConfigurationData`<br>&#124;`where ConfigDataType == "Microsoft services" and SvcStartupType == "Auto"`<br>&#124;`where SvcState == "Stopped"`<br>&#124;`summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Visar de senaste inventerings posterna för Microsoft-tjänster som har ställts in på auto men som har rapporter ATS som stoppade. Resultaten är begränsade till den senaste posten för det angivna program namnet och datorn.    |
+|`ConfigurationChange`<br>&#124;`where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124;`order by TimeGenerated desc`|Visar ändrings poster för borttagen program vara.|
 
 ## <a name="create-alerts-on-changes"></a>Skapa aviseringar vid ändringar
 
-I följande exempel visas att filen **C:\Windows\System32\drivers\etc\hosts** har ändrats på en dator. Filen är viktig eftersom Windows använder den för att matcha värdnamn med IP-adresser. Den här åtgärden åsidosätter DNS och kan leda till anslutnings problem. Det kan också leda till omdirigering av trafik till skadliga eller på annat sätt farliga webbplatser.
+I följande exempel visas att filen **c:\Windows\System32\drivers\etc\hosts** har ändrats på en dator. Filen är viktig eftersom Windows använder den för att matcha värdnamn med IP-adresser. Den här åtgärden åsidosätter DNS och kan leda till anslutnings problem. Det kan också leda till omdirigering av trafik till skadliga eller på annat sätt farliga webbplatser.
 
-![Ett diagram som visar fil ändringen för hosts](./media/change-tracking-file-contents/changes.png)
+![Diagram som visar ändringar i värd filen](./media/change-tracking-file-contents/changes.png)
 
 Vi ska använda det här exemplet för att diskutera stegen för att skapa aviseringar vid en ändring.
 
 1. I ditt Automation-konto väljer du **ändrings spårning** under **konfigurations hantering**och väljer sedan **Log Analytics**. 
-2. Leta efter innehålls ändringar i **värd** filen med frågan i loggar Sök `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` . Den här frågan söker efter en innehålls ändring för filer med en fullständigt kvalificerad sökväg som innehåller ordet "hosts". Du kan också fråga efter en viss fil genom att ändra Sök vägs delen till dess fullständigt kvalificerade form, till exempel med hjälp av `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"` .
+2. Leta efter innehålls ändringar i **värd** filen med frågan i loggar Sök `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` . Den här frågan söker efter innehålls ändringar för filer med fullständigt kvalificerade Sök vägs namn som innehåller ordet `hosts` . Du kan också fråga efter en viss fil genom att ändra Sök vägs delen till dess fullständigt kvalificerade form, till exempel med hjälp av `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"` .
 
-3. När frågan returnerar önskade resultat klickar du på **ny varnings regel** i logg sökningen för att öppna sidan Skapa avisering. Du kan också navigera till den här sidan via **Azure Monitor** i Azure Portal. 
+3. När frågan returnerar resultatet klickar du på **ny varnings regel** i logg sökningen för att öppna sidan Skapa avisering. Du kan också navigera till den här sidan via **Azure Monitor** i Azure Portal. 
 
 4. Kontrol lera frågan igen och ändra aviserings logiken. I det här fallet vill du att aviseringen ska utlösas om det inte finns någon ändring som upptäcks på alla datorer i miljön.
 
     ![Ändra till fråga för att spåra ändringar av hosts-filen](./media/change-tracking-file-contents/change-query.png)
 
-5. När aviserings logiken har angetts tilldelar du åtgärds grupper för att utföra åtgärder som svar på aviseringen som utlöses. I det här fallet ställer vi in e-postmeddelanden som ska skickas och ett ITSM-kvitto (IT Service Management) skapas. 
+5. När aviserings logiken har angetts tilldelar du åtgärds grupper för att utföra åtgärder som svar på utlösningen av aviseringen. I det här fallet ställer vi in e-postmeddelanden som ska skickas och ett ITSM-kvitto (IT Service Management) skapas. 
 
     ![Konfigurerar åtgärds gruppen för avisering vid ändring](./media/change-tracking/action-groups.png)
 

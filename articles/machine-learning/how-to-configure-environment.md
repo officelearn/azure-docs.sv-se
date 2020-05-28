@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab9a02efedb0e002ac13294429c06e39ea18019c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399015"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117472"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Den här artikeln innehåller också ytterligare användnings tips för följand
 
 * [Visual Studio Code](#vscode): om du använder Visual Studio code innehåller [Azure Machine Learning tillägget](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) omfattande språk stöd för python samt funktioner för att arbeta med Azure Machine Learning mycket bekvämare och produktivitet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md). En arbets yta är allt du behöver för att komma igång med din egen [molnbaserade Notebook-Server](#compute-instance), en [DSVM](#dsvm)eller [Azure Databricks](#aml-databricks).
 
@@ -49,7 +49,7 @@ Om du vill installera SDK-miljön för den [lokala datorn](#local), [Jupyter Not
 - I Linux eller macOS behöver du bash-gränssnittet.
 
     > [!TIP]
-    > Om du använder Linux eller macOS och använder ett annat skal än bash (till exempel zsh) kan du få fel när du kör vissa kommandon. Undvik det här problemet genom att använda `bash` kommandot för att starta ett nytt bash-gränssnitt och köra kommandona där.
+    > Om du använder Linux eller macOS och använder ett annat skal än bash (till exempel zsh) kan du få fel när du kör vissa kommandon. Undvik det här problemet genom `bash` att använda kommandot för att starta ett nytt bash-gränssnitt och köra kommandona där.
 
 - I Windows behöver du kommando tolken eller Anaconda-prompten (installeras av AnaConDa och Miniconda).
 
@@ -145,7 +145,7 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
     Kör följande kommando för att skapa miljön.
 
     ```bash
-    conda create -n myenv python=3.6.5
+    conda create -n myenv python=3.7.7
     ```
 
     Aktivera sedan miljön.
@@ -154,7 +154,7 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
     conda activate myenv
     ```
 
-    I det här exemplet skapas en miljö med python-3.6.5, men eventuella speciella under versioner kan väljas. SDK-kompatibiliteten kanske inte garanteras med vissa huvud versioner (3,5 + rekommenderas) och vi rekommenderar att du testar en annan version/under version i din Anaconda-miljö om du stöter på fel. Det tar flera minuter att skapa miljön medan komponenter och paket laddas ned.
+    I det här exemplet skapas en miljö med python-3.7.7, men eventuella speciella under versioner kan väljas. SDK-kompatibiliteten kanske inte garanteras med vissa huvud versioner (3,5 + rekommenderas) och vi rekommenderar att du testar en annan version/under version i din Anaconda-miljö om du stöter på fel. Det tar flera minuter att skapa miljön medan komponenter och paket laddas ned.
 
 1. Kör följande kommandon i din nya miljö för att aktivera miljödefinierade IPython-kärnor. Detta säkerställer förväntat beteende för kernel-och paket import när du arbetar med Jupyter-anteckningsböcker i Anaconda-miljöer:
 
@@ -181,7 +181,7 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
    >
    >   `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
    >
-   > * Från och med macOS Catalina är zsh (Z Shell) standard gränssnittet för inloggning och det interaktiva gränssnittet. I zsh använder du följande kommando som utrymningr hakparenteser med "\\" (omvänt snedstreck):
+   > * Från och med macOS Catalina är zsh (Z Shell) standard gränssnittet för inloggning och det interaktiva gränssnittet. I zsh använder du följande kommando som utrymningr hakparenteser med " \\ " (omvänt snedstreck):
    >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
@@ -189,13 +189,13 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
 
 1. Installera andra paket för Machine Learning-experimentering.
 
-    Använd något av följande kommandon och Ersätt * \<nytt paket>* med det paket som du vill installera. Att installera paket `conda install` via kräver att paketet är en del av de aktuella kanalerna (nya kanaler kan läggas till i Anaconda-molnet).
+    Använd något av följande kommandon och Ersätt *\<new package>* med det paket som du vill installera. Att installera paket via `conda install` kräver att paketet är en del av de aktuella kanalerna (nya kanaler kan läggas till i Anaconda-molnet).
 
     ```bash
     conda install <new package>
     ```
 
-    Du kan också installera paket via `pip`.
+    Du kan också installera paket via `pip` .
 
     ```bash
     pip install <new package>
@@ -234,7 +234,7 @@ Så här aktiverar du dessa komponenter i Jupyter Notebooks miljön:
     azureml.core.VERSION
     ```
 
-1. Om du får problem med att importera moduler och `ModuleNotFoundError`ta emot en kontrollerar du att Jupyter-kärnan är ansluten till rätt sökväg för din miljö genom att köra följande kod i en Notebook-cell.
+1. Om du får problem med att importera moduler och ta emot en kontrollerar du att `ModuleNotFoundError` Jupyter-kärnan är ansluten till rätt sökväg för din miljö genom att köra följande kod i en Notebook-cell.
 
     ```python
     import sys
@@ -285,7 +285,7 @@ Skapa ett [Databricks-kluster](https://docs.microsoft.com/azure/azure-databricks
 
 Använd de här inställningarna:
 
-| Inställningen |Gäller| Värde |
+| Inställningen |Gäller för| Värde |
 |----|---|---|
 | Klusternamn |alltid| yourclustername |
 | Databricks Runtime |alltid|Non-ML runtime 6,5 (Scala 2,11, Spark 2.4.3) |
@@ -299,11 +299,11 @@ Vänta tills klustret körs innan du fortsätter.
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Installera rätt SDK i ett Databricks-bibliotek
 När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) för att bifoga lämpligt Azure Machine Learning SDK-paket till klustret.
 
-1. Högerklicka på den aktuella arbetsyte-mappen där du vill lagra biblioteket. Välj **skapa** > **bibliotek**.
+1. Högerklicka på den aktuella arbetsyte-mappen där du vill lagra biblioteket. Välj **skapa**  >  **bibliotek**.
 
 1. Välj **endast ett** alternativ (ingen annan SDK-installation stöds)
 
-   |Tillägg&nbsp;för&nbsp;SDK-paket|Källa|PyPi&nbsp;namn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |Tillägg för SDK- &nbsp; paket &nbsp;|Källa|PyPi &nbsp; namn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |För Databricks| Överför python-ägg eller PyPI | azureml – SDK [databricks]|
    |För Databricks – med-<br> automatiserade ML-funktioner| Överför python-ägg eller PyPI | azureml – SDK [automl]|
@@ -329,17 +329,17 @@ När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/u
 
 Om installationen lyckades bör det importerade biblioteket se ut ungefär så här:
 
-SDK för Databricks **_utan_** automatiserad machine ![Learning Azure Machine Learning SDK för Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+SDK för Databricks **_utan_** automatiserad machine Learning ![ Azure Machine Learning SDK för Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK för Databricks **med** automatiserad Machine ![Learning SDK med automatisk maskin inlärning installerad på Databricks](./media/how-to-configure-environment/automlonadb.png)
+SDK för Databricks **med** automatiserad Machine Learning ![ SDK med automatisk maskin inlärning installerad på Databricks](./media/how-to-configure-environment/automlonadb.png)
 
 ### <a name="start-exploring"></a>Börja utforska
 
 Prova:
 + Även om många exempel antecknings böcker är tillgängliga **fungerar bara [dessa exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) med Azure Databricks.**
 
-+ Importera de här exemplen direkt från din arbets yta. Se nedan: ![Välj import](./media/how-to-configure-environment/azure-db-screenshot.png)
-![import panel](./media/how-to-configure-environment/azure-db-import.png)
++ Importera de här exemplen direkt från din arbets yta. Se nedan: ![ Välj import ](./media/how-to-configure-environment/azure-db-screenshot.png)
+ ![ import panel](./media/how-to-configure-environment/azure-db-import.png)
 
 + Lär dig hur du [skapar en pipeline med Databricks som inlärnings beräkning](how-to-create-your-first-pipeline.md).
 
@@ -357,7 +357,7 @@ Konfigurations filen för arbets ytan är en JSON-fil som talar om för SDK hur 
 
 Den här JSON-filen måste finnas i katalog strukturen som innehåller dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog.
 
-Använd `ws=Workspace.from_config()`om du vill använda den här filen från din kod. Den här koden läser in informationen från filen och ansluter till din arbets yta.
+Använd om du vill använda den här filen från din kod `ws=Workspace.from_config()` . Den här koden läser in informationen från filen och ansluter till din arbets yta.
 
 Du kan skapa konfigurations filen på tre sätt:
 

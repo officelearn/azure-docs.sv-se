@@ -3,12 +3,12 @@ title: Översikt över Azure Resource Graph
 description: Förstå hur Azure Resource Graph-tjänsten möjliggör komplexa frågor om resurser i stor skala över prenumerationer och klienter.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c3ac82c823df8cdde7b616b62ee409de500b5990
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81381520"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995866"
 ---
 # <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph?
 
@@ -22,8 +22,8 @@ Azure Resource Graph är en tjänst i Azure som är utformad för att utöka Azu
 I den här dokumentationen går vi igenom varje funktion i detalj.
 
 > [!NOTE]
-> Azure Resource Graph-befogenheter Azure Portal Sök fältet, den nya webbläsaren "alla resurser" och Azure policy [ändrings historikens](../policy/how-to/determine-non-compliance.md#change-history-preview)
-> _visuella skillnad_. Den är utformad för att hjälpa kunder att hantera storskaliga miljöer.
+> Azure Resource Graph-befogenheter Azure Portal Sök fältet, den nya webbläsaren "alla resurser" och Azure policy [ändrings historikens](../policy/how-to/determine-non-compliance.md#change-history-preview) 
+>  _visuella skillnad_. Den är utformad för att hjälpa kunder att hantera storskaliga miljöer.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
@@ -79,16 +79,17 @@ Mer information finns i [rikt linjer för begränsade begär Anden](./concepts/g
 
 ## <a name="running-your-first-query"></a>Kör din första fråga
 
-Azure Resource Graph Explorer, som är en del av Azure Portal, aktiverar resurs diagram frågor direkt i Azure Portal. Fäst resultaten som dynamiska diagram för att tillhandahålla dynamisk information i real tid till ditt Portal arbets flöde. Mer information finns i [första frågan med Azure Resource Graph Explorer](first-query-portal.md).
+Azure Resource Graph Explorer, som är en del av Azure Portal, aktiverar resurs diagram frågor direkt i Azure Portal. Fäst resultaten som dynamiska diagram för att tillhandahålla dynamisk information i real tid till ditt Portal arbets flöde. Mer information finns i [första frågan med Azure Resource Graph Explorer](./first-query-portal.md).
 
-Resurs diagram stöder Azure CLI, Azure PowerShell, Azure SDK för .NET och mer. Frågan är strukturerad samma för varje språk. Lär dig hur du aktiverar resurs diagram med:
+Resurs diagram stöder Azure CLI, Azure PowerShell, Azure SDK för python med mera. Frågan är strukturerad samma för varje språk. Lär dig hur du aktiverar resurs diagram med:
 
-- [Azure Portal och resurs diagram Utforskaren](first-query-portal.md) 
-- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
-- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
+- [Azure Portal och resurs diagram Utforskaren](./first-query-portal.md) 
+- [Azure CLI](./first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
+- [Python](./first-query-python.md#add-the-resource-graph-library)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Kör din första fråga med hjälp av [Azure Portal](first-query-portal.md).
-- Kör din första fråga med [Azure CLI](first-query-azurecli.md).
-- Kör din första fråga med [Azure PowerShell](first-query-powershell.md).
+- Läs mer om [frågespråket](./concepts/query-language.md).
+- Se språket som används i [Start frågor](./samples/starter.md).
+- Se avancerade användnings områden i [avancerade frågor](./samples/advanced.md).

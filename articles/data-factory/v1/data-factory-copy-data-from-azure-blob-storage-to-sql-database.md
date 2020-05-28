@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cc2f0a513219a671dd8a75ee00af4fc9d4c6a68a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c81c4cd72a34f69632c2b1264ba2d276ff03de4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75979730"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118590"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Självstudie: kopiera data från Blob Storage till SQL Database med Data Factory
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "75979730"
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Azure Resource Manager mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -66,7 +66,7 @@ Du behöver konto namnet och konto nyckeln för ditt Azure Storage-konto för at
 7. Stäng alla blad genom att klicka på **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Samla in SQL Server, databas, användar namn
-Du behöver namnen på Azure SQL Server, Database och User för att göra den här självstudien. Anteckna namn på **Server**, **databas**och **användare** för din Azure SQL-databas.
+Du behöver namnen på den logiska SQL-servern, databasen och användaren för att göra den här självstudien. Anteckna namn på **Server**, **databas**och **användare** för din Azure SQL-databas.
 
 1. Klicka på **alla tjänster** till vänster i **Azure Portal**och välj SQL- **databaser**.
 2. På **bladet SQL-databaser**väljer du den **databas** som du vill använda i den här självstudien. Anteckna namnet på **databasen**.  
@@ -75,7 +75,7 @@ Du behöver namnen på Azure SQL Server, Database och User för att göra den h�
 5. Stäng alla blad genom att klicka på **X**.
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Ge Azure-tjänster åtkomst till SQL Server
-Kontrol lera att inställningen **Tillåt åtkomst till Azure-tjänster** **är aktive** rad för Azure SQL-servern så att Data Factory-tjänsten kan komma åt din Azure SQL-Server. Gör så här för att kontrollera och aktivera den här inställningen:
+Kontrol lera att inställningen **Tillåt åtkomst till Azure-tjänster** **är aktive** rad för servern så att Data Factory-tjänsten kan komma åt servern. Gör så här för att kontrollera och aktivera den här inställningen:
 
 1. Klicka på **alla tjänster** -hubben till vänster och klicka på **SQL-servrar**.
 2. Välj din server och klicka på **Brandvägg** under **INSTÄLLNINGAR**.
@@ -107,9 +107,9 @@ Förbered nu Azure Blob Storage och Azure SQL Database för självstudien genom 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **Om du har SQL Server 2012/2014 installerat på datorn:** Följ anvisningarna i [hantera Azure SQL Database med SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) för att ansluta till din Azure SQL-Server och köra SQL-skriptet.
+    **Om du har SQL Server 2012/2014 installerat på datorn:** Följ anvisningarna i [hantera Azure SQL Database med SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) för att ansluta till servern och köra SQL-skriptet.
 
-    Om klienten inte har åtkomst till Azure SQL-servern måste du konfigurera brandväggen för din Azure SQL-server och tillåta åtkomst från din dator (IP-adress). Anvisningar för hur du konfigurerar brandväggen för Azure SQL-servern finns i [den här artikeln](../../sql-database/sql-database-configure-firewall-settings.md).
+    Om klienten inte har behörighet att komma åt den logiska SQL-servern måste du konfigurera brand väggen för servern så att den tillåter åtkomst från din dator (IP-adress). I [den här artikeln](../../sql-database/sql-database-configure-firewall-settings.md) beskrivs hur du konfigurerar brand väggen för servern.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 Du har slutfört kraven. Du kan skapa en data fabrik på något av följande sätt. Klicka på något av alternativen i list rutan längst upp eller följande länkar för att utföra självstudien.     
@@ -117,7 +117,7 @@ Du har slutfört kraven. Du kan skapa en data fabrik på något av följande sä
 * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-* [Azure Resource Manager mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 

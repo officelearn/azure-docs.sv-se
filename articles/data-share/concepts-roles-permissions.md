@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 96a5d3d5c894dda4270c5a8832f188ead56a1ce4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265511"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020905"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roller och krav för Azure Data Share 
 
@@ -24,6 +24,7 @@ Med Azure Data Share-tjänsten kan du dela data utan att utbyta autentiseringsup
 Azure Data Share-resursens hanterade identitet måste beviljas åtkomst till Azure Data Store. Azure Data Sharing-tjänsten använder sedan den här hanterade identiteten för att läsa och skriva data för ögonblicks bilds delning och för att upprätta en symbolisk länk för delning på plats. 
 
 För att kunna dela eller ta emot data från ett Azure-datalager behöver användaren minst följande behörigheter. Ytterligare behörigheter krävs för SQL-baserad delning.
+
 * Behörighet att skriva till Azure Data Store. Den här behörigheten finns normalt i **deltagar** rollen.
 * Behörighet att skapa roll tilldelning i Azure Data Store. Normalt finns behörighet att skapa roll tilldelningar i **ägar** rollen, rollen administratör för användar åtkomst eller en anpassad roll med Microsoft. auktorisering/roll tilldelningar/Skriv behörighet tilldelad. Den här behörigheten krävs inte om data resurs resursens hanterade identitet redan har beviljats åtkomst till Azure Data Store. Se tabellen nedan för den obligatoriska rollen.
 
@@ -35,7 +36,7 @@ Nedan visas en sammanfattning av de roller som tilldelats till data resursen res
 |Azure Blob Storage| Storage BLOB data Reader | Storage BLOB data-deltagare
 |Azure Data Lake gen1 | Ägare | Stöds inte
 |Azure Data Lake Gen2 | Storage BLOB data Reader | Storage BLOB data-deltagare
-|Azure-SQL Server | SQL DB-deltagare | SQL DB-deltagare
+|Azure SQL-server | SQL DB-deltagare | SQL DB-deltagare
 |Azure Datautforskaren-kluster | Deltagare | Deltagare
 |
 
@@ -48,8 +49,8 @@ För SQL-baserad delning måste en SQL-användare skapas från en extern provide
 |Azure Synapse Analytics (tidigare SQL DW) | db_datareader | db_datareader db_datawriter db_ddladmin
 |
 
+### <a name="data-provider"></a>Data leverantör
 
-### <a name="data-provider"></a>Data leverantör 
 Om du vill lägga till en data uppsättning i Azure Data-resursen måste providerns hanterade identitet beviljas åtkomst till Azure Data Store-källan. Om lagrings kontot t. ex. är beviljat, beviljas data resursens hanterade identitet rollen Storage BLOB data Reader. 
 
 Detta görs automatiskt av Azure Data Share-tjänsten när användaren lägger till data uppsättningen via Azure Portal och användaren har rätt behörighet. Till exempel är användaren en ägare till Azure Data Store eller är medlem i en anpassad roll som har tilldelats behörigheten Microsoft. auktorisering/roll tilldelningar/Skriv. 

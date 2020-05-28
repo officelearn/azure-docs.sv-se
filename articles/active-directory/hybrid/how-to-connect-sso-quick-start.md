@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: snabb start med sömlös enkel inloggning | Microsoft Docs'
+title: 'Azure AD Connect: sömlös enkel inloggning-snabb start | Microsoft Docs'
 description: Den här artikeln beskriver hur du kommer igång med Azure Active Directory sömlös enkel inloggning
 services: active-directory
 keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
@@ -16,14 +16,14 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef603141129be6a73e018fb3e3dcabf9c5d7961f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261208"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993498"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: snabb start
+# <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory sömlös enkel inloggning: snabb start
 
 ## <a name="deploy-seamless-single-sign-on"></a>Distribuera sömlös enkel inloggning
 
@@ -37,7 +37,7 @@ Se till att följande krav är uppfyllda:
 
 * **Konfigurera din Azure AD Connect Server**: om du använder [direktautentisering](how-to-connect-pta.md) som inloggnings metod krävs ingen ytterligare krav kontroll. Om du använder [Password-hash-synkronisering](how-to-connect-password-hash-synchronization.md) som inloggnings metod och om det finns en brand vägg mellan Azure AD Connect och Azure AD, kontrollerar du att:
    - Du använder version 1.1.644.0 eller senare av Azure AD Connect. 
-   - Om din brand vägg eller proxy tillåter DNS-vit listning, vitlista anslutningarna till ** \*. msappproxy.net** -URL: er via port 443. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka. Den här förutsättningen gäller endast när du aktiverar funktionen. Det krävs inte för faktiska användar inloggningar.
+   - Om din brand vägg eller proxy tillåter kan du lägga till anslutningarna till listan över tillåtna ** \* Msappproxy.net** -URL: er via port 443. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka. Den här förutsättningen gäller endast när du aktiverar funktionen. Det krävs inte för faktiska användar inloggningar.
 
     >[!NOTE]
     >Azure AD Connect-versionerna 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem som rör hash-synkronisering av lösen ord. Om du _inte_ tänker använda Lösenordssynkronisering i samband med direktautentisering kan du läsa mer i [Azure AD Connect viktig information](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) .
@@ -93,15 +93,16 @@ Följ dessa anvisningar för att kontrol lera att du har aktiverat sömlös SSO 
 ![Azure Portal: Azure AD Connects fönstret](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Sömlös SSO skapar ett dator konto som `AZUREADSSOACC` heter i din lokala Active Directory (AD) i varje AD-skog. `AZUREADSSOACC` Dator kontot måste vara starkt skyddat av säkerhets skäl. Endast domän administratörer bör kunna hantera dator kontot. Se till att Kerberos-delegering på dator kontot är inaktiverat och att inget annat konto i Active Directory har Delegerings behörighet för `AZUREADSSOACC` dator kontot. Lagra dator kontot i en organisationsenhet (OU) där de är säkra från oavsiktliga borttagningar och där endast domän administratörer har åtkomst.
+> Sömlös SSO skapar ett dator konto `AZUREADSSOACC` som heter i din lokala Active Directory (AD) i varje AD-skog. `AZUREADSSOACC`Dator kontot måste vara starkt skyddat av säkerhets skäl. Endast domän administratörer bör kunna hantera dator kontot. Se till att Kerberos-delegering på dator kontot är inaktiverat och att inget annat konto i Active Directory har Delegerings behörighet för `AZUREADSSOACC` dator kontot. Lagra dator kontot i en organisationsenhet (OU) där de är säkra från oavsiktliga borttagningar och där endast domän administratörer har åtkomst.
 
 >[!NOTE]
 > Om du använder pass-The-hash och stöld av stöld av autentiseringsuppgifter i din lokala miljö bör du göra lämpliga ändringar för att se till att `AZUREADSSOACC` dator kontot inte upphör i karantän behållaren. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Steg 3: Distribuera funktionen
 
-Du kan gradvis distribuera sömlös SSO till dina användare med hjälp av anvisningarna nedan. Du börjar med att lägga till följande Azure AD-URL till alla eller valda användares intranät zons inställningar med hjälp av grupprincip i Active Directory:
+Du kan gradvis distribuera sömlös SSO till dina användare med hjälp av anvisningarna nedan. Du börjar med att lägga till följande Azure AD-URL: er till alla eller valda användares intranät zons inställningar genom att använda grupprincip i Active Directory:
 
+- `https://aadg.windows.net.nsatc.net`
 - `https://autologon.microsoftazuread-sso.com`
 
 Dessutom måste du aktivera en princip inställning för intranät zon som kallas **Tillåt uppdateringar till statusfältet via skript** genom att Grupprincip. 
@@ -111,7 +112,7 @@ Dessutom måste du aktivera en princip inställning för intranät zon som kalla
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Varför behöver du ändra användarnas intranät zons inställningar?
 
-Som standard beräknar webbläsaren automatiskt rätt zon, antingen Internet eller intranät, från en viss URL. `http://contoso/` Mappar till exempel till zonen Intranät, och `http://intranet.contoso.com/` mappar till zonen Internet (eftersom URL: en innehåller en punkt). Webbläsare skickar inte Kerberos-biljetter till en moln slut punkt, t. ex. Azure AD-URL, om du inte uttryckligen lägger till URL: en i webbläsarens intranät zon.
+Som standard beräknar webbläsaren automatiskt rätt zon, antingen Internet eller intranät, från en viss URL. Mappar till exempel `http://contoso/` till zonen Intranät, och `http://intranet.contoso.com/` mappar till zonen Internet (eftersom URL: en innehåller en punkt). Webbläsare skickar inte Kerberos-biljetter till en moln slut punkt, t. ex. Azure AD-URL, om du inte uttryckligen lägger till URL: en i webbläsarens intranät zon.
 
 Det finns två sätt att ändra användares intranät zon inställningar:
 
@@ -124,7 +125,7 @@ Det finns två sätt att ändra användares intranät zon inställningar:
 
 1. Öppna Redigeraren Grupprinciphantering-verktyget.
 2. Redigera grup principen som används för vissa eller alla dina användare. I det här exemplet används **standard domän principen**.
-3. Bläddra till **användar konfigurations** > **princip** > **administrativa mallar** > **Windows-komponenter** > **Internet Explorer Internet Explorer** > **Internet Control Panel** > på**säkerhets sidan**. Välj sedan **plats till zon tilldelnings lista**.
+3. Bläddra till **användar konfigurations**  >  **princip**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Internet Explorer Internet Explorer**  >  **Internet Control Panel**på  >  **säkerhets sidan**. Välj sedan **plats till zon tilldelnings lista**.
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Aktivera principen och ange sedan följande värden i dialog rutan:
    - **Värde namn**: Azure AD-URL: en där Kerberos-biljetterna vidarebefordras.
@@ -144,7 +145,7 @@ Det finns två sätt att ändra användares intranät zon inställningar:
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Bläddra till**princip** > för **användar konfiguration** > **administrativa mallar** > **Windows-komponenter** > **Internet Explorer Internet Explorer** > **Internet Control Panel** > **säkerhets sida** > **intranät zon**. Välj sedan **Tillåt uppdateringar av statusfältet via skript**.
+6. Bläddra till princip för **användar konfiguration**  >  **Policy**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Internet Explorer Internet Explorer**  >  **Internet Control Panel**  >  **säkerhets sida**  >  **intranät zon**. Välj sedan **Tillåt uppdateringar av statusfältet via skript**.
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,7 +157,7 @@ Det finns två sätt att ändra användares intranät zon inställningar:
 
 1. Öppna Redigeraren Grupprinciphantering-verktyget.
 2. Redigera grup principen som används för vissa eller alla dina användare. I det här exemplet används **standard domän principen**.
-3. Bläddra till **användar konfigurations** > **Inställningar** > **Windows-inställningar** > **register** > **nytt** > **register objekt**.
+3. Bläddra till **användar konfigurations**  >  **Inställningar**  >  **Windows-inställningar**  >  **register**  >  **nytt**  >  **register objekt**.
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso15.png)
 
@@ -187,19 +188,19 @@ Se till att datorn som kör macOS är ansluten till AD. Anvisningar för AD-ansl
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge baserat på krom (alla plattformar)
 
-Om du har åsidosatt [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) -eller [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) -principinställningar i din miljö kontrollerar du att du även lägger till Azure AD-URL:`https://autologon.microsoftazuread-sso.com`en () till dem.
+Om du har åsidosatt [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) -eller [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) -principinställningar i din miljö kontrollerar du att du även lägger till Azure AD-URL: en ( `https://autologon.microsoftazuread-sso.com` ) till dem.
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge baserat på krom (macOS och andra plattformar som inte är Windows-plattformar)
 
-För Microsoft Edge som bygger på krom på Mac OS och andra plattformar som inte är Windows-plattformar kan du läsa mer om hur du lägger till Azure AD-URL: en för integrerad autentisering i din Tillåt-lista med hjälp [av krom princip listan i Microsoft Edge](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) .
+För Microsoft Edge som baseras på krom på macOS och andra plattformar som inte är Windows-plattformar kan du läsa mer om hur du lägger till Azure AD-URL: en för integrerad autentisering i din Tillåt-lista i [Microsoft Edge baserad på krom princip listan](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) .
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alla plattformar)
 
-Om du har åsidosatt [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) -eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) -principinställningar i din miljö kontrollerar du att du även lägger till Azure AD-URL:`https://autologon.microsoftazuread-sso.com`en () till dem.
+Om du har åsidosatt [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) -eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) -principinställningar i din miljö kontrollerar du att du även lägger till Azure AD-URL: en ( `https://autologon.microsoftazuread-sso.com` ) till dem.
 
 #### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS och andra plattformar som inte är Windows-plattformar)
 
-För Google Chrome på Mac OS och andra plattformar som inte är Windows-plattformar går du till [princip listan för krom projekt](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) om du vill ha information om hur du VITLISTA Azure AD-URL: en för integrerad autentisering.
+För Google Chrome på macOS och andra plattformar som inte är Windows-plattformar går du till [princip listan för krom projekt](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) om du vill ha information om hur du styr listan över tillåtna för Azure AD-URL: en för integrerad autentisering.
 
 Användning av Active Directory grupprincip tillägg från tredje part för att distribuera Azure AD-URL: en till Firefox och Google Chrome på Mac-användare är utanför den här artikeln.
 

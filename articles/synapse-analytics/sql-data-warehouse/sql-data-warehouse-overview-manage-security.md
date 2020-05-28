@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 27d3a242d91a79ea00974748f4a8b5460d2dd247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d86a0df5265418a28e1fe68de0dc2cd601e71f61
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416059"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015599"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Skydda en databas i Azure Synapse
 
@@ -33,11 +33,11 @@ I den här artikeln får du stegvisa anvisningar om hur du skyddar din Synapse S
 
 Anslutningssäkerhet avser hur du begränsar och säkrar anslutningar till databasen med hjälp av brandväggsregler och krypterad anslutning.
 
-Brand Väggs regler används av både-servern och databasen för att avvisa anslutnings försök från IP-adresser som inte har vit listas uttryckligen. Om du vill tillåta anslutningar från ditt program eller klient datorns offentliga IP-adress måste du först skapa en brand Väggs regel på server nivå med hjälp av Azure Portal, REST API eller PowerShell.
+Brand Väggs regler används av både den [logiska SQL-servern](../../azure-sql/database/logical-servers.md) och dess databaser för att avvisa anslutnings försök från IP-adresser som inte har vit listas uttryckligen. Om du vill tillåta anslutningar från ditt program eller klient datorns offentliga IP-adress måste du först skapa en brand Väggs regel på server nivå med hjälp av Azure Portal, REST API eller PowerShell.
 
-Ett bra tips är att du begränsar de IP-adressintervall som tillåts via serverbrandväggen så mycket som möjligt.  Om du vill komma åt SQL-poolen från den lokala datorn kontrollerar du att brand väggen på nätverket och den lokala datorn tillåter utgående kommunikation på TCP-port 1433.  
+Som bästa praxis bör du begränsa de IP-adressintervall som tillåts via brand väggen på server nivå så mycket som möjligt.  Om du vill komma åt SQL-poolen från den lokala datorn kontrollerar du att brand väggen på nätverket och den lokala datorn tillåter utgående kommunikation på TCP-port 1433.  
 
-Azure Synapse Analytics använder IP-brandvägg på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå. Mer information finns i se [Azure SQL Database brand Väggs regler](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Azure Synapse Analytics använder IP-brandvägg på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå. Mer information finns i se [Azure SQL Database brand Väggs regler](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 Anslutningar till SQL-poolen är krypterade som standard.  Ändring av anslutnings inställningar för att inaktivera kryptering ignoreras.
 
@@ -45,11 +45,11 @@ Anslutningar till SQL-poolen är krypterade som standard.  Ändring av anslutnin
 
 Autentisering refererar till hur du styrkt din identitet vid anslutning till databasen. SQL-poolen stöder för närvarande SQL Server autentisering med ett användar namn och lösen ord och med Azure Active Directory.
 
-När du skapade den logiska servern för databasen angav du en "serveradministratörsinloggning” med ett användarnamn och lösenord. Med dessa autentiseringsuppgifter kan du autentisera till valfri databas på servern som databasens ägare, eller "dbo" genom SQL Server autentisering.
+När du skapade servern för din databas angav du en "Server administratör"-inloggning med ett användar namn och lösen ord. Med dessa autentiseringsuppgifter kan du autentisera till valfri databas på servern som databasens ägare, eller "dbo" genom SQL Server autentisering.
 
 Men som bästa praxis bör din organisations användare använda ett annat konto för att autentisera. På så sätt kan du begränsa de behörigheter som beviljats för programmet och minska riskerna med skadlig aktivitet, om program koden är utsatt för en SQL-attack.
 
-Om du vill skapa en SQL Server autentiserad användare ansluter du till **huvud** databasen på servern med Server administratörs inloggningen och skapar en ny server inloggning.  Det är en bra idé att även skapa en användare i huvud databasen. Genom att skapa en användare i Master kan en användare logga in med hjälp av verktyg som SSMS utan att ange ett databas namn.  Det gör det också möjligt för dem att använda Object Explorer för att visa alla databaser på en SQL-Server.
+Om du vill skapa en SQL Server autentiserad användare ansluter du till **huvud** databasen på servern med Server administratörs inloggningen och skapar en ny server inloggning.  Det är en bra idé att även skapa en användare i huvud databasen. Genom att skapa en användare i Master kan en användare logga in med hjälp av verktyg som SSMS utan att ange ett databas namn.  Det gör det också möjligt för dem att använda Object Explorer för att visa alla databaser på en server.
 
 ```sql
 -- Connect to master database and create a login
@@ -64,9 +64,9 @@ Anslut sedan till din **SQL-adresspool** med Server Administratörs inloggning o
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Om du vill ge en användare behörighet att utföra ytterligare åtgärder, till exempel skapa inloggningar eller skapa nya databaser, tilldelar du `Loginmanager` användaren `dbmanager` till-och-rollerna i huvud databasen.
+Om du vill ge en användare behörighet att utföra ytterligare åtgärder, till exempel skapa inloggningar eller skapa nya databaser, tilldelar du användaren till- `Loginmanager` och- `dbmanager` rollerna i huvud databasen.
 
-Mer information om dessa ytterligare roller och autentisering till en SQL Database finns [i hantera databaser och inloggningar i Azure SQL Database](../../sql-database/sql-database-manage-logins.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Mer information om hur du ansluter med hjälp av Azure Active Directory finns i [ansluta med hjälp av Azure Active Directory autentisering](sql-data-warehouse-authentication.md).
+Mer information om dessa ytterligare roller och autentisering till en SQL Database finns [i hantera databaser och inloggningar i Azure SQL Database](../../azure-sql/database/logins-create-manage.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Mer information om hur du ansluter med hjälp av Azure Active Directory finns i [ansluta med hjälp av Azure Active Directory autentisering](sql-data-warehouse-authentication.md).
 
 ## <a name="authorization"></a>Auktorisering
 
@@ -92,13 +92,13 @@ I följande exempel beviljas Läs behörighet till ett användardefinierat schem
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-Hantering av databaser och logiska servrar från Azure Portal eller användning av Azure Resource Manager-API: t styrs av ditt användar kontos roll tilldelningar för portalen. Mer information finns i [rollbaserad åtkomst kontroll i Azure Portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Hantering av databaser och servrar från Azure Portal eller med hjälp av Azure Resource Manager-API: t styrs av ditt användar kontos roll tilldelningar för portalen. Mer information finns i [rollbaserad åtkomst kontroll i Azure Portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Kryptering
 
 Transparent datakryptering (TDE) skyddar mot hot mot skadlig aktivitet genom att kryptera och dekryptera data i vila. När du krypterar din databas krypteras tillhör ande säkerhets kopior och transaktionsloggfiler utan att det krävs några ändringar i dina program. Transparent datakryptering (TDE) krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel kallad databaskrypteringsnyckeln.
 
-I SQL Database skyddas databas krypterings nyckeln av ett inbyggt Server certifikat. Det inbyggda Server certifikatet är unikt för varje SQL Database Server. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag. Den krypteringsalgoritm som används är AES-256. En allmän beskrivning av TDE finns [Transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+I SQL Database skyddas databas krypterings nyckeln av ett inbyggt Server certifikat. Det inbyggda Server certifikatet är unikt för varje server. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag. Den krypteringsalgoritm som används är AES-256. En allmän beskrivning av TDE finns [Transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Du kan kryptera databasen med hjälp av [Azure Portal](sql-data-warehouse-encryption-tde.md) eller [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 

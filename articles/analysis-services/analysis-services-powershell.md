@@ -44,7 +44,7 @@ Dokumentation – [SQLServer-referens](/powershell/module/sqlserver)
 
 ### <a name="supported-cmdlets"></a>Cmdlets som stöds
 
-|Cmdlet|Description|
+|Cmdlet|Beskrivning|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Lägg till en medlem i en databas roll.| 
 |[Säkerhets kopierings databas](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Säkerhetskopiera en Analysis Services databas.|  

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 12/09/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: 04f90292b74593dece5f7e54268907e184fd084c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a78e2cbc6f1e33f516912911e2038a0de3ff6b99
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592771"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996949"
 ---
 # <a name="what-is-custom-translator"></a>Vad är Custom Translator?
 
@@ -28,7 +28,7 @@ Custom Translator stöder mer än tre dussin språk och mappas direkt till språ
 
 Custom Translator har olika funktioner för att skapa ett anpassat översättningssystem och därefter använda det.
 
-|Funktion  |Description  |
+|Funktion  |Beskrivning  |
 |---------|---------|
 |[Utnyttja neural maskinöversättningsteknik](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Förbättra översättningen genom att utnyttja neural maskinöversättning (NMT) som tillhandahålls av Custom Translator.       |
 |[Skapa system som känner till din affärsterminologi](what-are-parallel-documents.md)     |  Anpassa och skapa översättningssystem med hjälp av parallella dokument, som förstår den terminologi som används i din egen verksamhet och bransch.       |

@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: din första python-fråga'
 description: I den här snabb starten följer du stegen för att aktivera resurs biblioteks biblioteket för python och kör din första fråga.
-ms.date: 05/26/2020
+ms.date: 05/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: 9d247f00bdfc5a5ac1642c853923dc8fc84d6e18
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: cbc545551c650ad3140cbd6a9b40ab7dee1c0f3f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83876622"
+ms.locfileid: "83996150"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Snabb start: kör din första resurs diagram fråga med python
 
@@ -16,7 +16,7 @@ Det första steget för att använda Azure Resource Graph är att kontrol lera a
 
 I slutet av den här processen har du lagt till biblioteken i python-installationen och kör din första resurs diagram fråga.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -53,15 +53,13 @@ Om du vill aktivera python för att fråga Azure Resource Graph måste bibliotek
    ```
 
    > [!NOTE]
-   > Om python har installerats för alla användare måste det här kommandot köras från en upphöjd konsol.
+   > Om python installeras för alla användare måste dessa kommandon köras från en upphöjd konsol.
 
 1. Verifiera att biblioteken har installerats. `azure-mgmt-resourcegraph`bör vara **2.0.0** eller högre, `azure-mgmt-resource` vara **9.0.0** eller högre, och `azure-cli-core` bör vara **2.5.0** eller högre.
 
    ```bash
    # Check each installed library
-   pip show azure-mgmt-resourcegraph
-   pip show azure-mgmt-resource
-   pip show azure-cli-core
+   pip show azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
    ```
 
 ## <a name="run-your-first-resource-graph-query"></a>Köra din första Resource Graph-fråga
@@ -82,18 +80,20 @@ Med python-biblioteken som har lagts till i din miljö väljer du tid för att t
    # Wrap all the work in a function
    def getresources( strQuery ):
        # Get your credentials from Azure CLI (development only!) and get your subscription list
-       subClient = get_client_from_cli_profile(SubscriptionClient)
-       subsRaw = [sub.as_dict() for sub in subClient.subscriptions.list()]
-       subList = []
+       subsClient = get_client_from_cli_profile(SubscriptionClient)
+       subsRaw = []
+       for sub in subsClient.subscriptions.list():
+           subsRaw.append(sub.as_dict())
+       subsList = []
        for sub in subsRaw:
-           subList.append(sub.get('subscription_id'))
+           subsList.append(sub.get('subscription_id'))
        
        # Create Azure Resource Graph client and set options
        argClient = get_client_from_cli_profile(arg.ResourceGraphClient)
        argQueryOptions = arg.models.QueryRequestOptions(result_format="objectArray")
        
        # Create query
-       argQuery = arg.models.QueryRequest(subscriptions=subList, query=strQuery, options=argQueryOptions)
+       argQuery = arg.models.QueryRequest(subscriptions=subsList, query=strQuery, options=argQueryOptions)
        
        # Run query
        argResults = argClient.resources(argQuery)
@@ -130,9 +130,7 @@ Om du vill ta bort de installerade biblioteken från python-miljön kan du göra
 
 ```bash
 # Remove the installed libraries from the Python environment
-pip uninstall azure-mgmt-resourcegraph
-pip uninstall azure-mgmt-resource
-pip uninstall azure-cli-core
+pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
 ```
 
 ## <a name="next-steps"></a>Nästa steg

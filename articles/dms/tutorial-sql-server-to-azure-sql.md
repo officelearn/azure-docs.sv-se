@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: ff47246482bd0712ea4e741d44b12f2c6767380b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9eb5e5063a4aec69e1f21445cb5278caaea82ce2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298920"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020497"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Självstudie: Migrera SQL Server till en enskild databas eller en databas i pooler i Azure SQL Database offline med DMS
 
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 I den artikeln beskrivs en offlinemigrering från SQL Server till en enkel databas eller en pooldatabas i Azure SQL Database. En onlinemigrering beskrivs i [Migrera SQL Server till Azure SQL Database online med DMS](tutorial-sql-server-azure-sql-online.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -68,7 +68,7 @@ För att slutföra den här kursen behöver du:
 - Öppna Windows-brandväggen för att tillåta Azure Database Migration Service åtkomst till käll SQL Server, vilket som standard är TCP-port 1433.
 - Om du kör flera namngivna SQL Server instanser med dynamiska portar kanske du vill aktivera tjänsten SQL Browser och tillåta åtkomst till UDP-port 1434 genom brand väggarna så att Azure Database Migration Service kan ansluta till en namngiven instans på käll servern.
 - När du använder en brand Väggs installation framför dina käll databaser, kan du behöva lägga till brand Väggs regler för att tillåta Azure Database Migration Service åtkomst till käll databaserna för migrering.
-- Skapa en regel för IP- [brandvägg](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för Azure SQL Database servern för att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
+- Skapa en regel för IP- [brandvägg](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för Azure SQL Database att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
 - Kontrollera att autentiseringsuppgifterna som används för att ansluta till SQL Server-källinstansen har [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql)-behörigheter.
 - Kontrollera att autentiseringsuppgifterna som används för att ansluta Azure SQL Database-målinstansen har CONTROL DATABASE-behörighet i Azure SQL-måldatabaserna.
 
@@ -149,7 +149,7 @@ Gör så här om du vill migrera **AdventureWorks2012** -schemat till en databas
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure-portalen. Sök efter och välj **prenumerationer**.
+1. Logga in på Azure Portal. Sök efter och välj **prenumerationer**.
 
    ![Visa portalprenumerationer](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
 
@@ -229,7 +229,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="specify-target-details"></a>Ange målinformation
 
-1. Välj **Spara** och ange på sidan **Information om migreringsmål** anslutningsinformationen för Azure SQL Database-målservern, som är den företablerade Azure SQL Database som **AdventureWorks2012**-schemat distribuerades till med Data Migration Assistant.
+1. Välj **Spara**och ange sedan anslutnings information för mål Azure SQL Database på skärmen **information om migreringen** , vilket är den företablerade Azure SQL Database som **AdventureWorks2012** -schemat har distribuerats med hjälp av data migration assistant.
 
     ![Välja mål](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
 
@@ -271,7 +271,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 2. När migreringen har slutförts väljer du **Ladda ned rapport** för att få en rapport som visar informationen som rör migreringsprocessen.
 
-3. Verifiera måldatabasen/måldatabaserna på Azure SQL Database-målservern.
+3. Verifiera mål databaserna på mål Azure SQL Database.
 
 ### <a name="additional-resources"></a>Ytterligare resurser
 

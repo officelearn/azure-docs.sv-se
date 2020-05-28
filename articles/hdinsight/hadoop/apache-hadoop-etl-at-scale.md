@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 5d6d4a41deb1ef96789a48eefba306be4dfb20eb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3cf16c2cd119eb3eec64104b2573ff7de2cc76c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745140"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020089"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrahera, transformera och läsa in (ETL) i skala
 
@@ -106,9 +106,9 @@ HBase anpassning är beroende av antalet noder i HDInsight-klustret.
 
 Azure erbjuder tre PaaS-relationella databaser:
 
-- [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) är en implementering av Microsoft SQL Server. Mer information om prestanda finns [i justera prestanda i Azure SQL Database](../../sql-database/sql-database-performance-guidance.md).
-- [Azure Database for MySQL](../../mysql/overview.md) är en implementering av Oracle MySQL.
-- [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) är en implementering av postgresql.
+* [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) är en implementering av Microsoft SQL Server. Mer information om prestanda finns [i justera prestanda i Azure SQL Database](../../azure-sql/database/performance-guidance.md).
+* [Azure Database for MySQL](../../mysql/overview.md) är en implementering av Oracle MySQL.
+* [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) är en implementering av postgresql.
 
 Lägg till mer processor och minne för att skala upp dessa produkter.  Du kan också välja att använda Premium diskar med produkterna för bättre I/O-prestanda.
 

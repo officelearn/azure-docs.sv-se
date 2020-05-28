@@ -25,7 +25,7 @@ Lär dig hur du använder metod tips för differentiell integritet för att Azur
 
 Differentiell integritet är den guld standard definitionen av sekretess. System som följer denna definition av sekretess ger starka garantier mot en rad olika data återuppbyggnads-och återidentifierings attacker, inklusive attacker från angripare som har hjälp information. Läs mer om hur [differentiell integritet fungerar](./concept-differential-privacy.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 - [Python 3](https://www.python.org/downloads/)
@@ -148,7 +148,7 @@ Du kan använda biblioteket för att skapa mer komplexa analys diagram, med fler
 | Antal         | Gaussisk   | Långa       |
 | Histogram     | Geometriska  | Ihopfogning   |
 | Medelvärde          | Laplace    | Digitalisera   |
-| Quantiles     |            | Filter     |
+| Quantiles     |            | Filtrera     |
 | Summa           |            | Tillvitelse |
 | Varians/kovarians |      | Transformering  |
 
@@ -245,6 +245,6 @@ with wn.Analysis() as analysis:
 Mer information finns i [antecknings boken för kovarians](
 https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/covariance.ipynb)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Utforska [WhiteNoise-exempel Notebooks](https://github.com/opendifferentialprivacy/whitenoise-samples/tree/master/analysis).

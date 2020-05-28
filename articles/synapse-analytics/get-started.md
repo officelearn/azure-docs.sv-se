@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: dcad90713227e55437523c91997175242078e9e4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d5484f5725047201770e5b3cbab89847b27117f9
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836489"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116926"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Komma igång med Azure Synapse Analytics
 
@@ -22,23 +22,15 @@ Den här självstudien vägleder dig genom alla grundläggande steg som krävs f
 
 ## <a name="prepare-a-storage-account-for-use-with-a-synapse-workspace"></a>Förbereda ett lagrings konto för användning med en Synapse-arbetsyta
 
-1. Öppna [Azure Portal](https://portal.azure.com)
-1. Skapa ett nytt lagrings konto med följande inställningar:
-    * På fliken **grundläggande**
-
-    |Inställningen | Föreslaget värde | Description |
-    |---|---|---|
-    |**Lagrings konto namn**| Du kan ge den namnet.|I det här dokumentet kommer vi att se det som `contosolake` .
-    |**Typ av konto**|Måste anges till`StorageV2`||
-    |**Position**|Du kan välja valfri plats| Vi rekommenderar att ditt Synapse-konto för arbets yta och Azure Data Lake Storage (ADLS) är i samma region.|
-    ||||
-    
-    * På fliken **Avancerat**
-    
-    |Inställningen | Föreslaget värde | Description |
-    |---|---|---|
-    |**Data Lake Storage Gen2**|`Enabled`| Azure Synapse fungerar bara med lagrings konton där den här inställningen är aktive rad.|
-    ||||
+* Öppna [Azure Portal](https://portal.azure.com)
+* Skapa ett nytt lagrings konto med följande inställningar:
+    |Flik|Inställningen | Föreslaget värde | Beskrivning |
+    |---|---|---|---|
+    |Grundläggande inställningar|**Lagrings konto namn**| Du kan ge den namnet.|I det här dokumentet kommer vi att se det som `contosolake` .|
+    |Grundläggande inställningar|**Typ av konto**|Måste anges till`StorageV2`||
+    |Grundläggande inställningar|**Position**|Du kan välja valfri plats| Vi rekommenderar att ditt Synapse-konto för arbets yta och Azure Data Lake Storage (ADLS) är i samma region.|
+    |Avancerat|**Data Lake Storage Gen2**|`Enabled`| Azure Synapse fungerar bara med lagrings konton där den här inställningen är aktive rad.|
+    |||||
 
 1. När lagrings kontot har skapats väljer du **åtkomst kontroll (IAM)** i det vänstra navigerings fältet. Tilldela sedan följande roller eller se till att de redan har tilldelats. 
     a. * Tilldela dig själv **ägar** rollen på lagrings kontot b. * Tilldela dig själv rollen som **Storage BLOB data-ägare** på lagrings kontot
@@ -46,16 +38,15 @@ Den här självstudien vägleder dig genom alla grundläggande steg som krävs f
 
 ## <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
-1. Öppna [Azure Portal](https://portal.azure.com) och högst upp Sök efter `Synapse` .
-1. I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**
-1. Välj **+ Lägg till**
-1. Fliken **grunder** :
+* Öppna [Azure Portal](https://portal.azure.com) och högst upp Sök efter `Synapse` .
+* I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**
+* Välj **+ Lägg** till för att skapa en ny arbets yta med de här inställningarna
 
-    |Inställningen | Föreslaget värde | Description |
-    |---|---|---|
-    |**Namn på arbetsyta**|Du kan anropa det något.| I det här dokumentet kommer vi att använda`myworkspace`
-    |**Region**|Matcha lagrings kontots region||
-    |||
+    |Flik|Inställningen | Föreslaget värde | Beskrivning |
+    |---|---|---|---|
+    |Grundläggande inställningar|**Namn på arbetsyta**|Du kan anropa det något.| I det här dokumentet kommer vi att använda`myworkspace`|
+    |Grundläggande inställningar|**Region**|Matcha lagrings kontots region|
+    ||||
 
 1. Under **välj Data Lake Storage gen 2**väljer du det konto och den behållare som du skapade tidigare.
     > [!NOTE]
@@ -137,7 +128,7 @@ Varje arbets yta levereras med en fördefinierad och en pool med namnet **SQL p�
 
 ## <a name="load-the-nyc-taxi-sample-data-into-the-sqldb1-database"></a>Läs in NYC taxi-exempelprogrammet i SQLDB1-databasen
 
-1. I Synapse Studio, på den översta blå menyn, väljer du **?** .
+1. I Synapse Studio, på den översta blå menyn, väljer du **?** -ikonen.
 1. Välj **komma igång > kom igång-hubb**
 1. I kortet med etiketten **fråga exempel data**väljer du SQL-poolen med namnet`SQLDB1`
 1. Välj **fråga efter data**. Du ser ett meddelande som säger "läser in exempel data" som visas och försvinner.

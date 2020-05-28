@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 386f34e001457da4c5ae0e170ab2c090725ad5b7
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 100084a244944bcaf0d566e347d56dd4a03ecfae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592244"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995793"
 ---
 # <a name="request-limits-for-translator"></a>Begär ande begränsningar för översättare
 
@@ -27,14 +27,14 @@ Varje översättnings förfrågan är begränsad till 5 000 tecken, på alla må
 
 I följande tabell visas mat ris element och Character-begränsningar för varje operation av Translator.
 
-| Åtgärd | Maximal storlek för mat ris element |   Maximalt antal mat ris element |  Maximal begär ande storlek (tecken) |
+| Åtgärd | Maximal storlek för mat ris element |    Maximalt antal mat ris element |    Maximal begär ande storlek (tecken) |
 |:----|:----|:----|:----|
-| Översätt | 5 000 | 100   | 5 000 |
-| Transkribera | 5 000 | 10    | 5 000 |
-| Upptäcka | 10 000 | 100 |   50 000 |
-| BreakSentence | 10 000    | 100 | 50 000 |
-| Slå upp i ordlista| 100 |  10  | 1,000 |
-| Ordlisteexempel | 100 för text och 100 för översättning (totalt 200)| 10|   2 000 |
+| Översätt | 5 000    | 100    | 5 000 |
+| Transkribera | 5 000    | 10    | 5 000 |
+| Upptäcka | 10 000 |    100 |    50 000 |
+| BreakSentence | 10 000    | 100 |    50 000 |
+| Slå upp i ordlista| 100 |    10    | 1,000 |
+| Ordlisteexempel | 100 för text och 100 för översättning (totalt 200)| 10|    2 000 |
 
 ## <a name="character-limits-per-hour"></a>Character-gränser per timme
 
@@ -82,4 +82,4 @@ När du använder funktionen [BreakSentence](https://docs.microsoft.com/azure/co
 
 * [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Regional tillgänglighet](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [referens för v3-översättare](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [Referens för Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

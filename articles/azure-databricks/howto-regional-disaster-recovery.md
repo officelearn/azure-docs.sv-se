@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f68bbb4e73758e44e775e1c0c23ad007ca60aa2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77161944"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016941"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regional haveri beredskap för Azure Databricks kluster
 
@@ -150,7 +150,7 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
    clusters_list = []
    ##for cluster_info in clusters_info_list: clusters_list.append(cluster_info.split(None, 1)[0])
 
-   for cluster_info in clusters_info_list: 
+   for cluster_info in clusters_info_list:
       if cluster_info != '':
          clusters_list.append(cluster_info.split(None, 1)[0])
 
@@ -176,7 +176,7 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
       cluster_json_keys = cluster_req_json.keys()
 
       #Don't migrate Job clusters
-      if cluster_req_json['cluster_source'] == u'JOB' : 
+      if cluster_req_json['cluster_source'] == u'JOB' :
          print ("Skipping this cluster as it is a Job cluster : " + cluster_req_json['cluster_id'] )
          print ("---------------------------------------------------------")
          continue
@@ -188,10 +188,10 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
       # Create the cluster, and store the mapping from old to new cluster ids
 
       #Create a temp file to store the current cluster info as JSON
-      strCurrentClusterFile = "tmp_cluster_info.json" 
+      strCurrentClusterFile = "tmp_cluster_info.json"
 
       #delete the temp file if exists
-      if os.path.exists(strCurrentClusterFile) : 
+      if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
 
       fClusterJSONtmp = open(strCurrentClusterFile,"w+")
@@ -207,7 +207,7 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
       print ("---------------------------------------------------------")
 
       #delete the temp file if exists
-      if os.path.exists(strCurrentClusterFile) : 
+      if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
 
    print ("Cluster mappings: " + json.dumps(cluster_old_new_mappings))
@@ -225,7 +225,7 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
 
    Jobb konfigurationen kräver inställningar för ett nytt eller ett befintligt kluster. Om du använder ett befintligt kluster försöker skriptet/Code nedan att ersätta det gamla kluster-ID: t med nytt kluster-ID.
 
-   Kopiera och spara följande Python-skript till en fil. Ersätt värdet för `old_cluster_id` och `new_cluster_id`, med utdata från kluster migreringen som utfördes i föregående steg. Kör det på kommando raden för databricks-CLI, till exempel `python scriptname.py`.
+   Kopiera och spara följande Python-skript till en fil. Ersätt värdet för `old_cluster_id` och `new_cluster_id` , med utdata från kluster migreringen som utfördes i föregående steg. Kör det på kommando raden för databricks-CLI, till exempel `python scriptname.py` .
 
    ```python
    from subprocess import call, check_output
@@ -308,7 +308,7 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
 
 ## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Haveri beredskap för ditt Azure-eko system
 
-Om du använder andra Azure-tjänster bör du även implementera metod tips för haveri beredskap för dessa tjänster. Om du till exempel väljer att använda en extern Hive-metaarkiv-instans bör du överväga haveri beredskap för [azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)och/eller [Azure Database for MySQL](../mysql/concepts-business-continuity.md). Allmän information om haveri beredskap finns i [haveri beredskap för Azure-program](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Om du använder andra Azure-tjänster bör du även implementera metod tips för haveri beredskap för dessa tjänster. Om du till exempel väljer att använda en extern Hive-metaarkiv-instans bör du överväga haveri beredskap för [Azure SQL Database](../azure-sql/database/disaster-recovery-guidance.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)och/eller [Azure Database for MySQL](../mysql/concepts-business-continuity.md). Allmän information om haveri beredskap finns i [haveri beredskap för Azure-program](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="next-steps"></a>Nästa steg
 

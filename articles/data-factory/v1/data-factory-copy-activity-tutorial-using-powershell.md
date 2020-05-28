@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f34103bb42999f6d2e9bfe35dbc257db7cecd909
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73682844"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119273"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Självstudiekurs: Skapa en Data Factory-pipeline som flyttar data med hjälp av Azure PowerShell
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "73682844"
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Azure Resource Manager mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -44,7 +44,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 > 
 > Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -90,7 +90,7 @@ En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en ell
     Get-AzSubscription
     ```
 
-    Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt;NameOfAzureSubscription** &gt; med namnet på din Azure-prenumeration:
+    Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt; NameOfAzureSubscription** &gt; med namnet på din Azure-prenumeration:
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -189,7 +189,7 @@ I det här steget länkar du Azure SQL-databasen till din datafabrik.
 1. Skapa en JSON-fil med namnet AzureSqlLinkedService.json i mappen C:\ADFGetStartedPSH med följande innehåll:
 
     > [!IMPORTANT]
-    > Ersätt &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt; och &lt;password&gt; med namnen för Azure SQL-servern, databasen, användarkontot och lösenordet.
+    > Ersätt &lt; servername &gt; , &lt; databasename &gt; , &lt; username@servername &gt; och &lt; Password &gt; med namnen på din server, databas, användar konto och lösen ord.
     
     ```json
     {
@@ -218,7 +218,7 @@ I det här steget länkar du Azure SQL-databasen till din datafabrik.
     ProvisioningState : Succeeded
     ```
 
-   Bekräfta att inställningen **Tillåt åtkomst till Azure-tjänster** är aktiverad för SQL-databasservern. Gör så här för att kontrollera och aktivera den:
+   Bekräfta att inställningen **Tillåt åtkomst till Azure-tjänster** är aktive rad för servern. Gör så här för att kontrollera och aktivera den:
 
     1. Logga in på [Azure Portal](https://portal.azure.com)
     1. Klicka på **fler tjänster >** till vänster och klicka på **SQL-servrar** i kategorin **DATABASER**.
@@ -455,7 +455,7 @@ Schemat styrs för närvarande av utdatamängd. I den här självstudiekursen ä
 ## <a name="monitor-the-pipeline"></a>Övervaka pipeline
 I det här steget använder du Azure PowerShell till att övervaka vad som händer i en Azure Data Factory.
 
-1. Ersätt &lt;DataFactoryName&gt; med namnet på din data fabrik och kör **Get-AzDataFactory**och tilldela utdata till en variabel $DF.
+1. Ersätt &lt; DataFactoryName &gt; med namnet på din data fabrik och kör **Get-AzDataFactory**och tilldela utdata till en variabel $DF.
 
     ```powershell  
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>

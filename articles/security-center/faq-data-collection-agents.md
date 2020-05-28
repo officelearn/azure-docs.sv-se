@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 022942778b714d5d66ce6eeb2c29351b11c66e40
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849050"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996252"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Vanliga frågor och svar om data insamling, agenter och arbets ytor
 
@@ -65,6 +65,14 @@ Platsen för standard arbets ytan beror på din Azure-region:
 - För virtuella datorer i Japan är platsen för arbets ytan Japan
 - För virtuella datorer i Kina är arbets ytans plats Kina
 - För virtuella datorer i Australien är arbets ytan Australien
+
+
+## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Vilka data samlas in av Log Analytics agenten?
+
+En fullständig lista över de program och tjänster som övervakas av agenten finns i [vad övervakas av Azure Monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+
+> [!IMPORTANT]
+> Observera att för vissa tjänster, t. ex. Azure-brandvägg, om du har aktiverat loggning och valt en chatt-resurs som ska loggas (till exempel genom att ange loggen som *utförlig*) kan du se betydande påverkan på din Log Analytics lagrings plats behov. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Kan jag ta bort standard arbets ytor som skapats av Security Center?
@@ -201,9 +209,17 @@ Ta bort agenten manuellt:
 
 ## <a name="how-do-i-disable-data-collection"></a>Vill du Hur gör jag för att inaktivera data insamling?
 
-Automatisk etablering är inaktive rad som standard. Du kan inaktivera automatisk etablering från resurser när som helst genom att stänga av den här inställningen i säkerhets principen. Automatisk etablering rekommenderas för att få säkerhets aviseringar och rekommendationer om system uppdateringar, sårbarheter för operativ system och Endpoint Protection.
+Automatisk etablering rekommenderas för att få säkerhets aviseringar och rekommendationer om system uppdateringar, sårbarheter för operativ system och Endpoint Protection. Automatisk etablering är inaktiverat som standard.
 
-Om du vill inaktivera data insamling [loggar du in på Azure Portal](https://portal.azure.com), väljer **bläddra**, väljer **Security Center**och väljer **Välj princip**. Välj den prenumeration du vill avaktivera automatisk etablering för. När du väljer en prenumerations **säkerhets princip öppnas data insamling** . Under **Automatisk etablering**, väljer du **av**.
+Om du har aktiverat den, men nu vill inaktivera den:
+
+1. Öppna **Security Center** på [Azure Portal](https://portal.azure.com)och välj **säkerhets princip**.
+
+1. Välj den prenumeration där du vill inaktivera automatisk etablering.
+
+    **Säkerhets princip – data insamling** öppnas.
+
+1. Under **Automatisk etablering**, väljer du **av**.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Hur gör jag för att aktivera data insamling?
@@ -233,9 +249,6 @@ För att samla in data måste varje virtuell dator och Server ansluta till Inter
 Agenten förbrukar en nominell mängd system resurser och påverkar inte prestandan. Mer information om prestanda påverkan och agenten och tillägget finns i [planerings-och drift guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 
-## <a name="where-is-my-data-stored"></a>Var lagras mina data?
-
-Data som samlas in från den här agenten lagras antingen i en befintlig Log Analytics arbets yta som är associerad med din prenumeration eller en ny arbets yta. Mer information finns i [data säkerhet](security-center-data-security.md).
 
 
 <!--Image references-->

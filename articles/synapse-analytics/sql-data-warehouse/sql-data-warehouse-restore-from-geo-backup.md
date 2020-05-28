@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99a6373c314530741bbff67a4573005ff2523d6d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745077"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020225"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Geo-återställning för SQL-pool
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig att återställa SQL-poolen från en geo-s
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verifiera din DTU-kapacitet.** Varje SQL-pool finns på en SQL-Server (till exempel myserver.database.windows.net) som har en standard-DTU-kvot. Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verifiera din DTU-kapacitet.** Varje SQL-pool finns på en [logisk SQL-Server](../../azure-sql/database/logical-servers.md) (till exempel myserver.Database.Windows.net) som har en standard-DTU-kvot. Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Återställa från en geografisk Azure-region via PowerShell
 
@@ -49,7 +49,7 @@ Om du vill återställa från en geo-säkerhets kopiering använder du cmdleten 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
-$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different logical server.
+$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different server.
 $TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
@@ -81,7 +81,7 @@ Följ stegen som beskrivs nedan för att återställa en SQL-pool från en geo-s
 
    ![Ny DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Klicka på **databaser** och sedan * * Azure Synapse Analytics (tidigare SQL DW) * *.
+3. Klicka på **databaser** och sedan på **Azure Synapse Analytics (tidigare SQL DW)**.
 
    ![Ny DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
@@ -95,7 +95,7 @@ Följ stegen som beskrivs nedan för att återställa en SQL-pool från en geo-s
 
 6. När data lagret har återställts kontrollerar du att **statusen** är online.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Återställa en befintlig SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
 - [Återställa en borttagen SQL-pool](sql-data-warehouse-restore-deleted-dw.md)

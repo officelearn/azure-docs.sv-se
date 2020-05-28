@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 18bcd57c804746da5cff2efe8713616174fc794d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f84098d376f2494805465a8c713a21fceae6438d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739489"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116859"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -45,7 +45,7 @@ Med v2-SKU: n drivs pris sättnings modellen av förbrukning och är inte längr
 - **Fast pris** – det här är ett Tim pris (eller delvis tim) för att etablera en Standard_v2 eller WAF_v2 Gateway. Observera att 0 ytterligare minimi instanser fortfarande säkerställer hög tillgänglighet för tjänsten som alltid ingår i fast pris.
 - **Pris för kapacitets enhet** – det här är en förbruknings-baserad kostnad som debiteras utöver den fasta kostnaden. Kapacitets enhets avgiften beräknas också per timme eller delvis per timme. Det finns tre dimensioner för kapacitets enhet – beräknings enhet, beständiga anslutningar och data flöde. Beräkningsenhet är ett mått på förbrukad processorkapacitet. TLS-anslutningar per sekund, beräkningar för omskrivning av webbadresser och bearbetning av WAF-regler är faktorer som påverkar beräkningsenheter. Beständig anslutning är ett mått på upprättade TCP-anslutningar till Application Gateway under ett visst fakturerings intervall. Data flödet är Genomsnittligt antal megabitar/s som bearbetats av systemet under ett angivet fakturerings intervall.  Faktureringen görs på en kapacitets enhets nivå för allt ovanför antalet reserverade instanser.
 
-Varje kapacitets enhet består av högst: 1 beräknings enhet eller 2500 beständiga anslutningar eller 2,22 – Mbps-dataflöde.
+Varje kapacitets enhet består av högst: 1 beräknings enhet, 2500 beständiga anslutningar och 2,22 – Mbps-genomflöde.
 
 Vägledning för beräknings enhet:
 

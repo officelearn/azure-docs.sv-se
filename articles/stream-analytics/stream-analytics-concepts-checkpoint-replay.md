@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5bb2b97d7da770828c2f4f03167483ad2044c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426392"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020616"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Kontroll punkts-och repetitions begrepp i Azure Stream Analytics jobb
 I den här artikeln beskrivs den interna kontroll punkten och omuppspelnings koncepten i Azure Stream Analytics och hur de påverkar jobb återställningen. Varje gången ett Stream Analytics jobb körs bevaras tillståndsinformation internt. Statusinformation sparas i en kontroll punkt med jämna mellanrum. I vissa fall används kontroll punkts informationen för jobb återställning om ett jobb fel eller en uppgradering sker. I andra fall kan kontroll punkten inte användas för återställning och det krävs en omuppspelning.
@@ -47,7 +47,7 @@ Microsoft uppgraderar ibland binärfilerna som kör Stream Analytics jobb i Azur
 
 För närvarande bevaras inte återställnings kontroll punkts formatet mellan uppgraderingar. Därför måste tillstånd för strömnings frågan återställas helt med hjälp av uppspelnings teknik. För att tillåta att Stream Analytics jobb spelar upp exakt samma indata från tidigare är det viktigt att ange bevarande principen för källdata till minst fönster storlekarna i frågan. Om du inte gör det kan det leda till felaktiga eller partiella resultat under uppgraderingen av tjänsten, eftersom källdata kanske inte finns tillräckligt långt för att inkludera hela fönster storleken.
 
-I allmänhet är mängden repetition som krävs proportionell till fönstrets storlek multiplicerat med den genomsnittliga händelse frekvensen. Till exempel, för ett jobb med en intakt på 1000 händelser per sekund, anses en fönster storlek som är större än en timme ha en stor uppspelnings storlek. Upp till en timme med data kan behöva bearbetas igen för att initiera tillstånd så att den kan producera fullständiga och korrekta resultat, vilket kan orsaka fördröjd utdata (inga utdata) under en längre period. Frågor utan Windows eller andra temporala operatörer, som `JOIN` eller `LAG`, har noll repetition.
+I allmänhet är mängden repetition som krävs proportionell till fönstrets storlek multiplicerat med den genomsnittliga händelse frekvensen. Till exempel, för ett jobb med en intakt på 1000 händelser per sekund, anses en fönster storlek som är större än en timme ha en stor uppspelnings storlek. Upp till en timme med data kan behöva bearbetas igen för att initiera tillstånd så att den kan producera fullständiga och korrekta resultat, vilket kan orsaka fördröjd utdata (inga utdata) under en längre period. Frågor utan Windows eller andra temporala operatörer, som `JOIN` eller `LAG` , har noll repetition.
 
 ## <a name="estimate-replay-catch-up-time"></a>Omfångs fångst tid för repetition
 Om du vill beräkna fördröjnings tiden på grund av en tjänst uppgradering kan du följa den här metoden:
@@ -58,7 +58,7 @@ Om du vill beräkna fördröjnings tiden på grund av en tjänst uppgradering ka
 
 3. Mät tiden mellan start tiden och när den första utdatan genereras. Tiden är en grov fördröjning i hur lång tid jobbet skulle ådra sig under en tjänst uppgradering.
 
-4. Om fördröjningen är för lång, försök att partitionera ditt jobb och öka antalet SUs, så att belastningen sprids ut till fler noder. Du kan också överväga att minska fönster storlekarna i frågan och utföra ytterligare agg regering eller annan tillstånds känslig bearbetning av de utdata som genereras av Stream Analytics jobb i den underordnade sinken (till exempel med hjälp av Azure SQL Database).
+4. Om fördröjningen är för lång, försök att partitionera ditt jobb och öka antalet SUs, så att belastningen sprids ut till fler noder. Du kan också överväga att minska fönster storlekarna i frågan och utföra ytterligare agg regering eller annan tillstånds känslig bearbetning av de utdata som genereras av Stream Analytics jobb i den underordnade sinken (till exempel med Azure SQL Database).
 
 Överväg att köra dubbla jobb i kopplade Azure-regioner för allmän tjänst stabilitet under uppgraderingen av verksamhets kritiska jobb. Mer information finns i [garanti Stream Analytics jobb tillförlitlighet under tjänst uppdateringar](stream-analytics-job-reliability.md).
 

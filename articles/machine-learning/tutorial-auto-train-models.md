@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: trevorbye
-ms.author: trbye
-ms.reviewer: trbye
+author: aniththa
+ms.author: anumamah
+ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 75e61ea3f4fa6c2b346f912a9effd66ad94e7e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 97b129bfaa1a8612040e59c6378aa1965c5c49cd
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77116443"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118879"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använd automatisk maskin inlärning för att förutse taxi priser
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen](https://aka.ms/AMLFree) av Azure Machine Learning idag.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator.
 * När du har slutfört installations guiden öppnar du *självstudierna/regression-automl-NYC-taxi-data/regression-Automated-ml. ipynb* Notebook med samma Notebook-Server.
@@ -42,7 +42,7 @@ Den här själv studie kursen finns också på [GitHub](https://github.com/Azure
 
 ## <a name="download-and-prepare-data"></a>Hämta och förbereda data
 
-Importera de nödvändiga paketen. Det öppna data uppsättnings paketet innehåller en klass som representerar varje data`NycTlcGreen` källa (till exempel) för att enkelt filtrera datum parametrar innan de hämtas.
+Importera de nödvändiga paketen. Det öppna data uppsättnings paketet innehåller en klass som representerar varje data källa ( `NycTlcGreen` till exempel) för att enkelt filtrera datum parametrar innan de hämtas.
 
 ```python
 from azureml.opendatasets import NycTlcGreen
@@ -51,9 +51,9 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 ```
 
-Börja med att skapa en dataframe som innehåller taxi data. När du arbetar i en miljö som inte är Spark-miljö kan öppna data uppsättningar bara hämta en månad med data i taget med vissa klasser `MemoryError` för att undvika med stora data mängder.
+Börja med att skapa en dataframe som innehåller taxi data. När du arbetar i en miljö som inte är Spark-miljö kan öppna data uppsättningar bara hämta en månad med data i taget med vissa klasser för att undvika `MemoryError` med stora data mängder.
 
-För att hämta taxi data, Hämta upprepade gånger en månad i taget och innan du lägger till den för `green_taxi_df` att slumpmässigt sampla 2 000 poster från varje månad för att undvika bloating dataframe. Förhandsgranska sedan data.
+För att hämta taxi data, Hämta upprepade gånger en månad i taget och innan du lägger till den för att `green_taxi_df` slumpmässigt sampla 2 000 poster från varje månad för att undvika bloating dataframe. Förhandsgranska sedan data.
 
 
 ```python
@@ -832,9 +832,9 @@ green_taxi_df.describe()
 
 Från sammanfattnings statistik ser du att det finns flera fält med avvikande värden eller värden som minskar modell noggrannheten. Börja med att filtrera Lat/Long-fälten så att de ligger inom gränserna för Manhattan-ytan. Detta filtrerar längre taxi resor eller resor som är avvikande i förhållande till deras förhållande till andra funktioner.
 
-Filtrera också fältet `tripDistance` så att det är större än noll men mindre än 31 mil (haversine avståndet mellan två Lat/Long-par). Detta eliminerar långa avvikare resor som har inkonsekventa rese kostnader.
+Filtrera också `tripDistance` fältet så att det är större än noll men mindre än 31 mil (haversine avståndet mellan två Lat/Long-par). Detta eliminerar långa avvikare resor som har inkonsekventa rese kostnader.
 
-Slutligen har `totalAmount` fältet negativa värden för taxi-priserna, vilket inte är meningsfullt i den här modellen, och `passengerCount` fältet innehåller felaktiga data med de lägsta värdena noll.
+Slutligen `totalAmount` har fältet negativa värden för taxi-priserna, vilket inte är meningsfullt i den här modellen, och `passengerCount` fältet innehåller felaktiga data med de lägsta värdena noll.
 
 Filtrera bort dessa avvikelser med hjälp av fråge funktioner och ta sedan bort de senaste kolumnerna som behövs för utbildning.
 
@@ -858,7 +858,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Konfigurera arbetsyta
 
-Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som godkänner din Azure-prenumeration och resursinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen. `Workspace.from_config()`läser filen **config. JSON** och läser in autentiseringsinformationen till ett objekt med namnet `ws`. `ws` används i resten av koden i den här självstudien.
+Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som godkänner din Azure-prenumeration och resursinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen. `Workspace.from_config()`läser filen **config. JSON** och läser in autentiseringsinformationen till ett objekt med namnet `ws` . `ws` används i resten av koden i den här självstudien.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -867,9 +867,9 @@ ws = Workspace.from_config()
 
 ## <a name="split-the-data-into-train-and-test-sets"></a>Dela data till uppsättningar för träning och testning
 
-Dela data i utbildnings-och test uppsättningar genom att `train_test_split` använda funktionen i `scikit-learn` biblioteket. Den här funktionen åtskiljer data i data uppsättningen x (**funktioner**) för modell utbildning och data uppsättningen y (**värden att Förutsäg**) för testning.
+Dela data i utbildnings-och test uppsättningar genom att använda `train_test_split` funktionen i `scikit-learn` biblioteket. Den här funktionen åtskiljer data i data uppsättningen x (**funktioner**) för modell utbildning och data uppsättningen y (**värden att Förutsäg**) för testning.
 
-Parametern `test_size` anger procentandelen av data som ska allokeras till testning. `random_state` Parametern anger ett start värde för den slumpmässiga generatorn, så att dina träna-test-delningar är deterministiska.
+Parametern `test_size` anger procentandelen av data som ska allokeras till testning. `random_state`Parametern anger ett start värde för den slumpmässiga generatorn, så att dina träna-test-delningar är deterministiska.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -935,7 +935,7 @@ automl_config = AutoMLConfig(task='regression',
 
 ### <a name="train-the-automatic-regression-model"></a>Träna den automatiska regressionsmodellen
 
-Skapa ett experiment objekt i din arbets yta. Ett experiment fungerar som en behållare för dina enskilda körningar. Skicka det definierade `automl_config` objektet till experimentet och ange att utdata `True` ska se förloppet under körningen.
+Skapa ett experiment objekt i din arbets yta. Ett experiment fungerar som en behållare för dina enskilda körningar. Skicka det definierade `automl_config` objektet till experimentet och ange att utdata ska `True` Se förloppet under körningen.
 
 När experimentet har startats visas uppdateringarna Live som experimentet. För varje iteration ser du modelltypen, körningens varaktighet samt träningens noggrannhet. Fältet `BEST` spårar den bästa löpande körningspoängen utifrån din måttyp.
 
@@ -998,7 +998,7 @@ RunDetails(local_run).show()
 
 ### <a name="retrieve-the-best-model"></a>Hämta den bästa modellen
 
-Välj den bästa modellen från dina iterationer. `get_output` Funktionen returnerar den bästa körningen och den monterade modellen för den senaste pass-anropet. Genom att använda överlagringarna kan `get_output`du hämta den bästa körnings-och den monterade modellen för alla inloggade mått eller en viss iteration.
+Välj den bästa modellen från dina iterationer. `get_output`Funktionen returnerar den bästa körningen och den monterade modellen för den senaste pass-anropet. Genom att använda överlagringarna `get_output` kan du hämta den bästa körnings-och den monterade modellen för alla inloggade mått eller en viss iteration.
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1026,7 +1026,7 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Kör följande kod för att beräkna medelvärde för absoluta procent fel (MAPE) med hjälp av `y_actual` fullständig `y_predict` och data uppsättningar. Det här måttet beräknar en absolut skillnad mellan varje förväntat och faktiskt värde och summerar alla skillnaderna. Sedan uttrycker den summan som en procent andel av summan av de faktiska värdena.
+Kör följande kod för att beräkna medelvärde för absoluta procent fel (MAPE) med hjälp av fullständig `y_actual` och `y_predict` data uppsättningar. Det här måttet beräknar en absolut skillnad mellan varje förväntat och faktiskt värde och summerar alla skillnaderna. Sedan uttrycker den summan som en procent andel av summan av de faktiska värdena.
 
 ```python
 sum_actuals = sum_errors = 0

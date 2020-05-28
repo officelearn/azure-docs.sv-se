@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8f8af7fab7113e38b91c3f5f1bcc41b4e4fba2c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb5c01bac512504fc6bee52be7cf619f29bdf959
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457373"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117172"
 ---
 # <a name="query-folders-and-multiple-csv-files"></a>Fråga mappar och flera CSV-filer  
 
@@ -22,27 +22,12 @@ I den här artikeln får du lära dig hur du skriver en fråga med SQL på begä
 
 SQL på begäran stöder läsning av flera filer/mappar med jokertecken som liknar de jokertecken som används i Windows OS. Det finns dock större flexibilitet eftersom flera jokertecken är tillåtna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du läser resten av den här artikeln ser du till att granska artiklarna i listan nedan:
+Ditt första steg är att **skapa en databas** där du ska köra frågorna. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
-- [Installation vid första tiden](query-data-storage.md#first-time-setup)
-- [Förutsättningar](query-data-storage.md#prerequisites)
-
-## <a name="read-multiple-files-in-folder"></a>Läsa flera filer i mappen
-
-Du använder mappen *CSV/taxi* för att följa exempel frågorna. Den innehåller NYC taxi-Yellow taxi-resa registrerar data från 2016 juli till 2018 juni.
-
-Filerna i *CSV/taxi* har namnet efter år och månad:
-
-- yellow_tripdata_2016 -07. csv
-- yellow_tripdata_2016 -08. csv
-- yellow_tripdata_2016 -09. csv
-- ...
-- yellow_tripdata_2018 -04. csv
-- yellow_tripdata_2018 -05. csv
-- yellow_tripdata_2018 -06. csv
-
+Du använder mappen *CSV/taxi* för att följa exempel frågorna. Den innehåller NYC taxi-Yellow taxi-resa registrerar data från 2016 juli till 2018 juni. Filerna i *CSV/taxi* har namnet efter år och månad med följande mönster: yellow_tripdata_ <year> - <month> . csv
+        
 Varje fil har följande struktur:
         
     [First 10 rows of the CSV file](./media/querying-folders-and-multiple-csv-files/nyc-taxi.png)
@@ -57,28 +42,14 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/*.*',
-        FORMAT = 'CSV', 
+        BULK 'csv/taxi/*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
-        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-        pickup_datetime DATETIME2, 
-        dropoff_datetime DATETIME2,
-        passenger_count INT,
-           trip_distance FLOAT,
-        rate_code INT,
-        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_location_id INT,
-        dropoff_location_id INT,
-           payment_type INT,
-        fare_amount FLOAT,
-        extra FLOAT,
-        mta_tax FLOAT,
-        tip_amount FLOAT,
-        tolls_amount FLOAT,
-        improvement_surcharge FLOAT,
-        total_amount FLOAT
+        pickup_datetime DATETIME2 2, 
+        passenger_count INT 4
     ) AS nyc
 GROUP BY
     YEAR(pickup_datetime)
@@ -98,28 +69,14 @@ SELECT
     payment_type,  
     SUM(fare_amount) AS fare_total
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-*.csv',
-        FORMAT = 'CSV', 
+        BULK 'csv/taxi/yellow_tripdata_2017-*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
-        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-        pickup_datetime DATETIME2, 
-        dropoff_datetime DATETIME2,
-        passenger_count INT,
-        trip_distance FLOAT,
-        rate_code INT,
-        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_location_id INT,
-        dropoff_location_id INT,
-        payment_type INT,
-        fare_amount FLOAT,
-        extra FLOAT,
-        mta_tax FLOAT,
-        tip_amount FLOAT,
-        tolls_amount FLOAT,
-        improvement_surcharge FLOAT,
-        total_amount FLOAT
+        payment_type INT 10,
+        fare_amount FLOAT 11
     ) AS nyc
 GROUP BY payment_type
 ORDER BY payment_type;
@@ -147,8 +104,9 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/',
-        FORMAT = 'CSV', 
+        BULK 'csv/taxi/',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
@@ -184,7 +142,7 @@ ORDER BY
 Det går att läsa filer från flera mappar med hjälp av ett jokertecken. Följande fråga läser alla filer från alla mappar som finns i *CSV* -mappen med namn som börjar med *t* och slutar med *i*.
 
 > [!NOTE]
-> Observera att det finns en/i slutet av sökvägen i frågan nedan. Den anger en mapp. Om/utelämnas, kommer frågan att skicka filer med namnet *t&ast;i* stället.
+> Observera att det finns en/i slutet av sökvägen i frågan nedan. Den anger en mapp. Om/utelämnas, kommer frågan att skicka filer med namnet *t &ast; i* stället.
 
 ```sql
 SELECT
@@ -192,8 +150,9 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/', 
-        FORMAT = 'CSV', 
+        BULK 'csv/t*i/', 
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
@@ -231,7 +190,7 @@ Eftersom du bara har en mapp som matchar villkoren är frågeresultatet detsamma
 Du kan använda flera jokertecken på olika Sök vägs nivåer. Du kan till exempel utöka tidigare fråga till att endast läsa filer med 2017-data från alla mappar som namnen börjar med *t* och slutar med *i*.
 
 > [!NOTE]
-> Observera att det finns en/i slutet av sökvägen i frågan nedan. Den anger en mapp. Om/utelämnas, kommer frågan att skicka filer med namnet *t&ast;i* stället.
+> Observera att det finns en/i slutet av sökvägen i frågan nedan. Den anger en mapp. Om/utelämnas, kommer frågan att skicka filer med namnet *t &ast; i* stället.
 > Det finns en övre gräns på 10 jokertecken per fråga.
 
 ```sql
@@ -240,8 +199,9 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/yellow_tripdata_2017-*.csv',
-        FORMAT = 'CSV', 
+        BULK 'csv/t*i/yellow_tripdata_2017-*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (

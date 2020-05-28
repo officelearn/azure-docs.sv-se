@@ -1,23 +1,23 @@
 ---
 title: Använda Geth för att ansluta till Azure blockchain-tjänsten
 description: Anslut till en Geth-instans på Azure blockchain service Transaction-noden
-ms.date: 11/20/2019
+ms.date: 05/26/2020
 ms.topic: quickstart
-ms.reviewer: janders
-ms.openlocfilehash: 9da78eac1dc429bcc0ad52bb9cb2f1fb743a90d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: maheshna
+ms.openlocfilehash: 2c5b6a56d96ac132949052e9879c8f61d41ffb06
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74455825"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994797"
 ---
 # <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>Snabb start: Använd Geth för att ansluta till en Azure blockchain service Transaction-nod
 
-I den här snabb starten använder du Geth-klienten för att ansluta till en Geth-instans på en Azure blockchain-tjänst transaktions nod. När du är ansluten använder du Geth JavaScript-konsolen för att anropa ett Web3 JavaScript-Dapp-API.
+I den här snabb starten använder du Geth-klienten för att ansluta till en Geth-instans på en Azure blockchain-tjänst transaktions nod. När du har anslutit använder du Geth-konsolen för att anropa ett Ethereum JavaScript-API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
 * Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
@@ -45,7 +45,7 @@ Du kan hämta anslutnings strängen Geth för en Azure blockchain service Transa
     geth attach <connection string>
     ```
 
-1. När du har anslutit till Ethereum-konsolen för Transaction-noden kan du anropa Web3 Java Script Dapp API eller admin-API.
+1. När du har anslutit till Ethereum-konsolen för Transaction-noden kan du använda Ethereum Java Script API.
 
     Använd till exempel följande API för att ta reda på chainId.
 
@@ -57,7 +57,7 @@ Du kan hämta anslutnings strängen Geth för en Azure blockchain service Transa
 
     ![Azure blockchain service-alternativ](./media/connect-geth/geth-attach.png)
 
-1. Om du vill koppla från konsolen skriver `exit`du.
+1. Om du vill koppla från konsolen skriver du `exit` .
 
 ## <a name="next-steps"></a>Nästa steg
 

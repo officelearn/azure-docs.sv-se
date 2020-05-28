@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 9014d446b29b9a81a807c002cd7f83a2c3bdaa51
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 124aac96550b5d462c0794053452ed28dba27452
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231347"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013222"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regioner och Tillgänglighetszoner i Azure
 
@@ -79,7 +79,7 @@ Om ett tjänst erbjudande inte är tillgängligt i en speciell region kan du del
 | Regions typ | Icke-regional | Grundläggande | Konventionell | Specialiserade | Tillgänglighetszoner | Dataplacering |
 | --- | --- | --- | --- | --- | --- | --- |
 | Rekommenderas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | :heavy_check_mark: | :heavy_check_mark: |
-| Alternativa | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | Ej tillämpligt | :heavy_check_mark: |
+| Alternativa | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | Saknas | :heavy_check_mark: |
 
 ### <a name="services-by-category"></a>Tjänster efter kategori
 
@@ -112,7 +112,7 @@ Som tidigare nämnts klassificerar Azure tjänster i tre kategorier: grundlägga
 > | Service Bus | Azure Firewall | Data Box – tung |
 > | Service Fabric | Azure Functions | Data Catalog |
 > | Virtual Machine Scale Sets | Azure HPC Cache | Data Factory: Data Factory v1 |
-> | Virtuella datorer | Azure IoT Hub | Data Lake Analytics |
+> | Virtual Machines | Azure IoT Hub | Data Lake Analytics |
 > | Virtual Machines: AV2-serien | Azure Kubernetes Service (AKS) | Machine Learning Studio |
 > | Virtual Machines: BS-serien | Azure Machine Learning | Microsoft Genomics |
 > | Virtual Machines: DSv2-serien | Azure Private Link | Remote Rendering |
@@ -166,7 +166,7 @@ Det kostar ingen ytterligare kostnad för virtuella datorer som distribueras i e
 - [Belastningsutjämna virtuella datorer över zoner med hjälp av en Standard Load Balancer med en zon redundant klient del](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Belastningsutjämna virtuella datorer inom en zon med hjälp av en Standard Load Balancer med en zonindelade-frontend](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Zonredundant lagring](../storage/common/storage-redundancy-zrs.md)
-- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [SQL Database](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
 - [Geohaveriberedskap för Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Geohaveriberedskap för Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Skapa en zonredundant virtuell nätverksgateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

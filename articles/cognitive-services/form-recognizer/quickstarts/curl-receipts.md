@@ -7,26 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: e053222d3b79668c2f6044417e31e104ce0f4222
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b1f2d97aabfee47110946336c0ad8ad03d86a163
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77118485"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116585"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Snabb start: extrahera indata från formulär tolken REST API med en sväng
 
-I den här snabb starten använder du Azure formulär igenkännings REST API med sväng för att extrahera och identifiera relevant information i amerikanska försäljnings kvitton.
+I den här snabb starten använder du Azure formulär igenkännings REST API med sväng för att extrahera och identifiera relevant information från amerikanska försäljnings kvitton.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
 - [spiralen](https://curl.haxx.se/windows/) är installerad.
-- En URL för en avbildning av ett kvitto. Du kan använda en [exempel bild](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) för den här snabb starten.
+- En URL för en avbildning av ett kvitto. Du kan använda en [exempel bild](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) för den här snabb starten.
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
@@ -44,7 +44,7 @@ Om du vill börja analysera ett kvitto anropar du API: et för att **[analysera 
 curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"url\": \"<your receipt URL>\"}"
 ```
 
-Du får ett `202 (Success)` svar som innehåller rubriken för **åtgärden location** . Värdet för den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel är strängen efter `operations/` åtgärds-ID: t.
+Du får ett `202 (Success)` svar som innehåller rubriken för **åtgärden location** . Värdet för den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel är strängen efter `operations/` Åtgärds-ID: t.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -64,13 +64,13 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/prebuilt/receipt/ana
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Du får ett `200 (Success)` svar med JSON-utdata. Det första fältet, `"status"`anger status för åtgärden. Om åtgärden har slutförts innehåller `"recognitionResults"` fältet alla rader med text som har extraherats från inleveransen och `"understandingResults"` fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot. Om åtgärden inte är slutförd kommer värdet för `"status"` att vara `"running"` eller `"notStarted"`, och du bör anropa API: et igen, antingen manuellt eller genom ett skript. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
+Du får ett `200 (Success)` svar med JSON-utdata. Det första fältet, `"status"` anger status för åtgärden. Om åtgärden har slutförts `"recognitionResults"` innehåller fältet alla rader med text som har extraherats från inleveransen och `"understandingResults"` fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot. Om åtgärden inte är slutförd kommer värdet för `"status"` att vara `"running"` eller `"notStarted"` , och du bör anropa API: et igen, antingen manuellt eller genom ett skript. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
 
 Se följande kvitto avbildning och dess motsvarande JSON-utdata. Utdatan har kort ATS för läsbarhet.
 
 ![Ett kvitto från contoso Store](../media/contoso-allinone.jpg)
 
-`"recognitionResults"` Noden innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. `"understandingResults"` Noden innehåller de indatavärden som modellen identifierade. Här hittar du användbara nyckel/värde-par som skatt, totalt, handels adress och så vidare.
+`"recognitionResults"`Noden innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. `"understandingResults"`Noden innehåller de indatavärden som modellen identifierade. Här hittar du användbara nyckel/värde-par som skatt, totalt, handels adress och så vidare.
 
 ```json
 { 

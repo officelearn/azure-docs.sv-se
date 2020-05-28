@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 921a05c4dc6c1d5cfa663ac71b469573b8f1925b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80c03661970ec218dd8b36664ecb67623068ac5d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275469"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116554"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database att använda Azure SQL-analys (förhands granskning)
 
@@ -41,12 +41,12 @@ Azure SQL-analys är en övervaknings lösning för endast moln som stöder str�
 
 ## <a name="azure-sql-analytics-options"></a>Azure SQL-analys alternativ
 
-I tabellen nedan visas vilka alternativ som stöds för två versioner av Azure SQL-analys-instrumentpanelen, en för enskilda databaser och elastiska pooler och den andra för hanterade instanser och instans databaser.
+I tabellen nedan visas vilka alternativ som stöds för två versioner av Azure SQL-analys instrument panelen, en för Azure SQL Database och den andra för Azure SQL-hanterade instans databaser.
 
-| Azure SQL-analys alternativ | Beskrivning | Stöd för enkel och poolad databas och elastiska pooler | Stöd för hanterade instanser och instans databaser |
+| Azure SQL-analys alternativ | Beskrivning | SQL Database support | Stöd för SQL-hanterad instans |
 | --- | ------- | ----- | ----- |
 | Resurs efter typ | Perspektiv som räknar alla övervakade resurser. | Ja | Ja |
-| Insights | Tillhandahåller hierarkisk visning av Intelligent Insights i prestanda. | Ja | Ja |
+| Insikter | Tillhandahåller hierarkisk visning av Intelligent Insights i prestanda. | Ja | Ja |
 | Fel | Tillhandahåller hierarkisk visning av SQL-fel som har inträffat i databaserna. | Ja | Ja |
 | Timeouter | Tillhandahåller hierarkisk visning av SQL-tidsgräns som har inträffat i databaserna. | Ja | Nej |
 | Blockning | Tillhandahåller hierarkisk visning av SQL-block som har inträffat i databaserna. | Ja | Nej |
@@ -62,7 +62,7 @@ Använd processen som beskrivs i [Lägg till Azure Monitor lösningar från Lös
 
 När du har skapat Azure SQL-analys lösning i din arbets yta måste du **Konfigurera varje** resurs som du vill övervaka för att strömma sin diagnostik-telemetri till Azure SQL-analys. Följ detaljerade instruktioner på den här sidan:
 
-- Aktivera Azure-diagnostik för att din Azure SQL-databas ska kunna [strömma telemetri till Azure SQL-analys](../../sql-database/sql-database-metrics-diag-logging.md).
+- Aktivera Azure-diagnostik för att din Azure SQL-databas ska kunna [strömma telemetri till Azure SQL-analys](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
 Sidan ovan innehåller också instruktioner om hur du aktiverar stöd för övervakning av flera Azure-prenumerationer från en enda Azure SQL-analys arbets yta som ett enda fönster i glaset.
 
@@ -72,13 +72,13 @@ När du lägger till Azure SQL-analys på din arbets yta läggs panelen Azure SQ
 
 ![Azure SQL-analys sammanfattnings panel](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-När den har lästs in visar panelen antalet databaser med enkel databas, elastiska pooler, hanterade instanser och hanterade instans databaser från vilka Azure SQL-analys tar emot telemetri för diagnostik.
+När den har lästs in visar panelen antalet databaser och elastiska pooler i SQL Database och hanterade instanser och instans databaser i SQL-hanterad instans från vilka Azure SQL-analys ta emot telemetri för diagnostik.
 
 ![Azure SQL-analys panel](./media/azure-sql/azure-sql-sol-tile-02.png)
 
-Azure SQL-analys innehåller två separata vyer – en för övervakning av enskilda databaser och databaser i pooler och elastiska pooler och den andra vyn för övervakning av hanterade instanser och instans databaser.
+Azure SQL-analys innehåller två separata vyer – ett för att övervaka SQL Database och den andra vyn för övervakning av SQL-hanterad instans.
 
-Klicka på den övre delen av panelen om du vill visa Azure SQL-analys övervaknings instrument panel för enskilda databaser och elastiska pooler. Om du vill visa instrument panelen för Azure SQL-analys övervakning för hanterade instanser och instans databaser klickar du på den nedre delen av panelen.
+Om du vill visa Azure SQL-analys övervaknings instrument panel för SQL Database klickar du på den övre delen av panelen. Om du vill visa Azure SQL-analys övervaknings instrument panel för SQL-hanterad instans klickar du på den nedre delen av panelen.
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Visa Azure SQL-analys data
 
@@ -86,7 +86,7 @@ Instrument panelen innehåller en översikt över alla databaser som övervakas 
 
 Om vissa mått eller loggar inte strömmas i Azure Monitor, fylls inte panelerna i Azure SQL-analys med övervaknings information.
 
-### <a name="single-and-pooled-databases-and-elastic-pools-view"></a>Enkel-och poolbaserade databaser och vyn elastiska pooler
+### <a name="sql-database-view"></a>SQL Database vy
 
 När Azure SQL-analys panelen för databasen har valts visas övervaknings instrument panelen.
 
@@ -98,7 +98,7 @@ Om du väljer någon av panelerna öppnas en detaljerad rapport i det aktuella p
 
 Varje perspektiv i den här vyn innehåller sammanfattningar i prenumerationen, servern, elastisk pool och databas nivåer. Dessutom visar varje perspektiv ett perspektiv som är särskilt för rapporten till höger. Genom att välja prenumeration, Server, pool eller databas i listan fortsätter du att öka detalj nivån.
 
-### <a name="managed-instance-and-instances-databases-view"></a>Vy över hanterade instanser och instans databaser
+### <a name="sql-managed-instance-view"></a>Vy över SQL-hanterad instans
 
 När Azure SQL-analys panelen för databaserna är markerad visas övervaknings instrument panelen.
 
@@ -106,13 +106,13 @@ När Azure SQL-analys panelen för databaserna är markerad visas övervaknings 
 
 Om du väljer någon av panelerna öppnas en detaljerad rapport i det aktuella perspektivet. När perspektivet är markerat öppnas rapporten för att öka detalj nivån.
 
-Genom att välja vyn hanterad instans visas information om användningen av hanterade instanser, databaser den innehåller och telemetri för de frågor som körs över instansen.
+Välja vyn SQL-hanterad instans, visar information om användningen av hanterade instanser, databaser den innehåller och telemetri för de frågor som körs över instansen.
 
 ![Azure SQL-analys tids gränser](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights rapport
 
-Azure SQL Database [intelligent Insights](../../sql-database/sql-database-intelligent-insights.md) kan du veta vad som händer med prestanda för alla Azure SQL-databaser. Alla Intelligent Insights som samlas in kan visualiseras och nås via insikter perspektivet.
+Azure SQL Database [intelligent Insights](../../azure-sql/database/intelligent-insights-overview.md) kan du veta vad som händer med prestanda för alla Azure SQL-databaser. Alla Intelligent Insights som samlas in kan visualiseras och nås via insikter perspektivet.
 
 ![Azure SQL-analys insikter](./media/azure-sql/azure-sql-sol-insights.png)
 
@@ -170,7 +170,7 @@ När den nya rollen har skapats tilldelar du rollen till varje användare som du
 
 ## <a name="analyze-data-and-create-alerts"></a>Analysera data och skapa aviseringar
 
-Data analys i Azure SQL-analys baseras på [Log Analytics språk](../log-query/get-started-queries.md) för din anpassade fråga och rapportering. Hitta en beskrivning av tillgängliga data som samlats in från databas resursen för anpassade frågor i [mått och loggar tillgängliga](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+Data analys i Azure SQL-analys baseras på [Log Analytics språk](../log-query/get-started-queries.md) för din anpassade fråga och rapportering. Hitta en beskrivning av tillgängliga data som samlats in från databas resursen för anpassade frågor i [mått och loggar tillgängliga](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
 
 Automatiserad avisering i Azure SQL-analys baseras på att skriva en Log Analytics fråga som utlöser en avisering när ett villkor uppfylls. Det finns flera exempel på hur du Log Analytics frågor om vilka aviseringar som kan konfigureras i Azure SQL-analys.
 
@@ -178,7 +178,7 @@ Automatiserad avisering i Azure SQL-analys baseras på att skriva en Log Analyti
 
 Du kan enkelt [skapa aviseringar](../platform/alerts-metric.md) med de data som kommer från Azure SQL Database-resurser. Här följer några användbara [logg frågor](../log-query/log-query-overview.md) som du kan använda med en logg avisering:
 
-#### <a name="high-cpu-on-azure-sql-database"></a>Hög CPU på Azure SQL Database
+#### <a name="high-cpu"></a>Hög CPU
 
 ```
 AzureMetrics
@@ -194,7 +194,7 @@ AzureMetrics
 > - Före kravet på att ställa in den här aviseringen är att övervakade databaser med grundläggande mått för att Azure SQL-analys.
 > - Ersätt MetricName-värdet cpu_percent med dtu_consumption_percent för att få höga DTU-resultat i stället.
 
-#### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Hög processor på Azure SQL Database elastiska pooler
+#### <a name="high-cpu-on-elastic-pools"></a>Hög CPU på elastiska pooler
 
 ```
 AzureMetrics
@@ -210,7 +210,7 @@ AzureMetrics
 > - Före kravet på att ställa in den här aviseringen är att övervakade databaser med grundläggande mått för att Azure SQL-analys.
 > - Ersätt MetricName-värdet cpu_percent med dtu_consumption_percent för att få höga DTU-resultat i stället.
 
-#### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Azure SQL Database lagring i genomsnitt över 95% under de senaste 1 timmena
+#### <a name="storage-in-average-above-95-in-the-last-1-hr"></a>Lagring i genomsnitt över 95% under de senaste 1 timmena
 
 ```
 let time_range = 1h;
@@ -254,9 +254,9 @@ AzureDiagnostics
 | distinct rootCauseAnalysis_s
 ```
 
-### <a name="creating-alerts-for-managed-instances"></a>Skapa aviseringar för hanterade instanser
+### <a name="creating-alerts-for-sql-managed-instance"></a>Skapa aviseringar för SQL-hanterad instans
 
-#### <a name="managed-instance-storage-is-above-90"></a>Hanterad instans lagring är över 90%
+#### <a name="storage-is-above-90"></a>Lagring är över 90%
 
 ```
 let storage_percentage_threshold = 90;
@@ -272,7 +272,7 @@ AzureDiagnostics
 > - Krav för att ställa in den här aviseringen är att övervakad den hanterade instansen har strömningen av ResourceUsageStats logg aktive rad till Azure SQL-analys.
 > - Den här frågan kräver att en varnings regel har kon figurer ATS för att utlösa en avisering när det finns resultat (> 0 resultat) från frågan, vilket anger att villkoret finns på den hanterade instansen. Utdatan är lagrings procent användning på den hanterade instansen.
 
-#### <a name="managed-instance-cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Genomsnittlig förbrukning för hanterad instans CPU är över 95% under de senaste 1 timmena
+#### <a name="cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Genomsnittlig förbrukning för CPU är över 95% under de senaste 1 timme
 
 ```
 let cpu_percentage_threshold = 95;

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3bba37b5d72bd9dca2e10c699f4ba259319a6c71
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263288"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995109"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera hantering av autentisering med villkorlig åtkomst
 
@@ -50,6 +50,10 @@ Inställningen för inloggnings frekvens fungerar med appar som har implementera
 - Team webb klient
 - Dynamics CRM Online
 - Azure Portal
+
+### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Användar inloggnings frekvens och Multi-Factor Authentication
+
+Inloggnings frekvensen har tidigare endast tillämpats på den första Factor Authentication på enheter som var Azure AD-ansluten, en hybrid Azure AD-anslutning och Azure AD har registrerats. Det fanns inget enkelt sätt för våra kunder att genomdriva Multi Factor Authentication (MFA) på dessa enheter. Beroende på kundfeedback kommer inloggnings frekvensen även gälla för MFA.
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Användar inloggnings frekvens och enhets identiteter
 
@@ -90,7 +94,7 @@ Villkorlig åtkomst är en Azure AD Premium funktion och kräver en Premium-lice
    > [!NOTE]
    > Vi rekommenderar att du anger samma frekvens för autentiserings-och körnings frekvensen för viktiga Microsoft Office appar som Exchange Online och SharePoint Online för bästa möjliga användar upplevelse.
 
-1. Gå till **Access Controls** > -**sessionen** och klicka på **inloggnings frekvens**
+1. Gå till **Access Controls**-  >  **sessionen** och klicka på **inloggnings frekvens**
 1. Ange det obligatoriska värdet för dagar och timmar i den första text rutan
 1. Välj ett värde för **timmar** eller **dagar** från List rutan
 1. Spara principen
@@ -109,7 +113,7 @@ Om du har konfigurerat olika inloggnings frekvenser för olika webbappar som kö
    > [!NOTE]
    > Observera att den här kontrollen kräver att du väljer alla molnappar som ett villkor. Persistence för webbläsarsessionen styrs av autentiseringstoken för autentisering. Alla flikar i en webbläsarsession delar en token för en session och därför måste alla dela beständiga tillstånd.
 
-1. Gå till **Access Controls** > -**sessionen** och klicka på **beständig** webbläsarsession
+1. Gå till **Access Controls**-  >  **sessionen** och klicka på **beständig** webbläsarsession
 1. Välj ett värde i list rutan
 1. Spara principen
 

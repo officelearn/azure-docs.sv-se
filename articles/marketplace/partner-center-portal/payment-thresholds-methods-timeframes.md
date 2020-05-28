@@ -75,7 +75,7 @@ Detta är de länder och regioner där betalnings metoderna ovan används för v
 | Kongo (DR) | Ja | Ja | Ja | Nej |
 | Republiken Kongo | Ja | Ja | Ja | Nej |
 | Costa Rica | Ja | Ja | Ja | Ja |
-| Côte D' Ivoire | Ja | Ja | Ja | Nej |
+| Elfenbenskusten | Ja | Ja | Ja | Nej |
 | Kroatien | Ja | Ja | Ja | Nej |
 | Cypern | Ja | Ja | Ja | Ja |
 | Tjeckien | Ja | Ja | Ja | Ja |
@@ -88,7 +88,7 @@ Detta är de länder och regioner där betalnings metoderna ovan används för v
 | Eritrea | Ja | Ja | Ja | Nej |
 | Estland | Ja | Ja | Ja | Ja |
 | Etiopien | Ja | Ja | Ja | Nej |
-| Fidji | Ja | Ja | Nej | Nej |
+| Fiji | Ja | Ja | Nej | Nej |
 | Finland | Ja | Ja | Ja | Ja |
 | Frankrike | Ja | Ja | Ja | Ja |
 | Georgia | Ja | Ja | Ja | Ja |

@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 9df08151e4af6e82a775b3ee99dab88134a2f032
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: e0ff4e91ed55a37e710a5655e7da9ec76b7d1dd5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82784103"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014712"
 ---
 ## <a name="next-steps"></a>Nästa steg
 
@@ -17,9 +17,9 @@ När du har aktiverat Azure Key Vault-integrering kan du aktivera SQL Server kry
 
 Det finns flera typer av kryptering som du kan dra nytta av:
 
-* [Transparent datakryptering (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-* [Krypterade säkerhets kopior](https://msdn.microsoft.com/library/dn449489.aspx)
-* [Kryptering på kolumn nivå (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [Transparent datakryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)
+* [Krypterade säkerhets kopior](/sql/relational-databases/backup-restore/backup-encryption)
+* [Kryptering på kolumn nivå (CLE)](/sql/t-sql/functions/cryptographic-functions-transact-sql)
 
 Följande Transact-SQL-skript innehåller exempel för var och en av dessa områden.
 
@@ -146,4 +146,4 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
 Mer information om hur du använder dessa krypterings funktioner finns i [använda EKM med SQL Server krypterings funktioner](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Observera att stegen i den här artikeln förutsätter att du redan har SQL Server som körs på en virtuell Azure-dator. Om inte, se [etablera en SQL Server virtuell dator i Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Andra rikt linjer för att köra SQL Server på virtuella Azure-datorer finns [SQL Server på azure Virtual Machines-översikt](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Observera att stegen i den här artikeln förutsätter att du redan har SQL Server som körs på en virtuell Azure-dator. Om inte, se [etablera en SQL Server virtuell dator i Azure](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md). Andra rikt linjer för att köra SQL Server på virtuella Azure-datorer finns [SQL Server på azure Virtual Machines-översikt](../articles/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).

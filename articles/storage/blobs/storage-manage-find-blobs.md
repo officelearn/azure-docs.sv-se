@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f1a4d9af8a1b1095527078dd790e80ef45a5ee9a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3e5507069a3e1eeadfaf4c3eeee288b2651e88a1
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722900"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996048"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Hantera och hitta data på Azure Blob Storage med BLOB-index (förhands granskning)
 
@@ -26,7 +26,7 @@ Med BLOB-index kan du:
 - Ange villkorliga beteenden för BLOB-API: er baserat på utvärderingen av index Taggar
 - Använd index taggar för avancerade kontroller av BLOB Platform-funktioner som [livs cykel hantering](storage-lifecycle-management-concepts.md)
 
-Tänk dig ett scenario där du har miljon tals blobbar i ditt lagrings konto som skrivits och används av många olika program. Du vill söka efter alla relaterade data från ett enda projekt, men du är inte säker på vad som är inom omfånget som data kan spridas över flera behållare med olika namngivnings konventioner för BLOB. Men du vet att dina program laddar upp alla data med Taggar baserat på deras respektive projekt och identifierings beskrivning. I stället för att söka igenom miljon tals blobbar och jämföra namn och egenskaper kan du bara använda `Project = Contoso` som identifierings villkor. BLOB-index filtrerar alla behållare över hela lagrings kontot för att snabbt hitta och returnera bara uppsättningen av 50 blobbar från `Project = Contoso`. 
+Tänk dig ett scenario där du har miljon tals blobbar i ditt lagrings konto som skrivits och används av många olika program. Du vill söka efter alla relaterade data från ett enda projekt, men du är inte säker på vad som är inom omfånget som data kan spridas över flera behållare med olika namngivnings konventioner för BLOB. Men du vet att dina program laddar upp alla data med Taggar baserat på deras respektive projekt och identifierings beskrivning. I stället för att söka igenom miljon tals blobbar och jämföra namn och egenskaper kan du bara använda `Project = Contoso` som identifierings villkor. BLOB-index filtrerar alla behållare över hela lagrings kontot för att snabbt hitta och returnera bara uppsättningen av 50 blobbar från `Project = Contoso` . 
 
 Information om hur du kommer igång med exempel på hur du använder BLOB-index finns i [använda BLOB-index för att hantera och söka efter data](storage-blob-index-how-to.md).
 
@@ -43,7 +43,7 @@ Prefix för behållare och blob-namn är en dimensionell kategorisering för din
 > loggar/2020/01/01/logfile. txt  
 >
 
-Dessa blobbar är för närvarande separerade med ett prefix för behållare/virtuell mapp/BLOB-namn. Med BLOB-index kan du ange ett index tag-attribut `Project = Contoso` för på dessa fem blobbar för att kategorisera dem tillsammans samtidigt som du behåller sin aktuella prefix organisation. Detta eliminerar behovet av att flytta data genom att exponera möjligheten att filtrera och söka efter data med hjälp av lagrings plattformens multi-dimensionella index.
+Dessa blobbar är för närvarande separerade med ett prefix för behållare/virtuell mapp/BLOB-namn. Med BLOB-index kan du ange ett index tag-attribut för `Project = Contoso` på dessa fem blobbar för att kategorisera dem tillsammans samtidigt som du behåller sin aktuella prefix organisation. Detta eliminerar behovet av att flytta data genom att exponera möjligheten att filtrera och söka efter data med hjälp av lagrings plattformens multi-dimensionella index.
 
 ## <a name="setting-blob-index-tags"></a>Anger BLOB-index-Taggar
 
@@ -70,7 +70,7 @@ Följande begränsningar gäller för BLOB-index Taggar:
 - Etikett nycklar måste vara mellan 1 och 128 tecken
 - Tagg värden måste vara mellan 0 och 256 tecken
 - Etikett nycklar och värden är Skift läges känsliga
-- Etikett nycklar och värden stöder bara sträng data typer. alla siffror och specialtecken kommer att sparas som strängar
+- Etikett nycklar och värden stöder bara sträng data typer. siffror, datum, tider eller specialtecken kommer att sparas som strängar
 - Etikett nycklar och värden måste följa följande namngivnings regler:
   - Alfanumeriska tecken: a-z, A-Z, 0-9
   - Specialtecken: utrymme, plus, minus, punkt, kolon, likhets tecken, under streck, snedstreck
@@ -90,7 +90,7 @@ Med FindBlobsByTags-åtgärden kan du hämta en filtrerad Return-uppsättning av
 Följande villkor gäller för BLOB-index filtrering:
 -   Etikett nycklar ska omges av dubbla citat tecken (")
 -   Tagg värden och behållar namn ska omges av enkla citat tecken (')
--   @-Tecknen tillåts bara för filtrering på ett angivet container namn (t. ex @container . "ContainerName")
+-   @-Tecknen tillåts bara för filtrering på ett angivet container namn (t. ex. @container "ContainerName")
 - Filter tillämpas med lexikografisk sortering på strängar
 -   Samma sido intervall åtgärder på samma nyckel är ogiltiga (t. ex. "rang" > "10" och "rang" >= "15")
 - När du använder REST för att skapa ett filter uttryck ska tecknen vara URI-kodade
@@ -107,8 +107,15 @@ I tabellen nedan visas alla giltiga operatorer för FindBlobsByTags:
 |    AND     |  Logiska och  | "Rang" >= "010" och "rang" < "100" |
 | @container |  Omfång till en angiven behållare   | @container= ' videofiles ' och ' status ' = ' slutförd ' |
 
+> [!NOTE]
+> Var bekant med lexicographical-beställning när du ställer in och frågar efter taggar.
+> - Siffror sorteras före bokstäver. Siffror sorteras baserat på den första siffran.
+> - Versaler sorteras före gemener.
+> - Symbolerna är inte standard. Vissa symboler sorteras före numeriska värden. Andra symboler sorteras före eller efter bokstäver.
+>
+
 ## <a name="conditional-blob-operations-with-blob-index-tags"></a>Villkorliga BLOB-åtgärder med BLOB-index Taggar
-I REST-versioner 2019-10-10 och högre stöder de flesta [BLOB service API: er](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) nu en villkors rubrik, x-MS-IF-taggar, så att åtgärden endast lyckas om det angivna BLOB-indexets villkor är uppfyllt. Om villkoret inte uppfylls kommer du att `error 412: The condition specified using HTTP conditional header(s) is not met`få.
+I REST-versioner 2019-10-10 och högre stöder de flesta [BLOB service API: er](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) nu en villkors rubrik, x-MS-IF-taggar, så att åtgärden endast lyckas om det angivna BLOB-indexets villkor är uppfyllt. Om villkoret inte uppfylls kommer du att få `error 412: The condition specified using HTTP conditional header(s) is not met` .
 
 Rubriken x-MS-IF-taggar kan kombineras med andra befintliga HTTP villkorliga huvuden (IF-match, If-None-Match osv.).  Om flera villkorliga huvuden anges i en begäran måste alla utvärdera sant för att åtgärden ska lyckas.  Alla villkorliga huvuden kombineras effektivt med logiska och. 
 
@@ -138,7 +145,7 @@ Med hjälp av den nya blobIndexMatch som regel filter i livs cykel hantering kan
 
 Du kan ange en BLOB-index matchning som en fristående filter uppsättning i en livs cykel regel för att tillämpa åtgärder på taggade data. Eller så kan du kombinera både en prefix matchning och en BLOB-index matchning för att matcha mer detaljerade data uppsättningar. Att använda flera filter i en regel för en livs cykel regel är ett logiskt och en åtgärd så att åtgärden endast kommer att gälla om alla filter villkor matchar. 
 
-Följande exempel på en hanterings regel för livs cykel gäller för att blockera blobar i behållaren "videofiles" och nivås-blobbar till Arkiv lag ring endast om data matchar BLOB index ```"Status" = 'Processed' AND "Source" == 'RAW'```tag-kriteriet för.
+Följande exempel på en hanterings regel för livs cykel gäller för att blockera blobar i behållaren "videofiles" och nivås-blobbar till Arkiv lag ring endast om data matchar BLOB index tag-kriteriet för ```"Status" = 'Processed' AND "Source" == 'RAW'``` .
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 ![Exempel på en matchnings regel för BLOB-index för livs cykel hantering i Azure Portal](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
@@ -246,9 +253,11 @@ Priser för BLOB index är för närvarande en offentlig för hands version och 
 
 ## <a name="regional-availability-and-storage-account-support"></a>Stöd för regional tillgänglighet och lagrings konto
 
-BLOB-index är för närvarande endast tillgängligt med Generell användning v2-konton (GPv2). I Azure Portal kan du uppgradera ett befintligt Generell användning-konto (GPv1) till ett GPv2-konto. Mer information om lagrings konton finns i [Översikt över Azure Storage-konto](../common/storage-account-overview.md).
+BLOB index är för närvarande bara tillgängligt på Generell användning v2-konton (GPv2) med hierarkiskt namn område (HNS) inaktiverat. Generell användning-konton (GPV1) stöds inte, men du kan uppgradera valfritt GPv1-konto till ett GPv2-konto. Mer information om lagrings konton finns i [Översikt över Azure Storage-konto](../common/storage-account-overview.md).
 
 I den offentliga för hands versionen är BLOB index för närvarande endast tillgängligt i följande valda regioner:
+- Kanada, centrala
+- Kanada, östra
 - Frankrike, centrala
 - Frankrike, södra
 
@@ -276,7 +285,7 @@ az provider register --namespace 'Microsoft.Storage'
 I det här avsnittet beskrivs kända problem och villkor i den aktuella offentliga för hands versionen av BLOB-indexet. Som i de flesta för hands versionerna bör den här funktionen inte användas för produktions arbets belastningar förrän den når GA när beteenden kan ändras.
 
 -   För för hands versionen måste du först registrera din prenumeration innan du kan använda BLOB-index för ditt lagrings konto i för hands versions regionerna.
--   Endast GPv2-konton stöds för närvarande i för hands versionen. BLOB-, BlockBlobStorage-och HNS-aktiverade DataLake Gen2-konton stöds för närvarande inte med BLOB-index.
+-   Endast GPv2-konton stöds för närvarande i för hands versionen. BLOB-, BlockBlobStorage-och HNS-aktiverade DataLake Gen2-konton stöds för närvarande inte med BLOB-index. GPv1-konton stöds inte.
 -   Överföring av sid-blobar med index taggar för närvarande behåller inte taggarna. Du måste ange taggarna när du har överfört en sid-blob.
 -   När filtreringen är begränsad till en enda behållare kan det @container bara skickas om alla index Taggar i filter uttrycket är likhets kontroller (nyckel = värde). 
 -   När du använder intervall operatorn med villkoret och kan du bara ange samma index etiketts nyckel namn (ålder > ' 013 ' och ålder < ' 100 ').
@@ -290,6 +299,9 @@ I det här avsnittet beskrivs kända problem och villkor i den aktuella offentli
 
 ### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>Kan du använda BLOB-index för att filtrera och fråga efter innehåll i mina blobbar? 
 Nej, BLOB index-taggar kan hjälpa dig att hitta de blobbar som du letar efter. Om du behöver söka i dina blobar använder du frågans acceleration eller Azure Search.
+
+### <a name="are-there-any-special-considerations-regarding-blob-index-tag-values"></a>Finns det några särskilda saker som rör BLOB index tag-värden?
+BLOB index-Taggar stöder bara sträng data typer och frågor returnerar resultat med lexicographical-ordning. För siffror rekommenderar vi att du inte fyller i numret. För datum och tider rekommenderar vi att du lagrar som ett ISO 8601-kompatibelt format.
 
 ### <a name="are-blob-index-tags-and-azure-resource-manager-tags-related"></a>Är BLOB-index Taggar och Azure Resource Manager Taggar relaterade?
 Nej, Azure Resource Manager Taggar hjälper till att organisera kontroll Plans resurser som prenumerationer, resurs grupper och lagrings konton. BLOB index-Taggar tillhandahåller objekt hantering och identifiering av data Plans resurser, till exempel blobbar i ett lagrings konto.

@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 9c9ad45ac1cf59f05454cba0babff8c3b7368f72
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3d166c8fd893f38d587dbeff1d86530c46f89630
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839121"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018794"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics utdata till Azure SQL Database
 
 Den här artikeln beskriver tips för att få bättre Skriv data flödes prestanda när du läser in data i SQL Azure Database med hjälp av Azure Stream Analytics.
 
-SQL-utdata i Azure Stream Analytics stöder skrivning parallellt som ett alternativ. Med det här alternativet kan du [helt parallella](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) jobb topologier, där flera utgående partitioner skrivs till mål tabellen parallellt. Att aktivera det här alternativet i Azure Stream Analytics kanske inte räcker för att uppnå högre data flöden, eftersom det är beroende av SQL Azure databas konfiguration och tabell schema. Valet av index, kluster nyckel, index fyllnings faktor och komprimering påverkar tiden för att läsa in tabeller. Mer information om hur du optimerar SQL Azure databasen för att förbättra frågor och läsa in prestanda utifrån interna benchmarks finns i [prestanda vägledning för SQL Database](../sql-database/sql-database-performance-guidance.md). Sortering av skrivningar är inte garanterat vid skrivning parallell till SQL Azure databas.
+SQL-utdata i Azure Stream Analytics stöder skrivning parallellt som ett alternativ. Med det här alternativet kan du [helt parallella](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) jobb topologier, där flera utgående partitioner skrivs till mål tabellen parallellt. Att aktivera det här alternativet i Azure Stream Analytics kanske inte räcker för att uppnå högre data flöden, eftersom det är beroende av SQL Azure databas konfiguration och tabell schema. Valet av index, kluster nyckel, index fyllnings faktor och komprimering påverkar tiden för att läsa in tabeller. Mer information om hur du optimerar SQL Azure databasen för att förbättra frågor och läsa in prestanda utifrån interna benchmarks finns i [prestanda vägledning för SQL Database](../azure-sql/database/performance-guidance.md). Sortering av skrivningar är inte garanterat vid skrivning parallell till SQL Azure databas.
 
 Här följer några konfigurationer i varje tjänst som kan hjälpa till att förbättra det totala data flödet i din lösning.
 
@@ -37,7 +37,7 @@ Här följer några konfigurationer i varje tjänst som kan hjälpa till att fö
 
 - **Partitionerade tabeller och index** – med hjälp av en [partitionerad](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) SQL-tabell och partitionerade index i tabellen med samma kolumn som din partitionsnyckel (till exempel PartitionID) kan du avsevärt minska inblandning mellan partitioner under skrivningar. För en partitionerad tabell måste du skapa en [partitions funktion](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) och ett [PARTITIONSSCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) på den primära fil gruppen. Detta kommer också att öka tillgängligheten för befintliga data medan nya data läses in. Loggens IO-gräns kan uppnås baserat på antalet partitioner som kan ökas genom att du uppgraderar SKU: n.
 
-- **Undvik unika nyckel överträdelser** – om du får [varnings meddelanden om flera nyckel](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) överträdelser i Azure Stream Analytics aktivitets loggen, kontrollerar du att jobbet inte påverkas av unika begränsnings överträdelser som sannolikt kommer att inträffa under återställnings fall. Detta kan undvikas genom att ange alternativet [för\_att\_ignorera duplicera-nyckeln](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) i dina index.
+- **Undvik unika nyckel överträdelser** – om du får [varnings meddelanden om flera nyckel](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) överträdelser i Azure Stream Analytics aktivitets loggen, kontrollerar du att jobbet inte påverkas av unika begränsnings överträdelser som sannolikt kommer att inträffa under återställnings fall. Detta kan undvikas genom att ange alternativet för att [Ignorera \_ duplicera- \_ nyckeln](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) i dina index.
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory och InMemory-tabeller
 

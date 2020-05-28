@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 1028443eaaf6c483cd7cd57289b0dcf2a9f11902
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 67807e18559006b7d7eb6089a30370d614aefca3
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595898"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992852"
 ---
 # <a name="data-filtering"></a>Datafiltrering
 
@@ -37,7 +37,7 @@ Anpassad översättare tar bort meningarna som finns i test-och justerings dokum
 * Ta bort meningar med färre än 1% alpha-tecken.
 * Ta bort lexikon poster som innehåller fler än 50 ord.
 
-## <a name="white-space"></a>Tomt utrymme
+## <a name="white-space"></a>Blanksteg
 * Ersätt en sekvens med blank stegs tecken, inklusive tabbar och CR/LF-sekvenser med ett enda blank stegs tecken.
 * Ta bort inledande eller avslutande blank steg i meningen
 

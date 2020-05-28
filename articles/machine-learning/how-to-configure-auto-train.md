@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 09f0e0f47ecd94c6db67b3973218cc1323bccde3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 625c1ea474693732ab19e82de4730d2f8c971979
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736185"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117489"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -196,15 +196,15 @@ Lär dig mer om de olika definitionerna av dessa mått i [förstå automatiserad
 
 ### <a name="data-featurization"></a>Data funktionalisering
 
-I varje automatiserad maskin inlärnings experiment [skalas dina data automatiskt och normaliseras](concept-automated-ml.md#preprocess) för att hjälpa *vissa* algoritmer som är känsliga för funktioner som är i olika skalor.  Du kan dock också aktivera ytterligare funktionalisering, t. ex. saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-use-automated-ml-for-ml-models.md#featurization).
+I varje automatiserad maskin inlärnings experiment [skalas dina data automatiskt och normaliseras](how-to-configure-auto-features.md#) för att hjälpa *vissa* algoritmer som är känsliga för funktioner som är i olika skalor.  Du kan dock också aktivera ytterligare funktionalisering, t. ex. saknade värden Imputation, encoding och transformationer.
 
-När du konfigurerar experimenten kan du aktivera den avancerade inställningen `featurization` . I följande tabell visas de accepterade inställningarna för funktionalisering i [klassen AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
+När du konfigurerar experiment i `AutoMLConfig` objektet kan du aktivera/inaktivera inställningen `featurization` . I följande tabell visas de accepterade inställningarna för funktionalisering i [klassen AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 |Funktionalisering-konfiguration | Beskrivning |
 | ------------- | ------------- |
-|`"featurization":`&nbsp;`'FeaturizationConfig'`| Anger att det anpassade funktionalisering-steget ska användas. [Lär dig hur du anpassar funktionalisering](how-to-configure-auto-train.md#customize-feature-engineering).|
+|`"featurization": 'auto'`| Anger att [data guardrails och funktionalisering-steg](how-to-configure-auto-features.md#featurization) utförs automatiskt när en del av förbearbetningen. **Standardinställning**|
 |`"featurization": 'off'`| Anger att funktionalisering-steget inte ska göras automatiskt.|
-|`"featurization": 'auto'`| Anger att [data guardrails och funktionalisering-steg](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options) utförs automatiskt när en del av förbearbetningen.|
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Anger att det anpassade funktionalisering-steget ska användas. [Lär dig hur du anpassar funktionalisering](how-to-configure-auto-features.md#customize-featurization).|
 
 > [!NOTE]
 > Automatiserade funktionalisering-steg för Machine Learning (funktions normalisering, hantering av data som saknas, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma funktionalisering-steg som tillämpades under träningen på dina indata automatiskt.
@@ -361,7 +361,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Automatiserad funktions teknik
 
-Se listan över förbehandling och [automatiserad funktions teknik](concept-automated-ml.md#preprocess) som inträffar när `"featurization": 'auto'` .
+Se listan över förbehandling och [automatiserad funktions teknik]() som inträffar när `"featurization": 'auto'` .
 
 Tänk på det här exemplet:
 + Det finns fyra ingångs funktioner: A (numeriskt), B (numeriskt), C (numeriskt), D (DateTime)
@@ -430,36 +430,9 @@ Använd de här två API: erna i det första steget i den monterade modellen fö
    |Släpper|Anger om inmatad funktion har släppts eller använts.|
    |EngineeringFeatureCount|Antal funktioner som genererats via automatiserad funktion teknik Transforms.|
    |Transformationer|Lista över omvandlingar som används för inmatade funktioner för att generera funktioner som har utvecklats.|
-   
-### <a name="customize-feature-engineering"></a>Anpassa funktions teknik
-Om du vill anpassa funktions teknik anger du  `"featurization": FeaturizationConfig` .
-
-Anpassning som stöds omfattar:
-
-|Anpassning|Definition|
-|--|--|
-|Uppdatering av kolumn syfte|Åsidosätt funktions typ för den angivna kolumnen.|
-|Transformering av parameter uppdatering |Uppdatera parametrar för den angivna transformeraren. Stöder för närvarande imputerade (medel, de vanligaste & median) och HashOneHotEncoder.|
-|Släpp kolumner |Kolumner att släppa från bearbetas.|
-|Block transformatorer| Block transformatorer som ska användas för funktionalisering-processen.|
-
-Skapa FeaturizationConfig-objektet med API-anrop:
-```python
-featurization_config = FeaturizationConfig()
-featurization_config.blocked_transformers = ['LabelEncoder']
-featurization_config.drop_columns = ['aspiration', 'stroke']
-featurization_config.add_column_purpose('engine-size', 'Numeric')
-featurization_config.add_column_purpose('body-style', 'CategoricalHash')
-#default strategy mean, add transformer param for for 3 columns
-featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
-featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
-featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
-featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
-```
-
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Skalning/normalisering och algoritm med värden för en valfri parameter:
 
-Om du vill förstå värdena för skalning/normalisering och algoritm/för en pipeline använder du fitted_model. steg. [Läs mer om skalning/normalisering](concept-automated-ml.md#preprocess). Här är exempel på utdata:
+Om du vill förstå värdena för skalning/normalisering och algoritm/för en pipeline använder du fitted_model. steg. [Läs mer om skalning/normalisering](). Här är exempel på utdata:
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 51afa118be75c7e9ea2cb6e394d27cc39a58de0b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: f75b080ce31a5c954471d277aad354879c16c6b3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849662"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022205"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -86,7 +86,7 @@ Du kan helt låsa dina arbets belastningar från att komma åt offentliga slut p
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Åtkomst till en privat länk resurs med hjälp av godkännande arbets flöde 
 Du kan ansluta till en privat länk resurs med hjälp av följande metoder för godkännande av anslutning:
-- **Automatiskt** godkänd när du äger eller har behörighet för den specifika privata länk resursen. Den nödvändiga behörigheten baseras på resurs typen privat länk i följande format: Microsoft. \< Provider>/<resource_type>/privateEndpointConnectionApproval/action
+- **Automatiskt** godkänd när du äger eller har behörighet för den specifika privata länk resursen. Den nödvändiga behörigheten baseras på resurs typen privat länk i följande format: Microsoft. \<Provider> /<resource_type>/privateEndpointConnectionApproval/action
 - **Manuell** begäran när du inte har behörighet som krävs och vill begära åtkomst. Ett arbets flöde för godkännande kommer att initieras. Den privata slutpunkten och efterföljande privata slutpunktsanslutning skapas i ett väntande tillstånd. Ägaren till den privata länkresursen ansvarar för att godkänna anslutningen. När den har godkänts är den privata slut punkten aktive rad för att skicka trafik normalt, som du ser i följande arbets flödes diagram för godkännande.  
 
 ![arbets flödes godkännande](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -124,9 +124,9 @@ Följande tabell innehåller en lista med kända begränsningar när du använde
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa en privat slut punkt för SQL Database servern med hjälp av portalen](create-private-endpoint-portal.md)
-- [Skapa en privat slut punkt för SQL Database Server med PowerShell](create-private-endpoint-powershell.md)
-- [Skapa en privat slut punkt för SQL Database Server med CLI](create-private-endpoint-cli.md)
+- [Skapa en privat slut punkt för SQL Database med hjälp av portalen](create-private-endpoint-portal.md)
+- [Skapa en privat slut punkt för SQL Database med PowerShell](create-private-endpoint-powershell.md)
+- [Skapa en privat slut punkt för SQL Database med CLI](create-private-endpoint-cli.md)
 - [Skapa en privat slut punkt för lagrings kontot med hjälp av portalen](create-private-endpoint-storage-portal.md)
 - [Skapa en privat slut punkt för Azure Cosmos-konto med hjälp av portalen](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Skapa en egen privat länk-tjänst med hjälp av Azure PowerShell](create-private-link-service-powershell.md)

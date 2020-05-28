@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0feab5c4c03ddce6fb4df2395316484bf35bae81
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 77cba087ec578a478f4de9c8eebec3eb1e8d41b2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772870"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022409"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -569,26 +569,6 @@ Om du vill använda länkade mallar i stället för den fullständiga Resource M
 Kom ihåg att lägga till Data Factory skript i CI/CD-pipeline innan och efter distributions aktiviteten.
 
 Om du inte har git konfigurerat kan du komma åt de länkade mallarna via **export arm-mallen** i listan **arm-mall** .
-
-## <a name="exclude-azure-ssis-integration-runtimes-from-cicd"></a>Undanta Azure-SSIS integration runtime från CI/CD
-
-Om din utvecklings fabrik har Azure-SSIS integration runtime kan du undanta alla Azure-SSIS integration runtime från CI/CD-processen i följande scenario:
-
-- Azure-SSIS IR-infrastrukturen är komplex och varierar i varje miljö.  
-- Azure-SSIS IR konfigureras manuellt för varje miljö med samma namn. Annars går det inte att publicera om det finns aktiviteter beroende på Azure-SSIS IR.
-
-Så här undantar du Azure-SSIS integration Runtime:
-
-1. Lägg till en publish_config. JSON-fil i rotmappen i samarbets grenen om den inte finns.
-1. Lägg till inställningen nedan till publish_config. JSON: 
-
-```json
-{
-    " excludeIRs": "true"
-}
-```
-
-När du publicerar från samarbets grenen kommer Azure-SSIS integration runtime uteslutas från Resource Manager-mallen som genereras.
 
 ## <a name="hotfix-production-branch"></a>Produktions gren för snabb korrigeringar
 

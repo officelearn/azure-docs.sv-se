@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/10/2020
-ms.openlocfilehash: 236c68b3c26049073d3e6e942ce2a6be8b7f4fde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82d6fe190b191b6aca3bd51dcefb03ecda95b4f2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298894"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020446"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Självstudie: Migrera SQL Server till en Azure SQL Database Hanterad instans online med DMS
 
-Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal SQL Server instans till en [Azure SQL Database Hanterad instans](../sql-database/sql-database-managed-instance.md) med minimal stillestånds tid. För ytterligare metoder som kan kräva viss manuell ansträngning, se artikeln [SQL Server instans migrering till Azure SQL Database Hanterad instans](../sql-database/sql-database-managed-instance-migrate.md).
+Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal SQL Server instans till en [Azure SQL Database Hanterad instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) med minimal stillestånds tid. För ytterligare metoder som kan kräva viss manuell ansträngning, se artikeln [SQL Server instans migrering till Azure SQL Database Hanterad instans](../azure-sql/managed-instance/migrate-to-instance-from-sql-server.md).
 
 I den här självstudien migrerar du **Adventureworks2012** -databasen från en lokal instans av SQL Server till en SQL Database Hanterad instans med minimal nedtid genom att använda Azure Database migration service.
 
@@ -50,7 +50,7 @@ I den här guiden får du lära dig att:
 
 I den här artikeln beskrivs en online-migrering från SQL Server till en SQL Database Hanterad instans. En offline-migrering finns i [migrera SQL Server till en SQL Database Hanterad instans offline med DMS](tutorial-sql-server-to-managed-instance.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -212,7 +212,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
     |**Användarnamn** | Kontrollera att Windows-användaren har fullständig kontrollbehörighet på nätverksresursen du har angett ovan. Azure Database Migration Service personifierar användarens autentiseringsuppgifter för att överföra säkerhetskopieringsfilerna till Azure Storage behållare för återställnings åtgärden. Om du använder Azure-filresurs använder du pended för lagrings konto namn med AZURE \ som användar namn. |
     |**Lösenord** | Lösenordet för användaren. Om du använder Azure-filresurs använder du en lagrings konto nyckel som lösen ord. |
     |**Prenumeration på Azure Storage-kontot** | Välj den prenumeration som innehåller Azure Storage-kontot. |
-    |**Azure Storage konto** | Välj det Azure Storage-konto som DMS kan överföra de säkerhetskopierade filerna från SMB-nätverksresursen till och använda för databasmigrering.  Vi rekommenderar att du väljer Storage-kontot i samma region som DMS-tjänsten för bästa möjliga prestanda vid filöverföring. |
+    |**Azure Storage-konto** | Välj det Azure Storage-konto som DMS kan överföra de säkerhetskopierade filerna från SMB-nätverksresursen till och använda för databasmigrering.  Vi rekommenderar att du väljer Storage-kontot i samma region som DMS-tjänsten för bästa möjliga prestanda vid filöverföring. |
 
     ![Konfigurera migreringsinställningar](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
@@ -267,5 +267,5 @@ När den fullständiga säkerhets kopieringen av databasen har återställts på
 ## <a name="next-steps"></a>Nästa steg
 
 * En själv studie kurs som visar hur du migrerar en databas till en hanterad instans med hjälp av kommandot T-SQL Restore finns i [återställa en säkerhets kopia till en hanterad instans med hjälp av kommandot Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-* Information om hanterade instanser finns i [Vad är en hanterad instans](../sql-database/sql-database-managed-instance.md).
-* Information om hur du ansluter appar till en hanterad instans finns i [Anslut program](../sql-database/sql-database-managed-instance-connect-app.md).
+* Information om hanterade instanser finns i [Vad är en hanterad instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+* Information om hur du ansluter appar till en hanterad instans finns i [Anslut program](../azure-sql/managed-instance/connect-application-instance.md).

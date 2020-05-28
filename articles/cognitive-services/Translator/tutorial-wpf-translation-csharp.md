@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 0d500a7c24538adb139a42924134f784973f496b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f80d22adc432a81fcc88391e71ed7540399fa559
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588585"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995742"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Självstudie: skapa en översättnings app med WPF
 
@@ -37,7 +37,7 @@ I den här självstudien får du lära dig att:
 
 Den här listan innehåller de Cognitive Services som används i den här självstudien. Följ länken för att bläddra i API-referensen för varje funktion.
 
-| Tjänst | Funktion | Description |
+| Tjänst | Funktion | Beskrivning |
 |---------|---------|-------------|
 | Översättare | [Hämta språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Hämta en fullständig lista över språk som stöds för textöversättning. |
 | Översättare | [Översätta](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Översätt text till fler än 60 språk. |
@@ -114,7 +114,7 @@ Vi tar en titt på vad vi skapar.
 
 Användar gränssnittet innehåller följande komponenter:
 
-| Name | Typ | Description |
+| Name | Typ | Beskrivning |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox (Kombinationsruta) | Visar en lista över de språk som stöds av Microsoft Translator för textöversättning. Användaren väljer det språk som översättningen görs från. |
 | `ToLanguageComboBox` | ComboBox (Kombinationsruta) | Visar samma lista över språk som `FromComboBox` men används för att välja det språk som användaren översätter till. |
@@ -250,7 +250,7 @@ Hela projektet är inkapslat i klassen `MainWindow : Window`. Vi börjar med att
 
 I det här kodblocket har vi deklarerat två medlemsvariabler som innehåller information om tillgängliga språk för översättning:
 
-| Variabel | Typ | Description |
+| Variabel | Typ | Beskrivning |
 |----------|------|-------------|
 |`languageCodes` | Strängmatris |Cachelagrar språkkoderna. Translator-tjänsten använder korta koder som `en` för engelska, för att identifiera språk. |
 |`languageCodesAndTitles` | Sorterad ordlista | Mappar ”egna” namn i användargränssnittet tillbaka till de korta koderna som används i API:et. Sorteras alfabetiskt utan hänsyn till skiftläge. |

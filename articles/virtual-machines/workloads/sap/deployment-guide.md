@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
-ms.openlocfilehash: 7fb87380047d046a580d1ad62b1d7107a94bb297
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ddcf1d05933daadd29bf2f93850ac3299dc9e734
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239887"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020123"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 
@@ -284,9 +284,9 @@ ms.locfileid: "80239887"
 [virtual-machines-sizes]:../../linux/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -315,7 +315,7 @@ Azure Virtual Machines är lösningen för organisationer som behöver beräknin
 
 I den här artikeln beskriver vi stegen för att distribuera SAP-program på virtuella datorer (VM) i Azure, inklusive alternativa distributions alternativ och fel sökning. Den här artikeln bygger på informationen i [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide]. Det kompletterar även SAP-installations dokumentation och SAP-anteckningar, som är de viktigaste resurserna för att installera och distribuera SAP-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -497,7 +497,7 @@ Ange följande parametrar för mallen i Azure Portal:
    * **Administratörens användar namn** och **Administratörs lösen ord**: användar namn och lösen ord.
      En ny användare skapas för att logga in på den virtuella datorn.
    * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så&lt;här:/Subscriptions/prenumerations-ID>&lt;/resourcegroups/&lt;resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/&lt;virtuellt nätverks namn>/subnets/under nät namn>
+   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/ResourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
 
 1. **Allmänna**villkor:  
     Granska och godkänn de juridiska villkoren.
@@ -630,14 +630,14 @@ Ange följande parametrar för mallen i Azure Portal:
       * [Lagrings struktur för en virtuell dator för RDBMS-distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: lagring med höga prestanda för arbets belastningar för virtuella Azure-datorer][storage-premium-storage-preview-portal]
       * [Introduktion till Microsoft Azure Storage][storage-introduction]
-   * **VHD-URI för användar avbildning** (endast hanterad disk avbildnings mall): URI för den virtuella OS-avbildningens virtuella hård disk&lt;, till exempel https://AccountName>. blob.Core.Windows.net/VHDs/userimage.VHD.
-   * **Användar avbildningens lagrings konto** (endast hanterade disk avbildnings mallar): namnet på det lagrings konto där den privata OS-avbildningen lagras, &lt;till exempel AccountName>&lt;i https://AccountName>. blob.Core.Windows.net/VHDs/userimage.VHD.
+   * **VHD-URI för användar avbildning** (endast hanterad disk avbildnings mall): URI för den virtuella OS-avbildningens virtuella hård disk, till exempel https:// &lt; accountname>. blob.Core.Windows.net/VHDs/userimage.VHD.
+   * **Användar avbildningens lagrings konto** (endast hanterade disk avbildnings mallar): namnet på det lagrings konto där den privata OS-avbildningen lagras, till exempel &lt; accountname> i https:// &lt; AccountName>. blob.Core.Windows.net/VHDs/userimage.VHD.
    * **userImageId** (endast hanterad disk avbildnings mal len): ID för den hanterade disk avbildning som du vill använda
    * **Administratörens användar namn** och **Administratörs lösen ord**: användar namn och lösen ord.
 
      En ny användare skapas för att logga in på den virtuella datorn.
    * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så&lt;här:/Subscriptions/prenumerations-ID>&lt;/resourcegroups/&lt;resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/&lt;virtuellt nätverks namn>/subnets/under nät namn>
+   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/ResourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
 
 1. **Allmänna**villkor:  
     Granska och godkänn de juridiska villkoren.
@@ -722,10 +722,10 @@ Ange följande parametrar för mallen i Azure Portal:
       * [Lagrings struktur för en virtuell dator för RDBMS-distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: lagring med höga prestanda för arbets belastningar för virtuella Azure-datorer][storage-premium-storage-preview-portal]
       * [Introduktion till Microsoft Azure Storage][storage-introduction]
-   * **VHD-URI för OS-disk** (endast hanterad disk mall): URI för den privata OS-disken, till exempel&lt;https://AccountName>. blob.Core.Windows.net/VHDs/OSDisk.VHD.
+   * **VHD-URI för OS-disk** (endast hanterad disk mall): URI för den privata OS-disken, till exempel https:// &lt; accountname>. blob.Core.Windows.net/VHDs/OSDisk.VHD.
    * **Hanterat disk-ID för operativ system disk** (endast mall för hanterad disk): ID för den hanterade DISKens OS-disk,/Subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/Group/providers/Microsoft.Compute/disks/Win
    * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas, eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så&lt;här:/Subscriptions/prenumerations-ID>&lt;/resourcegroups/&lt;resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/&lt;virtuellt nätverks namn>/subnets/under nät namn>
+   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/ResourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
 
 1. **Allmänna**villkor:  
     Granska och godkänn de juridiska villkoren.
@@ -879,8 +879,8 @@ De steg som du vidtar för att konfigurera proxyservern i Windows skiljer sig fr
 Proxyinställningarna måste konfigureras korrekt för det lokala system kontot för att få åtkomst till Internet. Om proxyinställningarna inte anges av grupprincip kan du konfigurera inställningarna för det lokala system kontot.
 
 1. Gå till **Start**, ange **gpedit. msc**och välj sedan **RETUR**.
-1. Välj **dator konfiguration** > **administrativa mallar** > **Windows-komponenter** > **Internet Explorer**. Kontrol lera att inställningen **gör proxyinställningar per dator (i stället för per användare)** inaktive rad eller inte konfigurerad.
-1. I **kontroll panelen**går du till **nätverks-och delnings Center** > **Internet alternativ**.
+1. Välj **dator konfiguration**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Internet Explorer**. Kontrol lera att inställningen **gör proxyinställningar per dator (i stället för per användare)** inaktive rad eller inte konfigurerad.
+1. I **kontroll panelen**går du till **nätverks-och delnings Center**  >  **Internet alternativ**.
 1. På fliken **anslutningar** väljer du knappen **LAN-inställningar** .
 1. Avmarkera kryssrutan **Automatisk identifiering av inställningar**.
 1. Markera kryss rutan **Använd en proxyserver för ditt lokala nätverk** och ange sedan proxyservern och-porten.
@@ -889,7 +889,7 @@ Proxyinställningarna måste konfigureras korrekt för det lokala system kontot 
 
 #### <a name="linux"></a>Linux
 
-Konfigurera rätt proxy i konfigurations filen för Microsoft Azure gäst agenten, som finns i \\etc\\. waagent. conf.
+Konfigurera rätt proxy i konfigurations filen för Microsoft Azure gäst agenten, som finns i \\ etc \\ . waagent. conf.
 
 Ange följande parametrar:
 
@@ -913,18 +913,18 @@ Ange följande parametrar:
    sudo service waagent restart
    ```
 
-Proxyinställningarna i \\osv\\waagent. conf gäller även för de VM-tillägg som krävs. Om du vill använda Azure-lagringsplatserna kontrollerar du att trafiken till dessa databaser inte går via ditt lokala intranät. Om du har skapat användardefinierade vägar för att aktivera Tvingad tunnel trafik, se till att du lägger till en väg som dirigerar trafik till databaserna direkt till Internet och inte via VPN-anslutningen från plats till plats.
+Proxyinställningarna i \\ osv \\ waagent. conf gäller även för de VM-tillägg som krävs. Om du vill använda Azure-lagringsplatserna kontrollerar du att trafiken till dessa databaser inte går via ditt lokala intranät. Om du har skapat användardefinierade vägar för att aktivera Tvingad tunnel trafik, se till att du lägger till en väg som dirigerar trafik till databaserna direkt till Internet och inte via VPN-anslutningen från plats till plats.
 
 * **SLES**
 
-  Du måste också lägga till vägar för IP-adresserna som \\anges\\i osv regionserverclnt. cfg. Följande bild visar ett exempel:
+  Du måste också lägga till vägar för IP-adresserna som anges i \\ osv \\ regionserverclnt. cfg. Följande bild visar ett exempel:
 
   ![Tvingad tunneltrafik][deployment-guide-figure-50]
 
 
 * **RHEL**
 
-  Du måste också lägga till vägar för IP-adresserna för de värdar som \\anges\\i osv yum. databaser\\. d rhui-belastningsutjämnare. Ett exempel finns i föregående figur.
+  Du måste också lägga till vägar för IP-adresserna för de värdar som anges i \\ osv \\ yum. databaser. d \\ rhui-belastningsutjämnare. Ett exempel finns i föregående figur.
 
 * **Oracle Linux**
 
@@ -944,7 +944,7 @@ Så här installerar du Azure-tillägget för SAP med hjälp av PowerShell:
 
 1. Kontrol lera att du har installerat den senaste versionen av Azure PowerShell-cmdleten. Mer information finns i [distribuera Azure PowerShell-cmdletar][deployment-guide-4.1].  
 1. Kör följande PowerShell-cmdlet:
-    För en lista över tillgängliga miljöer kör `commandlet Get-AzEnvironment`du. Om du vill använda Global Azure är din miljö **AzureCloud**. För Azure i Kina väljer du **AzureChinaCloud**.
+    För en lista över tillgängliga miljöer kör du `commandlet Get-AzEnvironment` . Om du vill använda Global Azure är din miljö **AzureCloud**. För Azure i Kina väljer du **AzureChinaCloud**.
 
     ```powershell
     $env = Get-AzEnvironment -Name <name of the environment>
@@ -955,11 +955,11 @@ Så här installerar du Azure-tillägget för SAP med hjälp av PowerShell:
     ```
 
 När du har angett dina konto data och identifierat den virtuella Azure-datorn distribuerar skriptet de nödvändiga tilläggen och aktiverar de nödvändiga funktionerna. Det kan ta flera minuter.
-Mer information `Set-AzVMAEMExtension`finns i [set-AzVMAEMExtension][msdn-set-Azvmaemextension].
+Mer information `Set-AzVMAEMExtension` finns i [set-AzVMAEMExtension][msdn-set-Azvmaemextension].
 
 ![Lyckad körning av SAP-Specific Azure-cmdlet Set-AzVMAEMExtension][deployment-guide-figure-900]
 
-`Set-AzVMAEMExtension` Konfigurationen gör alla steg för att konfigurera värd data insamling för SAP.
+`Set-AzVMAEMExtension`Konfigurationen gör alla steg för att konfigurera värd data insamling för SAP.
 
 Utdata i skriptet innehåller följande information:
 
@@ -1015,7 +1015,7 @@ Så här installerar du Azure-tillägget för SAP med hjälp av Azure CLI:
       az vm aem set -g <resource-group-name> -n <vm name>
       ```
 
-1. Kontrol lera att Azure-tillägget för SAP är aktivt på den virtuella Azure Linux-datorn. Kontrol lera om filen \\var\\lib\\-\\AzureEnhancedMonitor PerfCounters finns. Om den finns går du till kommando tolken och kör det här kommandot för att visa information som samlats in av Azure-tillägget för SAP:
+1. Kontrol lera att Azure-tillägget för SAP är aktivt på den virtuella Azure Linux-datorn. Kontrol lera om filen \\ var \\ lib- \\ AzureEnhancedMonitor \\ PerfCounters finns. Om den finns går du till kommando tolken och kör det här kommandot för att visa information som samlats in av Azure-tillägget för SAP:
 
    ```console
    cat /var/lib/AzureEnhancedMonitor/PerfCounters
@@ -1044,7 +1044,7 @@ Den här kontrollen säkerställer att alla prestanda mått som visas i ditt SAP
 
 1. Logga in på den virtuella Azure-datorn (med ett administratörs konto behövs inte).
 1. Öppna ett kommandotolksfönster.
-1. I kommando tolken ändrar du katalogen till installationsmappen för Azure-tillägget för SAP\\: C: packages\\plugin\\-program Microsoft. AzureCAT. AzureEnhancedMonitoring. AzureCATExtensionHandler\\&lt;version>\\drop
+1. I kommando tolken ändrar du katalogen till installationsmappen för Azure-tillägget för SAP: C: \\ packages plugin- \\ program \\ Microsoft. AzureCAT. AzureEnhancedMonitoring. AzureCATExtensionHandler \\ &lt; version>\\ drop
 
    *Versionen* i sökvägen till tillägget kan variera. Om du ser mappar för flera versioner av tillägget i installationsmappen kontrollerar du konfigurationen av Windows-tjänsten AzureEnhancedMonitoring och växlar sedan till mappen som anges som *sökväg till körbar fil*.
 
@@ -1123,7 +1123,7 @@ Om föregående kontroll inte lyckades kör du följande ytterligare kontroller:
 
    **Förväntat resultat**: visar en post som liknar:`python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
-1. Installera SAP host agent enligt beskrivningen i SAP anmärkning [1031096]och kontrol lera utdata från `saposcol`.
+1. Installera SAP host agent enligt beskrivningen i SAP anmärkning [1031096]och kontrol lera utdata från `saposcol` .
 
    a.  Kör `/usr/sap/hostctrl/exe/saposcol -d`
 
@@ -1140,7 +1140,7 @@ Om någon av dessa kontroller inte fungerar och detaljerad information om hur du
 Om några av infrastruktur data inte levereras korrekt enligt beskrivningen i [beredskaps kontrollen för Azure-tillägget för SAP][deployment-guide-5.1], kör du `Test-AzVMAEMExtension` cmdleten för att kontrol lera om Azure-infrastrukturen och Azure-tillägget för SAP är korrekt konfigurerade.
 
 1. Kontrol lera att du har installerat den senaste versionen av Azure PowerShell-cmdlet, enligt beskrivningen i [distribuera Azure PowerShell-cmdletar][deployment-guide-4.1].
-1. Kör följande PowerShell-cmdlet: Kör cmdleten `Get-AzEnvironment`om du vill ha en lista över tillgängliga miljöer. Om du vill använda Global Azure väljer du **AzureCloud** -miljön. För Azure i Kina väljer du **AzureChinaCloud**.
+1. Kör följande PowerShell-cmdlet: Kör cmdleten om du vill ha en lista över tillgängliga miljöer `Get-AzEnvironment` . Om du vill använda Global Azure väljer du **AzureCloud** -miljön. För Azure i Kina väljer du **AzureChinaCloud**.
 
    ```powershell
    $env = Get-AzEnvironment -Name <name of the environment>
@@ -1173,7 +1173,7 @@ Windows-tjänsten AzureEnhancedMonitoring samlar in prestanda mått i Azure. Om 
 
 ###### <a name="issue"></a>Problem
 
-\\Installations katalogen C: packages\\plugin\\-program Microsoft. AzureCAT. AzureEnhancedMonitoring\\&lt;. AzureCATExtensionHandler \\version>Drop är tom.
+Installations katalogen C: \\ packages \\ plugin-program \\ Microsoft. AzureCAT. AzureEnhancedMonitoring. AzureCATExtensionHandler \\ &lt; version>\\ Drop är tom.
 
 ###### <a name="solution"></a>Lösning
 
@@ -1220,7 +1220,7 @@ Prestanda mått i Azure samlas in av en daemon. Om daemon inte körs kan inga pr
 
 ###### <a name="issue"></a>Problem
 
-Katalogen \\var\\lib\\-waagent\\ saknar under katalog för Azure-tillägget för SAP.
+Katalogen \\ var \\ lib- \\ waagent saknar \\ under katalog för Azure-tillägget för SAP.
 
 ###### <a name="solution"></a>Lösning
 

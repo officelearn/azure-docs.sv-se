@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/30/2020
-ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d956a9c93280ac22c4707f22c0769853f0f36c83
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929340"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015156"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
@@ -38,7 +38,7 @@ Som standard skapar HDInsight en metaarkiv med varje kluster typ. I stället kan
 
 * Du kan inte dela standard-metaarkiv med andra kluster.
 
-* Standard-metaarkiv använder Basic Azure SQL DB, som har fem DTU-gränser (Database Transaction Unit).
+* Standard-metaarkiv använder Basic-Azure SQL Database, som har fem DTU-gränser (Database Transaction Unit).
 Den här standard metaarkiv används vanligt vis för relativt enkla arbets belastningar. Arbets belastningar som inte kräver flera kluster och som inte behöver metadata bevaras utanför klustrets livs cykel.
 
 * För produktions arbets belastningar rekommenderar vi att du migrerar till en extern metaarkiv. Mer information finns i avsnittet nedan.
@@ -53,7 +53,7 @@ HDInsight har också stöd för anpassade metastores, vilket rekommenderas för 
 
 * Med en anpassad metaarkiv kan du koppla flera kluster och kluster typer till den metaarkiv. Till exempel kan en enda metaarkiv delas mellan interaktiva Query-, Hive-och Spark-kluster i HDInsight.
 
-* Du betalar för kostnaden för en metaarkiv (Azure SQL DB) enligt den prestanda nivå som du väljer.
+* Du betalar för kostnaden för en metaarkiv (Azure SQL Database) enligt den prestanda nivå som du väljer.
 
 * Du kan skala upp metaarkiv efter behov.
 
@@ -63,9 +63,9 @@ HDInsight har också stöd för anpassade metastores, vilket rekommenderas för 
 
 ### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Skapa och konfigurera Azure SQL Database för den anpassade metaarkiv
 
-Skapa eller skapa en befintlig Azure SQL Database innan du konfigurerar en anpassad Hive-metaarkiv för ett HDInsight-kluster.  Mer information finns i [snabb start: skapa en enskild databas i Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+Skapa eller skapa en befintlig Azure SQL Database innan du konfigurerar en anpassad Hive-metaarkiv för ett HDInsight-kluster.  Mer information finns i [snabb start: skapa en enskild databas i Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
-När du skapar klustret måste HDInsight-tjänsten ansluta till den externa metaarkiv och verifiera dina autentiseringsuppgifter. Konfigurera Azure SQL Database brand Väggs regler så att Azure-tjänster och-resurser får åtkomst till servern. Aktivera det här alternativet i Azure Portal genom att välja **Ange server brand vägg**. Välj **ingen** under **neka offentlig nätverks åtkomst**och **Ja** under **Tillåt Azure-tjänster och-resurser åtkomst till den här servern** för den Azure SQL Database servern eller databasen. Mer information finns i [skapa och hantera IP-brandväggens regler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+När du skapar klustret måste HDInsight-tjänsten ansluta till den externa metaarkiv och verifiera dina autentiseringsuppgifter. Konfigurera Azure SQL Database brand Väggs regler så att Azure-tjänster och-resurser får åtkomst till servern. Aktivera det här alternativet i Azure Portal genom att välja **Ange server brand vägg**. Välj **ingen** under **neka offentlig nätverks åtkomst**och **Ja** under **Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern** för Azure SQL Database. Mer information finns i [skapa och hantera IP-brandväggens regler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 Privata slut punkter för SQL-arkiv stöds inte.
 
@@ -87,7 +87,7 @@ Du kan när som helst peka klustret till en tidigare skapad Azure SQL Database. 
 
 * Om du har flera HDInsight-kluster för åtkomst till separata data använder du en separat databas för metaarkiv på varje kluster. Om du delar en metaarkiv över flera HDInsight-kluster innebär det att klustren använder samma metadata och underliggande användar data filer.
 
-* Säkerhetskopiera dina anpassade metaarkiv med jämna mellanrum. Azure SQL Database skapar säkerhets kopior automatiskt, men tids perioden för säkerhets kopieringen varierar. Mer information finns i [Läs mer om automatisk SQL Database säkerhets kopiering](../sql-database/sql-database-automated-backups.md).
+* Säkerhetskopiera dina anpassade metaarkiv med jämna mellanrum. Azure SQL Database skapar säkerhets kopior automatiskt, men tids perioden för säkerhets kopieringen varierar. Mer information finns i [Läs mer om automatisk SQL Database säkerhets kopiering](../azure-sql/database/automated-backups-overview.md).
 
 * Leta upp ditt metaarkiv-och HDInsight-kluster i samma region. Den här konfigurationen ger högsta möjliga prestanda och lägsta utgående kostnader för nätverket.
 

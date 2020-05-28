@@ -9,12 +9,12 @@ ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7e818a80f9df97ce4e5f5b8f1ef9385d2e6b0ecc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a1b2f74af02db1560dbcdd0bf0c72976dc6dcea8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827768"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022341"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Felsöka Azure Data Factory-anslutningsprogram
 
@@ -203,7 +203,7 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 
 - **Orsak**: om fel meddelandet innehåller "klient med IP-adress"... " har inte behörighet att komma åt servern och du försöker ansluta till Azure SQL Database, vanligt vis orsakas det av Azure SQL Database brand Väggs problem.
 
-- **Rekommendation**: Aktivera alternativet Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern i Azure SQL Server brand Väggs konfiguration. Referens dokument: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure .
+- **Rekommendation**: i den logiska konfigurationen för SQL Server-brandväggen aktiverar du alternativet Tillåt att Azure-tjänster och-resurser får åtkomst till den här servern. Referens dokument: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure .
 
 
 ### <a name="error-code--sqloperationfailed"></a>Felkod: SqlOperationFailed

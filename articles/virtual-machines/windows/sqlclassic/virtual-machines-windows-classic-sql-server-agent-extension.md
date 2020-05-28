@@ -15,24 +15,24 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b76ade40db1e85abc0fb42af2e6f4ab88cb092c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 384b66020b3d18064ea1cd9f162911878caa598d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982288"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017553"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatisera hanterings uppgifter på Azure Virtual Machines med SQL Server Agent-tillägget (klassisk)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md)
-> * [Klassisk](../classic/sql-server-agent-extension.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md)
+> * [Klassisk](virtual-machines-windows-classic-sql-server-agent-extension.md)
 > 
 >
  
 SQL Server IaaS agent Extension (Sqliaasagent är) körs på virtuella Azure-datorer för att automatisera administrations uppgifter. Det här avsnittet innehåller en översikt över de tjänster som stöds av tillägget samt anvisningar för installation, status och borttagning.
 
 > [!IMPORTANT] 
-> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Information om hur du visar Resource Manager-versionen av den här artikeln finns i [SQL Server Agent tillägget för SQL Server VM Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md).
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Information om hur du visar Resource Manager-versionen av den här artikeln finns i [SQL Server Agent tillägget för SQL Server VM Resource Manager](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md).
 
 ## <a name="supported-services"></a>Tjänster som stöds
 Tillägget SQL Server IaaS-Agent stöder följande administrations aktiviteter:
@@ -43,7 +43,7 @@ Tillägget SQL Server IaaS-Agent stöder följande administrations aktiviteter:
 | **Automatisk SQL-uppdatering** |Konfigurerar en underhålls period då viktiga Windows-uppdateringar av din virtuella dator kan ske, så att du kan undvika uppdateringar under hög belastnings tider för din arbets belastning. Mer information finns i [Automatisk uppdatering för SQL Server i Azure Virtual Machines (klassisk)](../classic/sql-automated-patching.md). |
 | **Azure Key Vault-integrering** |Gör att du kan installera och konfigurera Azure Key Vault automatiskt på din SQL Server VM. Mer information finns i [konfigurera Azure Key Vault-integrering för SQL Server på virtuella Azure-datorer (klassisk)](../classic/ps-sql-keyvault.md). |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Krav för att använda SQL Server IaaS agent Extension på den virtuella datorn:
 
 ### <a name="operating-system"></a>Operativsystem:
@@ -82,7 +82,7 @@ Om du uppdaterar till den senaste versionen av SQL IaaS agent Extension måste d
 > Klassiska virtuella datorer har inte möjlighet att installera och konfigurera SQL IaaS agent-tillägget via portalen.
 
 > [!NOTE]
-> Tillägget SQL Server IaaS-agent stöds bara på [SQL Server VM Galleri avbildningar](../sql/virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (betala per användning eller ta med egen licens). Det finns inte stöd för att installera SQL Server manuellt på en virtuell Windows Server-dator med operativ system eller om du distribuerar en anpassad SQL Server VM VHD. I dessa fall kan det vara möjligt att installera och hantera tillägget manuellt med hjälp av PowerShell, men det rekommenderas starkt att istället installera en SQL Server VM Galleri avbildning och sedan anpassa den.
+> Tillägget SQL Server IaaS-agent stöds bara på [SQL Server VM Galleri avbildningar](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms) (betala per användning eller ta med egen licens). Det finns inte stöd för att installera SQL Server manuellt på en virtuell Windows Server-dator med operativ system eller om du distribuerar en anpassad SQL Server VM VHD. I dessa fall kan det vara möjligt att installera och hantera tillägget manuellt med hjälp av PowerShell, men det rekommenderas starkt att istället installera en SQL Server VM Galleri avbildning och sedan anpassa den.
 
 ## <a name="status"></a>Status
 Ett sätt att kontrol lera att tillägget är installerat är att Visa agent status i Azure-portalen. Välj en virtuell dator som visas på bladet virtuell dator och klicka sedan på **tillägg**. Du bör se **sqliaasagent är** -tillägget som visas.
@@ -105,5 +105,5 @@ Du kan också använda PowerShell **-cmdleten Remove-AzureVMSqlServerExtension**
 ## <a name="next-steps"></a>Efterföljande moment
 Börja använda en av de tjänster som stöds av tillägget. Mer information finns i avsnittet som refereras i avsnittet [tjänster som stöds](#supported-services) i den här artikeln.
 
-Mer information om hur du kör SQL Server på Azure Virtual Machines finns i [SQL Server på azure Virtual Machines översikt](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Mer information om hur du kör SQL Server på Azure Virtual Machines finns i [SQL Server på azure Virtual Machines översikt](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

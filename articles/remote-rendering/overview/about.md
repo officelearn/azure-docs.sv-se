@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: a06c63152cb56be6d94cccc472d2e1d65651d6ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e40109a3c43fa30d70b7a13243723d717b4003c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679956"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021455"
 ---
 # <a name="about-azure-remote-rendering"></a>Om Azure Remote Rendering
 
@@ -22,7 +22,11 @@ ms.locfileid: "80679956"
 
 ![Exempel modell](../media/arr-engine.png)
 
-Enheter som inte är insatta har begränsad beräknings kraft för rendering av komplexa modeller. För många program kan det vara oacceptabelt, men för att minska den visuella åter givningen på något sätt.
+Enheter som inte är insatta har begränsad beräknings kraft för rendering av komplexa modeller. För många program kan det vara oacceptabelt, men för att minska den visuella åter givningen på något sätt. I följande skärm bild jämförs modellen med fullständig information med en modell som har decimated med ett gemensamt verktyg för innehålls skapande:
+
+![Exempel modell](./media/engine-model-decimated.png)
+
+Den reducerade modellen består av cirka 200 000 trianglar (inklusive de detaljerade inre delarna), jämfört med fler än 18 000 000 trianglar i den ursprungliga modellen.
 
 *Fjärrrendering* löser det här problemet genom att flytta åter givnings arbets belastningen till avancerade GPU: er i molnet. En molnbaserad grafik motor i molnet återger avbildningen, kodar den som en video ström och strömmar till mål enheten.
 

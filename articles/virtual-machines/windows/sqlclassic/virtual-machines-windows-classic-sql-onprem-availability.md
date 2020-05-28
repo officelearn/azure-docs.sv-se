@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 4521c2c112c93e83144cfc84d600208817b2ccac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 928162282ca973811315728a07b4fbe40100324e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978053"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017587"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Utöka lokala AlwaysOn-tillgänglighetsgrupper till Azure
 Always on-tillgänglighetsgrupper ger hög tillgänglighet för databas grupper genom att lägga till sekundära repliker. Dessa repliker tillåter att databaser Miss lyckas om det skulle uppstå ett problem. Dessutom kan de användas för att avlasta Läs arbets belastningar eller säkerhets kopierings aktiviteter.
@@ -41,7 +41,7 @@ I det här avsnittet lär du dig hur du använder **guiden Lägg till Azure-repl
 > [!IMPORTANT]
 > **Guiden Lägg till Azure-replik** stöder bara virtuella datorer som skapats med den klassiska distributions modellen. Nya distributioner av virtuella datorer bör använda den nyare Resource Manager-modellen. Om du använder virtuella datorer med Resource Manager måste du manuellt lägga till den sekundära Azure-repliken med hjälp av Transact-SQL-kommandon (visas inte här). Den här guiden fungerar inte i Resource Manager-scenariot.
 
-1. Från SQL Server Management Studio, expandera Always on-**tillgänglighets grupper** >  **med hög tillgänglighet** > **[namn på din tillgänglighets grupp]**.
+1. Från SQL Server Management Studio, expandera **Always on**-  >  **tillgänglighets grupper**med hög tillgänglighet  >  **[namn på din tillgänglighets grupp]**.
 2. Högerklicka på **tillgänglighets repliker**och klicka sedan på **Lägg till replik**.
 3. **Guiden Lägg till replik i tillgänglighets grupp** visas som standard. Klicka på **Nästa**.  Om du har valt alternativet **Visa inte den här sidan igen** längst ned på sidan under en tidigare lansering av guiden visas inte den här skärmen.
    
@@ -55,7 +55,7 @@ I det här avsnittet lär du dig hur du använder **guiden Lägg till Azure-repl
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. Du fyller i varje fält på sidan med värden som ska användas för att skapa den virtuella Azure-dator som ska vara värd för repliken.
    
-   | Inställning | Beskrivning |
+   | Inställningen | Beskrivning |
    | --- | --- |
    | **Bild** |Välj önskad kombination av OS och SQL Server |
    | **VM-storlek** |Välj storleken på den virtuella dator som passar dina affärs behov bäst |
@@ -90,7 +90,7 @@ I det här avsnittet lär du dig hur du använder **guiden Lägg till Azure-repl
 När tillgänglighets gruppen har skapats bör du skapa en lyssnare för klienter för att ansluta till replikerna. Lyssnare dirigerar inkommande anslutningar till antingen den primära eller en skrivskyddad sekundär replik. Mer information om lyssnare finns i [Konfigurera en ILB-lyssnare för Always on Availability groups i Azure](../classic/ps-sql-int-listener.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Förutom att använda **guiden Lägg till Azure-replik** för att utöka din ständigt tillgängliga tillgänglighets grupp till Azure kan du också flytta några SQL Server arbets belastningar helt till Azure. Information om hur du kommer igång finns i [etablering av en SQL Server virtuell dator på Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
+Förutom att använda **guiden Lägg till Azure-replik** för att utöka din ständigt tillgängliga tillgänglighets grupp till Azure kan du också flytta några SQL Server arbets belastningar helt till Azure. Information om hur du kommer igång finns i [etablering av en SQL Server virtuell dator på Azure](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
-Andra avsnitt om att köra SQL Server i virtuella Azure-datorer finns [SQL Server på Azure-Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Andra avsnitt om att köra SQL Server i virtuella Azure-datorer finns [SQL Server på Azure-Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

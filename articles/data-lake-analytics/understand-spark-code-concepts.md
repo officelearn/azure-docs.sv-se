@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: bdb38e36a9f1344a3adde15d349a2ec176c0fe95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a384db9c3c0b4beee6063fd503abadcb4c6b5158
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74424000"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016958"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Förstå Apache Spark kod för U-SQL-utvecklare
 
@@ -23,7 +23,7 @@ Det här avsnittet innehåller rikt linjer för att transformera U-SQL-skript ti
 - Innehåller tips om hur du:
    - [Transformera skript](#transform-u-sql-scripts) , inklusive U-sqls [rad uppsättnings uttryck](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions)
    - [.NET-kod](#transform-net-code)
-   - [Data typer](#transform-typed-values)
+   - [Datatyper](#transform-typed-values)
    - [Katalog objekt](#transform-u-sql-catalog-objects).
 
 ## <a name="understand-the-u-sql-and-spark-language-and-processing-paradigms"></a>Förstå U-SQL-och Spark-språket och bearbetnings paradigmen
@@ -44,7 +44,7 @@ U-SQL-skript följer följande bearbetnings mönster:
 
 1. Data läses från antingen ostrukturerade filer med hjälp av `EXTRACT` instruktionen, en plats eller en fil uppsättnings specifikation och det inbyggda eller användardefinierade Extractor och det önskade schemat, eller från U-SQL-tabeller (hanterade eller externa tabeller). Den representeras som en rad uppsättning.
 2. Rad uppsättningarna omvandlas till flera U-SQL-uttryck som använder U-SQL-uttryck för rad uppsättningar och genererar nya rad uppsättningar.
-3. Slutligen matas de resulterande rad uppsättningarna in i antingen filer med `OUTPUT` hjälp av instruktionen som anger plats (er) och en inbyggd eller användardefinierad uttryckare eller i en U-SQL-tabell.
+3. Slutligen matas de resulterande rad uppsättningarna in i antingen filer med hjälp av `OUTPUT` instruktionen som anger plats (er) och en inbyggd eller användardefinierad uttryckare eller i en U-SQL-tabell.
 
 Skriptet utvärderas Lazy, vilket innebär att varje extraherings-och omvandlings steg består av ett uttrycks träd och globalt utvärderas (data flödet).
 
@@ -100,7 +100,7 @@ Om du behöver omvandla ett skript som refererar till kognitiva tjänst bibliote
 
 ## <a name="transform-typed-values"></a>Transformera skrivna värden
 
-Eftersom U-SQLs typ system baseras på .NET-typ systemet och Spark har sitt eget typ system, som påverkas av bindningen för värd språket, måste du se till att de typer som du arbetar med är nära och för vissa typer, typ intervall, precision och/eller skala kan vara något annorlunda. Dessutom behandlas `null` U-SQL-och Spark-värden på olika sätt.
+Eftersom U-SQLs typ system baseras på .NET-typ systemet och Spark har sitt eget typ system, som påverkas av bindningen för värd språket, måste du se till att de typer som du arbetar med är nära och för vissa typer, typ intervall, precision och/eller skala kan vara något annorlunda. Dessutom behandlas U-SQL-och Spark- `null` värden på olika sätt.
 
 ### <a name="data-types"></a>Datatyper
 
@@ -141,9 +141,9 @@ I Spark, typer per standard Tillåt NULL-värden i U-SQL, markeras explicit skal
 
 I Spark anger NULL att värdet är okänt. Ett Spark-NULL-värde skiljer sig från vilket värde som helst, inklusive sig själv. Jämförelser mellan två Spark NULL-värden, eller mellan ett NULL-värde och ett annat värde, returnera okänt eftersom värdet för varje NULL är okänt.  
 
-Det här beteendet skiljer sig från U-SQL, som följer C#- `null` semantiken där skiljer sig från vilket värde som helst men som är lika med sig själv.  
+Det här beteendet skiljer sig från U-SQL, som följer C#-semantiken där `null` skiljer sig från vilket värde som helst men som är lika med sig själv.  
 
-Därför returnerar en `SELECT` SparkSQL-instruktion `WHERE column_name = NULL` som använder noll rader även om det finns null- `column_name`värden i, medan i U-SQL returnerade raderna där `column_name` är inställt `null`på. På samma sätt returnerar en `SELECT` Spark-instruktion `WHERE column_name != NULL` som använder noll rader även om det finns värden som inte är `column_name`null i, medan i U-SQL returnerade raderna som inte är null. Om du vill ha semantiken U-SQL null-kontroll bör du använda [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) respektive [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) (eller deras respektive DSL-motsvarighet).
+Därför returnerar en SparkSQL- `SELECT` instruktion som använder `WHERE column_name = NULL` noll rader även om det finns null-värden i `column_name` , medan i U-SQL returnerade raderna där `column_name` är inställt på `null` . På samma sätt returnerar en spark- `SELECT` instruktion som använder `WHERE column_name != NULL` noll rader även om det finns värden som inte är null i `column_name` , medan i U-SQL returnerade raderna som inte är null. Om du vill ha semantiken U-SQL null-kontroll bör du använda [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) respektive [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) (eller deras respektive DSL-motsvarighet).
 
 ## <a name="transform-u-sql-catalog-objects"></a>Transformera U-SQL Catalog-objekt
 
@@ -160,8 +160,8 @@ Om U-SQL-katalogen har använts för att dela data och kod objekt mellan projekt
 U-SQL: s kärn språk transformerar rad uppsättningar och baseras på SQL. Följande är en icke-fullständig lista över de vanligaste rad uppsättnings uttryck som finns i U-SQL:
 
 - `SELECT`/`FROM`/`WHERE`/`GROUP BY`+ Agg regeringar +`HAVING`/`ORDER BY`+`FETCH`
-- `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN` uttryck
-- `CROSS`/`OUTER``APPLY` uttryck
+- `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN`uttryck
+- `CROSS`/`OUTER``APPLY`uttryck
 - `PIVOT`/`UNPIVOT`uttryck
 - `VALUES`rad uppsättnings konstruktor
 
@@ -170,8 +170,8 @@ U-SQL: s kärn språk transformerar rad uppsättningar och baseras på SQL. Föl
 U-SQL innehåller dessutom en rad SQL-baserade skalära uttryck som
 
 - `OVER`fönster uttryck
-- en mängd inbyggda agg regeringar och rangordnings funktioner (`SUM` `FIRST` osv.)
-- Några av de `CASE`mest välkända SQL skalära uttrycken:`NOT`, `IN` `LIKE`, `AND`( `OR` ),, osv.
+- en mängd inbyggda agg regeringar och rangordnings funktioner ( `SUM` `FIRST` osv.)
+- Några av de mest välkända SQL skalära uttrycken: `CASE` , `LIKE` , ( `NOT` ) `IN` , `AND` , `OR` osv.
 
 Spark erbjuder motsvarande uttryck i både ett DSL-och SparkSQL-formulär för de flesta av dessa uttryck. Vissa uttryck som inte stöds internt i Spark måste skrivas om med en kombination av de interna Spark-uttrycken och semantiskt motsvarande mönster. Till exempel `OUTER UNION` måste översättas till motsvarande kombination av projektioner och unioner.
 
@@ -183,7 +183,7 @@ U-SQL erbjuder också en mängd andra funktioner och begrepp, till exempel feder
 
 ### <a name="federated-queries-against-sql-server-databasesexternal-tables"></a>Federerade frågor mot SQL Server databaser/externa tabeller
 
-U-SQL tillhandahåller data källa och externa tabeller samt direkta frågor mot Azure SQL Database. Medan Spark inte erbjuder samma objekt abstraktion, tillhandahåller [Spark-koppling för Azure SQL Database](../sql-database/sql-database-spark-connector.md) som kan användas för att fråga SQL-databaser.
+U-SQL tillhandahåller data källa och externa tabeller samt direkta frågor mot Azure SQL Database. Medan Spark inte erbjuder samma objekt abstraktion, tillhandahåller [Spark-koppling för Azure SQL Database](../azure-sql/database/spark-connector.md) som kan användas för att fråga SQL-databaser.
 
 ### <a name="u-sql-parameters-and-variables"></a>U-SQL-parametrar och variabler
 
@@ -196,7 +196,7 @@ var x = 2 * 3;
 println(x)
 ```
 
-U-SQL: s Systemvariabler (variabler som `@@`börjar med) kan delas upp i två kategorier:
+U-SQL: s Systemvariabler (variabler som börjar med `@@` ) kan delas upp i två kategorier:
 
 - Ange systemvariabler som kan anges till angivna värden för att påverka skript beteendet
 - Informations system variabler som frågar system-och jobb nivå information
@@ -209,7 +209,7 @@ U-SQL erbjuder flera syntaktiska sätt att tillhandahålla tips till optimerings
 
 - Ange en U-SQL system variabel
 - en `OPTION` sats som är kopplad till rad uppsättnings uttrycket för att tillhandahålla ett data-eller plan tips
-- ett JOIN-tips i syntaxen för Join-uttrycket (till exempel `BROADCASTLEFT`)
+- ett JOIN-tips i syntaxen för Join-uttrycket (till exempel `BROADCASTLEFT` )
 
 Spark: s kostnadsbaserade fråge optimering har sina egna funktioner för att tillhandahålla tips och finjustera frågeresultatet. Se motsvarande dokumentation.
 

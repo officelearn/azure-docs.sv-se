@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: e7351e2f39c7e4eed84f4a47e3eeb2214a062a94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4cb96e1299010636e0bce3cb99fbba9862822564
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240162"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022273"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Konfigurera HDInsight-kluster med en anpassad Ambari-databas
 
 Apache Ambari fören klar hanteringen och övervakningen av ett Apache Hadoop-kluster. Ambari är ett enkelt sätt att använda webb gränssnitt och REST API. Ambari ingår i HDInsight-kluster och används för att övervaka klustret och göra konfigurations ändringar.
 
-I det normala klustret skapas, som beskrivs i andra artiklar, till exempel [Konfigurera kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari distribueras i en [S0 Azure SQL-databas](../sql-database/sql-database-dtu-resource-limits-single-databases.md#standard-service-tier) som hanteras av HDInsight och inte är tillgänglig för användarna.
+I det normala klustret skapas, som beskrivs i andra artiklar, till exempel [Konfigurera kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari distribueras i en [S0 Azure SQL-databas](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) som hanteras av HDInsight och inte är tillgänglig för användarna.
 
 Med den anpassade Ambari DB-funktionen kan du distribuera ett nytt kluster och konfigurera Ambari i en extern databas som du hanterar. Distributionen görs med en Azure Resource Manager-mall. Den här funktionen har följande fördelar:
 
@@ -41,13 +41,13 @@ Den anpassade Ambari DB har följande andra krav:
 - Du måste ha en befintlig Azure SQL DB-server och-databas.
 - Den databas som du anger för Ambari-installationen måste vara tom. Det ska inte finnas några tabeller i standardvärdet för dbo-schemat.
 - Den användare som används för att ansluta till databasen ska ha behörigheterna Välj, CREATE TABLE och infoga för databasen.
-- Aktivera alternativet för att [tillåta åtkomst till Azure-tjänster](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#azure-portal-steps) på Azure SQL-servern där du kommer att vara värd för Ambari.
-- Hantering av IP-adresser från HDInsight-tjänsten måste tillåtas i SQL Server. Se [HDInsight Management IP-adresser](hdinsight-management-ip-addresses.md) för en lista över IP-adresser som måste läggas till i SQL Server-brandväggen.
+- Aktivera alternativet för att [tillåta åtkomst till Azure-tjänster](../azure-sql/database/vnet-service-endpoint-rule-overview.md#azure-portal-steps) på den server där du kommer att vara värd för Ambari.
+- Hantering av IP-adresser från HDInsight-tjänsten måste tillåtas i brand Väggs regeln. Se [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md) för en lista med IP-adresser som måste läggas till i brand Väggs regeln på server nivå.
 
 Kom ihåg följande saker när du är värd för Apache Ambari DB i en extern databas:
 
 - Du är ansvarig för de ytterligare kostnaderna för Azure SQL DB som innehåller Ambari.
-- Säkerhetskopiera din anpassade Ambari DB med jämna mellanrum. Azure SQL Database skapar säkerhets kopior automatiskt, men tiden för kvarhållning av säkerhets kopior varierar. Mer information finns i [Läs mer om automatisk SQL Database säkerhets kopiering](../sql-database/sql-database-automated-backups.md).
+- Säkerhetskopiera din anpassade Ambari DB med jämna mellanrum. Azure SQL Database skapar säkerhets kopior automatiskt, men tiden för kvarhållning av säkerhets kopior varierar. Mer information finns i [Läs mer om automatisk SQL Database säkerhets kopiering](../azure-sql/database/automated-backups-overview.md).
 
 ## <a name="deploy-clusters-with-a-custom-ambari-db"></a>Distribuera kluster med en anpassad Ambari-databas
 

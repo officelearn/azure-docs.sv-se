@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 45aa49de51f42b26c653b15e79c865e3f5647c39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f9f4db0119b10a2df3a1007f9e5fa710e31f0e2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74931634"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113702"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server lagrad procedur aktivitet
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -84,7 +84,7 @@ I följande genom gång används den lagrade procedur aktiviteten i en pipeline 
     ```
 
    > [!IMPORTANT]
-   > **Namn** och **SKIFT** läge för parametern (datetime i det här exemplet) måste matcha parametern för den parameter som anges i pipeline/Activity-JSON. I definitionen för den lagrade proceduren kontrollerar du **\@** att används som prefix för parametern.
+   > **Namn** och **SKIFT** läge för parametern (datetime i det här exemplet) måste matcha parametern för den parameter som anges i pipeline/Activity-JSON. I definitionen för den lagrade proceduren kontrollerar du att **\@** används som prefix för parametern.
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 1. Logga in på [Azure Portal](https://portal.azure.com/).
@@ -114,7 +114,7 @@ När du har skapat data fabriken skapar du en länkad Azure SQL-tjänst som län
    ![Nytt data lager](media/data-factory-stored-proc-activity/new-data-store.png)
 3. I JSON-skriptet gör du följande ändringar:
 
-   1. Ersätt `<servername>` med namnet på din Azure SQL Database-Server.
+   1. Ersätt `<servername>` med namnet på servern.
    2. Ersätt `<databasename>` med databasen där du skapade tabellen och den lagrade proceduren.
    3. Ersätt `<username@servername>` med det användar konto som har åtkomst till databasen.
    4. Ersätt `<password>` med lösen ordet för användar kontot.
@@ -204,7 +204,7 @@ Observera följande egenskaper:
 2. I **diagramvyn**visas en översikt över pipelines och data uppsättningar som används i den här självstudien.
 
     ![diagram panel](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
-3. I diagramvyn dubbelklickar du på data uppsättningen `sprocsampleout`. Du ser sektorerna i klart läge. Det bör finnas fem segment eftersom en sektor skapas för varje timme mellan start tiden och slut tiden från JSON.
+3. I diagramvyn dubbelklickar du på data uppsättningen `sprocsampleout` . Du ser sektorerna i klart läge. Det bör finnas fem segment eftersom en sektor skapas för varje timme mellan start tiden och slut tiden från JSON.
 
     ![diagram panel](media/data-factory-stored-proc-activity/data-factory-slices.png)
 4. När en sektor har statusen **klar** kör du en `select * from sampletable` fråga mot Azure SQL-databasen för att kontrol lera att data har infogats i tabellen med den lagrade proceduren.
@@ -303,15 +303,15 @@ Här är JSON-formatet för att definiera en lagrad procedur aktivitet:
 
 Följande tabell beskriver de här JSON-egenskaperna:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| namn | Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används för |Inga |
+| name | Namn på aktiviteten |Ja |
+| description |Text som beskriver vad aktiviteten används för |Nej |
 | typ | Måste vara inställt på: **SqlServerStoredProcedure** | Ja |
-| tillför | Valfri. Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. |Inga |
+| tillför | Valfritt. Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. |Nej |
 | utdata | Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet. Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad procedur (varje timme, varje vecka, varje månad osv.). <br/><br/>Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller en Azure SQL Data Warehouse eller en SQL Server databas där du vill att den lagrade proceduren ska köras. <br/><br/>Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. <br/><br/>I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning**, som endast används för att ange schemat för körning av den lagrade procedur aktiviteten. |Ja |
 | storedProcedureName |Ange namnet på den lagrade proceduren i Azure SQL-databasen eller Azure SQL Data Warehouse eller SQL Server databasen som representeras av den länkade tjänsten som används i utdatatabellen. |Ja |
-| storedProcedureParameters |Ange värden för parametrar för lagrad procedur. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). I följande exempel hittar du information om hur du använder den här egenskapen. |Inga |
+| storedProcedureParameters |Ange värden för parametrar för lagrad procedur. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). I följande exempel hittar du information om hur du använder den här egenskapen. |Nej |
 
 ## <a name="passing-a-static-value"></a>Överför ett statiskt värde
 Nu ska vi överväga att lägga till en annan kolumn med namnet "scenario" i tabellen som innehåller ett statiskt värde med namnet "Document Sample".

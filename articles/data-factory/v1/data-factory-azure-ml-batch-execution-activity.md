@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: eba5df587d6bd6dda6083314cfb94836c6669393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c40b58dfb63ac6bf1b5532eb06bfd2ad0cdccde9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73683144"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022035"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory
 
@@ -80,7 +80,7 @@ I det här scenariot gör Azure Machine Learning-webbtjänsten förutsägelser m
 > [!IMPORTANT]
 > Om webb tjänsten tar flera indata använder du egenskapen **webServiceInputs** i stället för att använda **WebServiceInputActivity**. I avsnittet [webb tjänst krävs flera inmatningar](#web-service-requires-multiple-inputs) finns ett exempel på hur du använder egenskapen webServiceInputs.
 >
-> Data uppsättningar som refereras till av egenskaperna **WebServiceInputActivity**/**webServiceInputs** och **webServiceOutputs** (i **typeProperties**) måste också inkluderas i aktivitetens **indata** och **utdata**.
+> Data uppsättningar som refereras till av egenskaperna **WebServiceInputActivity** / **webServiceInputs** och **webServiceOutputs** (i **typeProperties**) måste också inkluderas i aktivitetens **indata** och **utdata**.
 >
 > I ditt Azure Machine Learning Studio experiment har webb tjänstens indata-och utgående portar och globala parametrar standard namn ("INPUT1", "INPUT2") som du kan anpassa. De namn du använder för inställningarna webServiceInputs, webServiceOutputs och Dublettparameternamnet måste exakt matcha namnen i experimenten. Du kan visa nytto lasten för exempel förfrågan på hjälp sidan för batch-körning för din Azure Machine Learning Studio-slutpunkt för att verifiera den förväntade mappningen.
 >
@@ -311,7 +311,7 @@ Vi rekommenderar att du går igenom den [första pipelinen med Data Factory][adf
 ### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Scenario: experiment som använder Reader/Writer-moduler för att referera till data i olika lagrings utrymmen
 Ett annat vanligt scenario när du skapar Azure Machine Learning Studio-experiment är att använda Reader-och Writer-moduler. Modulen läsare används för att läsa in data i ett experiment och modulen skrivare är att spara data från experimenten. Mer information om Reader-och Writer-moduler finns i läsa avsnittet om [läsare](https://msdn.microsoft.com/library/azure/dn905997.aspx) och [skrivare](https://msdn.microsoft.com/library/azure/dn905984.aspx) i MSDN Library.
 
-När du använder Reader-och Writer-modulerna är det bra att använda en webb tjänst parameter för varje egenskap för dessa läsare/skrivar-moduler. Med de här webb parametrarna kan du konfigurera värdena under körning. Du kan till exempel skapa ett experiment med en läsar modul som använder en Azure SQL Database: XXX.database.windows.net. När webb tjänsten har distribuerats vill du göra det möjligt för användare av webb tjänsten att ange en annan Azure-SQL Server som kallas YYY.database.windows.net. Du kan använda en webb tjänst parameter för att tillåta att det här värdet konfigureras.
+När du använder Reader-och Writer-modulerna är det bra att använda en webb tjänst parameter för varje egenskap för dessa läsare/skrivar-moduler. Med de här webb parametrarna kan du konfigurera värdena under körning. Du kan till exempel skapa ett experiment med en läsar modul som använder en Azure SQL Database: XXX.database.windows.net. När webb tjänsten har distribuerats vill du göra det möjligt för användare av webb tjänsten att ange en annan logisk SQL-Server som heter YYY.database.windows.net. Du kan använda en webb tjänst parameter för att tillåta att det här värdet konfigureras.
 
 > [!NOTE]
 > Webb tjänstens indata och utdata skiljer sig från webb tjänst parametrarna. I det första scenariot har du sett hur indata och utdata kan anges för en Azure Machine Learning Studio-webbtjänst. I det här scenariot skickar du parametrar för en webb tjänst som motsvarar egenskaperna för Reader/Writer-moduler.
@@ -347,7 +347,7 @@ Du kan också använda [Data Factory funktioner](data-factory-functions-variable
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Använda en läsar modul för att läsa data från flera filer i Azure Blob
 Stora datapipelines med aktiviteter som till exempel gris och Hive kan producera en eller flera utdatafiler utan tillägg. Om du till exempel anger en extern Hive-tabell kan data för den externa Hive-tabellen lagras i Azure Blob Storage med följande namn 000000_0. Du kan använda modulen läsare i ett experiment för att läsa flera filer och använda dem för förutsägelser.
 
-När du använder modulen läsare i ett Azure Machine Learning experiment kan du ange Azure blob som inmatade. Filerna i Azure Blob Storage kan vara utdatafilerna (exempel: 000000_0) som skapas av ett gris-och Hive-skript som körs på HDInsight. Med modulen läsare kan du läsa filer (utan tillägg) genom att konfigurera **sökvägen till container, Directory/BLOB**. **Sökvägen till container** pekar på behållaren och **katalogen/blobben** som pekar på den mapp som innehåller filerna som visas i följande bild. Asterisken är, \*) **anger att alla filer i behållaren/mappen (det vill säga data/aggregateddata/Year = 2014/month-6/\*)** läses som en del av experimentet.
+När du använder modulen läsare i ett Azure Machine Learning experiment kan du ange Azure blob som inmatade. Filerna i Azure Blob Storage kan vara utdatafilerna (exempel: 000000_0) som skapas av ett gris-och Hive-skript som körs på HDInsight. Med modulen läsare kan du läsa filer (utan tillägg) genom att konfigurera **sökvägen till container, Directory/BLOB**. **Sökvägen till container** pekar på behållaren och **katalogen/blobben** som pekar på den mapp som innehåller filerna som visas i följande bild. Asterisken är, \* ) **anger att alla filer i behållaren/mappen (det vill säga data/aggregateddata/Year = 2014/month-6/ \* )** läses som en del av experimentet.
 
 ![Egenskaper för Azure-Blob](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 

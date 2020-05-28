@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 86b858b628dc2ed9eac730d4c3f090f4d7d6c7e2
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 66a5bceb5b59c0e1b14577176cfed933e4503f31
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593309"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014442"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planera molnet HR Application för att Azure Active Directory användar etablering
 
@@ -52,7 +52,7 @@ Cloud HR app-integrering med Azure AD-användar etablering passar utmärkt för 
 - Kräv anslutning till, flytta och lämna användare för att synkroniseras till en eller flera Active Directory skogar, domäner och organisationsenheter enbart baserat på ändrings information som identifieras i Cloud HR-appen.
 - Använd Office 365 för e-post.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Läs mer
 
 Användar etablering skapar en grund för pågående identitets styrning. Det förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -79,19 +79,20 @@ Om du vill konfigurera Cloud HR-appen till Azure AD-integrering av användar eta
 
 Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations licens för varje användare som kommer att skickas från Cloud HR-appen och tillhandahålls till antingen Active Directory eller Azure AD. Ett felaktigt antal licenser som ägs i Cloud HR-appen kan leda till fel vid användar etablering.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-- Global administratörs åtkomst till Azure AD för att konfigurera Azure AD Connect etablerings agenten.
+- Azure AD [hybrid Identity-administratör](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) för att konfigurera Azure AD Connect etablerings agenten.
+- Azure AD- [programadministratörs](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) roll för att konfigurera etablerings appen i Azure Portal
 - En test-och produktions instans av Cloud HR-appen.
 - Administratörs behörighet i Cloud HR-appen för att skapa en system integrations användare och göra ändringar för att testa medarbetar data i test syfte.
-- För att användar etablering ska kunna Active Directory krävs en server som kör Windows Server 2012 eller senare med .NET 4.7.1 + runtime för att vara värd för [Azure AD Connect etablerings agenten](https://go.microsoft.com/fwlink/?linkid=847801).
+- För att användar etablering ska kunna Active Directory krävs en server som kör Windows Server 2012 eller senare med .NET 4.7.1 + runtime för att vara värd för Azure AD Connect etablerings agenten
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) för synkronisering av användare mellan Active Directory och Azure AD.
 
 ### <a name="training-resources"></a>Utbildnings resurser
 
 | **Resurser** | **Länk och beskrivning** |
 |:-|:-|
-| Videoklipp | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
+| Videor | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
 | | [Så här distribuerar du användar etablering i Active Azure-katalogen](https://youtu.be/pKzyts6kfrw) |
 | Självstudier | [Lista över självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md) |
 | | [Självstudie: Konfigurera arbets dag för automatisk användar etablering](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
@@ -248,7 +249,7 @@ Som standard används attributet i Cloud HR-appen som representerar det unika me
 
 Du kan ange flera matchande attribut och tilldela matchande prioritet. De utvärderas utifrån matchnings prioritet. Så fort en matchning hittas utvärderas inga ytterligare matchande attribut.
 
-Du kan också [Anpassa mappningar för standardattribut](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), till exempel ändra eller ta bort befintliga mappningar för attribut. Du kan också skapa nya mappningar för attribut enligt dina affärs behov. Mer information finns i själv studie kursen om Cloud HR-appen (till exempel [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) för en lista över anpassade attribut att mappa.
+Du kan också [Anpassa mappningar för standardattribut](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), till exempel ändra eller ta bort befintliga mappningar för attribut. Du kan också skapa nya mappningar för attribut enligt dina affärs behov. Mer information finns i själv studie kursen om Cloud HR-appen (till exempel [Workday](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration)) för en lista över anpassade attribut att mappa.
 
 ### <a name="determine-user-account-status"></a>Ange status för användar konto
 
@@ -285,7 +286,7 @@ Samla in följande krav när du initierar processen Joinr-Movers-process.
 | | Vilka effektiva datum beaktas vid bearbetning av användar terminering? |
 | | Hur påverkas befintliga Active Directory-konton av medarbetare och jobb konverteringar? |
 
-Beroende på dina krav kan du ändra mappningarna så att de passar dina integrations mål. Mer information finns i själv studie kursen om Cloud HR-appar (till exempel [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) för en lista över anpassade attribut att mappa.
+Beroende på dina krav kan du ändra mappningarna så att de passar dina integrations mål. Mer information finns i själv studie kursen om Cloud HR-appar (till exempel [Workday](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings)) för en lista över anpassade attribut att mappa.
 
 ### <a name="generate-a-unique-attribute-value"></a>Generera ett unikt attributvärde
 
@@ -365,7 +366,9 @@ Den molnbaserade användar etablerings implementeringen för HR kanske inte fung
 
 Välj den Cloud HR-app som passar dina lösnings krav.
 
-**Workday**: om du vill importera profiler från arbets dagar till Active Directory och Azure AD, se [självstudie: Konfigurera arbets dag för automatisk användar etablering](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Du kan också skriva tillbaka e-postadressen och användar namnet till arbets dagen.
+**Workday**: om du vill importera profiler från arbets dagar till Active Directory och Azure AD, se [självstudie: Konfigurera arbets dag för automatisk användar etablering](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Du kan också skriva tillbaka e-postadressen, användar namnet och telefonnumret till arbets dagen.
+
+**SAP-SuccessFactors**: om du vill importera Worker-profiler från SuccessFactors till Active Directory och Azure AD, se [självstudie: konfigurera SAP SuccessFactors för automatisk användar etablering](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md). Du kan också skriva tillbaka e-postadressen och användar namnet till SuccessFactors.
 
 ## <a name="manage-your-configuration"></a>Hantera konfigurationen
 

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76a5e12eee7a325a73b3c17dba6c775b6984b89a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bd28117350913bc25f5bf7cec08d28683ad9daca
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195912"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020072"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Använd Log Analytics för funktionen diagnostik
 
@@ -180,6 +180,7 @@ WVDFeeds
 Så här söker du efter alla anslutningar för en enskild användare: 
 
 ```kusto
+WVDConnections
 |where UserName == "userupn" 
 |take 100 
 |sort by TimeGenerated asc, CorrelationId 

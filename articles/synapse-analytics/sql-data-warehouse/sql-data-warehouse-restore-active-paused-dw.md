@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6fa8bd42eb067124ab6ea1db77e2f3d6fba79638
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d092baacd202bdb4d0bbe98f4119621c9d916b4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745208"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020265"
 ---
 # <a name="restore-an-existing-sql-pool"></a>Återställa en befintlig SQL-pool
 
@@ -24,7 +24,7 @@ I den här artikeln får du lära dig hur du återställer en befintlig SQL-pool
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verifiera din DTU-kapacitet.** Varje pool finns på en SQL-Server (till exempel myserver.database.windows.net) som har en standard-DTU-kvot. Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verifiera din DTU-kapacitet.** Varje pool finns på en [logisk SQL-Server](../../azure-sql/database/logical-servers.md) (till exempel myserver.Database.Windows.net) som har en standard-DTU-kvot. Kontrol lera att servern har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -46,19 +46,20 @@ För att återställa en befintlig SQL-pool från en återställnings punkt anv�
 5. Välj önskad återställnings punkt med hjälp av RestorePointCreationDate.
 
 6. Återställ SQL-poolen till önskad återställnings punkt med hjälp av [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell-cmdlet.
-        1. Om du vill återställa SQL-poolen till en annan logisk server, måste du ange namnet på den andra logiska servern.  Den här logiska servern kan också finnas i en annan resurs grupp och region.
-        2. Om du vill återställa till en annan prenumeration använder du knappen flytta för att flytta den logiska servern till en annan prenumeration.
+
+    1. För att återställa SQL-poolen till en annan server, se till att ange det andra Server namnet.  Den här servern kan också finnas i en annan resurs grupp och region.
+    2. Om du vill återställa till en annan prenumeration använder du knappen flytta för att flytta servern till en annan prenumeration.
 
 7. Kontrol lera att den återställda SQL-poolen är online.
 
-8. När återställningen har slutförts kan du konfigurera en återställd SQL-pool genom att följa [Konfigurera databasen efter återställningen](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. När återställningen har slutförts kan du konfigurera en återställd SQL-pool genom att följa [Konfigurera databasen efter återställningen](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
-#$TargetResourceGroupName="<YourTargetResourceGroupName>" # uncomment to restore to a different logical server.
+#$TargetResourceGroupName="<YourTargetResourceGroupName>" # uncomment to restore to a different server.
 #$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
@@ -79,7 +80,7 @@ $PointInTime="<RestorePointCreationDate>"
 # Restore database from a restore point
 $RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
-# Use the following command to restore to a different logical server
+# Use the following command to restore to a different server
 #$RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceTargetGroupName -ServerName $TargetServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
 # Verify the status of restored database
@@ -95,11 +96,11 @@ $RestoredDatabase.status
 
     ![ Återställa översikt](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Välj antingen **automatiska återställnings punkter** eller **användardefinierade återställnings punkter**. Om SQL-poolen inte har några automatiska återställnings punkter väntar du några timmar eller skapar en användardefinierad återställnings punkt innan du återställer. För användardefinierade återställnings punkter väljer du en befintlig eller skapar en ny. För **Server**kan du välja en logisk server i en annan resurs grupp och region eller skapa en ny. När du har angett alla parametrar klickar du på **Granska + Återställ**.
+4. Välj antingen **automatiska återställnings punkter** eller **användardefinierade återställnings punkter**. Om SQL-poolen inte har några automatiska återställnings punkter väntar du några timmar eller skapar en användardefinierad återställnings punkt innan du återställer. För användardefinierade återställnings punkter väljer du en befintlig eller skapar en ny. För **Server**kan du välja en server i en annan resurs grupp och region eller skapa en ny. När du har angett alla parametrar klickar du på **Granska + Återställ**.
 
     ![Automatiska återställningspunkter](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Återställa en borttagen SQL-pool](sql-data-warehouse-restore-deleted-dw.md)
 - [Återställa från en geo-backup SQL-pool](sql-data-warehouse-restore-from-geo-backup.md)

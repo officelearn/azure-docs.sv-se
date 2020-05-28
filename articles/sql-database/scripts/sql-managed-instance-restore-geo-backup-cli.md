@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 1a46cb537892d4255fd274b5754ab8e8c0278308
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c6ae8d79ee40729f47a906561d6c8ae586765f5d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774460"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019851"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Använd CLI för att återställa en hanterad instans databas till en annan geo-region
 
@@ -26,9 +26,9 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="sample-script"></a>Exempelskript
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-Ett befintligt par med hanterade instanser finns i [använda Azure CLI för att skapa en Azure SQL Database Hanterad instans](sql-database-create-configure-managed-instance-cli.md).
+Ett befintligt par med hanterade instanser finns i [använda Azure CLI för att skapa en hanterad Azure SQL-instans](sql-database-create-configure-managed-instance-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -64,4 +64,4 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare CLI-skriptexempel för SQL Database finns i [Azure SQL Database-dokumentationen](../sql-database-cli-samples.md).
+Ytterligare CLI-skriptexempel för SQL Database finns i [Azure SQL Database-dokumentationen](../../azure-sql/database/az-cli-script-samples-content-guide.md).

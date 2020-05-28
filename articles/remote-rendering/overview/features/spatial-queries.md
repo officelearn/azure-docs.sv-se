@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 8f64c4a9a438b07fef428a5ed044985736055525
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3f808d45197f7d9ee23d3f809a2ab0452e92c20e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758851"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021304"
 ---
 # <a name="spatial-queries"></a>Rumsliga frågor
 
@@ -88,9 +88,9 @@ void CastRay(ApiHandle<AzureSession> session)
 
 Det finns tre lägen för träff insamling:
 
-* **Närmast:** I det här läget rapporteras endast den närmaste träffen.
-* **Valfritt:** Föredra det här läget när allt du vill veta är *om* en Ray skulle träffa något, men var inte noga med vad som trycks exakt. Den här frågan kan vara avsevärt billigare att utvärdera, men har även bara några få program.
-* **Alla:** I det här läget rapporteras alla träffar längs Rayen, sorterade efter avstånd. Använd inte det här läget om du inte verkligen behöver mer än den första träffen. Begränsa antalet rapporterade träffar med `MaxHits` alternativet.
+* ** `Closest` :** I det här läget rapporteras endast den närmaste träffen.
+* ** `Any` :** Föredra det här läget när alla du vill veta är *om* en Ray skulle träffa något, men var inte noga med vad som trycks exakt. Den här frågan kan vara avsevärt billigare att utvärdera, men har även bara några få program.
+* ** `All` :** I det här läget rapporteras alla träffar längs Rayen, sorterade efter avstånd. Använd inte det här läget om du inte verkligen behöver mer än den första träffen. Begränsa antalet rapporterade träffar med `MaxHits` alternativet.
 
 Om du vill utesluta objekt selektivt från att beaktas för Ray-sändningar kan [HierarchicalStateOverrideComponent](override-hierarchical-state.md) -komponenten användas.
 
@@ -106,11 +106,11 @@ Resultatet av en Ray Cast-fråga är en matris med träffar. Matrisen är tom, o
 
 En träff har följande egenskaper:
 
-* **HitEntity:** Vilken [entitet](../../concepts/entities.md) som träffades.
-* **Delpartis:** Vilket under *nätet* nåddes i en [MeshComponent](../../concepts/meshes.md). Kan användas för att indexera `MeshComponent.UsedMaterials` och slå upp [materialet](../../concepts/materials.md) vid den tidpunkten.
-* **HitPosition:** Utrymmes positionen där Ray korsar objektet.
-* **HitNormal:** Ytans yta i mitten av nätet vid positionen för skärnings punkten.
-* **DistanceToHit:** Avståndet från Ray-start positionen till träffen.
+* ** `HitEntity` :** Vilken [entitet](../../concepts/entities.md) som träffades.
+* ** `SubPartId` :** Vilket under *nätet* nåddes i en [MeshComponent](../../concepts/meshes.md). Kan användas för att indexera `MeshComponent.UsedMaterials` och slå upp [materialet](../../concepts/materials.md) vid den tidpunkten.
+* ** `HitPosition` :** Det världs LED ande position där Ray korsar objektet.
+* ** `HitNormal` :** Världens yta i mitten av nätet vid positionen för skärnings punkten.
+* ** `DistanceToHit` :** Avståndet från Ray-start positionen till träffen.
 
 ## <a name="next-steps"></a>Nästa steg
 

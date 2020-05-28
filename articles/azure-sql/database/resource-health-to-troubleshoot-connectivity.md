@@ -1,0 +1,82 @@
+---
+title: Använd Azure Resource Health för att övervaka databas hälsa
+description: Använd Azure Resource Health för att övervaka Azure SQL Database och Azure SQL-hanterad instans hälsa, hjälper dig att diagnostisera och få support när ett Azure-problem påverkar dina SQL-resurser.
+services: sql-database
+ms.service: sql-database
+ms.subservice: performance
+ms.custom: sqldbrb=2
+ms.devlang: ''
+ms.topic: conceptual
+author: aamalvea
+ms.author: aamalvea
+ms.reviewer: jrasnik, carlrab
+ms.date: 02/26/2019
+ms.openlocfilehash: fd4804ccbd98bd3cab9f5b55c56274f8cbc34c65
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84051026"
+---
+# <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Använd Resource Health för att felsöka anslutningar för Azure SQL Database och Azure SQL-hanterad instans
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+
+## <a name="overview"></a>Översikt
+
+[Resource Health](../../service-health/resource-health-overview.md#get-started) för Azure SQL Database och Azure SQL-hanterad instans hjälper dig att diagnostisera och få support när ett Azure-problem påverkar dina SQL-resurser. Det informerar dig om det aktuella och tidigare hälsotillståndet för dina resurser och hjälper dig att åtgärda problem. Resource Health ger teknisk support när du behöver hjälp med problem med Azure-tjänster.
+
+![Översikt](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-overview.jpg)
+
+## <a name="health-checks"></a>Hälso kontroller
+
+Resource Health fastställer hälso tillståndet för din SQL-resurs genom att undersöka lyckade och misslyckade inloggningar till resursen. För närvarande undersöker Resource Health för din SQL Database-resurs bara inloggnings fel på grund av systemfel och inte användar fel. Resource Healths status uppdateras var 1-2: e minut.
+
+## <a name="health-states"></a>Hälso tillstånd
+
+### <a name="available"></a>Tillgänglig
+
+Statusen **tillgänglig** innebär att Resource Health inte har identifierat inloggnings fel på grund av systemfel på SQL-resursen.
+
+![Tillgänglig](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-available.jpg)
+
+### <a name="degraded"></a>Degraderad
+
+Statusen **försämrad** innebär att Resource Health har identifierat en majoritet av lyckade inloggningar, men vissa fel. Detta är de flesta sannolika tillfälliga inloggnings fel. För att minska effekten av anslutnings problem som orsakas av tillfälliga inloggnings fel ska du implementera [logik för omförsök](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) i koden.
+
+![Degraderad](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-degraded.jpg)
+
+### <a name="unavailable"></a>Ej tillgänglig
+
+Statusen **otillgänglig** innebär att Resource Health har identifierat konsekventa inloggnings försök till din SQL-resurs. Kontakta supporten om resursen är i detta tillstånd under en längre tid.
+
+![Ej tillgänglig](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
+
+### <a name="unknown"></a>Okänt
+
+Hälso tillståndet för **okänd** indikerar att Resource Health inte har tagit emot information om den här resursen i mer än 10 minuter. Även om denna status inte är en slutgiltig indikation på resursens tillstånd, är det en viktig data punkt i fel söknings processen. Om resursen körs som förväntat ändras statusen för resursen till tillgänglig efter några minuter. Om du har problem med resursen kan den okända hälso statusen föreslå att en händelse i plattformen påverkar resursen.
+
+![Okänt](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unknown.jpg)
+
+## <a name="historical-information"></a>Historisk information
+
+Du kan komma åt upp till 14 dagar hälso historik i avsnittet hälso historik i Resource Health. Avsnittet innehåller även orsaken till stillestånds tiden (när det är tillgängligt) för de stillestånds tider som rapporteras av Resource Health. För närvarande visar Azure stillestånds tiden för din databas resurs med en precision på två minuter. Den faktiska avbrottstiden är förmodligen mindre än en minut – genomsnittet är 8 sekunder.
+
+### <a name="downtime-reasons"></a>Orsaker till stillestånds tid
+
+När din databas upplever avbrott utförs analysen för att fastställa en orsak. När det är tillgängligt rapporteras stillestånds orsaken i avsnittet hälso historik i Resource Health. Orsaker till stillestånd publiceras vanligen 30 minuter efter en händelse.
+
+#### <a name="planned-maintenance"></a>Planerat underhåll
+
+Azure-infrastrukturen utför regelbundet planerat underhåll – uppgradering av maskin-eller program varu komponenter i data centret. Medan databasen genomgår underhåll kan SQL avsluta vissa befintliga anslutningar och neka nya. De inloggnings fel som uppstod under planerat underhåll är vanligt vis tillfälliga och [nya omprövnings logik](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) bidrar till att minska påverkan. Om du fortsätter att uppleva inloggnings fel kan du kontakta supporten.
+
+#### <a name="reconfiguration"></a>Omkonfiguration
+
+Omkonfigurationer betraktas som tillfälliga villkor och förväntas av tiden. Dessa händelser kan utlösas av belastnings utjämning eller program varu-eller maskin varu problem. Alla klient produktions program som ansluter till en moln databas bör implementera en robust logik för anslutnings [försök](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors), eftersom det skulle hjälpa till att minimera dessa situationer och bör vanligt vis göra felen transparent för slutanvändaren.
+
+## <a name="next-steps"></a>Nästa steg
+
+- Läs mer om [logik för återförsök för tillfälliga fel](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)
+- [Felsöka, diagnostisera och förhindra SQL-anslutningsfel](troubleshoot-common-connectivity-issues.md)
+- Läs mer om hur du [konfigurerar Resource Health aviseringar](../../service-health/resource-health-alert-arm-template-guide.md)
+- Få en översikt över [Resource Health](../../application-gateway/resource-health-overview.md)
+- [Vanliga frågor och svar om Resource Health](../../service-health/resource-health-faq.md)

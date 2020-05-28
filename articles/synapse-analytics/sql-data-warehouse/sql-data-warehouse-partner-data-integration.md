@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 52385bb1d855d2e9258e16254220848085392849
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b3d77a84aa5206257f82bc5d634e1a3eae1a7790
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683602"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996437"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure Synapse Analytics-data integrerings partner
 
@@ -24,12 +24,13 @@ Om du vill skapa en informations lager lösning med hjälp av Synapse för SQL-p
 
 ## <a name="data-integration-partners"></a>Data integrerings partner
 
-| Partner | Description | Länk till webbplats/produkt |
+| Partner | Beskrivning | Länk till webbplats/produkt |
 | ------- | ----------- | -------------------- |
 | ![Alooma](./media/sql-data-warehouse-partner-data-integration/alooma_logo.png) |**Alooma**<br> Alooma är en lösning för extrahering, transformering och inläsning (ETL) som gör det möjligt för data team att integrera, utöka och strömma data från olika datasilor till ett Azure Synapse Data Warehouse i real tid. |[Produkt sida](https://www.alooma.com/) |
 | ![Alteryx](./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png) |**Alteryx**<br> Alteryx designer innehåller ett upprepnings bara arbets flöde för självbetjänings data analys som leder till djupare insikter i timmar, inte de veckor som är typiska för traditionella metoder! Alteryx designer hjälper dataanalytiker genom att kombinera förberedelse av data, data blandning och analys – förutsägande, statistisk och spatial – med samma intuitiva användar gränssnitt. |[Produkt sida](https://www.alteryx.com/partners/microsoft/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/alteryx.alteryx-designer)<br>|
 | ![Attunity](./media/sql-data-warehouse-partner-data-integration/attunity_logo.png) |**Attunity (CloudBeam)**<br>Attunity CloudBeam innehåller en automatiserad lösning för inläsning av data i ett Azure Synapse Data Warehouse. Det fören klar satsvis inläsning och stegvis replikering av data från många källor – SQL Server, Oracle, DB2, Sybase, MySQL och mycket annat. |[Produkt sida](http://www.attunity.com/attunity-cloudbeam-for-azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/attunity_cloudbeam.cloudbeam-dw-byol) <br> |
 | ![Denodo](./media/sql-data-warehouse-partner-data-integration/denodo_logo.png) |**Denodo**<br>Denodo ger real tids åtkomst till data i en organisations olika data källor. Data virtualisering används för att överbrygga data över flera källor utan replikering. Det ger bred åtkomst till strukturerade och ostrukturerade data i företags-, Big data-och moln källor i både batch och real tid.|[Produkt sida](https://www.denodo.com/en)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/denodo.denodo-platform-7_0)<br> |
+| ![Dimodelo](./media/sql-data-warehouse-partner-data-integration/dimodelo-logo.png) |**Dimodelo**<br>Dimodelo Data Warehouse Studio är ett informations lager automatiserings verktyg för Azure Data Platform. Dimodelo förbättrar produktiviteten för utvecklare genom ett dedikerat design verktyg för data lager modellering och ETL, mönsterbaserade metod tips för bästa praxis, distribution med ett klick och ETL-dirigering. Dimodelo förbättrar hanterbarheten med ändrings spridning, gör att utvecklare kan fokusera på affärs resultat och automatiserar portabiliteten mellan olika data plattformar.|[Produkt sida](https://www.dimodelo.com/data-warehouse-studio-for-azure-synapse/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dimodelosolutions.dimodeloazurevs)<br> |
 | ![Fivetran](./media/sql-data-warehouse-partner-data-integration/fivetran_logo.png) |**Fivetran**<br>Fivetran hjälper dig att centralisera data från olika källor. Den har inget underhåll, noll konfigurations data pipeline produkt med en växande lista med inbyggda kopplingar till alla populära data källor. Installationen tar fem minuter efter autentisering till data källor och mål informations lagret.|[Produkt sida](https://fivetran.com/)<br> |
 | ![Informatica](./media/sql-data-warehouse-partner-data-integration/informatica_logo.png) |**1. Informatica Cloud Services för Azure**<br> Informatica Cloud erbjuder en förstklassig lösning för migrering av datamigrering, integrering och hantering av data. Kunder kan snabbt och tillförlitligt importera och exportera petabyte data till Azure från olika typer av källor. Informatica Cloud Services för Azure ger inbyggd, hög prestanda anslutning till Azure Synapse, SQL Database, Blob Storage, Data Lake Store och Azure Cosmos DB. <br><br> **2. Informatica PowerCenter** PowerCenter är en metadata driven data integrerings plattform som JumpStarts och påskyndar data integrerings projekt för att leverera data till företaget snabbare än manuell manuell kodning. Den fungerar som grund för dina investeringar i data integrering |**Informatica Cloud Services för Azure**<br>[Produkt sida](https://www.informatica.com/products/cloud-integration.html)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informatica.iics-winter)<br><br> **Informatica PowerCenter**<br>[Produkt sida](https://www.informatica.com/products/data-integration/powercenter.html)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informatica.powercenter/)<br>|
 | ![Informations byggare](./media/sql-data-warehouse-partner-data-integration/informationbuilders_logo.png) |**Informations byggare (Omni-GEN Datahantering)**<br>Informations verktygets Omni-generations plattform för data hantering ger data integrering, data kvalitet och hanterings lösningar för huvud data. Det gör det enkelt att komma åt, flytta och blanda alla data oavsett format, plats, volym eller svars tid.|[Produkt sida](https://www.informationbuilders.com/3i-platform)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informationbuilders.omni-gen-mdm) |

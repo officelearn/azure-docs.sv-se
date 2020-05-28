@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: aa4881aef9f3a9ba5d19fb0b768f13a1eb372296
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 55ef2ee7d39d68804fe44c9d7a6eb0ee199e6109
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131419"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019868"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrera Azure Data Lake Storage från gen1 till Gen2
 
@@ -79,7 +79,7 @@ Migrera data, arbets belastningar och program med hjälp av det mönster som du 
    
 5. Uppdatera skript för att använda Data Lake Storage Gen2 [PowerShell-cmdletar](data-lake-storage-directory-file-acl-powershell.md)och [Azure CLI-kommandon](data-lake-storage-directory-file-acl-cli.md).
    
-6. Sök efter URI-referenser som innehåller strängen `adl://` i kodfragment, eller i Databricks-anteckningsböcker, Apache Hive HQL-filer eller andra filer som används som en del av dina arbets belastningar. Ersätt dessa referenser med [Gen2-formaterad URI](data-lake-storage-introduction-abfs-uri.md) för ditt nya lagrings konto. Till exempel: gen1-URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` n kan `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`bli. 
+6. Sök efter URI-referenser som innehåller strängen `adl://` i kodfragment, eller i Databricks-anteckningsböcker, Apache HIVE HQL-filer eller andra filer som används som en del av dina arbets belastningar. Ersätt dessa referenser med [Gen2-formaterad URI](data-lake-storage-introduction-abfs-uri.md) för ditt nya lagrings konto. Till exempel: gen1-URI: n `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` kan bli `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile` . 
 
 7. Konfigurera säkerheten på ditt konto för att inkludera [rollbaserad åtkomst kontroll (RBAC) roller](../common/storage-auth-aad-rbac-portal.md), säkerhet på [fil-och mappnivå](data-lake-storage-access-control.md)samt [Azure Storage brand väggar och virtuella nätverk](../common/storage-network-security.md).
 
@@ -97,13 +97,13 @@ I den här tabellen jämförs funktionerna i gen1 med Gen2.
 |---|---|---|
 |Data organisation|[Hierarkiskt namn område](data-lake-storage-namespace.md)<br>Stöd för filer och mappar|[Hierarkiskt namn område](data-lake-storage-namespace.md)<br>Stöd för behållare, filer och mappar |
 |GEO-redundans| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
-|Autentisering|[AAD-hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Tjänstens huvud namn](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD-hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Tjänstens huvud namn](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Delad åtkomst nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
+|Autentisering|[AAD-hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Tjänstens huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD-hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Tjänstens huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Delad åtkomst nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |Auktorisering|Hantering- [RBAC](../../role-based-access-control/overview.md)<br>Data – [ACL: er](data-lake-storage-access-control.md)|Hantering – [RBAC](../../role-based-access-control/overview.md)<br>Data – [ACL: er](data-lake-storage-access-control.md), [RBAC](../../role-based-access-control/overview.md) |
 |Kryptering – vilande data|Server sidan – med [Microsoft-hanterade](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) eller [kund hanterade](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) nycklar|Server sidan – med [Microsoft-hanterade](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) eller [kund hanterade](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) nycklar|
 |VNET-stöd|[VNET-integration](../../data-lake-store/data-lake-store-network-security.md)|[Tjänst slut punkter](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [privata slut punkter](../common/storage-private-endpoints.md)|
 |Utvecklings miljö|[Rest](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.net](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|Allmänt tillgänglig- [rest](/rest/api/storageservices/data-lake-storage-gen2), [.net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [python](data-lake-storage-directory-file-acl-python.md)<br>Offentlig för hands version – [Java Script](data-lake-storage-directory-file-acl-javascript.md), [POWERSHELL](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
 |Resursloggar|Klassiska loggar<br>[Azure Monitor integrerad](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Klassiska loggar](../common/storage-analytics-logging.md) – allmänt tillgänglig<br>Azure Monitor-integrering – tids linje TBD|
-|Ekosystem|[HDInsight (3,6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3,1 och senare)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3,6, 4,0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5,1 och senare)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
+|Ekosystem|[HDInsight (3,6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3,1 och senare)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3,6, 4,0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5,1 och senare)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 <a id="migration-patterns" />
 

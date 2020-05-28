@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 1a2b9c739f3583fb5d842bd9d3834252d542cb7d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 20b030079121104fe7bd75924a63ab0e12be9b19
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739285"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020871"
 ---
 # <a name="introduction"></a>Introduktion
 
@@ -38,7 +38,7 @@ Därför behöver du inte skapa autentiseringsuppgifter eller ange dem i anslutn
 
 - Den här kopplingen fungerar bara i Scala.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ha **db_exporter** -rollen i databasen/SQL-poolen som du vill överföra data till/från.
 
@@ -59,7 +59,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 Import instruktionerna krävs inte, de är i förväg importerade för den bärbara datorn.
 
-### <a name="transferring-data-to-or-from-a-sql-pool-in-the-logical-server-dw-instance-attached-with-the-workspace"></a>Överföring av data till eller från en SQL-pool på den logiska servern (DW-instans) som är kopplad till arbets ytan
+### <a name="transferring-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Överföra data till eller från en SQL-pool som är kopplad till arbets ytan
 
 > [!NOTE]
 > **Importer som inte behövs i Notebook-upplevelsen**
@@ -92,7 +92,7 @@ df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 
 Autentiseringen till lagringen och SQL Server görs
 
-### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-in-a-logical-server-outside-the-workspace"></a>Om du överför data till eller från en SQL-pool eller databas på en logisk server utanför arbets ytan
+### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Om du överför data till eller från en SQL-pool eller databas utanför arbets ytan
 
 > [!NOTE]
 > Importer som inte behövs i Notebook-upplevelsen

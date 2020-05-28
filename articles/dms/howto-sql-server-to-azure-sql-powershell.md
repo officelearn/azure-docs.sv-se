@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: f63f79402b457017257f1762c6ddc7e04c0ee1af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 323d6b006d3e790a7517e90f34241976904b3ba3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77650698"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021491"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrera SQL Server lokalt för att Azure SQL Database med Azure PowerShell
 
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 > * Skapa ett migreringsjobb i en Azure Database Migration Service-instans.
 > * Köra migreringen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra de här stegen:
 
@@ -65,7 +65,7 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 
 ## <a name="create-an-instance-of-azure-database-migration-service"></a>Skapa en instans av Azure Database Migration Service
 
-Du kan skapa en ny instans av Azure Database Migration Service med hjälp `New-AzDataMigrationService` av cmdleten. Denna cmdlet förväntar sig följande obligatoriska parametrar:
+Du kan skapa en ny instans av Azure Database Migration Service med hjälp av `New-AzDataMigrationService` cmdleten. Denna cmdlet förväntar sig följande obligatoriska parametrar:
 
 * *Namn på Azure-resurs gruppen*. Du kan använda kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) för att skapa en Azure-resurs grupp som tidigare visas och ange dess namn som en parameter.
 * *Tjänst namn*. Sträng som motsvarar det önskade unika tjänst namnet för Azure Database Migration Service 
@@ -93,7 +93,7 @@ När du har skapat en Azure Database Migration Service-instans skapar du ett mig
 
 ### <a name="create-a-database-connection-info-object-for-the-source-and-target-connections"></a>Skapa ett objekt för databas anslutnings information för käll-och mål anslutningarna
 
-Du kan skapa ett informations objekt för databas anslutning med hjälp `New-AzDmsConnInfo` av cmdleten. Denna cmdlet förväntar sig följande parametrar:
+Du kan skapa ett informations objekt för databas anslutning med hjälp av `New-AzDmsConnInfo` cmdleten. Denna cmdlet förväntar sig följande parametrar:
 
 * *ServerType*. Vilken typ av databas anslutning som begärdes, till exempel SQL, Oracle eller MySQL. Använd SQL för SQL Server och Azure SQL.
 * *Data källa*. Namnet eller IP-adressen för en SQL Server instans eller Azure SQL-databas.
@@ -109,7 +109,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-Nästa exempel visar hur du skapar anslutnings information för en Azure SQL Database-Server med namnet SQLAzureTarget med SQL-autentisering:
+Nästa exempel visar hur du skapar anslutnings information för en server med namnet SQLAzureTarget med SQL-autentisering:
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
@@ -131,7 +131,7 @@ $dbList = @($dbInfo1)
 
 ### <a name="create-a-project-object"></a>Skapa ett projekt objekt
 
-Slutligen kan du skapa ett Azure Database migration-projekt med `New-AzDataMigrationProject` namnet *MyDMSProject* som finns i *östra USA* och sedan lägga till de tidigare skapade käll-och mål anslutningarna och listan över databaser som ska migreras.
+Slutligen kan du skapa ett Azure Database migration-projekt med namnet *MyDMSProject* som finns i *östra USA* och sedan `New-AzDataMigrationProject` lägga till de tidigare skapade käll-och mål anslutningarna och listan över databaser som ska migreras.
 
 ```powershell
 $project = New-AzDataMigrationProject -ResourceGroupName myResourceGroup `
@@ -176,7 +176,7 @@ $tableMap.Add("HumanResources.JobCandidate","HumanResources.JobCandidate")
 $tableMap.Add("HumanResources.Shift","HumanResources.Shift")
 ```
 
-Nästa steg är att välja käll-och mål databaserna och tillhandahålla tabell mappning för att migrera som en parameter med hjälp `New-AzDmsSelectedDB` av cmdleten, som du ser i följande exempel:
+Nästa steg är att välja käll-och mål databaserna och tillhandahålla tabell mappning för att migrera som en parameter med hjälp av `New-AzDmsSelectedDB` cmdleten, som du ser i följande exempel:
 
 ```powershell
 $selectedDbs = New-AzDmsSelectedDB -MigrateSqlServerSqlDb -Name AdventureWorks2016 `

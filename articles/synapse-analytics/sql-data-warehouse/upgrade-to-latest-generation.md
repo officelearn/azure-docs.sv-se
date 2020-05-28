@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 13b1f33ffe653627bcf45f6c995e82e741de32ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 701f2ac7b7cbba113ead5a6d3e465a4e0c37e024
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742747"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015751"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optimera prestanda genom att uppgradera Azure Synapse Analytics SQL-poolen
 
@@ -110,7 +110,7 @@ Nu kan du sömlöst uppgradera till SQL-poolens optimerade Gen2-nivå i Azure Po
 ## <a name="start-the-upgrade"></a>Starta uppgraderingen
 
 1. Gå till din Compute-optimerade gen1 SQL-pool i Azure Portal. Om den beräknade gen1-nivå som den SQL-pool som ska uppgraderas har pausats, [ÅTERUPPTA SQL-poolen](pause-and-resume-compute-portal.md).
-2. Välj **Uppgradera till Gen2** -kortet under fliken aktiviteter: ![Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
+2. Välj **Uppgradera till Gen2** -kortet under fliken aktiviteter: ![ Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
    > [!NOTE]
    > Om du inte ser kortet **Uppgradera till Gen2** på fliken aktiviteter är prenumerations typen begränsad i den aktuella regionen.
@@ -238,7 +238,7 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Information om hur du konfigurerar databasen när återställningen har slutförts finns i [Konfigurera databasen efter återställningen](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+> Information om hur du konfigurerar databasen när återställningen har slutförts finns i [Konfigurera databasen efter återställningen](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 Den återställda databasen kommer att TDEs om käll databasen är TDE-aktive rad.
 

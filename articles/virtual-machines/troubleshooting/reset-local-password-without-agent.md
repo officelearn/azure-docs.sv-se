@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: becbf88aeda164f7d916cbc1f1ace89262cc1a3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11d1a4743f9aaf70d96e6cfd1f22ff31def440f1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77921631"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021270"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Återställa det lokala Windows-lösenordet för en frånkopplad virtuell Azure-dator
 Du kan återställa det lokala Windows-lösenordet för en virtuell dator i Azure med hjälp av [Azure Portal eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) förutsatt att Azures gästa Gent är installerad. Den här metoden är det primära sättet att återställa ett lösen ord för en virtuell Azure-dator. Om du stöter på problem med att Azures gästa Gent inte svarar eller om du inte vill installera efter att du har laddat upp en anpassad avbildning kan du manuellt återställa ett Windows-lösenord. Den här artikeln beskriver hur du återställer ett lokalt konto lösen ord genom att koppla den virtuella käll operativ system disken till en annan virtuell dator. De steg som beskrivs i den här artikeln gäller inte för Windows-domänkontrollanter. 
@@ -45,7 +45,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
 
 1. Ta en ögonblicks bild för OS-disken för den berörda virtuella datorn, skapa en disk från ögonblicks bilden och Anslut sedan disken till en Felsök virtuell dator. Mer information finns i [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal](troubleshoot-recovery-disks-portal-windows.md).
 2. Anslut till den virtuella fel söknings datorn med hjälp av fjärr skrivbord.
-3. `\Windows\System32\GroupPolicy` Skapa `gpt.ini` på den virtuella käll hård disken (om GPT. ini finns, Byt namn till GPT. ini. bak):
+3. Skapa `gpt.ini` på `\Windows\System32\GroupPolicy` den virtuella käll hård disken (om GPT. ini finns, Byt namn till GPT. ini. bak):
    
    > [!WARNING]
    > Se till att du inte av misstag skapar följande filer i C:\Windows, OS-enheten för fel sökning av virtuell dator. Skapa följande filer i OS-enheten för din virtuella käll dator som är ansluten som en datadisk.
@@ -61,7 +61,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      
      ![Skapa GPT. ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
 
-4. Skapa `scripts.ini` i `\Windows\System32\GroupPolicy\Machines\Scripts\`. Kontrol lera att dolda mappar visas. Om det behövs skapar du `Machine` - `Scripts` eller-mapparna.
+4. Skapa `scripts.ini` i `\Windows\System32\GroupPolicy\Machine\Scripts\` . Kontrol lera att dolda mappar visas. Om det behövs skapar du- `Machine` eller- `Scripts` mapparna.
    
    * Lägg till följande rader i `scripts.ini` filen du skapade:
      
@@ -89,7 +89,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
 
 7. [Ändra OS-disken för den berörda virtuella datorn](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm).
 
-8. När den nya virtuella datorn har körts ansluter du till den virtuella datorn med hjälp av fjärr skrivbord med det nya lösen `FixAzureVM.cmd` ordet som du angav i skriptet.
+8. När den nya virtuella datorn har körts ansluter du till den virtuella datorn med hjälp av fjärr skrivbord med det nya lösen ordet som du angav i `FixAzureVM.cmd` skriptet.
 
 9. Ta bort följande filer från fjärrsessionen till den nya virtuella datorn för att rensa miljön:
     
@@ -115,9 +115,9 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      
      ![Ta bort befintlig virtuell dator](./media/reset-local-password-without-agent/delete-vm-classic.png)
 
-2. Anslut den virtuella käll datorns OS-disk till den virtuella fel söknings datorn. Den virtuella fel söknings datorn måste finnas i samma region som den virtuella käll datorns OS- `West US`disk (till exempel):
+2. Anslut den virtuella käll datorns OS-disk till den virtuella fel söknings datorn. Den virtuella fel söknings datorn måste finnas i samma region som den virtuella käll datorns OS-disk (till exempel `West US` ):
    
-   1. Välj den virtuella fel söknings datorn i Azure Portal. Klicka på *diskar* | *bifoga befintliga*:
+   1. Välj den virtuella fel söknings datorn i Azure Portal. Klicka på *diskar*  |  *bifoga befintliga*:
      
       ![Bifoga befintlig disk](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
      
@@ -149,10 +149,10 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      
       ![Visa ansluten datadisk](./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png)
 
-4. Skapa `gpt.ini` `\Windows\System32\GroupPolicy` på den virtuella käll datorn (om `gpt.ini` den finns, Byt namn till `gpt.ini.bak`):
+4. Skapa `gpt.ini` `\Windows\System32\GroupPolicy` på den virtuella käll datorn (om den `gpt.ini` finns, Byt namn till `gpt.ini.bak` ):
    
    > [!WARNING]
-   > Se till att du inte av misstag skapar följande filer i `C:\Windows`, OS-enheten för fel sökning av virtuell dator. Skapa följande filer i OS-enheten för din virtuella käll dator som är ansluten som en datadisk.
+   > Se till att du inte av misstag skapar följande filer i `C:\Windows` , OS-enheten för fel sökning av virtuell dator. Skapa följande filer i OS-enheten för din virtuella käll dator som är ansluten som en datadisk.
    
    * Lägg till följande rader i `gpt.ini` filen som du skapade:
      
@@ -165,7 +165,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      
      ![Skapa GPT. ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
 
-5. Skapa `scripts.ini` i `\Windows\System32\GroupPolicy\Machines\Scripts\`. Kontrol lera att dolda mappar visas. Om det behövs skapar du `Machine` - `Scripts` eller-mapparna.
+5. Skapa `scripts.ini` i `\Windows\System32\GroupPolicy\Machines\Scripts\` . Kontrol lera att dolda mappar visas. Om det behövs skapar du- `Machine` eller- `Scripts` mapparna.
    
    * Lägg till följande rader i `scripts.ini` filen du skapade:
 
@@ -209,7 +209,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>Slutför upplevelsen för att skapa en virtuell dator
 
-1. När den nya virtuella datorn har körts ansluter du till den virtuella datorn med hjälp av fjärr skrivbord med det nya lösen `FixAzureVM.cmd` ordet som du angav i skriptet.
+1. När den nya virtuella datorn har körts ansluter du till den virtuella datorn med hjälp av fjärr skrivbord med det nya lösen ordet som du angav i `FixAzureVM.cmd` skriptet.
 
 2. Ta bort följande filer från fjärrsessionen till den nya virtuella datorn för att rensa miljön:
     
@@ -218,7 +218,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
     * Som`%windir%\System32\GroupPolicy\Machine\Scripts`
       * ta bort`scripts.ini`
     * Som`%windir%\System32\GroupPolicy`
-      * ta `gpt.ini` bort ( `gpt.ini` om den fanns före, och du byter namn på `gpt.ini.bak`den till, `.bak` byter du namn `gpt.ini`på filen tillbaka till)
+      * ta bort `gpt.ini` (om `gpt.ini` den fanns före, och du byter namn på den till, byter du namn på `gpt.ini.bak` `.bak` filen tillbaka till `gpt.ini` )
 
 ## <a name="next-steps"></a>Nästa steg
 Om du fortfarande inte kan ansluta med hjälp av fjärr skrivbord går du till [fel söknings guiden för RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). [Detaljerad fel söknings guide för RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) söker efter fel söknings metoder i stället för särskilda steg. Du kan också [öppna en support förfrågan för Azure](https://azure.microsoft.com/support/options/) för praktisk hjälp.

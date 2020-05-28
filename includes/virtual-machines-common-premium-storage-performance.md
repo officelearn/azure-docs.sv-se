@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dba0dd4e52913e0998b088fb2ccf90c98f0a89c2
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821488"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017620"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -333,7 +333,7 @@ En viktig konfiguration i disk ränder är stripe-storleken. Stripe-storlek elle
 
 Om t. ex. en IO-begäran som genererats av ditt program är större än storleken på disk stripe skriver lagrings systemet det över stripe-enhetens gränser på mer än en disk. När det är dags att komma åt dessa data måste de söka i fler än en rand enhet för att slutföra begäran. Den kumulativa påverkan av sådant beteende kan leda till avsevärd prestanda försämring. Å andra sidan, om storleken på IO-begärandena är mindre än stripe-storlek, och om den är slumpmässig i natur, kan IO-begärandena lägga till upp på samma disk som orsakar en Flask hals och i slut ändan försämra IO-prestandan.
 
-Välj en lämplig rand storlek beroende på vilken typ av arbets belastning ditt program körs på. Använd en mindre rand storlek för slumpmässiga små IO-begäranden. För stora sekventiella IO-begäranden används en större rand storlek. Ta reda på rand storleks rekommendationerna för det program som du kommer att köra på Premium Storage. För SQL Server konfigurerar du stripe-storlek på 64 KB för OLTP-arbetsbelastningar och 256 KB för arbets belastningar för data lager. Mer information finns i [metod tips för prestanda för SQL Server på virtuella Azure-datorer](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) .
+Välj en lämplig rand storlek beroende på vilken typ av arbets belastning ditt program körs på. Använd en mindre rand storlek för slumpmässiga små IO-begäranden. För stora sekventiella IO-begäranden används en större rand storlek. Ta reda på rand storleks rekommendationerna för det program som du kommer att köra på Premium Storage. För SQL Server konfigurerar du stripe-storlek på 64 KB för OLTP-arbetsbelastningar och 256 KB för arbets belastningar för data lager. Mer information finns i [metod tips för prestanda för SQL Server på virtuella Azure-datorer](../articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) .
 
 > [!NOTE]
 > Du kan ta bort högst 32 Premium Storage-diskar på en VM för VM-serien och 64 Premium Storage-diskar på en virtuell GS-serien.

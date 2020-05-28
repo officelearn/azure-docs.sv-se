@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15f94e93c270c8d62436b81a7caedbf181c1aeb8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645852"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022550"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645852"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -374,10 +374,10 @@ Den lägsta konfigurationen är följande:
 
 | Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle\<sid> \Origlogaa & mirrlogB | Premium | Ingen | Krävs inte |
-| \oracle\<sid> \Origlogab & mirrlogA | Premium | Ingen | Krävs inte |
-| \oracle\<sid> \sapdata1... m | Premium | Skrivskyddad | Kan användas |
-| \oracle\<sid> \oraarch | Standard | Ingen | Krävs inte |
+| \oracle \<SID> \origlogaA & mirrlogB | Premium | Inga | Krävs inte |
+| \oracle \<SID> \origlogaB & mirrlogA | Premium | Inga | Krävs inte |
+| \oracle \<SID> \sapdata1... m | Premium | Skrivskyddad | Kan användas |
+| \oracle \<SID> \oraarch | Standard | Inga | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | | Krävs inte |
 
 
@@ -387,13 +387,13 @@ Prestanda konfigurationen är följande:
 
 | Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle\<sid> \origlogaa | Premium | Ingen | Kan användas  |
-| \oracle\<sid> \origlogab | Premium | Ingen | Kan användas |
-| \oracle\<sid> \mirrlogab | Premium | Ingen | Kan användas |
-| \oracle\<sid> \mirrlogba | Premium | Ingen | Kan användas |
-| \oracle\<sid> \sapdata1... m | Premium | Skrivskyddad | Rekommenderas  |
-| \oracle\SID\sapdata (n + 1) * | Premium | Ingen | Kan användas |
-| \oracle\<sid> \oraarch * | Premium | Ingen | Krävs inte |
+| \oracle \<SID> \origlogaA | Premium | Inga | Kan användas  |
+| \oracle \<SID> \origlogaB | Premium | Inga | Kan användas |
+| \oracle \<SID> \mirrlogAB | Premium | Inga | Kan användas |
+| \oracle \<SID> \mirrlogBA | Premium | Inga | Kan användas |
+| \oracle \<SID> \sapdata1... m | Premium | Skrivskyddad | Rekommenderas  |
+| \oracle\SID\sapdata (n + 1) * | Premium | Inga | Kan användas |
+| \oracle \<SID> \oraarch * | Premium | Inga | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | Krävs inte |
 
 * (n + 1): värdbaserade SYSTEM-, TEMP-och UNDO-datatabeller. I/O-mönstret för system-och Undo-datatabeller skiljer sig från andra register utrymmen som är värdar för program data. Ingen cachelagring är det bästa alternativet för systemets prestanda och återställa tabell utrymmen.
@@ -464,10 +464,10 @@ Lägsta konfiguration:
 
 | Komponent | Disk | Caching | Tar bort |
 | --- | ---| --- | --- |
-| /Oracle/\<sid>/Origlogaa & mirrlogB | Premium | Ingen | Krävs inte |
-| /Oracle/\<sid>/Origlogab & mirrlogA | Premium | Ingen | Krävs inte |
-| /Oracle/\<sid>/sapdata1... m | Premium | Skrivskyddad | Kan användas |
-| /Oracle/\<sid>/oraarch | Standard | Ingen | Krävs inte |
+| /Oracle/ \<SID> /origlogaA & mirrlogB | Premium | Inga | Krävs inte |
+| /Oracle/ \<SID> /origlogaB & mirrlogA | Premium | Inga | Krävs inte |
+| /Oracle/ \<SID> /sapdata1... m | Premium | Skrivskyddad | Kan användas |
+| /Oracle/ \<SID> /oraarch | Standard | Inga | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | | Krävs inte |
 
 * Ta bort: LVM rand eller MDADM med RAID0
@@ -478,13 +478,13 @@ Prestanda konfiguration:
 
 | Komponent | Disk | Caching | Tar bort |
 | --- | ---| --- | --- |
-| /Oracle/\<sid>/origlogaa | Premium | Ingen | Kan användas  |
-| /Oracle/\<sid>/origlogab | Premium | Ingen | Kan användas |
-| /Oracle/\<sid>/mirrlogab | Premium | Ingen | Kan användas |
-| /Oracle/\<sid>/mirrlogba | Premium | Ingen | Kan användas |
-| /Oracle/\<sid>/sapdata1... m | Premium | Skrivskyddad | Rekommenderas  |
-| /Oracle/\<sid>/sapdata (n + 1) * | Premium | Ingen | Kan användas |
-| /Oracle/\<sid>/oraarch * | Premium | Ingen | Krävs inte |
+| /Oracle/ \<SID> /origlogaA | Premium | Inga | Kan användas  |
+| /Oracle/ \<SID> /origlogaB | Premium | Inga | Kan användas |
+| /Oracle/ \<SID> /mirrlogAB | Premium | Inga | Kan användas |
+| /Oracle/ \<SID> /mirrlogBA | Premium | Inga | Kan användas |
+| /Oracle/ \<SID> /sapdata1... m | Premium | Skrivskyddad | Rekommenderas  |
+| /Oracle/ \<SID> /sapdata (n + 1) * | Premium | Inga | Kan användas |
+| /Oracle/ \<SID> /oraarch * | Premium | Inga | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | Krävs inte |
 
 * Ta bort: LVM rand eller MDADM med RAID0

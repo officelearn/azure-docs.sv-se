@@ -4,19 +4,19 @@ description: Skapa en anpassad princip för villkorlig åtkomst för att kräva 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 03/25/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc6bd486c1e8338eaf875c7026764c80d49e2f05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c65b4ede6f4851418bf17d42db5b3215dafa9234
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295205"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995181"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Villkorlig åtkomst: Kräv kompatibla enheter
 
@@ -34,18 +34,18 @@ Den här policyn för efterlevnad vidarebefordras till Azure AD där villkorlig 
 Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för att kräva att enheter som har åtkomst till resurser markeras som kompatibla med organisationens efterlevnadsprinciper för Intune.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Klar**.
-1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **alla molnappar**.
+   1. Välj **Done** (Klar).
+1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **alla molnappar**.
    1. Om du måste utesluta vissa program från principen kan du välja dem från fliken **exkludera** under **Välj exkluderade molnappar** och välj **Välj**.
-   1. Välj **Klar**.
-1. Under **villkor** > **klient program (för hands version)** anger du **Konfigurera** till **Ja**och väljer **klart**.
-1. Under **åtkomst kontroller** > **tilldelar**väljer **du Kräv att enheten ska markeras som kompatibel**.
+   1. Välj **Done** (Klar).
+1. Under **villkor**  >  **klient program (för hands version)** anger du **Konfigurera** till **Ja**och väljer **klart**.
+1. Under **åtkomst kontroller**  >  **tilldelar**väljer **du Kräv att enheten ska markeras som kompatibel**.
    1. Välj **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.

@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 86cd3d2f7675ca5111c29be278c9433ec7f66945
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 868130b23bc29acf0f1271f68a45f44cee98fe98
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653044"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015632"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Autentisera till Azure Synapse Analytics
 
@@ -54,16 +54,16 @@ Som standard ansluter anslutningen till *huvud* databasen och inte till din anv�
 Azure Active Directory fördelarna är:
 
 * Är ett alternativ till att SQL Server autentisering.
-* Hjälper till att stoppa spridningen av användar identiteter mellan databas servrar.
+* Hjälper till att stoppa spridningen av användar identiteter mellan servrar.
 * Lösenord kan roteras på ett och samma ställe
 * Hantera databas behörigheter med hjälp av externa (Azure AD) grupper.
-* Eliminerar lagring av lösen ord genom att aktivera integrerad Windows-autentisering och andra former av autentisering som stöds av Azure Active Directory.
+* Eliminerar lagring av lösen ord genom att aktivera integrerad Windows-autentisering och o nnan former av autentisering som stöds av Azure Active Directory.
 * Använder inneslutna databas användare för att autentisera identiteter på databas nivå.
 * Stöder tokenbaserad autentisering för program som ansluter till SQL-poolen.
-* Stöder Multi-Factor Authentication via Active Directory Universal Authentication för olika verktyg, inklusive [SQL Server Management Studio](../../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+* Stöder Multi-Factor Authentication via Active Directory Universal Authentication för olika verktyg, inklusive [SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 > [!NOTE]
-> Azure Active Directory är fortfarande relativt nytt och har vissa begränsningar. För att säkerställa att Azure Active Directory passar bra för din miljö kan du läsa mer i [Azure AD-funktioner och begränsningar](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations), särskilt ytterligare överväganden.
+> Azure Active Directory är fortfarande relativt nytt och har vissa begränsningar. För att säkerställa att Azure Active Directory passar bra för din miljö kan du läsa mer i [Azure AD-funktioner och begränsningar](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations), särskilt ytterligare överväganden.
 
 ### <a name="configuration-steps"></a>Konfigurationssteg
 
@@ -80,7 +80,7 @@ Azure Active Directory användare visas för närvarande inte i SSDT Object Expl
 
 ### <a name="find-the-details"></a>Hitta informationen
 
-* Stegen för att konfigurera och använda Azure Active Directory autentisering är nästan identiska för Azure SQL Database och Synapse SQL i Azure Synapse. Följ de detaljerade stegen i avsnittet [ansluta till SQL Database eller SQL-pool med Azure Active Directory autentisering](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+* Stegen för att konfigurera och använda Azure Active Directory autentisering är nästan identiska för Azure SQL Database och Synapse SQL i Azure Synapse. Följ de detaljerade stegen i avsnittet [ansluta till SQL Database eller SQL-pool med Azure Active Directory autentisering](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 * Skapa anpassade databas roller och Lägg till användare i rollerna. Ge sedan detaljerade behörigheter till rollerna. Mer information finns i [komma igång med databas motor behörigheter](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="next-steps"></a>Nästa steg

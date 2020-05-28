@@ -16,16 +16,16 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 1c2d5ae5d85624ea172eb9a95d4086dd71287c4f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82c9f6f0797a4d863e04b45c918d649250157a72
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978212"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017659"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Anslut en virtuell SQL Server-dator på Azure (klassisk distribution)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-sql-connect.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md)
 > * [Klassisk](../classic/sql-connect.md)
 > 
 > 
@@ -34,7 +34,7 @@ ms.locfileid: "75978212"
 I det här avsnittet beskrivs hur du ansluter till din SQL Server-instans som körs på en virtuell Azure-dator. Det täcker några [allmänna anslutnings scenarier](#connection-scenarios) och innehåller sedan [detaljerade steg för att konfigurera SQL Server anslutning i en virtuell Azure-dator](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
-> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du använder virtuella Resource Manager-datorer, se [ansluta till en SQL Server virtuell dator på Azure med Resource Manager](../sql/virtual-machines-windows-sql-connect.md).
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du använder virtuella Resource Manager-datorer, se [ansluta till en SQL Server virtuell dator på Azure med Resource Manager](../../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md).
 
 ## <a name="connection-scenarios"></a>Anslutnings scenarier
 Hur en klient ansluter till SQL Server som körs på en virtuell dator varierar beroende på klientens plats och konfigurationen av dator/nätverk. Några vanliga scenarier:
@@ -106,9 +106,9 @@ Anslutnings Sök vägen sammanfattas i följande diagram:
 ## <a name="next-steps"></a>Efterföljande moment
 Om du också planerar att använda AlwaysOn-tillgänglighetsgrupper för hög tillgänglighet och haveri beredskap bör du överväga att implementera en lyssnare. Databas klienter ansluter till lyssnaren i stället för direkt till en av SQL Server instanserna. Lyssnaren dirigerar klienter till den primära repliken i tillgänglighets gruppen. Mer information finns i [Konfigurera en ILB-lyssnare för AlwaysOn-tillgänglighetsgrupper i Azure](../classic/ps-sql-int-listener.md).
 
-Det är viktigt att granska alla rekommenderade säkerhets metoder för SQL Server som körs på en virtuell Azure-dator. Mer information finns i [Säkerhetsöverväganden för SQL Server på Azure Virtual Machines](../sql/virtual-machines-windows-sql-security.md).
+Det är viktigt att granska alla rekommenderade säkerhets metoder för SQL Server som körs på en virtuell Azure-dator. Mer information finns i [Säkerhetsöverväganden för SQL Server på Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/security-considerations-best-practices.md).
 
 [Utforska utbildningsvägen](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) för SQL Server på virtuella datorer i Azure. 
 
-Andra avsnitt om att köra SQL Server i virtuella Azure-datorer finns [SQL Server på Azure-Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Andra avsnitt om att köra SQL Server i virtuella Azure-datorer finns [SQL Server på Azure-Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

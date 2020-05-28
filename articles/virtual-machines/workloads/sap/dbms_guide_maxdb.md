@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90de49ae3137735683bae6a18b5f7c8951b021ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a7343bcf6ba4388beda118b242fa47d13baaa89
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645879"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022598"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB, liveCache och Content Server-distribution på virtuella Azure-datorer
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645879"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -313,8 +313,8 @@ Det här dokumentet omfattar flera olika områden att tänka på när du distrib
 
 ## <a name="specifics-for-the-sap-maxdb-deployments-on-windows"></a>Information om SAP MaxDB-distributioner i Windows
 ### <a name="sap-maxdb-version-support-on-azure"></a>Stöd för SAP MaxDB-versioner på Azure
-SAP stöder för närvarande SAP MaxDB version 7,9 eller senare för användning med SAP NetWeaver-baserade produkter i Azure. Alla uppdateringar för SAP MaxDB-servern eller JDBC-och ODBC-drivrutinerna som ska användas med SAP NetWeaver-baserade produkter tillhandahålls enbart via SAP-tjänstens <https://support.sap.com/swdc>Marketplace på.
-Allmän information om att köra SAP-NetWeaver på SAP MaxDB finns på <https://www.sap.com/community/topic/maxdb.html>.
+SAP stöder för närvarande SAP MaxDB version 7,9 eller senare för användning med SAP NetWeaver-baserade produkter i Azure. Alla uppdateringar för SAP MaxDB-servern eller JDBC-och ODBC-drivrutinerna som ska användas med SAP NetWeaver-baserade produkter tillhandahålls enbart via SAP-tjänstens Marketplace på <https://support.sap.com/swdc> .
+Allmän information om att köra SAP-NetWeaver på SAP MaxDB finns på <https://www.sap.com/community/topic/maxdb.html> .
 
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>Microsoft Windows-versioner och Azure VM-typer som stöds för SAP MaxDB-DBMS
 För att hitta den Microsoft Windows-version som stöds för SAP MaxDB-DBMS på Azure, se:
@@ -328,7 +328,7 @@ Vi rekommenderar starkt att du använder den senaste versionen av operativ syste
 Den uppdaterade listan över SAP MaxDB-dokumentation finns i följande SAP-anteckning [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>MaxDB konfigurations rikt linjer för SAP-installationer i virtuella Azure-datorer
-#### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Storage-konfiguration
+#### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Lagrings konfiguration
 Metod tips för Azure Storage för SAP MaxDB följer de allmänna rekommendationer som nämns i kapitel [lagrings strukturen för en virtuell dator för RDBMS-distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]

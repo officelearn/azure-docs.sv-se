@@ -1,5 +1,5 @@
 ---
-title: inkludera fil
+title: ta med fil
 description: inkludera fil för bransch taxonomi
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
@@ -21,14 +21,14 @@ Du kan också välja upp till två branscher och två lodräta under varje brans
 >[!NOTE]
 >När vi arbetar för att introducera nya branscher och lodräta funktioner för att förbättra identifieringen av erbjudandet, kan vissa branscher och lodräta inte visas i butik ännu. Branscher och lodräta som är markerade med en (*) är tillgängliga vid ett framtida datum. Alla publicerade erbjudanden kan upptäckas via nyckelords sökning.
 
-| **Bransch**    | **Under bransch**  | 
+| **Industri**    | **Under bransch**  | 
 | :------------------- | :-------------------|
 | * Bil     | * Bil |
 | Jordbruk     | * Annat – segment |
 | Distribution    | * Grossist <br> * Leverans paket & paket |
-| Utbildning     | * Högre utbildning <br> * Primär & sekundär utbildning/K-12 <br> * Bibliotek & Museums |
+| Education     | * Högre utbildning <br> * Primär & sekundär utbildning/K-12 <br> * Bibliotek & Museums |
 | Ekonomiska tjänster     | * Bank & kapital marknader <br> * Försäkring |
-| Government    | * Försvar & Intelligence (används för att kallas för nationell och offentlig säkerhet) <br> * Allmän säkerhets & rättvisa <br> * Civila myndigheter |
+| Myndigheter    | * Försvar & Intelligence (används för att kallas för nationell och offentlig säkerhet) <br> * Allmän säkerhets & rättvisa <br> * Civila myndigheter |
 | Sjukvård (används för att kallas hälsa)   | * Hälso betalare <br> * Hälso leverantör <br> * Farmaceutiska |
 | & resurser för produktion (används för att kallas produktion)   | * Kemisk & Agrochemical <br> * Diskret tillverkning <br> * Energi |
 | Butiks & konsument varor (som används för att kallas detalj handel)  | * Konsument varor <br> * Åter försäljare |

@@ -1,102 +1,85 @@
 ---
-title: Lägg till paneler på instrument panelen | Microsoft Docs
-description: Som ett verktyg kan du läsa om hur du konfigurerar standard instrument panelen för Azure IoT Central-programmet.
-author: mavoge
-ms.author: mavoge
-ms.date: 10/17/2019
+title: Lägga till paneler till din Azure IoT Central-instrumentpanel | Microsoft Docs
+description: Som ett verktyg kan du läsa om hur du konfigurerar standard instrument panelen för Azure IoT Central-program med paneler.
+author: Haley-Rowland
+ms.author: harowl
+ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: 1110f76a792a7e3955d5fd32e01ac1566d467151
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 892bdcc08bd19b92c8b3d32d2954583f80005e87
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659056"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022916"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurera program instrument panelen
 
-**Instrument panelen** är den sida som läses in när användare som har åtkomst till programmet navigerar till programmets URL. Om du har skapat ditt program från någon av **Programmallarna**, kommer programmet att ha en fördefinierad instrument panel att starta. Om du har skapat ditt program från en **anpassad app** -Programmall visar instrument panelen några tips om att komma igång.
+**Instrument panelen** är den första sidan som visas när du ansluter till ett IoT Central-program. Om du skapar ditt program från en av de branschspecifika [Programmallarna](./concepts-app-templates.md)har ditt program en fördefinierad instrument panel att starta. Om du skapar ditt program från en anpassad [Programmall](./concepts-app-templates.md), visar instrument panelen några tips för att komma igång.
 
-> [!NOTE]
+> [!TIP]
 > Användare kan [skapa flera instrument paneler](howto-create-personal-dashboards.md) förutom standard instrument panelen. Dessa instrument paneler kan endast vara personliga för användaren eller delas över alla användare av programmet.  
 
 ## <a name="add-tiles"></a>Lägg till paneler
 
-På följande skärm bild visas instrument panelen i ett program som skapats från den **anpassade program** mal len. Om du vill anpassa standard instrument panelen för ditt program väljer du **Redigera** längst upp till vänster på sidan.
+På följande skärm bild visas instrument panelen i ett program som skapats från den **anpassade program** mal len. Om du vill anpassa den aktuella instrument panelen väljer du **Redigera**, för att lägga till en anpassad personlig eller delad instrument panel, väljer **ny**:
 
-> [!div class="mx-imgBorder"]
-> ![Instrument panel för program som baseras på mallen "exempel contoso"](media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png)
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
 
-Om du väljer **Redigera** öppnas panelen instrument panel bibliotek. Biblioteket innehåller panelerna och de primitiver som du kan använda för att anpassa instrument panelen.
+När du har valt **redigera** eller **nytt**är instrument panelen i *redigerings* läge. Du kan använda verktygen på panelen **Redigera instrument panel** för att lägga till paneler på instrument panelen och anpassa och ta bort paneler på själva instrument panelen. Om du till exempel vill lägga till en **telemetri** -panel för att visa aktuell temperatur som rapporteras av en eller flera enheter:
 
-> [!div class="mx-imgBorder"]
-> ![Instrument panels bibliotek](media/howto-add-tiles-to-your-dashboard/dashboard-library.png)
+1. I panelen **Redigera instrument panel** väljer du en **enhets grupp**.
+1. Välj en eller flera enheter i list rutan **enheter** som ska visas på panelen. Nu ser du tillgängliga telemetri, egenskaper och kommandon från enheterna.
+1. Välj **temperatur** i avsnittet telemetri och välj sedan **Lägg till panel**. Panelen visas nu på instrument panelen där du kan ändra visualiseringen, ändra storlek på panelen och konfigurera den:
 
-Du kan till exempel lägga till en **telemetri** -panel för enhetens aktuella temperatur. Gör så här:
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Lägg till en panel för temperatur telemetri på instrument panelen":::
 
-1. Välj en **mall för enhet**
-1. Välj en enhet från **enheter** för den enhet som du vill se på en panel i instrument panelen. Sedan visas en lista över enhetens egenskaper som kan användas på panelen.
-1. Om du vill skapa panelen på instrument panelen klickar du på **temperatur** och drar den till instrument panels ytan. Du kan också klicka på kryss rutan bredvid **temperatur** och klicka på **Lägg till panel**. Följande skärm bild visar hur du väljer en enhets mall och en enhets instans och sedan skapar en panel för temperatur telemetri på instrument panelen.
-1. Välj **Spara** längst upp till vänster för att spara panelen på instrument panelen.
+När du är klar med att lägga till och anpassa paneler på instrument panelen väljer du **Spara**.
 
-> [!div class="mx-imgBorder"]
-> ![Formuläret "Konfigurera enhets information" med information om inställningar och egenskaper](media/howto-add-tiles-to-your-dashboard/device-details.png)
+## <a name="customize-tiles"></a>Anpassa paneler
 
-Nu när en operatör visar standard instrument panelen för programmet visas den nya panelen med enhetens **temperatur** . Varje panel har ett förvalt diagram, diagram osv. som ska visas när panelen skapas. Användare kan dock välja att redigera och ändra den här visualiseringen.  
+Om du vill anpassa en panel på instrument panelen måste instrument panelen vara i redigerings läge. De tillgängliga anpassnings alternativen beror på [panel typen](#tile-types):
 
-> [!div class="mx-imgBorder"]
-> ![Fliken instrument panel med de inställningar och egenskaper som visas för panelen](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
+* Med ikonen linjal på en panel kan du ändra visualiseringen. Visualiseringar innehåller linje diagram, senaste kända värden och värme kartor.
 
-## <a name="edit-tiles"></a>Redigera paneler
+* Med ikonen fyrkant kan du ändra storlek på panelen.
 
-Om du vill redigera en panel på instrument panelen, klickar du först på **Redigera** längst upp till vänster på sidan, vilket öppnar redigerings läget för instrument panelen och alla dess paneler.  
-
-> [!div class="mx-imgBorder"]
-> ![Instrument panels skärm med aktiverat redigerings läge för en vald panel](media/howto-add-tiles-to-your-dashboard/edit-mode.png)
-
-Klicka sedan på **kugg hjuls** ikonen i det övre högra hörnet på den panel som du vill redigera. Här kan du redigera aspekter av panelen, inklusive dess rubrik, visualisering, agg regering osv.
-
-> [!div class="mx-imgBorder"]
-> ![Listruta för samlings inställningar för panel](media/howto-add-tiles-to-your-dashboard/aggregation-settings.png)
-
-Du kan också ändra diagrammets visualisering genom att klicka på **linjalens** ikon i panelen.
-
-> [!div class="mx-imgBorder"]
-> ![Listruta för inställningar för visualisering av panel](media/howto-add-tiles-to-your-dashboard/visualization-settings.png)
+* Med kugg hjuls ikonen kan du konfigurera visualiseringen. För en linje diagram visualisering kan du till exempel välja att Visa förklaringen och axlarna och välja tidsintervallet som ska ritas.
 
 ## <a name="tile-types"></a>Panel typer
 
-I följande tabell sammanfattas användningen av paneler i Azure IoT Central:
+I följande tabell beskrivs de olika typerna av panel som du kan lägga till på en instrument panel:
 
-| Panel | Instrumentpanel | Description
-| ----------- | ------- | ------- |
-| Innehåll | Instrument paneler för program-och enhets uppsättning |Markdown-paneler som stöds är klickade paneler som visar rubrik och beskrivnings text. Du kan också använda den här panelen som länk panel för att göra det möjligt för en användare att navigera till en URL som är relaterad till ditt program.|
-| Bild | Instrument paneler för program-och enhets uppsättning |Bild paneler visar en anpassad bild och går att klicka på. Använd en bild panel för att lägga till grafik på en instrument panel och om du vill kan en användare navigera till en URL som är relevant för ditt program.|
-| Etikett | Instrument paneler för program |Etikett paneler visar anpassad text på en instrument panel. Du kan välja storlek på texten. Använd en etikett panel för att lägga till relevant information på instrument panelen, till exempel beskrivningar, kontakt uppgifter eller hjälp.|
-| Karta | Instrument paneler för program och enheter |Kart paneler visar platsen för en enhet på en karta. Du kan också visa upp till 100 punkter i enhetens plats historik. Du kan till exempel Visa en exempel väg som visar var en enhet har varit den senaste veckan.|
-| Linje diagram | Instrument paneler för program och enheter |Linje diagram paneler visar ett diagram över mängd mått för en enhet under en tids period. Du kan till exempel visa ett linje diagram som visar genomsnitts temperaturen och trycket för en enhet under den senaste timmen.|
-| Stapeldiagram | Instrument paneler för program och enheter |I stapeldiagram visas ett diagram över sammanställda mått för en enhet under en tids period. Du kan till exempel visa ett stapeldiagram som visar genomsnitts temperaturen och trycket för en enhet under den senaste timmen.|
-| Cirkel diagram | Instrument paneler för program-och enhets uppsättning |I cirkel diagram paneler visas ett diagram över sammanställda mått för en enhet under en tids period.|
-| Termisk karta | Instrument paneler för program-och enhets uppsättning |I panelerna för termisk karta visas information om enheten, som visas som färger.|
-| Händelse historik | Instrument paneler för program och enheter |Panelerna händelse historik visar händelserna för en enhet under en viss tids period. Du kan till exempel använda den för att visa alla temperatur ändringar för en enhet under den senaste timmen.|
-| Tillstånds historik | Instrument paneler för program och enheter |Panelerna för tillstånds historik visar mått värden för en tids period. Du kan till exempel använda den för att visa temperatur värden för en enhet under den senaste timmen.|
-| KPI | Instrument paneler för program och enheter | KPI-paneler visar en sammanställd telemetri eller händelse mätning för en tids period. Du kan till exempel använda den för att visa den maximala temperatur som nåtts för en enhet under den senaste timmen.|
-| Senast kända värde | Instrument paneler för program och enheter |Sista kända värde paneler visar det senaste värdet för en telemetri-eller tillstånds mätning. Du kan till exempel använda den här panelen för att visa de senaste mätningarna av temperatur, tryck och fuktighet för en enhet. |
-| Egenskap | Instrument paneler för program och enheter | Egenskaps paneler visar det aktuella värdet för egenskaper och moln egenskaper för en enhet. Du kan till exempel använda den här panelen för att Visa enhets egenskaper som tillverkare eller inbyggd program vara för en enhet. |
+| Panel             | Beskrivning |
+| ---------------- | ----------- |
+| Markdown         | Markdown paneler är klicknings bara paneler som visar en rubrik och en beskrivnings text formaterad med markdown. URL: en kan vara en relativ länk till en annan sida i programmet eller en absolut länk till en extern plats.|
+| Bild            | Bild paneler visar en anpassad bild och går att klicka på. URL: en kan vara en relativ länk till en annan sida i programmet eller en absolut länk till en extern plats.|
+| Etikett            | Etikett paneler visar anpassad text på en instrument panel. Du kan välja storlek på texten. Använd en etikett panel för att lägga till relevant information på instrument panelen, till exempel beskrivningar, kontakt uppgifter eller hjälp.|
+| Antal            | Antal paneler visar antalet enheter i en enhets grupp.|
+| Karta              | Kart paneler visar platsen för en eller flera enheter på en karta. Du kan också visa upp till 100 punkter i enhetens plats historik. Du kan till exempel Visa en exempel väg om var en enhet har varit den senaste veckan.|
+| KPI              |  KPI-paneler visar sammanlagda värden för telemetri för en eller flera enheter under en tids period. Du kan till exempel använda den för att visa den maximala temperatur och belastning som har nåtts för en eller flera enheter under den senaste timmen.|
+| Linjediagram       | Linje diagram paneler ritar ett eller flera sammanställda telemetri värden för en eller flera enheter under en tids period. Du kan till exempel visa ett linje diagram för att rita upp genomsnitts temperaturen och trycket för en eller flera enheter under den senaste timmen.|
+| Stapeldiagram        | Liggande diagram paneler ritar ett eller flera sammanställda telemetridata för en eller flera enheter under en tids period. Du kan till exempel visa ett stapeldiagram för att Visa genomsnitts temperaturen och trycket för en eller flera enheter under den senaste timmen.|
+| Cirkeldiagram        | Cirkel diagram paneler visar en eller flera sammanställda telemetri värden för en eller flera enheter under en tids period.|
+| Termisk karta         | I panelerna för termisk karta visas information om en eller flera enheter som visas som färger.|
+| Senast kända värde | Sista kända värde panelerna visar de senaste telemetri-värdena för en eller flera enheter. Du kan till exempel använda den här panelen för att visa de senaste temperatur-, tryck-och fuktighets värdena för en eller flera enheter. |
+| Händelse historik    | Panelerna händelse historik visar händelserna för en enhet under en viss tids period. Du kan till exempel använda den för att visa alla ventiler öppna och Stäng händelser för en eller flera enheter under den senaste timmen.|
+| Egenskap         |  Egenskaps paneler visar det aktuella värdet för egenskaper och moln egenskaper för en eller flera enheter. Du kan till exempel använda den här panelen för att Visa enhets egenskaper som tillverkare eller inbyggd program vara för en enhet. |
+
+För närvarande kan du lägga till upp till 10 enheter till paneler som har stöd för flera enheter.
 
 ### <a name="customizing-visualizations"></a>Anpassa visualiseringar
 
-För linje diagram, liggande diagram och cirkel diagram kan du anpassa färgerna som visas av olika telemetrivärden i diagrammet. Det gör du genom att välja palett-ikonen bredvid den telemetri som du vill anpassa och välja en färg.
+För paneler som visar aggregerade värden väljer du kugg hjuls ikonen bredvid typen telemetri i panelen **Konfigurera diagram** för att välja agg regeringen. Du kan välja mellan genomsnitt, sum, Max, minimum och Count.
 
-> [!div class="mx-imgBorder"]
-> ![Listruta för visnings inställningar för telemetri](media/howto-add-tiles-to-your-dashboard/color-customization.png)
+För linje diagram, liggande diagram och cirkel diagram kan du anpassa färgen på de olika värdena för telemetri. Välj palett-ikonen bredvid den telemetri som du vill anpassa:
 
-För telemetrivärden eller egenskaper som är av sträng typ, kan du välja hur du vill visualisera texten. Om din enhet till exempel skickar en URL som en sträng telemetri, kan du visualisera den URL som en klicknings länk. Om URL: en refererar till en bild kan du återge bilden i ett sista känt värde eller en egenskaps panel. Du kan ändra hur String-telemetri visas genom att välja växeln bredvid telemetrins namn. På så sätt kan du visa texten som text, länk eller en bild.
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Ändra färg på ett telemetri värde":::
 
-> [!div class="mx-imgBorder"]
-> ![Listruta för sträng visualiserings inställningar](media/howto-add-tiles-to-your-dashboard/string-viz-customization.png)
+För paneler som visar sträng egenskaper eller telemetridata kan du välja hur du vill att texten ska visas. Om enheten till exempel lagrar en URL i en sträng egenskap kan du Visa den som en klicknings bara länk. Om URL: en refererar till en bild kan du återge bilden i ett sista känt värde eller en egenskaps panel. Om du vill ändra hur en sträng visas i panelen konfiguration väljer du kugg hjuls ikonen bredvid typen av telemetri eller egenskap:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Anger hur en sträng visas på en panel":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f20d79ea353830b41290c7b91d8d1de2b1b3abe
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978150"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014867"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Konfigurera tillgänglighets gruppen Always on på en virtuell Azure-dator med PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "75978150"
 > * [Klassisk: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
-Innan du börjar bör du tänka på att du nu kan slutföra den här uppgiften i Azure Resource Manager-modellen. Vi rekommenderar Azure Resource Manager-modellen för nya distributioner. Se [SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
+Innan du börjar bör du tänka på att du nu kan slutföra den här uppgiften i Azure Resource Manager-modellen. Vi rekommenderar Azure Resource Manager-modellen för nya distributioner. Se [SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer](../../../azure-sql/virtual-machines/windows/availability-group-overview.md).
 
 > [!IMPORTANT]
 > Vi rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver den klassiska distributionsmodellen.
@@ -354,7 +354,7 @@ Domänkontrollantens Server har nu tillhandahållits. Sedan konfigurerar du Acti
    * **Set-AzureSubnet** placerar den virtuella datorn i backend-undernätet.
    * **Add-AzureEndpoint** lägger till åtkomst slut punkter så att klient programmen kan komma åt dessa SQL Server Services-instanser på Internet. Olika portar ges till ContosoSQL1 och ContosoSQL2.
    * **New-AzureVM** skapar den nya SQL Server VM i samma moln tjänst som ContosoQuorum. Du måste placera de virtuella datorerna i samma moln tjänst om du vill att de ska vara i samma tillgänglighets uppsättning.
-4. Vänta tills varje virtuell dator är helt etablerad och för varje virtuell dator kan du ladda ned dess fjärr skrivbords fil till din arbets katalog. `for` Loopen går igenom de tre nya virtuella datorerna och kör kommandona inuti klammerparenteserna på den översta nivån för var och en av dem.
+4. Vänta tills varje virtuell dator är helt etablerad och för varje virtuell dator kan du ladda ned dess fjärr skrivbords fil till din arbets katalog. `for`Loopen går igenom de tre nya virtuella datorerna och kör kommandona inuti klammerparenteserna på den översta nivån för var och en av dem.
 
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
         {
@@ -481,7 +481,7 @@ Slutligen är du redo att konfigurera tillgänglighets gruppen. Du använder SQL
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Hämta **CreateAzureFailoverCluster. ps1** från [skapa redundanskluster för Always on-TILLGÄNGLIGHETSGRUPPER i Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) till den lokala arbets katalogen. Du använder det här skriptet för att hjälpa dig att skapa ett funktionellt kluster för växling vid fel. Viktig information om hur Windows-redundanskluster interagerar med Azure-nätverket finns i [hög tillgänglighet och haveri beredskap för SQL Server i Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+7. Hämta **CreateAzureFailoverCluster. ps1** från [skapa redundanskluster för Always on-TILLGÄNGLIGHETSGRUPPER i Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) till den lokala arbets katalogen. Du använder det här skriptet för att hjälpa dig att skapa ett funktionellt kluster för växling vid fel. Viktig information om hur Windows-redundanskluster interagerar med Azure-nätverket finns i [hög tillgänglighet och haveri beredskap för SQL Server i Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Ändra till din arbets katalog och skapa redundansklustret med det nedladdade skriptet.
 
         Set-ExecutionPolicy Unrestricted -Force
@@ -567,4 +567,4 @@ Slutligen är du redo att konfigurera tillgänglighets gruppen. Du använder SQL
 ## <a name="next-steps"></a>Nästa steg
 Nu har du implementerat SQL Server Always on genom att skapa en tillgänglighets grupp i Azure. Information om hur du konfigurerar en lyssnare för den här tillgänglighets gruppen finns i [Konfigurera en ILB-lyssnare för Always on-tillgänglighetsgrupper i Azure](../classic/ps-sql-int-listener.md).
 
-Mer information om hur du använder SQL Server i Azure finns [SQL Server på Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Mer information om hur du använder SQL Server i Azure finns [SQL Server på Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).

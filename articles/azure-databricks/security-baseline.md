@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 23057723d46ed5d9203741ab2eb1a15edb5bd510
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 229485b5aa1bf3a97429c8d82c4c962cd9fab5c7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681706"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016346"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Azures säkerhets bas linje för Azure Databricks
 
@@ -200,7 +200,7 @@ För gransknings loggning tillhandahåller Azure Databricks omfattande diagnosti
 
 Obs: Azure Databricks diagnostikloggar kräver Azure Databricks Premiums plan
 
-* Så [här aktiverar du diagnostikinställningar för Azure aktivitets loggen](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 * [Så här aktiverar du diagnostikinställningar för Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs)
 
@@ -262,7 +262,7 @@ Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel e
 
 Obs: Azure Databricks diagnostikloggar kräver Azure Databricks Premiums plan
 
-* Så [här skickar du Azure Databricks loggar till Log Analytics-arbetsytan](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery))
+* [Så här skickar du Azure Databricks loggar till Log Analytics-arbetsytan](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery)
 
 * [Så här konfigurerar du aviseringar i Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 07e8d2b6bd22029a4b6556ada62985167807eb77
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ca11fce252192cbf8e5f0bc2cfb5fcd38f5d4443
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833939"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020888"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på Virtual Machines
 
@@ -41,7 +41,7 @@ Det är viktigt att förstå processen från slut punkt till slut punkt för anv
 * Möjliga metoder för migrering.
 * Komplett exempel från slut punkt till slut punkt som visar Azure, Windows och SQL Server steg för migrering av en befintlig Always on-implementering.
 
-Mer bakgrunds information om SQL Server i Azure Virtual Machines finns i [SQL Server i azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Mer bakgrunds information om SQL Server i Azure Virtual Machines finns i [SQL Server i azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 
 **Författare:** Daniel sol **teknisk granskare:** Luis Carlos Vargas sill, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
@@ -681,7 +681,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Steg 2: öka de tillåtna felen för resurser \< valfria>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Steg 2: öka antalet tillåtna problem på resurser\<Optional>
 
 På vissa resurser som tillhör din Always tillgänglighets grupp finns det begränsningar för hur många fel som kan inträffa under en period, där kluster tjänsten försöker starta om resurs gruppen. Vi rekommenderar att du ökar detta medan du går igenom den här proceduren, eftersom om du inte manuellt redundansväxlas och utlöser redundans genom att stänga av datorer som du kan komma nära den här gränsen.
 
@@ -691,7 +691,7 @@ Det skulle vara försiktig med att göra detta i Klusterhanteraren för växling
 
 Ändra Max felen till 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Steg 3: Lägg till IP-adressresurs för kluster grupp \< alternativ>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Steg 3: lägga till IP-adressresurs för kluster grupp\<Optional>
 
 Om du bara har en IP-adress för kluster gruppen och detta är justerat till moln under nätet, är du uppmärksam på om du oavsiktligt tar offline alla klusternoder i molnet i nätverket, så kan klustrets IP-resurs och kluster nätverks namn inte anslutas. I den här situationen förhindrar den uppdateringar till andra kluster resurser.
 
@@ -1250,7 +1250,7 @@ För att lägga till i IP-adress, se tillägget, steg 14.
 
 * [Azure-Premium Storage](../disks-types.md)
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
-* [SQL Server i Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [SQL Server i Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png

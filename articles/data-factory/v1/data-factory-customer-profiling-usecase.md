@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75969296"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021899"
 ---
 # <a name="use-case---customer-profiling"></a>Användnings fall – kund profilering
 Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite av lösnings acceleratorer.  Mer information om Cortana Intelligence finns [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). I det här dokumentet beskriver vi ett enkelt användnings fall som hjälper dig att komma igång med att förstå hur Azure Data Factory kan lösa vanliga analys problem.
@@ -38,7 +38,7 @@ Allt du behöver för att komma åt och testa det här enkla användnings fallet
 3. På bladet **exempel pipelines** klickar du på den **kund profil** som du vill distribuera.
 
     ![Exempel på pipeline-blad](./media/data-factory-samples/SampleTile.png)
-4. Ange konfigurations inställningar för exemplet. Till exempel namnet på ditt Azure Storage-konto och din nyckel, Azure SQL Server-namn, databas, användar-ID och lösen ord.
+4. Ange konfigurations inställningar för exemplet. Till exempel namnet på ditt Azure Storage-konto och nyckel, logiskt SQL-servernamn, databas, användar-ID och lösen ord.
 
     ![Exempel blad](./media/data-factory-samples/SampleBlade.png)
 5. När du är klar med att ange konfigurations inställningarna klickar du på **skapa** för att skapa/distribuera exempel pipeliner och länkade tjänster/tabeller som används av pipelinen.

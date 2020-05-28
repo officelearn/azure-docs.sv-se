@@ -388,7 +388,7 @@
               href: service-updates-how-to.md
             - name: Ta bort ett valv
               href: delete-vault.md
-    - name: Site Recovery-stöd för närhetsplaceringsgrupper
+    - name: Site Recovery för närhetsplaceringsgrupper
       href: how-to-enable-replication-proximity-placement-groups.md
     - name: Haveriberedskap för appar
       items:

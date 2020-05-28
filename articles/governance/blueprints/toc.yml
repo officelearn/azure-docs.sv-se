@@ -284,13 +284,15 @@
   items:
     - name: GitHub – Azure Blueprints-exempel
       href: 'https://github.com/Azure/azure-blueprints'
+    - name: Frågor och svar från Microsoft – Azure Blueprints
+      href: /answers/topics/azure-blueprints.html
+    - name: Styrning av YouTube-kanal
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+    - name: Azure Friday – Översikt över Azure Blueprints
+      href: 'https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance'
-    - name: Styrning av YouTube-kanal
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-    - name: Azure Friday – Översikt över Azure Blueprints
-      href: 'https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints'
+      href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345058'

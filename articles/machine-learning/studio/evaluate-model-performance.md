@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 3c041834b9ad191817cdf1380b0a75efc7639bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: caa37dbc3a09236c8e9553eba506e6c0b25e51e2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218144"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118443"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Utvärdera modell prestanda i Azure Machine Learning Studio (klassisk)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Den här artikeln visar hur du utvärderar en modells prestanda i Azure Machine Learning Studio (klassisk) och ger en kort förklaring av de mått som är tillgängliga för den här aktiviteten. Tre vanliga övervakade inlärnings scenarier presenteras: 
 
@@ -151,7 +149,7 @@ Anslut portarna enligt bilden i bild 10.
 
 Ställ in etikett kolumn index för modulen [träna modell][train-model] på 5. Data uppsättningen har ingen rubrik rad men vi vet att klass etiketterna är i den femte kolumnen.
 
-Klicka på modulen [Importera data][import-data] och ange egenskapen *data källa* till webb- *URL via http*och *URL: en* till http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Klicka på modulen [Importera data][import-data] och ange egenskapen *data källa* till webb- *URL via http*och *URL: en* till http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
 
 Ange del av instanser som ska användas för utbildning i modulen [dela data][split] (till exempel 0,7).
 

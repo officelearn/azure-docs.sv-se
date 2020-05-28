@@ -4,18 +4,18 @@ description: Application Insights utför Smart analys av din app-telemetri och v
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697170"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016856"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering-prestanda avvikelser
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) analyserar automatiskt prestanda för ditt webb program och kan varna dig om potentiella problem. Du kanske läser detta eftersom du har fått ett av våra meddelanden om Smart identifiering.
 
-Den här funktionen kräver ingen särskild konfiguration, förutom att konfigurera din app för Application Insights (på [ASP.net](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md)eller [Node. js](../../azure-monitor/app/nodejs.md)och i [webb sid kod](../../azure-monitor/app/javascript.md)). Den är aktiv när din app genererar tillräckligt telemetri.
+Den här funktionen kräver ingen särskild konfiguration, förutom att konfigurera din app för Application Insights för ditt [språk som stöds](../../azure-monitor/app/platforms.md). Den är aktiv när din app genererar tillräckligt telemetri.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>När får jag ett meddelande om Smart identifiering?
 
@@ -57,7 +57,7 @@ Meddelanden om Smart identifiering är aktiverade som standard och skickas till 
 
 E-postmeddelanden om Smart identifiering av prestanda avvikelser är begränsade till en e-postadress per dag per Application Insights resurs. E-postmeddelandet skickas endast om det finns minst ett nytt problem som har upptäckts den dagen. Du får inte upprepas upprepade meddelanden. 
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 * *Så kommer Microsoft-personal att titta på mina data?*
   * Nej. Tjänsten är helt automatisk. Endast du får meddelanden. Dina data är [privata](../../azure-monitor/app/data-retention-privacy.md).

@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 8c85a652cde840336c51e1a5b5459f9dc591e0be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b331ccee183ec101cf3449f12b4f656a1325819
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414677"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118100"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Felsöka paket körning i SSIS integration runtime
 
@@ -38,7 +38,7 @@ Här är möjliga orsaker och rekommenderade åtgärder:
 * Data källan eller målet är överbelastat. Kontrol lera belastningen på data källan eller målet och se om det finns tillräckligt med kapacitet. Om du t. ex. använde Azure SQL Database kan du skala upp om databasen troligen är tids gräns.
 * Nätverket mellan SSIS-integrerings körningen och data källan eller målet är instabilt, särskilt när anslutningen är mellan olika regioner eller mellan lokala platser och Azure. Använd mönstret för återförsök i SSIS-paketet genom att följa dessa steg:
   * Se till att dina SSIS-paket kan köras igen vid fel utan sido effekter (till exempel data förlust eller dataduplicering).
-  * Konfigurera **återförsök** och **Återförsöksintervall** för aktiviteten **kör SSIS-paket** på fliken **Allmänt** . ![ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+  * Konfigurera **återförsök** **och återförsöksintervall** för aktiviteten **kör SSIS-paket** på fliken **Allmänt** . ![ Ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
   * För en ADO.NET och OLE DB käll-eller mål komponent anger du **ConnectRetryCount** och **ConnectRetryInterval** i anslutnings hanteraren i SSIS-paketet eller SSIS-aktiviteten.
 
 ### <a name="error-message-ado-net-source-has-failed-to-acquire-the-connection--with-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server-the-server-was-not-found-or-was-not-accessible"></a>Fel meddelande: "ADO NET source kunde inte hämta anslutningen"... "" med "ett nätverksrelaterade eller instans-relaterat fel uppstod när en anslutning upprättades till SQL Server. Det gick inte att hitta servern eller så var den inte tillgänglig. "
@@ -74,10 +74,10 @@ Det här felet innebär att den lokala disken används i SSIS-noden för integra
 * Möjlig orsak och rekommenderad åtgärd:
   * Om SSIS-aktiviteten kör ett paket från fil systemet (paketfil eller projekt filen) uppstår det här felet om projektet, paketet eller konfigurations filen inte är tillgängliga med de autentiseringsuppgifter för paket åtkomst som du angav i SSIS-aktiviteten
     * Om du använder Azure-fil:
-      * Fil Sök vägen ska börja med \\ \\ \<lagrings konto\>namnet.\\\<File.Core.Windows.net fil resurs Sök väg\>
+      * Fil Sök vägen ska börja med \\ \\ \<storage account name\> . File.Core.Windows.net\\\<file share path\>
       * Domänen ska vara "Azure"
-      * Användar namnet måste vara \<ett lagrings konto namn\>
-      * Lösen ordet ska vara \<lagrings åtkomst nyckel\>
+      * Användar namnet ska vara\<storage account name\>
+      * Lösen ordet ska vara\<storage access key\>
     * Om du använder en lokal fil kontrollerar du om VNet, paket åtkomst behörighet och behörighet har kon figurer ATS korrekt så att din Azure-SSIS integration runtime kan komma åt din lokala fil resurs
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Fel meddelande: "fil namnet"... angavs i anslutningen var inte giltigt.
@@ -95,20 +95,20 @@ Det här felet uppstår när paket körningen inte kan hitta en fil på den loka
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>Fel meddelande: "databasen SSISDB har nått sin storleks kvot"
 
-En möjlig orsak är att SSISDB-databasen som skapats i Azure SQL-databasen, eller en hanterad instans när du skapar en SSIS Integration Runtime, har nått sin kvot. Försök med följande åtgärder:
-* Överväg att öka antalet DTU:er för din databas. Du hittar mer information i [Resursbegränsningar för SQL Database för en Azure SQL Database-server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+En möjlig orsak är att SSISDB-databasen som skapades i Azure SQL Database eller i SQL-hanterad instans har nått sin kvot. Försök med följande åtgärder:
+* Överväg att öka antalet DTU:er för din databas. Du hittar mer information i [SQL Database gränser för en logisk server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 * Kontrollera om ditt paket skulle generera många loggar. I så fall kan du konfigurera ett elastiskt jobb så att dessa loggar rensas. Mer information finns i [Rensa SSISDB-loggar med Azure Elastic Database-jobb](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
 
 ### <a name="error-message-the-request-limit-for-the-database-is--and-has-been-reached"></a>Fel meddelande: "gränsen för begäran för databasen är... och har nåtts. "
 
-Om många paket körs parallellt i SSIS-integrerings körningen kan det här felet inträffa eftersom SSISDB har nått sin gräns för begäran. Överväg att öka DTC-SSISDB för att lösa problemet. Du hittar mer information i [Resursbegränsningar för SQL Database för en Azure SQL Database-server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+Om många paket körs parallellt i SSIS-integrerings körningen kan det här felet inträffa eftersom SSISDB har nått sin gräns för begäran. Överväg att öka DTC-SSISDB för att lösa problemet. Du hittar mer information i [SQL Database gränser för en logisk server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 
 ### <a name="error-message-ssis-operation-failed-with-unexpected-operation-status-"></a>Fel meddelande: "SSIS-åtgärden misslyckades med oväntad åtgärds status:..."
 
 Felet orsakas oftast av ett tillfälligt problem, så försök att köra paket körningen igen. Använd mönstret för återförsök i SSIS-paketet genom att följa dessa steg:
 
 * Se till att dina SSIS-paket kan köras igen vid fel utan sido effekter (till exempel data förlust eller dataduplicering).
-* Konfigurera **återförsök** och **Återförsöksintervall** för aktiviteten **kör SSIS-paket** på fliken **Allmänt** . ![ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+* Konfigurera **återförsök** **och återförsöksintervall** för aktiviteten **kör SSIS-paket** på fliken **Allmänt** . ![ Ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 * För en ADO.NET och OLE DB käll-eller mål komponent anger du **ConnectRetryCount** och **ConnectRetryInterval** i anslutnings hanteraren i SSIS-paketet eller SSIS-aktiviteten.
 
 ### <a name="error-message-there-is-no-active-worker"></a>Fel meddelande: "det finns ingen aktiv arbets rutin".
@@ -157,7 +157,7 @@ En möjlig orsak är att integration runtime med egen värd inte har installerat
   * Du kan hitta körnings loggen i [SSMS-rapporten](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) eller i den loggfil som du angav i SSIS-paketets körnings aktivitet.
   * vNet kan också användas för att komma åt lokala data som ett alternativ. Mer information finns i delta i en [Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md)
 
-### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Fel meddelande: "status för mellanlagring av aktivitet: misslyckades. Fel vid mellanlagring: felkod: 2906, ErrorMessage: det gick inte att köra paketet., utdata: {"OperationErrorMessages": "SSIS utförar slutkod:-1. \ n", "LogLocation": "... \\SSISTelemetry\\ExecutionLog\\... "," effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Fel meddelande: "status för mellanlagring av aktivitet: misslyckades. Fel vid mellanlagring: felkod: 2906, ErrorMessage: det gick inte att köra paketet., utdata: {"OperationErrorMessages": "SSIS utförar slutkod:-1. \ n", "LogLocation": "... \\ SSISTelemetry \\ ExecutionLog \\ ... "," effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"
 
 Se till att Visual C++ runtime är installerat på en dator med egen värd för integration Runtime. Mer information finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
@@ -179,7 +179,7 @@ Här är möjliga orsaker och rekommenderade åtgärder:
   * Information om hur du ställer in antal noder och maximal parallell körning per nod finns i [skapa en Azure-SSIS integration runtime i Azure Data Factory](create-azure-ssis-integration-runtime.md).
 * Integrerings körningen för SSIS har stoppats eller är i fel tillstånd. Information om hur du kontrollerar SSIS för integration runtime finns i [Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).
 
-Vi rekommenderar också att du anger en tids gräns på fliken **Allmänt** : ![ange egenskaper på fliken](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)allmänt.
+Vi rekommenderar också att du anger en tids gräns på fliken **Allmänt** : ![ Ange egenskaper på fliken Allmänt ](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png) .
 
 ### <a name="poor-performance-in-package-execution"></a>Dåliga prestanda vid paket körning
 

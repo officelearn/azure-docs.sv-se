@@ -1,24 +1,24 @@
 ---
 title: Importera från data källor – QnA Maker
-description: En QnA Maker kunskaps bas består av en uppsättning fråge-och svars uppsättningar (QnA) och valfria metadata som är associerade med varje QnA-par.
+description: En QnA Maker kunskaps bas består av en uppsättning fråga-och-svar-par (QnA) och valfria metadata som är kopplade till varje QnA-par.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eaa19cb2abf84f31cda9d8894e91ec1540980b27
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804290"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993107"
 ---
 # <a name="importing-from-data-sources"></a>Importerar från datakällor
 
-En kunskaps bas består av frågor och svars uppsättningar från offentliga URL: er och filer.
+En kunskaps bas består av fråge-och svars par som tas i offentliga URL: er och filer.
 
 ## <a name="data-source-locations"></a>Platser för data källor
 
 Innehållet samlas in i en kunskaps bas från en data källa. Platser för data källor är **offentliga URL: er eller filer**som inte kräver autentisering.
 
-[SharePoint-filer](../how-to/add-sharepoint-datasources.md), säkra med autentisering, är undantaget. SharePoint-resurser måste vara filer, inte webb sidor. Om URL: en slutar med ett webb tillägg, till exempel. ASPX importeras inte till QnA Maker från SharePoint.
+[SharePoint-filer](../how-to/add-sharepoint-datasources.md), säkra med autentisering, är undantaget. SharePoint-resurser måste vara filer, inte webb sidor. Om URL:en slutar med ett webbtillägg (till exempel .ASPX) importeras den inte till QnA Maker från SharePoint.
 
 ## <a name="chit-chat-content"></a>Innehåll för CHI2TEST-chatt
 
@@ -26,7 +26,7 @@ Innehålls uppsättningen för Chi2test av QnA erbjuds som en fullständig inneh
 
 ## <a name="structured-data-format-through-import"></a>Strukturerat data format via import
 
-Om du importerar en kunskaps bas ersätts innehållet i den befintliga kunskaps basen. Importen kräver en strukturerad `.tsv` fil som innehåller frågor och svar. Den här informationen hjälper QnA Maker att gruppera frågans svars uppsättningar och attributerar dem till en viss data källa.
+Om du importerar en kunskaps bas ersätts innehållet i den befintliga kunskaps basen. Importen kräver en strukturerad `.tsv` fil som innehåller frågor och svar. Den här informationen hjälper QnA Maker att gruppera frågans svars par och attributerar dem till en viss data källa.
 
 | Fråga  | Svar  | Källa| Metadata (1 nyckel: 1 värde) |
 |-----------|---------|----|---------------------|
@@ -35,12 +35,12 @@ Om du importerar en kunskaps bas ersätts innehållet i den befintliga kunskaps 
 
 ## <a name="structured-multi-turn-format-through-import"></a>Strukturerat multi-turn-format genom import
 
-Du kan skapa flera-turn-konversationer i `.tsv` ett fil format. Formatet ger dig möjlighet att skapa fler tråds samtal genom att analysera tidigare chatt-loggar (med andra processer, inte använda QnA Maker) och sedan skapa `.tsv` filen via Automation. Importera filen för att ersätta den befintliga kunskaps basen.
+Du kan skapa flera-turn-konversationer i ett `.tsv` fil format. Formatet ger dig möjlighet att skapa fler tråds samtal genom att analysera tidigare chatt-loggar (med andra processer, inte använda QnA Maker) och sedan skapa `.tsv` filen via Automation. Importera filen för att ersätta den befintliga kunskaps basen.
 
 > [!div class="mx-imgBorder"]
 > ![Konceptuell modell av 3 nivåer av fråga i flera vända frågor](../media/qnamaker-concepts-knowledgebase/nested-multi-turn.png)
 
-Kolumnen för en multi-turn `.tsv`, som är speciell för flera-Turn, **visas**. Ett exempel `.tsv`, som visas i Excel, visar den information som ska inkluderas för att definiera underordnade noder i flera varv:
+Kolumnen för en multi-turn `.tsv` , som är speciell för flera-Turn, **visas**. Ett exempel `.tsv` , som visas i Excel, visar den information som ska inkluderas för att definiera underordnade noder i flera varv:
 
 ```JSON
 [
@@ -58,7 +58,7 @@ Kolumnen för en multi-turn `.tsv`, som är speciell för flera-Turn, **visas**.
 
 Om du är osäker på hur du kan representera QnA-paret i `.tsv` filen:
 * Använd det här [nedladdnings bara exemplet från GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
-* Eller skapa uppsättningen i QnA Maker-portalen, Spara och exportera sedan kunskaps basen för ett exempel på hur uppsättningen ska representera uppsättningen.
+* Eller skapa paret i QnA Maker-portalen, Spara och exportera sedan kunskaps basen för ett exempel på hur du kan representera paret.
 
 ## <a name="next-steps"></a>Nästa steg
 

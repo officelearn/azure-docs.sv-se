@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/12/2020
 tags: connectors
-ms.openlocfilehash: c32e17aaf83c233ad77bbbf607c30cc526253352
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 5090d772be4f68c696e8dd4882a78ba6954b6058
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402588"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020735"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för SQL Server eller Azure SQL Database med Azure Logic Apps
 
@@ -22,11 +22,11 @@ Du kan skapa Logi Kap par som körs när de utlöses av händelser i din SQL-dat
 
 Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Information om anslutningsspecifika teknisk information, begränsningar och kända problem finns på [referens sidan för SQL Server koppling](https://docs.microsoft.com/connectors/sql/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* En [SQL Server databas](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) eller [Azure SQL-databas](../sql-database/sql-database-get-started-portal.md)
+* En [SQL Server databas](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) eller [Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md)
 
   Dina tabeller måste innehålla data så att din Logi Kap par kan returnera resultat vid anrop av åtgärder. Om du skapar en Azure SQL Database kan du använda exempel databaser, som ingår.
 

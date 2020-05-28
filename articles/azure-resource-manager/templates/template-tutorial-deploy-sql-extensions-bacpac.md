@@ -5,22 +5,23 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69e2b25a16a984445a32f884fab5caec6651df32
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80754327"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018403"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Självstudie: importera SQL BACPAC-filer med ARM-mallar
 
 Lär dig hur du använder Azure SQL Database tillägg för att importera en BACPAC-fil med Azure Resource Manager ARM-mallar. Distributions artefakter är alla filer, förutom de viktigaste mallarna, som behövs för att slutföra en distribution. BACPAC-filen är en artefakt.
 
-I den här självstudien skapar du en mall för att distribuera en Azure SQL-Server och en SQL-databas och importera en BACPAC-fil. Information om hur du distribuerar tillägg för virtuella Azure-datorer med hjälp av ARM-mallar finns i [Självstudier: distribuera tillägg för virtuella datorer med ARM-mallar](./template-tutorial-deploy-vm-extensions.md).
+I den här självstudien skapar du en mall för att distribuera en [logisk SQL-Server](../../azure-sql/database/logical-servers.md) och en enkel databas och importera en BACPAC-fil. Information om hur du distribuerar tillägg för virtuella Azure-datorer med hjälp av ARM-mallar finns i [Självstudier: distribuera tillägg för virtuella datorer med ARM-mallar](./template-tutorial-deploy-vm-extensions.md).
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
+>
 > * Förbered en BACPAC-fil.
 > * Öppna en snabb starts mall.
 > * Redigera mallen.
@@ -29,12 +30,12 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
 * Visual Studio Code med verktygstillägget för Resource Manager. Se [använda Visual Studio Code för att skapa arm-mallar](./use-vs-code-to-create-template.md).
-* Om du vill öka säkerheten använder du ett genererat lösen ord för administratörs kontot för Azure-SQL Server. Här är ett exempel som du kan använda för att generera ett lösen ord:
+* Om du vill öka säkerheten använder du ett genererat lösen ord för Server administratörs kontot. Här är ett exempel som du kan använda för att generera ett lösen ord:
 
     ```console
     openssl rand -base64 32
@@ -44,7 +45,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="prepare-a-bacpac-file"></a>Förbereda en BACPAC-fil
 
-En BACPAC-fil delas i [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Om du vill skapa en egen läser du [Exportera en Azure SQL-databas till en BACPAC-fil](../../sql-database/sql-database-export.md). Om du väljer att publicera filen till din egen plats måste du uppdatera mallen senare under självstudien.
+En BACPAC-fil delas i [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Om du vill skapa en egen läser du [Exportera en Azure SQL-databas till en BACPAC-fil](../../azure-sql/database/database-export.md). Om du väljer att publicera filen till din egen plats måste du uppdatera mallen senare under självstudien.
 
 BACPAC-filen måste lagras i ett Azure Storage-konto innan den kan importeras med hjälp av en ARM-mall. Följande PowerShell-skript förbereder BACPAC-filen med följande steg:
 
@@ -100,7 +101,7 @@ BACPAC-filen måste lagras i ett Azure Storage-konto innan den kan importeras me
 
 Mallen som används i den här självstudien lagras i [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
-1. Från Visual Studio **Code väljer** > du**Öppna fil**.
+1. Från Visual Studio **Code väljer du**  >  **Öppna fil**.
 1. I **Filnamn** klistrar du in följande URL:
 
     ```url
@@ -115,7 +116,7 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
    * `Microsoft.SQL.servers/databases`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
         Det är bra om du har grundläggande förståelse av mallen innan du anpassar den.
-1. Välj **Arkiv** > **Spara som** för att spara en kopia av filen på din lokala dator med namnet *azuredeploy. JSON*.
+1. Välj **Arkiv**  >  **Spara som** för att spara en kopia av filen på din lokala dator med namnet *azuredeploy. JSON*.
 
 ## <a name="edit-the-template"></a>Redigera mallen
 
@@ -142,7 +143,7 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
 
 1. Lägg till två ytterligare resurser i mallen.
 
-    * Om du vill tillåta att SQL Database-tillägget importerar BACPAC-filer måste du tillåta trafik från Azure-tjänster. Lägg till följande regel definition för brand väggen under SQL Server-definitionen:
+    * Om du vill tillåta att SQL Database-tillägget importerar BACPAC-filer måste du tillåta trafik från Azure-tjänster. Lägg till följande brand Väggs regel definition under Server definitionen:
 
         ```json
         "resources": [
@@ -197,7 +198,7 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
 
         * **dependsOn**: tilläggsresursen måste skapas efter att SQL-databasen har skapats.
         * **storageKeyType**: ange vilken typ av lagrings nyckel som ska användas. Värdet kan vara antingen `StorageAccessKey` eller `SharedAccessKey`. Använd `StorageAccessKey` i den här självstudien.
-        * **storageKey**: Ange nyckeln för lagrings kontot där BACPAC-filen lagras. Om lagrings nyckel typen är `SharedAccessKey`måste den föregås av "?".
+        * **storageKey**: Ange nyckeln för lagrings kontot där BACPAC-filen lagras. Om lagrings nyckel typen är `SharedAccessKey` måste den föregås av "?".
         * **storageUri**: Ange URL: en för den BACPAC-fil som lagras i ett lagrings konto.
         * **administratorLoginPassword**: Lösenordet för SQL-administratören. Använd ett genererat lösenord. Se [krav](#prerequisites).
 
@@ -238,7 +239,7 @@ Använd ett genererat lösenord. Se [krav](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
-För att få åtkomst till SQL Server från klient datorn måste du lägga till ytterligare en brand Väggs regel. Mer information finns i [skapa och hantera IP-brandväggens regler](../../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
+För att få åtkomst till servern från klient datorn måste du lägga till ytterligare en brand Väggs regel. Mer information finns i [skapa och hantera IP-brandväggens regler](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
 I Azure Portal väljer du SQL-databasen från den nyligen distribuerade resurs gruppen. Välj **Frågeredigerare (förhandsversion)** och ange administratörsautentiseringsuppgifterna. Du ser två tabeller som importer ATS till-databasen.
 
@@ -255,7 +256,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du distribuerat en SQL-Server och en SQL-databas och importerat en BACPAC-fil. Information om hur du felsöker mallar för distribution finns i:
+I den här självstudien har du distribuerat en server och en databas och importerat en BACPAC-fil. Information om hur du felsöker mallar för distribution finns i:
 
 > [!div class="nextstepaction"]
 > [Felsöka distributioner av ARM-mallar](./template-tutorial-troubleshoot.md)

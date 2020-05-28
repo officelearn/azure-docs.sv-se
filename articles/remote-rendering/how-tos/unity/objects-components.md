@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
-ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f9f0e164f7ab0a6b146aad3a2809bf85e5aa4be
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409857"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020667"
 ---
 # <a name="interact-with-unity-game-objects-and-components"></a>Interagera med spelobjekt och komponenter i Unity
 
@@ -22,7 +22,7 @@ Det innebär att unions integreringen av Azure fjärrrendering kommer att ha ytt
 
 ## <a name="load-a-model-in-unity"></a>Läs in en modell i Unity
 
-När du läser in en modell får du en referens till det inlästa modellens rot objekt. Den här referensen är inte ett enhets spel objekt, men du kan göra det till ett med `Entity.GetOrCreateGameObject()`hjälp av tilläggs metoden. Funktionen förväntar sig ett argument av `UnityCreationMode`typen. Om du skickar `CreateUnityComponents`så fylls det nya enhets spels objektet i med proxy-komponenter för alla komponenter för fjärrrendering som finns på värden. Vi rekommenderar att, men för att föredra `DoNotCreateUnityComponents`, behålla den lägsta omkostnaden.
+När du läser in en modell får du en referens till det inlästa modellens rot objekt. Den här referensen är inte ett enhets spel objekt, men du kan göra det till ett med hjälp av tilläggs metoden `Entity.GetOrCreateGameObject()` . Funktionen förväntar sig ett argument av typen `UnityCreationMode` . Om du skickar så `CreateUnityComponents` fylls det nya enhets spels objektet i med proxy-komponenter för alla komponenter för Fjärrrendering som finns på värden. Vi rekommenderar att, men för att föredra `DoNotCreateUnityComponents` , behålla den lägsta omkostnaden.
 
 ### <a name="load-model-with-task"></a>Läs in modell med aktivitet
 
@@ -82,21 +82,21 @@ async void LoadModelWithAwait()
 }
 ```
 
-I kod exemplen ovan används modell inläsnings Sök vägen via SAS eftersom den inbyggda modellen har lästs in. Att adressera modellen via BLOB-behållare (med `LoadModelAsync` och `LoadModelParams`) fungerar helt analogously.
+I kod exemplen ovan används modell inläsnings Sök vägen via SAS eftersom den inbyggda modellen har lästs in. Att adressera modellen via BLOB-behållare (med `LoadModelAsync` och `LoadModelParams` ) fungerar helt analogously.
 
 ## <a name="remoteentitysyncobject"></a>RemoteEntitySyncObject
 
-När du skapar ett enhets spels objekt `RemoteEntitySyncObject` läggs en komponent till i Game-objektet implicit. Den här komponenten används för att synkronisera enhets omvandlingen till servern. Som standard `RemoteEntitySyncObject` behöver användaren uttryckligen anropa `SyncToRemote()` för att synkronisera lokal enhets status till servern. Aktivera `SyncEveryFrame` kommer att synkronisera objektet automatiskt.
+När du skapar ett enhets spels objekt läggs en `RemoteEntitySyncObject` komponent till i Game-objektet implicit. Den här komponenten används för att synkronisera enhets omvandlingen till servern. Som standard `RemoteEntitySyncObject` behöver användaren uttryckligen anropa för att `SyncToRemote()` Synkronisera lokal enhets status till servern. Aktivera `SyncEveryFrame` kommer att synkronisera objektet automatiskt.
 
-Objekt med en `RemoteEntitySyncObject` kan ha sina fjärrnoder instansierade och visas i Unity-redigeraren via knappen **Visa underordnade** .
+Objekt med en `RemoteEntitySyncObject` kan ha sina fjärrnoder instansierade och visas i Unity-redigeraren via **:::no-loc text="Show children":::** knappen.
 
 ![RemoteEntitySyncObject](media/remote-entity-sync-object.png)
 
 ## <a name="wrapper-components"></a>Omslutnings komponenter
 
-[Komponenter](../../concepts/components.md) som är kopplade till fjärrstyrda entiteter exponeras `MonoBehavior`för enhets hantering via proxy s. Dessa proxyservrar representerar fjärrkomponenten i enhet och vidarebefordrar alla ändringar av värden.
+[Komponenter](../../concepts/components.md) som är kopplade till fjärrstyrda entiteter exponeras för enhets hantering via proxy `MonoBehavior` s. Dessa proxyservrar representerar fjärrkomponenten i enhet och vidarebefordrar alla ändringar av värden.
 
-Använd tilläggs metoden `GetOrCreateArrComponent`för att skapa proxy Remote rendering-komponenter:
+Använd tilläggs metoden för att skapa proxy Remote rendering-komponenter `GetOrCreateArrComponent` :
 
 ```cs
 var cutplane = gameObject.GetOrCreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
@@ -104,11 +104,11 @@ var cutplane = gameObject.GetOrCreateArrComponent<ARRCutPlaneComponent>(RemoteMa
 
 ## <a name="coupled-lifetimes"></a>Kopplade livs längder
 
-Livs längden för en fjärran sluten [entitet](../../concepts/entities.md) och ett enhets spels objekt är kopplade när `RemoteEntitySyncObject`de är kopplade till en. Om du anropar `UnityEngine.Object.Destroy(...)` med ett sådant spel objekt tas även den fjärranslutna entiteten bort.
+Livs längden för en fjärran sluten [entitet](../../concepts/entities.md) och ett enhets spels objekt är kopplade när de är kopplade till en `RemoteEntitySyncObject` . Om du anropar `UnityEngine.Object.Destroy(...)` med ett sådant spel objekt tas även den fjärranslutna entiteten bort.
 
-Om du vill förstöra enhetens spel objekt utan att påverka fjärrentiteten måste du först anropa `Unbind()` `RemoteEntitySyncObject`.
+Om du vill förstöra enhetens spel objekt utan att påverka fjärrentiteten måste du först anropa `Unbind()` `RemoteEntitySyncObject` .
 
-Samma sak gäller för alla proxy-komponenter. Om du bara vill förstöra en representation på klient sidan måste du först `Unbind()` anropa proxy-komponenten:
+Samma sak gäller för alla proxy-komponenter. Om du bara vill förstöra en representation på klient sidan måste du `Unbind()` först anropa proxy-komponenten:
 
 ```cs
 var cutplane = gameObject.GetComponent<ARRCutPlaneComponent>();

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: mimart
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0a508e52189938447ea6fc1928d441d81deab392
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 2bdb305e0342dc9b7807ad64de9b5d872237afcc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714037"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014340"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurera hur slutanvändare godkänner program
 
@@ -49,7 +49,7 @@ Konfigurera användar medgivande inställningar via Azure Portal:
 1. Under **användar medgivande för program**väljer du vilken godkännande inställning som du vill konfigurera för alla användare.
 1. Spara inställningarna genom att välja **Spara** .
 
-![Inställningar för godkännande av användare](./media/configure-user-consent/setting-for-all-users.png)
+:::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Inställningar för godkännande av användare":::
 
 > [!TIP]
 > Överväg att [Aktivera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md) så att användarna kan begära en administratörs granskning och godkännande av ett program som användaren inte får bevilja tillåtelse till, till exempel när användar medgivande har inaktiverats eller när ett program begär behörigheter som användaren inte har tillåtelse att bevilja.
@@ -102,7 +102,7 @@ Med behörighets klassificeringar kan du identifiera vilken inverkan olika behö
 
 I det här exemplet har vi klassificerat den minsta behörighets uppsättningen som krävs för enkel inloggning:
 
-![Behörighets klassificering](./media/configure-user-consent/permission-classifications.png)
+:::image type="content" source="media/configure-user-consent/permission-classifications.png" alt-text="Behörighets klassificering":::
 
 > [!TIP]
 > För Microsoft Graph-API: t är de lägsta behörigheter som krävs för grundläggande enkel inloggning `openid` är `profile` , `User.Read` och `offline_access` . Med dessa behörigheter kan en app läsa profil information för den inloggade användaren och upprätthålla den här åtkomsten även om användaren inte längre använder appen.
@@ -192,7 +192,7 @@ Du kan konfigurera vilka användare som tillåts att godkänna appar som har åt
 
 I det här exemplet har alla grupp ägare tillåtelse att tillåta appar som har åtkomst till sina gruppers data:
 
-![Behörighets klassificering](./media/configure-user-consent/group-owner-consent.png)
+:::image type="content" source="media/configure-user-consent/group-owner-consent.png" alt-text="Inställningar för godkännande av grupp ägare":::
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>Konfigurera grupp ägarens medgivande med PowerShell
 

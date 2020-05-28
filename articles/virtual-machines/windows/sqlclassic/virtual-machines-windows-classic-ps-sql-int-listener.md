@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f26c5a6c6fc2774d19beaa021015357a1991f0ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f05e1d46485b337acbd9390441359e086067db74
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978173"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014831"
 ---
 # <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Konfigurera en ILB-lyssnare för tillgänglighets grupper på Azure SQL Server virtuella datorer
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "75978173"
 > [!IMPORTANT]
 > Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Azure Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Vi rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
-Om du vill konfigurera en lyssnare för en Always on-tillgänglighetsgruppen i Resource Manager-modellen, se [Konfigurera en belastningsutjämnare för en Always on-tillgänglighets grupp i Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+Om du vill konfigurera en lyssnare för en Always on-tillgänglighetsgruppen i Resource Manager-modellen, se [Konfigurera en belastningsutjämnare för en Always on-tillgänglighets grupp i Azure](../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md).
 
 Din tillgänglighets grupp kan bara innehålla repliker som endast är lokala eller endast Azure, eller som omfattar både lokalt och Azure för Hybrid konfigurationer. Azure-replikeringar kan finnas inom samma region eller i flera regioner som använder flera virtuella nätverk. Procedurerna i den här artikeln förutsätter att du redan har [konfigurerat en tillgänglighets grupp](../classic/portal-sql-alwayson-availability-groups.md) men ännu inte har konfigurerat en lyssnare.
 
@@ -78,7 +78,7 @@ Skapa en belastningsutjämnad slut punkt för varje virtuell dator som är värd
         (Get-AzureVNetConfig).XMLConfiguration
 9. Anteckna *under nätets* namn som innehåller de virtuella datorer som är värdar för replikerna. Det här namnet används i $SubnetName-parametern i skriptet.
 
-10. Notera namnet på *VirtualNetworkSite* och Start- *AddressPrefix* för det undernät som innehåller de virtuella datorer som är värdar för replikerna. Leta efter en tillgänglig IP-adress genom att skicka båda värdena `Test-AzureStaticVNetIP` till kommandot och genom att undersöka *AvailableAddresses*. Om det virtuella nätverket till exempel heter *MyVNet* och har ett adress intervall för under nätet som börjar vid *172.16.0.128*, visar följande kommando tillgängliga adresser:
+10. Notera namnet på *VirtualNetworkSite* och Start- *AddressPrefix* för det undernät som innehåller de virtuella datorer som är värdar för replikerna. Leta efter en tillgänglig IP-adress genom att skicka båda värdena till `Test-AzureStaticVNetIP` kommandot och genom att undersöka *AvailableAddresses*. Om det virtuella nätverket till exempel heter *MyVNet* och har ett adress intervall för under nätet som börjar vid *172.16.0.128*, visar följande kommando tillgängliga adresser:
 
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 11. Välj en av de tillgängliga adresserna och Använd den i parametern $ILBStaticIP i skriptet i nästa steg.

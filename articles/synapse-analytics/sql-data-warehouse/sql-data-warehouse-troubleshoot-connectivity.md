@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b4fbfb65a609742105056fa7fb849f84579245cb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 855f0782f1979f91fcd83bcc469d8d2feaf8c643
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650497"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015710"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Felsöka anslutnings problem i Synapse SQL-pool
 
@@ -50,11 +50,11 @@ Annars kan du kontakta IT-administratören för att kontrol lera att det här un
 
 ## <a name="check-your-firewall-settings"></a>Kontrollera brandväggsinställningarna
 
-SQL-adresspoolen kommunicerar via port 1433.Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till Azure SQL Database-servern såvida inte IT-avdelningen öppnar port 1433. Ytterligare information om brand Väggs konfigurationer finns [här](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+SQL-adresspoolen kommunicerar via port 1433.Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till den [logiska servern](../../azure-sql/database/logical-servers.md) om inte din IT-avdelning öppnar port 1433. Ytterligare information om brand Väggs konfigurationer finns [här](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Kontrollera inställningarna för det virtuella nätverket/tjänstslutpunkten
 
-Om du får fel 40914 och 40615, se [fel beskrivning och lösning här](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Om du får fel 40914 och 40615, se [fel beskrivning och lösning här](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## <a name="check-for-the-latest-drivers"></a>Kontrollera om det finns nya drivrutiner
 
@@ -109,7 +109,7 @@ Kontrollera om servern är hårt belastad med ett stort antal köade förfrågni
 
 ## <a name="common-error-messages"></a>Vanliga felmeddelanden
 
-Fel 40914 och 40615, se [fel beskrivningen och lösningen här](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Fel 40914 och 40615, se [fel beskrivningen och lösningen här](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## <a name="still-having-connectivity-issues"></a>Har du fortfarande problem med anslutningen?
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 855feaf9b5b47b7b725ee7927418a2b3a9e25393
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714329"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017784"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -330,7 +330,7 @@ Fonetiska alfabet består av telefoner, som består av bokstäver, siffror eller
 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| `alphabet` | Anger det fonetiska alfabetet som ska användas vid syntetiskt uttal av strängen i `ph` attributet. Strängen som anger alfabetet måste anges med små bokstäver. Följande är de möjliga alfabet som du kan ange.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Internationellt fonetiskt <span class="docon docon-navigate-external x-hidden-focus"></span> alfabet</a></li><li>`sapi`&ndash; [Fonetiskt alfabet i Speech service](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash;Universal Phone-uppsättning</li></ul><br>Alfabetet gäller endast i- `phoneme` elementet.. | Valfritt |
+| `alphabet` | Anger det fonetiska alfabetet som ska användas vid syntetiskt uttal av strängen i `ph` attributet. Strängen som anger alfabetet måste anges med små bokstäver. Följande är de möjliga alfabet som du kan ange.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Internationellt fonetiskt <span class="docon docon-navigate-external x-hidden-focus"></span> alfabet</a></li><li>`sapi`&ndash; [Fonetiskt alfabet i Speech service](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Universal Phone-uppsättning</a></li></ul><br>Alfabetet gäller endast i- `phoneme` elementet.. | Valfritt |
 | `ph` | En sträng som innehåller telefoner som anger uttal av ordet i `phoneme` elementet. Om den angivna strängen innehåller okända telefoner avvisar tjänsten text till tal (TTS) hela SSML-dokumentet och genererar ingen av tal utmatningen som anges i dokumentet. | Krävs om du använder fonem. |
 
 **Exempel**
@@ -403,7 +403,7 @@ Om du vill definiera hur flera entiteter ska läsas kan du skapa ett anpassat le
 
 `lexicon`Elementet innehåller minst ett- `lexeme` element. Varje `lexeme` -element innehåller minst ett `grapheme` element och ett eller flera `grapheme` element `alias` , och `phoneme` . `grapheme`Elementet innehåller text som beskriver <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Orthography </a>. `alias`Elementen används för att ange uttal av en akronym eller en förkortad term. `phoneme`Elementet innehåller text som beskriver hur `lexeme` uttalas.
 
-Det är viktigt att Observera att du inte kan ange uttal av ett ord direkt med hjälp av det anpassade lexikonet. Om du behöver ange uttal för ett, måste du först ange ett `alias` och sedan associera `phoneme` med det `alias` . Till exempel:
+Det är viktigt att Observera att du inte kan ange uttal av ett ord direkt med hjälp av det anpassade lexikonet. Om du behöver ange uttal för ett, måste du först ange ett `alias` och sedan associera `phoneme` med det `alias` . Ett exempel:
 
 ```xml
   <lexeme>
@@ -492,7 +492,7 @@ Eftersom prosodic-attributvärden kan variera över ett brett intervall, tolkar 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `pitch` | Anger textens bas linje bredd. Du kan uttrycka bredden som:<ul><li>Ett absolut värde, uttryckt som ett tal följt av "Hz" (Hertz). Till exempel 600 Hz.</li><li>Ett relativt värde, uttryckt som ett tal som föregås av "+" eller "-" och följt av "Hz" eller "St", som anger ett belopp för att ändra bredden. Till exempel: + 80 Hz eller-2st. "St" anger att ändrings enheten är semitone, som är hälften av en ton (ett halv steg) i standard skalan för diatonic.</li><li>Ett konstant värde:<ul><li>x-låg</li><li>börjar</li><li>medel</li><li>hög</li><li>x – hög</li><li>standard</li></ul></li></ul>. | Valfritt |
-| `contour` |Kon turen stöder nu både neurala-och standard röster. Kontur representerar ändringar i färgdjup. Dessa ändringar visas som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Till exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka avståndet med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch` ). | Valfritt |
+| `contour` |Kon turen stöder nu både neurala-och standard röster. Kontur representerar ändringar i färgdjup. Dessa ändringar visas som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Ett exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka avståndet med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch` ). | Valfritt |
 | `range` | Ett värde som representerar text områdets avstånd. Du kan uttrycka `range` använda samma absoluta värden, relativa värden eller uppräknings värden som används för att beskriva `pitch` . | Valfritt |
 | `rate` | Anger textens tal hastighet. Du kan uttrycka `rate` som:<ul><li>Ett relativt värde, uttryckt som ett tal som fungerar som en multiplikator för standardvärdet. Värdet *1* resulterar till exempel i ingen ändring av hastigheten. Värdet *0,5* resulterar i en halving av hastigheten. Värdet *3* resulterar i en rese frekvens.</li><li>Ett konstant värde:<ul><li>x – långsam</li><li>långsam</li><li>medel</li><li>snabb</li><li>x-fast</li><li>standard</li></ul></li></ul> | Valfritt |
 | `duration` | Tids perioden som ska förflyta när tal syntes tjänsten läser texten, i sekunder eller millisekunder. Till exempel *2s* eller *1800ms*. | Valfritt |

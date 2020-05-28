@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 98f0eb89893ff7394390d2fc1fc77497f1bf948d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418957"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019970"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 
@@ -35,7 +35,7 @@ Om du vill flytta data till/från ett data lager som Data Factory inte stöder, 
 
 Se följande artiklar om du är nybörjare på Azure Batch-tjänsten:
 
-* [Azure Batch grunderna](../batch/batch-technical-overview.md) för en översikt över Azure Batchs tjänsten.
+* [Azure Batch grunderna](../azure-sql/database/sql-database-paas-overview.md) för en översikt över Azure Batchs tjänsten.
 * [New-AzBatchAccount-](/powershell/module/az.batch/New-azBatchAccount) cmdlet för att skapa ett Azure Batch konto (eller) [Azure Portal](../batch/batch-account-create-portal.md) för att skapa Azure Batch-kontot med hjälp av Azure Portal. Detaljerade anvisningar om hur du använder cmdleten finns i [använda PowerShell för att hantera Azure Batch konto](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) artikel.
 * [New-AzBatchPool-](/powershell/module/az.batch/New-AzBatchPool) cmdlet för att skapa en Azure Batch-pool.
 
@@ -100,13 +100,13 @@ I det här exemplet är HelloWorld. exe ett anpassat program som lagras i mappen
 
 I följande tabell beskrivs namn och beskrivningar av egenskaper som är unika för den här aktiviteten.
 
-| Egenskap              | Beskrivning                              | Krävs |
+| Egenskap              | Beskrivning                              | Obligatorisk |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | Namn på aktiviteten i pipelinen     | Ja      |
 | description           | Text som beskriver vad aktiviteten gör.  | Nej       |
 | typ                  | För anpassad aktivitet är aktivitets typen **anpassad**. | Ja      |
 | linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .  | Ja      |
-| command               | Kommando för det anpassade program som ska köras. Om programmet redan är tillgängligt i noden Azure Batch pool kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot som är inbyggt i `cmd /c dir`Windows batch pool-noden. | Ja      |
+| command               | Kommando för det anpassade program som ska köras. Om programmet redan är tillgängligt i noden Azure Batch pool kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot som `cmd /c dir` är inbyggt i Windows batch pool-noden. | Ja      |
 | resourceLinkedService | Azure Storage länkad tjänst till lagrings kontot där det anpassade programmet lagras | Inga &#42;       |
 | folderPath            | Sökväg till mappen för det anpassade programmet och alla dess beroenden<br/><br/>Om du har beroenden lagrade i undermappar – det vill säga i en hierarkisk mappstruktur under *folderPath* , är mappstrukturen för närvarande utplattad när filerna kopieras till Azure Batch. Det innebär att alla filer kopieras till en enda mapp utan undermappar. Undvik problemet genom att komprimera filerna, kopiera den komprimerade filen och packa upp den med anpassad kod på önskad plats. | Inga &#42;       |
 | referenceObjects      | En matris med befintliga länkade tjänster och data uppsättningar. Refererade länkade tjänster och data uppsättningar skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till resurser i Data Factory | Nej       |
@@ -298,7 +298,7 @@ Activity Error section:
 "target": "MyCustomActivity"
 ```
 
-Om du vill använda innehållet i STDOUT. txt i underordnade aktiviteter kan du hämta sökvägen till filen STDOUT. txt i uttrycket "\@Activity (' MyCustomActivity '). output. outputs [0]".
+Om du vill använda innehållet i STDOUT. txt i underordnade aktiviteter kan du hämta sökvägen till filen STDOUT. txt i uttrycket " \@ Activity (' MyCustomActivity '). output. outputs [0]".
 
 > [!IMPORTANT]
 > - Activity. JSON, linkedServices. JSON och DataSets. JSON lagras i mappen runtime i batch-aktiviteten. I det här exemplet lagras Activity. JSON, linkedServices. JSON och data uppsättningar. json i `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` sökvägen. Om det behövs måste du rensa dem separat.
@@ -306,7 +306,7 @@ Om du vill använda innehållet i STDOUT. txt i underordnade aktiviteter kan du 
 
 ## <a name="pass-outputs-to-another-activity"></a>Skicka utdata till en annan aktivitet
 
-Du kan skicka anpassade värden från koden i en anpassad aktivitet tillbaka till Azure Data Factory. Du kan göra det genom att skriva dem `outputs.json` i från ditt program. Data Factory kopierar innehållet i `outputs.json` och lägger till det i aktivitetens utdata som `customOutput` egenskap svärdet. (Storleks gränsen är 2 MB.) Om du vill använda innehållet `outputs.json` i underordnade aktiviteter kan du hämta värdet med hjälp av uttrycket. `@activity('<MyCustomActivity>').output.customOutput`
+Du kan skicka anpassade värden från koden i en anpassad aktivitet tillbaka till Azure Data Factory. Du kan göra det genom att skriva dem i `outputs.json` från ditt program. Data Factory kopierar innehållet i `outputs.json` och lägger till det i aktivitetens utdata som `customOutput` egenskap svärdet. (Storleks gränsen är 2 MB.) Om du vill använda innehållet i `outputs.json` underordnade aktiviteter kan du hämta värdet med hjälp av uttrycket `@activity('<MyCustomActivity>').output.customOutput` .
 
 ## <a name="retrieve-securestring-outputs"></a>Hämta SecureString-utdata
 
@@ -323,13 +323,13 @@ Känsliga egenskaps värden som anges som typ *SecureString*, som du ser i någr
 
 Den här serialiseringen är inte riktigt säker och är inte avsedd att vara säker. Avsikten är att tipsa Data Factory för att maskera värdet på fliken övervakning.
 
-För att få åtkomst till egenskaper av typen *SecureString* från en anpassad aktivitet `activity.json` , kan du läsa filen som placeras i samma mapp som din. EXE, deserialisera JSON och öppna sedan JSON-egenskapen (extendedProperties => [propertyName] => värde).
+För att få åtkomst till egenskaper av typen *SecureString* från en anpassad aktivitet, kan du läsa `activity.json` filen som placeras i samma mapp som din. EXE, deserialisera JSON och öppna sedan JSON-egenskapen (extendedProperties => [propertyName] => värde).
 
 ## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a>Jämför v2-aktivitet för anpassad aktivitet och version 1 (anpassad) DotNet
 
-I Azure Data Factory version 1 implementerar du en (anpassad) DotNet-aktivitet genom att skapa ett biblioteks projekt för .NET-klass med en `Execute` klass som implementerar-metoden för `IDotNetActivity` gränssnittet. Länkade tjänster, data uppsättningar och utökade egenskaper i JSON-nyttolasten för en (anpassad) DotNet-aktivitet skickas till körnings metoden som starkt skrivna objekt. Mer information om beteendet för version 1 finns i [(anpassad) dotNet i version 1](v1/data-factory-use-custom-activities.md). På grund av den här implementeringen måste din version 1 DotNet-aktivitets kod riktas mot .NET Framework 4.5.2. En DotNet-aktivitet från version 1 måste också köras på Windows-baserade Azure Batch pool-noder.
+I Azure Data Factory version 1 implementerar du en (anpassad) DotNet-aktivitet genom att skapa ett biblioteks projekt för .NET-klass med en klass som implementerar- `Execute` metoden för `IDotNetActivity` gränssnittet. Länkade tjänster, data uppsättningar och utökade egenskaper i JSON-nyttolasten för en (anpassad) DotNet-aktivitet skickas till körnings metoden som starkt skrivna objekt. Mer information om beteendet för version 1 finns i [(anpassad) dotNet i version 1](v1/data-factory-use-custom-activities.md). På grund av den här implementeringen måste din version 1 DotNet-aktivitets kod riktas mot .NET Framework 4.5.2. En DotNet-aktivitet från version 1 måste också köras på Windows-baserade Azure Batch pool-noder.
 
-I den anpassade aktiviteten Azure Data Factory v2 behöver du inte implementera ett .NET-gränssnitt. Du kan nu köra kommandon, skript och din egen anpassade kod direkt, kompilerad som en körbar fil. Om du vill konfigurera den här implementeringen `Command` anger du egenskapen tillsammans `folderPath` med egenskapen. Den anpassade aktiviteten laddar upp den körbara filen och dess beroenden till `folderpath` och kör kommandot åt dig.
+I den anpassade aktiviteten Azure Data Factory v2 behöver du inte implementera ett .NET-gränssnitt. Du kan nu köra kommandon, skript och din egen anpassade kod direkt, kompilerad som en körbar fil. Om du vill konfigurera den här implementeringen anger du `Command` egenskapen tillsammans med `folderPath` egenskapen. Den anpassade aktiviteten laddar upp den körbara filen och dess beroenden till `folderpath` och kör kommandot åt dig.
 
 De länkade tjänsterna, data uppsättningarna (definierade i referenceObjects) och utökade egenskaper som definierats i JSON-nyttolasten för en Data Factory v2 anpassad aktivitet kan nås av den körbara filen som JSON-filer. Du kan komma åt de egenskaper som krävs med hjälp av en JSON-serialisering som du ser i föregående kod exempel för fråga. exe.
 
@@ -342,7 +342,7 @@ I följande tabell beskrivs skillnaderna mellan den anpassade aktiviteten Data F
 |Så här definieras anpassad logik      |Genom att tillhandahålla en körbar fil      |Genom att implementera en .NET-DLL      |
 |Körnings miljö för den anpassade logiken      |Windows eller Linux      |Windows (.NET Framework 4.5.2)      |
 |Kör skript      |Stöder körning av skript direkt (till exempel "cmd/c ECHO Hello World" på Windows VM)      |Kräver implementering i .NET-DLL      |
-|Data mängd krävs      |Valfri      |Krävs för att kedja aktiviteter och skicka information      |
+|Data mängd krävs      |Valfritt      |Krävs för att kedja aktiviteter och skicka information      |
 |Skicka information från aktivitet till anpassad logik      |Genom ReferenceObjects (LinkedServices och data uppsättningar) och ExtendedProperties (anpassade egenskaper)      |Via ExtendedProperties (anpassade egenskaper), indata och utdata för data uppsättningar      |
 |Hämta information i anpassad logik      |Parsar Activity. JSON, linkedServices. JSON och data uppsättningar. JSON lagrad i samma mapp som den körbara filen      |Via .NET SDK (.NET Frame 4.5.2)      |
 |Loggning      |Skriver direkt till STDOUT      |Implementera loggar i .NET-DLL      |
@@ -350,7 +350,7 @@ I följande tabell beskrivs skillnaderna mellan den anpassade aktiviteten Data F
 Om du har en befintlig .NET-kod skriven för en version 1 (anpassad) DotNet-aktivitet måste du ändra koden för att den ska fungera med den aktuella versionen av den anpassade aktiviteten. Uppdatera din kod genom att följa dessa rikt linjer på hög nivå:
 
   - Ändra projektet från ett .NET-klass bibliotek till en-konsol program.
-  - Starta ditt program med- `Main` metoden. `IDotNetActivity` Gränssnittets `Execute` Metod krävs inte längre.
+  - Starta ditt program med- `Main` metoden. `Execute` `IDotNetActivity` Gränssnittets metod krävs inte längre.
   - Läsa och analysera länkade tjänster, data uppsättningar och aktiviteter med en JSON-serialisering och inte som starkt skrivna objekt. Överför värdena för obligatoriska egenskaper till din huvudsakliga anpassade kod logik. Se föregående fråga. exe-kod som ett exempel.
   - Objektet för loggning stöds inte längre. Utdata från din körbara fil kan skrivas ut till-konsolen och sparas i STDOUT. txt.
   - NuGet-paketet Microsoft. Azure. Management. DataFactories krävs inte längre.

@@ -10,16 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 9b1ee467abcbfb6d91a64abf4e9ad74d7b23e881
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d890fcb6a43b43e0be0df8e6f6ff0817bdd03115
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203986"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83998049"
 ---
 Den här Spiralbaserade snabb starten vägleder dig genom att få svar från din kunskaps bas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**vändning**](https://curl.haxx.se/).
 * Du måste ha
@@ -40,7 +40,7 @@ Använd kunskaps basen från föregående snabb till-fråga för ett svar basera
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    Frågan är bara ett enda ord, `size`som kan returnera något av de två QNA-par. `strictFilters` Matrisen visar svaret för att minska till bara `qna_maker` svaren.
+    Frågan är bara ett enda ord, `size` som kan returnera något av de två QNA-par. `strictFilters`Matrisen visar svaret för att minska till bara `qna_maker` svaren.
 
 1. Svaret innehåller bara det svar som uppfyller filter kriterierna. Följande spiral svar har formaterats för läsbarhet:
 
@@ -77,11 +77,11 @@ Använd kunskaps basen från föregående snabb till-fråga för ett svar basera
     }
     ```
 
-    Om det finns en fråga och en svars uppsättning som inte uppfyllde Sök termen men som uppfyller filtret, returneras den inte. I stället returneras det allmänna `No good match found in KB.` svaret.
+    Om det finns ett fråge-och svars par som inte uppfyllde Sök termen men som uppfyller filtret, returneras det inte. I stället returneras det allmänna svaret `No good match found in KB.` .
 
 ## <a name="use-debug-query-property"></a>Använd egenskapen Felsök fråga
 
-Felsöknings information hjälper dig att förstå hur det returnerade svaret har fastställts. Även om det är användbart är det inte nödvändigt. Om du vill generera ett svar med felsöknings `debug` information lägger du till egenskapen:
+Felsöknings information hjälper dig att förstå hur det returnerade svaret har fastställts. Även om det är användbart är det inte nödvändigt. Om du vill generera ett svar med felsöknings information lägger du till `debug` egenskapen:
 
 ```json
 Debug: {Enable:true}
@@ -206,7 +206,7 @@ JSON-svaret använder samma schema som den publicerade kunskaps bas frågan.
 
 ## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Använd sväng för att fråga efter ett "Chi2test"-svar
 
-1. I den spiral-aktiverade terminalen använder du en robots konversations sluts ATS från användaren, `Thank you` till exempel som frågan. Det finns inga andra egenskaper att ange.
+1. I den spiral-aktiverade terminalen använder du en robots konversations sluts ATS från användaren, till exempel `Thank you` som frågan. Det finns inga andra egenskaper att ange.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
@@ -300,7 +300,7 @@ JSON-svaret använder samma schema som den publicerade kunskaps bas frågan.
 
 Du kan begära ett minimi tröskelvärde för svaret. Om tröskelvärdet inte uppfylls returneras standard svaret.
 
-1. Lägg till `threshold` egenskapen för att be om ett svar `size` till med en tröskel på 80% eller bättre. Kunskaps basen bör inte hitta det svaret eftersom frågans Poäng är 71%. Resultatet returnerar standard svaret som du angav när du skapade kunskaps basen.
+1. Lägg till `threshold` egenskapen för att be om ett svar till `size` med en tröskel på 80% eller bättre. Kunskaps basen bör inte hitta det svaret eftersom frågans Poäng är 71%. Resultatet returnerar standard svaret som du angav när du skapade kunskaps basen.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
@@ -325,7 +325,7 @@ Du kan begära ett minimi tröskelvärde för svaret. Om tröskelvärdet inte up
     }
     ```
 
-    QnA Maker returnerade ett resultat `0`av, vilket innebär ingen exakthet. Den returnerade även standard svaret.
+    QnA Maker returnerade ett resultat av `0` , vilket innebär ingen exakthet. Den returnerade även standard svaret.
 
 1. Ändra tröskelvärdet till 60% och begär frågan igen:
 

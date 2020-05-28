@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: db80c11c3b6eab3b7e682878e479729f4787a40b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 894eecc7746ddb1352708f2dfe5d6d2d53cdd8c9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82086104"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021661"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Använd Azure Active Directory autentisering för autentisering med Synapse SQL
 
@@ -22,7 +22,7 @@ Azure Active Directory autentisering är en mekanism för att ansluta till [Azur
 Med Azure AD-autentisering kan du centralt hantera användar identiteter som har åtkomst till Azure-Synapse för att förenkla behörighets hanteringen. Här är några av fördelarna:
 
 - Det ger ett alternativ till vanlig användar namn och lösenordsautentisering.
-- Hjälper till att stoppa spridningen av användar identiteter mellan databas servrar.
+- Hjälper till att stoppa spridningen av användar identiteter mellan servrar.
 - Tillåter lösen ords rotation på en enda plats.
 - Kunder kan hantera behörigheter med hjälp av externa (Azure AD) grupper.
 - Det kan eliminera lagring av lösen ord genom att aktivera integrerad Windows-autentisering och andra former av autentisering som stöds av Azure Active Directory.
@@ -70,7 +70,7 @@ Om du använder grupp kontot som administratör ökar hanterbarheten genom att d
 
 ## <a name="permissions"></a>Behörigheter
 
-Om du vill skapa nya användare måste du ha `ALTER ANY USER` behörighet i-databasen. `ALTER ANY USER` Behörigheten kan beviljas till alla databas användare. `ALTER ANY USER` Behörigheten hålls också av Server administratörs kontona och databas användare med behörigheten `CONTROL ON DATABASE` eller `ALTER ON DATABASE` för databasen, och av medlemmar i `db_owner` databas rollen.
+Om du vill skapa nya användare måste du ha `ALTER ANY USER` behörighet i-databasen. `ALTER ANY USER`Behörigheten kan beviljas till alla databas användare. `ALTER ANY USER`Behörigheten hålls också av Server administratörs kontona och databas användare med `CONTROL ON DATABASE` `ALTER ON DATABASE` behörigheten eller för databasen, och av medlemmar i `db_owner` databas rollen.
 
 Om du vill skapa en innesluten databas användare i Synapse SQL måste du ansluta till databasen eller instansen med hjälp av en Azure AD-identitet. Om du vill skapa den första inneslutna databas användaren måste du ansluta till databasen med hjälp av en Azure AD-administratör (som är ägare till databasen). 
 
@@ -85,7 +85,7 @@ Alla Azure AD-autentiseringar är bara möjliga om Azure AD-administratören har
   - Importerade medlemmar från andra Azure AD-medlemmar som är interna eller federerade domän medlemmar.
   - Active Directory grupper som skapats som säkerhets grupper.
 
-- Azure AD-användare som är en del av en grupp `db_owner` som har Server rollen kan inte använda syntaxen **[skapa databasens begränsade AUTENTISERINGSUPPGIFTER](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** mot Synapse SQL. Följande fel meddelande visas:
+- Azure AD-användare som är en del av en grupp som har `db_owner` Server rollen kan inte använda syntaxen **[skapa databasens begränsade autentiseringsuppgifter](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** mot Synapse SQL. Följande fel meddelande visas:
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
@@ -118,7 +118,7 @@ Följande autentiseringsmetoder stöds för Azure AD server-Huvudkonton (inloggn
 
 - För att förbättra hanterbarheten rekommenderar vi att du etablerar en dedikerad Azure AD-grupp som administratör.
 - Endast en Azure AD-administratör (en användare eller grupp) kan konfigureras för Synapse SQL-pool när som helst.
-  - Genom att lägga till Azure AD server-huvudobjekt (inloggningar) för SQL på begäran (för hands version) kan du skapa flera Azure AD server-huvudobjekt (inloggningar) som kan läggas till `sysadmin` i rollen.
+  - Genom att lägga till Azure AD server-huvudobjekt (inloggningar) för SQL på begäran (för hands version) kan du skapa flera Azure AD server-huvudobjekt (inloggningar) som kan läggas till i `sysadmin` rollen.
 - Endast en Azure AD-administratör för Synapse SQL kan ansluta till Synapse SQL med ett Azure Active Directory-konto. Active Directory-administratören kan konfigurera efterföljande Azure AD Database-användare.
 - Vi rekommenderar att du ställer in tids gränsen för anslutningen på 30 sekunder.
 - SQL Server 2016 Management Studio och SQL Server Data Tools för Visual Studio 2015 (version 14.0.60311.1 april 2016 eller senare) stöder Azure Active Directory autentisering. (Azure AD-autentisering stöds av **.NET Framework Data Provider för SQLServer**; minst version .NET Framework 4,6). Därför är de senaste versionerna av dessa verktyg och data skikts program (DAC och. BACPAC) kan använda Azure AD-autentisering.

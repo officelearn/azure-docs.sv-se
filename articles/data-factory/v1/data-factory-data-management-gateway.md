@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1340c205477b256e3d96ff7ccacb64e575725c2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76f8b741eb49949bb59ab5e1a4b7279f84b77111
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065412"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021576"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -51,7 +51,7 @@ Data Management Gateway tillhandahåller följande funktioner:
 ### <a name="command-flow-and-data-flow"></a>Kommando flöde och data flöde
 När du använder en kopierings aktivitet för att kopiera data mellan lokala platser och moln, använder den en gateway för att överföra data från en lokal data källa till molnet och vice versa.
 
-Här är data flödet på hög nivå för och en sammanfattning av stegen för att kopiera med datagateway ![: data flöde med hjälp av Gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+Här är data flödet på hög nivå för och en sammanfattning av stegen för att kopiera med datagateway: ![ data flöde med hjälp av Gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
 1. Datautvecklaren skapar en gateway för en Azure Data Factory som använder antingen [Azure Portal](https://portal.azure.com) -eller [PowerShell-cmdleten](https://docs.microsoft.com/powershell/module/az.datafactory/).
 2. Data utvecklare skapar en länkad tjänst för ett lokalt data lager genom att ange gatewayen. Som en del av konfigurationen av den länkade tjänsten använder data utvecklare inställningen för att ange autentiseringsuppgifter för att ange autentiseringstyper och autentiseringsuppgifter. Dialog rutan Ange autentiseringsuppgifter för program kommunicerar med data lagret för att testa anslutningen och gatewayen för att spara autentiseringsuppgifter.
@@ -71,7 +71,7 @@ Här är data flödet på hög nivå för och en sammanfattning av stegen för a
 * Du måste **använda gatewayen** även om data lagret finns i molnet på en **virtuell Azure IaaS-dator**.
 
 ## <a name="installation"></a>Installation
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * De **operativ system** versioner som stöds är Windows 7, Windows 8/8.1, Windows 10, windows Server 2008 R2, windows Server 2012, windows Server 2012 R2. Det finns för närvarande inte stöd för installation av data Management Gateway på en domänkontrollant.
 * .NET Framework 4.5.1 eller senare krävs. Om du installerar Gateway på en dator med Windows 7 installerar du .NET Framework 4,5 eller senare. Mer information finns i [.NET Framework system krav](https://msdn.microsoft.com/library/8z6watww.aspx) .
 * Den rekommenderade **konfigurationen** för gateway-datorn är minst 2 GHz, 4 kärnor, 8 GB RAM och 80 GB disk.
@@ -161,7 +161,7 @@ Kontrol lera att brand Väggs reglerna är korrekt aktiverade i företags brand 
 Gör så här om du till exempel vill kopiera från **ett lokalt data lager till en Azure SQL Database mottagare eller en Azure SQL Data Warehouse mottagare**:
 
 * Tillåt utgående **TCP** -kommunikation på port **1433** för både Windows-brandväggen och företags brand väggen.
-* Konfigurera brand Väggs inställningarna för Azure SQL Server för att lägga till IP-adressen för gateway-datorn i listan över tillåtna IP-adresser.
+* Konfigurera brand Väggs inställningarna för logisk SQL Server för att lägga till IP-adressen för gateway-datorn i listan över tillåtna IP-adresser.
 
 > [!NOTE]
 > Om brand väggen inte tillåter utgående port 1433, kan gatewayen inte komma åt Azure SQL direkt. I det här fallet kan du använda [mellanlagrad kopia](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) för att SQL Azure databas/SQL Azure DW. I det här scenariot behöver du bara HTTPS (port 443) för data flytten.
@@ -204,8 +204,8 @@ Du kan visa och uppdatera HTTP-proxyn med hjälp av Configuration Manager-verkty
 ### <a name="configure-proxy-server-settings"></a>Konfigurera inställningar för proxyserver
 Om du väljer **Använd systemproxy** -inställningen för HTTP-proxyn använder gatewayen proxy-inställningen i diahost. exe. config och diawp. exe. config. Om ingen proxy anges i diahost. exe. config och diawp. exe. config ansluter gatewayen till moln tjänsten direkt utan att gå via proxy. Följande procedur innehåller instruktioner för att uppdatera filen diahost. exe. config.
 
-1. I Utforskaren skapar du en säker kopia av *C\\\\\\: Program Files Microsoft Data Management Gateway\\2,0\\Shared\\diahost. exe. config* för att säkerhetskopiera original filen.
-2. Starta Notepad. exe som körs som administratör och öppna text filen *C:\\\\program files\\Microsoft Data Management Gateway\\2,0\\Shared\\diahost. exe. config*. Du hittar standard tag gen för system.net så som visas i följande kod:
+1. I Utforskaren skapar du en säker kopia av *C: \\ \\ Program Files \\ Microsoft Data Management Gateway \\ 2,0 \\ Shared \\ diahost. exe. config* för att säkerhetskopiera original filen.
+2. Starta Notepad. exe som körs som administratör och öppna text filen *C: \\ \\ Program Files \\ Microsoft Data Management Gateway \\ 2,0 \\ Shared \\ diahost. exe. config*. Du hittar standard tag gen för system.net så som visas i följande kod:
 
     ```
     <system.net>
@@ -279,7 +279,7 @@ Du kan inaktivera/aktivera funktionen för automatisk uppdatering genom att utf�
 
 [För gateway med en nod]
 1. Starta Windows PowerShell på gateway-datorn.
-2. Växla till mappen *C:\\\\program\\Microsoft integration runtime\\\\3,0 PowerShellScript\\ * .
+2. Växla till mappen *C: \\ \\ program \\ Microsoft integration runtime \\ 3,0 \\ PowerShellScript \\ * .
 3. Kör följande kommando för att aktivera funktionen för automatisk uppdatering av (inaktivera).
 
     ```powershell
@@ -292,7 +292,7 @@ Du kan inaktivera/aktivera funktionen för automatisk uppdatering genom att utf�
     ```
    [För flera noder med hög tillgänglighet och skalbar Gateway](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Starta Windows PowerShell på gateway-datorn.
-2. Växla till mappen *C:\\\\program\\Microsoft integration runtime\\\\3,0 PowerShellScript\\ * .
+2. Växla till mappen *C: \\ \\ program \\ Microsoft integration runtime \\ 3,0 \\ PowerShellScript \\ * .
 3. Kör följande kommando för att aktivera funktionen för automatisk uppdatering av (inaktivera).
 
     För gateway med funktionen hög tillgänglighet krävs en extra AuthKey-param.
@@ -305,11 +305,11 @@ Du kan inaktivera/aktivera funktionen för automatisk uppdatering genom att utf�
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>Konfigurationshanteraren
+## <a name="configuration-manager"></a>Configuration Manager
 När du har installerat gatewayen kan du starta Data Management Gateway Configuration Manager på något av följande sätt:
 
 1. I fönstret **Sök** skriver du **Data Management Gateway** för att komma åt det här verktyget.
-2. Kör den körbara filen *konfigurationshanterarsamling. exe* i mappen: *C\\\\: program\\Files Microsoft\\data Management Gateway\\2,0 Shared*.
+2. Kör den körbara filen *konfigurationshanterarsamling. exe* i mappen: *C: \\ \\ Program Files \\ Microsoft Data Management Gateway \\ 2,0 \\ Shared*.
 
 ### <a name="home-page"></a>Startsida
 På Start sidan kan du utföra följande åtgärder:
@@ -420,7 +420,7 @@ Det här avsnittet innehåller steg för att flytta Gateway-klienten från en da
     ![Konfigurera sida](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. Behåll **Microsoft Data Management Gateway-Configuration Manager** öppen.
 
-    ![Konfigurationshanteraren](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. På sidan **Konfigurera** i portalen klickar du på **Återskapa nyckel** i kommando fältet och klickar på **Ja** för varnings meddelandet. Klicka på **knappen Kopiera** bredvid nyckel text som kopierar nyckeln till Urklipp. Gatewayen på den gamla datorn slutar att fungera så snart du återskapar nyckeln.
 
     ![Återskapa nyckel](./media/data-factory-data-management-gateway/RecreateKey.png)
@@ -510,7 +510,7 @@ I det här avsnittet beskrivs hur du skapar och registrerar en gateway med hjäl
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. I Azure PowerShell växlar du till mappen: *C\\\\: Program Files\\\\Microsoft integration runtime 3,0\\PowerShellScript\\*. Kör *RegisterGateway. ps1* som är kopplad till den lokala variabeln **$Key** som du ser i följande kommando. Det här skriptet registrerar klient agenten som är installerad på datorn med den logiska gateway som du skapar tidigare.
+1. I Azure PowerShell växlar du till mappen: *C: \\ \\ Program Files \\ Microsoft integration runtime \\ 3,0 \\ PowerShellScript \\ *. Kör *RegisterGateway. ps1* som är kopplad till den lokala variabeln **$Key** som du ser i följande kommando. Det här skriptet registrerar klient agenten som är installerad på datorn med den logiska gateway som du skapar tidigare.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

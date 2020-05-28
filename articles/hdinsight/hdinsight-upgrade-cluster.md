@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
-ms.openlocfilehash: f7198aeff5e9ef6d37e29c2336dc38e4eec0dda1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79cd3ddd21af700fd36d0e565b9f5a1be1e56343
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77023981"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015139"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migrera HDInsight-kluster till en nyare version
 
@@ -51,7 +51,7 @@ Följande dokument ger vägledning om hur du migrerar vissa arbets belastningar:
 
 ## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
-Mer information om säkerhets kopiering och återställning av databaser finns i [återställa en Azure SQL-databas med hjälp av automatiska databas säkerhets kopieringar](../sql-database/sql-database-recovery-using-backups.md).
+Mer information om säkerhets kopiering och återställning av databaser finns i [återställa en Azure SQL-databas med hjälp av automatiska databas säkerhets kopieringar](../azure-sql/database/recovery-using-backups.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

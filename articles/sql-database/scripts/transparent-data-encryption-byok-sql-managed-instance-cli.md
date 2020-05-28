@@ -1,5 +1,5 @@
 ---
-title: CLI-exempel – aktivera BYOK TDE-Azure SQL Database Hanterad instans
+title: CLI-exempel – aktivera BYOK TDE – Azure SQL-hanterad instans
 description: Lär dig hur du konfigurerar en Azure SQL-hanterad instans att börja använda BYOK transparent datakryptering (TDE) för kryptering vid vila med hjälp av PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,24 +11,24 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
-ms.openlocfilehash: 8e8c0e2db1f87cca52c44d33ce14d7ce4f00e895
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 271f68a57a4490032e318da57b4b37aac09a1410
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061735"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019356"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Hantera transparent datakryptering i en hanterad instans med din egen nyckel från Azure Key Vault
 
-Detta exempel på Azure CLI-skript konfigurerar transparent datakryptering (TDE) med kundhanterad nyckel för Azure SQL-hanterad instans med hjälp av en nyckel från Azure Key Vault. Detta kallas ofta för ett Bring Your Own Key scenario för TDE. Mer information om TDE med kundhanterad nyckel finns i [TDE Bring Your Own Key till Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
+Detta exempel på Azure CLI-skript konfigurerar transparent datakryptering (TDE) med kundhanterad nyckel för Azure SQL-hanterad instans med hjälp av en nyckel från Azure Key Vault. Detta kallas ofta för ett Bring Your Own Key scenario för TDE. Mer information om TDE med kundhanterad nyckel finns i [TDE Bring Your Own Key till Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md).
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-En befintlig hanterad instans finns i [använda Azure CLI för att skapa en Azure SQL Database Hanterad instans](sql-database-create-configure-managed-instance-cli.md).
+En befintlig hanterad instans finns i [använda Azure CLI för att skapa en hanterad Azure SQL-instans](sql-database-create-configure-managed-instance-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -65,4 +65,4 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare CLI-skriptexempel för SQL Database finns i [Azure SQL Database-dokumentationen](../sql-database-cli-samples.md).
+Ytterligare CLI-skriptexempel för SQL Database finns i [Azure SQL Database-dokumentationen](../../azure-sql/database/az-cli-script-samples-content-guide.md).

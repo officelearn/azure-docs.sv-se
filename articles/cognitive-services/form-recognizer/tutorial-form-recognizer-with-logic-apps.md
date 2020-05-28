@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: nitinme
-ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ff160c57b86e2269165f5fe1d2808684d2e6e86e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77118263"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118540"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Självstudie: använda formulär igenkänning med Azure Logic Apps för att analysera fakturor
 
@@ -31,7 +31,7 @@ Den här själv studie kursen beskriver följande:
 > * Konfigurera Logic-appen så att den använder en formulär igenkännings resurs
 > * Testa arbets flödet genom att köra Logic app
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
 
@@ -58,7 +58,7 @@ Du använder den här behållaren för att ladda upp exempel data som krävs fö
 
 Ladda ned exempel data som är tillgängliga på [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Extrahera data till en lokal mapp och överför innehållet i mappen **/Train** till den **formrecocontainer** som du skapade tidigare. Följ anvisningarna i [Ladda upp en Block-Blob](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) för att ladda upp data till en behållare.
 
-Kopiera URL: en för behållaren. Du behöver den här URL-adressen senare i självstudien. Om du har skapat lagrings kontot och behållaren med samma namn som visas i den här självstudien blir URL *: en https\/:/formrecostorage.blob.Core.Windows.net/formrecocontainer/*.
+Kopiera URL: en för behållaren. Du behöver den här URL-adressen senare i självstudien. Om du har skapat lagrings kontot och behållaren med samma namn som visas i den här självstudien blir URL *: en https: \/ /formrecostorage.blob.Core.Windows.net/formrecocontainer/*.
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
@@ -73,20 +73,20 @@ Du kan använda Azure Logic Apps för att automatisera och dirigera uppgifter oc
 
 Följ dessa steg för att konfigurera arbets flödet.
 
-1. Från huvud menyn i Azure väljer du **skapa en app för resurs** > **integrerings** > **logik**.
+1. Från huvud menyn i Azure väljer du **skapa en app för resurs**  >  **integrerings**  >  **logik**.
 
 1. Under **Skapa en logikapp** anger du information om din logikapp som visas här. När du är klar väljer du **skapa**.
 
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
-   | **Namn** | <*Logic – App-Name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck`_`(), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "min-First-Logic-app". |
+   | **Namn** | <*Logic – App-Name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ), parenteser ( `(` , `)` ) och punkter ( `.` ). I det här exemplet används "min-First-Logic-app". |
    | **Prenumeration** | <*Azure-prenumeration-namn*> | Ditt Azure-prenumerations namn |
    | **Resursgrupp** | <*Azure-resurs-grupp-namn*> | Namnet på den [Azure-resurs grupp](./../../azure-resource-manager/management/overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". |
    | **Position** | <*Azure-region*> | Den region där du vill lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
 
-1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar** > **gå till resurs** för din distribuerade Logic-app. Eller så kan du hitta och välja din Logic-app genom att skriva namnet i sökrutan.
+1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar**  >  **gå till resurs** för din distribuerade Logic-app. Eller så kan du hitta och välja din Logic-app genom att skriva namnet i sökrutan.
 
    Logic Apps Designer öppnas och det visas en sida med en introduktionsvideo och vanliga utlösare. Under **Mallar** väljer du **Tom logikapp**.
 
@@ -377,7 +377,6 @@ Om du vill testa Logic-appen använder du exempel fakturorna i mappen **/test** 
       }
     ]
     ```
-    Nu har du slutfört den här självstudien!
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 34698a215477abdd7d68c3dfe050657ecf049690
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 281cdea42975172b7e2366ab5d3e1606f61d5025
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984903"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020548"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Alternativ för att migrera dina lokala eller molnbaserade data till Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Du kan läsa in data från olika data källor till Azure Cosmos DB. Dessutom, ef
 Följande faktorer avgör valet av Migreringsverktyg:
 * **Online vs offline-migrering**: många Migreringsverktyg tillhandahåller en sökväg för endast en migrering. Det innebär att program som har åtkomst till databasen kan råka ut för en drifts tid. Vissa migrations lösningar är ett sätt att utföra en Direktmigrering där en replikerings-pipeline har kon figurer ATS mellan källan och målet.
 
-* **Data källa**: befintliga data kan finnas i olika data källor som Oracle DB2, DataStax Cassanda, Azure SQL Server, postgresql osv. Data kan också finnas i ett befintligt Azure Cosmos DB konto och syftet med migreringen kan vara att ändra data modellen eller partitionera om data i en behållare med en annan partitionsnyckel.
+* **Data källa**: befintliga data kan finnas i olika data källor som Oracle DB2, DataStax Cassanda, Azure SQL Database, postgresql osv. Data kan också finnas i ett befintligt Azure Cosmos DB konto och syftet med migreringen kan vara att ändra data modellen eller partitionera om data i en behållare med en annan partitionsnyckel.
 
 * **Azure Cosmos DB-API**: för SQL-API: et i Azure Cosmos DB finns det flera olika verktyg som har utvecklats av Azure Cosmos DB teamet som har stöd för olika migrerings scenarier. Alla andra API: er har sina egna specialiserade verktyg som utvecklats och underhålls av communityn. Eftersom Azure Cosmos DB stöder dessa API: er på nivån Wire Protocol, bör dessa verktyg fungera som de är medan man migrerar data till Azure Cosmos DB. De kan dock kräva anpassad hantering för begränsningar eftersom det här konceptet är begränsat till Azure Cosmos DB.
 
@@ -31,7 +31,7 @@ Följande faktorer avgör valet av Migreringsverktyg:
 * **Förväntad varaktighet för migrering**: migreringar kan konfigureras för att ske i en långsam, stegvis hastighet som förbrukar mindre data flöde eller kan använda hela data flödet som har allokerats på mål Azure Cosmos DBS behållaren och slutföra migreringen på kortare tid.
 
 ## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API
-|**Typ av migrering**|**Lösa**|**Överväganden**|
+|**Typ av migrering**|**Lösa**|**Att tänka på**|
 |---------|---------|---------|
 |Offline|[Migreringsverktyg för data](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Enkelt att konfigurera och stödja flera källor <br/>&bull;Passar inte för stora data mängder|
 |Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Enkelt att konfigurera och stödja flera källor <br/>&bull;Använder Azure Cosmos DB bulk utförar-biblioteket <br/>&bull;Lämplig för stora data uppsättningar <br/>&bull;Brist på kontroll punkt – det innebär att om ett problem inträffar under migreringen måste du starta om hela migreringsprocessen<br/>&bull;Avsaknad av kö för obeställbara meddelanden – det innebär att några felaktiga filer kan stoppa hela migreringsprocessen.|
@@ -42,7 +42,7 @@ Följande faktorer avgör valet av Migreringsverktyg:
 |Online|[Striims](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-sql-api-migrate-data-striim)|&bull;Fungerar med en stor mängd olika källor som Oracle, DB2, SQL Server <br/>&bull;Lätt att bygga ETL-pipelines och ger en instrument panel för övervakning <br/>&bull;Stöder större data uppsättningar <br/>&bull;Eftersom det här är ett tredjepartsverktyg måste det köpas in från Marketplace och installeras i användarens miljö|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB Mongo-API
-|**Typ av migrering**|**Lösa**|**Överväganden**|
+|**Typ av migrering**|**Lösa**|**Att tänka på**|
 |---------|---------|---------|
 |Offline|[Migreringsverktyg för data](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Enkelt att konfigurera och stödja flera källor <br/>&bull;Passar inte för stora data mängder|
 |Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Enkelt att konfigurera och stödja flera källor <br/>&bull;Använder Azure Cosmos DB bulk utförar-biblioteket <br/>&bull;Lämplig för stora data uppsättningar <br/>&bull;Brist på kontroll punkter innebär att eventuella problem under migreringen skulle kräva en omstart av hela migreringsprocessen<br/>&bull;Brist på en kö för obeställbara meddelanden skulle innebära att några felaktiga filer kan stoppa hela migreringsprocessen <br/>&bull;Behöver anpassad kod för att öka Läs data flödet för vissa data källor|
@@ -50,7 +50,7 @@ Följande faktorer avgör valet av Migreringsverktyg:
 |Online|[Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db-online)|&bull;Använder Azure Cosmos DB bulk utförar-biblioteket <br/>&bull;Lämplig för stora data uppsättningar och sköter att replikera Live-ändringar <br/>&bull;Fungerar endast med andra MongoDB-källor|
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API
-|**Typ av migrering**|**Lösa**|**Överväganden**|
+|**Typ av migrering**|**Lösa**|**Att tänka på**|
 |---------|---------|---------|
 |Offline|[cqlsh COPY-kommando](https://docs.microsoft.com/azure/cosmos-db/cassandra-import-data#migrate-data-using-cqlsh-copy-command)|&bull;Enkelt att konfigurera <br/>&bull;Passar inte för stora data mängder <br/>&bull;Fungerar bara när källan är en Cassandra-tabell|
 |Offline|[Kopiera tabell med Spark](https://docs.microsoft.com/azure/cosmos-db/cassandra-import-data#migrate-data-using-spark) |&bull;Kan använda Spark-funktioner för att parallellisera omvandling och inmatning <br/>&bull;Behöver konfigureras med en anpassad princip för återförsök för att hantera begränsningar|

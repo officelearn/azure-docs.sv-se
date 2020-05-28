@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
-ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 786b4141ed83121dce069b45ce7ddcd91bb3b00e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80757201"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020803"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Använda belastningsutjämningstjänster i Azure
 
@@ -65,7 +65,7 @@ Följande diagram visar arkitekturen för det här scenariot:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Steg 1: skapa en Traffic Manager-profil
 
-1. Klicka på **skapa en resurs** > **nätverk** > **Traffic Manager profil** > **skapa**i Azure Portal.
+1. Klicka på **skapa en resurs**  >  **nätverk**  >  **Traffic Manager profil**  >  **skapa**i Azure Portal.
 2. Ange följande grundläggande information:
 
    * **Namn**: ge din Traffic Manager-profil ett DNS-prefix.
@@ -80,7 +80,7 @@ Följande diagram visar arkitekturen för det här scenariot:
 
 ### <a name="step-2-create-the-application-gateways"></a>Steg 2: skapa programgatewayer
 
-1. Klicka på **skapa en resurs** > **nätverks** > **Application Gateway**i den vänstra rutan i Azure Portal.
+1. Klicka på **skapa en resurs**  >  **nätverks**  >  **Application Gateway**i den vänstra rutan i Azure Portal.
 2. Ange följande grundläggande information om Application Gateway:
 
    * **Namn**: namnet på Application Gateway.
@@ -96,7 +96,7 @@ Följande diagram visar arkitekturen för det här scenariot:
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Konfigurera URL-routning för programgatewayer
 
-När du väljer en backend-pool, tar en Programgateway som kon figurer ATS med en Sök vägs-baserad regel över ett Sök vägs mönster för URL: en för begäran förutom resursallokering-distribution. I det här scenariot lägger vi till en Sök vägs baserad regel för att dirigera en URL med\*"/images/" till avbildnings serverns pool. Mer information om hur du konfigurerar URL Path-baserad routning för en Programgateway finns i [skapa en Sök vägs baserad regel för en Programgateway](../application-gateway/application-gateway-create-url-route-portal.md).
+När du väljer en backend-pool, tar en Programgateway som kon figurer ATS med en Sök vägs-baserad regel över ett Sök vägs mönster för URL: en för begäran förutom resursallokering-distribution. I det här scenariot lägger vi till en Sök vägs baserad regel för att dirigera en URL med "/images/ \* " till avbildnings serverns pool. Mer information om hur du konfigurerar URL Path-baserad routning för en Programgateway finns i [skapa en Sök vägs baserad regel för en Programgateway](../application-gateway/application-gateway-create-url-route-portal.md).
 
 ![Application Gateway webb nivå diagram](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -127,7 +127,7 @@ När du väljer en backend-pool, tar en Programgateway som kon figurer ATS med e
    + **Http-inställning**: de http-inställningar som ska användas med den här regeln.
 
    > [!IMPORTANT]
-   > Sökvägar: giltiga sökvägar måste börja med "/". Jokertecknet "\*" tillåts endast i slutet. Giltiga exempel är/XYZ,/XYZ\*eller/XYZ/\*.
+   > Sökvägar: giltiga sökvägar måste börja med "/". Jokertecknet " \* " tillåts endast i slutet. Giltiga exempel är/XYZ,/XYZ \* eller/XYZ/ \* .
 
    ![Application Gateway bladet "Lägg till Sök vägs regel"](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
@@ -154,11 +154,11 @@ I det här scenariot är Traffic Manager anslutna till programgatewayer (enligt 
 
 I det här scenariot distribuerar Load Balancer anslutningar från webb nivån till databaserna i ett kluster med hög tillgänglighet.
 
-Om databas klustret med hög tillgänglighet använder SQL Server AlwaysOn, se [Konfigurera en eller flera Always on tillgänglighets grupps lyssnare](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) för steg-för-steg-instruktioner.
+Om databas klustret med hög tillgänglighet använder SQL Server AlwaysOn, se [Konfigurera en eller flera Always on tillgänglighets grupps lyssnare](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) för steg-för-steg-instruktioner.
 
 Mer information om hur du konfigurerar en intern belastningsutjämnare finns [i skapa en intern belastningsutjämnare i Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. I Azure Portal i det vänstra fönstret klickar du på **skapa en resurs** > **nätverks** > **belastnings utjämning**.
+1. I Azure Portal i det vänstra fönstret klickar du på **skapa en resurs**  >  **nätverks**  >  **belastnings utjämning**.
 2. Välj ett namn för belastningsutjämnaren.
 3. Ange **typen** **internt**och välj lämpligt virtuellt nätverk och undernät som belastningsutjämnaren ska finnas i.
 4. Under **IP-adresstilldelning**väljer du antingen **dynamisk** eller **statisk**.

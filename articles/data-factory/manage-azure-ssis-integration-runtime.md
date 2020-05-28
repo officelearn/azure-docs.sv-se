@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: ffebb8f82a69f0404974e6c8ea91bec951ca80e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9228d33ac8ad4dd2d274c8ae642861bf3fbdc888
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415773"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118242"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Omkonfigurera Azure SSIS-integreringskörningen
 
@@ -45,7 +45,7 @@ Du kan använda Data Factory UI för att stoppa, redigera/omkonfigurera eller ta
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-När du har etablerat och startat en instans av Azure-SSIS integration runtime kan du konfigurera den igen genom att köra en sekvens `Stop`  -  `Set`  -  `Start` med PowerShell-cmdlets i följd. Följande PowerShell-skript ändrar till exempel antalet noder som har allokerats för Azure-SSIS integration runtime-instansen till fem.
+När du har etablerat och startat en instans av Azure-SSIS integration runtime kan du konfigurera den igen genom att köra en sekvens med `Stop`  -  `Set`  -  `Start` PowerShell-cmdlets i följd. Följande PowerShell-skript ändrar till exempel antalet noder som har allokerats för Azure-SSIS integration runtime-instansen till fem.
 
 ### <a name="reconfigure-an-azure-ssis-ir"></a>Konfigurera om en Azure-SSIS IR
 
@@ -96,8 +96,8 @@ När du har etablerat och startat en instans av Azure-SSIS integration runtime k
 Mer information om Azure-SSIS runtime finns i följande avsnitt: 
 
 - [Azure-SSIS integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln innehåller konceptuell information om integrerings körningar i allmänhet, inklusive Azure-SSIS IR. 
-- [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL-databas som värd för SSIS-katalogen. 
-- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln är utökad i självstudien och innehåller instruktioner om hur du använder Azure SQL Database hanterade instansen och ansluter till IR till ett virtuellt nätverk. 
+- [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder Azure SQL Database som värd för SSIS-katalogen. 
+- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln expanderar i självstudien och innehåller instruktioner om hur du använder Azure SQL-hanterad instans och ansluter till IR till ett virtuellt nätverk. 
 - [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk. Den innehåller också steg för att använda Azure-portalen för att konfigurera ett virtuellt nätverk så att Azure-SSIS IR kan ansluta till ett virtuellt nätverk. 
 - [Övervaka en Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln visar hur du hämtar information om en Azure-SSIS IR och innehåller beskrivningar av statusar i den returnerade informationen. 
  

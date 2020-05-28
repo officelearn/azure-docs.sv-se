@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28d7b2955c84833841760e441cd2919181e22bc7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: a5dce5b53df817bd365d4ce9670ffd556ce365f7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572802"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015510"
 ---
 # <a name="manage-analysis-services"></a>Manage Analysis Services
 När du har skapat en Analysis Services-server i Azure kan det finnas några administrations-och hanterings uppgifter som du behöver utföra direkt eller vid en stund. Du kan till exempel köra bearbetning av uppdatera data, kontrol lera vem som har åtkomst till modellerna på servern eller övervaka serverns hälsa. Vissa hanterings uppgifter kan endast utföras i Azure Portal, andra i SQL Server Management Studio (SSMS) och vissa uppgifter kan göras i båda.
@@ -51,7 +51,7 @@ Se till att du använder den senaste versionen av SSMS för att få alla de sena
 
     **Active Directory** lösenordsautentisering för att använda ett organisations konto. Till exempel när du ansluter från en dator som inte är domänansluten.
 
-    **Active Directory-universell med MFA-stöd** för att använda [icke-interaktiv eller Multi-Factor Authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory-universell med MFA-stöd** för att använda [icke-interaktiv eller Multi-Factor Authentication](../azure-sql/database/authentication-mfa-ssms-overview.md). 
    
     ![Ansluta i SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

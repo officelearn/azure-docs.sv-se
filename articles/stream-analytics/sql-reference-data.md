@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f780ad3d2c95f9d23ea9a0b675b59ba22e25016
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651947"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021695"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Använda referens data från en SQL Database för ett Azure Stream Analytics jobb
 
@@ -40,7 +40,7 @@ Använd följande steg för att lägga till Azure SQL Database som referens käl
 
    ![SQL Database referens konfiguration](./media/sql-reference-data/sql-input-config.png)
 
-3. Testa ögonblicks bild frågan i SQL-Frågeredigeraren. Mer information finns i [använda Azure Portal SQL-Frågeredigeraren för att ansluta och fråga efter data](../sql-database/sql-database-connect-query-portal.md)
+3. Testa ögonblicks bild frågan i SQL-Frågeredigeraren. Mer information finns i [använda Azure Portal SQL-Frågeredigeraren för att ansluta och fråga efter data](../azure-sql/database/connect-query-portal.md)
 
 ### <a name="specify-storage-account-in-job-config"></a>Ange lagrings konto i jobb konfigurationen
 
@@ -69,7 +69,7 @@ Använd följande steg för att lägga till Azure SQL Database som referens käl
 
 ### <a name="create-a-sql-database-table"></a>Skapa en SQL Database tabell
 
-Använd SQL Server Management Studio för att skapa en tabell för att lagra dina referens data. Se [utforma din första Azure SQL-databas med SSMS](../sql-database/sql-database-design-first-database.md) för mer information.
+Använd SQL Server Management Studio för att skapa en tabell för att lagra dina referens data. Se [utforma din första Azure SQL-databas med SSMS](../azure-sql/database/design-first-database-tutorial.md) för mer information.
 
 Exempel tabellen som används i följande exempel skapades från följande instruktion:
 
@@ -129,7 +129,7 @@ Innan du distribuerar jobbet till Azure kan du testa frågans logik lokalt mot L
 
 ## <a name="delta-query"></a>Delta fråga
 
-När du använder delta frågan rekommenderas [temporala tabeller i Azure SQL Database](../sql-database/sql-database-temporal-tables.md) .
+När du använder delta frågan rekommenderas [temporala tabeller i Azure SQL Database](../azure-sql/temporal-tables.md) .
 
 1. Skapa en temporal tabell i Azure SQL Database.
    

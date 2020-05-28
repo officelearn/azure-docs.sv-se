@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/16/2020
-ms.openlocfilehash: 1a764f392402acf9aa405468470d0fb6f680d755
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0a9a00aa6abd35ad723f02a30869e8f7734b1f3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461116"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020565"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Läsa in data till Azure SQL Data Warehouse med Azure Data Factory
 
@@ -38,16 +38,16 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 > [!NOTE]
 > Mer information finns i [Kopiera data till eller från Azure SQL Data Warehouse med Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Azure SQL Data Warehouse: data lagret innehåller de data som kopieras från SQL-databasen. Om du inte har ett Azure SQL Data Warehouse kan du läsa anvisningarna i [skapa en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Azure SQL Database: den här självstudien kopierar data från en Azure SQL-databas med Adventure Works LT-exempel data. Du kan skapa en SQL-databas genom att följa anvisningarna i [skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
+* Azure SQL Database: den här självstudien kopierar data från en Azure SQL-databas med Adventure Works LT-exempel data. Du kan skapa en SQL-databas genom att följa anvisningarna i [skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
 * Azure Storage-konto: Azure Storage används som _mellanlagrings_ -BLOB i Mass kopierings åtgärden. Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-account-create.md).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**:
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **data och analys**  >  **Data Factory**:
 
 2. På sidan **ny data fabrik** anger du värden för följande objekt:
 
@@ -155,4 +155,4 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 Gå vidare till följande artikel om du vill lära dig mer om Azure SQL Data Warehouse-support:
 
 > [!div class="nextstepaction"]
->[Azure SQL Data Warehouse koppling](connector-azure-sql-data-warehouse.md)
+>[Azure SQL Data Warehouse-anslutningsapp](connector-azure-sql-data-warehouse.md)

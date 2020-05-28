@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c69d28d2be6b04286bb04a2ede6eebc69400c777
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631969"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014901"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Använda Azure Functions för att hantera beräknings resurser i Azure Synapse Analytics SQL-poolen
 
@@ -29,7 +29,7 @@ För att kunna använda Azure Funktionsapp med SQL-poolen måste du skapa ett [t
 Om du vill distribuera mallen behöver du följande information:
 
 - Namnet på resurs gruppen som instansen av SQL-poolen finns i
-- Namnet på den logiska server som SQL-instansen finns i
+- Namnet på den server som SQL-instansen finns i
 - Namn på din instans av SQL-pool
 - Klient-ID (katalog-ID) för din Azure Active Directory
 - Prenumerations-ID:t
@@ -101,7 +101,7 @@ För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funkti
 
    ![Skapa ny funktion](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. Under Språk väljer du *Javascript* och *TimerTrigger*.
+2. Från språk väljer du *Java Script*och väljer sedan *TimerTrigger*.
 
    ![Skapa ny funktion](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -115,7 +115,7 @@ För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funkti
 
 5. Ställ in din åtgärds variabel på önskat beteende enligt följande:
 
-   ```javascript
+   ```JavaScript
    // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"

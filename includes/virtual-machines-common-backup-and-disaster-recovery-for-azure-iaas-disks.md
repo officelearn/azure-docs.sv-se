@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77179132"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124267"
 ---
 Den här artikeln beskriver hur du planerar för säkerhets kopiering och haveri beredskap (DR) för virtuella IaaS-datorer (VM) och diskar i Azure. Det här dokumentet omfattar både hanterade och ohanterade diskar.
 
@@ -146,7 +146,7 @@ Använd följande steg för att aktivera säkerhets kopiering av virtuella dator
 
     b. På menyn **Recovery Services valv** klickar du på **Lägg till** och följer stegen för att skapa ett nytt valv i samma region som den virtuella datorn. Om din virtuella dator till exempel finns i regionen Västra USA väljer du västra USA för valvet.
 
-1.  Verifiera Storage-replikeringen för det nyligen skapade valvet. Öppna valvet under **Recovery Services valv** och gå till **Egenskaper** > **säkerhetskopiera konfigurations** > **uppdatering**. Se till att alternativet **Geo-redundant lagring** är markerat som standard. Det här alternativet säkerställer att valvet replikeras automatiskt till ett sekundärt Data Center. Ditt valv i västra USA replikeras till exempel automatiskt till USA, östra.
+1.  Verifiera Storage-replikeringen för det nyligen skapade valvet. Öppna valvet under **Recovery Services valv** och gå till **Egenskaper**  >  **säkerhetskopiera konfigurations**  >  **uppdatering**. Se till att alternativet **Geo-redundant lagring** är markerat som standard. Det här alternativet säkerställer att valvet replikeras automatiskt till ett sekundärt Data Center. Ditt valv i västra USA replikeras till exempel automatiskt till USA, östra.
 
 1.  Konfigurera säkerhets kopierings principen och välj den virtuella datorn från samma användar gränssnitt.
 
@@ -231,7 +231,7 @@ För virtuella datorer med flera diskar måste du kopiera alla ögonblicks bilde
 
 ### <a name="sql-server"></a>SQL Server
 
-SQL Server som körs i en virtuell dator har sina egna inbyggda funktioner för att säkerhetskopiera SQL Server-databasen till Azure Blob Storage eller en fil resurs. Om lagrings kontot är Geo-redundant lagring eller Geo-redundant lagring med Läs behörighet kan du komma åt de säkerhets kopiorna i lagrings kontots sekundära Data Center i händelse av en katastrof, med samma begränsningar som tidigare diskuterats. Mer information finns i [säkerhetskopiera och återställa för SQL Server i Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). Förutom att säkerhetskopiera och återställa kan [SQL Server AlwaysOn-tillgänglighetsgrupper](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) upprätthålla sekundära repliker av databaser. Den här möjligheten minskar haveri återställnings tiden avsevärt.
+SQL Server som körs i en virtuell dator har sina egna inbyggda funktioner för att säkerhetskopiera SQL Server-databasen till Azure Blob Storage eller en fil resurs. Om lagrings kontot är Geo-redundant lagring eller Geo-redundant lagring med Läs behörighet kan du komma åt de säkerhets kopiorna i lagrings kontots sekundära Data Center i händelse av en katastrof, med samma begränsningar som tidigare diskuterats. Mer information finns i [säkerhetskopiera och återställa för SQL Server i Azure Virtual Machines](../articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Förutom att säkerhetskopiera och återställa kan [SQL Server AlwaysOn-tillgänglighetsgrupper](../articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) upprätthålla sekundära repliker av databaser. Den här möjligheten minskar haveri återställnings tiden avsevärt.
 
 ## <a name="other-considerations"></a>Andra överväganden
 

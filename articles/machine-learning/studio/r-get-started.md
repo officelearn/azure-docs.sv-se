@@ -9,16 +9,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 665bb12c91c8d6a5a60fd8f60216f30131f34915
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2c481fc2f435695b4b99b86411a2fcca27e97ab4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982198"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117863"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Kom igång med Azure Machine Learning Studio (klassisk) i R
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
 I den här självstudien får du lära dig hur du använder ML Studio (klassisk) för att skapa, testa och köra R-kod. I slutet kommer du att ha en fullständig prognos lösning.  
@@ -37,7 +35,7 @@ Prognosticering är en mycket anställd och helt användbar analys metod. Vanlig
 
 I den här självstudien använder du produktions-och pris data från Kalifornien, som innehåller månatlig information om produktionen av flera mejeri produkter och priset på mjölk fett, en benchmark-råvara.
 
-De data som används i den här artikeln, tillsammans med R-skript, kan hämtas från [MachineLearningSamples-Notebooks/Studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). Data i filen `cadairydata.csv` har ursprungligen syntetiskts från information som är tillgänglig från University of Wisconsin på [https://dairymarkets.com](https://dairymarkets.com).
+De data som används i den här artikeln, tillsammans med R-skript, kan hämtas från [MachineLearningSamples-Notebooks/Studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). Data i filen `cadairydata.csv` har ursprungligen syntetiskts från information som är tillgänglig från University of Wisconsin på [https://dairymarkets.com](https://dairymarkets.com) .
 
 
 
@@ -125,9 +123,9 @@ Om du inte förstår den sista raden i koden för tillfället läser du vidare. 
 
 RStudio är en mycket Använd IDE för R. Jag använder RStudio för att redigera, testa och felsöka vissa R-koder som används i den här guiden. När R-koden har testats och är klar kan du helt enkelt klippa ut och klistra in från RStudio-redigeraren i en Machine Learning Studio (klassisk) [köra R-skript][execute-r-script] -modulen.  
 
-Om du inte har installerat R-programmeringsspråket på din station ära dator rekommenderar vi att du gör det nu. Kostnads fria hämtningar av R-språket med öppen källkod är tillgängliga på det omfattande R Archive-nätverket [https://www.r-project.org/](https://www.r-project.org/)(cran) på. Det finns tillgängliga hämtningar för Windows, Mac OS och Linux/UNIX. Välj en närliggande spegling och följ hämtnings anvisningarna. Dessutom innehåller CRAN en enorm mängd användbara analys-och data manipulations paket.
+Om du inte har installerat R-programmeringsspråket på din station ära dator rekommenderar vi att du gör det nu. Kostnads fria hämtningar av R-språket med öppen källkod är tillgängliga på det omfattande R Archive-nätverket (CRAN) på [https://www.r-project.org/](https://www.r-project.org/) . Det finns tillgängliga hämtningar för Windows, Mac OS och Linux/UNIX. Välj en närliggande spegling och följ hämtnings anvisningarna. Dessutom innehåller CRAN en enorm mängd användbara analys-och data manipulations paket.
 
-Om du är nybörjare på RStudio bör du ladda ned och installera Skriv bords versionen. Du hittar RStudio-nedladdningar för Windows, Mac OS och Linux/UNIX på http://www.rstudio.com/products/RStudio/. Följ anvisningarna för att installera RStudio på din station ära dator.  
+Om du är nybörjare på RStudio bör du ladda ned och installera Skriv bords versionen. Du hittar RStudio-nedladdningar för Windows, Mac OS och Linux/UNIX på http://www.rstudio.com/products/RStudio/ . Följ anvisningarna för att installera RStudio på din station ära dator.  
 
 En själv studie kurs introduktion till RStudio finns i [använda RSTUDIO IDE](https://support.rstudio.com/hc/sections/200107586-Using-RStudio).
 
@@ -218,7 +216,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 ```
 
 > [!NOTE]
-> Azure Machine Learning Studio (klassisk) behandlar filer i zip-filen som om de finns i src/Directory, så du måste använda prefixet för fil namnen med detta katalog namn. Om zip t. ex. innehåller `yourfile.R` filerna och `yourData.rdata` i roten för zip-filen, så kan du hantera dem som `src/yourfile.R` och `src/yourData.rdata` när du `source` använder `load`och.
+> Azure Machine Learning Studio (klassisk) behandlar filer i zip-filen som om de finns i src/Directory, så du måste använda prefixet för fil namnen med detta katalog namn. Om zip t. ex. innehåller filerna `yourfile.R` och `yourData.rdata` i roten för zip-filen, så kan du hantera dem som `src/yourfile.R` och `src/yourData.rdata` när du använder `source` och `load` .
 
 Vi har redan diskuterat inläsning av data uppsättningar i [läsa in data uppsättningen](#loading). När du har skapat och testat R-skriptet som visas i föregående avsnitt gör du följande:
 
@@ -245,7 +243,7 @@ Vi har redan diskuterat inläsning av data uppsättningar i [läsa in data upps�
 
 1. Anslut utdata från **zip** -dataikonen till **skript bunts** indata för modulen [Kör R-skript][execute-r-script] .
 
-1. Skriv in `source()` funktionen med namnet på zip-filen i fönstret kod för modulen [Kör R-skript][execute-r-script] . Jag skrev `source("src/simpleplot.R")`i det här fallet.  
+1. Skriv in `source()` funktionen med namnet på zip-filen i fönstret kod för modulen [Kör R-skript][execute-r-script] . Jag skrev i det här fallet `source("src/simpleplot.R")` .  
 
 1. Se till att du väljer **Spara**.
 
@@ -257,7 +255,7 @@ När de här stegen är slutförda körs R [-skriptet i][execute-r-script] zip-f
 
 #### <a name="dataset1"></a>Dataset1
 
-Du kan skicka en rektangulär tabell med data till din R-kod genom att använda Dataset1-indata. I vårt enkla skript läser `maml.mapInputPort(1)` funktionen data från port 1. Dessa data tilldelas sedan till ett dataframe-variabel namn i din kod. I vårt enkla skript utför den första raden i koden tilldelningen.
+Du kan skicka en rektangulär tabell med data till din R-kod genom att använda Dataset1-indata. I vårt enkla skript `maml.mapInputPort(1)` läser funktionen data från port 1. Dessa data tilldelas sedan till ett dataframe-variabel namn i din kod. I vårt enkla skript utför den första raden i koden tilldelningen.
 
 ```R
 cadairydata <- maml.mapInputPort(1)
@@ -305,13 +303,13 @@ Dessa resultat är främst som förväntat, med 228 observationer och 9 kolumner
 
 #### <a name="dataset2"></a>Dataset2
 
-Beteendet för Dataset2-indatamängden är identiskt med Dataset1. Med den här inmatningen kan du skicka en andra rektangulär tabell med data till din R-kod. Funktionen `maml.mapInputPort(2)`med argumentet 2 används för att skicka dessa data.  
+Beteendet för Dataset2-indatamängden är identiskt med Dataset1. Med den här inmatningen kan du skicka en andra rektangulär tabell med data till din R-kod. Funktionen `maml.mapInputPort(2)` med argumentet 2 används för att skicka dessa data.  
 
 ### <a name="execute-r-script-outputs"></a>Köra R-skript-utdata
 
 #### <a name="output-a-dataframe"></a>Mata ut en dataframe
 
-Du kan mata ut innehållet i en R-dataframe som en rektangulär tabell via resultatet Dataset1-porten med hjälp `maml.mapOutputPort()` av funktionen. I vårt enkla R-skript utförs detta av följande rad.
+Du kan mata ut innehållet i en R-dataframe som en rektangulär tabell via resultatet Dataset1-porten med hjälp av `maml.mapOutputPort()` funktionen. I vårt enkla R-skript utförs detta av följande rad.
 
 ```
 maml.mapOutputPort('cadairydata')
@@ -359,7 +357,7 @@ När tabell data läses in i R från en extern källa är det alltid en bra idé
 
 Lyckligt vis är det enkelt att konvertera en typ till en annan, så länge mappning är möjlig. Du kan till exempel inte konvertera ' Nevada ' till ett numeriskt värde, men du kan konvertera det till en faktor (kategoriska variabel). Ett annat exempel är att konvertera ett numeriskt värde till ett tecken "1" eller en faktor.  
 
-Syntaxen för någon av dessa konverteringar är enkel: `as.datatype()`. De här typerna av konverterings funktioner är följande.
+Syntaxen för någon av dessa konverteringar är enkel: `as.datatype()` . De här typerna av konverterings funktioner är följande.
 
 * `as.numeric()`
 * `as.character()`
@@ -462,7 +460,7 @@ R-dataframes stöder kraftfulla filtrerings funktioner. Data uppsättningar kan 
 Det finns en filtrerings bit som vi bör göra på vår data uppsättning. Om du tittar på kolumnerna i cadairydata-dataframe visas två onödiga kolumner. Den första kolumnen innehåller bara ett rad nummer som inte är användbart. Den andra kolumnen år. månad innehåller redundant information. Vi kan enkelt undanta dessa kolumner genom att använda följande R-kod.
 
 > [!NOTE]
-> I det här avsnittet visar jag bara den ytterligare kod som jag lägger till i modulen [Kör R-skript][execute-r-script] . Jag kommer att lägga till varje **before** ny rad `str()` före funktionen. Jag använder den här funktionen för att verifiera mina resultat i Azure Machine Learning Studio (klassisk).
+> I det här avsnittet visar jag bara den ytterligare kod som jag lägger till i modulen [Kör R-skript][execute-r-script] . Jag kommer att lägga till varje ny rad **före** `str()` funktionen. Jag använder den här funktionen för att verifiera mina resultat i Azure Machine Learning Studio (klassisk).
 
 Jag lägger till följande rad i min R-kod i modulen [Kör R-skript][execute-r-script] .
 
@@ -503,7 +501,7 @@ Goda nyheter! Vi får det förväntade resultatet.
 
 För att skapa tids serie modeller är det lämpligt att ha en kolumn som innehåller månaderna sedan tids serien startades. Vi kommer att skapa en ny kolumn månad. Count.
 
-För att hjälpa till att ordna koden skapar vi vår första enkla funktion `num.month()`. Nu ska vi använda den här funktionen för att skapa en ny kolumn i dataframe. Den nya koden är som följer.
+För att hjälpa till att ordna koden skapar vi vår första enkla funktion `num.month()` . Nu ska vi använda den här funktionen för att skapa en ny kolumn i dataframe. Den nya koden är som följer.
 
 ```R
 ## Create a new column with the month count
@@ -559,7 +557,7 @@ Om du tittar på värdena i sammanfattningarna av vår dataframe bör du se någ
 
 För vår prognos modell använder vi en multiplicative modell för trend-och säsongs anpassning av dessa data. En logg omvandling gör att vi kan använda en linjär modell som fören klar processen. Vi kan använda logg omvandlingen i samma funktion där multiplikatorn används.
 
-I följande kod definierar jag en ny funktion `log.transform()`och tillämpar den på de rader som innehåller numeriska värden. Funktionen R `Map()` används för att tillämpa `log.transform()` funktionen på de markerade kolumnerna i dataframe. `Map()`liknar, `apply()` men tillåter mer än en lista med argument för funktionen. Observera att en lista med multiplikatorer tillhandahåller det andra argumentet för `log.transform()` funktionen. `na.omit()` Funktionen används som en del av rensningen för att se till att det inte finns saknade eller odefinierade värden i dataframe.
+I följande kod definierar jag en ny funktion `log.transform()` och tillämpar den på de rader som innehåller numeriska värden. Funktionen R `Map()` används för att tillämpa `log.transform()` funktionen på de markerade kolumnerna i dataframe. `Map()`liknar `apply()` , men tillåter mer än en lista med argument för funktionen. Observera att en lista med multiplikatorer tillhandahåller det andra argumentet för `log.transform()` funktionen. `na.omit()`Funktionen används som en del av rensningen för att se till att det inte finns saknade eller odefinierade värden i dataframe.
 
 ```R
 log.transform <- function(invec, multiplier = 1) {
@@ -602,7 +600,7 @@ Om du inte har använt för att dra in program vara i R kan all den här koden v
 
 1. En Vector med fyra meddelanden har definierats. Dessa meddelanden används för att förmedla information om några av de möjliga fel och undantag som kan uppstå med den här koden.
 2. Jag returnerar värdet NA för varje fall. Det finns många andra möjligheter som kan ha färre sido effekter. Jag kan returnera en Vector med nollor, eller den ursprungliga Indataporten, till exempel.
-3. Kontrollerna körs på argumenten till funktionen. Om ett fel upptäcks i varje fall returneras ett standardvärde och ett meddelande skapas av `warning()` funktionen. Jag använder `warning()` i stället för `stop()` att den senare avslutar körningen, precis som jag försöker undvika. Observera att jag har skrivit den här koden i ett procedur format, som i det här fallet är en funktionell metod som är komplicerad och skymd.
+3. Kontrollerna körs på argumenten till funktionen. Om ett fel upptäcks i varje fall returneras ett standardvärde och ett meddelande skapas av `warning()` funktionen. Jag använder i `warning()` stället för att `stop()` den senare avslutar körningen, precis som jag försöker undvika. Observera att jag har skrivit den här koden i ett procedur format, som i det här fallet är en funktionell metod som är komplicerad och skymd.
 4. Logg beräkningar är omslutna `tryCatch()` , så att undantagen inte orsakar en kraftig stoppad process. Utan `tryCatch()` de flesta fel som skapats av R Functions resulterar det i en stopp signal, vilket bara gör det.
 
 Kör den här R-koden i experimentet och titta på de utskrifter som skrivs ut i filen output. log. Nu visas omvandlade värden för de fyra kolumnerna i loggen, som du ser i bild 13.
@@ -754,7 +752,7 @@ Det finns en viss struktur med udda utseende i relationerna mellan dessa variabl
 
 För att utföra korrelations analys behöver vi både ta bort och standardisera variablerna. Vi kan bara använda R `scale()` -funktionen, som båda centrerar och skalar variabler. Den här funktionen kan köras snabbare. Jag vill dock visa ett exempel på försvars program i R.
 
-`ts.detrend()` Funktionen som visas nedan utför båda dessa åtgärder. Följande två rader med kod som trendar data och standardiserar sedan värdena.
+`ts.detrend()`Funktionen som visas nedan utför båda dessa åtgärder. Följande två rader med kod som trendar data och standardiserar sedan värdena.
 
 ```R
 ts.detrend <- function(ts, Time, min.length = 3){
@@ -803,11 +801,11 @@ pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = d
 
 Det finns ett ganska stort i `ts.detrend()` funktionen. Merparten av den här koden kontrollerar eventuella problem med argumenten eller hanterar undantag, som fortfarande kan uppstå under beräkningarna. Endast några rader i den här koden utför beräkningar.
 
-Vi har redan diskuterat ett exempel på en försvars programmering i värde transformationer. Båda beräknings blocken har `tryCatch()`omslutits. För vissa fel är det klokt att returnera den ursprungliga Indataporten och i andra fall returnerar jag en Vector med nollor.  
+Vi har redan diskuterat ett exempel på en försvars programmering i värde transformationer. Båda beräknings blocken har omslutits `tryCatch()` . För vissa fel är det klokt att returnera den ursprungliga Indataporten och i andra fall returnerar jag en Vector med nollor.  
 
 Observera att den linjära regressionen som används för avtrendering är en tids serie regression. Förutsägelse variabeln är ett Time Series-objekt.  
 
-När `ts.detrend()` har definierats används den för variabler av intresse i vår dataframe. Vi måste bearbeta den resulterande listan som skapats `lapply()` av till data dataframe med `as.data.frame()`hjälp av. På grund av försvars aspekter av `ts.detrend()`, förhindrar inte att en av variablerna bearbetas inte rätt bearbetning av de andra.  
+När `ts.detrend()` har definierats används den för variabler av intresse i vår dataframe. Vi måste bearbeta den resulterande listan som skapats av `lapply()` till data dataframe med hjälp av `as.data.frame()` . På grund av försvars aspekter av `ts.detrend()` , förhindrar inte att en av variablerna bearbetas inte rätt bearbetning av de andra.  
 
 Den sista kodraden skapar en scatterplot. När du har kört R-koden visas resultatet av scatterplot i bild 17.
 
@@ -925,8 +923,8 @@ outframe
 Den första kodraden är lite knepig och en förklaring kan hjälpa dig att förstå den. Arbeta från insidan vi har följande:
 
 1. Operatorn **[[[** med argumentet**1**väljer vektorn för korrelationer i lags från det första elementet i objekt listan CCF.
-2. `do.call()` Funktionen tillämpar `rbind()` funktionen över elementen i listan som returneras av `lapply()`.
-3. `data.frame()` Funktionen tvingar fram resultatet som genereras av `do.call()` till en dataframe.
+2. `do.call()`Funktionen tillämpar `rbind()` funktionen över elementen i listan som returneras av `lapply()` .
+3. `data.frame()`Funktionen tvingar fram resultatet som genereras av `do.call()` till en dataframe.
 
 Observera att rad namnen finns i en kolumn i dataframe. Om du gör det bevaras rad namnen när de skrivs ut från [skriptet kör R][execute-r-script].
 
@@ -995,7 +993,7 @@ Med det här resultatet är vi redo att starta vår analys.
 
 ### <a name="create-a-training-dataset"></a>Skapa en data uppsättning för utbildning
 
-Med den dataframe som är konstruerad behöver vi skapa en data uppsättning för utbildning. Dessa data kommer att innehålla alla observationer utom de senaste 12, år 2013, som är vår test data uppsättning. I följande kod under anges dataframe och skapas observationer av mejeri produktion och prisvariabler. Jag skapar sedan ritytor för de fyra produktions-och prisvariablerna. En anonym funktion används för att definiera några ökningar för observationer och sedan iterera över listan över de andra två argumenten med `Map()`. Om du funderar på att en for-slinga skulle ha fungerat bra här är du rätt. Men eftersom R är ett funktionellt språk som jag visar en funktionell metod.
+Med den dataframe som är konstruerad behöver vi skapa en data uppsättning för utbildning. Dessa data kommer att innehålla alla observationer utom de senaste 12, år 2013, som är vår test data uppsättning. I följande kod under anges dataframe och skapas observationer av mejeri produktion och prisvariabler. Jag skapar sedan ritytor för de fyra produktions-och prisvariablerna. En anonym funktion används för att definiera några ökningar för observationer och sedan iterera över listan över de andra två argumenten med `Map()` . Om du funderar på att en for-slinga skulle ha fungerat bra här är du rätt. Men eftersom R är ett funktionellt språk som jag visar en funktionell metod.
 
 ```R
 cadairytrain <- cadairydata[1:216, ]
@@ -1026,7 +1024,7 @@ När du har skapat ett Time Series-objekt och har haft en titt på data kan vi b
 
 Med tanke på den små skalan av data kommer jag att bygga modellen för trend i RStudio och sedan klippa ut och klistra in den resulterande modellen i Azure Machine Learning Studio (klassisk). RStudio tillhandahåller en interaktiv miljö för den här typen av interaktiva analyser.
 
-Ett första försök är att prova en polynom regression med en behörighet på upp till 3. Det finns en riktig risk för överanpassning av de här typerna av modeller. Därför är det bäst att undvika hög ordnings villkor. `I()` Funktionen förhindrar tolkning av innehållet (tolkar innehållet som det är) och gör att du kan skriva en bokstavligen tolkad funktion i en Regressions ekvation.
+Ett första försök är att prova en polynom regression med en behörighet på upp till 3. Det finns en riktig risk för överanpassning av de här typerna av modeller. Därför är det bäst att undvika hög ordnings villkor. `I()`Funktionen förhindrar tolkning av innehållet (tolkar innehållet som det är) och gör att du kan skriva en bokstavligen tolkad funktion i en Regressions ekvation.
 
 ```R
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^2) + I(Month.Count^3), data = cadairytrain)
@@ -1057,7 +1055,7 @@ Detta genererar följande.
     ## Multiple R-squared:  0.941,    Adjusted R-squared:  0.94
     ## F-statistic: 1.12e+03 on 3 and 212 DF,  p-value: <2e-16
 
-Från P-värden`Pr(>|t|)`() i dessa utdata kan vi se att kvadratvärdet inte kan vara signifikant. Jag kommer att använda `update()` funktionen för att ändra den här modellen genom att ta bort kvadraten.
+Från P-värden ( `Pr(>|t|)` ) i dessa utdata kan vi se att kvadratvärdet inte kan vara signifikant. Jag kommer att använda `update()` funktionen för att ändra den här modellen genom att ta bort kvadraten.
 
 ```R
 milk.lm <- update(milk.lm, . ~ . - I(Month.Count^2))
@@ -1187,7 +1185,7 @@ Resten av området visas i bild 25.
 
 Dessa rester ser rimliga ut. Det finns ingen särskild struktur, förutom resultatet av 2008-2009-tillbakagången, som vår modell inte tar hänsyn till för mycket bra.
 
-Observations området som visas i bild 25 är användbart för att upptäcka eventuella tids beroende mönster i resten. Den explicita metoden för att använda data behandling och att rita resten av resten som används placerar resten i tid i observations området. Om ritningen å andra sidan hade ritats `milk.lm$residuals`skulle området inte ha varit i tid ordning.
+Observations området som visas i bild 25 är användbart för att upptäcka eventuella tids beroende mönster i resten. Den explicita metoden för att använda data behandling och att rita resten av resten som används placerar resten i tid i observations området. Om ritningen å andra sidan hade ritats `milk.lm$residuals` skulle området inte ha varit i tid ordning.
 
 Du kan också använda `plot.lm()` för att skapa en serie diagnostiska områden.
 
@@ -1262,7 +1260,7 @@ predict2  <- predict(milk.lm2, cadairydata)
 }
 ```
 
-Som med `log.transform()` funktionen som vi diskuterade i avsnittet "värde omvandlingar" är det mycket fel kontroll och kod för undantags återställning i den här funktionen. Principerna som används är desamma. Arbetet görs på två platser som `tryCatch()`omslutits. Först är tids serien exponentiated, eftersom vi har arbetat med loggarna för värdena. För det andra beräknas det faktiska RMS-felet.  
+Som med `log.transform()` funktionen som vi diskuterade i avsnittet "värde omvandlingar" är det mycket fel kontroll och kod för undantags återställning i den här funktionen. Principerna som används är desamma. Arbetet görs på två platser som omslutits `tryCatch()` . Först är tids serien exponentiated, eftersom vi har arbetat med loggarna för värdena. För det andra beräknas det faktiska RMS-felet.  
 
 Med en funktion för att mäta RMS-felet kan vi bygga och generera en dataframe som innehåller RMS-felen. Vi kommer att inkludera villkor för enbart trend modellen och den kompletta modellen med säsongs faktorer. Följande kod utför jobbet genom att använda de två linjära modeller som vi har byggt.
 
@@ -1302,7 +1300,7 @@ RStudio är väl väldokumenterat. Här följer några länkar till de viktigast
 * Att **Redigera och köra r-kod** – RStudio tillhandahåller en integrerad miljö för att redigera och köra r-kod. Mer information finns i [Redigera och köra kod](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) .
 * **Fel sökning** – RStudio innehåller kraftfulla fel söknings funktioner. Mer information om dessa funktioner finns i [fel sökning med RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) . Information om fel söknings funktioner för Bryt punkter finns i [fel sökning av Bryt punkter](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
 
-## <a name="further-reading"></a><a id="appendixb"></a>Mer information
+## <a name="further-reading"></a><a id="appendixb"></a>Mer läsning
 
 Den här själv studie kursen beskriver grunderna om vad du behöver för att använda R-språket med Azure Machine Learning Studio (klassisk). Om du inte är bekant med R finns två introduktioner på CRAN:
 
@@ -1315,7 +1313,7 @@ Det finns många böcker på R som kan hjälpa dig att komma igång. Här är n�
 * **R Cookbook** av Paul Teetor ger en problem-och lösnings metod för att använda R.  
 * **R i praktiken** av Robert Kabacoff är en annan praktisk introduktions bok. Den medföljande [snabb R-webbplatsen](https://www.statmethods.net/) är en användbar resurs.
 * **R Inferno** av Patrick frätande är en överraskande lättsam-bok som hanterar ett antal olika typer av svåra och svåra ämnen som kan påträffas vid programmering i R. Boken är tillgänglig kostnads fritt på [R-Inferno](https://www.burns-stat.com/documents/books/the-r-inferno/).
-* Om du vill ha en djup inblick i avancerade ämnen i R kan du titta på boken **Advanced R** av Hadley Wickham. Online-versionen av den här boken är tillgänglig kostnads fritt [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/)på.
+* Om du vill ha en djup inblick i avancerade ämnen i R kan du titta på boken **Advanced R** av Hadley Wickham. Online-versionen av den här boken är tillgänglig kostnads fritt på [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/) .
 
 Du hittar en katalog med R Time Series-paket i [cran-aktivitetsvyn: tids serie analys](https://cran.r-project.org/web/views/TimeSeries.html). Information om vissa tids serie objekt paket finns i dokumentationen för paketet.
 

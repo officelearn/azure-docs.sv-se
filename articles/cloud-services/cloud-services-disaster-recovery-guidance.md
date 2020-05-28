@@ -10,12 +10,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4f869c8b4ae6e90cfe64a2bf3d13839d72727be
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77157515"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015309"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Vad du gör om ett avbrott uppstår i Azure-tjänsten som påverkar Azure Cloud Services
 På Microsoft arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga när du behöver dem. Det kommer inte längre att påverka vår kontroll på sätt som orsakar oplanerade avbrott i tjänsten.
@@ -47,7 +47,7 @@ Mer information om hur du skapar och distribuerar ett moln tjänst program finns
 Beroende på dina program data källor kan du behöva kontrol lera återställnings procedurerna för program data källan.
 
 * Azure Storage data källor finns i [Azure Storage redundans](../storage/common/storage-redundancy.md) för att kontrol lera vilka alternativ som är tillgängliga baserat på den valda redundans modellen för ditt program.
-* För SQL Database källor, Läs [Översikt: Cloud affärs kontinuitet och databas haveri beredskap med SQL Database](../sql-database/sql-database-business-continuity.md) för att kontrol lera vilka alternativ som är tillgängliga baserat på den valda replikerings modellen för ditt program.
+* För SQL Database källor, Läs [Översikt: Cloud affärs kontinuitet och databas haveri beredskap med SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) för att kontrol lera vilka alternativ som är tillgängliga baserat på den valda replikerings modellen för ditt program.
 
 
 ## <a name="option-3-wait-for-recovery"></a>Alternativ 3: vänta på återställning

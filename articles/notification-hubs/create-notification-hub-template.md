@@ -10,30 +10,28 @@ ms.author: sethm
 ms.date: 05/15/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: aefccb831fe35898962893a173c5bd1125877def
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ede6b8ae22fb51a9586c6c4465d2cf9ac79f88df
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743532"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996677"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-azure-resource-manager-template"></a>Snabb start: skapa en Notification Hub med en Azure Resource Manager-mall
 
 Azure Notification Hubs tillhandahåller en lättanvänd och skalad push-motor som gör att du kan skicka meddelanden till valfri plattform (iOS, Android, Windows, Kindle osv.) från alla Server delar (moln eller lokalt). Mer information om tjänsten finns i [Vad är Azure Notification Hubs](notification-hubs-push-notification-overview.md).
 
-I den här snabb starten används en Azure Resource Manager-mall för att skapa ett Azure Notification Hubs-namnområde och en Notification-hubb med namnet "MyHub" inom det namn området.
-
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+I den här snabb starten används en Azure Resource Manager-mall för att skapa ett Azure Notification Hubs-namnområde och en Notification-hubb med namnet **MyHub** inom denna namnrymd.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Inga.
 
 ## <a name="create-a-notification-hubs-namespace-and-hub"></a>Skapa ett Notification Hubs namn område och hubb
-
-<!-- The second H2 must start with "Create a". For example,  'Create a Key Vault', 'Create a virtual machine', etc. -->
 
 ### <a name="review-the-template"></a>Granska mallen
 
@@ -48,7 +46,7 @@ Mallen som används i den här snabb starten är från [Azure snabb starts-malla
 
 Välj följande bild för att logga in på Azure och öppna en mall. Mallen använder ett Notification Hubs namn områdes namn som parameter. Mallen skapar sedan ett namn område med det namnet och en Notification Hub med namnet **MyHub** inom denna namnrymd.
 
-[![Distribuera till Azure](./media/create-notification-hub-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 

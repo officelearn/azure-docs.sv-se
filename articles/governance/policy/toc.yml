@@ -197,8 +197,8 @@
       href: 'https://github.com/Azure/azure-policy'
     - name: GitHub – Lagringsplatsen Community Policy
       href: 'https://github.com/Azure/Community-Policy'
-    - name: Video – Build 2018
-      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: Frågor och svar från Microsoft – Azure Policy
+      href: /answers/topics/azure-policy.html.html
     - name: Styrning av YouTube-kanal
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Gästkonfigurationsvideor
@@ -211,9 +211,11 @@
           href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
         - name: Reparationsåtgärd
           href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
+    - name: Video – Build 2018
+      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance'
+      href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'

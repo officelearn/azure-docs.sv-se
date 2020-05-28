@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: df7753983cea2ca2cc285f04cd32da6ed065f415
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4d3044ec04a3306efdc3b57c1e5a3149b70fab05
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656159"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112852"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Snabb start: skapa en Azure Synapse Analytics-arbetsyta (för hands version)
 
@@ -22,12 +22,9 @@ I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-ar
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Azure Data Lake Storage Gen2 lagrings konto](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## <a name="register-azure-synapse-resource-provider"></a>Registrera Azure Synapse Resource Provider
-Registrera Azure Synapse Resource Provider om du inte redan har gjort det. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Information om hur du registrerar Azure Synapse Resource Provider finns i [Azure Resource providers och types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Välj *Microsoft. Synapse* i listan över resurs leverantörer när du registrerar dig.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 

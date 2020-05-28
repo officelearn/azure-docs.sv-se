@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abf7b4acfae5e90d0b3f6781b8fbbf0f6f1427d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 451d0709a8b0a1c0993ff879d675eb056e721c36
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860604"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116639"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -114,7 +114,7 @@ Användare med den här rollen kan skapa, läsa, uppdatera och ta bort alla anpa
 > [!IMPORTANT]
 > IEF princip administratör för B2 är en mycket känslig roll som bör tilldelas mycket begränsad till organisationer i produktion.Aktiviteter av dessa användare bör granskas noga, särskilt för organisationer i produktion.
 
-### <a name="billing-administrator"></a>[Fakturerings administratör](#billing-administrator-permissions)
+### <a name="billing-administrator"></a>[Faktureringsadministratör](#billing-administrator-permissions)
 
 Gör inköp, hanterar prenumerationer, hanterar supportärenden och övervakar tjänstens hälsa.
 
@@ -238,6 +238,7 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 > [!NOTE]
 > Global läsar roll har några begränsningar just nu –
 >
+>- [Administrations Center för OneDrive](https://admin.onedrive.com/) – administrations Center för OneDrive stöder inte rollen global läsare
 >- [M365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage) – den globala läsaren kan inte läsa förfrågningar om kundsäkerhet. Du hittar inte fliken **Customer Locked-begäranden** under **stöd** i den vänstra rutan i M365 administrations Center.
 >- [Office-säkerhet & Compliance Center](https://sip.protection.office.com/homepage) – den globala läsaren kan inte läsa SCC gransknings loggar, söka efter innehåll eller se säkra poäng.
 >- [Team administrations Center](https://admin.teams.microsoft.com) – den globala läsaren kan inte läsa **team livs cykeln**, analysera **& rapporter**, **hantering av IP-telefon enheter** och **program katalog**.
@@ -1842,7 +1843,7 @@ Azure DevOps-administratör | Azure DevOps-administratör | e3973bdf-4987-49ae-8
 Azure Information Protection administratör | Azure Information Protection administratör | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C IEF Keys-administratör | B2C IEF Keys-administratör | aaf43236-0c0d-4d5f-883a-6955382ac081
 B2C IEF-princip administratör | B2C IEF-princip administratör | 3edaf663-341e-4475-9f94-5c398ef6c070
-Fakturerings administratör | Faktureringsadministratör | b0f54661-2d74-4c50-afa3-1ec803f12efe
+Faktureringsadministratör | Faktureringsadministratör | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Molnprogramadministratör | Moln program administratör | 158c047a-c907-4556-b7ef-446551a6b5f7
 Moln enhets administratör | Moln enhets administratör | 7698a772-787b-4ac8-901f-60d6b08affd2
 Företagsadministratör | Global administratör | 62e90394-69f5-4237-9190-012177145e10

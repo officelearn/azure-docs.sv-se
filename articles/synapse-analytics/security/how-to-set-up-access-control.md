@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 40078d33d2b89c2fcf3b90cd8a19405b1a29c5d7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 894f3002e292466a460c8f96bb7f35b590cb9552
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660076"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015836"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version)
 
@@ -36,7 +36,7 @@ För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönste
 
 I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med valfritt namn.
 
-|Inställningen | Exempelvärde | Description |
+|Inställningen | Exempelvärde | Beskrivning |
 | :------ | :-------------- | :---------- |
 | **Synapse-arbetsyta** | WS1 |  Namnet som Synapse-arbetsytan kommer att ha. |
 | **ADLSGEN2-konto** | STG1 | ADLS-kontot som ska användas med din arbets yta. |
@@ -130,7 +130,7 @@ Användare i varje roll behöver utföra följande steg:
 
 ## <a name="step-8-network-security"></a>STEG 8: nätverks säkerhet
 
-Konfigurera arbets ytans brand vägg, virtuellt nätverk och [privat länk](../../sql-database/sql-database-private-endpoint-overview.md).
+Konfigurera arbets ytans brand vägg, virtuellt nätverk och [privat länk](../../azure-sql/database/private-endpoint-overview.md).
 
 ## <a name="step-9-completion"></a>STEG 9: Slutför
 

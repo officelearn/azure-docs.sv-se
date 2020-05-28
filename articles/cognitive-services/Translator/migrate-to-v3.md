@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 47136ee9c2f0dee29571f310eb3b07d7c11888c0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592720"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996218"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Translator v2 till v3-migrering
 
@@ -116,10 +116,10 @@ Microsoft Translator v3 använder neurala maskin översättning som standard. De
 
 Neurala-översättning med v3-text-API: t stöder inte användning av standard kategorier (SMT, tal, Tech, generalnn).
 
-| |Slutpunkt|    Kompatibilitet för GDPR-processor|  Använd Translator Hub| Använd anpassad översättare (förhands granskning)|
+| |Slutpunkt|    Kompatibilitet för GDPR-processor|    Använd Translator Hub|    Använd anpassad översättare (förhands granskning)|
 |:-----|:-----|:-----|:-----|:-----|
-|Översättare, version 2|  api.microsofttranslator.com|    Nej  |Ja    |Nej|
-|Översättare, version 3|  api.cognitive.microsofttranslator.com|  Ja|    Nej| Ja|
+|Översättare, version 2|    api.microsofttranslator.com|    Nej    |Ja    |Nej|
+|Översättare, version 3|    api.cognitive.microsofttranslator.com|    Ja|    Nej|    Ja|
 
 **Översättare, version 3**
 * Är allmänt tillgänglig och stöds fullt ut.

@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 0491f10f22e35c81e5bc35d537546001f136be50
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d235b00e0939c07737639035f757f3f9d7254867
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826833"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117984"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Aktivera Ändringsspårning och inventering från Azure Portal
 
@@ -61,7 +61,6 @@ Logga in på Azure på https://portal.azure.com .
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du arbetar med funktionen finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
-* Information om konfiguration av omfattningar finns i [arbeta med scope-konfigurationer för ändringsspårning och inventering](automation-scope-configurations-change-tracking.md).
 * Information om hur du använder funktionen för att identifiera program vara som är installerad i din miljö finns i [identifiera vilken program vara som är installerad på dina virtuella datorer](automation-tutorial-installed-software.md).
 * Om du inte vill integrera ditt Automation-konto med en Log Analytics arbets yta när du aktiverar funktionen, se [ta bort länken till arbets ytan från Automation-kontot](automation-unlink-workspace-change-tracking.md).
 * När du har distribuerat ändringar av virtuella datorer kan du ta bort dem enligt beskrivningen i [ta bort virtuella datorer från ändringsspårning och inventering](automation-remove-vms-from-change-tracking.md).

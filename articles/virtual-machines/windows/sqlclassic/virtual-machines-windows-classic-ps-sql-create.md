@@ -15,12 +15,12 @@ ms.date: 08/07/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5bfdcfab37091a5f581ce147c0a6af5ccd8147a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6de80278aa6919fecf67c28356c0917bd6b159d3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77914797"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014884"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Etablera en SQL Server virtuell dator med Azure PowerShell (klassisk)
 
@@ -31,7 +31,7 @@ Den här artikeln innehåller anvisningar för hur du skapar en SQL Server virtu
 > [!NOTE] 
 > Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
-Information om Resource Manager-versionen av det här avsnittet finns i [etablera en SQL Server virtuell dator med hjälp av Azure PowerShell Resource Manager](../sql/virtual-machines-windows-ps-sql-create.md).
+Information om Resource Manager-versionen av det här avsnittet finns i [etablera en SQL Server virtuell dator med hjälp av Azure PowerShell Resource Manager](../../../azure-sql/virtual-machines/windows/create-sql-vm-powershell.md).
 
 ### <a name="install-and-configure-powershell"></a>Installera och konfigurera PowerShell:
 1. Om du inte har något Azure-konto besöker du sidan för [kostnadsfria utvärderingsversioner av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -203,8 +203,8 @@ När du har loggat in på datorn med fjärr skrivbord konfigurerar du SQL Server
 
 Du hittar ytterligare instruktioner för hur du konfigurerar virtuella datorer med PowerShell i dokumentationen för [Virtual Machines](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-I många fall är nästa steg att migrera dina databaser till den nya SQL Server VM. Vägledning för databas migrering finns i [Migrera en databas till SQL Server på en virtuell Azure-dator](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+I många fall är nästa steg att migrera dina databaser till den nya SQL Server VM. Vägledning för databas migrering finns i [Migrera en databas till SQL Server på en virtuell Azure-dator](../../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 
-Om du också är intresse rad av att använda Azure Portal för att skapa SQL Virtual Machines, se hur du [konfigurerar en SQL Server virtuell dator på Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md). Observera att den självstudie som vägleder dig genom portalen skapar virtuella datorer med den rekommenderade Resource Manager-modellen, i stället för den klassiska modellen som används i det här PowerShell-avsnittet.
+Om du också är intresse rad av att använda Azure Portal för att skapa SQL Virtual Machines, se hur du [konfigurerar en SQL Server virtuell dator på Azure](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md). Observera att den självstudie som vägleder dig genom portalen skapar virtuella datorer med den rekommenderade Resource Manager-modellen, i stället för den klassiska modellen som används i det här PowerShell-avsnittet.
 
-Förutom de här resurserna rekommenderar vi att du granskar [andra avsnitt som handlar om att köra SQL Server i Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Förutom de här resurserna rekommenderar vi att du granskar [andra avsnitt som handlar om att köra SQL Server i Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).

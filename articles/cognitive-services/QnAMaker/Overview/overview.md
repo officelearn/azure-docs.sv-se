@@ -3,12 +3,12 @@ title: Vad är QnA Maker-tjänsten?
 description: QnA Maker är en molnbaserad NLP-tjänst som enkelt skapar ett naturligt samtals lager över dina data. Den kan användas för att hitta det mest lämpliga svaret för alla angivna språk från en särskild språk version, från din anpassade kunskaps bas (KB) information.
 ms.topic: overview
 ms.date: 05/26/2020
-ms.openlocfilehash: 5962ab2294a19c600beb00816394d96059bd4108
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: d2ff2d789f2ea1ae6018d95ef1d880da87b4ff74
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873713"
+ms.locfileid: "83994875"
 ---
 # <a name="what-is-the-qna-maker-service"></a>Vad är tjänsten QnA Maker?
 
@@ -40,9 +40,9 @@ När en QnA Maker kunskaps bas har publicerats skickar ett klient program en fr�
 
 ## <a name="what-is-a-knowledge-base"></a>Vad är en kunskaps bas?
 
-QnA Maker [importerar ditt innehåll](../concepts/knowledge-base.md) till en kunskaps bas med frågor och svars uppsättningar. Import processen extraherar information om relationen mellan delarna i det strukturerade och det delvis strukturerade innehållet för att innebära relationer mellan frågan och svars uppsättningarna. Du kan redigera dessa frågor och svars uppsättningar eller lägga till nya uppsättningar.
+QnA Maker [importerar ditt innehåll](../concepts/knowledge-base.md) till en kunskaps bas för fråga-och svars par. Import processen extraherar information om relationen mellan delarna i det strukturerade och det delvis strukturerade innehållet för att innebära relationer mellan frågan och svars paren. Du kan redigera de här frågorna och svars paren eller lägga till nya par.
 
-Innehållet i frågan och svars uppsättningen innehåller:
+Innehållet i frågan och svars paret innehåller:
 * Alla alternativa formulär för frågan
 * Metadata-taggar som används för att filtrera svars alternativ under sökningen
 * Följ anvisningarna för att fortsätta Sök förfiningen
@@ -53,7 +53,7 @@ När du har publicerat din kunskaps bas skickar ett klient program en användare
 
 ## <a name="create-manage-and-publish-to-a-bot-without-code"></a>Skapa, hantera och publicera till en bot utan kod
 
-På QnA Makers portalen får du en fullständig redigerings upplevelse för kunskaps basen. Du kan importera dokument i det aktuella formuläret till din kunskaps bas. Dessa dokument (till exempel vanliga frågor och svar, produkt handböcker, kalkyl blad eller webb sidor) konverteras till frågor och svars uppsättningar. Varje uppsättning analyseras för uppföljnings instruktioner och är anslutna till andra uppsättningar. Det slutliga _markdown_ -formatet stöder omfattande presentationer, inklusive bilder och länkar.
+På QnA Makers portalen får du en fullständig redigerings upplevelse för kunskaps basen. Du kan importera dokument i det aktuella formuläret till din kunskaps bas. Dessa dokument (till exempel vanliga frågor och svar, produkt handböcker, kalkyl blad eller webb sidor) konverteras till frågor och svars par. Varje par analyseras för uppföljnings instruktioner och är anslutna till andra par. Det slutliga _markdown_ -formatet stöder omfattande presentationer, inklusive bilder och länkar.
 
 När din kunskaps bas har redigerats publicerar du kunskaps basen till en fungerande [Azure Web App-robot](https://azure.microsoft.com/services/bot-service/) utan att skriva någon kod. Testa din robot i [Azure Portal](https://portal.azure.com) eller ladda ned och fortsätt utveckla.
 
@@ -63,7 +63,7 @@ QnA Makers systemet är ett skiktat rangordnings sätt. Data lagras i Azure Sear
 
 ## <a name="qna-maker-improves-the-conversation-process"></a>QnA Maker förbättrar konversations processen
 
-QnA Maker tillhandahåller frågor med flera frågor och aktiv utbildning för att hjälpa dig att förbättra dina grundläggande frågor och svars uppsättningar.
+QnA Maker tillhandahåller frågor med flera frågor och aktiv utbildning för att hjälpa dig att förbättra dina grundläggande frågor och svar-par.
 
 **Med frågor med flera turn** får du möjlighet att ansluta frågor och svar-par. Den här anslutningen gör att klient programmet kan tillhandahålla ett bästa svar och ger fler frågor för att förfina sökningen efter ett slut svar.
 

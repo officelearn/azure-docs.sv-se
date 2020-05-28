@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 15c11a5b94b80a96c520696c45f3eec5c48b7b48
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592737"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996082"
 ---
 # <a name="language-and-region-support-for-translator"></a>Språk-och region stöd för översättare
 
@@ -40,80 +40,80 @@ Translator har stöd för följande språk för text till text översättning. N
 > [!NOTE]
 > För närvarande är en delmängd av neurala-språken tillgängliga i en anpassad översättare och vi lägger gradvis till ytterligare. [Visa språk som för närvarande är tillgängliga i en anpassad översättare](#customization).
 
-|Språk|  Språkkod|  V3-API|
+|Språk|    Språkkod|    V3-API|
 |:-----|:-----:|:-----|
-|Afrikaans| `af`|   Neurala|
-|Arabiska|    `ar`    |   Neurala|
-|Bangla|    `bn`    |   Neurala|
-|Bosniska (latinsk)|   `bs`    |   Neurala|
-|Bulgariska| `bg`    |   Neurala|
-|Kantonesiska (traditionell)|   `yue`|  Statistikuppgifter|
-|Katalanska|   `ca`    |   Statistikuppgifter|
+|Afrikaans|    `af`|    Neurala|
+|Arabiska|    `ar`    |    Neurala|
+|Bangla|    `bn`    |    Neurala|
+|Bosniska (latinsk)|    `bs`    |    Neurala|
+|Bulgariska|    `bg`    |    Neurala|
+|Kantonesiska (traditionell)|    `yue`|    Statistikuppgifter|
+|Katalanska|    `ca`    |    Statistikuppgifter|
 |Kinesiska, förenklad|    `zh-Hans`|Neurala|
-|Kinesiska, traditionell|   `zh-Hant`       |Neurala|
-|Kroatiska|  `hr`    |Neurala|
-|Tjeckiska| `cs`    |   Neurala|
+|Kinesiska, traditionell|    `zh-Hant`        |Neurala|
+|Kroatiska|    `hr`    |Neurala|
+|Tjeckiska|    `cs`    |    Neurala|
 |Danska|    `da`        |Neurala|
-|Nederländska| `nl`|   Neurala|
-|Engelska|   `en`    |   Neurala|
-|Estniska|  `et`    |   Neurala|
-|Fijian|    `fj`    |   Statistikuppgifter|
-|Filipino|  `fil`   |   Statistikuppgifter|
-|Finska|   `fi`    |   Neurala|
-|Franska|    `fr`    |   Neurala|
-|Tyska|    `de`    |   Neurala|
-|Grekiska| `el`    |   Neurala|
-|Gujarati|  `gu`    |   Neurala|
+|Nederländska|    `nl`|    Neurala|
+|Engelska|    `en`    |    Neurala|
+|Estniska|    `et`    |    Neurala|
+|Fijian|    `fj`    |    Statistikuppgifter|
+|Filipino|    `fil`    |    Statistikuppgifter|
+|Finska|    `fi`    |    Neurala|
+|Franska|    `fr`    |    Neurala|
+|Tyska|    `de`    |    Neurala|
+|Grekiska|    `el`    |    Neurala|
+|Gujarati|    `gu`    |    Neurala|
 |Haitiska|    `ht`        |Statistikuppgifter|
-|Hebreiska |`he`   |Neurala
-|Hindi| `hi`    |   Neurala|
-|Hmong Daw| `mww`   |   Statistikuppgifter|
-|Ungerska| `hu`    |   Neurala|
-|Isländska| `is`    |   Neurala|
-|Indonesiska|    `id`    |   Statistikuppgifter|
+|Hebreiska    |`he`    |Neurala
+|Hindi|    `hi`    |    Neurala|
+|Hmong Daw|    `mww`    |    Statistikuppgifter|
+|Ungerska|    `hu`    |    Neurala|
+|Isländska|    `is`    |    Neurala|
+|Indonesiska|    `id`    |    Statistikuppgifter|
 |Iriska | `ga`| Neurala
-|Italienska|   `it`    |   Neurala|
-|Japanska|  `ja`    |   Neurala|
+|Italienska|    `it`    |    Neurala|
+|Japanska|    `ja`    |    Neurala|
 |Kannada|`kn`| Neurala
-|Swahili| `sw`    |   Statistikuppgifter|
-|Klingon|   `tlh`   |   Statistikuppgifter|
-|Klingon (plqaD)|   `tlh-Qaak`  |   Statistikuppgifter|
-|Koreanska |`ko`   |   Neurala|
-|Lettiska|   `lv`    |   Neurala|
-|Litauiska|    `lt`    |   Neurala|
-|Madagaskisk|  `mg`    |   Statistikuppgifter|
-|Malajiska| `ms`        |Statistikuppgifter|
+|Swahili|    `sw`    |    Statistikuppgifter|
+|Klingon|    `tlh`    |    Statistikuppgifter|
+|Klingon (plqaD)|    `tlh-Qaak`    |    Statistikuppgifter|
+|Koreanska    |`ko`    |    Neurala|
+|Lettiska|    `lv`    |    Neurala|
+|Litauiska|    `lt`    |    Neurala|
+|Madagaskisk|    `mg`    |    Statistikuppgifter|
+|Malajiska|    `ms`        |Statistikuppgifter|
 |Malayalam| `ml` | Neurala
-|Maltesiska|   `mt`    |   Statistikuppgifter|
+|Maltesiska|    `mt`    |    Statistikuppgifter|
 |Maori| `mi`  | Neurala|
 |Marathi| `mr`  | Neurala|
-|Norska| `nb`    |   Neurala|
-|Persiska|   `fa`    |   Neurala|
-|Polska|    `pl`    |   Neurala|
-|Portugisiska (Brasilien)|   `pt-br` |   Neurala|
+|Norska|    `nb`    |    Neurala|
+|Persiska|    `fa`    |    Neurala|
+|Polska|    `pl`    |    Neurala|
+|Portugisiska (Brasilien)|    `pt-br`    |    Neurala|
 |Portugisiska (Portugal)| `pt-pt` | Neurala
 |Punjabi|`pa`|Neurala
-|Queretaro Otomi|   `otq`   |   Statistikuppgifter|
-|Rumänska|  `ro`    |   Neurala|
-|Ryska|   `ru`    |   Neurala|
-|Samoan|    `sm`    |   Statistikuppgifter|
-|Serbiska (kyrillisk)|    `sr-Cyrl`|  Statistikuppgifter|
-|Serbiska (latinsk) (Serbien)|   `sr-Latn`       |Statistikuppgifter|
-|Slovakiska|    `sk`    |   Neurala|
-|Slovenska| `sl`    |   Neurala|
-|Spanska|   `es`    |   Neurala|
-|Svenska|   `sv`    |Neurala|
-|Tahitian|  `ty`    |Statistikuppgifter|
-|Tamilska| `ta`    |   Neurala|
-|Telugu|    `te`    |   Neurala|
-|Thailändska|  `th`    |   Neurala|
-|Tonganska|    `to`    |   Statistikuppgifter|
-|Turkiska|   `tr`        |Neurala|
-|Ukrainska| `uk`    |   Neurala|
-|Urdu|  `ur`    |   Statistikuppgifter|
-|Vietnamesiska|    `vi`    |   Neurala|
-|Walesiska| `cy`    |   Neurala|
-|Yucatec Maya|  `yua`   |   Statistikuppgifter|
+|Queretaro Otomi|    `otq`    |    Statistikuppgifter|
+|Rumänska|    `ro`    |    Neurala|
+|Ryska|    `ru`    |    Neurala|
+|Samoan|    `sm`    |    Statistikuppgifter|
+|Serbiska (kyrillisk)|    `sr-Cyrl`|    Statistikuppgifter|
+|Serbiska (latinsk) (Serbien)|    `sr-Latn`        |Statistikuppgifter|
+|Slovakiska|    `sk`    |    Neurala|
+|Slovenska|    `sl`    |    Neurala|
+|Spanska|    `es`    |    Neurala|
+|Svenska|    `sv`    |Neurala|
+|Tahitian|    `ty`    |Statistikuppgifter|
+|Tamilska|    `ta`    |    Neurala|
+|Telugu|    `te`    |    Neurala|
+|Thailändska|    `th`    |    Neurala|
+|Tonganska|    `to`    |    Statistikuppgifter|
+|Turkiska|    `tr`        |Neurala|
+|Ukrainska|    `uk`    |    Neurala|
+|Urdu|    `ur`    |    Statistikuppgifter|
+|Vietnamesiska|    `vi`    |    Neurala|
+|Walesiska|    `cy`    |    Neurala|
+|Yucatec Maya|    `yua`    |    Statistikuppgifter|
 
 > [!NOTE]
 > Språk koden är `pt` som standard `pt-br` portugisiska (Brasilien).
@@ -224,7 +224,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Bosniska (latinsk)      | `bs`          |
 | Bulgariska      | `bg`          |
 | Kinesiska, förenklad      | `zh-Hans`          |
-|Kinesiska, traditionell|   `zh-Hant`   |
+|Kinesiska, traditionell|    `zh-Hant`    |
 | Kroatiska      | `hr`          |
 | Tjeckiska      | `cs`          |
 | Danska      | `da`          |
@@ -239,15 +239,15 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Hindi      | `hi`          |
 | Ungerska      | `hu`          |
 | Isländska | `is` |
-| Indonesiska|   `id`    |
-| Iriska | `ga`  |
+| Indonesiska|    `id`    |
+| Iriska | `ga`    |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
 | Swahili|    `sw`    |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |
-| Madagaskisk| `mg`    |
+| Madagaskisk|    `mg`    |
 | Maori| `mi`  |
 | Norska      | `nb`          |
 | Persiska      | `fa`          |
@@ -255,7 +255,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Portugisiska (Brasilien) | `pt-br` |
 | Rumänska      | `ro`          |
 | Ryska      | `ru`          |
-| Samoan|   `sm`    |
+| Samoan|    `sm`    |
 | Serbiska (latinsk) (Serbien)      | `sr-Latn`          |
 | Slovakiska     | `sk`          |
 | Slovenska      | `sl`          |

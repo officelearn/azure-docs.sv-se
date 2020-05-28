@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: fd5617af2da9aa00cb75deb82f83be29db78d79d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: e5e60fbcbdd7784cf131b7acb461065251a2dfd7
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873495"
+ms.locfileid: "84116163"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -211,7 +211,7 @@ Se [ordning för bearbetnings regler](https://docs.microsoft.com/azure/applicati
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Vad indikerar värd fältet för anpassade avsökningar?
 
-Fältet värd anger namnet som avsökningen ska skickas till när du har konfigurerat multisite på Application Gateway. Använd annars 127.0.0.1. Det här värdet skiljer sig från värd namnet för den virtuella datorn. Formatet är \< Protocol \> :// \< Host \> : \< port \> \< Sök väg \> .
+Fältet värd anger namnet som avsökningen ska skickas till när du har konfigurerat multisite på Application Gateway. Använd annars 127.0.0.1. Det här värdet skiljer sig från värd namnet för den virtuella datorn. Formatet är \<protocol\> :// \<host\> : \<port\> \<path\> .
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Kan jag bara tillåta Application Gateway åtkomst till några få käll-IP-adresser?
 
@@ -411,8 +411,6 @@ Men om du vill använda Application Gateway v2 med endast privat IP kan du följ
 
 Exempel på NSG-konfiguration för privat IP-åtkomst: ![ Application Gateway v2 NSG-konfiguration endast för privat IP-åtkomst](./media/application-gateway-faq/appgw-privip-nsg.png)
 
-### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Stöder Application Gateway SameSite för tillhörighets-cookie?
-Ja, Chrome- [webbläsarens](https://www.chromium.org/Home) [V80-uppdatering](https://chromiumdash.appspot.com/schedule) introducerade ett mandat på HTTP cookies utan SameSite-attribut som ska behandlas som SameSite = lax. Det innebär att den Application Gateway tillhörighets-cookien inte skickas av webbläsaren i en tredjeparts kontext. För att stödja det här scenariot infogar Application Gateway en annan cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga *ApplicationGatewayAffinity* -cookien.  Dessa cookies liknar varandra, men cookien *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till: *SameSite = none; Säker*. De här attributen upprätthåller tröga sessioner även för frågor mellan ursprung. Mer information finns i [avsnittet cookie-baserad tillhörighet](configuration-overview.md#cookie-based-affinity) .
 
 ## <a name="next-steps"></a>Nästa steg
 

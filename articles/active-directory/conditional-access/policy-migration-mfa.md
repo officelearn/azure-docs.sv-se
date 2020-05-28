@@ -4,19 +4,19 @@ description: Den här artikeln visar hur du migrerar en klassisk princip som kr�
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 12/04/2019
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d637ac464b689a25ce5d5a79cf47da0c85d38d0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1dc7b7227dbaee488726a75fe7120bd26614dbf
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74846050"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993736"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Migrera en klassisk princip i Azure Portal
 
@@ -32,7 +32,7 @@ Migreringsprocessen består av följande steg:
 
 ## <a name="open-a-classic-policy"></a>Öppna en klassisk princip
 
-1. I [Azure Portal](https://portal.azure.com)navigerar du till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+1. I [Azure Portal](https://portal.azure.com)navigerar du till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 1. Välj, **klassiska principer**.
 
    ![Vyn klassiska principer](./media/policy-migration-mfa/12.png)
@@ -41,7 +41,7 @@ Migreringsprocessen består av följande steg:
 
 ## <a name="create-a-new-conditional-access-policy"></a>Skapa en ny princip för villkorlig åtkomst
 
-1. I [Azure Portal](https://portal.azure.com)navigerar du till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+1. I [Azure Portal](https://portal.azure.com)navigerar du till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 1. Om du vill skapa en ny princip för villkorlig åtkomst väljer du **ny princip**.
 1. På sidan **nytt** i text rutan **namn** anger du ett namn för principen.
 1. I avsnittet **tilldelningar** klickar du på **användare och grupper**.

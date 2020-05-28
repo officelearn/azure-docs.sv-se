@@ -7,26 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 2224ec64712ff9d1745231f39a1521ae941304ff
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 926c15a9b96c2ed7967df2b5918a2f3c5f6c5718
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77118764"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116814"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera kvitto data med hjälp av formulär tolken REST API med python
 
 I den här snabb starten använder du Azures formulär igenkännings REST API med python för att extrahera och identifiera relevant information i amerikanska försäljnings kvitton.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
-- En URL för en avbildning av ett kvitto. Du kan använda en [exempel bild](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) för den här snabb starten.
+- En URL för en avbildning av ett kvitto. Du kan använda en [exempel bild](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) för den här snabb starten.
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
@@ -82,7 +82,7 @@ Du börjar analysera ett kvitto genom att anropa API för att **[analysera kvitt
 1. Öppna ett kommandotolksfönster.
 1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-receipts.py`.
 
-Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` åtgärds-ID: t.
+Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` Åtgärds-ID: t.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -120,17 +120,17 @@ while n_try < n_tries:
 ```
 
 1. Spara skriptet.
-1. Använd `python` kommandot igen för att köra exemplet. Till exempel `python form-recognizer-receipts.py`.
+1. Använd kommandot igen `python` för att köra exemplet. Till exempel `python form-recognizer-receipts.py`.
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Skriptet kommer att skriva ut svar till-konsolen tills **åtgärden för** att slutföra åtgärden har slutförts. Sedan skrivs den extraherade text informationen in i JSON-format. `"recognitionResults"` Fältet innehåller alla rader med text som har extraherats från inleveransen och `"understandingResults"` fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot.
+Skriptet kommer att skriva ut svar till-konsolen tills **åtgärden för** att slutföra åtgärden har slutförts. Sedan skrivs den extraherade text informationen in i JSON-format. `"recognitionResults"`Fältet innehåller alla rader med text som har extraherats från inleveransen och `"understandingResults"` fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot.
 
 Se följande kvitto avbildning och dess motsvarande JSON-utdata. Utdatan har kort ATS för läsbarhet.
 
 ![Ett kvitto från contoso Store](../media/contoso-allinone.jpg)
 
-`"recognitionResults"` Noden innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. `"understandingResults"` Noden innehåller de indatavärden som modellen identifierade. Här hittar du användbara nyckel/värde-par som skatt, totalt, handels adress och så vidare.
+`"recognitionResults"`Noden innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. `"understandingResults"`Noden innehåller de indatavärden som modellen identifierade. Här hittar du användbara nyckel/värde-par som skatt, totalt, handels adress och så vidare.
 
 ```json
 { 

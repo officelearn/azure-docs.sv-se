@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 622a527d8aae7991edd7cae7da953ec7dd8afa4e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d583c25afc5c328ef64a8c931e4209f0d88a14a9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696484"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124397"
 ---
 | Kategori | Datalager |
 |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
-| &nbsp; |[Öppna Azure-datautforskaren](../articles/data-factory/connector-azure-data-explorer.md) |
+| &nbsp; |[Azure-datautforskaren](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
 | &nbsp; |[Azure Database för MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
@@ -27,7 +27,7 @@ ms.locfileid: "83696484"
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure Files](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
-| &nbsp; |[Hanterad Azure SQL Database-instans](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
+| &nbsp; |[Hanterad Azure SQL-instans](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
 | &nbsp; |[Azure Synapse Analytics (tidigare SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |
 | **Databas** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |

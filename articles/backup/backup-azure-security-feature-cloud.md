@@ -3,12 +3,12 @@ title: Mjuk borttagning för Azure Backup
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7831488482ef154ce00685e513b36ed235e335e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791399"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116405"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Mjuk borttagning för Azure Backup
 
@@ -16,7 +16,10 @@ Problem med säkerhets problem, t. ex. skadlig kod, utpressnings program vara oc
 
 En sådan funktion är mjuk borttagning. Med mjuk borttagning, även om en obehörig aktör tar bort en säkerhets kopia (eller säkerhetskopierade data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar, vilket gör att det inte går att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagars kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar ingen kostnad för kunden.
 
-[Mjuk borttagnings skydd för virtuella Azure-datorer](soft-delete-virtual-machines.md) och [mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i arbets belastningar för virtuella Azure](soft-delete-sql-saphana-in-azure-vm.md) -datorer är tillgängliga för alla.
+Mjuk borttagnings skydd är tillgängligt för dessa tjänster:
+
+- [Mjuk borttagning för virtuella Azure-datorer](soft-delete-virtual-machines.md)
+- [Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i virtuella Azure-arbetsbelastningar](soft-delete-sql-saphana-in-azure-vm.md)
 
 Det här Flow-diagrammet visar de olika stegen och tillstånden för ett säkerhets kopierings objekt när mjuk borttagning är aktiverat:
 
@@ -32,8 +35,8 @@ Mjuk borttagning är aktiverat som standard på nyligen skapade valv för att sk
 
 Följ dessa steg om du vill inaktivera mjuk borttagning:
 
-1. Gå till ditt valv i Azure Portal och gå sedan till **Inställningar** -> **Egenskaper**.
-2. I fönstret Egenskaper väljer du **säkerhets inställningar** -> **Uppdatera**.  
+1. Gå till ditt valv i Azure Portal och gå sedan till **Inställningar**  ->  **Egenskaper**.
+2. I fönstret Egenskaper väljer du **säkerhets inställningar**  ->  **Uppdatera**.  
 3. I rutan säkerhets inställningar under **mjuk borttagning**väljer du **inaktivera**.
 
 ![Inaktivera mjuk borttagning](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)

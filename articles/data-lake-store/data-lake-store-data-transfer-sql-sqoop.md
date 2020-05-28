@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: cf3893706afcb4c4cc5b90dd3d2431ecedc71d0a
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 154f8f1923874a3221597f1c0017fe99b5d31844
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73839064"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015938"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Kopiera data mellan Data Lake Storage Gen1 och Azure SQL Database med Sqoop
 
@@ -24,7 +24,7 @@ Big data program är ett naturligt val för bearbetning av ostrukturerade och de
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) är ett verktyg som utformats för att överföra data mellan Relations databaser och en stor data lagrings plats, till exempel data Lake Storage gen1. Du kan använda den för att importera data från ett relationellt databas hanterings system (RDBMS) som Azure SQL Database till Data Lake Storage Gen1. Du kan sedan omvandla och analysera data med hjälp av Big data-arbetsbelastningar och sedan exportera data tillbaka till en RDBMS. I den här artikeln använder du en Azure SQL-databas som Relations databas för att importera/exportera från.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du ha följande:
 
@@ -35,7 +35,7 @@ Innan du börjar måste du ha följande:
 
 ## <a name="create-sample-tables-in-the-azure-sql-database"></a>Skapa exempel tabeller i Azure SQL-databasen
 
-1. Starta genom att skapa två exempel tabeller i Azure SQL-databasen. Använd [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) eller Visual Studio för att ansluta till databasen och kör sedan följande frågor.
+1. Starta genom att skapa två exempel tabeller i Azure SQL-databasen. Använd [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) eller Visual Studio för att ansluta till databasen och kör sedan följande frågor.
 
     **Skapa Table1**
 
@@ -81,7 +81,7 @@ Det finns redan Sqoop-paket tillgängliga för det An-HDInsight klustret. Om du 
 
 ### <a name="import-data-from-azure-sql-database-into-data-lake-storage-gen1"></a>Importera data från Azure SQL Database till Data Lake Storage Gen1
 
-1. Navigera till katalogen där Sqoop-paket är tillgängliga. Normalt är `/usr/hdp/<version>/sqoop/bin`den här platsen.
+1. Navigera till katalogen där Sqoop-paket är tillgängliga. Normalt är den här platsen `/usr/hdp/<version>/sqoop/bin` .
 
 1. Importera data från **Table1** till data Lake Storage gen1-kontot. Använd följande syntax:
 
@@ -117,7 +117,7 @@ Det finns redan Sqoop-paket tillgängliga för det An-HDInsight klustret. Om du 
 
        sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
-1. Verifiera att data har överförts till SQL Database tabellen. Använd [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) eller Visual Studio för att ansluta till Azure SQL Database och kör sedan följande fråga.
+1. Verifiera att data har överförts till SQL Database tabellen. Använd [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) eller Visual Studio för att ansluta till Azure SQL Database och kör sedan följande fråga.
 
        SELECT * FROM TABLE2
 

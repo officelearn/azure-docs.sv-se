@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55f2167552e21973d304f98693be022683fdf661
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 609ad2539753a838f02c4a79be56444ca0fb07f9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870932"
+ms.locfileid: "84014401"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Krav för Azure AD Connect Cloud-etablering
 Den här artikeln innehåller rikt linjer för hur du väljer och använder Azure Active Directory (Azure AD) Anslut moln etablering som din identitets lösning.
@@ -26,7 +26,7 @@ Den här artikeln innehåller rikt linjer för hur du väljer och använder Azur
 ## <a name="cloud-provisioning-agent-requirements"></a>Krav för moln etablerings agent
 Du behöver följande för att kunna använda Azure AD Connect Cloud-etablering:
     
-- Ett globalt administratörs konto för din Azure AD-klient som inte är en gäst användare.
+- Ett administratörs konto med hybrid identitet för din Azure AD-klient som inte är en gäst användare.
 - En lokal server för etablerings agenten med Windows 2012 R2 eller senare.
 - Konfigurationer för lokala brand väggar.
 
@@ -37,7 +37,7 @@ Resten av dokumentet innehåller steg-för-steg-instruktioner för dessa krav.
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>I Azure Active Directory administrations Center
 
-1. Skapa ett globalt administratörs konto för molnet på Azure AD-klienten. På så sätt kan du hantera konfigurationen av din klient om dina lokala tjänster inte fungerar eller blir otillgängliga. Lär dig mer om hur du [lägger till ett globalt administratörs konto i molnet](../active-directory-users-create-azure-portal.md). Att slutföra det här steget är viktigt för att säkerställa att du inte blir utelåst från din klient.
+1. Skapa ett hybrid identitets administratörs konto med enbart moln på din Azure AD-klient. På så sätt kan du hantera konfigurationen av din klient om dina lokala tjänster inte fungerar eller blir otillgängliga. Lär dig mer om hur du [lägger till ett moln med Hybrid identiteter som endast är moln](../active-directory-users-create-azure-portal.md). Att slutföra det här steget är viktigt för att säkerställa att du inte blir utelåst från din klient.
 1. Lägg till ett eller flera [anpassade domän namn](../active-directory-domains-add-azure-portal.md) i Azure AD-klienten. Användarna kan logga in med ett av dessa domän namn.
 
 ### <a name="in-your-directory-in-active-directory"></a>I din katalog i Active Directory

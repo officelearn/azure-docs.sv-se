@@ -6,18 +6,18 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: e7a190792714e1dd1a54da7e674e63d4453c548e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ef8145f0b447f24265ff4576884b0977190b063e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835078"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020361"
 ---
 # <a name="compose-dsc-configurations"></a>Skriva DSC-konfigurationer
 
 När du behöver hantera resurser med mer än en enda önskad tillstånds konfiguration (DSC) är den bästa vägen att använda [sammansatta resurser](/powershell/scripting/dsc/resources/authoringresourcecomposite). En sammansatt resurs är en kapslad och parameterstyrda konfiguration som används som en DSC-resurs i en annan konfiguration. Med hjälp av sammansatta resurser kan du skapa komplexa konfigurationer samtidigt som de underliggande sammansatta resurserna individuellt hanteras och skapas.
 
-Azure Automation aktiverar [import och kompilering av sammansatta resurser](automation-dsc-compile.md). När du har importerat sammansatta resurser till ditt Automation-konto kan du använda Azure Automation tillstånds konfiguration via funktionen **tillstånds konfiguration (DSC** i Azure Portal.
+Azure Automation aktiverar [import och kompilering av sammansatta resurser](automation-dsc-compile.md). När du har importerat sammansatta resurser till ditt Automation-konto kan du använda Azure Automation tillstånds konfiguration via funktionen för **tillstånds konfiguration (DSC)** i Azure Portal.
 
 ## <a name="compose-a-configuration"></a>Skapa en konfiguration
 

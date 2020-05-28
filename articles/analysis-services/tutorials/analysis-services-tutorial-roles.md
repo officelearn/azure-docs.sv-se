@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81454262"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016397"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera serveradministratörs- och användarroller
 
@@ -27,7 +27,7 @@ ms.locfileid: "81454262"
 
 Mer information om användarsäkerhet i Azure Analysis Services finns i [Autentisering och användarbehörigheter](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Active Directory i din prenumeration.
 - Du måste ha skapat en [Azure Analysis Services-server](../analysis-services-create-server.md) i din prenumeration.
@@ -59,7 +59,7 @@ För de återstående uppgifterna använder du SSMS för att ansluta till och ha
     ![Ansluta i SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
-    > Vi rekommenderar att du väljer Active Directory Universal med MFA-stöd. Den här typen av autentisering stöder [icke-interaktiv autentisering och multifaktorautentisering](../../sql-database/sql-database-ssms-mfa-authentication.md). 
+    > Vi rekommenderar att du väljer Active Directory Universal med MFA-stöd. Den här typen av autentisering stöder [icke-interaktiv autentisering och multifaktorautentisering](../../azure-sql/database/authentication-mfa-ssms-overview.md). 
 
 3. Expandera i **Object Explorer** så att serverobjekt visas. Högerklicka om du vill se serveregenskaperna.
    
@@ -67,7 +67,7 @@ För de återstående uppgifterna använder du SSMS för att ansluta till och ha
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Lägga till ett användarkonto i serveradministratörsrollen
 
-I den här uppgiften lägger du till ett användarkonto eller gruppkonto från Azure AD till serveradministratörsrollen. Om du anger en säkerhets grupp använder `obj:groupid@tenantid`du.
+I den här uppgiften lägger du till ett användarkonto eller gruppkonto från Azure AD till serveradministratörsrollen. Om du anger en säkerhets grupp använder du `obj:groupid@tenantid` .
 
 1. Högerklicka på servernamnet i **Object Explorer** och klicka sedan på **Properties** (Egenskaper). 
 2. I fönstret **Analysis Server Properties** (Egenskaper för Analysis Server) klickar du på **Security (Säkerhet)** > **Add (Lägg till)**.
@@ -130,13 +130,13 @@ I den här uppgiften använder du kommandot [Create](https://docs.microsoft.com/
 ## <a name="verify-your-changes"></a>Kontrollera dina ändringar
 
 1. I **Object Explorer** klickar du på servernamnet och sedan på **Refresh** (Uppdatera) eller trycker på **F5**.
-2. Expandera **databaser** > **AdventureWorks** > -**roller**. Kontrollera att de ändringar som du lade till i föregående uppgift för användarkonto och den nya rollen visas.   
+2. Expandera **databaser**  >  **AdventureWorks**-  >  **roller**. Kontrollera att de ändringar som du lade till i föregående uppgift för användarkonto och den nya rollen visas.   
 
     ![Kontrollera i Object Explorer](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort användarkonton, gruppkonton och roller när du inte lägre behöver dem. Det gör du genom att använda **roll egenskaper** > **medlemskap** för att ta bort användar konton eller högerklicka på en roll och sedan klicka på **ta bort**.
+Ta bort användarkonton, gruppkonton och roller när du inte lägre behöver dem. Det gör du genom att använda **roll egenskaper**  >  **medlemskap** för att ta bort användar konton eller högerklicka på en roll och sedan klicka på **ta bort**.
 
 
 ## <a name="next-steps"></a>Nästa steg

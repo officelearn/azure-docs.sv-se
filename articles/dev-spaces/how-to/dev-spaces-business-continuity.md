@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Lär dig att använda Azure dev Spaces och Azure Kubernetes Services för att ge affärs kontinuitet och förbereda för haveri beredskap
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 manager: gwallace
-ms.openlocfilehash: 37c0048bfa7e72b25eb56603fc027045eba25cea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 993866a35f530616c235728cbe59e52e083aa968
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78295835"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996932"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Verksamhets kontinuitet och haveri beredskap i Azure dev Spaces
 
@@ -27,14 +27,6 @@ Genom att aktivera dev Spaces på AKS-kluster i olika regioner kan du återuppta
 
 Allmän information om distributioner av flera regioner i AKS finns i [Planera för distribution i flera regioner](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-### <a name="enable-dev-spaces-via-the-azure-portal"></a>Aktivera dev Spaces via Azure Portal
-
-Välj meny alternativet **dev-Spaces** under inställningarna för varje kluster i Azure Portal. Välj sedan alternativet för att aktivera dev Spaces och spara.
-
-![Aktivera dev Spaces via Azure Portal](../media/common/enable-dev-spaces.jpg)
-
-Upprepa den här processen för varje kluster.
-
 ### <a name="enable-dev-spaces-via-the-azure-cli"></a>Aktivera dev Spaces via Azure CLI
 
 Du kan också aktivera dev Spaces på kommando raden:
@@ -45,7 +37,7 @@ az aks use-dev-spaces -g <resource group name> -n <cluster name>
 
 ## <a name="deploy-your-teams-baseline-to-each-cluster"></a>Distribuera teamets bas linje till varje kluster
 
-När du arbetar med dev-utrymmen distribuerar du normalt hela programmet till ett överordnat dev-utrymme på ditt Kubernetes-kluster. Som standard används `default` utrymmet. Den första distributionen omfattar alla tjänster och de externa resurser som tjänsterna är beroende av, till exempel databaser eller köer. Detta kallas för *bas linjen*. När du har skapat en bas linje i det överordnade dev-utrymmet itererar du och felsöker enskilda tjänster inom underordnade dev-utrymmen.
+När du arbetar med dev-utrymmen distribuerar du normalt hela programmet till ett överordnat dev-utrymme på ditt Kubernetes-kluster. Som standard `default` används utrymmet. Den första distributionen omfattar alla tjänster och de externa resurser som tjänsterna är beroende av, till exempel databaser eller köer. Detta kallas för *bas linjen*. När du har skapat en bas linje i det överordnade dev-utrymmet itererar du och felsöker enskilda tjänster inom underordnade dev-utrymmen.
 
 Du bör distribuera de senaste versionerna av din bas linje uppsättning av tjänster till kluster i flera regioner. Genom att uppdatera dina bas linje tjänster på det här sättet ser du till att du kan fortsätta att använda dev-utrymmen om det uppstår ett Azure-regions haveri. Om du till exempel distribuerar din bas linje via en CI/CD-pipeline ändrar du pipelinen så att den distribueras till flera kluster i olika regioner.
 
@@ -88,11 +80,11 @@ Upprepa de här stegen för alla andra projekt som har kon figurer ATS för att 
 
 ## <a name="access-a-service-on-a-backup-cluster"></a>Få åtkomst till en tjänst i ett säkerhets kopierings kluster
 
-Om du har konfigurerat tjänsten att använda ett offentligt DNS-namn, kommer tjänsten att ha en annan URL om du kör den på ett säkerhets kopierings kluster. Offentliga DNS-namn är alltid i formatet `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. Om du växlar till ett annat kluster ändras kluster-GUID och eventuellt regionen.
+Om du har konfigurerat tjänsten att använda ett offentligt DNS-namn, kommer tjänsten att ha en annan URL om du kör den på ett säkerhets kopierings kluster. Offentliga DNS-namn är alltid i formatet `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io` . Om du växlar till ett annat kluster ändras kluster-GUID och eventuellt regionen.
 
-Dev Spaces visar alltid rätt URL för tjänsten när den körs `azds up`, eller i fönstret utdata i Visual Studio under **Azure dev Spaces**.
+Dev Spaces visar alltid rätt URL för tjänsten när den körs `azds up` , eller i fönstret utdata i Visual Studio under **Azure dev Spaces**.
 
-Du kan också hitta URL: en genom att `azds list-uris` köra kommandot:
+Du kan också hitta URL: en genom att köra `azds list-uris` kommandot:
 ```
 $ azds list-uris
 Uri                                                     Status

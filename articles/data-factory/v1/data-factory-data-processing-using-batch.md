@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c6fb590cbb57e8798bf65d0aa30585ae3db3691d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684398"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021542"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta data uppsättningar i stor skala med hjälp av Data Factory och batch
 > [!NOTE]
@@ -38,8 +38,8 @@ Med Batch-tjänsten definierar du Azure-beräkningsresurser att köra dina progr
 
  Om du inte är bekant med batch kan du använda följande artiklar för att förstå arkitekturen/implementeringen av den lösning som beskrivs i den här artikeln:   
 
-* [Grunderna i batch](../../batch/batch-technical-overview.md)
-* [Översikt över Batch-funktionen](../../batch/batch-api-basics.md)
+* [Grunderna i batch](../../azure-sql/database/sql-database-paas-overview.md)
+* [Översikt över Batch-funktionen](../../batch/batch-service-workflow-features.md)
 
 Du kan också läsa mer om batch i batch- [dokumentationen](https://docs.microsoft.com/azure/batch/).
 
@@ -86,7 +86,7 @@ Exempel lösningen är avsiktligt enkel. Den är utformad för att visa hur du a
 
 **Tid:** Om du är van att lära dig grunderna i Azure, Data Factory och batch och har slutfört följande krav, tar den här lösningen en till två timmar att slutföra.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 #### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte har någon Azure-prenumeration kan du snabbt skapa ett kostnads fritt utvärderings konto. Mer information finns i den [kostnads fria utvärderings versionen](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -578,7 +578,7 @@ I det här steget skapar du en länkad tjänst för batch-kontot som används f�
    d. Ange batch-URI för **batchUri** JSON-egenskapen.
 
       > [!IMPORTANT]
-      > URL: en från **Batch-konto** -bladet har följande format \< : \> AccountName \< . region \> . batch.Azure.com. För egenskapen **batchUri** i JSON-skriptet måste du ta bort A88 "AccountName". * * från URL: en. Ett exempel är `"batchUri": "https://eastus.batch.azure.com"`.
+      > URL: en från **Batch-konto** -bladet har följande format: \<accountname\> . \<region\> . batch.azure.com. För egenskapen **batchUri** i JSON-skriptet måste du ta bort A88 "AccountName". * * från URL: en. Ett exempel är `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -793,9 +793,9 @@ I det här steget skapar du en pipeline med en aktivitet, den anpassade aktivite
 
    * Endast en aktivitet finns i pipelinen och är av typen **DotNetActivity**.
    * **AssemblyName** har angetts till namnet på dll- **MyDotNetActivity. dll**.
-   * **EntryPoint** är inställd på **MyDotNetActivityNS. MyDotNetActivity**. Det är i princip \< namn område \> . \< className \> i din kod.
+   * **EntryPoint** är inställd på **MyDotNetActivityNS. MyDotNetActivity**. Det är i princip \<namespace\> .\<classname\> i din kod.
    * **PackageLinkedService** är inställt på **StorageLinkedService**, som pekar på blob-lagringen som innehåller den anpassade aktivitetens zip-fil. Om du använder olika lagrings konton för in-och utdatafiler och den anpassade aktivitetens zip-fil måste du skapa en annan länkad lagrings tjänst. I den här artikeln förutsätter vi att du använder samma lagrings konto.
-   * **PackageFile** har angetts till **customactivitycontainer/MyDotNetActivity. zip**. Det har formatet \< containerforthezip \> / \< nameofthezip. zip \> .
+   * **PackageFile** har angetts till **customactivitycontainer/MyDotNetActivity. zip**. Formatet är i formatet \<containerforthezip\> / \<nameofthezip.zip\> .
    * Den anpassade aktiviteten tar **InputDataset** som indata och **OutputDataset** som utdata.
    * Egenskapen **linkedServiceName** för den anpassade aktiviteten pekar på **AzureBatchLinkedService**, som talar om för Data Factory att den anpassade aktiviteten måste köras i batch.
    * **Samtidighets** inställningen är viktig. Om du använder standardvärdet, vilket är 1, även om du har två eller fler Compute-noder i batch-poolen bearbetas sektorerna ett efter ett annat. Därför drar du inte nytta av den parallella bearbetnings funktionen i batch. Om du ställer in **samtidighet** till ett högre värde innebär det att två sektorer (motsvarar två aktiviteter i batch) kan bearbetas på samma gång. I det här fallet används båda de virtuella datorerna i batch-poolen. Ställ in samtidighets egenskapen på rätt sätt.
@@ -972,8 +972,8 @@ När du har bearbetat data kan du använda det med online-verktyg som Power BI. 
   * [Använd anpassade aktiviteter i en Data Factory pipeline](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Grunderna i batch](../../batch/batch-technical-overview.md)
-  * [Översikt över batch-funktioner](../../batch/batch-api-basics.md)
+  * [Grunderna i batch](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Översikt över batch-funktioner](../../batch/batch-service-workflow-features.md)
   * [Skapa och hantera ett batch-konto i Azure Portal](../../batch/batch-account-create-portal.md)
   * [Kom igång med batch-klient biblioteket för .NET](../../batch/quick-run-dotnet.md)
 

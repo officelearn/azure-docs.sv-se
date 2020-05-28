@@ -45,12 +45,12 @@ I det här avsnittet beskrivs övervaknings måtten på enheten. Måtten kan var
 
 En fullständig lista över måtten visas i följande tabell:
 
-|Kapacitetsmått                     |Beskrivning  |
+|Kapacitetsmått                     |Description  |
 |-------------------------------------|-------------|
 |**Tillgänglig kapacitet**               | Avser storleken på de data som kan skrivas till enheten. Med andra ord är detta den kapacitet som kan göras tillgänglig på enheten. <br></br>Du kan frigöra enhets kapaciteten genom att ta bort den lokala kopian av filer som har en kopia på både enheten och molnet.        |
 |**Total kapacitet**                   | Avser det totala antalet byte på enheten som data ska skrivas till. Detta kallas även för den totala storleken på det lokala cacheminnet. <br></br> Du kan nu öka kapaciteten för en befintlig virtuell enhet genom att lägga till en datadisk. Lägg till en datadisk via hypervisor-hantering för den virtuella datorn och starta sedan om den virtuella datorn. Den lokala lagringspoolen för gateway-enheten kommer att utökas för att hantera den nyligen tillagda data disken. <br></br>Mer information finns i lägga till [en hård disk för virtuell Hyper-V-dator](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
 
-|Transaktionsmått              | Beskrivning         |
+|Transaktionsmått              | Description         |
 |-------------------------------------|---------|
 |**Överförda moln byte (enhet)**    | Summan av alla byte som laddats upp över alla resurser på enheten        |
 |**Överförda moln byte (resurs)**     | Överförda byte per resurs. Detta kan vara: <br></br> AVG, som är (summan av alla byte som överförs per resurs/antal resurser),  <br></br>Max, vilket är det maximala antalet byte som överförs från en resurs <br></br>Min, som är det minsta antalet byte som överförs från en resurs      |

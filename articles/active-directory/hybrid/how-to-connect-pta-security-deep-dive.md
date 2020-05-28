@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ddce8d4d7ca1f03c0a57d0f0c8c41ac122973e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8c8d6c1aca81d59b42ceca17ecfb071ee5f13bd
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77185561"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014374"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory djupgående säkerhets djup
 
@@ -72,9 +72,12 @@ I följande avsnitt beskrivs de här faserna i detalj.
 
 ### <a name="authentication-agent-installation"></a>Installation av autentiseringstjänst
 
-Endast globala administratörer kan installera en autentiseringstjänst (med Azure AD Connect eller fristående) på en lokal server. Vid installationen läggs två nya poster till**i program-** > **och funktions** listan i **kontroll panelen** > :
+Endast globala administratörer kan installera en autentiseringstjänst (med Azure AD Connect eller fristående) på en lokal server. Vid installationen läggs två nya poster till **Control Panel**i program-  >  **Programs**  >  **och funktions** listan i kontroll panelen:
 - Själva appen för autentisering av agent. Det här programmet körs med [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) -behörigheter.
 - Uppdaterings programmet som används för att automatiskt uppdatera Autentiseringstjänsten. Det här programmet körs med [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) -behörighet.
+
+>[!IMPORTANT]
+>Av säkerhets synpunkt bör administratören behandla servern som kör PTA-agenten som om den vore en domänkontrollant.  PTA agent-servrarna bör vara härdade längs samma rader som beskrivs i [Skydda domänkontrollanter mot angrepp](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
 ### <a name="authentication-agent-registration"></a>Registrering av autentiseringsprovider
 

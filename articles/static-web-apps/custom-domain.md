@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0f8e1be92d77dc928389dffb61da52f2db4c804d
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655233"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142069"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Konfigurera en anpassad domän i för hands versionen av Azure statisk Web Apps
 
 Som standard tillhandahåller Azure static Web Apps ett automatiskt genererat domän namn. Den här artikeln visar hur du mappar ett anpassat domän namn till ett statiskt Azure-Web Apps program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett köpt domän namn
 - Åtkomst till DNS-konfigurationens egenskaper för din domän

@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: b97fe6e55e2c36b6f101071e702952f529146281
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 537c7e70176d902c5bc7458b60de7a70ea040c85
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631664"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117347"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Använda en Azure Machine Learning Studio (klassisk)-webb tjänst
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 När du har distribuerat en Azure Machine Learning Studio (klassisk) förutsägelse modell som en webb tjänst kan du använda en REST API för att skicka IT-data och hämta förutsägelser. Du kan skicka data i real tid eller i batchläge.
 
@@ -99,7 +97,7 @@ För att ansluta till en Machine Learning-webbtjänst måste **Microsoft. ASPNET
 **Installera Microsoft. ASPNET. WebApi. client NuGet i Visual Studio**
 
 1. Publicera nedladdnings data uppsättningen från den här webb tjänsten för den andra klass data uppsättningen med den vuxna 2.
-2. Klicka på **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
+2. Klicka på **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen**.
 3. Välj **install-Package Microsoft. ASPNET. WebAPI. client**.
 
 **Så här kör du kod exemplet**
@@ -306,7 +304,7 @@ print(fromJSON(result))
 
 ### <a name="javascript-sample"></a>JavaScript-exempel
 
-Om du vill ansluta till en Machine Learning-webbtjänst använder du NPM-paketet för **begäran** i projektet. Du kan också använda `JSON` objektet för att formatera inaktuella inaktuella och analysera resultatet. Installera med `npm install request --save`eller Lägg till `"request": "*"` i Package. JSON under `dependencies` och kör. `npm install`
+Om du vill ansluta till en Machine Learning-webbtjänst använder du NPM-paketet för **begäran** i projektet. Du kan också använda `JSON` objektet för att formatera inaktuella inaktuella och analysera resultatet. Installera med `npm install request --save` eller Lägg till `"request": "*"` i Package. JSON under `dependencies` och kör `npm install` .
 
 **Så här kommer en fullständig förfrågan att se ut.**
 ```js

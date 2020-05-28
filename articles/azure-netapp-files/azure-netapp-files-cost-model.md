@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/27/2020
 ms.author: b-juche
-ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70995104"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142154"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Kostnadsmodell för Azure NetApp Files 
 
@@ -50,6 +50,8 @@ Diagrammet nedan illustrerar dessa begrepp.
 ## <a name="overage-in-capacity-consumption"></a>Överförbrukning i kapacitets förbrukning  
 
 När den totala använda kapaciteten för en pool överskrider den etablerade kapaciteten tillåts data skrivningar fortfarande.  Efter respitperioden (en timme) ökar Poolens storlek automatiskt i steg om 1 TiB tills den etablerade kapaciteten är större än den totala använda kapaciteten, om den använda kapaciteten för poolen fortfarande överskrider sin etablerade kapacitet.  Till exempel, i bilden ovan, om volym 3 fortsätter att växa och den faktiska förbrukningen når 1,2 TiB, kommer poolen automatiskt att ändra storlek till 5 TiB efter Grace-perioden.  Resultatet är att den etablerade poolens kapacitet (5 TiB) överskrider den använda kapaciteten (4,2 TiB).  
+
+Även om storleken på kapacitets gruppen växer automatiskt för att möta volymens behov, minskas den automatiskt när volym storleken minskar. Om du vill stänga av kapacitets gruppen efter en volym storleks minskning (till exempel efter att data har rensats) måste du minska storleken på kapacitets gruppen _manuellt_ .
 
 ## <a name="manual-changes-of-the-pool-size"></a>Manuella ändringar av poolens storlek  
 

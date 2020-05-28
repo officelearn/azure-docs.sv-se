@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abe08da95416dd73035115361cb0d87822ad9239
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804443"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013405"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Nätverks konfigurations information för App Service-miljön för PowerApps med Azure ExpressRoute
 
@@ -35,7 +35,7 @@ App Service-miljön kräver följande inställningar för nätverks anslutning f
 
 * Utgående nätverks anslutning till Azure Files tjänsten på port 445.
 
-* Utgående nätverks anslutning till Azure SQL Database slut punkter som finns i samma region som App Service-miljön. SQL Database-slutpunkter matchas under database.windows.net-domänen, vilket kräver öppen åtkomst till portarna 1433, 11000-11999 och 14000-14999. Mer information om SQL Database V12 port Usage finns i [portar utöver 1433 för ADO.NET 4,5](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+* Utgående nätverks anslutning till Azure SQL Database slut punkter som finns i samma region som App Service-miljön. SQL Database-slutpunkter matchas under database.windows.net-domänen, vilket kräver öppen åtkomst till portarna 1433, 11000-11999 och 14000-14999. Mer information om SQL Database V12 port Usage finns i [portar utöver 1433 för ADO.NET 4,5](../../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
 
 * Utgående nätverks anslutning till Azure Management – plan-slutpunkter (både den klassiska Azure-distributions modellen och Azure Resource Manager slut punkter). Anslutningarna till dessa slut punkter omfattar management.core.windows.net-och management.azure.com-domäner. 
 
@@ -85,9 +85,9 @@ Information om hur du skapar och konfigurerar användardefinierade vägar finns 
 
 I det här avsnittet visas ett exempel på en UDR-konfiguration för App Service-miljön.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-* Installera Azure PowerShell från [sidan för Azure-nedladdningar][AzureDownloads]. Välj en nedladdning med datumet juni 2015 eller senare. Under **kommando rads verktyg** > **Windows PowerShell**väljer du **Installera** för att installera de senaste PowerShell-cmdletarna.
+* Installera Azure PowerShell från [sidan för Azure-nedladdningar][AzureDownloads]. Välj en nedladdning med datumet juni 2015 eller senare. Under **kommando rads verktyg**  >  **Windows PowerShell**väljer du **Installera** för att installera de senaste PowerShell-cmdletarna.
 
 * Skapa ett unikt undernät för exklusiv användning av App Service-miljön. Det unika under nätet säkerställer att UDR som tillämpas på under nätet bara öppnar utgående trafik för App Service-miljön.
 

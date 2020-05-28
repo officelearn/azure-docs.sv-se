@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en fördefinierad PHP-behållare för 
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 9e87466f810dc4ebf767c36ad74c358cbf6069e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97ccc309e6fd4efd48a609ab558e9842f376ccf5
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758870"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142120"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Konfigurera en Linux PHP-app för Azure App Service
 
@@ -43,11 +43,11 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatisering aktiverat, App Service bygga automatiserings steg i följande ordning:
 
-1. Kör anpassat skript om det anges `PRE_BUILD_SCRIPT_PATH`av.
+1. Kör anpassat skript om det anges av `PRE_BUILD_SCRIPT_PATH` .
 1. Kör `php composer.phar install`.
-1. Kör anpassat skript om det anges `POST_BUILD_SCRIPT_PATH`av.
+1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH` .
 
-`PRE_BUILD_COMMAND`och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera `PRE_BUILD_COMMAND`för att köra kommandon för att skapa för bygge. Definiera `POST_BUILD_COMMAND`för att köra kommandon efter kompilering.
+`PRE_BUILD_COMMAND`och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera för att köra kommandon för att skapa för bygge `PRE_BUILD_COMMAND` . Definiera för att köra kommandon efter kompilering `POST_BUILD_COMMAND` .
 
 I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
 
@@ -62,7 +62,7 @@ Mer information om hur App Service kör och skapar PHP-appar i Linux finns i [Or
 
 ## <a name="customize-start-up"></a>Anpassa start
 
-Som standard kör den inbyggda PHP-behållaren apache-servern. Den körs `apache2ctl -D FOREGROUND"`vid start. Om du vill kan du köra ett annat kommando vid start genom att köra följande kommando i [Cloud Shell](https://shell.azure.com):
+Som standard kör den inbyggda PHP-behållaren apache-servern. Den körs vid start `apache2ctl -D FOREGROUND"` . Om du vill kan du köra ett annat kommando vid start genom att köra följande kommando i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -78,14 +78,14 @@ getenv("DB_HOST")
 
 ## <a name="change-site-root"></a>Ändra plats rot
 
-Det webb ramverk som du väljer kan använda en under katalog som plats rot. Till exempel, [Laravel](https://laravel.com/), använder `public/` under katalogen som plats rot.
+Det webb ramverk som du väljer kan använda en under katalog som plats rot. Till exempel, [Laravel](https://laravel.com/), använder under `public/` katalogen som plats rot.
 
 Standard PHP-avbildningen för App Service använder Apache, och det låter dig inte anpassa plats roten för din app. Undvik den här begränsningen genom att lägga till en *. htaccess* -fil till lagrings platsens rot med följande innehåll:
 
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine on
-
+    RewriteCond %{REQUEST_URI} ^/$
     RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```
@@ -134,19 +134,19 @@ Som ett alternativ till att använda *. htaccess*kan du använda [ini_set ()](ht
 
 ### <a name="customize-php_ini_system-directives"></a><a name="customize-php_ini_system-directives"></a>Anpassa PHP_INI_SYSTEM direktiv
 
-Om du vill anpassa PHP_INI_SYSTEM direktiv (se [php. ini-direktiv](https://www.php.net/manual/ini.list.php)) kan du inte använda metoden *. htaccess* . App Service ger en separat mekanism som `PHP_INI_SCAN_DIR` använder appens inställning.
+Om du vill anpassa PHP_INI_SYSTEM direktiv (se [php. ini-direktiv](https://www.php.net/manual/ini.list.php)) kan du inte använda metoden *. htaccess* . App Service ger en separat mekanism som använder `PHP_INI_SCAN_DIR` appens inställning.
 
-Kör först följande kommando i [Cloud Shell](https://shell.azure.com) för att lägga till en app-inställning som `PHP_INI_SCAN_DIR`heter:
+Kör först följande kommando i [Cloud Shell](https://shell.azure.com) för att lägga till en app-inställning som heter `PHP_INI_SCAN_DIR` :
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d`är standard katalogen där *php. ini* finns. `/home/site/ini`är den anpassade katalogen där du lägger till en anpassad *ini* -fil. Du skiljer värdena med en `:`.
+`/usr/local/etc/php/conf.d`är standard katalogen där *php. ini* finns. `/home/site/ini`är den anpassade katalogen där du lägger till en anpassad *ini* -fil. Du skiljer värdena med en `:` .
 
-Navigera till webbssh-sessionen med Linux-containern`https://<app-name>.scm.azurewebsites.net/webssh/host`().
+Navigera till webbssh-sessionen med Linux-containern ( `https://<app-name>.scm.azurewebsites.net/webssh/host` ).
 
-Skapa en katalog i `/home/site` anropad `ini`och skapa sedan en *ini* -fil i `/home/site/ini` katalogen (till exempel *Settings. ini)* med de direktiv som du vill anpassa. Använd samma syntax som du skulle använda i en *php. ini* -fil. 
+Skapa en katalog i `/home/site` anropad `ini` och skapa sedan en *ini* -fil i `/home/site/ini` katalogen (till exempel *Settings. ini)* med de direktiv som du vill anpassa. Använd samma syntax som du skulle använda i en *php. ini* -fil. 
 
 > [!TIP]
 > I de inbyggda Linux-behållarna i App Service används */Home* som Sparad delad lagring. 
@@ -172,7 +172,7 @@ De inbyggda PHP-installationerna innehåller de oftast använda tilläggen. Du k
 
 Följ dessa steg om du vill aktivera ytterligare tillägg:
 
-Lägg till `bin` en katalog i rot katalogen för din app och Lägg till `.so` tilläggsfiler i den (till exempel *MongoDB.so*). Kontrol lera att tilläggen är kompatibla med PHP-versionen i Azure och att de är VC9-kompatibla och icke-tråd säkra (nter)-kompatibla.
+Lägg till en `bin` katalog i rot katalogen för din app och Lägg till `.so` tilläggsfiler i den (till exempel *MongoDB.so*). Kontrol lera att tilläggen är kompatibla med PHP-versionen i Azure och att de är VC9-kompatibla och icke-tråd säkra (nter)-kompatibla.
 
 Distribuera dina ändringar.
 
@@ -199,7 +199,7 @@ Prova följande när en fungerande PHP-app fungerar annorlunda i App Service ell
 
 - [Åtkomst till logg strömmen](#access-diagnostic-logs).
 - Testa appen lokalt i produktions läge. App Service kör Node. js-appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Ett exempel:
-    - Beroende på *Composer. JSON*kan olika paket installeras i produktions läge (`require` vs. `require-dev`).
+    - Beroende på *Composer. JSON*kan olika paket installeras i produktions läge ( `require` vs. `require-dev` ).
     - Vissa webb ramverk kan distribuera statiska filer på ett annat sätt i produktions läge.
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.
 - Kör appen i App Service i fel söknings läge. I [Laravel](https://meanjs.org/)kan du till exempel konfigurera appen så att den utvärderar fel söknings meddelanden i produktion genom [att ställa in `APP_DEBUG` appens inställning på `true` ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).

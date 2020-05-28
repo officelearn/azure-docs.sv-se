@@ -39,7 +39,7 @@ Prestanda rekommendationer visas i tabellen som liknar den som visas på följan
 
 Rekommendationerna sorteras efter deras potentiella påverkan på prestanda i följande kategorier:
 
-| Påverkan | Beskrivning |
+| Påverkan | Description |
 |:--- |:--- |
 | Hög |Rekommendationer för hög påverkan bör ge den mest betydande prestanda påverkan. |
 | Medium |Rekommendationer för medelhög påverkan bör förbättra prestanda, men inte i stor utsträckning. |

@@ -27,7 +27,7 @@ När du tar bort en Log Analytics arbets yta utförs en mjuk borttagnings åtgä
 Du bör vara försiktig när du tar bort en arbets yta eftersom det kan finnas viktiga data och konfiguration som kan påverka din tjänst åtgärd negativt. Granska vilka agenter, lösningar och andra Azure-tjänster och källor som lagrar data i Log Analytics, till exempel:
 
 * Hanteringslösningar
-* Azure Automatisering
+* Azure Automation
 * Agenter som körs på virtuella Windows-och Linux-datorer
 * Agenter som körs på Windows-och Linux-datorer i din miljö
 * System Center Operations Manager

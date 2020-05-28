@@ -25,7 +25,7 @@ Ett grundläggande arbets flöde för att distribuera en Resource Manager-mall k
 2. Logga in i Azure.
 3. Distribuera en Resource Manager-mall
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en GitHub-lagringsplats för att lagra dina Resource Manager-mallar och dina arbetsflödes-filer. Information om hur du skapar [en ny databas finns i skapa en ny lagrings plats](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
 

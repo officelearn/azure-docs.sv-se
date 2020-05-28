@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 7f91d8eab2e7a29163dae5ae2a4d34792ddd0cb0
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 6c6191936f76431bd4e7b6f1d4eff2074ce4b04d
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005514"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141797"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Anropa, utlösa eller kapsla Logi Kap par genom att använda HTTPS-slutpunkter i Azure Logic Apps
 
@@ -28,7 +28,7 @@ Om du vill konfigurera en slut punkt som kan anropas kan du använda någon av d
 
 Om du inte har använt Logic Apps, se [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -148,11 +148,14 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
 * [Acceptera värden via get parametrar](#get-parameters) eller URL-parametrar.
 
-  Dessa värden skickas som namn-värde-par i slut punktens URL. För det här alternativet måste du använda GET-metoden i din begäran-utlösare. I en efterföljande åtgärd kan du hämta parametervärdena som utlöser utdata genom att `triggerOutputs()` använda funktionen i ett uttryck.
+  Dessa värden skickas som namn-värde-par i slut punktens URL. För det här alternativet måste du använda GET-metoden i din begäran-utlösare. I en efterföljande åtgärd kan du hämta parametervärdena som utlöser utdata genom att använda `triggerOutputs()` funktionen i ett uttryck.
 
 * [Acceptera värden via en relativ sökväg](#relative-path) för parametrar i din begäran-utlösare.
 
   Dessa värden skickas via en relativ sökväg i slut punktens URL. Du måste också uttryckligen [välja den metod](#select-method) som utlösaren förväntar sig. I en efterföljande åtgärd kan du hämta parametervärdena som utlöser utdata genom att referera till dessa utdata direkt.
+
+> [!NOTE]
+> URL: en tillåter att du använder symbolen "at" ( **@** ), men inte hash-symbolen ( **#** ).
 
 <a name="get-parameters"></a>
 
@@ -164,11 +167,11 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
 1. Under begär ande utlösare lägger du till den åtgärd där du vill använda parametervärdet. I det här exemplet lägger du till **svars** åtgärden.
 
-   1. Under utlösaren för begäran väljer du **nytt steg** > **Lägg till en åtgärd**.
+   1. Under utlösaren för begäran väljer du **nytt steg**  >  **Lägg till en åtgärd**.
    
    1. Under **Välj en åtgärd**går du till rutan Sök och anger `response` som ditt filter. I listan åtgärder väljer du åtgärden **svar** .
 
-1. Följ dessa steg `triggerOutputs()` om du vill bygga det uttryck som hämtar parametervärdet:
+1. Följ dessa steg om du vill bygga det `triggerOutputs()` uttryck som hämtar parametervärdet:
 
    1. Klicka i egenskapen för svars åtgärdens **brödtext** så att listan med dynamiskt innehåll visas och välj **uttryck**.
 
@@ -190,11 +193,11 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
       `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
 
-      Anta till exempel att du vill skicka ett värde för en parameter med namnet `postalCode`. Egenskapen **Body** anger strängen, `Postal Code: ` med ett avslutande blank steg, följt av motsvarande uttryck:
+      Anta till exempel att du vill skicka ett värde för en parameter med namnet `postalCode` . Egenskapen **Body** anger strängen, `Postal Code: ` med ett avslutande blank steg, följt av motsvarande uttryck:
 
       ![Lägg till exempel "triggerOutputs ()"-uttrycket för att utlösa](./media/logic-apps-http-endpoint/trigger-outputs-expression-postal-code.png)
 
-1. Om du vill testa den anropande slut punkten kopierar du återanrops-URL: en från begär ande utlösare och klistrar in URL: en i ett annat I URL: en lägger du till parameter namnet och värdet efter frågetecknet (`?`) till URL: en i följande format och trycker på RETUR.
+1. Om du vill testa den anropande slut punkten kopierar du återanrops-URL: en från begär ande utlösare och klistrar in URL: en i ett annat I URL: en lägger du till parameter namnet och värdet efter frågetecknet ( `?` ) till URL: en i följande format och trycker på RETUR.
 
    `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
 
@@ -204,11 +207,11 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
    ![Svar från sändning av begäran till återanrops-URL](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
-1. Om du vill placera parameter namnet och värdet på en annan plats i URL: en, måste du använda et-`&`tecknet () som prefix, till exempel:
+1. Om du vill placera parameter namnet och värdet på en annan plats i URL: en, måste du använda et-tecknet ( `&` ) som prefix, till exempel:
 
    `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
 
-   Det här exemplet visar återanrops-URL: en med exempel `postalCode=123456` parameterns namn och värde i olika positioner i URL: en:
+   Det här exemplet visar återanrops-URL: en med exempel parameterns namn och värde `postalCode=123456` i olika positioner i URL: en:
 
    * första position:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
@@ -222,21 +225,21 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
    ![Lägg till egenskapen "relativ sökväg" i utlösaren](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-1. I egenskapen **relativ sökväg** anger du den relativa sökvägen för parametern i JSON-schemat som du vill att din URL ska acceptera, till exempel `/address/{postalCode}`.
+1. I egenskapen **relativ sökväg** anger du den relativa sökvägen för parametern i JSON-schemat som du vill att din URL ska acceptera, till exempel `/address/{postalCode}` .
 
    ![Ange den relativa sökvägen för parametern](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
 1. Under begär ande utlösare lägger du till den åtgärd där du vill använda parametervärdet. I det här exemplet lägger du till **svars** åtgärden.
 
-   1. Under utlösaren för begäran väljer du **nytt steg** > **Lägg till en åtgärd**.
+   1. Under utlösaren för begäran väljer du **nytt steg**  >  **Lägg till en åtgärd**.
 
    1. Under **Välj en åtgärd**går du till rutan Sök och anger `response` som ditt filter. I listan åtgärder väljer du åtgärden **svar** .
 
 1. I svars åtgärdens egenskap **Body** inkluderar du den token som representerar den parameter som du angav i utlösarens relativa sökväg.
 
-   Anta till exempel att du vill att svars åtgärden ska returneras `Postal Code: {postalCode}`.
+   Anta till exempel att du vill att svars åtgärden ska returneras `Postal Code: {postalCode}` .
 
-   1. I egenskapen **Body** anger `Postal Code: ` du med ett avslutande blank steg. Behåll markören i redigerings rutan så att listan över dynamiskt innehåll förblir öppen.
+   1. I egenskapen **Body** anger du `Postal Code: ` med ett avslutande blank steg. Behåll markören i redigerings rutan så att listan över dynamiskt innehåll förblir öppen.
 
    1. I listan med dynamiskt innehåll, från avsnittet **när en HTTP-begäran tas emot** , väljer du token **Postnr** .
 
@@ -252,7 +255,7 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
    `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. Om du vill testa den anropande slut punkten kopierar du den uppdaterade återanrops-URL: en från begär ande utlösaren `{postalCode}` , klistrar in `123456`webb adressen i ett annat webbläsarfönster, ersätter i URL: en med och trycker
+1. Om du vill testa den anropande slut punkten kopierar du den uppdaterade återanrops-URL: en från begär ande utlösaren, klistrar in webb adressen i ett annat webbläsarfönster, ersätter `{postalCode}` i URL: en med `123456` och trycker
 
    Webbläsaren returnerar ett svar med den här texten:`Postal Code: 123456`
 
@@ -260,7 +263,7 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Anropa Logic app via slut punkts-URL
 
-När du har skapat slut punkten kan du utlösa Logic-appen genom att skicka en `POST` https-begäran till slut punktens fullständiga URL. Logic Apps har inbyggt stöd för slut punkter för direkt åtkomst.
+När du har skapat slut punkten kan du utlösa Logic-appen genom att skicka en HTTPS- `POST` begäran till slut punktens fullständiga URL. Logic Apps har inbyggt stöd för slut punkter för direkt åtkomst.
 
 <a name="generated-tokens"></a>
 
@@ -268,7 +271,7 @@ När du har skapat slut punkten kan du utlösa Logic-appen genom att skicka en `
 
 När du anger ett JSON-schema i begär ande utlösaren genererar Logic App Designer tokens för egenskaperna i schemat. Du kan sedan använda dessa token för att skicka data via ditt Logic app-arbetsflöde.
 
-Om du till exempel lägger till fler egenskaper, `"suite"`till exempel till JSON-schemat, är tokens för dessa egenskaper tillgängliga för dig i senare steg för din Logic app. Här är det fullständiga JSON-schemat:
+Om du till exempel lägger till fler egenskaper, till exempel `"suite"` till JSON-schemat, är tokens för dessa egenskaper tillgängliga för dig i senare steg för din Logic app. Här är det fullständiga JSON-schemat:
 
 ```json
    {
@@ -302,7 +305,7 @@ Om du till exempel lägger till fler egenskaper, `"suite"`till exempel till JSON
 
 Du kan kapsla arbets flöden i din Logic app genom att lägga till andra Logic Apps som kan ta emot begär Anden. Följ dessa steg om du vill ta med dessa Logic Apps:
 
-1. Under steget där du vill anropa en annan Logic app väljer du **nytt steg** > **Lägg till en åtgärd**.
+1. Under steget där du vill anropa en annan Logic app väljer du **nytt steg**  >  **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger `logic apps` du som filter. I listan åtgärder väljer du **Välj ett Logic Apps arbets flöde**.
 
@@ -316,9 +319,9 @@ Du kan kapsla arbets flöden i din Logic app genom att lägga till andra Logic A
 
 ## <a name="reference-content-from-an-incoming-request"></a>Referens innehåll från en inkommande begäran
 
-Om den inkommande begärans innehålls typ är `application/json`, kan du referera till egenskaperna i den inkommande begäran. Annars behandlas det här innehållet som en enda binär enhet som du kan skicka till andra API: er. Om du vill referera till det här innehållet i din Logic app-arbetsflöde måste du först konvertera det innehållet.
+Om den inkommande begärans innehålls typ är `application/json` , kan du referera till egenskaperna i den inkommande begäran. Annars behandlas det här innehållet som en enda binär enhet som du kan skicka till andra API: er. Om du vill referera till det här innehållet i din Logic app-arbetsflöde måste du först konvertera det innehållet.
 
-Om du till exempel skickar innehåll som är `application/xml` av typen kan du använda [ `@xpath()` uttrycket](../logic-apps/workflow-definition-language-functions-reference.md#xpath) för att utföra en XPath-extrahering eller använda [ `@json()` uttrycket](../logic-apps/workflow-definition-language-functions-reference.md#json) för att konvertera XML till JSON. Lär dig mer om att arbeta med [innehålls typer](../logic-apps/logic-apps-content-type.md)som stöds.
+Om du till exempel skickar innehåll som är av `application/xml` typen kan du använda [ `@xpath()` uttrycket](../logic-apps/workflow-definition-language-functions-reference.md#xpath) för att utföra en XPath-extrahering eller använda [ `@json()` uttrycket](../logic-apps/workflow-definition-language-functions-reference.md#json) för att konvertera XML till JSON. Lär dig mer om att arbeta med [innehålls typer](../logic-apps/logic-apps-content-type.md)som stöds.
 
 Du kan använda [ `@triggerOutputs` uttrycket](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs)för att hämta utdata från en inkommande begäran. Anta till exempel att du har utdata som ser ut som i det här exemplet:
 
@@ -333,7 +336,7 @@ Du kan använda [ `@triggerOutputs` uttrycket](../logic-apps/workflow-definition
 }
 ```
 
-För att få åtkomst `body` till egenskapen specifikt kan du använda [ `@triggerBody()` uttrycket](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) som en genväg.
+För att få åtkomst till `body` egenskapen specifikt kan du använda [ `@triggerBody()` uttrycket](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) som en genväg.
 
 ## <a name="respond-to-requests"></a>Svara på begär Anden
 
@@ -345,16 +348,16 @@ För kapslade Logic Apps fortsätter appen för överordnad logik att vänta på
 
 ### <a name="construct-the-response"></a>Skapa svaret
 
-I svars texten kan du inkludera flera huvuden och vilken typ av innehåll som helst. Det här svarets rubrik anger till exempel att svarets innehålls typ är `application/json` och att texten innehåller värden för egenskaperna `town` och `postalCode` , baserat på det JSON-schema som beskrivs tidigare i det här avsnittet för begäran utlösare.
+I svars texten kan du inkludera flera huvuden och vilken typ av innehåll som helst. Det här svarets rubrik anger till exempel att svarets innehålls typ är `application/json` och att texten innehåller värden för `town` `postalCode` egenskaperna och, baserat på det JSON-schema som beskrivs tidigare i det här avsnittet för begäran utlösare.
 
 ![Tillhandahåll svars innehåll för HTTPS-svars åtgärd](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 Svaren har följande egenskaper:
 
-| Egenskap (Visa) | Egenskap (JSON) | Beskrivning |
+| Egenskap (Visa) | Egenskap (JSON) | Description |
 |--------------------|-----------------|-------------|
 | **Status kod** | `statusCode` | HTTPS-statuskod som ska användas i svaret på inkommande begäran. Den här koden kan vara vilken giltig status kod som helst som börjar med 2xx, 4xx eller 5xx. 3xx status koder är dock inte tillåtna. |
-| **Rubriker** | `headers` | En eller flera huvuden som ska inkluderas i svaret |
+| **Sidhuvuden** | `headers` | En eller flera huvuden som ska inkluderas i svaret |
 | **Brödtext** | `body` | Ett Body-objekt som kan vara en sträng, ett JSON-objekt eller till och med ett binärt innehåll som refereras från ett föregående steg |
 ||||
 

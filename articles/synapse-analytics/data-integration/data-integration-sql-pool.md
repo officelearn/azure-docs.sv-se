@@ -9,22 +9,22 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: ab25b2e300f9fe9b0b1d077a42538c69fa543af2
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: acfe367033d1553f5ee408ad0f4170e5d981377e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982708"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021831"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Mata in data i en SQL-pool
 
 I den här artikeln får du lära dig hur du matar in data från ett Azure Data Lake gen 2-lagrings konto till en SQL-pool med Azure Synapse Analytics.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**: du använder Azure Data Lake Storage gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.
-* **Azure Synapse Analytics**: du använder en SQL-pool som data lager för *mottagare* . Om du inte har en Azure Synapse Analytics-instans går du till [skapa en SQL-pool](../../sql-database/sql-database-get-started-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för steg för att skapa en.
+* **Azure Synapse Analytics**: du använder en SQL-pool som data lager för *mottagare* . Om du inte har en Azure Synapse Analytics-instans går du till [skapa en SQL-pool](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för steg för att skapa en.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 

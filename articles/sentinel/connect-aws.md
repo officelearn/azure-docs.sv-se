@@ -9,23 +9,26 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 5cbef1f31ea7088d4fab4888f5630af1b765a910
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f4b5713aed6bae574c30f555ef7f63307138a96
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588662"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014986"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Ansluta Azure Sentinel till AWS CloudTrail
 
 Använd AWS-anslutningen för att strömma alla dina AWS CloudTrail-händelser till Azure Sentinel. Den här anslutnings processen delegerar åtkomst för Azure Sentinel till dina AWS-resurs loggar och skapar en förtroende relation mellan AWS CloudTrail och Azure Sentinel. Detta görs på AWS genom att skapa en roll som ger behörighet till Azure Sentinel för att få åtkomst till dina AWS-loggar.
 
-## <a name="prerequisites"></a>Krav
+> [!NOTE]
+> AWS-CloudTrail har [inbyggda begränsningar](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) i dess LOOKUPEVENTS-API. Den tillåter inte fler än två transaktioner per sekund (TPS) per konto och varje fråga kan returnera högst 50 poster. Om en enskild klient däremot genererar fler än 100 poster per sekund i en region, kommer efter släpningar och fördröjningar i data inmatningen att uppstå.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha Skriv behörighet på Azure Sentinel-arbetsytan.
 

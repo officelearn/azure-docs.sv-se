@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 7cbcaefcc087c9f1c7c09668a27fbdef9a4802d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af33a777d2d6ef53965c2168ac0abee00f59bc50
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681082"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021389"
 ---
 # <a name="color-materials"></a>Färgmaterial
 
@@ -22,7 +22,7 @@ Färg material är mer effektivt att rendera än [PBR-material](pbr-materials.md
 
 Dessa egenskaper är gemensamma för allt material:
 
-* **albedoColor:** Den här färgen multipliceras med andra färger, till exempel *albedoMap* -eller *hörn färger*. Om *transparens* är aktiverat på ett material används alfa kanalen för att justera opaciteten, med `1` en helt ogenomskinlig och `0` innebörd som är helt transparent. Standardvärdet är White.
+* **albedoColor:** Den här färgen multipliceras med andra färger, till exempel *albedoMap* eller * :::no-loc text="vertex"::: färger*. Om *transparens* är aktiverat på ett material används alfa kanalen för att justera opaciteten, med en `1` helt ogenomskinlig och innebörd som är `0` helt transparent. Standardvärdet är White.
 
   > [!NOTE]
   > Eftersom färg material inte återspeglar miljön blir ett helt transparent färg material osynligt. Detta skiljer sig för [PBR-material](pbr-materials.md).
@@ -33,15 +33,15 @@ Dessa egenskaper är gemensamma för allt material:
 
 * **textureCoordinateScale** och **textureCoordinateOffset:** skalan multipliceras med UV-texturens koordinater. förskjutningen läggs till i den. Kan användas för att sträcka ut och byta texturer. Standard skalan är (1, 1) och förskjutningen är (0, 0).
 
-* **useVertexColor:** Om masken innehåller hörn färger och det här alternativet är aktiverat multipliceras hörn färgerna med maskarna till *albedoColor* och *albedoMap*. Som standard är hörn färger inaktiverade.
+* **useVertexColor:** Om nätet innehåller :::no-loc text="vertex"::: färger och det här alternativet är aktiverat :::no-loc text="vertex"::: multipliceras maskens färg med *albedoColor* och *albedoMap*. Som standard är *useVertexColor* inaktive rad.
 
-* **isDoubleSided:** Om Double-sidedness är inställt på Sant återges trianglar med det här materialet även om kameran tittar på bak sidorna. Som standard är det här alternativet inaktiverat. Se även [Enkels idig åter givning](single-sided-rendering.md).
+* **isDoubleSided:** Om Double-sidedness är inställt på Sant återges trianglar med det här materialet även om kameran tittar på bak sidorna. Som standard är det här alternativet inaktiverat. Se även [ :::no-loc text="Single-sided"::: åter givning](single-sided-rendering.md).
 
 ## <a name="color-material-properties"></a>Egenskaper för färg material
 
 Följande egenskaper är speciella för färg material:
 
-* **vertexMix:** Värdet mellan `0` och `1` anger hur starkt hörn färgen i ett [nät](../../concepts/meshes.md) bidrar till den slutliga färgen. Vid standardvärdet 1 multipliceras hörn färgen med albedo-färgen helt. Med värdet 0 ignoreras hörn färgerna helt.
+* **vertexMix:** Det här värdet mellan `0` och `1` anger hur starkt :::no-loc text="vertex"::: färgen i ett [nät](../../concepts/meshes.md) bidrar till den slutliga färgen. Med standardvärdet 1 :::no-loc text="vertex"::: multipliceras färgen med albedo-färgen helt. Med värdet 0 :::no-loc text="vertex"::: ignoreras färgerna helt.
 
 * **transparencyMode:** Till skillnad från [PBR-material](pbr-materials.md)skiljer sig färg material mellan olika genomskinlighets lägen:
 

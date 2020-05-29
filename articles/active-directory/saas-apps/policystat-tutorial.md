@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f467e061ad52fdcc6d1e8706bb902088b237c24
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 3e0e220467c8c16deb413f6c70f236f6de67f980
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848778"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Självstudie: Azure Active Directory integrering med PolicyStat
 
@@ -34,7 +34,7 @@ Genom att integrera PolicyStat med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med PolicyStat behöver du följande objekt:
 
@@ -175,11 +175,11 @@ Utför följande steg för att konfigurera enkel inloggning med PolicyStat i Azu
    
     a. I text rutan **attribut för användar namn** skriver du **UID**.
 
-    b. I text rutan för det **första** namnattributet skriver du ditt förnamn för attributet anspråk från Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
+    b. I text rutan för det **första** namnattributet skriver du ditt förnamn för attributet anspråk från Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
 
-    c. I text rutan för det **sista** namnattributet skriver du det sista namnet för attributet anspråk från Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .
+    c. I text rutan för det **sista** namnattributet skriver du det sista namnet för attributet anspråk från Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** .
 
-    d. I text rutan **email-attribut** skriver du ditt e-postattribut anspråks namn från Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
+    d. I text rutan **email-attribut** skriver du ditt e-postattribut anspråks namn från Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
 
     e. Klicka på **Spara ändringar**.
 

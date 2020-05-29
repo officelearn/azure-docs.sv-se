@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: skapa ett anpassat kommando med parametrar (för hands version) – tal tjänst'
+title: 'Snabb start: skapa en anpassad kommando förhands gransknings app med parametrar-Speech service'
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln lägger du till parametrar i ett program med anpassade kommandon.
+description: I den här artikeln lägger du till parametrar i ett program med anpassade kommandon så att du kan aktivera och inaktivera flera enheter.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -10,82 +10,86 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: donkim
-ms.openlocfilehash: bf77616123f9311f7384fea515f250e47b354c8c
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5461ef9680ab89c8cc9cc2e1166366abb04a6eab
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853604"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142290"
 ---
-# <a name="quickstart-create-a-custom-commands-application-with-parameters-preview"></a>Snabb start: skapa ett anpassat kommandon program med parametrar (förhands granskning)
+# <a name="quickstart-create-a-custom-commands-preview-application-with-parameters"></a>Snabb start: skapa ett anpassat kommando för hands versions program med parametrar
 
 I [föregående artikel](./quickstart-custom-speech-commands-create-new.md)skapade du ett enkelt anpassat kommando program utan parametrar.
 
-I den här artikeln kommer du att utöka det här programmet så att det använder parametrar så att det kan hantera aktivering och inaktive ring av flera enheter.
+I den här artikeln ska du utöka programmet med parametrar så att det kan aktivera och inaktivera flera enheter.
 
 ## <a name="create-parameters"></a>Skapa parametrar
 
-1. Öppna projektet [som du skapade tidigare](./quickstart-custom-speech-commands-create-new.md)
-1. Nu ska vi redigera det befintliga kommandot för att aktivera och inaktivera flera enheter.
-1. Eftersom kommandot nu kommer att hantera på och av byter du namn på kommandot `TurnOnOff`till.
-   - I det vänstra fönstret väljer du `TurnOn` kommandot och klickar sedan på `...` ikonen bredvid `+ New command` överst i fönstret.
-   
-   - Välj `Rename` ikon. Byt **namn** till `TurOnOff`i popup- **kommandot Byt** namn. Välj sedan **Spara**.
+1. Öppna det projekt som du skapade i [föregående artikel](./quickstart-custom-speech-commands-create-new.md).
 
-1. Därefter skapar du en ny parameter som visar om användaren vill aktivera eller inaktivera enheten.
-   - Välj `+ Add` ikonen som finns överst i mitten av fönstret. Välj **parameter**i list rutan.
-   - I den högra rutan kan du se avsnittet **parametrar** -konfiguration.
-   - Lägg till värde för **namn**.
-   - Markera kryss rutan **nödvändig** . I fönstret **Lägg till svar för en obligatorisk parameter** väljer du **enkel redigerare** och till den **första varianten**, Lägg till
+   Vi redigerar det befintliga kommandot så att det kan användas för att aktivera och inaktivera flera enheter.
+1. Eftersom kommandot nu kommer att hantera både på och av byter du namn på det till **TurnOnOff**.
+   1. I det vänstra fönstret väljer du kommandot **TurnON** och väljer sedan knappen med tre punkter (**...**) bredvid **nytt kommando** överst i fönstret.
+   
+   1. Välj **Byt namn**. Ändra **namnet** till **TurOnOff**i **kommando fönstret Byt** namn. Välj **Spara**.
+
+1. Skapa en parameter som visar om användaren vill aktivera eller inaktivera enheten.
+   1. Välj **Lägg till** överst i den mellersta rutan. Välj **parameter**i list rutan.
+   1. I den högra rutan, i avsnittet **parametrar** , lägger du till ett värde i rutan **namn** .
+   1. Välj **obligatoriskt**. I fönstret **Lägg till svar för en obligatorisk parameter** väljer du **enkel redigerare**. I rutan **första variationen** anger du den här texten:
         ```
         On or Off?
         ```
-   - Välj **Uppdatera**.
+   1. Välj **Uppdatera**.
 
        > [!div class="mx-imgBorder"]
        > ![Skapa nödvändigt parameter svar](media/custom-speech-commands/add-required-on-off-parameter-response.png)
    
-   - Nu ska vi konfigurera resten av egenskaperna för parametern enligt följande och välja `Save` att spara konfigurationen alla konfigurationer till parametern.
+1. Konfigurera resten av egenskaperna för parametern enligt följande:
        
 
-       | Konfiguration      | Föreslaget värde     | Beskrivning                                                      |
-       | ------------------ | ----------------| ---------------------------------------------------------------------|
-       | Name               | Mikrofonen           | Ett beskrivande namn för parametern                                                                           |
-       | Är global          | avmarkerat       | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i programmet|
-       | Krävs           | analysera         | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs |
-       | Svar för obligatorisk parameter      |Enkelt redigerings program – > på eller av?      | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd |
-       | Typ               | Sträng          | Typ av parameter, till exempel Number, String, datum tid eller geografi   |
-       | Konfiguration      | Acceptera fördefinierade indatavärden från intern katalog | För strängar begränsar detta indata till en uppsättning möjliga värden |
-       | Fördefinierade indatavärden     | på, av             | Uppsättning möjliga värden och deras alias         |
+    | Konfiguration      | Föreslaget värde     | Description                                                      |
+    | ------------------ | ----------------| ---------------------------------------------------------------------|
+    | **Namn**               | **Mikrofonen**           | Ett beskrivande namn för parametern.                                                                  |
+    | **Är global**          | Rensas       | En kryss ruta som anger om ett värde för parametern globalt tillämpas på alla kommandon i programmet.|
+    | **Obligatoriskt**           | Vald         | En kryss ruta som anger om ett värde för parametern måste anges.  |
+    | **Svar för obligatorisk parameter**      |**Enkelt redigerings program – > på eller av?**      | En uppmaning om att fråga efter värdet på parametern när den inte är känd. |
+    | **Typ**               | **Sträng**          | Typ av parameter. Till exempel Number, String, datum tid, geografi.   |
+    | **Konfiguration**      | **Acceptera fördefinierade indatavärden från intern katalog** | För strängar begränsar den här inställningen indata till en uppsättning möjliga värden. |
+    | **Fördefinierade indatavärden**     | **på**, **av**             | En uppsättning möjliga värden och deras alias.         |
        
-        > [!div class="mx-imgBorder"]
-        > ![Skapa parameter](media/custom-speech-commands/create-on-off-parameter.png)
 
-   - Välj sedan `+ Add` ikonen igen för att lägga till en andra parameter för att representera namnet på enheterna med följande konfiguration.
+
+    > [!div class="mx-imgBorder"]
+    > ![Skapa parameter](media/custom-speech-commands/create-on-off-parameter.png)
+
+1. Spara inställningarna genom att klicka på **Spara**.
+
+ 1. Välj **Lägg till** igen för att lägga till en andra parameter. Den här parametern representerar namnet på enheten. Använd de här inställningarna:
    
 
-       | Inställningen            | Föreslaget värde       | Beskrivning                                                                                               |
+       | Inställningen            | Föreslaget värde       | Description                                                                                               |
        | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
-       | Name               | SubjectDevice         | Ett beskrivande namn för parametern                                                                     |
-       | Är global          | avmarkerat             | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i programmet |
-       | Krävs           | analysera               | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs          |
-       | Enkelt redigerings program      | Vilken enhet?    | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd                                       |
-       | Typ               | Sträng                | Typ av parameter, till exempel Number, String, datum tid eller geografi                                                |
-       | Konfiguration      | Acceptera fördefinierade indatavärden från intern katalog | För strängar begränsar en sträng lista indata till en uppsättning möjliga värden       |
-       | Fördefinierade indatavärden | TV, fläkt               | Uppsättning möjliga värden och deras alias                               |
-       | Alias (TV)      | TV, Talad     | Valfria alias för varje möjligt värde med fördefinierade indatavärden                                 |
+       | **Namn**               | **SubjectDevice**         | Ett beskrivande namn för parametern.                                                                     |
+       | **Är global**          | Rensas             | En kryss ruta som anger om ett värde för parametern globalt tillämpas på alla kommandon i programmet. |
+       | **Obligatoriskt**           | Vald               | En kryss ruta som anger om ett värde för parametern måste anges.          |
+       | **Enkelt redigerings program**      | **Vilken enhet?**    | En uppmaning om att fråga efter värdet på parametern när den inte är känd.                                       |
+       | **Typ**               | **Sträng**                | Typ av parameter. Till exempel Number, String, datum tid, geografi.                                                |
+       | **Konfiguration**      | **Acceptera fördefinierade indatavärden från intern katalog** | För strängar begränsar den här inställningen indata till en uppsättning möjliga värden.       |
+       | **Fördefinierade indatavärden** | **TV**, **fläkt**               | En uppsättning möjliga värden och deras alias.                               |
+       | **Alias** (TV)      | **TV**, **talad**     | Valfria alias för var och en av de fördefinierade indatavärdena.                                 |
 
 ## <a name="add-example-sentences"></a>Lägg till exempel meningar
 
-Med kommandon med parametrar är det bra att lägga till exempel meningar som beskriver alla möjliga kombinationer. Exempel:
+För kommandon som har parametrar är det bra att lägga till exempel meningar som beskriver alla möjliga kombinationer. Ett exempel:
 
-1. Fullständig parameter information –`turn {OnOff} the {SubjectDevice}`
-1. Partiell parameter information –`turn it {OnOff}`
-1. Ingen parameter information –`turn something`
+- Fullständig parameter information:`turn {OnOff} the {SubjectDevice}`
+- Ofullständig parameter information:`turn it {OnOff}`
+- Ingen parameter information:`turn something`
 
-Exempel på meningar med olika typer av information gör att de anpassade kommandona kan matcha både ensidiga lösningar och flera lösningar med delvis information.
+Exempel på meningar som har olika mängder information gör att de anpassade kommandona kan matcha både ensidiga lösningar och flera lösningar med partiell information.
 
-Med det i åtanke redigerar du exempel meningarna så att de använder parametrarna enligt rekommendationerna nedan.
+Med det i åtanke redigerar du exempel meningarna så att de använder de parametrar som föreslås här:
 
 ```
 turn {OnOff} the {SubjectDevice}
@@ -95,36 +99,40 @@ turn something {OnOff}
 turn something
 ```
 > [!TIP]
-> I exempel menings redigeraren använder du klammerparenteser för att referera till dina parametrar. - `turn {OnOff} the {SubjectDevice}`Använd fliken för automatisk komplettering som backas upp av parametrarna som skapats tidigare.
+> I exempel menings redigeraren använder du klamrar för att referera till parametrarna: `turn {OnOff} the {SubjectDevice}` .
+>
+> Använd fliken för automatisk komplettering som definierats av parametrarna som skapats tidigare.
 
 ## <a name="add-parameters-to-completion-rules"></a>Lägg till parametrar till regler för slut för ande
 
-Ändra regeln för slut för ande som vi skapade i [den tidigare snabb](./quickstart-custom-speech-commands-create-new.md)starten.
+Ändra regeln för slut för ande som du skapade i [föregående snabb start](./quickstart-custom-speech-commands-create-new.md).
 
-1. I avsnittet **villkor** lägger du till ett nytt villkor genom att välja **+ Lägg till ett villkor**
-1. I det nya pop-up- **villkoret**väljer `Required parameters` du från List rutan **typ** . I check listan nedan markerar du både `OnOff` och. `SubjectDevice`
-1. Klicka på **Skapa**.
-1. I avsnittet **åtgärder** redigerar du den befintliga svars åtgärden skicka tal genom att hovra över åtgärden och klicka på ikonen Redigera. Den här gången använder vi nyligen skapade `OnOff` och parametrar `SubjectDevice`
+1. I avsnittet **villkor** väljer du **Lägg till ett villkor**.
+1. I fönstret **nytt villkor** väljer du **nödvändiga parametrar**i listan **typ** . I listan väljer du både **mikrofonen** och **SubjectDevice**.
+1. Välj **Skapa**.
+1. I avsnittet **åtgärder** redigerar du den befintliga **svars åtgärden skicka tal** genom att hovra över åtgärden och välja knappen Redigera. Den här gången använder du de `OnOff` nya `SubjectDevice` parametrarna och:
 
     ```
     Ok, turning {OnOff} the {SubjectDevice}
     ```
 
 ## <a name="try-it-out"></a>Prova nu
-1. Välj `Train` ikonen som finns överst i den högra rutan.
+1. Välj **träna** överst i den högra rutan.
 
-1. När inlärningen är klar väljer `Test`du.
-    - Ett nytt **test av ditt program** -fönster visas.
-    - Prova några interaktioner.
+1. När träningen är färdig väljer du **test**.
+    
+    Ett **test av** programfönstret visas.
 
-        - Inmatade: Stäng av TV
-        - Utdata: OK, stänga av TV        
-        - Inmatade: Stäng av TV: n
-        - Utdata: OK, stänga av TV
-        - Inmatade: Stäng av
-        - Utdata: vilken enhet?
-        - Inmatade: TV
-        - Utdata: OK, stänga av TV
+1. Prova några interaktioner.
+
+        - Input: turn off the tv
+        - Output: Ok, turning off the tv        
+        - Input: turn off the television
+        - Output: Ok, turning off the tv
+        - Input: turn it off
+        - Output: Which device?
+        - Input: the tv
+        - Output: Ok, turning off the tv
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

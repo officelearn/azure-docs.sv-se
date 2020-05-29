@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: thweiss
-ms.openlocfilehash: 5629ddfe496ef1abd071ab579c885cbe1adeb344
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fd69e8b50fdd66267b5751e9c706d5181f7795a0
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592121"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148199"
 ---
-# <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera Kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
+# <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
 
 Data som lagras i ditt Azure Cosmos-konto är automatiskt och sömlöst krypterade med nycklar som hanteras av Microsoft (**tjänst hanterade nycklar**). Du kan också välja att lägga till ett andra lager av kryptering med nycklar som du hanterar (**Kundhanterade nycklar**).
 
@@ -219,6 +219,10 @@ az cosmosdb show \
     -g $resourceGroupName \
     --query keyVaultKeyUri
 ```
+
+## <a name="error-handling"></a>Felhantering
+
+När du använder Kundhanterade nycklar (CMK) i Azure Cosmos DB, om det finns några fel, returnerar Azure Cosmos DB fel informationen tillsammans med en HTTP-underordnad status kod i svaret. Du kan använda den här under status koden för att felsöka orsaken till problemet. Se [HTTP-statuskod för Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb.md) artikel om du vill hämta en lista över http-understatus koder som stöds.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 

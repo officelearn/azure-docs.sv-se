@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2020
+ms.date: 05/28/2020
 ms.author: shvija
-ms.openlocfilehash: e7f17c589b043a055bd541a0850d9efc8e1d96be
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 4851a3edad9726230a8fc0dd3085caa172c8d5f3
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628869"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147876"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Utjämna belastningen på partitionen över flera instanser av programmet
 Om du vill skala ditt händelse bearbetnings program kan du köra flera instanser av programmet och utjämna belastningen sinsemellan. I de äldre versionerna har [EventProcessorHost](event-hubs-event-processor-host.md) gett dig möjlighet att balansera belastningen mellan flera instanser av ditt program och kontroll punkts händelser när de tar emot. I de nyare versionerna (5,0 och senare), **EventProcessorClient** (.net och Java) eller **EventHubConsumerClient** (python och Java Script) kan du göra samma sak. Utvecklings modellen blir enklare med hjälp av händelser. Du prenumererar på de händelser som du är intresse rad av genom att registrera en händelse hanterare.
@@ -44,7 +44,7 @@ När du designar konsumenten i en distribuerad miljö måste scenariot hantera f
 
 ## <a name="event-processor-or-consumer-client"></a>Händelse processor eller konsument klient
 
-Du behöver inte bygga din egen lösning för att uppfylla dessa krav. Azure Event Hubs SDK: er tillhandahåller den här funktionen. I .NET eller Java SDK: er använder du en Event processor-klient (EventProcessorClient) och i en python-och Java Script-SDK: er använder du EventHubConsumerClient. I den tidigare versionen av SDK var det händelse bearbetnings värd (EventProcessorHost) som har stöd för dessa funktioner.
+Du behöver inte bygga din egen lösning för att uppfylla dessa krav. Azure Event Hubs SDK: er tillhandahåller den här funktionen. I .NET eller Java SDK: er använder du en Event processor-klient (EventProcessorClient) och i python-och JavaScript-SDK: er använder du EventHubConsumerClient. I den tidigare versionen av SDK var det händelse bearbetnings värd (EventProcessorHost) som har stöd för dessa funktioner.
 
 För de flesta produktions scenarier rekommenderar vi att du använder händelse processor klienten för att läsa och bearbeta händelser. Processor klienten är avsedd att tillhandahålla en robust upplevelse för bearbetning av händelser i alla partitioner i en Event Hub i en utförd och feltolerant metod, samtidigt som det ger ett sätt att ange en kontroll punkt för förloppet. Event processor-klienter kan också samar beta inom kontexten för en konsument grupp för en specifik händelsehubben. Klienterna hanterar automatiskt distribution och balansering av arbete när instanser blir tillgängliga eller otillgängliga för gruppen.
 
@@ -54,7 +54,7 @@ En händelse processor instans äger vanligt vis och bearbetar händelser från 
 
 Varje händelse processor får en unik identifierare och hävdar ägande rätt för partitioner genom att lägga till eller uppdatera en post i ett kontroll punkts arkiv. Alla Event processor instanser kommunicerar med det här arkivet regelbundet för att uppdatera sitt egna bearbetnings tillstånd samt för att lära dig om andra aktiva instanser. Dessa data används sedan för att utjämna belastningen mellan de aktiva processorerna. Nya instanser kan anslutas till den behandlande poolen för att skala upp. När instanser går nedåt, antingen på grund av felaktiga eller nedskalning, överförs partitionens ägarskap till andra aktiva processorer.
 
-Att partitionera ägarskaps poster i kontroll punkts arkivet håller reda på Event Hubs namnrymd, namn på händelsehubben, konsument grupp, händelse processor identifierare (kallas även ägare), partitions-ID och senaste ändrings tid.
+Partitionera ägarskaps poster i kontroll punkts arkivet Håll koll på Event Hubs namnrymd, namn på händelsehubben, konsument grupp, händelse processor identifierare (kallas även ägare), partitions-ID och senaste ändrings tid.
 
 
 
@@ -92,7 +92,7 @@ När kontroll punkten utförs för att markera en händelse som bearbetad läggs
 
 ## <a name="thread-safety-and-processor-instances"></a>Tråd säkerhet och processor instanser
 
-Händelse processorn eller-konsumenten är som standard tråd säker och fungerar på ett synkront sätt. När händelser kommer till en partition anropas den funktion som bearbetar händelserna. Efterföljande meddelanden och anrop till den här funktionen hamnar i en kö i bakgrunden när meddelande pumpen fortsätter att köras i bakgrunden på andra trådar. Den här tråd säkerheten tar bort behovet av tråd säkra samlingar och ökar dramatiskt prestanda avsevärt.
+Som standard anropas den funktion som bearbetar händelserna i turordning för en viss partition. Efterföljande händelser och anrop till den här funktionen från samma partitionsuppsättning i kön i bakgrunden när händelse pumpen fortsätter att köras i bakgrunden på andra trådar. Observera att händelser från olika partitioner kan bearbetas samtidigt och att alla delade tillstånd som nås mellan partitioner måste synkroniseras.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande snabb starter:

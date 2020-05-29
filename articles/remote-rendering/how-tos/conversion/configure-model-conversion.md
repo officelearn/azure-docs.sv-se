@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 104a583122fa08cf145191b8bcee49ce5f042599
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021406"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147959"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurera modellkonverteringen
 
@@ -178,7 +178,7 @@ De här formaten är tillåtna för respektive komponenter:
 
 Minnes formaten för formaten är följande:
 
-| Format | Beskrivning | Byte per:::no-loc text="vertex"::: |
+| Format | Description | Byte per:::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|full flytt ALS precision med två komponenter|8
 |16_16_FLOAT|två komponenter halv flytt ALS precision|4
@@ -202,6 +202,51 @@ Anta att du har en Photogrammetry-modell som har belysnings-bakade i texturerna.
 Som standard måste konverteraren anta att du vill använda PBR-material i en modell vid en viss tidpunkt, så att den genererar `normal` , `tangent` och `binormal` data åt dig. Det innebär att minnes användningen per hörn är `position` (12 byte) + `texcoord0` (8 byte) + `normal` (4 byte) + `tangent` (4 byte) + `binormal` (4 byte) = 32 byte. Större modeller av den här typen kan enkelt ha många miljoner :::no-loc text="vertices"::: resultat i modeller som kan ta upp flera gigabyte av minnet. Sådana stora mängder data påverkar prestanda och du kan till och med få slut på minne.
 
 Att veta att du aldrig behöver dynamisk belysning i modellen och att du vet att alla textur koordinater är inom `[0; 1]` räckhåll, kan du ange `normal` , `tangent` och `binormal` till `NONE` och `texcoord0` till hälften precision ( `16_16_FLOAT` ), vilket resulterar i endast 16 byte per :::no-loc text="vertex"::: . Genom att klippa ut nät data på hälften kan du läsa in större modeller och eventuellt förbättra prestanda.
+
+## <a name="memory-optimizations"></a>Minnes optimering
+
+Minnes användningen av det inlästa innehållet kan bli en Flask hals i åter givnings systemet. Om minnes nytto lasten blir för stor kan det äventyra åter givningen av prestanda eller orsaka att modellen inte läses in helt. I det här stycket beskrivs några viktiga strategier för att minska minnes utrymmet.
+
+### <a name="instancing"></a>Instans
+
+Instans är ett begrepp där maskor återanvänds för delar med distinkta omvandlingar, i stället för varje del som refererar till sin egen unika geometri. Indelningen har betydande inverkan på minnes utrymmet.
+Exempel på användnings fall är skruvarna i en motor modell eller stolar i en arkitektur modell.
+
+> [!NOTE]
+> Indelningen kan förbättra minnes förbrukningen (och därmed belastnings tiderna) avsevärt, men förbättringarna på sidan för åter givnings prestanda är obetydliga.
+
+Konverterings tjänsten respekterar indelningar om delar har marker ATS på motsvarande sätt i käll filen. Konverteringen utför dock inte ytterligare djup analys av nät data för att identifiera återanvändbara delar. Det innebär att verktyget för att skapa innehåll och dess export pipeline är de avgörande kriterierna för korrekt indelnings installation.
+
+Ett enkelt sätt att testa om indelnings information bevaras under konverteringen är att ta en titt på [utmatnings statistiken](get-information.md#example-info-file), särskilt `numMeshPartsInstanced` medlemmen. Om värdet för `numMeshPartsInstanced` är större än noll, indikerar det att maskor delas mellan olika instanser.
+
+#### <a name="example-instancing-setup-in-3ds-max"></a>Exempel: instans konfiguration i 3ds Max
+
+[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) har distinkta objekt klonings lägen **`Copy`** som kallas, **`Instance`** och **`Reference`** som fungerar annorlunda med avseende på instans i den exporterade `.fbx` filen.
+
+![Kloning i max.](./media/3dsmax-clone-object.png)
+
+* **`Copy`**: I det här läget klonas nätet, så ingen instans används ( `numMeshPartsInstanced` = 0).
+* **`Instance`**: De två objekten delar samma nät, så indelningen används ( `numMeshPartsInstanced` = 1).
+* **`Reference`**: Distinkta modifierare kan tillämpas på Geometries, så att export verktyget väljer en försiktigt metod och inte använder instans ( `numMeshPartsInstanced` = 0).
+
+
+### <a name="depth-based-composition-mode"></a>Djup baserat sammanställnings läge
+
+Om minnet är ett problem kan du konfigurera åter givningen med [djup baserat sammanställnings läge](../../concepts/rendering-modes.md#depthbasedcomposition-mode). I det här läget distribueras GPU-nyttolasten över flera GPU: er.
+
+### <a name="decrease-vertex-size"></a>Minska hörn storlek
+
+Som vi ser i avsnittet [metod tips för komponent format ändringar](configure-model-conversion.md#best-practices-for-component-format-changes) kan du minska minnes storleken genom att justera hörn formatet. Det här alternativet bör dock vara den sista utväg.
+
+### <a name="texture-sizes"></a>Struktur storlekar
+
+Beroende på typen av scenario kan mängden textur data uppväga det minne som används för nät data. Photogrammetry-modeller är kandidater.
+Konverterings konfigurationen ger inte möjlighet att skala ned texturer automatiskt. Vid behov måste struktur skalning utföras som ett för bearbetnings steg på klient sidan. Konverterings steget väljer dock ett lämpligt [struktur komprimerings format](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
+
+* `BC1`för täckande färg strukturer
+* `BC7`för käll färgs strukturer med alpha Channel
+
+Eftersom formatet `BC7` har dubbelt så stor minnes storlek jämfört med `BC1` , är det viktigt att se till att de angivna texturerna inte ger någon alfa kanal i onödan.
 
 ## <a name="typical-use-cases"></a>Typiska användnings fall
 

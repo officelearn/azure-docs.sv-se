@@ -3,18 +3,18 @@ title: Slutför en haveri beredskap för virtuella datorer
 description: Den här artikeln visar hur du utför en haveri beredskap för virtuella datorer med hjälp av AVS
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 86f823444d4fff3edf8651f4d949c71d2c981ec7
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 5fdfc252486d94fcc22ebba9705fa5e259539921
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740556"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148165"
 ---
-# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Slutför en haveri beredskap för virtuella datorer med hjälp av Azure VMWare-lösningen
+# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Slutför en haveri beredskap för virtuella datorer med hjälp av Azure VMware-lösningen
 
-Den här artikeln innehåller en process för att slutföra en haveri beredskap för dina virtuella datorer med VMWare Hybrid Cloud Extensions-lösning (HCX) och med hjälp av ett privat moln i Azure VMWare-lösningen som återställnings-eller mål plats.
+Den här artikeln innehåller en process för att slutföra en haveri beredskap för dina virtuella datorer med VMware Hybrid Cloud Extensions-lösning (HCX) och med hjälp av ett privat moln i Azure VMware-lösningen som återställnings-eller mål plats.
 
-VMWare HCX tillhandahåller olika åtgärder som ger fin kontroll och granularitet i replikeringsprinciper. Tillgängliga åtgärder är:
+VMware HCX tillhandahåller olika åtgärder som ger fin kontroll och granularitet i replikeringsprinciper. Tillgängliga åtgärder är:
 
 - Back – när en katastrof har inträffat. Omvänd hjälper till att göra plats B till käll platsen och plats A där den skyddade virtuella datorn nu är i liv.
 
@@ -144,7 +144,7 @@ Replikeringen kan övervakas i avsnittet information på varje virtuell dator.
 
 ## <a name="disaster-recovery-plan-automation"></a>Automatisering av katastrof återställnings plan
 
-VMWare HCX har för närvarande inte någon inbyggd mekanism för att skapa och automatisera en katastrof återställnings plan. Den här funktionen finns inte i HCX. Det innehåller dock en uppsättning REST API: er, inklusive API: er för haveri beredskap.
+VMware HCX har för närvarande inte någon inbyggd mekanism för att skapa och automatisera en katastrof återställnings plan. Den här funktionen finns inte i HCX. Det innehåller dock en uppsättning REST API: er, inklusive API: er för haveri beredskap.
 
 API-specifikationen kan nås i HCX Manager i URL: en.
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871381"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141899"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
@@ -22,7 +22,7 @@ I den här snabb starten använder du formulär tolken REST API med verktyget f�
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
 
@@ -143,7 +143,8 @@ Därefter skapar du taggar (etiketter) och tillämpar dem på de text element so
     > * Etikettera värden som de visas i formuläret. Försök inte att dela upp ett värde i två delar med två olika taggar. Ett adress fält ska till exempel märkas med en enda tagg även om det sträcker sig över flera rader.
     > * Ta inte med nycklar i dina märkta fält &mdash; enbart värdena.
     > * Tabell data ska identifieras automatiskt och är tillgängliga i den slutgiltiga JSON-filen för utdata. Men om modellen inte kan identifiera alla tabell data kan du tagga dessa fält manuellt. Tagga varje cell i tabellen med en annan etikett. Om dina formulär har tabeller med varierande antal rader, se till att du tagga minst ett formulär med största möjliga tabell.
-    > * Om du vill ta bort en Använd tagg väljer du rektangeln i dokument visningen och trycker på Delete-tangenten.
+    > * Använd knapparna till höger om **+** för att söka, byta namn på, ändra ordningen och ta bort taggarna.
+    > * Om du vill ta bort en tillämpad tagg utan att ta bort själva taggen väljer du den taggade rektangeln i dokument visningen och trycker på Delete-tangenten.
 
 ![Huvud redigerings fönster i exempel etikett verktyg](../media/label-tool/main-editor.png)
 

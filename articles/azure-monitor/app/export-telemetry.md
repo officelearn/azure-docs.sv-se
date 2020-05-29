@@ -3,12 +3,12 @@ title: Kontinuerlig export av telemetri från Application Insights | Microsoft D
 description: Exportera diagnostik-och användnings data till lagring i Microsoft Azure och ladda ned dem därifrån.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 42a96cf014d7d02e440af03bc3a9c1d40e5f0cbc
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 91bce217b1b8d7c86c7d75ecd4ce6b698019e169
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017549"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147978"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Vill du behålla din telemetri längre än standard kvarhållningsperioden? Eller bearbeta den på ett visst sätt? Kontinuerlig export är idealisk för detta. De händelser som visas i Application Insights-portalen kan exporteras till lagring i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriva vilken kod du behöver för att bearbeta den.  
@@ -33,8 +33,6 @@ När kontinuerlig export kopierar dina data till lagrings utrymmet (där det kan
 Kontinuerlig export **stöder inte** följande funktioner/konfigurationer för Azure Storage:
 
 * Använda [VNet/Azure Storage brand väggar](https://docs.microsoft.com/azure/storage/common/storage-network-security) tillsammans med Azure Blob Storage.
-
-* [Oföränderligt lagrings utrymme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) för Azure Blob Storage.
 
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 

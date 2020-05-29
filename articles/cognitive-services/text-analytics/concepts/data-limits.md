@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/27/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 4af2d060c11b804c5fa09bfdabbcb9753f7d5885
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 79a12505ccc7cea709a88818513ba95710989954
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204416"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142375"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Data-och hastighets begränsningar för API för textanalys
 <a name="data-limits"></a>
@@ -36,7 +36,7 @@ Använd den här artikeln för att hitta gränserna för storlek och frekvenser 
 
 Det maximala antalet dokument som du kan skicka i en enskild begäran beror på vilken API-version och funktion du använder.
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-3"></a>[Version 3](#tab/version-3)
 
 > [!NOTE]
 > Om din v3 API-begäran överskrider dessa gränser, men ligger inom v2-gränser, returneras en varning i API-svaret. Från och med 7/15/2020 kommer en 400-felkod att returneras i stället. 

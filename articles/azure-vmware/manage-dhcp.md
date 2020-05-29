@@ -1,14 +1,14 @@
 ---
 title: Hantera DHCP
-description: Den här artikeln beskriver hur du hanterar DHCP i Azure VMWare-lösning (AVS)
+description: Den här artikeln beskriver hur du hanterar DHCP i Azure VMware-lösning (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ccf28c94e1991681c238f51847fe228313abe29e
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 80791dd2041fb9d6fbc7c67f2d7d7b2d0b6c977e
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740452"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148369"
 ---
 # <a name="how-to-manage-dhcp-in-azure-vmware-solution-avs-preview"></a>Hantera DHCP i Azure VMWare-lösningen (AVS) Preview
 

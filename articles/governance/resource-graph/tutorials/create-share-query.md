@@ -3,12 +3,12 @@ title: 'Självstudie: hantera frågor i Azure Portal'
 description: I den här självstudien skapar du en resurs diagram fråga och delar den nya frågan med andra i Azure Portal.
 ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: e63a92a4570a0713ed65e1090e4d77d25fb10f95
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 80725bd03d31a4985374005fe68a62e16aaef000
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83637754"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148029"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Självstudie: skapa och dela en Azure Resource Graph-fråga i Azure Portal
 
@@ -24,7 +24,7 @@ I den här självstudien utför du följande aktiviteter:
 > - Identifiera delade frågor
 > - Ta bort en delad fråga
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -44,7 +44,7 @@ Privata frågor är tillgängliga och endast synliga för det konto som skapar d
 
    Välj **Kör fråga** för att se frågeresultaten i det nedre fönstret.
 
-   Mer information om den här frågan finns i [samples – räkna virtuella datorer efter typ av operativ system](../samples/starter.md#count-virtual-machines-by-os-type).
+   Mer information om den här frågan finns i [samples – räkna virtuella datorer efter typ av operativ system](../samples/starter.md#count-os).
 
 
 1. Välj **Spara** eller **Spara som**, ange **antal virtuella datorer efter operativ system** som namn, lämna typen som **privat fråga**och välj sedan **Spara** längst ned i fönstret **Spara fråga** . Flikens rubrik ändras från **fråga 1** för att **räkna virtuella datorer efter operativ system**.
@@ -76,7 +76,7 @@ Följ dessa steg om du vill skapa en ny delad fråga:
     
    Välj **Kör fråga** för att se frågeresultaten i det nedre fönstret.
 
-   Mer information om den här frågan finns i [samples – räkna virtuella datorer efter typ av operativ system](../samples/starter.md#count-virtual-machines-by-os-type).
+   Mer information om den här frågan finns i [samples – räkna virtuella datorer efter typ av operativ system](../samples/starter.md#count-os).
 
 1. Välj **Spara** eller **Spara som**.
 

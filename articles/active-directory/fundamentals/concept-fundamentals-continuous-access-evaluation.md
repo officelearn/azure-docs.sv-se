@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3713901dd3dd5d17c4e1ddcef529c663b68f5b43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdf904bb2c0d133ea07cd32274fad5b6601da5d9
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112583"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148131"
 ---
 # <a name="continuous-access-evaluation"></a>Utvärdering av kontinuerlig åtkomst
 
@@ -50,13 +50,13 @@ I framtiden hoppas vi att lägga till fler händelser, inklusive händelser som 
 Innan utvärderingen av den kontinuerliga åtkomsten görs försöker klienter alltid att spela upp åtkomsttoken från sin cache så länge den inte har upphört att gälla. Med CAE presenterar vi ett nytt ärende som en resurs leverantör kan avvisa en token även när den inte har upphört att gälla. För att informera klienter om att kringgå deras cacheminne även om cachelagrade token inte har gått ut, introducerar vi en mekanism som kallas **anspråks utmaning**. CAE kräver en klient uppdatering för att förstå anspråks utmaningen. Den senaste versionen av följande program nedan stöder anspråks utmaning:
 
 - Outlook för Windows 
-- Outlook iOS 
-- Outlook Android 
-- Outlook Mac 
+- Outlook för iOS 
+- Outlook för Android 
+- Outlook för Mac 
 - Team för Windows
-- Team iOS 
-- Teams Android 
-- Teams Mac 
+- Team för iOS 
+- Team för Android 
+- Team för Mac 
 
 ## <a name="token-lifetime"></a>Tokenlivstid
 

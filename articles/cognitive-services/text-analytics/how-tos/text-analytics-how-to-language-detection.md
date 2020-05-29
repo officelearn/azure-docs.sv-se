@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 07/30/2019
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 58f2dc39c185e158a2b4b1b5e73b6b7d589c8c03
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5b3893dce2d20b1de0a78f11263d880e262098d2
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745572"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142392"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exempel: identifiera språk med Textanalys
 
-[Språkidentifiering](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) funktionen i Azure textanalys REST API utvärderar text ingångar för varje dokument och returnerar språk identifierare med en poäng som visar analys styrkan.
+[Språkidentifiering](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) funktionen i Azure textanalys REST API utvärderar text ingångar för varje dokument och returnerar språk identifierare med en poäng som visar analys styrkan.
 
 Den här funktionen är användbar för innehållslager samlar in godtycklig text, där språket är okänt. Du kan parsa resultatet av den här analysen för att avgöra vilket språk som används i dokumentet. Svaret returnerar också en poäng som återspeglar modellens tillförlitlighet. Poäng svärdet är mellan 0 och 1.
 
@@ -67,16 +67,16 @@ Dokument storleken måste vara under 5 120 tecken per dokument. Du kan ha upp ti
 
 Mer information om definition av begäran finns i [anropa API för textanalys](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
 
-+ Skicka en POST-begäran. Information om hur du granskar API-dokumentationen för den här begäran finns i [SPRÅKIDENTIFIERING API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
++ Skicka en POST-begäran. Information om hur du granskar API-dokumentationen för den här begäran finns i [SPRÅKIDENTIFIERING API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages).
 
-+ Ange HTTP-slutpunkt för språkidentifiering. Använd antingen en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste ta med `/text/analytics/v2.1/languages` i URL: en. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`.
++ Ange HTTP-slutpunkt för språkidentifiering. Använd antingen en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste ta med `/text/analytics/v3.0/languages` i URL: en. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`.
 
 + Ange ett rubrik för begäran för att inkludera [åtkomst nyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) för textanalys åtgärder.
 
 + Ange den JSON-dokumentsamling som du har förberett för den här analysen i begärandetexten.
 
 > [!Tip]
-> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna **API-testkonsolen** i [dokumentationen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) för att strukturera en begäran och skicka den till tjänsten.
+> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna **API-testkonsolen** i [dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) för att strukturera en begäran och skicka den till tjänsten.
 
 ## <a name="step-2-post-the-request"></a>Steg 2: publicera begäran
 
@@ -96,61 +96,57 @@ Resultat för exempelbegäran bör se ut som följande JSON. Observera att det �
 Ett positivt resultat på 1.0 uttrycker högsta möjliga förtroendenivå för analysen.
 
 ```json
-    {
-        "documents": [
-            {
-                "id": "1",
-                "detectedLanguages": [
-                    {
-                        "name": "English",
-                        "iso6391Name": "en",
-                        "score": 1
-                    }
-                ]
+{
+    "documents": [
+        {
+            "id": "1",
+            "detectedLanguage": {
+                "name": "English",
+                "iso6391Name": "en",
+                "confidenceScore": 1.0
             },
-            {
-                "id": "2",
-                "detectedLanguages": [
-                    {
-                        "name": "Spanish",
-                        "iso6391Name": "es",
-                        "score": 1
-                    }
-                ]
+            "warnings": []
+        },
+        {
+            "id": "2",
+            "detectedLanguage": {
+                "name": "Spanish",
+                "iso6391Name": "es",
+                "confidenceScore": 1.0
             },
-            {
-                "id": "3",
-                "detectedLanguages": [
-                    {
-                        "name": "French",
-                        "iso6391Name": "fr",
-                        "score": 1
-                    }
-                ]
+            "warnings": []
+        },
+        {
+            "id": "3",
+            "detectedLanguage": {
+                "name": "French",
+                "iso6391Name": "fr",
+                "confidenceScore": 1.0
             },
-            {
-                "id": "4",
-                "detectedLanguages": [
-                    {
-                        "name": "Chinese_Simplified",
-                        "iso6391Name": "zh_chs",
-                        "score": 1
-                    }
-                ]
+            "warnings": []
+        },
+        {
+            "id": "4",
+            "detectedLanguage": {
+                "name": "Chinese_Simplified",
+                "iso6391Name": "zh_chs",
+                "confidenceScore": 1.0
             },
-            {
-                "id": "5",
-                "detectedLanguages": [
-                    {
-                        "name": "Russian",
-                        "iso6391Name": "ru",
-                        "score": 1
-                    }
-                ]
-            }
-        ],
-        "errors": []
-    }
+            "warnings": []
+        },
+        {
+            "id": "5",
+            "detectedLanguage": {
+                "name": "Russian",
+                "iso6391Name": "ru",
+                "confidenceScore": 1.0
+            },
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2019-10-01"
+}
 ```
 
 ### <a name="ambiguous-content"></a>Tvetydig innehåll
@@ -179,7 +175,7 @@ Till exempel är "omöjlig" gemensamt för både engelska och franska och om det
 
 Tjänsten har nu ytterligare kontext för att göra en bättre bedömning: 
 
-**Resultat**
+**Utdata**
 
 ```json
     {
@@ -190,7 +186,7 @@ Tjänsten har nu ytterligare kontext för att göra en bättre bedömning:
                     {
                         "name": "English",
                         "iso6391Name": "en",
-                        "score": 1
+                        "confidenceScore": 1
                     }
                 ]
             },
@@ -200,7 +196,7 @@ Tjänsten har nu ytterligare kontext för att göra en bättre bedömning:
                     {
                         "name": "French",
                         "iso6391Name": "fr",
-                        "score": 1
+                        "confidenceScore": 1
                     }
                 ]
             }
@@ -218,7 +214,7 @@ Om analysen inte kan parsa inmataren returneras `(Unknown)` . Ett exempel är om
             {
                 "name": "(Unknown)",
                 "iso6391Name": "(Unknown)",
-                "score": "NaN"
+                "confidenceScore": "NaN"
             }
         ]
     }
@@ -241,7 +237,7 @@ Blandat språk innehåll i samma dokument returnerar det språk som har störst 
     }
 ```
 
-**Resultat**
+**Utdata**
 
 Resultatet består av det dominerande språket, med en poäng på mindre än 1,0, vilket tyder på en svagare nivå av förtroende.
 
@@ -254,7 +250,7 @@ Resultatet består av det dominerande språket, med en poäng på mindre än 1,0
             {
               "name": "Spanish",
               "iso6391Name": "es",
-              "score": 0.9375
+              "confidencescore": 0.94
             }
           ]
         }
@@ -267,17 +263,13 @@ Resultatet består av det dominerande språket, med en poäng på mindre än 1,0
 
 I den här artikeln har du lärt dig begrepp och arbets flöde för språk identifiering genom att använda Textanalys i Azure Cognitive Services. Följande punkter förklarades och demonstreras:
 
-+ [Språk identifiering](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) är tillgängligt för en mängd olika språk, varianter, dialekter och vissa regionala eller kulturella språk.
++ [Språk identifiering](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) är tillgängligt för en mängd olika språk, varianter, dialekter och vissa regionala eller kulturella språk.
 + JSON-dokument i begär ande texten innehåller ett ID och text.
 + POST-begäran är till en `/languages` slut punkt genom att använda en anpassad [åtkomst nyckel och en slut punkt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som är giltig för din prenumeration.
 + Svars utdata består av språk identifierare för varje dokument-ID. Utdata kan strömmas till alla appar som accepterar JSON. Exempel på appar är Excel och Power BI, så att du kan namnge några.
 
 ## <a name="see-also"></a>Se även
 
- [Översikt över Textanalys](../overview.md) [Vanliga frågor och svar](../text-analytics-resource-faq.md)</br>
- [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712)
-
-## <a name="next-steps"></a>Nästa steg
-
-> [!div class="nextstepaction"]
-> [Analysera känsla](text-analytics-how-to-sentiment-analysis.md)
+* [Översikt över Textanalys](../overview.md)
+* [Använda klient biblioteket för Textanalys](../quickstarts/text-analytics-sdk.md)
+* [Nyheter](../whats-new.md)

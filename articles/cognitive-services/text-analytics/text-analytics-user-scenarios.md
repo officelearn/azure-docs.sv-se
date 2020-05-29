@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 6847059de2a8685a56719f07a041a40456f2aa06
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb82422aa0e3d45743539da623fcb919e8e77bbc
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219251"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141829"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exempel på användar scenarier för API för textanalys
 
@@ -50,6 +50,13 @@ Använd Extrahering av diskussionsämne och enhets igenkänning för att bearbet
 Använd namngiven enhets igenkänning för att identifiera personlig och känslig information i dokument. Använd data för att klassificera dokument eller redigera dem så att de kan delas på ett säkert sätt.
 
 ![En bild som beskriver hur du använder NER för att identifiera personlig information och klassificera och bortredigering dokument](media/use-cases/sensitive-docs.jpg)
+
+## <a name="perform-opinion-mining"></a>Följ utåsikts utvinning
+
+Gruppera åsikter som rör specifika aspekter av en produkt eller tjänst i undersökningar, kundfeedback eller där text innehåller ett yttrande om en aspekt. Använd den för att hjälpa dig att hjälpa dig att hjälpa dig att få hjälp med produkt lansering och förbättringar, marknadsförings åtgärder eller att markera hur produkten eller tjänsten fungerar 
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="media/use-cases/aspect-based-sentiment.png" alt-text="Exempel på ett hotell.":::
 
 ## <a name="next-steps"></a>Nästa steg
 

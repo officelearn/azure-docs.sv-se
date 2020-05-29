@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: 1a0015c12f942eebb0a26738f5d7144bbe28ef1c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fe32d67dd5d15ccf2f889cf40b79d35c890d5313
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022298"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148301"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Köra SSIS-paket med Azure SQL-hanterad instans agent
 
@@ -108,8 +108,9 @@ Om du vill avbryta paket körningen från ett Azure SQL Database hanterat instan
 1. Hitta SQL Agent- **jobId** från **msdb. dbo. sysjobs**.
 1. Hitta motsvarande SSIS- **executionId frågeparameter** baserat på jobb-ID: t med hjälp av den här frågan:
    ```sql
-   select * from ssisdb.internal.execution_parameter_values_noncatalog where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
+   select * from '{table for job execution}' where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
    ```
+   Om dina SSIS-paket finns i SSISDB använder du **SSISDB. Internal. execution_parameter_values** som tabell för jobb körning. Om dina SSIS-paket finns i fil systemet använder du **SSISDB. Internal. execution_parameter_values_noncatalog**.
 1. Högerklicka på katalogen SSISDB och välj sedan **aktiva åtgärder**.
 
    !["Aktiva åtgärder" på snabb menyn för SSISDB-katalogen](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)

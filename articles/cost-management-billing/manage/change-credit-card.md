@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 0cf0911193cd379da60edb3064d3c6f195cf0190
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 99b6d86a65ec05a1299abfffae779113e573310c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199865"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834976"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Lägga till, uppdatera eller ta bort ett kreditkort för Azure
 
@@ -29,9 +29,9 @@ Om du har ett Microsoft-kundavtal är dina betalningsmetoder associerade med fak
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Hantera kreditkort för en Azure-prenumeration
 
-Följande avsnitt gäller för kunder som har ett Microsoft Online Services Program-faktureringskonto. Läs om hur du [kontrollerar vilken typ av faktureringskonto du har](#check-the-type-of-your-account). Om din faktureringskontotyp är Microsoft Online Services-program är betalningsmetoderna kopplade till enskilda Azure-prenumerationer.
+Följande avsnitt gäller för kunder som har ett Microsoft Online Services Program-faktureringskonto. Läs om hur du [kontrollerar vilken typ av faktureringskonto du har](#check-the-type-of-your-account). Om din faktureringskontotyp är Microsoft Online Services-program är betalningsmetoderna kopplade till enskilda Azure-prenumerationer. Om det uppstår ett fel när du har lagt till kreditkortet kan du läsa avsnittet om att [kreditkortet nekas vid Azure-registrering](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
 
-### <a name="change-credit-card-for-a-subscription"></a>Ändra kreditkort för en prenumeration
+### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Ändra kreditkort för en prenumeration genom att lägga till ett nytt kreditkort
 
 Du kan ändra standardkreditkortet för din Azure-prenumeration till ett nytt kreditkort eller ett tidigare sparat kreditkort i Azure-portalen. Du måste vara kontoadministratör för att ändra kreditkort. Om fler än en av dina prenumerationer har samma aktiva betalningsmetod gör en ändring av den aktiva betalningsmetoden för någon av dessa prenumerationer även att den aktiva betalningsmetoden uppdateras för de andra.
 
@@ -39,7 +39,7 @@ Du kan ändra standardkreditkortet för din Azure-prenumeration till ett nytt kr
 Så här ändrar du standardkreditkortet för din prenumeration till ett nytt kreditkort:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering och fakturering**.
+1. Sök efter **Kostnadshantering + fakturering**.
 
     ![Skärmbild som visar sökningen](./media/change-credit-card/search.png)
 
@@ -57,12 +57,12 @@ Så här ändrar du standardkreditkortet för din prenumeration till ett nytt kr
 
 1. Välj **Nästa**.
 
-Om det uppstår ett fel när du har lagt till kreditkortet kan du läsa avsnittet om att [kreditkortet nekas vid Azure-registrering](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
+### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>Ändra kreditkort för en prenumeration till ett tidigare sparat kreditkort
 
 Du kan också ändra standardkreditkortet för prenumerationen till ett kreditkort som redan har sparats på ditt konto. Gör så här:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering och fakturering**.
+1. Sök efter **Kostnadshantering + fakturering**.
 
     ![Skärmbild som visar sökningen](./media/change-credit-card/search.png)
 
@@ -80,7 +80,7 @@ Du kan också ändra standardkreditkortet för prenumerationen till ett kreditko
 Om ditt kreditkort förnyas och siffran förblir densamma uppdaterar du befintliga kreditkortsuppgifter, däribland förfallodatum. Om ditt kreditkortsnummer ändras eftersom kortet tappas bort, blir stulet eller upphör att gälla följer du stegen i avsnittet [Lägga till ett kreditkort som betalningsmetod](#addcard). Du behöver inte uppdatera CVV.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering och fakturering**.
+1. Sök efter **Kostnadshantering + fakturering**.
 
     ![Skärmbild som visar sökningen](./media/change-credit-card/search.png)
 
@@ -116,6 +116,7 @@ Om ditt kreditkort är den aktiva betalningsmetoden för någon av dina Microsof
 Följande avsnitt gäller för kunder som har ett Microsoft-kundavtal och som har registrerat sig för Azure Online med ett kreditkort. [Läs om hur du kontrollerar om du har ett Microsoft-kundavtal](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>Ändra standardkreditkort
+
 Om du har ett Microsoft-kundavtal är ditt kreditkort kopplat till en faktureringsprofil. För att kunna ändra betalningsmetoden för en faktureringsprofil måste du vara den person som registrerade sig för Azure och skapade faktureringskontot.
 
 Om du vill ändra standardbetalningsmetoden till check/banköverföring kan du läsa [Betala för Azure-prenumerationer med faktura](pay-by-invoice.md).
@@ -159,9 +160,11 @@ Så här redigerar eller tar du bort ett kreditkort:
 1. Om du vill ta bort kreditkortet väljer du **Ta bort** på snabbmenyn.
 
 ## <a name="troubleshooting"></a>Felsökning
+
 Du kan inte använda virtuella eller förbetalda kort. Om du får felmeddelanden när du lägger till eller uppdaterar ett giltigt kreditkort kan du prova att öppna webbläsaren i privat läge.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
 I följande avsnitt besvaras vanliga frågor om att ändra kreditkortsinformation.
 
 ### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>Min prenumeration är inaktiverad. Varför kan jag inte ta bort mitt kreditkort nu?
@@ -189,6 +192,7 @@ Om du [betalar med faktura](pay-by-invoice.md) skickar du betalningen till den p
 Om du vill lägga till eller uppdatera organisationsnummer uppdaterar du din profil i [Azure-kontocentret](https://account.azure.com/Profile) och väljer **Skattepost**. Det här skatte-ID:t används för att beräkna skattebefrielse och visas på fakturan.
 
 ## <a name="check-the-type-of-your-account"></a>Kontrollera vilken typ av konto du har
+
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
@@ -196,4 +200,5 @@ Om du vill lägga till eller uppdatera organisationsnummer uppdaterar du din pro
 Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
+
 - Lär dig mer om [Azure-reservationer](../reservations/save-compute-costs-reservations.md) för att se om de kan minska dina utgifter.

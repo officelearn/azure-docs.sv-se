@@ -82,6 +82,8 @@
           href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: Meddelanden om batchprocess
           href: logic-apps-batch-process-send-receive-messages.md
+        - name: Skicka meddelanden i turordning – sekventiell konvoj
+          href: send-related-messages-sequential-convoy.md
         - name: Skapa JSON-definitioner
           href: logic-apps-author-definitions.md
         - name: Hantera innehållstyper

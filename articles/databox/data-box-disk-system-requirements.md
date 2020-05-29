@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6ac1fb1a69433be240e4250ea37835037f0b2ffa
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214266"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873942"
 ---
 ::: zone target="docs"
 
@@ -56,7 +56,7 @@ För Windows-klienten bör även följande vara installerat.
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |5.0|
+| Windows Management Framework |5.1|
 | BitLocker| - |
 
 ## <a name="other-required-software-for-linux-clients"></a>Annan nödvändig programvara för Linux-klienter
@@ -79,10 +79,6 @@ Här är en lista över de lagringstyper som stöds för Data Box Disk.
 | Klassisk | Standard |
 | Generell användning  |Standard; både v1 och v2 stöds. Både frekventa och lågfrekventa nivåer stöds. |
 | Bloblagringskonto | |
-
->[!NOTE]
-> Konton för Azure Data Lake Storage Gen 2 stöds inte.
-
 
 ## <a name="supported-storage-types-for-upload"></a>Lagringstyper som stöds för uppladdning
 

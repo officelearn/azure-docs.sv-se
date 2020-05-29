@@ -972,6 +972,8 @@
           href: insights/container-insights-update-metrics.md
         - name: Konfiguration av hälsoövervakning
           href: insights/container-insights-health-monitors-config.md
+        - name: Hantera kostnad och användning
+          href: insights/container-insights-cost.md
         - name: Inaktivera övervakning
           items:
             - name: Inaktivera övervakning av AKS
@@ -991,7 +993,7 @@
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Key Vault
-          href: insights/key-vault-insights-overview.md
+          href: insights/key-vaults-insights-overview.md
         - name: Nätverk
           href: insights/network-insights-overview.md
         - name: Storage

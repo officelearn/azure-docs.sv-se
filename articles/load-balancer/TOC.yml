@@ -135,12 +135,14 @@
           href: move-across-regions-internal-load-balancer-portal.md
         - name: Intern lastbalanserare – PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
-    - name: Felsöka
-      items:
-        - name: Felsök Azure Load Balancer
-          href: load-balancer-troubleshoot.md
-        - name: Felsök vanliga distributionsfel
-          href: load-balancer-common-deployment-errors.md
+- name: Felsöka
+  items:
+    - name: Felsök Azure Load Balancer
+      href: load-balancer-troubleshoot.md
+    - name: Felsök vanliga distributionsfel
+      href: load-balancer-common-deployment-errors.md
+    - name: Lösa vanliga problem med utgående anslutningar
+      href: troubleshoot-outbound-connection.md
 - name: Referens
   items:
     - name: Kodexempel

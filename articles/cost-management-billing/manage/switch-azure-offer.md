@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 05/14/2020
 ms.author: banders
-ms.openlocfilehash: 4aa02dae521844f2654a50f77be9b2ee3c46a74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ee2de33fadb068ee2697f79c1ebcb1b2fa4e5fcc
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199525"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715893"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Byt erbjudande för din Azure-prenumeration
 
@@ -54,7 +54,7 @@ Du kan växla från en individuell prenumeration med användningsbaserade priser
 1. Beroende på vilket erbjudande du byter till kan en anmärkning visas som beskriver effekten av bytet. Gå igenom listan noga och följ anvisningarna innan du fortsätter.
 
    ![Läs anmärkningarna](./media/switch-azure-offer/thingstonote.png)
-1. Du kan byta namn på din prenumeration. Standardnamnet är namnet på det nya erbjudandet. Slutför processen genom att klicka på **Byt erbjudande**.
+1. Du kan byta namn på din prenumeration. Som standard anges det inte till namnet på det nya erbjudandet. Slutför processen genom att klicka på **Byt erbjudande**.
 
    ![Klicka på den gröna knappen](./media/switch-azure-offer/confirmpage.png)
 1. Lyckades! Nu är din prenumeration kopplad till det nya erbjudandet.
@@ -100,7 +100,7 @@ Den dag du byter erbjudande genereras en faktura för alla utestående debiterin
 
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>Kan jag migrera från en prenumeration med prismodellen Betala per användning till Leverantör av molnlösningar (CSP) eller Enterprise-avtal (EA)?
 
-* Information om hur du migrerar till CSP finns i [Migrera en Azure-prenumeration med prismodellen Betala per användning till CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Om du vill migrera till en molnlösningsleverantör läser du [Överför Azure-prenumerationer mellan prenumeranter och molnlösningsleverantörer](transfer-subscriptions-subscribers-csp.md).
 * Om du vill migrera till EA ber du din registreringsadministratör att lägga till ditt konto i EA. Följ anvisningarna i e-postinbjudan för att flytta dina prenumerationer i EA-registreringen. Mer information finns i [Associera ett befintligt konto](https://ea.azure.com/helpdocs/associateExistingAccount) på EA-portalen.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Kan jag migrera data och tjänster till en ny prenumeration?

@@ -772,6 +772,8 @@
               href: ./hadoop/hdinsight-use-hive.md
             - name: Använda Apache Hive-vyn
               href: ./hadoop/apache-hadoop-use-hive-ambari-view.md
+            - name: Anslut till Apache Beeline
+              href: ./hadoop/connect-install-beeline.md
             - name: Använda Apache Hive Beeline
               href: ./hadoop/apache-hadoop-use-hive-beeline.md
             - name: Använda Grafana

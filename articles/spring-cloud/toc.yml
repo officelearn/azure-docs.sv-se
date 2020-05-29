@@ -73,6 +73,8 @@
       href: spring-cloud-howto-persistent-storage.md
     - name: Integrera Azure Spring Cloud med Azure Load Balance Solutions
       href: spring-cloud-howto-integrate-azure-load-balancers.md
+    - name: Aktiverar systemtilldelad hanterad identitet för Azure Spring Cloud-program
+      href: spring-cloud-howto-enable-system-assigned-managed-identity.md
 - name: DevOps-distribution till Azure Spring Cloud
   items:
     - name: CI/CD med Azure DevOps

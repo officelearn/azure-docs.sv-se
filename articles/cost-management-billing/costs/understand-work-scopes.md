@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 2f61345cd55fc9541f9e1b707389d0b9d06685b0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877940"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873439"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
@@ -67,9 +67,12 @@ Cost Management stöder följande inbyggda roller för de olika omfången nedan:
 
 Cost Management-deltagare är den rekommenderade rollen för minsta privilegium. Den här rollen beviljar åtkomst till att skapa och hantera budgetar och exporter för att kunna övervaka och rapportera kostnader mer effektivt. Cost Management-deltagare kan också behöva ytterligare roller för att få stöd för scenarier från slutpunkt till slutpunkt för kostnadshantering. Fundera över följande scenarier:
 
+- **Rapportering om resursanvändning** – Azure Cost Management visar kostnader i Azure-portalen och inkluderar även användning vad gäller kostnader för fullständig användning och avgifter för API:er och nedladdningar. Du kanske även vill gå igenom detaljerade användningsmått i Azure Monitor för att få en djupare förståelse. Överväg att bevilja [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) åtkomst för alla omfång där du även behöver rapporter om detaljerade användningsmått.
 - **Agera när budgetar överskrids** – Cost Management-deltagare måste också ha åtkomst till att skapa och/eller hantera åtgärdsgrupper för att automatiskt kunna agera vid överförbrukning. Du kan bevilja [Övervakningsdeltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor) till en resursgrupp som innehåller den åtgärdsgrupp som ska användas när budgettrösklar överskrids. Att automatisera vissa åtgärder kräver ytterligare roller för de tjänster som används, till exempel Automation och Azure Functions.
 - **Schemalägga export av kostnadsdata** – Cost Management-deltagare behöver också åtkomst till att hantera lagringskonton för att kunna schemalägga en export som kopierar data till ett lagringskonto. Du kan bevilja [Lagringskontodeltagare](../../role-based-access-control/built-in-roles.md#storage-account-contributor) till en resursgrupp som innehåller lagringskontot dit kostnadsdata exporteras.
 - **Visa rekommendationer om kostnadsbesparingar** – Cost Management-läsare och Cost Management-deltagare har tillgång till att *visa* kostnadsrekommendationer som standard. Att kunna följa kostnadsrekommendationerna kräver dock åtkomst till enskilda resurser. Du kan bevilja en [tjänstspecifik roll](../../role-based-access-control/built-in-roles.md#all) om du vill kunna följa en kostnadsbaserad rekommendation.
+
+Hanteringsgrupper stöds endast om de innehåller Enterprise-avtal (EA), PAYG (betala per användning) eller interna Microsoft-prenumerationer. Hanteringsgrupper med andra prenumerationstyper, t. ex. Microsoft-kundavtal eller Azure Active Directory-prenumerationer, kan inte se kostnader. Om du har en blandning av prenumerationer flyttar du prenumerationerna som inte stöds till en separat del i hanteringsgruppens hierarki för att aktivera kosthantering för de prenumerationer som stöds. Skapa exempelvis två hanteringsgrupper under rothanteringsgruppen: **Azure AD** och **Min org**. Flytta din Azure AD-prenumeration till hanteringsgruppen **Azure AD** och visa och hantera sedan kostnader med hanteringsgruppen **Min org**.
 
 ## <a name="enterprise-agreement-scopes"></a>Omfång för Enterprise-avtal
 

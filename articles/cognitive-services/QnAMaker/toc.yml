@@ -44,7 +44,7 @@
           href: Concepts/knowledge-base.md
         - name: Innehållstyper som importerats
           href: Concepts/content-types.md
-        - name: Uppsättningar med frågor och svar
+        - name: Frågor och svar-par
           href: Concepts/question-answer-set.md
     - name: Livscykel för kunskapsbas
       items:
@@ -72,8 +72,6 @@
         - name: Hantera resurser
           href: How-To/set-up-qnamaker-service-azure.md
           displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: Skapa en affärskontinuitetsplan
-          href: How-To/business-continuity-plan.md
         - name: Samarbeta
           href: How-To/collaborate-knowledge-base.md
         - name: Aktivera aktiv inlärning

@@ -8,16 +8,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 1c4522bed191ef4142cc603bf0e1d22f086111ee
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 847e9b692ddbd7880c37d1068d61447dcccb9c80
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200596"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747154"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Open Banking (PSD2) och Strong Customer Authentication (SCA) för Azure-kunder
 
-Från den 14 september 2019 måste alla banker i de 31 länder som ingår i det [Europeiska ekonomiska samarbetsområdet](https://en.wikipedia.org/wiki/European_Economic_Area) verifiera identiteten av en person som utför ett köp via internet innan betalningen kan bearbetas. Den här verifieringen kräver multifaktorautentisering för att se till att dina köp via internet är säkra och skyddade. Datumet då det här verifieringskravet införs kommer att senareläggas i vissa länder. Mer information finns i [Microsofts vanliga frågor och svar om PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
+Från den 14 september 2019 måste alla banker i de 31 länder/regioner som ingår i det [Europeiska ekonomiska samarbetsområdet](https://en.wikipedia.org/wiki/European_Economic_Area) verifiera identiteten av en person som utför ett köp via internet innan betalningen kan bearbetas. Den här verifieringen kräver multifaktorautentisering för att se till att dina köp via internet är säkra och skyddade. Datumet då det här verifieringskravet införs kommer att senareläggas i vissa länder/regioner. Mer information finns i [Microsofts vanliga frågor och svar om PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
 
 ## <a name="what-psd2-means-for-azure-customers"></a>Vad PSD2 innebär för Azure-kunder
 

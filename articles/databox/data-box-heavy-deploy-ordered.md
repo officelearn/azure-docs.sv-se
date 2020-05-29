@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 4e9077d06341ce5ecf6b2238374ce1ac8e13dca3
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 91d78975106299c3b3a6df6d8dee05f337dd339a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415153"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742976"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Självstudier: Beställa Azure Data Box Heavy
 
@@ -37,8 +37,8 @@ Slutför följande konfigurationskrav för Data Box-tjänsten och enheten innan 
 
 Innan du börjar ska du kontrollera att:
 
-- Enheten går in genom dörrar av standardstorlek. Kontrollera att enheten går in genom alla dörrar på installationsplatsen. Enhetens mått är: bredd: 26” längd: 48” höjd: 28”.
-- Om den ska installeras på en annan våning än nedervåningen behöver du en hiss eller ramp. Enheten väger cirka 500 kg.
+- Enheten går in genom dörrar av standardstorlek. Kontrollera att enheten går in genom alla dörrar på installationsplatsen. Enhetens mått är: bredd: 65 cm längd: 120 cm höjd: 70 cm.
+- Om den ska installeras på en annan våning än nedervåningen behöver du en hiss eller ramp. Enheten väger cirka 250 kg.
 - Se till att du har tillgång till en plan yta i datacentret med närhet till en nätverksanslutning som kan hantera en enhet med det här fotavtrycket.
 
 ### <a name="for-service"></a>För tjänsten
@@ -75,7 +75,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
     |---------|---------|
     |Prenumeration     | Välj en prenumeration för EA, CSP eller Azure-sponsring för Data Box-tjänsten. <br> Prenumerationen är kopplad till ditt faktureringskonto.       |
     |Överföringstyp     | Välj **Importera till Azure**.        |
-    |Källand     | Välj landet/regionen där dina data finns.         |
+    |Källans land/region     | Välj landet/regionen där dina data finns.         |
     |Azure-målregion     | Välj den Azure-region dit du vill överföra data.        |
 
     [![Välj en tillgänglig Data Box-serie](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
@@ -91,7 +91,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
     |Namn     | Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.      |
     |Resursgrupp     | Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans.         |
     |Azure-målregion     | Välj en region för lagringskontot. <br> Mer information finns i [regional tillgänglighet](https://azure.microsoft.com/global-infrastructure/services/?products=databox).        |
-    |Lagringsmål     | Välj mellanlagringskonto eller hanterade diskar eller båda. <br> Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. <br>Data Box Heavy kan länkas med upp till 10 lagringskonton. <br> Du kan också skapa ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **bloblagring**. <br> Konton för Azure Data Lake Storage Gen 2 stöds inte. Mer information finns i [Lagringskonton som stöds med din enhet](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Lagringskonton med virtuella nätverk stöds. För att Data Box-tjänsten ska fungera med skyddade lagringskonton aktiverar du de betrodda tjänsterna i inställningarna för nätverksbrandväggen för lagringskontot. Mer information finns i [Lägga till Azure Data Box-tjänsten som en betrodd tjänst](../storage/common/storage-network-security.md#exceptions).|
+    |Lagringsmål     | Välj mellanlagringskonto eller hanterade diskar eller båda. <br> Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. <br>Data Box Heavy kan länkas med upp till 10 lagringskonton. <br> Du kan också skapa ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **bloblagring**. <br>Mer information finns i [Lagringskonton som stöds med din enhet](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Lagringskonton med virtuella nätverk stöds. För att Data Box-tjänsten ska fungera med skyddade lagringskonton aktiverar du de betrodda tjänsterna i inställningarna för nätverksbrandväggen för lagringskontot. Mer information finns i [Lägga till Azure Data Box-tjänsten som en betrodd tjänst](../storage/common/storage-network-security.md#exceptions).|
 
     Om du använder lagringskontot som lagringsmål visas följande skärmbild:
 

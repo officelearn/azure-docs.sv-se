@@ -156,6 +156,8 @@
       href: templates-cloud-consistency.md
     - name: Distributionsmodeller
       href: deployment-modes.md
+    - name: Borttagning av distributionshistorik
+      href: deployment-history-deletions.md
     - name: Borttagning i complete-läget
       href: complete-mode-deletion.md
     - name: Distributionshanteraren

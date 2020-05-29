@@ -1,0 +1,121 @@
+### YamlMime:Landing
+title: Övervakning och prestandajustering för Azure SQL Database och Azure SQL-hanterad instans
+summary: Azure SQL Database och Azure SQL-hanterad instans har verktyg som hjälper dig att samla in statistik och diagnostisk information så att du kan övervaka databasen och förbättra dess prestanda.
+metadata:
+  title: Dokumentation för övervakning och justering för Azure SQL Database och Azure SQL-hanterad instans
+  description: Lär dig om Azure SQL Databases verktyg för övervakning och prestanda som hjälper dig att samla in statistik och diagnostisk och förbättra databasens prestanda.
+  ms.service: sql-database
+  ms.subservice: performance
+  ms.custom: sqldbrb=2
+  ms.topic: landing-page
+  ms.collection: performance
+  author: CarlRabeler
+  ms.author: carlrab
+  ms.date: 03/10/2020
+  ms.openlocfilehash: d25dfaa9dc51fd781c2b8640f34cc5221f7990ec
+  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84117867"
+landingContent:
+- title: Kom igång med övervakning och prestandajustering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Övervakning och prestandajustering
+      url: monitor-tune-overview.md
+  - linkListType: learn
+    links:
+    - text: Spelbok för övervakning av Microsoft Azure Database
+      url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
+- title: Intelligenta prestandarekommendationer för Azure SQL Database
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Rekommendationer för SQL Database Advisor-justering
+      url: database-advisor-implement-performance-recommendations.md
+    - text: Automatisk inställning
+      url: automatic-tuning-enable.md
+    - text: Query Performance Insight
+      url: query-performance-insight-use.md
+  - linkListType: video
+    links:
+    - text: Automatisk inställning
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
+- title: Resursbegränsningar för Azure SQL Database och Azure SQL-hanterad instans
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Resursbegränsningar för virtuell kärna för enkel databas
+      url: resource-limits-vcore-single-databases.md
+    - text: Resursbegränsningar för DTU för enkel databas
+      url: resource-limits-dtu-single-databases.md
+    - text: Resursbegränsningar för virtuell kärna för elastisk pool
+      url: resource-limits-vcore-elastic-pools.md
+    - text: Resursbegränsningar för DTU för elastisk pool
+      url: resource-limits-dtu-elastic-pools.md
+    - text: Resursbegränsningar för SQL-hanterad instans
+      url: ../managed-instance/resource-limits.md
+    - text: Resursbegränsningar för instanspooler
+      url: ../managed-instance/instance-pools-overview.md#resource-limitations
+- title: Intelligent prestandaanalys för Azure SQL Database och Azure SQL-hanterad instans
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Intelligent Insights med AI
+      url: intelligent-insights-overview.md
+  - linkListType: concept
+    links:
+    - text: Mått- och diagnostikloggning
+      url: metrics-diagnostic-telemetry-logging-streaming-export-configure.md
+    - text: Förstå prestandadiagnostikloggen
+      url: intelligent-insights-use-diagnostics-log.md
+    - text: Azure SQL-analys
+      url: ../../azure-monitor/insights/azure-sql.md
+    - text: Identifierbara prestandamönster
+      url: intelligent-insights-troubleshoot-performance.md
+    - text: Intelligent frågebearbetning
+      url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
+  - linkListType: video
+    links:
+    - text: Intelligent Insights
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player
+- title: Manuell prestandajustering för Azure SQL Database och Azure SQL-hanterad instans
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Identifiera problem med frågeprestanda
+      url: ../identify-query-performance-issues.md
+  - linkListType: concept
+    links:
+    - text: Övervaka DMV-användning
+      url: monitoring-with-dmvs.md
+    - text: Program- och databasjustering
+      url: performance-guidance.md
+    - text: Använda Query Store
+      url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
+    - text: Använda utökade händelser
+      url: xevent-db-diff-from-svr.md
+    - text: Prestandadiagnostik för hyperskala
+      url: hyperscale-performance-diagnostics.md
+- title: Resursskalning för Azure SQL Database och Azure SQL-hanterad instans
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Skala resurser dynamiskt
+      url: scale-resources.md
+  - linkListType: concept
+    links:
+    - text: Skala resurser för en enkel databas
+      url: single-database-scale.md
+    - text: Skala resurser i elastiska pooler
+      url: elastic-pool-scale.md
+    - text: Skala resurser för en hanterad instans
+      url: ../managed-instance/sql-managed-instance-paas-overview.md#management-operations
+    - text: Lässkalning
+      url: read-scale-out.md
+  - linkListType: video
+    links:
+    - text: Dynamisk skalbarhet
+      url: https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player

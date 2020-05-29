@@ -13,7 +13,7 @@
       href: create-notification-hub-portal.md
     - name: Skapa meddelandehubb – Azure CLI
       href: create-notification-hub-azure-cli.md
-    - name: Skapa meddelandehubb – Azure Resource Manager-mall
+    - name: Skapa meddelandehubb – ARM-mall
       href: create-notification-hub-template.md
     - name: Konfigurera en meddelandehubb
       href: configure-notification-hub-portal-pns-settings.md

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 2ccb2b7fca8a5615d56c25b9ea09a26caf295a2b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133169"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745532"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Felsöka problem när du registrerar ett nytt konto i Microsoft Azure-portalen eller Azure-kontocenter
 
@@ -72,7 +72,7 @@ Din faktureringsadress måste finnas i det land eller den region som du väljer 
 Här följer några ytterligare tips:
 
 - Det går inte att använda ett VoiP-telefonnummer för telefonverifieringsprocessen.
-- Dubbelkontrollera det telefonnummer som du anger, inklusive den landskod som du väljer i den nedrullningsbara menyn.
+- Dubbelkontrollera det telefonnummer som du anger, inklusive den lands-/regionkod som du väljer i den nedrullningsbara menyn.
 - Om din telefon inte får textmeddelanden (SMS) kan du prova alternativet **Ring mig**.
 - Kontrollera att din telefon kan ta emot samtal eller SMS från ett USA-baserat telefonnummer.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8f259ba9c7da3d7c37ed3eb63c63d17b74f7fbdd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238167"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745839"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Överföra faktureringsägarskap för en Azure-prenumeration till ett annat konto
 
@@ -144,8 +144,8 @@ Om du inte vet som är kontoadministratör för en prenumeration, tar du reda p�
 
 Alla dina resurser såsom virtuella datorer, diskar och webbplatser överförs till det nya kontot. Men om du överför en prenumeration till ett konto i en annan Azure AD-klientorganisation kommer eventuella [administratörsroller](add-change-subscription-administrator.md) och tilldelningar för [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) i prenumerationen [inte att överföras](#transfer-a-subscription-to-another-azure-ad-tenant-account). [Appregistreringar](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) och andra klientorganisationsspecifika tjänster överförs inte heller med prenumerationen.
 
-### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Kan jag överföra ägarskapet till ett konto i ett annat land?
-Det går tyvärr inte att utföra överföringar mellan olika länder i Azure-portalen. Om du vill överföra din prenumeration mellan olika länder bör du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+### <a name="can-i-transfer-ownership-to-an-account-in-another-countryregion"></a>Kan jag överföra ägarskapet till ett konto i ett annat land/en annan region?
+Det går tyvärr inte att utföra överföringar mellan olika länder/regioner i Azure-portalen. Om du vill överföra din prenumeration mellan olika länder/regioner bör du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="i-am-an-administrator-on-two-accounts-can-i-transfer-a-subscription-from-one-of-my-accounts-to-another"></a>Jag är administratör i två konton. Kan jag överföra en prenumeration från ett av mina konton till ett annat?
 Ja, du kan överföra prenumerationen mellan dina konton. Konceptuellt betraktas dina konton som konton för två olika användare. Därmed kan du använda ovanstående steg för att överföra prenumerationer mellan dina konton.

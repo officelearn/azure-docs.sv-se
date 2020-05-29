@@ -14,9 +14,9 @@ ms.locfileid: "67048552"
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-Du kan använda något av följande verktyg eller SDK: er för att använda kopierings aktiviteten med en pipeline. Välj en länk för steg-för-steg-instruktioner:
+Du kan använda något av följande verktyg eller SDK:er för att använda kopieringsaktiviteten med en pipeline. Välj en länk för stegvisa instruktioner:
 
-- [Verktyget kopiera data](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
+- [Verktyg för att kopiera data](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
 - [Azure Portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
 - [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)

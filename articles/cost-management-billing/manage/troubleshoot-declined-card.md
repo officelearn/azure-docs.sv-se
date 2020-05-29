@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0eeddc26ac1a1f286d8ed253f3fe097f0e7de91f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7cf42950bc25ad501fd11b1b28c74b5f63066c32
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409390"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745530"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Felsöka ett nekat kort vid Azure-registreringen
 
@@ -20,9 +20,9 @@ Du kan stöta på ett problem eller fel där kreditkortet nekas vid Azure-regist
 
 För att lösa problemet väljer du det ämne som närmast liknar ditt fel.
 
-## <a name="the-credit-card-provider-is-not-accepted-for-your-country"></a>Utgivaren av kreditkortet är inte godkänd för ditt land
+## <a name="the-credit-card-provider-is-not-accepted-for-your-countryregion"></a>Utgivaren av kreditkortet är inte godkänd för ditt land/din region
 
-När du väljer ett kort visar Azure de kortalternativ som är giltiga i landet du väljer. Kontakta din bank eller kortutfärdare och kontrollera att kreditkortet är aktiverat för internationella transaktioner. Mer information om vilka länder och valutor som stöds finns i [Vanliga frågor och svar om köp i Azure](https://azure.microsoft.com/pricing/faq/).
+När du väljer ett kort visar Azure de kortalternativ som är giltiga i landet/regionen du väljer. Kontakta din bank eller kortutfärdare och kontrollera att kreditkortet är aktiverat för internationella transaktioner. Mer information om vilka länder/regioner och valutor som stöds finns i [Vanliga frågor och svar om köp i Azure](https://azure.microsoft.com/pricing/faq/).
 
 >[!Note]
 >Kreditkort från American Express kan för närvarande inte användas som betalningsmedel i Indien. Vi vet inte när det här kommer att ändras.

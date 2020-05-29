@@ -1,0 +1,131 @@
+### YamlMime:Landing
+title: Dokumentation om SQL Server på Azure
+summary: Hitta koncept, snabbstarter, självstudier och exempel för SQL Server som är installerad på virtuella Azure-datorer, både Windows och Linux.
+metadata:
+  title: Dokumentation om SQL Server på Azure
+  description: Hitta dokumentation om SQL Server som är installerad på virtuella Azure-datorer, både Windows och Linux.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: single-database
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: carlrab
+  ms.date: 05/27/2020
+  ms.openlocfilehash: a02a76e3d0080e731643ff82162aafdf3b783423
+  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84023780"
+landingContent:
+- title: SQL Server på virtuella Azure-datorer
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa virtuell Windows SQL-dator (portal)
+      url: windows/sql-vm-create-portal-quickstart.md
+    - text: Skapa virtuell Windows SQL-dator (PowerShell)
+      url: windows/sql-vm-create-powershell-quickstart.md
+    - text: Skapa virtuell Linux SQL-dator (portal)
+      url: linux/sql-vm-create-portal-quickstart.md
+  - linkListType: overview
+    links:
+    - text: Nyheter
+      url: windows/doc-changes-updates-release-notes.md?
+    - text: Vad är SQL Server på virtuella Windows-datorer?
+      url: windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+    - text: Vad är SQL Server på virtuella Linux-datorer?
+      url: linux/sql-server-on-linux-vm-what-is-iaas-overview.md
+    - text: Migrera från SQL Server
+      url: windows/migrate-to-vm-from-sql-server.md
+    - text: Säkerhetsöverväganden
+      url: windows/security-considerations-best-practices.md
+    - text: Riktlinjer för prestanda
+      url: windows/performance-guidelines-best-practices.md
+    - text: Prisvägledning
+      url: windows/pricing-guidance.md
+- title: Hantera
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: SQL Server IaaS Agent-tillägg
+      url: windows/sql-server-iaas-agent-extension-automate-management.md
+    - text: Hantera med Azure-portalen
+      url: windows/manage-sql-vm-portal.md
+    - text: Registrera dig hos SQL VM-resursprovider
+      url: windows/sql-vm-resource-provider-register.md
+    - text: Automatisk uppdatering
+      url: windows/automated-patching.md
+    - text: Ändra licenstyp
+      url: windows/licensing-model-azure-hybrid-benefit-ahb-change.md
+    - text: Ändra SQL Server-version
+      url: windows/change-sql-server-edition.md
+    - text: Flytta till ny region
+      url: windows/move-sql-vm-different-region.md
+    - text: Integrera med Azure Key Vault
+      url: windows/azure-key-vault-integration-configure.md
+- title: Verksamhetskontinuitet
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Hög tillgänglighet och haveriberedskap
+      url: windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+    - text: Säkerhetskopiering och återställning
+      url: windows/backup-restore.md
+    - text: Tillgänglighetsgrupper
+      url: windows/availability-group-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Tillgänglighetsgrupp (Az CLI)
+      url: windows/availability-group-az-cli-configure.md
+    - text: Klusterfri tillgänglighetsgrupp
+      url: windows/availability-group-clusterless-workgroup-configure.md
+    - text: FCI (lagringsdirigering)
+      url: windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+    - text: FCI (premiumfilresurs)
+      url: windows/failover-cluster-instance-premium-file-share-manually-configure.md
+  - linkListType: tutorial
+    links:
+    - text: Tillgänglighetsgrupp (manuell)
+      url: windows/availability-group-manually-configure-prerequisites-tutorial.md
+    - text: Stonith-tillgänglighetsgrupp (RHEL)
+      url: linux/rhel-high-availability-stonith-tutorial.md
+    - text: Lyssnare för tillgänglighetsgrupp (RHEL)
+      url: linux/rhel-high-availability-listener-tutorial.md
+- title: Referens
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Utbildningsresurser för SQL
+      url: /sql/sql-server/educational-sql-resources
+  - linkListType: deploy
+    links:
+    - text: Azure CLI-exempel
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: PowerShell-exempel
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Exempel på ARM-mallar
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+  - linkListType: download
+    links:
+    - text: SQL Server Management Studio (SSMS)
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Azure Data Studio
+      url: /sql/azure-data-studio/download-azure-data-studio
+    - text: SQL Server Data Tools
+      url: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - text: Visual Studio 2019
+      url: https://visualstudio.microsoft.com/downloads/
+  - linkListType: reference
+    links:
+    - text: Migreringsguide
+      url: https://datamigration.microsoft.com/
+    - text: Transact-SQL (T-SQL)
+      url: /sql/t-sql/language-reference
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/sql
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.sql
+    - text: REST-API
+      url: https://docs.microsoft.com/rest/api/sql/

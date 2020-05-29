@@ -3,16 +3,16 @@ title: Felsöka åtkomst till Azure EA-portalen
 description: Den här artikeln beskriver några vanliga problem som kan uppstå med ett Azure Enterprise-avtal (EA) i Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: fdcce868cb53c0fdd6a51f2b351491e1ee998d61
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 97ba4e77c96859115c974b630a455f4bea62051a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691191"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654742"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Felsöka åtkomst till Azure EA-portalen
 
@@ -64,15 +64,15 @@ Eller om du får felet _Ogiltig användare_ så kan det bero på att fel kontoty
   - Om du behöver kontrollera det primära aliaset går du till [https://account.live.com](https://account.live.com). Klicka sedan på **Din information** och sedan på **Hantera hur du loggar in på Microsoft**. Följ anvisningarna för att verifiera en alternativ e-postadress och hämta en kod för att få åtkomst till känslig information. Ange säkerhetskoden. Välj **Konfigurera senare** om du inte vill konfigurera tvåfaktorautentisering.
   - Du ser sidan **Hantera hur du loggar in på Microsoft** där du kan visa dina kontoalias. Kontrollera att det primära aliaset är det som du använder för att logga in på Azure-EA-portalen. Om det inte är det kan du göra aliaset till ditt primära alias. Eller så kan du använda det primära aliaset för Azure EA-portalen i stället.
 
-## <a name="no-activation-email-received"></a>Inget e-postmeddelande för aktivering har tagits emot
+## <a name="azure-ea-activation-faq"></a>Vanliga frågor och svar om Azure EA-aktivering
+
+Det här avsnittet i artikeln beskriver lösningar på vanliga problem runt Azure EA-aktivering.
+
+### <a name="i-didnt-receive-an-activation-email"></a>Jag fick inte ett e-postmeddelande för aktivering
 
 En e-postmeddelande för aktivering från Azure EA-portalen skickas från *waep@microsoft.com* . Om du inte har fått något aktiveringsmeddelande kan du se om det finns i mappen för spam eller skräp. Det skickas med _service_subject för inbjudan att visa/hantera Microsoft Azure_. Det skickas till varje nyligen tillagd EA-administratör.
 
 Om du är säker på att du har konfigurerats som EA-administratör behöver du inte vänta på att ta emot aktiveringsmeddelandet innan du loggar in på Azure EA-portalen. I stället kan du gå till https://ea.azure.com och logga in med din e-postadress (arbets-, skol- eller Microsoft-konto) och ditt lösenord.
-
-## <a name="azure-ea-activation-faq"></a>Vanliga frågor och svar om Azure EA-aktivering
-
-Det här avsnittet i artikeln beskriver lösningar på vanliga problem runt Azure EA-aktivering.
 
 ### <a name="i-would-like-to-add-a-new-ea-administrator-to-my-enrollment"></a>Jag vill lägga till en ny EA-administratör i min registrering
 

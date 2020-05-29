@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: iot-hub
 author: kgremban
 ms.service: iot-hub
@@ -16,4 +16,4 @@ ms.lasthandoff: 04/28/2020
 ms.locfileid: "70050301"
 ---
 >[!NOTE]
->Några av de funktioner som nämns i den här artikeln, t. ex. meddelanden från moln till enhet, enhets-och enhets hantering, är bara tillgängliga på standard-nivån för IoT Hub. Mer information om nivåerna Basic och Standard finns i artikeln om att [välja rätt nivå för IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
+>Några av de funktioner som nämns i den här artikeln, t.ex. moln till enhet-meddelanden, enhetstvillingar och enhetshantering, är bara tillgängliga på IoT Hubs standardnivå. Mer information om nivåerna Basic och Standard finns i artikeln om att [välja rätt nivå för IoT Hub](../articles/iot-hub/iot-hub-scaling.md).

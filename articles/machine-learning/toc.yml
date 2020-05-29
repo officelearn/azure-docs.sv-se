@@ -311,11 +311,14 @@
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
         - name: Definiera ML-aktiviteter
-          displayName: 'machine learning, task type'
+          displayName: 'machine learning, task type, automl'
           href: how-to-define-task-type.md
         - name: Träna prognosmodeller automatiskt
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Funktionalisering i automatiserad ML (python)
+          displayName: 'automl, feature engineering, feature importance'
+          href: how-to-configure-auto-features.md
         - name: Använda automatiserad ML i ML-pipelines (Python)
           displayName: machine learning automl
           href: how-to-use-automlstep-in-pipelines.md
@@ -449,8 +452,6 @@
     - name: Referens för designermodul
       displayName: 'module, reference, algorithm, studio'
       href: algorithm-module-reference/module-reference.md
-    - name: ML i skala
-      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
     - name: Övervaka datareferens
       href: monitor-resource-reference.md
     - name: YAML-referens för maskininlärningspipeline

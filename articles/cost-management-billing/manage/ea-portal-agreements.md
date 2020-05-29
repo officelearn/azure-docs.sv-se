@@ -3,34 +3,26 @@ title: Azure EA-avtal och ändringar
 description: I den här artikeln förklaras hur Azure EA-avtal och ändringar påverkar din användning av Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 570a7b3bef702d0e42e23bc4b7af41cc431b9cc8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690998"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648176"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA-avtal och ändringar
 
 I den här artikeln beskrivs hur Azure EA-avtal och ändringar kan påverka åtkomst, användning och betalningar för Azure-tjänster.
 
-## <a name="amendment-status"></a>Ändringsstatus
-
-Eventuella ändringar för Azure-kunder måste göras via partnern eller Microsoft-kontoteamet och behandlas via det regionala driftcentret. Om du tror att en ändring inte har behandlats kan du kontakta din partner, programvaruguide eller Microsoft-kontoteamet.
-
 ## <a name="enrollment-provisioning-status"></a>Status för registreringens etablering
 
 Startdatumet för ett nytt ekonomiskt åtagande definieras som det datum då det regionala åtgärdscentret bearbetade det. Eftersom beställningar med ekonomiskt åtagande via Azure EA-portalen och bearbetas i UTC-tidszonen kan det uppstå en fördröjning om din inköpsorder med ekonomiskt åtagande har bearbetats i en annan region. Du ser startdatumet för det ekonomiska åtagandet som startdatumet för täckningen i inköpsordern på https://www.explore.ms. Startdatumet för täckningen är när det ekonomiska åtagandet visas i Azure EA-portalen.
 
-## <a name="support-offer-not-provisioned"></a>Supporterbjudandet har inte etablerats
-
-Du kan beställa standardsupport eller Pro-Direct-support genom att köpa supportspecifika SKU:er. Beställningen liknar EA Azure-inköpsordrar för monetära SKU:er. Exempelvis 6QK-00001. SKU-numren för support är W6T-00002 (Pro-Direct) och W6T-00003 (Standard). Kontrollera aktuella supporterbjudanden innan du köper support-SKU:er.
-
-Registreringen måste ha minst ett aktivt konto för att supporterbjudandet ska etableras.
+## <a name="support-for-enterprise-customers"></a>Support för Enterprise-kunder
 
  Azures [EA-supportavtalserbjudande](https://azure.microsoft.com/offers/enterprise-agreement-support/) är tillgängligt för vissa kunder.
 
@@ -158,24 +150,6 @@ Du kan begära en kvotökning när som helst genom att skicka en [onlinebegäran
 - Prenumerations-ID på Azure Developer-portalen associerat med din tjänst.
   - Om du vill ha information om hur du får ditt prenumerations-ID kan du [kontakta supporten](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-## <a name="azure-compute-pre-purchase-plan-cpp"></a>Azure Compute Pre-Purchase-prenumeration (CPP)
-
-Azure Compute Pre-Purchase-prenumerationen (CPP – tidigare kallad Azure Compute Promo) är ett erbjudande som ger kunder med förutsägbara arbetsbelastningar med stabilt tillstånd en möjlighet att få databehandling till en betydande rabatt genom att förskottsköpa Azure Compute för 12 månader. Det är tillgängligt för EA och synligt i EA-portalen.
-
-Om du har beställt en CPP-SKU är det för en specifik typ av dator i ett visst specifikt datacenter. Som funktionen ser ut idag tillhandahåller vi ingen lista över alla CPP-köp som en kund har gjort, så det finns ingen lista över väntande krediter. Men när du konfigurerar de köpta datortyperna i datacentret där de köptes ser du den månatliga fördelningen i användningssammanfattningsrapporten på EA-portalen.
-
-Det förskottsköpta beloppet visas som en kredit i kolumnen ”Included Units” (Inkluderade enheter) och användning mot det resulterar i inga debiteringar tills de inkluderade enheterna förbrukas. När de har förbrukats sker ytterligare användning till de förhandlade priserna i prisdokumentet med normala EA-kundpriser.
-
-Hur krediterna köps baseras på antalet datorer i en klass per månad. Exempel: Om du har köpt 70 virtuella A2-datorer i USA, östra 2 skulle du inte riktigt se det i EA-portalen på samma sätt som du köpte det.
-
-Månatliga datorer beräknas som 744 timmar per månad. Konvertering av det till timmar skulle bli 70 gånger 744 eller 52 080 köpta timmar virtuella A2-datorer per månad. Eftersom virtuella A2-datorer i EA-portalens användningssammanfattning rapporteras i 100-timmarssteg skulle du se en kredit på 520,8 (52 080/100) ”inkluderade enheter” per månad och du skulle se de förbrukade enheterna hittills under månaden. Användningskostnaderna bör visas som noll tills de månatliga förbrukade enheterna överstiger de månatliga inkluderade enheterna.
-
-Olika datortyper använder olika måttenheter så till exempel virtuella D3- och D4-datorer använder en 10-timmars måttenhet i vår användningssammanfattningsrapport så ett köp av 70 av dessa skulle visa 5 208 inkluderade enheter per månad (52 080/10).
-
-I allmänhet ger dig formeln nedan antalet virtuella datorer som köpts baserat på deras måttenhet:
-
-<center><b> (”inkluderad mängd” * ”måttenheter”) / 744 </b></center>
-
 ## <a name="plan-skus"></a>Plan-SKU:er
 
 Plan-SKU:er ger möjlighet att köpa en svit med integrerade tjänster tillsammans till ett rabatterat pris. Plan-SKU:erna är utformade att komplettera varandra genom ytterligare integrerade erbjudanden och programsvit för större kostnadsbesparingar.
@@ -191,35 +165,6 @@ Företagsadministratörer kan tilldela kontoinnehavare för att etablera tidigar
 1. Klicka på fliken **Price Sheet** (Prisdokument).
 1. Klicka på nedladdningsikonen i det övre högra hörnet.
 1. Hitta motsvarande plan-SKU-artikelnummer med filter på kolumnen ”Included Quantity” (Inkluderad mängd) och välj värden större än ”0”.
-
-### <a name="provision-the-plan-skus"></a>Etablera plan-SKU:er
-
-Företagsadministratörer kan lägga till nya kontoinnehavare, associera en befintlig kontoinnehavare eller begära befintliga kontoinnehavare att logga in på Azure EA-portalen för att etablera tidigare köpta plan-SKU:er i Azure EA-portalen genom att följa stegen nedan.  
-
-**Lägga till en ny kontoinnehavare (slutfört av EA-administratör):**
-
-1. I Azure EA-portalen väljer du **Manage** (Hantera) i det vänstra navigeringsfältet.
-1. Klicka på fliken **Account** (Konto).
-1. Klicka på **+Add Account** (+Lägg till konto) på sidan Account (Konto).
-1. Välj en avdelning eller lämna som ej tilldelad.
-1. Välj avsedd autentiseringstyp.
-1. Ange ett användarvänligt namn du vill använda för att identifiera det här kontot i rapportering.
-1. Ange kontoinnehavarens e-postadress som du vill ska associeras med det nya kontot.
-1. Bekräfta den e-postadress du vill associera med det nya kontot.
-1. Klicka på **Lägg till**.
-1. Du kan lägga till ett annat konto genom att klicka på **Add Another Account** (Lägg till ett annat konto) eller så kan du klicka på knappen **Add** (Lägg till) i det nedre högra hörnet i det vänstra verktygsfältet.
-1. Nu kan kontoinnehavaren logga in för att lägga till de relevanta prenumerationerna för att etablera plan-SKU:erna
-
-**Associera en befintlig kontoinnehavare:**
-
-1. Klicka på **Manage** (Hantera) i EA-portalen.
-1. Klicka på fliken **Account** (Konto).
-1. Klicka på **+Add an account** (+Lägg till konto). Ange det Microsoft-konto eller arbets- eller skolkonto som är associerat med det befintliga kontot.
-1. Bekräfta det Microsoft-konto eller arbets- eller skolkonto som är associerat med det befintliga kontot.
-1. Ange ett namn du vill använda för att identifiera det här kontot i rapportering.
-1. Klicka på **Lägg till**.
-1. Du kan lägga till ytterligare ett konto genom att välja alternativet **+Add an Account** (+Lägg till konto) igen eller gå tillbaka till startsidan genom att klicka på knappen **Administrator** (Administratör).  
-1. Om du klickar för att visa sidan Account (Konto) visas den nyligen tillagda sidan med statusen Pending (Väntar). Statusen ändras till ”Active” (Aktiv) när kontoinnehavaren har loggat in på EA-portalen för första gången.
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Befintliga/nya kontoinnehavare för att skapa nya prenumerationer
 

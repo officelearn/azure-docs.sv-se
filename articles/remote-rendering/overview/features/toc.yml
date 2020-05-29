@@ -6,7 +6,7 @@
   href: override-hierarchical-state.md
 - name: Omprojektion av sena steg
   href: late-stage-reprojection.md
-- name: Lampor
+- name: Scenbelysning
   href: lights.md
 - name: PBR-material
   href: pbr-materials.md

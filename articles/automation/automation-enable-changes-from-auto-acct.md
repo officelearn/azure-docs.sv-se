@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 31390d260f51bdc1e9858d21153aa96ea7c54405
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 13f17ed9d165e368d2e9d9cde694408b600006cc
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116643"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171131"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Aktivera Ändringsspårning och inventering från ett Automation-konto
 
@@ -36,10 +36,6 @@ Logga in på Azure på https://portal.azure.com .
 2. Välj Log Analytics arbets yta och Automation-konto och klicka på **Aktivera** för att aktivera ändringsspårning och inventering. Det tar upp till 15 minuter att slutföra installationen.
 
     ![Aktivera Ändringsspårning och inventering](media/automation-enable-changes-from-auto-acct/onboardsolutions.png)
-
-## <a name="limit-the-scope-for-the-deployment"></a><a name="scope-configuration"></a>Begränsa omfånget för distributionen
-
-Ändringsspårning och inventering använder en omfattnings konfiguration i arbets ytan för att rikta in de datorer som ska ta emot ändringar. Mer information finns i [begränsa ändringsspårning och distributions omfång för lager](automation-scope-configurations-change-tracking.md).
 
 ## <a name="enable-azure-vms"></a>Aktivera virtuella Azure-datorer
 
@@ -73,15 +69,11 @@ Manuellt installerade datorer eller datorer som redan rapporterar till din arbet
 
 4. Om du vill aktivera funktionen för alla tillgängliga datorer och framtida datorer väljer du **Aktivera på alla tillgängliga och framtida datorer**. Det här alternativet tar bort sparade sökningar och omfattnings konfiguration från arbets ytan och öppnar funktionen för alla Azure-och icke-Azure-datorer som rapporterar till arbets ytan. När det här alternativet är markerat inaktive ras knappen **hantera datorer** permanent, eftersom det inte finns någon omfattnings konfiguration kvar.
 
-5. Om det behövs kan du lägga till omfångs konfigurationerna genom att lägga till de första sparade sökningarna igen. Mer information finns i [arbeta med scope-konfigurationer för ändringsspårning och inventering](automation-scope-configurations-change-tracking.md).
+5. Om det behövs kan du lägga till omfångs konfigurationerna genom att lägga till de första sparade sökningarna igen. Mer information finns i [begränsa ändringsspårning och distributions omfång för lager](automation-scope-configurations-change-tracking.md).
 
 6. Om du vill aktivera funktionen för en eller flera datorer väljer du **Aktivera på valda datorer** och klickar på **Lägg till** bredvid varje dator för att aktivera funktionen. Den här uppgiften lägger till de valda dator namnen i den dator grupp sparade Sök frågan för funktionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om funktionen finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
-* Information om scope-konfigurationer finns i [begränsa ändringsspårning och distributions omfång för lager](automation-scope-configurations-change-tracking.md).
-* Information om hur du använder funktionen för att identifiera program vara som är installerad i din miljö finns i [identifiera vilken program vara som är installerad på dina virtuella datorer](automation-tutorial-installed-software.md).
-* Om du inte vill integrera ditt Automation-konto med en Log Analytics arbets yta när du aktiverar funktionen, se [ta bort länken till arbets ytan från Automation-kontot](automation-unlink-workspace-change-tracking.md).
-* När du har distribuerat ändringar av virtuella datorer kan du ta bort dem enligt beskrivningen i [ta bort virtuella datorer från ändringsspårning och inventering](automation-remove-vms-from-change-tracking.md).
+* Information om hur du arbetar med funktionen finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
 * Information om hur du felsöker allmänna problem med funktionen finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

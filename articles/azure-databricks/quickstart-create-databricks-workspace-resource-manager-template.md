@@ -1,6 +1,6 @@
 ---
-title: Snabb start – skapa en Azure Databricks arbets yta med Azure Resource Manager
-description: Den här snabb starten visar hur du använder Azure Resource Manager mall för att skapa en Azure Databricks arbets yta, sedan skapar ett Apache Spark kluster och kör ett Spark-jobb.
+title: Snabb start – skapa en Azure Databricks arbets yta med Azure Resource Manager mall
+description: Den här snabb starten visar hur du använder Azure Resource Manager-mallen för att skapa en Azure Databricks arbets yta.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -8,36 +8,42 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 03/23/2020
-ms.openlocfilehash: d3c3c55a4ce3ee25db01128dcf50bb8763c5829b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, subject-armqs
+ms.date: 05/27/2020
+ms.openlocfilehash: 8435704963e832020ecff27a11d00793ad28890c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604649"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171046"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snabbstart: Kör ett Spark-jobb på Azure Databricks med Azure Resource Manager-mallen
+# <a name="quickstart-create-an-azure-databricks-workspace-by-using-the-azure-resource-manager-template"></a>Snabb start: skapa en Azure Databricks-arbetsyta med hjälp av Azure Resource Manager-mallen
 
-I den här snabb starten använder du en Azure Resource Manager-mall för att skapa en Azure Databricks arbets yta med ett Apache Spark-kluster. Du kör ett jobb i klustret och använder anpassade diagram för att skapa rapporter i real tid från en kostnads fri/betald användning baserat på demografiska.
+I den här snabb starten använder du en Azure Resource Manager-mall för att skapa en Azure Databricks arbets yta. När arbets ytan har skapats verifierar du distributionen.
 
-## <a name="prerequisites"></a>Krav
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+För att slutföra den här artikeln måste du:
 
-Logga in på [Azure-portalen](https://portal.azure.com).
-
-> [!Note]
-> Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
-> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
+* Ha en Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
+### <a name="review-the-template"></a>Granska mallen
+
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace).
+
+:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53":::
+
+Den Azure-resurs som definierats i mallen är Microsoft. Databricks/arbetsytes: skapa en arbets yta för Azure Databricks. 
+
+## <a name="deploy-the-template"></a>Distribuera mallen
+
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure Resource Manager-mallen.
 
-1. Klicka på följande bild för att öppna mallen i Azure Portal.
+1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar en Azure Databricks-arbetsyta.
 
    [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-databricks-workspace%2Fazuredeploy.json)
 
@@ -55,142 +61,56 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure Resource 
    |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
    |**Pris nivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-3. Välj **Jag godkänner villkoren som anges ovan**, välj **Fäst på instrumentpanelen** och klicka sedan på **Köp**.
+3. Välj **Granska + skapa** och klicka sedan på **Skapa**.
 
-4. Det tar några minuter att skapa arbetsytan. När arbetsytan skapas i portalen visas panelen för att **skicka distribution för Azure Databricks** på höger sida. Du kan behöva rulla åt höger på instrumentpanelen för att se panelen. En förloppsindikator visas även längst upp på skärmen. Båda dessa områden visar förloppet.
+4. Det tar några minuter att skapa arbetsytan. När en distribution av arbets ytan Miss lyckas skapas arbets ytan fortfarande i ett felaktigt tillstånd. Ta bort den misslyckade arbets ytan och skapa en ny arbets yta som löser distributions felen. När du tar bort den misslyckade arbets ytan raderas även den hanterade resurs gruppen och alla resurser som har distribuerats.
 
-   ![Databricks distributions panel](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Databricks distributions panel")
+## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-   När en distribution av arbets ytan Miss lyckas skapas arbets ytan fortfarande i ett felaktigt tillstånd. Ta bort den misslyckade arbets ytan och skapa en ny arbets yta som löser distributions felen. När du tar bort den misslyckade arbets ytan raderas även den hanterade resurs gruppen och alla resurser som har distribuerats.
+Du kan antingen använda Azure Portal för att kontrol lera Azure Databricks arbets ytan eller använda följande Azure CLI-eller Azure PowerShell skript för att visa en lista över resursen.
 
-## <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
+### <a name="azure-cli"></a>Azure CLI
 
-1. I Azure Portal går du till arbetsytan Databricks som du skapade och klickar sedan på **Starta arbetsyta**.
+```azurecli-interactive
+echo "Enter your Azure Databricks workspace name:" &&
+read databricksWorkspaceName &&
+echo "Enter the resource group where the Azure Databricks workspace exists:" &&
+read resourcegroupName &&
+az databricks workspace show -g $resourcegroupName -n $databricksWorkspaceName
+```
 
-2. Du omdirigeras till Azure Databricks-portalen. Från portalen klickar du på **Kluster**.
+### <a name="azure-powershell"></a>Azure PowerShell
 
-   ![Databricks på Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-on-azure.png "Databricks på Azure")
-
-3. På sidan **Nytt kluster** anger du värdena för att skapa ett kluster.
-
-   ![Skapa Databricks Spark-kluster på Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "Skapa Databricks Spark-kluster på Azure")
-
-   Godkänn alla övriga standardvärden, förutom följande:
-
-   * Ange ett namn för klustret.
-   * För den här artikeln skapar du ett kluster med körningen **4.0**.
-   * Se till att markera kryss rutan **Avsluta efter \_ \_ minuter av inaktivitet** . Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
-
-   Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
-
-Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Databricks](/azure/databricks/clusters/create).
-
-## <a name="run-a-spark-sql-job"></a>Köra ett Spark SQL-jobb
-
-Innan du börjar med det här avsnittet måste du slutföra följande krav:
-
-* [Skapa ett Azure Blob Storage-konto](../storage/common/storage-account-create.md).
-* Hämta en exempel-JSON-fil [från GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
-* Ladda upp JSON-exempelfilen till det Azure Blob Storage-konto som du har skapat. Du kan använda [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp filer.
-
-Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfigurera den för att läsa data från ett Azure Blob Storage-konto och kör ett Spark SQL-jobb på data.
-
-1. Klicka på **Arbetsyta** i det vänstra fönstret. Från listrutan **Arbetsyta** klickar du på **Skapa** och sedan på **Anteckningsbok**.
-
-   ![Skapa antecknings bok i Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Skapa antecknings bok i Databricks")
-
-2. I dialogrutan **Skapa anteckningsbok** anger du ett namn, väljer **Scala** som språk och väljer det Spark-kluster som du skapade tidigare.
-
-   ![Skapa antecknings bok i Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Skapa antecknings bok i Databricks")
-
-   Klicka på **Skapa**.
-
-3. I det här steget associerar du Azure Storage-kontot med Databricks Spark-klustret. Det finns två sätt att genomföra associationen. Antingen monterar du Azure Storage-kontot till DBFS (Databricks Filesystem) eller så skapar du en direkt åtkomst till Azure Storage-kontot från programmet.
-
-   > [!IMPORTANT]
-   >I den här artikeln används **metoden att montera lagringen med DBFS**. Den här metoden innebär att den monterade lagringen hämtar sådant som är associerat med själva filsystemet i klustret. Därför kommer även alla program som har åtkomst till klustret kunna använda den associerade lagringen. Metoden för direkt åtkomst är begränsad till det program som du konfigurerar åtkomsten från.
-   >
-   > Om du vill använda monteringsmetoden måste du skapa ett Spark-kluster med Databricks körningsversion **4.0**, vilket är vad du väljer i den här artikeln.
-
-   I följande kodfragment ersätter du `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` och `{YOUR STORAGE ACCOUNT ACCESS KEY}` med lämpliga värden för ditt Azure Storage-konto. Klistra in följande kodfragment i en tom cell och tryck sedan på SKIFT+RETUR för att köra kodcellen.
-
-   * **Montera lagringskontot med DBFS (rekommenderas)**. I det här kodfragmentet monteras sökvägen för Azure Storage-kontot till `/mnt/mypath`. Det innebär att när du framöver får åtkomst till Azure Storage-kontot behöver du inte ange den fullständiga sökvägen. Det räcker med att du använder `/mnt/mypath`.
-
-          dbutils.fs.mount(
-            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
-            mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
-
-   * **Direkt åtkomst till lagringskontot**
-
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
-
-     Information om hur du hämtar åtkomst nycklar för lagrings kontot finns i [Hantera åtkomst nycklar för lagrings kontot](../storage/common/storage-account-keys-manage.md).
-
-   > [!NOTE]
-   > Du kan även använda Azure Data Lake Store med ett Spark-kluster på Azure Databricks. Instruktioner finns i [Använda Data Lake Store med Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2).
-
-4. Kör en SQL-instruktion för att skapa en temporär tabell med data från exempel-JSON-datafilen **small_radio_json.json**. I följande kodfragment ersätter du platshållarens värden med din containers namn och namnet på ditt lagringskonto. Klistra in följande kodfragment i en kodcell och tryck sedan på SKIFT+RETUR. I kodfragmentet anger `path` platsen för exempel-JSON-filen som du laddade upp till ditt Azure Storage-konto.
-
-   ```sql
-   %sql
-   DROP TABLE IF EXISTS radio_sample_data;
-   CREATE TABLE radio_sample_data
-   USING json
-   OPTIONS (
-    path "/mnt/mypath/small_radio_json.json"
-   )
-   ```
-
-   När kommandot har slutförts har du alla data från JSON-filen som en tabell i Databricks-klustret.
-
-   Med det magiska språkkommandot `%sql` kan du köra en SQL-kod från anteckningsboken även om anteckningsboken är av en annan typ. Mer information finns i [Mixing languages in a notebook](/azure/databricks/notebooks/index) (Blanda språk i en anteckningsbok).
-
-5. Nu ska vi titta på en ögonblicksbild av JSON-exempeldata för att bättre förstå den fråga som körs. Klistra in följande kodfragment i kodcellen och tryck på **SKIFT + RETUR**.
-
-   ```sql
-   %sql
-   SELECT * from radio_sample_data
-   ```
-
-6. Du ser en tabellvy som i följande skärmbild (endast vissa kolumner visas):
-
-   ![Exempel på JSON-data](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sample-csv-data.png "Exempel på JSON-data")
-
-   Bland annat fångar exempeldata in könet på en radiokanals målgrupp (kolumnnamn, **kön**) och om deras prenumeration är kostnadsfri eller om den betalas (kolumnnamn, **nivå**).
-
-7. Nu skapar du en visuell representation av dessa data för att visa hur många användare av varje kön som har kostnadsfria konton och hur många som är betalande prenumeranter. Längst ned i tabellvyn klickar du på ikonen **Stapeldiagram** och sedan på **Ritalternativ**.
-
-   ![Skapa liggande stapeldiagram](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "Skapa liggande stapeldiagram")
-
-8. I **Anpassa ritning** drar och släpper du värden enligt skärmbilden.
-
-   ![Anpassa stapeldiagram](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-customize-plot.png "Anpassa stapeldiagram")
-
-   * Ställ in **Nycklar** på **kön**.
-   * Ställ in **Seriegrupperingar** på **nivå**.
-   * Ställ in **Värden** på **nivå**.
-   * Ställ in **Sammansättning** på **COUNT** (Antal).
-
-   Klicka på **Använd**.
-
-9. Utdata visar den visuella representationen som visas i följande skärmbild:
-
-   ![Anpassa stapeldiagram](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sql-query-output-bar-chart.png "Anpassa stapeldiagram")
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Azure Databricks workspace exists"
+(Get-AzResource -ResourceType "Microsoft.Databricks/workspaces" -ResourceGroupName $resourceGroupName).Name
+ Write-Host "Press [ENTER] to continue..."
+```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med artikeln kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
+Om du planerar att fortsätta med efterföljande självstudier kanske du vill lämna resurserna på plats. När de inte längre behövs tar du bort resurs gruppen, som tar bort Azure Databricks-arbetsytan och relaterade hanterade resurser. Ta bort resurs gruppen med hjälp av Azure CLI eller Azure PowerShell:
 
-![Stoppa ett Databricks-kluster](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
+### <a name="azure-cli"></a>Azure CLI
 
-Om du inte avslutar klustret manuellt stoppas det automatiskt, förutsatt att du har markerat kryss rutan **Avsluta efter \_ \_ minuter av inaktivitet** när klustret skapades. I sådant fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med data i Azure Storage. Du kan också titta på [Spark-datakällor](/azure/databricks/data/data-sources/index) för att lära dig att importera data från andra datakällor till Azure Databricks. Du kan också använda Resource Manager-mallen för att [Skapa en Azure Databricks-arbetsyta med anpassad VNET-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). Information om den JSON-syntax och de JSON-egenskaper som du använder i en mall finns i mallreferensen i [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces).
-
-Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
+I den här snabb starten skapade du en Azure Databricks-arbetsyta med hjälp av en Azure Resource Manager-mall och verifierade distributionen. Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
 
 > [!div class="nextstepaction"]
 > [Extrahera, transformera och läsa in data med Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

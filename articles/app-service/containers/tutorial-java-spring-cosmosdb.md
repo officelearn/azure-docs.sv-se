@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 0b65e8f470b36ab1642e9144e081253a577dabc3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 10a637400c513f05d59af74942df49ac6626c70f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202510"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170383"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Självstudie: bygga en Java våren Boot Web-App med Azure App Service på Linux och Azure Cosmos DB
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/overview) installerat på din egen dator. 
 * [Git](https://git-scm.com/)
@@ -77,7 +77,7 @@ Följ dessa steg för att skapa en Azure Cosmos DB-databas i din prenumeration. 
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
     ```
 
-4. Hämta din Azure Cosmos DB-nyckel för att ansluta till appen. Se till `primaryMasterKey`att `documentEndpoint` du behöver dem i närheten i nästa steg.
+4. Hämta din Azure Cosmos DB-nyckel för att ansluta till appen. Se till `primaryMasterKey` att `documentEndpoint` du behöver dem i närheten i nästa steg.
 
     ```bash
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
@@ -185,7 +185,7 @@ Om du ser undantag i stället för meddelandet "startad TodoApplication", kontro
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.9.0</version>
+        <version>1.9.1</version>
         <configuration>
             <schemaVersion>v2</schemaVersion>
 
@@ -250,7 +250,9 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:1.9.0:deploy (default-cli) @ spring-todo-app ---
+[INFO] --- azure-webapp-maven-plugin:1.9.1:deploy (default-cli) @ spring-todo-app ---
+[INFO] Auth Type : AZURE_CLI, Auth Files : [C:\Users\testuser\.azure\azureProfile.json, C:\Users\testuser\.azure\accessTokens.json]
+[INFO] Subscription : xxxxxxxxx
 [INFO] Target Web App doesn't exist. Creating a new one...
 [INFO] Creating App Service Plan 'ServicePlanb6ba8178-5bbb-49e7'...
 [INFO] Successfully created App Service Plan.
@@ -307,8 +309,8 @@ az group delete --name <your-azure-group-name>
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Azure för Java-utvecklare](/java/azure/)
-[våren Boot](https://spring.io/projects/spring-boot), [fjädra data för Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) och [App Service Linux](app-service-linux-intro.md).
+[Azure för Java-utvecklare](/java/azure/) 
+ [Våren Boot](https://spring.io/projects/spring-boot), [fjädra data för Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) och [App Service Linux](app-service-linux-intro.md).
 
 Läs mer om hur du kör Java-appar i App Service på Linux i utvecklarhandboken.
 

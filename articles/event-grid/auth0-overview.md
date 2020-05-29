@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: e193b272460fe97f599adff414fcac6e80648104
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6025c4c694da1e036201aef35ab73500429f7e2c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738378"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170570"
 ---
 # <a name="auth0-partner-topics"></a>Avsnitt om Auth0-partner
 ![Auth0-logotyp](./media/auth0-overview/auth0-logo.png)
@@ -23,21 +23,24 @@ I avsnittet Auth0 partner kan du använda händelser som genereras av Auth0's-sy
 
 Med integreringen kan du strömma dina Auth0-loggfiler med hög tillförlitlighet till Azure. Där kan du använda händelserna med dina favorit resurser i Azure. Den här integreringen gör att du kan reagera på händelser, få insikter, övervaka säkerhets problem och interagera med andra kraftfulla data pipelines.
 
-För organisationer som använder Auth0 och Azure kan den här integrationen integrera data sömlöst i hela stacken. 
+För organisationer som använder Auth0 och Azure kan du integrera data sömlöst i hela stacken med den här integreringen. 
  
 ## <a name="available-event-types"></a>Tillgängliga händelse typer
-En fullständig lista över tillgängliga Auth0 händelse typer och deras beskrivningar finns [här](https://auth0.com/docs/logs/references/log-event-type-codes).
+Den fullständiga listan över tillgängliga Auth0 händelse typer och deras beskrivningar är tillgängliga på [den här webbplatsen](https://auth0.com/docs/logs/references/log-event-type-codes).
 
 ## <a name="use-cases"></a>Användningsfall
 
 ### <a name="engage-with-your-users"></a>Engagera dig med dina användare
-Att leverera en stark användar upplevelse är avgörande för att minska omsättningen och hålla dina användare. Leverera mer anpassade program upplevelser med Auth0-händelser med Azure Functions och Logic Apps. 
+Att leverera en stark användar upplevelse är avgörande för att minska omsättningen och hålla dina användare. Leverera mer anpassade program upplevelser genom att använda Auth0-händelser med Azure Functions och Azure Logic Apps. 
 
 ### <a name="understand-user-behavior"></a>Förstå användar beteende
-Förstå när användare kommer åt din produkt, var de är inloggade och vilka enheter de använder. Utveckla en förståelse för de produkt områden som är mest viktiga genom att hålla koll på dessa signaler. Dessa signaler hjälper dig att avgöra vilka webbläsare och enheter som stöder, språk för att lokalisera din app i och när den högsta trafik tiden är. 
+Förstå när användare kommer åt din produkt, var de är inloggade och vilka enheter de använder. Utveckla en förståelse för de produkt områden som är mest viktiga genom att hålla koll på dessa signaler. Dessa signaler hjälper dig att fastställa:
+- Vilka webbläsare och enheter som ska stödjas. 
+- Vilka språk du ska använda för att lokalisera din app i. 
+- När den högsta trafik tiden är. 
 
-### <a name="manage-user-data"></a>Hantera användar data
-Att hålla och granska dina användar åtgärder är avgörande för att upprätthålla säkerheten och följa bransch bestämmelser. Möjligheten att redigera, ta bort eller exportera användar data blir allt viktigare att följa sekretess lagar, till exempel Europeiska unionens allmän dataskyddsförordning (GDPR).
+### <a name="manage-user-data"></a>Hantera användardata
+Att hålla och granska dina användar åtgärder är avgörande för att upprätthålla säkerheten och följa bransch bestämmelser. Möjligheten att redigera, ta bort eller exportera användar data är allt viktigare att följa sekretess lagar, till exempel Europeiska unionens allmän dataskyddsförordning (GDPR).
 
 ### <a name="secure-your-application"></a>Skydda ditt program
 Det är viktigt att kombinera säkerhets övervakning och incident svars procedurer när du skyddar ett distribuerat system. Därför är det viktigt att du behåller alla data på en plats och övervakar hela stacken. 

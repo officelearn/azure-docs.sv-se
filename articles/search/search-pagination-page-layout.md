@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 93f1da7db3962994611f70fc145d0e9b62cd4f26
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801781"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167867"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med Sök resultat i Azure Kognitiv sökning
 
@@ -43,13 +43,13 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 
 Som standard returnerar sökmotorn upp till de första 50 matchningarna, vilket bestäms av Sök poängen om frågan är full texts ökning eller i en godtycklig ordning för exakta matchnings frågor.
 
-Om du vill returnera ett annat antal matchande dokument lägger `$top` du `$skip` till och parametrar i förfrågan. I följande lista beskrivs logiken.
+Om du vill returnera ett annat antal matchande dokument lägger du till `$top` och `$skip` parametrar i förfrågan. I följande lista beskrivs logiken.
 
-+ Lägg `$count=true` till för att få en räkning av det totala antalet matchande dokument i ett index.
++ Lägg till `$count=true` för att få en räkning av det totala antalet matchande dokument i ett index.
 
 + Returnera den första uppsättningen av 15 matchande dokument plus totalt antal matchningar:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-+ Returnera den andra uppsättningen, hoppa över de första 15 för att få nästa 15: `$top=15&$skip=15`. Gör samma sak för den tredje uppsättningen 15:`$top=15&$skip=30`
++ Returnera den andra uppsättningen, hoppa över de första 15 för att få nästa 15: `$top=15&$skip=15` . Gör samma sak för den tredje uppsättningen 15:`$top=15&$skip=30`
 
 Resultatet av sid brytnings frågor är inte garanterat stabilt om det underliggande indexet ändras. Växling ändrar värdet för `$skip` för varje sida, men varje fråga är oberoende och fungerar på den aktuella vyn av data som finns i indexet vid tidpunkten (med andra ord finns det ingen cachelagring eller ögonblicks bild av resultat, till exempel de som finns i en databas för generell användning).
  
@@ -60,12 +60,12 @@ Följande är ett exempel på hur du kan få dubbletter. Anta ett index med fyra
     { "id": "3", "rating": 2 }
     { "id": "4", "rating": 1 }
  
-Anta nu att du vill att resultat returnerades två i taget, sorterade efter klassificering. Du kör den här frågan för att få den första sidan med resultat `$top=2&$skip=0&$orderby=rating desc`:, som producerar följande resultat:
+Anta nu att du vill att resultat returnerades två i taget, sorterade efter klassificering. Du kör den här frågan för att få den första sidan med resultat: `$top=2&$skip=0&$orderby=rating desc` , som producerar följande resultat:
 
     { "id": "1", "rating": 5 }
     { "id": "2", "rating": 3 }
  
-I tjänsten antar vi att ett femte dokument läggs till i indexet i mellan fråga-anrop `{ "id": "5", "rating": 4 }`:.  Strax därefter kör du en fråga för att hämta den andra sidan: `$top=2&$skip=2&$orderby=rating desc`och får följande resultat:
+I tjänsten antar vi att ett femte dokument läggs till i indexet i mellan fråga-anrop: `{ "id": "5", "rating": 4 }` .  Strax därefter kör du en fråga för att hämta den andra sidan: `$top=2&$skip=2&$orderby=rating desc` och får följande resultat:
 
     { "id": "2", "rating": 3 }
     { "id": "3", "rating": 2 }
@@ -78,7 +78,7 @@ För fullständiga texts öknings frågor rangordnas resultaten automatiskt efte
 
 Sök Poäng förmedla allmän känsla av relevans, vilket återspeglar styrkan hos matchning jämfört med andra dokument i samma resultat uppsättning. Poängen är inte alltid konsekventa från en fråga till nästa, så när du arbetar med frågor kan du lägga märke till små skillnader i hur Sök dokumenten beställs. Det finns flera förklaringar till varför detta kan inträffa.
 
-| Orsak | Beskrivning |
+| Orsak | Description |
 |-----------|-------------|
 | Data flyktiga | Index innehållet varierar när du lägger till, ändrar eller tar bort dokument. Termen frekvens kommer att ändras när index uppdateringar bearbetas över tid, vilket påverkar Sök resultaten för matchande dokument. |
 | Flera repliker | För tjänster som använder flera repliker utfärdas frågor till varje replik parallellt. Index statistiken som används för att beräkna ett Sök Resultat beräknas per replik, med resultat som sammanfogas och beställs i fråge svaret. Repliker är oftast speglar varandra, men statistik kan skilja sig på grund av små skillnader i tillstånd. En replik kan till exempel ha borttagna dokument som bidrar till sin statistik, som sammanfogades från andra repliker. Normalt sett är skillnader i statistik per replik mer märkbart i mindre index. |
@@ -94,11 +94,11 @@ Ett annat alternativ är att använda en [anpassad bedömnings profil](index-add
 
 Träff markering avser textformatering (till exempel fetstil eller gula högdagrar) som tillämpas på matchande termer i ett resultat, vilket gör det lätt att hitta matchningen. Träff markerings instruktioner finns i [förfrågan](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-Om du vill aktivera träff markering, `highlight=[comma-delimited list of string fields]` Lägg till för att ange vilka fält som ska använda markering. Markering är användbart för längre innehålls fält, till exempel ett beskrivnings fält där matchningen inte är direkt uppenbar. Endast fält definitioner som attributas som **sökbara** kvalificerare för träff markering.
+Om du vill aktivera träff markering, Lägg till `highlight=[comma-delimited list of string fields]` för att ange vilka fält som ska använda markering. Markering är användbart för längre innehålls fält, till exempel ett beskrivnings fält där matchningen inte är direkt uppenbar. Endast fält definitioner som attributas som **sökbara** kvalificerare för träff markering.
 
-Som standard returnerar Azure Kognitiv sökning upp till fem höjd punkter per fält. Du kan justera det här talet genom att lägga till i fältet ett streck följt av ett heltal. `highlight=Description-10` Returnerar till exempel upp till 10 för att matcha innehåll i fältet Beskrivning.
+Som standard returnerar Azure Kognitiv sökning upp till fem höjd punkter per fält. Du kan justera det här talet genom att lägga till i fältet ett streck följt av ett heltal. Returnerar till exempel `highlight=Description-10` upp till 10 för att matcha innehåll i fältet Beskrivning.
 
-Formatering tillämpas på frågor på hela termen. Typen av formatering bestäms av taggar, `highlightPreTag` `highlightPostTag`och koden hanterar svaret (till exempel att använda fetstil eller gul bakgrund).
+Formatering tillämpas på frågor på hela termen. Typen av formatering bestäms av taggar, och `highlightPreTag` `highlightPostTag` koden hanterar svaret (till exempel att använda fetstil eller gul bakgrund).
 
 I följande exempel är begreppen "sandbrun", "sand", "stränder", "strand" som påträffas i beskrivnings fältet taggas för markering. Frågor som utlöser frågor om expandering i motorn, till exempel Fuzzy-och jokertecken, har begränsat stöd för träff markering.
 
@@ -126,8 +126,6 @@ Med det nya beteendet:
     '<em>super bowl</em> is super awesome with a bowl of chips'
     ```
   Observera att termen *Bowl av chips* inte har någon markering eftersom den inte matchar den fullständiga frasen.
-  
-* Det går att ange den fragment storlek som returneras för markeringen. Fragmentering av fragment anges som antal tecken (högst 1000 tecken).
 
 När du skriver klient kod som implementerar träff markering, bör du vara medveten om den här ändringen. Observera att detta inte påverkar dig om du inte skapar en helt ny Sök tjänst.
 

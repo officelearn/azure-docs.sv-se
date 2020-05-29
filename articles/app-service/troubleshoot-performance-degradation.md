@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74688304"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170774"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Felsök problem med långsam program prestanda i Azure App Service
 Den här artikeln hjälper dig att felsöka problem med långsam program prestanda i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -39,7 +39,7 @@ Fel sökning kan delas upp i tre olika uppgifter i nummerordning:
 
 [App Service](overview.md) ger dig olika alternativ i varje steg.
 
-<a name="observe" />
+<a name="observe"></a>
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Observera och övervaka programmets beteende
 #### <a name="track-service-health"></a>Spåra tjänstens hälsa
@@ -84,7 +84,7 @@ Varje App Service app tillhandahåller en utöknings bar hanterings slut punkt s
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) är en webbplats för prestanda övervakning som också är tillgänglig. Om du vill använda Application Insights återbygger du koden med ett SDK. Du kan också installera ett tillägg som ger åtkomst till ytterligare data. Med SDK kan du skriva kod för att övervaka användning och prestanda för din app i detalj. Mer information finns i [övervaka prestanda i webb program](../azure-monitor/app/web-monitor-performance.md).
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### <a name="2-collect-data"></a>2. samla in data
 App Service innehåller diagnostiska funktioner för loggning av information från både webb servern och webb programmet. Informationen är uppdelad i Web Server Diagnostics och Application Diagnostics.
@@ -114,7 +114,7 @@ Fjärrprofilering är användbart om processor användningen för processen är 
 Mer information finns i [stöd för fjär profilering i Azure App Service](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
 
 ##### <a name="set-up-diagnostic-traces-manually"></a>Konfigurera diagnostiska spårningar manuellt
-Om du har åtkomst till käll koden för webb program kan du använda Application Diagnostics för att avbilda information som produceras av ett webb program. ASP.NET-program kan använda `System.Diagnostics.Trace` -klassen för att logga information till Application Diagnostics-loggen. Du måste dock ändra koden och distribuera programmet igen. Den här metoden rekommenderas om din app körs i en test miljö.
+Om du har åtkomst till käll koden för webb program kan du använda Application Diagnostics för att avbilda information som produceras av ett webb program. ASP.NET-program kan använda- `System.Diagnostics.Trace` klassen för att logga information till Application Diagnostics-loggen. Du måste dock ändra koden och distribuera programmet igen. Den här metoden rekommenderas om din app körs i en test miljö.
 
 Detaljerade anvisningar om hur du konfigurerar programmet för loggning finns i [Aktivera diagnostikloggning för appar i Azure App Service](troubleshoot-diagnostic-logs.md).
 
@@ -126,7 +126,7 @@ Om du vill komma åt App Service diagnostik navigerar du till din App Service ap
 #### <a name="use-the-kudu-debug-console"></a>Använda fel söknings konsolen kudu
 App Service levereras med en fel söknings konsol som du kan använda för att felsöka, utforska, ladda upp filer, samt JSON-slutpunkter för att få information om din miljö. Den här konsolen kallas *kudu-konsolen* eller *SCM-instrumentpanelen* för din app.
 
-Du kan komma åt den här instrument panelen genom att gå till länken **https://&lt;ditt program namn>. scm.azurewebsites.net/**.
+Du kan komma åt den här instrument panelen genom att gå till länken **https:// &lt; ditt program namn>. scm.azurewebsites.net/**.
 
 Några av de saker som kudu tillhandahåller är:
 
@@ -139,7 +139,7 @@ En annan användbar funktion i kudu är att, om ditt program ska leda till undan
 
 Mer information om vilka funktioner som är tillgängliga i kudu finns i [Azure DevOps-verktyg som du bör känna](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)till.
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### <a name="3-mitigate-the-issue"></a>3. åtgärda problemet
 #### <a name="scale-the-app"></a>Skala appen

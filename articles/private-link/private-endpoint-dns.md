@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 7c8ff0808ada522dc24ef3c27156f4151832fbcd
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 64e09e4c4b1060bf6046c1a4876e0f7d2afc9ac0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715944"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171521"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>DNS-konfiguration för privat slutpunkt i Azure
 
@@ -67,10 +67,7 @@ För Azure-tjänster använder du de rekommenderade zon namnen enligt beskrivnin
 | Azure Event Grid (Microsoft. EventGrid/Domains)/Domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Azure-Webbappar (Microsoft. Web/Sites)/site | privatelink.azurewebsites.net | azurewebsites.net |
 | Azure Machine Learning (Microsoft. MachineLearningServices/arbetsytes)/arbets yta | privatelink.api.azureml.ms | api.azureml.ms |
-
  
-
-
 ## <a name="dns-configuration-scenarios"></a>Scenarier för DNS-konfiguration
 
 FQDN för tjänsterna matchas automatiskt till en offentlig IP-adress, så för att matcha den privata IP-adressen för den privata slut punkten måste du ändra DNS-konfigurationen på motsvarande sätt.
@@ -81,11 +78,12 @@ Beroende på dina inställningar finns följande scenarier för DNS-matchning in
 
 - [Arbets belastningar för virtuella nätverk utan anpassad DNS-Server](#virtual-network-workloads-without-custom-dns-server)
 - [Lokala arbets belastningar med en DNS-vidarebefordrare](#on-premises-workloads-using-a-dns-forwarder)
+- [Virtuella nätverk och lokala arbets belastningar med en DNS-vidarebefordrare](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
+
 
 ## <a name="virtual-network-workloads-without-custom-dns-server"></a>Arbets belastningar för virtuella nätverk utan anpassad DNS-Server
 
-Den här konfigurationen är lämplig för virtuella nätverks arbets belastningar utan anpassad DNS-server. I det här scenariot angavs klient frågor för den privata slut punktens IP-adress till Azure- [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). Azure DNS ansvarar för DNS-matchning av privata DNS-zoner.
-
+Den här konfigurationen är lämplig för virtuella nätverks arbets belastningar utan anpassad DNS-server. I det här scenariot har klienten frågor om den privata slut punktens IP-adress till Azure som tillhandahöll DNS- [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). Azure DNS ansvarar för DNS-matchning av privata DNS-zoner.
 
 > [!NOTE]
 > Det här scenariot använder Azure SQL Database som rekommenderas Privat DNS zon. För andra tjänster kan du justera modellen med hjälp av följande [DNS-zon konfiguration för Azure-tjänster](#azure-services-dns-zone-configuration).
@@ -107,6 +105,9 @@ Den här modellen kan utökas till flera peer-kopplade virtuella nätverk som ä
 > [!IMPORTANT]
 > En enda privat DNS-zon krävs för den här konfigurationen, vilket innebär att flera zoner med samma namn för olika virtuella nätverk behöver manuella åtgärder för att slå samman DNS-posterna
 
+> [!IMPORTANT]
+> Om du använder en privat slut punkt i en nav-och eker-modell från olika prenumerationer återanvänder du samma privata DNS-zon på hubben.
+
 I det här scenariot finns det en [hubb & eker](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) -nätverkstopologi med eker-nätverk som delar en gemensam privat slut punkt och alla eker-virtuella nätverk är länkade till samma privata DNS-zon. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hubb och eker med Azure-tillhandahållen DNS":::
@@ -114,7 +115,6 @@ I det här scenariot finns det en [hubb & eker](https://docs.microsoft.com/azure
 ## <a name="on-premises-workloads-using-a-dns-forwarder"></a>Lokala arbets belastningar med en DNS-vidarebefordrare
 
 För lokala arbets belastningar för att kunna matcha ett fullständigt domän namn för en privat slut punkt i den privata IP-adressen måste du använda en DNS-vidarebefordrare för att göra en matchning för den [offentliga DNS-zonen](#azure-services-dns-zone-configuration) i Azure som distribueras i Azure.
-
 
 Följande scenario är lämpligt för ett lokalt nätverk som har en DNS-vidarebefordrare i Azure, vilket i sin tur ansvarar för att matcha alla DNS-frågor via en server nivå vidarebefordrare till DNS- [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) som tillhandahålls av Azure. 
 
@@ -154,6 +154,30 @@ Följande diagram illustrerar DNS-matchningsfel från ett lokalt nätverk som vi
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Lokal vidarebefordran till Azure DNS":::
 
+## <a name="virtual-network-and-on-premises-workloads-using-a-dns-forwarder"></a>Virtuella nätverk och lokala arbets belastningar med en DNS-vidarebefordrare
+
+För en allmän metod som är lämplig för arbets belastningar som behöver åtkomst till en privat slut punkt från virtuella och lokala nätverk måste du använda en delad DNS-vidarebefordrare för att göra en matchning av den [offentliga DNS-zonen](#azure-services-dns-zone-configuration) för Azure-tjänsten distribuerad i Azure.
+
+Följande scenario är lämpligt för ett lokalt nätverk som har en DNS-vidarebefordrare i Azure, och virtuella nätverk som behöver åtkomst till den privata slut punkten som finns i ett delat nav nätverk. Den här DNS-vidarebefordraren ansvarar för att matcha alla DNS-frågor via en server nivå vidarebefordrare till Azures angivna DNS- [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 
+
+> [!IMPORTANT]
+> En enda privat DNS-zon krävs för den här konfigurationen, alla klient anslutningar som görs från lokala och [peer-baserade virtuella nätverk](../virtual-network/virtual-network-peering-overview.md)   måste också använda samma privata DNS-zon
+
+> [!NOTE]
+> Det här scenariot använder Azure SQL Database som rekommenderas Privat DNS zon. För andra tjänster kan du justera modellen med hjälp av följande [DNS-zon konfiguration för Azure-tjänster](#azure-services-dns-zone-configuration).
+
+För att konfigurera korrekt behöver du följande resurser:
+
+- Lokalt nätverk
+- Virtuellt nätverk [som är anslutet till lokalt](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- [Peer-kopplat virtuellt nätverk](../virtual-network/virtual-network-peering-overview.md) 
+- DNS-vidarebefordrare distribuerad i Azure
+- Privat DNS zoner [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md)    med [typen A Record](../dns/dns-zones-records.md#record-types)
+- Information om privat slut punkt (FQDN-postnamn och privat IP-adress)
+
+Följande diagram illustrerar DNS-matchningsfel från ett lokalt och virtuellt nätverk som använder en DNS-vidarebefordrare som distribueras i Azure, där upplösningen görs av en privat DNS-zon som är [länkad till ett virtuellt nätverk.](../dns/private-dns-virtual-network-links.md)
+
+:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Hybrid scenario":::
 
 ## <a name="next-steps"></a>Nästa steg
 - [Lär dig om privata slut punkter](private-endpoint-overview.md)

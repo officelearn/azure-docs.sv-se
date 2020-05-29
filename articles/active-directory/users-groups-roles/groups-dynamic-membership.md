@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab6be101e33fb29f96e2e5ea0fd2e79aa1cf0d09
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8f5e4e80af106de7c4bc8f09bdbecbc84199c2b3
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744697"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171165"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -384,7 +384,7 @@ Följande enhets egenskaper kan användas.
  deviceManufacturer | valfritt sträng värde | (Device. deviceManufacturer-EQ "Samsung")
  deviceModel | valfritt sträng värde | (Device. deviceModel-EQ "iPad Air")
  deviceOwnership | Personlig, företag, okänd | (Device. deviceOwnership-EQ "Company")
- enrollmentProfileName | Registrerings profil för Apples enhet, enhets registrering-identifierare för företags enheter (Android-kiosk) eller Windows autopilot-profil namn | (Device. enrollmentProfileName-EQ "DEP iPhone")
+ enrollmentProfileName | Registrerings profil namn för Apple-enhet, Android Enterprise-företagsägda dedikerad enhets registrerings profil namn eller Windows autopilot profil namn | (Device. enrollmentProfileName-EQ "DEP iPhone")
  isRooted | Sant falskt | (Device. isRooted-EQ true)
  managementType | MDM (för mobila enheter)<br>PC (för datorer som hanteras av Intune PC-agenten) | (Device. managementType-EQ "MDM")
  deviceId | ett giltigt ID för Azure AD-enhet | (Device. deviceId-EQ "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

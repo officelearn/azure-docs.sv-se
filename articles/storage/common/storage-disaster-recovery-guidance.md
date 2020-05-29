@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: aab64e173b02ae991f7071da785434fa742de7de
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4b1abe8efb4baaf260005df1a4ee5b6d1645715a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994705"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169227"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Haveri beredskap och redundans för lagrings konto
 
@@ -102,6 +102,8 @@ Egenskapen **senaste synkroniseringstid** anger den senaste tiden som data från
 
 Vi rekommenderar att du utformar ditt program så att du kan använda den senaste synkroniseringstid för att utvärdera förväntad data förlust. Om du till exempel loggar alla Skriv åtgärder kan du jämföra tiden för dina senaste Skriv åtgärder med den senaste synkroniseringen för att avgöra vilka skrivningar som inte har synkroniserats med den sekundära.
 
+Mer information om hur du kontrollerar den **senaste synkroniseringstid** -egenskapen finns i [kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto](last-sync-time-get.md).
+
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Använd försiktighet när du växlar tillbaka till den ursprungliga primära
 
 När du växlar över från den primära till den sekundära regionen konfigureras ditt lagrings konto för att vara lokalt redundant i den nya primära regionen. Sedan kan du konfigurera kontot för GEO-redundans igen. När kontot har kon figurer ATS för GEO-redundans igen efter en redundansväxling börjar den nya primära regionen omedelbart att kopiera data till den nya sekundära regionen, som var den primära före den ursprungliga redundansväxlingen. Det kan dock ta en stund innan befintliga data i den primära har kopierats fullständigt till den nya sekundära.
@@ -173,4 +175,5 @@ I extrema fall där en region försvinner på grund av en betydande katastrof ka
 
 - [Använd GEO-redundans för att skapa program med hög tillgänglighet](geo-redundant-design.md)
 - [Initiera en kontoredundans](storage-initiate-account-failover.md)
+- [Kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto](last-sync-time-get.md)
 - [Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage](../blobs/storage-create-geo-redundant-storage.md)

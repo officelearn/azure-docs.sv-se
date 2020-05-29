@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 638ba26c8c8aed9385e10242b86a7587c1d9a7c5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 9797b4c8f8059f9cfefbb70672aa202c7a3f4825
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871178"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168377"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
@@ -26,7 +26,7 @@ Analysis Services stöder också åtgärder som utförs av hanterade identiteter
  
 Tjänstens huvud namn kan skapas i Azure Portal eller med hjälp av PowerShell. Du kan läsa mer här:
 
-[Skapa tjänstens huvud namn – Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Skapa tjänstens huvudnamn – Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Skapa tjänstens huvudnamn – PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Lagra autentiseringsuppgifter och certifikat till gångar i Azure Automation
@@ -48,7 +48,7 @@ SPN-namn och lösen ord eller certifikat för tjänstens huvud namn kan använda
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Använda modulen AZ. AnalysisServices
+#### <a name="using-azanalysisservices-module"></a><a name="azmodule"></a>Använda modulen AZ. AnalysisServices
 
 Använd cmdlet när du använder ett huvud namn för tjänsten för resurs hanterings åtgärder med modulen [AZ. AnalysisServices](/powershell/module/az.analysisservices) . `Connect-AzAccount` 
 
@@ -73,7 +73,7 @@ Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/
 Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
 ```
 
-#### <a name="using-sqlserver-module"></a>Använda SQLServer-modul
+#### <a name="using-sqlserver-module"></a>Använda SQLServer-modulen
 
 I följande exempel används appID och ett lösen ord för att utföra en uppdaterings åtgärd för modell databasen:
 
@@ -92,9 +92,9 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO och ADOMD 
 
-När du ansluter med klient program och webbappar kan du använda [AMO-och ADOMD-klient bibliotek](analysis-services-data-providers.md) , versions hanterings paket och högre Installerbara paket från NuGet-tjänstens huvud namn i anslutnings strängar med följande syntax: `app:AppID` och lösen ord eller `cert:thumbprint` . 
+När du ansluter med klientprogram och webbappar har [AMO- och ADOMD-klientbibliotek](analysis-services-data-providers.md) version 15.0.2 och senare installerbara paket från NuGet stöd för tjänstens huvudnamn i anslutningssträngar med hjälp av följande syntax: `app:AppID` och lösenord eller `cert:thumbprint`. 
 
-I följande exempel `appID` och a `password` används för att utföra en uppdaterings åtgärd för modell databasen:
+I följande exempel används `appID` och `password` för att utföra en uppdateringsåtgärd för modelldatabasen:
 
 ```csharp
 string appId = "xxx";

@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6a2dd84ec091a2e862dd788a740585827b5cbde1
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 40c31d4dd4a6c675691f75d3717f7865d6b847f7
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007536"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171574"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -38,13 +38,13 @@ I den här artikeln får du lära dig att:
 > * Exportera etiketterna
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 
 * De data som du vill märka, antingen i lokala filer eller i Azure Blob Storage.
 * Den uppsättning etiketter som du vill använda.
 * Anvisningarna för att märka.
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://aka.ms/AMLFree) konto innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 * En Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="create-a-labeling-project"></a>Skapa ett etikett projekt
@@ -55,8 +55,7 @@ Om dina data redan finns i Azure Blob Storage bör du göra det tillgängligt so
 
 Välj **Lägg till projekt**om du vill skapa ett projekt. Ge projektet ett lämpligt namn och välj **uppgifts typ för etiketter**.
 
-![Guiden skapa etikett för projekt](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
-
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Guiden skapa etikett för projekt":::
 
 * Välj **bild klassificering flera klasser** för projekt när du bara vill använda en *enda klass* från en uppsättning klasser till en avbildning.
 * Välj **bild klassificering med flera etiketter** för projekt om du vill tillämpa *en eller flera* etiketter från en uppsättning klasser i en bild. Till exempel kan ett foto av en hund vara märkt med både *hund* och *dagtid*.
@@ -75,13 +74,13 @@ I många fall är det bra att bara ladda upp lokala filer. Men [Azure Storage Ex
 
 Så här skapar du en data uppsättning från data som du redan har lagrat i Azure Blob Storage:
 
-1. Välj **skapa en data uppsättning** > **från data lagret**.
+1. Välj **skapa en data uppsättning**  >  **från data lagret**.
 1. Tilldela ett **namn** till din data uppsättning.
 1. Välj **fil** som **data uppsättnings typ**.  
 1. Välj data lagret.
 1. Om dina data finns i en undermapp i Blob Storage väljer du **Bläddra** för att välja sökvägen.
     * Lägg till "/* *" i sökvägen om du vill inkludera alla filer i undermappar för den valda sökvägen.
-    * Lägg till "*/**. *" för att inkludera alla data i den aktuella behållaren och dess undermappar.
+    * Lägg till "* */* . *" för att inkludera alla data i den aktuella behållaren och dess undermappar.
 1. Ange en beskrivning för din data uppsättning.
 1. Välj **Nästa**.
 1. Bekräfta informationen. Välj **tillbaka** om du vill ändra inställningarna eller **skapa** för att skapa data uppsättningen.
@@ -93,7 +92,7 @@ Så här skapar du en data uppsättning från data som du redan har lagrat i Azu
 
 Så här överför du dina data direkt:
 
-1. Välj **skapa en data uppsättning** > **från lokala filer**.
+1. Välj **skapa en data uppsättning**  >  **från lokala filer**.
 1. Tilldela ett **namn** till din data uppsättning.
 1. Välj "Arkiv" som **data uppsättnings typ**.
 1. *Valfritt:* Välj **Avancerade inställningar** för att anpassa data lagret, behållaren och sökvägen till dina data.
@@ -173,7 +172,7 @@ När du har initierat projektet börjar Azure att köra det. Välj projektet på
 
 På fliken **data** kan du se din data uppsättning och granska etiketterade data. Om du ser felaktigt märkta data markerar du den och väljer **avvisa**, vilket tar bort etiketterna och sätter tillbaka dem i den omärkta kön.
 
-Om du vill pausa eller starta om projektet väljer du knappen **pausa**/**Start** . Du kan bara märka data när projektet körs.
+Om du vill pausa eller starta om projektet väljer du knappen **pausa** / **Start** . Du kan bara märka data när projektet körs.
 
 Du kan märka data direkt från sidan **projekt information** genom att välja **etikett data**.
 
@@ -187,7 +186,7 @@ Följ dessa steg om du vill lägga till en eller flera etiketter i ett projekt:
 1. Längst upp på sidan väljer du **pausa** för att stoppa etiketter från deras aktivitet.
 1. Välj fliken **Information**.
 1. I listan till vänster väljer du **etikett klasser**.
-1. Överst i listan väljer du **+ Lägg till etiketter** ![Lägg till en etikett](media/how-to-create-labeling-projects/add-label.png)
+1. Överst i listan väljer du **+ Lägg till etiketter** ![ Lägg till en etikett](media/how-to-create-labeling-projects/add-label.png)
 1. I formuläret lägger du till din nya etikett och väljer hur du vill fortsätta.  Eftersom du har ändrat de tillgängliga etiketterna för en bild väljer du hur du vill behandla redan märkta data:
     * Börja om och ta bort alla befintliga etiketter.  Välj det här alternativet om du vill starta etiketter från början med den nya fullständiga uppsättningen etiketter. 
     * Börja om och Behåll alla befintliga etiketter.  Välj det här alternativet om du vill markera alla data som omärkta, men Behåll de befintliga etiketterna som en standardtagg för bilder som tidigare har märkts.

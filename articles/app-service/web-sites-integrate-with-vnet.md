@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 78b49b8b7e17f12d49825390a302e28a61e10d16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b7df06ea7ff07907a292bdcc32e66aafa44ae68
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770847"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170791"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med ett virtuellt Azure-nätverk
 
@@ -117,17 +117,17 @@ Om du använder Gateway-nödvändig VNet-integrering med peering måste du konfi
 
 1. Lägg till en peering-anslutning på det virtuella nätverk som din App ansluter till. När du lägger till peering-anslutningen aktiverar du **Tillåt åtkomst till virtuellt nätverk** och väljer **Tillåt vidarebefordrad trafik** och **Tillåt Gateway-överföring**.
 1. Lägg till en peering-anslutning på det virtuella nätverket som peer-kopplas till det virtuella nätverk som du är ansluten till. När du lägger till peering-anslutningen på målets VNet aktiverar du **Tillåt åtkomst till virtuellt nätverk** och väljer **Tillåt vidarebefordrad trafik** och **Tillåt fjärrgatewayer**.
-1. Gå till **App Service plan** > **Network** > **VNet integration** UI i portalen. Välj det VNet som appen ansluter till. Under avsnittet routning lägger du till adress intervallet för det VNet som är peer-kopplat med det virtuella nätverk som appen är ansluten till.
+1. Gå till **App Service plan**  >  **Network**  >  **VNet integration** UI i portalen. Välj det VNet som appen ansluter till. Under avsnittet routning lägger du till adress intervallet för det VNet som är peer-kopplat med det virtuella nätverk som appen är ansluten till.
 
 ## <a name="manage-vnet-integration"></a>Hantera VNet-integrering
 
-Anslutning och från koppling med ett VNet finns på en app-nivå. Åtgärder som kan påverka VNet-integrering över flera appar finns på App Service plan nivå. Du kan få information om ditt VNet från appen > **nätverkets** > **VNet-integrerings** Portal. Du kan se liknande information på App Service plan nivå i **App Service plan** > **nätverkets** > **VNet integrations** Portal.
+Anslutning och från koppling med ett VNet finns på en app-nivå. Åtgärder som kan påverka VNet-integrering över flera appar finns på App Service plan nivå. Du kan få information om ditt VNet från appen > **nätverkets**  >  **VNet-integrerings** Portal. Du kan se liknande information på App Service plan nivå i **App Service plan**  >  **nätverkets**  >  **VNet integrations** Portal.
 
 Den enda åtgärd som du kan vidta i vyn app för din VNet-integrering är att koppla från appen från det virtuella nätverk som den är ansluten till. Om du vill koppla från din app från ett VNet väljer du **Koppla från**. Din app startas om när du kopplar från ett virtuellt nätverk. Om du kopplar från, ändras inte ditt VNet. Under nätet eller gatewayen tas inte bort. Om du sedan vill ta bort ditt VNet tar du först bort din app från VNet och tar bort resurserna i den, till exempel gatewayer.
 
 GRÄNSSNITTET App Service plan VNet-integration visar alla VNet-integreringar som används av apparna i App Service plan. Om du vill se information om varje VNet väljer du det VNet som du är intresse rad av. Det finns två åtgärder som du kan utföra här för gateway-nödvändig VNet-integrering:
 
-* **Sync-nätverk**: åtgärden synkronisera nätverk används endast för funktionen Gateway-beroende VNet-integrering. Att utföra en synkroniserad nätverks åtgärd garanterar att dina certifikat och nätverksinformation är synkroniserade. Om du lägger till eller ändrar DNS för ditt VNet, utför du en synkronisera nätverks åtgärd. Den här åtgärden startar om alla appar som använder det här virtuella nätverket.
+* **Sync-nätverk**: åtgärden synkronisera nätverk används endast för funktionen Gateway-beroende VNet-integrering. Att utföra en synkroniserad nätverks åtgärd garanterar att dina certifikat och nätverksinformation är synkroniserade. Om du lägger till eller ändrar DNS för ditt VNet, utför du en synkronisera nätverks åtgärd. Den här åtgärden startar om alla appar som använder det här virtuella nätverket. Den här åtgärden fungerar inte om du använder en app och ett virtuellt nätverk som tillhör olika prenumerationer.
 * **Lägg till vägar: Lägg**till vägar enheter utgående trafik till ditt VNet.
 
 ### <a name="gateway-required-vnet-integration-routing"></a>Gateway-nödvändig VNet-integrering routning

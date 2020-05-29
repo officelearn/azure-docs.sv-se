@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cbfc5667fb35b8f807a3a806dda4647af10e9392
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fe98e04c37172dc6b91c86fab8200022ed860d4f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118219"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170111"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Aktivera och hantera tidpunkts återställning för block-blobar (för hands version)
 
@@ -99,14 +99,19 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## <a name="perform-a-restore-operation"></a>Utföra en återställnings åtgärd
 
-Starta en återställnings åtgärd genom att anropa kommandot Restore-AzStorageBlobRange och ange återställnings punkten som ett UTC- **slutdatum** värde. Du kan ange ett eller flera lexicographical-intervall för blobbar som ska återställas eller utelämna ett intervall för att återställa alla blobbar i alla behållare i lagrings kontot. Återställnings åtgärden kan ta flera minuter att slutföra.
+Starta en återställnings åtgärd genom att anropa kommandot Restore-AzStorageBlobRange och ange återställnings punkten som ett UTC- **slutdatum** värde. Du kan ange lexicographical-intervall för blobbar som ska återställas eller utelämna ett intervall för att återställa alla blobbar i alla behållare i lagrings kontot. Upp till 10 lexicographical-intervall stöds per återställnings åtgärd. Återställnings åtgärden kan ta flera minuter att slutföra.
 
 Tänk på följande regler när du anger ett intervall med blobbar som ska återställas:
 
 - Behållar mönstret som har angetts för start intervallet och slut intervallet måste innehålla minst tre tecken. Det snedstreck (/) som används för att avgränsa ett behållar namn från ett BLOB-namn räknas inte mot det här minimivärdet.
-- Det går bara att ange ett intervall per återställnings åtgärd.
+- Upp till 10 intervall kan anges per återställnings åtgärd.
 - Jokertecken stöds inte. De behandlas som standard tecken.
 - Du kan återställa blobbar i `$root` `$web` behållaren och genom att uttryckligen ange dem i ett intervall som skickas till en återställnings åtgärd. - `$root` Och- `$web` behållare återställs endast om de uttryckligen anges. Andra system behållare kan inte återställas.
+
+> [!IMPORTANT]
+> När du utför en återställnings åtgärd, Azure Storage blockera data åtgärder på Blobbarna i de intervall som återställs under drift tiden. Läs-, skriv-och borttagnings åtgärder blockeras på den primära platsen. Därför kan åtgärder som att Visa behållare i Azure Portal inte utföras som förväntat medan återställnings åtgärden pågår.
+>
+> Läs åtgärder från den sekundära platsen kan fortsätta under återställnings åtgärden om lagrings kontot är geo-replikerat.
 
 ### <a name="restore-all-containers-in-the-account"></a>Återställ alla behållare i kontot
 
@@ -147,7 +152,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 ### <a name="restore-multiple-ranges-of-block-blobs"></a>Återställa flera intervall av block blobbar
 
-Om du vill återställa flera intervall block blobbar anger du en matris med intervall för `-BlobRestoreRange` parametern. I följande exempel återställs det fullständiga innehållet i *container1* och *container4*:
+Om du vill återställa flera intervall block blobbar anger du en matris med intervall för `-BlobRestoreRange` parametern. Upp till 10 intervall stöds per återställnings åtgärd. I följande exempel anges två intervall för att återställa det fullständiga innehållet i *container1* och *container4*:
 
 ```powershell
 $range1 = New-AzStorageBlobRangeToRestore -StartRange container1 -EndRange container2

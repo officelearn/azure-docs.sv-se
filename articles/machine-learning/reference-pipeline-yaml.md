@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: cee6de8fda45c429d0c74a3ecdc966b49e092567
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0bf5a722c611f4d1c5446eb739fdd95b7edbc934
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208507"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170536"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definiera pipeliner för Machine Learning i YAML
 
@@ -25,22 +25,23 @@ I följande tabell visas vad som inte stöds för närvarande när du definierar
 
 | Steg typ | Stöds? |
 | ----- | :-----: |
-| PythonScriptStep | Ja |
-| AdlaStep | Ja |
-| AzureBatchStep | Ja |
-| DatabricksStep | Ja |
-| DataTransferStep | Ja |
-| AutoMLStep | Nej |
-| HyperDriveStep | Nej |
-| ModuleStep | Ja |
-| MPIStep | Nej |
-| EstimatorStep | Nej |
+| PythonScriptStep | Yes |
+| ParallelRunStep | Yes |
+| AdlaStep | Yes |
+| AzureBatchStep | Yes |
+| DatabricksStep | Yes |
+| DataTransferStep | Yes |
+| AutoMLStep | No |
+| HyperDriveStep | No |
+| ModuleStep | Yes |
+| MPIStep | No |
+| EstimatorStep | No |
 
 ## <a name="pipeline-definition"></a>Pipeline-definition
 
 En pipeline-definition använder följande nycklar som motsvarar [pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py) -klassen:
 
-| YAML-nyckel | Beskrivning |
+| YAML-nyckel | Description |
 | ----- | ----- |
 | `name` | En beskrivning av pipelinen. |
 | `parameters` | Parameter (er) till pipelinen. |
@@ -52,12 +53,12 @@ En pipeline-definition använder följande nycklar som motsvarar [pipelines](htt
 
 I `parameters` avsnittet används följande nycklar som motsvarar klassen [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py) :
 
-| YAML-nyckel | Beskrivning |
+| YAML-nyckel | Description |
 | ---- | ---- |
-| `type` | Värde typen för parametern. Giltiga typer är `string`, `int` `float` `bool`,, eller `datapath`. |
+| `type` | Värde typen för parametern. Giltiga typer är `string` ,,, `int` `float` `bool` eller `datapath` . |
 | `default` | Standardvärdet. |
 
-Varje parameter kallas. Följande yaml-kodfragment definierar till exempel tre parametrar med namnet `NumIterationsParameter`, `DataPathParameter`, och `NodeCountParameter`:
+Varje parameter kallas. Följande YAML-kodfragment definierar till exempel tre parametrar med namnet `NumIterationsParameter` , `DataPathParameter` , och `NodeCountParameter` :
 
 ```yaml
 pipeline:
@@ -80,12 +81,12 @@ pipeline:
 
 I `data_references` avsnittet används följande nycklar, som motsvarar [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py):
 
-| YAML-nyckel | Beskrivning |
+| YAML-nyckel | Description |
 | ----- | ----- |
 | `datastore` | Data lagret som ska refereras. |
 | `path_on_datastore` | Den relativa sökvägen i lagrings utrymmet för data referensen. |
 
-Varje data referens finns i en nyckel. Följande YAML-kodfragment definierar till exempel en data referens som lagras i nyckeln med namnet `employee_data`:
+Varje data referens finns i en nyckel. Följande YAML-kodfragment definierar till exempel en data referens som lagras i nyckeln med namnet `employee_data` :
 
 ```yaml
 pipeline:
@@ -102,21 +103,22 @@ pipeline:
 
 ## <a name="steps"></a>Steg
 
-Stegen definierar en beräknings miljö, tillsammans med de filer som ska köras i miljön. Använd `type` nyckeln för att definiera typen av steg:
+Stegen definierar en beräknings miljö, tillsammans med de filer som ska köras i miljön. Använd nyckeln för att definiera typen av steg `type` :
 
-| Steg typ | Beskrivning |
+| Steg typ | Description |
 | ----- | ----- |
 | `AdlaStep` | Kör ett U-SQL-skript med Azure Data Lake Analytics. Motsvarar klassen [AdlaStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py) . |
 | `AzureBatchStep` | Kör jobb med Azure Batch. Motsvarar klassen [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py) . |
 | `DatabricsStep` | Lägger till en Databricks Notebook, Python-skript eller JAR. Motsvarar klassen [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) . |
 | `DataTransferStep` | Överför data mellan lagrings alternativ. Motsvarar klassen [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) . |
 | `PythonScriptStep` | Kör ett Python-skript. Motsvarar klassen [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) . |
+| `ParallelRunStep` | Kör ett Python-skript för att bearbeta stora mängder data asynkront och parallellt. Motsvarar klassen [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) . |
 
 ### <a name="adla-step"></a>ADLA-steg
 
-| YAML-nyckel | Beskrivning |
+| YAML-nyckel | Description |
 | ----- | ----- |
-| `script_name` | Namnet på U-SQL-skriptet (relativt till `source_directory`). |
+| `script_name` | Namnet på U-SQL-skriptet (relativt till `source_directory` ). |
 | `compute_target` | Det Azure Data Lake beräknings mål som ska användas för det här steget. |
 | `parameters` | [Parametrar](#parameters) för pipelinen. |
 | `inputs` | Indata kan vara [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -165,7 +167,7 @@ pipeline:
 
 ### <a name="azure-batch-step"></a>Azure Batch steg
 
-| YAML-nyckel | Beskrivning |
+| YAML-nyckel | Description |
 | ----- | ----- |
 | `compute_target` | Det Azure Batch beräknings mål som ska användas för det här steget. |
 | `inputs` | Indata kan vara [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -176,7 +178,7 @@ pipeline:
 | `delete_batch_job_after_finish` | Boolesk flagga för att ange om jobbet ska tas bort från batch-kontot när det är klart. |
 | `delete_batch_pool_after_finish` | Boolesk flagga för att ange om poolen ska tas bort när jobbet har slutförts. |
 | `is_positive_exit_code_failure` | Boolesk flagga som anger om jobbet Miss lyckas om aktiviteten avslutas med en positiv kod. |
-| `vm_image_urn` | Om `create_pool` är `True`, och virtuell dator `VirtualMachineConfiguration`använder. |
+| `vm_image_urn` | Om `create_pool` är `True` , och virtuell dator använder `VirtualMachineConfiguration` . |
 | `pool_id` | ID för poolen där jobbet ska köras. |
 | `allow_reuse` | Bestämmer om steget ska återanvända tidigare resultat när de körs igen med samma inställningar. |
 
@@ -219,7 +221,7 @@ pipeline:
 
 ### <a name="databricks-step"></a>Databricks-steg
 
-| YAML-nyckel | Beskrivning |
+| YAML-nyckel | Description |
 | ----- | ----- |
 | `compute_target` | Det Azure Databricks beräknings mål som ska användas för det här steget. |
 | `inputs` | Indata kan vara [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -273,7 +275,7 @@ pipeline:
 
 ### <a name="data-transfer-step"></a>Data överförings steg
 
-| YAML-nyckel | Beskrivning |
+| YAML-nyckel | Description |
 | ----- | ----- |
 | `compute_target` | Det Azure Data Factory beräknings mål som ska användas för det här steget. |
 | `source_data_reference` | Inmatnings anslutning som fungerar som källa för data överförings åtgärder. De värden som stöds är [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -317,11 +319,11 @@ pipeline:
 
 ### <a name="python-script-step"></a>Python-skript steg
 
-| YAML-nyckel | Beskrivning |
+| YAML-nyckel | Description |
 | ----- | ----- |
 | `inputs` | Indata kan vara [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
 | `outputs` | Utdata kan vara antingen [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) eller [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
-| `script_name` | Namnet på python-skriptet (relativt till `source_directory`). |
+| `script_name` | Namnet på python-skriptet (relativt till `source_directory` ). |
 | `source_directory` | Katalog som innehåller skriptet, Conda-miljön osv. |
 | `runconfig` | Sökvägen till en `.runconfig` fil. Den här filen är en YAML representation av [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) -klassen. Mer information om strukturen för den här filen finns i [runconfig. JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Bestämmer om steget ska återanvända tidigare resultat när de körs igen med samma inställningar. |
@@ -362,11 +364,63 @@ pipeline:
                     bind_mode: mount
 ```
 
+### <a name="parallel-run-step"></a>Parallellt körnings steg
+
+| YAML-nyckel | Description |
+| ----- | ----- |
+| `inputs` | Indata kan vara [dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)eller [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
+| `outputs` | Utdata kan vara antingen [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) eller [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
+| `script_name` | Namnet på python-skriptet (relativt till `source_directory` ). |
+| `source_directory` | Katalog som innehåller skriptet, Conda-miljön osv. |
+| `parallel_run_config` | Sökvägen till en `parallel_run_config.yml` fil. Den här filen är en YAML representation av [ParallelRunConfig](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?view=azure-ml-py) -klassen. |
+| `allow_reuse` | Bestämmer om steget ska återanvända tidigare resultat när de körs igen med samma inställningar. |
+
+Följande exempel innehåller ett parallellt körnings steg:
+
+```yaml
+pipeline:
+    description: SamplePipelineFromYaml
+    default_compute: cpu-cluster
+    data_references:
+        MyMinistInput:
+            dataset_name: mnist_sample_data
+    parameters:
+        PipelineParamTimeout:
+            type: int
+            default: 600
+    steps:        
+        Step1:
+            parallel_run_config: "yaml/parallel_run_config.yml"
+            type: "ParallelRunStep"
+            name: "parallel-run-step-1"
+            allow_reuse: True
+            arguments:
+            - "--progress_update_timeout"
+            - parameter:timeout_parameter
+            - "--side_input"
+            - side_input:SideInputData
+            parameters:
+                timeout_parameter:
+                    source: PipelineParamTimeout
+            inputs:
+                InputData:
+                    source: MyMinistInput
+            side_inputs:
+                SideInputData:
+                    source: Output4
+                    bind_mode: mount
+            outputs:
+                OutputDataStep2:
+                    destination: Output5
+                    datastore: workspaceblobstore
+                    bind_mode: mount
+```
+
 ### <a name="pipeline-with-multiple-steps"></a>Pipeline med flera steg 
 
-| YAML-nyckel | Beskrivning |
+| YAML-nyckel | Description |
 | ----- | ----- |
-| `steps` | Sekvens av en eller flera PipelineStep-definitioner. Observera att `destination` nycklarna i ett steg `outputs` blir `source` nycklar till `inputs` nästa steg.| 
+| `steps` | Sekvens av en eller flera PipelineStep-definitioner. Observera att `destination` nycklarna i ett steg `outputs` blir `source` nycklar till `inputs` Nästa steg.| 
 
 ```yaml
 pipeline:
@@ -425,7 +479,7 @@ pipeline:
 
 När du definierar schemat för en pipeline kan det vara antingen data lager utlösta eller återkommande baserat på ett tidsintervall. Följande är de nycklar som används för att definiera ett schema:
 
-| YAML-nyckel | Beskrivning |
+| YAML-nyckel | Description |
 | ----- | ----- |
 | `description` | En beskrivning av schemat. |
 | `recurrence` | Innehåller inställningar för upprepning, om schemat är återkommande. |
@@ -435,8 +489,8 @@ När du definierar schemat för en pipeline kan det vara antingen data lager utl
 | `datastore_name` | Data lagret som ska övervakas för ändrade/tillagda blobbar. |
 | `polling_interval` | Hur lång tid, i minuter, mellan avsökningen av ändrade/tillagda blobbar. Standardvärde: 5 minuter. Stöds endast för data lagrings scheman. |
 | `data_path_parameter_name` | Namnet på den pipeline-parameter för data Sök väg som ska anges med den ändrade BLOB-sökvägen. Stöds endast för data lagrings scheman. |
-| `continue_on_step_failure` | Om ett steg inte kan fortsätta att köra andra steg i den inskickade PipelineRun. Om det `continue_on_step_failure` här alternativet anges åsidosätts inställningen för pipelinen.
-| `path_on_datastore` | Valfritt. Sökvägen till data lagret som ska övervakas för ändrade/tillagda blobbar. Sökvägen är under data lagrets behållare, så den faktiska sökvägen som schema övervakare är container/`path_on_datastore`. Om inget anges, övervakas data lagrets behållare. Tillägg/ändringar som gjorts i en undermapp i `path_on_datastore` övervakas inte. Stöds endast för data lagrings scheman. |
+| `continue_on_step_failure` | Om ett steg inte kan fortsätta att köra andra steg i den inskickade PipelineRun. Om det här alternativet anges åsidosätts `continue_on_step_failure` inställningen för pipelinen.
+| `path_on_datastore` | Valfritt. Sökvägen till data lagret som ska övervakas för ändrade/tillagda blobbar. Sökvägen är under data lagrets behållare, så den faktiska sökvägen som schema övervakare är container/ `path_on_datastore` . Om inget anges, övervakas data lagrets behållare. Tillägg/ändringar som gjorts i en undermapp i `path_on_datastore` övervakas inte. Stöds endast för data lagrings scheman. |
 
 I följande exempel visas definitionen för ett data lager som utlöses:
 
@@ -454,18 +508,18 @@ Schedule:
       path_on_datastore: "file/path" 
 ```
 
-När du definierar ett **återkommande schema**, använder du följande nycklar `recurrence`under:
+När du definierar ett **återkommande schema**, använder du följande nycklar under `recurrence` :
 
-| YAML-nyckel | Beskrivning |
+| YAML-nyckel | Description |
 | ----- | ----- |
-| `frequency` | Hur ofta schemat ska upprepas. Giltiga värden är `"Minute"`, `"Hour"` `"Day"` `"Week"`,, eller `"Month"`. |
+| `frequency` | Hur ofta schemat ska upprepas. Giltiga värden är `"Minute"` ,,, `"Hour"` `"Day"` `"Week"` eller `"Month"` . |
 | `interval` | Hur ofta schemat utlöses. Heltal svärdet är antalet tidsenheter som ska vänta tills schemat utlöses igen. |
-| `start_time` | Start tiden för schemat. Sträng formatet för värdet är `YYYY-MM-DDThh:mm:ss`. Om ingen start tid anges körs den första arbets belastningen direkt och framtida arbets belastningar körs baserat på schemat. Om start tiden har passerat körs den första arbets belastningen vid nästa beräknade körnings tid. |
+| `start_time` | Start tiden för schemat. Sträng formatet för värdet är `YYYY-MM-DDThh:mm:ss` . Om ingen start tid anges körs den första arbets belastningen direkt och framtida arbets belastningar körs baserat på schemat. Om start tiden har passerat körs den första arbets belastningen vid nästa beräknade körnings tid. |
 | `time_zone` | Tids zonen för start tiden. Om ingen tidszon anges används UTC. |
-| `hours` | Om `frequency` är `"Day"` eller `"Week"`kan du ange ett eller flera heltal från 0 till 23, avgränsade med kommatecken, som de timmar på dagen då pipelinen ska köras. Endast `time_of_day` eller `hours` och `minutes` kan användas. |
-| `minutes` | Om `frequency` är `"Day"` eller `"Week"`kan du ange ett eller flera heltal från 0 till 59, avgränsade med kommatecken, som minuter i timmen då pipelinen ska köras. Endast `time_of_day` eller `hours` och `minutes` kan användas. |
-| `time_of_day` | Om `frequency` är `"Day"` eller `"Week"`kan du ange en tid på dagen då schemat ska köras. Sträng formatet för värdet är `hh:mm`. Endast `time_of_day` eller `hours` och `minutes` kan användas. |
-| `week_days` | `frequency` I så fall kan du ange en eller flera dagar, avgränsade med kommatecken, när schemat ska `"Week"`köras. Giltiga värden är `"Monday"`, `"Tuesday"` `"Wednesday"` `"Thursday"` `"Friday"`,,,, och `"Sunday"` `"Saturday"` |
+| `hours` | Om `frequency` är `"Day"` eller `"Week"` kan du ange ett eller flera heltal från 0 till 23, avgränsade med kommatecken, som de timmar på dagen då pipelinen ska köras. Endast `time_of_day` eller `hours` och `minutes` kan användas. |
+| `minutes` | Om `frequency` är `"Day"` eller `"Week"` kan du ange ett eller flera heltal från 0 till 59, avgränsade med kommatecken, som minuter i timmen då pipelinen ska köras. Endast `time_of_day` eller `hours` och `minutes` kan användas. |
+| `time_of_day` | Om `frequency` är `"Day"` eller `"Week"` kan du ange en tid på dagen då schemat ska köras. Sträng formatet för värdet är `hh:mm` . Endast `time_of_day` eller `hours` och `minutes` kan användas. |
+| `week_days` | I så fall `frequency` `"Week"` kan du ange en eller flera dagar, avgränsade med kommatecken, när schemat ska köras. Giltiga värden är,,,,, `"Monday"` `"Tuesday"` `"Wednesday"` `"Thursday"` `"Friday"` `"Saturday"` och `"Sunday"` . |
 
 Följande exempel innehåller definitionen för ett återkommande schema:
 

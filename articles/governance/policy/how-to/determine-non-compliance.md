@@ -3,12 +3,12 @@ title: Fastställa orsaker till icke-kompatibilitet
 description: När en resurs är icke-kompatibel finns det många möjliga orsaker. Lär dig hur du tar reda på vad som orsakade bristande efterlevnad.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b26357e9957259470049209913501cc024caeaa
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 05405671900e8734ee1536cfc00fd5203a145124
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684242"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168564"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -188,7 +188,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="change-history-preview"></a><a name="change-history"/>Ändrings historik (förhands granskning)
+## <a name="change-history-preview"></a><a name="change-history"></a>Ändrings historik (förhands granskning)
 
 Som en del av en ny **offentlig för hands version**är de 14 senaste dagarna i ändrings historiken tillgängliga för alla Azure-resurser som stöder [borttagning av fullständigt läge](../../../azure-resource-manager/templates/complete-mode-deletion.md). Ändrings historiken innehåller information om när en ändring upptäcktes och en _visuell skillnad_ för varje ändring. En ändrings identifiering utlöses när Resource Manager-egenskaperna läggs till, tas bort eller ändras.
 

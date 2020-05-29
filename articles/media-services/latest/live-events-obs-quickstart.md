@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 04/16/2020
-ms.openlocfilehash: 74aa17fb17d682449bd817945c3b8bbf3f95363e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 671609fc1db7325823e8ac40b2b8153682596588
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726615"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147825"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Skapa en Azure Media Services Live Stream med ONLINEBANKSYSTEM
 
@@ -26,9 +26,9 @@ I den här snabb starten tar vi upp:
 - Kör en standard slut punkt för direkt uppspelning.
 - Använd Azure Media Player för att Visa Live Stream och utdata på begäran.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -147,7 +147,7 @@ I nästa procedur går du tillbaka till Azure Media Services i webbläsaren för
 
    ![ONLINEBANKSYSTEM-inställningar för utdata](media/live-events-obs-quickstart/live-event-obs-advanced-output-settings.png)
 
-1. Lämna resten av inställningarna utan risk och klicka på **OK**.
+1. Lämna resten av inställningarna oförändrade och klicka på **OK**.
 
 ### <a name="start-streaming"></a>Starta direkt uppspelning
 

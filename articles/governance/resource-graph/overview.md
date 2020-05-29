@@ -3,12 +3,12 @@ title: Översikt över Azure Resource Graph
 description: Förstå hur Azure Resource Graph-tjänsten möjliggör komplexa frågor om resurser i stor skala över prenumerationer och klienter.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: c3ac82c823df8cdde7b616b62ee409de500b5990
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995866"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167272"
 ---
 # <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph?
 
@@ -22,7 +22,7 @@ Azure Resource Graph är en tjänst i Azure som är utformad för att utöka Azu
 I den här dokumentationen går vi igenom varje funktion i detalj.
 
 > [!NOTE]
-> Azure Resource Graph-befogenheter Azure Portal Sök fältet, den nya webbläsaren "alla resurser" och Azure policy [ändrings historikens](../policy/how-to/determine-non-compliance.md#change-history-preview) 
+> Azure Resource Graph-befogenheter Azure Portal Sök fältet, den nya webbläsaren "alla resurser" och Azure policy [ändrings historikens](../policy/how-to/determine-non-compliance.md#change-history) 
 >  _visuella skillnad_. Den är utformad för att hjälpa kunder att hantera storskaliga miljöer.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]

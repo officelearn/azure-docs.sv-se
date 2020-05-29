@@ -4,12 +4,12 @@ description: Lär dig mer om lagring i Azure Kubernetes service (AKS), inklusive
 services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4bb19d7da971a82aef9c0e1fc092cc648ac49c4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 643d25e99bef191bfce77f092a9f2218c891a442
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77596002"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171386"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Lagrings alternativ för program i Azure Kubernetes service (AKS)
 
@@ -55,12 +55,14 @@ En PersistentVolume kan skapas *statiskt* av en kluster administratör eller *dy
 
 Om du vill definiera olika lagrings nivåer, till exempel Premium och standard, kan du skapa en *StorageClass*. StorageClass definierar också *reclaimPolicy*. Den här reclaimPolicy styr beteendet för den underliggande Azure Storage-resursen när Pod tas bort och den permanenta volymen kanske inte längre krävs. Den underliggande lagrings resursen kan tas bort eller sparas för användning med en framtida pod.
 
-I AKS skapas två inledande StorageClasses:
+I AKS skapas fyra inledande StorageClasses:
 
-- *standard* – använder Azure standard Storage för att skapa en hanterad disk. Anspråks principen anger att den underliggande Azure-disken tas bort när den permanenta volym som användes är borttagen.
+- *standard* – använder Azure StandardSSD Storage för att skapa en hanterad disk. Anspråks principen anger att den underliggande Azure-disken tas bort när den permanenta volym som användes är borttagen.
 - *Managed-Premium* – använder Azure Premium Storage för att skapa en hanterad disk. Reclaim-principen igen anger att den underliggande Azure-disken tas bort när den permanenta volym som användes är borttagen.
+- *azurefile* – använder Azure standard Storage för att skapa en Azure-filresurs. Anspråks principen anger att den underliggande Azure-filresursen tas bort när den permanenta volym som användes är borttagen.
+- *azurefile – Premium* – använder Azure Premium Storage för att skapa en Azure-filresurs. Anspråks principen anger att den underliggande Azure-filresursen tas bort när den permanenta volym som användes är borttagen.
 
-Om ingen StorageClass har angetts för en beständig volym används standard-StorageClass. Var försiktig när du begär beständiga volymer så att de använder rätt lagrings utrymme som du behöver. Du kan skapa en StorageClass för ytterligare behov med `kubectl`hjälp av. I följande exempel används Premium-Managed Disks och anger att den underliggande Azure-disken ska *behållas* när Pod tas bort:
+Om ingen StorageClass har angetts för en beständig volym används standard-StorageClass. Var försiktig när du begär beständiga volymer så att de använder rätt lagrings utrymme som du behöver. Du kan skapa en StorageClass för ytterligare behov med hjälp av `kubectl` . I följande exempel används Premium-Managed Disks och anger att den underliggande Azure-disken ska *behållas* när Pod tas bort:
 
 ```yaml
 kind: StorageClass

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: bfb70aaa092cc62fbff87e9e3e327ee7364f8701
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 540c3eace72a1692a927916a48f772047115375f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833821"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167255"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Undantag och fel koder för designern (för hands version)
 
@@ -1106,7 +1106,7 @@ Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
 
  Om det finns ett SQL-genererat meddelande som rapporter ATS av ett modul undantag, vidta åtgärder baserat på det rapporterade felet. Fel meddelandena innehåller till exempel ibland speciell vägledning om det troliga felet:
 + *Ingen sådan kolumn eller saknad databas*, vilket indikerar att du har angett ett kolumn namn som fel. Om du är säker på att kolumn namnet är korrekt kan du prova att använda hakparenteser eller citat tecken för att omsluta kolumn-ID: n.
-+ *SQL Logic-fel nära \< SQL- \> nyckelord*, som anger att du kan ha ett syntaxfel före det angivna nyckelordet
++ *SQL Logic-fel \<SQL keyword\> nära *, vilket indikerar att du kan ha ett syntaxfel före det angivna nyckelordet
 
   
 |Undantags meddelanden|
@@ -1500,7 +1500,7 @@ Lösning:
 
 
 ## <a name="error-0159"></a>Fel 0159
- Ett undantags fel uppstår om den har skickats till modulens modell katalog är ogiltig. 
+ Undantag uppstår om modul modell katalogen är ogiltig. 
 
 |Undantags meddelanden|
 |------------------------------------------------------------|

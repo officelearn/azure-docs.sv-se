@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 66682e953e4e262604d1b0c07720ebaab5995364
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 38f6cfef60cf3bfe66742cba204d74db1c22ca77
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195219"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169295"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Återställning av tidpunkt för block-blobar (för hands version)
 
@@ -26,15 +26,13 @@ Information om hur du aktiverar återställning av tidpunkter för ett lagrings 
 
 Om du vill aktivera återställning vid tidpunkter skapar du en hanterings princip för lagrings kontot och anger en kvarhållningsperiod. Under kvarhållningsperioden kan du återställa block-blobbar från det aktuella läget till ett tillstånd vid en tidigare tidpunkt.
 
-Om du vill initiera en tidpunkts återställning anropar du åtgärden [Återställ BLOB-intervall](/rest/api/storagerp/storageaccounts/restoreblobranges) och anger en återställnings punkt i UTC-tid. Du kan ange ett lexicographical-intervall för behållare och blob-namn som ska återställas, eller utelämna intervallet för att återställa alla behållare i lagrings kontot. Åtgärden **Återställ BLOB-intervall** returnerar ett återställnings-ID som unikt identifierar åtgärden.
+Om du vill initiera en tidpunkts återställning anropar du åtgärden [Återställ BLOB-intervall](/rest/api/storagerp/storageaccounts/restoreblobranges) och anger en återställnings punkt i UTC-tid. Du kan ange lexicographical-intervall för behållare och blob-namn som ska återställas, eller utelämna intervallet för att återställa alla behållare i lagrings kontot. Upp till 10 lexicographical-intervall stöds per återställnings åtgärd.
 
 Azure Storage analyserar alla ändringar som har gjorts i de angivna Blobbarna mellan den begärda återställnings punkten, anges i UTC-tid och för tillfället. Återställnings åtgärden är Atomic, så den slutförs fullständigt i återställningen av alla ändringar, eller så Miss lyckas den. Om det finns blobbar som inte kan återställas, Miss lyckas åtgärden och Läs-och skriv åtgärder till de berörda behållarna återupptas.
 
-När du begär en återställnings åtgärd, Azure Storage blockera data åtgärder på Blobbarna i det intervall som återställs under drifts tiden. Läs-, skriv-och borttagnings åtgärder blockeras på den primära platsen. Läs åtgärder från den sekundära platsen kan fortsätta under återställnings åtgärden om lagrings kontot är geo-replikerat.
-
 Endast en återställnings åtgärd kan köras på ett lagrings konto i taget. En återställnings åtgärd kan inte avbrytas när den pågår, men en andra återställnings åtgärd kan utföras för att ångra den första åtgärden.
 
-Om du vill kontrol lera statusen för en tidpunkts återställning anropar du åtgärden **Hämta återställnings status** med det återställnings-ID som returnerades från åtgärden **Återställ BLOB-intervall** .
+Åtgärden **Återställ BLOB-intervall** returnerar ett återställnings-ID som unikt identifierar åtgärden. Om du vill kontrol lera statusen för en tidpunkts återställning anropar du åtgärden **Hämta återställnings status** med det återställnings-ID som returnerades från åtgärden **Återställ BLOB-intervall** .
 
 Tänk på följande begränsningar för återställnings åtgärder:
 
@@ -42,6 +40,11 @@ Tänk på följande begränsningar för återställnings åtgärder:
 - Det går inte att återställa en blob med ett aktivt lån. Om en blob med ett aktivt lån ingår i det intervall med blobbar som ska återställas, Miss Miss kan återställnings åtgärden samköras.
 - Ögonblicks bilder skapas eller tas inte bort som en del av en återställnings åtgärd. Endast bas-bloben återställs till sitt tidigare tillstånd.
 - Om en BLOB har flyttats mellan frekventa och låg frekventa nivåer under perioden mellan den aktuella tidpunkten och återställnings punkten, återställs blobben till den tidigare nivån. En blob som har flyttats till Arkiv nivån kommer dock inte att återställas.
+
+> [!IMPORTANT]
+> När du utför en återställnings åtgärd, Azure Storage blockera data åtgärder på Blobbarna i de intervall som återställs under drift tiden. Läs-, skriv-och borttagnings åtgärder blockeras på den primära platsen. Därför kan åtgärder som att Visa behållare i Azure Portal inte utföras som förväntat medan återställnings åtgärden pågår.
+>
+> Läs åtgärder från den sekundära platsen kan fortsätta under återställnings åtgärden om lagrings kontot är geo-replikerat.
 
 > [!CAUTION]
 > Återställning vid tidpunkt stöder bara återställnings åtgärder på block-blobbar. Det går inte att återställa åtgärder på behållare. Om du tar bort en behållare från lagrings kontot genom att anropa åtgärden [ta bort behållare](/rest/api/storageservices/delete-container) under för hands versionen av tidpunkten för återställning av tidpunkt, kan den behållaren inte återställas med en återställnings åtgärd. Ta bort enskilda blobbar under för hands versionen, i stället för att ta bort en behållare, om du kanske vill återställa dem.

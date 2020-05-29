@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4559cd40bf9482ece80d0b6123ca73b7a0cbb3aa
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677325"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170910"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -31,7 +31,7 @@ Om du får felet "den tillhandahållna manifest filen är ogiltig: ogiltig OVF-m
 2. Om distributionen fortfarande Miss lyckas och du använder VMware vSphere-klienten för att distribuera OVF-filen kan du prova att distribuera den via vSphere-webbklienten. Om distributionen fortfarande Miss lyckas kan du prova att använda en annan webbläsare.
 3. Om du använder vSphere-webbklienten och försöker distribuera den på vCenter Server 6,5 eller 6,7 försöker du att distribuera de ägg som finns direkt på ESXi-värden:
    - Anslut till ESXi-värden direkt (i stället för vCenter Server) med webb klienten (https://<*host IP Address*>/UI).
-   - I **hem** > **inventering**väljer du mall för **fil** > **distribution OVF**. Bläddra till de ägg och slutför distributionen.
+   - I **hem**  >  **inventering**väljer du mall för **fil**  >  **distribution OVF**. Bläddra till de ägg och slutför distributionen.
 4. Kontakta Azure Migrate support om distributionen fortfarande Miss lyckas.
 
 ## <a name="cant-connect-to-the-internet"></a>Det går inte att ansluta till Internet
@@ -135,7 +135,7 @@ Om detta inte fungerar och du identifierar VMware-servrar:
 
 Om identifierade virtuella datorer inte visas i portalen eller om VM-data är inaktuella, väntar du några minuter. Det tar upp till 30 minuter för ändringar i identifierade VM-konfigurationsdata som visas i portalen. Det kan ta några timmar innan ändringar i program data visas. Om det inte finns några data efter den här tiden kan du prova att uppdatera enligt följande
 
-1. I **servrar** > **Azure Migrate Server utvärdering**väljer du **Översikt**.
+1. I **servrar**  >  **Azure Migrate Server utvärdering**väljer du **Översikt**.
 2. Under **Hantera**väljer du **agenthälsa**.
 3. Välj **Uppdatera agent**.
 4. Vänta tills uppdaterings åtgärden har slutförts. Nu bör du se uppdaterad information.
@@ -151,7 +151,7 @@ Azure Migrate stöder identifiering av program, roller och funktioner med hjälp
 Vanliga fel för identifiering av appar sammanfattas i tabellen. 
 
 **Fel** | **Orsak** | **Åtgärd**
---- | --- | --- | ---
+--- | --- | --- 
 10000: "Det gick inte att identifiera de program som är installerade på servern". | Detta kan inträffa om datorns operativ system inte är Windows eller Linux. | Använd endast app Discovery för Windows/Linux.
 10001: "Det gick inte att hämta de program som har installerats på servern". | Internt fel-vissa saknade filer i installationen. | Kontakta Microsoft-supporten.
 10002: "Det gick inte att hämta de program som har installerats på servern". | Identifierings agenten på enheten kanske inte fungerar korrekt. | Kontakta supporten om problemet inte löses inom 24 timmar.
@@ -170,8 +170,8 @@ Vanliga fel för identifiering av appar sammanfattas i tabellen.
 9010: "Det gick inte att hämta de program som har installerats på servern". | Kan vara ett internt fel.  | TF problemet löses inte inom 24 timmar, kontakta supporten.
 9011: "Det gick inte att hitta filen som ska laddas ned från gästen på den virtuella gäst datorn" | Problemet kan uppstå på grund av ett internt fel. | Problemet bör automatiskt lösas på 24 timmar. Om problemet kvarstår kontaktar du Microsoft Support.
 9012: innehållet i resultat filen är tomt. | Problemet kan uppstå på grund av ett internt fel. | Problemet bör automatiskt lösas på 24 timmar. Om problemet kvarstår kontaktar du Microsoft Support.
-9013: "en ny tillfällig profil skapas för varje inloggning till den virtuella VMware-datorn" | En ny tillfällig profil skapas för varje inloggning i den virtuella datorn | Se till att det användar namn som anges i gäst-VM-autentiseringsuppgifterna är i UPN-format.
-9015: "det går inte att ansluta till virtuella VMware-datorer på grund av otillräcklig behörighet på vCenter" | Gäst drifts rollen är inte aktive rad på vCenter-användarkontot | Se till att rollen gäst åtgärder är aktive rad på vCenter-användarkontot.
+9013: "en ny tillfällig profil skapas för varje inloggning till den virtuella VMware-datorn" | En ny tillfällig profil skapas för varje inloggning i den virtuella datorn. | Se till att användar namnet som anges i autentiseringsuppgifterna för gäst-VM är i UPN-format. När du har ändrat användar namnet som finns i gästens autentiseringsuppgifter för virtuella gäst datorer till UPN-format, startar du om tjänsten Microsoft Azure VMWare Discovery för att hitta den nya identifieringen i aktivitets hanteraren.
+9015: "det går inte att ansluta till virtuella VMware-datorer på grund av otillräcklig behörighet på vCenter" | Gäst drifts rollen är inte aktive rad på vCenter-användarkontot. | Se till att rollen gäst åtgärder är aktive rad på vCenter-användarkontot.
 9016: "det går inte att ansluta till virtuella VMware-datorer eftersom gäst åtgärds agenten saknar data" | VMware-verktygen har inte installerats korrekt eller är inte aktuella. | Se till att VMware-verktygen är korrekt installerade och aktuella.
 9017: "Det gick inte att hitta filen med identifierade metadata på den virtuella datorn." | Problemet kan uppstå på grund av ett internt fel. | Kontakta Microsoft Support för att få en lösning.
 9018: PowerShell är inte installerat på de virtuella gäst datorerna. | PowerShell är inte tillgängligt på den virtuella gäst datorn. | Installera PowerShell på den virtuella gäst datorn.
@@ -182,7 +182,7 @@ Vanliga fel för identifiering av appar sammanfattas i tabellen.
 9023: "systemroots miljö variabel värde är tomt". | Okänd | Kontakta Microsoft Support.
 9024: "TEMP-Miljövariabelns värde är tomt". | Okänd | Kontakta Microsoft Support.
 9025: PowerShell är skadat i de virtuella gäst datorerna. | Okänd | Installera om PowerShell på den virtuella gäst datorn och kontrol lera om PowerShell kan köras på den virtuella gäst datorn.
-8084: "Det gick inte att identifiera program på grund av <Exception from VMware>VMware-fel:" | Azure Migrates enheten använder VMware API: er för att identifiera program. Det här problemet kan inträffa om ett undantags fel uppstår i vCenter Server vid försök att identifiera program. Fel meddelandet från VMware visas i fel meddelandet som visas i portalen. | Sök efter meddelandet i VMware- [dokumentationen](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)och följ stegen för att åtgärda problemet. Kontakta Microsoft-supporten om du inte kan åtgärda det.
+8084: "Det gick inte att identifiera program på grund av VMware-fel:  <Exception from VMware> " | Azure Migrates enheten använder VMware API: er för att identifiera program. Det här problemet kan inträffa om ett undantags fel uppstår i vCenter Server vid försök att identifiera program. Fel meddelandet från VMware visas i fel meddelandet som visas i portalen. | Sök efter meddelandet i VMware- [dokumentationen](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)och följ stegen för att åtgärda problemet. Kontakta Microsoft-supporten om du inte kan åtgärda det.
 
 
 

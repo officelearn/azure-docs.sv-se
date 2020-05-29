@@ -5,16 +5,18 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 9bb9ee93be4e045b52355255ecb86e54e48e5c5d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 796cf18ae4dbab50eb7f968bda065ae0351f2ae8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117419"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169414"
 ---
 # <a name="remove-vms-from-update-management"></a>Ta bort virtuella datorer från Uppdateringshantering
 
 När du är klar med att distribuera uppdateringar av virtuella datorer i din miljö kan du ta bort dem från [uppdateringshantering](automation-update-management.md) -funktionen.
+
+## <a name="to-remove-your-vms"></a>Ta bort dina virtuella datorer
 
 1. Från ditt Automation-konto väljer du **uppdaterings hantering** under **uppdaterings hantering**.
 

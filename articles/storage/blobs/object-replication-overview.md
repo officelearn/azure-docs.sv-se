@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f633c1816e9e2e977c52ab99b66a26f7d2c4d8e2
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3405a322b8498b0b1a29399811ddf188ea766ca8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800769"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170604"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Objekt replikering för block-blobar (för hands version)
 
@@ -54,7 +54,7 @@ När du skapar en replikeringsprincip, kopieras som standard bara nya block blob
 
 Du kan också ange ett eller flera filter som en del av en replikeringsprincip för att filtrera block blobbar efter prefix. När du anger ett prefix kopieras bara blobbar som matchar det prefixet i käll behållaren till mål behållaren.
 
-Käll-och mål behållarna måste finnas innan du kan ange dem i en regel. När du har skapat replikeringsprincipen blir mål behållaren skrivskyddad. Försök att skriva till mål containern Miss lyckas med felkoden 409 (konflikt). Du kan dock anropa åtgärden [Ange BLOB-nivå](/rest/api/storageservices/set-blob-tier) på en BLOB i mål behållaren för att flytta den till en annan åtkomst nivå. Du kan till exempel flytta blobbar i mål behållaren till Arkiv nivån för att spara kostnader.
+Käll-och mål behållarna måste finnas innan du kan ange dem i en regel. När du har skapat replikeringsprincipen blir mål behållaren skrivskyddad. Försök att skriva till mål containern Miss lyckas med felkoden 409 (konflikt). Du kan dock anropa åtgärden [Ange BLOB-nivå](/rest/api/storageservices/set-blob-tier) på en BLOB i mål behållaren för att flytta den till Arkiv nivån. Mer information om Arkiv nivån finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](storage-blob-storage-tiers.md#archive-access-tier)lag rings nivåer.
 
 ## <a name="about-the-preview"></a>Om för hands versionen
 

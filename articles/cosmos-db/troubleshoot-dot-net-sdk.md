@@ -8,12 +8,12 @@ ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e389df7cfe0e228030d2d0f730fc5e671ad4c052
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 55c462795b29cd678a5fd7816211bce720d554e1
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927640"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170366"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostisera och felsöka problem med Azure Cosmos DB .NET SDK
 
@@ -69,7 +69,7 @@ RequestTimeout sker vanligt vis när du använder direkt/TCP, men kan ske i Gate
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Hög nätverks fördröjning
 Hög nätverks fördröjning kan identifieras med hjälp av den [diagnostiska strängen](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) i v2 SDK eller [diagnostik](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) i v3 SDK.
 
-Om det inte finns några [tids gränser](#request-timeouts) och diagnostiken visar enskilda förfrågningar där den höga svars tiden är tydlig på `ResponseTime` skillnaden `RequestStartTime`mellan och, t. ex. (>300 millisekunder i det här exemplet):
+Om det inte finns några [tids gränser](#request-timeouts) och diagnostiken visar enskilda förfrågningar där den höga svars tiden är tydlig på skillnaden mellan `ResponseTime` och `RequestStartTime` , t. ex. (>300 millisekunder i det här exemplet):
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
@@ -94,10 +94,10 @@ Om din app distribueras på [azure Virtual Machines utan en offentlig IP-adress]
 * Lägg till din Azure Cosmos DB tjänst slut punkt i under nätet för ditt Azure Virtual Machines virtuella nätverk. Mer information finns i [Azure Virtual Network Service-slutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
     När tjänstens slut punkt Aktiver ATS skickas inte längre begär Anden från en offentlig IP-adress till Azure Cosmos DB. I stället skickas det virtuella nätverket och under nätets identitet. Den här ändringen kan leda till att brand väggen släpper om bara offentliga IP-adresser är tillåtna. Om du använder en brand vägg, när du aktiverar tjänstens slut punkt, lägger du till ett undernät i brand väggen med hjälp av [Virtual Network ACL: er](../virtual-network/virtual-networks-acl.md).
-* Tilldela en [offentlig IP-adress till din virtuella Azure-dator](../load-balancer/load-balancer-outbound-connections.md#assignilpip).
+* Tilldela en [offentlig IP-adress till din virtuella Azure-dator](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="http-proxy"></a>HTTP-proxy
-Om du använder en HTTP-proxy kontrollerar du att den har stöd för det antal anslutningar som kon figurer `ConnectionPolicy`ATS i SDK.
+Om du använder en HTTP-proxy kontrollerar du att den har stöd för det antal anslutningar som kon figurer ATS i SDK `ConnectionPolicy` .
 Annars är det problem med ansikts anslutning.
 
 ### <a name="request-rate-too-large"></a><a name="request-rate-too-large"></a>Begäran kostar för stor

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 6fe075d2679ec13217200bc8b0da132e8f4d9b57
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c826b9f813c30a50d8b88b2cca1b188c328465b0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660437"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171658"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java-bibliotek för Mass utförar: Hämta information
 
@@ -43,23 +43,23 @@ ms.locfileid: "83660437"
 
 ## <a name="release-notes"></a>Viktig information
 
-### <a name="2100"></a><a name="2.10.0"/>2.10.0
+### <a name="2100"></a><a name="2.10.0"></a>2.10.0
 
 * Korrigering för DocumentAnalyzer. Java för att korrekt extrahera kapslade nyckel värden från JSON.
 
-### <a name="294"></a><a name="2.9.4"/>2.9.4
+### <a name="294"></a><a name="2.9.4"></a>2.9.4
 
 * Lägg till funktioner i BulkDelete-åtgärder för att försöka igen vid vissa fel och returnera även en lista över fel till användaren som kan provas igen.
 
-### <a name="293"></a><a name="2.9.3"/>2.9.3
+### <a name="293"></a><a name="2.9.3"></a>2.9.3
 
 * Uppdatering för Cosmos SDK-version 2.4.7.
 
-### <a name="292"></a><a name="2.9.2"/>2.9.2
+### <a name="292"></a><a name="2.9.2"></a>2.9.2
 
 * Korrigera för "mergeAll" om du vill fortsätta med "ID" och partitionsnyckel så att alla korrigerade dokument egenskaper som placeras efter "ID" och partitionsnyckel läggs till i listan över uppdaterade objekt.
 
-### <a name="291"></a><a name="2.9.1"/>2.9.1
+### <a name="291"></a><a name="2.9.1"></a>2.9.1
 
 * Uppdatera start grad för samtidighet till 1 och tillagda fel söknings loggar för minibatch.
 

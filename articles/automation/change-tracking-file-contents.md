@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6afa3d4d2d62541a51c3bab85843d41b48397100
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2738605680a7035e4e2da95b0f53b4d5e227304b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118778"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170298"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Hantera ändringsspårning och inventering
 
@@ -22,6 +22,10 @@ Innan du använder procedurerna i den här artikeln bör du kontrol lera att du 
 * [Aktivera Ändringsspårning och inventering genom att bläddra i Azure Portal](automation-enable-changes-from-browse.md)
 * [Aktivera Ändringsspårning och inventering från en runbook](automation-enable-changes-from-runbook.md)
 * [Aktivera Ändringsspårning och inventering från en virtuell Azure-dator](automation-enable-changes-from-vm.md)
+
+## <a name="limit-the-scope-for-the-deployment"></a><a name="scope-configuration"></a>Begränsa omfånget för distributionen
+
+Ändringsspårning och inventering använder en omfattnings konfiguration i arbets ytan för att rikta in de datorer som ska ta emot ändringar. Mer information finns i [begränsa ändringsspårning och distributions omfång för lager](automation-scope-configurations-change-tracking.md).
 
 ## <a name="track-files"></a>Spåra filer
 
@@ -137,7 +141,7 @@ Använd följande steg för att konfigurera register nyckel spårning på Window
 
 Du kan utföra olika sökningar mot Azure Monitor loggar för ändrings poster. När sidan ändrings spårning är öppen klickar du på **Log Analytics** för att öppna sidan loggar. Följande tabell innehåller exempel på loggs ökningar för ändrings poster.
 
-|Söka i data  |Beskrivning  |
+|Söka i data  |Description  |
 |---------|---------|
 |`ConfigurationData`<br>&#124;`where ConfigDataType == "Microsoft services" and SvcStartupType == "Auto"`<br>&#124;`where SvcState == "Stopped"`<br>&#124;`summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Visar de senaste inventerings posterna för Microsoft-tjänster som har ställts in på auto men som har rapporter ATS som stoppade. Resultaten är begränsade till den senaste posten för det angivna program namnet och datorn.    |
 |`ConfigurationChange`<br>&#124;`where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124;`order by TimeGenerated desc`|Visar ändrings poster för borttagen program vara.|
@@ -165,5 +169,8 @@ Vi ska använda det här exemplet för att diskutera stegen för att skapa avise
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Information om scope-konfigurationer finns i [begränsa ändringsspårning och distributions omfång för lager](automation-scope-configurations-change-tracking.md).
 * Om du behöver söka i loggar som lagras i din Log Analytics-arbetsyta, se [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
+* Om du är färdig med distributioner kan du läsa [ta bort arbets ytan från Automation-kontot för ändringsspårning och inventering](automation-unlink-workspace-change-tracking.md).
+* Information om hur du tar bort virtuella datorer från Ändringsspårning och inventering finns i [ta bort virtuella datorer från ändringsspårning och inventering](automation-remove-vms-from-change-tracking.md).
 * Information om hur du felsöker funktions fel finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 254ff2906d2b80b6c34ba930daffbb2c65f2b22f
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: bcb457cd9c2e1bb829ddb90008cc5334db0def8b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117931"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167374"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Aktivera Uppdateringshantering från en virtuell Azure-dator
 
@@ -29,7 +29,7 @@ I den här artikeln beskrivs hur du kan använda en virtuell Azure-dator för at
 
 Logga in på Azure Portal på https://portal.azure.com.
 
-## <a name="enable-update-management"></a>Aktivera uppdateringshantering
+## <a name="enable-the-feature-for-deployment"></a>Aktivera funktionen för distribution
 
 1. I [Azure Portal](https://portal.azure.com)väljer du **virtuella datorer** eller söker efter och väljer **virtuella datorer** från start sidan.
 
@@ -43,16 +43,9 @@ Logga in på Azure Portal på https://portal.azure.com.
 
     ![Aktivera uppdateringshantering](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-## <a name="limit-the-scope-for-the-deployment"></a><a name="scope-configuration"></a>Begränsa omfånget för distributionen
-
-Uppdateringshantering använder en omfattnings konfiguration i arbets ytan för att rikta in de datorer som ska ta emot uppdateringar. Mer information finns i [begränsa uppdateringshantering distributions omfång](automation-scope-configurations-update-management.md).
-
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du vill använda Uppdateringshantering för virtuella datorer läser du [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).
-* För konfiguration av omfattningar, se [begränsa uppdateringshantering distributions omfång](automation-scope-configurations-update-management.md).
-* Om du inte längre behöver Log Analytics arbets ytan går du till anvisningar i [ta bort länk till arbets yta från Automation-konto för uppdateringshantering](automation-unlink-workspace-update-management.md).
-* Om du vill ta bort virtuella datorer från Uppdateringshantering, se [ta bort virtuella datorer från uppdateringshantering](automation-remove-vms-from-update-management.md).
 * Information om hur du felsöker allmänna Uppdateringshantering fel finns i [felsöka uppdateringshantering problem](troubleshoot/update-management.md).
 * Information om hur du felsöker problem med Windows Update-agenten finns i [Felsöka problem med Windows Update-agenten](troubleshoot/update-agent-issues.md).
 * Information om hur du felsöker problem med Linux Update-agenten finns i[Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).

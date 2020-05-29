@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: d5484f5725047201770e5b3cbab89847b27117f9
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 75c8d52a750567d3b34ad2aea236477ca8c97245
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116926"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171420"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Komma igång med Azure Synapse Analytics
 
@@ -24,13 +24,12 @@ Den här självstudien vägleder dig genom alla grundläggande steg som krävs f
 
 * Öppna [Azure Portal](https://portal.azure.com)
 * Skapa ett nytt lagrings konto med följande inställningar:
-    |Flik|Inställningen | Föreslaget värde | Beskrivning |
+    |Flik|Inställningen | Föreslaget värde | Description |
     |---|---|---|---|
     |Grundläggande inställningar|**Lagrings konto namn**| Du kan ge den namnet.|I det här dokumentet kommer vi att se det som `contosolake` .|
     |Grundläggande inställningar|**Typ av konto**|Måste anges till`StorageV2`||
     |Grundläggande inställningar|**Position**|Du kan välja valfri plats| Vi rekommenderar att ditt Synapse-konto för arbets yta och Azure Data Lake Storage (ADLS) är i samma region.|
     |Avancerat|**Data Lake Storage Gen2**|`Enabled`| Azure Synapse fungerar bara med lagrings konton där den här inställningen är aktive rad.|
-    |||||
 
 1. När lagrings kontot har skapats väljer du **åtkomst kontroll (IAM)** i det vänstra navigerings fältet. Tilldela sedan följande roller eller se till att de redan har tilldelats. 
     a. * Tilldela dig själv **ägar** rollen på lagrings kontot b. * Tilldela dig själv rollen som **Storage BLOB data-ägare** på lagrings kontot
@@ -42,11 +41,10 @@ Den här självstudien vägleder dig genom alla grundläggande steg som krävs f
 * I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**
 * Välj **+ Lägg** till för att skapa en ny arbets yta med de här inställningarna
 
-    |Flik|Inställningen | Föreslaget värde | Beskrivning |
+    |Flik|Inställningen | Föreslaget värde | Description |
     |---|---|---|---|
     |Grundläggande inställningar|**Namn på arbetsyta**|Du kan anropa det något.| I det här dokumentet kommer vi att använda`myworkspace`|
     |Grundläggande inställningar|**Region**|Matcha lagrings kontots region|
-    ||||
 
 1. Under **välj Data Lake Storage gen 2**väljer du det konto och den behållare som du skapade tidigare.
     > [!NOTE]
@@ -79,10 +77,9 @@ När din Synapse-arbetsyta har skapats kan du öppna Synapse Studio på två sä
 1. Välj **+ ny** och ange följande inställningar:
 
     |Inställningen | Föreslaget värde | 
-    |---|---|---|
+    |---|---|
     |**SQL-poolnamn**| `SQLDB1`|
     |**Prestanda nivå**|`DW100C`|
-    |||
 
 1. Välj **Granska + skapa** och välj sedan **skapa**.
 1. SQL-poolen är klar om några minuter.
@@ -100,11 +97,10 @@ När SQL-poolen skapas kommer den att associeras med en SQL-adresspool som ocks�
 1. Välj **+ ny** och ange följande inställningar:
 
     |Inställningen | Föreslaget värde | 
-    |---|---|---|
+    |---|---|
     |**Namn på Apache Spark bassäng**|`Spark1`
     |**Node-storlek**| `Small`|
     |**Antal noder**| Ange minst 3 och maximalt 3|
-    |||
 
 1. Välj **Granska + skapa** och välj sedan **skapa**.
 1. Apache Spark-poolen är klar efter några sekunder.
@@ -333,11 +329,10 @@ Du kan länka en Power BI arbets yta till din Synapse-arbetsyta. På så sätt k
 1. Välj **+ nytt** och välj **Anslut till Power BI** och ange följande fält:
 
     |Inställningen | Föreslaget värde | 
-    |---|---|---|
+    |---|---|
     |**Namn**|`NYCTaxiWorkspace1`|
     |**Namn på arbetsyta**|`NYCTaxiWorkspace1`|
-    |||
-    
+        
 1. Välj **Skapa**.
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-synapse-workspace"></a>Skapa en Power BI-datauppsättning som använder data i din Synapse-arbetsyta

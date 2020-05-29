@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5dcdd1604674ca56fb7a646d4c571d63bd2c0e3e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: dc2b76a31982a3f72da02348c1a4796212887cb7
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596962"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168258"
 ---
 # <a name="configure-azure-sql-edge-preview"></a>Konfigurera Azure SQL Edge (för hands version)
 
@@ -72,7 +72,7 @@ Azure SQL Edge inkluderar inte [konfigurations verktyget MSSQL-conf](/sql/linux/
 ```
 
 Följande MSSQL. conf-alternativ gäller inte för SQL Edge:
-</br></br>
+
 |Alternativ|Description|
 |:---|:---|
 |**Kundfeedback** | Välj om SQL Server skicka feedback till Microsoft. |

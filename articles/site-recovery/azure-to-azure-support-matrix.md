@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 970046f000a844ce6ee7207ad1bb33f4a327a63d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 484a0e6e7c4beaffc86aaf26964ea1ec1736dd52
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848115"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171437"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -256,7 +256,7 @@ Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per di
 ## <a name="replicated-machines---networking"></a>Replikerade datorer – nätverk
 **Inställning** | **Support** | **Information**
 --- | --- | ---
-NIC | Maximalt antal som stöds för en angiven storlek på virtuell Azure-dator | Nätverkskort skapas när den virtuella datorn skapas under redundansväxling.<br/><br/> Antalet nätverkskort på den virtuella redundansväxlingen är beroende av antalet nätverkskort på den virtuella käll datorn när replikering har Aktiver ATS. Om du lägger till eller tar bort ett nätverkskort efter att ha aktiverat replikering, påverkar det inte antalet nätverkskort på den replikerade virtuella datorn efter redundansväxlingen. Observera också att ordningen på nätverkskort efter redundansväxlingen inte garanterat är densamma som den ursprungliga ordningen.
+NIC | Maximalt antal som stöds för en angiven storlek på virtuell Azure-dator | Nätverkskort skapas när den virtuella datorn skapas under redundansväxling.<br/><br/> Antalet nätverkskort på den virtuella redundansväxlingen är beroende av antalet nätverkskort på den virtuella käll datorn när replikering har Aktiver ATS. Om du lägger till eller tar bort ett nätverkskort efter att ha aktiverat replikering, påverkar det inte antalet nätverkskort på den replikerade virtuella datorn efter redundansväxlingen. <br/><br/> Ordningen på nätverkskort efter redundansväxlingen är inte garanterat densamma som den ursprungliga ordningen. <br/><br/> Du kan byta namn på nätverkskort i mål regionen baserat på organisationens namngivnings konventioner.
 Internet-lastbalanserare | Stöds | Koppla den förkonfigurerade belastningsutjämnaren med hjälp av ett Azure Automation-skript i en återställnings plan.
 Intern belastningsutjämnare | Stöds | Koppla den förkonfigurerade belastningsutjämnaren med hjälp av ett Azure Automation-skript i en återställnings plan.
 Offentlig IP-adress | Stöds | Koppla en befintlig offentlig IP-adress till NÄTVERKSKORTet. Du kan också skapa en offentlig IP-adress och associera den med NÄTVERKSKORTet med hjälp av ett Azure Automation-skript i en återställnings plan.

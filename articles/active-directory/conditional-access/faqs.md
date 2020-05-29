@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 05/28/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f2df8140d2eb791e83af5ae47b947d614ac2b899
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1704fb50586168be6f960e62b918019cb67ce4c8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199407"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167816"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Vanliga frågor om villkorlig åtkomst för Azure Active Directory
 
@@ -31,19 +31,15 @@ Principer tillämpas för samarbets användare för företag till företag (B2B)
 
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>Gäller även en SharePoint Online-princip för OneDrive för företag?
 
-Ja. En SharePoint Online-princip gäller även för OneDrive för företag.
+Ja. En SharePoint Online-princip gäller även för OneDrive för företag. Mer information finns i artikeln, [beroenden för tjänsten för villkorlig åtkomst](service-dependencies.md) och Tänk på mål principer för [Office 365-appen](concept-conditional-access-cloud-apps.md#office-365-preview) i stället.
 
 ## <a name="why-cant-i-set-a-policy-directly-on-client-apps-like-word-or-outlook"></a>Varför kan jag inte ange en princip direkt på klient program, som Word eller Outlook?
 
-En princip för villkorlig åtkomst anger krav för åtkomst till en tjänst. Den används när autentiseringen till den tjänsten sker. Principen har inte ställts in direkt på ett klient program. I stället tillämpas den när en klient anropar en tjänst. En princip uppsättning i SharePoint gäller till exempel klienter som anropar SharePoint. En princip som har angetts för Exchange gäller för Outlook.
+En princip för villkorlig åtkomst anger krav för åtkomst till en tjänst. Den används när autentiseringen till den tjänsten sker. Principen har inte ställts in direkt på ett klient program. I stället tillämpas den när en klient anropar en tjänst. En princip uppsättning i SharePoint gäller till exempel klienter som anropar SharePoint. En princip som har angetts för Exchange gäller för Outlook. Mer information finns i artikeln, [beroenden för tjänsten för villkorlig åtkomst](service-dependencies.md) och Tänk på mål principer för [Office 365-appen](concept-conditional-access-cloud-apps.md#office-365-preview) i stället.
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>Gäller en princip för villkorlig åtkomst för tjänst konton?
 
-Principer för villkorlig åtkomst gäller för alla användar konton. Detta inkluderar användar konton som används som tjänst konton. Ett tjänst konto som körs obevakat kan ofta inte uppfylla kraven för en princip för villkorlig åtkomst. Till exempel kan Multi-Factor Authentication krävas. Tjänst konton kan uteslutas från en princip med hjälp av princip hanterings inställningar för villkorlig åtkomst. 
-
-## <a name="are-microsoft-graph-apis-available-for-configuring-conditional-access-policies"></a>Är Microsoft Graph-API: er tillgängliga för att konfigurera principer för villkorlig åtkomst?
-
-För närvarande, nej. 
+Principer för villkorlig åtkomst gäller för alla användar konton. Detta inkluderar användar konton som används som tjänst konton. Ett tjänst konto som körs obevakat kan ofta inte uppfylla kraven för en princip för villkorlig åtkomst. Till exempel kan Multi-Factor Authentication krävas. Tjänst konton kan uteslutas från en princip med hjälp av en [användare eller grupp undantag](concept-conditional-access-users-groups.md#exclude-users). 
 
 ## <a name="what-is-the-default-exclusion-policy-for-unsupported-device-platforms"></a>Vad är standard principen för undantag för enhets plattformar som inte stöds?
 
@@ -53,9 +49,11 @@ Principer för villkorlig åtkomst tillämpas för närvarande selektivt på anv
 
 Microsoft Teams är mycket beroende av Exchange Online och SharePoint Online för grundläggande produktivitets scenarier, som möten, kalendrar och fildelning. Principer för villkorlig åtkomst som anges för dessa molnappar gäller för Microsoft Teams när en användare loggar in direkt i Microsoft Teams.
 
-Microsoft Teams stöds också separat som en molnbaserad app i Azure Active Directory principer för villkorlig åtkomst. Principer för villkorlig åtkomst som anges för en molnbaserad app gäller för Microsoft Teams när en användare loggar in. Men utan rätt principer för andra appar som Exchange Online-och SharePoint Online-användare kan fortfarande komma åt resurserna direkt.
+Microsoft Teams stöds också separat som en molnbaserad app i principer för villkorlig åtkomst. Principer för villkorlig åtkomst som anges för en molnbaserad app gäller för Microsoft Teams när en användare loggar in. Men utan rätt principer för andra appar som Exchange Online-och SharePoint Online-användare kan fortfarande komma åt resurserna direkt.
 
 Microsoft team Desktop-klienter för Windows och Mac stöder modern autentisering. Modern autentisering ger inloggning baserat på Azure Active Directory Authentication Library (ADAL) för att Microsoft Office klient program på olika plattformar.
+
+Mer information finns i artikeln, [beroenden för tjänsten för villkorlig åtkomst](service-dependencies.md) och Tänk på mål principer för [Office 365-appen](concept-conditional-access-cloud-apps.md#office-365-preview) i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 

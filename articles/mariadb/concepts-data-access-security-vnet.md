@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 54379c65850fa210e5523b53a64fe89705ed1f15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f998cc238b997f2dfb8e8043693379e4c5a53546
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79532118"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170417"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Använda tjänstslutpunkter för virtuellt nätverk och regler för Azure Database for MariaDB
 
@@ -24,7 +24,7 @@ Om du vill skapa en regel för virtuellt nätverk måste du först vara ett [vir
 > [!NOTE]
 > Den här funktionen är tillgänglig i alla regioner i Azure där Azure Database for MariaDB distribueras för Generell användning och minnesoptimerade servrar.
 
-<a name="anch-terminology-and-description-82f" />
+<a name="anch-terminology-and-description-82f"></a>
 
 ## <a name="terminology-and-description"></a>Terminologi och beskrivning
 
@@ -44,7 +44,7 @@ En regel för virtuella nätverk instruerar Azure Database for MariaDB servern a
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-benefits-of-a-vnet-rule-68b"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Fördelar med en virtuell nätverks regel
 
@@ -68,7 +68,7 @@ Om din **Microsoft. SQL** -Server var en nod i ett undernät i det virtuella nä
 
 Men från och med augusti 2018 är Azure Database for MariaDB tjänsten ännu inte bland de tjänster som kan tilldelas direkt till ett undernät.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>Information om regler för virtuella nätverk
 
@@ -88,8 +88,8 @@ Varje virtuell nätverks regel gäller hela Azure Database for MariaDB-servern, 
 
 Det finns en separation av säkerhets roller i administration av Virtual Network tjänstens slut punkter. Åtgärd krävs från var och en av följande roller:
 
-- **Nätverks administratör:** &nbsp; aktivera slut punkten.
-- **Databas administratör:** &nbsp; uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till Azure Database for MariaDB servern.
+- **Nätverks administratör:** &nbsp; Aktivera slut punkten.
+- **Databas administratör:** &nbsp; Uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till Azure Database for MariaDB servern.
 
 *RBAC-alternativ:*
 

@@ -7,12 +7,12 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9345b6fb28aa282e85f1167f6f2531e5f990e3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cb672f2ada88b1fc67bcd8f022c5faeeac6dddf
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74688330"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170808"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Felsök HTTP-fel för "502 Felaktig gateway" och "503-tjänsten är inte tillgänglig" i Azure App Service
 "502 Felaktig gateway" och "503-tjänsten är inte tillgänglig" är vanliga fel i din app som finns [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här artikeln hjälper dig att felsöka de här felen.
@@ -38,7 +38,7 @@ Fel sökning kan delas upp i tre olika uppgifter i nummerordning:
 
 [App Service](overview.md) ger dig olika alternativ i varje steg.
 
-<a name="observe" />
+<a name="observe"></a>
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Observera och övervaka programmets beteende
 #### <a name="track-service-health"></a>Spåra tjänstens hälsa
@@ -62,7 +62,7 @@ Mer information finns i:
 * [Övervaka appar i Azure App Service](web-sites-monitor.md)
 * [Få varningsmeddelanden](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### <a name="2-collect-data"></a>2. samla in data
 #### <a name="use-the-diagnostics-tool"></a>Använda verktyget diagnostik
@@ -73,7 +73,7 @@ Om du vill komma åt App Service diagnostik navigerar du till din App Service ap
 #### <a name="use-the-kudu-debug-console"></a>Använda fel söknings konsolen kudu
 App Service levereras med en fel söknings konsol som du kan använda för att felsöka, utforska, ladda upp filer, samt JSON-slutpunkter för att få information om din miljö. Detta kallas för *kudu-konsolen* eller *SCM-instrumentpanelen* för din app.
 
-Du kan komma åt den här instrument panelen genom att gå till länken **https://&lt;ditt program namn>. scm.azurewebsites.net/**.
+Du kan komma åt den här instrument panelen genom att gå till länken **https:// &lt; ditt program namn>. scm.azurewebsites.net/**.
 
 Några av de saker som kudu tillhandahåller är:
 
@@ -86,7 +86,7 @@ En annan användbar funktion i kudu är att, om ditt program ska leda till undan
 
 Mer information om vilka funktioner som är tillgängliga i kudu finns i [online verktyg för Azure Websites som du bör känna](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)till.
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### <a name="3-mitigate-the-issue"></a>3. åtgärda problemet
 #### <a name="scale-the-app"></a>Skala appen

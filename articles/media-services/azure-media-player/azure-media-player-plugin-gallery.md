@@ -6,18 +6,18 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: ee29d1c45896583ef5aa5837e8383159db855d52
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4ca74e9c10175f2c34133886e1c8a06782b588c2
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124626"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148233"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Azure Media Player plugin-Galleri #
 
 ## <a name="plugins"></a>Plugin-program ##
 
-| Namn på plugin                         | URL för demonstration                    | Källkod                | Beskrivning    |
+| Namn på plugin                         | URL för demonstration                    | Källkod                | Description    |
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | Ytterligare funktioner                 | | | |
 | **Nyårs!** AMP360Video                | [Demonstration](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | Med plugin-programmet kan du visualisera 360-video i amp antingen på Skriv bordet eller i VR-kompatibla enheter. Den fullständiga dokumentationen finns [här](https://doc\.babylonjs\.com/extensions/amp360video): |
@@ -28,14 +28,14 @@ ms.locfileid: "83124626"
 | Tips för hov rings tid                      | [Demonstration](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Visar ett tids tips över förlopps indikatorn vid mus hovring för att söka efter tid. *Obs! det här plugin-programmet är redan integrerat i amp* , men om du är intresse rad av att se hur det är programmerat kan du ta en titt.                                                                                                                       |
 | Rubrik överlägg                       | [Demonstration](https://azure-samples.github.io/media-services-javascript-azure-media-player-title-overlay-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-title-overlay-plugin)                     | Överlägg som kan konfigureras med en video rubrik över skärmen |
 | Markörer för tids linje                    | [Demonstration](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timelinemarkers/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-timeline-markers-plugin)                     | Det här plugin-programmet tar i en matris med gånger och överlappar små markörer över förlopps indikatorn vid dessa tidpunkter. |
-| Analytics                           | | | |
+| Analys                           | | | |
 | Application Insights                | [Blogg inlägg](https://azure.microsoft.com/blog/player-analytics-azure-media-player-plugin/)                   | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-application-insights-plugin)                     | Plugin-program som spårar dina spelares mått och portar till Power BI för en intuitiv grafisk representation av dina visnings upplevelser. |
-| Google Analytics                    | Saknas                         | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-google-analytics-plugin)                     | Google Analytics-plugin för Azure Media Player |
+| Google Analytics                    | Ej tillämpligt                         | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-google-analytics-plugin)                     | Google Analytics-plugin för Azure Media Player |
 | Diagnostik                         | | | |
 | Diagnostik-utdata                  | [Demonstration](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/diagnosticslogger/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-diagnostic-logger-plugin)                     | Det här plugin-programmet visar en matris med diagnostik från spelaren, för att se hur den fungerar i praktiken, gå till demonstrations länken och öppna din JavaScript-konsol. |
 | Enkel åtkomst                      | | | |
 | Zooma in                             | [Demonstration](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/zoom/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-zoom-plugin)                     | Det här plugin-programmet visar en drags aktive rad zoomnings skalning på spelarens skärm så att läsarna kan zooma in på ditt innehåll |
-| Direkt under texter                       | [Blogg](https://azure.microsoft.com/blog/live-real-time-captions-with-azure-media-services-and-player/)inlägg i Azure,[SubPly-inlägg](http://www.subply.com/en/Products/AzureLiveCaptions.htm) | Saknas | *Se post för mer information.* Slut punkt till slut punkt som har utformats för Live-textning inbyggt plugin-program för Azure Media Player, klicka på den vänstra delen om du vill gå till SubPly-webbplatsen och lär dig mer om lösningen |
+| Direkt under texter                       | [Blogg](https://azure.microsoft.com/blog/live-real-time-captions-with-azure-media-services-and-player/)inlägg i Azure,[SubPly-inlägg](http://www.subply.com/en/Products/AzureLiveCaptions.htm) | Ej tillämpligt | *Se post för mer information.* Slut punkt till slut punkt som har utformats för Live-textning inbyggt plugin-program för Azure Media Player, klicka på länken längst till vänster för att gå till SubPly-webbplatsen och lär dig mer om lösningen |
 | Snabb tangenter                            | <strike>[Demo](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html)</strike>                        | <strike>[GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-hot-keys-plugin)</strike>                     | Med plugin-programmet för snabb tangenter kan du kontrol lera olika aspekter av spelaren med generiska plugin-kombinationer som F för helskärm, M för ljud av och piltangenterna för kontroll för förlopps indikator. *Obs! det här plugin-programmet har redan integrerats i AMP men du är kostnads fritt att använda det som en resurs* |
 | Sociala medier                              | | | |
 | Dela                               | [Demonstration](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/share/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-social-share-plugin)                     | Detta plugin-program lägger till en resurs-knapp i spelarens kontroll fält så att dina användare kan dela videon som de ser med sina vänner via Facebook, Twitter eller LinkedIn. |

@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 5bc71c5462ed1c721d2c94f889146400a07dd19e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 917a7ccbf17fdb1e2691f1a3a8368b40006f6d7b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119198"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170315"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
@@ -26,6 +26,10 @@ Innan du använder procedurerna i den här artikeln bör du se till att du har a
 * [Aktivera Uppdateringshantering genom att bläddra i Azure Portal](automation-onboard-solutions-from-browse.md)
 * [Aktivera Uppdateringshantering från en runbook](automation-onboard-solutions.md)
 * [Aktivera Uppdateringshantering från en virtuell Azure-dator](automation-onboard-solutions-from-vm.md)
+
+## <a name="limit-the-scope-for-the-deployment"></a><a name="scope-configuration"></a>Begränsa omfånget för distributionen
+
+Uppdateringshantering använder en omfattnings konfiguration i arbets ytan för att rikta in de datorer som ska ta emot uppdateringar. Mer information finns i [begränsa uppdateringshantering distributions omfång](automation-scope-configurations-update-management.md).
 
 ## <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
@@ -57,7 +61,7 @@ Följ stegen nedan för att ställa in aviseringar så att du kan se status för
 
 5. Klicka på **Lägg till villkor** för att välja den signal som är lämplig för uppdaterings distributionen. I följande tabell visas information om de två tillgängliga signalerna.
 
-    |Signalnamn|Dimensioner|Beskrivning
+    |Signalnamn|Dimensioner|Description
     |---|---|---|
     |`Total Update Deployment Runs`|– Namnet på uppdateringsdistributionen<br>-Status    |Aviseringar om den övergripande statusen för en uppdaterings distribution.|
     |`Total Update Deployment Machine Runs`|– Namnet på uppdateringsdistributionen</br>– Status</br>– Måldator</br>-Uppdatera körnings-ID för distribution    |Aviseringar om status för en uppdaterings distribution som är riktad mot specifika datorer.|
@@ -201,5 +205,10 @@ När din uppdaterings distribution har slutförts visas den avisering som du har
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Information om scope-konfigurationer finns i [begränsa uppdateringshantering distributions omfång](automation-scope-configurations-update-management.md).
+* Om du behöver söka i loggar som lagras i din Log Analytics-arbetsyta, se [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
 * Om du är färdig med distributioner, se [ta bort arbets ytan för att länka från Automation-kontot för uppdateringshantering](automation-unlink-workspace-update-management.md).
 * Information om hur du tar bort virtuella datorer från Uppdateringshantering finns i [ta bort virtuella datorer från uppdateringshantering](automation-remove-vms-from-update-management.md).
+* Information om hur du felsöker allmänna Uppdateringshantering fel finns i [felsöka uppdateringshantering problem](troubleshoot/update-management.md).
+* Information om hur du felsöker problem med Windows Update-agenten finns i [Felsöka problem med Windows Update-agenten](troubleshoot/update-agent-issues.md).
+* Information om hur du felsöker problem med Linux Update-agenten finns i[Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).

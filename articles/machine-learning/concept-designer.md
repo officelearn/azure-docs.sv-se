@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
 ms.custom: designer
-ms.openlocfilehash: 7a756a09e135f664074e64a611755845d8dfb8b7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7dcd2015a669d9640f4163e6decc96689bb4ca7b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654941"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167081"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Vad är Azure Machine Learning Designer (förhandsversion)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Med Azure Machine Learning Designer kan du visuellt ansluta [data uppsättningar
 Designern använder din Azure Machine Learning- [arbetsyta](concept-workspace.md) för att organisera delade resurser, till exempel:
 
 + [Pipelines](#pipeline)
-+ [Data uppsättningar](#datasets)
++ [Datauppsättningar](#datasets)
 + [Beräknings resurser](#compute)
 + [Registrerade modeller](concept-azure-machine-learning-architecture.md#models)
 + [Publicerade pipelines](#publish)
@@ -38,19 +38,19 @@ Designern använder din Azure Machine Learning- [arbetsyta](concept-workspace.md
 Designern ger dig en visuell arbets yta för att bygga, testa och distribuera maskin inlärnings modeller. Med designern kan du:
 
 + Dra och släpp [data uppsättningar](#datasets) och [moduler](#module) till arbets ytan.
-+ Anslut modulerna tillsammans för att skapa ett [pipeline-utkast](#pipeline-draft).
++ Anslut modulerna för att skapa ett [pipeline-utkast](#pipeline-draft).
 + Skicka en [pipeline-körning](#pipeline-run) med beräknings resurserna i Azure Machine Learning-arbetsytan.
 + Omvandla dina **utbildnings pipeliner** till **härlednings pipeliner**.
-+ [Publicera](#publish) pipelines till en rest- **slutpunkt** för att skicka nya pipeline-körningar med olika parametrar och data uppsättningar.
++ [Publicera](#publish) pipelines till en rest- **slutpunkt** för att skicka en ny pipeline som körs med olika parametrar och data uppsättningar.
     + Publicera en **utbildnings pipeline** för att återanvända en enda pipeline för att träna flera modeller när du ändrar parametrar och data uppsättningar.
     + Publicera en **pipeline för batch-härledning** för att göra förutsägelser för nya data med hjälp av en tidigare tränad modell.
-+ [Distribuera](#deploy) en **pipeline för real tids härledning** till en slut punkt i real tid för att göra förutsägelser om nya data i real tid.
++ [Distribuera](#deploy) en **härlednings pipeline** i real tid till en slut punkt i real tid för att göra förutsägelser om nya data i real tid.
 
 ![Arbets flödes diagram för utbildning, batch-härledning och real tids härledning i designern](./media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
-En [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) består av data uppsättningar och analys moduler som du ansluter tillsammans. Pipelines har många användnings områden: du kan skapa en pipeline som tågen en enskild modell eller en som har flera modeller. Du kan skapa en pipeline som gör förutsägelser i real tid eller i batch eller göra en pipeline som bara rensar data. Med pipelines kan du återanvända ditt arbete och organisera dina projekt.
+En [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) består av data uppsättningar och analys moduler som du ansluter till. Pipelines har många användnings områden: du kan skapa en pipeline som tågen en enskild modell eller en som har flera modeller. Du kan skapa en pipeline som gör förutsägelser i real tid eller i batch eller göra en pipeline som bara rensar data. Med pipelines kan du återanvända ditt arbete och organisera dina projekt.
 
 ### <a name="pipeline-draft"></a>Pipeline-utkast
 
@@ -73,11 +73,11 @@ Pipeline-körningar grupperas i [experiment](concept-azure-machine-learning-arch
 
 ## <a name="datasets"></a>Datauppsättningar
 
-En Machine Learning-datauppsättning gör det enkelt att komma åt och arbeta med dina data. Ett antal exempel data uppsättningar ingår i designern så att du kan experimentera med. Du kan [Registrera](how-to-create-register-datasets.md) fler data uppsättningar när du behöver dem.
+En Machine Learning-datauppsättning gör det enkelt att komma åt och arbeta med dina data. Det finns flera exempel data uppsättningar i designern som du kan experimentera med. Du kan [Registrera](how-to-create-register-datasets.md) fler data uppsättningar när du behöver dem.
 
 ## <a name="module"></a>Modul
 
-En modul är en algoritm som du kan tillämpa på dina data. Designern har ett antal moduler som sträcker sig från data ingångs funktioner till inlärnings-, poängsättnings-och validerings processer.
+En modul är en algoritm som du kan tillämpa på dina data. Designern har flera moduler som sträcker sig från data ingångs funktioner till inlärnings-, poängsättnings-och validerings processer.
 
 En modul kan ha en uppsättning parametrar som du kan använda för att konfigurera modulens interna algoritmer. När du väljer en modul på arbetsytan modulens visas modulens parametrar i fönstret Egenskaper på arbetsytans högra sida. Du kan ändra parametrarna i det här fönstret för att finjustera din modell. Du kan ställa in beräknings resurser för enskilda moduler i designern. 
 
@@ -138,4 +138,3 @@ Du kan konvertera befintliga experiment och webb tjänster för visuella gränss
 
 * Lär dig grunderna för förutsägelse analys och maskin inlärning med [Självstudier: förutsäga bil pris med designern](tutorial-designer-automobile-price-train-score.md)
 * Lär dig hur du ändrar befintliga [Designer-exempel](samples-designer.md) för att anpassa dem efter dina behov.
-

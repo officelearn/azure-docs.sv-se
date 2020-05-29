@@ -2,14 +2,14 @@
 title: 'Snabb start: SDK-fråga förutsägelse slut punkt – LUIS'
 description: I den här snabb starten får du se hur du använder SDK för att skicka en användare uttryck till Azure Cognitive Services LUIS-programmet och ta emot en förutsägelse.
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 05/28/2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 69c9dce1c1b48ebf21e90ff9a4d3db6ac5b889c0
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 2275b50086eaf070d0748e3bb9b8de90ea9ee78e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141338"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171297"
 ---
 # <a name="quickstart-query-v3-prediction-endpoint-with-sdk"></a>Snabb start: fråga v3 förutsägelse slut punkt med SDK
 

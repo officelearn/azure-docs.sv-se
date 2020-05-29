@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: f7c6829d858e36b55f079f8ee03e431f67995e66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 097868c0f6c64ad8b58dce365a2232bb02b786e2
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272584"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168207"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET standard-API: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -29,58 +29,58 @@ ms.locfileid: "81272584"
 |**SDK-hämtning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
 |**Urvalsundersökningar**|[Cosmos DB Tabell-API .NET-exempel](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Snabbstart**|[Snabbstart](create-table-dotnet.md)|
-|**Självstudier**|[Självstudier](tutorial-develop-table-dotnet.md)|
+|**Självstudie**|[Självstudie](tutorial-develop-table-dotnet.md)|
 |**Aktuellt ramverk som stöds**|[Microsoft .NET standard 2,0](https://www.nuget.org/packages/NETStandard.Library)|
 |**Rapportera problem**|[Rapportera problem](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
 ## <a name="release-notes-for-200-series"></a>Viktig information för 2.0.0-serien
 2.0.0-serien använder sig av beroendet av [Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), med prestanda förbättringar och namn områdes konsolidering för att Cosmos DB slut punkten.
 
-### <a name="200-preview"></a><a name="2.0.0-preview"/>2.0.0 – för hands version
+### <a name="200-preview"></a><a name="2.0.0-preview"></a>2.0.0 – för hands version
 * första för hands versionen av 2.0.0 Table SDK som tar beroendet av [Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), med prestanda förbättringar och namn områdes konsolidering för att Cosmos DB slut punkten. Det offentliga API: t är oförändrat.
 
 ## <a name="release-notes-for-100-series"></a>Viktig information för 1.0.0-serien
 1.0.0-serien använder sig av beroendet av [Microsoft. Azure. DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
 
-### <a name="107"></a><a name="1.0.7"/>1.0.7
+### <a name="107"></a><a name="1.0.7"></a>1.0.7
 * Prestanda förbättring genom att ange standard spårnings nivån för Table SDK till SourceLevels. off, som du kan välja i via app. config
 
-### <a name="105"></a><a name="1.0.5"/>1.0.5
+### <a name="105"></a><a name="1.0.5"></a>1.0.5
 * Introducera ny konfiguration under TableClientConfiguration och Använd rest-utförar för att kommunicera med Cosmos DB Tabell-API
 
-### <a name="105-preview"></a><a name="1.0.5-preview"/>1.0.5 – för hands version
+### <a name="105-preview"></a><a name="1.0.5-preview"></a>1.0.5 – för hands version
 * Felkorrigeringar
 
-### <a name="104"></a><a name="1.0.4"/>1.0.4
-* Felkorrigeringar
-* Ange alternativet HttpClientTimeout för RestExecutorConfiguration.
-
-### <a name="104-preview"></a><a name="1.0.4-preview"/>1.0.4 – för hands version
+### <a name="104"></a><a name="1.0.4"></a>1.0.4
 * Felkorrigeringar
 * Ange alternativet HttpClientTimeout för RestExecutorConfiguration.
 
-### <a name="101"></a><a name="1.0.1"/>1.0.1
+### <a name="104-preview"></a><a name="1.0.4-preview"></a>1.0.4 – för hands version
+* Felkorrigeringar
+* Ange alternativet HttpClientTimeout för RestExecutorConfiguration.
+
+### <a name="101"></a><a name="1.0.1"></a>1.0.1
 * Felkorrigeringar
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * Allmän tillgänglighets utgåva
 
-### <a name="0110-preview"></a><a name="0.11.0-preview"/>0.11.0 – för hands version
+### <a name="0110-preview"></a><a name="0.11.0-preview"></a>0.11.0 – för hands version
 * Ändringar har gjorts i hur CloudTableClient kan konfigureras. Det tar nu ett TableClientConfiguration-objekt under konstruktion. TableClientConfiguration tillhandahåller olika egenskaper för att konfigurera klient beteendet beroende på om mål slut punkten är Cosmos DB Tabell-API eller Azure Storage Tabell-API.
 * Stöd har lagts till för TableQuery för att returnera resultat i sorterad ordning i en anpassad kolumn. Den här funktionen stöds bara för Cosmos DB tabell slut punkter.
 * Stöd har lagts till för att exponera RequestCharges på olika resultat typer. Den här funktionen stöds bara för Cosmos DB tabell slut punkter.
 
-### <a name="0101-preview"></a><a name="0.10.1-preview"/>0.10.1 – för hands version
+### <a name="0101-preview"></a><a name="0.10.1-preview"></a>0.10.1 – för hands version
 * Lägg till stöd för SAS-token, åtgärder för TablePermissions, ServiceProperties och ServiceStats mot Azure Storage tabell slut punkter. 
    > [!NOTE]
    > Vissa funktioner i tidigare Azure Storage tabell-SDK: er stöds inte än, t. ex. kryptering på klient sidan.
 
-### <a name="0100-preview"></a><a name="0.10.0-preview"/>0.10.0 – för hands version
+### <a name="0100-preview"></a><a name="0.10.0-preview"></a>0.10.0 – för hands version
 * Lägg till stöd för grundläggande CRUD-, batch-och fråge åtgärder mot Azure Storage tabell slut punkter. 
    > [!NOTE]
    > Vissa funktioner i tidigare Azure Storage tabell-SDK: er stöds inte än, t. ex. kryptering på klient sidan.
 
-### <a name="091-preview"></a><a name="0.9.1-preview"/>0.9.1 till och – för hands version
+### <a name="091-preview"></a><a name="0.9.1-preview"></a>0.9.1 till och – för hands version
 * Azure Cosmos DB Table .NET standard SDK är ett plattforms oberoende .NET-bibliotek som ger effektiv åtkomst till tabell data modellen på Cosmos DB. Den här inledande versionen stöder en fullständig uppsättning tabell-och entitets-CRUD + fråge funktioner med liknande API: er som [Cosmos DB Table SDK för .NET Framework](table-sdk-dotnet.md). 
    > [!NOTE]
    >  Azure Storage tabell slut punkter stöds inte ännu i 0.9.1 till och-Preview-versionen.

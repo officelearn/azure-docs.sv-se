@@ -1,21 +1,21 @@
 ---
 title: Exempel kontroller för benchmark-Microsoft Azure
 description: Rekommendations mappning av CIS-exemplet Microsoft Azure grunderna för att Azure Policy.
-ms.date: 05/06/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: b6029e147af49cfb91078c6228615c32ad2db5fe
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82863968"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167238"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Rekommendations mappning av CIS-exemplet för benchmark-Microsoft Azure grunderna
 
 I följande artikel beskrivs hur Azure-ritningar CIS-Microsoft Azure Base-exempel kartor mappar till CIS-Microsoft Azure grunderna för benchmark-rekommendationer. Mer information om rekommendationerna finns i [CIS Microsoft Azure stiftelser benchmark](https://www.cisecurity.org/benchmark/azure/).
 
 Följande mappningar är till **CIS Microsoft Azure grunderna 1.1.0** -rekommendationer för benchmark. Använd navigeringen till höger om du vill gå direkt till en bestämd rekommendations mappning.
-Många av de mappade rekommendationerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj gransknings principen för för ** \[hands versions\] CIS Microsoft Azure grunderna 1.1.0-rekommendationer och distribuera särskilda VM-tillägg för att ge stöd för gransknings krav** inbyggda princip initiativ.
+Många av de mappade rekommendationerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj gransknings principen för för ** \[ hands versions \] CIS Microsoft Azure grunderna 1.1.0-rekommendationer och distribuera särskilda VM-tillägg för att ge stöd för gransknings krav** inbyggda princip initiativ.
 
 > [!IMPORTANT]
 > Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
@@ -192,14 +192,14 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 ## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4,4 se till att "avancerad data säkerhet" på en SQL-Server är inställt på "på"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att avancerad data säkerhet är aktiverat på SQL-servrar och SQL-hanterade instanser.
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att avancerad data säkerhet är aktiverat på SQL Database-och SQL-hanterade instans servrar.
 
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Avancerad data säkerhet ska vara aktiverat på SQL-hanterade instanser
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4,5 Se till att hot identifierings typerna är inställt på all
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att säkerställa att Avancerat skydd är korrekt KONFIGURERAT på SQL-servrar och SQL-hanterade instanser.
+Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att säkerställa att Avancerat skydd är korrekt konfigurerat på SQL Database-och SQL-hanterade instans servrar.
 
 - Avancerade skydds typer måste anges till alla i avancerade data säkerhets inställningar för SQL Server
 - Avancerade skydds typer måste anges till alla i avancerade data säkerhets inställningar för SQL-hanterad instans
@@ -232,7 +232,7 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 ## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4,10 kontrol lera att SQL Servers TDE-skydd krypteras med BYOK (Använd din egen nyckel)
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att se till att transparenta data krypterade skydd för SQL-servrar och SQL-hanterade instanser krypteras med din egen nyckel.
+Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att se till att transparenta data som krypteras för SQL Database och SQL-hanterade instans servrar krypteras med din egen nyckel.
 
 - SQL Server TDE-skyddskomponenten bör vara krypterat med din egen nyckel
 - SQL-hanterad instans TDE-skydd ska vara krypterat med din egen nyckel
@@ -524,8 +524,8 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definiti
 Nu när du har granskat kontroll mappningen av CIS Microsoft Azure grunderna benchmark-skiss kan du gå till följande artiklar om du vill lära dig mer om skissen eller besöka Azure Policy i Azure Portal för att tilldela initiativet:
 
 > [!div class="nextstepaction"]
-> [CIS Microsoft Azure grunderna benchmark-översikt – översikt](./index.md)
-> [CIS Microsoft Azure grunder benchmark-skiss – distribuera steg](./deploy.md)
+> [Benchmark-Microsoft Azure grunder – översikt](./index.md) 
+>  [CIS-Microsoft Azure grunder benchmark-skiss – distribuera steg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

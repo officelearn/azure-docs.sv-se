@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: a3b03c5999454e101640d931a0bef98aa642a8c7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9a6fab9b98029eeefdd4649b0949a1a61da8b0c1
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021474"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168836"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänst slut punkter för virtuella nätverk för Azure Key Vault
 
@@ -65,6 +65,7 @@ Här är en lista över betrodda tjänster som har behörighet att komma åt ett
 | --- | --- |
 |Azure Virtual Machines Deployment service|[Distribuera certifikat till virtuella datorer från kund hanterade Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
 |Azure Resource Manager mall distributions tjänst|[Skicka säkra värden under distributionen](../../azure-resource-manager/templates/key-vault-parameter.md).|
+|Azure Application Gateway v2 SKU|[TLS-avslutning med Key Vault certifikat](/azure/application-gateway/key-vault-certs)|
 |Azure Disk Encryption volym krypterings tjänst|Tillåt åtkomst till BitLocker Key (Windows VM) eller DM-lösen fras (Linux VM) och nyckel krypterings nyckel under distributionen av virtuella datorer. Detta gör att [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
 |Azure Backup|Tillåt säkerhets kopiering och återställning av relevanta nycklar och hemligheter under Azure Virtual Machines säkerhets kopiering med [Azure Backup](../../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online & SharePoint Online|Tillåt åtkomst till kund nyckel för Azure Storage tjänst kryptering med [kund nyckel](/microsoft-365/compliance/customer-key-overview).|

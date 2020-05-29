@@ -3,12 +3,12 @@ title: 'Snabb start: din första portal fråga'
 description: I den här snabb starten följer du stegen för att köra din första fråga från Azure Portal med Azure Resource Graph Explorer.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872091"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148046"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer
 
@@ -16,7 +16,7 @@ Azure Resource graphs kraft är tillgängligt direkt i Azure Portal via Azure Re
 
 I slutet av den här snabb starten har du använt Azure Portal och resurs diagram Utforskaren för att köra din första resurs diagram fråga och fäst resultatet på en instrument panel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -51,7 +51,7 @@ Schema läsaren är ett bra sätt att identifiera egenskaper för användning i 
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Skapa ett diagram från resurs diagram frågan
 
-När du har kört den sista frågan ovan får du ett meddelande om att resultat uppsättningen inte är kompatibel med ett cirkel diagram visualisering om du väljer fliken **diagram** . Frågor som visar resultat kan inte göras i ett diagram, men frågor som tillhandahåller resurser kan räknas. Med hjälp av [typen fråga-Count Virtual Machines by OS](./samples/starter.md#count-virtual-machines-by-os-type)kan vi skapa en visualisering från resurs diagram frågan.
+När du har kört den sista frågan ovan får du ett meddelande om att resultat uppsättningen inte är kompatibel med ett cirkel diagram visualisering om du väljer fliken **diagram** . Frågor som visar resultat kan inte göras i ett diagram, men frågor som tillhandahåller resurser kan räknas. Med hjälp av [typen fråga-Count Virtual Machines by OS](./samples/starter.md#count-os)kan vi skapa en visualisering från resurs diagram frågan.
 
 1. Ange följande fråga i delen med **frågan 1** i fönstret och välj **Kör fråga**.
 

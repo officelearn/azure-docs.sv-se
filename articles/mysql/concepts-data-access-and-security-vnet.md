@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4ca8fe3e217d3b4affc1bc0bda9ed193e91b2104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c0714bf27897de72246461ae3ad3250c55390e1
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79537150"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170672"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Använda tjänstslutpunkter för virtuellt nätverk och regler för Azure Database for MySQL
 
@@ -25,7 +25,7 @@ Om du vill skapa en regel för virtuellt nätverk måste du först vara ett [vir
 > Den här funktionen är tillgänglig i alla regioner i Azure där Azure Database for MySQL distribueras för Generell användning och minnesoptimerade servrar.
 > Om det gäller VNet-peering, om trafik flödar genom en gemensam VNet-Gateway med tjänst slut punkter och ska flöda till motparten, skapar du en ACL/VNet-regel för att tillåta Azure Virtual Machines i gatewayens VNet att komma åt Azure Database for MySQL-servern.
 
-<a name="anch-terminology-and-description-82f" />
+<a name="anch-terminology-and-description-82f"></a>
 
 ## <a name="terminology-and-description"></a>Terminologi och beskrivning
 
@@ -45,7 +45,7 @@ En regel för virtuella nätverk instruerar Azure Database for MySQL servern att
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-benefits-of-a-vnet-rule-68b"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Fördelar med en virtuell nätverks regel
 
@@ -69,7 +69,7 @@ Om din **Microsoft. SQL** -Server var en nod i ett undernät i det virtuella nä
 
 Men från och med augusti 2018 är Azure Database for MySQL tjänsten ännu inte bland de tjänster som kan tilldelas direkt till ett undernät.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>Information om regler för virtuella nätverk
 
@@ -89,8 +89,8 @@ Varje virtuell nätverks regel gäller hela Azure Database for MySQL-servern, in
 
 Det finns en separation av säkerhets roller i administration av Virtual Network tjänstens slut punkter. Åtgärd krävs från var och en av följande roller:
 
-- **Nätverks administratör:** &nbsp; aktivera slut punkten.
-- **Databas administratör:** &nbsp; uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till Azure Database for MySQL servern.
+- **Nätverks administratör:** &nbsp; Aktivera slut punkten.
+- **Databas administratör:** &nbsp; Uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till Azure Database for MySQL servern.
 
 *RBAC-alternativ:*
 

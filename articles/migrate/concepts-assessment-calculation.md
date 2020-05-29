@@ -2,13 +2,13 @@
 title: Utvärderingar i Azure Migrate Server-utvärdering
 description: Lär dig mer om utvärderingar i Azure Migrate Server bedömning
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 2f76ea5f195be2914cdcdb4de9e93af38504d66e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/27/2020
+ms.openlocfilehash: bfae3f23dd16b0d1a09b49f56efbca88a7bea08f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769926"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171012"
 ---
 # <a name="assessments-in-azure-migrate-server-assessment"></a>Utvärderingar i Azure Migrate: Server utvärdering
 
@@ -110,7 +110,7 @@ Egenskap | Information
 **Målplats** | Den plats som du vill migrera till. Server utvärderingen stöder för närvarande följande Azure-regioner:<br/><br/> Östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala Indien, centrala USA, Kina, östra, Kina, norra, Asien, östra, östra USA, östra USA 2, centrala Tyskland, Tyskland nordöstra, Östra Japan, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Storbritannien, västra US gov, Arizona , Västra centrala USA, Västeuropa, västra Indien, västra USA och västra USA 2.
 **Mål lagrings disk (i storlek)** | Den typ av disk som ska användas för lagring i Azure. <br/><br/> Ange mål lagrings disken som Premium-hanterad, Standard SSD-hanterad eller Standard HDD-hanterad.
 **Mål lagrings disk (prestanda baserad storlek)** | Anger typen av mål lagrings disk som automatisk, Premium-hanterad, Standard HDD-hanterad eller Standard SSD-hanterad.<br/><br/> **Automatisk**: disk rekommendationen baseras på diskens prestanda data, vilket innebär IOPS och data flöde.<br/><br/>**Premium eller standard**: utvärderingen rekommenderar en disk-SKU i den valda lagrings typen.<br/><br/> Överväg att använda Premium-hanterade diskar om du vill ha ett service nivå avtal (SLA) för en enskild instans på en virtuell dator med 99,9%. Den här användningen säkerställer att alla diskar i utvärderingen rekommenderas som Premium-hanterade diskar.<br/><br/> Azure Migrate stöder endast hanterade diskar för migrerings bedömning.
-**Azure Reserved Virtual Machine Instances** | Anger [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) så att kostnads uppskattningar i utvärderingen tar dem i beaktande.<br/><br/> Azure Migrate stöder för närvarande endast Azure Reserved VM Instances för erbjudanden med betala per användning.
+**Azure Reserved VM Instances** | Anger [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) så att kostnads uppskattningar i utvärderingen tar dem i beaktande.<br/><br/> Om reserverade instanser är markerade lämnar du standardinställningarna i rabatt (%) och egenskaper för VM-drift tid.<br/><br/> Azure Migrate stöder för närvarande endast Azure Reserved VM Instances för erbjudanden med betala per användning.
 **Storleks villkor** | Används för att hitta rätt storlek den virtuella Azure-datorn.<br/><br/> Använd som-är storleks ändring eller prestanda-baserad storlek.
 **Prestandahistorik** | Används med prestanda-baserad storlek. Prestanda historik anger den varaktighet som används när prestanda data utvärderas.
 **Percentilutnyttjande** | Används med prestanda-baserad storlek. Percentils användning anger percentilvärdet för det prestanda exempel som används för att ha behörighet.
@@ -121,6 +121,8 @@ Egenskap | Information
 **Rabatt (%)** | Eventuella prenumerations rabatter som du får ovanpå Azure-erbjudandet. Standardinställningen är 0%.
 **VM-drifttid** | Tiden i dagar per månad och timmar per dag för virtuella Azure-datorer som inte körs kontinuerligt. Kostnads uppskattningar baseras på den varaktigheten.<br/><br/> Standardvärdena är 31 dagar per månad och 24 timmar per dag.
 **Azure Hybrid-förmån** | Anger om du har Software Assurance och är berättigade till [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Om inställningen har standardvärdet "Ja", betraktas Azure-priser för andra operativ system än Windows för virtuella Windows-datorer.
+**EA-prenumeration** | Anger att en Enterprise-avtal-prenumeration (EA) används för kostnads uppskattning. Tar hänsyn till den rabatt som gäller för prenumerationen. <br/><br/> Lämna inställningarna för reserverade instanser, rabatt (%) och egenskaper för VM-drifts tid med standardinställningarna.
+
 
 [Gå igenom metod tipsen](best-practices-assessment.md) för att skapa en utvärdering med Server utvärdering.
 
@@ -143,7 +145,7 @@ Egenskap | Information | Status för Azure-beredskap
 --- | --- | ---
 **Start typ** | Azure har stöd för virtuella datorer med en start typ av BIOS, inte UEFI. | Villkorligt redo om start typen är UEFI
 **Kärnor** | Varje dator får inte ha fler än 128 kärnor, vilket är det högsta antalet som en virtuell Azure-dator stöder.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna för jämförelse. Om utvärderings inställningarna anger en bekvämlighets faktor multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor utan att använda den praktiska faktorn. | Redo om antalet kärnor ligger inom gränsen
-**Mycket** | Varje dator får inte ha mer än 3 892 GB RAM-minne, vilket är den maximala storleken som en Azure M-&nbsp;serie Standard_M128m<sup>2</sup> VM stöder. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig kan Azure Migrate anses använda RAM-minne för jämförelse. Om en bekvämlighets faktor anges multipliceras det utnyttjade RAM-minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används det allokerade RAM-minnet utan en bekvämlighets faktor.<br/><br/> | Klar om mängden RAM-minne ligger inom gränsen
+**Mycket** | Varje dator får inte ha mer än 3 892 GB RAM-minne, vilket är den maximala storleken som en Azure M-serie Standard_M128m &nbsp; <sup>2</sup> VM stöder. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig kan Azure Migrate anses använda RAM-minne för jämförelse. Om en bekvämlighets faktor anges multipliceras det utnyttjade RAM-minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används det allokerade RAM-minnet utan en bekvämlighets faktor.<br/><br/> | Klar om mängden RAM-minne ligger inom gränsen
 **Lagrings disk** | Den allokerade storleken på en disk får inte överstiga 32 TB. Även om Azure har stöd för 64 TB-diskar med Azure Ultra SSD-diskar, Azure Migrate: Server utvärderingen söker efter 32 TB som disk storleks gräns eftersom den inte har stöd för Ultra SSD än. <br/><br/> Antalet diskar som är anslutna till datorn, inklusive OS-disken, måste vara 65 eller färre. | Redo om diskens storlek och antalet ligger inom gränserna
 **Nätverk** | En dator får inte ha fler än 32 nätverks gränssnitt (NIC) anslutna till sig. | Redo om antalet nätverkskort ligger inom gränsen
 
@@ -271,7 +273,7 @@ När storleks rekommendationerna har slutförts beräknar Azure Migrate beräkni
     - Software Assurance
     - Reserverade instanser
     - VM-drifttid
-    - Plats
+    - Location
     - Valuta inställningar
 
     Server utvärderingen sammanställer kostnaden på alla datorer för att beräkna den totala månads beräknings kostnaden.

@@ -1,20 +1,20 @@
 ---
-title: Öppna portar till en virtuell dator med Azure-portalen
-description: Lär dig hur du öppnar en port /skapar en slutpunkt till din Virtuella Windows-dator med Azure Portal
+title: Öppna portar till en virtuell dator med hjälp av Azure Portal
+description: Lär dig hur du öppnar en port/skapar en slut punkt för din virtuella Windows-dator med hjälp av Azure Portal
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 1844236a77b688819832b3fe0bf6736beea4bfae
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 12db42b0edb3d3e27756593f3dfb079804a4145f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865493"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170071"
 ---
-# <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Så här öppnar du portar till en virtuell dator med Azure-portalen
+# <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Så här öppnar du portar till en virtuell dator med Azure Portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
@@ -23,61 +23,59 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-1. Sök efter och välj resursgruppen för den virtuella datorn, välj **Lägg till**och sök sedan efter och välj **Nätverkssäkerhetsgrupp**.
+1. Sök efter och Välj resurs gruppen för den virtuella datorn, Välj **Lägg till**och Sök sedan efter och välj **nätverks säkerhets grupp**.
 
-2. Välj **Skapa**.
+1. Välj **Skapa**.
 
-    Fönstret **Skapa nätverkssäkerhetsgrupp** öppnas.
+    Fönstret **skapa nätverks säkerhets grupp** öppnas.
 
     ![Skapa en nätverkssäkerhetsgrupp](./media/nsg-quickstart-portal/create-nsg.png)
 
-2. Ange ett namn på nätverkssäkerhetsgruppen. 
+1. Ange ett namn för nätverks säkerhets gruppen. 
 
-3. Markera eller skapa en resursgrupp och välj sedan en plats.
+1. Välj eller skapa en resurs grupp och välj sedan en plats.
 
-4. Välj **Skapa** om du vill skapa nätverkssäkerhetsgruppen.
+1. Välj **skapa** för att skapa nätverks säkerhets gruppen.
 
-## <a name="create-an-inbound-security-rule"></a>Skapa en säkerhetsregel för inkommande
+## <a name="create-an-inbound-security-rule"></a>Skapa en inkommande säkerhets regel
 
-1. Välj din nya nätverkssäkerhetsgrupp. 
+1. Välj den nya nätverks säkerhets gruppen. 
 
-2. Välj **Regler för inkommande säkerhet**och välj sedan Lägg **till**.
+1. Välj **inkommande säkerhets regler** på den vänstra menyn och välj sedan **Lägg till**.
 
-    ![Lägga till inkommande regel](./media/nsg-quickstart-portal/add-inbound-rule.png)
+    ![Växla till sidan Avancerat](./media/nsg-quickstart-portal/advanced.png)
 
-3. Välj **Avancerat**. 
+1. På sidan **Lägg till en inkommande säkerhets regel** växlar du till **Avancerad** från **grundläggande** överst på sidan. 
 
-4. Välj en gemensam **tjänst** på den nedrullningsvänliga menyn, till exempel **HTTP**. Du kan också välja **Anpassad** om du vill ange en specifik port som ska användas. 
+1. Välj en gemensam **tjänst** i den nedrullningsbara menyn, till exempel **http**. Du kan också välja **anpassad** om du vill ange en speciell port som ska användas. 
 
-5. Du kan också ändra **prioritet** eller **namn**. Prioriteten påverkar i vilken ordning regler tillämpas: ju lägre numeriskt värde, desto tidigare tillämpas regeln.
+1. Du kan också ändra **prioritet** eller **namn**. Prioriteten påverkar ordningen i vilken reglerna tillämpas: det lägre numeriska värdet, som är det tidigare regeln tillämpas.
 
-6. Välj **Lägg till** om du vill skapa regeln.
+1. Välj **Lägg till** för att skapa regeln.
 
-## <a name="associate-your-network-security-group-with-a-subnet"></a>Associera nätverkssäkerhetsgruppen med ett undernät
+## <a name="associate-your-network-security-group-with-a-subnet"></a>Associera nätverks säkerhets gruppen med ett undernät
 
-Det sista steget är att associera nätverkssäkerhetsgruppen med ett undernät eller ett visst nätverksgränssnitt. I det här exemplet associerar vi nätverkssäkerhetsgruppen med ett undernät. 
+Det sista steget är att associera nätverkssäkerhetsgruppen med ett undernät eller ett visst nätverksgränssnitt. I det här exemplet associerar vi nätverks säkerhets gruppen med ett undernät. 
 
-1. Välj **Undernät**och välj sedan **Associera**.
+1. Välj **undernät** på den vänstra menyn och välj sedan **associera**.
 
-    ![Associera en nätverkssäkerhetsgrupp med ett undernät](./media/nsg-quickstart-portal/associate-subnet.png)
+1. Välj ditt virtuella nätverk och välj sedan lämpligt undernät.
 
-2. Välj ditt virtuella nätverk och välj sedan lämpligt undernät.
+    ![Associera en nätverks säkerhets grupp med virtuella nätverk](./media/nsg-quickstart-portal/select-vnet-subnet.png)
 
-    ![Associera en nätverkssäkerhetsgrupp med virtuella nätverk](./media/nsg-quickstart-portal/select-vnet-subnet.png)
-
-    Alla virtuella datorer som du ansluter till det undernätet kan nu nås på port 80.
+1. När du är klar väljer du **OK**.
 
 ## <a name="additional-information"></a>Ytterligare information
 
 Du kan också [utföra stegen i den här artikeln med hjälp av Azure PowerShell](nsg-quickstart-powershell.md).
 
-Med kommandona som beskrivs i den här artikeln kan du snabbt få trafik att flöda till den virtuella datorn. Nätverkssäkerhetsgrupper ger många bra funktioner och granularitet för att kontrollera åtkomsten till dina resurser. Mer information finns i [Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp](../../virtual-network/tutorial-filter-network-traffic.md).
+Kommandona som beskrivs i den här artikeln gör att du snabbt kan få trafik som flödar till den virtuella datorn. Nätverks säkerhets grupper ger många fantastiska funktioner och granularitet för att kontrol lera åtkomsten till dina resurser. Mer information finns i [filtrera nätverks trafik med en nätverks säkerhets grupp](../../virtual-network/tutorial-filter-network-traffic.md).
 
-För webbprogram med hög tillgänglig tillgång bör du placera dina virtuella datorer bakom en Azure-belastningsutjämnare. Belastningsutjämnaren distribuerar trafik till virtuella datorer, med en nätverkssäkerhetsgrupp som tillhandahåller trafikfiltrering. Mer information finns i [Läsbelöningsappning av virtuella datorer i Windows i Azure för att skapa ett program med hög tillgänglig tillgång](tutorial-load-balancer.md).
+För webb program med hög tillgänglighet bör du överväga att placera dina virtuella datorer bakom en Azure Load Balancer. Belastningsutjämnaren distribuerar trafik till virtuella datorer, med en nätverks säkerhets grupp som tillhandahåller trafik filtrering. Mer information finns i [belastningsutjämna virtuella Windows-datorer i Azure för att skapa ett program med hög](tutorial-load-balancer.md)tillgänglighet.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln skapade du en nätverkssäkerhetsgrupp, skapade en inkommande regel som tillåter HTTP-trafik på port 80 och sedan associerade den regeln med ett undernät. 
+I den här artikeln har du skapat en nätverks säkerhets grupp, skapat en regel för inkommande trafik som tillåter HTTP-trafik på port 80 och sedan associerar regeln med ett undernät. 
 
-Du hittar information om hur du skapar mer detaljerade miljöer i följande artiklar:
+Du hittar information om att skapa mer detaljerade miljöer i följande artiklar:
 - [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Säkerhetsgrupper](../../virtual-network/security-overview.md)

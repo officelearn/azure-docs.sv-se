@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: e1511882a1244aaf7783a330c2b5c7d1eb15e50d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 541c775897f95eda932d3e19653cf557756f3efd
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176030"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170893"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program
 
@@ -78,7 +78,7 @@ Läs följande SAP-anteckningar och dokument först:
 * SAP NOTE [2243692][2243692] innehåller information om SAP-licensiering på Linux i Azure.
 * SAP NOTE [1984787][1984787] innehåller allmän information om SUSE Linux Enterprise Server 12.
 * SAP anmärkning [1999351][1999351] innehåller ytterligare felsöknings information för Azure Enhanced Monitoring-tillägget för SAP.
-* SAP community WIKI] (https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP-anteckningar för Linux.
+* SAP community WIKI] ( https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP-anteckningar för Linux.
 * [Azure Virtual Machines planera och implementera SAP på Linux][planning-guide]
 * [Azure Virtual Machines-distribution för SAP på Linux][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide]
@@ -103,32 +103,32 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
 * Konfiguration av klient del
   * IP-10.1.1.20
 * Avsöknings port
-  * Port 620<strong>&lt;nr&gt;</strong>
+  * Port 620<strong> &lt; nr &gt; </strong>
 * Belastnings Utjämnings regler
   * Om du använder Standard Load Balancer väljer du **ha-portar**
   * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 36<strong>&lt;nr&gt; </strong> TCP
-    * 39<strong>&lt;nr&gt; </strong> TCP
-    * 81<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 36<strong> &lt; nr &gt; </strong> TCP
+    * 39<strong> &lt; nr &gt; </strong> TCP
+    * 81<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
 * Konfiguration av klient del
   * IP-10.1.1.21
 * Avsöknings port
-  * Port 621<strong>&lt;nr&gt;</strong>
+  * Port 621<strong> &lt; nr &gt; </strong>
 * Belastnings Utjämnings regler
   * Om du använder Standard Load Balancer väljer du **ha-portar**
   * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 33<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 33<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 * Server dels konfiguration
   * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ERS-kluster
@@ -207,7 +207,7 @@ Anvisningarna i det här avsnittet gäller endast om du använder Azure NetApp F
 1. Verifiera NFS-domän inställningen. Kontrol lera att domänen är konfigurerad som standard Azure NetApp Files domän, dvs. **`defaultv4iddomain.com`** mappningen är inställd på **ingen**.  
 
     > [!IMPORTANT]
-    > Se till att ange att NFS-domänen `/etc/idmapd.conf` på den virtuella datorn ska matcha standard domän konfigurationen på Azure NetApp Files: **`defaultv4iddomain.com`**. Om det finns ett matchnings fel mellan domän konfigurationen på NFS-klienten (d.v.s. den virtuella datorn) och NFS-servern, t. ex. Azure NetApp-konfigurationen, så visas behörigheterna för filer på Azure NetApp-volymer som är monterade på de `nobody`virtuella datorerna som.  
+    > Se till att ange att NFS-domänen på `/etc/idmapd.conf` den virtuella datorn ska matcha standard domän konfigurationen på Azure NetApp Files: **`defaultv4iddomain.com`** . Om det finns ett matchnings fel mellan domän konfigurationen på NFS-klienten (d.v.s. den virtuella datorn) och NFS-servern, t. ex. Azure NetApp-konfigurationen, så visas behörigheterna för filer på Azure NetApp-volymer som är monterade på de virtuella datorerna som `nobody` .  
 
     <pre><code>
     sudo cat /etc/idmapd.conf
@@ -221,7 +221,7 @@ Anvisningarna i det här avsnittet gäller endast om du använder Azure NetApp F
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** verifiera `nfs4_disable_idmapping`. Den måste anges till **Y**. Kör monterings kommandot för att `nfs4_disable_idmapping` skapa en katalog struktur där finns. Du kan inte skapa katalogen manuellt under/sys/modules eftersom åtkomst är reserverad för kernel/driv rutiner.  
+4. **[A]** verifiera `nfs4_disable_idmapping` . Den måste anges till **Y**. Kör monterings kommandot för att skapa en katalog struktur där `nfs4_disable_idmapping` finns. Du kan inte skapa katalogen manuellt under/sys/modules eftersom åtkomst är reserverad för kernel/driv rutiner.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -452,9 +452,9 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=3,nobind 10.1.0.4/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /sapmnt/<b>QAS</b> -nfsvers=3,nobind 10.1.0.4:/usrsap<b>qas</b>/sapmnt<b>QAS</b>
    /usr/sap/trans -nfsvers=3,nobind 10.1.0.4:/trans
-   /usr/sap/<b>QAS</b>/SYS -nfsvers=3,nobind 10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>sys
+   /usr/sap/<b>QAS</b>/SYS -nfsvers=3,nobind 10.1.0.4:/usrsap<b>qas</b>/usrsap<b>QAS</b>sys
    </code></pre>
    
    Om du använder NFSv 4.1 skapar du en fil med:
@@ -462,15 +462,15 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys 10.1.0.4/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys 10.1.0.4:/usrsap<b>qas</b>/sapmnt<b>QAS</b>
    /usr/sap/trans -nfsvers=4.1,nobind,sec=sys 10.1.0.4:/trans
-   /usr/sap/<b>QAS</b>/SYS -nfsvers=4.1,nobind,sec=sys 10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>sys
+   /usr/sap/<b>QAS</b>/SYS -nfsvers=4.1,nobind,sec=sys 10.1.0.4:/usrsap<b>qas</b>/usrsap<b>QAS</b>sys
    </code></pre>
    
    > [!NOTE]
    > Se till att matcha NFS-Protokollversionen för Azure NetApp Files volymer när du monterar volymerna. Om Azure NetApp Files volymer skapas som NFSv3-volymer använder du motsvarande NFSv3-konfiguration. Om Azure NetApp Files volymer skapas som NFSv 4.1-volymer följer du anvisningarna för att inaktivera ID-mappning och se till att använda motsvarande NFSv 4.1-konfiguration. I det här exemplet har Azure NetApp Files volymer skapats som NFSv3-volymer.  
    
-   Starta `autofs` om för att montera de nya resurserna
+   Starta om `autofs` för att montera de nya resurserna
     <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
@@ -516,7 +516,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
      op monitor interval=20s timeout=40s
    
    # If using NFSv4.1
-   sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>ascs' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' options='sec=sys,vers=4.1' \
+   sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>ascs' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' options='sec=sys,vers=4.1' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
@@ -569,13 +569,13 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo crm node online <b>anftstsapcl2</b>
    sudo crm node standby <b>anftstsapcl1</b>
    # If using NFSv3
-   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' \
+   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
    
    # If using NFSv4.1
-   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1'\
+   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1'\
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
@@ -683,7 +683,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo usermod -aG haclient <b>qas</b>adm
    </code></pre>
 
-8. **[1]** Lägg till ASCS-och ers SAP-tjänsterna `sapservice` i filen
+8. **[1]** Lägg till ASCS-och ers SAP-tjänsterna i `sapservice` filen
 
    Lägg till ASCS-tjänst posten till den andra noden och kopiera ERS-tjänst posten till den första noden.
 
@@ -847,9 +847,9 @@ Följande objekt föregås av antingen **[A]** – tillämpligt på både Pas oc
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /sapmnt/<b>QAS</b> -nfsvers=3,nobind <b>10.1.0.4</b>:/usrsap<b>qas</b>/sapmnt<b>QAS</b>
    /usr/sap/trans -nfsvers=3,nobind <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>pas
+   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind <b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>pas
    </code></pre>
 
    Om du använder NFSv 4.1 skapar du en ny fil med:
@@ -857,12 +857,12 @@ Följande objekt föregås av antingen **[A]** – tillämpligt på både Pas oc
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>:/usrsap<b>qas</b>/sapmnt<b>QAS</b>
    /usr/sap/trans -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>pas
+   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>pas
    </code></pre>
 
-   Starta `autofs` om för att montera de nya resurserna
+   Starta om `autofs` för att montera de nya resurserna
 
    <pre><code>
    sudo systemctl enable autofs
@@ -882,9 +882,9 @@ Följande objekt föregås av antingen **[A]** – tillämpligt på både Pas oc
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /sapmnt/<b>QAS</b> -nfsvers=3,nobind <b>10.1.0.4</b>:/usrsap<b>qas</b>/sapmnt<b>QAS</b>
    /usr/sap/trans -nfsvers=3,nobind <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>aas
+   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind <b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>aas
    </code></pre>
 
    Om du använder NFSv 4.1 skapar du en ny fil med:
@@ -892,12 +892,12 @@ Följande objekt föregås av antingen **[A]** – tillämpligt på både Pas oc
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>:/usrsap<b>qas</b>/sapmnt<b>QAS</b>
    /usr/sap/trans -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>aas
+   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>aas
    </code></pre>
 
-   Starta `autofs` om för att montera de nya resurserna
+   Starta om `autofs` för att montera de nya resurserna
 
    <pre><code>
    sudo systemctl enable autofs
@@ -983,7 +983,7 @@ Följande tester är en kopia av test fallen i [Best Practices-handböcker för 
 
 1. Testa HAGetFailoverConfig, HACheckConfig och HACheckFailoverConfig
 
-   Kör följande kommandon som \<sapsid>adm på NODEN där ASCS-instansen körs för tillfället. Om kommandona inte fungerar: det finns inte tillräckligt med minne, det kan bero på att det finns bindestreck i värd namnet. Detta är ett känt problem och kommer att korrigeras av SUSE i paketet SAP-SUSE-Cluster-Connector.
+   Kör följande kommandon som \<sapsid> adm på noden där ASCS-instansen körs för tillfället. Om kommandona inte fungerar: det finns inte tillräckligt med minne, det kan bero på att det finns bindestreck i värd namnet. Detta är ett känt problem och kommer att korrigeras av SUSE i paketet SAP-SUSE-Cluster-Connector.
 
    <pre><code>
    anftstsapcl1:qasadm 52> sapcontrol -nr 00 -function HAGetFailoverConfig
@@ -1097,7 +1097,7 @@ Följande tester är en kopia av test fallen i [Best Practices-handböcker för 
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
 
-   Kör följande kommandon som \<sapsid>ADM för att migrera ASCS-instansen.
+   Kör följande kommandon som \<sapsid> ADM för att MIGRERA ASCS-instansen.
 
    <pre><code>
    anftstsapcl1:qasadm 53> sapcontrol -nr 00 -host anftstsapvh -user <b>qas</b>adm &lt;password&gt; -function HAFailoverToNode ""
@@ -1225,7 +1225,7 @@ Följande tester är en kopia av test fallen i [Best Practices-handböcker för 
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   Skapa ett köobjekt genom att t. ex. Redigera en användare i Transaction su01. Kör följande kommandon som <sapsid\>adm på den nod där ASCS-instansen körs. Kommandona stoppar ASCS-instansen och startar den igen. Om du använder en arkitektur för Server 1, förväntas det att ta bort det här testet. Om du använder Server 2 arkitektur för Server 2 kommer kön att behållas. 
+   Skapa ett köobjekt genom att t. ex. Redigera en användare i Transaction su01. Kör följande kommandon som <sapsid \> adm på den nod där ASCS-instansen körs. Kommandona stoppar ASCS-instansen och startar den igen. Om du använder en arkitektur för Server 1, förväntas det att ta bort det här testet. Om du använder Server 2 arkitektur för Server 2 kommer kön att behållas. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1279,7 +1279,7 @@ Följande tester är en kopia av test fallen i [Best Practices-handböcker för 
    <pre><code>anftstsapcl2:~ # pgrep ms.sapQAS | xargs kill -9
    </code></pre>
 
-   Om du bara avdödar meddelande servern en gång, startas den om av `sapstart`. Om du tar bort det ofta räcker pacemaker att flytta ASCS-instansen till den andra noden. Kör följande kommandon som rot för att rensa resurs statusen för ASCS-och ERS-instansen efter testet.
+   Om du bara avdödar meddelande servern en gång, startas den om av `sapstart` . Om du tar bort det ofta räcker pacemaker att flytta ASCS-instansen till den andra noden. Kör följande kommandon som rot för att rensa resurs statusen för ASCS-och ERS-instansen efter testet.
 
    <pre><code>
    anftstsapcl2:~ # crm resource cleanup rsc_sap_QAS_ASCS00

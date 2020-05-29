@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a5afa6439caa6b7c1572447e3b212f3357bf296a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe58f59147db43b1c15298f83a2945b50766f8a8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282519"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169210"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten till att exportera data från Azure Blob Storage
 
 Den här artikeln innehåller stegvisa instruktioner för hur du använder tjänsten Azure import/export för att på ett säkert sätt exportera stora mängder data från Azure Blob Storage. Tjänsten kräver att du levererar tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagrings konto till enheterna och levererar sedan enheterna tillbaka.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du skapar ett export jobb för att överföra data från Azure Blob Storage bör du noggrant granska och slutföra följande lista över nödvändiga komponenter för tjänsten.
 Du måste:
@@ -27,10 +27,10 @@ Du måste:
 - Ha en aktiv Azure-prenumeration som kan användas för import/export-tjänsten.
 - Ha minst ett Azure Storage konto. Se listan över [lagrings konton och lagrings typer som stöds för import/export-tjänsten](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagrings konto finns i [så här skapar du ett lagrings konto](storage-account-create.md).
 - Har tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks).
-- Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com`.
+- Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com` .
   - Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
   - Generera ett spårnings nummer för export jobbet.
-  - Varje jobb bör ha ett separat spårnings nummer. Det finns inte stöd för flera jobb med samma spårnings nummer.
+  - Varje jobb ska ha ett separat spårningsnummer. Det finns inte stöd för flera jobb med samma spårningsnummer.
   - Om du inte har ett transport företags konto går du till:
     - [Skapa ett FedEX-konto](https://www.fedex.com/en-us/create-account.html)eller
     - [Skapa ett DHL-konto](http://www.dhl-usa.com/en/express/shipping/open_account.html).
@@ -39,7 +39,7 @@ Du måste:
 
 Utför följande steg för att skapa ett export jobb i Azure Portal.
 
-1. Logga in på https://portal.azure.com/.
+1. Logga in på https://portal.azure.com/ .
 2. Gå till **alla tjänster > lagring > import/export-jobb**.
 
     ![Gå till import/export-jobb](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -83,7 +83,7 @@ Utför följande steg för att skapa ett export jobb i Azure Portal.
 
 6. I **information om retur leverans**:
 
-    - Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet `adbops@microsoft.com` på med information om den operatör som du planerar att använda.
+    - Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet på `adbops@microsoft.com` med information om den operatör som du planerar att använda.
     - Ange ett giltigt transportföretags konto nummer som du har skapat med transport företaget. Microsoft använder det här kontot för att skicka tillbaka enheterna till dig när ditt export jobb är klart.
     - Ange ett fullständigt och giltigt kontakt namn, telefon, e-postadress, gatuadress, ort, post, delstat/provins och land/region.
 
@@ -129,7 +129,7 @@ Exporten är klar.
 
 Om du använder version 1.4.0.300 av WAImportExport-verktyget använder du följande kommando för att låsa upp enheten:
 
-    `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
 
 Om du använder tidigare versioner av verktyget använder du dialog rutan BitLocker för att låsa upp enheten.
 
@@ -140,7 +140,7 @@ För tillfället kan du ta bort jobbet eller lämna det. Jobb tas automatiskt bo
 Det här *valfria* steget hjälper dig att avgöra hur många enheter som krävs för export jobbet. Utför det här steget på ett Windows-system som kör en [operativ system version som stöds](storage-import-export-requirements.md#supported-operating-systems).
 
 1. [Ladda ned WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) på Windows-systemet.
-2. Zippa upp till standardmappen `waimportexportv1`. Till exempel `C:\WaImportExportV1`.
+2. Zippa upp till standardmappen `waimportexportv1` . Till exempel `C:\WaImportExportV1`.
 3. Öppna ett PowerShell-eller kommando rads fönster med administratörs behörighet. Kör följande kommando för att ändra katalogen till den zippade mappen:
 
     `cd C:\WaImportExportV1`
@@ -151,13 +151,13 @@ Det här *valfria* steget hjälper dig att avgöra hur många enheter som krävs
 
     Parametrarna beskrivs i följande tabell:
 
-    |Kommando rads parameter|Beskrivning|  
+    |Kommando rads parameter|Description|  
     |--------------------------|-----------------|  
     |**/logdir:**|Valfritt. Logg katalogen. Utförliga loggfiler skrivs till den här katalogen. Om detta inte anges används den aktuella katalogen som logg katalog.|  
     |**SN**|Krävs. Namnet på lagrings kontot för export jobbet.|  
     |**sk**|Krävs endast om en behållar-SÄKERHETSASSOCIATIONER inte har angetts. Konto nyckeln för lagrings kontot för export jobbet.|  
     |**/csas:**|Krävs endast om en lagrings konto nyckel inte har angetts. Behållar SAS för att lista de blobbar som ska exporteras i export jobbet.|  
-    |**/ExportBlobListFile:**|Krävs. Sökväg till XML-filen som innehåller en lista över BLOB-sökvägar eller prefix för BLOB-sökvägar för de blobbar som ska exporteras. Fil formatet som används i- `BlobListBlobPath` elementet [i åtgärden för att importera](/rest/api/storageimportexport/jobs) /exportera REST API.|  
+    |**/ExportBlobListFile:**|Krävs. Sökväg till XML-filen som innehåller en lista över BLOB-sökvägar eller prefix för BLOB-sökvägar för de blobbar som ska exporteras. Fil formatet som används i `BlobListBlobPath` -elementet i åtgärden [Put Job](/rest/api/storageimportexport/jobs) för att importera/exportera REST API.|  
     |**/DriveSize:**|Krävs. Storleken på de enheter som ska användas för ett export jobb, *t. ex.* 500 GB, 1,5 TB.|  
 
     Se ett [exempel på PreviewExport-kommandot](#example-of-previewexport-command).
@@ -205,7 +205,7 @@ Number of drives needed:        3
 
 I följande tabell visas exempel på giltiga BLOB-sökvägar:
 
-   | Väljare | BLOB-sökväg | Beskrivning |
+   | Väljare | BLOB-sökväg | Description |
    | --- | --- | --- |
    | Börjar med |/ |Exporterar alla blobar i lagrings kontot |
    | Börjar med |/$root/ |Exporterar alla blobbar i rot behållaren |

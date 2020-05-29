@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 8d2217b9cdd35852e5fb2480dec302ce28d9540b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: c30374b21c1d95b6b710de10da08391d0af4f538
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116897"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141967"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: Extrahera text-och layoutinformation med hjälp av formulär tolken REST API med python
 
@@ -27,6 +27,10 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
 - Ett formulär dokument. Du kan ladda ned en bild från [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten.
+
+> [!NOTE]
+> I den här snabb starten används ett lokalt lagrat dokument. Information om hur du använder fjärrfiler som används av URL: er finns i [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync).
+
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 

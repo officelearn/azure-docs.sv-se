@@ -9,24 +9,24 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 31afb7bc00250887841adccc8c3cc4dc69462d55
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bd070300427716634d786e685cfe1cf8e45a246c
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81642893"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140769"
 ---
 <a name="HOLTop"></a>
 
-[Referens dokumentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [bibliotek käll kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [paket](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) | [exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Referens dokumentation](https://aka.ms/azsdk-java-textanalytics-ref-docs)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics)  |  [Paket](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4)  |  [Exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) med version 8 eller senare
-* När du har en Azure <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="-prenumeration skapar du en textanalys"  target="_blank">resurs skapa en textanalys <span class="docon docon-navigate-external x-hidden-focus"></span> </a> resurs i Azure Portal för att hämta din nyckel och slut punkt.  När den har distribuerats klickar **du på gå till resurs**.
+* När du har en Azure-prenumeration <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" skapar du en textanalys resurs "  target="_blank"> skapa en textanalys resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt.  När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API för textanalys. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
-    * Du kan använda den kostnads fria pris nivån`F0`() för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -39,7 +39,7 @@ Skapa ett Maven-projekt i önskad IDE-eller utvecklings miljö. Lägg sedan till
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>1.0.0-beta.4</version>
+        <version>1.0.0-beta.5</version>
     </dependency>
 </dependencies>
 ```
@@ -47,7 +47,7 @@ Skapa ett Maven-projekt i önskad IDE-eller utvecklings miljö. Lägg sedan till
 > [!TIP]
 > Vill du Visa hela snabb starts kod filen samtidigt? Du kan hitta den [på GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), som innehåller kod exemplen i den här snabb starten. 
 
-Skapa en Java-fil `TextAnalyticsSamples.java`med namnet. Öppna filen och Lägg till följande `import` -uttryck:
+Skapa en Java-fil med namnet `TextAnalyticsSamples.java` . Öppna filen och Lägg till följande- `import` uttryck:
 
 ```java
 import com.azure.core.credential.AzureKeyCredential;
@@ -102,7 +102,7 @@ Skapa en metod för att instansiera `TextAnalyticsClient` objektet med nyckeln o
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
     return new TextAnalyticsClientBuilder()
-        .apiKey(new AzureKeyCredential(key))
+        .credential(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
 }
@@ -112,7 +112,7 @@ Anropa autentiseringsmetoden i program `main()` metoden för att instansiera kli
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 
-Skapa en ny funktion som `sentimentAnalysisExample()` anropar den klient som du skapade tidigare och anropa dess `analyzeSentiment()` funktion. Det returnerade `AnalyzeSentimentResult` objektet kommer `documentSentiment` att `sentenceSentiments` innehålla och om det lyckas `errorMessage` , eller ett IF-not. 
+Skapa en ny funktion som anropar `sentimentAnalysisExample()` den klient som du skapade tidigare och anropa dess `analyzeSentiment()` funktion. Det returnerade `AnalyzeSentimentResult` objektet kommer att innehålla `documentSentiment` och `sentenceSentiments` om det lyckas, eller ett `errorMessage` IF-not. 
 
 ```java
 static void sentimentAnalysisExample(TextAnalyticsClient client)
@@ -135,11 +135,11 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
             sentenceSentiment.getConfidenceScores().getPositive(),
             sentenceSentiment.getConfidenceScores().getNeutral(),
             sentenceSentiment.getConfidenceScores().getNegative());
+        }
     }
-}
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
@@ -149,10 +149,10 @@ Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.7
 
 ## <a name="language-detection"></a>Språkidentifiering
 
-Skapa en ny funktion som `detectLanguageExample()` anropar den klient som du skapade tidigare och anropa dess `detectLanguage()` funktion. Det returnerade `DetectLanguageResult` objektet kommer att innehålla ett primärt språk som identifierats, en lista med andra språk som `errorMessage` har identifierats om det lyckas, eller om det inte.
+Skapa en ny funktion som anropar `detectLanguageExample()` den klient som du skapade tidigare och anropa dess `detectLanguage()` funktion. Det returnerade `DetectLanguageResult` objektet kommer att innehålla ett primärt språk som identifierats, en lista med andra språk som har identifierats om det lyckas, eller `errorMessage` om det inte.
 
 > [!Tip]
-> I vissa fall kan det vara svårt att disambiguate språk baserat på indatamängden. Du kan använda- `countryHint` parametern för att ange en landskod på 2 bokstäver. Som standard använder API: t "US" som standard-countryHint, för att ta bort det här alternativet kan du återställa den här parametern genom att ange värdet `countryHint = ""`till en tom sträng. Om du vill ange en annan standard ställer `TextAnalyticsClientOptions.DefaultCountryHint` du in egenskapen och skickar den under klient initieringen.
+> I vissa fall kan det vara svårt att disambiguate språk baserat på indatamängden. Du kan använda- `countryHint` parametern för att ange en landskod på 2 bokstäver. Som standard använder API: t "US" som standard-countryHint, för att ta bort det här alternativet kan du återställa den här parametern genom att ange värdet till en tom sträng `countryHint = ""` . Om du vill ange en annan standard ställer du in `TextAnalyticsClientOptions.DefaultCountryHint` egenskapen och skickar den under klient initieringen.
 
 ```java
 static void detectLanguageExample(TextAnalyticsClient client)
@@ -164,11 +164,11 @@ static void detectLanguageExample(TextAnalyticsClient client)
     System.out.printf("Detected primary language: %s, ISO 6391 name: %s, score: %.2f.%n",
         detectedLanguage.getName(),
         detectedLanguage.getIso6391Name(),
-        detectedLanguage.getScore());
+        detectedLanguage.getConfidenceScore());
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Detected primary language: French, ISO 6391 name: fr, score: 1.00.
@@ -176,11 +176,11 @@ Detected primary language: French, ISO 6391 name: fr, score: 1.00.
 ## <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna enheter (NER)
 
 > [!NOTE]
-> I version `3.0-preview`:
+> I version `3.0` :
 > * NER innehåller separata metoder för att identifiera personlig information. 
 > * Enhets länkning är en separat begäran än NER.
 
-Skapa en ny funktion som `recognizeEntitiesExample()` anropar den klient som du skapade tidigare och anropa dess `recognizeEntities()` funktion. Det returnerade `RecognizeEntitiesResult` objektet kommer att innehålla en `NamedEntity` lista över om det lyckades `errorMessage` , eller en IF-not.
+Skapa en ny funktion som anropar `recognizeEntitiesExample()` den klient som du skapade tidigare och anropa dess `recognizeEntities()` funktion. Det returnerade `RecognizeEntitiesResult` objektet kommer att innehålla en lista över `NamedEntity` om det lyckades, eller en `errorMessage` IF-not.
 
 ```java
 static void recognizeEntitiesExample(TextAnalyticsClient client)
@@ -193,78 +193,79 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
             "Recognized entity: %s, entity category: %s, entity sub-category: %s, score: %s.%n",
             entity.getText(),
             entity.getCategory(),
-            entity.getSubCategory(),
+            entity.getSubcategory(),
             entity.getConfidenceScore());
     }
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
-Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.92.
+Recognized entity: trip, entity category: Event, entity sub-category: null, score: 0.61.
+Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.82.
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8.
 ```
 
 ## <a name="entity-linking"></a>Länkning av entitet
 
-Skapa en ny funktion som `recognizeLinkedEntitiesExample()` anropar den klient som du skapade tidigare och anropa dess `recognizeLinkedEntities()` funktion. Det returnerade `RecognizeLinkedEntitiesResult` objektet kommer att innehålla en `LinkedEntity` lista över om det lyckades `errorMessage` , eller en IF-not. Eftersom länkade entiteter identifieras unikt, grupperas förekomster av samma entitet under ett `LinkedEntity` objekt som en lista med `LinkedEntityMatch` objekt.
+Skapa en ny funktion som anropar `recognizeLinkedEntitiesExample()` den klient som du skapade tidigare och anropa dess `recognizeLinkedEntities()` funktion. Det returnerade `RecognizeLinkedEntitiesResult` objektet kommer att innehålla en lista över `LinkedEntity` om det lyckades, eller en `errorMessage` IF-not. Eftersom länkade entiteter identifieras unikt, grupperas förekomster av samma entitet under ett `LinkedEntity` objekt som en lista med `LinkedEntityMatch` objekt.
 
 ```java
 static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
 {
     // The text that need be analyzed.
     String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
-            "to develop and sell BASIC interpreters for the Altair 8800. " +
-            "During his career at Microsoft, Gates held the positions of chairman, " +
-            "chief executive officer, president and chief software architect, " +
-            "while also being the largest individual shareholder until May 2014.";
+        "to develop and sell BASIC interpreters for the Altair 8800. " +
+        "During his career at Microsoft, Gates held the positions of chairman, " +
+        "chief executive officer, president and chief software architect, " +
+        "while also being the largest individual shareholder until May 2014.";
 
     System.out.printf("Linked Entities:%n");
     for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
         System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
-                linkedEntity.getName(),
-                linkedEntity.getDataSourceEntityId(),
-                linkedEntity.getUrl(),
-                linkedEntity.getDataSource());
+            linkedEntity.getName(),
+            linkedEntity.getDataSourceEntityId(),
+            linkedEntity.getUrl(),
+            linkedEntity.getDataSource());
         System.out.printf("Matches:%n");
-        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getLinkedEntityMatches()) {
+        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getMatches()) {
             System.out.printf("Text: %s, Score: %.2f%n",
-                    linkedEntityMatch.getText(),
-                    linkedEntityMatch.getConfidenceScore());
+            linkedEntityMatch.getText(),
+            linkedEntityMatch.getConfidenceScore());
         }
     }
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Linked Entities:
 Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
 Matches:
-Text: Altair 8800, Score: 0.78
+Text: Altair 8800, Score: 0.88
 Name: Bill Gates, ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates, Data Source: Wikipedia.
 Matches:
-Text: Bill Gates, Score: 0.55
-Text: Gates, Score: 0.55
+Text: Bill Gates, Score: 0.63
+Text: Gates, Score: 0.63
 Name: Paul Allen, ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen, Data Source: Wikipedia.
 Matches:
-Text: Paul Allen, Score: 0.53
+Text: Paul Allen, Score: 0.60
 Name: Microsoft, ID: Microsoft, URL: https://en.wikipedia.org/wiki/Microsoft, Data Source: Wikipedia.
 Matches:
-Text: Microsoft, Score: 0.47
-Text: Microsoft, Score: 0.47
+Text: Microsoft, Score: 0.55
+Text: Microsoft, Score: 0.55
 Name: April 4, ID: April 4, URL: https://en.wikipedia.org/wiki/April_4, Data Source: Wikipedia.
 Matches:
-Text: April 4, Score: 0.25
+Text: April 4, Score: 0.32
 Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: Wikipedia.
 Matches:
-Text: BASIC, Score: 0.28
+Text: BASIC, Score: 0.33
 ```
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
-Skapa en ny funktion som `extractKeyPhrasesExample()` anropar den klient som du skapade tidigare och anropa dess `extractKeyPhrases()` funktion. Det returnerade `ExtractKeyPhraseResult` objektet kommer att innehålla en lista över nyckel fraser om det lyckas `errorMessage` eller inte.
+Skapa en ny funktion som anropar `extractKeyPhrasesExample()` den klient som du skapade tidigare och anropa dess `extractKeyPhrases()` funktion. Det returnerade `ExtractKeyPhraseResult` objektet kommer att innehålla en lista över nyckel fraser om det lyckas eller `errorMessage` inte.
 
 ```java
 static void extractKeyPhrasesExample(TextAnalyticsClient client)
@@ -279,7 +280,7 @@ static void extractKeyPhrasesExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Recognized phrases: 

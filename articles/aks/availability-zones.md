@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 35aaad31728f4a0cd73913ecf397d8123b3f909a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 20b796e2da7fe602a8987d3de98bd3a5d9fafb5c
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725104"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148182"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett Azure Kubernetes service-kluster (AKS) som använder tillgänglighets zoner
 
@@ -48,7 +48,7 @@ Följande begränsningar gäller när du skapar ett AKS-kluster med hjälp av ti
 
 ### <a name="azure-disks-limitations"></a>Begränsningar för Azure disks
 
-Volymer som använder Azure Managed disks är för närvarande inte zoner-redundanta resurser. Det går inte att koppla volymer mellan zoner och måste vara samplacerade i samma zon som en nod som är värd för en mål-pod.
+Volymer som använder Azure Managed disks är för närvarande inte zoner-redundanta resurser. Det går inte att koppla volymer mellan zoner och måste vara samplacerade i samma zon som en nod som är värd för mål-pod.
 
 Om du måste köra tillstånds känsliga arbets belastningar använder du Pod-specifikationer för att gruppera Pod-schemaläggning i samma zon som diskarna. Du kan också använda nätverksbaserad lagring som Azure Files som kan kopplas till poddar när de är schemalagda mellan zoner.
 

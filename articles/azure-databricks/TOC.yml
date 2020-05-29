@@ -7,12 +7,15 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa en Databricks-arbetsyta – portalen
-      href: quickstart-create-databricks-workspace-portal.md
-    - name: Skapa en Databricks-arbetsyta – Resource Manager-mall
-      href: quickstart-create-databricks-workspace-resource-manager-template.md
-    - name: Skapa en Databricks-arbetsyta – virtuellt nätverk
-      href: quickstart-create-databricks-workspace-vnet-injection.md
+    - name: Skapa en arbetsyta
+      items:
+        - name: Portalen
+          href: quickstart-create-databricks-workspace-portal.md
+        - name: ARM-mall
+          displayName: Resource Manager
+          href: quickstart-create-databricks-workspace-resource-manager-template.md
+        - name: Virtuellt nätverk
+          href: quickstart-create-databricks-workspace-vnet-injection.md
 - name: Självstudier
   items:
     - name: Fråga SQL Server som körs i Docker-container

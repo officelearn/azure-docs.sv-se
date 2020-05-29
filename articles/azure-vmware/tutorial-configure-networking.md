@@ -3,18 +3,18 @@ title: Självstudie – Konfigurera nätverk för ditt privata VMware-moln i Azu
 description: Lär dig att skapa och konfigurera de nätverk som behövs för att distribuera ditt privata moln i Azure
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 5a8086f78f465f52d0f9107932c09c4690f505e8
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 6cac420fb77526746dbdbfef5a88b071c007d555
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873852"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148114"
 ---
-# <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Självstudie: Konfigurera nätverk för ditt privata VMWare-moln i Azure
+# <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Självstudie: Konfigurera nätverk för ditt privata VMware-moln i Azure
 
 Ett privat moln i Azure VMware-lösningen (AVS) kräver ett virtuellt nätverk. Eftersom AVS inte stöder din lokala vCenter under för hands versionen krävs ytterligare steg för integrering med din lokala miljö. Att konfigurera en ExpressRoute-krets och en Virtual Network Gateway krävs också och kommer att åtgärdas i den här självstudien.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk

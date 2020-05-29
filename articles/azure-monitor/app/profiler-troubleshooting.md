@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 55bc4ff05b650884ef17e0de10d7156cbf458a9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81640952"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148352"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera eller Visa Application Insights Profiler
 
@@ -48,7 +48,7 @@ Profiler skriver spårnings meddelanden och anpassade händelser till din Applic
 * Kontrol lera att din app körs på .NET Framework 4,6.
 * Om din webbapp är ett ASP.NET Core program måste den köra minst ASP.NET Core 2,0.
 * Om de data du försöker visa är äldre än några veckor kan du försöka begränsa ditt tids filter och försöka igen. Spårningar tas bort efter sju dagar.
-* Kontrol lera att proxyservrar eller en brand vägg inte har blockerat https://gateway.azureserviceprofiler.netåtkomst till.
+* Kontrol lera att proxyservrar eller en brand vägg inte har blockerat åtkomst till https://gateway.azureserviceprofiler.net .
 * Profiler stöds inte på kostnads fria eller delade App Service-planer. Om du använder någon av dessa planer kan du prova att skala upp till en av de grundläggande planerna och profileraren ska börja fungera.
 
 ### <a name="double-counting-in-parallel-threads"></a><a id="double-counting"></a>Dubbel inventering i parallella trådar
@@ -87,7 +87,7 @@ För att profiler ska fungera korrekt:
 
       ![profiler-jobb-logg]
 
-Om du inte kan ta reda på varför profiler inte fungerar för dig kan du hämta loggen och skicka den till vårt team för att få hjälp serviceprofilerhelp@microsoft.com. 
+Om du inte kan ta reda på varför profiler inte fungerar för dig kan du hämta loggen och skicka den till vårt team för att få hjälp serviceprofilerhelp@microsoft.com . 
     
 ### <a name="manual-installation"></a>Manuell installation
 
@@ -110,11 +110,11 @@ När du konfigurerar profiler görs uppdateringar av webbappens inställningar. 
 
 För närvarande kan du aktivera profiler på högst fyra Azure-webbappar och distributions fack som körs i samma tjänste plan. Om du har fler än fyra webbappar som körs i en app service-plan kan profileraren utlösa en *Microsoft. ServiceProfiler. Exceptions. TooManyETWSessionException*. Profiler körs separat för varje webbapp och försöker starta en ETW (Event Tracing for Windows)-session (ETW) för varje app. Men ett begränsat antal ETW-sessioner kan vara aktiva samtidigt. Om profilers-webbjobbet rapporterar för många aktiva profilerings sessioner flyttar du några webbappar till en annan tjänst plan.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Distributions fel: katalogen är inte tom\\:\\start\\\\platsens\\wwwroot App_Data jobb
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Distributions fel: katalogen är inte tom: \\ Start \\ platsens \\ wwwroot \\ App_Data \\ jobb
 
 Om du omdistribuerar din webbapp till en Web Apps-resurs där profileraren är aktive rad kan du se följande meddelande:
 
-*Katalogen är inte tom:\\Start\\\\platsens\\wwwroot\\App_Data jobb*
+*Katalogen är inte tom: \\ Start \\ platsens \\ wwwroot \\ App_Data \\ jobb*
 
 Det här felet uppstår om du kör webb distribution från skript eller från pipeline för Azure DevOps-distribution. Lösningen är att lägga till följande ytterligare distributions parametrar till webb distributions uppgiften:
 
@@ -128,7 +128,7 @@ Dessa parametrar tar bort mappen som används av Application Insights Profiler o
 
 Profiler körs som ett kontinuerligt webb jobb i webbappen. Du kan öppna Web App-resursen i [Azure Portal](https://portal.azure.com). I fönstret **WebJobs** kontrollerar du status för **ApplicationInsightsProfiler**. Om den inte körs öppnar du **loggar** för att få mer information.
 
-## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Felsök problem med profiler och Azure-diagnostik
+## <a name="troubleshoot-vms-and-cloud-services"></a>Felsöka virtuella datorer och Cloud Services
 
 >**Felet i profileraren som levereras i WAD för Cloud Services har åtgärd ATS.** Den senaste versionen av WAD (1.12.2.0) för Cloud Services fungerar med alla nya versioner av App Insights SDK. Moln tjänst värdar kommer att uppgradera WAD automatiskt, men det är inte omedelbart. Om du vill framtvinga en uppgradering kan du distribuera om tjänsten eller starta om noden.
 
@@ -141,27 +141,45 @@ Om du vill se om profiler har kon figurer ATS korrekt av Azure-diagnostik gör d
 
 Kontrol lera inställningarna som användes för att konfigurera Azure-diagnostik:
 
-1. Logga in på den virtuella datorn (VM) och öppna sedan logg filen på den här platsen. (Enheten kan vara c: eller d: och plugin-versionen kan vara annorlunda.)
-
-    ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
-    ```
-    eller
+1. Logga in på den virtuella datorn (VM) och öppna sedan logg filen på den här platsen. Plugin-versionen kan vara nyare på din dator.
+    
+    För virtuella datorer:
     ```
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
+    ```
+    
+    För Cloud Services:
+    ```
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
     ```
 
 1. I filen kan du söka efter strängen **WadCfg** för att hitta de inställningar som skickades till den virtuella datorn för att konfigurera Azure-diagnostik. Du kan kontrol lera om iKey som används av profilens Sink är korrekt.
 
-1. Kontrol lera kommando raden som används för att starta profiler. Argumenten som används för att starta profiler finns i följande fil. (Enheten kan vara c: eller d:)
+1. Kontrol lera kommando raden som används för att starta profiler. Argumenten som används för att starta profiler finns i följande fil. (Enheten kan vara c: eller d: och katalogen kan vara dold.)
 
+    För virtuella datorer:
+    ```
+    C:\ProgramData\ApplicationInsightsProfiler\config.json
+    ```
+    
+    för Cloud Services:
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json
     ```
 
 1. Kontrol lera att iKey på profilens kommando rad är korrekt. 
 
-1. Använd sökvägen som hittades i föregående *config. JSON* -fil, kontrol lera logg filen för profilering. Den felsöknings information som anger vilka inställningar som profiler använder visas. Den visar också status och fel meddelanden från profiler.  
+1. Använd sökvägen som finns i den föregående *config. JSON* -filen, kontrol lera logg filen för profilering, som heter **bootstrapd. log**. Den felsöknings information som anger vilka inställningar som profiler använder visas. Den visar också status och fel meddelanden från profiler.  
+
+    För virtuella datorer är filen vanligt vis här:
+    ```
+    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
+
+    För Cloud Services:
+    ```
+    C:\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
 
     Om profiler körs medan programmet tar emot begär Anden visas följande meddelande: *aktivitet som identifieras från iKey*. 
 

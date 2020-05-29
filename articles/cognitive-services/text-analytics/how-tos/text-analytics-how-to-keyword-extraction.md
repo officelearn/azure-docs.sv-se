@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/29/2019
-ms.author: raymondl
-ms.openlocfilehash: ec5ff756d7e732430675676868bc754627a2a4a1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/13/2020
+ms.author: aahi
+ms.openlocfilehash: c1ca14b8471ef6257c0603e61d78e789e846f0ae
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72429026"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142409"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exempel: extrahera viktiga fraser med Textanalys
 
-[API:et för extrahering av nyckelfras](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) utvärderar ostrukturerad text och returnerar en lista med nyckelfraser för varje JSON-dokument.
+[API:et för extrahering av nyckelfras](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) utvärderar ostrukturerad text och returnerar en lista med nyckelfraser för varje JSON-dokument.
 
 Den här funktionen är användbar om du snabbt behöver identifiera de viktigaste punkterna i en samling av dokument. Exempel: med den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”.
 
@@ -72,16 +72,16 @@ Dokument storleken måste vara 5 120 eller färre tecken per dokument och du kan
 
 Information om definition av begäran finns i [så här anropar du API för textanalys](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
 
-+ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [API för nyckel fraser](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
++ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [API för nyckel fraser](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
 
-+ Ange HTTP-slutpunkten för extrahering av nyckel fraser genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste ta `/text/analytics/v2.1/keyPhrases` med i URL: en. Till exempel: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`.
++ Ange HTTP-slutpunkten för extrahering av nyckel fraser genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste ta med `/text/analytics/v3.0/keyPhrases` i URL: en. Exempel: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
 
 + Ange ett rubrik för begäran för att inkludera [åtkomst nyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) för textanalys åtgärder.
 
 + Ange den JSON-dokumentsamling som du har förberett för den här analysen i begärandetexten.
 
 > [!Tip]
-> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna **API-testkonsolen** i [dokumentationen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) för att strukturera en begäran och skicka den till tjänsten.
+> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna **API-testkonsolen** i [dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) för att strukturera en begäran och skicka den till tjänsten.
 
 ## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
 
@@ -152,7 +152,7 @@ Som anges söker analysen och tar bort icke-viktiga ord, och det behåller enkla
 
 I den här artikeln har du lärt dig begrepp och arbets flöde för extrahering av nyckel fraser genom att använda Textanalys i Cognitive Services. Sammanfattningsvis:
 
-+ [API för extrahering av nyckelfraser](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) är tillgängligt för utvalda språk.
++ [API för extrahering av nyckelfraser](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) är tillgängligt för utvalda språk.
 + JSON-dokument i begär ande texten innehåller ID, text och språkkod.
 + POST-begäran riktas till en `/keyphrases`-slutpunkt med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som är giltig för din prenumeration.
 + Svars resultatet, som består av viktiga ord och fraser för varje dokument-ID, kan strömmas till alla appar som accepterar JSON, inklusive Microsoft Office Excel och Power BI, för att ge några.
@@ -164,5 +164,6 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för extrahering 
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [API för textanalys](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
+* [Översikt över Textanalys](../overview.md)
+* [Använda klient biblioteket för Textanalys](../quickstarts/text-analytics-sdk.md)
+* [Nyheter](../whats-new.md)

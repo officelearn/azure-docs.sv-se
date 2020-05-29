@@ -3,16 +3,16 @@ title: 'Självstudie: hantera märkes styrning'
 description: I den här självstudien använder du ändrings resultatet för Azure Policy för att skapa och tillämpa en etikett styrnings modell på nya och befintliga resurser.
 ms.date: 04/21/2020
 ms.topic: tutorial
-ms.openlocfilehash: 6319bbde2fdc8f78e2743dd5f1565c8680433fea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b3d0db100a601950ec82824897a3ba3e5145b79
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81759059"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142273"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Självstudie: hantera märkes styrning med Azure Policy
 
-[Taggar](../../../azure-resource-manager/management/tag-resources.md) är en viktig del av att organisera dina Azure-resurser i en taxonomi. När du följer [metod tipsen för etikett hantering](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)kan du använda taggar för att tillämpa affärs principer med Azure policy eller [spåra kostnader med Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+[Taggar](../../../azure-resource-manager/management/tag-resources.md) är en viktig del av att organisera dina Azure-resurser i en taxonomi. När du följer [metod tipsen för etikett hantering](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)kan du använda taggar för att tillämpa affärs principer med Azure policy eller [spåra kostnader med Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#tag-shared-resources).
 Oavsett hur eller varför du använder taggar är det viktigt att du snabbt kan lägga till, ändra och ta bort taggarna på dina Azure-resurser. Om du vill se om din Azure-resurs stöder taggning, se [tagg stöd](../../../azure-resource-manager/management/tag-support.md).
 
 Azure Policyens [ändrings](../concepts/effects.md#modify) funktion har utformats för att hjälpa till med styrning av Taggar oavsett vilket stadium av resurs styrning som du är i. **Ändra** hjälper när:
@@ -28,7 +28,7 @@ I den här självstudien utför du följande aktiviteter:
 > - Mappa varje krav till en princip definition
 > - Gruppera tag-principerna i ett initiativ
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -100,7 +100,7 @@ Det andra _CostCenter_ -behovet är för alla resurser som ska ärva taggen frå
 }
 ```
 
-Den här princip regeln använder åtgärden **Lägg till** i stället för **addOrReplace** eftersom vi inte vill ändra taggnamnet om det är tillgängligt när du [reparerar](../how-to/remediate-resources.md) befintliga resurser. Den använder också funktionen `[resourcegroup()]` mall för att hämta taggvärde från den överordnade resurs gruppen.
+Den här princip regeln använder åtgärden **Lägg till** i stället för **addOrReplace** eftersom vi inte vill ändra taggnamnet om det är tillgängligt när du [reparerar](../how-to/remediate-resources.md) befintliga resurser. Den använder också `[resourcegroup()]` funktionen mall för att hämta taggvärde från den överordnade resurs gruppen.
 
 > [!NOTE]
 > Eftersom den här princip regeln riktar resurser som stöder taggar, måste _läget_ i princip definitionen vara ' Indexed '. Den här konfigurationen ser också till att den här principen hoppar över resurs grupper.
@@ -148,7 +148,7 @@ En [ändrings](../concepts/effects.md#modify) princip krävs för varje miljö s
 > [!NOTE]
 > Eftersom den här princip regeln är riktad mot en resurs grupp måste _läget_ i princip definitionen vara all i stället för indexerad.
 
-Den här principen matchar endast resurs grupper med det exempel på namngivnings schema som används `prd-`för produktions resurser för. Mer komplexa namngivnings scheman kan uppnås med flera **matchnings** villkor i stället för samma **som** i det här exemplet.
+Den här principen matchar endast resurs grupper med det exempel på namngivnings schema som används för produktions resurser för `prd-` . Mer komplexa namngivnings scheman kan uppnås med flera **matchnings** villkor i stället för samma **som** i det här exemplet.
 
 ### <a name="modify-resources-to-inherit-the-env-tag"></a>Ändra resurser för att ärva kuvert-taggen
 

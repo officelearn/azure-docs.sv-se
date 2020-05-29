@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 06/19/2019
+ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77661540"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148267"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Skapa och dela instrumentpaneler för Log Analytics
 
@@ -35,6 +35,14 @@ Välj **instrument panel** för att öppna standard [instrument panelen](../../a
 ![Instrumentpanelen för Azure-portalen](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 Här kan du samla de driftdata som är viktigast för IT över alla dina Azure-resurser, inklusive telemetri från Azure Log Analytics.  Innan vi går vidare med visualiseringen av en logg fråga ska vi först skapa en instrument panel och dela den.  Vi kan sedan fokusera på vårt exempel på prestanda logg frågor, som kommer att återges som ett linje diagram och lägga till den på instrument panelen.  
+
+> [!NOTE]
+> Följande diagram typer stöds i Azure-instrumentpaneler med hjälp av logg frågor:
+> - areachart
+> - columnchart
+> - piechart (återges på instrument panelen som ring)
+> - scatterchart
+> - timechart
 
 Om du vill skapa en instrumentpanel väljer du knappen **Ny instrumentpanel** bredvid namnet på den aktuella instrumentpanelen.
 

@@ -2,13 +2,13 @@
 title: Så här aktiverar du Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs hur du aktiverar och konfigurerar Azure Monitor för behållare så att du kan förstå hur din behållare presterar och vilka prestandarelaterade problem som har identifierats.
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 284668dfe2aec809ce9a94e15f7c83cf0f2025b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/28/2020
+ms.openlocfilehash: 0348d580a42d4a522ac05f929c96547a47e831a9
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185939"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147910"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Aktivera Azure Monitor för behållare
 
@@ -32,7 +32,7 @@ Azure Monitor för behållare kan aktive ras för nya eller en eller flera befin
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du har följande innan du börjar:
 
@@ -66,26 +66,23 @@ Informationen i följande tabell visar den konfigurations information för proxy
 | *.ods.opinsights.azure.com | 443 |  
 | *.oms.opinsights.azure.com | 443 |
 | dc.services.visualstudio.com | 443 |
-| *.microsoftonline.com | 443 |
 | *. monitoring.azure.com | 443 |
 | login.microsoftonline.com | 443 |
 
 Informationen i följande tabell visar konfigurations information för proxy och brand vägg för Azure Kina.
 
-|Agentresurs|Portar |Beskrivning | 
+|Agentresurs|Portar |Description | 
 |--------------|------|-------------|
 | *. ods.opinsights.azure.cn | 443 | Datainhämtning |
 | *. oms.opinsights.azure.cn | 443 | OMS-onboarding |
-| microsoft.com | 80 | Används för nätverks anslutning. Detta krävs endast om agent avbildnings versionen är ciprod09262019 eller tidigare. |
 | dc.services.visualstudio.com | 443 | För för agent-telemetri med Azures offentliga moln Application Insights. |
 
 Informationen i följande tabell visar konfigurations information för proxy och brand vägg för Azure amerikanska myndigheter.
 
-|Agentresurs|Portar |Beskrivning | 
+|Agentresurs|Portar |Description | 
 |--------------|------|-------------|
 | *. ods.opinsights.azure.us | 443 | Datainhämtning |
 | *. oms.opinsights.azure.us | 443 | OMS-onboarding |
-| microsoft.com | 80 | Används för nätverks anslutning. Detta krävs endast om agent avbildnings versionen är ciprod09262019 eller tidigare. |
 | dc.services.visualstudio.com | 443 | För att kunna använda agenten i Azures offentliga moln Application Insights. |
 
 ## <a name="components"></a>Komponenter
@@ -99,12 +96,12 @@ Din möjlighet att övervaka prestanda är beroende av en container Log Analytic
 När en ny version av agenten släpps, uppgraderas den automatiskt i hanterade Kubernetes-kluster som finns i Azure Kubernetes service (AKS). Information om hur du följer de versioner som lanseras finns i [agent release-meddelanden](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 >[!NOTE]
->Om du redan har distribuerat ett AKS-kluster aktiverar du övervakning med hjälp av antingen Azure CLI eller en angiven Azure Resource Manager mall, som det visas längre fram i den här artikeln. Du kan inte `kubectl` använda för att uppgradera, ta bort, distribuera om eller distribuera agenten.
+>Om du redan har distribuerat ett AKS-kluster aktiverar du övervakning med hjälp av antingen Azure CLI eller en angiven Azure Resource Manager mall, som det visas längre fram i den här artikeln. Du kan inte använda `kubectl` för att uppgradera, ta bort, distribuera om eller distribuera agenten.
 >Mallen måste distribueras i samma resurs grupp som klustret.
 
 Du aktiverar Azure Monitor för behållare genom att använda någon av följande metoder som beskrivs i följande tabell.
 
-| Distributions tillstånd | Metod | Beskrivning |
+| Distributions tillstånd | Metod | Description |
 |------------------|--------|-------------|
 | Nytt AKS Kubernetes-kluster | [Skapa AKS-kluster med Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Du kan aktivera övervakning av ett nytt AKS-kluster som du skapar med Azure CLI. |
 | | [Skapa AKS-kluster med terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Du kan aktivera övervakning av ett nytt AKS-kluster som du skapar med hjälp av terraform med öppen källkod. |

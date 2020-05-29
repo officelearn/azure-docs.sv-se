@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 0e98a10573a2e3abda255c325845190ed5067bb3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 979c714ca5446d3f1eabb76e97535ee5ffa2e359
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778262"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140772"
 ---
 <a name="HOLTop"></a>
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
 
 [v3 referens dokumentation](https://aka.ms/azsdk-net-textanalytics-ref-docs)  |  [v3-biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics)  |  [v3-paket (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics)  |  [v3-exempel](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
@@ -28,7 +28,7 @@ ms.locfileid: "83778262"
 
 ---
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
@@ -42,9 +42,9 @@ ms.locfileid: "83778262"
 
 Skapa en ny .NET Core-konsol med hjälp av Visual Studio IDE. Då skapas ett "Hello World"-projekt med en enda C#-källfil: *program.cs*.
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
 
-Installera klient biblioteket genom att högerklicka på lösningen i **Solution Explorer** och välja **Hantera NuGet-paket**. I paket hanteraren som öppnas väljer du **Bläddra**, markerar **ta med för hands version**och söker efter `Azure.AI.TextAnalytics` . Välj version `1.0.0-preview.4` och **Installera**sedan. Du kan också använda [Package Manager-konsolen](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Installera klient biblioteket genom att högerklicka på lösningen i **Solution Explorer** och välja **Hantera NuGet-paket**. I paket hanteraren som öppnas väljer du **Bläddra**, markerar **ta med för hands version**och söker efter `Azure.AI.TextAnalytics` . Välj version `1.0.0-preview.5` och **Installera**sedan. Du kan också använda [Package Manager-konsolen](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 > [!TIP]
 > Vill du Visa hela snabb starts kod filen samtidigt? Du kan hitta den [på GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), som innehåller kod exemplen i den här snabb starten. 
@@ -58,7 +58,7 @@ Installera klient biblioteket genom att högerklicka på lösningen i **Solution
 
 ---
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
 
 Öppna filen *program.cs* och Lägg till följande `using` direktiv:
 
@@ -121,7 +121,7 @@ Ersätt programmets `Main` metod. Du definierar de metoder som anropas här sena
 
 Textanalys-klienten är ett `TextAnalyticsClient` objekt som autentiserar till Azure med hjälp av din nyckel och ger funktioner för att acceptera text som enkla strängar eller som en batch. Du kan skicka text till API: et synkront eller asynkront. Objektet Response kommer att innehålla analys informationen för varje dokument som du skickar. 
 
-Om du använder en version `3.0-preview` av tjänsten kan du använda en valfri `TextAnalyticsClientOptions` instans för att initiera klienten med olika standardinställningar (till exempel standard språk eller land/region-tips). Du kan också autentisera med hjälp av en Azure Active Directory-token. 
+Om du använder en version `3.0` av tjänsten kan du använda en valfri `TextAnalyticsClientOptions` instans för att initiera klienten med olika standardinställningar (till exempel standard språk eller land/region-tips). Du kan också autentisera med hjälp av en Azure Active Directory-token. 
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -133,7 +133,7 @@ Om du använder en version `3.0-preview` av tjänsten kan du använda en valfri 
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
 
 Kontrol lera att din huvud metod från tidigare skapar ett nytt klient objekt med din slut punkt och dina autentiseringsuppgifter.
 
@@ -155,7 +155,7 @@ Skapa en metod för att instansiera [TextAnalyticsClient](https://docs.microsoft
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
 
 Skapa en ny funktion som anropar `SentimentAnalysisExample()` den klient som du skapade tidigare och anropa dess `AnalyzeSentiment()` funktion. Det returnerade `Response<DocumentSentiment>` objektet kommer att innehålla sentiment etikett och poängen i hela indatamängden, samt en sentiment-analys för varje mening om det lyckas. Om ett fel uppstår kommer det att utlösa en `RequestFailedException` .
 
@@ -169,8 +169,7 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
     var si = new StringInfo(inputText);
     foreach (var sentence in documentSentiment.Sentences)
     {
-        Console.WriteLine($"\tSentence [length {sentence.GraphemeLength}]");
-        Console.WriteLine($"\tText: \"{si.SubstringByTextElements(sentence.GraphemeOffset, sentence.GraphemeLength)}\"");
+        Console.WriteLine($"\tText: \"{sentence.Text}\"");
         Console.WriteLine($"\tSentence sentiment: {sentence.Sentiment}");
         Console.WriteLine($"\tPositive score: {sentence.ConfidenceScores.Positive:0.00}");
         Console.WriteLine($"\tNegative score: {sentence.ConfidenceScores.Negative:0.00}");
@@ -179,19 +178,17 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Document sentiment: Positive
 
-        Sentence [length 30]
         Text: "I had the best day of my life."
         Sentence sentiment: Positive
         Positive score: 1.00
         Negative score: 0.00
         Neutral score: 0.00
 
-        Sentence [length 30]
         Text: "I wish you were there with me."
         Sentence sentiment: Neutral
         Positive score: 0.21
@@ -215,7 +212,7 @@ Sentiment Score: 0.87
 
 ## <a name="language-detection"></a>Språkidentifiering
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
 
 
 Skapa en ny funktion som anropar `LanguageDetectionExample()` den klient som du skapade tidigare och anropa dess `DetectLanguage()` funktion. Det returnerade `Response<DetectedLanguage>` objektet kommer att innehålla det identifierade språket tillsammans med dess namn och ISO-6391-koden. Om ett fel uppstår kommer det att utlösa en `RequestFailedException` .
@@ -232,7 +229,7 @@ static void LanguageDetectionExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Language:
@@ -248,7 +245,7 @@ Skapa en ny funktion som anropar `languageDetectionExample()` den klient som du 
 
 [!code-csharp[Language Detection example](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=languageDetection)]
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Language: English
@@ -258,11 +255,11 @@ Language: English
 
 ## <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna enheter (NER)
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
 
 
 > [!NOTE]
-> Ny i version `3.0-preview` :
+> Ny i version `3.0` :
 > * Enhets länkning är nu avskilt från entitets igenkänning.
 
 
@@ -276,20 +273,23 @@ static void EntityRecognitionExample(TextAnalyticsClient client)
     foreach (var entity in response.Value)
     {
         Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
+        Console.WriteLine($"\t\tScore: {entity.ConfidenceScore:F2}\n");
     }
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Named Entities:
+        Text: trip,     Category: Event,        Sub-Category:
+                Score: 0.61
+
         Text: Seattle,  Category: Location,     Sub-Category: GPE
-                Length: 7,      Score: 0.92
+                Score: 0.82
 
         Text: last week,        Category: DateTime,     Sub-Category: DateRange
-                Length: 9,      Score: 0.80
+                Score: 0.80
 ```
 
 ## <a name="entity-linking"></a>Länkning av entitet
@@ -313,51 +313,51 @@ static void EntityLinkingExample(TextAnalyticsClient client)
         foreach (var match in entity.Matches)
         {
             Console.WriteLine($"\t\tText: {match.Text}");
-            Console.WriteLine($"\t\tLength: {match.GraphemeLength},\tScore: {match.ConfidenceScore:F2}\n");
+            Console.WriteLine($"\t\tScore: {match.ConfidenceScore:F2}\n");
         }
     }
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Linked Entities:
         Name: Altair 8800,      ID: Altair 8800,        URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
                 Text: Altair 8800
-                Length: 11,     Score: 0.78
+                Score: 0.88
 
         Name: Bill Gates,       ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
                 Text: Bill Gates
-                Length: 10,     Score: 0.55
+                Score: 0.63
 
                 Text: Gates
-                Length: 5,      Score: 0.55
+                Score: 0.63
 
         Name: Paul Allen,       ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
                 Text: Paul Allen
-                Length: 10,     Score: 0.53
+                Score: 0.60
 
         Name: Microsoft,        ID: Microsoft,  URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
                 Text: Microsoft
-                Length: 9,      Score: 0.47
+                Score: 0.55
 
                 Text: Microsoft
-                Length: 9,      Score: 0.47
+                Score: 0.55
 
         Name: April 4,  ID: April 4,    URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
                 Text: April 4
-                Length: 7,      Score: 0.25
+                Score: 0.32
 
         Name: BASIC,    ID: BASIC,      URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
                 Text: BASIC
-                Length: 5,      Score: 0.28
+                Score: 0.33
 ```
 
 #### <a name="version-21"></a>[Version 2,1](#tab/version-2)
@@ -374,7 +374,7 @@ Skapa en ny funktion som anropar `RecognizeEntitiesExample()` den klient som du 
 
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
 
 Skapa en ny funktion som anropar `KeyPhraseExtractionExample()` den klient som du skapade tidigare och anropa dess `ExtractKeyPhrases()` funktion. Det returnerade `<Response<IReadOnlyCollection<string>>` objektet kommer att innehålla en lista över identifierade nyckel fraser. Om ett fel uppstår kommer det att utlösa en `RequestFailedException` .
 
@@ -393,7 +393,7 @@ static void KeyPhraseExtractionExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Key phrases:
@@ -408,7 +408,7 @@ Skapa en ny funktion som anropar `KeyPhraseExtractionExample()` den klient som d
 [!code-csharp[Key phrase extraction example](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=keyPhraseExtraction)]
 
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Key phrases:

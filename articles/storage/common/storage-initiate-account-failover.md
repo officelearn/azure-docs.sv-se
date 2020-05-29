@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2d07195e28c964a540eafdfba94a958e6c9f6981
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 905554d1763bdd3c5990a43c5c8d98f336e1c442
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871356"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171216"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Initiera redundans för lagrings konto
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du startar en konto redundansväxling för ditt lagr
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan utföra en redundansväxling på ditt lagrings konto kontrollerar du att ditt lagrings konto har kon figurer ATS för geo-replikering. Ditt lagrings konto kan använda något av följande alternativ för redundans:
 
@@ -48,8 +48,8 @@ Följ dessa steg om du vill starta en redundansväxling av ett konto från Azure
 
     ![Skärm bild som visar geo-replikering och redundans status](media/storage-initiate-account-failover/portal-failover-prepare.png)
 
-3. Kontrol lera att ditt lagrings konto har kon figurer ATS för Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS). Om den inte är det väljer du **konfiguration** under **Inställningar** för att uppdatera ditt konto till Geo-redundant. 
-4. Egenskapen **tid för senaste synkronisering** anger hur långt den sekundära ligger bakom från den primära. **Tid för senaste synkronisering** ger en uppskattning av omfattningen av data förlust som du kommer att stöta på När redundansväxlingen har slutförts.
+3. Kontrol lera att ditt lagrings konto har kon figurer ATS för Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS). Om den inte är det väljer du **konfiguration** under **Inställningar** för att uppdatera ditt konto till Geo-redundant.
+4. Egenskapen **tid för senaste synkronisering** anger hur långt den sekundära ligger bakom från den primära. **Tid för senaste synkronisering** ger en uppskattning av omfattningen av data förlust som du kommer att stöta på När redundansväxlingen har slutförts. Mer information om hur du kontrollerar den **senaste synkroniseringstid** -egenskapen finns i [kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto](last-sync-time-get.md).
 5. Välj **Förbered för redundans**.
 6. Läs igenom bekräftelse dialog rutan. När du är klar anger du **Ja** för att bekräfta och initiera redundansväxlingen.
 
@@ -62,7 +62,7 @@ Funktionen för redundans av konto är allmänt tillgänglig, men är fortfarand
 1. Avinstallera tidigare installationer av Azure PowerShell:
 
     - Ta bort alla tidigare installationer av Azure PowerShell från Windows med hjälp av inställningen **appar & funktioner** under **Inställningar**.
-    - Ta bort alla **Azure** - `%Program Files%\WindowsPowerShell\Modules`moduler från.
+    - Ta bort alla **Azure** -moduler från `%Program Files%\WindowsPowerShell\Modules` .
 
 1. Kontrol lera att du har den senaste versionen av PowerShellGet installerad. Öppna ett Windows PowerShell-fönster och kör följande kommando för att installera den senaste versionen:
 
@@ -105,7 +105,7 @@ az storage account failover \ --name accountName
 
 När du initierar ett konto för redundans för ditt lagrings konto uppdateras DNS-posterna för den sekundära slut punkten så att den sekundära slut punkten blir den primära slut punkten. Se till att du förstår de potentiella konsekvenserna av ditt lagrings konto innan du påbörjar en redundansväxling.
 
-Om du vill beräkna omfattningen av sannolik data förlust innan du påbörjar en redundansväxling, kontrollerar du den **senaste synkroniseringstid** - `Get-AzStorageAccount` egenskapen med PowerShell-cmdleten `-IncludeGeoReplicationStats` och inkluderar parametern. Kontrol lera sedan `GeoReplicationStats` egenskapen för ditt konto.
+Om du vill beräkna omfattningen av sannolik data förlust innan du påbörjar en redundansväxling, kontrollerar du den **senaste synkroniseringstid** -egenskapen. Mer information om hur du kontrollerar den **senaste synkroniseringstid** -egenskapen finns i [kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto](last-sync-time-get.md).
 
 Efter redundansväxlingen konverteras lagrings konto typen automatiskt till lokalt redundant lagring (LRS) i den nya primära regionen. Du kan återaktivera Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS) för kontot. Observera att konvertering från LRS till GRS eller RA-GRS ådrar sig en ytterligare kostnad. Mer information finns i [pris information om bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -114,5 +114,6 @@ När du har aktiverat GRS för ditt lagrings konto börjar Microsoft replikera d
 ## <a name="next-steps"></a>Nästa steg
 
 - [Haveri beredskap och redundans för lagrings konto](storage-disaster-recovery-guidance.md)
+- [Kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto](last-sync-time-get.md)
 - [Använd GEO-redundans för att skapa program med hög tillgänglighet](geo-redundant-design.md)
 - [Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage](../blobs/storage-create-geo-redundant-storage.md)

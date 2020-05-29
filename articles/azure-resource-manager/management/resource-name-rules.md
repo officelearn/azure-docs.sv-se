@@ -3,12 +3,12 @@ title: Begränsningar för resurs namn
 description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 73e5f7ce7f5c13a0ce456372d299e49033c7e704
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758902"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170587"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -81,9 +81,9 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
 > | hålls | tilldelnings omfång | 1–90 | Alfanumeriska tecken, punkter, under streck, bindestreck och parenteser.<br><br>Kan inte sluta med punkt. |
-> | policyassignments | tilldelnings omfång | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte innehålla `%` och får inte sluta med punkt eller blank steg. |
-> | policydefinitions | definitions område | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte innehålla `%` och får inte sluta med punkt eller blank steg. |
-> | policySetDefinitions | definitions område | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte innehålla `%` och får inte sluta med punkt eller blank steg.  |
+> | policyAssignments | tilldelnings omfång | 1-128 visnings namn<br><br>1-64 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte innehålla `%` och får inte sluta med punkt eller blank steg. |
+> | policyDefinitions | definitions område | 1-128 visnings namn<br><br>1-64 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte innehålla `%` och får inte sluta med punkt eller blank steg. |
+> | policySetDefinitions | definitions område | 1-128 visnings namn<br><br>1-64 resurs namn<br><br>1-24 resurs namn i hanterings gruppens omfång | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte innehålla `%` och får inte sluta med punkt eller blank steg.  |
 
 ## <a name="microsoftautomation"></a>Microsoft. Automation
 
@@ -540,7 +540,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | lösningar | arbetsyta | Saknas | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
+> | lösningar | arbetsyta | Ej tillämpligt | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 

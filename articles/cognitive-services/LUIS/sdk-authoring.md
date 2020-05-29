@@ -2,14 +2,14 @@
 title: 'Snabb start: Language Understanding (LUIS) redigerings klient bibliotek'
 description: Kom igång med LUIS-klient biblioteket med den här snabb starten. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 05/28/2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 9a9b5ded11c1164b5608953433ee36a14b6e7659
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 4a3ffb9ce6907658767af9e39569e7d9016e3145
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141525"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171367"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Snabb start: Language Understanding (LUIS) redigerings klient bibliotek
 

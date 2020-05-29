@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 24e18f5b1766f0dde5e677ac40d24edd5597a20d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5ba82b34da8e4c3156d6854934ad873428bf121a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609960"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168734"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Fjärråtkomst till lokala program via Azure Active Directory programmets proxy
 
@@ -41,7 +41,7 @@ Application Proxy fungerar med:
 * Webb program som använder form-baserad eller [rubrik baserad](application-proxy-configure-single-sign-on-with-ping-access.md) åtkomst
 * Webb-API: er som du vill exponera för rika program på olika enheter
 * Program som finns bakom en [fjärr skrivbords-Gateway](application-proxy-integrate-with-remote-desktop-services.md)
-* Rika klient program som är integrerade med Active Directory-autentiseringsbibliotek (ADAL)
+* Rika klient program som är integrerade med Microsoft Authentication Library (MSAL)
 
 Application Proxy stöder enkel inloggning. Mer information om metoder som stöds finns i [välja en metod för enkel inloggning](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
@@ -60,7 +60,7 @@ Följande diagram visar hur Azure AD och Application Proxy arbetar tillsammans f
 5. Anslutningen skickar begäran till det lokala programmet.
 6. Svaret skickas via tjänsten anslutnings-och programproxy till användaren.
 
-| Komponent | Beskrivning |
+| Komponent | Description |
 | --------- | ----------- |
 | Slutpunkt  | Slut punkten är en URL eller en [slut användar Portal](end-user-experiences.md). Användare kan nå program utanför nätverket genom att ha åtkomst till en extern URL. Användare i nätverket kan komma åt programmet via en URL eller en slut användar Portal. När användarna går till någon av dessa slut punkter, autentiseras de i Azure AD och dirigeras sedan via anslutningen till det lokala programmet.|
 | Azure AD | Azure AD utför autentiseringen med hjälp av klient katalogen som lagras i molnet. |

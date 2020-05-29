@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/23/2020
+ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cce3ef20a93c6d7a24bfa312501d2f8cc8ed9273
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 986e061c03634fe33af985c9d11569848500862c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604904"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170502"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Snabb start: direkt webb trafik med Azure Application Gateway – Resource Manager-mall
 
@@ -26,7 +26,7 @@ Du kan också slutföra den här snabb starten med [Azure Portal](quick-create-p
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -60,13 +60,15 @@ Distribuera Resource Manager-mall till Azure:
    [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Välj eller skapa en resurs grupp, ange den virtuella datorns administratörs användar namn och lösen ord.
-3. Välj **Jag accepterar de villkor som anges ovan** och välj sedan **köp**. Distributionen kan ta 20 minuter eller längre att slutföra.
+3. Välj **Granska + skapa** och välj sedan **skapa**.
+
+   Distributionen kan ta 20 minuter eller längre att slutföra.
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
 Även om IIS inte krävs för att skapa programgatewayen, installeras den för att kontrol lera om Azure har skapat programgatewayen. Använd IIS för att testa programgatewayen:
 
-1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** . ![Registrera den offentliga IP-adressen](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) för Application Gateway eller Välj **alla resurser**, ange *myAGPublicIPAddress* i sökrutan och välj sedan den i Sök resultaten. Azure visar den offentliga IP-adressen på sidan **Översikt**.
+1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** . ![ Registrera den offentliga IP-adressen för Application Gateway ](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) eller Välj **alla resurser**, ange *myAGPublicIPAddress* i sökrutan och välj sedan den i Sök resultaten. Azure visar den offentliga IP-adressen på sidan **Översikt**.
 2. Kopiera den offentliga IP-adressen och klistra in den i adress fältet i webbläsaren för att söka efter IP-adressen.
 3. Kontrol lera svaret. Ett giltigt svar verifierar att Application Gateway har skapats och kan ansluta till Server delen.
 
@@ -78,7 +80,7 @@ Distribuera Resource Manager-mall till Azure:
 
 När du inte längre behöver de resurser som du skapade med Application Gateway, tar du bort resurs gruppen. Detta tar bort programgatewayen och alla relaterade resurser.
 
-Anropa `Remove-AzResourceGroup` cmdleten om du vill ta bort resurs gruppen:
+Anropa cmdleten om du vill ta bort resurs gruppen `Remove-AzResourceGroup` :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name <your resource group name>

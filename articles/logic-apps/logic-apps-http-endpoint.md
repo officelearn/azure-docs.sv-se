@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
-ms.openlocfilehash: 6c6191936f76431bd4e7b6f1d4eff2074ce4b04d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.date: 05/28/2020
+ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141797"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170281"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Anropa, utlösa eller kapsla Logi Kap par genom att använda HTTPS-slutpunkter i Azure Logic Apps
 
@@ -154,9 +154,6 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
   Dessa värden skickas via en relativ sökväg i slut punktens URL. Du måste också uttryckligen [välja den metod](#select-method) som utlösaren förväntar sig. I en efterföljande åtgärd kan du hämta parametervärdena som utlöser utdata genom att referera till dessa utdata direkt.
 
-> [!NOTE]
-> URL: en tillåter att du använder symbolen "at" ( **@** ), men inte hash-symbolen ( **#** ).
-
 <a name="get-parameters"></a>
 
 ### <a name="accept-values-through-get-parameters"></a>Acceptera värden via GET-parametrar
@@ -217,6 +214,9 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
    * andra position:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
+> [!NOTE]
+> Om du vill inkludera hash-eller pund symbolen ( **#** ) i URI: n använder du den här kodade versionen i stället:`%25%23`
+
 <a name="relative-path"></a>
 
 ### <a name="accept-values-through-a-relative-path"></a>Acceptera värden via en relativ sökväg
@@ -260,6 +260,9 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
    Webbläsaren returnerar ett svar med den här texten:`Postal Code: 123456`
 
    ![Svar från sändning av begäran till återanrops-URL](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+> [!NOTE]
+> Om du vill inkludera hash-eller pund symbolen ( **#** ) i URI: n använder du den här kodade versionen i stället:`%25%23`
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Anropa Logic app via slut punkts-URL
 

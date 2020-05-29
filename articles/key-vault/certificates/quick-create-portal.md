@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b0d6221aaafe3ade70bc23ce4196a7b53c9474c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec1d02cefcdb443a74fab52496cd9428a852139f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424722"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169975"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Snabb start: Ange och hämta ett certifikat från Azure Key Vault med hjälp av Azure Portal
 
 Azure Key Vault är en molntjänst som tillhandahåller ett säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här snabb starten skapar du ett nyckel valv och använder det för att lagra ett certifikat. Mer information om nyckelvalv finns i [översikten](../general/overview.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -67,7 +67,8 @@ När du har fått ett meddelande om att certifikatet har skapats kan du klicka p
 
 ![Certifikat egenskaper](../media/certificates/quick-create-portal/current-version-hidden.png)
 
-Genom att klicka på knappen "Ladda ned i CER-format" eller "Ladda ned i PFX/PEM format" kan du Download certifikatet. 
+## <a name="export-certificate-from-key-vault"></a>Exportera certifikat från Key Vault
+Genom att klicka på knappen Ladda ned i CER-format eller ladda ned i PFX/PEM format kan du hämta certifikatet. 
 
 ![Hämta certifikat](../media/certificates/quick-create-portal/current-version-shown.png)
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4a4d52ee3f39daef0e89ccb08cf5ab6a4ebfb735
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739107"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140809"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Teknisk och funktions översikt över Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ De primära resurserna som du arbetar med i en Azure AD B2C klient organisation 
   * *Sociala* identitets leverantörer som Facebook, LinkedIn eller Twitter som du vill stödja i dina program.
   * *Externa* identitets leverantörer som stöder standard identitets protokoll som OAuth 2,0, OpenID Connect med mera.
   * *Lokala* konton som gör det möjligt för användare att registrera sig och logga in med ett användar namn (eller e-postadress eller annat ID) och lösen ord.
-* **Nycklar** – Lägg till och hantera krypterings nycklar för signering och validering av tokens.
+* **Nycklar** – Lägg till och hantera krypterings nycklar för signering och validering av tokens, klient hemligheter, certifikat och lösen ord.
 
 En Azure AD B2C klient är den första resurs som du måste skapa för att komma igång med Azure AD B2C. Lär dig mer i [Självstudier: skapa en Azure Active Directory B2C-klient](tutorial-create-tenant.md).
 
@@ -69,7 +69,7 @@ Läs mer om användar konto typerna i Azure AD B2C i [Översikt över användar 
 
 ## <a name="external-identity-providers"></a>Externa identitetsprovidrar
 
-Du kan konfigurera Azure AD B2C så att användarna kan logga in till ditt program med autentiseringsuppgifter från externa sociala eller företags identitets leverantörer (IdP). Azure AD B2C stöder externa identitets leverantörer som Facebook, Microsoft-konto, Google, Twitter och alla identitets leverantörer som stöder OAuth 1,0-, OAuth 2,0-, OpenID Connect-, SAML-eller WS-Federation-protokoll.
+Du kan konfigurera Azure AD B2C så att användarna kan logga in till ditt program med autentiseringsuppgifter från externa sociala eller företags identitets leverantörer (IdP). Azure AD B2C stöder externa identitets leverantörer som Facebook, Microsoft-konto, Google, Twitter och alla identitets leverantörer som stöder OAuth 1,0-, OAuth 2,0-, OpenID Connect-och SAML-protokoll.
 
 ![Externa identitetsprovidrar](media/technical-overview/external-idps.png)
 
@@ -134,15 +134,13 @@ Lär dig mer om anpassade principer i [anpassade principer i Azure Active Direct
 
 ## <a name="protocols-and-tokens"></a>Protokoll och token
 
-Azure AD B2C stöder [OpenID Connect- och OAuth 2.0-protokollen](protocols-overview.md) för användarresor. I Azure AD B2C-implementeringen av OpenID Connect startar ditt program användarresan genom att utfärda autentiseringsbegäranden till Azure AD B2C.
+- För program har Azure AD B2C stöd för [OAuth 2,0](protocols-overview.md)-, [OpenID Connect](openid-connect.md)-och [SAML-protokoll](connect-with-saml-service-providers.md) för användar resor. Ditt program startar användar resan genom att utfärda autentiseringsbegäranden till Azure AD B2C. Resultatet av en begäran till Azure AD B2C är en säkerhetstoken, till exempel en [ID-token, en åtkomsttoken](tokens-overview.md)eller en SAML-token. Den här säkerhetstoken definierar användarens identitet i programmet.
 
-Resultatet av en begäran till Azure AD B2C är en säkerhetstoken som t.ex. en [ID-token eller åtkomsttoken](tokens-overview.md). Denna säkerhetstoken definierar användarens identitet. Tokens tas emot från Azure AD B2C slut punkter som `/token` eller `/authorize` slut punkten. Med dessa tokens kan du komma åt anspråk som kan användas för att validera en identitet och tillåta åtkomst till säkra resurser.
+- För externa identiteter stöder Azure AD B2C Federation med alla OAuth 1,0-, OAuth 2,0-, OpenID Connect-och SAML Identity-providers.
 
-För externa identiteter stöder Azure AD B2C Federation med alla OAuth 1,0-, OAuth 2,0-, OpenID Connect-, SAML-och WS-utfodras-identitets leverantörer.
+Följande diagram visar hur Azure AD B2C kan kommunicera med en mängd olika protokoll inom samma autentiseringspaket:
 
 ![Diagram över OIDC-baserade klient program som federeras med en SAML-baserad IdP](media/technical-overview/protocols.png)
-
-Föregående diagram visar hur Azure AD B2C kan kommunicera med olika protokoll inom samma autentiseringspaket:
 
 1. Det förlitande parts programmet initierar en auktoriseringsbegäran för Azure AD B2C att använda OpenID Connect.
 1. När en användare av programmet väljer att logga in med en extern identitetsprovider som använder SAML-protokollet anropar Azure AD B2C SAML-protokollet för att kommunicera med den identitets leverantören.

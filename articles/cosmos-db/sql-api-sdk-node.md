@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 645565b0033324d6edc36a73fb59fa5a5d8689ee
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 66597f0807e27e421d5f7001550533090d5936c0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650733"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171607"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node. js SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -44,23 +44,23 @@ ms.locfileid: "83650733"
 
 ## <a name="release-notes"></a>Viktig information
 
-### <a name=""></a><a name="3.1.0"/>3.1.0</a>
+### <a name="310"></a><a name="3.1.0"></a>3.1.0
 * Ange standard-ResponseContinuationTokenLimitInKB till 1 KB. Som standard capping detta till 1 KB för att undvika långa huvuden (Node. js har en storleks gräns för global rubrik). En användare kan ange det här fältet för att tillåta längre rubriker, vilket kan hjälpa till att optimera frågekörning för Server delen.
 * Ta bort disableSSLVerification. Det här alternativet har nya alternativ som beskrivs i [#388](https://github.com/Azure/azure-cosmos-js/pull/388)
 
-### <a name=""></a><a name="3.0.4"/>3.0.4</a>
+### <a name="304"></a><a name="3.0.4"></a>3.0.4
 * Tillåt att initialHeaders explicit anger nyckel huvud för partition
 * Använd Package. JSON # filer för att förhindra att extra filer publiceras
 * Åtgärda sorterings fel i cirkulations kartan på en äldre version av Node + V8
 * Korrigerar fel när användaren tillhandahåller alternativ för del återförsök
 
-### <a name=""></a><a name="3.0.3"/>3.0.3</a>
+### <a name="303"></a><a name="3.0.3"></a>3.0.3
 * Förhindra WebPack från att lösa moduler som kallas med Kräv
 
-### <a name=""></a><a name="3.0.2"/>3.0.2</a>
+### <a name="302"></a><a name="3.0.2"></a>3.0.2
 * Åtgärdar ett långt enastående fel där ru: er alltid rapporteras som 0 för mängd frågor
 
-### <a name=""></a><a name="3.0.0"/>3.0.0</a>
+### <a name="300"></a><a name="3.0.0"></a>3.0.0
 
 🎉 v3-utgåva! 🎉 många nya funktioner, fel korrigeringar och några större ändringar. Primära mål för den här versionen:
 
@@ -211,30 +211,30 @@ Inte alltid de mest synliga ändringarna, men de hjälper vårt team att leverer
 * Aktivera noUnusedLocals och noUnusedParameters (#275)
 * Azure pipeline-YAML för CI-versioner (#298)
 
-### <a name=""></a><a name="2.1.5"/>2.1.5</a>
+### <a name="215"></a><a name="2.1.5"></a>2.1.5
 * Inga kod ändringar. Åtgärdar ett problem där vissa extra filer ingår i 2.1.4-paketet.
 
-### <a name=""></a><a name="2.1.4"/>2.1.4</a>
+### <a name="214"></a><a name="2.1.4"></a>2.1.4
 * Åtgärda regional redundans inom princip för återförsök
 * Korrigera ChangeFeed hasMoreResults-egenskap
 * Uppdatering av dev-beroenden
 * Lägg till PolicheckExclusions. txt
 
-### <a name=""></a><a name="2.1.3"/>2.1.3</a>
+### <a name="213"></a><a name="2.1.3"></a>2.1.3
 * Växla _tss typ från sträng till tal
 * Åtgärda standardvärden för indexerings test
 * Backport uniqueKeyPolicy till v2
 * Fel söknings korrigeringar för demo och demo
 
-### <a name=""></a><a name="2.1.2"/>2.1.2</a>
+### <a name="212"></a><a name="2.1.2"></a>2.1.2
 * Backport erbjuder korrigeringar från v3-gren
 * Åtgärda fel i executeNext ()-typ signatur
 * Skrivfel
 
-### <a name=""></a><a name="2.1.1"/>2.1.1</a>
+### <a name="211"></a><a name="2.1.1"></a>2.1.1
 * Bygg om omstrukturering. Gör det möjligt att hämta SDK-versionen vid Bygg tiden.
 
-### <a name=""></a><a name="2.1.0"/>2.1.0</a>
+### <a name="210"></a><a name="2.1.0"></a>2.1.0
 #### <a name="new-features"></a>Nya funktioner
 * Stöd för ChangeFeed har lagts till (#196)
 * Multipolygon-datatype har lagts till för indexering (#191)
@@ -247,76 +247,76 @@ Inte alltid de mest synliga ändringarna, men de hjälper vårt team att leverer
 * Lägg till integrations test för typescript-förbrukning (#199)
 * Aktivera installation direkt från GitHub (#194)
 
-### <a name=""></a><a name="2.0.5"/>2.0.5</a>
+### <a name="205"></a><a name="2.0.5"></a>2.0.5
 * Lägger till gränssnitt för Node agent-typ. Typescript-användare behöver inte längre installera @types/node som ett beroende
 * Önskade platser är nu korrekt lösta
 * Förbättringar av bidrags dokumentationen för utvecklare
 * Olika skrivfel
 
-### <a name=""></a><a name="2.0.4"/>2.0.4</a>
+### <a name="204"></a><a name="2.0.4"></a>2.0.4
 * Korrigerar typ definitions problem som introducerades i 2.0.3
 
-### <a name=""></a><a name="2.0.3"/>2.0.3</a>
+### <a name="203"></a><a name="2.0.3"></a>2.0.3
 * Ta bort `big-integer` beroende
 * Växla till referens direktiv för AsyncIterable-typ. Typescript-användare behöver inte längre anpassa sina "lib"-inställningar.
 * Skrivfel
 
-### <a name=""></a><a name="2.0.2"/>2.0.2</a>
+### <a name="202"></a><a name="2.0.2"></a>2.0.2
 * Åtgärda viktigt-länkar
 
-### <a name=""></a><a name="2.0.1"/>2.0.1</a>
+### <a name="201"></a><a name="2.0.1"></a>2.0.1
 * Åtgärda implementering av gränssnitt för nya försök
 
-### <a name=""></a><a name="2.0.0"/>2.0.0</a>
+### <a name="200"></a><a name="2.0.0"></a>2.0.0
 * GA of version 2.0.0 av JavaScript SDK
 * Stöd har lagts till för skrivningar i flera regioner.
 
-### <a name=""></a><a name="2.0.0-3"/>2.0.0-3</a>
+### <a name="200-3"></a><a name="2.0.0-3"></a>2.0.0-3
 * RC1-2.0.0 för Java Script SDK för offentlig för hands version.
 * Ny objekt modell med toppnivå CosmosClient och metoder som delas mellan relevanta databaser, behållare och objekt klasser. 
 * Stöd för [löfte](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
 * SDK konverteras till TypeScript.
 
-### <a name=""></a><a name="1.14.4"/>1.14.4</a>
+### <a name="1144"></a><a name="1.14.4"></a>1.14.4
 * NPM-dokumentationen har åtgärd ATS.
 
-### <a name=""></a><a name="1.14.3"/>1.14.3</a>
+### <a name="1143"></a><a name="1.14.3"></a>1.14.3
 * Stöd har lagts till för standard återförsök vid anslutnings problem.
 * Stöd har lagts till för att läsa samlingens ändrings flöde.
 * Fel vid konsekvens av den fasta sessionen som tillfälligt orsakade "Read session inte tillgänglig".
 * Stöd har lagts till för frågans mått.
 * Det maximala antalet anslutningar för http-agenten har ändrats.
 
-### <a name=""></a><a name="1.14.2"/>1.14.2</a>
+### <a name="1142"></a><a name="1.14.2"></a>1.14.2
 * Uppdaterad dokumentation till referens Azure Cosmos DB i stället för Azure-DocumentDB.
 * Stöd har lagts till för proxyUrl-inställningen i ConnectionPolicy.
 
-### <a name=""></a><a name="1.14.1"/>1.14.1</a>
+### <a name="1141"></a><a name="1.14.1"></a>1.14.1
 * Mindre korrigering för Skift läges känsliga fil system.
 
-### <a name=""></a><a name="1.14.0"/>1.14.0</a>
+### <a name="1140"></a><a name="1.14.0"></a>1.14.0
 * Lägger till stöd för konsekvens av sessioner.
 * Den här SDK-versionen kräver den senaste versionen av [Azure Cosmos DB-emulatorn](https://aka.ms/cosmosdb-emulator).
 
-### <a name=""></a><a name="1.13.0"/>1.13.0</a>
+### <a name="1130"></a><a name="1.13.0"></a>1.13.0
 * Dela upp försäkrade kors partitions frågor.
 * Lägger till stöd för resurs länkar med inledande och avslutande snedstreck (och motsvarande test).
 
-### <a name=""></a><a name="1.12.2"/>1.12.2</a>
+### <a name="1122"></a><a name="1.12.2"></a>1.12.2
 *    NPM-dokumentationen har åtgärd ATS.
 
-### <a name=""></a><a name="1.12.1"/>1.12.1</a>
+### <a name="1121"></a><a name="1.12.1"></a>1.12.1
 * En bugg har åtgärd ATS i executeStoredProcedure där dokument som berörs hade särskilda Unicode-tecken (LS, PS).
 * En bugg har åtgärd ATS vid hantering av dokument med Unicode-tecken i partitionsnyckel.
 * Fast stöd för att skapa samlingar med namn mediet. GitHub problem #114.
 * Fast stöd för auktorisering av behörighets-token. GitHub problem #178.
 
-### <a name=""></a><a name="1.12.0"/>1.12.0</a>
+### <a name="1120"></a><a name="1.12.0"></a>1.12.0
 * Stöd har lagts till för en ny [konsekvens nivå](consistency-levels.md) som kallas konsekvensprincip.
 * Stöd har lagts till för UriFactory.
 * Ett fel har åtgärd ATS i Unicode-stöd. GitHub problem #171.
 
-### <a name=""></a><a name="1.11.0"/>1.11.0</a>
+### <a name="1110"></a><a name="1.11.0"></a>1.11.0
 * Har lagt till stöd för agg regerings frågor (antal, MIN, MAX, SUM och AVG).
 * Alternativet för att kontrol lera graden av parallellitet för kors partitions frågor har lagts till.
 * Alternativet för att inaktivera TLS-verifiering har lagts till vid Azure Cosmos DB-emulatorn.
@@ -324,87 +324,87 @@ Inte alltid de mest synliga ändringarna, men de hjälper vårt team att leverer
 * Korrigerade fel i fortsättnings-token för en samling med en partition. GitHub problem #107.
 * Korrigerade executeStoredProcedure-felet i hantering av 0 som en enda param. GitHub problem #155.
 
-### <a name=""></a><a name="1.10.2"/>1.10.2</a>
+### <a name="1102"></a><a name="1.10.2"></a>1.10.2
 * Fast user-agent-huvud som innehåller SDK-versionen.
 * Mindre kod rensning.
 
-### <a name=""></a><a name="1.10.1"/>1.10.1</a>
+### <a name="1101"></a><a name="1.10.1"></a>1.10.1
 * Inaktiverar TLS-verifiering när du använder SDK för att rikta emulatorn (hostname = localhost).
 * Stöd har lagts till för att aktivera skript loggning under körning av lagrad procedur.
 
-### <a name=""></a><a name="1.10.0"/>1.10.0</a>
+### <a name="1100"></a><a name="1.10.0"></a>1.10.0
 * Stöd har lagts till för parallella frågor över partitioner.
 * Stöd har lagts till för överkant/sortera efter frågor för partitionerade samlingar.
 
-### <a name=""></a><a name="1.9.0"/>1.9.0</a>
+### <a name="190"></a><a name="1.9.0"></a>1.9.0
 * Princip stöd för återförsök har lagts till för begränsade begär Anden. (Begränsade begär Anden tar emot en begäran om för stort undantag, felkod 429.) Som standard försöker Azure Cosmos DB nio gånger för varje begäran när felkod 429 påträffas, vilket följer retryAfter-tiden i svars huvudet. Du kan nu ange ett intervall med fasta återförsöksintervall som en del av egenskapen RetryOptions i ConnectionPolicy-objektet om du vill ignorera retryAfter-tiden som returnerades av servern mellan Återförsöken. Azure Cosmos DB väntar nu i högst 30 sekunder för varje begäran som begränsas (oavsett antal försök) och returnerar svaret med felkoden 429. Den här tiden kan också åsidosättas i egenskapen RetryOptions på ConnectionPolicy-objektet.
 * Cosmos DB Returnerar nu x-MS-begränsning-försök-antal och x-MS-begränsning-försök-wait-Time-MS som svars rubriker i varje begäran om att ange begränsningen för antal försök och den ackumulerade tiden som begäran väntar mellan Återförsöken.
 * Klassen RetryOptions lades till, exponerar egenskapen RetryOptions för klassen ConnectionPolicy som kan användas för att åsidosätta några av standard alternativen för återförsök.
 
-### <a name=""></a><a name="1.8.0"/>1.8.0</a>
+### <a name="180"></a><a name="1.8.0"></a>1.8.0
 * Stöd har lagts till för databas konton med flera regioner.
 
-### <a name=""></a><a name="1.7.0"/>1.7.0</a>
+### <a name="170"></a><a name="1.7.0"></a>1.7.0
 * Har lagt till stöd för TTL-funktionen (Time to Live) för dokument.
 
-### <a name=""></a><a name="1.6.0"/>1.6.0</a>
+### <a name="160"></a><a name="1.6.0"></a>1.6.0
 * Implementerade [partitionerade samlingar](partition-data.md) och [användardefinierade prestanda nivåer](performance-levels.md).
 
-### <a name=""></a><a name="1.5.6"/>1.5.6</a>
+### <a name="156"></a><a name="1.5.6"></a>1.5.6
 * Fast RangePartitionResolver. resolveForRead-bugg där det inte returnerade länkar på grund av ett felaktigt concat resultat.
 
-### <a name=""></a><a name="1.5.5"/>1.5.5</a>
+### <a name="155"></a><a name="1.5.5"></a>1.5.5
 * Fixed hashPartitionResolver resolveForRead (): när ingen partitionsnyckel angavs, i stället för att returnera en lista över alla registrerade länkar.
 
-### <a name=""></a><a name="1.5.4"/>1.5.4</a>
+### <a name="154"></a><a name="1.5.4"></a>1.5.4
 * Åtgärdar problem [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -dedikerad https-agent: Undvik att ändra den globala agenten för Azure Cosmos DB ändamål. Använd en dedikerad agent för alla förfrågningar från lib.
 
-### <a name=""></a><a name="1.5.3"/>1.5.3</a>
+### <a name="153"></a><a name="1.5.3"></a>1.5.3
 * Löser problemet [#81](https://github.com/Azure/azure-documentdb-node/issues/81) – hantera bindestreck i medie-ID: er korrekt.
 
-### <a name=""></a><a name="1.5.2"/>1.5.2</a>
+### <a name="152"></a><a name="1.5.2"></a>1.5.2
 * Åtgärdar problem med [#95](https://github.com/Azure/azure-documentdb-node/issues/95) -EventEmitter lyssnar läckor.
 
-### <a name=""></a><a name="1.5.1"/>1.5.1</a>
+### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * Åtgärdar problem [#92](https://github.com/Azure/azure-documentdb-node/issues/90) – byta namn på mappens hash-värde till hash för Skift läges känsliga system.
 
-### <a name=""></a><a name="1.5.0"/>1.5.0</a>
+### <a name="150"></a><a name="1.5.0"></a>1.5.0
 * Implementera horisontell partitionering-stöd genom att lägga till hash-& intervall partition matchare.
 
-### <a name=""></a><a name="1.4.0"/>1.4.0</a>
+### <a name="140"></a><a name="1.4.0"></a>1.4.0
 * Implementera upsert. Nya upsertXXX-metoder på documentClient.
 
-### <a name=""></a><a name="1.3.0"/>1.3.0</a>
+### <a name="130"></a><a name="1.3.0"></a>1.3.0
 * Hoppade över för att placera versions numren i justering med andra SDK: er.
 
-### <a name=""></a><a name="1.2.2"/>1.2.2</a>
+### <a name="122"></a><a name="1.2.2"></a>1.2.2
 * Delning av Q-löfte till ny lagrings plats.
 * Uppdatera till paket filen för NPM-registret.
 
-### <a name=""></a><a name="1.2.1"/>1.2.1</a>
+### <a name="121"></a><a name="1.2.1"></a>1.2.1
 * Implementerar ID-baserad routning.
 * Åtgärdar problem [#49](https://github.com/Azure/azure-documentdb-node/issues/49) -aktuell egenskap står i konflikt med metoden Current ().
 
-### <a name=""></a><a name="1.2.0"/>1.2.0</a>
+### <a name="120"></a><a name="1.2.0"></a>1.2.0
 * Stöd har lagts till för GeoSpatialt index.
 * Verifierar ID-egenskapen för alla resurser. ID: n för resurser får inte innehålla?,/, #,  &#47;&#47;, tecken eller slutar med ett blank steg.
 * Lägger till det nya huvudet "indexera omvandlings förlopp" i ResourceResponse.
 
-### <a name=""></a><a name="1.1.0"/>1.1.0</a>
+### <a name="110"></a><a name="1.1.0"></a>1.1.0
 * Implementerar v2-indexerings princip.
 
-### <a name=""></a><a name="1.0.3"/>1.0.3</a>
+### <a name="103"></a><a name="1.0.3"></a>1.0.3
 * Utfärda [#40](https://github.com/Azure/azure-documentdb-node/issues/40) -implementerade eslint-och grunt-konfigurationer i Core-och Promise SDK.
 
-### <a name=""></a><a name="1.0.2"/>1.0.2</a>
+### <a name="102"></a><a name="1.0.2"></a>1.0.2
 * Problem [#45](https://github.com/Azure/azure-documentdb-node/issues/45) -Promise wrapper innehåller inte något huvud med felet.
 
-### <a name=""></a><a name="1.0.1"/>1.0.1</a>
+### <a name="101"></a><a name="1.0.1"></a>1.0.1
 * Implementerad möjlighet att fråga efter konflikter genom att lägga till readConflicts, readConflictAsync och queryConflicts.
 * Uppdaterad API-dokumentation.
 * Problem [#41](https://github.com/Azure/azure-documentdb-node/issues/41) -client. createDocumentAsync-fel.
 
-### <a name=""></a><a name="1.0.0"/>1.0.0</a>
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>Frisläpp & indragnings datum
@@ -475,7 +475,7 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 | [1.0.1](#1.0.1) |15 maj, 2015 |30 augusti 2020 |
 | [1.0.0](#1.0.0) |08, 2015 |30 augusti 2020 |
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

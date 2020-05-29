@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 0f94ae4a4b5ad7806658c4ae54146d4ac940750e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52aebf5a4f2e5ea7b3b09ae105c9ea632416c27e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76771302"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167986"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB Tabell-API för Node. js: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.locfileid: "76771302"
 
 ## <a name="release-notes"></a>Viktig information
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * Allmän tillgänglighets utgåva
 
 ## <a name="release-and-retirement-dates"></a>Datum för lansering och indragning

@@ -1,6 +1,6 @@
 ---
-title: Skicka push-meddelanden till Android med Azure Notification Hubs och Firebase | Microsoft Docs
-description: I de här självstudierna får du lära dig hur du använder Azure Notification Hubs och Google Firebase Cloud Messaging för att skicka push-meddelanden till Android-enheter.
+title: Skicka push-meddelanden till Android med Azure Notification Hubs och Firebase SDK version 0,6 | Microsoft Docs
+description: I den här självstudien får du lära dig hur du använder Azure Notification Hubs och Google Firebase Cloud Messaging för att skicka push-meddelanden till Android-enheter.
 services: notification-hubs
 documentationcenter: android
 keywords: push-meddelanden, push-meddelande, push-meddelande för android, fcm, firebase cloud messaging
@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/11/2019
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: e6bc4ed94c8b8e62740f81497231a163283ebcb7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7dbe9faabcb7a46ae3862ac7da6504b6b0407d86
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80521558"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170451"
 ---
-# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase"></a>Självstudie: skicka push-meddelanden till Android-enheter med Firebase
+# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Självstudie: skicka push-meddelanden till Android-enheter med Firebase SDK version 0,6
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-I de här självstudierna får du lära dig hur du använder Azure Notification Hubs och Firebase Cloud Messaging (FCM) för att skicka meddelanden till ett Android-program. I den här självstudien skapar du en tom Android-app som tar emot push-meddelanden via Firebase Cloud Messaging (FCM).
+Den här självstudien visar hur du använder Azure Notification Hubs och Firebase Cloud Messaging (FCM) SDK version 0,6 för att skicka push-meddelanden till ett Android-program. I den här självstudien skapar du en tom Android-app som tar emot push-meddelanden via Firebase Cloud Messaging (FCM).
 
 Den färdiga koden för den här självstudien kan laddas ned [från GitHub](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp).
 
@@ -42,7 +42,7 @@ I den här självstudien gör du följande:
 > * Anslut din app till hubben.
 > * Testa appen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/free/). 
 
@@ -146,7 +146,7 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
 
 ### <a name="update-the-androidmanifestxml-file"></a>Uppdatera filen AndroidManifest. XML
 
-1. När du har fått din FCM kan du använda den för att [Registrera dig för Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). Du har stöd för den här registreringen i bakgrunden genom `IntentService` att `RegistrationIntentService`använda ett namn. Den här tjänsten uppdaterar också din FCM-registrerings-token. Du kan också skapa en klass `FirebaseService` med namnet som en underordnad `FirebaseMessagingService` klass `onMessageReceived` och åsidosätta metoden för att ta emot och hantera meddelanden. 
+1. När du har fått din FCM kan du använda den för att [Registrera dig för Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). Du har stöd för den här registreringen i bakgrunden genom att använda ett `IntentService` namn `RegistrationIntentService` . Den här tjänsten uppdaterar också din FCM-registrerings-token. Du kan också skapa en klass med namnet som en underordnad `FirebaseService` klass `FirebaseMessagingService` och åsidosätta `onMessageReceived` metoden för att ta emot och hantera meddelanden. 
 
     Lägg till följande tjänstedefinition i filen AndroidManifest.xml inuti taggen `<application>`.
 
@@ -173,7 +173,7 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
 
 ### <a name="add-code"></a>Lägg till kod
 
-1. I projektvyn expanderar du **app** > **src** > **main** > **Java**. Högerklicka på mappen paket under **Java**, Välj **ny**och välj sedan **Java-klass**. Ange **NotificationSettings** som namn och välj sedan **OK**.
+1. I projektvyn expanderar du **app**  >  **src**  >  **main**  >  **Java**. Högerklicka på mappen paket under **Java**, Välj **ny**och välj sedan **Java-klass**. Ange **NotificationSettings** som namn och välj sedan **OK**.
 
     Se till att uppdatera dessa tre platshållare i följande kod för klassen `NotificationSettings`:
 
@@ -294,7 +294,7 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
     }
     ```
 
-3. I- `MainActivity` klassen lägger du till följande `import` instruktioner ovanför klass deklarationen.
+3. I `MainActivity` -klassen lägger du till följande `import` instruktioner ovanför klass deklarationen.
 
     ```java
     import com.google.android.gms.common.ConnectionResult;
@@ -314,7 +314,7 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     ```
 
-5. I- `MainActivity` klassen lägger du till följande metod för att kontrol lera tillgängligheten för Google Play-tjänster.
+5. I `MainActivity` -klassen lägger du till följande metod för att kontrol lera tillgängligheten för Google Play-tjänster.
 
     ```java
     /**
@@ -341,7 +341,7 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
     }
     ```
 
-6. I- `MainActivity` klassen lägger du till följande kod som söker efter Google Play-tjänster innan `IntentService` du anropar för att hämta din FCM för registrering och registrera dig för din hubb:
+6. I `MainActivity` -klassen lägger du till följande kod som söker efter Google Play-tjänster innan du anropar för `IntentService` att hämta din FCM för registrering och registrera dig för din hubb:
 
     ```java
     public void registerWithNotificationHubs()
@@ -354,7 +354,7 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
     }
     ```
 
-7. I- `OnCreate` metoden för- `MainActivity` klassen lägger du till följande kod för att starta registrerings processen när aktiviteten skapas:
+7. I `OnCreate` -metoden för `MainActivity` -klassen lägger du till följande kod för att starta registrerings processen när aktiviteten skapas:
 
     ```java
     @Override
@@ -368,7 +368,7 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
     }
     ```
 
-8. Om du vill kontrol lera appens tillstånd och rapport status i appen lägger du till `MainActivity`dessa ytterligare metoder för att:
+8. Om du vill kontrol lera appens tillstånd och rapport status i appen lägger du till dessa ytterligare metoder för att `MainActivity` :
 
     ```java
     @Override
@@ -407,7 +407,7 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
     }
     ```
 
-9. I metoden `ToastNotify` används kontrollen *”Hello World”* `TextView` för att rapportera status och meddelanden på ett beständigt sätt i appen. Lägg till följande ID för kontrollen i layouten **res** > **layout** > **activity_main. XML** .
+9. I metoden `ToastNotify` används kontrollen *”Hello World”* `TextView` för att rapportera status och meddelanden på ett beständigt sätt i appen. **res**  >  **layout**  >  Lägg till följande ID för kontrollen i layouten res layout**activity_main. XML** .
 
     ```java
     android:id="@+id/text_hello"
@@ -435,9 +435,9 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
     import androidx.core.app.NotificationCompat;
     ```
 
-12. Lägg till följande kod för- `FirebaseService` klassen, vilket gör den till en underordnad klass `FirebaseMessagingService`.
+12. Lägg till följande kod för `FirebaseService` -klassen, vilket gör den till en underordnad klass `FirebaseMessagingService` .
 
-    Den här koden åsidosätter `onMessageReceived` Metod-och rapport meddelanden som tas emot. den skickar även push-meddelandet till Android Notification Manager med hjälp av- `sendNotification()` metoden. Anropa `sendNotification()` metoden när appen inte körs och ett meddelande tas emot.
+    Den här koden åsidosätter `onMessageReceived` metod-och rapport meddelanden som tas emot. den skickar även push-meddelandet till Android Notification Manager med hjälp av- `sendNotification()` metoden. Anropa `sendNotification()` metoden när appen inte körs och ett meddelande tas emot.
 
     ```java
     public class FirebaseService extends FirebaseMessagingService
@@ -522,7 +522,7 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
     }
     ```
 
-13. I Android Studio väljer du **skapa** > återskapa**projekt** på Meny raden för att kontrol lera att det inte finns några fel i koden. Om du får ett fel meddelande om `ic_launcher` ikonen tar du bort följande instruktion från filen AndroidManifest. XML: 
+13. I Android Studio väljer du **skapa**återskapa projekt på Meny raden  >  **Rebuild Project** för att kontrol lera att det inte finns några fel i koden. Om du får ett fel meddelande om `ic_launcher` ikonen tar du bort följande instruktion från filen AndroidManifest. XML: 
 
     ```
         android:icon="@mipmap/ic_launcher"
@@ -534,7 +534,7 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
 15. Kör appen på den valda enheten och kontrol lera att den har registrerats med hubben.
 
     > [!NOTE]
-    > Registreringen kan Miss inledas under den första `onTokenRefresh()` starten tills metoden för instans-ID-tjänst anropas. Uppdateringen bör initiera en lyckad registrering hos meddelandehubben.
+    > Registreringen kan Miss inledas under den första starten tills `onTokenRefresh()` metoden för instans-ID-tjänst anropas. Uppdateringen bör initiera en lyckad registrering hos meddelandehubben.
 
     ![Enhetsregistreringen lyckades](./media/notification-hubs-android-push-notification-google-fcm-get-started/device-registration.png)
 
@@ -556,9 +556,9 @@ Du kan skicka push-meddelanden från [Azure portalen] genom att utföra följand
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ### <a name="run-the-mobile-app-on-emulator"></a>Kör mobilappen i emulatorn
-Innan du testar push-meddelanden i en emulator ser du till att din emulator-avbildning stöder den Google API-nivå som du har valt för din app. Om avbildningen inte har stöd för interna Google-API: er kan du få **\_tjänsten inte\_tillgängligt** som undantag.
+Innan du testar push-meddelanden i en emulator ser du till att din emulator-avbildning stöder den Google API-nivå som du har valt för din app. Om avbildningen inte har stöd för interna Google-API: er kan du få **tjänsten \_ inte \_ tillgängligt** som undantag.
 
-Kontrol lera också att du har lagt till ditt Google-konto till din aktiva emulator under **Inställningar** > **konton**. Annars kan försök att registrera med FCM leda till att **autentiseringen\_Miss lyckas** undantag.
+Kontrol lera också att du har lagt till ditt Google-konto till din aktiva emulator under **Inställningar**  >  **konton**. Annars kan försök att registrera med FCM leda till att **autentiseringen \_ Miss lyckas** undantag.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien använde du Firebase Cloud Messaging för att skicka meddelanden till alla Android-enheter som har registrerats med tjänsten. Information om hur du skickar meddelanden till specifika enheter finns i följande självstudie:

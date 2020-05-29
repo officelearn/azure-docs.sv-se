@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: jgao
-ms.openlocfilehash: 24a0891b57f67bfb78cf3699bddbcf8d345ee679
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
+ms.openlocfilehash: e3f3301ac78480c4d8ebbf909bafcefa025ff395
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708014"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168581"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributions skript i mallar (förhands granskning)
 
@@ -38,7 +38,7 @@ Distributions skript resursen är bara tillgänglig i de regioner där Azure Con
 > [!IMPORTANT]
 > Ett lagrings konto och en behållar instans krävs för skript körning och fel sökning. Du har möjlighet att ange ett befintligt lagrings konto, annars skapas lagrings kontot tillsammans med behållar instansen automatiskt av skript tjänsten. De två automatiskt skapade resurserna tas vanligt vis bort av skript tjänsten när distributions skript körningen blir i ett Terminal-tillstånd. Du debiteras för resurserna tills resurserna tas bort. Läs mer i avsnittet om hur du [säkerhetskopierar skript resurser](#clean-up-deployment-script-resources).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **En användardefinierad hanterad identitet med deltagar rollen till mål resurs gruppen**. Den här identiteten används för att köra distributions skript. Om du vill utföra åtgärder utanför resurs gruppen måste du bevilja ytterligare behörighet. Du kan till exempel tilldela identiteten till prenumerations nivån om du vill skapa en ny resurs grupp.
 
@@ -60,7 +60,7 @@ Distributions skript resursen är bara tillgänglig i de regioner där Azure Con
   read resourceGroupName &&
   echo "Enter the managed identity name:" &&
   read idName &&
-  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  az identity show -g $resourceGroupName -n $idName --query id
   ```
 
   # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
@@ -166,7 +166,7 @@ Följande mall har en resurs definierad med `Microsoft.Resources/deploymentScrip
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
 > [!NOTE]
-> Eftersom de infogade distributions skripten omges av dubbla citat tecken måste strängarna inuti distributions skripten omges av enkla citat tecken i stället. Escape-tecken för PowerShell är **&#92;**. Du kan också överväga att använda sträng ersättning som det visas i föregående JSON-exempel. Se standardvärdet för name-parametern.
+> Eftersom de infogade distributions skripten omges av dubbla citat tecken måste strängarna i distributions skripten undantas genom att använda en **&#92;** eller omges av enkla citat tecken. Du kan också överväga att använda sträng ersättning som det visas i föregående JSON-exempel.
 
 Skriptet tar en parameter och matar ut parametervärdet. **DeploymentScriptOutputs** används för att lagra utdata.  I avsnittet utdata visar **värde** raden hur du kommer åt de lagrade värdena. `Write-Output`används för fel söknings syfte. Information om hur du kommer åt utdatafilen finns i [fel sökning av distributions skript](#debug-deployment-scripts).  För egenskaps beskrivningar, se [exempel-mallar](#sample-templates).
 
@@ -190,7 +190,7 @@ De utdata som returneras ser ut så här:
 
 ## <a name="use-external-scripts"></a>Använd externa skript
 
-Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri` . Till exempel:
+Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri` . Ett exempel:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -306,7 +306,20 @@ Om du vill se deploymentScripts-resursen i portalen väljer du **Visa dolda type
 
 Ett lagrings konto och en behållar instans krävs för skript körning och fel sökning. Du har möjlighet att ange ett befintligt lagrings konto, annars skapas lagrings kontot tillsammans med behållar instansen automatiskt av skript tjänsten. Kraven för att använda ett befintligt lagrings konto:
 
-- De typer av lagrings konton som stöds är: General-Purpose v2, General-Purpose v1-och FileStorage-konton. Endast FileStorage stöder Premium SKU. Mer information finns i [typer av lagrings konton](../../storage/common/storage-account-overview.md).
+- De typer av lagrings konton som stöds är:
+
+    | SKU             | Typ som stöds     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Lagring, StorageV2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Lagring, StorageV2 |
+    | Standard_RAGRS  | Lagring, StorageV2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    Dessa kombinationer stöder fil resurs.  Mer information finns i [skapa en Azure-filresurs](../../storage/files/storage-how-to-create-file-share.md) och [typer av lagrings konton](../../storage/common/storage-account-overview.md).
 - Brand Väggs regler för lagrings konto stöds inte än. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../../storage/common/storage-network-security.md).
 - Distributions skriptets tilldelade hanterade identitet måste ha behörighet att hantera lagrings kontot, som innehåller läsa, skapa, ta bort fil resurser.
 
@@ -320,7 +333,7 @@ Om du vill ange ett befintligt lagrings konto lägger du till följande JSON til
 ```
 
 - **storageAccountName**: Ange namnet på lagrings kontot.
-- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Till exempel:
+- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Ett exempel:
 
     ```json
     "storageAccountSettings": {

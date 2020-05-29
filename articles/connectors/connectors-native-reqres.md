@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 tags: connectors
-ms.openlocfilehash: 1e1a7f2e82ba2e90a641a6559062348f8d4d3aea
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 1eb017740fb13dbc4f67b11ad8768e48e5b29010
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142460"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171539"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
 
@@ -185,9 +185,9 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
    Det här steget genererar URL: en som ska användas för att skicka begäran som utlöser Logic-appen. Om du vill kopiera den här URL: en väljer du kopierings ikonen bredvid URL: en.
 
    ![URL som ska användas för att utlösa din Logic app](./media/connectors-native-reqres/generated-url.png)
-   
+
    > [!NOTE]
-   > URL: en tillåter att du använder symbolen "at" ( **@** ), men inte hash-symbolen ( **#** ).
+   > Om du vill inkludera hash-eller pund symbolen ( **#** ) i URI: n när du gör ett anrop till utlösaren för begäran använder du den här kodade versionen i stället:`%25%23`
 
 1. Om du vill utlösa din Logic-App skickar du ett HTTP-inlägg till den genererade URL: en.
 

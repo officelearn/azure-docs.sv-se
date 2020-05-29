@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 675af48eafdf48d51445f4f0efaeb15724d0f29d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: aa8fa9ff6973e908d6af700f7c2965a844e87b04
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119065"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170995"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias för Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -77,7 +77,7 @@ REST-API: er kan också visas i GitHub på:
 
 - [REST-API: er för Azure SQL Database DNS-alias](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/sql/resource-manager/Microsoft.Sql/preview/2017-03-01-preview/serverDnsAliases.json)
 
-<a name="anchor-powershell-code-62x"/>
+<a name="anchor-powershell-code-62x"></a>
 
 ### <a name="powershell-for-managing-your-dns-aliases"></a>PowerShell för att hantera dina DNS-alias
 

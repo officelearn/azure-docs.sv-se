@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 04ac6c2bf0137289221a4ae6ed58d5a71ad21739
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 698da509be2f375925459bbdd4a35d21c6ff4407
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68950224"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171233"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Så här data källor för data källor i Azure Data Catalog
 
@@ -45,7 +45,7 @@ Om du inkluderar data profiler när du registrerar data till gångar kan använd
 > Du kan också lägga till dokumentation till en till gång för att beskriva hur data kan integreras i ett program. Se [så här dokumenterar du data källor](data-catalog-how-to-documentation.md).
 >
 
-<a name="howto"/>
+<a name="howto"></a>
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>Så här lägger du till en data profil när du registrerar en data Källa
 
@@ -57,7 +57,7 @@ Mer information om hur du registrerar data källor finns i [så här registrerar
 
 ## <a name="filtering-on-data-assets-that-include-data-profiles"></a>Filtrera data till gångar som innehåller data profiler
 
-Om du vill identifiera data till gångar som innehåller en data profil kan `has:tableDataProfiles` du `has:columnsDataProfiles` inkludera eller som en av dina Sök villkor.
+Om du vill identifiera data till gångar som innehåller en data profil kan du inkludera `has:tableDataProfiles` eller `has:columnsDataProfiles` som en av dina Sök villkor.
 
 > [!NOTE]
 > Om du väljer **inkludera data profil** i registrerings verktyget för data källor ingår profil information för både tabell och kolumn nivå. Data Catalogs-API: et gör det dock möjligt för data till gångar att registreras med bara en uppsättning profil uppgifter som ingår.

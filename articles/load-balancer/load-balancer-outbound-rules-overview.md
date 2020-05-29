@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6c7464eb1bf51a4e42d0db98d92459dc39fbb11
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78304199"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170825"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer utgående regler
 
@@ -42,7 +42,7 @@ Utgående regler expandera [Scenario 2](load-balancer-outbound-connections.md#lb
 
 Precis som alla Load Balancer regler följer utgående regler samma välkända syntax som belastnings utjämning och inkommande NAT-regler:
 
-**frontend** + **parameters** + **backend-adresspool** för frontend-parametrar
+**klient**  +  del **parametrar**  +  **backend-pool**
 
 En utgående regel konfigurerar utgående NAT för _alla virtuella datorer som identifieras av backend-poolen_ som ska översättas till _klient delen_.  _Parametrarna_ och ger ytterligare detaljerad kontroll över den utgående NAT-algoritmen.
 
@@ -66,7 +66,7 @@ Med API-versionen "2018-07-01" tillåts en utgående regel definition som är st
 
 ### <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a>Skala utgående NAT med flera IP-adresser
 
-Även om en utgående regel kan användas med bara en enda offentlig IP-adress, underlättar utgående regler konfigurations bördan för skalning av utgående NAT. Du kan använda flera IP-adresser för att planera för storskaliga scenarier och du kan använda utgående regler för att minska mönstren för [SNAT-överbelastningar](load-balancer-outbound-connections.md#snatexhaust) .  
+Även om en utgående regel kan användas med bara en enda offentlig IP-adress, underlättar utgående regler konfigurations bördan för skalning av utgående NAT. Du kan använda flera IP-adresser för att planera för storskaliga scenarier och du kan använda utgående regler för att minska mönstren för [SNAT-överbelastningar](troubleshoot-outbound-connection.md#snatexhaust) .  
 
 Varje ytterligare IP-adress som tillhandahålls av en klient del ger 64 000 tillfälliga portar för Load Balancer att använda sig av SNAT-portar. När belastnings utjämning eller inkommande NAT-regler har en enda klient del, expanderar regeln för utgående trafik klient dels begreppet och tillåter flera klient delar per regel.  Med flera klient delar per regel multipliceras antalet tillgängliga SNAT-portar med varje offentlig IP-adress och stora scenarier kan stödjas.
 
@@ -95,7 +95,7 @@ Använd följande parameter för att ange tids gränsen för utgående inaktivit
 
           "idleTimeoutInMinutes": 60
 
-### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a> Aktivera timeout för TCP-återställning vid inaktivitet
+### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a>Aktivera timeout för TCP-återställning vid inaktivitet
 
 Standard beteendet för Load Balancer är att släppa flödet tyst när tids gränsen för utgående inaktivitet har nåtts.  Med parametern enableTCPReset kan du aktivera ett mer förutsägbart program beteende och kontrol lera om du vill skicka dubbelriktad TCP-återställning (TCP per-) vid tids gränsen för utgående inaktivitet. 
 

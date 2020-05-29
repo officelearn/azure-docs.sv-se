@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/13/2020
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 208f4f7b4c2d8562d5237a40f52e4774ea5c5606
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0605249ea0602b33e144fce8d0a77439c2077a2f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272482"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170757"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Konfigurera PHP i Azure App Service
 
@@ -61,10 +61,10 @@ Om du vill använda Azures kommando rads gränssnitt måste du [Installera Azure
 
 För alla inbyggda PHP-körningar kan du ändra konfigurations alternativen genom att följa dessa steg. (Information om php. ini-direktiv finns i [lista över php. ini-direktiv].)
 
-### <a name="changing-php_ini_user-php_ini_perdir-php_ini_all-configuration-settings"></a>Ändra PHP\_ini\_-användare,\_php\_ini-PERDIR\_,\_php ini alla konfigurations inställningar
+### <a name="changing-php_ini_user-php_ini_perdir-php_ini_all-configuration-settings"></a>Ändra PHP \_ ini \_ -användare, php \_ ini \_ -PERDIR, php \_ ini \_ alla konfigurations inställningar
 
 1. Lägg till en [. user. ini] -fil i rot katalogen.
-1. Lägg till konfigurations inställningar `.user.ini` till filen med samma syntax som du skulle använda i `php.ini` en fil. Om du till exempel vill aktivera `display_errors` inställningen och ange `upload_max_filesize` inställningen till 10 miljoner skulle `.user.ini` filen innehålla den här texten:
+1. Lägg till konfigurations inställningar till `.user.ini` filen med samma syntax som du skulle använda i en `php.ini` fil. Om du till exempel vill aktivera `display_errors` inställningen och ange `upload_max_filesize` inställningen till 10 miljoner `.user.ini` skulle filen innehålla den här texten:
 
         ; Example Settings
         display_errors=On
@@ -75,13 +75,13 @@ För alla inbyggda PHP-körningar kan du ändra konfigurations alternativen geno
 2. Distribuera din app.
 3. Starta om appen. (Omstart är nödvändigt eftersom den frekvens med vilken PHP läser `.user.ini` filer styrs av `user_ini.cache_ttl` inställningen, vilket är en inställning på system nivå och är 300 sekunder (5 minuter) som standard. Att starta om appen tvingar PHP att läsa de nya inställningarna i `.user.ini` filen.)
 
-Som ett alternativ till att använda `.user.ini` en fil kan du använda funktionen [ini_set ()] i skript för att ange konfigurations alternativ som inte är direktiv på system nivå.
+Som ett alternativ till att använda en `.user.ini` fil kan du använda funktionen [ini_set ()] i skript för att ange konfigurations alternativ som inte är direktiv på system nivå.
 
-### <a name="changing-php_ini_system-configuration-settings"></a>Ändra konfigurations inställningar för PHP\_ini\_-systemet
+### <a name="changing-php_ini_system-configuration-settings"></a>Ändra \_ konfigurations inställningar för php ini- \_ systemet
 
-1. Lägg till en app-inställning till din app med `PHP_INI_SCAN_DIR` nyckeln och värdet`d:\home\site\ini`
-1. Skapa en `settings.ini` fil med kudu-konsolen (&lt;http://site-&gt;Name. scm.azurewebsite.net) i `d:\home\site\ini` katalogen.
-1. Lägg till konfigurations inställningar `settings.ini` till filen med samma syntax som du skulle använda i `php.ini` en fil. Om du till exempel vill peka `curl.cainfo` inställningen till en `*.crt` fil och ange inställningen "wincache. MaxFileSize till 512 K" skulle `settings.ini` filen innehålla den här texten:
+1. Lägg till en app-inställning till din app med nyckeln `PHP_INI_SCAN_DIR` och värdet`d:\home\site\ini`
+1. Skapa en `settings.ini` fil med kudu-konsolen (http:// &lt; site-name &gt; . scm.azurewebsite.net) i `d:\home\site\ini` katalogen.
+1. Lägg till konfigurations inställningar till `settings.ini` filen med samma syntax som du skulle använda i en `php.ini` fil. Om du till exempel vill peka `curl.cainfo` inställningen till en `*.crt` fil och ange inställningen "WinCache. maxfilesize till 512 K" `settings.ini` skulle filen innehålla den här texten:
 
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
@@ -94,11 +94,11 @@ Som vi noterade i föregående avsnitt är det bästa sättet att se standard PH
 
 ### <a name="configure-via-ini-settings"></a>Konfigurera via ini-inställningar
 
-1. Lägg till `ext` en katalog i `d:\home\site` katalogen.
-1. Lägg `.dll` till tilläggsfiler i `ext` katalogen (till exempel `php_xdebug.dll`). Kontrol lera att tilläggen är kompatibla med standard versionen av PHP och att de är VC9-kompatibla och icke-tråd säkra (nter)-kompatibla.
-1. Lägg till en app-inställning till din app med `PHP_INI_SCAN_DIR` nyckeln och värdet`d:\home\site\ini`
-1. Skapa en `ini` fil med `d:\home\site\ini` namnet `extensions.ini`.
-1. Lägg till konfigurations inställningar `extensions.ini` till filen med samma syntax som du skulle använda i `php.ini` en fil. Om du till exempel vill aktivera tilläggen MongoDB och XDebug skulle `extensions.ini` filen innehålla den här texten:
+1. Lägg till en `ext` katalog i `d:\home\site` katalogen.
+1. Lägg `.dll` till tilläggsfiler i `ext` katalogen (till exempel `php_xdebug.dll` ). Kontrol lera att tilläggen är kompatibla med standard versionen av PHP och att de är VC9-kompatibla och icke-tråd säkra (nter)-kompatibla.
+1. Lägg till en app-inställning till din app med nyckeln `PHP_INI_SCAN_DIR` och värdet`d:\home\site\ini`
+1. Skapa en `ini` fil med `d:\home\site\ini` namnet `extensions.ini` .
+1. Lägg till konfigurations inställningar till `extensions.ini` filen med samma syntax som du skulle använda i en `php.ini` fil. Om du till exempel vill aktivera tilläggen MongoDB och XDebug `extensions.ini` skulle filen innehålla den här texten:
 
         ; Enable Extensions
         extension=d:\home\site\ext\php_mongo.dll
@@ -107,8 +107,8 @@ Som vi noterade i föregående avsnitt är det bästa sättet att se standard PH
 
 ### <a name="configure-via-app-setting"></a>Konfigurera via app-inställning
 
-1. Lägg till `bin` en katalog i rot katalogen.
-2. Lägg `.dll` till tilläggsfiler i `bin` katalogen (till exempel `php_xdebug.dll`). Kontrol lera att tilläggen är kompatibla med standard versionen av PHP och att de är VC9-kompatibla och icke-tråd säkra (nter)-kompatibla.
+1. Lägg till en `bin` katalog i rot katalogen.
+2. Lägg `.dll` till tilläggsfiler i `bin` katalogen (till exempel `php_xdebug.dll` ). Kontrol lera att tilläggen är kompatibla med standard versionen av PHP och att de är VC9-kompatibla och icke-tråd säkra (nter)-kompatibla.
 3. Distribuera din app.
 4. Bläddra till din app i Azure Portal och klicka på avsnittet **konfiguration** som finns under **Inställningar** .
 5. Välj **program inställningar**på bladet **konfiguration** .
@@ -121,28 +121,28 @@ Zend-tillägg stöds också med hjälp av en **PHP_ZENDEXTENSIONS** nyckel. Om d
 
 I stället för standard körnings miljön för PHP kan App Service använda en PHP-körning som du anger för att köra PHP-skript. Den körning som du anger kan konfigureras med en `php.ini` fil som du också anger. Följ dessa steg om du vill använda en anpassad PHP-körning med App Service.
 
-1. Skaffa en icke-tråd säker, VC9-eller VC11-kompatibel version av PHP för Windows. Du hittar de senaste versionerna av PHP för Windows här: [https://windows.php.net/download/]. Du hittar äldre versioner i arkivet här: [https://windows.php.net/downloads/releases/archives/].
+1. Skaffa en icke-tråd säker, VC9-eller VC11-kompatibel version av PHP för Windows. Du hittar de senaste versionerna av PHP för Windows här: [https://windows.php.net/download/] . Du hittar äldre versioner i arkivet här: [https://windows.php.net/downloads/releases/archives/] .
 2. Ändra `php.ini` filen för din körning. Alla konfigurations inställningar som är endast på system-nivå-direktiv ignoreras av App Service. (Information om direktiv på endast system nivå finns i [lista över php. ini-direktiv]).
 3. Du kan också lägga till tillägg i PHP-körningsmiljön och aktivera dem i `php.ini` filen.
-4. Lägg till `bin` en katalog i rot katalogen och Lägg till den katalog som innehåller din php-körning i den (till exempel `bin\php`).
+4. Lägg till en `bin` katalog i rot katalogen och Lägg till den katalog som innehåller din php-körning i den (till exempel `bin\php` ).
 5. Distribuera din app.
 6. Bläddra till din app i Azure Portal och klicka på **konfigurations** bladet.
 8. Välj **Sök vägs mappningar**på bladet **konfiguration** . 
-9. Klicka på **+ ny hanterare** och `*.php` Lägg till i fältet tillägg och Lägg till sökvägen till `php-cgi.exe` den körbara filen i **skript processorn**. Om du använder din PHP-körning i `bin` katalogen i programmets rot är `D:\home\site\wwwroot\bin\php\php-cgi.exe`sökvägen.
+9. Klicka på **+ ny hanterare** och Lägg till `*.php` i fältet tillägg och Lägg till sökvägen till den `php-cgi.exe` körbara filen i **skript processorn**. Om du använder din PHP-körning i `bin` katalogen i programmets rot är sökvägen `D:\home\site\wwwroot\bin\php\php-cgi.exe` .
 10. Klicka på **Uppdatera** längst ned för att lägga till mappningen hanterare.
 11. Klicka på **Spara** för att spara ändringarna.
 
-<a name="composer" />
+<a name="composer"></a>
 
 ## <a name="how-to-enable-composer-automation-in-azure"></a>Gör så här: Aktivera Composer-automatisering i Azure
 
-Som standard gör App Service inte något med Composer. JSON, om du har en i ditt PHP-projekt. Om du använder [Git-distribution](deploy-local-git.md)kan du aktivera Composer. JSON- `git push` bearbetning under genom att aktivera Composer-tillägget.
+Som standard gör App Service inte något med Composer. JSON, om du har en i ditt PHP-projekt. Om du använder [Git-distribution](deploy-local-git.md)kan du aktivera Composer. JSON-bearbetning under `git push` genom att aktivera Composer-tillägget.
 
 > [!NOTE]
 > Du kan [rösta på stöd för första klass Composer i App Service här](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)!
 >
 
-1. I php-appens blad i [Azure Portal](https://portal.azure.com)klickar du på **verktyg** > **tillägg**.
+1. I php-appens blad i [Azure Portal](https://portal.azure.com)klickar du på **verktyg**  >  **tillägg**.
 
     ![Azure Portal inställnings bladet för att aktivera Composer-automatisering i Azure](./media/web-sites-php-configure/composer-extension-settings.png)
 2. Klicka på **Lägg till**och sedan på **Composer**.
@@ -152,7 +152,7 @@ Som standard gör App Service inte något med Composer. JSON, om du har en i dit
 
     Bladet **installerade tillägg** visar Composer-tillägget.
     ![Acceptera juridiska villkor för att aktivera Composer-automatisering i Azure](./media/web-sites-php-configure/composer-extension-view.png)
-4. Nu, i ett terminalfönster på din lokala dator, utför `git add`, `git commit`och `git push` till din app. Observera att Composer installerar beroenden som definierats i Composer. JSON.
+4. Nu, i ett terminalfönster på din lokala dator, utför `git add` , `git commit` och `git push` till din app. Observera att Composer installerar beroenden som definierats i Composer. JSON.
 
     ![Git-distribution med Composer-automatisering i Azure](./media/web-sites-php-configure/composer-extension-success.png)
 
@@ -160,7 +160,7 @@ Som standard gör App Service inte något med Composer. JSON, om du har en i dit
 
 Mer information finns i [php Developer Center](https://azure.microsoft.com/develop/php/).
 
-[kostnadsfri prov]: https://www.windowsazure.com/pricing/free-trial/
+[kostnads fri utvärdering]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [Lista över php. ini-direktiv]: https://www.php.net/manual/en/ini.list.php

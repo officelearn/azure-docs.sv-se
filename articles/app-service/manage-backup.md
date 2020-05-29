@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: b812ae10b3462dbeff05c8a67e7ebb725281e7e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45a313318bc8005b433536d1b109f6153bc79e01
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535765"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170621"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Med säkerhets kopierings-och återställnings funktionen i [Azure App Service](overview.md) kan du enkelt skapa säkerhets kopior av appar manuellt eller enligt ett schema. Du kan konfigurera säkerhets kopiorna så att de behålls på obestämd tid. Du kan återställa appen till en ögonblicks bild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app.
@@ -41,7 +41,7 @@ Följande databas lösningar stöds med funktionen säkerhets kopiering:
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Krav och begränsningar
-* Funktionen säkerhets kopiering och återställning kräver att App Service plan finnas på **standard** -eller **Premium** -nivån. Mer information om hur du skalar App Service plan att använda en högre nivå finns i [skala upp en app i Azure](manage-scale-up.md). **Premium** -nivån tillåter ett större antal dagliga säkerhets kopieringar än **standard** nivån.
+* Funktionen säkerhets kopiering och återställning kräver att App Service plan finns på nivån **standard**, **Premium** eller **isolerad** . Mer information om hur du skalar App Service plan att använda en högre nivå finns i [skala upp en app i Azure](manage-scale-up.md). **Premium** -och **isolerade** nivåer tillåter ett större antal dagliga back versioner än **standard** nivån.
 * Du behöver ett Azure Storage-konto och en behållare i samma prenumeration som den app som du vill säkerhetskopiera. Mer information om Azure Storage-konton finns i [Översikt över Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Säkerhets kopieringar kan vara upp till 10 GB app-och databas innehåll. Om säkerhets kopierings storleken överskrider den här gränsen får du ett fel meddelande.
 * Säkerhets kopiering av TLS-aktiverade Azure Database for MySQL stöds inte. Om du har konfigurerat en säkerhets kopia får du inte säkerhets kopior.
@@ -118,15 +118,15 @@ Med partiella säkerhets kopieringar kan du välja exakt vilka filer du vill sä
 > Enskilda databaser i säkerhets kopian kan vara högst 4 GB, men den totala maximala storleken på säkerhets kopian är 10 GB
 
 ### <a name="exclude-files-from-your-backup"></a>Undanta filer från säkerhets kopian
-Anta att du har en app som innehåller loggfiler och statiska avbildningar som har säkerhetskopierats en gång och inte kommer att ändras. I sådana fall kan du undanta dessa mappar och filer från att lagras i dina framtida säkerhets kopior. Om du vill undanta filer och mappar från dina säkerhets kopior `_backup.filter` skapar du en `D:\home\site\wwwroot` fil i appen i appen. Ange listan med filer och mappar som du vill undanta i den här filen. 
+Anta att du har en app som innehåller loggfiler och statiska avbildningar som har säkerhetskopierats en gång och inte kommer att ändras. I sådana fall kan du undanta dessa mappar och filer från att lagras i dina framtida säkerhets kopior. Om du vill undanta filer och mappar från dina säkerhets kopior skapar du en `_backup.filter` fil i `D:\home\site\wwwroot` appen i appen. Ange listan med filer och mappar som du vill undanta i den här filen. 
 
-Du kan komma åt dina filer genom att gå `https://<app-name>.scm.azurewebsites.net/DebugConsole`till. Logga in på ditt Azure-konto om du uppmanas till det.
+Du kan komma åt dina filer genom att gå till `https://<app-name>.scm.azurewebsites.net/DebugConsole` . Logga in på ditt Azure-konto om du uppmanas till det.
 
 Identifiera de mappar som du vill undanta från dina säkerhets kopior. Till exempel vill du filtrera bort den markerade mappen och filerna.
 
 ![Mappen bilder](./media/manage-backup/kudu-images.png)
 
-Skapa en fil med `_backup.filter` namnet och Lägg till föregående lista i filen, men ta `D:\home`bort. Lista en katalog eller fil per rad. Därför bör innehållet i filen vara:
+Skapa en fil med namnet `_backup.filter` och Lägg till föregående lista i filen, men ta bort `D:\home` . Lista en katalog eller fil per rad. Därför bör innehållet i filen vara:
 
  ```
 \site\wwwroot\Images\brand.png
@@ -134,7 +134,7 @@ Skapa en fil med `_backup.filter` namnet och Lägg till föregående lista i fil
 \site\wwwroot\Images\2013
 ```
 
-Ladda `_backup.filter` upp filen till `D:\home\site\wwwroot\` katalogen på platsen med [FTP](deploy-ftp.md) eller någon annan metod. Om du vill kan du skapa filen direkt med kudu `DebugConsole` och infoga innehållet där.
+Ladda upp `_backup.filter` filen till `D:\home\site\wwwroot\` katalogen på platsen med [FTP](deploy-ftp.md) eller någon annan metod. Om du vill kan du skapa filen direkt med kudu `DebugConsole` och infoga innehållet där.
 
 Kör säkerhets kopieringar på samma sätt som vanligt, [manuellt](#create-a-manual-backup) eller [automatiskt](#configure-automated-backups). Nu är alla filer och mappar som anges i `_backup.filter` exkluderade från framtida säkerhets kopieringar schemalagda eller initierade manuellt. 
 
@@ -148,7 +148,7 @@ Kör säkerhets kopieringar på samma sätt som vanligt, [manuellt](#create-a-ma
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Så här lagras säkerhets kopior
-När du har gjort en eller flera säkerhets kopior för din app visas säkerhets kopiorna på sidan **behållare** för ditt lagrings konto och din app. I lagrings kontot består varje säkerhets kopiering av en`.zip` fil som innehåller säkerhets kopierings data och `.xml` en fil som innehåller ett manifest av `.zip` fil innehållet. Du kan packa upp och bläddra igenom dessa filer om du vill komma åt dina säkerhets kopior utan att faktiskt utföra en återställning av appen.
+När du har gjort en eller flera säkerhets kopior för din app visas säkerhets kopiorna på sidan **behållare** för ditt lagrings konto och din app. I lagrings kontot består varje säkerhets kopiering av en `.zip` fil som innehåller säkerhets kopierings data och en `.xml` fil som innehåller ett manifest av `.zip` fil innehållet. Du kan packa upp och bläddra igenom dessa filer om du vill komma åt dina säkerhets kopior utan att faktiskt utföra en återställning av appen.
 
 Säkerhets kopieringen av databasen för appen lagras i roten i zip-filen. För en SQL-databas är detta en BACPAC-fil (inget fil namns tillägg) och kan importeras. Om du vill skapa en SQL-databas baserad på BACPAC-exporten kan du läsa [Importera en BACPAC-fil för att skapa en ny användar databas](https://technet.microsoft.com/library/hh710052.aspx).
 
@@ -168,5 +168,5 @@ Exempel finns i:
 
 <a name="nextsteps"></a>
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Information om hur du återställer en app från en säkerhets kopia finns i [återställa en app i Azure](web-sites-restore.md). 

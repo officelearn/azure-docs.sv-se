@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8075574556375b7c07de2abd6c5aff792880b497
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b88b6d1ea4b9d9fc2b33849157968ee1c2f8c620
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738826"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170468"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -118,7 +118,7 @@ Med åtgärden åtgärds grupper webhook kan du dra nytta av Azure Active Direct
     > Du måste vara medlem i [rollen Azure AD-programadministratör](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) för att köra det här skriptet.
     
     - Ändra PowerShell-skriptets Connect-AzureAD-anrop för att använda ditt Azure AD-klient-ID.
-    - Ändra PowerShell-skriptets variabel $myAzureADApplicationObjectId att använda objekt-ID: t för ditt Azure AD-program
+    - Ändra PowerShell-skriptets variabel $myAzureADApplicationObjectId att använda objekt-ID: t för ditt Azure AD-program.
     - Kör det ändrade skriptet.
     
 1. Konfigurera åtgärds gruppens säkra webhook-åtgärd.
@@ -245,7 +245,7 @@ Du kan ha ett begränsat antal webhook-åtgärder i en åtgärds grupp.
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [SMS-aviserings beteende](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Få en [förståelse för aktivitets logg aviseringens webhook-schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Läs mer om [ITSM-anslutningsprogram](../../azure-monitor/platform/itsmc-overview.md)
+* Läs mer om [ITSM-anslutningsprogram](../../azure-monitor/platform/itsmc-overview.md).
 * Läs mer om [hastighets begränsning](../../azure-monitor/platform/alerts-rate-limiting.md) av aviseringar.
 * Få en [Översikt över aktivitets logg aviseringar](../../azure-monitor/platform/alerts-overview.md)och lär dig hur du tar emot aviseringar.  
 * Lär dig hur du [konfigurerar aviseringar när ett meddelande om tjänst hälsa har publicerats](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

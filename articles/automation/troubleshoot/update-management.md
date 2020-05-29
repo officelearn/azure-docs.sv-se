@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 35049e148af09376667a55e2f0bb4a28cf728245
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2989d85ddfca036a27ff6b886bd3b13a981c27a3
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735896"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170264"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Felsöka problem med Uppdateringshantering
 
@@ -50,7 +50,7 @@ Det här felet kan inträffa av följande orsaker:
 
 * Gå till [nätverks konfiguration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) och lär dig om vilka adresser och portar som måste tillåtas för att Log Analytics agenten ska fungera.
 
-* Sök efter problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer som har kon figurer ats för uppdateringshantering. Om din dator visas på arbets ytan men inte i Uppdateringshantering portal måste du ange omfattnings konfigurationen som mål för datorerna. Mer information om omfattnings konfigurationen finns i [Aktivera datorer i arbets ytan](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
+* Sök efter problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-scope-configurations-update-management.md) avgör vilka datorer som har kon figurer ats för uppdateringshantering. Om din dator visas på arbets ytan men inte i Uppdateringshantering portal måste du ange omfattnings konfigurationen som mål för datorerna. Mer information om omfattnings konfigurationen finns i [Aktivera datorer i arbets ytan](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Ta bort arbets konfigurationen genom att följa stegen i [ta bort hybrid Runbook Worker från en lokal Windows-dator](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) eller [ta bort hybrid Runbook Worker från en lokal Linux-dator](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 

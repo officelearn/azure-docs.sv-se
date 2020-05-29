@@ -2,13 +2,13 @@
 title: Konfigurera en QnA Maker tjänst – QnA Maker
 description: Innan du kan skapa en QnA Maker kunskaps banker måste du först konfigurera en QnA Maker tjänst i Azure. Alla som har behörighet att skapa nya resurser i en prenumeration kan konfigurera en QnA Maker-tjänst.
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/28/2020
+ms.openlocfilehash: 521d0388e4ee739b1ac840e482174ac466781f5f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402994"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171182"
 ---
 # <a name="manage-qna-maker-resources"></a>Hantera QnA Maker resurser
 
@@ -58,6 +58,7 @@ Den här proceduren skapar de Azure-resurser som krävs för att hantera innehå
    ![Resurs skapade en ny QnA Maker tjänst](../media/qnamaker-how-to-setup-service/resources-created.png)
 
     Resursen med _Cognitive Services_ typen har dina _prenumerations_ nycklar.
+
 
 ## <a name="find-subscription-keys-in-the-azure-portal"></a>Hitta prenumerations nycklar i Azure Portal
 
@@ -145,7 +146,7 @@ För närvarande kan du inte utföra en uppgradering på plats av Azure Search-S
 
 QnAMaker runtime är en del av Azure App Service-instansen som distribueras när du [skapar en QnAMaker-tjänst](./set-up-qnamaker-service-azure.md) i Azure Portal. Uppdateringar görs regelbundet till körnings miljön. QnA Maker App Service-instansen är i läget för automatisk uppdatering efter 2019-versionen av webbplats tillägget (version 5 +). Den här uppdateringen är utformad för att ta hand om noll stillestånds tid under uppgraderingar.
 
-Du kan kontrol lera din aktuella version https://www.qnamaker.ai/UserSettingspå. Om din version är äldre än version 5. x måste du starta om App Service för att tillämpa de senaste uppdateringarna:
+Du kan kontrol lera din aktuella version på https://www.qnamaker.ai/UserSettings . Om din version är äldre än version 5. x måste du starta om App Service för att tillämpa de senaste uppdateringarna:
 
 1. Gå till din QnAMaker-tjänst (resurs grupp) i [Azure Portal](https://portal.azure.com).
 
@@ -210,6 +211,29 @@ För att hålla appen för förutsägelse slut punkt inläst även när det inte
 
 Läs mer om hur du konfigurerar App Service [allmänna inställningar](../../../app-service/configure-common.md#configure-general-settings).
 
+## <a name="business-continuity-with-traffic-manager"></a>Affärs kontinuitet med Traffic Manager
+
+Det främsta målet med affärs kontinuitets planen är att skapa en elastisk kunskaps bas slut punkt, vilket skulle göra att det inte går att stänga av roboten eller programmet.
+
+> [!div class="mx-imgBorder"]
+> ![QnA Maker BCP-plan](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+
+Den övergripande idén som visas ovan är följande:
+
+1. Konfigurera två parallella [QNA Maker tjänster](set-up-qnamaker-service-azure.md) i [Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+1. [Säkerhetskopiera](../../../app-service/manage-backup.md) den primära QNA Maker app-tjänsten och [Återställ](../../../app-service/web-sites-restore.md) den i den sekundära installationen. Detta säkerställer att båda konfigurationerna fungerar med samma värdnamn och nycklar.
+
+1. Behåll de primära och sekundära Azure Search-indexen synkroniserade. Använd exemplet GitHub [här](https://github.com/pchoudhari/QnAMakerBackupRestore) för att se hur du säkerhetskopierar Azure index.
+
+1. Säkerhetskopiera Application Insights med [kontinuerlig export](../../../application-insights/app-insights-export-telemetry.md).
+
+1. När de primära och sekundära stackarna har kon figurer ATS använder du [Traffic Manager](../../../traffic-manager/traffic-manager-overview.md) för att konfigurera de två slut punkterna och konfigurera en routningsmetod.
+
+1. Du måste skapa en Transport Layer Security (TLS), som tidigare kallades Secure Sockets Layer (SSL), certifikat för din Traffic Manager-slutpunkt. [BIND TLS/SSL-certifikatet](../../../app-service/configure-ssl-bindings.md) i dina app Services.
+
+1. Använd slutligen Traffic Manager-slutpunkten i din robot eller app.
+
 ## <a name="delete-azure-resources"></a>Ta bort Azure-resurser
 
 Om du tar bort någon av de Azure-resurser som används för QnA Maker kunskaps baser fungerar inte längre kunskaps basen. Innan du tar bort några resurser bör du kontrol lera att du exporterar dina kunskaps baser från sidan **Inställningar** .
@@ -219,4 +243,4 @@ Om du tar bort någon av de Azure-resurser som används för QnA Maker kunskaps 
 Läs mer om [App Service](../../../app-service/index.yml) och [search service](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Skapa och publicera en kunskapsbas](../Quickstarts/create-publish-knowledge-base.md)
+> [Lär dig hur du skapar med andra](../how-to/collaborate-knowledge-base.md)

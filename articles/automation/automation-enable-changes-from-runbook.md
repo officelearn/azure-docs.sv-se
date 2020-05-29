@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 3220c364a4c94f95fa26d334a95f8e0d3155d5ab
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117997"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171097"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Aktivera Ändringsspårning och inventering från en runbook
 
@@ -104,7 +104,4 @@ Du måste ha aktiverat Ändringsspårning och inventering för att en virtuell A
 
 * Information om hur du schemalägger en Runbook finns i [hantera scheman i Azure Automation](shared-resources/schedules.md).
 * Information om hur du arbetar med funktionen finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
-* Information om hur du använder funktionen för att identifiera program vara som är installerad i din miljö finns i [identifiera vilken program vara som är installerad på dina virtuella datorer](automation-tutorial-installed-software.md).
-* Om du inte vill integrera ditt Automation-konto med en Log Analytics arbets yta när du aktiverar funktionen, se [ta bort länken till arbets ytan från Automation-kontot](automation-unlink-workspace-change-tracking.md).
-* När du har distribuerat ändringar av virtuella datorer kan du ta bort dem enligt beskrivningen i [ta bort virtuella datorer från ändringsspårning och inventering](automation-remove-vms-from-change-tracking.md).
 * Information om hur du felsöker allmänna problem med funktionen finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

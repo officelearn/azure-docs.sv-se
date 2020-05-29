@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: a89fd0ba39de3d4528dda44280d02a993bedd6b0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fb3246564c7902d1a99c28425ee7ee1789b00354
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047358"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171148"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Använd tjänst slut punkter och regler för virtuella nätverk för servrar i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -208,7 +208,7 @@ Anslutnings fel 40914 relaterar till *virtuella nätverks regler*, enligt vad so
 
 *Fel matchning:* Ange klientens IP-adress som en IP-regel. Gör det här i brandväggsfönstret i Azure-portalen.
 
-<a name="anchor-how-to-by-using-firewall-portal-59j" />
+<a name="anchor-how-to-by-using-firewall-portal-59j"></a>
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Portalen kan skapa en regel för virtuellt nätverk
 
@@ -236,7 +236,7 @@ Du måste redan ha ett undernät som är taggat med det specifika Virtual Networ
 - Det relevanta namnet på slut punkts typen är **Microsoft. SQL**.
 - Om ditt undernät kanske inte är taggat med typ namnet, se [Verifiera att ditt undernät är en slut punkt][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
-<a name="a-portal-steps-for-vnet-rule-200" />
+<a name="a-portal-steps-for-vnet-rule-200"></a>
 
 ## <a name="azure-portal-steps"></a>Azure Portal steg
 
@@ -275,7 +275,7 @@ Du måste redan ha ett undernät som är taggat med det specifika Virtual Networ
 > - **Borttagen:** Gäller endast borttagnings åtgärden och anger att regeln har tagits bort och inte längre gäller.
 > - **Förlopp:** Anger att åtgärden pågår. Den gamla regeln gäller när åtgärden är i det här läget.
 
-<a name="anchor-how-to-links-60h" />
+<a name="anchor-how-to-links-60h"></a>
 
 ## <a name="related-articles"></a>Relaterade artiklar
 

@@ -9,14 +9,18 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa ett jobb – Azure Portal
-      href: stream-analytics-quick-create-portal.md
-    - name: Skapa ett jobb – PowerShell
-      href: stream-analytics-quick-create-powershell.md
-    - name: Skapa ett jobb – Visual Studio
-      href: stream-analytics-quick-create-vs.md
-    - name: Skapa ett jobb – Visual Studio Code
-      href: quick-create-vs-code.md
+    - name: Skapa ett jobb
+      items:
+        - name: Azure Portal
+          href: stream-analytics-quick-create-portal.md
+        - name: ARM-mall
+          href: quick-create-azure-resource-manager.md
+        - name: PowerShell
+          href: stream-analytics-quick-create-powershell.md
+        - name: Visual Studio
+          href: stream-analytics-quick-create-vs.md
+        - name: Visual Studio-koden
+          href: quick-create-vs-code.md
 - name: Självstudier
   items:
     - name: 1 – Skapa/hantera ett jobb

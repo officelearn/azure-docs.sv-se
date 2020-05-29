@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 291e81261f8841b3d4629b077f0a244f10aa1fd8
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 8ca2a3d55a98f96f704999d888761ea40fc4665f
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118576"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140981"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Vad är Apache Spark i Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Apache Spark innehåller primitiver för minnes intern kluster användning. Ett 
 
 Spark-pooler i Azure Synapse erbjuder en fullständigt hanterad Spark-tjänst. Fördelarna med att skapa en spark-pool i Synapse Analytics visas här.
 
-| Funktion | Beskrivning |
+| Funktion | Description |
 | --- | --- |
 | Hastighet och effektivitet |Spark-instanser startar på ungefär 2 minuter för färre än 60 noder och ungefär 5 minuter för fler än 60 noder. Instansen stängs av som standard, 5 minuter efter det senaste jobbet som utförts om det inte hålls alivet av en Notebook-anslutning. |
 | Enkelt att skapa |Du kan skapa en ny Spark-pool i Azure Synapse på bara några minuter med hjälp av Azure Portal, Azure PowerShell eller Synapse Analytics .NET SDK. Se [Kom igång med Spark-pooler i Synapse Analytics](../quickstart-create-apache-spark-pool-studio.md). |

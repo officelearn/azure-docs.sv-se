@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d4c1c10dfbf384815c34af8436acdbb45cb8e242
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a4f136bc805cd48d05c2378b47966b4e4e4c60fb
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746983"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168513"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -24,7 +24,7 @@ Du använder JSON för att skapa en princip definition. Princip definitionen inn
 - mode
 - parameters
 - visningsnamn
-- beskrivning
+- description
 - princip regel
   - logisk utvärdering
   - effekt
@@ -82,7 +82,7 @@ Vi rekommenderar att du ställer in **läget** till `all` i de flesta fall. Alla
 
 `indexed`ska användas när du skapar principer som tvingar etiketter eller platser. Även om det inte krävs, förhindrar det att resurser som inte stöder taggar och platser visas som icke-kompatibla i resultatet av efterlevnaden. Undantaget är **resurs grupper** och **prenumerationer**. Princip definitioner som tvingar plats eller taggar i en resurs grupp eller prenumeration ska ange **läge** till `all` och särskilt vara mål för- `Microsoft.Resources/subscriptions/resourceGroups` eller- `Microsoft.Resources/subscriptions` typen. Ett exempel finns i [Pattern: Tags-Sample #1](../samples/pattern-tags.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Lägen för resurs leverantörer (för hands version)
+### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Lägen för resurs leverantörer (för hands version)
 
 Följande resurs leverantörs lägen stöds för närvarande under för hands versionen:
 
@@ -284,11 +284,11 @@ Följande fält stöds:
 - `tags`
 - `tags['<tagName>']`
   - Den här klammerns syntax stöder taggnamn som har skiljetecken, till exempel bindestreck, punkter eller blank steg.
-  - Där ** \< TagName \> ** är namnet på taggen som verifierar villkoret för.
+  - Där **\<tagName\>** är namnet på taggen för att validera villkoret för.
   - Exempel: `tags['Acct.CostCenter']` där **acct. CostCenter** är namnet på taggen.
 - `tags['''<tagName>''']`
   - Den här klammerns syntax stöder taggnamn som har apostrofer i den genom att använda dubbla apostrofer.
-  - Där **" \< TagName \> "** är namnet på taggen som verifierar villkoret för.
+  - Där **är \<tagName\> namnet** på taggen som används för att validera villkoret för.
   - Exempel: `tags['''My.Apostrophe.Tag''']` där **' My. apostrof. tag '** är namnet på taggen.
 - egenskaps Ali Aset – en lista finns i [alias](#aliases).
 
@@ -432,7 +432,7 @@ Följande egenskaper används med **Count**:
 - **Count. Field** (required): innehåller sökvägen till matrisen och måste vara ett mat ris alias. Om matrisen saknas utvärderas uttrycket till _false_ utan att ta hänsyn till villkors uttrycket.
 - **Count.** (valfritt): villkors uttrycket för att varje [ \[ \* \] alias](#understanding-the--alias) ska utvärderas individuellt i **fältet Count.** Om den här egenskapen inte anges utvärderas alla mat ris medlemmar med sökvägen för Field till _True_. Alla [villkor](../concepts/definition-structure.md#conditions) kan användas i den här egenskapen.
   [Logiska operatorer](#logical-operators) kan användas i den här egenskapen för att skapa komplexa utvärderings krav.
-- ** \< villkor \> ** (obligatoriskt): värdet jämförs med antalet objekt som uppfyllde **antalet. Where** villkors uttryck. Ett numeriskt [villkor](../concepts/definition-structure.md#conditions) ska användas.
+- **\<condition\>**(obligatoriskt): värdet jämförs med antalet objekt som uppfyllde **antalet. Where** villkors uttryck. Ett numeriskt [villkor](../concepts/definition-structure.md#conditions) ska användas.
 
 #### <a name="count-examples"></a>Antal exempel
 

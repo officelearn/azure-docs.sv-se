@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1319583569a8abc619ad902a87ee551b476f88eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2906c947e24bf5053760e9b83429ae7c6ecd3f4
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254630"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170128"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Aktivera eller inaktivera din enhet med StorSimple 8000-serien
 
@@ -86,12 +86,12 @@ Strömavbrott eller avbrott kan stänga av en StorSimple-enhet. Strömavbrottet 
 * [Enhet med endast primärt kabinett](#8100)
 * [Enhet med EBOD-kabinett](#8600)
 
-### <a name="device-with-primary-enclosure-only-a-name8100"></a>Enhet med endast primärt kabinett<a name="8100">
+### <a name="device-with-primary-enclosure-only"></a>Enhet med endast primärt kabinett<a name="8100"></a>
 Systemet kan fortsätta med sin normala drift om det uppstår strömavbrott till något av dess strömförsörjnings enheter. För att säkerställa hög tillgänglighet för enheten kan du dock återställa strömförsörjningen så snart som möjligt.
 
 Om det uppstår strömavbrott eller strömavbrott i båda strömförsörjningarna, stängs systemet av i ett ordnings-och kontrollerat sätt. När strömförsörjningen återställs aktive ras systemet automatiskt.
 
-### <a name="device-with-ebod-enclosure-a-name8600"></a>Enhet med EBOD-kabinett<a name="8600">
+### <a name="device-with-ebod-enclosure"></a>Enhet med EBOD-kabinett<a name="8600"></a>
 #### <a name="power-loss-on-one-power-supply"></a>Ström förlust för en strömförsörjning
 Systemet kan fortsätta sin normala drift om det uppstår strömavbrott till ett av dess strömförsörjnings material på den primära inne slutningen eller EBOD-höljet. För att säkerställa hög tillgänglighet för enheten kan du dock återställa strömförsörjningen så snart som möjligt.
 
@@ -140,21 +140,21 @@ En StorSimple-enhet som körs kan behöva stängas av om den flyttas, tas ur dri
 * [Enhet med primär kabinett](#8100a)
 * [Enhet med EBOD-kabinett](#8600a)
 
-### <a name="device-with-primary-enclosure-a-name8100a"></a>Enhet med primär kabinett<a name="8100a">
+### <a name="device-with-primary-enclosure"></a>Enhet med primär kabinett<a name="8100a"></a>
 Om du vill stänga av enheten på ett besorterat och kontrollerat sätt kan du göra det via Azure Portal eller via Windows PowerShell för StorSimple. 
 
 > [!IMPORTANT]
 > Stäng inte av en enhet som körs genom att använda strömbrytaren på bak sidan av enheten.
 > 
-> Kontrol lera att alla enhets komponenter är felfria innan du stänger av enheten. I Azure Portal går du till **enheter** > **övervaka** > **maskin varu hälsa**och kontrollerar att status för alla komponenter är grön. Detta gäller endast för felfria system. Om systemet stängs av för att ersätta en komponent som inte fungerar visas en misslyckad (röd) eller degraderad (gul) status för respektive komponent i **maskin varu statusen**.
+> Kontrol lera att alla enhets komponenter är felfria innan du stänger av enheten. I Azure Portal går du till **enheter**  >  **övervaka**  >  **maskin varu hälsa**och kontrollerar att status för alla komponenter är grön. Detta gäller endast för felfria system. Om systemet stängs av för att ersätta en komponent som inte fungerar visas en misslyckad (röd) eller degraderad (gul) status för respektive komponent i **maskin varu statusen**.
 > 
 > 
 
 När du har åtkomst till Windows PowerShell för StorSimple eller Azure Portal följer du stegen i [stänga av en StorSimple-enhet](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### <a name="device-with-ebod-enclosure-a-name8600a"></a>Enhet med EBOD-kabinett<a name="8600a">
+### <a name="device-with-ebod-enclosure"></a>Enhet med EBOD-kabinett<a name="8600a"></a>
 > [!IMPORTANT]
-> Innan du stänger av den primära inne slutningen och EBOD-höljet kontrollerar du att alla enhets komponenter är felfria. I Azure Portal går du till **enheter** > **övervaka** > **maskin varu hälsa**och kontrollerar att alla komponenter är felfria.
+> Innan du stänger av den primära inne slutningen och EBOD-höljet kontrollerar du att alla enhets komponenter är felfria. I Azure Portal går du till **enheter**  >  **övervaka**  >  **maskin varu hälsa**och kontrollerar att alla komponenter är felfria.
 
 
 #### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Stänga en enhet som körs med EBOD-kabinettet

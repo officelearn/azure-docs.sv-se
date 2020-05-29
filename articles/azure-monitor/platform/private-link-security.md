@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: a1b111ddfc134d2ec51fb2d0e9787a6eac8648f2
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4ef7e4058c4f9cb458f4036ad4b315f5e85036b1
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996456"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170723"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azures privata länk för att på ett säkert sätt ansluta nätverk till Azure Monitor
 
@@ -201,7 +201,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill använda Azure Monitor Portal upplevelser som Application Insights och Log Analytics måste du tillåta att Azure Portal-och Azure Monitor-tillägg kan nås i privata nätverk. Lägg till **AzureActiveDirectory**, **AzureResourceManager**, * * AzureFrontDoor. FirstParty och **AzureFrontDoor. frontend** [service-Taggar](../../firewall/service-tags.md) i brand väggen.
+Om du vill använda Azure Monitor Portal upplevelser som Application Insights och Log Analytics måste du tillåta att Azure Portal-och Azure Monitor-tillägg kan nås i privata nätverk. Lägg till **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**och **AzureFrontDoor. frontend** [service-Taggar](../../firewall/service-tags.md) i brand väggen.
 
 ### <a name="programmatic-access"></a>Programmässig åtkomst
 

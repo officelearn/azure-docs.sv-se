@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 03/11/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 89b33f22cf5e6f08b42fca0e8966a36001bdb29f
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: d3b337a697151f7f9ae1e3a1fb75795068da9e68
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116756"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204981"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Skillnader i T-SQL mellan SQL Server & Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "84116756"
 Den här artikeln sammanfattar och förklarar skillnaderna i syntax och beteende mellan Azure SQL-hanterad instans och SQL Server. 
 
 
-SQL-hanterad instans ger hög kompatibilitet med den lokala SQL Server databas motorn och de flesta funktioner stöds i en SQL-hanterad instans.
+SQL-hanterad instans ger hög kompatibilitet med SQL Server databas motorn och de flesta funktioner stöds i en SQL-hanterad instans.
 
 ![Migrering](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
@@ -506,6 +506,9 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 - VNet kan distribueras med hjälp av resurs modellen – den klassiska modellen för VNet stöds inte.
 - När en SQL-hanterad instans har skapats går det inte att flytta SQL-hanterad instans eller VNet till en annan resurs grupp eller prenumeration.
 - Vissa tjänster, till exempel App Service miljöer, Logic Apps och SQL-hanterade instanser (som används för geo-replikering, Transaktionsreplikering eller via länkade servrar) kan inte komma åt SQL-hanterade instanser i olika regioner om deras virtuella nätverk är anslutna med [Global peering](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
+
+### <a name="failover-groups"></a>Redundansgrupper
+System databaser replikeras inte till den sekundära instansen i en failover-grupp. Därför går det inte att använda scenarier som är beroende av objekt från system databaser på den sekundära instansen om inte objekten skapas manuellt på den sekundära.
 
 ### <a name="tempdb"></a>TEMPDB
 

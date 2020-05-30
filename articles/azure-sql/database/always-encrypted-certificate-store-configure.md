@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Always Encrypted med Windows certifikat Arkiv
+title: Konfigurera Always Encrypted med hjälp av Windows certifikat Arkiv
 description: Den här artikeln visar hur du skyddar känsliga data i Azure SQL Database med databas kryptering med hjälp av guiden Always Encrypted i SQL Server Management Studio (SSMS). Det visar också hur du lagrar dina krypterings nycklar i Windows certifikat arkiv.
 keywords: kryptera data, SQL-kryptering, databas kryptering, känsliga data Always Encrypted
 services: sql-database
@@ -12,17 +12,18 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 0287e5a965710ea5c3b1ada73fc32dda49c05819
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8b1b8297f285a5481909e2e2d91118e15d7d5095
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047708"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190394"
 ---
-# <a name="configure-always-encrypted-using-windows-certificate-store"></a>Konfigurera Always Encrypted med Windows certifikat Arkiv
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
+# <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Konfigurera Always Encrypted med hjälp av Windows certifikat Arkiv
 
-Den här självstudien visar hur du skyddar känsliga data i en databas i Azure SQL Database eller Azure SQL-hanterad instans med databas kryptering med hjälp av [Always Encrypted-guiden](/sql/relational-databases/security/encryption/always-encrypted-wizard) i [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Det visar också hur du lagrar dina krypterings nycklar i Windows certifikat arkiv.
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
+Den här artikeln visar hur du skyddar känsliga data i Azure SQL Database eller Azure SQL-hanterad instans med databas kryptering med hjälp av [Always Encrypted-guiden](/sql/relational-databases/security/encryption/always-encrypted-wizard) i [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Det visar också hur du lagrar dina krypterings nycklar i Windows certifikat arkiv.
 
 Always Encrypted är en data krypterings teknik som skyddar känsliga data i vila på servern under förflyttning mellan klient och Server, medan data används, vilket säkerställer att känsliga data aldrig visas som klartext i databas systemet. När du har krypterat data kan endast klient program eller App-servrar som har åtkomst till nycklarna komma åt oformaterade data. Detaljerad information finns i [Always Encrypted (databas motor)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -56,7 +57,7 @@ Hämta *program-ID* och *nyckel*genom att följa stegen i [skapa ett Azure Activ
 
 ## <a name="connect-with-ssms"></a>Anslut med SSMS
 
-Öppna SQL Server Managed Studio (SSMS) och Anslut till servern eller hanterad med databasen.
+Öppna SQL Server Management Studio (SSMS) och Anslut till servern eller hanterad med databasen.
 
 1. Öppna SSMS. (Klicka på **Anslut**  >  **Database Engine** för att öppna fönstret **Anslut till Server** om det inte är öppet).
 2. Ange server namn och autentiseringsuppgifter.

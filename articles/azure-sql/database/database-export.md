@@ -11,18 +11,18 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: 27e5bee041ca6be2f179a50732f58396b317e179
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: efd5e33f5ed8ecffa84dd0e9dc356d5ec3b1f69d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045286"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188855"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database--sql-managed-instance"></a>Exportera till en BACPAC-fil – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 
-När du behöver exportera en databas för arkivering eller för att flytta till en annan plattform kan du exportera databasens schema och data till en [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) -fil. En BACPAC-fil är en ZIP-fil med en utökning av BACPAC som innehåller metadata och data från databasen. En BACPAC-fil kan lagras i Azure Blob Storage eller i lokal lagring på en lokal plats och senare importeras tillbaka till Azure SQL Database, Azure SQL-hanterad instans eller en SQL Server lokal installation.
+När du behöver exportera en databas för arkivering eller för att flytta till en annan plattform kan du exportera databasens schema och data till en [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) -fil. En BACPAC-fil är en ZIP-fil med en utökning av BACPAC som innehåller metadata och data från databasen. En BACPAC-fil kan lagras i Azure Blob Storage eller i lokal lagring på en lokal plats och senare importeras tillbaka till Azure SQL Database, Azure SQL-hanterad instans eller en SQL Server instans.
 
 ## <a name="considerations"></a>Att tänka på
 

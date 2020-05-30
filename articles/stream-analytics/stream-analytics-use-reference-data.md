@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124082"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196430"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referens data för sökningar i Stream Analytics
 
@@ -96,13 +96,13 @@ Med alternativet delta fråga kör Stream Analytics ögonblicks bild frågan fr�
 
 Om du vill konfigurera dina SQL Database referens data måste du först skapa **referenser för data** inmatning. I tabellen nedan förklaras varje egenskap som du måste ange när du skapar referens data indata med en beskrivning. Mer information finns i [använda referens data från en SQL Database för ett Azure Stream Analytics jobb](sql-reference-data.md).
 
-Du kan använda [Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) som referens data inmatning. Du måste [Konfigurera den offentliga slut punkten i Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) och manuellt konfigurera följande inställningar i Azure Stream Analytics. Den virtuella Azure-datorn som kör SQL Server med en databas ansluten stöds också genom att konfigurera inställningarna manuellt nedan.
+Du kan använda en [hanterad Azure SQL-instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) som referens data inmatning. Du måste [Konfigurera den offentliga slut punkten i SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) och manuellt konfigurera följande inställningar i Azure Stream Analytics. Den virtuella Azure-datorn som kör SQL Server med en databas ansluten stöds också genom att konfigurera inställningarna manuellt nedan.
 
 |**Egenskapsnamn**|**Beskrivning**  |
 |---------|---------|
 |Inmatat alias|Ett eget namn som ska användas i jobb frågan för att referera till den här indatamängden.|
 |Prenumeration|Välj din prenumeration|
-|Databas|Azure SQL Database som innehåller dina referens data. För Azure SQL Database Hanterad instans måste du ange port 3342. Till exempel *sampleserver. public. Database. Windows. net, 3342*|
+|Databas|Azure SQL Database som innehåller dina referens data. För SQL-hanterad instans måste du ange port 3342. Till exempel *sampleserver. public. Database. Windows. net, 3342*|
 |Användarnamn|Det användar namn som är associerat med din Azure SQL Database.|
 |lösenordsinställning|Lösen ordet som är kopplat till Azure SQL Database.|
 |Uppdatera regelbundet|Med det här alternativet kan du välja ett uppdaterings intervall. Om du väljer "på" kan du ange uppdaterings frekvensen i DD: HH: MM.|

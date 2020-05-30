@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: faeab07ce7ec057981d23228461c2fa07600cdc1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e3464c0fc3946e47400f87063ef6f83ceb942abb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660023"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192454"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Data inläsnings strategier för Synapse SQL-pool
 
@@ -113,7 +113,7 @@ Vid inläsning av Parquet är SQL Data Type-mappningen:
 |                            INT32                             |            INT (8, falskt)            |     tinyint      |
 |                            INT32                             |            INT (16, falskt)             |       int        |
 |                            INT32                             |           INT (32, falskt)            |      bigint      |
-|                            INT32                             |                 DATE                  |       datum       |
+|                            INT32                             |                 DATE                  |       date       |
 |                            INT32                             |                DECIMAL                |     decimal      |
 |                            INT32                             |            TID (MILLIS)             |       time       |
 |                            INT64                             |            INT (64, sant)            |      bigint      |
@@ -148,7 +148,7 @@ Tabellen måste skapas i förväg när den läses in i en mellanlagringsplats me
 Om du vill läsa in data med PolyBase kan du använda något av följande inläsnings alternativ:
 
 - [PolyBase med T-SQL](load-data-from-azure-blob-storage-using-polybase.md) fungerar bra när dina data finns i Azure Blob storage eller Azure Data Lake Store. Du får störst kontroll över inläsnings processen, men du måste också definiera externa data objekt. De andra metoderna definierar dessa objekt bakom scenerna när du mappar käll tabeller till mål tabeller.  För att dirigera T-SQL-inläsningar kan du använda Azure Data Factory, SSIS eller Azure Functions.
-- [PolyBase med SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) fungerar bra när dina källdata är i SQL Server, antingen SQL Server lokalt eller i molnet. SSIS definierar källa till mål tabell mappningar och dirigerar även belastningen. Om du redan har SSIS-paket kan du ändra paketen så att de fungerar med det nya informations lager målet.
+- [PolyBase med SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) fungerar bra när dina källdata är i SQL Server. SSIS definierar källa till mål tabell mappningar och dirigerar även belastningen. Om du redan har SSIS-paket kan du ändra paketen så att de fungerar med det nya informations lager målet.
 - [PolyBase-och Copy-uttryck med Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) är ett annat Orchestration-verktyg.  Den definierar en pipeline och schemalägger jobb.
 - [PolyBase med Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) överför data från en tabell till en Databricks-dataframe och/eller skriver data från en Databricks-dataframe till en tabell med PolyBase.
 

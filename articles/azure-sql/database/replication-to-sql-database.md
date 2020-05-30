@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: eebf0bb2a5f2a813ff282854b62f10957475e3b1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ec0aebc10d47b3e9945e63e818240da7bf2451e4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046441"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192955"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replikering till Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Du kan konfigurera en Azure SQL Database som push-prenumerant i en enkelriktad t
 
 För att kunna replikera till en Azure SQL Database måste SQL Server utgivare och distributörer använda (minst) en av följande versioner: 
 
-Publicering till en Azure SQL Database från en lokal SQL Server stöds av följande versioner av SQL Server:
+Det finns stöd för att publicera till en Azure SQL Database från en SQL Server-databas i följande versioner av SQL Server:
 
 - SQL Server 2016 och senare
 - SQL Server 2014 [RTM-CU10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) eller [SP1-CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
@@ -54,12 +54,12 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
 
 | Replikering | Azure SQL Database | Hanterad Azure SQL-instans |
 | :----| :------------- | :--------------- |
-| [**Standard transaktion**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Ja | 
-| [**Ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Ja|
-| [**Sammanfoga replikering**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nej | Nej|
-| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nej | Nej|
-| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nej | Ja|
-| [**Uppdaterings bara prenumerationer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nej | Nej|
+| [**Standard transaktion**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Yes | 
+| [**Ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Yes|
+| [**Sammanfoga replikering**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Inga | Inga|
+| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Inga | Inga|
+| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Ja|
+| [**Uppdaterings bara prenumerationer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Inga | Inga|
 | &nbsp; | &nbsp; | &nbsp; |
 
   
@@ -84,13 +84,13 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
 
 ### <a name="typical-replication-scenario"></a>Vanligt scenario för replikering  
 
-1. Skapa en transaktionskö för replikering på en lokal SQL Server databas.  
-2. På den lokala SQL Server använda **Guiden ny prenumeration** eller Transact-SQL-uttryck för att skapa en push-överföring till-Azure SQL Database.  
+1. Skapa en transaktionskö för replikering på en SQL Server databas.  
+2. På SQL Server använder du **Guiden ny prenumeration** eller Transact-SQL-uttryck för att skapa en push-överföring till en prenumeration till Azure SQL Database.  
 3. Med enskilda databaser och databaser i Azure SQL Database är den ursprungliga data uppsättningen en ögonblicks bild som skapas av ögonblicks bild agenten och distribueras och tillämpas av distributions agenten. Med en SQL-hanterad instans utgivare kan du också använda en databas säkerhets kopia för att dirigera Azure SQL Database prenumeranten.
 
 ### <a name="data-migration-scenario"></a>Scenario för data migrering  
 
-1. Använd transaktionell replikering för att replikera data från en lokal SQL Server databas till Azure SQL Database.  
+1. Använd transaktionell replikering för att replikera data från en SQL Server databas till Azure SQL Database.  
 2. Dirigera om klienten eller program på mellan nivå för att uppdatera databas kopian.  
 3. Sluta uppdatera SQL Server-versionen av tabellen och ta bort publikationen.  
 

@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från en lokal plats till Azure med hjälp av PowerShell
-description: Det här PowerShell-skriptet kopierar data från en lokal SQL Server-databas till en annan Azure-Blob Storage.
+description: Det här PowerShell-skriptet kopierar data från en SQL Server-databas till en annan Azure-Blob Storage.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,29 +10,29 @@ author: linda33wj
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 10555defc4888af66bb88d19190b6543aa8ae0c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f0a1509a97d2d860b43146ffaf69bb241105910
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75974691"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194634"
 ---
-# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Använd PowerShell för att skapa en Data Factory-pipeline för att kopiera data från en lokal plats till Azure
+# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Använd PowerShell för att skapa en Data Factory-pipeline för att kopiera data från SQL Server till Azure
 
-Det här exemplet på PowerShell-skriptet skapar en pipeline i Azure Data Factory som kopierar data från en lokal SQL Server-databas till en Azure-Blob Storage.
+Det här exemplet på PowerShell-skriptet skapar en pipeline i Azure Data Factory som kopierar data från en SQL Server-databas till en Azure-Blob Storage.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- **SQL Server**. Du använder en lokal SQL Server databas som **käll** data lager i det här exemplet.
+- **SQL Server**. Du använder en SQL Server databas som **käll** data lager i det här exemplet.
 - **Azure Storage konto**. Du använder Azure Blob Storage som data lager för **destination/mottagare** i det här exemplet. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
 - **Integration runtime med egen värd**. Ladda ned MSI-filen från [Download Center](https://www.microsoft.com/download/details.aspx?id=39717) och kör den för att installera en lokal integration runtime på din dator.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Skapa exempel databas i SQL Server
-1. I den lokala SQL Server-databasen skapar du en tabell med namnet **EMP** med hjälp av följande SQL-skript:
+1. I SQL Server-databasen skapar du en tabell med namnet **EMP** med hjälp av följande SQL-skript:
 
    ```sql   
      CREATE TABLE dbo.emp
@@ -57,7 +57,7 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline i Azure Data Factor
 > [!IMPORTANT]
 > Det här skriptet skapar JSON-filer som definierar Data Factory entiteter (länkad tjänst, data uppsättning och pipeline) på hård disken i mappen c:\ projektbevakningsmappen.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from on-premises SQL Server -> Azure Blob Storage")]
+[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from SQL Server -> Azure Blob Storage")]
 
 
 ## <a name="clean-up-deployment"></a>Rensa distribution

@@ -3,12 +3,13 @@ title: Support mat ris för säkerhets kopiering av Azure-filresurs
 description: Innehåller en översikt över support inställningar och begränsningar när du säkerhetskopierar Azure-filresurser.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 09ca5264280c990db8f57400aef1a876f842a210
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.custom: references_regions
+ms.openlocfilehash: 8198c06c1151dd86d99bc64f825764d0a4988287
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117687"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193855"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Support mat ris för säkerhets kopiering av Azure-filresurs
 
@@ -43,21 +44,21 @@ USA, västra centrala
 
 ## <a name="protection-limits"></a>Skydds gränser
 
-| Inställningen                                                      | Gräns |
+| Inställning                                                      | Gräns |
 | ------------------------------------------------------------ | ----- |
 | Maximalt antal fil resurser som kan skyddas per dag per valv | 200   |
 | Maximalt antal lagrings konton som kan registreras per valv per dag | 50    |
 
 ## <a name="backup-limits"></a>Säkerhets kopierings gränser
 
-| Inställningen                                      | Gräns |
+| Inställning                                      | Gräns |
 | -------------------------------------------- | ----- |
 | Maximalt antal säkerhets kopior på begäran per dag | 4     |
 | Maximalt antal schemalagda säkerhets kopieringar per dag | 1     |
 
 ## <a name="restore-limits"></a>Återställa gränser
 
-| Inställningen                                                      | Gräns   |
+| Inställning                                                      | Gräns   |
 | ------------------------------------------------------------ | ------- |
 | Maximalt antal återställningar per dag                           | 10      |
 | Maximalt antal filer per återställning                         | 10      |
@@ -65,7 +66,7 @@ USA, västra centrala
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-| Inställningen                                                      | Gräns    |
+| Inställning                                                      | Gräns    |
 | ------------------------------------------------------------ | -------- |
 | Maximalt antal återställnings punkter per fil resurs vid varje tidpunkt | 200      |
 | Högsta kvarhållning av återställnings punkt som skapats av säkerhets kopiering på begäran | 10 år |

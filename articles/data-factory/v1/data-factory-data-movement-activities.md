@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281891"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195972"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Flytta data med hjälp av kopierings aktivitet
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -81,7 +81,7 @@ Kopierings aktiviteten läser också från och skriver till filer i angivna form
 
 Du kan till exempel göra följande kopierings aktiviteter:
 
-* Kopiera data i lokala SQL Server och skriva till Azure Data Lake Store i ORC-format.
+* Kopiera data i en SQL Server databas och skriva till Azure Data Lake Store i ORC-format.
 * Kopiera filer i text format (CSV) från det lokala fil systemet och skriv till Azure blob i Avro-format.
 * Kopiera zippade filer från det lokala fil systemet och expandera sedan land till Azure Data Lake Store.
 * Kopiera data i formatet GZip-komprimerad text (CSV) från Azure blob och skriv till Azure SQL Database.
@@ -121,10 +121,10 @@ När både käll-och mottagar data lager finns i molnet använder Data Factory e
 | Korea | Sydkorea, centrala | Sydkorea, centrala |
 | &nbsp; | Sydkorea, södra | Sydkorea, centrala |
 
-Alternativt kan du uttryckligen ange regionen för Data Factory tjänst som ska användas för att utföra kopieringen genom att ange `executionLocation` egenskapen under kopierings `typeProperties`aktivitet. Värden som stöds för den här egenskapen visas i den **region som används för data förflyttnings** kolumnen. Observera att dina data går igenom den regionen över kabeln under kopieringen. Om du till exempel vill kopiera mellan Azure-butiker i Korea kan du `"executionLocation": "Japan East"` ange att den ska dirigeras genom den japanska regionen (se [exempel-JSON](#by-using-json-scripts) som referens).
+Alternativt kan du uttryckligen ange regionen för Data Factory tjänst som ska användas för att utföra kopieringen genom att ange `executionLocation` egenskapen under kopierings aktivitet `typeProperties` . Värden som stöds för den här egenskapen visas i den **region som används för data förflyttnings** kolumnen. Observera att dina data går igenom den regionen över kabeln under kopieringen. Om du till exempel vill kopiera mellan Azure-butiker i Korea kan du ange `"executionLocation": "Japan East"` att den ska dirigeras genom den japanska regionen (se [exempel-JSON](#by-using-json-scripts) som referens).
 
 > [!NOTE]
-> Om regionen för mål data lagret inte finns i föregående lista eller inte kan identifieras som standard kopierings aktivitet Miss lyckas i stället för att gå igenom en alternativ region, `executionLocation` om inte har angetts. Listan region som stöds kommer att expanderas över tid.
+> Om regionen för mål data lagret inte finns i föregående lista eller inte kan identifieras som standard kopierings aktivitet Miss lyckas i stället för att gå igenom en alternativ region, om inte `executionLocation` har angetts. Listan region som stöds kommer att expanderas över tid.
 >
 
 ### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Kopiera data mellan ett lokalt data lager och ett moln data lager
@@ -141,7 +141,7 @@ Du kan använda Data Factory Editor i Visual Studio eller Azure PowerShell för 
 
 JSON-egenskaper (t. ex. namn, beskrivning, indata-och utdata tabeller och principer) är tillgängliga för alla typer av aktiviteter. Vilka egenskaper som är tillgängliga i `typeProperties` avsnittet av aktiviteten varierar beroende på varje aktivitets typ.
 
-För kopierings aktiviteten varierar `typeProperties` avsnittet beroende på typerna av källor och mottagare. Klicka på en källa/mottagare i avsnittet [källor och mottagare som stöds och](#supported-data-stores-and-formats) lär dig mer om typ egenskaper som kopierings aktivitet stöder för det data lagret.
+För kopierings aktiviteten `typeProperties` varierar avsnittet beroende på typerna av källor och mottagare. Klicka på en källa/mottagare i avsnittet [källor och mottagare som stöds och](#supported-data-stores-and-formats) lär dig mer om typ egenskaper som kopierings aktivitet stöder för det data lagret.
 
 Här är ett exempel på en JSON-definition:
 

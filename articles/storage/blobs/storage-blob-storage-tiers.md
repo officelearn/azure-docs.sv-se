@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: c803d489b70cda6910865f6096d21c2021c4ae3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41b7dc2b7ddcf5d8bd15043d117a25771a278f95
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393707"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204879"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring
 
@@ -59,9 +59,9 @@ Låg frekvent åtkomst nivå har lägre kostnader för lagring och högre åtkom
 
 ## <a name="archive-access-tier"></a>Arkivåtkomstnivå
 
-Arkiv åtkomst nivån har lägst lagrings kostnad. Men den har högre kostnader för data hämtning jämfört med frekventa och låg frekventa nivåer. Det kan ta flera timmar att hämta data på Arkiv nivån. Data måste finnas kvar på Arkiv nivå i minst 180 dagar eller omfattas av en avgift för tidig borttagning.
+Arkiv åtkomst nivån har lägst lagrings kostnad. Men den har högre kostnader för data hämtning jämfört med frekventa och låg frekventa nivåer. Data måste finnas kvar på Arkiv nivå i minst 180 dagar eller omfattas av en avgift för tidig borttagning. Det kan ta flera timmar att hämta data på Arkiv nivån beroende på ÅTERUPPVÄCKNING prioritet. För små objekt kan en rehydratisera med hög prioritet hämta objektet från arkivet på under en timme. Mer information finns i avsnittet om [dehydratisera BLOB-data från Arkiv](storage-blob-rehydration.md) lag rings nivån.
 
-När en BLOB finns i Arkiv lag ring är BLOB-data offline och kan inte läsas, skrivas över eller ändras. Om du vill läsa eller ladda ned en BLOB i arkivet måste du först extrahera den till en onlinenivå. Du kan inte ta ögonblicks bilder av en BLOB i Arkiv lag ring. BLOB-metadata är dock online och tillgängliga, så att du kan lista bloben och dess egenskaper. För blobbar i arkivet är de enda giltiga åtgärderna GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, CopyBlob och DeleteBlob. Mer information finns i avsnittet om [dehydratisera BLOB-data från Arkiv](storage-blob-rehydration.md) lag rings nivån.
+När en BLOB finns i Arkiv lag ring är BLOB-data offline och kan inte läsas, skrivas över eller ändras. Om du vill läsa eller ladda ned en BLOB i arkivet måste du först extrahera den till en onlinenivå. Du kan inte ta ögonblicks bilder av en BLOB i Arkiv lag ring. BLOB-metadata är dock online och tillgängliga, så att du kan lista BLOB, egenskaper, metadata och blob-taggar. Det är inte tillåtet att ange eller ändra BLOB-metadata i arkivet. Du kan dock ange och ändra BLOB-index taggar. För blobbar i arkivet är de enda giltiga åtgärderna GetBlobProperties, GetBlobMetadata, SetBlobTags, GetBlobTags, FindBlobsByTags, ListBlobs, SetBlobTier, CopyBlob och DeleteBlob.
 
 Exempel på användnings scenarier för Arkiv åtkomst nivån är:
 
@@ -140,7 +140,7 @@ I det här avsnittet visas följande scenarier med hjälp av Azure Portal och Po
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Ändra standardåtkomstnivå för ett GPv2- eller Blob Storage-konto
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Sök efter och välj **alla resurser**i Azure Portal.
@@ -156,7 +156,7 @@ I det här avsnittet visas följande scenarier med hjälp av Azure Portal och Po
 ![Ändra lagrings konto nivå](media/storage-tiers/account-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Följande PowerShell-skript kan användas för att ändra konto nivån. `$rgName` Variabeln måste initieras med resurs gruppens namn. `$accountName` Variabeln måste initieras med ditt lagrings konto namn. 
+Följande PowerShell-skript kan användas för att ändra konto nivån. `$rgName`Variabeln måste initieras med resurs gruppens namn. `$accountName`Variabeln måste initieras med ditt lagrings konto namn. 
 ```powershell
 #Initialize the following with your resource group and storage account names
 $rgName = ""
@@ -168,7 +168,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 ---
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Ändra nivån för en BLOB i ett GPv2-eller Blob Storage-konto
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Sök efter och välj **alla resurser**i Azure Portal.
@@ -186,7 +186,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 ![Ändra lagrings konto nivå](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Följande PowerShell-skript kan användas för att ändra BLOB-nivån. `$rgName` Variabeln måste initieras med resurs gruppens namn. `$accountName` Variabeln måste initieras med ditt lagrings konto namn. `$containerName` Variabeln måste initieras med ditt container namn. `$blobName` Variabeln måste initieras med ditt BLOB-namn. 
+Följande PowerShell-skript kan användas för att ändra BLOB-nivån. `$rgName`Variabeln måste initieras med resurs gruppens namn. `$accountName`Variabeln måste initieras med ditt lagrings konto namn. `$containerName`Variabeln måste initieras med ditt container namn. `$blobName`Variabeln måste initieras med ditt BLOB-namn. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
@@ -252,7 +252,7 @@ Blobbar i låg frekvent åtkomst nivå har något lägre tillgänglighets nivå 
 
 **Kan samma åtgärder användas för lagringsnivåerna frekvent, lågfrekvent och arkivlagring?**
 
-På lagringsnivåerna frekvent och lågfrekvent fungerar alla åtgärder på samma sätt. Alla giltiga Arkiv åtgärder inklusive GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier och DeleteBlob är 100% konsekventa med frekvent och låg frekvent. BLOB-data kan inte läsas eller ändras på Arkiv nivå förrän de har rehydratiserats; endast Läs åtgärder för BLOB-metadata stöds i arkivet.
+På lagringsnivåerna frekvent och lågfrekvent fungerar alla åtgärder på samma sätt. Alla giltiga Arkiv åtgärder inklusive GetBlobProperties, GetBlobMetadata, SetBlobTags, GetBlobTags, FindBlobsByTags, ListBlobs, SetBlobTier och DeleteBlob är 100% konsekventa med frekvent och låg frekvent. BLOB-data kan inte läsas eller ändras på Arkiv nivå förrän de har rehydratiserats; endast Läs åtgärder för BLOB-metadata stöds i arkivet. BLOB-taggar kan dock läsas, anges eller ändras under arkivet.
 
 **När jag återställer en blob från arkivlagring till frekvent eller lågfrekvent lagring, hur vet jag när processen är klar?**
 

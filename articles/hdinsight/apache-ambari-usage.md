@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
-ms.openlocfilehash: 8e40367e07fcda572cca73a3c01d9036e322c85c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fe7d6d4e70bc55a6a91d3c1a1b910db4b5469fe6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020106"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197078"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Apache Ambari-användning i Azure HDInsight
 
@@ -56,7 +56,7 @@ Detta är sekvensen av tjänst start vid start:
 
 ## <a name="ambari-database"></a>Ambari-databas
 
-HDInsight skapar SQL Azure databasen under huven att fungera som databas för Ambari-servern. Standard [tjänst nivån är S0](../azure-sql/database/elastic-pool-scale.md).
+HDInsight skapar en databas i SQL Database under huven att fungera som databas för Ambari-servern. Standard [tjänst nivån är S0](../azure-sql/database/elastic-pool-scale.md).
 
 För alla kluster med antalet arbetsnoder som är större än 16 när klustret skapas, är S2 databas tjänst nivån.
 

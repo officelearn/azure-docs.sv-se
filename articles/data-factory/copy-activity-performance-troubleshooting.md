@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13e41f6346f2ce32ed65aefb7d50680d1302ca26
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414131"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193717"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Felsöka prestanda för kopierings aktivitet
 
@@ -52,7 +52,7 @@ Som en referens ger för närvarande prestanda justerings tips förslag på föl
 
 Körnings informationen och varaktigheterna längst ned i vyn kopierings aktivitets övervakning beskriver de viktiga steg som din kopierings aktivitet går igenom (se exemplet i början av den här artikeln), vilket är särskilt användbart för att felsöka kopierings prestanda. Flask halsen för din kopierings körning är den som har den längsta varaktigheten. Se följande tabell i varje Stadiums definition och lär dig hur du [felsöker kopierings aktivitet på Azure IR](#troubleshoot-copy-activity-on-azure-ir) och [felsöker kopierings aktivitet på egen värd-IR](#troubleshoot-copy-activity-on-self-hosted-ir) med sådan information.
 
-| Fas           | Beskrivning                                                  |
+| Fas           | Description                                                  |
 | --------------- | ------------------------------------------------------------ |
 | Kö           | Den tid som förflutit tills kopierings aktiviteten faktiskt börjar på integration Runtime. |
 | Skript före kopiering | Tiden mellan kopierings aktiviteten som startar på IR-och kopierings aktiviteten som kör skriptet för att kopiera i mottagar data lagret. Använd när du konfigurerar skriptet för att kopiera för databas handfat, t. ex. När du skriver data i Azure SQL Database rensa innan du kopierar nya data. |
@@ -70,7 +70,7 @@ Om kopierings aktivitetens prestanda inte uppfyller din förväntad händelse f�
 
 - **"Överförings registrerings källa" har haft lång arbets tid**: det är långsamt att räkna upp källfiler eller data partitioner för käll databasen.
 
-  - När du kopierar data från filbaserad källa, om du använder **Wildcard-filter** på mappsökväg eller fil namn (`wildcardFolderPath` eller `wildcardFileName`), eller om du använder **filter för senaste ändrings tid** (`modifiedDatetimeStart` eller`modifiedDatetimeEnd`), så resulterar det i att kopierings aktiviteten visar alla filer under den angivna mappen på klient sidan och tillämpar sedan filtret. Sådan fil uppräkning kan bli Flask hals, särskilt när bara små mängder filer uppfyllde filter regeln.
+  - När du kopierar data från filbaserad källa, om du använder **Wildcard-filter** på mappsökväg eller fil namn ( `wildcardFolderPath` eller `wildcardFileName` ), eller om du använder **filter för senaste ändrings tid** ( `modifiedDatetimeStart` eller `modifiedDatetimeEnd` ), så resulterar det i att kopierings aktiviteten visar alla filer under den angivna mappen på klient sidan och tillämpar sedan filtret. Sådan fil uppräkning kan bli Flask hals, särskilt när bara små mängder filer uppfyllde filter regeln.
 
     - Kontrol lera om du kan [Kopiera filer baserat på sökväg eller namn för datetime-partitionerad fil](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). På så sätt går det inte att ta bördan på käll sidan.
 
@@ -124,7 +124,7 @@ Om kopierings prestandan inte motsvarar förväntad fel sökning av en enskild k
 
   - Kontrol lera om den egna IR-datorn har låg latens för att ansluta till käll data lagret. Om din källa är i Azure kan du använda [det här verktyget](http://www.azurespeed.com/Azure/Latency) för att kontrol lera svars tiden från den egna IR-datorn till Azure-regionen, desto mindre desto bättre.
 
-  - När du kopierar data från filbaserad källa, om du använder **Wildcard-filter** på mappsökväg eller fil namn (`wildcardFolderPath` eller `wildcardFileName`), eller om du använder **filter för senaste ändrings tid** (`modifiedDatetimeStart` eller`modifiedDatetimeEnd`), så resulterar det i att kopierings aktiviteten visar alla filer under den angivna mappen på klient sidan och tillämpar sedan filtret. Sådan fil uppräkning kan bli Flask hals, särskilt när bara små mängder filer uppfyllde filter regeln.
+  - När du kopierar data från filbaserad källa, om du använder **Wildcard-filter** på mappsökväg eller fil namn ( `wildcardFolderPath` eller `wildcardFileName` ), eller om du använder **filter för senaste ändrings tid** ( `modifiedDatetimeStart` eller `modifiedDatetimeEnd` ), så resulterar det i att kopierings aktiviteten visar alla filer under den angivna mappen på klient sidan och tillämpar sedan filtret. Sådan fil uppräkning kan bli Flask hals, särskilt när bara små mängder filer uppfyllde filter regeln.
 
     - Kontrol lera om du kan [Kopiera filer baserat på sökväg eller namn för datetime-partitionerad fil](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). På så sätt går det inte att ta bördan på käll sidan.
 
@@ -181,13 +181,13 @@ Här är prestanda övervakning och justering av referenser för några av de da
 * Azure SQL Database: du kan [övervaka prestanda](../sql-database/sql-database-single-database-monitor.md) och kontrol lera DTU-procenten (Database Transaction Unit).
 * Azure SQL Data Warehouse: dess funktion mäts i informations lager enheter (DWU: er). Se [hantera beräknings kraft i Azure SQL Data Warehouse (översikt)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [prestanda nivåer i Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* Lokala SQL Server: [övervaka och justera för prestanda](https://msdn.microsoft.com/library/ms189081.aspx).
+* SQL Server: [övervaka och justera för prestanda](https://msdn.microsoft.com/library/ms189081.aspx).
 * Lokal fil Server: [prestanda justering för fil servrar](https://msdn.microsoft.com/library/dn567661.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
 Se andra artiklar om kopierings aktiviteter:
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Översikt över kopieringsaktivitet](copy-activity-overview.md)
 - [Guiden Kopiera aktivitets prestanda och skalbarhet](copy-activity-performance.md)
 - [Kopiera aktivitets prestanda optimerings funktioner](copy-activity-performance-features.md)
 - [Använd Azure Data Factory för att migrera data från data Lake eller data lager till Azure](data-migration-guidance-overview.md)

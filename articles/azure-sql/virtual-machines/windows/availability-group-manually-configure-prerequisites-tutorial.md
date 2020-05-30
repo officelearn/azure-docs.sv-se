@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f7fdced5a777c5303e402a5cc58048e076b104b4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: bfb273ec0013925076669c99f08933bd10ffc465
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049269"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197128"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Krav för att skapa Always on-tillgänglighetsgrupper på SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -230,7 +230,7 @@ I följande steg konfigurerar du den **AD-primära DC-** datorn som en domänkon
 12. I kolumnen **åtgärd** i dialog rutan **all information om Server aktivitet** klickar **du på befordra den här servern till en**domänkontrollant.
 13. I **konfigurations guiden för Active Directory Domain Services**använder du följande värden:
 
-    | **Sida** | Inställningen |
+    | **Sida** | Inställning |
     | --- | --- |
     | **Distributionskonfiguration** |**Lägg till en ny skog**<br/> **Rot domän namn** = Corp.contoso.com |
     | **Alternativ för domänkontrollant** |**DSRM-lösenord** = contoso! 0000<br/>**Bekräfta lösen ord** = contoso! 0000 |
@@ -376,7 +376,7 @@ Skapa sedan tre virtuella datorer – två SQL Server virtuella datorer och en v
 <br/>
 
 > [!NOTE]
-> Dator storlekarna som föreslås här är avsedda för att testa tillgänglighets grupper i virtuella Azure-datorer. För bästa prestanda för produktions arbets belastningar, se rekommendationer för SQL Server dator storlek och konfiguration i [metod tips för prestanda för SQL Server i virtuella Azure-datorer](performance-guidelines-best-practices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Dator storlekarna som föreslås här är avsedda för att testa tillgänglighets grupper i virtuella Azure-datorer. För bästa prestanda för produktions arbets belastningar, se rekommendationer för SQL Server storlekar på virtuella datorer och konfiguration i [metod tips för prestanda för SQL Server i virtuella Azure-datorer](performance-guidelines-best-practices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d855019be7f357a35a26d14e68ba3d427d984e17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4b43b590b147335a70877a7c3c0b07f8b818e3c
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086036"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221065"
 ---
 # <a name="azcopy-sync"></a>azcopy synkronisering
 
@@ -67,7 +67,7 @@ azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[contai
 ```
 
 > [!NOTE]
-> Mål-bloben *måste* finnas. Används `azcopy copy` för att kopiera en enskild fil som ännu inte finns i målet. Annars inträffar följande fel: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`.
+> Mål-bloben *måste* finnas. Används `azcopy copy` för att kopiera en enskild fil som ännu inte finns i målet. Annars inträffar följande fel: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container` .
 
 Samma som ovan, men den här gången kan du också beräkna MD5-hashen för fil innehållet och spara den som blobens Content-MD5-egenskap:
 
@@ -144,13 +144,13 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--sträng för exkluderings Sök väg** undantar dessa sökvägar vid kopiering. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg (till exempel: min mapp, mappen subDirName/File. pdf). När de används i kombination med konto Traversal inkluderar inte sökvägar namnet på behållaren.
 
-**--exkludera-mönster** sträng exkludera filer där namnet matchar mönster listan. Till exempel: \*. jpg; \*. pdf; exactName
+**--exkludera-mönster** sträng exkludera filer där namnet matchar mönster listan. Till exempel: \* . jpg; \* . PDF; exactName
 
 **-h,--hjälp** hjälp för synkronisering
 
 **--include-attribut** sträng (endast Windows) inkludera endast filer vars attribut stämmer överens med attributlistan. Till exempel: A; Na R
 
-**--Inkludera-mönster** sträng inkludera bara filer där namnet matchar mönster listan. Till exempel: \*. jpg; \*. pdf; exactName
+**--Inkludera-mönster** sträng inkludera bara filer där namnet matchar mönster listan. Till exempel: \* . jpg; \* . PDF; exactName
 
 **--sträng på loggnivå** definierar loggens utförlighet för logg filen, tillgängliga nivåer: info (alla begär Anden och svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard information). (standard information)
 
@@ -160,11 +160,12 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
-|Alternativ|Beskrivning|
+|Alternativ|Description|
 |---|---|
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|
+|--sträng för betrodd-Microsoft-suffix   |Anger ytterligare domänsuffix där Azure Active Directory inloggnings-token kan skickas.  Standardvärdet är '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. De som anges här läggs till i standardvärdet. För säkerhet ska du bara placeras Microsoft Azure domäner här. Avgränsa flera poster med semikolon.|
 
 ## <a name="see-also"></a>Se även
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: da40deb4df55a63f5fecc380500a507b374ca63d
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 9029082a275905bbdb9efe0cefa05337c9969a2f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711150"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219914"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparera en virtuell Linux-dator med hjälp av reparationskommandon för virtuella Azure-datorer
 
@@ -66,7 +66,7 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
    az extension update -n vm-repair
    ```
 
-3. Kör `az vm repair create`. Det här kommandot skapar en kopia av OS-disken för den icke-funktionella virtuella datorn, skapar en virtuell reparations dator i en ny resurs grupp och kopplar disk kopian av operativ systemet.  Den virtuella reparations datorn kommer att ha samma storlek och region som den icke-funktionella virtuella datorn som angetts.
+3. Kör `az vm repair create`. Det här kommandot skapar en kopia av OS-disken för den icke-funktionella virtuella datorn, skapar en virtuell reparations dator i en ny resurs grupp och kopplar disk kopian av operativ systemet.  Den virtuella reparations datorn kommer att ha samma storlek och region som den icke-funktionella virtuella datorn som angetts. Resurs gruppen och det virtuella dator namnet som används i alla steg är för den icke-funktionella virtuella datorn.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
@@ -74,7 +74,7 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
 
 4. Utför nödvändiga åtgärder för minskning på den skapade reparations datorn och fortsätt sedan till steg 5.
 
-5. Kör `az vm repair restore`. Det här kommandot byter ut den reparerade OS-disken mot den ursprungliga OS-disken för den virtuella datorn.
+5. Kör `az vm repair restore`. Det här kommandot byter ut den reparerade OS-disken mot den ursprungliga OS-disken för den virtuella datorn. Resurs gruppen och det virtuella dator namnet används här för den icke-funktionella virtuella datorn som användes i steg 3.
 
    ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose

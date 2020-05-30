@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 97e8a34f3b8639990f8de736a8f1f7429ebfd448
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 26816a545cb83e0a3d996a8056b96154830e58b6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739149"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195518"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använda beroendeinmatning i .NET Azure Functions
 
@@ -21,7 +21,7 @@ Azure Functions stöder design mönstret för program beroende insprutning (DI),
 
 - Stöd för beroende inmatning börjar med Azure Functions 2. x.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda beroende inmatning måste du installera följande NuGet-paket:
 
@@ -183,7 +183,7 @@ Och en `host.json` fil som lägger till logg filtret.
 
 Funktions värden registrerar många tjänster. Följande tjänster är säkra att ta med i ditt program:
 
-|Typ av tjänst|Giltighet|Beskrivning|
+|Typ av tjänst|Giltighet|Description|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Körnings konfiguration|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Ansvarar för att tillhandahålla ID för värd instansen|
@@ -251,7 +251,7 @@ public class HttpTrigger
 Mer information om hur du arbetar med alternativ finns [i alternativ mönster i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) .
 
 > [!WARNING]
-> Undvik att försöka läsa värden från filer som *Local. Settings. JSON* eller *appSettings. { miljö}. JSON* i förbruknings planen. Värden som läses från dessa filer som rör utlösnings anslutningar är inte tillgängliga eftersom appen skalas eftersom värd infrastrukturen inte har åtkomst till konfigurations informationen.
+> Undvik att försöka läsa värden från filer som *Local. Settings. JSON* eller *appSettings. { miljö}. JSON* i förbruknings planen. Värden som läses från dessa filer som rör utlösnings anslutningar är inte tillgängliga eftersom appen skalas eftersom värd infrastrukturen inte har åtkomst till konfigurations informationen eftersom skalnings kontrollen skapar nya instanser av appen.
 
 ## <a name="next-steps"></a>Nästa steg
 

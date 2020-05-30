@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: b7f7793016d2a408d6b286f417e3e89e7a22ca91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 375dac3fffc1a49cc3d10999c4969a7365dfb49c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232384"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193445"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrera från lokal HDFS-butiken till Azure Storage med Azure Data Box
 
@@ -27,7 +27,7 @@ Den här artikeln hjälper dig att utföra följande uppgifter:
 > * Skicka tillbaka enheten till Microsoft.
 > * Tillämpa åtkomst behörigheter för filer och kataloger (endast Data Lake Storage Gen2)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver dessa saker för att slutföra migreringen.
 
@@ -59,11 +59,11 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
 
 2. I dialog rutan åtkomst till lagrings konto och ladda upp data kopierar du **BLOB service slut punkten** och **lagrings konto nyckeln**. Från BLOB service-slutpunkten utelämnar `https://` och avslutande snedstreck.
 
-    I det här fallet är slut punkten: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. Värd delen av den URI som du ska använda är: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Ett exempel finns i så här [ansluter du till rest över http](/azure/databox/data-box-deploy-copy-data-via-rest). 
+    I det här fallet är slut punkten: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/` . Värd delen av den URI som du ska använda är: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com` . Ett exempel finns i så här [ansluter du till rest över http](/azure/databox/data-box-deploy-copy-data-via-rest). 
 
      ![Dialog rutan "åtkomst till lagrings konto och uppladdning av data"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Lägg till slut punkten och Data Box-enhet-eller Data Box Heavy nodens IP `/etc/hosts` -adress till på varje nod.
+3. Lägg till slut punkten och Data Box-enhet-eller Data Box Heavy nodens IP-adress till `/etc/hosts` på varje nod.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -71,9 +71,9 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
 
     Om du använder någon annan mekanism för DNS bör du se till att Data Box-enhet-slutpunkten kan lösas.
 
-4. Ställ in Shell- `azjars` variabeln på platsen för `hadoop-azure` - `azure-storage` och jar-filerna. Du hittar dessa filer under installations katalogen för Hadoop.
+4. Ställ in Shell-variabeln på `azjars` platsen för- `hadoop-azure` och `azure-storage` jar-filerna. Du hittar dessa filer under installations katalogen för Hadoop.
 
-    Använd följande kommando för att ta reda på om filerna finns: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. Ersätt `<hadoop_install_dir>` plats hållaren med sökvägen till den katalog där du har installerat Hadoop. Se till att du använder fullständigt kvalificerade sökvägar.
+    Använd följande kommando för att ta reda på om filerna finns: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` . Ersätt `<hadoop_install_dir>` plats hållaren med sökvägen till den katalog där du har installerat Hadoop. Se till att du använder fullständigt kvalificerade sökvägar.
 
     Exempel:
 
@@ -135,7 +135,7 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
 
     * Ersätt `<destination_directory>` plats hållaren med namnet på den katalog som du vill kopiera data till.
 
-    `-libjars` Alternativet används för att göra `hadoop-azure*.jar` och beroende `azure-storage*.jar` filerna tillgängliga för `distcp`. Detta kan redan inträffa i vissa kluster.
+    `-libjars`Alternativet används för att göra `hadoop-azure*.jar` och beroende `azure-storage*.jar` filerna tillgängliga för `distcp` . Detta kan redan inträffa i vissa kluster.
 
     I följande exempel visas hur `distcp` kommandot används för att kopiera data.
 
@@ -153,7 +153,7 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
 
     * Försök att ändra antalet mappningar. (Exemplet ovan använder `m` = 4 mappningar.)
 
-    * Testa att köra `distcp` flera parallellt.
+    * Testa att köra flera `distcp` parallellt.
 
     * Kom ihåg att stora filer fungerar bättre än små filer.
 
@@ -215,7 +215,7 @@ Det här kommandot genererar en lista över kopierade filer med deras behörighe
    ./copy-acls.py -s ./filelist.json -i ./id_map.json -g
    ```
 
-   Det här skriptet skapar en fil `id_map.json` med namnet som innehåller de identiteter som du behöver MAPPA till lägga till-baserade identiteter.
+   Det här skriptet skapar en fil med namnet `id_map.json` som innehåller de identiteter som du behöver mappa till lägga till-baserade identiteter.
 
 3. Öppna `id_map.json` filen i en text redigerare.
 
@@ -233,13 +233,13 @@ Kör det här kommandot för att tillämpa behörigheter på de data som du kopi
 
 * Ersätt `<container-name>` plats hållaren med namnet på din behållare.
 
-* Ersätt plats `<application-id>` hållarna och `<client-secret>` med det program-ID och den klient hemlighet som du samlade in när du skapade tjänstens huvud namn.
+* Ersätt `<application-id>` `<client-secret>` plats hållarna och med det program-ID och den klient hemlighet som du samlade in när du skapade tjänstens huvud namn.
 
 ## <a name="appendix-split-data-across-multiple-data-box-devices"></a>Bilaga: dela data över flera Data Box-enhet enheter
 
 Innan du flyttar dina data till en Data Box-enhet-enhet måste du ladda ned vissa hjälp skript, se till att dina data är ordnade för att få plats på en Data Box-enhet enhet och undanta alla onödiga filer.
 
-<a id="download-helper-scripts" />
+<a id="download-helper-scripts"></a>
 
 ### <a name="download-helper-scripts-and-set-up-your-edge-node-to-run-them"></a>Hämta hjälp program skript och konfigurera Edge-noden för att köra dem
 

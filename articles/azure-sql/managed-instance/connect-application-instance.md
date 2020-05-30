@@ -1,5 +1,5 @@
 ---
-title: Anslut program till hanterad instans
+title: Anslut ditt program till SQL-hanterad instans
 titleSuffix: Azure SQL Managed Instance
 description: Den här artikeln beskriver hur du ansluter ditt program till en Azure SQL-hanterad instans.
 services: sql-database
@@ -12,94 +12,94 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 051d589ec13c1fa8642701fe94a361e1dfbe4aab
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fea16b3e1e5df056c241d07c0e1dd7a5a30819a5
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044390"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219770"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Anslut ditt program till en Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Idag har du flera val när du bestämmer hur och var du är värd för ditt program.
 
-Du kan välja att vara värd för programmet i molnet antingen genom att använda Azure App Service eller vissa av Azures virtuella nätverk (Virtual Network) integrerade alternativ som Azure App Service-miljön, virtuell dator, skalnings uppsättning för virtuella datorer. Du kan också ta hybrid moln och se till att dina program är lokalt.
+Du kan välja att vara värd för program i molnet genom att använda Azure App Service eller vissa av Azures virtuella nätverks integrerade alternativ, t. ex. Azure App Service-miljön, Azure Virtual Machines och skalnings uppsättningar för virtuella datorer. Du kan också ta hybrid moln och se till att dina program är lokalt.
 
-Oavsett vilket alternativ du gör kan du ansluta den till en SQL-hanterad instans. 
+Oavsett vilket alternativ du gör kan du ansluta den till en Azure SQL-hanterad instans. 
 
-![hög tillgänglighet](./media/connect-application-instance/application-deployment-topologies.png)
+![Hög tillgänglighet](./media/connect-application-instance/application-deployment-topologies.png)
 
 Den här artikeln beskriver hur du ansluter ett program till en Azure SQL-hanterad instans i ett antal olika program scenarier. 
 
 ## <a name="connect-inside-the-same-vnet"></a>Anslut inuti samma VNet
 
-Att ansluta ett program i samma virtuella nätverk som den SQL-hanterade instansen är det enklaste scenariot. Virtuella datorer i det virtuella nätverket kan ansluta till varandra direkt även om de finns i olika undernät. Det innebär att allt du behöver för att ansluta program i en Azure Application-miljö eller virtuell dator är att ange anslutnings strängen på lämpligt sätt.  
+Att ansluta ett program i samma virtuella nätverk som SQL-hanterad instans är det enklaste scenariot. Virtuella datorer i det virtuella nätverket kan ansluta till varandra direkt även om de finns i olika undernät. Det innebär att allt du behöver för att ansluta ett program i App Service-miljön eller en virtuell dator är att ange anslutnings strängen på lämpligt sätt.  
 
 ## <a name="connect-inside-a-different-vnet"></a>Anslut i ett annat virtuellt nätverk
 
-Att ansluta ett program när det finns i ett annat virtuellt nätverk eftersom SQL-hanterad instans är lite mer komplex eftersom SQL-hanterad instans har privata IP-adresser i ett eget virtuellt nätverk. För att ansluta måste ett program ha åtkomst till det virtuella nätverk där SQL-hanterad instans distribueras. Så du måste upprätta en anslutning mellan programmet och det virtuella SQL Managed instance-nätverket. De virtuella nätverken behöver inte vara i samma prenumeration för att det här scenariot ska fungera.
+Att ansluta ett program när det finns i ett annat virtuellt nätverk från SQL Managed instance är lite mer komplext eftersom SQL-hanterad instans har privata IP-adresser i ett eget virtuellt nätverk. För att ansluta måste ett program ha åtkomst till det virtuella nätverk där SQL-hanterad instans distribueras. Så du måste upprätta en anslutning mellan programmet och det virtuella SQL Managed instance-nätverket. De virtuella nätverken behöver inte vara i samma prenumeration för att det här scenariot ska fungera.
 
 Det finns två alternativ för att ansluta virtuella nätverk:
 
 - [Azure VPN-peering](../../virtual-network/virtual-network-peering-overview.md)
-- VPN-gateway för VNet-till-VNet: ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [POWERSHELL](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
+- VNet-till-VNet VPN-gateway ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [POWERSHELL](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-Peering är att föredra eftersom peering använder Microsoft stamnät nätverket, så att det inte finns någon märkbar skillnad i fördröjning mellan virtuella datorer i peer-kopplat virtuellt nätverk och i samma virtuella nätverk. Peering av virtuella nätverk är begränsat till nätverken i samma region.  
+Peering är att föredra eftersom det använder Microsoft stamnät nätverket, så från anslutnings perspektivet, finns det ingen märkbar skillnad i fördröjning mellan virtuella datorer i ett peer-kopplat virtuellt nätverk och i samma virtuella nätverk. Peering av virtuella nätverk är begränsat till nätverken i samma region.  
 
 > [!IMPORTANT]
-> Det virtuella nätverkets peering-scenario för SQL-hanterad instans är begränsat till nätverken i samma region på grund av [begränsningarna ofGlobal Virtual Network-peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
+> Det virtuella nätverkets peering-scenario för SQL-hanterad instans är begränsat till nätverken i samma region på grund av [begränsningarna i det globala virtuella nätverkets peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
 
 ## <a name="connect-from-on-premises"></a>Ansluta lokalt 
 
-Du kan också ansluta ditt lokala program till din SQL-hanterade instans. SQL-hanterad instans kan bara nås via en privat IP-adress. För att komma åt den från en lokal plats måste du skapa en plats-till-plats-anslutning mellan programmet och det virtuella SQL Managed instance-nätverket.
+Du kan också ansluta ditt lokala program till SQL-hanterad instans. SQL-hanterad instans kan bara nås via en privat IP-adress. För att komma åt den från en lokal plats måste du skapa en plats-till-plats-anslutning mellan programmet och det virtuella SQL Managed instance-nätverket.
 
-Det finns två alternativ för att ansluta lokalt till Azure Virtual Network:
+Det finns två alternativ för att ansluta lokalt till ett virtuellt Azure-nätverk:
 
 - Plats-till-plats-VPN-anslutning ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [POWERSHELL](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
-- [ExpressRoute](../../expressroute/expressroute-introduction.md) -anslutning  
+- [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) -anslutning  
 
-Om du har upprättat lokal anslutning till Azure-anslutningen och du inte kan upprätta en anslutning till SQL-hanterad instans, kontrollerar du om brand väggen har öppen utgående anslutning på SQL-port 1433 samt 11000-11999 port intervall för omdirigering.
+Om du har upprättat en lokal anslutning till Azure-anslutningen och du inte kan upprätta en anslutning till SQL-hanterad instans kontrollerar du om brand väggen har en öppen utgående anslutning på SQL-port 1433 samt 11000-11999-intervallet för portar för omdirigering.
 
-## <a name="connect-the-developers-box"></a>Anslut utvecklare-rutan
+## <a name="connect-the-developer-box"></a>Anslut rutan utvecklare
 
-Du kan också ansluta din utvecklare-ruta till SQL-hanterad instans. SQL-hanterad instans kan bara nås via en privat IP-adress så att du först måste upprätta en anslutning mellan din utvecklings ruta och det virtuella SQL Managed instance-nätverket för att kunna komma åt den från din utvecklares box. Det gör du genom att konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering. Mer information finns i [Konfigurera en punkt-till-plats-anslutning för att ansluta till en Azure SQL-hanterad instans från den lokala datorn](point-to-site-p2s-configure.md).
+Du kan också ansluta din utvecklings ruta till SQL-hanterad instans. SQL-hanterad instans kan endast nås via en privat IP-adress, så för att få åtkomst till den från din utvecklare måste du först skapa en anslutning mellan din utvecklings ruta och det virtuella SQL Managed instance-nätverket. Det gör du genom att konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering. Mer information finns i [Konfigurera en punkt-till-plats-anslutning för att ansluta till en Azure SQL-hanterad instans från en lokal dator](point-to-site-p2s-configure.md).
 
 ## <a name="connect-with-vnet-peering"></a>Anslut med VNet-peering
 
 Ett annat scenario som implementeras av kunder är var en VPN-gateway installeras i ett separat virtuellt nätverk och en prenumeration från den som är värd för SQL-hanterad instans. De två virtuella nätverken är sedan peer-kopplade. Följande exempel arkitektur diagram visar hur detta kan implementeras.
 
-![peering för virtuellt nätverk](./media/connect-application-instance/vnet-peering.png)
+![Virtuell nätverkspeering](./media/connect-application-instance/vnet-peering.png)
 
-När du har konfigurerat den grundläggande infrastrukturen måste du ändra vissa inställningar så att VPN Gateway kan se IP-adresserna i det virtuella nätverket som är värd för SQL-hanterad instans. Det gör du genom att göra följande mycket speciella ändringar under **peering-inställningarna**.
+När du har konfigurerat den grundläggande infrastrukturen måste du ändra vissa inställningar så att VPN-gatewayen kan se IP-adresserna i det virtuella nätverket som är värd för SQL-hanterad instans. Det gör du genom att göra följande mycket speciella ändringar under **peering-inställningarna**.
 
-1. I det virtuella nätverk som är värd för VPN-gatewayen går du till **peer**-kopplingar, sedan till den SQL-hanterade instansens peer-baserade virtuella nätverks anslutning och klickar sedan på **Tillåt Gateway-överföring**.
-2. I det virtuella nätverk som är värd för den SQL-hanterade instansen går du till **peer**-kopplingar, sedan till VPN gateway peer-ansluten virtuell nätverks anslutning och klickar sedan på **Använd fjärrgatewayer**.
+1. I det virtuella nätverk som är värd för VPN-gatewayen går du till **peering**, går till peer-ansluten virtuell nätverks anslutning för SQL-hanterad instans och klickar sedan på **Tillåt Gateway-överföring**.
+2. I det virtuella nätverk som är värd för SQL-hanterad instans går du till **peering**, går till peer-kopplat virtuell nätverks anslutning för VPN-gatewayen och klickar sedan på **Använd fjärrgatewayer**.
 
 ## <a name="connect-azure-app-service"></a>Anslut Azure App Service 
 
-Du kan också ansluta ett program som finns på Azure App Service. SQL-hanterad instans kan endast nås via en privat IP-adress, så för att få åtkomst till den från Azure App Service måste du först upprätta en anslutning mellan programmet och det virtuella SQL Managed instance-nätverket. Se [integrera din app med en Azure-Virtual Network](../../app-service/web-sites-integrate-with-vnet.md).  
+Du kan också ansluta ett program som finns på Azure App Service. SQL-hanterad instans kan endast nås via en privat IP-adress, så för att få åtkomst till den från Azure App Service måste du först upprätta en anslutning mellan programmet och det virtuella SQL Managed instance-nätverket. Se [integrera din app med ett virtuellt Azure-nätverk](../../app-service/web-sites-integrate-with-vnet.md).  
 
 Information om fel sökning finns i [Felsöka virtuella nätverk och program](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Försök att [Synkronisera nätverks konfigurationen](azure-app-sync-network-configuration.md)om det inte går att upprätta en anslutning.
 
-Ett särskilt fall av att ansluta Azure App Service till SQL-hanterad instans är när du integrerar Azure App Service till ett nätverk som är peer-kopplat till ett virtuellt nätverk med SQL Managed instance. Det innebär att följande konfiguration måste konfigureras:
+Ett särskilt fall av att ansluta Azure App Service till SQL-hanterad instans är när du integrerar Azure App Service till ett nätverk som är peer-kopplat till ett virtuellt SQL-hanterat instans nätverk. Det innebär att följande konfiguration måste konfigureras:
 
-- Det virtuella SQL Managed instance-nätverket får inte ha någon Gateway  
-- Ett virtuellt nätverk för SQL-hanterad instans måste ha `Use remote gateways` alternativ uppsättning
-- Peer-kopplat virtuellt nätverk måste ha inställningen Tillåt Gateway-överföring
+- Det virtuella SQL Managed instance-nätverket får inte ha en gateway  
+- Det virtuella nätverket för SQL-hanterad instans måste ha `Use remote gateways` alternativ uppsättningen
+- Ett peer-kopplat virtuellt nätverk måste ha `Allow gateway transit` alternativ uppsättningen
 
 Det här scenariot illustreras i följande diagram:
 
 ![integrerad app-peering](./media/connect-application-instance/integrated-app-peering.png)
 
 >[!NOTE]
->Funktionen för integrering av virtuella nätverk integrerar inte en app med ett virtuellt nätverk som har en ExpressRoute-Gateway. Även om ExpressRoute-gatewayen har kon figurer ATS i läget för samexistens fungerar inte det virtuella nätverkets integrering. Om du behöver åtkomst till resurser via en ExpressRoute-anslutning kan du använda en App Service-miljön som körs i det virtuella nätverket.
+>Funktionen för integrering av virtuella nätverk integrerar inte en app med ett virtuellt nätverk som har en ExpressRoute-Gateway. Även om ExpressRoute-gatewayen har kon figurer ATS i läget för samexistens fungerar inte integrering av virtuella nätverk. Om du behöver åtkomst till resurser via en ExpressRoute-anslutning kan du använda App Service-miljön som körs i det virtuella nätverket.
 
 ## <a name="troubleshooting-connectivity-issues"></a>Felsökning av anslutningsproblem
 
 För fel sökning av anslutnings problem, se följande:
 
-- Om du inte kan ansluta till SQL-hanterad instans från en virtuell Azure-dator i samma virtuella nätverk, men i olika undernät, kontrollerar du om du har en nätverks säkerhets grupp som är inställd på VM-undernät som kan blockera åtkomst. Öppna även utgående anslutningar på SQL-port 1433 samt portar i intervallet 11000-11999 eftersom de behövs för att ansluta via omdirigering i Azure-gränser.
+- Om du inte kan ansluta till SQL-hanterad instans från en virtuell Azure-dator i samma virtuella nätverk, men ett annat undernät, kontrollerar du om du har en nätverks säkerhets grupp som är inställd på VM-undernät som kan blockera åtkomst. Öppna även utgående anslutningar på SQL-port 1433 samt portar i intervallet 11000-11999, eftersom de behövs för att ansluta via omdirigering i Azure-gränser.
 - Se till att BGP-spridningen är **aktive rad** för den routningstabell som är associerad med det virtuella nätverket.
 - Om du använder P2S VPN kontrollerar du konfigurationen i Azure Portal för att se om du ser ingångs **-/** utgångs nummer. Siffror som inte är noll anger att Azure dirigerar trafik till/från lokalt.
 
@@ -137,7 +137,7 @@ För fel sökning av anslutnings problem, se följande:
 
 - Om du använder peering för virtuella nätverk kontrollerar du att du har följt anvisningarna för att ställa in [Tillåt Gateway-överföring och använda Fjärrgatewayer](#connect-from-on-premises).
 
-- Om du använder peering för virtuella nätverk för att ansluta ett Azure App Service värdbaserade program och det virtuella SQL-hanterade instans nätverket har ett offentligt IP-adressintervall, kontrollerar du att inställningarna för värd programmet tillåter att den utgående trafiken dirigeras till offentliga IP-nätverk. Följ instruktionerna i [regional integrering av virtuella nätverk](../../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
+- Om du använder peering för virtuella nätverk för att ansluta ett Azure App Service värdbaserade program och det virtuella SQL-hanterade instans nätverket har ett offentligt IP-adressintervall, kontrollerar du att dina värd program inställningar tillåter att den utgående trafiken dirigeras till offentliga IP-nätverk. Följ instruktionerna i [regional integrering av virtuella nätverk](../../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Nödvändiga versioner av driv rutiner och verktyg
 
@@ -157,4 +157,4 @@ Följande minimala versioner av verktygen och driv rutinerna rekommenderas om du
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om SQL-hanterad instans finns i [Vad är SQL-hanterad instans?](sql-managed-instance-paas-overview.md).
-- En själv studie kurs som visar hur du skapar en ny SQL-hanterad instans finns i [skapa en SQL-hanterad instans](instance-create-quickstart.md).
+- En själv studie kurs som visar hur du skapar en ny hanterad instans finns i [skapa en hanterad instans](instance-create-quickstart.md).

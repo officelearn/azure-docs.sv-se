@@ -12,12 +12,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 04/19/2020
-ms.openlocfilehash: 757b11c7fd6eaeac1ef0d6d3bb8cea9be2af983c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 68ae42faaf4f3aea851fa1649ba033f60f2b199a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047148"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193920"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Övervakning av prestanda för Microsoft Azure SQL Database och Azure SQL-hanterad instans med hjälp av vyer för dynamisk hantering
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -43,7 +43,7 @@ GRANT VIEW DATABASE STATE TO database_user;
 
 I en Azure SQL-hanterad instans kräver en förfrågan till vyn dynamisk hantering att **Visa Server tillstånds** behörigheter. Mer information finns i [vyer för dynamisk hantering i system](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views#required-permissions).
 
-I en instans av lokala SQL Server och i Azure SQL-hanterad instans, returnerar Dynamic Management views information om Server tillstånd. I Azure SQL Database returnerar de bara information om din aktuella logiska databas.
+I en instans av SQL Server och i Azure SQL-hanterad instans, returnerar Dynamic Management views information om Server tillstånd. I Azure SQL Database returnerar de bara information om din aktuella logiska databas.
 
 Den här artikeln innehåller en samling av DMV-frågor som du kan köra med hjälp av SQL Server Management Studio eller Azure Data Studio för att identifiera följande typer av frågor om prestanda:
 
@@ -673,7 +673,7 @@ SELECT COUNT(*) AS [Concurrent_Requests]
 FROM sys.dm_exec_requests R;
 ```
 
-Om du vill analysera arbets belastningen för en lokal SQL Server databas ändrar du den här frågan för att filtrera på den angivna databasen som du vill analysera. Om du till exempel har en lokal databas med namnet databas, returnerar denna Transact-SQL-fråga antalet samtidiga begär anden i databasen:
+Om du vill analysera arbets belastningen för en SQL Server databas ändrar du den här frågan för att filtrera på den databas som du vill analysera. Om du till exempel har en lokal databas med namnet databas, returnerar denna Transact-SQL-fråga antalet samtidiga begär anden i databasen:
 
 ```sql
 SELECT COUNT(*) AS [Concurrent_Requests]
@@ -702,7 +702,7 @@ SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections
 ```
 
-Om du analyserar en lokal SQL Server arbets belastning ändrar du frågan så att den fokuserar på en speciell databas. Den här frågan hjälper dig att fastställa möjliga sessions behov för databasen om du överväger att flytta den till Azure.
+Om du analyserar en SQL Server arbets belastning ändrar du frågan så att den fokuserar på en speciell databas. Den här frågan hjälper dig att fastställa möjliga sessions behov för databasen om du överväger att flytta den till Azure.
 
 ```sql
 SELECT COUNT(*) AS [Sessions]

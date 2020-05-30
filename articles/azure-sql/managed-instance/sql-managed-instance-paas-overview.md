@@ -1,6 +1,6 @@
 ---
 title: Vad är en hanterad Azure SQL-instans?
-description: Lär dig mer om den Azure SQL-hanterade instans som ger nära 100% kompatibilitet med den senaste SQL Server lokala (Enterprise Edition) databas motorn
+description: Lär dig mer om den Azure SQL-hanterade instans som ger nära 100% kompatibilitet med den senaste SQL Server (Enterprise Edition) databas motor
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 9f8f001c1e20e7685683d6bf3d3564d355db38cb
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 886653bcfa255c7929f7e23082b74f171c97c7a1
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119377"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195439"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Vad är en hanterad Azure SQL-instans?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Azure SQL-hanterad instans är en del av Azure SQL-produktsortimentet och är den intelligenta, skalbara moln databas tjänsten som kombinerar den bredaste SQL Server Database Engine-kompatibilitet med alla fördelar med en fullständigt hanterad och Evergreen plattform som en tjänst. SQL-hanterad instans behålls nära 100%-kompatibilitet med den senaste SQL Server lokala (Enterprise Edition) databas motorn, som tillhandahåller en inbyggd [virtuell nätverks implementering (VNet)](../../virtual-network/virtual-networks-overview.md) som behandlar vanliga säkerhets problem och en [affärs modell](https://azure.microsoft.com/pricing/details/sql-database/) är fördelaktig för lokala SQL Server kunder. SQL-hanterad instans gör att befintliga SQL Server kunder kan lyfta och byta sina lokala program till molnet med minimala program-och databas ändringar. Samtidigt bevarar SQL-hanterade instanser alla PaaS-funktioner (automatiska korrigeringar och versions uppdateringar, [automatiserade säkerhets kopieringar](../database/automated-backups-overview.md), [hög tillgänglighet](../database/high-availability-sla.md) ) som drastiskt minskar hanterings kostnaderna och TCO.
+Azure SQL-hanterad instans är en del av Azure SQL-produktsortimentet och är den intelligenta, skalbara moln databas tjänsten som kombinerar den bredaste SQL Server Database Engine-kompatibilitet med alla fördelar med en fullständigt hanterad och Evergreen plattform som en tjänst. SQL-hanterad instans ligger nära 100%-kompatibilitet med den senaste SQL Server (Enterprise Edition) databas motorn, som tillhandahåller en inbyggd [virtuell nätverks implementering (VNet)](../../virtual-network/virtual-networks-overview.md) som behandlar vanliga säkerhets problem och en [affärs modell](https://azure.microsoft.com/pricing/details/sql-database/) är fördelaktig för befintliga SQL Server kunder. SQL-hanterad instans gör att befintliga SQL Server kunder kan lyfta och byta sina lokala program till molnet med minimala program-och databas ändringar. Samtidigt bevarar SQL-hanterade instanser alla PaaS-funktioner (automatiska korrigeringar och versions uppdateringar, [automatiserade säkerhets kopieringar](../database/automated-backups-overview.md), [hög tillgänglighet](../database/high-availability-sla.md) ) som drastiskt minskar hanterings kostnaderna och TCO.
 
 > [!IMPORTANT]
 > En lista över regioner där SQL-hanterad instans är tillgänglig finns i [regioner som stöds](resource-limits.md#supported-regions).
@@ -30,7 +30,7 @@ Följande diagram beskriver viktiga funktioner i SQL-hanterade instanser:
 
 ![viktiga funktioner](./media/sql-managed-instance-paas-overview/key-features.png)
 
-Den hanterade Azure SQL-instansen är utformad för kunder som vill migrera ett stort antal appar från lokala eller IaaS, självbyggda eller ISV-baserade miljöer till fullständigt hanterad PaaS-moln miljö, med så liten migrering som möjligt. Med hjälp av den helt automatiserade [tjänsten för data migration (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) i Azure kan kunderna lyfta och byta lokala SQL Server till en SQL-hanterad instans som erbjuder kompatibilitet med SQL Server lokalt och komplett isolering av kund instanser med inbyggt VNet-stöd.  Med Software Assurance kan du byta ut dina befintliga licenser för rabatterade priser på en SQL-hanterad instans med hjälp av [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). En SQL-hanterad instans är det bästa målet för migrering i molnet för SQL Server instanser som kräver hög säkerhet och en omfattande programmerbar yta.
+Den hanterade Azure SQL-instansen är utformad för kunder som vill migrera ett stort antal appar från lokala eller IaaS, självbyggda eller ISV-baserade miljöer till fullständigt hanterad PaaS-moln miljö, med så liten migrering som möjligt. Med hjälp av den helt automatiserade [tjänsten för data migration (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) i Azure kan kunderna lyfta och byta befintliga SQL Server-instanser till en SQL-hanterad instans som erbjuder kompatibilitet med SQL Server och fullständig isolering av kund instanser med inbyggt VNet-stöd.  Med Software Assurance kan du byta ut dina befintliga licenser för rabatterade priser på en SQL-hanterad instans med hjälp av [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). En SQL-hanterad instans är det bästa målet för migrering i molnet för SQL Server instanser som kräver hög säkerhet och en omfattande programmerbar yta.
 
 ## <a name="key-features-and-capabilities"></a>Viktiga funktioner och funktioner
 
@@ -50,18 +50,18 @@ SQL-hanterad instans kombinerar de bästa funktionerna som finns tillgängliga b
 
 Huvud funktionerna i SQL-hanterad instans visas i följande tabell:
 
-|Funktion | Beskrivning|
+|Funktion | Description|
 |---|---|
 | SQL Server version/build | SQL Server databas motor (senaste stabila) |
-| Hanterade automatiserade säkerhets kopieringar | Ja |
-| Inbyggd instans och databas övervakning och mått | Ja |
-| Automatisk uppdatering av program vara | Ja |
-| De senaste databas motor funktionerna | Ja |
+| Hanterade automatiserade säkerhets kopieringar | Yes |
+| Inbyggd instans och databas övervakning och mått | Yes |
+| Automatisk uppdatering av program vara | Yes |
+| De senaste databas motor funktionerna | Yes |
 | Antal datafiler (rader) per databas | Flera |
 | Antal loggfiler (logg) per databas | 1 |
-| VNet – Azure Resource Manager distribution | Ja |
-| VNet – klassisk distributions modell | Nej |
-| Portal stöd | Ja|
+| VNet – Azure Resource Manager distribution | Yes |
+| VNet – klassisk distributions modell | No |
+| Portal stöd | Yes|
 | Inbyggd integrerings tjänst (SSIS) | No-SSIS är en del av [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Inbyggd Analysis Service (SSAS) | No-SSAS är separat [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
 | Inbyggd repor ting service (SSRS) | Använd [Power BI sid färdiga rapporter](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) i stället för att vara värd för SSRS på virtuella Azure-datorer. Även om den hanterade instansen inte kan köra SSRS som en tjänst, kan den vara värd för SSRS 2019-katalog databaser för en extern rapport server med SQL Server autentisering. |
@@ -146,7 +146,7 @@ I följande tabell sammanfattas åtgärder och typiska övergripande varaktighet
 |Distribution |Första instansen av en annan maskin varu generation i ett undernät som inte är tomt (till exempel första generation 5-instansen i ett undernät med generation 4 instanser)|Skapa virtuellt kluster *|90% av åtgärderna har slutförts på 4 timmar|
 |Distribution |Första instans skapandet av 4 virtuella kärnor, i ett tomt eller icke-tomt undernät|Skapa virtuellt kluster * *|90% av åtgärderna har slutförts på 4 timmar|
 |Distribution |Efterföljande instans skapas i det icke-tomma under nätet (andra, tredje osv.)|Storleks ändring av virtuellt kluster|90% av åtgärderna har slutförts om 2,5 timmar|
-|**Uppdatera** |Ändring av instans egenskap (administratörs lösen ord, Azure AD-inloggning, Azure Hybrid-förmån flagga)|Saknas|Upp till 1 minut|
+|**Uppdatera** |Ändring av instans egenskap (administratörs lösen ord, Azure AD-inloggning, Azure Hybrid-förmån flagga)|Ej tillämpligt|Upp till 1 minut|
 |Uppdatera |Skalning av instans lagring upp/ned (Generell användning tjänst nivå)|Bifoga databasfiler|90% av åtgärderna har slutförts på 5 minuter|
 |Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk tjänst nivå)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
 |Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning)|-Storleks ändring av virtuellt kluster<br>-Bifoga databasfiler|90% av åtgärderna har slutförts om 2,5 timmar|
@@ -191,14 +191,14 @@ I följande tabell sammanfattas möjligheten att avbryta vissa hanterings åtgä
 
 Kategori  |Åtgärd  |Avbrytbar  |Beräknad tids längd för avbrott  |
 |---------|---------|---------|---------|
-|Distribution |Skapa instans |Nej |  |
-|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |Nej |  |
-|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter |
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Ja |90% av åtgärderna har slutförts på 5 minuter |
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter |
-|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Ja |90% av åtgärderna har slutförts på 5 minuter |
-|Ta bort |Borttagning av instans |Nej |  |
-|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |Nej |  |
+|Distribution |Skapa instans |No |  |
+|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |No |  |
+|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Yes |90% av åtgärderna har slutförts på 5 minuter |
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Yes |90% av åtgärderna har slutförts på 5 minuter |
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Yes |90% av åtgärderna har slutförts på 5 minuter |
+|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Yes |90% av åtgärderna har slutförts på 5 minuter |
+|Ta bort |Borttagning av instans |No |  |
+|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |No |  |
 
 Om du vill avbryta hanterings åtgärden går du till bladet översikt och klickar på meddelande rutan för pågående åtgärder. En skärm med kontinuerlig åtgärd visas från höger sida och det kommer att finnas en knapp för att avbryta åtgärden. När du har klickat på uppmanas du att klicka igen och bekräfta att du vill avbryta åtgärden.
 
@@ -247,7 +247,7 @@ Azure SQL-hanterad instans innehåller en uppsättning avancerade säkerhetsfunk
 - [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security) gör att du kan styra åtkomsten till rader i en databas tabell baserat på egenskaperna för användaren som kör en fråga (t. ex. efter grupp medlemskap eller körnings kontext). Säkerheten på radnivå (RLS) förenklar design och kodning av säkerheten i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Du kan till exempel se till att anställda endast kan komma åt de data rader som är relevanta för deras avdelning eller begränsa en data åtkomst till enbart relevanta data.
 - [Transparent data kryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) KRYPTERAr SQL-hanterade instans data filer, vilket kallas att kryptera data i vila. TDE utför I/O-kryptering i real tid och dekryptering av data-och loggfiler. Krypteringen använder en databas krypterings nyckel (DEK), som lagras i databasens start post för tillgänglighet under återställningen. Du kan skydda alla dina databaser i en hanterad instans med transparent data kryptering. TDE är SQL Server en beprövad krypterings-till-rest-teknik som krävs av många kompatibla standarder för att skydda mot stöld av lagrings medier.
 
-Migrering av en krypterad databas till en SQL-hanterad instans stöds via Azure Database Migration Service (DMS) eller intern återställning. Om du planerar att migrera en krypterad databas med intern återställning, är det ett obligatoriskt steg att migrera det befintliga TDE-certifikatet från SQL Server lokalt eller SQL Server i en virtuell dator till en SQL-hanterad instans. Mer information om alternativ för migrering finns i [SQL Server migrering till SQL-hanterad instans](migrate-to-instance-from-sql-server.md).
+Migrering av en krypterad databas till en SQL-hanterad instans stöds via Azure Database Migration Service (DMS) eller intern återställning. Om du planerar att migrera en krypterad databas med intern återställning, är det ett obligatoriskt steg att migrera det befintliga TDE-certifikatet från SQL Server-instansen till en SQL-hanterad instans. Mer information om alternativ för migrering finns i [SQL Server migrering till SQL-hanterad instans](migrate-to-instance-from-sql-server.md).
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory-integrering
 
@@ -286,7 +286,7 @@ Migreringsprocessen utnyttjar SQL-säkerhetskopieringar till Azure Blob Storage.
 - Information om återställning från URL finns i [intern återställning från URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> Säkerhets kopieringar från en SQL-hanterad instans kan bara återställas till en annan SQL-hanterad instans. De kan inte återställas till en lokal SQL Server eller Azure SQL Database.
+> Säkerhets kopieringar från en SQL-hanterad instans kan bara återställas till en annan SQL-hanterad instans. De kan inte återställas till en SQL Server instans eller Azure SQL Database.
 
 ### <a name="data-migration-service"></a>Datamigreringstjänst
 
@@ -294,7 +294,7 @@ Azure Database Migration Service är en fullständigt hanterad tjänst som är u
 
 ## <a name="sql-features-supported"></a>SQL-funktioner som stöds
 
-SQL-hanterad instans syftar till att leverera nära 100% Surface Area-kompatibilitet med den senaste lokala SQL Server versionen genom en plan för stegvis publicering. För en funktion och jämförelse lista, se [jämförelse av SQL-hanterad instans](../database/features-comparison.md)och för en lista över t-SQL-skillnader i SQL-hanterad instans jämfört med SQL Server, se [SQL-hanterade instans t-SQL-skillnader från SQL Server](transact-sql-tsql-differences-sql-server.md).
+SQL-hanterad instans syftar till att leverera nära 100% Surface Area-kompatibilitet med den senaste SQL Server versionen genom en plan för stegvis publicering. För en funktion och jämförelse lista, se [jämförelse av SQL-hanterad instans](../database/features-comparison.md)och för en lista över t-SQL-skillnader i SQL-hanterad instans jämfört med SQL Server, se [SQL-hanterade instans t-SQL-skillnader från SQL Server](transact-sql-tsql-differences-sql-server.md).
 
 SQL-hanterad instans har stöd för bakåtkompatibilitet till SQL 2008-databaser. Direkt migrering från SQL 2005-databas servrar stöds, kompatibilitetsnivå för migrerade SQL 2005-databaser uppdateras till SQL 2008.
   
@@ -304,7 +304,7 @@ Följande diagram visar kompatibiliteten för Surface Area i SQL-hanterad instan
 
 ### <a name="key-differences-on-premises-and-sql-managed-instance"></a>Viktiga skillnader i lokal och SQL-hanterad instans
 
-SQL-hanterade instans förmåner är alltid uppdaterade i molnet, vilket innebär att vissa funktioner i lokala SQL Server kan vara antingen föråldrade, föråldrade eller ha alternativ. Det finns särskilda fall när verktyg måste identifiera att en viss funktion fungerar på ett något annorlunda sätt eller att tjänsten körs i en miljö som du inte har kontroll över helt.
+SQL-hanterade instans förmåner är alltid uppdaterade i molnet, vilket innebär att vissa funktioner i SQL Server kan vara antingen föråldrade, föråldrade eller ha alternativ. Det finns särskilda fall när verktyg måste identifiera att en viss funktion fungerar på ett något annorlunda sätt eller att tjänsten körs i en miljö som du inte har kontroll över helt.
 
 Några viktiga skillnader:
 

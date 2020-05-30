@@ -10,13 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
+ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88ae3c45126403161e35ec46e5ccc2666c3edb55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4abc2dee6b83820169173d965d53381ead9f4d0b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050064"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194022"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -33,7 +34,7 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
 - Du behöver inte längre hantera lokala administratörs konton.
 - Med Azure RBAC kan du ge rätt åtkomst till virtuella datorer baserat på behov och ta bort den när den inte längre behövs.
 - Innan du tillåter åtkomst till en virtuell dator kan villkorlig åtkomst för Azure AD framtvinga ytterligare krav som: 
-   - Multi-Factor Authentication
+   - Multifaktorautentisering
    - Kontroll av inloggnings risker
 - Automatisera och skala Azure AD-anslutning för virtuella Azure Windows-datorer som ingår i dina VDI-distributioner.
 
@@ -63,10 +64,10 @@ Följande Azure-regioner stöds för närvarande i för hands versionen av den h
 
 Om du vill aktivera Azure AD-autentisering för dina virtuella Windows-datorer i Azure måste du se till att nätverks konfigurationen för virtuella datorer tillåter utgående åtkomst till följande slut punkter via TCP-port 443:
 
-- https:\//enterpriseregistration.Windows.net
+- https: \/ /enterpriseregistration.Windows.net
 - https:\//login.microsoftonline.com
-- https:\//Device.login.microsoftonline.com
-- https:\//Pas.Windows.net
+- https: \/ /Device.login.microsoftonline.com
+- https: \/ /Pas.Windows.net
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Aktivera Azure AD-inloggning för virtuell Windows-dator i Azure
 
@@ -141,7 +142,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-`provisioningState` Visas när tillägget har installerats på den virtuella `Succeeded` datorn.
+`provisioningState` `Succeeded` Visas när tillägget har installerats på den virtuella datorn.
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Konfigurera roll tilldelningar för den virtuella datorn
 
@@ -188,7 +189,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Om din AAD-domän och inloggnings användar domän inte matchar, måste du ange objekt-ID: t för ditt användar `--assignee-object-id`konto med, inte bara användar `--assignee`namnet för. Du kan hämta objekt-ID: t för ditt användar konto med [AZ AD User List](/cli/azure/ad/user#az-ad-user-list).
+> Om din AAD-domän och inloggnings användar domän inte matchar, måste du ange objekt-ID: t för ditt användar konto med `--assignee-object-id` , inte bara användar namnet för `--assignee` . Du kan hämta objekt-ID: t för ditt användar konto med [AZ AD User List](/cli/azure/ad/user#az-ad-user-list).
 
 Mer information om hur du använder RBAC för att hantera åtkomst till dina Azure-prenumerations resurser finns i följande artiklar:
 
@@ -243,21 +244,21 @@ AADLoginForWindows-tillägget måste kunna installeras för att den virtuella da
    | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Giltig åtkomsttoken utfärdat av Azure Active Directory för den hanterade identitet som har tilldelats den här virtuella datorn |
 
    > [!NOTE]
-   > Åtkomsttoken kan avkodas med hjälp av ett verktyg som [http://calebb.net/](http://calebb.net/). Verifiera att "AppID" i åtkomsttoken matchar den hanterade identitet som tilldelats den virtuella datorn.
+   > Åtkomsttoken kan avkodas med hjälp av ett verktyg som [http://calebb.net/](http://calebb.net/) . Verifiera att "AppID" i åtkomsttoken matchar den hanterade identitet som tilldelats den virtuella datorn.
 
 1. Se till att de nödvändiga slut punkterna är tillgängliga från den virtuella datorn med hjälp av kommando raden:
    
-   - spiral-https\/:/login.microsoftonline.com/-D –
-   - spiral-https\/:/`<TenantID>`login.microsoftonline.com//-D –
+   - spiral-https: \/ /login.microsoftonline.com/-D –
+   - spiral-https: \/ /login.microsoftonline.com/ `<TenantID>` /-D –
 
    > [!NOTE]
    > Ersätt `<TenantID>` med det Azure AD-klient-ID som är associerat med Azure-prenumerationen.
 
-   - spiral-https\/:/enterpriseregistration.Windows.net/-D-
-   - spiral-https\/:/Device.login.microsoftonline.com/-D-
-   - spiral-https\/:/Pas.Windows.net/-D-
+   - spiral-https: \/ /enterpriseregistration.Windows.net/-D-
+   - spiral-https: \/ /Device.login.microsoftonline.com/-D-
+   - spiral-https: \/ /Pas.Windows.net/-D-
 
-1. Enhetens tillstånd kan visas genom att köra `dsregcmd /status`. Målet är för enhets tillstånd att visa som `AzureAdJoined : YES`.
+1. Enhetens tillstånd kan visas genom att köra `dsregcmd /status` . Målet är för enhets tillstånd att visa som `AzureAdJoined : YES` .
 
    > [!NOTE]
    > Azure AD Join-aktivitet samlas in i logg boken under användar enhetens Registration\Admin logg.
@@ -282,17 +283,17 @@ Den här avslutnings koden översätts till DSREG_AUTOJOIN_DISC_FAILED eftersom 
 
 1. Verifiera att de nödvändiga slut punkterna är tillgängliga från den virtuella datorn med hjälp av kommando raden:
 
-   - spiral-https\/:/login.microsoftonline.com/-D –
-   - spiral-https\/:/`<TenantID>`login.microsoftonline.com//-D –
+   - spiral-https: \/ /login.microsoftonline.com/-D –
+   - spiral-https: \/ /login.microsoftonline.com/ `<TenantID>` /-D –
    
    > [!NOTE]
    > Ersätt `<TenantID>` med det Azure AD-klient-ID som är associerat med Azure-prenumerationen. Om du behöver hitta klient-ID: t kan du hovra över ditt konto namn för att hämta katalog-ID eller välja Azure Active Directory > egenskaper > katalog-ID i Azure Portal.
 
-   - spiral-https\/:/enterpriseregistration.Windows.net/-D-
-   - spiral-https\/:/Device.login.microsoftonline.com/-D-
-   - spiral-https\/:/Pas.Windows.net/-D-
+   - spiral-https: \/ /enterpriseregistration.Windows.net/-D-
+   - spiral-https: \/ /Device.login.microsoftonline.com/-D-
+   - spiral-https: \/ /Pas.Windows.net/-D-
 
-1. Om något av kommandona Miss lyckas med "Det gick inte `<URL>`att matcha värden", kan du prova att köra det här kommandot för att avgöra vilken DNS-server som används av den virtuella datorn.
+1. Om något av kommandona Miss lyckas med "Det gick inte att matcha värden `<URL>` ", kan du prova att köra det här kommandot för att avgöra vilken DNS-server som används av den virtuella datorn.
    
    `nslookup <URL>`
 
@@ -315,7 +316,7 @@ Vid en offentlig för hands version är AADLoginForWindows-tillägget endast avs
 
 Några vanliga fel när du försöker använda RDP med Azure AD-autentiseringsuppgifter inkluderar inga RBAC-roller tilldelade, otillåten klient eller 2FA inloggnings metod krävs. Använd följande information för att åtgärda problemen.
 
-Du kan visa enhets-och SSO-status `dsregcmd /status`genom att köra. Målet är för enhets tillstånd att visa som `AzureAdJoined : YES` och `SSO State` att visa `AzureAdPrt : YES`.
+Du kan visa enhets-och SSO-status genom att köra `dsregcmd /status` . Målet är för enhets tillstånd att visa som `AzureAdJoined : YES` och `SSO State` att visa `AzureAdPrt : YES` .
 
 Dessutom registreras RDP-inloggning med Azure AD-konton i logg boken under händelse loggarna för AAD\Operational.
 

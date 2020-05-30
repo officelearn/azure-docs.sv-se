@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7622b6b5855850a0150f43863fa117828e23d4bd
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 912dab16cd854ae940b7bbdfe88a8da7adf1c5e0
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698866"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197198"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Använda Gateway för data källor på en Azure-Virtual Network (VNet)
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs egenskapen Azure Analysis Services **AlwaysUseGatew
 
 Om dina data källor nås via ett VNet måste Azure Analysis Services servern ansluta till dessa data källor som om de är lokala, i din egen miljö. Du kan konfigurera egenskapen **AlwaysUseGateway** Server för att ange att servern ska få åtkomst till alla data källor via en [lokal gateway](analysis-services-gateway.md). 
 
-Azure SQL Database hanterade instans data källor körs i Azure VNet med en privat IP-adress. Om den offentliga slut punkten är aktive rad på instansen krävs ingen gateway. Om den offentliga slut punkten inte är aktive rad krävs en lokal datagateway och egenskapen AlwaysUseGateway måste ha värdet true.
+Data källor i Azure SQL-hanterade instanser körs i Azure VNet med en privat IP-adress. Om den offentliga slut punkten är aktive rad på instansen krävs ingen gateway. Om den offentliga slut punkten inte är aktive rad krävs en lokal datagateway och egenskapen AlwaysUseGateway måste ha värdet true.
 
 > [!NOTE]
 > Den här egenskapen gäller bara när en [lokal datagateway](analysis-services-gateway.md) har installerats och kon figurer ATS. Gatewayen kan finnas i det virtuella nätverket.

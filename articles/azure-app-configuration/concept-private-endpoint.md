@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: f18672b9e3a368a833fc8cba279d748dfe3c2a9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f39c9cf159f8ce5068cf10460ba6f195baa7806
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366776"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205066"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Använda privata slut punkter för Azure App konfiguration
 
@@ -44,25 +44,21 @@ När du skapar en privat slut punkt måste du ange det konfigurations lager för
 
 ### <a name="connecting-to-private-endpoints"></a>Ansluter till privata slut punkter
 
-Azure förlitar sig på DNS-matchning för att dirigera anslutningar från VNet till konfigurations arkivet via en privat länk. Du kan snabbt hitta anslutnings strängar i Azure Portal genom att välja konfigurations lagret för appen och sedan välja **Inställningar** > **åtkomst nycklar**.  
+Azure förlitar sig på DNS-matchning för att dirigera anslutningar från VNet till konfigurations arkivet via en privat länk. Du kan snabbt hitta anslutnings strängar i Azure Portal genom att välja konfigurations lagret för appen och sedan välja **Inställningar**  >  **åtkomst nycklar**.  
 
 > [!IMPORTANT]
-> Använd samma anslutnings sträng för att ansluta till appens konfigurations lager med hjälp av privata slut punkter som du skulle använda för en offentlig slut punkt. Anslut inte till lagrings kontot med dess `privatelink` under domän-URL.
+> Använd samma anslutnings sträng för att ansluta till appens konfigurations lager med hjälp av privata slut punkter som du skulle använda för en offentlig slut punkt. Anslut inte till Store med dess `privatelink` under domän-URL.
 
 ## <a name="dns-changes-for-private-endpoints"></a>DNS-ändringar för privata slut punkter
 
-När du skapar en privat slut punkt uppdateras DNS CNAME-resursposten för konfigurations arkivet till ett alias i en under domän med prefixet `privatelink`. Azure skapar också en [privat DNS-zon](../dns/private-dns-overview.md) som motsvarar `privatelink` under domänen, med DNS a-resursposter för de privata slut punkterna.
+När du skapar en privat slut punkt uppdateras DNS CNAME-resursposten för konfigurations arkivet till ett alias i en under domän med prefixet `privatelink` . Azure skapar också en [privat DNS-zon](../dns/private-dns-overview.md) som motsvarar under `privatelink` domänen, med DNS a-resursposter för de privata slut punkterna.
 
-När du löser slut punkts-URL: en från en plats utanför det virtuella nätverket matchas den offentliga slut punkten för butiken. När den är löst inifrån det virtuella nätverket som är värd för den privata slut punkten matchas slut punktens URL till den privata slut punkten.
+När du löser slut punkts-URL: en från det virtuella nätverket som är värd för den privata slut punkten matchas den privata slut punkten för butiken. Vid matchning från utanför VNet matchas slut punktens URL till den offentliga slut punkten. När du skapar en privat slut punkt är den offentliga slut punkten inaktive rad.
 
-Du kan kontrol lera åtkomsten för klienter utanför VNet via den offentliga slut punkten med hjälp av Azure Firewall service.
-
-Den här metoden ger åtkomst till butiken **med samma anslutnings sträng** för klienter på det virtuella nätverket som är värd för privata slut punkter samt klienter utanför VNet.
-
-Om du använder en anpassad DNS-server i ditt nätverk måste klienterna kunna matcha det fullständigt kvalificerade domän namnet (FQDN) för tjänst slut punkten till den privata slut punktens IP-adress. Konfigurera DNS-servern så att den delegerar din privata länk under domän till den privata DNS-zonen för det virtuella nätverket eller konfigurera `AppConfigInstanceA.privatelink.azconfig.io` A-posterna för med den privata slut PUNKTens IP-adress.
+Om du använder en anpassad DNS-server i ditt nätverk måste klienterna kunna matcha det fullständigt kvalificerade domän namnet (FQDN) för tjänst slut punkten till den privata slut punktens IP-adress. Konfigurera DNS-servern så att den delegerar din privata länk under domän till den privata DNS-zonen för det virtuella nätverket eller konfigurera A-posterna för `AppConfigInstanceA.privatelink.azconfig.io` med den privata slut punktens IP-adress.
 
 > [!TIP]
-> När du använder en anpassad eller lokal DNS-server bör du konfigurera DNS-servern för att matcha Arkiv namnet i `privatelink` under domänen med IP-adressen för den privata slut punkten. Du kan göra detta genom att delegera under `privatelink` domänen till det virtuella nätverkets privata DNS-zon, eller konfigurera DNS-zonen på DNS-servern och lägga till DNS-posterna.
+> När du använder en anpassad eller lokal DNS-server bör du konfigurera DNS-servern för att matcha Arkiv namnet i under `privatelink` domänen med IP-adressen för den privata slut punkten. Du kan göra detta genom att delegera under `privatelink` domänen till det virtuella nätverkets privata DNS-zon, eller konfigurera DNS-zonen på DNS-servern och lägga till DNS-posterna.
 
 ## <a name="pricing"></a>Prissättning
 

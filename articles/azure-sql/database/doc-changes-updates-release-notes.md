@@ -11,14 +11,15 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: sstein
-ms.openlocfilehash: 07af9fa20fd6a331313050d3ba2cfbbe9c3fe7e8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: dfd8051c7fc803d57a14cd740a830b8f6b63d9ac
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050305"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195105"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Vad är nytt i Azure SQL Database & SQL-hanterad instans?
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Den här artikeln innehåller Azure SQL Database-och Azure SQL-hanterade instans funktioner som för närvarande finns i en offentlig för hands version. Uppdateringar och förbättringar för SQL Database och SQL-hanterad instans finns i [SQL Database & SQL-hanterade instans tjänst uppdateringar](https://azure.microsoft.com/updates/?product=sql-database). Uppdateringar och förbättringar av andra Azure-tjänster finns i [tjänste uppdateringar](https://azure.microsoft.com/updates).
@@ -29,7 +30,7 @@ Dokumentation för Azure SQL Database och Azure SQL-hanterad instans har delats 
 
 Vi har gjort detta eftersom vissa funktioner och funktioner varierar kraftigt mellan en enda databas och en hanterad instans, och den blir allt mer av en utmaning att förklara komplexa olika delarna mellan Azure SQL Database och Azure SQL-hanterad instans i enskilda delade artiklar.
 
-Denna klargörande mellan olika Azure SQL-produkter bör förenkla och effektivisera processen med att arbeta med SQL Server databas motorn i Azure, oavsett om det är en enda hanterad databas i Azure SQL Database, en fullständigt fullfjädrade hanterad instans som är värd för flera databaser i Azure SQL-hanterad instans eller den välkända lokala SQL Server produkten men som finns på en virtuell dator i Azure.
+Denna klargörande mellan olika Azure SQL-produkter bör förenkla och effektivisera processen med att arbeta med SQL Server databas motorn i Azure, oavsett om det är en enda hanterad databas i Azure SQL Database, en fullständigt fullfjädrade hanterad instans som är värd för flera databaser i Azure SQL-hanterad instans eller den välkända SQL Server produkten som finns på en virtuell dator i Azure.
 
 Tänk på att det här är ett pågående arbete och att alla artiklar ännu inte har uppdaterats. Dokumentation för t. ex. Transact-SQL-uttryck (T-SQL), lagrade procedurer och många funktioner som delas mellan Azure SQL Database och Azure SQL-hanterad instans har inte slutförts ännu, så vi tackar dig för ditt tålamod när vi fortsätter att klargöra innehållet. 
 
@@ -42,7 +43,7 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 |**Azure SQL Database**|Azure SQL Database *enskild databas*| Om inget annat uttryckligen anges innehåller produkt namnet Azure SQL Database både enkla databaser och databaser som distribueras till en elastisk pool. |
 |**Azure SQL Database**|Azure SQL Database *elastisk pool*| Om inget annat uttryckligen anges innehåller produkt namnet Azure SQL Database både enkla databaser och databaser som distribueras till en elastisk pool.  |
 |**Azure SQL Database** |Azure SQL Database | Även om villkoret förblir detsamma gäller det nu bara för distributioner av en enskild databas och elastisk pool, och omfattar inte hanterade instanser. |
-| **Azure SQL**| Saknas | Detta avser en familj av SQL Server databas motor produkter som är tillgängliga i Azure: Azure SQL Database, Azure SQL-hanterad instans och SQL Server på virtuella Azure-datorer. | 
+| **Azure SQL**| Ej tillämpligt | Detta avser en familj av SQL Server databas motor produkter som är tillgängliga i Azure: Azure SQL Database, Azure SQL-hanterad instans och SQL Server på virtuella Azure-datorer. | 
 
 ## <a name="features-in-public-preview"></a>Funktioner i offentlig för hands version
 
@@ -92,7 +93,7 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
   - Support för prenumerationer med <a href="https://aka.ms/sql-mi-visual-studio-subscribers">Azures månatliga kredit för Visual Studio-prenumeranter</a> och ökade [regionala gränser](../managed-instance/resource-limits.md#regional-resource-limitations).
   - Stöd för <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 och SharePoint 2019 </a> och <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
   - Skapa SQL-hanterade instanser med <a href="https://aka.ms/managed-instance-collation">sortering på instans nivå</a> och <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">tidszon</a> som du väljer.
-  - SQL-hanterade nstances är nu skyddade med [inbyggd brand vägg](../managed-instance/management-endpoint-verify-built-in-firewall.md).
+  - SQL-hanterade instanser skyddas nu med [inbyggd brand vägg](../managed-instance/management-endpoint-verify-built-in-firewall.md).
   - Konfigurera SQL-hanterade instanser att använda [offentliga slut punkter](../managed-instance/public-endpoint-configure.md), anslutning till [proxy-åsidosättande](connectivity-architecture.md#connection-policy) för att få bättre nätverks prestanda, <a href="https://aka.ms/four-cores-sql-mi-update">4 virtuella kärnor på Gen5-maskinvarukompatibilitet</a> eller <a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurera kvarhållning av säkerhets kopior upp till 35 dagar</a> för återställning vid tidpunkter. [Långsiktig kvarhållning av säkerhets kopior](long-term-retention-overview.md#managed-instance-support) (upp till 10 år) är för närvarande en begränsad offentlig för hands version.  
   - Med nya funktioner kan du <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">geo-återställa databasen till ett annat data Center med hjälp av PowerShell</a>, [byta namn på databas](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [ta bort virtuellt kluster](../managed-instance/virtual-cluster-delete.md).
   - Den nya inbyggda [rollen instans deltagar roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) möjliggör separering av tull (SOD) efterlevnad av säkerhets principer och efterlevnad av företags standarder.

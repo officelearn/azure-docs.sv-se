@@ -4,12 +4,12 @@ description: Länkar till exempel scenarier för Contoso-exempel för migrering 
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: raynew
-ms.openlocfilehash: 6e19bcbd041232504a81ac0799e71cae2f459428
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2cc03462fd72db1a50434d3d6de0851660414cd9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016924"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195855"
 ---
 # <a name="contoso-migration-series"></a>Contoso-migreringsserie
 
@@ -31,7 +31,7 @@ Artiklarna i serien sammanfattas i tabellen nedan.
 [Artikel 1: översikt](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-overview) | Översikt över artikel serien, Contosos migrations strategi och de exempel appar som används i serien. 
 [Artikel 2: Distribuera Azure-infrastruktur](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure) | Contoso förbereder den lokala infrastrukturen och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla artiklar i serien. 
 [Artikel 3: utvärdera lokala resurser för migrering till Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-migration-guide/assess?tabs=Tools)  | Contoso kör en utvärdering av den lokala SmartHotel360-appen som körs på VMware. Contoso utvärderar virtuella appar i appar med hjälp av Azure Migrate tjänsten och appen SQL Server databasen med hjälp av Data Migration Assistant.
-[Artikel 4: bli värd för en app på en virtuell Azure-dator och SQL Database Hanterad instans](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance) | Contoso kör en hiss-och-Shift-migrering till Azure för den lokala SmartHotel360-appen. Contoso migrerar app-frontend-VM med [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview). Contoso migrerar app-databasen till en Azure SQL Database Hanterad instans med hjälp av [Azure Database migration service](https://docs.microsoft.com/azure/dms/dms-overview).
+[Artikel 4: bli värd för en app på en virtuell Azure-dator och SQL-hanterad instans](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance) | Contoso kör en hiss-och-Shift-migrering till Azure för den lokala SmartHotel360-appen. Contoso migrerar app-frontend-VM med [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview). Contoso migrerar app-databasen till en SQL-hanterad instans med hjälp av [Azure Database migration service](https://docs.microsoft.com/azure/dms/dms-overview).
 [Artikel 5: bli värd för en app på virtuella Azure-datorer](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm) | Contoso migrerar virtuella SmartHotel360-appar till virtuella Azure-datorer med hjälp av tjänsten Azure Migrate. 
 [Artikel 6: bli värd för en app på virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupper](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag) | Contoso migrerar SmartHotel360-appen. Contoso använder Azure Migrate för att migrera virtuella app-appar. Den använder Database Migration Service för att migrera app-databasen till ett SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgruppen. 
 [Artikel 7: Rehost a Linux-appen på virtuella Azure-datorer](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm) | Contoso slutför en hiss-och-Shift-migrering av sin Linux osTicket-app till virtuella Azure-datorer med hjälp av Azure Migrate.

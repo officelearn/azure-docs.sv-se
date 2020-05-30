@@ -10,12 +10,12 @@ ms.date: 04/21/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: cea5fb507225f063e2d48c56fae254e123a8f72b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3408970bcf5e34ce9f0f0afe9e723b4877dcd694
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81772124"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193409"
 ---
 # <a name="query-acceleration-sql-language-reference-preview"></a>Språk referens för Query acceleration SQL (för hands version)
 
@@ -32,7 +32,7 @@ Det enda SQL-uttryck som stöds av frågans acceleration är SELECT-instruktione
 SELECT * FROM table [WHERE expression] [LIMIT limit]
 ```
 
-För CSV-formaterade data måste *tabellen* vara `BlobStorage`.  Det innebär att frågan kommer att köras mot den angivna blobben i REST-anropet.
+För CSV-formaterade data måste *tabellen* vara `BlobStorage` .  Det innebär att frågan kommer att köras mot den angivna blobben i REST-anropet.
 För JSON-formaterade data är *tabellen* en "Tabell Beskrivning".   Se avsnittet [tabell beskrivningar](#table-descriptors) i den här artikeln.
 
 I följande exempel, för varje rad där WHERE- *uttrycket* returnerar true, returnerar den här instruktionen en ny rad som görs från utvärderingen av varje projektions uttryck.
@@ -54,11 +54,11 @@ I följande exempel returneras lämpliga förskjutningar för delning av en CSV-
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-<a id="data-types" />
+<a id="data-types"></a>
 
 ## <a name="data-types"></a>Datatyper
 
-|Datatyp|Beskrivning|
+|Datatyp|Description|
 |---------|-------------------------------------------|
 |INT      |64-bitars heltal.                     |
 |FLYTA    |64-bitars ("dubbel precision") svävande punkt.|
@@ -109,7 +109,7 @@ Här är några exempel:
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
 
-Funktionen [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) hjälper dig att söka efter ett mönster. Här följer några exempel som använder funktionen [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) för att söka i data strängen ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``.
+Funktionen [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) hjälper dig att söka efter ett mönster. Här följer några exempel som använder funktionen [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) för att söka i data strängen ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i `` .
 
 |Söka i data|Exempel|
 |--|--|
@@ -149,7 +149,7 @@ DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
 
 #### <a name="extract-function"></a>EXTRAHERA funktion
 
-För att EXTRAHERA andra än den datum del som ``DATE_ADD`` stöds för funktionen stöder frågespråket SQL-språket timezone_hour och timezone_minute som datum del.
+För att EXTRAHERA andra än den datum del som stöds för ``DATE_ADD`` funktionen stöder FRÅGESPRÅKET SQL-språket timezone_hour och timezone_minute som datum del.
 
 Exempel:
 
@@ -167,9 +167,9 @@ TO_STRING(TimeStamp , format)
 TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 ```
 
-I den här tabellen beskrivs strängar som du kan använda för att ange utdataformatet ``TO_STRING`` för funktionen.
+I den här tabellen beskrivs strängar som du kan använda för att ange utdataformatet för ``TO_STRING`` funktionen.
 
-|Format sträng    |Resultat                               |
+|Format sträng    |Utdata                               |
 |-----------------|-------------------------------------|
 |yy               |År i 2-siffrigt format – 1999 som "99"|
 |y                |År med 4 siffer format               |
@@ -220,7 +220,7 @@ Ett SELECT-uttryck kan innehålla antingen ett eller flera projektioner eller et
 
 |Uttryck|Beskrivning|
 |--|--|
-|[COUNT (\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returnerar antalet poster som matchade predikatet-uttrycket.|
+|[COUNT ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returnerar antalet poster som matchade predikatet-uttrycket.|
 |[COUNT (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returnerar antalet poster för vilka uttrycket inte är null.|
 |[MEDEL (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Returnerar medelvärdet av uttryck som inte är null-värden.|
 |[MIN (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Returnerar det minsta värdet för uttrycket som inte är null.|
@@ -229,13 +229,13 @@ Ett SELECT-uttryck kan innehålla antingen ett eller flera projektioner eller et
 
 ### <a name="missing"></a>INGEN
 
-``IS MISSING`` Operatorn är den enda icke-standard som stöds av frågespråket SQL-språket.  För JSON-data, om ett fält saknas i en viss inmatnings post, kommer ``IS MISSING`` uttrycks fältet att utvärderas till det booleska värdet true.
+``IS MISSING``Operatorn är den enda icke-standard som stöds av FRÅGESPRÅKET SQL-språket.  För JSON-data, om ett fält saknas i en viss inmatnings post, kommer uttrycks fältet ``IS MISSING`` att utvärderas till det booleska värdet true.
 
-<a id="table-descriptors" />
+<a id="table-descriptors"></a>
 
 ## <a name="table-descriptors"></a>Tabell beskrivningar
 
-Tabell namnet är alltid `BlobStorage`för CSV-data.  Ett exempel:
+Tabell namnet är alltid för CSV-data `BlobStorage` .  Ett exempel:
 
 ```sql
 SELECT * FROM BlobStorage
@@ -279,7 +279,7 @@ Detta är våra exempel data:
 }
 ```
 
-Du kanske bara är intresse rad av `warehouses` JSON-objektet från ovanstående data. `warehouses` Objektet är en JSON-mat ris typ, så du kan nämna detta i from-satsen. Exempel frågan kan se ut ungefär så här.
+Du kanske bara är intresse rad av `warehouses` JSON-objektet från ovanstående data. `warehouses`Objektet är en JSON-mat ris typ, så du kan nämna detta i from-satsen. Exempel frågan kan se ut ungefär så här.
 
 ```sql
 SELECT latitude FROM BlobStorage[*].warehouses[*]
@@ -300,9 +300,9 @@ SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 ```
 
 > [!NOTE]
-> BlobStorage och BlobStorage [\*] refererar båda till hela objektet. Men om du har en sökväg i FROM-satsen måste du använda BlobStorage [\*]. Path
+> BlobStorage och BlobStorage [ \* ] refererar båda till hela objektet. Men om du har en sökväg i FROM-satsen måste du använda BlobStorage [ \* ]. Path
 
-<a id="sys-split" />
+<a id="sys-split"></a>
 
 ## <a name="syssplit"></a>Sys. Split
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: b2694d83f3059ac9d291f5164a76acd8b011c9a7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a462c3480d58a7895429863cb3d09874cd6ef0f8
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049997"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217921"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database--sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,7 +35,7 @@ Det här dokumentet ger vägledning om hur du löser vanliga säkerhets krav fö
 
 - Azure SQL Data Warehouse
 - Virtuella Azure SQL-datorer (IaaS)
-- SQL Server lokalt
+- SQL Server
 
 ### <a name="audience"></a>Målgrupp
 
@@ -453,7 +453,7 @@ Kryptering kan användas som ett sätt för att säkerställa att endast specifi
 - Använd kryptering på cell nivå (CLE). Mer information finns i artikeln [kryptera en data kolumn](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data) .
 - Använd Always Encrypted, men var medveten om dess begränsning. Begränsningarna visas nedan.
 
-**Metod tips**
+**Bästa praxis**
 
 När du använder CLE:
 

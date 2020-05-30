@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: aedc7ea3d778d52f6f348837430987568af188ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5347cda14773583bcfe92a702e59d4967ce2ea09
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649610"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196285"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Kända problem/migrerings begränsningar med hybrid läge
 
@@ -93,10 +93,10 @@ Om du inte längre har åtkomst till arbets datorn kan du avregistrera arbets ta
 
 I avsnitten nedan beskrivs problem som är specifika för scenarier som rör användning av Azure Database Migration Service hybrid läge för att utföra en online-migrering.
 
-### <a name="online-migrations-to-azure-sql-database-managed-instance"></a>Online-migreringar till Azure SQL Database Hanterad instans
+### <a name="online-migrations-to-azure-sql-managed-instance"></a>Online-migreringar till Azure SQL-hanterad instans
 
 **Hög processoranvändning**
 
-**Problem**: vid online-migreringar till SQL Database hanterade instanser, kommer datorn som kör hybrid Worker att uppleva hög CPU-användning om det finns för många säkerhets kopior eller om säkerhets kopieringarna är för stora.
+**Problem**: vid online-migrering till SQL-hanterad instans kommer datorn som kör hybrid Worker att uppleva hög CPU-användning om det finns för många säkerhets kopior eller om säkerhets kopieringarna är för stora.
 
 Lösning **: lös**problemet genom att använda komprimerade säkerhets kopior, dela migreringen så att den använder flera resurser eller skala upp datorn som kör hybrid Worker.

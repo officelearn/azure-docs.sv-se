@@ -1,6 +1,6 @@
 ---
-title: Kända problem och begränsningar med online-migreringar till Azure SQL Database Hanterad instans
-description: Läs om kända problem/migrerings begränsningar som är associerade med online-migreringar till Azure SQL Database Hanterad instans.
+title: Kända problem och begränsningar med online-migreringar till Azure SQL-hanterad instans
+description: Läs om kända problem/migrerings begränsningar som är associerade med online-migreringar till Azure SQL-hanterad instans.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 88e2b5894686ee93caecf33e04940803eb75f394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65bbc9f66ceb732a8f773f0b49cd46f99750a7d5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77648673"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196311"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database-managed-instance"></a>Kända problem/migrerings begränsningar med online-migreringar till Azure SQL Database Hanterad instans
+# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Kända problem/migrerings begränsningar med online-migreringar till Azure SQL-hanterad instans
 
-Kända problem och begränsningar som är associerade med online-migrering från SQL Server till Azure SQL Database Hanterad instans beskrivs nedan.
+Kända problem och begränsningar som är associerade med online-migrering från SQL Server till Azure SQL-hanterad instans beskrivs nedan.
 
 > [!IMPORTANT]
 > Migrering av SQL_variant data typer stöds inte för migrering av SQL Server Azure SQL Database.
@@ -29,7 +29,7 @@ Kända problem och begränsningar som är associerade med online-migrering från
 
 - **Säkerhets kopior med kontroll Summa**
 
-    Azure Database Migration Service använder säkerhets kopierings-och återställnings metoden för att migrera dina lokala databaser till SQL Database Hanterad instans. Azure Database Migration Service stöder endast säkerhets kopieringar som skapats med kontroll summa.
+    Azure Database Migration Service använder säkerhets kopierings-och återställnings metoden för att migrera dina lokala databaser till SQL-hanterad instans. Azure Database Migration Service stöder endast säkerhets kopieringar som skapats med kontroll summa.
 
     [Aktivera eller inaktivera kontroll summor för säkerhets kopiering under säkerhets kopiering eller återställning (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
 
@@ -52,16 +52,16 @@ Kända problem och begränsningar som är associerade med online-migrering från
 
 - **FileStream/FileTable**
 
-    SQL Database hanterade instansen stöder för närvarande inte FileStream och FileTable. För arbets belastningar som är beroende av dessa funktioner rekommenderar vi att du väljer SQL-servrar som körs på virtuella Azure-datorer som Azure-mål.
+    SQL-hanterad instans har för närvarande inte stöd för FileStream och FileTable. För arbets belastningar som är beroende av dessa funktioner rekommenderar vi att du väljer SQL-servrar som körs på virtuella Azure-datorer som Azure-mål.
 
 - **InMemory-tabeller**
 
-    InMemory OLTP är tillgängligt i Premium-och Affärskritisk-nivåerna för SQL Database Hanterad instans. Generell användning nivån har inte stöd för minnes intern OLTP.
+    InMemory OLTP är tillgängligt i Premium-och Affärskritisk-nivåerna för SQL-hanterad instans. Generell användning nivån har inte stöd för minnes intern OLTP.
 
 ## <a name="migration-resets"></a>Återställer migrering
 
 - **Distributioner**
 
-    SQL Database Hanterad instans är en PaaS-tjänst med automatisk uppdatering och versions uppdateringar. Vid migreringen av SQL Database hanterade instansen kan icke-kritiska uppdateringar hjälpa upp till 36 timmar. Efteråt (och för kritiska uppdateringar) återställs processen till ett fullständigt återställnings tillstånd om migreringen avbryts.
+    SQL-hanterad instans är en PaaS-tjänst med automatisk uppdatering och versions uppdateringar. Vid migreringen av din SQL-hanterade instans kan icke-kritiska uppdateringar hjälpa upp till 36 timmar. Efteråt (och för kritiska uppdateringar) återställs processen till ett fullständigt återställnings tillstånd om migreringen avbryts.
 
     Migrerings-start punkt kan bara anropas efter att den fullständiga säkerhets kopieringen har återställts och fångats upp med alla logg säkerhets kopior. Om migrering för produktion påverkas kan du kontakta [aliaset för Azure DMS-feedback](mailto:dmsfeedback@microsoft.com).

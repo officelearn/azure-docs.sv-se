@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 3ea6c4226a59ba020a477cc5811033ff3dc3c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cb38037b905e9d7f938b648954bcb9e419be5af
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76772108"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217430"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Använd den innehålls medveten kodnings inställningen för att hitta det optimala värdet för bit hastighet för en specifik lösning
 
@@ -76,8 +76,10 @@ TransformOutput[] output = new TransformOutput[]
 ```
 
 > [!NOTE]
-> Kodning av jobb med `ContentAwareEncoding` för inställningarna faktureras baserat på utdata minuter. 
+> Kodning av jobb med för `ContentAwareEncoding` inställningarna faktureras baserat på utdata minuter. 
 
+Se till att använda **ContentAwareEncoding** -förinställning som inte är ContentAwareEncodingExperimental.
+  
 ## <a name="next-steps"></a>Nästa steg
 
 * [Självstudie: Ladda upp, koda och strömma videor med Media Services v3](stream-files-tutorial-with-api.md)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 0a013d702b48864a182180fa6fe382973bff2cd0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f4a851377128577cc7e50af777b502c9f59211c7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043949"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188249"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Felsöka problem med SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -123,7 +123,7 @@ Information om hur du felsöker problem med klient agenten finns i [Felsöka pro
 
 - [Jag kan inte ta bort min Sync-grupp](#setup-delete)
 
-- [Det går inte att avregistrera en lokal SQL Server databas](#setup-unreg)
+- [Det går inte att avregistrera en SQL Server databas](#setup-unreg)
 
 - [Jag har inte behörighet att starta system tjänster](#setup-perms)
 
@@ -166,11 +166,11 @@ Det gick inte att ta bort en synkroniseringsresurs. Något av följande scenarie
 
 - **Lösning**. Vänta tills etableringen eller synkroniseringsprocessen har slutförts och försök sedan att ta bort synkroniseringsresursen igen.
 
-### <a name="i-cant-unregister-an-on-premises-sql-server-database"></a><a name="setup-unreg"></a>Det går inte att avregistrera en lokal SQL Server databas
+### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg"></a>Det går inte att avregistrera en SQL Server databas
 
 - **Orsak**. Förmodligen försöker du avregistrera en databas som redan har tagits bort.
 
-- **Lösning**. Om du vill avregistrera en lokal SQL Server databas markerar du databasen och väljer sedan **Framtvinga borttagning**.
+- **Lösning**. Om du vill avregistrera en SQL Server databas markerar du databasen och väljer sedan **Framtvinga borttagning**.
 
   Om den här åtgärden inte går att ta bort databasen från Sync-gruppen:
 
@@ -244,7 +244,7 @@ Mer information om SQL Data Sync finns i:
 
 -   Översikt – [synkronisera data över flera molnbaserade och lokala databaser med SQL Data Sync i Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-data-sync-sql-server-configure.md)
+    - I portalen – [Självstudier: konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server](sql-data-sync-sql-server-configure.md)
     - Med PowerShell
         -  [Använd PowerShell för att synkronisera mellan flera databaser i Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Använda PowerShell för att synkronisera mellan en databas i Azure SQL Database och en databas i en SQL Server instans](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

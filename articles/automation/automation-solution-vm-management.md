@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: e2f23f4045f0326ffea14ddeb4d588261872188f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 7c0cc2b4996c1002aae0656234c356c805923811
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743708"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205134"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Översikt över Starta/stoppa virtuella datorer när de inte används
 
@@ -32,7 +32,7 @@ Följande är begränsningar med den aktuella funktionen:
 - Den hanterar virtuella datorer i vilken region som helst, men kan bara användas i samma prenumeration som ditt Azure Automation-konto.
 - Den är tillgänglig i Azure och Azure Government för alla regioner som stöder en Log Analytics arbets yta, ett Azure Automation-konto och aviseringar. Azure Government regioner stöder för närvarande inte e-postfunktioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Runbooks för funktionen starta/stoppa virtuella datorer under låg tid fungerar med ett [Kör som-konto i Azure](automation-create-runas-account.md). Kör som-kontot är den föredragna autentiseringsmetoden eftersom den använder certifikatautentisering i stället för ett lösen ord som kan gå ut eller ändras ofta.
 
@@ -50,24 +50,24 @@ Om du vill aktivera virtuella datorer för Starta/stoppa virtuella datorer när 
 
 | Behörighet | Omfång|
 | --- | --- |
-| Microsoft. Automation/automationAccounts/Read | Resource Group |
-| Microsoft. Automation/automationAccounts/variabler/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/-scheman/-skrivning | Resource Group |
-| Microsoft. Automation/automationAccounts/Runbooks/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/Connections/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/certificates/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/modules/-skrivning | Resource Group |
-| Microsoft. Automation/automationAccounts/modules/läsa | Resource Group |
-| Microsoft. Automation/automationAccounts/jobSchedules/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/Jobs/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/Jobs/Read | Resource Group |
-| Microsoft. OperationsManagement/lösningar/Skriv | Resource Group |
-| Microsoft. OperationalInsights/arbets ytor/* | Resource Group |
-| Microsoft. Insights/diagnosticSettings/Write | Resource Group |
-| Microsoft. Insights/ActionGroups/Write | Resource Group |
-| Microsoft. Insights/ActionGroups/Read | Resource Group |
-| Microsoft. Resources/Subscriptions/resourceGroups/Read | Resource Group |
-| Microsoft. Resources/Deployments/* | Resource Group |
+| Microsoft. Automation/automationAccounts/Read | Resursgrupp |
+| Microsoft. Automation/automationAccounts/variabler/Write | Resursgrupp |
+| Microsoft. Automation/automationAccounts/-scheman/-skrivning | Resursgrupp |
+| Microsoft. Automation/automationAccounts/Runbooks/Write | Resursgrupp |
+| Microsoft. Automation/automationAccounts/Connections/Write | Resursgrupp |
+| Microsoft. Automation/automationAccounts/certificates/Write | Resursgrupp |
+| Microsoft. Automation/automationAccounts/modules/-skrivning | Resursgrupp |
+| Microsoft. Automation/automationAccounts/modules/läsa | Resursgrupp |
+| Microsoft. Automation/automationAccounts/jobSchedules/Write | Resursgrupp |
+| Microsoft. Automation/automationAccounts/Jobs/Write | Resursgrupp |
+| Microsoft. Automation/automationAccounts/Jobs/Read | Resursgrupp |
+| Microsoft. OperationsManagement/lösningar/Skriv | Resursgrupp |
+| Microsoft. OperationalInsights/arbets ytor/* | Resursgrupp |
+| Microsoft. Insights/diagnosticSettings/Write | Resursgrupp |
+| Microsoft. Insights/ActionGroups/Write | Resursgrupp |
+| Microsoft. Insights/ActionGroups/Read | Resursgrupp |
+| Microsoft. Resources/Subscriptions/resourceGroups/Read | Resursgrupp |
+| Microsoft. Resources/Deployments/* | Resursgrupp |
 
 ### <a name="permissions-for-new-automation-account-and-new-log-analytics-workspace"></a>Behörigheter för det nya Automation-kontot och arbets ytan ny Log Analytics
 
@@ -83,10 +83,10 @@ Du kan aktivera virtuella datorer för Starta/stoppa virtuella datorer när de i
 | Microsoft. Authorization/Permissions/Read |Prenumeration|
 | Microsoft. Authorization/roleAssignments/Read | Prenumeration |
 | Microsoft.Authorization/roleAssignments/write | Prenumeration |
-| Microsoft. Authorization/roleAssignments/Delete | Prenumeration || Microsoft. Automation/automationAccounts/Connections/Read | Resource Group |
-| Microsoft. Automation/automationAccounts/certifikat/läsa | Resource Group |
-| Microsoft. Automation/automationAccounts/Write | Resource Group |
-| Microsoft. OperationalInsights/arbets ytor/Skriv | Resource Group |
+| Microsoft. Authorization/roleAssignments/Delete | Prenumeration || Microsoft. Automation/automationAccounts/Connections/Read | Resursgrupp |
+| Microsoft. Automation/automationAccounts/certifikat/läsa | Resursgrupp |
+| Microsoft. Automation/automationAccounts/Write | Resursgrupp |
+| Microsoft. OperationalInsights/arbets ytor/Skriv | Resursgrupp |
 
 ## <a name="components"></a>Komponenter
 
@@ -101,18 +101,18 @@ I följande tabell visas de Runbooks som funktionen distribuerar till ditt Autom
 
 Alla överordnade Runbooks inkluderar `WhatIf` parametern. När värdet är true, stöder parametern information om det exakta beteende som Runbook tar när den körs utan parametern och kontrollerar att rätt virtuella datorer är riktade. En Runbook utför bara sina definierade åtgärder när `WhatIf` parametern har angetts till false.
 
-|Runbook | Parametrar | Beskrivning|
+|Runbook | Parametrar | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Anropas från den överordnade runbooken. Denna Runbook skapar aviseringar per resurs för det automatiska stopp scenariot.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true eller false  | Skapar eller uppdaterar Azures aviserings regler på virtuella datorer i mål prenumerationen eller resurs grupperna. <br> `VMList`är en kommaavgränsad lista över virtuella datorer. Till exempel `vm1, vm2, vm3`.<br> `WhatIf`aktiverar validering av Runbook-logik utan att köra.|
-|AutoStop_Disable | Inga | Inaktiverar automatiska stopp-aviseringar och standard schema.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true eller false  | Skapar eller uppdaterar Azures aviserings regler på virtuella datorer i mål prenumerationen eller resurs grupperna. <br> `VMList`är en kommaavgränsad lista över virtuella datorer (utan blank steg), till exempel `vm1,vm2,vm3` .<br> `WhatIf`aktiverar validering av Runbook-logik utan att köra.|
+|AutoStop_Disable | Ingen | Inaktiverar automatiska stopp-aviseringar och standard schema.|
 |AutoStop_VM_Child | WebHookData | Anropas från den överordnade runbooken. Aviserings regler anropar denna Runbook för att stoppa en klassisk virtuell dator.|
 |AutoStop_VM_Child_ARM | WebHookData |Anropas från den överordnade runbooken. Aviserings regler anropar denna Runbook för att stoppa en virtuell dator.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> Åtgärd: starta eller stoppa<br> VMList  | Utför åtgärden starta eller stoppa i den klassiska VM-gruppen genom att Cloud Services. |
 |ScheduledStartStop_Child | VMName <br> Åtgärd: starta eller stoppa <br> ResourceGroupName | Anropas från den överordnade runbooken. Kör en start-eller stopp åtgärd för det schemalagda steget.|
 |ScheduledStartStop_Child_Classic | VMName<br> Åtgärd: starta eller stoppa<br> ResourceGroupName | Anropas från den överordnade runbooken. Kör en start-eller stopp åtgärd för det schemalagda stoppet för klassiska virtuella datorer. |
 |ScheduledStartStop_Parent | Åtgärd: starta eller stoppa <br>VMList <br> WhatIf: true eller false | Startar eller stoppar alla virtuella datorer i prenumerationen. Redigera variablerna `External_Start_ResourceGroupNames` och `External_Stop_ResourceGroupNames` för att endast köra på dessa mål resurs grupper. Du kan också undanta vissa virtuella datorer genom att uppdatera `External_ExcludeVMNames` variabeln.|
-|SequencedStartStop_Parent | Åtgärd: starta eller stoppa <br> WhatIf: true eller false<br>VMList| Skapar taggar med namnet **sequencestart** och **sequencestop** på varje virtuell dator för vilken du vill starta/stoppa aktivitet. Dessa taggnamn är Skift läges känsliga. Taggens värde måste vara ett positivt heltal (1, 2, 3) som motsvarar den ordning som du vill starta eller stoppa. <br>**Obs!** virtuella datorer måste finnas i resurs grupper som har definierats i `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variablerna, och. De måste ha lämpliga taggar för att åtgärder ska börja gälla.|
+|SequencedStartStop_Parent | Åtgärd: starta eller stoppa <br> WhatIf: true eller false<br>VMList| Skapar taggar med namnet **sequencestart** och **sequencestop** på varje virtuell dator för vilken du vill starta/stoppa aktivitet. Dessa taggnamn är Skift läges känsliga. Värdet för taggen ska vara en lista med positiva heltal, till exempel `1,2,3` , som motsvarar den ordning som du vill starta eller stoppa. <br>**Obs!** virtuella datorer måste finnas i resurs grupper som har definierats i `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variablerna, och. De måste ha lämpliga taggar för att åtgärder ska börja gälla.|
 
 ### <a name="variables"></a>Variabler
 
@@ -121,7 +121,7 @@ I följande tabell visas variablerna som skapas i ditt Automation-konto. Ändra 
 > [!NOTE]
 > Begränsningar i VM-namn och resurs grupp är i stort sett resultatet av varierande storlek. Se [variabel till gångar i Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
 
-|Variabel | Beskrivning|
+|Variabel | Description|
 |---------|------------|
 |External_AutoStop_Condition | Den villkorliga operator som krävs för att konfigurera villkoret innan en avisering utlöses. Godkända värden är `GreaterThan` , `GreaterThanOrEqual` , `LessThan` och `LessThanOrEqual` .|
 |External_AutoStop_Description | Aviseringen för att stoppa den virtuella datorn om PROCESSORns procents ATS överstiger tröskelvärdet.|
@@ -153,7 +153,7 @@ I följande tabell visas alla standard scheman som skapats i ditt Automation-kon
 
 Aktivera inte alla scheman, eftersom detta kan skapa överlappande schema åtgärder. Det är bäst att bestämma vilka optimeringar du vill göra och ändra dem på lämpligt sätt. I exempel scenarierna i översikts avsnittet finns ytterligare förklaring.
 
-|Schema namn | Frekvens | Beskrivning|
+|Schema namn | Frekvens | Description|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Var 8:e timme | Kör **AutoStop_CreateAlert_Parent** Runbook var 8: e timme, vilket i sin tur stoppar de VM-baserade värdena i `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variablerna, och. Alternativt kan du ange en kommaavgränsad lista över virtuella datorer med hjälp av- `VMList` parametern.|
 |Scheduled_StopVM | Användardefinierad, daglig | Kör **ScheduledStopStart_Parent** Runbook med en parameter på `Stop` varje dag vid den angivna tiden.Stoppar automatiskt alla virtuella datorer som uppfyller reglerna som definierats av variabel till gångar.Aktivera det **schemalagda schemat för schemalagda StartVM**.|
@@ -170,7 +170,7 @@ För att kunna använda funktionen med klassiska virtuella datorer behöver du e
 Om du har fler än 20 virtuella datorer per moln tjänst är här några rekommendationer:
 
 * Skapa flera scheman med den överordnade Runbook- **ScheduledStartStop_Parent** och ange 20 virtuella datorer per schema. 
-* I schema egenskaperna använder du `VMList` parametern för att ange namn på virtuella datorer som en kommaavgränsad lista. 
+* I schema egenskaper använder du `VMList` parametern för att ange namn på virtuella datorer som en kommaavgränsad lista (inga blank steg). 
 
 Annars, om automatiserings jobbet för den här funktionen körs mer än tre timmar, tas det tillfälligt bort eller stoppas enligt den [verkliga delnings](automation-runbook-execution.md#fair-share) gränsen.
 

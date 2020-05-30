@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 127c924da44c7e596d93b21d89ff4591a90ba7cf
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: b2f2939c6b7d07e128688f43e98b2a6b29595e1f
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827683"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204397"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Konfigurera Starta/stoppa virtuella datorer när de inte används
 
@@ -44,11 +44,15 @@ Du kan aktivera antingen åtgärden för en prenumeration och en resurs grupp, e
 
 ### <a name="target-the-start-and-stop-action-by-vm-list"></a>Ange start-och stopp åtgärd per VM-lista
 
-1. Kör **ScheduledStartStop_Parent** Runbook med **åtgärd** inställd på **Starta**, Lägg till en kommaavgränsad lista med virtuella datorer i parameter fältet **VMList** och ange sedan värdet true för parametern **WHATIF** . Förhandsgranska ändringarna.
+1. Kör **ScheduledStartStop_Parent** Runbook med **åtgärd** inställd på **Starta**.
 
-2. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer (VM1, VM2, VM3).
+2. Lägg till en kommaavgränsad lista över virtuella datorer (utan blank steg) i parameter fältet **VMList** . En exempel lista är `vm1,vm2,vm3` .
 
-3. Det här scenariot följer inte `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupnames` variablerna och. I det här scenariot måste du skapa ett eget Automation-schema. Mer information finns i [Schemalägga en Runbook i Azure Automation](shared-resources/schedules.md).
+3. Ställ in värdet för **WHATIF** -parametern på sant.
+
+4. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer (VM1, VM2, VM3).
+
+5. Det här scenariot följer inte `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupnames` variablerna och. I det här scenariot måste du skapa ett eget Automation-schema. Mer information finns i [Schemalägga en Runbook i Azure Automation](shared-resources/schedules.md).
 
     > [!NOTE]
     > Värdet för **mål ResourceGroup-namn** lagras som värden för både `External_Start_ResourceGroupNames` och `External_Stop_ResourceGroupNames` . För ytterligare granularitet kan du ändra var och en av dessa variabler för att rikta in sig på olika resurs grupper. Använd `External_Start_ResourceGroupNames` och Använd för åtgärden stoppa för att starta `External_Stop_ResourceGroupNames` . Virtuella datorer läggs automatiskt till i Start-och stopp scheman.
@@ -71,13 +75,17 @@ I en miljö som innehåller två eller flera komponenter på flera virtuella dat
 
 1. Lägg till en `sequencestart` och en- `sequencestop` tagg med positiva heltals värden till de virtuella datorer som du planerar att lägga till i `VMList` parametern.
 
-2. Kör **SequencedStartStop_Parent** Runbook med **åtgärd** inställd på **Starta**, Lägg till en kommaavgränsad lista med virtuella datorer i parameter fältet **VMList** och ange sedan **WHATIF** till true. Förhandsgranska ändringarna.
+2. Kör **SequencedStartStop_Parent** Runbook med **åtgärd** inställd på **Starta**.
 
-3. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer (VM1, VM2, VM3).
+3. Lägg till en kommaavgränsad lista över virtuella datorer (utan blank steg) i parameter fältet **VMList** . En exempel lista är `vm1,vm2,vm3` .
 
-4. Det här scenariot följer inte `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupnames` variablerna och. I det här scenariot måste du skapa ett eget Automation-schema. Mer information finns i [Schemalägga en Runbook i Azure Automation](shared-resources/schedules.md).
+4. Ange **WHATIF** till true. 
 
-5. Förhandsgranska åtgärden och gör nödvändiga ändringar innan du implementerar de virtuella datorerna i produktionen. När du är klar kan du köra **övervakning-och-diagnostik/Monitor-Action-groupsrunbook** med parametern inställt på **falskt**. Du kan också låta Automation-scheman **sekvenserade-StartVM** och **sekvenserat – StopVM** köra automatiskt efter ditt schema.
+5. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer.
+
+6. Det här scenariot följer inte `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupnames` variablerna och. I det här scenariot måste du skapa ett eget Automation-schema. Mer information finns i [Schemalägga en Runbook i Azure Automation](shared-resources/schedules.md).
+
+7. Förhandsgranska åtgärden och gör nödvändiga ändringar innan du implementerar de virtuella datorerna i produktionen. När du är klar kan du köra **övervakning-och-diagnostik/Monitor-Action-groupsrunbook** med parametern inställt på **falskt**. Du kan också låta Automation-scheman **sekvenserade-StartVM** och **sekvenserat – StopVM** köra automatiskt efter ditt schema.
 
 ## <a name="scenario-3-start-or-stop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>Scenario 3: starta eller sluta automatiskt baserat på processor användning
 

@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 9cb1149073247b7f5fc3e74a1aef6f96388c7135
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648108"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197051"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synkronisera din GitHub-lagringsplats med app-konfigurationen
 
@@ -92,7 +92,7 @@ jobs:
 ```
 ## <a name="sync-multiple-files-in-one-action"></a>Synkronisera flera filer i en åtgärd 
 
-Om konfigurationen finns i flera filer kan du använda mönstret nedan för att utlösa en synkronisering när någon av filerna ändras. Det här mönstret använder BLOB-bibliotekethttps://www.npmjs.com/package/glob 
+Om konfigurationen finns i flera filer kan du använda mönstret nedan för att utlösa en synkronisering när någon av filerna ändras. Det här mönstret använder BLOB-biblioteket https://www.npmjs.com/package/glob . Observera att om namnet på konfigurations filen innehåller ett kommatecken kan du använda ett omvänt snedstreck för att undvika kommatecken. 
 
 ```json
 on:
@@ -308,15 +308,15 @@ Indataparametrar anger data som används av åtgärden under körning.  Följand
 
 | Inmatat namn | Obligatoriskt? | Värde |
 |----|----|----|
-| configurationFile | Ja | Relativ sökväg till konfigurations filen i lagrings platsen.  BLOB mönster stöds och kan innehålla flera filer. |
-| format | Ja | Fil format för konfigurations filen.  Giltiga format är: JSON, YAML, Properties. |
-| Begär | Ja | Anslutnings sträng för app Configuration-instansen. Anslutnings strängen ska lagras som en hemlighet i GitHub-lagringsplatsen och endast det hemliga namnet ska användas i arbets flödet. |
-| brytning | Ja | Avgränsning som används vid förenkling av konfigurations filen till nyckel/värde-par.  Giltiga värden är:. , ; : - _ __ / |
-| protokollprefixet | Inga | Prefix som ska läggas till i början av nycklar. |
-| etikett | Inga | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
-| begränsade | Inga | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |
-| djuplodande | Inga | Högsta djup för att förenkla konfigurations filen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget max djup. |
-| tags | Inga | Anger taggen som angetts för nyckel/värde-par.  Det förväntade formatet är en stringified form av ett JSON-objekt av följande form: {[propertyName: sträng]: String;} Varje egenskaps namn-värdet blir en tagg. |
+| configurationFile | Yes | Relativ sökväg till konfigurations filen i lagrings platsen.  BLOB mönster stöds och kan innehålla flera filer. |
+| format | Yes | Fil format för konfigurations filen.  Giltiga format är: JSON, YAML, Properties. |
+| Begär | Yes | Anslutnings sträng för app Configuration-instansen. Anslutnings strängen ska lagras som en hemlighet i GitHub-lagringsplatsen och endast det hemliga namnet ska användas i arbets flödet. |
+| brytning | Yes | Avgränsning som används vid förenkling av konfigurations filen till nyckel/värde-par.  Giltiga värden är:. , ; : - _ __ / |
+| protokollprefixet | No | Prefix som ska läggas till i början av nycklar. |
+| etikett | No | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
+| begränsade | No | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |
+| djuplodande | No | Högsta djup för att förenkla konfigurations filen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget max djup. |
+| tags | No | Anger taggen som angetts för nyckel/värde-par.  Det förväntade formatet är en stringified form av ett JSON-objekt av följande form: {[propertyName: sträng]: String;} Varje egenskaps namn-värdet blir en tagg. |
 
 ## <a name="next-steps"></a>Nästa steg
 

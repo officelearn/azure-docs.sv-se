@@ -3,20 +3,21 @@ title: Moln och regioner där Azure Media Services v3 är tillgängligt
 description: Den här artikeln pratar om Azure-moln och regioner där Azure Media Services v3 är tillgängligt.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
-ms.openlocfilehash: 1257bf4dfb0d5b2c4995cac760290f97293a0c0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/28/2020
+ms.author: inhenkel
+ms.custom: references_regions
+ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80382978"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196244"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Moln och regioner där Azure Media Services v3 finns
 
@@ -26,12 +27,25 @@ Azure Media Services v3 är tillgängligt via Azure Resource Manager manifest i 
 
 | Funktion|Globala Azure-regioner | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
-| [StandardEncoderPreset](encoding-concept.md) | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
-| [LiveEvents](live-streaming-overview.md) | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
-| [Strömnings slut punkter](streaming-endpoint-concept.md) | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| [StandardEncoderPreset](encoding-concept.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
+| [LiveEvents](live-streaming-overview.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
+| [Strömnings slut punkter](streaming-endpoint-concept.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
+
+## <a name="feature-availability-in-preview"></a>Funktions tillgänglighet för för hands version
+
+[LiveTranscription](live-transcription.md) är tillgängligt i följande regioner:
+
+- Sydostasien
+- Europa, västra
+- Europa, norra
+- USA, östra
+- USA, centrala
+- USA, södra centrala
+- USA, västra 2
+- Brasilien, södra
 
 ## <a name="regionsgeographieslocations"></a>Regioner/geografiska områden/platser
 

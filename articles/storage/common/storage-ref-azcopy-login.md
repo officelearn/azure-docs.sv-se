@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d07d1a706635a7f269a9a51769ae6f8bbf57df3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d2adca661882ea11d04ebe55afe25f7f9c2ef4e
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295407"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219953"
 ---
 # <a name="azcopy-login"></a>azcopy inloggning
 
@@ -99,9 +99,9 @@ Se till att behandla/path/to/My/cert som en sökväg till en PEM-eller PKCS12-fi
 
 ## <a name="options"></a>Alternativ
 
-|Alternativ|Beskrivning|
+|Alternativ|Description|
 |--|--|
-|--AAD-slut punkt|Den Azure Active Directory slut punkt som ska användas. Standardvärdet`https://login.microsoftonline.com`() är korrekt för det offentliga Azure-molnet. Ange den här parametern vid autentisering i ett nationellt moln. Se [Azure AD-autentiseringens slut punkter](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+|--AAD-slut punkt|Den Azure Active Directory slut punkt som ska användas. Standardvärdet ( `https://login.microsoftonline.com` ) är korrekt för det offentliga Azure-molnet. Ange den här parametern vid autentisering i ett nationellt moln. Se [Azure AD-autentiseringens slut punkter](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 Den här flaggan behövs inte för Hanterad tjänstidentitet.|
 |--program-ID-sträng|Program-ID för användardefinierad identitet. Krävs för tjänstens huvud namns autentisering.|
 |--certifikat Sök vägs sträng|Sökväg till certifikat för SPN-autentisering. Krävs för certifikatbaserad tjänstens huvud namns-auth.|
@@ -115,11 +115,12 @@ Den här flaggan behövs inte för Hanterad tjänstidentitet.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
-|Alternativ|Beskrivning|
+|Alternativ|Description|
 |---|---|
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|
+|--sträng för betrodd-Microsoft-suffix   |Anger ytterligare domänsuffix där Azure Active Directory inloggnings-token kan skickas.  Standardvärdet är '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. De som anges här läggs till i standardvärdet. För säkerhet ska du bara placeras Microsoft Azure domäner här. Avgränsa flera poster med semikolon.|
 
 ## <a name="see-also"></a>Se även
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

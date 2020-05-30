@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 97d78b5bc77fef30bf7e3ad082a70f16a2ec74d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 820e50d9fe60b76639bf74067129e65c7394ff4c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146602"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194218"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av Azure Portal
 
@@ -52,8 +52,8 @@ Du kan lägga till privata och offentliga IP-adresser i ett Azure-nätverks grä
 
 Utför följande steg för att lägga till en ny privat IP-adress:
 
-1. Slutför stegen i avsnittet [grundläggande steg](#coreadd) i den här artikeln.
-2. Klicka på **Lägg till**. I rutan **Lägg till IP-konfiguration** som visas skapar du en IP-konfiguration med namnet *ipconfig-4* med *10.0.0.7* som en *statisk* privat IP-adress och klickar sedan på **OK**.
+1. Slutför stegen i avsnittet [grundläggande steg](#coreadd) i den här artikeln och se till att du är i avsnittet **IP-konfigurationer** i gränssnittet för VM-nätverket.  Granska det undernät som visas som standard (till exempel 10.0.0.0/24).
+2. Klicka på **Lägg till**. I rutan **Lägg till IP-konfiguration** som visas skapar du en IP-konfiguration med namnet *ipconfig-4* med en ny *statisk* privat IP-adress genom att välja ett nytt nummer för den sista oktetten och klickar sedan på **OK**.  (För under nätet 10.0.0.0/24 skulle en exempel-IP vara *10.0.0.7*.)
 
     > [!NOTE]
     > När du lägger till en statisk IP-adress måste du ange en oanvänd, giltig adress på under nätet som NÄTVERKSKORTet är anslutet till. Om adressen du väljer inte är tillgänglig visar portalen ett X för IP-adressen och du måste välja en annan.
@@ -75,7 +75,7 @@ En offentlig IP-adress läggs till genom att associera en offentlig IP-adressres
 En offentlig IP-adress är en inställning för en offentlig IP-adressresurs. Om du har en offentlig IP-adressresurs som för närvarande inte är kopplad till en IP-konfiguration som du vill koppla till en IP-konfiguration, hoppar du över följande steg och slutför stegen i något av de avsnitt som följer, efter behov. Om du inte har någon tillgänglig offentlig IP-adressresurs utför du följande steg för att skapa en:
 
 1. Bläddra till Azure Portal vid https://portal.azure.com och logga in på den, om det behövs.
-3. I portalen klickar du på **skapa en resurs** > **nätverk** > **offentlig IP-adress**.
+3. I portalen klickar du på **skapa en resurs**  >  **nätverk**  >  **offentlig IP-adress**.
 4. I fönstret **skapa offentlig IP-adress** som visas anger du ett **namn**, väljer en **IP-adress tilldelnings** typ, en **prenumeration**, en **resurs grupp**och en **plats**och klickar sedan på **skapa**, som du ser i följande bild:
 
     ![Skapa en offentlig IP-adressresurs](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)

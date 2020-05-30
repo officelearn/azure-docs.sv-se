@@ -1,6 +1,6 @@
 ---
 title: Data Sync-agent för SQL Data Sync
-description: Lär dig hur du installerar och kör Data Sync-agenten för SQL Data Sync i Azure för att synkronisera data med lokala SQL Server-databaser
+description: Lär dig hur du installerar och kör Data Sync-agenten för SQL Data Sync i Azure för att synkronisera data med SQL Server-databaser
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 0026f160c247d2b0bfdd32613676b04d6f350081
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8033e64924b5faa1cfdc9c04cdd8711850185dca
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049787"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195467"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Data Sync-agent för SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Synkronisera data med lokala SQL Server-databaser genom att installera och konfigurera Data Sync-agenten för SQL Data Sync i Azure. Mer information om SQL Data Sync finns i [synkronisera data i flera moln och lokala databaser med SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md).
+Synkronisera data med SQL Server-databaser genom att installera och konfigurera Data Sync-agenten för SQL Data Sync i Azure. Mer information om SQL Data Sync finns i [synkronisera data i flera moln och lokala databaser med SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md).
 
 > [!IMPORTANT]
 > SQL Data Sync stöder **inte** Azure SQL-hanterad instans för tillfället.
@@ -36,7 +36,7 @@ Om du vill installera Data Sync-agenten tyst från kommando tolken anger du ett 
 
 - Standardvärdet är om du inte anger något värde för **TARGETDIR** `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0` .
 
-- Om du ger `LocalSystem` värdet **SERVICEACCOUNT**använder du SQL Server autentisering när du konfigurerar agenten för att ansluta till den lokala SQL Server.
+- Om du ger `LocalSystem` värdet **SERVICEACCOUNT**använder du SQL Server autentisering när du konfigurerar agenten att ansluta till SQL Server.
 
 - Om du anger ett domän användar konto eller ett lokalt användar konto som värde för **SERVICEACCOUNT**måste du också ange lösen ordet med argumentet **SERVICEPASSWORD** . Till exempel `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
 
@@ -44,9 +44,9 @@ Om du vill installera Data Sync-agenten tyst från kommando tolken anger du ett 
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
 ```
 
-## <a name="sync-data-with-sql-server-on-premises"></a>Synkronisera data med SQL Server lokalt
+## <a name="sync-data-with-a-sql-server-database"></a>Synkronisera data med en SQL Server databas
 
-Om du vill konfigurera Data Sync-agenten så att du kan synkronisera data med en eller flera lokala SQL Server-databaser, se [lägga till en lokal SQL Server-databas](sql-data-sync-sql-server-configure.md#add-on-prem).
+Om du vill konfigurera DataSync-agenten så att du kan synkronisera data med en eller flera SQL Server-databaser, se [lägga till en SQL Server-databas](sql-data-sync-sql-server-configure.md#add-on-prem).
 
 ## <a name="data-sync-agent-faq"></a><a name="agent-faq"></a>Vanliga frågor och svar om Data Sync-agent
 
@@ -321,7 +321,7 @@ Mer information om SQL Data Sync finns i följande artiklar:
 
 -   Översikt – [synkronisera data över flera molnbaserade och lokala databaser med SQL Data Sync i Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-data-sync-sql-server-configure.md)
+    - I portalen – [Självstudier: konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server](sql-data-sync-sql-server-configure.md)
     - Med PowerShell
         -  [Använd PowerShell för att synkronisera mellan flera databaser i Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Använda PowerShell för att synkronisera mellan en databas i Azure SQL Database och en databas i en SQL Server instans](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

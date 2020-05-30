@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 3a3d8ee1d0c1625c9e7d3d83b590f38dcd8847fe
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 1db32d506cc455b020fc6c0f2bba10361e961324
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836421"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197048"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsök problem med replikering för virtuella VMware-datorer och fysiska servrar
 
@@ -77,7 +77,7 @@ Så här löser du problemet:
     - Gå till bladet diskar på den berörda replikerade datorn och kopiera replik diskens namn
     - Navigera till den här replik hanterade disken
     - Du kan se en banderoll på bladet översikt som anger att en SAS-webbadress har skapats. Klicka på den här banderollen och Avbryt exporten. Ignorera det här steget om du inte ser banderollen.
-    - Så snart SAS-URL: en har återkallats går du till konfigurations bladet för den hanterade disken och ökar storleken så att ASR stöder den observerade omsättnings takten på käll disken
+    - Så snart SAS-URL: en har återkallats går du till konfigurations bladet för den hanterade disken och ökar storleken så att Azure Site Recovery stöder den observerade omsättnings takten på käll disken
 - Om den observerade omsättningen är tillfällig väntar du några timmar på att den väntande data uppladdningen ska fångas upp och skapa återställnings punkter.
 - Om disken innehåller icke-kritiska data, t. ex. tillfälliga loggar, test data osv., bör du överväga att flytta dessa data någon annan stans eller helt undanta den här disken från replikeringen
 - Om problemet kvarstår ska du använda Site Recovery [Deployment Planner](site-recovery-deployment-planner.md#overview) för att planera replikeringen.
@@ -146,6 +146,8 @@ Några av de vanligaste problemen visas nedan
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Orsak 3: kända problem i SQL Server 2016 och 2017
 **Så här åtgärdar du** : se KB- [artikel](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Orsak 4: program konsekvens är inte aktiverat på Linux-servrar
+**Så här åtgärdar du** : Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med för-och-post-alternativen används av Azure Site Recovery Mobility-agenten för program konsekvens. Så [här](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) aktiverar du det.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Fler orsaker till följd av VSS-relaterade problem:
 

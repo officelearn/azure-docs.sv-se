@@ -15,19 +15,19 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 01e8eae154172cc48decb209e4964dc5ff0d835f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8476029fb189db846eca3eba31fe8cc62d3726f8
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049143"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219463"
 ---
-# <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-an-azure-vm"></a>Använd Azures snabb starts mallar för att konfigurera en tillgänglighets grupp för SQL Server på en virtuell Azure-dator
+# <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Använd Azures snabb starts mallar för att konfigurera en tillgänglighets grupp för SQL Server på Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Den här artikeln beskriver hur du använder Azures snabb starts mallar för att delvis automatisera distributionen av en Always on-tillgänglighets grupps konfiguration för SQL Server virtuella datorer i Azure. Två Azure snabb starts mallar används i den här processen: 
+I den här artikeln beskrivs hur du använder Azures snabb starts mallar för att delvis automatisera distributionen av en Always on-tillgänglighets grupps konfiguration för SQL Server virtuella datorer i Azure. Två Azure snabb starts mallar används i den här processen: 
 
-   | Mall | Beskrivning |
+   | Mall | Description |
    | --- | --- |
    | [101-SQL-VM-AG-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Skapar Windows-redundansklustret och ansluter SQL Server virtuella datorer till den. |
    | [101-SQL-VM-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Skapar tillgänglighets gruppens lyssnare och konfigurerar den interna belastningsutjämnaren. Den här mallen kan bara användas om Windows-redundansklustret skapades med mallen **101-SQL-VM-AG-setup** . |
@@ -47,11 +47,11 @@ Om du vill automatisera installationen av en tillgänglighets grupp som alltid �
 Följande behörigheter är nödvändiga för att konfigurera tillgänglighets gruppen Always on med hjälp av Azure snabb starts mallar: 
 
 - Ett befintligt domän användar konto som har behörighet att **skapa dator objekt** i domänen.  Till exempel har ett domän administratörs konto vanligt vis tillräcklig behörighet (till exempel: account@domain.com ). _Detta konto bör också vara en del av den lokala administratörs gruppen på varje virtuell dator för att skapa klustret._
-- Domän användar kontot som styr SQL Servers tjänsten. 
+- Domän användar kontot som styr SQL Server. 
 
 
 ## <a name="step-1-create-the-failover-cluster-and-join-sql-server-vms-to-the-cluster-by-using-a-quickstart-template"></a>Steg 1: skapa klustret för växling vid fel och Anslut SQL Server virtuella datorer till klustret med hjälp av en snabb starts mall 
-När dina SQL Server virtuella datorer har registrerats med resurs leverantören för SQL-VM kan du ansluta dina SQL Server virtuella datorer till *SqlVirtualMachineGroups*. Den här resursen definierar metadata för Windows-redundansklustret. Metadata innehåller version, utgåva, fullständigt kvalificerat domän namn Active Directory konton för att hantera både klustret och tjänsten SQL Server och lagrings kontot som moln vittne. 
+När dina SQL Server virtuella datorer har registrerats med resurs leverantören för SQL-VM kan du ansluta dina SQL Server virtuella datorer till *SqlVirtualMachineGroups*. Den här resursen definierar metadata för Windows-redundansklustret. Metadata innehåller version, utgåva, fullständigt kvalificerade domän namn Active Directory konton för att hantera både klustret och SQL Server och lagrings kontot som moln vittne. 
 
 Om du lägger till SQL Server virtuella datorer i resurs gruppen *SqlVirtualMachineGroups* startar kluster tjänsten Windows-redundans för att skapa klustret och ansluter sedan till de SQL Server virtuella datorerna till klustret. Det här steget är automatiserat med snabb starts mal len **101-SQL-VM-AG-setup** . Du kan implementera det med hjälp av följande steg:
 
@@ -71,10 +71,10 @@ Om du lägger till SQL Server virtuella datorer i resurs gruppen *SqlVirtualMach
    | **Befintligt domän konto** | Ett befintligt domän användar konto som har behörighet att **skapa dator objekt** i domänen när [CNO: t](/windows-server/failover-clustering/prestage-cluster-adds) skapas när mallen distribueras. Till exempel har ett domän administratörs konto vanligt vis tillräcklig behörighet (till exempel: account@domain.com ). *Detta konto bör också vara en del av den lokala administratörs gruppen på varje virtuell dator för att skapa klustret.*| 
    | **Lösen ord för domän konto** | Lösen ordet för det tidigare nämnda domän användar kontot. | 
    | **Befintligt SQL-tjänstkonto** | Domän användar kontot som styr [SQL Server tjänsten](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) under distribution av tillgänglighets grupper (till exempel: account@domain.com ). |
-   | **SQL-tjänstens lösen ord** | Lösen ordet som används av det domän användar konto som styr SQL Servers tjänsten. |
+   | **SQL-tjänstens lösen ord** | Lösen ordet som används av det domän användar konto som styr SQL Server. |
    | **Namn på moln vittne** | Ett nytt Azure Storage-konto som ska skapas och användas för moln vittnet. Du kan ändra det här namnet. |
    | **\_artefakt plats** | Det här fältet anges som standard och ska inte ändras. |
-   | **\_SAS-token för artefakt plats** | Det här fältet lämnas avsiktligt tomt. |
+   | **\_SaS-token för artefakt plats** | Det här fältet lämnas avsiktligt tomt. |
    | &nbsp; | &nbsp; |
 
 1. Om du godkänner villkoren markerar du kryss rutan **Jag accepterar villkoren som anges ovan** . Välj sedan **köp** för att slutföra distributionen av snabb starts mal len. 
@@ -104,7 +104,7 @@ Du behöver bara skapa den interna belastningsutjämnaren. I steg 4 hanterar sna
 4. På bladet **Load Balancer** väljer du **skapa**.
 5. I dialog rutan **skapa belastnings utjämning** konfigurerar du belastningsutjämnaren enligt följande:
 
-   | Inställningen | Värde |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ange ett text namn som representerar belastningsutjämnaren. Skriv till exempel **sqlLB**. |
    | **Typ** |**Internt**: de flesta implementeringar använder en intern belastningsutjämnare som gör det möjligt för program i samma virtuella nätverk att ansluta till tillgänglighets gruppen.  </br> **Externt**: tillåter att program ansluter till tillgänglighets gruppen via en offentlig Internet anslutning. |
@@ -188,7 +188,7 @@ Lös problemet genom att ta bort lyssnaren med hjälp av [PowerShell](#remove-th
 Det här felet kan inträffa när du distribuerar mallen **101-SQL-VM-aglistener-setup** om lyssnaren har tagits bort via SQL Server Management Studio (SSMS), men inte togs bort från providern för SQL VM-resursen. Om du tar bort lyssnaren via SSMS tas inte metadata för lyssnaren bort från providern för SQL VM-resursen. Lyssnaren måste tas bort från resurs leverantören via [PowerShell](#remove-the-availability-group-listener). 
 
 ### <a name="domain-account-does-not-exist"></a>Domän kontot finns inte
-Det här felet kan ha två orsaker. Antingen finns inte det angivna domän kontot eller så saknar det [UPN-data (User Principal Name)](/windows/desktop/ad/naming-properties#userprincipalname) . Mallen **101-SQL-VM-AG-setup** förväntar sig ett domän konto i UPN-formuläret (det vill säga *user@domain.com* ), men vissa domän konton kanske saknar det. Detta inträffar vanligt vis när en lokal användare har migrerats till det första domän administratörs kontot när servern befordrades till en domänkontrollant, eller när en användare skapades via PowerShell. 
+Det här felet kan ha två orsaker. Antingen finns inte det angivna domän kontot eller så saknar det [UPN-data (User Principal Name)](/windows/desktop/ad/naming-properties#userprincipalname) . Mallen **101-SQL-VM-AG-setup** förväntar sig ett domän konto i UPN-formuläret (det vill säga user@domain.com ), men vissa domän konton kanske saknar det. Detta inträffar vanligt vis när en lokal användare har migrerats till det första domän administratörs kontot när servern befordrades till en domänkontrollant, eller när en användare skapades via PowerShell. 
 
 Kontrol lera att kontot finns. Om det gör det kan du köra den andra situationen. Gör så här för att lösa problemet:
 

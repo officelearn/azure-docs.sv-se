@@ -6,13 +6,13 @@ ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.custom: seodec18
-ms.openlocfilehash: 7ab04e23b838f2dfd39b73476db7492947d62e6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, references_regions
+ms.openlocfilehash: 04ba8e7b3ccd18306cb8da0fd15d2cd88f363c70
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74688804"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193324"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Geodistribuerad skalning med App Service Environment
 ## <a name="overview"></a>Översikt
@@ -79,7 +79,7 @@ Observera hur det finns ett anrop till *Add-AzureTrafficManagerEndpointConfig* f
 Alla tre slut punkterna använder samma värde (10) för *viktnings* parametern.  Detta resulterar i Traffic Manager att sprida kund förfrågningar över alla tre App-instanser relativt jämnt. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Att peka appens anpassade domän på Traffic Manager domän
-Det sista steget som krävs är att peka den anpassade domänen för appen på Traffic Manager domän.  För exempel appen betyder det att du `www.scalableasedemo.com` pekar `scalable-ase-demo.trafficmanager.net`på.  Det här steget måste utföras med den domän registrator som hanterar den anpassade domänen.  
+Det sista steget som krävs är att peka den anpassade domänen för appen på Traffic Manager domän.  För exempel appen betyder det att du pekar `www.scalableasedemo.com` på `scalable-ase-demo.trafficmanager.net` .  Det här steget måste utföras med den domän registrator som hanterar den anpassade domänen.  
 
 Med hjälp av din registrators domän hanterings verktyg måste du skapa CNAME-poster som pekar på den anpassade domänen på den Traffic Manager domänen.  I bilden nedan visas ett exempel på hur denna CNAME-konfiguration ser ut så här:
 
@@ -87,7 +87,7 @@ Med hjälp av din registrators domän hanterings verktyg måste du skapa CNAME-p
 
 Även om det inte beskrivs i det här avsnittet måste du komma ihåg att varje enskild app-instans måste ha den anpassade domänen registrerad.  Om en begäran till exempel gör den till en app-instans och programmet inte har den anpassade domänen som är registrerad i appen, kommer begäran att Miss klar.  
 
-I det här exemplet är `www.scalableasedemo.com`den anpassade domänen och varje program instans har den anpassade domän som är kopplad till den.
+I det här exemplet är den anpassade domänen `www.scalableasedemo.com` och varje program instans har den anpassade domän som är kopplad till den.
 
 ![Anpassad domän][CustomDomain] 
 

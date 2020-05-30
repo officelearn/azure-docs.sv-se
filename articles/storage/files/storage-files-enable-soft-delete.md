@@ -4,16 +4,16 @@ description: Lär dig hur du aktiverar mjuk borttagning (för hands version) på
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: a31fc675ca32697ece1fe7240112bb5610feda9d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 582a3603ad80ec1312429ed7cbd140d4310fadcb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142103"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196185"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Aktivera mjuk borttagning på Azure-filresurser
 
@@ -23,7 +23,7 @@ I följande avsnitt visas hur du aktiverar och använder mjuk borttagning för A
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Navigera till ditt lagrings konto och välj **mjuk borttagning** under **fil tjänst**.
 1. Välj **aktive rad** för **fil resurs mjuk borttagning**.
 1. Välj **fil resursens kvarhållningsperiod i dagar** och ange ett antal som du väljer.

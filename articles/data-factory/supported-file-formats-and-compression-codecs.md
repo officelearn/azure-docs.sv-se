@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: dbcfad3dd3db9f5c9431e07d85d77a77a10283c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 24edeb686136a1264d75e81fd9527feff3d17c48
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419042"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191093"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Fil format och komprimerings-codecar som stöds i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ Du kan använda [kopierings aktiviteten](copy-activity-overview.md) för att kop
 
 Dessutom kan du också tolka eller generera filer av ett angivet format. Du kan till exempel göra följande:
 
-* Kopiera data från en lokal SQL Server databas och skriv till Azure Data Lake Storage Gen2 i Parquet-format.
+* Kopiera data från en SQL Server-databas och skriva till Azure Data Lake Storage Gen2 i Parquet-format.
 * Kopiera filer i text format (CSV) från ett lokalt fil system och skriva till Azure Blob Storage i Avro-format.
 * Kopiera zippade filer från ett lokalt fil system, expandera dem och skriv sedan de extraherade filerna till Azure Data Lake Storage Gen2.
 * Kopiera data i formatet GZIP-komprimerad text (CSV) från Azure Blob Storage och skriv den till Azure SQL Database.
@@ -37,5 +37,5 @@ Dessutom kan du också tolka eller generera filer av ett angivet format. Du kan 
 
 Se andra artiklar om kopierings aktiviteter:
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Översikt över kopieringsaktivitet](copy-activity-overview.md)
 - [Kopiera aktivitetsprestanda](copy-activity-performance.md)

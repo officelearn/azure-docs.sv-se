@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 3eef7476a729c7b83290b9d8d86ba06524bed72b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4421ad4260ff8eada87cdebc031d09922860324f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297090"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196320"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Felsöka DMS-fel vid anslutning till källdatabaser
 
@@ -30,9 +30,9 @@ Eventuella problem som är kopplade till att ansluta till en käll SQL Server da
 | Fel         | Information om orsak och fel sökning |
 | ------------- | ------------- |
 | SQL-anslutning misslyckades. Ett nätverksrelaterat eller instansspecifikt fel uppstod när en anslutning upprättades till SQL Server. Servern hittades inte eller var inte tillgänglig. Kontrol lera att instans namnet är rätt och att SQL Server har kon figurer ATS för att tillåta fjärr anslutningar.<br> | Det här felet uppstår om tjänsten inte kan hitta käll servern. För att lösa problemet kan du läsa artikeln [fel vid anslutning till käll SQL Server när du använder dynamisk port eller namngiven instans](https://docs.microsoft.com/azure/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance). |
-| **Fel 53** – SQL-anslutning misslyckades. (Även för felkoder 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Det här felet uppstår om tjänsten inte kan ansluta till käll servern. För att åtgärda problemet, se följande resurser och försök sedan igen. <br><br>  [Interaktiv användar guide för fel sökning av anslutnings problem](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Förutsättningar för att migrera SQL Server till Azure SQL Database](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Krav för migrering av SQL Server till en Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
+| **Fel 53** – SQL-anslutning misslyckades. (Även för felkoder 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Det här felet uppstår om tjänsten inte kan ansluta till käll servern. För att åtgärda problemet, se följande resurser och försök sedan igen. <br><br>  [Interaktiv användar guide för fel sökning av anslutnings problem](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Förutsättningar för att migrera SQL Server till Azure SQL Database](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Krav för migrering av SQL Server till en hanterad Azure SQL-instans](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
 | **Fel 18456** -inloggningen misslyckades.<br> | Det här felet uppstår om tjänsten inte kan ansluta till käll databasen med de angivna T-SQL-autentiseringsuppgifterna. Åtgärda problemet genom att kontrol lera de angivna autentiseringsuppgifterna. Du kan också referera till [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) eller till fel söknings dokumenten som anges i anteckningen under den här tabellen och sedan försöka igen. |
-| Ett felaktigt AccountName-{0}värde har angetts. Förväntat format för AccountName är DomainName\UserName<br> | Det här felet uppstår om användaren väljer Windows-autentisering men anger användar namnet i ett ogiltigt format. För att åtgärda problemet anger du antingen användar namn i rätt format för Windows-autentisering eller väljer **SQL-autentisering**. |
+| Ett felaktigt AccountName-värde har {0} angetts. Förväntat format för AccountName är DomainName\UserName<br> | Det här felet uppstår om användaren väljer Windows-autentisering men anger användar namnet i ett ogiltigt format. För att åtgärda problemet anger du antingen användar namn i rätt format för Windows-autentisering eller väljer **SQL-autentisering**. |
 
 ## <a name="aws-rds-mysql"></a>AWS RDS MySQL
 

@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f55b22938bd6f18bae1576a0c64e673996d38bf
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253347"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220139"
 ---
 # <a name="azcopy-copy"></a>azcopy kopiera
 
@@ -147,25 +147,25 @@ Kopiera alla BLOB-behållare, kataloger och blobbar från lagrings kontot till e
 
 Kopiera ett enskilt objekt till Blob Storage från Amazon Web Services (AWS) S3 med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
   
-- AzCopy CP "https://s3.amazonaws.com/[Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "
+- AzCopy CP " https://s3.amazonaws.com/ [Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [ SAS] "
 
 Kopiera en hel katalog till Blob Storage från AWS S3 med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-- AzCopy CP "https://s3.amazonaws.com/[Bucket]/[mapp]" "https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [SAS] "--recursive = True
+- AzCopy CP " https://s3.amazonaws.com/ [Bucket]/[mapp]" "https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [ SAS] "--recursive = True
 
 Se https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html för att bättre förstå [Folder]-plats hållaren.
 
 Kopiera alla buckets till Blob Storage från Amazon Web Services (AWS) med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-- AzCopy CP "https://s3.amazonaws.com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
+- AzCopy CP " https://s3.amazonaws.com/ " "https://[destaccount]. blob. Core. Windows. net? [ SAS] "--recursive = True
 
 Kopiera alla buckets till Blob Storage från ett Amazon Web Services (AWS)-region med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-- AzCopy CP "https://s3-[region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
+- AzCopy CP " https://s3- [region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [ SAS] "--recursive = True
 
 Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i Bucket-namnet. Precis som i föregående exempel behöver du en åtkomst nyckel och en SAS-token. Se till att ställa in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-- AzCopy CP "https://s3.amazonaws.com/[Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
+- AzCopy CP " https://s3.amazonaws.com/ [Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [ SAS] "--recursive = True
 
 ## <a name="options"></a>Alternativ
 
@@ -225,11 +225,11 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 
 **--bevara-senaste ändrings tid**          Endast tillgängligt om målet är fil system.
 
-**--Behåll-SMB-Permissions** -sträng falskt som standard. Bevarar SMB ACL: er mellan medvetna resurser (Windows och Azure Files). För hämtningar måste du också använda `--backup` flaggan för att återställa behörigheter där den nya ägaren inte kommer att vara den användare som kör AzCopy. Den här flaggan gäller för både filer och mappar, om inte ett fil filter anges (t. ex `include-pattern`.).
+**--Behåll-SMB-Permissions** -sträng falskt som standard. Bevarar SMB ACL: er mellan medvetna resurser (Windows och Azure Files). För hämtningar måste du också använda `--backup` flaggan för att återställa behörigheter där den nya ägaren inte kommer att vara den användare som kör AzCopy. Den här flaggan gäller för både filer och mappar, om inte ett fil filter anges (t. ex. `include-pattern` ).
 
 **--Behåll-SMB-info** sträng falskt som standard. Bevarar information om SMB-egenskaper (senaste skrivnings tid, skapande tid, attribut bitar) mellan SMB-medvetna resurser (Windows och Azure Files). Endast de BITS-attribut som stöds av Azure Files kommer att överföras. andra kommer att ignoreras. Den här flaggan gäller för både filer och mappar, om inte ett fil filter anges (t. ex. include-mönster). Den information som överförs för mappar är samma som för filer, förutom senaste skrivnings tid som aldrig bevaras för mappar.
 
-**--Behåll-ägare**                       Har bara en inverkan i vid hämtning av `--preserve-smb-permissions` data och endast när används. Om värdet är sant (standardvärdet) bevaras fil ägaren och gruppen i hämtningar. Om den här flaggan har angetts till false, kommer fortfarande att bevara ACL: er, `--preserve-smb-permissions` men ägare och grupp kommer att baseras på den användare som kör AzCopy.
+**--Behåll-ägare**                       Har bara en inverkan i vid hämtning av data och endast när `--preserve-smb-permissions` används. Om värdet är sant (standardvärdet) bevaras fil ägaren och gruppen i hämtningar. Om den här flaggan har angetts till false, `--preserve-smb-permissions` kommer fortfarande att bevara ACL: er, men ägare och grupp kommer att baseras på den användare som kör AzCopy.
 
 **--Skicka-MD5**                             Skapa en MD5-hash av varje fil och spara hashen som Content-MD5-egenskapen för Målmatrisen eller-filen. (Som standard skapas inte hashen.) Endast tillgängligt vid uppladdning.
 
@@ -249,6 +249,8 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 
 **--Skriv** sträng format för kommandots utdata. Alternativen är: text, JSON. Standardvärdet är ' text '. (standard text)
 
+**--sträng för betrodd-Microsoft-suffix** anger ytterligare domänsuffix där Azure Active Directory inloggnings-token kan skickas.  Standardvärdet är '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. De som anges här läggs till i standardvärdet. För säkerhet ska du bara placeras Microsoft Azure domäner här. Avgränsa flera poster med semikolon.
+
 ## <a name="see-also"></a>Se även
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

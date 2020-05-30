@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 635cf32fa27a8bc5be12964852c451190e7f1aae
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 643c94736d6ee519907913bc9ec59f808081f089
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050760"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216406"
 ---
 # <a name="what-is-azure-sql-database"></a>Vad är Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Med SQL Database kan du enkelt definiera och skala prestanda inom två olika ink
 
 ## <a name="deployment-models"></a>Distributionsmodeller
 
-Azure SQL Database innehåller följande distributionsalternativ för en Azure SQL-databas:
+Azure SQL Database tillhandahåller följande distributions alternativ för en databas:
 
 - En [enskild databas](single-database-overview.md) representerar en fullständigt hanterad, isolerad databas. Du kan använda det här alternativet om du har moderna moln program och mikrotjänster som behöver en enda tillförlitlig data källa. En enda databas liknar en [innesluten databas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) i [Microsoft SQL Server databas motor](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
 - [Elastisk pool](elastic-pool-overview.md) är en samling av [enskilda databaser](single-database-overview.md) med en delad uppsättning resurser, till exempel processor eller minne. Enskilda databaser kan flyttas till och från en elastisk pool.
@@ -190,18 +190,13 @@ Med SQL Database kan du centralt hantera identiteter för databasanvändare och 
 
 SQL Database gör byggandet och underhållet av appar enklare och mer produktivt. Med SQL Database kan du fokusera på det du gör väst: bygga bra appar. Du kan hantera och utveckla i SQL Database med hjälp av verktyg och färdigheter som du redan har.
 
-- [Azure Portal](https://portal.azure.com/):
-
-  Ett webbaserat program för att hantera alla Azure-tjänster.
-- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms):
-
-  Ett kostnads fritt, nedladdnings Bart klient program för att hantera alla SQL-infrastrukturer, från SQL Server till SQL Database.
-- [SQL Server data tools i Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt):
-
-  Ett kostnads fritt, nedladdnings Bart klient program för att utveckla SQL Server Relations databaser, Microsoft Azure SQL-databaser, Integration Services-paket, Analysis Services data modeller och repor ting Services-rapporter.
-- [Visual Studio-kod](https://code.visualstudio.com/docs):
-
-  En kostnads fri, nedladdnings bar kod redigerare med öppen källkod för Windows, macOS och Linux. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för att fråga Microsoft SQL Server, Azure SQL Database och Azure SQL Data Warehouse.
+|Verktyg|Description|
+|:---|:---|
+|[Azure Portal](https://portal.azure.com/)|Ett webbaserat program för att hantera alla Azure-tjänster.|
+|[Azure Data Studio](/sql/azure-data-studio/)|Ett databas verktyg över plattformar som körs på Windows, MacOS och Linux.|
+|[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Ett kostnads fritt, nedladdnings Bart klient program för att hantera alla SQL-infrastrukturer, från SQL Server till SQL Database.|
+|[SQL Server Data Tools i Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Ett kostnads fritt, nedladdnings Bart klient program för att utveckla SQL Server Relations databaser, Microsoft Azure SQL-databaser, Integration Services-paket, Analysis Services data modeller och repor ting Services-rapporter.|
+|[Visual Studio-koden](https://code.visualstudio.com/docs)|En kostnads fri, nedladdnings bar kod redigerare med öppen källkod för Windows, macOS och Linux. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för att fråga Microsoft SQL Server, Azure SQL Database och Azure SQL Data Warehouse.|
 
 SQL Database har stöd för att skapa program med python, Java, Node. js, PHP, ruby och .NET på macOS, Linux och Windows. SQL Database stöder samma [anslutningsbibliotek](connect-query-content-reference-guide.md#libraries) som SQL Server.
 

@@ -7,20 +7,20 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 6273043fc50938961caaf9f5a84273ec93c7521c
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 70def2584cf8855e8fdf4a74081dc5a9a8c46f68
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801750"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205117"
 ---
-# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Snabb start: Använd en ARM-mall för att skapa en Azure Database for PostgreSQL-enskild server
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-postgresql---single-server"></a>Snabb start: Använd en Resource Manager-mall för att skapa en Azure Database for PostgreSQL-enskild server
 
 Azure Database för PostgreSQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. I den här snabb starten använder du en ARM-mall för att skapa en Azure Database for PostgreSQL-enskild server i Azure Portal, PowerShell eller Azure CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -44,7 +44,7 @@ Du skapar en Azure Database for PostgreSQL-server med en konfigurerad uppsättni
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-postgresql-with-vnet/).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/101-managed-postgresql-with-vnet/azuredeploy.json" range="001-233" highlight="151,164,178,201,215":::
 
@@ -58,7 +58,7 @@ Mallen definierar fem Azure-resurser:
 
 Fler Azure Database for PostgreSQL mal sampel finns i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Distribuera mallen
+### <a name="deploy-the-template"></a>Distribuera mallen
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

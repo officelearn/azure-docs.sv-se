@@ -3,12 +3,12 @@ title: Lägg till Migreringsverktyg i Azure Migrate
 description: Lär dig hur du lägger till Migreringsverktyg i Azure Migrate.
 ms.topic: article
 ms.date: 04/26/2020
-ms.openlocfilehash: e7d36a642f41b77e3b4c4125bae64f02def3b306
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 670341adca7ab2958d43132aab164d7bba0f87d0
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901452"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195811"
 ---
 # <a name="add-migration-tools"></a>Lägga till migreringsverktyg
 
@@ -23,7 +23,7 @@ I den här artikeln beskrivs hur du lägger till Migreringsverktyg i [Azure Migr
 2. Välj det scenario för migrering som du vill använda:
 
     - Om du vill migrera datorer och arbets belastningar till Azure väljer du **utvärdera och migrera servrar**.
-    - Om du vill migrera lokala SQL-datorer väljer du **utvärdera och migrera databaser**.
+    - Om du vill migrera lokala SQL Server databaser väljer du **utvärdera och migrera databaser**.
     - Om du vill migrera lokala webbappar väljer du **utvärdera och migrera webbappar**.
     - Om du vill migrera stora mängder lokala data till Azure i offline-läge väljer **du Beställ en data Box-enhet**.
 

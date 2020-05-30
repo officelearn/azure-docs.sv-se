@@ -3,12 +3,13 @@ title: Återställa filer och mappar från virtuell Azure-säkerhetskopiering
 description: I den här artikeln lär du dig hur du återställer filer och mappar från en återställnings punkt för en virtuell Azure-dator.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 0cb3b588aadcda232d1a9a07fc6d9336448cb5a5
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.custom: references_regions
+ms.openlocfilehash: 91918bb053c1f26e33d08dde3b68debfcffe350e
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118124"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195754"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 09d51de3ae0bd4baca585d2abdd936b1a29567d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 390cddf557905e95e313896f9f172e30b81352b9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065035"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195932"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Felsöka problem med gateway för datahantering
 Den här artikeln innehåller information om fel sökning av problem med att använda Data Management Gateway.
@@ -24,7 +24,7 @@ Den här artikeln innehåller information om fel sökning av problem med att anv
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Azure Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [integration runtime med egen värd i Data Factory](../create-self-hosted-integration-runtime.md).
 
-Se [Data Management Gateway](data-factory-data-management-gateway.md) -artikeln för detaljerad information om gatewayen. Se artikeln [Flytta data mellan lokalt och moln](data-factory-move-data-between-onprem-and-cloud.md) för en genom gång av hur du flyttar data från en lokal SQL Server databas till Microsoft Azure Blob Storage med hjälp av gatewayen.
+Se [Data Management Gateway](data-factory-data-management-gateway.md) -artikeln för detaljerad information om gatewayen. Se artikeln [Flytta data mellan lokalt och moln](data-factory-move-data-between-onprem-and-cloud.md) för en genom gång av hur du flyttar data från en SQL Server databas till Microsoft Azure Blob Storage med hjälp av gatewayen.
 
 ## <a name="failed-to-install-or-register-gateway"></a>Det gick inte att installera eller registrera Gateway
 ### <a name="1-problem"></a>1. problem
@@ -279,7 +279,7 @@ Klicka på länken **arkivera Gateway-loggar** för att arkivera och Spara logga
 Du hittar detaljerad information om Gateway-loggen i händelse loggarna i Windows.
 
 1. Starta Windows **Loggboken**.
-2. Hitta loggar i**Data Management Gateway** mappen **program-och tjänst loggar** > .
+2. Hitta loggar i Data Management Gateway mappen **program-och tjänst loggar**  >  **Data Management Gateway** .
 
    När du felsöker Gateway-relaterade problem kan du leta efter fel nivå händelser i logg boken.
 

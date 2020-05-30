@@ -1,6 +1,6 @@
 ---
 title: Avancerad datasäkerhet
-description: Lär dig mer om funktioner för att identifiera och klassificera känsliga data, hantera dina databas sårbarheter och identifiera avvikande aktiviteter som kan tyda på ett hot mot din Azure SQL Database, Azure SQL-hanterad instans eller Azure-Synapse.
+description: Lär dig mer om funktioner för att identifiera och klassificera känsliga data, hantera dina databas sårbarheter och identifiera avvikande aktiviteter som kan tyda på ett hot mot databasen i Azure SQL Database, Azure SQL-hanterad instans eller Azure-Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,32 +12,31 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: ed7d4b10219f4d4a3c437331bd1daf870495949d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d600d174aa37c5c4d5d1011b9cb61e4487256c13
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047855"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195137"
 ---
 # <a name="advanced-data-security"></a>Avancerad datasäkerhet
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 
-Avancerad data säkerhet (ADS) är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. ADS är tillgängligt för Azure SQL Database, Azure SQL-hanterad instans och Azure-Synapse. Det innefattar funktioner för att identifiera och klassificera känsliga data, lyfta fram och åtgärda potentiella säkerhetsrisker i databasen och identifiera avvikande aktiviteter som kan indikera ett hot mot databasen. Det ger en samlad plats för aktivering och hantering av dessa funktioner.
+Avancerad data säkerhet (ADS) är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. ADS är tillgängligt för Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics. Det innefattar funktioner för att identifiera och klassificera känsliga data, lyfta fram och åtgärda potentiella säkerhetsrisker i databasen och identifiera avvikande aktiviteter som kan indikera ett hot mot databasen. Det ger en samlad plats för aktivering och hantering av dessa funktioner.
 
 ## <a name="overview"></a>Översikt
 
-Avancerad data säkerhet (ADS) innehåller en uppsättning avancerade SQL-säkerhetsfunktioner, inklusive data identifiering & klassificering, sårbarhets bedömning och Avancerat skydd.
+ADS innehåller en uppsättning avancerade SQL-säkerhetsfunktioner, inklusive data identifiering & klassificering, sårbarhets bedömning i SQL och Avancerat skydd.
+- [Data identifierings & klassificering](data-discovery-and-classification-overview.md) innehåller funktioner som är inbyggda i Azure SQL Database, Azure SQL-hanterad instans och Azure-Synapse för att upptäcka, klassificera, märka och rapportera känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen.
+- [Sårbarhets bedömning](sql-vulnerability-assessment.md) är en tjänst som är enkel att konfigurera som kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter. Den ger insyn i ditt säkerhets tillstånd och innehåller åtgärder som kan vidtas för att lösa säkerhets problem och förbättra din databas Fortifications.
+- [Advanced Threat Protection](threat-detection-overview.md) identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja din databas. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhets aviseringar om potentiella sårbarheter, Azure SQL-injektering och avvikande databas åtkomst mönster. Advanced Threat Protection-aviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minska risken.
 
-- [Data identifierings & klassificering](data-discovery-and-classification-overview.md) innehåller funktioner som är inbyggda i Azure SQL Database, Azure SQL-hanterad instans och Azure-Synapse för att upptäcka, klassificera och märka & rapportering av känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen.
-- [Vulnerability Assessment](sql-vulnerability-assessment.md) är en tjänst som är enkel att konfigurera och som kan identifiera, spåra och hjälpa dig att åtgärda eventuella säkerhetsrisker i databasen. Den ger inblick i dina säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
-- [Advanced Threat Protection](threat-detection-overview.md) identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja din databas. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Advanced Threat Protection-aviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minska risken.
-
-Aktivera SQL-annonser en gång för att aktivera alla dessa inkluderade funktioner. Med ett klick kan du aktivera annonser för alla databaser på [servern](logical-servers.md) i Azure (som är värdar SQL Database eller Azure Synapse Analytics) eller i instans i Azure SQL-hanterad instans. Aktivering eller hantering av ADS-inställningar kräver tillhöra rollen [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) , rollen administratör för SQL-databas eller rollen SQL Server-administratör.
+Aktivera avancerad data säkerhet en gång för att aktivera alla dessa inkluderade funktioner. Med ett klick kan du aktivera annonser för alla databaser på [servern](logical-servers.md) i Azure eller i din SQL-hanterade instans. Aktivering eller hantering av ADS-inställningar kräver att de tillhör rollen [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) eller en av databas-eller Server administratörs rollerna.
 
 Prissättningen för ANNONSERas med Azure Security Center standard nivå, där varje skyddad Server eller hanterad instans räknas som en nod. Nyligen skyddade resurser är berättigade till en kostnads fri utvärderings version av Security Center standard nivån. Mer information finns på sidan med [Azure Security Center priser](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="getting-started-with-ads"></a>Komma igång med annonser
+## <a name="getting-started-with-ads"></a>Komma igång med ADS
 
 Följande steg hjälper dig att komma igång med annonser.
 

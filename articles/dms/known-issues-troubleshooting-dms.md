@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: c5d2ad481124f5ae048d010cdf632ee661bbd6ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f108c8b9d86a527764d2c7b8dddc6fb239b00d2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649115"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196255"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Felsök vanliga Azure Database Migration Service problem och fel
 
@@ -32,7 +32,7 @@ När du skapar nya aktiviteter i ett Azure Database Migration Service-projekt be
 
 ## <a name="max-number-of-databases-selected-for-migration"></a>Högsta antal databaser som valts för migrering
 
-Följande fel inträffar när du skapar en aktivitet för ett databas migreringsjobb för att flytta till Azure SQL Database eller en Azure SQL Database Hanterad instans:
+Följande fel inträffar när du skapar en aktivitet för ett Database migration-projekt för att flytta till Azure SQL Database eller en hanterad Azure SQL-instans:
 
 * **Fel**: verifierings fel för migrering "," errorDetail ":" fler än max antalet objekt i "databaser" har marker ATS för migrering. "
 
@@ -58,7 +58,7 @@ Du får följande fel meddelande när du stoppar Azure Database Migration Servic
 
 | Orsak         | Lösning |
 | ------------- | ------------- |
-| Det här felet visas när tjänst instansen som du försöker stoppa innehåller aktiviteter som fortfarande körs eller finns i migreringsjobb. <br><br><br><br><br><br> | Se till att det inte finns några aktiviteter som körs i instansen av Azure Database Migration Service som du försöker stoppa. Du kan också ta bort aktiviteterna eller projekten innan du försöker stoppa tjänsten. Följande steg illustrerar hur du tar bort projekt för att rensa migreringsprocessen genom att ta bort alla aktiviteter som körs:<br>1. install-module-Name AzureRM. data migration <br>2. login-AzureRmAccount <br>3. Select-AzureRmSubscription-SubscriptionName "\<undernamn>" <br> 4. Remove-AzureRmDataMigrationProject-name \<projectName>-ResourceGroupName \<rgName>-ServiceName \<ServiceName>-DeleteRunningTask |
+| Det här felet visas när tjänst instansen som du försöker stoppa innehåller aktiviteter som fortfarande körs eller finns i migreringsjobb. <br><br><br><br><br><br> | Se till att det inte finns några aktiviteter som körs i instansen av Azure Database Migration Service som du försöker stoppa. Du kan också ta bort aktiviteterna eller projekten innan du försöker stoppa tjänsten. Följande steg illustrerar hur du tar bort projekt för att rensa migreringsprocessen genom att ta bort alla aktiviteter som körs:<br>1. install-module-Name AzureRM. data migration <br>2. login-AzureRmAccount <br>3. Select-AzureRmSubscription-SubscriptionName " \<subName> " <br> 4. Remove-AzureRmDataMigrationProject-name \<projectName> -ResourceGroupName \<rgName> -ServiceName \<serviceName> -DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Fel vid försök att starta Azure Database Migration Service
 
@@ -72,13 +72,13 @@ Du får följande fel meddelande när du startar Azure Database Migration Servic
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Fel vid återställning av databas vid migrering av SQL till Azure SQL DB-hanterad instans
 
-När du utför en online-migrering från SQL Server till en Azure SQL Database Hanterad instans, Miss lyckas start punkt med följande fel:
+När du utför en online-migrering från SQL Server till en Azure SQL-hanterad instans, Miss lyckas start punkt med följande fel:
 
 * **Fel**: det gick inte att återställa åtgärds-ID: t ' operationId '. Kod ' AuthorizationFailed ', meddelande ' klienten ' clientId ' med objekt-ID ' objectId ' har inte behörighet att utföra åtgärden ' Microsoft. SQL/locations/managedDatabaseRestoreAzureAsyncOperation/Read ' över omfattningen '/subscriptions/subscriptionId '. '.
 
 | Orsak         | Lösning    |
 | ------------- | ------------- |
-| Det här felet anger att det program objekt som används för online-migrering från SQL Server till en Azure SQL Database Hanterad instans inte har behörigheten delta i prenumerationen. Vissa API-anrop med hanterade instanser kräver den här behörigheten för prenumerationen för återställnings åtgärden. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Använd `Get-AzureADServicePrincipal` PowerShell-cmdleten `-ObjectId` som är tillgänglig i fel meddelandet för att Visa visnings namnet för det program-ID som används.<br><br> Verifiera behörigheterna för det här programmet och se till att det har [rollen deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) på prenumerations nivån. <br><br> Azure Database Migration Service teknik teamet arbetar för att begränsa den nödvändiga åtkomsten från den aktuella Contribute-rollen för prenumerationen. Om du har ett affärs krav som inte tillåter användning av Contribute-rollen kan du kontakta Azure-supporten om du vill ha mer hjälp. |
+| Det här felet anger att det program objekt som används för online-migrering från SQL Server till SQL-hanterad instans inte har behörighet att delta i prenumerationen. Vissa API-anrop med hanterade instanser kräver den här behörigheten för prenumerationen för återställnings åtgärden. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Använd `Get-AzureADServicePrincipal` PowerShell-cmdleten som `-ObjectId` är tillgänglig i fel meddelandet för att Visa visnings namnet för det program-ID som används.<br><br> Verifiera behörigheterna för det här programmet och se till att det har [rollen deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) på prenumerations nivån. <br><br> Azure Database Migration Service teknik teamet arbetar för att begränsa den nödvändiga åtkomsten från den aktuella Contribute-rollen för prenumerationen. Om du har ett affärs krav som inte tillåter användning av Contribute-rollen kan du kontakta Azure-supporten om du vill ha mer hjälp. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Fel vid borttagning av NIC som är associerat med Azure Database Migration Service
 

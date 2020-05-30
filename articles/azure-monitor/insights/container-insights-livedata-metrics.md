@@ -3,16 +3,17 @@ title: Visa mått i real tid med Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs real tids visningen av mått utan att använda kubectl med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: 54d751769005dabb4708eb198bcc765d830ba605
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79216599"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196134"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Visa mått i real tid
 
-Med funktionen Azure Monitor för behållare Live data (för hands version) kan du visualisera mått om Node-och Pod-tillstånd i ett kluster i real tid. Den emulerar direkt åtkomst till kommandon `kubectl top nodes`, `kubectl get pods –all-namespaces`och `kubectl get nodes` för att anropa, parsa och visualisera data i prestanda diagram som ingår i den här insikten. 
+Med funktionen Azure Monitor för behållare Live data (för hands version) kan du visualisera mått om Node-och Pod-tillstånd i ett kluster i real tid. Den emulerar direkt åtkomst till `kubectl top nodes` kommandon, `kubectl get pods –all-namespaces` och `kubectl get nodes` för att anropa, parsa och visualisera data i prestanda diagram som ingår i den här insikten. 
 
 Den här artikeln innehåller en detaljerad översikt och hjälper dig att förstå hur du använder den här funktionen.  
 
@@ -28,7 +29,7 @@ Om du vill ha hjälp med att ställa in eller felsöka funktionen Live data (fö
 
 Funktionen Live data (för hands version) har direkt åtkomst till Kubernetes-API: et och ytterligare information om Authentication Model finns [här](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-Den här funktionen utför en avsöknings åtgärd mot Mät slut punkter (inklusive `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes`och `/api/v1/pods`), som är var femte sekund som standard. Dessa data cachelagras i webbläsaren och ritas i de fyra prestanda diagram som ingår i Azure Monitor för behållare på fliken **kluster** genom att välja **Go Live (för hands version)**. Varje efterföljande avsökning är i ett diagram till en rullande fem minuters visualiserings period. 
+Den här funktionen utför en avsöknings åtgärd mot Mät slut punkter (inklusive `/api/v1/nodes` , `/apis/metrics.k8s.io/v1beta1/nodes` och `/api/v1/pods` ), som är var femte sekund som standard. Dessa data cachelagras i webbläsaren och ritas i de fyra prestanda diagram som ingår i Azure Monitor för behållare på fliken **kluster** genom att välja **Go Live (för hands version)**. Varje efterföljande avsökning är i ett diagram till en rullande fem minuters visualiserings period. 
 
 ![Alternativet gå live i vyn kluster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
@@ -62,7 +63,7 @@ Detta hjälper dig också att förstå vilka noder som håller på att flyttas t
 
 ### <a name="node-count"></a>Antal noder
 
-Det här prestanda diagrammet mappar till en motsvarighet till att `kubectl get nodes` anropa och mappa kolumnen **status** till ett diagram, grupperat efter status typer.
+Det här prestanda diagrammet mappar till en motsvarighet till att anropa `kubectl get nodes` och mappa kolumnen **status** till ett diagram, grupperat efter status typer.
 
 ![Exempel resultat för Kubectl get Nodes](./media/container-insights-livedata-metrics/kubectl-get-nodes-example.png)
 
@@ -73,7 +74,7 @@ Om du till exempel vill förstå om noderna hamnar i fel tillstånd. Om du anvä
 
 ### <a name="active-pod-count"></a>Antal aktiva Pod
 
-Det här prestanda diagrammet mappar till en motsvarighet till att `kubectl get pods –all-namespaces` anropa och mappar **status** kolumnen till diagrammet grupperat efter status typer.
+Det här prestanda diagrammet mappar till en motsvarighet till att anropa `kubectl get pods –all-namespaces` och mappar **status** kolumnen till diagrammet grupperat efter status typer.
 
 ![Kubectl Hämta poddar exempel resultat](./media/container-insights-livedata-metrics/kubectl-get-pods-example.png)
 

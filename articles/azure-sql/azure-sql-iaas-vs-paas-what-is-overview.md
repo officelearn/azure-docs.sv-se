@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/27/2020
-ms.openlocfilehash: 68f6977059af84fc7fa98fe5817f9f5b4fbdcf90
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a2ec92573870ea1e43c45f4b4fc5c552b2932f1c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045419"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195163"
 ---
 # <a name="what-is-azure-sql"></a>Vad är Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "84045419"
 Azure SQL är en familj av hanterade, säkra och intelligenta SQL Server databas produkter.
 
 - **Azure SQL Database**: stöd för moderna moln program i en intelligent, hanterad databas tjänst som innehåller Server lös beräkning. 
-- **Azure SQL-hanterad instans**: modernisera dina befintliga SQL Server program i stor skala med en intelligent, fullständigt hanterad instans som tjänst, med nästan 100% funktions paritet till den SQL Server lokala du använder. Bäst för de flesta migreringar till molnet.
+- **Azure SQL-hanterad instans**: modernisera dina befintliga SQL Server program i stor skala med en intelligent, fullständigt hanterad instans som en tjänst, med nästan 100% funktions paritet med SQL Server databas motorn. Bäst för de flesta migreringar till molnet.
 - **SQL Server på virtuella Azure-datorer**: lyft-och-flytta dina SQL Server-arbetsbelastningar med enkel och underhåll av 100% SQL Server kompatibilitet och operativ Systems nivå åtkomst. 
  
 Azure SQL bygger på den välbekanta SQL Server motorn, så att du kan migrera program snabbt och fortsätta att använda verktygen, språken och resurserna som du är van vid. Dina kunskaper och erfarenhet till molnet, så att du kan göra ännu mer med det du redan har. 
@@ -98,7 +98,7 @@ Ytterligare skillnader visas i följande tabell, men ***både SQL Database-och S
 
 | Azure SQL Database | Hanterad Azure SQL-instans | SQL Server på virtuella Azure-datorer |
 | :--- | :--- | :--- |
-|Stöder de flesta lokala funktioner på databas nivå. De vanligaste SQL Server funktionerna är tillgängliga.<br/>99,995% tillgänglighet garanterad.<br/>Inbyggda säkerhets kopieringar, korrigeringar och återställning.<br/>Senaste versionen av stabil databas motor.<br/>Möjlighet att tilldela nödvändiga resurser (CPU/lagring) till enskilda databaser.<br/>Inbyggd avancerad intelligens och säkerhet.<br/>Ändring av resurser online (CPU/lagring).| Har stöd för nästan alla lokala funktioner på instans nivå och databas nivå. Hög kompatibilitet med SQL Server lokalt.<br/>99,99% tillgänglighet garanterad.<br/>Inbyggda säkerhets kopieringar, korrigeringar och återställning.<br/>Senaste versionen av stabil databas motor.<br/>Enkel migrering från SQL Server.<br/>Privat IP-adress i Azure VNet.<br/>Inbyggd avancerad intelligens och säkerhet.<br/>Ändring av resurser online (CPU/lagring).| Du har fullständig kontroll över SQL Servers motorn. Stöder alla lokala funktioner.<br/>Upp till 99,99% tillgänglighet.<br/>Fullständig paritet med den matchande versionen av lokala SQL Server.<br/>Fast och välkänd databas motor version.<br/>Enkel migrering från SQL Server lokalt.<br/>Privat IP-adress i Azure VNet.<br/>Du kan distribuera program eller tjänster på värden där SQL Server placeras.|
+|Stöder de flesta lokala funktioner på databas nivå. De vanligaste SQL Server funktionerna är tillgängliga.<br/>99,995% tillgänglighet garanterad.<br/>Inbyggda säkerhets kopieringar, korrigeringar och återställning.<br/>Senaste versionen av stabil databas motor.<br/>Möjlighet att tilldela nödvändiga resurser (CPU/lagring) till enskilda databaser.<br/>Inbyggd avancerad intelligens och säkerhet.<br/>Ändring av resurser online (CPU/lagring).| Har stöd för nästan alla lokala funktioner på instans nivå och databas nivå. Hög kompatibilitet med SQL Server.<br/>99,99% tillgänglighet garanterad.<br/>Inbyggda säkerhets kopieringar, korrigeringar och återställning.<br/>Senaste versionen av stabil databas motor.<br/>Enkel migrering från SQL Server.<br/>Privat IP-adress i Azure VNet.<br/>Inbyggd avancerad intelligens och säkerhet.<br/>Ändring av resurser online (CPU/lagring).| Du har fullständig kontroll över SQL Servers motorn. Stöder alla lokala funktioner.<br/>Upp till 99,99% tillgänglighet.<br/>Fullständig paritet med den matchande versionen av lokala SQL Server.<br/>Fast och välkänd databas motor version.<br/>Enkel migrering från SQL Server.<br/>Privat IP-adress i Azure VNet.<br/>Du kan distribuera program eller tjänster på värden där SQL Server placeras.|
 |Det kan vara svårt att migrera från SQL Server.<br/>Vissa SQL Server funktioner är inte tillgängliga.<br/>Ingen garanterad, exakt underhålls tid (men nästan transparent).<br/>Kompatibilitet med SQL Server-versionen kan bara uppnås med hjälp av kompatibilitetsnivån för databaser.<br/>Det går inte att tilldela en privat IP-adress (du kan begränsa åtkomsten med brand Väggs regler).|Det finns fortfarande ett minimalt antal SQL Server funktioner som inte är tillgängliga.<br/>Ingen garanterad, exakt underhålls tid (men nästan transparent).<br/>Kompatibilitet med SQL Server-versionen kan bara uppnås med hjälp av kompatibilitetsnivån för databaser.|Du måste hantera dina säkerhets kopieringar och uppdateringar.<br>Du måste implementera din egen lösning för hög tillgänglighet.<br/>Det finns ett avbrott när du ändrar resurser (CPU/lagring)|
 | Databaser på upp till 100 TB. | Upp till 8 TB. | SQL Server instanser med upp till 256 TB lagrings utrymme. Instansen har stöd för så många databaser som behövs. |
 | Lokala program kan komma åt data i Azure SQL Database. | [Inbyggd implementering av virtuella nätverk](managed-instance/vnet-existing-add-subnet.md) och anslutning till din lokala miljö med hjälp av Azure Express Route eller VPN gateway. | Med virtuella SQL-datorer kan du ha program som körs delvis i molnet och delvis lokalt. Du kan till exempel utöka ditt lokala nätverk och Active Directory-domän till molnet via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Mer information om hybrid moln lösningar finns i [utöka lokala data lösningar till molnet](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |

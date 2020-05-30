@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 22fa0e1cc6bdad109c5dcb82cc08b81d91674f9a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: bb2679d0f681ae82bbe1a50671bd2ff70a239dfb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022462"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194509"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av PowerShell
 
@@ -732,7 +732,7 @@ I den här självstudiekursen fick du:
 > * Köra en pipeline.
 > * Övervaka pipelinekörningen.
 
-I den här självstudien kopierade en pipeline data från en enskild tabell i en SQL-databas till Blob-lagring. Fortsätt till följande självstudie för att lära dig hur du kopierar data från flera tabeller till en lokal SQL Server-databas till en SQL-databas.
+I den här självstudien kopierade en pipeline data från en enskild tabell i en SQL-databas till Blob-lagring. Gå vidare till följande självstudie för att lära dig hur du kopierar data från flera tabeller i en SQL Server databas till SQL Database.
 
 > [!div class="nextstepaction"]
 >[Läs in data stegvist från flera tabeller i SQL Server till Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)

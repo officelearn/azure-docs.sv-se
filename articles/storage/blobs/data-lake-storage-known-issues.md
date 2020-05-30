@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4b6def2ce2b0c1ba6d3a45e64bb7f82b5948a524
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 315bab473ccb42c3ca7b481c16bf8d8fbcfaac67
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642197"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193449"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -60,7 +60,7 @@ Dessa BLOB REST-API: er stöds inte:
 
 Ohanterade VM-diskar stöds inte i konton som har ett hierarkiskt namn område. Om du vill aktivera ett hierarkiskt namn område på ett lagrings konto placerar du ohanterade virtuella dator diskar i ett lagrings konto där funktionen för hierarkiskt namn område inte är aktive rad.
 
-<a id="api-scope-data-lake-client-library" />
+<a id="api-scope-data-lake-client-library"></a>
 
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Stöd för fil system i SDK: er, PowerShell och Azure CLI
 
@@ -79,25 +79,25 @@ Det finns för närvarande en bugg som påverkar Arkiv åtkomst nivån.
 
 Blobfuse stöds inte.
 
-<a id="known-issues-tools" />
+<a id="known-issues-tools"></a>
 
 ## <a name="azcopy"></a>AzCopy
 
 Använd endast den senaste versionen av AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).Tidigare versioner av AzCopy, till exempel AzCopy v 8.1, stöds inte.
 
-<a id="storage-explorer" />
+<a id="storage-explorer"></a>
 
 ## <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
 
 Använd endast versioner  `1.6.0`   eller högre.
 
-<a id="explorer-in-portal" />
+<a id="explorer-in-portal"></a>
 
 ## <a name="storage-explorer-in-the-azure-portal"></a>Storage Explorer i Azure Portal
 
 ACL: er stöds inte ännu.
 
-<a id="third-party-apps" />
+<a id="third-party-apps"></a>
 
 ## <a name="thirdpartyapplications"></a>Program från tredje part
 
@@ -111,7 +111,7 @@ Om [Anonym Läs åtkomst](storage-manage-access-to-resources.md) har beviljats t
 
 ### <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Till exempel:
+Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Ett exempel:
 
 ```powershell
 #To login

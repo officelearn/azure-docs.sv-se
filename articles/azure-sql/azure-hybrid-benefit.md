@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: d57eb2718f79e9243426a59245abc44c98dc6249
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: e5af5c6b30c6f03930a61200a11bfa0bd2f72093
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118613"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196453"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid-förmån-Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-I den etablerade beräknings nivån för den vCore-baserade inköps modellen kan du byta ut dina befintliga licenser för rabatterade priser på Azure SQL Database och Azure SQL-hanterad instans med hjälp av [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/). Med den här Azure-förmånen kan du Spara upp till 30 procent eller ännu högre på SQL Database & SQL-hanterad instans med hjälp av dina lokala SQL Server licenser med Software Assurance. Sidan [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) har en kalkylator för att hjälpa till att avgöra besparingar.  Observera att Azure Hybrid-förmån inte gäller för Azure SQL Database utan server.
+I den etablerade beräknings nivån för den vCore-baserade inköps modellen kan du byta ut dina befintliga licenser för rabatterade priser på Azure SQL Database och Azure SQL-hanterad instans med hjälp av [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/). Med den här Azure-förmånen kan du Spara upp till 30 procent eller ännu högre på SQL Database & SQL-hanterad instans med hjälp av dina SQL Server licenser med Software Assurance. Sidan [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) har en kalkylator för att hjälpa till att avgöra besparingar.  Observera att Azure Hybrid-förmån inte gäller för Azure SQL Database utan server.
 
 > [!NOTE]
 > Att ändra till Azure Hybrid-förmån kräver ingen stillestånds tid.
@@ -77,7 +77,7 @@ Vi erbjuder License Mobility-förmåner för att SQL Server kunder med Software 
 Azure Hybrid-förmån för SQL Server skiljer sig från licens mobilitet i två viktiga områden:
 
 - Det ger ekonomiska fördelar för att flytta hög virtualiserade arbets belastningar till Azure. SQL Server Enterprise Edition-kunder kan få fyra kärnor i Azure i Generell användning SKU för varje kärna som de äger lokalt för mycket virtualiserade program. License Mobility tillåter inte några särskilda kostnads besparingar för att flytta virtualiserade arbets belastningar till molnet.
-- Det tillhandahåller ett PaaS-mål på Azure (SQL Database Hanterad instans) som är mycket kompatibel med SQL Server lokalt.
+- Det tillhandahåller ett PaaS-mål på Azure (SQL Database Hanterad instans) som är mycket kompatibel med SQL Server.
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Vilka är de speciella rättigheterna för Azure Hybrid-förmån för SQL Server?
 

@@ -3,12 +3,12 @@ title: Förbättra prestanda för Azure-program med Azure Advisor
 description: Använd Advisor för att optimera prestanda för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: ff9b8fb9494c887397947f009b22cdc89d8f70b5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 230466c7c0e8de2681737bbf9d74341dea7f7b8f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787948"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196417"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Förbättra prestanda för Azure-program med Azure Advisor
 
@@ -22,7 +22,7 @@ Azure Advisor identifierar Traffic Manager profiler med ett längre TTL-värde k
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Förbättra databasens prestanda med SQL DB Advisor
 
-Advisor ger dig en enhetlig, sammanslagen översikt över rekommendationer för alla dina Azure-resurser. Den integreras med SQL Database Advisor för att få rekommendationer för att förbättra prestandan för din SQL Azure-databas.SQL Database Advisor bedömer prestanda för dina SQL Azure databaser genom att analysera användnings historiken. Den erbjuder sedan rekommendationer som passar bäst för att köra databasens typiska arbets belastning.
+Advisor ger dig en enhetlig, sammanslagen översikt över rekommendationer för alla dina Azure-resurser. Den integreras med SQL Database Advisor för att få rekommendationer för att förbättra databasens prestanda.SQL Database Advisor utvärderar prestanda för dina databaser genom att analysera användnings historiken. Den erbjuder sedan rekommendationer som passar bäst för att köra databasens typiska arbets belastning.
 
 > [!NOTE]
 > För att få rekommendationer måste en databas ha ungefär en vecka med användning och inom den veckan måste det finnas en viss konsekvent aktivitet. SQL Database Advisor kan optimeras enklare för konsekventa fråge mönster än för slumpmässiga aktiviteter.
@@ -90,9 +90,9 @@ Vid hög trafikbelastning kan VPN-gatewayen ta bort paket på grund av hög CPU-
 
 Advisor kan upptäcka att du kan öka belastnings prestanda och data flöde genom att öka batchstorleken när du läser in i databasen. Du kan överväga att använda KOPIERINGs instruktionen. Om du inte kan använda COPY-instruktionen kan du öka batchstorleken när du använder inläsningsverktyg som SQLBulkCopy-API eller BCP – en bra tumregel är en batchstorlek mellan 100 000 och 1 miljon rader. Detta kommer att öka belastnings data flödet, data komprimering och frågans prestanda.
 
-## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>Samplacera lagrings kontot inom samma region för att minimera svars tiden vid inläsning
+## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>Samplacera lagringskontot inom samma region för att minimera svarstiden vid inläsning
 
-Advisor kan upptäcka att du läser in från en annan region än SQL-poolen. Du bör läsa in från ett lagrings konto som ligger inom samma region som SQL-poolen för att minimera svars tiden när du läser in data. Detta bidrar till att minimera svars tiden och öka belastnings prestandan.
+Advisor kan upptäcka att du läser in från en annan region än SQL-poolen. Du bör överväga att läsa in från ett lagringskonto som ligger i samma region som din SQL-pool för att minimera svarstiden under datainläsning. Detta bidrar till att minimera svars tiden och öka belastnings prestandan.
 
 ## <a name="unsupported-kubernetes-version-is-detected"></a>En Kubernetes-version som inte stöds har identifierats
 
@@ -107,7 +107,7 @@ Mycket hög användning av processorn under en längre period kan orsaka långsa
 Ett lågt cacheträffar kan resultera i sämre prestanda för frågor och ökad IOPS. Detta kan bero på en felaktig frågeplan eller körning av en minnes intensiv arbets belastning. Genom att åtgärda frågeuttrycket eller [öka minnet](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) för Azure Database for PostgreSQL databas server, Azure MySQL Database Server eller Azure MariaDB Server kan du optimera körningen av databasens arbets belastning. Azure Advisor identifierar servrar som påverkas på grund av den här omsättningen för den höga bufferten och rekommenderar att du reparerar frågeplan, flyttar till en högre SKU med mer minne eller ökar lagrings storleken för att få mer IOPS.
 
 ### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Använd en Azure MySQL-eller Azure PostgreSQL-Läs replik för att skala upp läsningar för Läs intensiva arbets belastningar
-Azure Advisor använder sig av arbets belastnings Heuristiker som förhållandet mellan läsningar och skrivningar på servern under de senaste sju dagarna för att identifiera Läs intensiva arbets belastningar. Azure-databasen för PostgreSQL-resurs eller Azure-databas för MySQL-resurs med mycket höga Läs/skriv-förhållande kan leda till processor-och/eller minnes innehåll som leder till långsam frågans prestanda. Om du lägger till en [replik](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) kan du skala ut läsningar till replik servern, vilket förhindrar CPU-och/eller minnes begränsningar på den primära servern. Advisor identifierar servrar med sådana höga Läs intensiva arbets belastningar och rekommenderar att du lägger till en [Läs replik](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) för att avlasta några av de Läs arbets belastningarna.
+Azure Advisor använder sig av arbets belastnings Heuristiker som förhållandet mellan läsningar och skrivningar på servern under de senaste sju dagarna för att identifiera Läs intensiva arbets belastningar. Azure-databasen för PostgreSQL-resurs eller Azure-databas för MySQL-resurs med mycket höga Läs/skriv-förhållande kan leda till processor-och/eller minnes innehåll som leder till långsam frågans prestanda. Om du lägger till en [replik](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) kan du skala ut läsningar till replik servern, vilket förhindrar CPU-och/eller minnes begränsningar på den primära servern. Advisor identifierar servrar med sådana höga Läs intensiva arbets belastningar och rekommenderar att du lägger till en [Läs replik](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas)   för att avlasta några av de Läs arbets belastningarna.
 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skala din Azure MySQL-, Azure PostgreSQL-eller Azure MariaDB-server till en högre SKU för att förhindra anslutnings begränsningar

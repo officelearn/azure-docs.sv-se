@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 13a5fa6a030d876d92651ca587e37fdc6a3ec600
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51cb46d3ce1b74681c2ee3e53104cc57e73f1c5d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136150"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192235"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Inaktivera e-postverifiering under kund registrering med en anpassad princip i Azure Active Directory B2C
 
 [!INCLUDE [disable email verification intro](../../includes/active-directory-b2c-disable-email-verification.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med sociala och lokala konton.
 
@@ -30,15 +30,15 @@ Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started
 
 **LocalAccountSignUpWithLogonEmail** Technical Profile är en [självkontrollerad](self-asserted-technical-profile.md), som anropas under registrerings flödet. Om du vill inaktivera e-postverifieringen ställer du in `EnforceEmailVerification` metadata på falskt. Åsidosätt de tekniska profilerna för LocalAccountSignUpWithLogonEmail i tilläggs filen. 
 
-1. Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
+1. Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Hitta `ClaimsProviders` elementet. Om elementet inte finns lägger du till det.
-1. Lägg till följande anspråks leverantör `ClaimsProviders` i-elementet:
+1. Lägg till följande anspråks leverantör i- `ClaimsProviders` elementet:
 
 ```XML
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
       <Metadata>
         <Item Key="EnforceEmailVerification">false</Item>
       </Metadata>

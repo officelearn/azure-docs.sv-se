@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793133"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193521"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 implementerar en åtkomst kontroll modell som stöder både RBAC (Azure rollbaserad åtkomst kontroll) och POSIX-liknande åtkomst kontrol listor (ACL: er). I den här artikeln sammanfattas grunderna för åtkomst kontroll modellen för Data Lake Storage Gen2.
 
-<a id="azure-role-based-access-control-rbac" />
+<a id="azure-role-based-access-control-rbac"></a>
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
@@ -76,7 +76,7 @@ Om du vill ange behörigheter för fil-och katalog nivå kan du läsa följande 
 |REST-API |[Sökväg – uppdatera](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> Om säkerhetsobjektet är ett huvud namn för *tjänsten* är det viktigt att använda objekt-ID: t för tjänstens huvud namn och inte objekt-ID: t för den relaterade appens registrering. För att hämta objekt-ID: t för tjänstens huvud namn öppnar du Azure CLI och använder sedan `az ad sp show --id <Your App ID> --query objectId`det här kommandot:. Se till att ersätta `<Your App ID>` plats hållaren med app-ID: t för din app Registration.
+> Om säkerhetsobjektet är ett huvud namn för *tjänsten* är det viktigt att använda objekt-ID: t för tjänstens huvud namn och inte objekt-ID: t för den relaterade appens registrering. För att hämta objekt-ID: t för tjänstens huvud namn öppnar du Azure CLI och använder sedan det här kommandot: `az ad sp show --id <Your App ID> --query objectId` . Se till att ersätta `<Your App ID>` plats hållaren med app-ID: t för din app Registration.
 
 ### <a name="types-of-access-control-lists"></a>Typer av åtkomst kontrol listor
 
@@ -251,7 +251,7 @@ När du skapar en fil eller katalog, används umask för att ändra hur standard
 
 Umask för Azure Data Lake Storage Gen2 ett konstant värde som är inställt på 007. Det här värdet översätts till:
 
-| umask-komponent     | Numeriskt format | Kortformat | Betydelse |
+| umask-komponent     | Numeriskt format | Kortformat | Innebörd |
 |---------------------|--------------|------------|---------|
 | umask. owning_user   |    0         |   `---`      | För ägande användare kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
 | umask. owning_group  |    0         |   `---`      | För ägande grupp kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: c27bf9a29bdb6e75e10fcafc597f40a88f995461
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901358"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196095"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Felsöka replikering i haveri beredskap för virtuella Azure-datorer
 
@@ -28,7 +28,7 @@ I följande avsnitt beskrivs orsaker och lösningar.
 
 ## <a name="high-data-change-rate-on-the-source-virtual-machine"></a>Hög dataändringstakt på den virtuella källdatorn
 
-Azure Site Recovery skapar en händelse om data ändrings hastigheten på den virtuella käll datorn är högre än de gränser som stöds. Om du vill se om problemet beror på hög omsättning går du till **replikerade objekt** > **VM** > **-händelser-senaste 72 timmarna**.
+Azure Site Recovery skapar en händelse om data ändrings hastigheten på den virtuella käll datorn är högre än de gränser som stöds. Om du vill se om problemet beror på hög omsättning går du till **replikerade objekt**  >  **VM**  >  **-händelser-senaste 72 timmarna**.
 Du bör se **ändrings takten för händelse data utöver de gränser som stöds**:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png" alt-text="Azure Site Recovery sida som visar en hög data ändrings hastighet som är för hög.":::
@@ -105,6 +105,10 @@ Nedan följer några av de vanligaste problemen.
 ### <a name="youre-using-azure-storage-spaces-direct-configuration"></a>Du använder konfiguration för Azure Storage dirigering
 
 **Så här åtgärdar du**: Azure Site Recovery kan inte skapa en konsekvent återställnings punkt för Lagringsdirigering konfiguration. [Konfigurera replikeringsprincipen](azure-to-azure-how-to-enable-replication-s2d-vms.md).
+
+### <a name="app-consistency-not-enabled-on-linux-servers"></a>Program-konsekvens är inte aktiverat på Linux-servrar
+
+**Så här åtgärdar du** : Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med för-och-post-alternativen används av Azure Site Recovery Mobility-agenten för program konsekvens. Så [här](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) aktiverar du det.
 
 ### <a name="more-causes-because-of-vss-related-issues"></a>Fler orsaker på grund av VSS-relaterade problem:
 

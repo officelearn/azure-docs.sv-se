@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 60df6597d13ea5c8ca265959b0dba5cb83bcdcba
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a45fc5f4e56ff3a5d7f0be167c5d758aa0e47caf
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044740"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196357"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Metodtips för Azure SQL Data Sync 
 
@@ -34,7 +34,7 @@ En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lok
 ### <a name="client-agent"></a>Klient agent
 
 -   Installera klient agenten genom att använda det lägsta privilegierade användar kontot som har åtkomst till nätverks tjänsten.  
--   Installera klient agenten på en dator som inte är den lokala SQL Server datorn.  
+-   Installera klient agenten på en dator som inte är SQL Server dator.  
 -   Registrera inte en lokal databas med fler än en agent.    
     -   Undvik detta även om du synkroniserar olika tabeller för olika Sync-grupper.  
     -   Registrering av en lokal databas med flera klient agenter utgör utmaningarna när du tar bort en av Sync-grupperna.
@@ -197,7 +197,7 @@ I vissa fall kan avregistrering av en databas med en klient agent leda till att 
 
 #### <a name="scenario"></a>Scenario
 
-1. Sync Group A har skapats med hjälp av en SQL Database-instans och en lokal SQL Server-databas som är associerad med lokal agent 1.
+1. Sync Group A har skapats med hjälp av en SQL Database-instans och en SQL Server-databas, som är kopplad till den lokala agenten 1.
 2. Samma lokala databas har registrerats med lokal Agent 2 (den här agenten är inte kopplad till någon Sync-grupp).
 3. Om du avregistrerar den lokala databasen från lokal Agent 2 raderas spårnings-och meta-tabellerna för Sync Group A för den lokala databasen.
 4. Det gick inte att synkronisera en åtgärd med det här felet: "den aktuella åtgärden kunde inte slutföras eftersom databasen inte är etablerad för synkronisering eller så har du inte behörighet till konfigurations tabellerna för synkronisering."
@@ -233,7 +233,7 @@ Mer information om SQL Data Sync finns i:
 
 -   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
 -   Konfigurera SQL Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-data-sync-sql-server-configure.md)
+    - I portalen – [Självstudier: konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server](sql-data-sync-sql-server-configure.md)
     - Med PowerShell
         -  [Använd PowerShell för att synkronisera mellan flera databaser i Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Använda PowerShell för att synkronisera mellan en databas i SQL Database och en databas i en SQL Server instans](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

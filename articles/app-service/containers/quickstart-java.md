@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8f2e99ffc9f9ee5c5553e8d933d82f83999c8ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4c65160cb648954ef97bd2a3d3e9ac0d38440ce7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81732889"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193850"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Snabb start: skapa en Java-app på Azure App Service på Linux
 
@@ -97,7 +97,7 @@ Navigera till `pom.xml` igen om du vill se plugin-konfigurationen har uppdaterat
 
  Egenskap | Krävs | Beskrivning | Version
 ---|---|---|---
-`<schemaVersion>` | falskt | Ange konfigurations schemats version. De värden som stöds `v1`är `v2`:,. | 1.5.2
+`<schemaVersion>` | falskt | Ange konfigurations schemats version. De värden som stöds är: `v1` , `v2` . | 1.5.2
 `<resourceGroup>` | true | Azure-resurs grupp för din webbapp. | 0.1.0 +
 `<appName>` | true | Namnet på din webbapp. | 0.1.0 +
 `<region>` | true | Anger den region där din webbapp ska vara värd. Standardvärdet är **westeurope**. Avsnittet alla giltiga regioner i [regioner som stöds](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . | 0.1.0 +
@@ -147,7 +147,7 @@ Det kan några minuter att köra kommandot.
 > [Ansluta till Azure DB för PostgreSQL med Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Konfigurera java-app](configure-custom-container.md)
+> [Konfigurera java-app](configure-language-java.md)
 
 > [!div class="nextstepaction"]
 > [CI/CD med Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)

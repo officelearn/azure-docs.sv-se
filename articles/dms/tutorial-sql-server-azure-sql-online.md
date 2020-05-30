@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Migrera SQL Server online till en SQL-databas'
 titleSuffix: Azure Database Migration Service
-description: Lär dig att göra en onlinemigrering från SQL Server lokalt till en enkel databas eller en pooldatabas i Azure SQL Database genom att använda Azure Database Migration Service.
+description: Lär dig att utföra en online-migrering från SQL Server till Azure SQL Database genom att använda Azure Database Migration Service.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 84f734b733478450bfb21fee77e1a4942fe63e3e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6e7ef31f7d48096fe94570ca9f3275bda23452f9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019015"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194173"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Självstudie: Migrera SQL Server till en enskild databas eller en databas i pooler i Azure SQL Database online med DMS
 
-Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal SQL Server-instans till [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) med minimal avbrottstid. I den här självstudien migrerar du databasen **Adventureworks2012** från en återställd databas till en lokal instans av SQL Server 2016 (eller senare) till en enkel databas eller en pooldatabas i Azure SQL Database med hjälp av Azure Database Migration Service.
+Du kan använda Azure Database Migration Service för att migrera databaserna från en SQL Server-instans till [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) med minimal stillestånds tid. I den här självstudien migrerar du databasen **Adventureworks2012** från en återställd databas till en lokal instans av SQL Server 2016 (eller senare) till en enkel databas eller en pooldatabas i Azure SQL Database med hjälp av Azure Database Migration Service.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -127,7 +127,7 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="assess-your-on-premises-database"></a>Utvärdera din lokala databas
 
-Innan du kan migrera data från en lokal SQL Server-instans till en enkel databas eller pooldatabas i Azure SQL Database, måste du utvärdera SQL Server-databasen för att se om det finns några blockeringsproblem som kan förhindra migreringen. Använd Data Migration Assistant version 3.3 eller senare och följ stegen som beskrivs i artikeln om att [utföra en SQL Server-migreringsutvärdering](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) för att slutföra den lokala databasutvärderingen.
+Innan du kan migrera data från en SQL Server-instans till Azure SQL Database måste du utvärdera SQL Server databasen för eventuella spärrnings problem som kan förhindra migrering. Använd Data Migration Assistant version 3.3 eller senare och följ stegen som beskrivs i artikeln om att [utföra en SQL Server-migreringsutvärdering](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) för att slutföra den lokala databasutvärderingen.
 
 Utför följande steg för att utvärdera en lokal databas:
 
@@ -155,7 +155,7 @@ Utför följande steg för att utvärdera en lokal databas:
     Vid enkla databaser eller pooldatabaser i Azure SQL Database identifierar utvärderingarna problem med funktionsparitet och blockering vid migrering till en enkel databas eller pooldatabas.
 
     - Kategorin **SQL Server-funktionsparitet** innehåller en omfattande uppsättning rekommendationer, alternativa metoder tillgängliga i Azure och minimeringsåtgärder för att hjälpa dig att planera insatsen för dina migreringsprojekt.
-    - Kategorin **Kompatibilitetsproblem** identifierar funktioner som stöds delvis eller inte alls, som speglar kompatibilitetsproblem som kan blockera migreringen av lokala SQL Server-databaser till Azure SQL Database. Det ges även rekommendationer, så att du kan hantera problemen.
+    - Kategorin **kompatibilitetsproblem** identifierar funktioner som stöds delvis eller som inte stöds och som avspeglar kompatibilitetsproblem som kan blockera migrering av SQL Server databas (er) till Azure SQL Database. Det ges även rekommendationer, så att du kan hantera problemen.
 
 6. Granska utvärderingsresultaten för blockeringsproblem för migreringen och funktionsparitetsproblem genom att välja de specifika alternativen.
 

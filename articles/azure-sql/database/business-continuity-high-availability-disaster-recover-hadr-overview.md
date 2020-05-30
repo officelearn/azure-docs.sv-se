@@ -1,7 +1,7 @@
 ---
 title: Moln affärs kontinuitet – databas återställning
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Lär dig hur Azure SQL Database-och SQL-hanterad instans har stöd för affärs kontinuitet i molnet och databas återställning och hjälper till att hålla verksamhets kritiska moln program igång.
+description: Lär dig hur Azure SQL Database-och SQL-hanterad instans stöder moln kontinuitet för företag och databas återställning och hjälper till att hålla verksamhets kritiska moln program igång.
 keywords: affärskontinuitet, molnaffärskontinuitet, databashaveriberedskap, databasåterställning
 services: sql-database
 ms.service: sql-database
@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 8ae58cedecf0b1dab488dac00b68e2b9a8c12e46
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8312fe1370ded990bd3523d531d168fd2cac5564
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043606"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84189770"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,8 +50,8 @@ SQL Database och SQL-hanterad instans tillhandahåller också flera funktioner f
 - [Inbyggda automatiserade säkerhets kopieringar](automated-backups-overview.md) och [tidpunkts återställning](recovery-using-backups.md#point-in-time-restore) gör att du kan återställa slutförda databaser till en viss tidpunkt inom den konfigurerade kvarhållningsperioden upp till 35 dagar.
 - Du kan [återställa en borttagen databas](recovery-using-backups.md#deleted-database-restore) till den tidpunkt då den togs bort om **servern inte har tagits bort**.
 - [Långsiktig kvarhållning av säkerhets kopior](long-term-retention-overview.md) gör att du kan behålla säkerhets kopiorna upp till 10 år. Detta är en begränsad offentlig för hands version för SQL-hanterad instans
-- [Aktiv geo-replikering](active-geo-replication-overview.md) gör att du kan skapa läsbara repliker och manuellt redundansväxla till en replik i händelse av avbrott i ett Data Center eller en program uppgradering.
-- Med [gruppen automatisk redundans](auto-failover-group-overview.md#terminology-and-capabilities) kan programmet automatiskt återställas i händelse av ett avbrott i data centret.
+- [Aktiv geo-replikering](active-geo-replication-overview.md) gör att du kan skapa läsbara repliker och manuellt redundansväxla till en replik i händelse av ett Data Center avbrott eller program uppgradering.
+- Med [gruppen automatisk redundans](auto-failover-group-overview.md#terminology-and-capabilities) kan programmet automatiskt återställas i händelse av ett Data Center avbrott.
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>Återställ en databas inom samma Azure-region
 
@@ -65,20 +65,20 @@ Om den högsta kvarhållningsperioden för kvarhållning av säkerhets kopior f�
 
 |                                              | Geo-replikering | Redundansgrupper  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Automatisk redundans                           |     Nej          |      Ja         |
-| Redundansväxla flera databaser samtidigt  |     Nej          |      Ja         |
-| Användaren måste uppdatera anslutnings strängen efter redundansväxlingen      |     Ja         |      Nej          |
-| Stöd för SQL-hanterad instans                   |     Nej          |      Ja         |
-| Kan finnas i samma region som primär             |     Ja         |      Nej          |
-| Flera repliker                            |     Ja         |      Nej          |
+| Automatisk redundans                           |     Inga          |      Yes         |
+| Redundansväxla flera databaser samtidigt  |     Inga          |      Yes         |
+| Användaren måste uppdatera anslutnings strängen efter redundansväxlingen      |     Yes         |      Inga          |
+| Stöd för SQL-hanterad instans                   |     Inga          |      Yes         |
+| Kan finnas i samma region som primär             |     Yes         |      Inga          |
+| Flera repliker                            |     Yes         |      Inga          |
 | Stöder Read-Scale                          |     Ja         |      Ja         |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Återställ en databas till den befintliga servern
 
-Även om det är ovanligt finns risken för ett avbrott på ett Azure-datacenter. När ett avbrott uppstår orsakar det ett verksamhetsavbrott som kan vara några få minuter eller flera timmar.
+Även om det är sällsynt kan ett Azure-datacenter ha ett avbrott. När ett avbrott uppstår orsakar det ett verksamhetsavbrott som kan vara några få minuter eller flera timmar.
 
-- Ett alternativ är att vänta tills databasen är tillbaka online när avbrottet på datadatacentret är över. Det här fungerar för program som har råd att ha databasen offline. Till exempel ett utvecklingsprojekt eller en kostnadsfri utvärderingsversion som du inte behöver arbeta med hela tiden. När ett Data Center har ett avbrott vet du inte hur lång tid det tar för avbrottet, så det här alternativet fungerar bara om du inte behöver databasen en stund.
+- Ett alternativ är att vänta tills din databas kommer tillbaka online när data centretnas avbrott är över. Det här fungerar för program som har råd att ha databasen offline. Till exempel ett utvecklingsprojekt eller en kostnadsfri utvärderingsversion som du inte behöver arbeta med hela tiden. När ett Data Center har ett avbrott vet du inte hur lång tid det tar för avbrottet, så det här alternativet fungerar bara om du inte behöver databasen en stund.
 - Ett annat alternativ är att återställa en databas på en server i valfri Azure-region med hjälp av Geo [-redundanta databas säkerhets kopieringar](recovery-using-backups.md#geo-restore) (geo-återställning). Geo-återställning använder en Geo-redundant säkerhets kopia som källa och kan användas för att återställa en databas även om databasen eller data centret inte går att komma åt på grund av ett avbrott.
 - Slutligen kan du snabbt återställa efter ett avbrott om du har konfigurerat en geo-Secondary med hjälp av [aktiv geo-replikering](active-geo-replication-overview.md) eller en [grupp för automatisk redundans](auto-failover-group-overview.md) för databasen eller databaserna. Beroende på ditt val av dessa tekniker kan du antingen använda manuell eller automatisk redundans. Även om det bara tar några sekunder att redundansväxla, tar det minst 1 timme för tjänsten att aktivera den. Detta är nödvändigt för att säkerställa att redundansväxlingen är motiverat av avbrottets skala. Dessutom kan redundansväxlingen leda till små data förluster på grund av den asynkrona replikeringens karaktär.
 
@@ -109,7 +109,7 @@ Använd grupper för automatisk redundans om ditt program uppfyller något av f�
 
 Du kan välja att använda en kombination av databas säkerhets kopior och aktiv geo-replikering beroende på dina program krav. En beskrivning av design överväganden för fristående databaser och elastiska pooler med hjälp av dessa funktioner för affärs kontinuitet finns i [utforma ett program för haveri beredskap i molnet](designing-cloud-solutions-for-disaster-recovery.md) och [elastiska pooler](disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-I följande avsnitt får du en översikt över stegen för att återställa med hjälp av databas säkerhets kopior eller aktiv geo-replikering. Detaljerade anvisningar, till exempel planerings krav, efter återställnings steg och information om hur du simulerar ett avbrott för att utföra en haveri beredskaps granskning finns i [återställa en SQL Database från ett avbrott](disaster-recovery-guidance.md).
+I följande avsnitt får du en översikt över stegen för att återställa med hjälp av databas säkerhets kopior eller aktiv geo-replikering. Detaljerade anvisningar, till exempel planerings krav, efter återställnings steg och information om hur du simulerar ett avbrott för att utföra en haveri beredskaps granskning finns i [återställa en databas i SQL Database från ett avbrott](disaster-recovery-guidance.md).
 
 ### <a name="prepare-for-an-outage"></a>Förbereda för ett avbrott
 
@@ -126,7 +126,7 @@ Om du inte förbereder det korrekt, tar du med dina program online efter en redu
 Om du använder aktiv geo-replikering eller grupper för automatisk redundans som återställnings metod kan du konfigurera en princip för automatisk redundansväxling eller använda [manuell oplanerad redundansväxling](active-geo-replication-configure-portal.md#initiate-a-failover). Efter initieringen gör redundansväxlingen den sekundära att bli den nya primära och redo att registrera nya transaktioner och svara på frågor – med minimal data förlust för data som ännu inte har repliker ATS. Information om hur du utformar redundansväxlingen finns i [utforma ett program för haveri beredskap för molnet](designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
-> När data centret är online igen kommer den gamla presidentval automatiskt att återansluta till den nya primära och blir sekundär databas. Om du behöver flytta tillbaka den primära tillbaka till den ursprungliga regionen kan du starta en planerad redundansväxling manuellt (failback).
+> När data centret är online igen återansluter det gamla presidentval automatiskt till den nya primära och blir sekundära databaser. Om du behöver flytta tillbaka den primära tillbaka till den ursprungliga regionen kan du starta en planerad redundansväxling manuellt (failback).
 
 ### <a name="perform-a-geo-restore"></a>Utföra en geo-återställning
 
@@ -139,11 +139,11 @@ Om du använder automatiserade säkerhets kopieringar med Geo-redundant lagring 
 
 Efter återställningen från endera återställningsmetod måste du utföra följande ytterligare uppgifter innan dina användare och program kan komma igång igen:
 
-- Omdirigera klienter och klientprogram till den nya servern och återställda databasen
+- Omdirigera klienter och klient program till den nya servern och den återställda databasen.
 - Se till att det finns tillräckligt med regler för IP-brandvägg på server nivå för att användarna ska kunna ansluta eller använda [brand väggar på databas nivå](firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) för att aktivera lämpliga regler.
-- Se till att rätt inloggningar och behörigheter på huvuddatabasnivå är på plats (eller använd [inneslutna användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
-- Konfigurera granskning efter behov
-- Konfigurera aviseringar efter behov
+- Se till att lämpliga inloggningar och behörigheter på huvud databas nivå är på plats (eller Använd [inneslutna användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+- Konfigurera granskningen efter behov.
+- Konfigurera aviseringar efter behov.
 
 > [!NOTE]
 > Om du använder en failover-grupp och ansluter till databaserna med Läs-och skriv lyssnare sker omdirigeringen efter redundansväxlingen automatiskt och transparent till programmet.
@@ -154,4 +154,4 @@ Ibland måste ett program tas offline på grund av planerat underhåll, till exe
 
 ## <a name="next-steps"></a>Nästa steg
 
-En beskrivning av program design överväganden för fristående databaser och för elastiska pooler finns i [utforma ett program för haveri beredskap för moln haveri beredskap](designing-cloud-solutions-for-disaster-recovery.md) och [strategier för haveri beredskap för elastisk pool](disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+En beskrivning av program design överväganden för enskilda databaser och för elastiska pooler finns i [utforma ett program för haveri beredskap för moln haveri beredskap](designing-cloud-solutions-for-disaster-recovery.md) och [elastiska pooler](disaster-recovery-strategies-for-applications-with-elastic-pool.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 1121b5324368f8b8c6c062868f5072f4a0e7ac86
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ebb25d49250b71ab8d948833ac982ef244225539
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654369"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216433"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Övervaka virtuella Azure-datorer med Azure Monitor
 Den här artikeln beskriver hur du använder Azure Monitor för att samla in och analysera övervaknings data från virtuella Azure-datorer för att upprätthålla deras hälsa. Virtuella datorer kan övervakas för tillgänglighet och prestanda med Azure Monitor som [andra Azure](monitor-azure-resource.md)-resurser, men de är unika för andra resurser eftersom du också behöver övervaka gäst operativ systemet och de arbets belastningar som körs i den. 
@@ -110,9 +110,7 @@ Du kan visa de plattforms mått och aktivitets logg som samlats in för varje vi
 Samla in plattforms mått med en diagnostisk inställning för den virtuella datorn. Till skillnad från andra Azure-resurser kan du inte skapa en diagnostisk inställning för en virtuell dator i Azure Portal men måste använda [en annan metod](../platform/diagnostic-settings.md#create-diagnostic-settings-using-powershell). I följande exempel visas hur du samlar in mått för en virtuell dator med hjälp av både PowerShell och CLI.
 
 ```powershell
-Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/monitor diagnostic-settings create \
-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/monitor diagnostic-settings create \
-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
+Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
 ```
 
 ```CLI

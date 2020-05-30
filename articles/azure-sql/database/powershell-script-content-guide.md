@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 2d80291909b29576c60f39afc63ec174c091f1c5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 93fac2e3ae8d83f0fa49f94a3ba7880a2ecc2b4c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053359"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193891"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Azure PowerShell exempel för Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ Följande tabell innehåller länkar till Azure PowerShell-exempelskript för Az
 | [Importera en databas från en BACPAC-fil](scripts/import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet importerar en databas till Azure SQL Database från en BACPAC-fil. |
 | **Synkronisera data mellan databaser**||
 | [Synkronisera data mellan SQL-databaser](scripts/sql-data-sync-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet konfigurerar datasynkronisering för synkronisering mellan flera databaser i Azure SQL Database. |
-| [Synkronisera data mellan SQL Database och SQL Server lokalt](scripts/sql-data-sync-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet konfigurerar datasynkronisering för synkronisering mellan en databas i Azure SQL Database och en SQL Server lokal databas. |
+| [Synkronisera data mellan SQL Database och SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet konfigurerar datasynkronisering för synkronisering mellan en databas i Azure SQL Database och en SQL Server databas. |
 | [Uppdatera synkroniseringsschemat för SQL Data Sync](scripts/update-sync-schema-in-sync-group.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet lägger till eller tar bort objekt från synkroniseringsschemat för Data Sync. |
 |||
 

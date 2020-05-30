@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 1601ab6d81b888fd2247e95f22c58e1fc91df698
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef77037526beba1be2e4e8a834dbd09c8a73310c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273727"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197235"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installera och använda konsulär i Azure Kubernetes service (AKS)
 
@@ -20,9 +20,9 @@ ms.locfileid: "78273727"
 Den här artikeln visar hur du installerar konsulär. Konsulära komponenter installeras i ett Kubernetes-kluster på AKS.
 
 > [!NOTE]
-> Dessa instruktioner hänvisar till konsulär `1.6.0`version och använder minst Helm version `2.14.2`.
+> Dessa instruktioner hänvisar till konsulär version `1.6.0` och använder minst Helm version `2.14.2` .
 >
-> Konsulära `1.6.x` versioner kan köras mot Kubernetes-versioner `1.13+`. Du hittar ytterligare konsulära versioner på [GitHub-uppdateringar][consul-github-releases] och information om var och en av de versioner som finns i [konsulära versions anteckningar][consul-release-notes].
+> Konsulära versioner `1.6.x` kan köras mot Kubernetes-versioner `1.13+` . Du hittar ytterligare konsulära versioner på [GitHub-uppdateringar][consul-github-releases] och information om var och en av de versioner som finns i [konsulära versions anteckningar][consul-release-notes].
 
 I den här artikeln kan du se hur du:
 
@@ -33,7 +33,7 @@ I den här artikeln kan du se hur du:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-De steg som beskrivs i den här artikeln förutsätter att du har skapat ett AKS `1.13` -kluster (Kubernetes och senare, med RBAC aktiverat) `kubectl` och har upprättat en anslutning till klustret. Om du behöver hjälp med något av dessa objekt kan du se snabb starten för [AKS][aks-quickstart]. Se till att klustret har minst 3 noder i Linux-noden.
+De steg som beskrivs i den här artikeln förutsätter att du har skapat ett AKS-kluster (Kubernetes `1.13` och senare, med RBAC aktiverat) och har upprättat en `kubectl` anslutning till klustret. Om du behöver hjälp med något av dessa objekt kan du se snabb starten för [AKS][aks-quickstart]. Se till att klustret har minst 3 noder i Linux-noden.
 
 Du behöver [Helm][helm] för att följa dessa anvisningar och installera konsulär. Vi rekommenderar att du har den senaste säkra versionen som är korrekt installerad och konfigurerad i klustret. Om du behöver hjälp med att installera Helm kan du läsa mer i [installations vägledningen för AKS Helm][helm-install]. Alla konsulära poddar måste också vara schemalagda att köras på Linux-noder.
 
@@ -41,7 +41,7 @@ Den här artikeln separerar den konsulära installations vägledningen i flera d
 
 ### <a name="install-the-consul-components-on-aks"></a>Installera konsulära komponenter på AKS
 
-Vi börjar med att hämta version `v0.10.0` av konsulär Helm-diagrammet. Den här versionen av diagrammet innehåller konsulär version `1.6.0`.
+Vi börjar med att hämta version `v0.10.0` av konsulär Helm-diagrammet. Den här versionen av diagrammet innehåller konsulär version `1.6.0` .
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -61,7 +61,7 @@ Vi börjar med att hämta version `v0.10.0` av konsulär Helm-diagrammet. Den h�
 
 ::: zone-end
 
-Använd Helm och det nedladdade `consul-helm` diagrammet för att installera konsulära `consul` komponenter i namn området i ditt AKS-kluster. 
+Använd Helm och det nedladdade `consul-helm` diagrammet för att installera konsulära komponenter i `consul` namn området i ditt AKS-kluster. 
 
 > [!NOTE]
 > **Installationsalternativ**
@@ -94,7 +94,7 @@ Använd Helm och det nedladdade `consul-helm` diagrammet för att installera kon
 
 ::: zone-end
 
-`Consul` Helm-diagrammet distribuerar ett antal objekt. Du kan se listan från utdata från `helm install` kommandot ovan. Det kan ta ungefär tre minuter att slutföra distributionen av konsulära komponenter, beroende på din kluster miljö.
+`Consul`Helm-diagrammet distribuerar ett antal objekt. Du kan se listan från utdata från `helm install` kommandot ovan. Det kan ta ungefär tre minuter att slutföra distributionen av konsulära komponenter, beroende på din kluster miljö.
 
 Nu har du distribuerat konsulär till ditt AKS-kluster. För att säkerställa att vi har en lyckad distribution av konsulär kan vi gå vidare till nästa avsnitt för att verifiera den konsulära installationen.
 
@@ -128,7 +128,7 @@ consul-consul-sync-catalog-d846b79c-8ssr8                         1/1     Runnin
 consul-consul-tz2t5                                               1/1     Running   0          3m9s   10.240.0.12   aks-linux-92468653-vmss000000   <none>           <none>
 ```
 
-Alla poddar bör visa status för `Running`. Om din poddar inte har dessa status värden väntar du en minut eller två tills de gör det. Om en poddar rapporterar ett problem använder du kommandot [kubectl beskriver Pod][kubectl-describe] för att granska deras utdata och status.
+Alla poddar bör visa status för `Running` . Om din poddar inte har dessa status värden väntar du en minut eller två tills de gör det. Om en poddar rapporterar ett problem använder du kommandot [kubectl beskriver Pod][kubectl-describe] för att granska deras utdata och status.
 
 ## <a name="accessing-the-consul-ui"></a>Åtkomst till konsulärt användar gränssnitt
 
@@ -149,7 +149,7 @@ Nu kan du öppna en webbläsare och peka den för `http://localhost:8080/ui` att
 
 ### <a name="remove-consul-components-and-namespace"></a>Ta bort konsulära komponenter och namnrymd
 
-Om du vill ta bort konsulär från AKS-klustret använder du följande kommandon. De `helm delete` här kommandona tar `consul` bort diagrammet och `kubectl delete namespace` tar bort `consul` namn området.
+Om du vill ta bort konsulär från AKS-klustret använder du följande kommandon. De här `helm delete` kommandona tar bort `consul` diagrammet och tar `kubectl delete namespace` bort `consul` namn området.
 
 ```console
 helm delete --purge consul
@@ -166,6 +166,8 @@ För att utforska fler installations-och konfigurations alternativ för konsulä
 Du kan också följa ytterligare scenarier som använder:
 
 - [Konsulär exempel program][consul-app-example]
+- [Konsulär Kubernetes-referens arkitektur][consul-reference]
+- [Konsulärt nät-gatewayer][consul-mesh-gateways]
 
 <!-- LINKS - external -->
 [Hashicorp]: https://hashicorp.com
@@ -177,9 +179,11 @@ Du kan också följa ytterligare scenarier som använder:
 [consul-github-releases]: https://github.com/hashicorp/consul/releases
 [consul-release-notes]: https://github.com/hashicorp/consul/blob/master/CHANGELOG.md
 [consul-install-download]: https://www.consul.io/downloads.html
-[consul-install-k8]: https://www.consul.io/docs/platform/k8s/run.html
+[consul-install-k8]: https://learn.hashicorp.com/consul/kubernetes/kubernetes-deployment-guide
 [consul-install-helm-options]: https://www.consul.io/docs/platform/k8s/helm.html#configuration-values-
-[consul-app-example]: https://github.com/hashicorp/demo-consul-101/tree/master/k8s
+[consul-mesh-gateways]: https://learn.hashicorp.com/consul/kubernetes/mesh-gateways
+[consul-reference]: https://learn.hashicorp.com/consul/kubernetes/kubernetes-reference
+[consul-app-example]: https://learn.hashicorp.com/consul?track=gs-consul-service-mesh#gs-consul-service-mesh
 [install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10
 
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

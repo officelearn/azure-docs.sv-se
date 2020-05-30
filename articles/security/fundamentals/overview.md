@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 401317f6b47c97a76ef2ded603063821a420933a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731711"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192542"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -60,7 +60,7 @@ Beroende på moln tjänst modellen finns det varierande ansvar för vem som ansv
 
 De inbyggda funktionerna är ordnade i sex funktionella områden: åtgärder, program, lagring, nätverk, beräkning och identitet. Ytterligare information om de funktioner och funktioner som är tillgängliga i Azure-plattformen i de här sex områdena finns i sammanfattnings information.
 
-## <a name="operations"></a>Åtgärder
+## <a name="operations"></a>Operations
 Det här avsnittet innehåller ytterligare information om viktiga funktioner i säkerhets åtgärder och sammanfattnings information om dessa funktioner.
 
 ### <a name="security-and-audit-dashboard"></a>Säkerhet och granskning instrument panel
@@ -308,7 +308,7 @@ En viktig del av organisationens strategi för [affärs kontinuitet/haveri bered
 
 Tjänsten Azure Key Vault (AKV) är utformad för att förbättra säkerheten och hanteringen av dessa nycklar på en säker plats med hög tillgänglighet. Med SQL Server-anslutning kan SQL Server använda nycklarna från Azure Key Vault.
 
-Om du kör SQL Server med lokala datorer finns det steg du kan följa för att få åtkomst till Azure Key Vault från din lokala SQL Server dator. Men för SQL Server i virtuella Azure-datorer kan du spara tid genom att använda funktionen för Azure Key Vault-integrering. Med några Azure PowerShell-cmdletar för att aktivera den här funktionen, kan du automatisera konfigurationen som krävs för en virtuell SQL-dator för att få åtkomst till ditt nyckel valv.
+Om du kör SQL Server med lokala datorer finns det steg du kan följa för att få åtkomst till Azure Key Vault från din lokala SQL Server-instans. Men för SQL Server i virtuella Azure-datorer kan du spara tid genom att använda funktionen för Azure Key Vault-integrering. Med några Azure PowerShell-cmdletar för att aktivera den här funktionen, kan du automatisera konfigurationen som krävs för en virtuell SQL-dator för att få åtkomst till ditt nyckel valv.
 
 ### <a name="vm-disk-encryption"></a>VM Disk Encryption
 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) är en ny funktion som hjälper dig att kryptera dina Windows-och Linux-IaaS virtuella dator diskar. Den tillämpar standarden för BitLocker-funktionen i Windows och funktionen DM-crypt i Linux för att tillhandahålla volym kryptering för operativ systemet och data diskarna. Lösningen är integrerad med Azure Key Vault som hjälper dig att styra och hantera disk krypterings nycklar och hemligheter i din Key Vault prenumeration. Lösningen ser också till att alla data på de virtuella dator diskarna krypteras i vila i Azure Storage.
@@ -362,7 +362,7 @@ Microsoft använder flera säkerhets metoder och tekniker för sina produkter oc
 
 - [Azure Active Directory-programproxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) ger enkel inloggning och säker fjärråtkomst för webb program som finns lokalt.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Förstå ditt [delade ansvar i molnet](shared-responsibility.md).
 

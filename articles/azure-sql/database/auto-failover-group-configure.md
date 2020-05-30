@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 968a880568743867c2bdfc11f98de322a591c009
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 13ca1ed4abef1eb367239a60ee7fe3d40ffee8d5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117258"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195547"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurera en failover-grupp för Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -344,9 +344,9 @@ Redundansväxla till den sekundära servern:
 
 ## <a name="sql-managed-instance"></a>SQL-hanterad instans
 
-Skapa en grupp för redundans mellan två hanterade instanser i SQL-hanterad instans med hjälp av Azure Portal eller PowerShell.
+Skapa en grupp för redundans mellan två hanterade instanser i Azure SQL-hanterad instans med hjälp av Azure Portal eller PowerShell.
 
-Du måste antingen konfigurera [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller skapa en gateway för det virtuella nätverket för varje hanterad instans, ansluta de två gatewayerna och sedan skapa gruppen redundans.
+Du måste antingen konfigurera [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller skapa en gateway för det virtuella nätverket för varje SQL-hanterad instans, ansluta de två gatewayerna och sedan skapa gruppen redundans.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
@@ -557,7 +557,7 @@ Skapa gruppen redundans för dina hanterade instanser med hjälp av Azure Portal
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Skapa gruppen redundans för dina hanterade instanser med hjälp av Azure Portal.
+Skapa gruppen redundans för dina SQL-hanterade instanser med hjälp av Azure Portal.
 
 1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
 1. Välj den primära hanterade instans som du vill lägga till i gruppen redundans.  

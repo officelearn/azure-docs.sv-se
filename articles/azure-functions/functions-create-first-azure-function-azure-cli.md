@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en funktion från kommando raden och sedan p
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: bfd956a4423031db370eb3a8ad94c59dd0f5931c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8b720a34268a1a43b65ef8a7b8afbf61b753f79a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996540"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195028"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Snabb start: skapa en funktion i Azure som svarar på HTTP-begäranden
 
@@ -414,3 +414,4 @@ az group delete --name java-functions-group
 
 > [!div class="nextstepaction"]
 > [Ansluta till en Azure Storage-kö](functions-add-output-binding-storage-queue-cli.md)
+ 

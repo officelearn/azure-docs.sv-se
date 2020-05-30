@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 58cf3358a9e908070ce9003d05dd0b576b1d2d3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b624e521ee102f331100f2836d2e33fd8f2b3ec8
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429699"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193659"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importera HSM-skyddade nycklar till Key Vault
 
@@ -33,11 +33,14 @@ Den här funktionen är inte tillgänglig för Azure Kina 21Vianet.
 
 |Leverantörs namn|Typ av leverantör|HSM-modeller som stöds|Överförings metod som stöds av HSM-nyckel|
 |---|---|---|---|
-|Hjälp programmet nCipher|Tillverkare|<ul><li>nshield maskinvarusäkerhetsmodul-serien HSM: er</li></ul>|[Använd äldre BYOK-metod](hsm-protected-keys-legacy.md)|
-|Thales|Tillverkare|<ul><li>SafeNet Luna HSM 7-serien med inbyggd program vara version 7,3 eller senare</li></ul>| [Använd ny BYOK-metod (förhands granskning)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|Fortanix|HSM som en tjänst|<ul><li>SDKMS (Self-försvarande Key Management Service)</li></ul>|[Använd ny BYOK-metod (förhands granskning)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|[Hjälp programmet nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Tillverkare<br/>HSM som en tjänst|<ul><li>nshield maskinvarusäkerhetsmodul-serien HSM: er</li><li>nshield maskinvarusäkerhetsmodul som en tjänst</ul>|**Metod 1:** [Hjälp programmet nCipher BYOK](hsm-protected-keys-ncipher.md) (med stark attestering för nyckel import och HSM-validering)<br/>**Metod 2:** [Använd New BYOK-metod](hsm-protected-keys-byok.md) |
+|Thales|Tillverkare|<ul><li>SafeNet Luna HSM 7-serien med inbyggd program vara version 7,3 eller senare</li></ul>| [Använd ny BYOK-metod](hsm-protected-keys-byok.md)|
+|Fortanix|HSM som en tjänst|<ul><li>SDKMS (Self-försvarande Key Management Service)</li></ul>|[Använd ny BYOK-metod](hsm-protected-keys-byok.md)|
+|Marvell|Tillverkare|Alla LiquidSecurity-HSM: er med<ul><li>Version 2.0.4 eller senare av inbyggd program vara</li><li>Inbyggd program vara version 3,2 eller senare</li></ul>|[Använd ny BYOK-metod](hsm-protected-keys-byok.md)|
+|Cryptomathic|ISV (Enterprise Key Management System)|Flera HSM-varumärken och-modeller, inklusive<ul><li>Hjälp programmet nCipher</li><li>Thales</li><li>Utimaco</li></ul>Mer [information finns på Cryptopmathic-webbplatsen](https://www.cryptomathic.com/azurebyok)|[Använd ny BYOK-metod](hsm-protected-keys-byok.md)|
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ [Key Vault bästa praxis](../general/best-practices.md) för att säkerställa säkerhet, hållbarhet och övervakning för dina nycklar.
+* Följ [Key Vault bästa praxis](../general/best-practices.md) för att säkerställa säkerhet, hållbarhet och övervakning för dina nycklar.
+* Se [BYOK-specifikationen](https://docs.microsoft.com/azure/key-vault/keys/byok-specification) för en fullständig beskrivning av den nya BYOK-metoden

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 73498b3537f4cf9313fc9e2464785f63c2af0d5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e94445a6cb16eacb496daedbec21379928a4dafd
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460740"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194466"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Använda mallar för att skapa Azure Data Factory entiteter
 > [!NOTE]
@@ -25,7 +25,7 @@ ms.locfileid: "81460740"
 ## <a name="overview"></a>Översikt
 När du använder Azure Data Factory för dina data integrerings behov kan du behöva återanvända samma mönster i olika miljöer eller implementera samma uppgift upprepade gånger inom samma lösning. Med hjälp av mallar kan du implementera och hantera dessa scenarier på ett enkelt sätt. Mallar i Azure Data Factory är idealiska för scenarier som involverar åter användning och upprepning.
 
-Ta hänsyn till den situation där en organisation har 10 tillverknings anläggningar över hela världen. Loggarna från varje anläggning lagras i en separat lokal SQL Server databas. Företaget vill bygga ett enda informations lager i molnet för ad hoc-analys. Det vill också ha samma logik men olika konfigurationer för utvecklings-, test-och produktions miljöer.
+Ta hänsyn till den situation där en organisation har 10 tillverknings anläggningar över hela världen. Loggarna från varje anläggning lagras i en separat SQL Server databas. Företaget vill bygga ett enda informations lager i molnet för ad hoc-analys. Det vill också ha samma logik men olika konfigurationer för utvecklings-, test-och produktions miljöer.
 
 I det här fallet måste en uppgift upprepas inom samma miljö, men med olika värden i de 10 data fabrikerna för varje tillverknings anläggning. I praktiken finns **upprepning** . Mall tillåter abstraktion av detta generiska flöde (det vill säga pipelines med samma aktiviteter i varje data fabrik), men använder en separat parameter fil för varje tillverknings anläggning.
 
@@ -41,14 +41,14 @@ I följande själv studie kurser finns stegvisa anvisningar för hur du skapar D
 * [Självstudie: skapa en pipeline för att bearbeta data med hjälp av Azure Resource Manager mall](data-factory-build-your-first-pipeline.md)
 
 ## <a name="data-factory-templates-on-github"></a>Data Factory mallar på GitHub
-Kolla in följande Azure-mallar för snabb start på GitHub:
+Kolla in följande Azure snabb starts mallar på GitHub:
 
 * [Skapa en data fabrik för att kopiera data från Azure Blob Storage till Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
 * [Skapa en data fabrik med Hive-aktivitet i Azure HDInsight-kluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
 * [Skapa en data fabrik för att kopiera data från Salesforce till Azure-blobbar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
 * [Skapa en data fabrik som bevarar aktiviteter: kopierar data från en FTP-server till Azure-blobbar, anropar ett Hive-skript på ett HDInsight-kluster på begäran för att transformera data och kopiera resultatet till Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
 
-Du kan dela dina Azure Data Factory mallar på [Azure snabb start](https://azure.microsoft.com/documentation/templates/). Se [bidrags hand boken](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) när du utvecklar mallar som kan delas via den här lagrings platsen.
+Du kan dela Azure Data Factory mallar i [Azure snabb start](https://azure.microsoft.com/documentation/templates/). Se [bidrags hand boken](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) när du utvecklar mallar som kan delas via den här lagrings platsen.
 
 I följande avsnitt finns information om hur du definierar Data Factory resurser i en Resource Manager-mall.
 

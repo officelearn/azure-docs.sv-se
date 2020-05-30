@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: be797f76988c924503e11b6f66cce899b515e3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982204"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195983"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -47,7 +47,7 @@ Innan du påbörjar den här genom gången måste du ha följande krav:
 
 * **Azure-prenumeration**.  Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto på ett par minuter. Mer information finns i artikeln om [kostnads fri utvärdering](https://azure.microsoft.com/pricing/free-trial/) .
 * **Azure Storage konto**. Du använder Blob Storage som data lager för **destination/mottagare** i den här självstudien. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
-* **SQL Server**. Du använder en lokal SQL Server-databas som **källdata** i den här självstudien.
+* **SQL Server**. Du använder en SQL Server databas som **käll** data lager i den här självstudien.
 
 ## <a name="create-data-factory"></a>Skapa en datafabrik
 I det här steget använder du Azure Portal för att skapa en Azure Data Factory-instans med namnet **ADFTutorialOnPremDF**.
@@ -138,7 +138,7 @@ I det här steget använder du Azure Portal för att skapa en Azure Data Factory
    * Visa eller exportera certifikatet som används av gatewayen.
    * Ändra den HTTPS-slutpunkt som används av gatewayen.    
    * Ange en HTTP-proxy som ska användas av gatewayen.     
-9. valfritt Växla till fliken **diagnostik** , markera alternativet **Aktivera utförlig loggning** om du vill aktivera utförlig loggning som du kan använda för att felsöka eventuella problem med gatewayen. Du hittar loggnings informationen i **Loggboken** under noden **program-och tjänst loggar** -> **Data Management Gateway** .
+9. valfritt Växla till fliken **diagnostik** , markera alternativet **Aktivera utförlig loggning** om du vill aktivera utförlig loggning som du kan använda för att felsöka eventuella problem med gatewayen. Du hittar loggnings informationen i **Loggboken** under noden **program-och tjänst loggar**  ->  **Data Management Gateway** .
 
     ![Fliken Diagnostik](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
@@ -152,9 +152,9 @@ I det här steget använder du Azure Portal för att skapa en Azure Data Factory
 12. Du bör se **adftutorialgateway** under **datagateways** i trädvyn till vänster.  Om du klickar på den bör du se tillhör ande JSON.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
-I det här steget skapar du två länkade tjänster: **AzureStorageLinkedService** och **SqlServerLinkedService**. **SqlServerLinkedService** länkar en lokal SQL Server databas och den länkade **AzureStorageLinkedService** -tjänsten länkar ett Azure Blob-lager till data fabriken. Du skapar en pipeline senare i den här genom gången som kopierar data från den lokala SQL Server databasen till Azure Blob Store.
+I det här steget skapar du två länkade tjänster: **AzureStorageLinkedService** och **SqlServerLinkedService**. **SqlServerLinkedService** länkar en SQL Server-databas och den länkade **AzureStorageLinkedService** -tjänsten länkar ett Azure Blob-lager till data fabriken. Du skapar en pipeline senare i den här genom gången som kopierar data från SQL Server-databasen till Azure Blob Store.
 
-#### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Lägg till en länkad tjänst till en lokal SQL Server databas
+#### <a name="add-a-linked-service-to-a-sql-server-database"></a>Lägg till en länkad tjänst i en SQL Server databas
 1. I **Data Factory redigeraren**klickar du på **nytt data lager** i verktygsfältet och väljer **SQL Server**.
 
    ![Ny SQL Server länkad tjänst](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
@@ -189,7 +189,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
 * Skapa en blobcontainer med namnet **adftutorial** i Azure Blob Storage-kontot du la till som en länkad tjänst i datafabriken.
 
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Förbered lokala SQL Server för självstudien
-1. I databasen som du angav för den lokala länkade SQL Server-tjänsten (**SqlServerLinkedService**) använder du följande SQL-skript för att skapa tabellen **emp** i databasen.
+1. I databasen som du angav för SQL Server länkade tjänsten (**SqlServerLinkedService**) använder du följande SQL-skript för att skapa **EMP** -tabellen i-databasen.
 
     ```SQL   
     CREATE TABLE dbo.emp
@@ -359,7 +359,7 @@ I det här steget skapar du en **pipeline** med en **kopierings aktivitet** som 
    * I avsnittet aktiviteter finns det bara en aktivitet vars **typ** är inställd på **Kopiera**.
    * **Indata** för aktiviteten är inställd på **EmpOnPremSQLTable** och **utdata** för aktiviteten är inställd på **OutputBlobTable**.
    * I avsnittet **typeProperties** anges **SqlSource** som typ av **källa** och **BlobSink** har angetts som **mottagar typ**.
-   * SQL- `select * from emp` fråga har angetts för egenskapen **sqlReaderQuery** för **SqlSource**.
+   * SQL-fråga `select * from emp` har angetts för egenskapen **SqlReaderQuery** för **SqlSource**.
 
    Både start- och slutdatum måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen.
 

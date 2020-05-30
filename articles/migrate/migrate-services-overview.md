@@ -4,12 +4,12 @@ description: Läs mer om tjänsten Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: fe6386346282cf182397f6420c541d629ba0aab3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0fe4293b4e07152ff41ae946faf703aacc42d89
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81768394"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193583"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -23,7 +23,7 @@ Azure Migrate innehåller följande funktioner:
 - **Olika verktyg**: en uppsättning verktyg för utvärdering och migrering. Bland verktygen finns Azure Migrate: Server utvärdering och Azure Migrate: Server-migrering. Azure Migrate integreras med andra Azure-tjänster och med andra verktyg och oberoende program varu leverantörer (ISV)-erbjudanden.
 - **Utvärdering och migrering**: i Azure Migrate hubb kan du utvärdera och migrera:
     - **Servrar**: utvärdera lokala servrar och migrera dem till virtuella Azure-datorer.
-    - **Databaser**: utvärdera lokala databaser och migrera dem till Azure SQL Database eller till en Azure SQL Database Hanterad instans.
+    - **Databaser**: utvärdera lokala databaser och migrera dem till Azure SQL Database eller till SQL-hanterad instans.
     - **Webb program**: utvärdera lokala webb program och migrera dem till Azure App Service med hjälp av Azure App Service Migration Assistant.
     - **Virtuella skriv bord**: utvärdera din lokala virtuella Skriv bords infrastruktur (VDI) och migrera den till Windows Virtual Desktop i Azure.
     - **Data**: Migrera stora mängder data till Azure snabbt och kostnads effektivt med Azure Data Box produkter.
@@ -36,8 +36,8 @@ Azure Migrate Hub innehåller följande verktyg:
 --- | --- | ---
 **Azure Migrate: Server utvärdering** | Utvärdera servrar. | Identifiera och utvärdera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar som förbereder migrering till Azure.
 **Azure Migrate: Server-migrering** | Migrera servrar. | Migrera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, andra virtualiserade datorer och virtuella datorer i offentliga moln till Azure.
-**Data Migration Assistant** | Utvärdera lokala SQL Server-databaser för migrering till Azure SQL Database, en Azure SQL Database Hanterad instans eller virtuella Azure-datorer som kör SQL Server. | Data Migration Assistant hjälper till att hitta potentiella problem med att blockera migrering. Den identifierar funktioner som inte stöds, nya funktioner som kan dra nytta av dig efter migreringen och rätt sökväg för migrering av databasen. [Läs mer](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
-**Azure Database Migration Service** | Migrera lokala databaser till virtuella Azure-datorer som kör SQL Server, Azure SQL Database eller Azure SQL Database hanterade instanser. | [Läs mer](https://docs.microsoft.com/azure/dms/dms-overview) om Database migration service.
+**Data Migration Assistant** | Utvärdera SQL Server-databaser för migrering till Azure SQL Database, Azure SQL-hanterad instans eller virtuella Azure-datorer som kör SQL Server. | Data Migration Assistant hjälper till att hitta potentiella problem med att blockera migrering. Den identifierar funktioner som inte stöds, nya funktioner som kan dra nytta av dig efter migreringen och rätt sökväg för migrering av databasen. [Läs mer](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
+**Azure Database Migration Service** | Migrera lokala databaser till virtuella Azure-datorer som kör SQL Server-, Azure SQL Database-eller SQL-hanterade instanser. | [Läs mer](https://docs.microsoft.com/azure/dms/dms-overview) om Database migration service.
 **Movere** | Utvärdera servrar. | [Läs mer](#movere) om superkraft.
 **Migreringsverktyg för webbapp** | Utvärdera lokala webbappar och migrera dem till Azure. |  Använd Azure App Service Migration Assistant för att utvärdera lokala webbplatser för migrering till Azure App Service.<br/><br/> Använd Migration Assistant för att migrera .NET-och PHP-webbappar till Azure. [Läs mer](https://appmigration.microsoft.com/) om Azure App Service Migration Assistant.
 **Azure Data Box** | Migrera offline-data. | Använd Azure Data Box produkter för att flytta stora mängder offlinedata till Azure. [Läs mer](https://docs.microsoft.com/azure/databox/).

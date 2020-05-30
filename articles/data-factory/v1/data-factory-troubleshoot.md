@@ -13,12 +13,12 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 81ae5c3c702108d854e4dfde93001d5c99875666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74931588"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195904"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Felsök Data Factory-problem
 > [!NOTE]
@@ -49,7 +49,7 @@ Du använder förmodligen inte rätt Azure-konto eller -prenumeration med Azure 
 
 1. Connect-AzAccount – Använd rätt användar-ID och lösen ord
 2. Get-AzSubscription – Visa alla prenumerationer för kontot.
-3. Select-AzSubscription &lt;prenumerations&gt; namn – Välj rätt prenumeration. Använd samma som du använder för att skapa en data fabrik på Azure Portal.
+3. Select-AzSubscription &lt; prenumerations namn &gt; – Välj rätt prenumeration. Använd samma som du använder för att skapa en data fabrik på Azure Portal.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problem: det gick inte att starta installations programmet för Data Management Gateway Express från Azure Portal
 Expressinstallationen för Data Management Gateway kräver Internet Explorer eller en Microsoft ClickOnce-kompatibel webbläsare. Om det inte går att starta expressinstallationen, gör du något av följande:
@@ -61,10 +61,10 @@ Expressinstallationen för Data Management Gateway kräver Internet Explorer ell
     Gör samma sak för Firefox (installera tillägg). Klicka på knappen Öppna menyn i verktygsfältet (tre horisontella linjer högst upp till höger), klicka på Tillägg, sök efter nyckelordet ”ClickOnce”, välj ett av ClickOnce-tilläggen och installera det.
 * Använd den **manuella installations** länken som visas på samma blad i portalen. Du kan använda den här metoden för att ladda ned installations filen och köra den manuellt. När installationen har slutförts visas dialog rutan Data Management Gateway konfiguration. Kopiera **nyckeln** från portalskärmen och använd den i konfigurationshanteraren för att manuellt registrera gatewayen i tjänsten.  
 
-### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Problem: det går inte att ansluta till den lokala SQL Server
+### <a name="problem-fail-to-connect-to-sql-server"></a>Problem: det gick inte att ansluta till SQL Server
 Starta **Data Management Gateway Configuration Manager** på gateway-datorn och Använd fliken **fel sökning** för att testa anslutningen till SQL Server från gateway-datorn. Mer information om fel sökning av problem med anslutning/Gateway finns i [Felsöka Gateway-problem](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .   
 
-### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problem: angivna sektorer är i vänte läge för någonsin
+### <a name="problem-input-slices-are-in-waiting-state-forever"></a>Problem: angivna sektorer är i vänte läge för alltid
 Sektorerna kan vara i **vänte** läge på grund av olika orsaker. En av de vanligaste orsakerna är att den **externa** egenskapen inte har angetts till **True**. Alla data uppsättningar som skapas utanför omfånget för Azure Data Factory ska markeras med **extern** egenskap. Den här egenskapen anger att data är externa och inte backas upp av några pipelines i data fabriken. Datasektorerna markeras som **Klar** när datauppsättningen är tillgänglig i respektive lager.
 
 I följande exempel kan du se hur egenskapen **external** används. Du kan också ange **extern Aldata*** när du ställer in external till true.

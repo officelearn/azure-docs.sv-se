@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 27336028fb6b141d8ece4d975b7590b3daf875f2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c0b34e17c202cb060773c53aa5775343ade9c2ee
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050963"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193778"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server instans migrering till Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ På en hög nivå ser databasens migreringsprocessen ut så här:
 
 ## <a name="assess-sql-managed-instance-compatibility"></a>Utvärdera kompatibilitet för SQL-hanterad instans
 
-Kontrol lera först om SQL-hanterad instans är kompatibel med programmets databas krav. SQL-hanterad instans är utformad för att ge enkel växel och Shift-migrering för de flesta befintliga program som använder SQL Server lokalt eller på virtuella datorer. Du kan dock ibland behöva funktioner eller funktioner som ännu inte stöds och kostnaden för att implementera en lösning är för hög.
+Kontrol lera först om SQL-hanterad instans är kompatibel med programmets databas krav. SQL-hanterad instans är utformad för att ge enkel växel och Shift-migrering för de flesta befintliga program som använder SQL Server. Du kan dock ibland behöva funktioner eller funktioner som ännu inte stöds och kostnaden för att implementera en lösning är för hög.
 
 Använd [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem som påverkar databas funktioner på Azure SQL Database. Om det finns rapporterade spärrnings problem kan du behöva överväga ett alternativt alternativ, till exempel [SQL Server på virtuella Azure-datorer](https://azure.microsoft.com/services/virtual-machines/sql-server/). Här följer några exempel:
 
@@ -121,7 +121,7 @@ Mer information om det här scenariot och konfigurations stegen för DMS finns i
 
 ### <a name="native-restore-from-url"></a>Intern återställning från URL
 
-ÅTERSTÄLLNING av interna säkerhets kopieringar (. bak-filer) som tas från SQL Server lokala eller [SQL Server på virtuella datorer](https://azure.microsoft.com/services/virtual-machines/sql-server/), finns på [Azure Storage](https://azure.microsoft.com/services/storage/), är en av de viktigaste funktionerna i SQL-hanterad instans som möjliggör snabb och enkel migrering av databasen.
+ÅTERSTÄLLNING av interna säkerhets kopior (. bak-filer) som tagits från en SQL Server instans, tillgänglig på [Azure Storage](https://azure.microsoft.com/services/storage/), är en av de viktigaste funktionerna i SQL-hanterad instans som möjliggör snabb och enkel migrering av databasen.
 
 Följande diagram ger en övergripande översikt över processen:
 

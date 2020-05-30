@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Lär dig mer om Azure Media Services Live-avskrift.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 11/19/2019
-ms.author: juliako
-ms.openlocfilehash: b364b6e70e3b5723c483bc3435f0c3a152c03aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: inhenkel
+ms.openlocfilehash: 9481b4ee2f225c7f76337d73b27630e4c67cc780
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79499870"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193612"
 ---
 # <a name="live-transcription-preview"></a>Direkt avskrift (för hands version)
 
@@ -41,54 +41,113 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 Åtgärden har följande text (där en direkt sändnings händelse skapas med RTMP som inmatnings protokoll). Observera tillägget av en avskrifts egenskap. Det enda tillåtna värdet för språket är en-US.
 
 ```
-{ 
-  "properties": { 
-    "description": "Demonstrate how to enable live transcriptions", 
-    "input": { 
-      "streamingProtocol": "RTMP", 
-      "accessControl": { 
-        "ip": { 
-          "allow": [ 
-            { 
-              "name": "Allow All", 
-              "address": "0.0.0.0", 
-              "subnetPrefixLength": 0 
-            } 
-          ] 
-        } 
-      } 
-    }, 
-    "preview": { 
-      "accessControl": { 
-        "ip": { 
-          "allow": [ 
-            { 
-              "name": "Allow All", 
-              "address": "0.0.0.0", 
-              "subnetPrefixLength": 0 
-            } 
-          ] 
-        } 
-      } 
-    }, 
-    "encoding": { 
-      "encodingType": "None" 
-    }, 
-    "transcriptions": [ 
-      { 
-        "language": "en-US" 
-      } 
-    ], 
-    "vanityUrl": false, 
-    "streamOptions": [ 
-      "Default" 
-    ] 
-  }, 
-  "location": "West US 2" 
-} 
+{
+  "properties": {
+    "description": "Demonstrate how to enable live transcriptions",
+    "input": {
+      "streamingProtocol": "RTMP",
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "preview": {
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "encoding": {
+      "encodingType": "None"
+    },
+    "transcriptions": [
+      {
+        "language": "en-US"
+      }
+    ],
+    "vanityUrl": false,
+    "streamOptions": [
+      "Default"
+    ]
+  },
+  "location": "West US 2"
+}
 ```
 
 Avsök status för direkt sändningen tills den hamnar i tillståndet "körs", vilket innebär att du nu kan skicka ett bidrags-RTMP-flöde. Du kan nu följa samma steg som i den här självstudien, t. ex. kontrol lera förhands visningen och skapa Live-utdata.
+
+## <a name="start-transcription-after-live-event-has-started"></a>Starta avskrift när Live-händelsen har startats
+
+Direkt avskrift kan startas efter att en Live-händelse har påbörjats. Om du vill aktivera Live-avskrifter ska du uppdatera Live-händelsen så att den innehåller egenskapen "avskrifter". För att inaktivera direkt avskrifter tas egenskapen "avskrifter" bort från Live Event-objektet.
+
+> [!NOTE]
+> Att aktivera eller inaktivera avskriften mer än en gång under Live-händelsen är inte ett scenario som stöds.
+
+Det här är exempel anropet för att aktivera Live-avskrifter.
+
+9.0a```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
+
+```
+{
+  "properties": {
+    "description": "Demonstrate how to enable live transcriptions", 
+    "input": {
+      "streamingProtocol": "RTMP",
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "preview": {
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "encoding": {
+      "encodingType": "None"
+    },
+    "transcriptions": [
+      {
+        "language": "en-US"
+      }
+    ],
+    "vanityUrl": false,
+    "streamOptions": [
+      "Default"
+    ]
+  },
+  "location": "West US 2"
+}
+```
 
 ## <a name="transcription-delivery-and-playback"></a>Avskrifts leverans och uppspelning
 

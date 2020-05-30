@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b0ebe6cb505fa2a145dd3cbb94398912f2933a4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e183a1e8cac8eec2806a35603c40a44aadac502
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77369709"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193512"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen2 för Big data-krav
 
@@ -52,7 +52,7 @@ Detta representerar data som kan genereras av olika källor, till exempel progra
 
 Här är en lista med verktyg som du kan använda för att mata in strömmade data.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Azure Stream Analytics|[Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Utgående till Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
 |Azure HDInsight Storm | [Skriv till Apache Hadoop HDFS från Apache Storm på HDInsight](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
@@ -63,7 +63,7 @@ Du kan också källdata från Relations databaser. Under en viss tids period sam
 
 Här är en lista med verktyg som du kan använda för att mata in relations data.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 
@@ -73,7 +73,7 @@ Den här typen av data uppsättning kallas särskilt för att analysera webb ser
 
 Här är en lista med verktyg som du kan använda för att mata in data från webb server loggar.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
 |Azure CLI|[Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
@@ -87,7 +87,7 @@ De flesta typer av HDInsight-kluster (Hadoop, HBase, Storm) stöder Data Lake St
 
 Här är en lista med verktyg som du kan använda för att mata in data som är associerade med HDInsight-kluster.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Apache DistCp | [Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |AzCopy-verktyg | [Överföra data med AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
@@ -97,7 +97,7 @@ Här är en lista med verktyg som du kan använda för att mata in data som är 
 
 Stora mängder data kan lagras i befintliga Hadoop-kluster, lokalt på datorer som använder HDFS. Hadoop-klustren kan finnas i en lokal distribution eller vara i ett IaaS-kluster på Azure. Det kan finnas krav på att kopiera sådana data till Azure Data Lake Storage Gen2 för ett engångs sätt eller på ett återkommande sätt. Det finns olika alternativ som du kan använda för att åstadkomma detta. Nedan visas en lista med alternativ och tillhör ande kompromisser.
 
-| Metod | Information | Fördelar | Överväganden |
+| Metod | Information | Fördelar | Att tänka på |
 | --- | --- | --- | --- |
 | Använd Azure Data Factory (ADF) för att kopiera data direkt från Hadoop-kluster till Azure Data Lake Storage Gen2 |[ADF stöder HDFS som en data Källa](../../data-factory/connector-hdfs.md) |ADF tillhandahåller direkt support för HDFS och den första klassens slut punkt till slut punkt-hantering och övervakning |Kräver att Data Management Gateway distribueras lokalt eller i IaaS-klustret |
 | Använd Distcp för att kopiera data från Hadoop till Azure Storage. Kopiera sedan data från Azure Storage till Data Lake Storage Gen2 med lämplig mekanism. |Du kan kopiera data från Azure Storage till Data Lake Storage Gen2 med: <ul><li>[Azure Data Factory](../../data-factory/copy-activity-overview.md)</li><li>[AzCopy-verktyg](../common/storage-use-azcopy-v10.md)</li><li>[Apache-DistCp som körs på HDInsight-kluster](data-lake-storage-use-distcp.md)</li></ul> |Du kan använda verktyg med öppen källkod. |Multi-Step-process som omfattar flera tekniker |
@@ -116,7 +116,7 @@ När data är tillgängliga i Data Lake Storage Gen2 kan du köra analyser av de
 
 Här är en lista med verktyg som du kan använda för att köra data analys jobb på data som lagras i Data Lake Storage Gen2.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Azure HDInsight | [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Snabb start: analysera data i Azure Data Lake Storage Gen2 med Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Självstudie: extrahera, transformera och läsa in data med hjälp av Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
@@ -129,7 +129,7 @@ Använd Power BI-anslutningen för att skapa visuella representationer av data s
 
 Du kanske också vill hämta eller flytta data från Azure Data Lake Storage Gen2 för scenarier som:
 
-* Flytta data till andra databaser till gränssnitt med dina befintliga pipeliner för data bearbetning. Du kanske till exempel vill flytta data från Data Lake Storage Gen2 till Azure SQL Database eller lokalt SQL Server.
+* Flytta data till andra databaser till gränssnitt med dina befintliga pipeliner för data bearbetning. Du kanske till exempel vill flytta data från Data Lake Storage Gen2 till Azure SQL Database eller en SQL Server instans.
 
 * Ladda ned data till den lokala datorn för bearbetning i IDE-miljöer när du skapar program prototyper.
 
@@ -137,7 +137,7 @@ Du kanske också vill hämta eller flytta data från Azure Data Lake Storage Gen
 
 Här är en lista med verktyg som du kan använda för att hämta data från Data Lake Storage Gen2.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 |Apache DistCp | [Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |

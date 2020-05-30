@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6e1c9aa5c2e049d5fc1ebd8bf745417f56d232ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04706de4b1cc18a4f3146f75442de84340319cef
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366578"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220168"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Koda video och ljud med Media Services
 
@@ -98,7 +98,10 @@ Följande för inställningar stöds för närvarande:
 
 - **EncoderNamedPreset. AACGoodQualityAudio**: skapar en enda MP4-fil som bara innehåller stereo ljud som är kodat med 192 kbps.
 - **EncoderNamedPreset. AdaptiveStreaming** (rekommenderas): Mer information finns i [skapa en bit hastighets steg automatiskt](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset. ContentAwareEncodingExperimental**: visar en experimentell för inställning för innehålls medveten kodning. Med allt indata-innehåll, försöker tjänsten automatiskt fastställa det optimala antalet lager och lämpliga bit hastighets-och upplösnings inställningar för leverans genom anpassad direkt uppspelning. De underliggande algoritmerna kommer att fortsätta att utvecklas över tid. Utdata kommer att innehålla MP4-filer med video och ljud som är överlagrade. Mer information finns i [experimentell för inställning för innehålls medveten kodning](content-aware-encoding.md).
+- **EncoderNamedPreset. ContentAwareEncoding**: visar en för inställning för innehålls medveten kodning. Med allt indata-innehåll, försöker tjänsten automatiskt fastställa det optimala antalet lager och lämpliga bit hastighets-och upplösnings inställningar för leverans genom anpassad direkt uppspelning. De underliggande algoritmerna kommer att fortsätta att utvecklas över tid. Utdata kommer att innehålla MP4-filer med video och ljud som är överlagrade. Mer information finns i [Content medveten encoding](content-aware-encoding.md).
+
+  > [!NOTE]
+  > Se till att använda **ContentAwareEncoding** inte ContentAwareEncodingExperimental.
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: genererar en uppsättning av åtta GOP MP4-filer, mellan 6000 och 400 kbit/s och stereo AAC-ljud. Lösningen börjar vid 1080p och går ned till 360p.
 - **EncoderNamedPreset. H264MultipleBitrate720p**: skapar en uppsättning av sex GOP MP4-filer, mellan 3400 och 400 kbit/s och stereo AAC-ljud. Lösningen börjar vid 720p och går ned till 360p.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: genererar en uppsättning av fem GOP MP4-filer, mellan 1600 och 400 kbit/s och stereo AAC-ljud. Lösningen börjar vid 480p och går ned till 360p.
@@ -114,7 +117,7 @@ Se [Ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md)för a
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) beskriver vilka inställningar som ska användas när du kodar Indataporten med Standard-kodaren. Använd den här för inställningen när du anpassar förinställda transformeringar.
 
-#### <a name="considerations"></a>Överväganden
+#### <a name="considerations"></a>Att tänka på
 
 När du skapar anpassade för inställningar gäller följande aspekter:
 

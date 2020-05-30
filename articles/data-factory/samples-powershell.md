@@ -10,12 +10,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 705b2464285b747ea7999b112733b7e99f761f22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 709ceb465594c566349cf9ea5bfed7db73c9a0cf
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419093"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194753"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Azure PowerShell exempel för Azure Data Factory
 
@@ -27,7 +27,7 @@ Följande tabell innehåller länkar till exempel Azure PowerShell skript för A
 |---|---|
 |**Kopiera data**||
 |[Kopiera blobbar från en mapp till en annan mapp i ett Azure-Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet kopierar blobbar från en mapp i Azure Blob Storage till en annan mapp i samma Blob Storage. |
-|[Kopiera data från lokala SQL Server till Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet kopierar data från en lokal SQL Server-databas till Azure Blob Storage. |
+|[Kopiera data från SQL Server till Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet kopierar data från en SQL Server-databas till Azure Blob Storage. |
 |[Mass kopiering](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här exemplet på PowerShell-skriptet kopierar data från flera tabeller i en Azure SQL-databas till ett Azure SQL Data Warehouse. |
 |[Stegvis kopia](scripts/incremental-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här exemplet på PowerShell-skriptet läser bara in nya eller uppdaterade poster från ett käll data lager till ett data lager för mottagare efter den första fullständiga kopian av data från källan till mottagaren. |
 |**Omvandla data**||

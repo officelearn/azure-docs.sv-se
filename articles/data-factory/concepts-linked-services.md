@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 0703e7cd44a79dd45680e19c8f5f3232be840823
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7d071a98b8d82d6f11278b59e1dfc91882a9bfcc
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826187"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192865"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Det finns inte några länkade tjänster i Azure Data Factory
 
@@ -32,7 +32,7 @@ Om du inte har använt Data Factory, se [Introduktion till Azure Data Factory](i
 
 ## <a name="overview"></a>Översikt
 
-En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en aktivitet. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopierings aktivitet för att kopiera data från en lokal SQL Server till Azure Blob Storage. Sedan kan du använda en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta data från Blob Storage för att skapa utdata. Slutligen kan du använda en andra kopierings aktivitet för att kopiera utdata till Azure SQL Data Warehouse, utöver vilka Business Intelligence (BI) rapporterings lösningar har skapats. Mer information om pipelines och aktiviteter finns i [pipeline och aktiviteter](concepts-pipelines-activities.md) i Azure Data Factory.
+En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en aktivitet. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopierings aktivitet för att kopiera data från SQL Server till Azure Blob Storage. Sedan kan du använda en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta data från Blob Storage för att skapa utdata. Slutligen kan du använda en andra kopierings aktivitet för att kopiera utdata till Azure SQL Data Warehouse, utöver vilka Business Intelligence (BI) rapporterings lösningar har skapats. Mer information om pipelines och aktiviteter finns i [pipeline och aktiviteter](concepts-pipelines-activities.md) i Azure Data Factory.
 
 Nu är en **data uppsättning** en namngiven vy av data som bara pekar eller refererar till de data som du vill använda i dina **aktiviteter** som indata och utdata.
 

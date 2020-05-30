@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: 204ac3be46ac7ba0e1ea96e50379ca417b1299ce
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1a9e38d2718643212848105e09c60d93f497a34a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847641"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193533"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replikera virtuella Azure-datorer som körs i närhets placerings grupper till en annan region
 
@@ -22,13 +22,16 @@ Den här artikeln beskriver hur du replikerar, redundans och återställning eft
 
 I ett typiskt scenario kan du ha dina virtuella datorer som körs i en närhets grupp för att undvika nätverks fördröjningen mellan olika nivåer av ditt program. Detta kan ge din program optimala nätverks fördröjning, men du vill skydda dessa program med hjälp av Site Recovery för ett region nivå haveri. Site Recovery replikerar data från en region till en annan Azure-region och tar upp datorer i Disaster Recovery-regionen i en händelse av redundans.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 - Det bästa arbetet är att redundansväxla/redundansväxla de virtuella datorerna till en närhets placerings grupp. Men om den virtuella datorn inte kan hamna i närheten vid växling vid fel/återställning efter fel, kommer redundansväxlingen/failback fortfarande att ske, och virtuella datorer skapas utanför en närhets placerings grupp.
 -  Om en tillgänglighets uppsättning fästs på en närhets placerings grupp och under redundansväxling/failback-datorer i tillgänglighets uppsättningen har en tilldelnings begränsning skapas de virtuella datorerna utanför både tillgänglighets uppsättningen och närhets placerings gruppen.
 -  Site Recovery för närhets placerings grupper stöds inte för ohanterade diskar.
 
-## <a name="prerequisites"></a>Krav
+> [!Note]
+> Azure Site Recovery har inte stöd för återställning efter fel från hanterade diskar för Hyper-V till Azure-scenarier. Därför stöds inte failback från närhets placerings gruppen i Azure till Hyper-V.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Kontrol lera att du har modulen Azure PowerShell AZ. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 

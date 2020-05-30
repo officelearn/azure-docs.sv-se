@@ -1,6 +1,6 @@
 ---
-title: Ändra licens modell för en SQL Server VM i Azure
-description: Lär dig hur du växlar licensiering för en SQL Server virtuell dator i Azure från betala per användning för att få en egen licens genom att använda Azure Hybrid-förmån.
+title: Ändra licens modell för en virtuell SQL-dator i Azure
+description: Lär dig hur du växlar licensiering för en SQL Server VM i Azure från betala per användning för att få en egen licens genom att använda Azure Hybrid-förmån.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,20 +14,20 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ebf8e62074d357b6c7dc91d1a88a46dcfc18bf16
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 07f5896ab43cd02abc9c83667763c1989355b8bc
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049080"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219417"
 ---
-# <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Ändra licensmodellen för en virtuell SQL Server-dator i Azure
+# <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Ändra licens modell för en virtuell SQL-dator i Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-I den här artikeln beskrivs hur du ändrar licens modellen för en SQL Server virtuell dator (VM) i Azure med hjälp av den nya providern för SQL VM-resurs, **Microsoft. SqlVirtualMachine**.
+Den här artikeln beskriver hur du ändrar licens modellen för en SQL Server virtuell dator (VM) i Azure med hjälp av den nya SQL Server VM Resource providern **Microsoft. SqlVirtualMachine**.
 
-Det finns tre licens modeller för en virtuell dator som är värd för SQL Server: betala per användning, Azure Hybrid-förmån och haveri beredskap (DR). Du kan ändra licens modellen för dina SQL Server VM med hjälp av Azure Portal, Azure CLI eller PowerShell. 
+Det finns tre licens modeller för en virtuell dator som är värd för SQL Server: betala per användning, Azure Hybrid-förmån (AHB) och haveri beredskap (DR). Du kan ändra licens modellen för dina SQL Server VM med hjälp av Azure Portal, Azure CLI eller PowerShell. 
 
 - Modellen " **betala per** användning" innebär att kostnaden för den virtuella Azure-datorn per sekund inkluderar kostnaden för den SQL Server licensen.
 - [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) gör att du kan använda din egen SQL Server-licens med en virtuell dator som kör SQL Server. 
@@ -37,11 +37,11 @@ Azure Hybrid-förmån tillåter användningen av SQL Server licenser med Softwar
 
 Enligt Microsofts produkt villkor: "kunder måste ange att de använder Azure SQL Database (hanterad instans, Elastisk pool och Enkel databas), Azure Data Factory, SQL Server Integration Services eller SQL Server Virtual Machines under Azure Hybrid-förmån för SQL Server när du konfigurerar arbets belastningar i Azure."
 
-Om du vill ange användningen av Azure Hybrid-förmån för SQL Server på en virtuell Azure-dator och är kompatibel, har du tre alternativ:
+Om du vill ange användningen av Azure Hybrid-förmån för SQL Server på virtuell Azure-dator och är kompatibel, har du tre alternativ:
 
 - Etablera en virtuell dator med hjälp av en egen licens SQL Server-avbildning från Azure Marketplace. Det här alternativet är endast tillgängligt för kunder som har en Enterprise-avtal.
 - Etablera en virtuell dator med hjälp av en SQL Server avbildning som du betalar per användning från Azure Marketplace och aktivera Azure Hybrid-förmån.
-- Själv installera SQL Server på en virtuell Azure-dator, [registrera manuellt med den virtuella SQL VM-providern](sql-vm-resource-provider-register.md)och aktivera Azure Hybrid-förmån.
+- Själv installera SQL Server på den virtuella Azure-datorn, [Registrera dig manuellt med resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md)och aktivera Azure Hybrid-förmån.
 
 Licens typen för SQL Server kan konfigureras när den virtuella datorn är etablerad eller när som helst efteråt. Växling mellan licens modeller medför ingen nedtid, startar inte om den virtuella datorn eller tjänsten SQL Server, lägger inte till några ytterligare kostnader och börjar gälla omedelbart. Aktiverings Azure Hybrid-förmån *minskar* i själva verket kostnaderna.
 
@@ -56,7 +56,7 @@ Att ändra licensierings modellen för SQL Server VM har följande krav:
 
 ## <a name="vms-already-registered-with-the-resource-provider"></a>Virtuella datorer som redan har registrerats med resurs leverantören 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -70,7 +70,7 @@ Du kan ändra licens modellen direkt från portalen:
 ![Azure Hybrid-förmån i portalen](./media/licensing-model-azure-hybrid-benefit-ahb-change/ahb-in-portal.png)
 
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Du kan använda Azure CLI för att ändra din licens modell.  
 
@@ -133,7 +133,7 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
 
 Om du etablerade en SQL Server VM från Azure Marketplace-avbildningar enligt principen betala per användning, kommer SQL Server licens typen att betala per användning. Om du har upprättat en SQL Server VM med hjälp av en egen licens avbildning från Azure Marketplace blir licens typen AHUB. Alla SQL Server virtuella datorer som tillhandahålls från standardvärdet (betala per användning) eller med en egen licens för Azure Marketplace-avbildningar registreras automatiskt med den virtuella SQL-resurs leverantören, så att de kan ändra [licens typen](#vms-already-registered-with-the-resource-provider).
 
-Du är bara berättigad till att själv installera SQL Server på en virtuell Azure-dator via Azure Hybrid-förmån. Du bör [registrera de virtuella datorerna med resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md) genom att ange den SQL Server licensen som Azure Hybrid-förmån, för att ange Azure Hybrid-förmån användning enligt Microsofts produkt villkor.
+Du är endast berättigad till att själv installera SQL Server på virtuella Azure-datorer via Azure Hybrid-förmån. Du bör [registrera de virtuella datorerna med resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md) genom att ange den SQL Server licensen som Azure Hybrid-förmån, för att ange Azure Hybrid-förmån användning enligt Microsofts produkt villkor.
 
 Du kan ändra licens typen för en SQL Server VM som "betala per användning" eller Azure Hybrid-förmån endast om SQL Server VM har registrerats med resurs leverantören för SQL-VM.
 

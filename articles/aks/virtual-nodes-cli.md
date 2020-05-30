@@ -5,12 +5,13 @@ description: Lär dig hur du använder Azure CLI för att skapa ett AKS-kluster 
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 826c7f98b9540d84ac151e05cd81f2cc6042776c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: a5f930df37200531cce709d77130e1e1b7930883
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128916"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193990"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera ett Azure Kubernetes Services-kluster (AKS) för att använda virtuella noder med Azure CLI
 
@@ -73,7 +74,7 @@ Funktioner för virtuella noder är kraftigt beroende av ACI funktions uppsättn
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto.
 
-Om du vill öppna Cloud Shell väljer du **testa den** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/bash](https://shell.azure.com/bash)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du **testa den** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 Om du föredrar att installera och använda CLI lokalt kräver den här artikeln Azure CLI version 2.0.49 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -210,7 +211,7 @@ aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Distribuera en exempel App
 
-Skapa en fil med `virtual-node.yaml` namnet och kopiera i följande yaml. Om du vill schemalägga behållaren på noden definieras [en][node-selector] avsökning och [tolererande][toleration] .
+Skapa en fil med namnet `virtual-node.yaml` och kopiera i följande yaml. Om du vill schemalägga behållaren på noden definieras [en][node-selector] avsökning och [tolererande][toleration] .
 
 ```yaml
 apiVersion: apps/v1
@@ -263,7 +264,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 Pod tilldelas en intern IP-adress från Azure Virtual Network-undernätet delegerad för användning med virtuella noder.
 
 > [!NOTE]
-> Om du använder avbildningar som lagras i Azure Container Registry [konfigurerar och använder du en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning av virtuella noder är att du inte kan använda integrerad autentisering för Azure AD-tjänstens huvud namn. Om du inte använder en hemlighet kan poddar schemalagda på virtuella noder inte starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"`.
+> Om du använder avbildningar som lagras i Azure Container Registry [konfigurerar och använder du en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning av virtuella noder är att du inte kan använda integrerad autentisering för Azure AD-tjänstens huvud namn. Om du inte använder en hemlighet kan poddar schemalagda på virtuella noder inte starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"` .
 
 ## <a name="test-the-virtual-node-pod"></a>Testa den virtuella noden Pod
 
@@ -273,13 +274,13 @@ Om du vill testa Pod som körs på den virtuella noden bläddrar du till demonst
 kubectl run --generator=run-pod/v1 -it --rm testvk --image=debian
 ```
 
-Installera `curl` i pod med `apt-get`:
+Installera `curl` i pod med `apt-get` :
 
 ```console
 apt-get update && apt-get install -y curl
 ```
 
-Nu kan du få åtkomst till adressen till `curl`din POD med *http://10.241.0.4*, till exempel. Ange din egna interna IP-adress som visas i `kubectl get pods` föregående kommando:
+Nu kan du få åtkomst till adressen till din POD med `curl` , till exempel *http://10.241.0.4* . Ange din egna interna IP-adress som visas i föregående `kubectl get pods` kommando:
 
 ```console
 curl -L http://10.241.0.4
@@ -295,15 +296,15 @@ Demo programmet visas, som du ser i följande komprimerade exempel i utdata:
 [...]
 ```
 
-Stäng terminalfönstret för test Pod med `exit`. När sessionen är slut tas Pod bort.
+Stäng terminalfönstret för test Pod med `exit` . När sessionen är slut tas Pod bort.
 
 ## <a name="remove-virtual-nodes"></a>Ta bort virtuella noder
 
 Om du inte längre vill använda virtuella noder kan du inaktivera dem med kommandot [AZ AKS Disable-addons][az aks disable-addons] . 
 
-Om det behövs går du [https://shell.azure.com](https://shell.azure.com) till för att öppna Azure Cloud Shell i webbläsaren.
+Om det behövs går du till [https://shell.azure.com](https://shell.azure.com) för att öppna Azure Cloud Shell i webbläsaren.
 
-Ta först bort Pod `aci-helloworld` som körs på den virtuella noden:
+Ta först bort `aci-helloworld` Pod som körs på den virtuella noden:
 
 ```console
 kubectl delete -f virtual-node.yaml

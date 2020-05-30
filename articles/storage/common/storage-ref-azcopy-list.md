@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: f02c1afadf18a7d3170eb178696487464e4a0bd3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db11a71cccee897a3b66e9ca95ded2dab62337b2
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74034101"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219984"
 ---
 # <a name="azcopy-list"></a>azcopy lista
 
@@ -42,7 +42,7 @@ azcopy list [containerURL]
 
 ## <a name="options"></a>Alternativ
 
-|Alternativ|Beskrivning|
+|Alternativ|Description|
 |--|--|
 |-h,--hjälp|Visa hjälp innehåll för kommandot List.|
 |--maskinläsbar|Visar en lista över fil storlekar i byte.|
@@ -51,11 +51,12 @@ azcopy list [containerURL]
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
-|Alternativ|Beskrivning|
+|Alternativ|Description|
 |---|---|
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|
+|--sträng för betrodd-Microsoft-suffix   |Anger ytterligare domänsuffix där Azure Active Directory inloggnings-token kan skickas.  Standardvärdet är '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. De som anges här läggs till i standardvärdet. För säkerhet ska du bara placeras Microsoft Azure domäner här. Avgränsa flera poster med semikolon.|
 
 ## <a name="see-also"></a>Se även
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: ed398e12ee90f2eef2cfa78e2ed02701e6012517
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b23cc2f69e78135998dcaa8a182f3d3ccc0eba82
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658888"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190416"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Azure Monitor loggar för tjänst leverantörer
 
@@ -19,7 +19,7 @@ Log Analytics arbets ytor i Azure Monitor kan hjälpa Managed Service Providers 
 
 Stora företag delar många likheter med tjänst leverantörer, särskilt när det finns ett centraliserat IT-team som ansvarar för att hantera den för många olika affär senheter. För enkelhetens skull använder det här dokumentet termen *Service Provider* men samma funktioner är också tillgängliga för företag och andra kunder.
 
-För partner och tjänst leverantörer som ingår i ett [CSP-program (Cloud Solution Provider)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) Log Analytics i Azure Monitor en av de Azure-tjänster som är tillgängliga i Azure CSP-prenumerationer.
+För partner och tjänst leverantörer som ingår i ett [CSP-program (Cloud Solution Provider)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) Log Analytics i Azure Monitor en av de Azure-tjänster som är tillgängliga i Azure CSP-prenumerationer.
 
 Log Analytics i Azure Monitor kan också användas av en tjänst leverantör som hanterar kund resurser via Azures delegerade resurs hanterings funktion i [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview).
 

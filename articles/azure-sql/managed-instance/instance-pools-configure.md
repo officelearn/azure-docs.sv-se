@@ -1,5 +1,5 @@
 ---
-title: Distribuera en SQL-hanterad instans till en instans-pool
+title: Distribuera SQL-hanterad instans till en instans-pool
 titleSuffix: Azure SQL Managed Instance
 description: Den här artikeln beskriver hur du skapar och hanterar Azure SQL Managed instance Pools (för hands version).
 services: sql-database
@@ -12,17 +12,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: c781e23b23f5dbaf8eba9efe4c27428ef35c7be1
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 9b59f6e091143e5c10be393620e4cc042faac36a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113631"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216379"
 ---
-# <a name="deploy-an-azure-sql-managed-instance-to-an-instance-pool"></a>Distribuera en hanterad Azure SQL-instans till en instans-pool
+# <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Distribuera en hanterad Azure SQL-instans till en instans-pool
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Den här artikeln innehåller information om hur du skapar en [instans-pooler](instance-pools-overview.md) och distribuerar en hanterad Azure SQL-instans till den. 
+Den här artikeln innehåller information om hur du skapar en [instans-pool](instance-pools-overview.md) och distribuerar en hanterad Azure SQL-instans till den. 
 
 ## <a name="instance-pool-operations"></a>Åtgärder för instans-pool
 
@@ -30,20 +30,20 @@ I följande tabell visas tillgängliga åtgärder relaterade till instans-pooler
 
 |Kommando|Azure Portal|PowerShell|
 |:---|:---|:---|
-|Skapa instanspool|Nej|Ja|
-|Uppdatera instans-pool (begränsat antal egenskaper)|Nej |Ja |
-|Kontrol lera användning och egenskaper för entitetsinstansen|Nej|Ja |
-|Ta bort instans-pool|Nej|Ja|
-|Skapa SQL-hanterad instans i instans-pool|Nej|Ja|
-|Uppdatera resursanvändning för SQL-hanterad instans|Ja |Ja|
-|Kontrol lera användning och egenskaper för SQL-hanterad instans|Ja|Ja|
-|Ta bort SQL-hanterad instans från poolen|Ja|Ja|
+|Skapa en instans-pool|Inga|Yes|
+|Uppdatera en instans-pool (begränsat antal egenskaper)|Inga |Yes |
+|Kontrol lera användning och egenskaper för en instans pool|Inga|Yes |
+|Ta bort en instans-pool|Inga|Yes|
+|Skapa en hanterad instans i en instans-pool|Inga|Yes|
+|Uppdatera resursanvändningen för en hanterad instans|Ja |Ja|
+|Kontrol lera användning och egenskaper för en hanterad instans|Ja|Ja|
+|Ta bort en hanterad instans från poolen|Ja|Ja|
 |Skapa en databas i en instans inom poolen|Ja|Ja|
 |Ta bort en databas från SQL-hanterad instans|Ja|Ja|
 
-Tillgängliga [PowerShell-kommandon](https://docs.microsoft.com/powershell/module/az.sql/)
+Tillgängliga [PowerShell-kommandon](https://docs.microsoft.com/powershell/module/az.sql/):
 
-|Cmdlet |Beskrivning |
+|Cmdlet |Description |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Skapar en SQL-hanterad instans-pool. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Returnerar information om en instans-pool. |
@@ -58,29 +58,29 @@ För åtgärder relaterade till instanser både i pooler och enskilda instanser 
 
 ## <a name="deployment-process"></a>Distributionsprocess
 
-Om du vill distribuera en SQL-hanterad instans i en instans, måste du först distribuera instansen, som är en tids krävande åtgärd där varaktigheten är samma som att distribuera en [enskild instans som skapats i ett tomt undernät](sql-managed-instance-paas-overview.md#management-operations). Därefter kan du distribuera SQL-hanterade instanser till poolen, vilket är en relativt snabb åtgärd som vanligt vis tar upp till fem minuter. Parametern för entitetsinstansen måste anges explicit som en del av den här åtgärden.
+Om du vill distribuera en hanterad instans i en instans, måste du först distribuera instansen, som är en tids krävande åtgärd där varaktigheten är samma som att distribuera en [enskild instans som skapats i ett tomt undernät](sql-managed-instance-paas-overview.md#management-operations). Därefter kan du distribuera en hanterad instans till poolen, vilket är en relativt snabb åtgärd som vanligt vis tar upp till fem minuter. Parametern för entitetsinstansen måste anges explicit som en del av den här åtgärden.
 
-I offentlig för hands version stöds båda åtgärderna bara med PowerShell-och Resource Manager-mallar. Den Azure Portal upplevelsen är inte tillgänglig för närvarande.
+I offentlig för hands version stöds båda åtgärderna endast med PowerShell och Azure Resource Manager mallar. Den Azure Portal upplevelsen är inte tillgänglig för närvarande.
 
-När SQL-hanterad instans har distribuerats till en pool *kan* du använda Azure Portal för att ändra dess egenskaper på sidan pris nivå.
+När en hanterad instans har distribuerats till en pool *kan* du använda Azure Portal för att ändra dess egenskaper på sidan pris nivå.
 
-## <a name="create-virtual-network-with-a-subnet"></a>Skapa ett virtuellt nätverk med ett undernät 
+## <a name="create-a-virtual-network-with-a-subnet"></a>Skapa ett virtuellt nätverk med ett undernät 
 
 Information om hur du placerar flera instanser i samma virtuella nätverk finns i följande artiklar:
 
-- [Bestäm storleken på VNet-undernät för en hanterad Azure SQL-instans](vnet-subnet-determine-size.md).
+- [Bestäm storleken på VNet-undernät för Azure SQL-hanterad instans](vnet-subnet-determine-size.md).
 - Skapa ett nytt virtuellt nätverk och undernät med [Azure Portal-mallen](virtual-network-subnet-create-arm-template.md) eller följ instruktionerna för att [förbereda ett befintligt virtuellt nätverk](vnet-existing-add-subnet.md).
  
 
-## <a name="create-instance-pool"></a>Skapa instanspool 
+## <a name="create-an-instance-pool"></a>Skapa en instans-pool 
 
 När du har slutfört föregående steg är du redo att skapa en instans-pool.
 
 Följande begränsningar gäller för instans pooler:
 
 - Endast Generell användning och Gen5 är tillgängliga i offentlig för hands version.
-- Poolnamn får bara innehålla gemener, siffror och bindestreck, och får inte börja med ett bindestreck.
-- Om du vill använda AHB (Azure Hybrid-förmån) tillämpas den på instans nivå. Du kan ange licens typ när du skapar en pool eller uppdatera den när den har skapats.
+- Poolnamn får bara innehålla gemena bokstäver, siffror och bindestreck, och får inte börja med ett bindestreck.
+- Om du vill använda Azure Hybrid-förmån tillämpas den på instans nivå. Du kan ange licens typ när du skapar en pool eller uppdatera den när den har skapats.
 
 > [!IMPORTANT]
 > Distribution av en instans-pool är en tids krävande åtgärd som tar cirka 4,5 timmar.
@@ -109,11 +109,11 @@ $instancePool = New-AzSqlInstancePool `
 > [!IMPORTANT]
 > Eftersom distributionen av en instans är en tids krävande åtgärd måste du vänta tills den har slutförts innan du kör något av följande steg i den här artikeln.
 
-## <a name="create-sql-managed-instance"></a>Skapa hanterad SQL-instans
+## <a name="create-a-managed-instance"></a>Skapa en hanterad instans
 
-När du har slutfört distributionen av instansen är det dags att skapa en SQL-hanterad instans inuti den.
+När du har slutfört distributionen av instansen är det dags att skapa en hanterad instans inuti den.
 
-Kör följande kommando för att skapa en SQL-hanterad instans:
+Kör följande kommando för att skapa en hanterad instans:
 
 ```powershell
 $instanceOne = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 2 -StorageSizeInGB 256
@@ -127,9 +127,9 @@ $instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 4 -
 
 ## <a name="create-a-database"></a>Skapa en databas 
 
-Om du vill skapa och hantera databaser i en SQL-hanterad instans i en pool, använder du kommandona för den enskilda instansen.
+Om du vill skapa och hantera databaser i en hanterad instans i en pool använder du kommandona för den enskilda instansen.
 
-Så här skapar du en databas inuti en SQL-hanterad instans:
+Så här skapar du en databas inuti en hanterad instans:
 
 ```powershell
 $poolinstancedb = New-AzSqlInstanceDatabase -Name "mipooldb1" -InstanceName "poolmi-001" -ResourceGroupName "myResourceGroup"
@@ -172,8 +172,8 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 ## <a name="scale"></a>Skala 
 
 
-När du har fyllt i en SQL-hanterad instans med databaser kan du träffa instans gränser för lagring eller prestanda. I så fall kan du skala instansen om pool användningen inte har överskridits.
-Att skala en SQL-hanterad instans i en pool är en åtgärd som tar några minuter. Förutsättningen för skalning är tillgänglig virtuella kärnor och lagring på instance Poolnivå.
+När du har fyllt i en hanterad instans med databaser kan du träffa instans gränser för lagring eller prestanda. I så fall kan du skala instansen om pool användningen inte har överskridits.
+Att skala en hanterad instans i en pool är en åtgärd som tar några minuter. Förutsättningen för skalning är tillgänglig virtuella kärnor och lagring på instance Poolnivå.
 
 Så här uppdaterar du antalet virtuella kärnor och lagrings storlek:
 
@@ -190,14 +190,14 @@ $instance | Set-AzSqlInstance -StorageSizeInGB 1024 -InstancePoolName "mi-pool-n
 
 ## <a name="connect"></a>Anslut 
 
-Följande två steg krävs för att ansluta till en SQL-hanterad instans i en pool:
+Följande två steg krävs för att ansluta till en hanterad instans i en pool:
 
-1. [Aktivera den offentliga slut punkten för instansen](#enable-public-endpoint).
+1. [Aktivera den offentliga slut punkten för instansen](#enable-the-public-endpoint).
 2. [Lägg till en regel för inkommande trafik i nätverks säkerhets gruppen (NSG)](#add-an-inbound-rule-to-the-network-security-group).
 
 När båda stegen har slutförts kan du ansluta till instansen med hjälp av en offentlig slut punkts adress, port och autentiseringsuppgifter som angavs när instansen skapades. 
 
-### <a name="enable-public-endpoint"></a>Aktivera offentlig slut punkt
+### <a name="enable-the-public-endpoint"></a>Aktivera den offentliga slut punkten
 
 Aktivering av den offentliga slut punkten för en instans kan göras via Azure Portal eller med hjälp av följande PowerShell-kommando:
 
@@ -215,7 +215,7 @@ Det här steget kan göras via Azure Portal eller med hjälp av PowerShell-komma
 Mer information finns i [Tillåt offentlig slut punkts trafik i nätverks säkerhets gruppen](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 
 
-## <a name="move-existing-single-instance-to-pool"></a>Flytta en befintlig enskild instans till poolen
+## <a name="move-an-existing-single-instance-to-a-pool"></a>Flytta en befintlig enskild instans till en pool
  
 Att flytta instanser in och ut ur en pool är en av de offentliga begränsningarna för för hands versionen. En lösning förlitar sig på tidpunkts återställning av databaser från en instans utanför en pool till en instans som redan finns i en pool. 
 
@@ -225,7 +225,7 @@ Den här processen har en drifts tid.
 
 Flytta befintliga databaser:
 
-1. Pausa arbets belastningar på den SQL-hanterade instans som du migrerar från.
+1. Pausa arbets belastningar på den hanterade instans som du migrerar från.
 2. Skapa skript för att skapa system databaser och köra dem på instansen i instansen.
 3. Gör en tidpunkts återställning av varje databas från den enskilda instansen till instansen i poolen.
 
@@ -248,7 +248,7 @@ Flytta befintliga databaser:
       -TargetInstanceName $targetInstanceName
     ```
 
-4. Peka ditt program på den nya instansen och återuppta det arbets belastningar.
+4. Peka ditt program till den nya instansen och återuppta dess arbets belastningar.
 
 Upprepa processen för varje databas om det finns flera databaser.
 
@@ -257,7 +257,7 @@ Upprepa processen för varje databas om det finns flera databaser.
 
 - En funktion och en jämförelse lista finns i [vanliga SQL-funktioner i SQL](../database/features-comparison.md).
 - Mer information om VNet-konfiguration finns i [konfiguration av SQL Managed instance VNet](connectivity-architecture-overview.md).
-- En snabb start som skapar en hanterad instans och återställer en databas från en säkerhets kopia finns i [skapa en SQL-hanterad instans](instance-create-quickstart.md).
-- En själv studie kurs om hur du använder Azure Database Migration Service (DMS) för migrering finns i [migrering av SQL-hanterad instans med DMS](../../dms/tutorial-sql-server-to-managed-instance.md).
+- En snabb start som skapar en hanterad instans och återställer en databas från en säkerhets kopia finns i [skapa en hanterad instans](instance-create-quickstart.md).
+- En själv studie kurs om hur du använder Azure Database Migration Service för migrering finns i [migrering av SQL-hanterad instans med hjälp av Database migration service](../../dms/tutorial-sql-server-to-managed-instance.md).
 - Avancerad övervakning av SQL-hanterad instans databas prestanda med inbyggd fel söknings information finns i [övervaka Azure SQL-hanterad instans med Azure SQL-analys](../../azure-monitor/insights/azure-sql.md).
 - Pris information finns i [priser för SQL-hanterad instans](https://azure.microsoft.com/pricing/details/sql-database/managed/).

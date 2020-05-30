@@ -12,12 +12,12 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab; jrasnick
 ms.date: 03/10/2020
-ms.openlocfilehash: 8536c1cfbeefc36774b5423aee39f345dc23cd18
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 50322f69ff1cbb58cd5461646ca057718696e0eb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042710"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193881"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Finjustera program och databaser för prestanda i Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Den här artikeln förutsätter att du redan har arbetat med [rekommendationerna
 
 ## <a name="tune-your-application"></a>Finjustera ditt program
 
-I traditionella lokala SQL Server separeras processen för inledande kapacitets planering ofta från processen för att köra ett program i produktion. Maskin-och produkt licenser köps först och prestanda justering görs efteråt. När du använder Azure SQL Database eller en Azure SQL-hanterad instans, är det en bra idé att använda processen för att köra ett program och justera det. Med modellen för att betala för kapacitet på begäran kan du anpassa ditt program till att använda de lägsta resurserna som behövs nu, i stället för att få mer information om maskin vara baserat på gissningar på framtida tillväxt planer för ett program, vilket ofta är felaktigt. Vissa kunder kan välja att inte justera ett program och i stället välja att överetablera maskin varu resurser. Den här metoden kan vara en bra idé om du inte vill ändra ett nyckel program under en upptagen period. Men att justera ett program kan minimera resurs kraven och minska månads räkningar när du använder tjänst nivåerna i Azure SQL Database och Azure SQL-hanterad instans.
+I traditionella lokala SQL Server separeras processen för inledande kapacitets planering ofta från processen för att köra ett program i produktion. Maskin-och produkt licenser köps först och prestanda justering görs efteråt. När du använder Azure SQL är det en bra idé att försätta processen att köra ett program och justera det. Med modellen för att betala för kapacitet på begäran kan du anpassa ditt program till att använda de lägsta resurserna som behövs nu, i stället för att få mer information om maskin vara baserat på gissningar på framtida tillväxt planer för ett program, vilket ofta är felaktigt. Vissa kunder kan välja att inte justera ett program och i stället välja att överetablera maskin varu resurser. Den här metoden kan vara en bra idé om du inte vill ändra ett nyckel program under en upptagen period. Men att justera ett program kan minimera resurs kraven och minska månads räkningar när du använder tjänst nivåerna i Azure SQL Database och Azure SQL-hanterad instans.
 
 ### <a name="application-characteristics"></a>Program egenskaper
 

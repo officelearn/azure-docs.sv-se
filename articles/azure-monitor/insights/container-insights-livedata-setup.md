@@ -3,12 +3,13 @@ title: Konfigurera Azure Monitor för behållare Live-data (för hands version) 
 description: Den här artikeln beskriver hur du konfigurerar real tids visningen av behållar loggar (STDOUT/STDERR) och händelser utan att använda kubectl med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: f19071ca642cd229cbd7d49b4eab90c970672eee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: ec75cc0a014b8a4f8c9b9d89a5bdca93936eb68a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275378"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196044"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Så här ställer du in funktionen Live data (för hands version)
 
@@ -36,12 +37,12 @@ Den här artikeln förklarar hur du konfigurerar autentisering för att kontrol 
 
 ## <a name="authentication-model"></a>Autentiseringsmodell
 
-Funktionerna för Live data (för hands version) använder Kubernetes-API: et, `kubectl` som är identiskt med kommando rads verktyget. Kubernetes API-slutpunkter använder ett självsignerat certifikat som webbläsaren inte kan verifiera. Den här funktionen använder en intern proxy för att validera certifikatet med AKS-tjänsten, vilket säkerställer att trafiken är betrodd.
+Funktionerna för Live data (för hands version) använder Kubernetes-API: et, som är identiskt med `kubectl` kommando rads verktyget. Kubernetes API-slutpunkter använder ett självsignerat certifikat som webbläsaren inte kan verifiera. Den här funktionen använder en intern proxy för att validera certifikatet med AKS-tjänsten, vilket säkerställer att trafiken är betrodd.
 
-Azure Portal uppmanas du att verifiera dina inloggnings uppgifter för ett Azure Active Directory kluster och omdirigera dig till klient registrerings konfigurationen när klustret skapas (och omkonfigureras i den här artikeln). Detta fungerar på samma sätt som den verifierings process `kubectl`som krävs av. 
+Azure Portal uppmanas du att verifiera dina inloggnings uppgifter för ett Azure Active Directory kluster och omdirigera dig till klient registrerings konfigurationen när klustret skapas (och omkonfigureras i den här artikeln). Detta fungerar på samma sätt som den verifierings process som krävs av `kubectl` . 
 
 >[!NOTE]
->Auktorisering till klustret hanteras av Kubernetes och säkerhets modellen som den har kon figurer ATS med. Användare som har åtkomst till den här funktionen kräver behörighet att ladda ned Kubernetes-konfigurationen (*kubeconfig*) `az aks get-credentials -n {your cluster name} -g {your resource group}`, ungefär som att köras. Den här konfigurations filen innehåller auktoriserings-och autentiseringstoken för **användar rollen Azure Kubernetes service-kluster**, om Azure RBAC-aktiverade och AKS-kluster utan RBAC-auktorisering har Aktiver ATS. Den innehåller information om Azure AD-och klient registrerings information när AKS har Aktiver ATS med Azure Active Directory (AD) SAML-baserad enkel inloggning.
+>Auktorisering till klustret hanteras av Kubernetes och säkerhets modellen som den har kon figurer ATS med. Användare som har åtkomst till den här funktionen kräver behörighet att ladda ned Kubernetes-konfigurationen (*kubeconfig*), ungefär som att köras `az aks get-credentials -n {your cluster name} -g {your resource group}` . Den här konfigurations filen innehåller auktoriserings-och autentiseringstoken för **användar rollen Azure Kubernetes service-kluster**, om Azure RBAC-aktiverade och AKS-kluster utan RBAC-auktorisering har Aktiver ATS. Den innehåller information om Azure AD-och klient registrerings information när AKS har Aktiver ATS med Azure Active Directory (AD) SAML-baserad enkel inloggning.
 
 >[!IMPORTANT]
 >Användare av de här funktionerna kräver [användar rollen Azure Kubernetes-kluster](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) i klustret för att kunna hämta `kubeconfig` och använda den här funktionen. Användare behöver **inte** deltagar åtkomst till klustret för att använda den här funktionen. 
@@ -96,7 +97,7 @@ Följande exempel visar hur du konfigurerar kluster roll bindning från den här
       apiGroup: rbac.authorization.k8s.io 
     ```
 
-2. Kör följande kommando för att uppdatera konfigurationen: `kubectl apply -f LogReaderRBAC.yaml`.
+2. Kör följande kommando för att uppdatera konfigurationen: `kubectl apply -f LogReaderRBAC.yaml` .
 
 >[!NOTE] 
 > Om du har tillämpat en tidigare version av `LogReaderRBAC.yaml` filen på klustret uppdaterar du den genom att kopiera och klistra in den nya koden som visas i steg 1 ovan. kör sedan kommandot som visas i steg 2 för att tillämpa det på klustret.
@@ -118,10 +119,10 @@ Mer information om avancerade säkerhets inställningar i Kubernetes finns i Kub
 
 2. Välj **autentisering** i det vänstra fönstret. 
 
-3. Lägg till två omdirigerings-URL: er till den här listan som **webb** program typer. Det första grundläggande URL-värdet ska `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` vara och det andra bas-URL- `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`värdet ska vara.
+3. Lägg till två omdirigerings-URL: er till den här listan som **webb** program typer. Det första grundläggande URL-värdet ska vara `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` och det andra bas-URL-värdet ska vara `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` .
 
     >[!NOTE]
-    >Om du använder den här funktionen i Azure Kina bör det första bas-URL-värdet `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` vara och det andra bas-URL- `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`värdet ska vara. 
+    >Om du använder den här funktionen i Azure Kina bör det första bas-URL-värdet vara `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` och det andra bas-URL-värdet ska vara `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` . 
     
 4. När du har registrerat URL: erna för omdirigering väljer du alternativet **åtkomsttoken** och **ID-token** under **implicit tilldelning**och sparar sedan ändringarna.
 

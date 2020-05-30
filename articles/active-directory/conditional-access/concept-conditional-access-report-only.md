@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c5643b0ce9d93c28372b30e6fc114816cafbce6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b45b2294d56de896849dca0f387a4e26b845aa93
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690477"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204199"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Vad är läget endast i rapporten för villkorlig åtkomst?
 
@@ -30,7 +30,7 @@ Endast rapport läge är ett nytt tillstånd för villkorlig åtkomst som gör a
 - Kunder med en Azure Monitor prenumeration kan övervaka påverkan av sina principer för villkorlig åtkomst med hjälp av arbets boken för villkorlig åtkomst.
 
 > [!WARNING]
-> Principer i läge för endast rapporter som kräver kompatibla enheter kan begära att användare på Mac, iOS och Android väljer ett enhets certifikat under princip utvärderingen, även om enhetens efterlevnad inte tillämpas. Dessa prompter kan upprepas tills enheten blir kompatibel. För att förhindra att slutanvändare får meddelanden under inloggningen utesluter du Mac-, iOS-och Android-enheter från enbart rapport principer som utför kontroll av enhetskompatibilitet.
+> Principer i läge för endast rapporter som kräver kompatibla enheter kan begära att användare på Mac, iOS och Android väljer ett enhets certifikat under princip utvärderingen, även om enhetens efterlevnad inte tillämpas. Dessa prompter kan upprepas tills enheten blir kompatibel. För att förhindra att slutanvändare får meddelanden under inloggningen utesluter du Mac-, iOS-och Android-enheter från enbart rapport principer som utför kontroll av enhetskompatibilitet. Observera att endast rapport läge är tillämpligt för CA-principer med "användar åtgärder"-omfattningen.
 
 ![Fliken endast rapporter i inloggnings loggen för Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 
@@ -38,7 +38,7 @@ Endast rapport läge är ett nytt tillstånd för villkorlig åtkomst som gör a
 
 När en princip i endast rapport läge utvärderas för en specifik inloggning, finns det fyra nya möjliga resultat värden:
 
-| Resultat | Beskrivning |
+| Resultat | Description |
 | --- | --- |
 | Endast rapport: lyckad | Alla konfigurerade princip villkor, obligatoriska icke-interaktiva beviljade kontroller och kontroller av sessionen var uppfyllda. Till exempel uppfylls ett Multi-Factor Authentication-krav av ett MFA-anspråk som redan finns i token eller en kompatibel enhets princip är uppfylld genom att utföra en enhets kontroll på en kompatibel enhet. |
 | Endast rapport: problem | Alla konfigurerade princip villkor uppfylldes men det var inte alla nödvändiga icke-interaktiva beviljade kontroller eller kontroll av sessionen uppfyllda. En princip gäller till exempel en användare där en blockerande kontroll har kon figurer ATS, eller en enhet som inte uppfyller en kompatibel enhets princip. |

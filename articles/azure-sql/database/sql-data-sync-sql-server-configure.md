@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: d0380239fde2c58e7c9a2e7dc3638881dbd8fd73
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 405705bee3ada2d2c43e9a243724d823a5e28602
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043977"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188703"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudie: Konfigurera SQL Data Sync mellan Azure SQL Database och SQL Server lokalt
+# <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Självstudie: Konfigurera SQL Data Sync mellan databaser i Azure SQL Database och SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 I den här självstudien får du lära dig hur du konfigurerar SQL Data Sync genom att skapa en Sync-grupp som innehåller både Azure SQL Database-och SQL Server instanser. Sync-gruppen är anpassad konfigurerad och synkroniseras enligt det schema du anger.
@@ -27,7 +27,7 @@ Självstudien förutsätter att du har minst en tidigare erfarenhet av SQL Datab
 
 En översikt över SQL Data Sync finns i [synkronisera data i molnet och i lokala databaser med SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md).
 
-PowerShell-exempel på hur du konfigurerar SQL Data Sync finns i [så här synkroniserar du mellan databaser i SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md) eller [en Azure SQL Database och en SQL Server lokal databas](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
+PowerShell-exempel på hur du konfigurerar SQL Data Sync finns i [så här synkroniserar du mellan databaser i SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md) eller [mellan databaser i Azure SQL Database och SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 
 > [!IMPORTANT]
 > SQL Data Sync stöder **inte** Azure SQL-hanterad instans för tillfället.
@@ -96,9 +96,9 @@ I avsnittet **medlems databas** lägger du till en Azure SQL Database till Sync-
 
 <a name="add-on-prem"></a>
 
-### <a name="to-add-an-on-premises-sql-server-database"></a>Lägga till en lokal SQL Server databas
+### <a name="to-add-a-sql-server-database"></a>Lägga till en SQL Server databas
 
-I avsnittet **medlems databas** lägger du till en lokal SQL Server till Sync-gruppen genom att välja **Lägg till en lokal databas**. Sidan **Konfigurera lokalt** öppnas där du kan göra följande saker:
+I avsnittet **medlems databas** lägger du till en SQL Server databas i Sync-gruppen genom att välja **Lägg till en lokal databas**. Sidan **Konfigurera lokalt** öppnas där du kan göra följande saker:
 
 1. Välj **Välj Sync agent-Gateway**. Sidan **Välj Sync-agent** öppnas.
 

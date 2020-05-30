@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 34f1c96d8336447b6ca2a4f55fefa9a061c38fa2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 64d987ff01e596eefa98e8086788546c465e2d83
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198493"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195397"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Flytta ett Azure Storage-konto till en annan region
 
@@ -31,13 +31,13 @@ I den här artikeln får du lära dig att:
 > * Flytta data till det nya lagrings kontot.
 > * Ta bort resurserna i käll regionen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Kontrol lera att tjänsterna och funktionerna som ditt konto använder stöds i mål regionen.
 
 - För för hands versions funktioner ser du till att din prenumeration är vit listas för mål regionen.
 
-<a id="prepare" />
+<a id="prepare"></a>
 
 ## <a name="prepare"></a>Förbereda
 
@@ -174,7 +174,7 @@ Distribuera mallen med hjälp av PowerShell:
     ```
 ---
 
-<a id="move" />
+<a id="move"></a>
 
 ## <a name="move"></a>Flytta
 
@@ -219,7 +219,7 @@ Vissa funktioner exporteras till en mall, så du måste lägga till dem i det ny
 
 I följande tabell visas dessa funktioner tillsammans med rikt linjer för att lägga till dem i ditt nya lagrings konto.
 
-| Funktion    | Riktlinjer    |
+| Funktion    | Vägledning    |
 |--------|-----------|
 | **Principer för livs cykel hantering** | [Hantera Azure Blob Storage-livscykeln](../blobs/storage-lifecycle-management-concepts.md) |
 | **Statiska webbplatser** | [Vara värd för en statisk webbplats i Azure Storage](../blobs/storage-blob-static-website-how-to.md) |

@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: a2f55798afe7b817ab366e8fa55f07078277352d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 1dd17d3ac715c2b32f645602203aa2551c91b42a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117299"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195336"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Skapa flera webb tjänst slut punkter från ett experiment med ML Studio (klassisk) och PowerShell
 
@@ -50,7 +50,7 @@ Observera att en **webb tjänst utmatnings** modul har lagts till modulen **trä
 När det här experimentet distribueras som en webb tjänst, returnerar slut punkten som är kopplad till utdata den tränade modellen i formatet för en. ilearner-fil.
 
 Observera också att du konfigurerar en webb tjänst parameter som definierar den URL som används av modulen **Importera data** . På så sätt kan du använda-parametern för att ange enskilda inlärnings data uppsättningar för att träna modellen för varje plats.
-Det finns andra sätt som du kan ha gjort. Du kan använda en SQL-fråga med en webb tjänst parameter för att hämta data från en SQL Azure databas. Du kan också använda en modul för **indata för webb tjänst** för att skicka in en data uppsättning till webb tjänsten.
+Det finns andra sätt som du kan ha gjort. Du kan använda en SQL-fråga med en webb tjänst parameter för att hämta data från en databas i Azure SQL Database. Du kan också använda en modul för **indata för webb tjänst** för att skicka in en data uppsättning till webb tjänsten.
 
 ![En utbildad modell modul ger utdata till en webb tjänst utmatnings modul](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 

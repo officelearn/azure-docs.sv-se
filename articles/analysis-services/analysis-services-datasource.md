@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4f026a6a0155f9d4add15adb26951b4913d11685
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 83a5543aa2d1f30696bed05caf85b04ed6685bae
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019817"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197208"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -24,20 +24,20 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Ja      |    Ja      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
 |Azure Synapse Analytics (SQL Data Warehouse)      |   Ja      |   Ja       |<sup>[11.2](#azprovider)</sup>|
-|Azure Blob Storage      |   Ja       |    Nej      | <sup>[81.1](#tab1400a)</sup> |
-|Azure Table Storage     |   Ja       |    Nej      | <sup>[81.1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Ja        |  Nej        |<sup>[81.1](#tab1400a)</sup> |
-|Azure Data Lake Store gen1      |   Ja       |    Nej      |<sup>[81.1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Ja       |    Nej      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Ja     |   Nej       |<sup>[81.1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   Ja       |   Nej       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
+|Azure Blob Storage      |   Yes       |    Inga      | <sup>[81.1](#tab1400a)</sup> |
+|Azure Table Storage     |   Yes       |    Inga      | <sup>[81.1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Yes        |  Inga        |<sup>[81.1](#tab1400a)</sup> |
+|Azure Data Lake Store gen1      |   Yes       |    Inga      |<sup>[81.1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Yes       |    Inga      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     Yes     |   Inga       |<sup>[81.1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Yes       |   Inga       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
 **Noter**
 
 <a name="tab1400a">1</a> – tabell 1400 och högre modeller.  
 <a name="azprovider">2</a> – när det har angetts som en *Provider* -datakälla i tabell 1200 och högre modeller, kräver både InMemory-och DirectQuery-modeller Microsoft OLE DB driv rutin för SQL Server MSOLEDBSQL (rekommenderas), SQL Server Native Client 11,0 eller .NET Framework Data Provider för SQL Server.  
-<a name="azsqlmanaged">3</a> -Azure SQL Database Hanterad instans stöds. Eftersom den hanterade instansen körs i Azure VNet med en privat IP-adress måste den offentliga slut punkten vara aktive rad på instansen. Om den inte är aktive rad krävs en [lokal datagateway](analysis-services-gateway.md) .  
+<a name="azsqlmanaged">3</a> – Azure SQL-hanterad instans stöds. Eftersom den hanterade instansen körs i Azure VNet med en privat IP-adress måste den offentliga slut punkten vara aktive rad på instansen. Om den inte är aktive rad krävs en [lokal datagateway](analysis-services-gateway.md) .  
 <a name="databricks">4</a> -Azure Databricks med Spark-anslutningen stöds inte för närvarande.  
 <a name="gen2">5</a> -ADLS Gen2 anslutningen stöds inte för närvarande, men Azure Blob Storage Connector kan användas med en ADLS Gen2 data källa.
 
@@ -45,35 +45,35 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 
 |Datakälla | Minnesintern | DirectQuery |Anteckningar   |
 |  --- | --- | --- | --- |
-|Access-databas     |  Ja | Nej |  |
-|Active Directory     |  Ja | Nej | <sup>[3-6](#tab1400b)</sup>  |
-|Analysis Services     |  Ja | Nej |  |
-|Analys plattforms system     |  Ja | Nej |  |
-|CSV-fil  |Ja | Nej |  |
-|Dynamics 365     |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Excel-arbetsbok     |  Ja | Nej |  |
-|Exchange      |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Mapp      |Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|IBM Informix  |Ja | Nej |  |
-|JSON-dokument      |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Rader från binär      | Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|MySQL-databas     | Ja | Nej |  |
-|OData-feed      |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|ODBC-fråga     | Ja | Nej |  |
-|OLE DB     |   Ja | Nej |  |
+|Access-databas     |  Yes | Inga |  |
+|Active Directory     |  Yes | Inga | <sup>[3-6](#tab1400b)</sup>  |
+|Analysis Services     |  Yes | Inga |  |
+|Analys plattforms system     |  Yes | Inga |  |
+|CSV-fil  |Yes | Inga |  |
+|Dynamics 365     |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Excel-arbetsbok     |  Yes | Inga |  |
+|Exchange      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Mapp      |Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|IBM Informix  |Yes | Inga |  |
+|JSON-dokument      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Rader från binär      | Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|MySQL-databas     | Yes | Inga |  |
+|OData-feed      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|ODBC-fråga     | Yes | Inga |  |
+|OLE DB     |   Yes | Inga |  |
 |Oracle  | Ja  |Ja  | <sup>[1.9](#oracle)</sup> |
-|PostgreSQL-databas   | Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Salesforce-objekt|  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Salesforce-rapporter |Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|SAP HANA     |  Ja | Nej |  |
-|SAP Business Warehouse    |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|SharePoint-lista      |   Ja | Nej | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|PostgreSQL-databas   | Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-objekt|  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-rapporter |Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|SAP HANA     |  Yes | Inga |  |
+|SAP Business Warehouse    |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|SharePoint-lista      |   Yes | Inga | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
 |SQL Server |Ja   | Ja  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |SQL Server informations lager |Ja   | Ja  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Sybase-databas     |  Ja | Nej |  |
+|Sybase-databas     |  Yes | Inga |  |
 |Teradata | Ja  | Ja  | <sup>[10](#teradata)</sup> |
-|TXT-fil  |Ja | Nej |  |
-|XML-tabell    |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|TXT-fil  |Yes | Inga |  |
+|XML-tabell    |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
 | | | |
 
 **Noter**  
@@ -88,7 +88,7 @@ Anslutning till lokala data källor från en Azure Analysis Services server krä
 
 ## <a name="understanding-providers"></a>Förstå leverantörer
 
-När du skapar tabell 1400 och högre modell projekt i Visual Studio, anger du som standard ingen dataprovider vid anslutning till en data källa med hjälp av **Hämta data**. I tabell 1400 och högre modeller används [Power Query](/power-query/power-query-what-is-power-query) -anslutningar för att hantera anslutningar, data frågor och kombinations program mellan data källan och Analysis Services. Dessa kallas ibland för *strukturerade* data käll anslutningar i dessa inställningar för anslutnings egenskaper. Du kan dock aktivera äldre data källor för ett modell projekt i Visual Studio. När den är aktive rad kan du använda **guiden Importera tabell** för att ansluta till vissa data källor som traditionellt stöds i tabell 1200 och lägre modeller som *äldre*eller data källor för *Provider* . När du har angett som en data källa för en provider kan du ange en viss data leverantör och andra avancerade anslutnings egenskaper. Du kan till exempel ansluta till ett lokalt SQL Server informations lager eller till och med en Azure SQL Database som en äldre data källa. Du kan sedan välja OLE DB driv rutinen för SQL Server MSOLEDBSQL Data Provider. I det här fallet kan det vara bättre att välja en OLE DB dataprovider över Power Query anslutningen. 
+När du skapar tabell 1400 och högre modell projekt i Visual Studio, anger du som standard ingen dataprovider vid anslutning till en data källa med hjälp av **Hämta data**. I tabell 1400 och högre modeller används [Power Query](/power-query/power-query-what-is-power-query) -anslutningar för att hantera anslutningar, data frågor och kombinations program mellan data källan och Analysis Services. Dessa kallas ibland för *strukturerade* data käll anslutningar i dessa inställningar för anslutnings egenskaper. Du kan dock aktivera äldre data källor för ett modell projekt i Visual Studio. När den är aktive rad kan du använda **guiden Importera tabell** för att ansluta till vissa data källor som traditionellt stöds i tabell 1200 och lägre modeller som *äldre*eller data källor för *Provider* . När du har angett som en data källa för en provider kan du ange en viss data leverantör och andra avancerade anslutnings egenskaper. Du kan till exempel ansluta till en SQL Server informations lager instans eller till och med en Azure SQL Database som en äldre data källa. Du kan sedan välja OLE DB driv rutinen för SQL Server MSOLEDBSQL Data Provider. I det här fallet kan det vara bättre att välja en OLE DB dataprovider över Power Query anslutningen. 
 
 När du använder guiden Importera tabell i Visual Studio kräver anslutningarna till en data källa en data leverantör. En standardprovider för data har valts. Du kan ändra data leverantören om det behövs. Vilken typ av provider du väljer kan bero på prestanda, om modellen använder minnes lagring eller DirectQuery, och vilken Analysis Services plattform som du distribuerar din modell till.
 

@@ -1,5 +1,5 @@
 ---
-title: SQL Server data som ska SQL Azure med Azure Data Factory team data science process
+title: SQL Server data som ska SQL Database med Azure Data Factory team data science process
 description: Konfigurera en ADF-pipeline som består av två data migrerings aktiviteter som tillsammans flyttar data dagligen mellan databaser lokalt och i molnet.
 services: machine-learning
 author: marktab
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8f696f1c6c414cd9db082e79e0f34c56156e1ee0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a484a6c9a55eac4d166a711a9eae7990c4305cb4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722500"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194411"
 ---
-# <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Flytta data från en lokal SQL Server till SQL Azure med Azure Data Factory
+# <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Flytta data från en SQL Server databas till SQL Database med Azure Data Factory
 
-Den här artikeln visar hur du flyttar data från en lokal SQL Server-databas till en SQL Azure-databas via Azure Blob Storage med hjälp av Azure Data Factory (ADF): den här metoden är en äldre metod som stöds och som har fördelarna med en replikerad mellanlagrings kopia, men [vi föreslår att titta på vår datamigrerings sida för de senaste alternativen](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
+Den här artikeln visar hur du flyttar data från en SQL Server databas till Azure SQL Database via Azure Blob Storage med hjälp av Azure Data Factory (ADF): den här metoden är en äldre metod som stöds och som har fördelarna med en replikerad mellanlagrings kopia, men [vi föreslår att titta på vår datamigrerings sida för de senaste alternativen](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 En tabell som sammanfattar olika alternativ för att flytta data till en Azure SQL Database finns i [Flytta data till en Azure SQL Database för Azure Machine Learning](move-sql-azure.md).
 
@@ -37,17 +37,17 @@ Med ADF kan befintliga data bearbetnings tjänster bestå av data pipelines som 
 Med ADF kan du schemalägga och övervaka jobb med hjälp av enkla JSON-skript som hanterar data flytten på regelbunden basis. ADF har också andra funktioner, till exempel stöd för komplexa åtgärder. Mer information om ADF finns i dokumentationen på [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="the-scenario"></a><a name="scenario"></a>Scenariot
-Vi konfigurerar en ADF-pipeline som består av två data migrerings aktiviteter. Tillsammans flyttar de data dagligen mellan en lokal SQL Database och en Azure SQL Database i molnet. De två aktiviteterna är:
+Vi konfigurerar en ADF-pipeline som består av två data migrerings aktiviteter. Tillsammans flyttar de data dagligen mellan en SQL Server databas och Azure SQL Database. De två aktiviteterna är:
 
-* Kopiera data från en lokal SQL Server-databas till ett Azure Blob Storage-konto
-* Kopiera data från Azure Blob Storage-kontot till en Azure SQL Database.
+* Kopiera data från en SQL Server-databas till ett Azure Blob Storage-konto
+* Kopiera data från Azure Blob Storage-kontot till Azure SQL Database.
 
 > [!NOTE]
-> Stegen som visas här har anpassats från den mer detaljerade självstudien som tillhandahålls av ADF-teamet: [Kopiera data från en lokal SQL Server-databas till Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) -referenser till de relevanta avsnitten i det här avsnittet, om det är lämpligt.
+> Stegen som visas här har anpassats från den mer detaljerade självstudien som tillhandahålls av ADF-teamet: [Kopiera data från en SQL Server databas till Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) -referenser till de relevanta avsnitten i det här avsnittet, om det är lämpligt.
 >
 >
 
-## <a name="prerequisites"></a><a name="prereqs"></a>Krav
+## <a name="prerequisites"></a><a name="prereqs"></a>Förutsättningar
 Den här självstudien förutsätter att du har:
 
 * En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
@@ -60,10 +60,10 @@ Den här självstudien förutsätter att du har:
 >
 >
 
-## <a name="upload-the-data-to-your-on-premises-sql-server"></a><a name="upload-data"></a>Ladda upp data till din lokala SQL Server
+## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a>Ladda upp data till SQL Server-instansen
 Vi använder [NYC taxi-datauppsättningen](https://chriswhong.com/open-data/foil_nyc_taxi/) för att demonstrera migreringsprocessen. NYC taxi-datauppsättningen är tillgänglig, enligt vad som anges i det inlägget, på Azure Blob Storage [NYC taxi-data](https://www.andresmh.com/nyctaxitrips/). Data har två filer, trip_data. csv-filen, som innehåller information om resan och filen trip_far. csv, som innehåller information om avgiften som betalats för varje resa. Ett exempel på och en beskrivning av dessa filer finns i [Beskrivning av NYC taxi TRIPs-data uppsättning](sql-walkthrough.md#dataset).
 
-Du kan antingen anpassa proceduren som visas här till en uppsättning egna data eller följa stegen som beskrivs i använda NYC taxi-datauppsättningen. Om du vill överföra NYC taxi-datauppsättningen till din lokala SQL Server databas följer du proceduren som beskrivs i [Mass import av data i SQL Server Database](sql-walkthrough.md#dbload). Dessa anvisningar gäller för en SQL Server på en virtuell Azure-dator, men proceduren för att ladda upp till den lokala SQL Server är densamma.
+Du kan antingen anpassa proceduren som visas här till en uppsättning egna data eller följa stegen som beskrivs i använda NYC taxi-datauppsättningen. Om du vill överföra NYC taxi-datauppsättningen till SQL Server databasen följer du proceduren som beskrivs i [Mass import av data i SQL Server Database](sql-walkthrough.md#dbload).
 
 ## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a>Skapa en Azure Data Factory
 Instruktioner för att skapa en ny Azure Data Factory och en resurs grupp i [Azure Portal](https://portal.azure.com/) anges [skapa en Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Namnge den nya ADF-instansen *adfdsp* och namnge resurs gruppen som skapade *adfdsprg*.
@@ -93,7 +93,7 @@ Skapa tabeller som anger strukturen, platsen och tillgängligheten för data upp
 
 De JSON-baserade definitionerna i tabellerna använder följande namn:
 
-* **tabell namnet** i den lokala SQL-servern är *nyctaxi_data*
+* **tabell namnet** i SQL Server är *nyctaxi_data*
 * **behållar namnet** i Azure Blob Storage-kontot är *ContainerName*
 
 Tre tabell definitioner krävs för den här ADF-pipeline:
@@ -108,7 +108,7 @@ Tre tabell definitioner krävs för den här ADF-pipeline:
 >
 
 ### <a name="sql-on-premises-table"></a><a name="adf-table-onprem-sql"></a>SQL lokalt tabell
-Tabell definitionen för den lokala SQL Server anges i följande JSON-fil:
+Tabell definitionen för SQL Server anges i följande JSON-fil:
 
 ```json
 {
@@ -226,12 +226,12 @@ Med de tabell definitioner som tillhandahölls tidigare, anges pipelinen för AD
     "name": "AMLDSProcessPipeline",
     "properties":
     {
-        "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
+        "description" : "This pipeline has one Copy activity that copies data from SQL Server to Azure blob",
         "activities":
         [
             {
                 "name": "CopyFromSQLtoBlob",
-                "description": "Copy data from on-premises SQL server to blob",
+                "description": "Copy data from SQL Server to blob",
                 "type": "CopyActivity",
                 "inputs": [ {"name": "OnPremSQLTable"} ],
                 "outputs": [ {"name": "OutputBlobTable"} ],

@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4175214219350620ae44d0249243e23b1a25144a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73666804"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196600"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -112,7 +112,7 @@ Till exempel anger en länkad Azure Storage-tjänst en anslutningssträng som an
 
 Länkade tjänster används i två syften i Data Factory:
 
-* Att representera ett *datalager* som inkluderar, men inte begränsas till, en lokal SQL Server-databas, Oracle-databas, filresurs eller ett Azure Blob Storage-konto. I avsnittet [Dataförflyttningsaktiviteter](#data-movement-activities) finns en lista över datalager som stöds.
+* För att representera ett *data lager* som innehåller, men inte begränsat till, en SQL Server databas, Oracle-databas, fil resurs eller Azure Blob Storage-konto. I avsnittet [Dataförflyttningsaktiviteter](#data-movement-activities) finns en lista över datalager som stöds.
 
 * Så här visar du en *beräkningsresurs* som kan vara värd för körningen av en aktivitet. HDInsightHive-aktiviteten körs till exempel på ett HDInsight Hadoop-kluster. Se avsnittet [Datatransformeringsaktiviteter](#data-transformation-activities) för en lista över vilka beräkningsmiljöer som stöds.
 
@@ -140,8 +140,8 @@ Du kan använda något av dessa verktyg eller API:er för att skapa datapipeline
 
 Följ de stegvisa anvisningarna i följande självstudier om du vill lära dig hur du skapar datafabriker med datapipeliner:
 
-| Självstudier | Beskrivning |
+| Självstudie | Description |
 | --- | --- |
 | [Flytta data mellan två molndatalager](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Skapa en datafabrik med en pipeline som flyttar data från Blob Storage till SQL Database. |
 | [Omvandla data med Hadoop-kluster](data-factory-build-your-first-pipeline.md) |Skapa din första Azure Data Factory med en datapipeline som bearbetar data genom att köra Hive-skriptet på ett Azure HDInsight-kluster (Hadoop). |
-| [Flytta data mellan ett lokalt datalager och ett molndatalager med hjälp av Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Skapa en datafabrik med en pipeline som flyttar data från en lokal SQL Server-databas till en Azure-blob. Som en del av den här genomgången kommer du att installera och konfigurera Data Management Gateway på din dator. |
+| [Flytta data mellan ett lokalt datalager och ett molndatalager med hjälp av Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Bygg en data fabrik med en pipeline som flyttar data från en SQL Server-databas till en Azure-blob. Som en del av den här genomgången kommer du att installera och konfigurera Data Management Gateway på din dator. |

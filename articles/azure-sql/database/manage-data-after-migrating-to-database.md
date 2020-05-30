@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: fd7900eb9de55b29cc06ed338514e5a46d160f11
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e36e11e4150c977b72b445e5bda7dce410c77925
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047456"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193931"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Ny DBA i molnet – Hantera Azure SQL Database efter migrering
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -82,7 +82,7 @@ Om en grupp för automatisk redundans inte har kon figurer ATS måste programmet
 
 ### <a name="how-does-my-disaster-recovery-plan-change-from-on-premises-to-sql-database"></a>Hur ändras planen för haveri beredskap från lokal plats till SQL Database
 
-I sammanfattningen kräver den traditionella lokala SQL Server installationen att du aktivt kan hantera din tillgänglighet genom att använda funktioner som redundanskluster, databas spegling, databasreplikering eller logg överföring och underhåll och hantera säkerhets kopior för att säkerställa affärs kontinuiteten. Med SQL Database hanterar plattformen dessa åt dig, så att du kan fokusera på att utveckla och optimera databas programmet och inte bekymra dig om haveri hantering så mycket. Du kan ställa in säkerhets kopierings-och haveri beredskaps planer konfigurerade och arbeta med bara några klick på Azure Portal (eller några kommandon med hjälp av PowerShell-API: er).
+I sammanfattningen kräver SQL Server-installationen att du aktivt kan hantera din tillgänglighet genom att använda funktioner som redundanskluster, databas spegling, databasreplikering eller logg överföring samt underhålla och hantera säkerhets kopior för att säkerställa affärs kontinuiteten. Med SQL Database hanterar plattformen dessa åt dig, så att du kan fokusera på att utveckla och optimera databas programmet och inte bekymra dig om haveri hantering så mycket. Du kan ställa in säkerhets kopierings-och haveri beredskaps planer konfigurerade och arbeta med bara några klick på Azure Portal (eller några kommandon med hjälp av PowerShell-API: er).
 
 Mer information om haveri beredskap finns i: [Azure SQL Database disaster recovery 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
 
@@ -170,7 +170,7 @@ För att skydda känsliga data i flygning och i vila tillhandahåller SQL Databa
 |**Kännetecken **|**Alltid krypterad**|**Transparent datakryptering**|
 |---|---|---|
 |**Krypterings omfång**|Slut punkt till slut punkt|Vilande data|
-|**Servern kan komma åt känsliga data**|Nej|Ja, eftersom krypteringen är för vilande data|
+|**Servern kan komma åt känsliga data**|No|Ja, eftersom krypteringen är för vilande data|
 |**Tillåtna T-SQL-åtgärder**|Likhets jämförelse|Alla ytor i T-SQL är tillgängligt|
 |**App-ändringar krävs för att använda funktionen**|Minimal|Mycket minimal|
 |**Krypterings precision**|Kolumn nivå|databasnivå|
@@ -330,8 +330,8 @@ SQL Database använder vissa smarta tekniker som gör det möjligt för IT att h
 
 Det finns flera sätt att åstadkomma detta:
 
-- **[Datasynkronisering](sql-data-sync-data-sql-server-sql-database.md)** – med den här funktionen kan du synkronisera data i bi-riktning mellan flera lokala SQL Server-databaser och SQL Database. Om du vill synkronisera med lokala SQL Server databaser måste du installera och konfigurera Sync-agenten på en lokal dator och öppna den utgående TCP-porten 1433.
-- **[Transaktions replikering](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – med Transaction Replication kan du synkronisera dina data från den lokala platsen för att Azure SQL Database med den lokala utgivaren och Azure SQL Database prenumeranten. För närvarande stöds endast den här installationen. Mer information om hur du migrerar data från lokala datorer till Azure SQL med minimal stillestånds tid finns i: [använda Transaction Replication](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)
+- **[Datasynkronisering](sql-data-sync-data-sql-server-sql-database.md)** – med den här funktionen kan du synkronisera data bi-riktning mellan flera SQL Server-databaser och SQL Database. Om du vill synkronisera med SQL Server databaser måste du installera och konfigurera Sync-agenten på en lokal dator eller en virtuell dator och öppna den utgående TCP-porten 1433.
+- **[Transaktions replikering](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – med transaktions replikering kan du synkronisera data från en SQL Server databas till Azure SQL Database med SQL Server-instansen är utgivaren och Azure SQL Database som prenumerant. För närvarande stöds endast den här installationen. Mer information om hur du migrerar data från en SQL Server-databas till Azure SQL med minimal stillestånds tid finns i: [använda Transaction Replication](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Always Encrypted med Azure Key Vault
-description: Den här självstudien visar hur du skyddar känsliga data i en Azure SQL Database med data kryptering med hjälp av Always Encrypted guiden i SQL Server Management Studio.
+description: Den här självstudien visar hur du skyddar känsliga data i en databas i Azure SQL Database med data kryptering med hjälp av Always Encrypted guiden i SQL Server Management Studio.
 keywords: data kryptering, krypterings nyckel, moln kryptering
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,18 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 8f828d11d5351565c112b7e4b9dccaaef4607056
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2ff3df74c4cf3175fbbec5097a98c51e7f97ac16
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047701"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190515"
 ---
-# <a name="configure-always-encrypted-using-azure-key-vault"></a>Konfigurera Always Encrypted med Azure Key Vault 
+# <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurera Always Encrypted med Azure Key Vault 
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
 
-Den här artikeln visar hur du skyddar känsliga data för din databas i Azure SQL Database eller Azure SQL-hanterad instans med data kryptering med hjälp av [Always Encrypted-guiden](/sql/relational-databases/security/encryption/always-encrypted-wizard) i [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Den innehåller också anvisningar som visar hur du lagrar varje krypterings nyckel i Azure Key Vault.
+Den här artikeln visar hur du skyddar känsliga data i en databas i Azure SQL Database med data kryptering med hjälp av [Always Encrypted-guiden](/sql/relational-databases/security/encryption/always-encrypted-wizard) i [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Den innehåller också anvisningar som visar hur du lagrar varje krypterings nyckel i Azure Key Vault.
 
 Always Encrypted är en data krypterings teknik som skyddar känsliga data i vila på servern, under förflyttning mellan klienten och servern och medan data används. Always Encrypted ser till att känsliga data aldrig visas som klartext i databas systemet. När du har konfigurerat data kryptering kan endast klient program eller App-servrar som har åtkomst till nycklarna komma åt oformaterade data. Detaljerad information finns i [Always Encrypted (databas motor)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -48,7 +49,7 @@ Följ stegen i den här artikeln och lär dig hur du konfigurerar Always Encrypt
 
 ## <a name="enable-client-application-access"></a>Aktivera åtkomst till klient program
 
-Du måste aktivera klient programmet för att få åtkomst till SQL Database eller SQL-hanterad instans genom att konfigurera ett Azure Active Directory (AAD)-program och kopiera *program-ID: t* och *nyckeln* som du behöver för att autentisera ditt program.
+Du måste aktivera klient programmet för att få åtkomst till din databas i SQL Database genom att konfigurera ett Azure Active Directory (Azure AD)-program och kopiera *program-ID: t* och *nyckeln* som du behöver för att autentisera ditt program.
 
 Hämta *program-ID* och *nyckel*genom att följa stegen i [skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -88,7 +89,7 @@ Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceG
 $subscriptionName = '<subscriptionName>'
 $userPrincipalName = '<username@domain.com>'
 $applicationId = '<applicationId from AAD application>'
-$resourceGroupName = '<resourceGroupName>' # use the same resource group name when creating your SQL Database below
+$resourceGroupName = '<resourceGroupName>' # use the same resource group name when creating your database in Azure SQL Database below
 $location = '<datacenterLocation>'
 $vaultName = '<vaultName>'
 
@@ -103,12 +104,9 @@ az keyvault set-policy --name $vaultName --key-permissions create, get, list, si
 az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
 
-* * *
-
-
 ## <a name="connect-with-ssms"></a>Anslut med SSMS
 
-Öppna SQL Server Managed Studio (SSMS) och Anslut till servern eller hanterad med databasen.
+Öppna SQL Server Management Studio (SSMS) och Anslut till servern eller hanterad med databasen.
 
 1. Öppna SSMS. (Gå till **Anslut**  >  **Database Engine** för att öppna fönstret **Anslut till Server** om det inte är öppet.)
 

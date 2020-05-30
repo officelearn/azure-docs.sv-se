@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 683be926a8237b78b27a50e1aee2d4f72b77af8e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c0ce0a1019554592f769d88f4168da7dc6188586
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053713"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196845"
 ---
 # <a name="use-powershell-to-monitor-and-scale-an-elastic-pool-in-azure-sql-database"></a>Använda PowerShell till att övervaka och skala en elastisk pool i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -53,13 +53,13 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en databas på en server. |
 | [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) | Visar användningsinformation om storlek för databasen.|
 | [Add-AzMetricAlertRule](/powershell/module/az.monitor/add-azmetricalertrule) | Lägger till eller uppdaterar en måttbaserad aviseringsregel. |
-| [Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool) | Uppdaterar egenskaper för elastisk pool |
+| [Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool) | Uppdaterar egenskaper för elastisk pool. |
 | [Add-AzMetricAlertRule](/powershell/module/az.monitor/add-azmetricalertrule) | Ställer in en varnings regel för att automatiskt övervaka mått i framtiden. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
 
 Ytterligare PowerShell-skript exempel finns i [Azure PowerShell skript](../powershell-script-content-guide.md).

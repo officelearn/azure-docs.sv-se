@@ -3,12 +3,12 @@ title: Vanliga frågor om haveri beredskap för Hyper-V med Azure Site Recovery
 description: I den här artikeln sammanfattas vanliga frågor om hur du konfigurerar haveri beredskap för lokala virtuella Hyper-V-datorer till Azure med hjälp av Azure Site Recovery-platsen.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b175e7157364f0471192dd713db8767e074dd483
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75498205"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195265"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – Haveriberedskap för Hyper-V till Azure
 
@@ -159,7 +159,7 @@ För replikering måste en virtuell Hyper-V-dator köra ett operativ system som 
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Hur ofta kan jag replikera till Azure?
 
-Virtuella Hyper-V-datorer kan replikeras var 30: e sekund (med undantag för Premium Storage), 5 minuter eller 15 minuter.
+Virtuella Hyper-V-datorer kan replikeras var 30: e sekund (med undantag för Premium Storage) eller 5 minuter.
 
 ### <a name="can-i-extend-replication"></a>Kan jag utöka replikeringen?
 Utökad eller länkad replikering stöds inte. Begär den här funktionen i [feedback-forumet](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

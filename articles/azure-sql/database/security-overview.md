@@ -1,7 +1,7 @@
 ---
 title: Säkerhets översikt
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Lär dig mer om säkerhet i Azure SQL Database och Azure SQL-hanterad instans, inklusive hur den skiljer sig från den lokala SQL Server.
+description: Lär dig mer om säkerhet i Azure SQL Database och Azure SQL-hanterad instans, inklusive hur den skiljer sig från SQL Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,14 +12,15 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 0f2f412045ddb86996ec98965a147d80944c642a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 617c06c9f9a86e8377f32a5e80102eb92e9f029c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049962"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191709"
 ---
 # <a name="an-overview-of-azure-sql-database--sql-managed-instance-security-capabilities"></a>En översikt över säkerhets funktioner i Azure SQL Database & SQL-hanterad instans
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Den här artikeln beskriver grunderna för att skydda data nivån för ett program med hjälp av [Azure SQL Database](sql-database-paas-overview.md) och [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md). Säkerhets strategin som beskrivs följer efter det skiktade försvars fördjupet, som visas i bilden nedan, och som rör sig från utsidan i:
@@ -41,7 +42,7 @@ Regler för IP-brandvägg ger åtkomst till databaser baserat på den ursprungli
 [Regler för virtuella nätverk](vnet-service-endpoint-rule-overview.md) gör det möjligt för Azure SQL Database att endast acceptera kommunikation som skickas från valda undernät i ett virtuellt nätverk.
 
 > [!NOTE]
-> Kontroll av åtkomst med brand Väggs regler gäller *inte* för **en SQL-hanterad instans**. Mer information om nätverks konfigurationen som behövs finns i [ansluta till en SQL-hanterad instans](../managed-instance/connect-application-instance.md)
+> Kontroll av åtkomst med brand Väggs regler gäller *inte* för **en SQL-hanterad instans**. Mer information om nätverks konfigurationen som behövs finns i [ansluta till en SQL-hanterad instans](../managed-instance/connect-application-instance.md).
 
 ## <a name="access-management"></a>Åtkomsthantering
 

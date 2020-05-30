@@ -13,14 +13,15 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 0d6ab6152d7025098006c580673848fe0268346b
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 7ee69feccb59270d14e86185d0cd6112e5e2ab4a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141848"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190075"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Både Azure SQL Database och Azure SQL-hanterad instans skapar säkerhets kopior av databasen som behålls under den konfigurerade kvarhållningsperioden. De använder Azure [Read-Access Geo-redundant lagring (RA-GRS)](../../storage/common/storage-redundancy.md) för att säkerställa att säkerhets kopior bevaras även om data centret inte är tillgängligt.
@@ -43,7 +44,7 @@ Du kan använda de här säkerhetskopiorna för att:
 Information om hur du utför en återställning finns i [återställa databasen från säkerhets kopior](recovery-using-backups.md).
 
 > [!NOTE]
-> I Azure Storage syftar termen *replikering* för att kopiera filer från en plats till en annan. I SQL syftar *databasreplikering* på att hålla flera sekundära databaser synkroniserade med en primär databas.
+> I Azure Storage syftar termen *replikering* för att kopiera filer från en plats till en annan. I Azure SQL Database-och SQL-hanterad instans syftar *databasreplikering* på att behålla flera sekundära databaser som synkroniseras med en primär databas.
 
 Du kan prova några av de här åtgärderna med hjälp av följande exempel:
 
@@ -61,7 +62,7 @@ Du kan prova några av de här åtgärderna med hjälp av följande exempel:
 
 SQL Database-och SQL-hanterad instans stöder självbetjäning för återställning av PITR (Point-in-Time-återställning) genom att automatiskt skapa fullständiga säkerhets kopior, differentiella säkerhets kopior och säkerhets kopior av transaktions loggar. Fullständiga säkerhets kopieringar skapas varje vecka och säkerhets kopior av differentiella databaser skapas vanligt vis var 12: e timme. Säkerhets kopior av transaktions loggar skapas vanligt vis var 5 till 10 minuter. Frekvensen för säkerhets kopiering av transaktions loggar baseras på beräknings storlek och mängden databas aktivitet.
 
-Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en databas har skapats. Den här säkerhets kopian slutförs vanligt vis inom 30 minuter, men det kan ta längre tid när databasen är stor. Den första säkerhets kopieringen kan till exempel ta längre tid på en återställd databas eller en databas kopia. Efter den första fullständiga säkerhetskopian schemaläggs alla ytterligare säkerhetskopieringar obevakat i bakgrunden. Den exakta tiden för alla säkerhets kopieringar av databasen bestäms av SQL Database-eller SQL-hanterade instans tjänsten eftersom den balanserar den övergripande system belastningen. Du kan inte ändra eller inaktivera säkerhetskopieringsjobben.
+Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en databas har skapats. Den här säkerhets kopian slutförs vanligt vis inom 30 minuter, men det kan ta längre tid när databasen är stor. Den första säkerhets kopieringen kan till exempel ta längre tid på en återställd databas eller en databas kopia. Efter den första fullständiga säkerhetskopian schemaläggs alla ytterligare säkerhetskopieringar obevakat i bakgrunden. Den exakta tiden för alla säkerhets kopieringar av databasen bestäms av SQL Database-eller SQL-hanterad instans eftersom den balanserar den övergripande system belastningen. Du kan inte ändra eller inaktivera säkerhetskopieringsjobben.
 
 ### <a name="default-backup-retention-period"></a>Standard bevarande period för säkerhets kopiering
 
@@ -142,7 +143,7 @@ Lägg till ett filter för **tjänst namn**och välj sedan **SQL-databas** i lis
 
 ## <a name="backup-retention"></a>Kvarhållning av säkerhetskopior
 
-Alla databaser i Microsoft Azure SQL har en standard kvarhållningsperiod för säkerhets kopiering av 7 dagar. Du kan [ändra kvarhållningsperioden för säkerhets kopior](#change-the-pitr-backup-retention-period) till var som helst mellan 1-35 dagar.
+Alla databaser i SQL Database-och SQL-hanterade instanser har en standard kvarhållningsperiod för säkerhets kopiering av 7 dagar. Du kan [ändra kvarhållningsperioden för säkerhets kopior](#change-the-pitr-backup-retention-period) till så länge 35 dagar.
 
 Om du tar bort en databas behåller Azure säkerhets kopiorna på samma sätt som en online-databas. Om du till exempel tar bort en Basic-databas som har en kvarhållningsperiod på sju dagar, sparas en säkerhets kopia som är fyra dagar gammal i tre dagar.
 
@@ -156,7 +157,7 @@ Om du behöver behålla säkerhets kopiorna längre än den maximala kvarhållni
 
 ## <a name="encrypted-backups"></a>Krypterade säkerhets kopior
 
-Om databasen är krypterad med TDE krypteras säkerhets kopiorna automatiskt i vila, inklusive LTR-säkerhetskopieringar. När TDE är aktive rad för SQL Database eller SQL-hanterad instans krypteras även säkerhets kopior. Alla nya databaser i Azure SQL konfigureras med TDE aktiverat som standard. Mer information om TDE finns i [Transparent datakryptering med SQL Database & SQL-hanterad instans](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Om databasen är krypterad med TDE krypteras säkerhets kopiorna automatiskt i vila, inklusive LTR-säkerhetskopieringar. När TDE är aktive rad för SQL Database eller SQL-hanterad instans krypteras även säkerhets kopior. Alla nya databaser i SQL Database och SQL-hanterad instans konfigureras med TDE aktiverat som standard. Mer information om TDE finns i [Transparent datakryptering med SQL Database & SQL-hanterad instans](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="backup-integrity"></a>Säkerhets kopierings integritet
 

@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: e9abb2ded5465d4b245f4c9bcfab921444d41fa2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 481406b02d7d864dd16ac42918ae1aa2dea0b145
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684922"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195230"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Azure Storage övervaknings data referens
 
@@ -82,9 +82,9 @@ Azure Storage tillhandahåller följande transaktions mått i Azure Monitor.
 | Utgående | Mängden utgående data. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. <br/><br/> Enhet: byte <br/> Sammansättnings typ: totalt <br/> Tillämpliga dimensioner: typ av typ, ApiName och autentisering ([definition](#metrics-dimensions)) <br/> Värde exempel: 1024 |
 | SuccessServerLatency | Den genomsnittliga tiden det tar för Azure Storage att bearbeta en lyckad begäran. Det här värdet innefattar inte nätverksfördröjningen som anges i SuccessE2ELatency. <br/><br/> Enhet: millisekunder <br/> Sammansättnings typ: genomsnitt <br/> Tillämpliga dimensioner: typ av typ, ApiName och autentisering ([definition](#metrics-dimensions)) <br/> Värde exempel: 1024 |
 | SuccessE2ELatency | Den genomsnittliga svarstiden från slutpunkt till slutpunkt för lyckade begäranden som gjorts till en lagringstjänst eller för en angiven API-åtgärd. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. <br/><br/> Enhet: millisekunder <br/> Sammansättnings typ: genomsnitt <br/> Tillämpliga dimensioner: typ av typ, ApiName och autentisering ([definition](#metrics-dimensions)) <br/> Värde exempel: 1024 |
-| Tillgängligt | Procent andelen tillgänglighet för lagrings tjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att värdet för TotalBillableRequests delas med antalet tillämpliga förfrågningar, även förfrågningar som genererat oväntade fel. Alla oväntade fel leder till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. <br/><br/> Enhet: procent <br/> Sammansättnings typ: genomsnitt <br/> Tillämpliga dimensioner: typ av typ, ApiName och autentisering ([definition](#metrics-dimensions)) <br/> Värde exempel: 99,99 |
+| Tillgänglighet | Procent andelen tillgänglighet för lagrings tjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att värdet för TotalBillableRequests delas med antalet tillämpliga förfrågningar, även förfrågningar som genererat oväntade fel. Alla oväntade fel leder till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. <br/><br/> Enhet: procent <br/> Sammansättnings typ: genomsnitt <br/> Tillämpliga dimensioner: typ av typ, ApiName och autentisering ([definition](#metrics-dimensions)) <br/> Värde exempel: 99,99 |
 
-<a id="metrics-dimensions" />
+<a id="metrics-dimensions"></a>
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 
@@ -96,7 +96,7 @@ Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 | **BlobTier** | Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Läs mer i [Azure Storage BLOB-nivå](../blobs/storage-blob-storage-tiers.md). De värden som stöds är: <br/> <li>Frekvent **: frekvent**nivå</li> <li>Låg **frekvent: låg**frekvent nivå</li> <li>**Arkiv**: Arkiv lag ring</li> <li>**Premium**: Premium-nivån för Block-Blob</li> <li>**P4/P6/P10/p15/P20/P30/P40/P50/P60**: nivå typer för Premium Page-BLOB</li> <li>**Standard**: nivå typ för standard sid-BLOB</li> <li>Inte i **nivå**: nivå typ för generell användning v1 lagrings konto</li> |
 | **Typ av typ** | Transaktion från primärt eller sekundärt kluster. De tillgängliga värdena är **primär** och **sekundär**. Den gäller för läsning av Geo-redundant lagring med Läs behörighet (RA-GRS) vid läsning av objekt från en sekundär klient. |
 | **ResponseType** | Typ av transaktions svar. Tillgängliga värden är: <br/><br/> <li>**ServerOtherError**: alla andra fel på Server sidan förutom de som beskrivs </li> <li>**ServerBusyError**: autentiserad begäran som returnerade en HTTP 503-status kod. </li> <li>**ServerTimeoutError**: en timeout-autentiserad begäran som returnerade en status kod för HTTP 500. Tidsgränsen överskreds på grund av ett serverfel. </li> <li>**AuthorizationError**: autentiserad begäran som misslyckades på grund av obehörig åtkomst till data eller ett auktoriseringsfel. </li> <li>**NetworkError**: autentiserad begäran som misslyckades på grund av nätverks fel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li><li>**ClientAccountBandwidthThrottlingError**: begäran begränsas på bandbredden för att överskrida [skalbarhets gränserna för lagrings kontot](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: begäran begränsas enligt begär ande frekvens för överskridning av [skalbarhets gränser för lagrings kontot](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: andra begränsnings fel på klient sidan. ClientAccountBandwidthThrottlingError och ClientAccountRequestThrottlingError är undantagna.</li> <li>**ClientTimeoutError**: en timeout-autentiserad begäran som returnerade en status kod för HTTP 500. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError. </li> <li>**ClientOtherError**: alla andra fel på klient sidan, förutom de som beskrivs. </li> <li>**Lyckades**: lyckad begäran</li> <li> **SuccessWithThrottling**: lyckad begäran när en SMB-klient får en begränsning i de första försöken (erna) men lyckas efter återförsök.</li> |
-| **ApiName** | Åtgärdens namn. Till exempel: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> För alla åtgärds namn, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **ApiName** | Åtgärdens namn. Ett exempel: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> För alla åtgärds namn, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | **Autentisering** | Autentiseringstyp som används i transaktioner. Tillgängliga värden är: <br/> <li>**AccountKey**: transaktionen autentiseras med lagrings konto nyckeln.</li> <li>**SAS**: transaktionen autentiseras med signaturer för delad åtkomst.</li> <li>**OAuth**: transaktionen autentiseras med OAuth-åtkomsttoken.</li> <li>**Anonym**: transaktionen begärs anonymt. Den omfattar inte preflight-begäranden.</li> <li>**AnonymousPreflight**: transaktionen är en preflight-begäran.</li> |
 
 För mått som stöder dimensioner måste du ange dimension svärdet för att se motsvarande mått värden. Om du till exempel tittar på **transaktions** värde för lyckade svar måste du filtrera **ResponseType** -dimensionen med **lyckat resultat**. Eller om du tittar på **BlobCount** -värdet för Block-Blob måste du filtrera **BlobType** -dimensionen med **BlockBlob**.
@@ -233,7 +233,7 @@ I följande tabell visas egenskaperna för Azure Storage resurs loggar när de s
 
 | Egenskap | Beskrivning |
 |:--- |:---|
-|**Konto** | Namnet på lagrings kontot. Exempel: `mystorageaccount`.  |
+|**accountName** | Namnet på lagrings kontot. Exempel: `mystorageaccount`.  |
 |**requestUrl** | Den URL som begärs. Exempel: `http://mystorageaccount.blob.core.windows.net/cont1/blobname?timeout=10`.|
 |**userAgentHeader** | Värdet för **User-Agent-huvudet** , inom citat tecken. Exempel: `WA-Storage/6.2.0 (.NET CLR 4.0.30319.42000; Win32NT 6.2.9200.0)`.|
 |**referrerHeader** | Värdet för **referent** -huvudet. Exempel: `http://contoso.com/about.html`.|

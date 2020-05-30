@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 05/18/2020
 ms.author: victorh
-ms.openlocfilehash: cf0af93d95c5af56be6168bc8e4f79d3005e2ec2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d9afb93611712109d5e8fcc8a686f4f9196f3396
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649594"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204046"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Tvingad tunnel trafik i Azure-brandväggen
 

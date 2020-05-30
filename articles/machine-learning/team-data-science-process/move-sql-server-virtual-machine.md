@@ -1,6 +1,6 @@
 ---
 title: Flytta data till en SQL Server virtuell dator – team data science process
-description: Flytta data från flata filer eller från en lokal SQL Server till SQL Server på den virtuella Azure-datorn.
+description: Flytta data från flata filer eller från lokala SQL Server till SQL Server på den virtuella Azure-datorn.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4de0686dbca803b9008c1b56c512a90fcfe2b3c0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: be1abe415955b52cbd639faef703e5c2fbd257b6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022443"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194370"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Flytta data till SQL Server på en virtuell Azure-dator
 
@@ -203,7 +203,7 @@ Med guiden för att [migrera SQL Server Database](https://sqlazuremw.codeplex.co
 SQL Server stöder:
 
 1. [Databas säkerhets kopierings-och återställnings funktioner](https://msdn.microsoft.com/library/ms187048.aspx) (både till en lokal fil eller BACPAC exporteras till BLOB) och [data skikts program](https://msdn.microsoft.com/library/ee210546.aspx) (med BACPAC).
-2. Möjlighet att direkt skapa SQL Server virtuella datorer på Azure med en kopierad databas eller kopiera till en befintlig SQL Azure-databas. Mer information finns i [använda guiden Kopiera databas](https://msdn.microsoft.com/library/ms188664.aspx).
+2. Möjlighet att direkt skapa SQL Server virtuella datorer på Azure med en kopierad databas eller kopiera till en befintlig databas i SQL Database. Mer information finns i [använda guiden Kopiera databas](https://msdn.microsoft.com/library/ms188664.aspx).
 
 En skärm bild av alternativen för databas säkerhets kopiering/återställning från SQL Server Management Studio visas nedan.
 

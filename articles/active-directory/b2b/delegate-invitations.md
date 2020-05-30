@@ -11,14 +11,14 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fa2b5f17af466d5ea2b6e3ba942fafc24cc94713
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591292"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204267"
 ---
-# <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster
+# <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Aktivera externt B2B-samarbete och hantera vilka som kan bjuda in gäster
 
 I den här artikeln beskrivs hur du aktiverar Azure Active Directory (Azure AD) B2B-samarbete och avgör vem som kan bjuda in gäster. Som standard kan alla användare och gäster i din katalog bjuda in gäster även om de inte har tilldelats någon administratörs roll. Med inställningar för externa samarbete kan du aktivera eller inaktivera gäst inbjudningar för olika typer av användare i din organisation. Du kan också delegera inbjudningar till enskilda användare genom att tilldela roller som gör det möjligt för dem att bjuda in gäster.
 
@@ -48,6 +48,9 @@ Som standard kan alla användare, inklusive gäster, bjuda in gäst användare.
    - **Gäster kan bjuda in**: om du vill tillåta gäster att bjuda in andra gäster ställer du in den här principen på **Ja**.
    - **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)**: Mer information om funktionen för eng ång slö sen ord finns i [e-mail Authentication eng ång slö sen ord (för hands version)](one-time-passcode.md).
    - **Samarbets begränsningar**: Mer information om att tillåta eller blockera inbjudningar till vissa domäner finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](allow-deny-list.md).
+   
+   > [!NOTE]
+   > Om **medlemmar kan bjuda** in till **Nej** och **Administratörer och användare i rollen gäst deltagare kan bjuda** in till **Ja**, användare i **gäst Inbjudnings** rollen kommer fortfarande att kunna bjuda in gäster.
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Tilldela rollen för rollen gäst deltagare till en användare
 
@@ -66,5 +69,4 @@ Se följande artiklar om Azure AD B2B-samarbete:
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
 - [Lägg till gäst användare för B2B-samarbete utan inbjudan](add-user-without-invite.md)
 - [Lägga till en B2B-samarbets användare till en roll](add-guest-to-role.md)
-
 

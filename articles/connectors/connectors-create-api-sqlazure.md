@@ -7,16 +7,16 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/12/2020
 tags: connectors
-ms.openlocfilehash: 5090d772be4f68c696e8dd4882a78ba6954b6058
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f63553ced8484b3ce328fb9537d5831ae1e27fe8
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020735"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191477"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för SQL Server eller Azure SQL Database med Azure Logic Apps
 
-Den här artikeln visar hur du kan komma åt data i din SQL-databas inifrån en Logic-app med SQL Server-anslutningen. På så sätt kan du automatisera aktiviteter, processer eller arbets flöden som hanterar dina SQL-data och-resurser genom att skapa Logic Apps. SQL Server Connector fungerar både [lokalt SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) och för [molnbaserad Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
+Den här artikeln visar hur du kan komma åt data i din SQL-databas inifrån en Logic-app med SQL Server-anslutningen. På så sätt kan du automatisera aktiviteter, processer eller arbets flöden som hanterar dina SQL-data och-resurser genom att skapa Logic Apps. SQL Server Connector fungerar för [SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) såväl som [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) och [Azure SQL-hanterad instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
 Du kan skapa Logi Kap par som körs när de utlöses av händelser i din SQL-databas eller i andra system, till exempel Dynamics CRM Online. Dina Logic Apps kan också hämta, infoga och ta bort data tillsammans med SQL-frågor och lagrade procedurer. Du kan till exempel bygga en Logi Kap par som automatiskt söker efter nya poster i Dynamics CRM Online, lägger till objekt i din SQL-databas efter nya poster och skickar sedan e-postaviseringar om de tillagda objekten.
 

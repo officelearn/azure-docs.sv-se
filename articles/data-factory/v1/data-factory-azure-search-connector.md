@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281566"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194924"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Skicka data till ett Azure Kognitiv sökning-index med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -47,7 +47,7 @@ Oavsett om du använder verktygen eller API: erna utför du följande steg för 
 2. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden.
 3. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet.  Ett exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data till Sök index finns i [JSON-exempel: kopiera data från lokala SQL Server till ett Azure kognitiv sökning-index](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet.  Ett exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data till Sök index finns i [JSON-exempel: kopiera data från SQL Server till ett Azure kognitiv sökning-index](#json-example-copy-data-from-sql-server-to-azure-cognitive-search-index) i den här artikeln.
 
 I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är relaterade till ett sökindex:
 
@@ -55,20 +55,20 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 
 Följande tabell innehåller beskrivningar av JSON-element som är speciella för den länkade Azure Kognitiv sökning-tjänsten.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | -------- | ----------- | -------- |
-| typ | Egenskapen Type måste anges till: **AzureSearch**. | Ja |
-| url | URL för Sök tjänsten. | Ja |
-| key | Administratörs nyckel för Sök tjänsten. | Ja |
+| typ | Egenskapen Type måste anges till: **AzureSearch**. | Yes |
+| url | URL för Sök tjänsten. | Yes |
+| nyckel | Administratörs nyckel för Sök tjänsten. | Yes |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar samma för alla data uppsättnings typer. Avsnittet **typeProperties** är olika för varje typ av data uppsättning. Avsnittet typeProperties för en data uppsättning av typen **AzureSearchIndex** har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | -------- | ----------- | -------- |
-| typ | Egenskapen Type måste anges till **AzureSearchIndex**.| Ja |
-| indexName | Sök Indexets namn. Data Factory skapar inte indexet. Indexet måste finnas i Azure Kognitiv sökning. | Ja |
+| typ | Egenskapen Type måste anges till **AzureSearchIndex**.| Yes |
+| indexName | Sök Indexets namn. Data Factory skapar inte indexet. Indexet måste finnas i Azure Kognitiv sökning. | Yes |
 
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
@@ -76,10 +76,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För kopierings aktivitet är följande egenskaper tillgängliga i avsnittet typeProperties när mottagaren är av typen **AzureSearchIndexSink**:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Anger om du vill sammanfoga eller ersätta när ett dokument redan finns i indexet. Se [egenskapen WriteBehavior](#writebehavior-property).| Sammanfoga (standard)<br/>Ladda upp| Inga |
-| WriteBatchSize | Överför data till Sök indexet när buffertstorleken når writeBatchSize. Mer information finns i [WriteBatchSize-egenskapen](#writebatchsize-property) . | 1 till 1 000. Standardvärdet är 1000. | Inga |
+| WriteBehavior | Anger om du vill sammanfoga eller ersätta när ett dokument redan finns i indexet. Se [egenskapen WriteBehavior](#writebehavior-property).| Sammanfoga (standard)<br/>Ladda upp| No |
+| WriteBatchSize | Överför data till Sök indexet när buffertstorleken når writeBatchSize. Mer information finns i [WriteBatchSize-egenskapen](#writebatchsize-property) . | 1 till 1 000. Standardvärdet är 1000. | No |
 
 ### <a name="writebehavior-property"></a>WriteBehavior-egenskap
 AzureSearchSink upsertar när data skrivs. När du skriver ett dokument, och om dokument nyckeln redan finns i Sök indexet, kommer Azure Kognitiv sökning att uppdatera det befintliga dokumentet i stället för att ett konflikt undantag utlöses.
@@ -108,7 +108,7 @@ I följande tabell anges om data typen Azure Kognitiv sökning stöds eller inte
 | Sträng mat ris | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index"></a>JSON-exempel: kopiera data från lokala SQL Server till Azure Kognitiv sökning index
+## <a name="json-example-copy-data-from-sql-server-to-azure-cognitive-search-index"></a>JSON-exempel: kopiera data från SQL Server till Azure Kognitiv sökning index
 
 Följande exempel visar:
 
@@ -118,7 +118,7 @@ Följande exempel visar:
 4. En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureSearchIndex](#dataset-properties).
 4. En [pipeline](data-factory-create-pipelines.md) med en kopierings aktivitet som använder [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) och [AzureSearchIndexSink](#copy-activity-properties).
 
-Exemplet kopierar Time Series-data från en lokal SQL Server databas till Sök index varje timme. De JSON-egenskaper som används i det här exemplet beskrivs i avsnitten som följer efter exemplen.
+Exemplet kopierar Time Series-data från en SQL Server-databas för att söka efter index varje timme. De JSON-egenskaper som används i det här exemplet beskrivs i avsnitten som följer efter exemplen.
 
 Det första steget är att konfigurera data Management Gateway på den lokala datorn. Anvisningarna finns i [Flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar.
 

@@ -1,6 +1,6 @@
 ---
-title: Granska loggformat
-description: Förstå hur Azure SQL och Azure Synapse gransknings loggar är strukturerade.
+title: SQL Database Gransknings logg format
+description: Förstå hur Azure SQL Database gransknings loggar struktureras.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,30 +10,30 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
-ms.openlocfilehash: 33a82cb5e4daac96d51f19de21e817b07237ec20
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 82e0cec514849eb41272e6b25dcce74eabfa2b8d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041663"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190314"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database Gransknings logg format
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 [Azure SQL Database granskning](auditing-overview.md) spårar databas händelser och skriver dem till en Gransknings logg på ditt Azure Storage-konto eller skickar dem till händelsehubben eller Log Analytics för efterföljande bearbetning och analys.
 
-## <a name="naming-conventions"></a>Namngivnings konventioner
+## <a name="naming-conventions"></a>Namngivningskonventioner
 
 ### <a name="blob-audit"></a>BLOB Audit
 
-Gransknings loggar lagrade i Blob Storage lagras i en behållare med namnet `sqldbauditlogs` i Azure Storage-kontot. Katalogpartitionen i behållaren har formatet `<ServerName>/<DatabaseName>/<AuditName>/<Date>/` . BLOB filename-formatet är `<CreationTime>_<FileNumberInSession>.xel` , där `CreationTime` är i UTC `hh_mm_ss_ms` -format och `FileNumberInSession` är ett index som körs i fall där loggar loggar över flera BLOB-filer.
+Gransknings loggar som lagras i Azure Blob Storage lagras i en behållare med namnet `sqldbauditlogs` i Azure Storage-kontot. Katalogpartitionen i behållaren har formatet `<ServerName>/<DatabaseName>/<AuditName>/<Date>/` . BLOB-filens namn format är `<CreationTime>_<FileNumberInSession>.xel` , där `CreationTime` är i UTC `hh_mm_ss_ms` -format och `FileNumberInSession` är ett index som körs i fall där loggar loggar över flera BLOB-filer.
 
 Till exempel för databas `Database1` på `Server1` följande är en möjlig giltig sökväg:
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-[Skrivskyddade repliker](read-scale-out.md) Gransknings loggar lagras i samma behållare. Katalogpartitionen i behållaren har formatet `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/` . BLOB-filnamnet delar samma format. Gransknings loggarna för skrivskyddade repliker lagras i samma behållare.
+[Skrivskyddade repliker](read-scale-out.md) gransknings loggar lagras i samma behållare. Katalogpartitionen i behållaren har formatet `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/` . BLOB-filens namn delar samma format. Gransknings loggarna för skrivskyddade repliker lagras i samma behållare.
 
 
 ### <a name="event-hub"></a>Händelsehubb
@@ -46,33 +46,33 @@ Gransknings händelser skrivs till Log Analytics arbets yta som definierats unde
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Gransknings logg fält
 
-| Namn (BLOB) | Namn (Event Hubs/Log Analytics) | Beskrivning | Blob-typ | Event Hubs/Log Analytics typ |
+| Namn (BLOB) | Namn (Event Hubs/Log Analytics) | Description | Blobtyp | Event Hubs/Log Analytics typ |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID för åtgärden | varchar (4) | sträng |
-| action_name | action_name_s | Åtgärdens namn | Saknas | sträng |
+| action_name | action_name_s | Åtgärdens namn | Ej tillämpligt | sträng |
 | additional_information | additional_information_s | Eventuell ytterligare information om händelsen, lagrad som XML | nvarchar (4000) | sträng |
 | affected_rows | affected_rows_d | Antalet rader som påverkas av frågan | bigint | int |
 | application_name | application_name_s| Namn på klient program | nvarchar (128) | sträng |
 | audit_schema_version | audit_schema_version_d | Alltid 1 | int | int |
 | class_type | class_type_s | Typ av gransknings bar entitet som granskningen sker på | varchar (2) | sträng |
-| class_type_desc | class_type_description_s | Beskrivning av gransknings bar entitet som granskningen sker på | Saknas | sträng |
+| class_type_desc | class_type_description_s | Beskrivning av gransknings bar entitet som granskningen sker på | Ej tillämpligt | sträng |
 | client_ip | client_ip_s | Käll-IP för klient programmet | nvarchar (128) | sträng |
-| connection_id | Saknas | ID för anslutningen på servern | GUID | Saknas |
+| connection_id | Ej tillämpligt | ID för anslutningen på servern | GUID | Ej tillämpligt |
 | data_sensitivity_information | data_sensitivity_information_s | Informations typer och känslighets etiketter som returneras av den granskade frågan, baserat på de klassificerade kolumnerna i databasen. Läs mer om att [Azure SQL Database data identifiering och klassificering](data-discovery-and-classification-overview.md) | nvarchar (4000) | sträng |
 | database_name | database_name_s | Databas kontexten där åtgärden utfördes | sysname | sträng |
 | database_principal_id | database_principal_id_d | ID för den databas användar kontext som åtgärden utförs i | int | int |
 | database_principal_name | database_principal_name_s | Namnet på databasens användar kontext där åtgärden utförs | sysname | sträng |
 | duration_milliseconds | duration_milliseconds_d | Varaktighet för körning av fråga i millisekunder | bigint | int |
 | event_time | event_time_t | Datum och tid då den gransknings bara åtgärden utlöses | datetime2 | datetime |
-| host_name | Saknas | Klient värd namn | sträng | Saknas |
+| host_name | Ej tillämpligt | Klient värd namn | sträng | Ej tillämpligt |
 | is_column_permission | is_column_permission_s | Flagga som anger om detta är en kolumn nivå behörighet. 1 = sant, 0 = falskt | bit | sträng |
-| Saknas | is_server_level_audit_s | Flagga som anger om den här granskningen finns på server nivå | Saknas | sträng |
+| Ej tillämpligt | is_server_level_audit_s | Flagga som anger om den här granskningen finns på server nivå | Ej tillämpligt | sträng |
 | object_-ID | object_id_d | ID för den entitet som granskningen utfördes på. Detta omfattar: Server objekt, databaser, databas objekt och schema objekt. 0 om entiteten är själva servern eller om granskningen inte utförs på en objekt nivå | int | int |
 | object_name | object_name_s | Namnet på den entitet som granskningen utfördes på. Detta omfattar: Server objekt, databaser, databas objekt och schema objekt. 0 om entiteten är själva servern eller om granskningen inte utförs på en objekt nivå | sysname | sträng |
 | permission_bitmask | permission_bitmask_s | När det är tillämpligt visar de behörigheter som beviljats, nekats eller återkallats | varbinary (16) | sträng |
 | response_rows | response_rows_d | Antal rader som returneras i resultat uppsättningen | bigint | int |
 | schema_name | schema_name_s | Schema kontexten där åtgärden utfördes. NULL för granskningar som inträffar utanför ett schema | sysname | sträng |
-| Saknas | securable_class_type_s | Skydds bara objekt som mappar till class_type som granskas | Saknas | sträng |
+| Ej tillämpligt | securable_class_type_s | Skydds bara objekt som mappar till class_type som granskas | Ej tillämpligt | sträng |
 | sequence_group_id | sequence_group_id_g | Unik identifierare | varbinary | GUID |
 | sequence_number | sequence_number_d | Spårar sekvensen av poster i en enskild gransknings post som var för stor för att få plats i insamlingsbufferten för granskningar | int | int |
 | server_instance_name | server_instance_name_s | Namnet på Server instansen där granskningen utfördes | sysname | sträng |
@@ -92,6 +92,6 @@ Gransknings händelser skrivs till Log Analytics arbets yta som definierats unde
 | user_defined_event_id | user_defined_event_id_d | Ett användardefinierat händelse-ID skickades som ett argument till sp_audit_write. NULL för system händelser (standard) och icke-noll för användardefinierad händelse. Mer information finns i [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | Användardefinierad information som skickas som ett argument till sp_audit_write. NULL för system händelser (standard) och icke-noll för användardefinierad händelse. Mer information finns i [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar (4000) | sträng |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [Azure SQL Database granskning](auditing-overview.md).

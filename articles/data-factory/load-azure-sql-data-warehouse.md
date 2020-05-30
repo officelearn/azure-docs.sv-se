@@ -1,6 +1,6 @@
 ---
-title: Läs in data till Azure SQL Data Warehouse
-description: Använd Azure Data Factory för att kopiera data till Azure SQL Data Warehouse
+title: Läs in data i Azure Synapse Analytics
+description: Använd Azure Data Factory för att kopiera data till Azure Synapse Analytics
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -10,38 +10,38 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/16/2020
-ms.openlocfilehash: e0a9a00aa6abd35ad723f02a30869e8f7734b1f3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: 2f3932f3374367e260685ae5145da8858384c3a2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020565"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194756"
 ---
-# <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Läsa in data till Azure SQL Data Warehouse med Azure Data Factory
+# <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Läs in data i Azure Synapse Analytics med hjälp av Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) är en molnbaserad, skalbar databas som kan bearbeta stora mängder data, både relationella och icke-relationella. SQL Data Warehouse bygger på den minnes trycks arkitektur (massivt parallell bearbetning) som är optimerad för arbets belastningar för företags data lager. Det ger moln elastiskhet med flexibiliteten att skala lagring och beräkning oberoende av varandra.
+[Azure Synapse Analytics (tidigare SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) är en molnbaserad, skalbar databas som kan bearbeta stora mängder data, både relationella och icke-relationella. Azure Synapse Analytics bygger på den minnes trycks arkitektur (massivt parallell bearbetning) som är optimerad för arbets belastningar för företags data lager. Det ger moln elastiskhet med flexibiliteten att skala lagring och beräkning oberoende av varandra.
 
-Att komma igång med Azure SQL Data Warehouse är nu enklare än någonsin när du använder Azure Data Factory. Azure Data Factory är en helt hanterad molnbaserad data integrerings tjänst. Du kan använda tjänsten för att fylla i en SQL Data Warehouse med data från ditt befintliga system och spara tid när du skapar dina analys lösningar.
+Att komma igång med Azure Synapse Analytics är nu enklare än någonsin när du använder Azure Data Factory. Azure Data Factory är en helt hanterad molnbaserad data integrerings tjänst. Du kan använda tjänsten för att fylla i en Azure Synapse-analys med data från ditt befintliga system och spara tid när du skapar dina analys lösningar.
 
-Azure Data Factory erbjuder följande fördelar för att läsa in data i Azure SQL Data Warehouse:
+Azure Data Factory erbjuder följande fördelar för att läsa in data i Azure Synapse Analytics:
 
 * **Enkelt att konfigurera**: en intuitiv 5-stegs guide utan skript krävs.
 * **Stöd för omfattande data lager**: inbyggt stöd för en omfattande uppsättning lokala och molnbaserade data lager. En detaljerad lista finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 * **Säkert och kompatibelt**: data överförs via https eller ExpressRoute. Med den globala tjänstens närvaro ser du till att dina data aldrig lämnar den geografiska gräns.
-* **Oöverträffade prestanda med hjälp av PolyBase**: Polybase är det mest effektiva sättet att flytta data till Azure SQL Data Warehouse. Använd funktionen för mellanlagring av BLOB för att uppnå höga belastnings hastigheter från alla typer av data lager, inklusive Azure Blob Storage och Data Lake Store. (PolyBase stöder Azure Blob Storage och Azure Data Lake Store som standard.) Mer information finns i [Kopiera aktivitets prestanda](copy-activity-performance.md).
+* **Oöverträffade prestanda med hjälp av PolyBase**: Polybase är det mest effektiva sättet att flytta data till Azure Synapse Analytics. Använd funktionen för mellanlagring av BLOB för att uppnå höga belastnings hastigheter från alla typer av data lager, inklusive Azure Blob Storage och Data Lake Store. (PolyBase stöder Azure Blob Storage och Azure Data Lake Store som standard.) Mer information finns i [Kopiera aktivitets prestanda](copy-activity-performance.md).
 
-Den här artikeln visar hur du använder verktyget Data Factory Kopiera data för att _läsa in data från Azure SQL Database till Azure SQL Data Warehouse_. Du kan följa liknande steg för att kopiera data från andra typer av data lager.
+Den här artikeln visar hur du använder verktyget Data Factory Kopiera data för att _läsa in data från Azure SQL Database till Azure Synapse Analytics_. Du kan följa liknande steg för att kopiera data från andra typer av data lager.
 
 > [!NOTE]
-> Mer information finns i [Kopiera data till eller från Azure SQL Data Warehouse med Azure Data Factory](connector-azure-sql-data-warehouse.md).
+> Mer information finns i [Kopiera data till eller från Azure Synapse Analytics med hjälp av Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* Azure SQL Data Warehouse: data lagret innehåller de data som kopieras från SQL-databasen. Om du inte har ett Azure SQL Data Warehouse kan du läsa anvisningarna i [skapa en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
+* Azure Synapse Analytics: data lagret innehåller de data som kopieras från SQL-databasen. Om du inte har en Azure Synapse-analys kan du läsa anvisningarna i [skapa en Azure Synapse-analys](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Azure SQL Database: den här självstudien kopierar data från en Azure SQL-databas med Adventure Works LT-exempel data. Du kan skapa en SQL-databas genom att följa anvisningarna i [skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
 * Azure Storage-konto: Azure Storage används som _mellanlagrings_ -BLOB i Mass kopierings åtgärden. Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-account-create.md).
 
@@ -64,7 +64,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
    Välj panelen **Författare och övervakare** för att starta dataintegreringsprogrammet på en separat flik.
 
-## <a name="load-data-into-azure-sql-data-warehouse"></a>Läs in data till Azure SQL Data Warehouse
+## <a name="load-data-into-azure-synapse-analytics"></a>Läs in data i Azure Synapse Analytics
 
 1. På sidan **Kom igång** väljer du panelen **Kopiera data** för att starta verktyget Kopiera data.
 
@@ -115,7 +115,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 1. På sidan **tabell mappning** granskar du innehållet och väljer **Nästa**. En intelligent tabell mappning visas. Käll tabellerna mappas till mål tabellerna baserat på tabell namn. Om en käll tabell inte finns i målet skapar Azure Data Factory en mål tabell med samma namn som standard. Du kan också mappa en käll tabell till en befintlig mål tabell.
 
    > [!NOTE]
-   > Automatisk tabell skapande för SQL Data Warehouse Sink gäller när SQL Server eller Azure SQL Database är källan. Om du kopierar data från ett annat käll data lager måste du skapa schemat i Sink-Azure SQL Data Warehouse innan du kör data kopieringen.
+   > Automatisk tabell skapande för Azure Synapse Analytics-mottagaren gäller när SQL Server eller Azure SQL Database är källan. Om du kopierar data från ett annat käll data lager måste du skapa schemat i Azure Synapse Analytics innan du kör data kopieringen.
 
    ![Sidan för tabellmappning](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
@@ -125,7 +125,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
 1. Utför följande steg på sidan **Inställningar** :
 
-    a. I avsnittet **mellanlagrings inställningar** klickar du på **+ ny** för att välja ny mellanlagring av mellanlagring. Lagrings utrymmet används för att mellanlagra data innan de läses in i SQL Data Warehouse med PolyBase. När kopieringen är klar rensas tillfälliga data i Azure Blob Storage automatiskt.
+    a. I avsnittet **mellanlagrings inställningar** klickar du på **+ ny** för att välja ny mellanlagring av mellanlagring. Lagrings utrymmet används för att mellanlagra data innan de läses in i Azure Synapse Analytics genom att använda PolyBase. När kopieringen är klar rensas tillfälliga data i Azure Blob Storage automatiskt.
 
     b. På sidan **ny länkad tjänst** väljer du ditt lagrings konto och väljer **skapa** för att distribuera den länkade tjänsten.
 
@@ -152,7 +152,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till följande artikel om du vill lära dig mer om Azure SQL Data Warehouse-support:
+Gå vidare till följande artikel om du vill lära dig mer om Azure Synapse Analytics-support:
 
 > [!div class="nextstepaction"]
->[Azure SQL Data Warehouse-anslutningsapp](connector-azure-sql-data-warehouse.md)
+>[Azure Synapse Analytics-anslutning](connector-azure-sql-data-warehouse.md)

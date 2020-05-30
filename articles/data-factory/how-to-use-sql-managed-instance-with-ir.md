@@ -1,6 +1,6 @@
 ---
-title: Använd Azure SQL Database Hanterad instans med Azure-SQL Server Integration Services (SSIS) i Azure Data Factory
-description: Lär dig hur du använder Azure SQL Database Hanterad instans med SQL Server Integration Services (SSIS) i Azure Data Factory.
+title: Använd Azure SQL Managed instance med Azure-SQL Server Integration Services (SSIS) i Azure Data Factory
+description: Lär dig hur du använder Azure SQL-hanterad instans med SQL Server Integration Services (SSIS) i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -11,30 +11,30 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: cd07bf86852d608a6d872f4c6b973b0a81b2a1c3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f53c7ccec5e82b79966807f12978adfb00940354
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015300"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195369"
 ---
-# <a name="use-azure-sql-database-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Använd Azure SQL Database Hanterad instans med SQL Server Integration Services (SSIS) i Azure Data Factory
+# <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Använd Azure SQL-hanterad instans med SQL Server Integration Services (SSIS) i Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och arbets belastningar till Azure-molnet. Distribuera, köra och hantera SSIS-projekt och paket på Azure SQL Database eller SQL Database Hanterad instans med välbekanta verktyg som SQL Server Management Studio (SSMS). I den här artikeln beskrivs följande olika områden när du använder Azure SQL Database Hanterad instans med Azure-SSIS integration Runtime (IR):
+Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och arbets belastningar till Azure-molnet. Distribuera, köra och hantera SSIS-projekt och-paket på Azure SQL Database eller SQL-hanterad instans med välbekanta verktyg som SQL Server Management Studio (SSMS). I den här artikeln beskrivs följande olika områden när du använder Azure SQL-hanterad instans med Azure-SSIS integration Runtime (IR):
 
-- [Etablera en Azure-SSIS IR med SSIS-katalogen (SSISDB) som hanteras av Azure SQL Database hanterade instansen](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
+- [Etablera en Azure-SSIS IR med SSIS-katalogen (SSISDB) som hanteras av Azure SQL-hanterad instans](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Köra SSIS-paket av Azure SQL-hanterad instans Agent jobb](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Rensa SSISDB-loggar av Azure SQL-hanterad instans Agent jobb](#clean-up-ssisdb-logs)
-- [Azure-SSIS IR redundans med Azure SQL Database Hanterad instans](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-database-managed-instance)
-- [Migrera lokala SSIS-arbetsbelastningar till SSIS i ADF med Azure SQL Database Hanterad instans som databas arbets belastnings mål](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
+- [Azure-SSIS IR redundans med Azure SQL-hanterad instans](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Migrera lokala SSIS-arbetsbelastningar till SSIS i ADF med Azure SQL Managed instance som databas arbets belastnings mål](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
 ## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Etablera Azure-SSIS IR med SSISDB som hanteras av en Azure SQL-hanterad instans
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-1. [Aktivera Azure Active Directory (Azure AD) på Azure SQL Database hanterade instansen](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance)när du väljer Azure Active Directory autentisering.
+1. [Aktivera Azure Active Directory (Azure AD) på Azure SQL-hanterad instans](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance)när du väljer Azure Active Directory autentisering.
 
 1. Välj hur du vill ansluta SQL-hanterad instans, över privat slut punkt eller över offentlig slut punkt:
 
@@ -44,13 +44,13 @@ Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och 
             - I samma virtuella nätverk som SQL-hanterad instans, med ett **annat undernät**.
             - I ett annat virtuellt nätverk än SQL-hanterad instans, via peering för virtuella nätverk (som är begränsat till samma region på grund av globala VNet-peering-begränsningar) eller en anslutning från det virtuella nätverket till ett virtuellt nätverk.
 
-            Mer information om anslutningar för SQL-hanterad instans finns i [Anslut ditt program till Azure SQL Database Hanterad instans](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
+            Mer information om anslutningar för SQL-hanterad instans finns i [ansluta ditt program till Azure SQL Managed instance](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
 
         1. [Konfigurera virtuellt nätverk](#configure-virtual-network).
 
     - Över offentlig slut punkt
 
-        Azure SQL Database hanterade instanser kan ge anslutning via [offentliga slut punkter](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Inkommande och utgående krav måste uppfyllas för att tillåta trafik mellan SQL-hanterad instans och Azure-SSIS IR:
+        Azure SQL Managed instances kan ge anslutning via [offentliga slut punkter](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Inkommande och utgående krav måste uppfyllas för att tillåta trafik mellan SQL-hanterad instans och Azure-SSIS IR:
 
         - När Azure-SSIS IR inte i ett virtuellt nätverk (önskad)
 
@@ -147,7 +147,7 @@ Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och 
 
     ![Katalog-offentlig-slutpunkt](./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png)
 
-    Mer information om hur du aktiverar Azure AD-autentisering finns i [Aktivera Azure AD på Azure SQL Database hanterade instansen](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
+    Mer information om hur du aktiverar Azure AD-autentisering finns i [Aktivera Azure AD på Azure SQL-hanterad instans](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
 1. Anslut Azure-SSIS IR till det virtuella nätverket när det gäller.
 

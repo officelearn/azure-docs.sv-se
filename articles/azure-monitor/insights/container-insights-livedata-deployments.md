@@ -3,16 +3,17 @@ title: Visa Azure Monitor för behållare distributioner (för hands version) | 
 description: Den här artikeln beskriver real tids visningen av Kubernetes-distributioner utan att använda kubectl i Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: 98901ba8622404c03f3456b4ca404715d7016d9c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75404780"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195002"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Visa distributioner (för hands version) i real tid
 
-Med Azure Monitor för behållare emulerar funktionen Visa distributioner (för hands version) direkt åtkomst till Kubernetes-distributions objekt i real tid genom att `kubeclt get deployments` exponera `kubectl describe deployment {your deployment}` -och-kommandon. 
+Med Azure Monitor för behållare emulerar funktionen Visa distributioner (för hands version) direkt åtkomst till Kubernetes-distributions objekt i real tid genom att exponera- `kubeclt get deployments` och- `kubectl describe deployment {your deployment}` kommandon. 
 
 >[!NOTE]
 >AKS-kluster som är aktiverade som [privata kluster](https://azure.microsoft.com/updates/aks-private-cluster/) stöds inte med den här funktionen. Den här funktionen använder direkt åtkomst till Kubernetes-API: et via en proxyserver från din webbläsare. Om du aktiverar nätverks säkerhet för att blockera Kubernetes-API: et från den här proxyn blockeras trafiken. 
@@ -22,13 +23,13 @@ Med Azure Monitor för behållare emulerar funktionen Visa distributioner (för 
 
 Läs mer i Kubernetes-dokumentationen om [distributioner](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). 
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Funktionen Live data (för hands version) har direkt åtkomst till Kubernetes-API: et och ytterligare information om Authentication Model finns [här](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-Funktionen distributioner (för hands version) utför en enda tidpunkt (uppdaterings bar) belastning mot distributions slut `/apis/apps/v1/deployments`punkten. Det gör att du kan välja en specifik distribution och läsa in Beskriv information för den aktuella distributionen mot distributions `/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}`slut punkten. 
+Funktionen distributioner (för hands version) utför en enda tidpunkt (uppdaterings bar) belastning mot distributions slut punkten `/apis/apps/v1/deployments` . Det gör att du kan välja en specifik distribution och läsa in Beskriv information för den aktuella distributionen mot distributions slut punkten `/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}` . 
 
-Om du väljer **Uppdatera** högst upp till vänster på sidan uppdateras distributions listan. Detta simulerar att köra kommandot på `kubectl` nytt. 
+Om du väljer **Uppdatera** högst upp till vänster på sidan uppdateras distributions listan. Detta simulerar att köra kommandot på nytt `kubectl` . 
 
 >[!IMPORTANT]
 >Inga data lagras permanent under den här funktionens funktion. All information som registreras under sessionen tas bort när du stänger webbläsaren eller navigerar bort från den.  
@@ -38,7 +39,7 @@ Om du väljer **Uppdatera** högst upp till vänster på sidan uppdateras distri
 
 ## <a name="deployments-describe"></a>Distributioner beskriver
 
-Om du vill visa mer information om en distribution, vilket är detsamma `kubectl describe deployment`som, utför du följande steg.
+Om du vill visa mer information om en distribution, vilket är detsamma som `kubectl describe deployment` , utför du följande steg.
 
 1. I Azure Portal bläddrar du till kluster resurs gruppen AKS och väljer din AKS-resurs.
 
@@ -48,11 +49,11 @@ Om du vill visa mer information om en distribution, vilket är detsamma `kubectl
 
     ![Vyn distributioner i Azure Portal](./media/container-insights-livedata-deployments/deployment-view.png)
 
-Vyn visar en lista över alla distributioner som körs tillsammans med namn området och annan detaljerad information, som emulerar körningen av kommandot `kubectl get deployments –all-namespaces`. Du kan sortera resultaten genom att markera någon av kolumnerna. 
+Vyn visar en lista över alla distributioner som körs tillsammans med namn området och annan detaljerad information, som emulerar körningen av kommandot `kubectl get deployments –all-namespaces` . Du kan sortera resultaten genom att markera någon av kolumnerna. 
 
 ![Information om rutan Egenskaper för distribution](./media/container-insights-livedata-deployments/deployment-properties-pane-details.png)
 
-När du väljer en distribution i listan visas ett egenskaps fönster automatiskt till höger på sidan. Den visar information som rör den valda distributionen som du skulle visa om du körde kommandot `kubectl describe deployment {deploymentName}`. Du kanske har lagt märke till att information saknas i beskrivningen. Framför allt är **mallen** saknas. Genom att välja fliken **RAW** kan du navigera till den avparsade informationen.  
+När du väljer en distribution i listan visas ett egenskaps fönster automatiskt till höger på sidan. Den visar information som rör den valda distributionen som du skulle visa om du körde kommandot `kubectl describe deployment {deploymentName}` . Du kanske har lagt märke till att information saknas i beskrivningen. Framför allt är **mallen** saknas. Genom att välja fliken **RAW** kan du navigera till den avparsade informationen.  
 
 ![Information om fönstret distributions egenskaper rå data](./media/container-insights-livedata-deployments/deployment-properties-pane-raw.png)
 

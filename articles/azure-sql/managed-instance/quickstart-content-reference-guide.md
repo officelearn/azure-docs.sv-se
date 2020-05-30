@@ -12,17 +12,17 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 2ef242b95bdafd1781e4db6e72a6374ecf8298c5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 105c7ae2b0e7f39c29500634391b4388fa2a4723
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054349"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194954"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Komma igång med Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[Azure SQL-hanterad instans](sql-managed-instance-paas-overview.md) skapar en databas med nära 100%-kompatibilitet med den senaste SQL Server lokala (Enterprise Edition) databas motorn, som tillhandahåller en inbyggd [virtuell nätverks implementering (VNet)](../../virtual-network/virtual-networks-overview.md) som behandlar vanliga säkerhets problem och en [affärs modell](https://azure.microsoft.com/pricing/details/sql-database/) är fördelaktig för lokala SQL Server kunder.
+[Azure SQL-hanterad instans](sql-managed-instance-paas-overview.md) skapar en databas med nära 100%-kompatibilitet med den senaste SQL Server (Enterprise Edition) databas motorn, som tillhandahåller en inbyggd [virtuell nätverks implementering (VNet)](../../virtual-network/virtual-networks-overview.md) som behandlar vanliga säkerhets problem och en [affärs modell](https://azure.microsoft.com/pricing/details/sql-database/) som är fördelaktig för befintliga SQL Server kunder.
 
 I den här artikeln hittar du referenser till innehåll som visar hur du snabbt konfigurerar och skapar en SQL-hanterad instans och migrerar dina databaser.
 
@@ -48,7 +48,7 @@ Som ett alternativ till manuell generering av SQL-hanterad instans kan du använ
 
 ### <a name="migrate-your-databases"></a>Migrera dina databaser
 
-När du har skapat en SQL-hanterad instans och konfigurerat åtkomst kan du börja migrera dina databaser från SQL Server lokala eller virtuella Azure-datorer. Det går inte att migrera f du har vissa funktioner som inte stöds i käll databasen som du vill migrera. För att undvika fel och kontrol lera kompatibiliteten kan du använda [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) för att analysera dina databaser på SQL Server och hitta eventuella problem som kan blockera migrering till en SQL-hanterad instans, till exempel förekomst av [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) eller flera loggfiler. Om du löser problemen är dina databaser klara att migreras till SQL-hanterad instans. [Database experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) är ett annat användbart verktyg som kan registrera din arbets belastning på SQL Server och spela upp det på en SQL-hanterad instans så att du kan avgöra om du migrerar till en SQL-hanterad instans.
+När du har skapat en SQL-hanterad instans och konfigurerat åtkomst kan du börja migrera dina SQL Server-databaser. Det går inte att migrera f du har vissa funktioner som inte stöds i käll databasen som du vill migrera. För att undvika fel och kontrol lera kompatibiliteten kan du använda [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) för att analysera dina databaser på SQL Server och hitta eventuella problem som kan blockera migrering till en SQL-hanterad instans, till exempel förekomst av [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) eller flera loggfiler. Om du löser problemen är dina databaser klara att migreras till SQL-hanterad instans. [Database experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) är ett annat användbart verktyg som kan registrera din arbets belastning på SQL Server och spela upp det på en SQL-hanterad instans så att du kan avgöra om du migrerar till en SQL-hanterad instans.
 
 När du är säker på att du kan migrera databasen till en SQL-hanterad instans kan du använda de inbyggda SQL Server återställnings funktionerna för att återställa en databas till en SQL-hanterad instans från en `.bak` fil. Du kan använda den här metoden för att migrera databaser från en SQL Server-databasmotor som installerats lokalt eller en virtuell Azure-dator. En snabb start finns i [återställa från en säkerhets kopia till en SQL-hanterad instans](restore-sample-database-quickstart.md). I den här snabbstarten återställer du från en `.bak`-fil som lagras i Azures bloblagring med hjälp av Transact-SQL-kommandot `RESTORE`.
 

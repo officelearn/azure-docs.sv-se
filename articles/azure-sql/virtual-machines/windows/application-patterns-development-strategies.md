@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 209445378b71b4d6da2f40ea2744d3a2da0d8c45
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4b4a852f0f102277701191eb24158763998e7b5d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046329"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195769"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Program mönster och utvecklings strategier för SQL Server i Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,7 @@ Du kan utveckla många typer av program på n-nivån genom att åtskilja kompone
 
 Ett typiskt *n-Nivåprogram* innehåller presentations nivån, affärs nivån och data nivån:
 
-| Nivå | Beskrivning |
+| Nivå | Description |
 | --- | --- |
 | **Presentation** |*Presentations nivån* (webb nivå, front-end-nivå) är det lager där användarna interagerar med ett program. |
 | **Företag** |*Affärs nivån* (mellan nivån) är det skikt som presentations nivån och data nivån använder för att kommunicera med varandra och som innehåller systemets kärn funktioner. |
@@ -59,8 +59,9 @@ Innan du börjar läsa den här artikeln bör du ha kunskap om de grundläggande
 I den här artikeln beskrivs flera program mönster som kan vara lämpliga för dina enkla program samt de mycket komplexa företags programmen. Innan du anger varje mönster rekommenderar vi att du bekantar dig med tillgängliga data lagrings tjänster i Azure, till exempel [Azure Storage](../../../storage/common/storage-introduction.md), [Azure SQL Database](../../database/sql-database-paas-overview.md)och [SQL Server i en virtuell Azure-dator](sql-server-on-azure-vm-iaas-what-is-overview.md). För att fatta de bästa design besluten för dina program, förstå när du ska använda vilken data lagrings tjänst som är tydlig.
 
 ### <a name="choose-sql-server-in-an-azure-virtual-machine-when"></a>Välj SQL Server på en virtuell Azure-dator när:
+
 * Du måste ha kontroll över SQL Server och Windows. Detta kan till exempel omfatta SQL Server version, särskilda snabb korrigeringar, prestanda konfiguration osv.
-* Du behöver en fullständig kompatibilitet med SQL Server lokalt och vill flytta befintliga program till Azure i befintligt skick.
+* Du behöver en fullständig kompatibilitet med SQL Server och vill flytta befintliga program till Azure i befintligt skick.
 * Du vill utnyttja funktionerna i Azure-miljön men Azure SQL Database inte stöder alla funktioner som programmet kräver. Detta kan omfatta följande områden:
   
   * **Databas storlek**: när den här artikeln uppdaterades SQL Database stöd för en databas på upp till 1 TB data. Om programmet kräver mer än 1 TB data och du inte vill implementera anpassade horisontell partitionering-lösningar, rekommenderar vi att du använder SQL Server på en virtuell Azure-dator. Den senaste informationen finns i [skala ut Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx), [DTU-baserad inköps modell](../../database/service-tiers-dtu.md)och [VCore-baserad inköps modell](../../database/service-tiers-vcore.md)(för hands version).

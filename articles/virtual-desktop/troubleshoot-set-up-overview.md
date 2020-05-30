@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 196c4f692b425d2fc6592888ba89f2fa6dafd3de
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c5be26509eccdaebf1b504c1b0b8c7edb35e101c
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612511"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203873"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Översikt, feedback och support för felsökning
 
@@ -53,6 +53,7 @@ Använd följande tabell för att identifiera och lösa problem som kan uppstå 
 | Licensierings meddelanden eller fel                                                          | Om problemen är knutna till en specifik applikation eller produkt kontaktar du det team som ansvarar för produkten. |
 | Problem med autentiseringsmetoder från tredje part | Kontrol lera att din tredjeparts leverantör stöder scenarier för virtuella Windows-datorer och se om det finns några kända problem. |
 | Problem med att använda Log Analytics för virtuella Windows-datorer | [Öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/)om du har problem med det diagnostiska schemat.<br><br>För frågor, visualisering eller andra problem i Log Analytics väljer du lämplig problem typ under Log Analytics. |
+| Problem med M365-appar | Kontakta M365 administrations Center med något av [Hjälp alternativen för M365 administrations Center](/microsoft-365/admin/contact-support-for-business-products/). |
 
 ## <a name="next-steps"></a>Nästa steg
 

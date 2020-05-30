@@ -1,6 +1,6 @@
 ---
 title: Fråga med hjälp av Visual Studio med .NET och C#
-description: Använd Visual Studio för att skapa en C#-app som ansluter till en Microsoft Azure SQL-databas och frågar den med Transact-SQL-uttryck.
+description: Använd Visual Studio för att skapa en C#-app som ansluter till en databas i Azure SQL Database och frågar den med Transact-SQL-uttryck.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,34 +11,34 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/31/2019
-ms.openlocfilehash: ea274805e936c327bf9db1c5eedc7e55a32d6c5f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 37567e09fc87a8677934ede4f110d029902c1373
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054265"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84189569"
 ---
-# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-azure-sql-database"></a>Snabb start: använda .NET och C# i Visual Studio för att ansluta till och fråga en Azure SQL-databas
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database"></a>Snabb start: använda .NET och C# i Visual Studio för att ansluta till och fråga en databas i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Den här snabb starten visar hur du använder [.NET Framework](https://www.microsoft.com/net/) och C#-koden i Visual Studio för att skicka frågor till en Azure SQL-databas med Transact-SQL-uttryck.
+Den här snabb starten visar hur du använder [.NET Framework](https://www.microsoft.com/net/) och C#-koden i Visual Studio för att fråga en databas i Azure SQL Database med Transact-SQL-uttryck.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra den här snabbstarten:
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- En Azure SQL-databas. Du kan använda någon av dessa snabb starter för att skapa och konfigurera en databas i Azure SQL:
+- En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  || SQL Database | SQL-hanterad instans | SQL Server på Azure VM |
+  || SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
   |:--- |:--- |:---|:---|
   | Skapa| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
   | Konfigurera | [IP-brandväggsregel på servernivå](firewall-create-server-level-portal-quickstart.md)| [Anslutning från en virtuell dator](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Anslutning från en lokal plats](../managed-instance/point-to-site-p2s-configure.md) | [Anslut till SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
+  |||[Anslutning från lokal plats](../managed-instance/point-to-site-p2s-configure.md) | [Anslut till SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Återställa Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
-  |||Återställa eller importera Adventure Works från [BACPAC](database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Återställa eller importera Adventure Works från [BACPAC](database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från en [BACPAC](database-import.md) -fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Återställa eller importera Adventure Works från en [BACPAC](database-import.md) -fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -46,7 +46,7 @@ Följande krävs för att slutföra den här snabbstarten:
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional eller Enterprise Edition.
 
-## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
+## <a name="get-server-connection-information"></a>Hämta information om Server anslutning
 
 Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
@@ -54,12 +54,12 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 
 2. Gå till sidan **SQL-databaser** eller **SQL-hanterade instanser** .
 
-3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en Azure SQL Database eller det fullständigt kvalificerade Server namnet (eller IP-adressen) bredvid **värd** för en Azure SQL-hanterad instans eller SQL Server i en virtuell Azure-dator. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
+3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en databas i Azure SQL Database eller det fullständigt kvalificerade Server namnet (eller IP-adressen) bredvid **värd** för en Azure SQL-hanterad instans eller SQL Server på Azure VM. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
 
 > [!NOTE]
-> Anslutnings information för SQL Server på en virtuell Azure-dator finns i [Anslut till SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server)
+> Anslutnings information för SQL Server på den virtuella Azure-datorn finns i [Anslut till en SQL Server instans](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
 
-## <a name="create-code-to-query-the-sql-database"></a>Skapa kod för att fråga SQL-databasen
+## <a name="create-code-to-query-the-database-in-azure-sql-database"></a>Skapa kod för att köra frågor mot databasen i Azure SQL Database
 
 1. I Visual Studio väljer du **fil**  >  **nytt**  >  **projekt**. 
    
@@ -143,11 +143,11 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [ansluter och frågar en Azure SQL-databas med .NET Core](connect-query-dotnet-core.md) i Windows/Linux/macOS.  
+- Lär dig hur du [ansluter och frågar en databas i Azure SQL Database med .net Core](connect-query-dotnet-core.md) på Windows/Linux/MacOS.  
 - Lär dig mer om att [Komma igång med .NET Core för Windows/Linux/macOS med hjälp av kommandoraden](/dotnet/core/tutorials/using-with-xplat-cli).
-- Lär dig hur du [utformar din första Azure SQL-databas med hjälp av SSMS](design-first-database-tutorial.md) eller [utformar din första Azure SQL-databas med hjälp av .NET](design-first-database-csharp-tutorial.md).
+- Lär dig hur du [utformar din första databas i Azure SQL Database genom att använda SSMS](design-first-database-tutorial.md) eller [utforma din första databas i Azure SQL Database med hjälp av .net](design-first-database-csharp-tutorial.md).
 - Mer information om .NET finns i [.NET-dokumentationen](https://docs.microsoft.com/dotnet/).
-- Exempel på logik för omprövning: [ansluta elastiskt till SQL med ADO.net][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
+- Exempel på logik för omprövning: [ansluta elastiskt till Azure SQL med ADO.net][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->

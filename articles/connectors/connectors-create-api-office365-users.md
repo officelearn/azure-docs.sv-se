@@ -7,19 +7,19 @@ ms.reviewer: klam, logicappspm
 ms.date: 08/18/2016
 ms.topic: article
 tags: connectors
-ms.openlocfilehash: 179c7538d8072f0e1a4f7d049cf521971efd7a21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0361d42ea614b394142e32a9193ab1d48d1a4a6c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75666864"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194239"
 ---
 # <a name="get-and-manage-profiles-in-office-365-users-by-using-azure-logic-apps"></a>Hämta och hantera profiler i Office 365-användare med hjälp av Azure Logic Apps
 
 Anslut till Office 365-användare för att hämta profiler, Sök efter användare med mera. Med Office 365-användare kan du:
 
 * Skapa ditt affärs flöde baserat på de data du får från Office 365-användare. 
-* Använd åtgärder som hämtar direkt rapporter, hämta en chefs användar profil med mera. De här åtgärderna får ett svar och gör sedan resultatet tillgängligt för andra åtgärder. Du kan till exempel hämta en persons direkt rapporter och sedan ta den här informationen och uppdatera en SQL Azure databas. 
+* Använd åtgärder som hämtar direkt rapporter, hämta en chefs användar profil med mera. De här åtgärderna får ett svar och gör sedan resultatet tillgängligt för andra åtgärder. Du kan till exempel hämta en persons direkt rapporter och sedan ta den här informationen och uppdatera en databas i Azure SQL Database. 
 
 Du kan komma igång genom att skapa en Logic app nu, se [skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

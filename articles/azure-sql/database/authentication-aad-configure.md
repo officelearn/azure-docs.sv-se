@@ -1,7 +1,7 @@
 ---
 title: Konfigurera Azure Active Directory-autentisering
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
-description: Lär dig hur du ansluter till SQL Database, SQL-hanterad instans och Azure Synapse Analytics genom att använda Azure Active Directory autentisering – när du har konfigurerat Azure AD.
+description: Lär dig hur du ansluter till SQL Database, SQL-hanterad instans och Azure Synapse Analytics genom att använda Azure Active Directory autentisering när du har konfigurerat Azure AD.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,17 +12,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: 6bb3bf215f6611dd0af9d4f30ffd105fb8fa1b99
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9e4ec8ae9f62ccf1ff7f98ff06a43218b90e6c75
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041488"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190338"
 ---
-# <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL
+# <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurera och hantera Azure AD-autentisering med Azure SQL
+
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Den här artikeln visar hur du skapar och fyller i Azure AD och använder sedan Azure AD med [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md)och [azure Synapse Analytics (tidigare Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt finns i [Azure Active Directory autentisering](authentication-aad-overview.md).
+Den här artikeln visar hur du skapar och fyller i en Azure Active Directory-instans (Azure AD) och sedan använder Azure AD med [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md)och [azure Synapse Analytics (tidigare Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt finns i [Azure Active Directory autentisering](authentication-aad-overview.md).
 
 ## <a name="azure-ad-authentication-methods"></a>Autentiseringsmetoder för Azure AD
 
@@ -35,19 +36,17 @@ Azure AD-autentisering stöder följande autentiseringsmetoder:
     - Direkt autentisering i Azure AD
   - Federerad autentisering
 
-Mer information om autentiseringsmetoder för Azure AD och vilken av dem som ska väljas finns i artikeln:
+Mer information om autentiseringsmetoder för Azure AD och vilka som ska väljas finns i [välja rätt autentiseringsmetod för Azure Active Directory hybrid identitets lösning](../../active-directory/hybrid/choose-ad-authn.md).
 
-- [Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](../../active-directory/hybrid/choose-ad-authn.md)
-
-Mer information om Hybrid identiteter för Azure Active Directory, installation och synkronisering finns i följande artiklar:
+Mer information om Hybrid identiteter, installations program och synkronisering för Azure Active Directory finns i:
 
 - Password hash-autentisering – [implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)
 - Direktautentisering – [Azure Active Directory direktautentisering](../../active-directory/hybrid/how-to-connect-pta-quick-start.md)
 - Federerad autentisering – [distribuera Active Directory Federation Services (AD FS) i Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) och [Azure AD Connect och Federation](../../active-directory/hybrid/how-to-connect-fed-whatis.md)
 
-## <a name="create-and-populate-an-azure-ad"></a>Skapa och fylla i en Azure AD
+## <a name="create-and-populate-an-azure-ad-instance"></a>Skapa och fylla i en Azure AD-instans
 
-Skapa en Azure AD och fyll i den med användare och grupper. Azure AD kan vara den första Azure AD-hanterade domänen. Azure AD kan också vara en lokal Active Directory Domain Services som är federerad med Azure AD.
+Skapa en Azure AD-instans och fyll i den med användare och grupper. Azure AD kan vara den första Azure AD-hanterade domänen. Azure AD kan också vara en lokal Active Directory Domain Services som är federerad med Azure AD.
 
 Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md) (Lägga till dina egna domännamn i Azure AD), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft stöder nu federation med Windows Server Active Directory), [Administering your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md) (Administrera Azure Active Directory), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview) (Hantera Azure AD med Windows PowerShell) och [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md) (Portar och protokoll som krävs för hybrididentiet).
 
@@ -84,7 +83,7 @@ Om du vill bevilja din SQL-hanterade instans Läs behörighet för Azure AD med 
 
 2. Välj rätt Active Directory som standard-Azure AD.
 
-   I det här steget länkas prenumerationen som är kopplad till Active Directory till SQL-hanterad instans, vilket säkerställer att samma prenumeration används för både Azure AD och SQL-hanterad instans.
+   Det här steget länkar prenumerationen som är kopplad till Active Directory till den SQL-hanterade instansen, se till att samma prenumeration används för både Azure AD-instansen och SQL-hanterad instans.
 
 3. Gå till den SQL-hanterade instans som du vill använda för Azure AD-integrering.
 
@@ -102,7 +101,7 @@ Om du vill bevilja din SQL-hanterade instans Läs behörighet för Azure AD med 
 
     ![Ange administratör](./media/authentication-aad-configure/set-admin.png)
 
-7. På sidan AAD-administratör söker du efter en användare, väljer den användare eller grupp som ska vara administratör och väljer sedan **Välj**.
+7. På sidan Azure AD-administratör söker du efter en användare, väljer den användare eller grupp som ska vara administratör och väljer sedan **Välj**.
 
    På sidan Active Directory admin visas alla medlemmar och grupper av din Active Directory. Det går inte att välja användare eller grupper som är nedtonade eftersom de inte stöds som Azure AD-administratörer. Se listan över administratörer som stöds i [funktioner och begränsningar i Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations). Rollbaserad åtkomst kontroll (RBAC) gäller endast för Azure Portal och sprids inte till SQL Database, SQL-hanterad instans eller Azure-Synapse.
 
@@ -121,7 +120,7 @@ När du har skapat en Azure AD-administratör för din SQL-hanterade instans kan
 
 ### <a name="powershell"></a>PowerShell
 
-Om du vill bevilja din SQL-hanterade instans Läs behörighet för Azure AD med hjälp av PowerShell kör du följande skript:
+För att bevilja din SQL-hanterade instans Läs behörighet för Azure AD med hjälp av PowerShell kör du följande skript:
 
 ```powershell
 # Gives Azure Active Directory read permission to a Service Principal representing the SQL Managed Instance.
@@ -140,7 +139,7 @@ if ($role -eq $null) {
     $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq $roleName}
 }
 
-# Get service principal for SQL Managed Instance
+# Get service principal for your SQL Managed Instance
 $roleMember = Get-AzureADServicePrincipal -SearchString $managedInstanceName
 $roleMember.Count
 if ($roleMember -eq $null) {
@@ -187,9 +186,9 @@ Om du vill etablera en Azure AD-administratör kör du följande Azure PowerShel
 - Anslut – AzAccount
 - Select-AzSubscription
 
-Cmdletar som används för att etablera och hantera Azure AD-administratör för SQL-hanterad instans:
+De cmdletar som används för att etablera och hantera Azure AD-administratör för din SQL-hanterade instans visas i följande tabell:
 
-| Cmdlet-namn | Beskrivning |
+| Cmdlet-namn | Description |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Etablerar en Azure AD-administratör för SQL-hanterad instans i den aktuella prenumerationen. (Måste vara från den aktuella prenumerationen)|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Tar bort en Azure AD-administratör för SQL-hanterad instans i den aktuella prenumerationen. |
@@ -217,12 +216,12 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 
 Du kan också etablera en Azure AD-administratör för SQL-hanterad instans genom att anropa följande CLI-kommandon:
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
-|[AZ SQL mi AD-admin Create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | Etablerar en Azure Active Directory administratör för SQL-hanterad instans. (Måste vara från den aktuella prenumerationen) |
+|[AZ SQL mi AD-admin Create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | Etablerar en Azure Active Directory administratör för SQL-hanterad instans (måste vara från den aktuella prenumerationen). |
 |[AZ SQL mi AD-admin Delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | Tar bort en Azure Active Directory administratör för SQL-hanterad instans. |
 |[AZ SQL mi AD-admin List](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-list) | Returnerar information om en Azure Active Directory administratör som för närvarande har kon figurer ATS för SQL-hanterad instans. |
-|[AZ SQL mi AD-Admin Update](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-update) | Uppdaterar Active Directory administratör för en SQL-hanterad instans. |
+|[AZ SQL mi AD-Admin Update](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-update) | Uppdaterar Active Directory administratör för SQL-hanterad instans. |
 
 Mer information om CLI-kommandon finns i [AZ SQL mi](/cli/azure/sql/mi).
 
@@ -280,7 +279,7 @@ Om du vill köra PowerShell-cmdlets måste Azure PowerShell vara installerad och
 
 Cmdletar som används för att etablera och hantera Azure AD-administratör för SQL Database och Azure-Synapse:
 
-| Cmdlet-namn | Beskrivning |
+| Cmdlet-namn | Description |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Etablerar en Azure Active Directory administratör för servern som är värd för SQL Database eller Azure-Synapse. (Måste vara från den aktuella prenumerationen) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Tar bort en Azure Active Directory administratör för servern som är värd för SQL Database eller Azure-Synapse.|
@@ -325,7 +324,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 
 Du kan etablera en Azure AD-administratör genom att anropa följande CLI-kommandon:
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 |[AZ SQL Server AD-admin Create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Etablerar en Azure Active Directory administratör för servern som är värd för SQL Database eller Azure-Synapse. (Måste vara från den aktuella prenumerationen) |
 |[AZ SQL Server AD-admin Delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Tar bort en Azure Active Directory administratör för servern som är värd för SQL Database eller Azure-Synapse. |
@@ -363,7 +362,7 @@ Eftersom SQL-hanterad instans stöder Azure AD server-Huvudkonton (inloggningar)
 Men om du använder Azure Active Directory autentisering med SQL Database och Azure-Synapse måste du använda inneslutna databas användare baserat på en Azure AD-identitet. En innesluten databas användare har inte någon inloggning i huvud databasen och mappar till en identitet i Azure AD som är associerad med databasen. Azure AD-identiteten kan vara antingen ett enskilt användarkonto eller en grupp. Mer information om användare av oberoende databas finns i avsnittet om [användare av oberoende databas – så gör du din databas portabel](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Databasanvändare (med undantag för administratörer) kan inte skapas med hjälp av Azure-portalen. RBAC-roller sprids inte till SQL Database, SQL-hanterad instans eller Azure-Synapse. Azure RBAC-roller används för att hantera Azure-resurser och gäller inte för databasbehörigheter. Rollen **SQL Server Contributor** ger till exempel inte åtkomst för att ansluta till SQL Database, SQL-hanterad instans eller Azure-Synapse. Åtkomstbehörigheten måste beviljas direkt i databasen med hjälp av Transact-SQL-instruktioner.
+> Databasanvändare (med undantag för administratörer) kan inte skapas med hjälp av Azure-portalen. RBAC-roller sprids inte till databasen i SQL Database, SQL-hanterad instans eller Azure-Synapse. Azure RBAC-roller används för att hantera Azure-resurser och gäller inte för databasbehörigheter. Rollen **SQL Server Contributor** ger till exempel inte åtkomst för att ansluta till databasen i SQL Database, SQL-hanterad instans eller Azure-Synapse. Åtkomstbehörigheten måste beviljas direkt i databasen med hjälp av Transact-SQL-instruktioner.
 
 > [!WARNING]
 > Specialtecken som kolon och et-tecken som `:` `&` ingår som användar namn i T-SQL `CREATE LOGIN` och- `CREATE USER` uttryck stöds inte.
@@ -396,7 +395,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
 
 > [!NOTE]
-> Det här kommandot kräver att SQL-åtkomst till Azure AD ("extern provider") å den inloggade användarens vägnar. Ibland uppstår omständigheter som gör att Azure AD returnerar ett undantag tillbaka till SQL. I dessa fall kommer användaren att se SQL-fel 33134, som ska innehålla det AAD-angivna fel meddelandet. I de flesta fall säger felet att åtkomst nekas eller att användaren måste registrera sig i MFA för att få åtkomst till resursen, eller att åtkomsten mellan första parts program måste hanteras via förauktorisering. I de första två fallen orsakas problemet vanligt vis av principer för villkorlig åtkomst som anges i användarens AAD-klient: de hindrar användaren från att komma åt den externa providern. Att uppdatera CA-principerna för att tillåta åtkomst till programmet "00000002-0000-0000-C000-000000000000" (program-ID: t för AAD-Graph API) bör lösa problemet. Om felet säger att åtkomsten mellan program från första part måste hanteras via förauktorisering, beror problemet på att användaren är inloggad som tjänstens huvud namn. Kommandot bör utföras om det körs av en användare i stället.
+> Det här kommandot kräver att SQL-åtkomst till Azure AD ("extern provider") å den inloggade användarens vägnar. Ibland uppstår omständigheter som gör att Azure AD returnerar ett undantag tillbaka till SQL. I dessa fall kommer användaren att se SQL-fel 33134, som ska innehålla det Azure AD-särskilda fel meddelandet. I de flesta fall säger felet att åtkomst nekas eller att användaren måste registrera sig i MFA för att få åtkomst till resursen, eller att åtkomsten mellan första parts program måste hanteras via förauktorisering. I de första två fallen orsakas problemet vanligt vis av principer för villkorlig åtkomst som anges i användarens Azure AD-klient: de hindrar användaren från att komma åt den externa providern. Att uppdatera CA-principerna för att tillåta åtkomst till programmet "00000002-0000-0000-C000-000000000000" (program-ID: t för Azure AD-Graph API) bör lösa problemet. Om felet säger att åtkomsten mellan program från första part måste hanteras via förauktorisering, beror problemet på att användaren är inloggad som tjänstens huvud namn. Kommandot bör utföras om det körs av en användare i stället.
 
 > [!TIP]
 > Du kan inte direkt skapa en användare från en annan Azure Active Directory än Azure Active Directory som är associerad med din Azure-prenumeration. Medlemmar i andra Active-kataloger som importeras till användare i den associerade Active Directory (kallas externa användare) kan dock läggas till i en Active Directory grupp i klient Active Directory. Genom att skapa en innesluten databas användare för den AD-gruppen kan användarna från den externa Active Directory få till gång till SQL Database.
@@ -435,7 +434,7 @@ Använd den här metoden om du är inloggad på Windows med dina Azure Active Di
 
    ![Välj AD-integrerad autentisering][11]
 
-2. Välj knappen **alternativ** och ange namnet på den användar databas som du vill ansluta till i rutan **Anslut till databas** på sidan **anslutnings egenskaper** . Mer information finns i artikeln [Multi-Factor AAD auth](authentication-mfa-ssms-overview.md#azure-ad-domain-name-or-tenant-id-parameter) på skillnaderna mellan anslutnings egenskaperna för SSMS 17. x och 18. x.
+2. Välj knappen **alternativ** och ange namnet på den användar databas som du vill ansluta till i rutan **Anslut till databas** på sidan **anslutnings egenskaper** . Mer information finns i artikeln [Multi-Factor Azure AD auth](authentication-mfa-ssms-overview.md#azure-ad-domain-name-or-tenant-id-parameter) på skillnaderna mellan anslutnings egenskaperna för SSMS 17. x och 18. x.
 
    ![Välj databas namnet][13]
 
@@ -443,7 +442,7 @@ Använd den här metoden om du är inloggad på Windows med dina Azure Active Di
 
 Använd den här metoden vid anslutning med ett huvud namn för Azure AD med hjälp av den hanterade Azure AD-domänen. Du kan också använda den för federerade konton utan åtkomst till domänen, till exempel när du arbetar fjärran slutet.
 
-Använd den här metoden för att autentisera till SQL Database-eller SQL-hanterad instans med identitets användare med enbart Azure AD-moln, eller de som använder Azure AD Hybrid identiteter. Den här metoden stöder användare som vill använda sina Windows-autentiseringsuppgifter, men de lokala datorerna är inte anslutna till domänen (till exempel med hjälp av fjärråtkomst). I det här fallet kan en Windows-användare ange sitt domän konto och lösen ord, och kan autentisera till SQL Database, SQL-hanterad instans eller Azure-Synapse.
+Använd den här metoden för att autentisera till databasen i SQL Database eller den SQL-hanterade instansen med identitets användare med enbart Azure AD-moln, eller de som använder Azure AD Hybrid identiteter. Den här metoden stöder användare som vill använda sina Windows-autentiseringsuppgifter, men de lokala datorerna är inte anslutna till domänen (till exempel med hjälp av fjärråtkomst). I det här fallet kan en Windows-användare ange sitt domän konto och lösen ord, och kan autentisera till databasen i SQL Database, SQL-hanterad instans eller Azure-Synapse.
 
 1. Starta Management Studio eller data verktyg och i dialog rutan **Anslut till Server** (eller **Anslut till databas motor**) i rutan **autentisering** väljer du **Azure Active Directory-Password**.
 
@@ -457,9 +456,9 @@ Använd den här metoden för att autentisera till SQL Database-eller SQL-hanter
 
 ### <a name="active-directory-interactive-authentication"></a>Active Directory interaktiv autentisering
 
-Använd den här metoden för interaktiv autentisering med eller utan Multi-Factor Authentication (MFA), med ett lösen ord som begärs interaktivt. Den här metoden kan användas för att autentisera till SQL Database, SQL-hanterad instans och Azure-Synapse för identitets användare med enbart Azure AD-moln eller som använder Azure Active Directory Hybrid identiteter.
+Använd den här metoden för interaktiv autentisering med eller utan Multi-Factor Authentication (MFA), med ett lösen ord som begärs interaktivt. Den här metoden kan användas för att autentisera till databasen i SQL Database, SQL-hanterad instans och Azure-Synapse för identitets användare med enbart Azure AD-moln eller de som använder Azure AD Hybrid identiteter.
 
-Mer information finns i [using Multi-Factor AAD-autentisering med SQL Database och Azure Synapse (SSMS-stöd för MFA)](authentication-mfa-ssms-overview.md).
+Mer information finns i [använda Multi-Factor Azure AD-autentisering med SQL Database och Azure Synapse (SSMS-stöd för MFA)](authentication-mfa-ssms-overview.md).
 
 ## <a name="using-an-azure-ad-identity-to-connect-from-a-client-application"></a>Använda en Azure AD-identitet för att ansluta från ett klient program
 
@@ -499,7 +498,7 @@ Lär dig mer om autentiseringsmetoder för Azure AD med hjälp av demonstrations
 
 ## <a name="azure-ad-token"></a>Azure AD-token
 
-Med den här autentiseringsmetoden kan tjänster på mellan nivå Hämta [JSON Web tokens (JWT)](../../active-directory/develop/id-tokens.md) för att ansluta till SQL Database, SQL-hanterad instans eller Azure-Synapse genom att hämta en token från Azure Active Directory (AAD). Den här metoden möjliggör olika program scenarier, inklusive tjänst identiteter, tjänstens huvud namn och program som använder certifikatbaserad autentisering. Du måste utföra fyra grundläggande steg för att använda Azure AD-token-autentisering:
+Med den här autentiseringsmetoden kan tjänster på mellan nivå Hämta [JSON Web tokens (JWT)](../../active-directory/develop/id-tokens.md) för att ansluta till databasen i SQL Database, SQL-hanterad instans eller Azure-Synapse genom att hämta en token från Azure AD. Den här metoden möjliggör olika program scenarier, inklusive tjänst identiteter, tjänstens huvud namn och program som använder certifikatbaserad autentisering. Du måste utföra fyra grundläggande steg för att använda Azure AD-token-autentisering:
 
 1. Registrera ditt program med Azure Active Directory och hämta klient-ID för din kod.
 2. Skapa en databas användare som representerar programmet. (Slutfördes tidigare i steg 6.)
@@ -529,7 +528,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
 
-## <a name="troubleshooting-azure-ad-authentication"></a>Felsöka Azure AD-autentisering
+## <a name="troubleshoot-azure-ad-authentication"></a>Felsöka Azure AD-autentisering
 
 Vägledning om hur du felsöker problem med Azure AD-autentisering finns i följande blogg:<https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 

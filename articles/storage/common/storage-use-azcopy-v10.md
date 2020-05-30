@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 60f3e725a4df619e3cc8ed7e8878fe2a5e5c3406
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780886"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195185"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -23,7 +23,7 @@ AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobba
 >
 > Om du behöver använda en tidigare version av AzCopy kan du läsa avsnittet [använda den tidigare versionen av AzCopy](#previous-version) i den här artikeln.
 
-<a id="download-and-install-azcopy" />
+<a id="download-and-install-azcopy"></a>
 
 ## <a name="download-azcopy"></a>Ladda ned AzCopy
 
@@ -42,13 +42,13 @@ Filerna komprimeras som en zip-fil (Windows och Mac) eller en tar-fil (Linux). I
 
 ## <a name="run-azcopy"></a>Kör AzCopy
 
-För enkelhetens skull bör du överväga att lägga till katalog platsen för den körbara AzCopy i din system Sök väg för enkel användning. På så sätt kan du `azcopy` skriva från valfri katalog i systemet.
+För enkelhetens skull bör du överväga att lägga till katalog platsen för den körbara AzCopy i din system Sök väg för enkel användning. På så sätt kan du skriva `azcopy` från valfri katalog i systemet.
 
 Om du väljer att inte lägga till katalogen AzCopy i sökvägen måste du ändra katalogerna till platsen för din AzCopy-körbara fil och skriva `azcopy` eller `.\azcopy` i Windows PowerShell-Kommandotolken.
 
-Om du vill se en lista över kommandon `azcopy -h` skriver du och trycker sedan på RETUR-tangenten.
+Om du vill se en lista över kommandon skriver du `azcopy -h` och trycker sedan på RETUR-tangenten.
 
-Om du vill veta mer om ett speciellt kommando inkluderar du bara namnet på kommandot (till exempel `azcopy list -h`:).
+Om du vill veta mer om ett speciellt kommando inkluderar du bara namnet på kommandot (till exempel: `azcopy list -h` ).
 
 ![Infogad hjälp](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
@@ -125,7 +125,7 @@ Det här kommandot returnerar en autentiseringsnyckel och URL: en för en webbpl
 
 Ett inloggnings fönster visas. I det fönstret loggar du in på ditt Azure-konto med hjälp av dina autentiseringsuppgifter för Azure-kontot. När du har loggat in kan du stänga webbläsarfönstret och börja använda AzCopy.
 
-<a id="service-principal" />
+<a id="service-principal"></a>
 
 #### <a name="authenticate-a-service-principal"></a>Autentisera ett huvud namn för tjänsten
 
@@ -141,7 +141,7 @@ Om du vill veta mer om tjänstens huvud namn i allmänhet, se [program-och tjän
 
 ##### <a name="using-a-client-secret"></a>Använda en klient hemlighet
 
-Börja med att ställa `AZCOPY_SPA_CLIENT_SECRET` in miljövariabeln på klient hemligheten för tjänstens huvud namn för appens registrering.
+Börja med att ställa in `AZCOPY_SPA_CLIENT_SECRET` miljövariabeln på klient hemligheten för tjänstens huvud namn för appens registrering.
 
 > [!NOTE]
 > Se till att ange det här värdet från kommando tolken och inte i miljö variabel inställningarna för ditt operativ system. På så sätt är värdet bara tillgängligt för den aktuella sessionen.
@@ -191,7 +191,7 @@ Ersätt `<path-to-certificate-file>` plats hållaren med den relativa eller full
 > [!NOTE]
 > Överväg att använda en prompt som du ser i det här exemplet. På så sätt visas inte lösen ordet i konsolens kommando historik. 
 
-<a id="managed-identity" />
+<a id="managed-identity"></a>
 
 #### <a name="authenticate-a-managed-identity"></a>Autentisera en hanterad identitet
 
@@ -277,7 +277,7 @@ Hämta länken genom att köra det här kommandot:
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
-> För Linux tar `--strip-components=1` `tar` kommandot bort den översta mappen som innehåller versions namnet för Linux och extraherar i stället binärfilen direkt till den aktuella mappen. Detta gör att skriptet kan uppdateras med en ny version av `azcopy` genom att `wget` bara uppdatera URL: en.
+> För Linux `--strip-components=1` `tar` tar kommandot bort den översta mappen som innehåller versions namnet för Linux och extraherar i stället binärfilen direkt till den aktuella mappen. Detta gör att skriptet kan uppdateras med en ny version av `azcopy` genom att bara uppdatera `wget` URL: en.
 
 URL: en visas i kommandots utdata. Skriptet kan sedan hämta AzCopy med hjälp av den URL: en.
 
@@ -288,7 +288,7 @@ URL: en visas i kommandots utdata. Skriptet kan sedan hämta AzCopy med hjälp a
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>Escape-specialtecken i SAS-token
 
-I kommandofiler med `.cmd` tillägget måste du undanta de `%` tecken som visas i SAS-token. Du kan göra det genom att lägga till `%` ytterligare ett tecken bredvid `%` befintliga tecken i SAS token-strängen.
+I kommandofiler med `.cmd` tillägget måste du undanta de `%` tecken som visas i SAS-token. Du kan göra det genom att lägga till ytterligare ett `%` tecken bredvid befintliga `%` tecken i SAS token-strängen.
 
 ### <a name="run-scripts-by-using-jenkins"></a>Köra skript med Jenkins
 
@@ -304,7 +304,7 @@ Om du planerar att använda [Jenkins](https://jenkins.io/) för att köra skript
 
 Storage Explorer använder din konto nyckel för att utföra åtgärder, så när du har loggat in på Storage Explorer behöver du inte ange ytterligare autentiseringsuppgifter för auktorisering.
 
-<a id="previous-version" />
+<a id="previous-version"></a>
 
 ## <a name="use-the-previous-version-of-azcopy"></a>Använd den tidigare versionen av AzCopy
 

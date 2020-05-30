@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
-ms.openlocfilehash: 59c7a34e975a53226b032827feae436202c8fa30
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 05/28/2020
+ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683317"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187601"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Söknings omvandling i data flöde för mappning
 
@@ -21,7 +21,9 @@ ms.locfileid: "83683317"
 
 Använd lookup-omvandlingen för att referera till data från en annan källa i en data flödes ström. Uppslags omvandlingen lägger till kolumner från matchade data till dina källdata.
 
-En uppslags omvandling liknar en vänster yttre koppling. Alla rader från den primära data strömmen finns i utdataströmmen med ytterligare kolumner från Sök strömmen. 
+En uppslags omvandling liknar en vänster yttre koppling. Alla rader från den primära data strömmen finns i utdataströmmen med ytterligare kolumner från Sök strömmen.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xsVT]
 
 ## <a name="configuration"></a>Konfiguration
 

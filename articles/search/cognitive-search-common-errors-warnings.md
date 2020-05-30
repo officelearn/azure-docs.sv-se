@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 00494a4e071cb3e8b18f04ad7f201935e20c6b3d
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 83c3797cc3d9232f8589527285cc56c5cbff9a8a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171114"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221318"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -71,7 +71,7 @@ Indexeraren läser dokumentet från data källan, men det uppstod ett problem me
 
 | Anledning | Information/exempel | Lösning |
 | --- | --- | --- |
-| Dokument nyckeln saknas | Dokument nyckeln kan inte vara tom eller saknas | Se till att alla dokument har giltiga dokument nycklar |
+| Dokument nyckeln saknas | Dokument nyckeln kan inte vara tom eller saknas | Se till att alla dokument har giltiga dokument nycklar. Dokument nyckeln bestäms genom att ange Key-egenskapen som en del av [index definitionen](https://docs.microsoft.com/rest/api/searchservice/create-index#request-body). Indexerare genererar det här felet när egenskapen som flaggats som "nyckel" inte finns i ett visst dokument. |
 | Dokument nyckeln är ogiltig | Dokument nyckeln får innehålla högst 1024 tecken | Ändra dokument nyckeln så att den uppfyller verifierings kraven. |
 | Det gick inte att använda fält mappning i ett fält | Det gick inte att använda mappnings funktionen `'functionName'` till fältet `'fieldName'` . Matris får inte vara null. Parameter namn: byte | Dubbelt kontrol lera de [fält mappningar](search-indexer-field-mappings.md) som definierats för indexeraren och jämför med informationen i det angivna fältet för det misslyckade dokumentet. Det kan vara nödvändigt att ändra fält mappningarna eller dokument data. |
 | Det gick inte att läsa fältvärdet | Det gick inte att läsa värdet för kolumnen `'fieldName'` vid indexet `'fieldIndex'` . Ett fel på transport nivå har uppstått när resultat togs emot från servern. (provider: TCP-Provider, fel: 0-en befintlig anslutning tvingades stänga av den fjärranslutna värden.) | Dessa fel beror vanligt vis på oväntade anslutnings problem med data källans underliggande tjänst. Försök att köra dokumentet via din indexerare igen senare. |

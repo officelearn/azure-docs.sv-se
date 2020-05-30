@@ -5,65 +5,189 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 92529c2d60b32e9c8b57b897008b5333adc2a4d4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 05/29/2020
+ms.openlocfilehash: 0c4c5ddfebe9e2b5b37a2c28ec4941f6c38668f1
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594975"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219221"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Vanliga frågor och svar om Azure Red Hat
 
-Den här artikeln behandlar vanliga frågor och svar om Microsoft Azure Red Hat OpenShift.
+I den här artikeln besvaras vanliga frågor och svar om Microsoft Azure Red Hat OpenShift.
 
-## <a name="which-azure-regions-are-supported"></a>Vilka Azure-regioner stöds?
+## <a name="installation-and-upgrade"></a>Installation och uppgradering
 
-Se [resurser som stöds](supported-resources.md#azure-regions) för en lista över globala regioner där Azure Red Hat OpenShift stöds.
+### <a name="which-azure-regions-are-supported"></a>Vilka Azure-regioner stöds?
 
-## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Kan jag distribuera ett kluster till ett befintligt virtuellt nätverk?
+En lista över regioner som stöds för Azure Red Hat OpenShift 4. x finns i [tillgängliga regioner](https://docs.openshift.com/aro/4/welcome/index.html#available-regions).
 
-Nej. Men du kan ansluta ett Azure Red Hat OpenShift-kluster till ett befintligt virtuellt nätverk via peering. Mer information finns i [ansluta ett klusters virtuella nätverk till ett befintligt virtuellt nätverk](tutorial-create-cluster.md#create-the-cluster) .
+En lista över regioner som stöds för Azure Red Hat OpenShift 3,11 finns i [produkt tillgänglighet per region](supported-resources.md#azure-regions).
 
-## <a name="what-cluster-operations-are-available"></a>Vilka kluster åtgärder är tillgängliga?
+### <a name="what-virtual-machine-sizes-can-i-use"></a>Vilka storlekar för virtuella datorer kan jag använda?
 
-Du kan bara skala upp eller ned antalet datornoder. Inga andra ändringar tillåts för resursen när `Microsoft.ContainerService/openShiftManagedClusters` den har skapats. Det maximala antalet datornoder är begränsat till 20.
+En lista över virtuella dator storlekar som stöds för Azure Red Hat OpenShift 4 finns i [resurser som stöds för Azure Red Hat OpenShift 4](support-policies-v4.md).
 
-## <a name="what-virtual-machine-sizes-can-i-use"></a>Vilka storlekar för virtuella datorer kan jag använda?
+En lista över virtuella dator storlekar som stöds för Azure Red Hat OpenShift 3,11 finns i [resurser som stöds för Azure Red Hat OpenShift 3,11](supported-resources.md).
 
-Se [storlekar på virtuella datorer i Azure Red Hat](supported-resources.md#virtual-machine-sizes) för en lista över virtuella dator storlekar som du kan använda med ett kluster med ett i-kluster med Red Hat OpenShift.
+### <a name="what-is-the-maximum-number-of-pods-in-an-azure-red-hat-openshift-cluster--what-is-the-maximum-number-of-pods-per-node-in-azure-red-hat-openshift"></a>Vad är det maximala antalet poddar i ett kluster med ett i Azure Red Hat?  Vilket är det maximala antalet poddar per nod i Azure Red Hat OpenShift?
 
-## <a name="is-data-on-my-cluster-encrypted"></a>Är data i mitt kluster krypterad?
+Det faktiska antalet poddar som stöds beror på programmets krav på minne, processor och lagring.
 
-Som standard är kryptering i vila. Azure Storages plattformen krypterar automatiskt dina data innan de behålls och dekrypterar data innan de kan hämtas. Mer information finns i [Azure Storage tjänst kryptering för data i vila](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) .
+Azure Red Hat OpenShift 4. x har en gräns på 250 Pod per nod och en gräns på 100 Compute Node. Detta är det högsta antalet poddar som stöds i ett kluster till 250 &times; 100 = 25 000.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>Kan jag använda Prometheus/Grafana för att övervaka mina program?
+Azure Red Hat OpenShift 3,11 har en gräns på 50 Pod per nod och en gräns på 20 Compute-noder. Detta är det högsta antalet poddar som stöds i ett kluster till 50 &times; 20 = 1 000.
 
-Ja, du kan distribuera Prometheus i ditt namn område och övervaka program i namn området.
+### <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Kan ett kluster ha Compute-noder över flera Azure-regioner?
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>Kan jag använda Prometheus/Grafana för att övervaka mått relaterade till kluster hälsa och-kapacitet?
+Nej. Alla noder i ett kluster med ett OpenShift-kluster i Azure Red Hat måste ha sitt ursprung i samma Azure-region.
 
-Nej, inte vid aktuell tid.
+### <a name="can-a-cluster-be-deployed-across-multiple-availability-zones"></a>Kan ett kluster distribueras över flera tillgänglighets zoner?
 
-## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>Är Docker-registret tillgängligt externt så att jag kan använda verktyg som Jenkins?
+Ja. Detta sker automatiskt om klustret distribueras till en Azure-region som har stöd för tillgänglighets zoner. Mer information finns i [tillgänglighets zoner](../availability-zones/az-overview.md#availability-zones).
 
-Docker-registret är tillgängligt, `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` men det finns ingen stark garanti för lagrings utrymme. Du kan också använda [Azure Container Registry](https://azure.microsoft.com/services/container-registry/).
+### <a name="are-control-plane-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Är kontroll Plans noderna sammankopplade som de är med Azure Kubernetes service (AKS)?
 
-## <a name="is-cross-namespace-networking-supported"></a>Stöds anslutningar mellan namnrymder?
+Nej. Alla resurser, inklusive de överordnade kluster noderna, körs i din kund prenumeration. De här typerna av resurser placeras i en skrivskyddad resurs grupp.
+
+### <a name="does-the-cluster-reside-in-a-customer-subscription"></a>Finns klustret i en kund prenumeration? 
+
+Det Azure-hanterade programmet finns i en låst resurs grupp med kund prenumerationen. Kunder kan visa objekt i den resurs gruppen men inte ändra dem.
+
+### <a name="is-there-any-element-in-azure-red-hat-openshift-shared-with-other-customers-or-is-everything-independent"></a>Finns det något element i Azure Red Hat OpenShift som delas med andra kunder? Eller är allt oberoende?
+
+Varje Azure Red Hat OpenShift-kluster är dedikerad till en bestämd kund och är i kund prenumerationen. 
+
+### <a name="are-infrastructure-nodes-available"></a>Är Infrastructure-noder tillgängliga?
+
+På Azure Red Hat OpenShift 4. x-kluster är inte infrastruktur noder tillgängliga för tillfället.
+
+I Azure Red Hat OpenShift 3,11-kluster ingår Infrastructure-noder som standard.
+
+## <a name="upgrades"></a>Uppgraderingen
+
+###  <a name="what-is-the-general-upgrade-process"></a>Vad är den allmänna uppgraderings processen?
+
+Korrigeringarna tillämpas automatiskt i klustret. Du behöver inte vidta några åtgärder för att ta emot uppdaterings uppgraderingar i klustret.
+
+Att köra en uppgradering är en säker process som körs och bör inte störa kluster tjänsterna. Det gemensamma Microsoft-Red Hat-teamet kan utlösa uppgraderings processen när nya versioner är tillgängliga eller vanliga sårbarheter och exponeringar är utestående. Tillgängliga uppdateringar testas i en utvecklings miljö och tillämpas sedan på produktions kluster. Följande metod tips hjälper till att säkerställa minimal stillestånds tid.
+
+Planerat underhåll är inte förplanerat för kunden. Meddelanden som rör underhåll kan skickas via e-post.
+
+### <a name="what-is-the-azure-red-hat-openshift-maintenance-process"></a>Vad är underhålls processen i Azure Red Hat OpenShift?
+
+Det finns två typer av underhåll för Azure Red Hat OpenShift: uppgraderingar och Cloud Provider-initierat underhåll.
+- Uppgraderingar omfattar program varu uppgraderingar och vanliga sårbarheter och exponeringar.
+- Cloud Provider – initierat underhåll omfattar nätverk, lagring och regionala avbrott. Underhållet är beroende av moln leverantören och förlitar sig på uppdateringar som tillhandahålls av leverantören.
+
+### <a name="what-about-emergency-vs-planned-maintenance-windows"></a>Vad händer om det gäller nödfall kontra planerat underhålls fönster?
+
+Vi skiljer inte mellan de två typerna av underhåll. Våra team är tillgängliga 24/7/365 och använder inte traditionella schemalagda "out-of-Hour"-underhålls perioder.
+
+### <a name="how-will-the-host-operating-system-and-openshift-software-be-updated"></a>Hur uppdateras värd operativ systemet och OpenShift-programvaran?
+
+Värd operativ systemen och OpenShift-programvaran uppdateras som Azure Red Hat OpenShift förbrukar mindre versioner och korrigeringar från den överordnade OpenShift container Platform.
+
+### <a name="whats-the-process-to-reboot-the-updated-node"></a>Vad är processen för att starta om den uppdaterade noden?
+
+Noderna startas om som en del av en uppgradering.
+
+## <a name="cluster-operations"></a>Klusteråtgärder
+
+### <a name="can-i-use-prometheus-to-monitor-my-applications"></a>Kan jag använda Prometheus för att övervaka mina program?
+
+Prometheus levereras som förinstallerade och konfigurerade för Azure Red Hat OpenShift 4. x-kluster. Läs mer om [kluster övervakning](https://docs.openshift.com/container-platform/3.11/install_config/prometheus_cluster_monitoring.html).
+
+För Azure Red Hat OpenShift 3,11-kluster kan du distribuera Prometheus i ditt namn område och övervaka program i namn området. Mer information finns i [distribuera Prometheus-instans i Azure Red Hat OpenShift-kluster](howto-deploy-prometheus.md).
+
+### <a name="can-i-use-prometheus-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>Kan jag använda Prometheus för att övervaka mått som rör kluster hälsa och-kapacitet?
+
+I Azure Red Hat OpenShift 4. x: Ja.
+
+I Azure Red Hat OpenShift 3,11: Nej.
+
+### <a name="can-logs-of-underlying-vms-be-streamed-out-to-a-customer-log-analysis-system"></a>Kan loggar av underliggande virtuella datorer strömmas till ett system för kund logg analys?
+
+Loggar från de underliggande virtuella datorerna hanteras av den hanterade tjänsten och visas inte för kunderna.
+
+### <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-azure-red-hat-openshift-cluster"></a>Hur kan en kund få till gång till mått som processor/minne på nodnivå för att vidta åtgärder för skalning, fel söknings problem osv. Jag kan inte att köra kubectl överst i ett kluster med ett starkt Shift-kluster i Azure Red Hat.
+
+För Azure Red Hat OpenShift 4. x-kluster innehåller OpenShift-webbkonsolen alla mått på Node-nivån. Mer information finns i Red Hat-dokumentationen om [visning av kluster information](https://docs.openshift.com/aro/4/web_console/using-dashboard-to-get-cluster-information.html).
+
+För Azure Red Hat OpenShift 3,11-kluster kan kunder komma åt CPU/minnes mått på nodnivå genom att använda kommandot `oc adm top nodes` eller `kubectl top nodes` med kluster rollen kund administratör. Kunder kan också komma åt CPU/minnes mått för `pods` med kommandot `oc adm top pods` eller `kubectl top pods` .
+
+### <a name="if-we-scale-up-the-deployment-how-do-azure-fault-domains-map-into-pod-placement-to-ensure-all-pods-for-a-service-do-not-get-knocked-out-by-a-failure-in-a-single-fault-domain"></a>Om vi skalar upp distributionen kan Azure-feldomäner mappas till Pod-placering för att säkerställa att alla poddar för en tjänst inte blir blockerade av ett fel i en enskild feldomän?
+
+Det finns som standard fem fel domäner när du använder skalnings uppsättningar för virtuella datorer i Azure. Varje virtuell dator instans i en skalnings uppsättning placeras i någon av dessa fel domäner. Detta säkerställer att program som distribueras till Compute-noderna i ett kluster placeras i olika fel domäner.
+
+Mer information finns i [välja rätt antal fel domäner för skalnings uppsättningen för den virtuella datorn](../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md).
+
+### <a name="is-there-a-way-to-manage-pod-placement"></a>Finns det något sätt att hantera Pod-placering?
+
+Kunder kan hämta noder och Visa etiketter som kund administratör. Detta ger ett sätt att rikta in alla virtuella datorer i skalnings uppsättningen.
+
+Varnings skydd måste användas när du använder vissa etiketter:
+
+- Värdnamn får inte användas. Värdnamn roteras ofta med uppgraderingar och uppdateringar och kan ändras.
+- Om kunden har en begäran om specifika etiketter eller en distributions strategi kan detta uppnås men skulle kräva tekniska åtgärder och stöds inte idag.
+
+Mer information finns i [kontrol lera Pod-placering](https://docs.openshift.com/aro/4/nodes/scheduling/nodes-scheduler-about.html).
+
+### <a name="is-the-image-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>Är image-registret tillgängligt externt så att jag kan använda verktyg som Jenkins?
+
+För 4. x-kluster måste du exponera ett säkert register och konfigurera autentisering. Mer information finns i följande Red Hat-dokumentation:
+
+- [Exponerar ett register](https://docs.openshift.com/aro/4/registry/securing-exposing-registry.html)
+- [Åtkomst till registret](https://docs.openshift.com/aro/4/registry/accessing-the-registry.html)
+
+I 3,11-kluster är Docker-avbildnings registret tillgängligt. Docker-registret är tillgängligt från `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . Du kan också använda Azure Container Registry.
+
+## <a name="networking"></a>Nätverk
+
+### <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Kan jag distribuera ett kluster till ett befintligt virtuellt nätverk?
+
+I 4. x-kluster kan du distribuera ett kluster till ett befintligt VNet.
+
+I 3,11-kluster kan du inte distribuera ett kluster till ett befintligt VNet. Du kan ansluta ett Azure Red Hat OpenShift 3,11-kluster till ett befintligt VNet via peering.
+
+### <a name="is-cross-namespace-networking-supported"></a>Stöds anslutningar mellan namnrymder?
 
 Kunder och enskilda projekt administratörer kan anpassa kors namns nätverk (inklusive neka det) per projekt med hjälp av `NetworkPolicy` objekt.
 
-## <a name="can-an-admin-manage-users-and-quotas"></a>Kan en administratör hantera användare och kvoter?
+### <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Jag försöker använda peer-datorer i ett virtuellt nätverk i en annan prenumeration, men det gick inte att hämta VNet CIDR-fel.
+
+I prenumerationen som har det virtuella nätverket, se till att registrera `Microsoft.ContainerService` providern med följande kommando:`az provider register -n Microsoft.ContainerService --wait`
+
+### <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Kan vi ange IP-intervall för distribution på det privata virtuella nätverket, vilket undviker konflikt med andra företags virtuella nätverk när de har peer-kopplats?
+
+I 4. x-kluster kan du ange egna IP-intervall.
+
+I 3,11-kluster har Azure Red Hat OpenShift stöd för VNet-peering och gör det möjligt för kunden att tillhandahålla ett VNet för peer-koppla med och en VNet-CIDR där OpenShift-nätverket fungerar.
+
+Det virtuella nätverket som skapats av Azure Red Hat OpenShift kommer att skyddas och kommer inte att acceptera konfigurations ändringar. Det virtuella nätverket som är peer-kopplat styrs av kunden och finns i prenumerationen.
+
+### <a name="is-the-software-defined-network-module-configurable"></a>Är den programdefinierade nätverks modulen konfigurerbar?
+
+Det programdefinierade nätverket är `openshift-ovs-networkpolicy` och kan inte konfigureras.
+
+### <a name="what-azure-load-balancer-is-used-by-azure-red-hat-openshift--is-it-standard-or-basic-and-is-it-configurable"></a>Vilken Azure Load Balancer används av Azure Red Hat OpenShift?  Är det standard eller Basic och det kan konfigureras?
+
+Azure Red Hat OpenShift använder standard Azure Load Balancer och går inte att konfigurera.
+
+## <a name="permissions"></a>Behörigheter
+
+### <a name="can-an-admin-manage-users-and-quotas"></a>Kan en administratör hantera användare och kvoter?
 
 Ja. En administratör med en Red Hat OpenShift-administratör kan hantera användare och kvoter, förutom att få åtkomst till alla användare som skapats av projektet.
 
-## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Kan jag begränsa ett kluster till endast vissa Azure AD-användare?
+### <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Kan jag begränsa ett kluster till endast vissa Azure AD-användare?
 
-Ja. Du kan begränsa vilka Azure AD-användare som kan logga in i ett kluster genom att konfigurera Azure AD-programmet. Mer information finns i så här gör du för att [: begränsa appen till en uppsättning användare](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+Ja. Du kan begränsa vilka Azure AD-användare som kan logga in i ett kluster genom att konfigurera Azure AD-programmet. Mer information finns i så här gör du för att [: begränsa appen till en uppsättning användare](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
 
-## <a name="can-i-restrict-users-from-creating-projects"></a>Kan jag begränsa användare från att skapa projekt?
+### <a name="can-i-restrict-users-from-creating-projects"></a>Kan jag begränsa användare från att skapa projekt?
 
-Ja. Logga in på klustret som en Azure Red Hat OpenShift-administratör och kör det här kommandot:
+Ja. Logga in på klustret som administratör och kör det här kommandot:
 
 ```
 oc adm policy \
@@ -71,138 +195,43 @@ oc adm policy \
     system:authenticated:oauth
 ```
 
-Mer information finns i OpenShift-dokumentationen om [inaktive ring av själv etablering](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning).
+Mer information finns i OpenShift-dokumentationen om inaktive ring av själv etablering för kluster versionen:
 
-## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Kan ett kluster ha Compute-noder över flera Azure-regioner?
+- [Inaktiverar själv etablering i 4,3-kluster](https://docs.openshift.com/aro/4/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
+- [Inaktiverar själv etablering i 3,11-kluster](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning)
 
-Nej. Alla noder i ett Azure Red Hat OpenShift-kluster måste härstamma från samma Azure-region.
+### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Vilka UNIX-rättigheter (i IaaS) är tillgängliga för Masters/infraröda/app-noder?
 
-## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Är master-och Infrastructure-noderna sammankopplade som de är med Azure Kubernetes service (AKS)?
+För 4. x-kluster är Node Access tillgängligt via rollen kluster-admin. Mer information finns i [RBAC-översikt](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
-Nej. Alla resurser, inklusive kluster huvud, körs i din kund prenumeration. De här typerna av resurser placeras i en skrivskyddad resurs grupp.
+Node Access tillåts inte för 3,11-kluster.
 
-## <a name="is-open-service-broker-for-azure-osba-supported"></a>Finns det stöd för att öppna Service Broker för Azure (OSBA)?
+### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Vilka OCP-rättigheter har vi? Kluster-admin? Projekt-admin?
 
-Ja. Du kan använda OSBA med Azure Red Hat OpenShift. Mer information finns i [öppna Service Broker för Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) .
+För 4. x-kluster är rollen kluster administratör tillgänglig. Mer information finns i [RBAC-översikt](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Jag försöker att peer-koppla till ett virtuellt nätverk i en annan prenumeration men `Failed to get vnet CIDR` får ett fel meddelande.
+Mer information om 3,11-kluster finns i [Översikt över kluster administration](https://docs.openshift.com/aro/admin_guide/index.html) .
 
-I prenumerationen som har det virtuella nätverket, se till att registrera `Microsoft.ContainerService` providern med`az provider register -n Microsoft.ContainerService --wait` 
+### <a name="which-identity-providers-are-available"></a>Vilka identitets leverantörer är tillgängliga?
 
-## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>Vad är underhålls processen för Azure Red Hat OpenShift (ARO)?
+För 4. x-kluster konfigurerar du din egen identitets leverantör. Mer information finns i Red Hat-dokumentationen om hur du [konfigurerar identiteter](https://docs.openshift.com/aro/4/authentication/identity_providers/configuring-ldap-identity-provider.html).
 
-Det finns tre typer av underhåll för ARO: uppgraderingar, säkerhets kopiering och återställning av etcd-data och underhåll av moln leverantörer.
+För 3,11-kluster kan du använda Azure AD-integrering. 
 
-+ Uppgraderingar är bland annat program varu uppgraderingar och CVEs. CVE-reparation sker vid start genom att `yum update` köra och ger omedelbar minskning.  Parallellt skapas en ny avbildning som skapas för framtida kluster.
+## <a name="storage"></a>Storage
 
-+ Säkerhets kopiering och hantering av etcd-data är en automatiserad process som kan kräva kluster avbrott beroende på åtgärd. Om etcd-databasen återställs från en säkerhets kopia kommer det att vara stillestånds tid. Vi säkerhetskopierar etcd varje timme och behåller de senaste 6 timmarna med säkerhets kopior.
+### <a name="is-data-on-my-cluster-encrypted"></a>Är data i mitt kluster krypterad?
 
-+ Cloud Provider – initierat underhåll omfattar nätverk, lagring och regionala avbrott. Underhållet är beroende av moln leverantören och förlitar sig på uppdateringar som tillhandahålls av leverantören.
+Som standard krypteras data i vila. Azure Storages plattformen krypterar automatiskt dina data innan de behålls och dekrypterar data innan de kan hämtas. Mer information finns i [Azure Storage tjänst kryptering för vilande data](../storage/common/storage-service-encryption.md).
 
-## <a name="what-is-the-general-upgrade-process"></a>Vad är den allmänna uppgraderings processen?
+### <a name="is-data-stored-in-etcd-encrypted-on-azure-red-hat-openshift"></a>Är data lagrade i etcd krypterade i Azure Red Hat OpenShift?
 
-Att köra en uppgradering bör vara en säker process att köra och bör inte störa kluster tjänsterna. SRE kan utlösa uppgraderings processen när nya versioner är tillgängliga eller CVEs är utestående.
+För Azure Red Hat OpenShift 4-kluster krypteras inte data som standard, men du kan välja att aktivera kryptering. Mer information finns i guiden om att [kryptera etcd](https://docs.openshift.com/container-platform/4.3/authentication/encrypting-etcd.html).
 
-Tillgängliga uppdateringar testas i en fas miljö och tillämpas sedan på produktions kluster. När den används läggs en ny nod till tillfälligt och noderna uppdateras i en roterande miljö så att poddar upprätthåller antalet repliker. Följande metod tips hjälper till att säkerställa minimal stillestånds tid.
+För 3,11-kluster krypteras inte data på etcd-nivån. Det finns för närvarande inte stöd för möjligheten att aktivera kryptering för tillfället. OpenShift stöder den här funktionen, men tekniska ansträngningar krävs för att göra det på väg kartan. Data krypteras på disk nivå. Mer information finns i [kryptera data i data lager lager](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) .
 
-Beroende på allvarlighets grad för den väntande uppgraderingen eller uppdateringen kan processen variera i att uppdateringarna kan tillämpas snabbt för att minimera tjänstens exponering till en CVE. En ny avbildning skapas asynkront, testas och distribueras som en kluster uppgradering. Förutom att det inte finns någon skillnad mellan nödfall och planerat underhåll. Planerat underhåll är inte förplanerat för kunden.
+### <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>Kan vi välja vilken beständig lagrings lösning som helst, t. ex. OCS? 
 
-Meddelanden kan skickas via ICM och e-post om kommunikationen med kunden krävs.
+För 4. x-kluster konfigureras Azure disk (Premium_LRS) som standard lagrings klass. Ytterligare lagrings leverantörer och konfigurations information (inklusive Azure-fil) finns i Red Hat-dokumentationen om [beständig lagring](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html).
 
-## <a name="what-about-emergency-vs-planned-maintenance-windows"></a>Vad händer om det gäller nödfall kontra planerat underhålls fönster?
-
-Vi skiljer inte mellan de två typerna av underhåll. Våra team är tillgängliga 24/7/365 och använder inte traditionella schemalagda "out-of-Hour"-underhålls perioder.
-
-## <a name="how-will-host-operating-system-and-openshift-software-be-updated"></a>Hur uppdateras operativ systemet och OpenShift-programvaran?
-
-Värd operativ systemet och OpenShift-programvaran uppdateras genom vår process för allmän uppgradering och avbildnings utveckling.
-
-## <a name="whats-the-process-to-reboot-the-updated-node"></a>Vad är processen för att starta om den uppdaterade noden?
-
-Detta bör hanteras som en del av en uppgradering.
-
-## <a name="is-data-stored-in-etcd-encrypted-on-aro"></a>Är data lagrade i etcd krypterade på ARO?
-
-Den är inte krypterad på etcd-nivån. Det finns för närvarande inte stöd för att aktivera det här alternativet. OpenShift stöder den här funktionen, men tekniska ansträngningar krävs för att göra det på väg kartan. Data krypteras på disk nivå. Mer information finns i [kryptera data i data lager lager](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) .
-
-## <a name="can-logs-of-underlying-vms-be-streamed-out-to-a-customer-log-analysis-system"></a>Kan loggar av underliggande virtuella datorer strömmas till ett system för kund logg analys?
-
-Syslog, Docker-loggar, journal och dmesg hanteras av den hanterade tjänsten och exponeras inte för kunder.
-
-## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>Hur kan en kund få till gång till mått som processor/minne på nodnivå för att vidta åtgärder för skalning, fel söknings problem osv. Jag kan inte köra `kubectl top` på ett Aro-kluster.
-
-Kunder kan komma åt CPU/minnes mått på nodnivå genom att använda kommandot `oc adm top nodes` eller `kubectl top nodes` med clusterrole Customer admin.  Kunder kan också komma åt CPU/minnes mått för `pods` med kommandot eller `oc adm top pods``kubectl top pods`
-
-## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Vad är standard Scheduler-konfigurationen för Pod för ARO?
-
-ARO använder standard Scheduler som levereras i OpenShift. Det finns ett par ytterligare mekanismer som inte stöds i ARO. Mer information finns i dokumentationen för [standard Scheduler](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) och [Master Scheduler-dokumentationen](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v16/data/master/etc/origin/master/scheduler.json) .
-
-Avancerad/anpassad schemaläggning stöds inte för tillfället. Mer information finns i [schemaläggnings dokumentationen](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) .
-
-## <a name="if-we-scale-up-the-deployment-how-do-azure-fault-domains-map-into-pod-placement-to-ensure-all-pods-for-a-service-do-not-get-knocked-out-by-a-failure-in-a-single-fault-domain"></a>Om vi skalar upp distributionen kan Azure-feldomäner mappas till Pod-placering för att säkerställa att alla poddar för en tjänst inte blir blockerade av ett fel i en enskild feldomän?
-
-Det finns som standard fem fel domäner när du använder skalnings uppsättningar för virtuella datorer i Azure. Varje virtuell dator instans i en skalnings uppsättning placeras i någon av dessa fel domäner. Detta säkerställer att program som distribueras till Compute-noderna i ett kluster placeras i olika fel domäner.
-
-Se [hur du väljer rätt antal fel domäner för skalnings uppsättning för virtuella datorer](https://docs.microsoft.com//azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains) för mer information.
-
-## <a name="is-there-a-way-to-manage-pod-placement"></a>Finns det något sätt att hantera Pod-placering?
-
-Kunder kan hämta noder och Visa etiketter som kund administratör.  Detta ger ett sätt att rikta in alla virtuella datorer i skalnings uppsättningen.
-
-Varnings skydd måste användas när du använder vissa etiketter:
-
-- Värdnamn får inte användas. Värdnamn roteras ofta med uppgraderingar och uppdateringar och kan ändras.
-
-- Om kunden har en begäran om specifika etiketter eller en distributions strategi kan detta uppnås men skulle kräva tekniska åtgärder och stöds inte idag.
-
-## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>Vilket är det maximala antalet poddar i ett ARO-kluster?Vilket är det maximala antalet poddar per nod i ARO?
-
- Azure Red Hat OpenShift 3,11 har en gräns på 50-Pod per nod med [Aro som har en gräns för 20-beräknings noder](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), så att Caps det maximala antalet poddar som stöds i ett Aro-kluster till 50 * 20 = 1000.
-
-## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Kan vi ange IP-intervall för distribution på det privata virtuella nätverket, vilket undviker konflikt med andra företags virtuella nätverk när de har peer-kopplats?
-
-Azure Red Hat OpenShift stöder VNET-peering och gör det möjligt för kunden att tillhandahålla ett VNET för peer-koppla med och en VNET CIDR där OpenShift-nätverket fungerar.
-
-Det virtuella nätverket som skapades av ARO kommer att skyddas och kommer inte att acceptera konfigurations ändringar. Det virtuella nätverket som är peer-kopplat styrs av kunden och finns i prenumerationen.
-
-## <a name="does-the-cluster-reside-in-a-customer-subscription"></a>Finns klustret i en kund prenumeration? 
-
-Det Azure-hanterade programmet finns i en låst resurs grupp med kund prenumerationen. Kunden kan visa objekt i den RG men inte ändra.
-
-## <a name="is-the-sdn-module-configurable"></a>Kan modulen SDN konfigureras?
-
-SDN är OpenShift-OVS-networkpolicy och kan inte konfigureras.
-
-## <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Vilka UNIX-rättigheter (i IaaS) är tillgängliga för Masters/infraröda/app-noder?
-
-Inte tillämpligt för det här erbjudandet. Åtkomst till noden är förbjuden.
-
-## <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Vilka OCP-rättigheter har vi? Kluster-admin? Projekt-admin?
-
-Mer information finns i Översikt över Azure Red Hat OpenShift [cluster administration](https://docs.openshift.com/aro/admin_guide/index.html).
-
-## <a name="which-kind-of-federation-with-ldap"></a>Vilken typ av Federation med LDAP?
-
-Detta kan uppnås via Azure AD-integrering. 
-
-## <a name="is-there-any-element-in-aro-shared-with-other-customers-or-is-everything-independent"></a>Finns det något element i ARO som delas med andra kunder? Eller är allt oberoende?
-
-Varje Azure Red Hat OpenShift-kluster är dedikerad till en bestämd kund och är i kund prenumerationen. 
-
-## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>Kan vi välja vilken beständig lagrings lösning som helst, t. ex. OCS? 
-
-Det finns två lagrings klasser att välja mellan: Azure disk och Azure-fil.
-
-## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>Hur uppdateras ett kluster (inklusive huvud och minderåriga på grund av sårbarheter)?
-
-Se [Vad är den allmänna uppgraderings processen?](https://docs.microsoft.com/azure/openshift/openshift-faq#what-is-the-general-upgrade-process)
-
-## <a name="what-azure-load-balancer-is-used-by-aro-is-it-standard-or-basic-and-is-it-configurable"></a>Vilken Azure Load Balancer används av ARO?Är det standard eller Basic och det kan konfigureras?
-
-ARO använder standard Azure Load Balancer och kan inte konfigureras.
-
-## <a name="can-aro-use-netapp-based-storage"></a>Kan ARO använda NetApp-baserad lagring?
-
-Just nu är de enda lagrings alternativ som stöds för Azure disk-och Azure File Storage-klasser. 
-
-
+För 3,11-kluster tillhandahålls två lagrings klasser som standard: en för Azure-disk (Premium_LRS) och en för Azure-fil.

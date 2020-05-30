@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 3a3d3b990c750e96b840676097bb3677606bf68b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118352"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187283"
 ---
 # <a name="azure-data-factory-faq"></a>Vanliga frågor och svar om Azure Data Factory
 
@@ -87,7 +87,7 @@ Eftersom den första offentliga för hands versionen i 2017 har Data Factory lag
 -    Elastisk pool
 -    Stöd för ett Azure Resource Manager virtuellt nätverk ovanpå ett klassiskt virtuellt nätverk för att bli inaktuellt i framtiden, vilket gör att du kan mata in/ansluta din Azure-SSIS integration runtime till ett virtuellt nätverk som har kon figurer ATS för SQL Database med tjänst slut punkter för virtuella nätverk/MI/lokal data åtkomst. Mer information finns även i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).
 -    Stöd för Azure Active Directory (Azure AD)-autentisering och SQL-autentisering för att ansluta till SSISDB, vilket ger Azure AD-autentisering med din Data Factory hanterade identitet för Azure-resurser
--    Stöd för att ta med din egen lokala SQL Server-licens för att få avsevärda kostnads besparingar från Azure Hybrid-förmåns alternativet
+-    Stöd för att sätta din befintliga SQL Server-licens för att få avsevärda kostnads besparingar från Azure Hybrid-förmåns alternativet
 -    Stöd för Enterprise-utgåvan av Azure-SSIS integration runtime som gör att du kan använda avancerade/Premium-funktioner, ett anpassat installations gränssnitt för att installera ytterligare komponenter/tillägg och ett eko system för partner. Mer information finns i [Enterprise Edition, anpassad installation och utökning från tredje part för SSIS i ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
 -    Djupare integrering av SSIS i Data Factory som låter dig anropa/utlösa den första klassens kör SSIS-programpaket aktiviteter i Data Factory pipelines och Schemalägg dem via SSMS. Mer information finns även i [modernisera och utöka dina ETL/ELT-arbetsflöden med SSIS-aktiviteter i ADF-pipeline](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
 
@@ -126,7 +126,7 @@ Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinf
 
 Länkade tjänster har två syfte i Data Factory:
 
-- För att representera ett *data lager* som inkluderar, men inte är begränsat till, en lokal SQL Server instans, en Oracle Database-instans, en fil resurs eller ett Azure Blob Storage-konto. En lista över data lager som stöds finns i [Kopiera aktivitet i Azure Data Factory](copy-activity-overview.md).
+- För att representera ett *data lager* som inkluderar, men inte är begränsat till, en SQL Server instans, en Oracle Database-instans, en fil resurs eller ett Azure Blob Storage-konto. En lista över data lager som stöds finns i [Kopiera aktivitet i Azure Data Factory](copy-activity-overview.md).
 - Så här visar du en *beräkningsresurs* som kan vara värd för körningen av en aktivitet. HDInsight Hive-aktiviteten körs till exempel på ett HDInsight Hadoop-kluster. En lista över omvandlings aktiviteter och beräknings miljöer som stöds finns i [transformera data i Azure Data Factory](transform-data.md).
 
 ### <a name="triggers"></a>Utlösare

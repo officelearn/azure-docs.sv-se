@@ -3,16 +3,17 @@ title: Visa real tids data (för hands version) med Azure Monitor för behållar
 description: Den här artikeln beskriver real tids visningen av Kubernetes-loggar, händelser och Pod mått utan att använda kubectl i Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 38615acf079c33c49e27394bfdb9b8104e5a68ac
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: references_regions
+ms.openlocfilehash: 80bf3e50ac63ae9b48d6f3b314bc52bcb209072f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872108"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196060"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Så här visar du Kubernetes-loggar, händelser och Pod-mått i real tid
 
-Azure Monitor for containers innehåller funktionen Live data (för hands version), som är en avancerad diagnostisk funktion som gör att du direkt kan komma åt dina AKS (Azure Kubernetes service)-behållar loggar (STDOUT/stderror), händelser och Pod mått. Den visar direkt åtkomst till `kubectl logs -c`, `kubectl get` händelser och. `kubectl top pods` I ett konsol fönster visas loggar, händelser och mått som genereras av behållar motorn för att hjälpa till med fel sökning av problem i real tid.
+Azure Monitor for containers innehåller funktionen Live data (för hands version), som är en avancerad diagnostisk funktion som gör att du direkt kan komma åt dina AKS (Azure Kubernetes service)-behållar loggar (STDOUT/stderror), händelser och Pod mått. Den visar direkt åtkomst till `kubectl logs -c` , `kubectl get` händelser och `kubectl top pods` . I ett konsol fönster visas loggar, händelser och mått som genereras av behållar motorn för att hjälpa till med fel sökning av problem i real tid.
 
 Den här artikeln innehåller en detaljerad översikt och hjälper dig att förstå hur du använder den här funktionen. 
 
@@ -57,7 +58,7 @@ Du kan visa real tids logg data när de genereras av behållar motorn från vyn 
 4. Välj ett objekt i prestanda rutnätet och välj alternativet **Visa live data (förhands granskning)** i fönstret Egenskaper på höger sida. Om AKS-klustret har kon figurer ATS med enkel inloggning med Azure AD uppmanas du att autentisera vid första användningen under webbläsarsessionen. Välj ditt konto och slutför autentisering med Azure.  
 
     >[!NOTE]
-    >När du visar data från din Log Analytics arbets yta genom att välja **vyn i Analytics** från fönstret Egenskaper kan logg Sök resultaten Visa **noder**, **daemon-uppsättningar**, **replik uppsättningar**, **jobb**, cron- **jobb**, **poddar**och **behållare** som kanske inte längre finns. Försök att söka efter loggar för en behållare som inte är tillgänglig `kubectl` i kommer också att Miss lyckas här. Granska [vyn i analys](container-insights-log-search.md#search-logs-to-analyze-data) funktionen om du vill veta mer om att visa historiska loggar, händelser och mått.  
+    >När du visar data från din Log Analytics arbets yta genom att välja **vyn i Analytics** från fönstret Egenskaper kan logg Sök resultaten Visa **noder**, **daemon-uppsättningar**, **replik uppsättningar**, **jobb**, cron- **jobb**, **poddar**och **behållare** som kanske inte längre finns. Försök att söka efter loggar för en behållare som inte är tillgänglig i `kubectl` kommer också att Miss lyckas här. Granska [vyn i analys](container-insights-log-search.md#search-logs-to-analyze-data) funktionen om du vill veta mer om att visa historiska loggar, händelser och mått.  
 
 När du har autentiserat visas konsol fönstret Live data (förhands granskning) under rutnätet för prestanda data där du kan visa loggdata i en kontinuerlig data ström. Om status indikatorn för hämtningen visar en grön bock markering, som är längst till höger i fönstret, innebär det att data kan hämtas och att det börjar strömma till konsolen.  
 
@@ -78,7 +79,7 @@ Du kan visa händelse data i real tid när de genereras av behållar motorn frå
 4. Välj ett objekt i prestanda rutnätet och välj alternativet **Visa live data (förhands granskning)** i fönstret Egenskaper på höger sida. Om AKS-klustret har kon figurer ATS med enkel inloggning med Azure AD uppmanas du att autentisera vid första användningen under webbläsarsessionen. Välj ditt konto och slutför autentisering med Azure.  
 
     >[!NOTE]
-    >När du visar data från din Log Analytics arbets yta genom att välja **vyn i Analytics** från fönstret Egenskaper kan logg Sök resultaten Visa **noder**, **daemon-uppsättningar**, **replik uppsättningar**, **jobb**, cron- **jobb**, **poddar**och **behållare** som kanske inte längre finns. Försök att söka efter loggar för en behållare som inte är tillgänglig `kubectl` i kommer också att Miss lyckas här. Granska [vyn i analys](container-insights-log-search.md#search-logs-to-analyze-data) funktionen om du vill veta mer om att visa historiska loggar, händelser och mått.  
+    >När du visar data från din Log Analytics arbets yta genom att välja **vyn i Analytics** från fönstret Egenskaper kan logg Sök resultaten Visa **noder**, **daemon-uppsättningar**, **replik uppsättningar**, **jobb**, cron- **jobb**, **poddar**och **behållare** som kanske inte längre finns. Försök att söka efter loggar för en behållare som inte är tillgänglig i `kubectl` kommer också att Miss lyckas här. Granska [vyn i analys](container-insights-log-search.md#search-logs-to-analyze-data) funktionen om du vill veta mer om att visa historiska loggar, händelser och mått.  
 
 När du har autentiserat visas konsol fönstret Live data (förhands granskning) under rutnätet med prestanda data. Om status indikatorn för hämtningen visar en grön bock markering, som är längst till höger i fönstret, innebär det att data kan hämtas och att det börjar strömma till konsolen. 
     
@@ -105,7 +106,7 @@ Du kan visa data för real tids mått när de genereras av behållar motorn frå
 4. Välj ett **Pod** -objekt i prestanda rutnätet och välj alternativet **Visa live data (förhands granskning)** i fönstret Egenskaper på höger sida. Om AKS-klustret har kon figurer ATS med enkel inloggning med Azure AD uppmanas du att autentisera vid första användningen under webbläsarsessionen. Välj ditt konto och slutför autentisering med Azure.  
 
     >[!NOTE]
-    >När du visar data från din Log Analytics arbets yta genom att välja **vyn i Analytics** från fönstret Egenskaper kan logg Sök resultaten Visa **noder**, **daemon-uppsättningar**, **replik uppsättningar**, **jobb**, cron- **jobb**, **poddar**och **behållare** som kanske inte längre finns. Försök att söka efter loggar för en behållare som inte är tillgänglig `kubectl` i kommer också att Miss lyckas här. Granska [vyn i analys](container-insights-log-search.md#search-logs-to-analyze-data) funktionen om du vill veta mer om att visa historiska loggar, händelser och mått.  
+    >När du visar data från din Log Analytics arbets yta genom att välja **vyn i Analytics** från fönstret Egenskaper kan logg Sök resultaten Visa **noder**, **daemon-uppsättningar**, **replik uppsättningar**, **jobb**, cron- **jobb**, **poddar**och **behållare** som kanske inte längre finns. Försök att söka efter loggar för en behållare som inte är tillgänglig i `kubectl` kommer också att Miss lyckas här. Granska [vyn i analys](container-insights-log-search.md#search-logs-to-analyze-data) funktionen om du vill veta mer om att visa historiska loggar, händelser och mått.  
 
 När du har autentiserat visas konsol fönstret Live data (förhands granskning) under rutnätet med prestanda data. Mät data hämtas och börjar strömma till konsolen för presentation i de två diagrammen. Rutans rubrik visar namnet på pod som behållaren är grupperad med.
 

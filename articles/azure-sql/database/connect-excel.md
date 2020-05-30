@@ -1,6 +1,6 @@
 ---
 title: Anslut med Excel
-description: Lär dig hur du ansluter Microsoft Excel till Azure SQL Database. Importera data till Excel för rapportering och dataundersökning.
+description: Lär dig hur du ansluter Microsoft Excel till en databas i Azure SQL Database. Importera data till Excel för rapportering och dataundersökning.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,27 +11,28 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
-ms.openlocfilehash: 08bf78e6cc548ed717d6bc57946067a16ec13e2b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 332620699e30facb2fbbfee90e3328b8dcf1e179
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043452"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195490"
 ---
-# <a name="connect-excel-to-azure-sql-database-and-create-a-report"></a>Ansluta Excel till Azure SQL Database och skapa en rapport
+# <a name="connect-excel-to-a-database-in-azure-sql-database-and-create-a-report"></a>Anslut Excel till en databas i Azure SQL Database och skapa en rapport
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Anslut Excel till Azure SQL Database och importera data och skapa tabeller och diagram baserat på värden i databasen. I de här självstudierna kommer du att ställa in anslutningen mellan Excel och en databastabell, spara filen som lagrar data och anslutningsinformationen för Excel och sedan skapa ett pivotdiagram från databasvärdena.
+Du kan ansluta Excel till en databas i Azure SQL Database och sedan importera data och skapa tabeller och diagram baserat på värden i databasen. I de här självstudierna kommer du att ställa in anslutningen mellan Excel och en databastabell, spara filen som lagrar data och anslutningsinformationen för Excel och sedan skapa ett pivotdiagram från databasvärdena.
 
-Du behöver ett SQL Database innan du börjar. Om du inte har någon kan du läsa [skapa en Azure SQL Database](single-database-create-quickstart.md) och [skapa IP-brandvägg på server nivå](firewall-create-server-level-portal-quickstart.md) för att få en SQL Database med exempel data igång på några minuter.
+Du måste skapa en databas i SQL Database innan du börjar. Om du inte har någon kan du läsa [skapa en databas i Azure SQL Database](single-database-create-quickstart.md) och [skapa IP-brandvägg på server nivå](firewall-create-server-level-portal-quickstart.md) för att få en databas med exempel data igång på några få minuter.
 
 I den här artikeln ska du importera exempel data till Excel från den artikeln, men du kan följa liknande steg med dina egna data.
 
 Du kommer också behöva en kopia av Excel. Den här artikeln använder [Microsoft Excel 2016](https://products.office.com/).
 
-## <a name="connect-excel-to-a-sql-database-and-load-data"></a>Ansluta Excel till en SQL Database och läsa in data
+## <a name="connect-excel-and-load-data"></a>Ansluta Excel och läsa in data
 
-1. Om du vill ansluta Excel till en SQL Database öppnar du Excel och skapar en ny arbets bok eller öppnar en befintlig Excel-arbetsbok.
+1. Om du vill ansluta Excel till en databas i SQL Database öppnar du Excel och skapar en ny arbets bok eller öppnar en befintlig Excel-arbetsbok.
 2. Välj fliken **data** på Meny raden överst på sidan, Välj **Hämta data**, Välj från Azure och välj sedan **från Azure SQL Database**.
 
    ![Välj data Källa: Anslut Excel till SQL Database.](./media/connect-excel/excel_data_source.png)
@@ -53,7 +54,7 @@ Du kommer också behöva en kopia av Excel. Den här artikeln använder [Microso
 
 ## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Importera data till Excel och skapa ett pivotdiagram
 
-Nu när du har upprättat anslutningen har du flera olika alternativ för hur du läser in data. Följande steg skapar till exempel ett pivot-diagram baserat på de data som finns i SQL Database.
+Nu när du har upprättat anslutningen har du flera olika alternativ för hur du läser in data. Följande steg skapar till exempel ett pivot-diagram baserat på de data som finns i databasen i SQL Database.
 
 1. Följ stegen i föregående avsnitt, men i stället för att välja **Läs**in väljer **du Läs in till** **från List rutan för inläsning.**
 2. Välj sedan hur du vill visa data i din arbets bok. Vi valde **PivotChart**. Du kan också välja att skapa ett **Nytt kalkylblad** eller **Lägg till den här datan i en Datamodell**. Mer information om datamodeller finns i [Skapa en datamodell i Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B).

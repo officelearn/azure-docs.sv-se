@@ -16,12 +16,12 @@ ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6c84be9a23713080f348daf8dddf0ad6b0390ded
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7439aa360395490f31a638ac690ed7e5cad1054b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014713"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195842"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurera Azure Key Vault-integrering för SQL Server på Azure-Virtual Machines (klassisk)
 > [!div class="op_single_selector"]

@@ -1,7 +1,7 @@
 ---
 title: 'PowerShell: Migrera SQL Server till SQL Database'
 titleSuffix: Azure Database Migration Service
-description: Lär dig att migrera från lokala SQL Server till Azure SQL Database genom att använda Azure PowerShell med Azure Database Migration Service.
+description: Lär dig att migrera en datagbase från SQL Server till Azure SQL Database genom att använda Azure PowerShell med Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 323d6b006d3e790a7517e90f34241976904b3ba3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 494ef67938df161915390d9adc74093bafa550f5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021491"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192648"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrera SQL Server lokalt för att Azure SQL Database med Azure PowerShell
+# <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrera en SQL Server databas till Azure SQL Database med Azure PowerShell
 
-I den här artikeln migrerar du **Adventureworks2012** -databasen som återställs till en lokal instans av SQL Server 2016 eller senare till en Azure SQL Database med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en lokal SQL Server instans till Azure SQL Database genom att använda `Az.DataMigration` modulen i Microsoft Azure PowerShell.
+I den här artikeln migrerar du **Adventureworks2012** -databasen som återställs till en lokal instans av SQL Server 2016 eller senare till en Azure SQL Database med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en SQL Server instans till Azure SQL Database genom att använda `Az.DataMigration` modulen i Microsoft Azure PowerShell.
 
 I den här artikeln kan du se hur du:
 > [!div class="checklist"]

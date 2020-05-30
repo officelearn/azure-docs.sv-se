@@ -3,12 +3,12 @@ title: För hands version – lär dig Azure Policy för Kubernetes
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt. Det här är en förhandsversion av funktionen.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0d663d7bf7ce70c605551422f600258943d1efd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9969bed9cb7c84faf9736bff2fb8337dc05d1bb0
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828635"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221143"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Förstå Azure Policy för Kubernetes-kluster (för hands version)
 
@@ -35,6 +35,9 @@ Utför följande åtgärder för att aktivera och använda Azure Policy med ditt
    - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
    - [Azure Arc-aktiverade Kubernetes](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [AKS-motor](#install-azure-policy-add-on-for-aks-engine)
+
+   > [!NOTE]
+   > Vanliga problem med installationen finns i [Felsöka-Azure policy-tillägg](../troubleshoot/general.md#add-on-installation-errors).
 
 1. [Förstå Azure Policy språk för Kubernetes](#policy-language)
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ead0041e26b5dff5cfd81b6fa02b7efff6e6e9d1
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f8a6e0b9f5cc63f79dcd57765f30c527382d51ca
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831202"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193355"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Använd Query parallellisering i Azure Stream Analytics
 Den här artikeln visar hur du kan dra nytta av parallellisering i Azure Stream Analytics. Du lär dig hur du skalar Stream Analytics jobb genom att konfigurera inpartitioner och justera analys frågans definition.
@@ -279,7 +279,7 @@ I följande observationer används ett Stream Analytics jobb med en tillstånds 
 |    5 000   |   18 |  P4   |
 |    10 000  |   36 |  P6   |
 
-[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) har stöd för skrivning parallellt, som kallas Ärv partitionering, men är inte aktiverat som standard. Att aktivera ärva partitionering, tillsammans med en helt parallell fråga, är dock inte tillräckligt för att uppnå högre data flöden. SQL Write-genomflöde är beroende av SQL Azure databas konfiguration och tabell schema. I artikeln [SQL-utdata](./stream-analytics-sql-output-perf.md) finns mer information om de parametrar som kan maximera Skriv data flödet. Som anges i [Azure Stream Analytics utdata till Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artikel skalar den här lösningen inte linjärt som en helt parallell pipeline utöver 8 partitioner och kan behöva partitionera om innan SQL-utdata (se [i](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKU: er krävs för att hantera höga IO-priser tillsammans med kostnader för att logga säkerhets kopieringar på några minuter.
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) har stöd för skrivning parallellt, som kallas Ärv partitionering, men är inte aktiverat som standard. Att aktivera ärva partitionering, tillsammans med en helt parallell fråga, är dock inte tillräckligt för att uppnå högre data flöden. SQL Write-dataflödena är beroende av databas konfigurationen och tabell schemat. I artikeln [SQL-utdata](./stream-analytics-sql-output-perf.md) finns mer information om de parametrar som kan maximera Skriv data flödet. Som anges i [Azure Stream Analytics utdata till Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artikel skalar den här lösningen inte linjärt som en helt parallell pipeline utöver 8 partitioner och kan behöva partitionera om innan SQL-utdata (se [i](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKU: er krävs för att hantera höga IO-priser tillsammans med kostnader för att logga säkerhets kopieringar på några minuter.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Inmatnings frekvens (händelser per sekund) | Enheter för strömning | Utgående resurser  |

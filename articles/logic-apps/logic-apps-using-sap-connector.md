@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 05/27/2020
+ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 36e22fd92d937271a3859d03367e2a7ef80ef3d2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 557e162d9d7f0238d5554c32cb3ae96885877dbe
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118666"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220504"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
@@ -28,12 +28,12 @@ Den här artikeln visar hur du kan komma åt dina lokala SAP-resurser inifrån e
 SAP-anslutaren använder [SAP .net Connector-biblioteket (NCo)](https://support.sap.com/en/product/connectors/msnet.html) och tillhandahåller följande åtgärder:
 
 * **Skicka meddelande till SAP**: skicka iDOC över tRFC, ANROPAr BAPI-funktioner över RFC eller anropa RFC/TRFC i SAP-system.
+
 * **När ett meddelande tas emot från SAP**: Receive iDOC över tRFC, anropar BAPI Functions över tRFC eller anropar RFC/TRFC i SAP-system.
+
 * **Generera scheman**: generera scheman för SAP-artefakter för iDOC, BAPI eller RFC.
 
 För dessa åtgärder stöder SAP-anslutaren grundläggande autentisering genom användar namn och lösen ord. Anslutningen har även stöd för [Säker nätverkskommunikation (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true). SNC kan användas för SAP NetWeaver enkel inloggning (SSO) eller för ytterligare säkerhetsfunktioner som tillhandahålls av en extern säkerhets produkt.
-
-SAP-anslutningen integreras med lokala SAP-system via den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). I skicka-scenarier, till exempel när ett meddelande skickas från en Logic app till ett SAP-system, fungerar datagatewayen som en RFC-klient och vidarebefordrar de begär Anden som tas emot från Logic app till SAP. På samma sätt fungerar datagatewayen som en RFC-server som tar emot begär Anden från SAP i Receive-scenarier och vidarebefordrar dem till Logic-appen.
 
 Den här artikeln visar hur du skapar exempel på Logic Apps som integreras med SAP och som täcker de tidigare beskrivna integrerings scenarierna. För logi Kap par som använder äldre SAP-kopplingar visar den här artikeln hur du migrerar dina Logi Kap par till den senaste SAP-anslutningen.
 
@@ -49,42 +49,121 @@ Om du vill följa med i den här artikeln behöver du följande objekt:
 
 * Din [SAP-Programserver](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) eller [SAP-meddelande Server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
 
-* [Hämta och installera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md) på den lokala datorn. Skapa sedan [en Azure gateway-resurs](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) för denna gateway i Azure Portal. Gatewayen hjälper dig att komma åt lokala data och resurser på ett säkert sätt. 
-
-  * Vi rekommenderar att du använder en version som stöds av den lokala datagatewayen. Microsoft släpper en ny version varje månad. För närvarande stöder Microsoft de senaste sex versionerna. Om det uppstår ett problem med din gateway kan du försöka att [Uppgradera till den senaste versionen](https://aka.ms/on-premises-data-gateway-installer), som kan innehålla uppdateringar för att lösa problemet.
-
-* [Hämta, installera och konfigurera det senaste SAP-klient biblioteket](#sap-client-library-prerequisites) på samma dator som den lokala datagatewayen.
-
 * Meddelande innehåll som du kan skicka till din SAP-server, till exempel en IDoc-fil, måste vara i XML-format och innehålla namn området för den SAP-åtgärd som du vill använda.
+
+* Om du vill använda **när ett meddelande tas emot från SAP** -utlösaren, måste du också utföra dessa installations steg:
+
+  * Konfigurera dina säkerhets behörigheter för SAP Gateway med den här inställningen:
+
+    `"TP=Microsoft.PowerBI.EnterpriseGateway HOST=<gateway-server-IP-address> ACCESS=*"`
+
+  * Konfigurera din säkerhets loggning för SAP Gateway, som hjälper dig att hitta Access Control List (ACL)-fel och inte är aktive rad som standard. Annars får du följande fel meddelande:
+
+    `"Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed"`
+
+    Mer information finns i hjälp avsnittet om SAP [Konfigurera Gateway-loggning](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm).
+
+<a name="multi-tenant"></a>
+
+### <a name="multi-tenant-azure-prerequisites"></a>Krav för Azure för flera innehavare
+
+Dessa krav gäller när dina Logi Kap par körs i Azure med flera klienter och du vill använda den hanterade SAP-anslutningen, som inte körs internt i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Annars, om du använder en Premium-nivå ISE och vill använda den SAP-anslutning som körs internt i ISE, se [krav för integration service Environment (ISE)](#sap-ise).
+
+Den hanterade (ej-ISE) SAP-kopplingen integreras med lokala SAP-system via den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). När ett meddelande till exempel skickas från en Logic app till ett SAP-system fungerar datagatewayen som en RFC-klient och vidarebefordrar de begär Anden som tas emot från Logic app till SAP i scenarier för att skicka meddelanden. På samma sätt fungerar datagatewayen som en RFC-server som tar emot begär Anden från SAP och vidarebefordrar dem till Logic app i scenarier med mottagna meddelanden.
+
+* [Hämta och installera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md) på den lokala datorn. Skapa sedan [en Azure gateway-resurs](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) för denna gateway i Azure Portal. Gatewayen hjälper dig att komma åt lokala data och resurser på ett säkert sätt.
+
+  Vi rekommenderar att du använder en version som stöds av den lokala datagatewayen. Microsoft släpper en ny version varje månad. För närvarande stöder Microsoft de senaste sex versionerna. Om det uppstår ett problem med din gateway kan du försöka att [Uppgradera till den senaste versionen](https://aka.ms/on-premises-data-gateway-installer), som kan innehålla uppdateringar för att lösa problemet.
+
+* [Hämta och installera det senaste SAP-klient biblioteket](#sap-client-library-prerequisites) på samma dator som den lokala datagatewayen.
+
+<a name="sap-ise"></a>
+
+### <a name="integration-service-environment-ise-prerequisites"></a>Krav för integrerings tjänst miljö (ISE)
+
+Dessa krav gäller när dina Logi Kap par körs på en Premium-nivå (inte i [integrerings tjänst miljön](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)) och du vill använda den SAP-anslutning som körs internt i en ISE. En ISE ger åtkomst till resurser som skyddas av ett virtuellt Azure-nätverk och erbjuder andra ISE-ursprungliga anslutningar som låter Logic Apps direkt komma åt lokala resurser utan att använda lokal datagateway.
+
+> [!NOTE]
+> Även om SAP ISE-anslutaren är synlig i en Developer-nivå ISE kommer försök att installera anslutnings programmet att Miss lyckas.
+
+1. Om du inte redan har ett Azure Storage konto och en BLOB-behållare, skapar du behållaren genom att antingen använda [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) eller [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+
+1. [Hämta och installera det senaste SAP-klient biblioteket](#sap-client-library-prerequisites) på den lokala datorn. Du bör ha följande Assembly-filer:
+
+   * libicudecnumber. dll
+   * rscp4n. dll
+   * sapnco. dll
+   * sapnco_utils. dll
+
+1. Skapa en zip-fil som innehåller dessa sammansättningar och ladda upp det här paketet till BLOB-behållaren i Azure Storage.
+
+1. I antingen Azure Portal eller Azure Storage Explorer bläddrar du till den behållare plats där du laddade upp zip-filen.
+
+1. Kopiera URL: en för den platsen och se till att du inkluderar signaturen signatur för delad åtkomst (SAS).
+
+   Annars kommer SAS-token inte att auktoriseras och distributionen för SAP ISE-anslutningen kommer att Miss förväntas.
+
+1. Innan du kan använda SAP ISE-anslutaren måste du installera och distribuera anslutningen i din ISE.
+
+   1. Leta upp och öppna din ISE i [Azure Portal](https://portal.azure.com).
+   
+   1. På menyn ISE väljer du **hanterade anslutningar**  >  **Lägg till**. I listan kopplingar letar du reda på och väljer **SAP**.
+   
+   1. I rutan för att **lägga till en ny hanterad koppling** i rutan **SAP-paket** klistrar du in URL: en för zip-filen som innehåller SAP-sammansättningarna. *Se till att du inkluderar SAS-token.*
+
+   1. När du är klar väljer du **Skapa**.
+
+   Mer information finns i [Lägg till ISE-anslutningar](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment).
+
+1. Om SAP-instansen och ISE finns i olika virtuella nätverk måste du också [peer-koppla dessa nätverk](../virtual-network/tutorial-connect-virtual-networks-portal.md) så att din ISES virtuella nätverk är anslutet till din SAP-instanss virtuella nätverk.
+
+<a name="sap-client-library-prerequisites"></a>
 
 ### <a name="sap-client-library-prerequisites"></a>Krav för SAP-klient bibliotek
 
-* Som standard placerar SAP-installationsprogrammet Assembly-filerna i standardmappen för installation. Kopiera Assembly-filerna från standardmappen för installationen till installationsmappen för gateway.
+* Se till att du installerar den senaste versionen, [SAP Connector (NCo 3,0) för Microsoft .net 3.0.22.0 som kompilerats med .NET Framework 4,0-Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). Tidigare versioner kan resultera i kompatibilitetsproblem. Mer information finns i [versioner av SAP-klient bibliotek](#sap-library-versions).
 
-    * Om din SAP-anslutning Miss lyckas med fel meddelandet "kontrol lera konto information och/eller behörigheter och försök igen", kan Assembly-filerna ha fel plats. Se till att du har kopierat Assembly-filerna till installationsmappen för gateway. Använd sedan [logg visaren för .net-sammansättnings bindning för fel sökning](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), vilket gör att du kan kontrol lera att filerna finns på rätt plats.
+* Som standard placerar SAP-installationsprogrammet Assembly-filerna i standardmappen för installation. Du måste kopiera dessa Assembly-filer till en annan plats, baserat på ditt scenario enligt följande:
 
-    * Alternativt kan du välja alternativet **Global Assembly Cache Registration** när du installerar SAP-klient biblioteket.
+  För logi Kap par som körs i en ISE följer du stegen som beskrivs i [integrerings tjänst miljöns krav](#sap-ise). För logi Kap par som körs i Azure med flera innehavare och använder den lokala datagatewayen kopierar du Assembly-filerna från standardmappen för installation till datagateway-installationsmappen. Om du stöter på problem med datagatewayen kan du läsa följande problem:
 
-* Se till att installera den senaste versionen, [SAP Connector (NCo 3,0) för Microsoft .net 3.0.22.0 som kompilerats med .NET Framework 4,0-Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019), av följande anledningar:
+  * Du måste installera 64-bitars versionen för SAP-klient biblioteket eftersom data gatewayen bara körs på 64-bitars system. Annars får du fel meddelandet "felaktig avbildning" eftersom värd tjänsten för data Gateway inte stöder 32-bitars sammansättningar.
 
-    * Tidigare SAP NCo-versioner kan bli död när fler än ett IDoc-meddelande skickas på samma gång. Det här tillståndet blockerar alla senare meddelanden som skickas till SAP-målet, vilket leder till timeout-fel i meddelandet.
-    * Den lokala datagatewayen körs bara på 64-bitars system. Annars får du fel meddelandet "felaktig avbildning" eftersom värd tjänsten för data Gateway inte stöder 32-bitars sammansättningar.
+  * Om din SAP-anslutning Miss lyckas med fel meddelandet "kontrol lera konto information och/eller behörigheter och försök igen", kan Assembly-filerna ha fel plats. Se till att du har kopierat Assembly-filerna till installationsmappen för datagateway.
 
-    * Både data Gateway-värdservern och Microsoft SAP-adaptern använder .NET Framework 4,5. SAP-NCo för .NET Framework 4,0 fungerar med processer som använder .NET Runtime 4,0 till 4.7.1. SAP-NCo för .NET Framework 2,0 fungerar med processer som använder .NET Runtime 2,0 till 3,5, men fungerar inte längre med den senaste lokala datagatewayen.
+    Du kan felsöka genom att [använda logg visaren för .net-sammansättnings bindning](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), vilket gör att du kan kontrol lera att Assembly-filerna finns på rätt plats. Alternativt kan du välja alternativet **Global Assembly Cache Registration** när du installerar SAP-klient biblioteket.
 
-### <a name="snc-prerequisites"></a>SNC-krav
+<a name="sap-library-versions"></a>
 
-Konfigurera de här inställningarna om du använder SNC (valfritt):
+#### <a name="sap-client-library-versions"></a>Versioner av SAP-klient bibliotek
 
-* Om du använder SNC med SSO ser du till att gatewayen körs som en användare som är mappad mot SAP-användaren. Om du vill ändra standard kontot väljer du **Ändra konto**och anger autentiseringsuppgifterna för användaren.
+Tidigare SAP NCo-versioner kan bli död när fler än ett IDoc-meddelande skickas på samma gång. Det här tillståndet blockerar alla senare meddelanden som skickas till SAP-målet, vilket leder till timeout-fel i meddelandet.
 
-  ![Ändra Gateway-konto](./media/logic-apps-using-sap-connector/gateway-account.png)
+Här följer relationerna mellan SAP-klient biblioteket, .NET Framework, .NET-körningen och gatewayen:
 
-* Om du aktiverar SNC med en extern säkerhets produkt kopierar du SNC-biblioteket eller-filerna på samma dator där gatewayen är installerad. Några exempel på SNC-produkter är [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), KERBEROS och NTLM.
+* Både Microsoft SAP-styrenheten och värd tjänsten för Gateway använder .NET Framework 4,5.
+
+* SAP-NCo för .NET Framework 4,0 fungerar med processer som använder .NET Runtime 4,0 till 4.7.1.
+
+* SAP-NCo för .NET Framework 2,0 fungerar med processer som använder .NET Runtime 2,0 till 3,5, men inte längre fungerar med den senaste gatewayen.
+
+### <a name="secure-network-communications-prerequisites"></a>Krav för säker nätverks kommunikation
+
+Om du använder den lokala datagatewayen med valfri säker nätverkskommunikation (SNC), som endast stöds i Azure med flera innehavare, måste du också konfigurera de här inställningarna:
+
+* Om du använder SNC med enkel inloggning (SSO) ser du till att data gatewayen körs som en användare som är mappad mot SAP-användaren. Om du vill ändra standard kontot väljer du **Ändra konto**och anger autentiseringsuppgifterna för användaren.
+
+  ![Ändra data Gateway-konto](./media/logic-apps-using-sap-connector/gateway-account.png)
+
+* Om du aktiverar SNC med en extern säkerhets produkt kopierar du SNC-biblioteket eller-filerna på samma dator där datagatewayen är installerad. Några exempel på SNC-produkter är [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), KERBEROS och NTLM.
+
+Mer information om hur du aktiverar SNC för data Gateway finns i [Aktivera säker nätverkskommunikation](#secure-network-communications).
 
 <a name="migrate"></a>
 
 ## <a name="migrate-to-current-connector"></a>Migrera till aktuell anslutning
+
+Följ dessa steg om du vill migrera från en tidigare hanterad SAP-koppling (ej-ISE) till den aktuella hanterade SAP-anslutningen:
 
 1. Om du inte redan har gjort det kan du uppdatera din [lokala datagateway](https://www.microsoft.com/download/details.aspx?id=53127) så att du har den senaste versionen. Mer information finns i [installera en lokal datagateway för Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
@@ -139,13 +218,15 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
 
    ![Välj åtgärden "Skicka meddelande till SAP" från fliken Enterprise](media/logic-apps-using-sap-connector/select-sap-send-action-ent-tab.png)
 
-1. Om anslutningen redan finns fortsätter du med nästa steg så att du kan konfigurera din SAP-åtgärd. Men om du uppmanas att ange anslutnings information anger du informationen så att du kan skapa en anslutning till din lokala SAP-server nu.
+1. Om anslutningen redan finns fortsätter du med nästa steg så att du kan konfigurera din SAP-åtgärd. Men om du uppmanas att ange anslutnings information anger du informationen så att du kan skapa en anslutning till din lokala SAP-server.
 
    1. Ange ett namn för anslutningen.
 
-   1. I avsnittet **datagateway** , under **prenumeration**, väljer du först Azure-prenumerationen för den gateway-resurs som du skapade i Azure Portal för gateway-installationen. 
+   1. Följ dessa steg om du använder data gatewayen:
    
-   1. Under **anslutnings-Gateway**väljer du din gateway-resurs.
+      1. I avsnittet **datagateway** , under **prenumeration**, väljer du först Azure-prenumerationen för den data gateway-resurs som du skapade i Azure Portal för din datagateway-installation.
+   
+      1. Under **anslutnings-Gateway**väljer du din data gateway-resurs i Azure.
 
    1. Fortsätt att ange information om anslutningen. För egenskapen **inloggnings typ** följer du stegen baserat på om egenskapen har angetts till **program Server** eller **grupp**:
    
@@ -257,9 +338,11 @@ I det här exemplet används en Logic-app som utlöses när appen tar emot ett m
 
    1. Ange ett namn för anslutningen.
 
-   1. I avsnittet **datagateway** , under **prenumeration**, väljer du först Azure-prenumerationen för den gateway-resurs som du skapade i Azure Portal för gateway-installationen. 
+   1. Följ dessa steg om du använder data gatewayen:
 
-   1. Under **anslutnings-Gateway**väljer du din gateway-resurs.
+      1. I avsnittet **datagateway** , under **prenumeration**, väljer du först Azure-prenumerationen för den data gateway-resurs som du skapade i Azure Portal för din datagateway-installation.
+
+      1. Under **anslutnings-Gateway**väljer du din data gateway-resurs i Azure.
 
    1. Fortsätt att ange information om anslutningen. För egenskapen **inloggnings typ** följer du stegen baserat på om egenskapen har angetts till **program Server** eller **grupp**:
 
@@ -279,7 +362,7 @@ I det här exemplet används en Logic-app som utlöses när appen tar emot ett m
 
 1. Ange de [parametrar som krävs](#parameters) baserat på din konfiguration av SAP-systemet.
 
-   Du kan också ange en eller flera SAP-åtgärder. Den här listan med åtgärder anger de meddelanden som utlösaren tar emot från din SAP-server via datagatewayen. En tom lista anger att utlösaren tar emot alla meddelanden. Om listan innehåller fler än ett meddelande, tar utlösaren bara emot de meddelanden som anges i listan. Alla andra meddelanden som skickas från din SAP-server avvisas av gatewayen.
+   Du kan också ange en eller flera SAP-åtgärder. Den här listan med åtgärder anger de meddelanden som utlösaren tar emot från din SAP-server. En tom lista anger att utlösaren tar emot alla meddelanden. Om listan innehåller fler än ett meddelande, tar utlösaren bara emot de meddelanden som anges i listan. Alla andra meddelanden som skickas från din SAP-server avvisas.
 
    Du kan välja en SAP-åtgärd från fil väljaren:
 
@@ -300,7 +383,7 @@ I det här exemplet används en Logic-app som utlöses när appen tar emot ett m
 Din Logi Kap par är nu redo att ta emot meddelanden från SAP-systemet.
 
 > [!NOTE]
-> SAP-utlösaren är ingen avsöknings utlösare utan är en webhook-baserad utlösare i stället. Utlösaren anropas från gatewayen endast när det finns ett meddelande, så ingen avsökning krävs.
+> SAP-utlösaren är ingen avsöknings utlösare utan är en webhook-baserad utlösare i stället. Om du använder datagatewayen anropas utlösaren från datagatewayen endast när det finns ett meddelande, så ingen avsökning krävs.
 
 <a name="parameters"></a>
 
@@ -320,11 +403,11 @@ Tillsammans med enkla sträng-och siffer inmatningar accepterar SAP-kopplingen f
 
 1. Öppna den senaste körningen, som visar meddelandet som skickas från ditt SAP-system i avsnittet Utlös utmatningar.
 
-## <a name="receive-idoc-packets-from-sap"></a>Ta emot IDOC-paket från SAP
+## <a name="receive-idoc-packets-from-sap"></a>Ta emot IDoc-paket från SAP
 
-Du kan konfigurera SAP för att [Skicka IDOCs i paket](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html), som är batchar eller grupper med IDOCs. För att ta emot IDOC-paket behöver SAP-anslutaren och särskilt utlösaren ingen extra konfiguration. Men för att bearbeta varje objekt i ett IDOC-paket när utlösaren tar emot paketet, krävs ytterligare steg för att dela paketet i enskilda IDOCs.
+Du kan konfigurera SAP för att [Skicka idocs i paket](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html), som är batchar eller grupper med IDocs. För att ta emot IDoc-paket behöver SAP-anslutaren och särskilt utlösaren ingen extra konfiguration. Men för att bearbeta varje objekt i ett IDoc-paket när utlösaren tar emot paketet, krävs ytterligare steg för att dela paketet i enskilda IDocs.
 
-Här är ett exempel som visar hur du extraherar enskilda IDOCs från ett paket med hjälp av [ `xpath()` funktionen](./workflow-definition-language-functions-reference.md#xpath):
+Här är ett exempel som visar hur du extraherar enskilda IDocs från ett paket med hjälp av [ `xpath()` funktionen](./workflow-definition-language-functions-reference.md#xpath):
 
 1. Innan du börjar måste du ha en Logic-app med en SAP-utlösare. Om du inte redan har den här Logic-appen följer du de föregående stegen i det här avsnittet för att [Konfigurera en Logic app med en SAP-utlösare](#receive-from-sap).
 
@@ -332,23 +415,23 @@ Här är ett exempel som visar hur du extraherar enskilda IDOCs från ett paket 
 
    ![Lägg till SAP-utlösare i Logic app](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
-1. Hämta rot namn området från XML-IDOC som din Logic app tar emot från SAP. Om du vill extrahera det här namn området från XML-dokumentet lägger du till ett steg som skapar en lokal sträng variabel och lagrar namn området med hjälp av ett `xpath()` uttryck:
+1. Hämta rot namn området från XML-IDoc som din Logic app tar emot från SAP. Om du vill extrahera det här namn området från XML-dokumentet lägger du till ett steg som skapar en lokal sträng variabel och lagrar namn området med hjälp av ett `xpath()` uttryck:
 
    `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
 
-   ![Hämta rot namn område från IDOC](./media/logic-apps-using-sap-connector/get-namespace.png)
+   ![Hämta rot namn område från IDoc](./media/logic-apps-using-sap-connector/get-namespace.png)
 
-1. Om du vill extrahera en enskild IDOC lägger du till ett steg som skapar en mat ris variabel och lagrar IDOC-samlingen med hjälp av ett annat `xpath()` uttryck:
+1. Om du vill extrahera en enskild IDoc lägger du till ett steg som skapar en mat ris variabel och lagrar IDoc-samlingen med hjälp av ett annat `xpath()` uttryck:
 
    `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')`
 
    ![Hämta objekt mat ris](./media/logic-apps-using-sap-connector/get-array.png)
 
-   Array-variabeln gör varje IDOC tillgänglig för din Logic app för att bearbeta en individuellt genom att räkna upp över samlingen. I det här exemplet överför Logic-appen varje IDOC till en SFTP-server med hjälp av en slinga:
+   Array-variabeln gör varje IDoc tillgänglig för din Logic app för att bearbeta en individuellt genom att räkna upp över samlingen. I det här exemplet överför Logic-appen varje IDoc till en SFTP-server med hjälp av en slinga:
 
-   ![Skicka IDOC till SFTP-server](./media/logic-apps-using-sap-connector/loop-batch.png)
+   ![Skicka IDoc till SFTP-server](./media/logic-apps-using-sap-connector/loop-batch.png)
 
-   Varje IDOC måste innehålla rot namn området, vilket är orsaken till att fil innehållet är omslutet i ett- `<Receive></Receive` element tillsammans med rot namn området innan du skickar iDOC till den underordnade appen eller SFTP-servern i det här fallet.
+   Varje IDoc måste innehålla rot namn området, vilket är orsaken till att fil innehållet är omslutet i ett- `<Receive></Receive` element tillsammans med rot namn området innan du skickar iDOC till den underordnade appen eller SFTP-servern i det här fallet.
 
 Du kan använda snabb starts mal len för det här mönstret genom att välja den här mallen i Logic App Designer när du skapar en ny Logic app.
 
@@ -391,9 +474,9 @@ I verktygsfältet designer väljer du **Spara**.
 
    1. Ange ett namn för anslutningen.
 
-   1. I avsnittet **datagateway** , under **prenumeration**, väljer du först Azure-prenumerationen för den gateway-resurs som du skapade i Azure Portal för gateway-installationen. 
+   1. I avsnittet **datagateway** , under **prenumeration**, väljer du först Azure-prenumerationen för den data gateway-resurs som du skapade i Azure Portal för din datagateway-installation. 
    
-   1. Under **anslutnings-Gateway**väljer du din gateway-resurs.
+   1. Under **anslutnings-Gateway**väljer du din data gateway-resurs i Azure.
 
    1. Fortsätt att ange information om anslutningen. För egenskapen **inloggnings typ** följer du stegen baserat på om egenskapen har angetts till **program Server** eller **grupp**:
    
@@ -480,12 +563,16 @@ Du kan också hämta eller lagra de genererade schemana i-databaser, till exempe
 
 1. Efter en lyckad körning går du till integrations kontot och kontrollerar att de genererade schemana finns.
 
+<a name="secure-network-communications"></a>
+
 ## <a name="enable-secure-network-communications"></a>Aktivera säker nätverkskommunikation
 
-Innan du börjar ska du kontrol lera att du uppfyller de tidigare angivna [förutsättningarna](#pre-reqs):
+Innan du börjar ska du kontrol lera att du har uppfyllt de tidigare angivna [kraven](#pre-reqs), som endast tillämpas när du använder datagatewayen och dina Logi Kap par körs i Azure med flera innehavare:
 
-* Den lokala datagatewayen är installerad på en dator som är i samma nätverk som ditt SAP-system.
-* För SSO körs gatewayen som en användare som är mappad till en SAP-användare.
+* Kontrol lera att den lokala datagatewayen är installerad på en dator som är i samma nätverk som ditt SAP-system.
+
+* För enkel inloggning (SSO) körs data gatewayen som en användare som är mappad till en SAP-användare.
+
 * SNC-biblioteket som tillhandahåller ytterligare säkerhetsfunktioner installeras på samma dator som data gatewayen. Några exempel är [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), KERBEROS och NTLM.
 
    Om du vill aktivera SNC för dina begär anden till eller från SAP-systemet markerar du kryss rutan **Använd SNC** i SAP-anslutningen och anger följande egenskaper:
@@ -554,7 +641,7 @@ När meddelanden skickas med **säker inmatning** aktive rad ser dats och Tims-s
 
 ### <a name="confirm-transaction-explicitly"></a>Bekräfta transaktionen explicit
 
-När du skickar transaktioner till SAP från Logic Apps sker detta Exchange i två steg enligt beskrivningen i SAP-dokumentet, [TRANSAKTIONELLA RFC Server-program](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). Som standard hanterar åtgärden **Skicka till SAP** både stegen för funktions överföringen och för transaktions bekräftelsen i ett enda anrop. Med SAP Connector får du möjlighet att koppla från de här stegen. Du kan skicka en IDOC och i stället för att automatiskt bekräfta transaktionen, kan du använda åtgärden explicit **Bekräfta transaktions-ID** .
+När du skickar transaktioner till SAP från Logic Apps sker detta Exchange i två steg enligt beskrivningen i SAP-dokumentet, [TRANSAKTIONELLA RFC Server-program](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). Som standard hanterar åtgärden **Skicka till SAP** både stegen för funktions överföringen och för transaktions bekräftelsen i ett enda anrop. Med SAP Connector får du möjlighet att koppla från de här stegen. Du kan skicka en IDoc och i stället för att automatiskt bekräfta transaktionen, kan du använda åtgärden explicit **Bekräfta transaktions-ID** .
 
 Den här funktionen för att ta del av transaktions-ID-bekräftelsen är användbar när du inte vill duplicera transaktioner i SAP, till exempel i scenarier där fel kan uppstå på grund av orsaker till nätverks problem. Genom att bekräfta transaktions-ID: t separat slutförs transaktionen bara en tid i SAP-systemet.
 
@@ -562,7 +649,7 @@ Här är ett exempel som visar det här mönstret:
 
 1. Skapa en tom Logic-app och Lägg till en HTTP-utlösare.
 
-1. Lägg till åtgärden **Skicka iDOC** från SAP-anslutaren. Ange information om IDOC som du skickar till ditt SAP-system.
+1. Lägg till åtgärden **Skicka iDOC** från SAP-anslutaren. Ange information om IDoc som du skickar till ditt SAP-system.
 
 1. För att explicit bekräfta transaktions-ID: t i ett separat steg, i fältet **Bekräfta tid** , väljer du **Nej**. För det valfria fältet **transaktions-ID GUID** kan du antingen manuellt ange värdet eller låta kopplingen automatiskt generera och returnera denna GUID i svaret från åtgärden skicka iDOC.
 
@@ -576,7 +663,7 @@ Här är ett exempel som visar det här mönstret:
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 
-Här är de kända problemen och begränsningarna för SAP-anslutningen:
+Här följer de kända problemen och begränsningarna för den hanterade SAP-anslutningen (ej-ISE):
 
 * SAP-utlösaren stöder inte data Gateway-kluster. I vissa fall kan datagateway-noden som kommunicerar med SAP-systemet skilja sig från den aktiva noden, vilket resulterar i ett oväntat beteende. För sändnings scenarier stöds data Gateway-kluster.
 

@@ -12,17 +12,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/09/2020
-ms.openlocfilehash: a2f1ee064660b8a34d97875cdf5ddd3a2ac2959f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a437cd1b3cb8018229cf6445e23314cf17bf10a2
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048149"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219861"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database--sql-managed-instance"></a>Välj mellan vCore-och DTU-inköps modeller – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database & SQL-hanterad instansen kan du enkelt köpa en helt hanterad plattform som en tjänst (PaaS)-databas motor som passar dina prestanda-och kostnads behov. Beroende på vilken distributions modell som du har valt för Azure SQL Database kan du välja den inköps modell som passar dig bäst:
+Azure SQL Database & SQL-hanterad instans kan du enkelt köpa en helt hanterad plattform som en tjänst (PaaS)-databas motor som passar dina prestanda-och kostnads behov. Beroende på vilken distributions modell som du har valt för Azure SQL Database kan du välja den inköps modell som passar dig bäst:
 
 - [Virtual Core (vCore)-baserad inköps modell](service-tiers-vcore.md) (rekommenderas). Den här inköps modellen ger ett val mellan en allokerad beräknings nivå och en server lös beräknings nivå. Med den allokerade beräknings nivån väljer du den exakta mängden beräknings resurser som alltid är etablerade för din arbets belastning. Med Server lös beräknings nivån anger du automatisk skalning av beräknings resurserna över ett konfigurerbart beräknings intervall. Med den här beräknings nivån kan du också automatiskt pausa och återuppta databasen baserat på arbets belastnings aktivitet. VCore enhets pris per tidsenhet är lägre än den allokerade beräknings nivån än den är i Server lös beräknings nivån.
 - [-Baserad inköps modell för databas transaktions enhet (DTU)](service-tiers-dtu.md). Den här inköps modellen tillhandahåller paket för beräkning och lagring som är balanserade för vanliga arbets belastningar.

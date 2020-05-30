@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 49ad9be7c70602132436b14234f01a4086d8e1fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02d6c11e3880f69f5020fb51f90a72c3233e2f25
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70139146"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195891"
 ---
 # <a name="use-case---product-recommendations"></a>Användnings fall – produkt rekommendationer
 Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite av lösnings acceleratorer.  Se [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) sida för information om den här sviten. I det här dokumentet beskriver vi ett vanligt användnings fall som Azure-användare redan har löst och implementerat med hjälp av Azure Data Factory och andra Cortana Intelligence komponent tjänster.
@@ -41,7 +41,7 @@ Slutligen måste åter försäljare mäta effektiviteten för deras tillvägagå
 ## <a name="solution-overview"></a>Lösning: översikt
 Detta exempel på användnings fall har lösts och implementerats av verkliga Azure-användare med hjälp av Azure Data Factory och andra Cortana Intelligence komponent tjänster, inklusive [HDInsight](https://azure.microsoft.com/services/hdinsight/) och [Power BI](https://powerbi.microsoft.com/).
 
-Online-återförsäljarversionen använder Azure Blob Store, en lokal SQL Server, Azure SQL DB och en Relations data mart som data lagrings alternativ i hela arbets flödet.  BLOB Store innehåller kund information, kund beteende data och produkt informations data. Produkt informations data innehåller information om produkt anpassning och en produkt katalog som lagras lokalt i ett SQL Data Warehouse. 
+Online-detaljisten använder Azure Blob Store, en lokal SQL Server, Azure SQL Database och en Relations data mart som data lagrings alternativ i hela arbets flödet.  BLOB Store innehåller kund information, kund beteende data och produkt informations data. Produkt informations data innehåller information om produkt anpassning och en produkt katalog som lagras lokalt i ett SQL Data Warehouse. 
 
 Alla data kombineras och matas in i ett produkt rekommendations system för att tillhandahålla anpassade rekommendationer baserat på kundernas intressen och åtgärder, medan användaren bläddrar i produkterna i katalogen på webbplatsen. Kunderna kan också se produkter som är relaterade till den produkt de tittar på baserat på de övergripande användnings mönster för webbplatser som inte är relaterade till någon användare.
 

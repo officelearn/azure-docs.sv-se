@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: c1a7f22314af472037194150b78e881395c14c2e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 518c4b83721e80aeaadfbdf5b03cddc62ae5479f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117387"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216336"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure SQL Managed instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ Den här artikeln innehåller de vanligaste frågorna om [Azure SQL-hanterad ins
 
 En lista över funktioner som stöds i SQL-hanterad instans finns i [funktioner för Azure SQL-hanterad instans](../database/features-comparison.md).
 
-Skillnader i syntax och beteende mellan Azure SQL-hanterad instans och lokala SQL Server finns i [skillnader i T-SQL från SQL Server](transact-sql-tsql-differences-sql-server.md).
+Skillnader i syntax och beteende mellan Azure SQL-hanterad instans och SQL Server finns i [skillnader i T-SQL från SQL Server](transact-sql-tsql-differences-sql-server.md).
 
 
 ## <a name="tech-spec--resource-limits"></a>Teknisk specifikation & resurs gränser
@@ -60,7 +60,7 @@ Förväntad tid för att skapa en SQL-hanterad instans eller ändra tjänst niv�
 
 ## <a name="naming-convention"></a>Namngivnings konvention
 
-**Kan en SQL-hanterad instans ha samma namn som lokalt SQL Server?**
+**Kan en SQL-hanterad instans ha samma namn som den lokala SQL Server-instansen?**
 
 Det finns inte stöd för att ändra SQL-hanterad instans namn.
 
@@ -240,3 +240,44 @@ När du har gjort krypterings skyddet tillgängligt för SQL-hanterad instans ka
 **Hur kan jag migrera från Azure SQL Database till SQL-hanterad instans?**
 
 SQL-hanterad instans har samma prestanda nivåer per beräknings-och lagrings storlek som Azure SQL Database. Om du vill konsolidera data på en enskild instans, eller om du bara behöver en funktion som stöds exklusivt i SQL-hanterad instans, kan du migrera dina data med hjälp av funktionen för att exportera/importera (BACPAC).
+
+## <a name="password-policy"></a>Lösen ords princip 
+
+**Vilka lösen ords principer används för SQL-inloggningar med SQL-hanterade instanser?**
+
+SQL-hanterad instans lösen ords princip för SQL-inloggningar ärver Azures plattforms principer som tillämpas på virtuella datorer som utgör den hanterade instansen. För tillfället går det inte att ändra någon av dessa inställningar eftersom inställningarna definieras av Azure och ärvs av en hanterad instans.
+
+ > [!IMPORTANT]
+ > Azure-plattformen kan ändra princip kraven utan att meddela tjänster som förlitar sig på dessa principer.
+
+**Vad är nuvarande Azure Platform-principer?**
+
+Varje inloggning måste ange sitt lösen ord vid inloggningen och ändra dess lösen ord när den når maximal ålder.
+
+| **Princip** | **Säkerhetsinställning** |
+| --- | --- |
+| Högsta ålder för lösen ord | 42 dagar |
+| Lägsta ålder för lösen ord | 1 dag |
+| Minsta längd på lösenord | 10 tecken |
+| Lösen ordet måste uppfylla komplexitets kraven | Enabled |
+
+**Är det möjligt att inaktivera lösen ords komplexitet och förfallo datum i SQL-hanterad instans på inloggnings nivå?**
+
+Ja, det är möjligt att kontrol lera CHECK_POLICY och CHECK_EXPIRATION fält på inloggnings nivå. Du kan kontrol lera aktuella inställningar genom att köra följande T-SQL-kommando:
+
+```sql
+SELECT *
+FROM sys.sql_logins
+```
+
+Därefter kan du ändra angivna inloggnings inställningar genom att köra:
+
+```sql
+ALTER LOGIN test WITH CHECK_POLICY = ON;
+ALTER LOGIN test WITH CHECK_EXPIRATION = ON;
+```
+
+(Ersätt "test" med önskat inloggnings namn)
+
+ > [!Note]
+ > Standardvärden för CHECK_POLICY och CHECK_EXPIRATION har angetts till av.

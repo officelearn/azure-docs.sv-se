@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4ca328aa0ddc61d86a435b93fe775f294287b98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527392"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196108"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide till prestandajustering för kopieringsaktiviteter
 
@@ -205,12 +205,12 @@ För närvarande kan du inte kopiera data mellan två lokala data lager med hjä
 ### <a name="configuration"></a>Konfiguration
 Konfigurera **enableStaging** -inställningen i kopierings aktivitet för att ange om du vill att data ska mellanlagras i Blob Storage innan du läser in dem i ett mål data lager. När du anger **enableStaging** till true anger du ytterligare egenskaper som anges i nästa tabell. Om du inte har en sådan måste du också skapa en signatur för delad åtkomst för en Azure Storage eller lagrings plats för delad åtkomst för mellanlagring.
 
-| Egenskap | Beskrivning | Standardvärde | Krävs |
+| Egenskap | Beskrivning | Standardvärde | Obligatorisk |
 | --- | --- | --- | --- |
-| **enableStaging** |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |False |Inga |
+| **enableStaging** |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |No |
 | **linkedServiceName** |Ange namnet på en länkad [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) -eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Ej tillämpligt |Ja, när **enableStaging** är inställt på True |
-| **sökväg** |Ange den Blob Storage-sökväg som du vill ska innehålla de mellanlagrade data. Om du inte anger en sökväg, skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange endast en sökväg om du använder lagring med en signatur för delad åtkomst, eller om du vill att tillfälliga data ska finnas på en bestämd plats. |Ej tillämpligt |Inga |
-| **enableCompression** |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |False |Inga |
+| **sökväg** |Ange den Blob Storage-sökväg som du vill ska innehålla de mellanlagrade data. Om du inte anger en sökväg, skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange endast en sökväg om du använder lagring med en signatur för delad åtkomst, eller om du vill att tillfälliga data ska finnas på en bestämd plats. |Ej tillämpligt |No |
+| **enableCompression** |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |No |
 
 Här är en exempel definition av kopierings aktiviteten med de egenskaper som beskrivs i föregående tabell:
 
@@ -366,8 +366,8 @@ Om storleken på de data som du vill kopiera är stor kan du justera affärs log
 
 Var försiktig med antalet data uppsättningar och kopierings aktiviteter som kräver Data Factory att ansluta till samma data lager samtidigt. Många samtidiga kopierings jobb kan begränsa ett data lager och leda till försämrade prestanda, kopiera jobb interna återförsök och i vissa fall körnings problem.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exempel scenario: kopiera från en lokal SQL Server till Blob Storage
-**Scenario**: en pipeline är byggd för att kopiera data från en lokal SQL Server till Blob Storage i CSV-format. Om du vill göra kopierings jobbet snabbare ska CSV-filerna komprimeras till bzip2-format.
+## <a name="sample-scenario-copy-from-a-sql-server-database-to-blob-storage"></a>Exempel scenario: kopiera från en SQL Server-databas till Blob Storage
+**Scenario**: en pipeline är byggd för att kopiera data från en SQL Server databas till Blob Storage i CSV-format. Om du vill göra kopierings jobbet snabbare ska CSV-filerna komprimeras till bzip2-format.
 
 **Test och analys**: data flödet för kopierings aktiviteten är mindre än 2 Mbit/s, vilket är mycket långsammare än prestanda måttet.
 

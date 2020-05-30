@@ -3,16 +3,17 @@ title: Azure Application Insights åsidosätter standard-SDK-slutpunkter
 description: Ändra standard Azure Monitor Application Insights SDK-slutpunkter för regioner som Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: f5bf5b07f7c058b4778e7695f150fdc71e048182
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.custom: references_regions
+ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629192"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194838"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights som åsidosätter standard slut punkter
 
-Om du vill skicka data från Application Insights till vissa regioner måste du åsidosätta standard slut punkts adresserna. Varje SDK kräver något annorlunda ändringar, som beskrivs i den här artikeln. Dessa ändringar kräver att du justerar exempel koden och ersätter plats hållar `QuickPulse_Endpoint_Address`värden `TelemetryChannel_Endpoint_Address`för, `Profile_Query_Endpoint_address` och med de faktiska slut punkts adresserna för din specifika region. Slutet av den här artikeln innehåller länkar till slut punkts adresser för regioner där denna konfiguration krävs.
+Om du vill skicka data från Application Insights till vissa regioner måste du åsidosätta standard slut punkts adresserna. Varje SDK kräver något annorlunda ändringar, som beskrivs i den här artikeln. Dessa ändringar kräver att du justerar exempel koden och ersätter plats hållar värden för `QuickPulse_Endpoint_Address` , `TelemetryChannel_Endpoint_Address` och `Profile_Query_Endpoint_address` med de faktiska slut punkts adresserna för din specifika region. Slutet av den här artikeln innehåller länkar till slut punkts adresser för regioner där denna konfiguration krävs.
 
 > [!NOTE]
 > [Anslutnings strängar](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) är den nya bästa metoden för att ställa in anpassade slut punkter i Application Insights.
@@ -59,7 +60,7 @@ Om du vill skicka data från Application Insights till vissa regioner måste du 
   }
 ```
 
-Värdena för Live mått och profil frågans slut punkt kan bara anges via kod. Om du vill åsidosätta standardvärdena för alla slut punkts värden via kod gör du `ConfigureServices` följande ändringar i `Startup.cs` fil metoden:
+Värdena för Live mått och profil frågans slut punkt kan bara anges via kod. Om du vill åsidosätta standardvärdena för alla slut punkts värden via kod gör du följande ändringar i `ConfigureServices` `Startup.cs` fil metoden:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -76,7 +77,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
-För Azure Functions rekommenderar vi nu att du använder [anslutnings strängar](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) som anges i funktionens program inställningar. Om du vill komma åt program inställningar för din funktion från rutan funktioner väljer du **Inställningar** > **konfiguration** > **program inställningar**. 
+För Azure Functions rekommenderar vi nu att du använder [anslutnings strängar](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) som anges i funktionens program inställningar. Om du vill komma åt program inställningar för din funktion från rutan funktioner väljer du **Inställningar**  >  **konfiguration**  >  **program inställningar**. 
 
 Namn: `APPLICATIONINSIGHTS_CONNECTION_STRING` värde:`Connection String Value`
 
@@ -115,7 +116,7 @@ Namn: `APPLICATIONINSIGHTS_CONNECTION_STRING` värde:`Connection String Value`
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
 ```
 
-# <a name="nodejs"></a>[Node. js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");

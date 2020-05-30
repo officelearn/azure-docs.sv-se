@@ -4,23 +4,23 @@ description: I den här artikeln får du lära dig hur du aktiverar och skapar s
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: add2805d9a360d3d9cd45ab54f476a6852fb7bd5
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 16a183776bebad2fd365c3182ae64ea54befe41d
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858581"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219085"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Aktivera och skapa stora fil resurser
 
 När du aktiverar stora fil resurser på ditt lagrings konto kan fil resurserna skala upp till 100 TiB. Du kan aktivera den här skalningen på dina befintliga lagrings konton för dina befintliga fil resurser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Om du tänker använda Azure CLI [installerar du den senaste versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 - Om du tänker använda Azure PowerShell [installerar du den senaste versionen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
 
@@ -32,9 +32,9 @@ Att aktivera stora fil resurser på ett konto är en oåterkallelig process. Nä
 
 ## <a name="create-a-new-storage-account"></a>Skapa ett nytt lagringskonto
 
-### <a name="portal"></a>Portalen
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **Alla tjänster** i Azure-portalen. 
 1. Ange **lagrings konton**i listan över resurser. När du skriver filtreras listan baserat på dina inaktuella inaktuella inaktuella inaktuella. Välj **Lagringskonton**.
 1. I fönstret **lagrings konton** som visas väljer du **Lägg till**.
@@ -62,33 +62,34 @@ Att aktivera stora fil resurser på ett konto är en oåterkallelig process. Nä
 
 1. Välj **Skapa**.
 
-### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Installera först [den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) så att du kan aktivera stora fil resurser.
 
-Om du vill skapa ett lagrings konto med stora fil resurser aktiverade använder du följande kommando. Ersätt `<yourStorageAccountName>`, `<yourResourceGroup>`och `<yourDesiredRegion>` med din information.
+Om du vill skapa ett lagrings konto med stora fil resurser aktiverade använder du följande kommando. Ersätt `<yourStorageAccountName>` , `<yourResourceGroup>` och `<yourDesiredRegion>` med din information.
 
 ```azurecli-interactive
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Installera först [den senaste versionen av PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) så att du kan aktivera stora fil resurser.
 
-Om du vill skapa ett lagrings konto med stora fil resurser aktiverade använder du följande kommando. Ersätt `<yourStorageAccountName>`, `<yourResourceGroup>`och `<yourDesiredRegion>` med din information.
+Om du vill skapa ett lagrings konto med stora fil resurser aktiverade använder du följande kommando. Ersätt `<yourStorageAccountName>` , `<yourResourceGroup>` och `<yourDesiredRegion>` med din information.
 
 ```powershell
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
+---
 
 ## <a name="enable-large-files-shares-on-an-existing-account"></a>Aktivera stora fil resurser på ett befintligt konto
 
 Du kan också aktivera stora fil resurser på dina befintliga konton. Om du aktiverar stora fil resurser kan du inte konvertera till GZRS, GRS, RA-GRS eller RA-GZRS. Att aktivera stora fil resurser går inte att ångra på det här lagrings kontot.
 
-### <a name="portal"></a>Portalen
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Öppna [Azure Portal](https://portal.azure.com)och gå till det lagrings konto där du vill aktivera stora fil resurser.
 1. Öppna lagrings kontot och välj **konfiguration**.
@@ -97,11 +98,9 @@ Du kan också aktivera stora fil resurser på dina befintliga konton. Om du akti
 
 ![Att välja alternativ knappen aktive rad i ett befintligt lagrings konto i Azure Portal](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
 
-Nu har du aktiverat stora fil resurser på ditt lagrings konto. Sedan måste du uppdatera den befintliga resursens kvot för att dra nytta av ökad kapacitet och skalning.
+Nu har du aktiverat stora fil resurser på ditt lagrings konto. Sedan måste du [Uppdatera den befintliga resursens kvot](#expand-existing-file-shares) för att dra nytta av ökad kapacitet och skalning.
 
-Om du får ett fel meddelande om att det inte finns några stora fil resurser tillgängliga för kontot än, så kan din region vara i mitten av att slutföra distributionen. Kontakta supporten om du har ett brådskande behov av stora fil resurser.
-
-### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Använd följande kommando för att aktivera stora fil resurser på ditt befintliga konto. Ersätt `<yourStorageAccountName>` och `<yourResourceGroup>` med din information.
 
@@ -109,7 +108,9 @@ Använd följande kommando för att aktivera stora fil resurser på ditt befintl
 az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
 ```
 
-### <a name="powershell"></a>PowerShell
+Nu har du aktiverat stora fil resurser på ditt lagrings konto. Sedan måste du [Uppdatera den befintliga resursens kvot](#expand-existing-file-shares) för att dra nytta av ökad kapacitet och skalning.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Använd följande kommando för att aktivera stora fil resurser på ditt befintliga konto. Ersätt `<yourStorageAccountName>` och `<yourResourceGroup>` med din information.
 
@@ -117,11 +118,15 @@ Använd följande kommando för att aktivera stora fil resurser på ditt befintl
 Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
 ```
 
+Nu har du aktiverat stora fil resurser på ditt lagrings konto. Sedan måste du [Uppdatera den befintliga resursens kvot](#expand-existing-file-shares) för att dra nytta av ökad kapacitet och skalning.
+
+---
+
 ## <a name="create-a-large-file-share"></a>Skapa en stor fil resurs
 
 När du har aktiverat stora fil resurser på ditt lagrings konto kan du skapa fil resurser i det kontot med högre kvoter. 
 
-### <a name="portal"></a>Portalen
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Att skapa en stor fil resurs är nästan identiskt med att skapa en standard fil resurs. Den största skillnaden är att du kan ange en kvot på upp till 100 TiB.
 
@@ -131,17 +136,17 @@ Att skapa en stor fil resurs är nästan identiskt med att skapa en standard fil
 
 ![Azure Portal gränssnittet visar rutorna namn och kvot](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
-### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Använd följande kommando för att skapa en stor fil resurs. Ersätt `<yourStorageAccountName>`, `<yourStorageAccountKey>`och `<yourFileShareName>` med din information.
+Använd följande kommando för att skapa en stor fil resurs. Ersätt `<yourStorageAccountName>` , `<yourStorageAccountKey>` och `<yourFileShareName>` med din information.
 
 ```azurecli-interactive
 az storage share create --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName>
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Använd följande kommando för att skapa en stor fil resurs. Ersätt `<YourStorageAccountName>`, `<YourStorageAccountKey>`och `<YourStorageAccountFileShareName>` med din information.
+Använd följande kommando för att skapa en stor fil resurs. Ersätt `<YourStorageAccountName>` , `<YourStorageAccountKey>` och `<YourStorageAccountFileShareName>` med din information.
 
 ```powershell
 ##Config
@@ -151,12 +156,13 @@ $shareName="<YourStorageAccountFileShareName>"
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 New-AzStorageShare -Name $shareName -Context $ctx
 ```
+---
 
 ## <a name="expand-existing-file-shares"></a>Expandera befintliga fil resurser
 
 När du har aktiverat stora fil resurser på ditt lagrings konto kan du också expandera befintliga fil resurser i det kontot till den högre kvoten. 
 
-### <a name="portal"></a>Portalen
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Välj **fil resurser**från ditt lagrings konto.
 1. Högerklicka på fil resursen och välj sedan **kvot**.
@@ -164,17 +170,17 @@ När du har aktiverat stora fil resurser på ditt lagrings konto kan du också e
 
 ![Azure Portal gränssnittet med kvoten för befintliga fil resurser](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
 
-### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Använd följande kommando för att ange kvoten till maximal storlek. Ersätt `<yourStorageAccountName>`, `<yourStorageAccountKey>`och `<yourFileShareName>` med din information.
+Använd följande kommando för att ange kvoten till maximal storlek. Ersätt `<yourStorageAccountName>` , `<yourStorageAccountKey>` och `<yourFileShareName>` med din information.
 
 ```azurecli-interactive
 az storage share update --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName> --quota 102400
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Använd följande kommando för att ange kvoten till maximal storlek. Ersätt `<YourStorageAccountName>`, `<YourStorageAccountKey>`och `<YourStorageAccountFileShareName>` med din information.
+Använd följande kommando för att ange kvoten till maximal storlek. Ersätt `<YourStorageAccountName>` , `<YourStorageAccountKey>` och `<YourStorageAccountFileShareName>` med din information.
 
 ```powershell
 ##Config
@@ -185,6 +191,7 @@ $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAcco
 # update quota
 Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 102400
 ```
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

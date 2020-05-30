@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 4559cd40bf9482ece80d0b6123ca73b7a0cbb3aa
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 14503299b241b87459517818b0d0b2be6dde9072
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170910"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219249"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -143,6 +143,23 @@ Om identifierade virtuella datorer inte visas i portalen eller om VM-data är in
 ## <a name="deleted-vms-appear-in-portal"></a>Borttagna virtuella datorer visas i portalen
 
 Om du tar bort virtuella datorer och de fortfarande visas i portalen väntar du i 30 minuter. Om de fortfarande visas uppdaterar du enligt beskrivningen ovan.
+
+## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Fel: filen som överfördes har inte det förväntade formatet
+Vissa verktyg har regionala inställningar som skapar CSV-filen med semikolon som avgränsare. Ändra inställningarna för att se till att avgränsaren är ett kommatecken.
+
+## <a name="i-imported-a-csv-but-i-see-discovery-is-in-progress"></a>Jag importerade en CSV men ser "identifiering pågår"
+Den här statusen visas om din CSV-överföring misslyckades på grund av ett verifierings fel. Försök att importera CSV-filen igen. Du kan hämta fel rapporten från föregående uppladdning och följa reparations vägledningen i filen för att åtgärda felen. Fel rapporten kan hämtas från avsnittet Importera information på sidan identifiera datorer.
+
+## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>Se inte programinformation trots att gäst uppgifter har uppdaterats
+Program identifieringen körs en gång var 24: e timme. Om du vill se informationen omedelbart uppdaterar du enligt följande. Det kan ta några minuter beroende på Nej. identifierade virtuella datorer.
+
+1. I **servrar**  >  **Azure Migrate Server utvärdering**väljer du **Översikt**.
+2. Under **Hantera**väljer du **agenthälsa**.
+3. Välj **Uppdatera agent**.
+4. Vänta tills uppdaterings åtgärden har slutförts. Nu bör du se uppdaterad information.
+
+## <a name="unable-to-export-application-inventory"></a>Det gick inte att exportera program inventeringen
+Se till att användaren laddar ned inventeringen från portalen har deltagar behörighet för prenumerationen.
 
 ## <a name="common-app-discovery-errors"></a>Vanliga fel vid identifiering av appar
 

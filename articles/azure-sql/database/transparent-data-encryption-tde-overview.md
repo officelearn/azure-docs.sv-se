@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 04/10/2020
-ms.openlocfilehash: 023f00e30809126a1be7df5330f27453477ed9cf
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 05bd4b83a6387eefb243ed8058c3fe833615cfb4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048037"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188281"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance--azure-synapse"></a>Transparent data kryptering för SQL Database, SQL-hanterad instans & Azure Synapse
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -65,7 +65,7 @@ Du behöver inte dekryptera databaser för åtgärder i Azure. TDE-inställninga
 
 När du exporterar en TDE databas krypteras inte det exporterade innehållet i databasen. Det exporterade innehållet lagras i okrypterade BACPAC-filer. Se till att skydda BACPAC-filerna på rätt sätt och aktivera TDE efter att den nya databasen har importer ATS.
 
-Om filen BACPAC till exempel exporteras från en lokal SQL Server instans, krypteras inte det importerade innehållet i den nya databasen automatiskt. Om filen BACPAC exporteras till en lokal SQL Server instans, krypteras inte heller den nya databasen automatiskt.
+Om filen BACPAC till exempel exporteras från en SQL Server instans, krypteras inte det importerade innehållet i den nya databasen automatiskt. På samma sätt, om BACPAC-filen importeras till en SQL Server instans, krypteras inte den nya databasen automatiskt.
 
 Det enda undantaget är när du exporterar till och från en SQL Database. TDE har Aktiver ATS i den nya databasen, men BACPAC-filen är fortfarande inte krypterad.
 

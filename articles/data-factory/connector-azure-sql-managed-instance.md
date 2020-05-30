@@ -10,13 +10,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 03/12/2020
-ms.openlocfilehash: d33c54c677cb3c16b6ef295ee39c0ac3b6fb0159
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.date: 05/29/2020
+ms.openlocfilehash: 91674aaaedc828122602ce1dd9373056db4bf33d
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148318"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220476"
 ---
 # <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL-hanterad instans med hjälp av Azure Data Factory
 
@@ -38,10 +38,10 @@ Mer specifikt stöder SQL Managed instance Connector:
 
 - Kopiera data med hjälp av SQL-autentisering och Azure Active Directory (Azure AD) Application token-autentisering med tjänstens huvud namn eller hanterade identiteter för Azure-resurser.
 - Som källa hämtar data med hjälp av en SQL-fråga eller en lagrad procedur.
-- Som mottagare lägger du till data i en mål tabell eller anropar en lagrad procedur med anpassad logik under kopieringen.
+- Som mottagare skapar mål tabellen automatiskt om den inte finns, baserat på käll schemat. lägga till data i en tabell eller anropa en lagrad procedur med anpassad logik under kopieringen.
 
 >[!NOTE]
-> SQL-hanterad instans [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current) stöds inte av den här anslutningen nu. För att lösa problemet kan du använda en [allmän ODBC-anslutning](connector-odbc.md) och en SQL Server ODBC-drivrutin via en lokal integration Runtime. Följ [den här vägledningen](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) för hämtning av ODBC-drivrutiner och konfiguration av anslutnings strängar.
+> SQL-hanterad instans [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current) stöds inte av den här anslutningen nu. För att lösa problemet kan du använda en [allmän ODBC-anslutning](connector-odbc.md) och en SQL Server ODBC-drivrutin via en lokal integration Runtime. Lär dig mer från att [använda Always Encrypted](#using-always-encrypted) avsnittet. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -128,7 +128,7 @@ Följ dessa steg om du vill använda en tjänst objekts Azure AD-baserad autenti
 
 2. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) från Azure Portal. Anteckna program namnet och följande värden som definierar den länkade tjänsten:
 
-    - Program-ID
+    - Program-ID:t
     - Program nyckel
     - Klientorganisations-ID
 
@@ -374,14 +374,14 @@ För att kunna kopiera data till SQL-hanterad instans, stöds följande egenskap
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till **SqlMISink**. | Yes |
-| writeBatchSize |Antal rader som ska infogas i SQL-tabellen *per batch*.<br/>Tillåtna värden är heltal för antalet rader. Som standard bestämmer Azure Data Factory dynamiskt rätt batchstorlek baserat på rad storleken.  |No |
-| writeBatchTimeout |Den här egenskapen anger vänte tiden för åtgärden Infoga som ska slutföras innan tids gränsen uppnås.<br/>Tillåtna värden är för TimeSpan. Ett exempel är "00:30:00", som är 30 minuter. |No |
 | preCopyScript |Den här egenskapen anger en SQL-fråga för kopierings aktiviteten som ska köras innan data skrivs till en SQL-hanterad instans. Den anropas bara en gång per kopierings körning. Du kan använda den här egenskapen för att rensa förinstallerade data. |No |
-| sqlWriterStoredProcedureName | Namnet på den lagrade proceduren som definierar hur källdata ska användas i en mål tabell. <br/>Den här lagrade proceduren *anropas per batch*. För åtgärder som bara körs en gång och som inte har något att göra med källdata, till exempel ta bort eller trunkera, använder du `preCopyScript` egenskapen. | No |
+| tableOption | Anger om mottagar tabellen ska skapas automatiskt om den inte finns, baserat på käll schemat. Det går inte att skapa en automatisk tabell när Sink anger lagrad procedur eller mellanlagrad kopia har kon figurer ATS i kopierings aktiviteten. Tillåtna värden är: `none` (standard), `autoCreate` . |No |
+| sqlWriterStoredProcedureName | Namnet på den lagrade proceduren som definierar hur källdata ska användas i en mål tabell. <br/>Den här lagrade proceduren *anropas per batch*. För åtgärder som bara körs en gång och som inte har något att göra med källdata, till exempel ta bort eller trunkera, använder du `preCopyScript` egenskapen.<br>Se exempel från [anropa en lagrad procedur från en SQL-mottagare](#invoke-a-stored-procedure-from-a-sql-sink). | No |
 | storedProcedureTableTypeParameterName |Parameter namnet för den tabell typ som anges i den lagrade proceduren.  |No |
 | sqlWriterTableType |Det tabell typs namn som ska användas i den lagrade proceduren. Kopierings aktiviteten gör data som flyttas tillgängliga i en temporär tabell med den här tabell typen. Den lagrade procedur koden kan sedan sammanfoga de data som kopieras med befintliga data. |No |
 | storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-och värdepar. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. | No |
-| tableOption | Anger om mottagar tabellen ska skapas automatiskt om den inte finns, baserat på käll schemat. Det går inte att skapa en automatisk tabell när Sink anger lagrad procedur eller mellanlagrad kopia har kon figurer ATS i kopierings aktiviteten. Tillåtna värden är: `none` (standard), `autoCreate` . |No |
+| writeBatchSize |Antal rader som ska infogas i SQL-tabellen *per batch*.<br/>Tillåtna värden är heltal för antalet rader. Som standard bestämmer Azure Data Factory dynamiskt rätt batchstorlek baserat på rad storleken.  |No |
+| writeBatchTimeout |Den här egenskapen anger vänte tiden för åtgärden Infoga som ska slutföras innan tids gränsen uppnås.<br/>Tillåtna värden är för TimeSpan. Ett exempel är "00:30:00", som är 30 minuter. |No |
 
 **Exempel 1: Lägg till data**
 
@@ -408,8 +408,8 @@ För att kunna kopiera data till SQL-hanterad instans, stöds följande egenskap
             },
             "sink": {
                 "type": "SqlMISink",
-                "writeBatchSize": 100000,
-                "tableOption": "autoCreate"
+                "tableOption": "autoCreate",
+                "writeBatchSize": 100000
             }
         }
     }
@@ -473,12 +473,11 @@ Att lägga till data är standard beteendet för SQL Managed instance Sink-anslu
 
 ### <a name="upsert-data"></a>Upserta data
 
-**Alternativ 1:** När du har en stor mängd data som ska kopieras använder du följande metod för att göra en upsert: 
+**Alternativ 1:** När du har en stor mängd data som ska kopieras kan du samla in alla poster i en mellanlagringsplats med hjälp av kopierings aktiviteten och sedan köra en lagrad procedur aktivitet för att tillämpa en [merge](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-mi-current) -eller INSERT-Update-instruktion i en bild. 
 
-- Använd först en [tillfällig tabell](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) för att överföra alla poster med hjälp av kopierings aktiviteten. Eftersom åtgärder mot temporära tabeller inte loggas kan du läsa in miljon tals poster på några sekunder.
-- Kör en lagrad procedur aktivitet i Azure Data Factory om du vill tillämpa en [merge](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) -eller INSERT-/Update-instruktion. Använd Temp-tabellen som källa för att utföra alla uppdateringar eller infogningar som en enskild transaktion. På det här sättet minskar antalet tur och utloggning-åtgärder. I slutet av den lagrade procedur aktiviteten kan den temporära tabellen trunkeras så att den är redo för nästa upsert-cykel.
+Kopierings aktiviteten stöder för närvarande inte inläsning av data i en tillfällig databas tabell. Det finns ett avancerat sätt att konfigurera den med en kombination av flera aktiviteter, se [optimera SQL Database upsert-scenarier](https://github.com/scoriani/azuresqlbulkupsert). Nedan visas ett exempel på hur du använder en permanent tabell som mellanlagring.
 
-I Azure Data Factory kan du till exempel skapa en pipeline med en **kopierings aktivitet** som är länkad till en **lagrad procedur aktivitet**. Den tidigare kopierar data från käll arkivet till en tillfällig tabell, till exempel **# #UpsertTempTable**som tabell namnet i data uppsättningen. Sedan anropar den senare en lagrad procedur för att koppla källdata från Temp-tabellen till mål tabellen och rensa Temp-tabellen.
+I Azure Data Factory kan du till exempel skapa en pipeline med en **kopierings aktivitet** som är länkad till en **lagrad procedur aktivitet**. Den tidigare kopierar data från din käll lagring till en Azure SQL Managed instance Staging-tabell, till exempel **UpsertStagingTable**, som tabell namn i data uppsättningen. Sedan anropar den senare en lagrad procedur för att slå samman käll data från mellanlagringsplatsen till mål tabellen och rensa mellanlagrings tabellen.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
@@ -489,7 +488,7 @@ CREATE PROCEDURE [dbo].[spMergeData]
 AS
 BEGIN
     MERGE TargetTable AS target
-    USING ##UpsertTempTable AS source
+    USING UpsertStagingTable AS source
     ON (target.[ProfileID] = source.[ProfileID])
     WHEN MATCHED THEN
         UPDATE SET State = source.State
@@ -497,11 +496,11 @@ BEGIN
         INSERT ([ProfileID], [State], [Category])
       VALUES (source.ProfileID, source.State, source.Category);
     
-    TRUNCATE TABLE ##UpsertTempTable
+    TRUNCATE TABLE UpsertStagingTable
 END
 ```
 
-**Alternativ 2:** Du kan också välja att [anropa en lagrad procedur i en kopierings aktivitet](#invoke-a-stored-procedure-from-a-sql-sink). Den här metoden kör varje rad i käll tabellen i stället för att använda Mass infogning som standard metod i kopierings aktiviteten, vilket inte är lämpligt för storskaliga upsert.
+**Alternativ 2:** Du kan välja att [anropa en lagrad procedur i kopierings aktiviteten](#invoke-a-stored-procedure-from-a-sql-sink). Den här metoden kör varje batch (som styrs av `writeBatchSize` egenskapen) i käll tabellen i stället för att använda Mass infogning som standard metod i kopierings aktiviteten.
 
 ### <a name="overwrite-the-entire-table"></a>Skriv över hela tabellen
 
@@ -509,19 +508,13 @@ Du kan konfigurera egenskapen **preCopyScript** i en kopierings aktivitets motta
 
 ### <a name="write-data-with-custom-logic"></a>Skriva data med anpassad logik
 
-Stegen för att skriva data med anpassad logik liknar de som beskrivs i avsnittet [upsert data](#upsert-data) . När du behöver använda extra bearbetning före den slutliga infogningen av käll data i mål tabellen, för stor skala, kan du göra något av följande: 
-
-- Läs in till en temporär tabell och anropa sedan en lagrad procedur.
-- Anropa en lagrad procedur under kopieringen.
+Stegen för att skriva data med anpassad logik liknar de som beskrivs i avsnittet [upsert data](#upsert-data) . När du behöver tillämpa extra bearbetning före den slutliga infogningen av källdata i mål tabellen, kan du läsa in till en mellanlagringsplats och sedan anropa aktiviteten för lagrad procedur, eller anropa en lagrad procedur i kopierings aktivitets Sink för att tillämpa data.
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Anropa en lagrad procedur från en SQL-mottagare
 
-När du kopierar data till SQL-hanterad instans kan du också konfigurera och anropa en användardefinierad lagrad procedur med ytterligare parametrar. Funktionen för lagrade procedurer utnyttjar [tabell värdes parametrar](https://msdn.microsoft.com/library/bb675163.aspx).
+När du kopierar data till SQL-hanterad instans kan du också konfigurera och anropa en användardefinierad lagrad procedur med ytterligare parametrar i varje batch i käll tabellen. Funktionen för lagrade procedurer utnyttjar [tabell värdes parametrar](https://msdn.microsoft.com/library/bb675163.aspx).
 
-> [!TIP]
-> När en lagrad procedur anropas bearbetas data raden efter rad i stället för med en Mass åtgärd som vi inte rekommenderar för storskalig kopiering. Lär dig mer från [bästa praxis för att läsa in data i SQL-hanterad instans](#best-practice-for-loading-data-into-sql-managed-instance).
-
-Du kan använda en lagrad procedur när inbyggda kopierings metoder inte fungerar. Ett exempel är när du vill använda extra bearbetning före den slutliga infogningen av käll data i mål tabellen. Några extra bearbetnings exempel är när du vill slå samman kolumner, leta upp ytterligare värden och infoga data i mer än en tabell.
+Du kan använda en lagrad procedur när inbyggda kopierings metoder inte fungerar. Ett exempel är när du vill använda extra bearbetning före den slutliga infogningen av käll data i mål tabellen. Några extra bearbetnings exempel är när du vill slå samman kolumner, leta upp ytterligare värden och infoga i mer än en tabell.
 
 Följande exempel visar hur du använder en lagrad procedur för att göra en upsert till en tabell i den SQL Server databasen. Anta att indata och **marknadsförings** tabellen för mottagare har tre kolumner: **profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** och Använd den bara för en viss kategori som kallas "ProduktA".
 
@@ -617,6 +610,35 @@ Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](cont
 ## <a name="getmetadata-activity-properties"></a>Egenskaper för GetMetadata-aktivitet
 
 Om du vill veta mer om egenskaperna kontrollerar du [getMetaData-aktivitet](control-flow-get-metadata-activity.md) 
+
+## <a name="using-always-encrypted"></a>Använda Always Encrypted
+
+När du kopierar data från/till Azure SQL-hanterad instans med [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current)använder du [allmän ODBC-anslutning](connector-odbc.md) och SQL Server ODBC-drivrutin via lokal integration Runtime. Den här Azure SQL Managed instance Connector stöder inte Always Encrypted nu. 
+
+Mer specifikt:
+
+1. Konfigurera en egen värd Integration Runtime om du inte har någon. Mer information finns i artikeln om [egen värd integration runtime](create-self-hosted-integration-runtime.md) .
+
+2. Hämta 64-bitars ODBC-drivrutinen för [SQL Server härifrån och](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-mi-current)installera på den integration runtime datorn. Läs mer om hur driv rutinen fungerar när [du använder Always Encrypted med ODBC-drivrutinen för SQL Server](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current#using-the-azure-key-vault-provider).
+
+3. Skapa länkad tjänst med ODBC-typ för att ansluta till din SQL-databas, se följande exempel:
+
+    - Använda **SQL-autentisering**: Ange ODBC-anslutningssträngen enligt nedan och välj **grundläggande** autentisering för att ange användar namn och lösen ord.
+
+        ```
+        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
+        ```
+
+    - Använda **Data Factory hanterad identitets autentisering**: 
+
+        1. Följ samma [förutsättningar](#managed-identity) för att skapa databas användare för den hanterade identiteten och ge rätt roll i databasen.
+        2. I länkad tjänst anger du ODBC-anslutningssträngen enligt nedan och väljer **Anonym** autentisering som själva anslutnings strängen anger `Authentication=ActiveDirectoryMsi` .
+
+        ```
+        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>; Authentication=ActiveDirectoryMsi;
+        ```
+
+4. Skapa data uppsättning och kopiera aktivitet med ODBC-typ enligt detta. Läs mer från artikeln om [ODBC-koppling](connector-odbc.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

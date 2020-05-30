@@ -1,7 +1,7 @@
 ---
-title: Använda VS Code för att ansluta och fråga
+title: Använd Visual Studio Code för att ansluta och fråga
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Lär dig hur du ansluter till Azure SQL Database eller SQL-hanterad instans i Azure med hjälp av Visual Studio Code. Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor och redigera data.
+description: Lär dig hur du ansluter till Azure SQL Database eller en SQL-hanterad instans i Azure med hjälp av Visual Studio Code. Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor och redigera data.
 keywords: ansluta till sql database
 services: sql-database
 ms.service: sql-database
@@ -13,31 +13,31 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: b67748a9bfb22eed4afb76c960f992a56c10e546
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ed7cd7db24e26ea8705628916e31ce95b5c17a6e
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054361"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84189022"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Snabb start: Använd Visual Studio Code för att ansluta och fråga 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för att fråga Microsoft SQL Server, Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics. I den här snabb starten ska du använda Visual Studio Code för att ansluta till Azure SQL Database eller Azure SQL-hanterad instans och sedan köra Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data.
+[Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för att skicka frågor till en SQL Server instans, Azure SQL Database, en hanterad Azure SQL-instans och en databas i Azure Synapse Analytics. I den här snabb starten ska du använda Visual Studio Code för att ansluta till Azure SQL Database eller Azure SQL-hanterad instans och sedan köra Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure SQL Database-eller SQL-hanterad instans. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
+- En databas i Azure SQL Database eller en SQL-hanterad instans. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  || Azure SQL Database | SQL-hanterad instans |
+  || SQL Database | SQL-hanterad instans |
   |:--- |:--- |:---|
   | Skapa| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) |
-  | Konfigurera | [Regel för IP-brandvägg på server nivå](firewall-create-server-level-portal-quickstart.md))| [Anslutning från en virtuell dator](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Anslutning från en lokal plats](../managed-instance/point-to-site-p2s-configure.md)
+  | Konfigurera | [Regel för IP-brandvägg på server nivå](firewall-create-server-level-portal-quickstart.md))| [Anslutning från en virtuell dator (VM)](../managed-instance/connect-vm-instance-configure.md)|
+  |||[Anslutning från lokal plats](../managed-instance/point-to-site-p2s-configure.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](../managed-instance/restore-sample-database-quickstart.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från en [BACPAC](database-import.md) -fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -45,7 +45,7 @@ ms.locfileid: "84054361"
 
 ## <a name="install-visual-studio-code"></a>Installera Visual Studio Code
 
-Kontrollera att du har installerat den senaste versionen av [Visual Studio Code](https://code.visualstudio.com/Download) och har läst in [mssql-tillägget](https://aka.ms/mssql-marketplace). Hjälp med att installera mssql-tillägget finns i [Installera VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) och [mssql för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
+Kontrollera att du har installerat den senaste versionen av [Visual Studio Code](https://code.visualstudio.com/Download) och har läst in [mssql-tillägget](https://aka.ms/mssql-marketplace). Anvisningar om hur du installerar MSSQL-tillägget finns i [Installera Visual Studio Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) och [MSSQL för Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## <a name="configure-visual-studio-code"></a>Konfigurera Visual Studio Code
 
@@ -70,7 +70,7 @@ Ingen särskild konfiguration behövs.
 
 Ingen särskild konfiguration behövs.
 
-## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
+## <a name="get-server-connection-information"></a>Hämta information om Server anslutning
 
 Hämta den anslutnings information som du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
@@ -107,7 +107,7 @@ Använd Visual Studio Code för att upprätta en anslutning till servern.
 
 4. Följ anvisningarna för att ange anslutningsegenskaper för den nya profilen. När du har angett varje värde så väljer du **Retur** för att fortsätta.
 
-   | Egenskap       | Föreslaget värde | Beskrivning |
+   | Egenskap       | Föreslaget värde | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Server namn** | Fullständigt kvalificerat servernamn | Ungefär så här: **mynewserver20170313.database.windows.net**. |
    | **Databas namn** | mySampleDatabase | Databasen du ska ansluta till. |
@@ -193,6 +193,6 @@ Kör följande [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-t
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du ansluter och frågar med hjälp av SQL Server Management Studio finns i [snabb start: använd SQL Server Management Studio för att ansluta till en Azure SQL Database och fråga efter data](connect-query-ssms.md).
+- Information om hur du ansluter och frågar med hjälp av SQL Server Management Studio finns i [snabb start: använd SQL Server Management Studio för att ansluta till en databas i Azure SQL Database och fråga efter data](connect-query-ssms.md).
 - Information om hur du ansluter och frågar med hjälp av Azure Portal finns i [snabb start: Använd SQL-Frågeredigeraren i Azure Portal för att ansluta och fråga efter data](connect-query-portal.md).
 - En artikel från MSDN-magazine om hur du använder Visual Studio Code finns i [Skapa en IDE-databas med MSSQL-tillägget blogginlägg](https://msdn.microsoft.com/magazine/mt809115).

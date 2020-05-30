@@ -3,12 +3,12 @@ title: Beroende spårning i Azure Application Insights | Microsoft Docs
 description: Övervaka beroende anrop från din lokala eller Microsoft Azure webb program med Application Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 2b7a20731fa5eae8313adcf07d877626fcaa4dce
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 759e465a21b421c22a62245536827546acc2d79e
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980855"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204760"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Beroende spårning i Azure Application insikter 
 
@@ -16,7 +16,7 @@ Ett *beroende* är en extern komponent som anropas av ditt program. Det är vanl
 
 ## <a name="automatically-tracked-dependencies"></a>Automatiskt spårade beroenden
 
-Application Insights SDK: er för .NET-och .NET `DependencyTrackingTelemetryModule` Core-fartyg med vilka är en telemetri-modul som automatiskt samlar in beroenden. Den här beroende samlingen aktive ras automatiskt för [ASP.net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) och [ASP.net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) program, när de konfigureras enligt de länkade officiella dokumenten. `DependencyTrackingTelemetryModule` levereras som [det här](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet-paketet och hämtas automatiskt när du använder något av NuGet- `Microsoft.ApplicationInsights.Web` paketen `Microsoft.ApplicationInsights.AspNetCore`eller.
+Application Insights SDK: er för .NET-och .NET Core-fartyg med `DependencyTrackingTelemetryModule` vilka är en telemetri-modul som automatiskt samlar in beroenden. Den här beroende samlingen aktive ras automatiskt för [ASP.net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) och [ASP.net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) program, när de konfigureras enligt de länkade officiella dokumenten. `DependencyTrackingTelemetryModule`levereras som [det här](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet-paketet och hämtas automatiskt när du använder något av NuGet-paketen `Microsoft.ApplicationInsights.Web` eller `Microsoft.ApplicationInsights.AspNetCore` .
 
  `DependencyTrackingTelemetryModule`spårar för närvarande följande beroenden automatiskt:
 
@@ -24,7 +24,7 @@ Application Insights SDK: er för .NET-och .NET `DependencyTrackingTelemetryModu
 |---------------|-------|
 |Http/https | Lokala eller fjärr-http/https-anrop |
 |WCF-anrop| Spåras endast automatiskt om http-baserade bindningar används.|
-|SQL | Anrop som görs `SqlClient`med. Se [det här](#advanced-sql-tracking-to-get-full-sql-query) för att fånga SQL-fråga.  |
+|SQL | Anrop som görs med `SqlClient` . Se [det här](#advanced-sql-tracking-to-get-full-sql-query) för att fånga SQL-fråga.  |
 |[Azure Storage (BLOB, tabell, kö)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Anrop som görs med Azure Storage-klienten. |
 |[Klient-SDK för EventHub](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Version 1.1.0 och senare. |
 |[Service Bus-klient-SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 och senare. |
@@ -34,7 +34,7 @@ Om du saknar ett beroende eller om du använder ett annat SDK ser du till att de
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>Konfigurera automatisk beroende spårning i konsol program
 
-För att automatiskt spåra beroenden från .NET-konsol program, installerar `Microsoft.ApplicationInsights.DependencyCollector`du NuGet- `DependencyTrackingTelemetryModule` paketet och initierar enligt följande:
+För att automatiskt spåra beroenden från .NET-konsol program, installerar du NuGet `Microsoft.ApplicationInsights.DependencyCollector` -paketet och initierar `DependencyTrackingTelemetryModule` enligt följande:
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
@@ -60,7 +60,7 @@ Här följer några exempel på beroenden som inte samlas in automatiskt, och d�
 
 För dessa beroenden som inte samlas in automatiskt av SDK kan du spåra dem manuellt med [TrackDependency-API: et](api-custom-events-metrics.md#trackdependency) som används av de vanliga automatiska insamlings modulerna.
 
-Om du t. ex. skapar din kod med en sammansättning som du inte har skrivit själv, kan du få tid för alla anrop till den, för att ta reda på vilket bidrag det gör till dina svars tider. Om du vill att dessa data ska visas i beroende diagram i Application Insights skickar du dem `TrackDependency`med.
+Om du t. ex. skapar din kod med en sammansättning som du inte har skrivit själv, kan du få tid för alla anrop till den, för att ta reda på vilket bidrag det gör till dina svars tider. Om du vill att dessa data ska visas i beroende diagram i Application Insights skickar du dem med `TrackDependency` .
 
 ```csharp
 
@@ -88,9 +88,12 @@ För webb sidor samlar Application Insights JavaScript SDK automatiskt in AJAX-a
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Avancerad SQL-spårning för att få en fullständig SQL-fråga
 
-För SQL-anrop samlas och lagras alltid namnet på servern och databasen som namn på den insamlade `DependencyTelemetry`informationen. Det finns ytterligare ett fält med namnet "data" som kan innehålla den fullständiga SQL-frågetexten.
+För SQL-anrop samlas och lagras alltid namnet på servern och databasen som namn på den insamlade informationen `DependencyTelemetry` . Det finns ytterligare ett fält med namnet "data" som kan innehålla den fullständiga SQL-frågetexten.
 
-För ASP.NET Core-program finns det inga ytterligare steg som krävs för att få en fullständig SQL-fråga.
+För ASP.NET Core program måste du nu välja att delta i SQL-textsamlingen med hjälp av
+```csharp
+services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module. EnableSqlCommandTextInstrumentation = true; });
+```
 
 För ASP.NET-program samlas fullständig SQL-fråga med hjälp av kod instrumentering i byte, som kräver Instrumentation Engine eller med [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet i stället för system. data. SqlClient-biblioteket. Ytterligare plattforms oberoende steg, enligt beskrivningen nedan, krävs.
 
@@ -184,7 +187,7 @@ Du kan spåra beroenden i [Kusto-frågespråket](/azure/kusto/query/). Här föl
 
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*Hur Miss lyckas automatiskt beroende insamlaren anrop till beroenden?*
 
-* Misslyckade beroende anrop har fältet lyckades inställt på false. `DependencyTrackingTelemetryModule`rapporterar `ExceptionTelemetry`inte. Den fullständiga data modellen för beroende beskrivs [här](data-model-dependency-telemetry.md).
+* Misslyckade beroende anrop har fältet lyckades inställt på false. `DependencyTrackingTelemetryModule`rapporterar inte `ExceptionTelemetry` . Den fullständiga data modellen för beroende beskrivs [här](data-model-dependency-telemetry.md).
 
 ## <a name="open-source-sdk"></a>SDK för öppen källkod
 Precis som varje Application Insights SDK är beroende samlings modul också öppen källkod. Läs och bidra till koden eller rapportera problem på [den officiella GitHub-lagrings platsen](https://github.com/Microsoft/ApplicationInsights-dotnet-server).

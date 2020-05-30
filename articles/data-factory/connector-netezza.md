@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/09/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 69eef6d8457b183f61bae98c0bc80feb0ff2e263
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7f98fee687fca6a2b6e746b24ca582671e28391f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635465"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216395"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Kopiera data från Netezza med hjälp av Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,7 +40,7 @@ Netezza-anslutaren stöder parallell kopiering från källan. Mer information fi
 
 Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning. Du behöver inte installera någon driv rutin manuellt för att använda den här anslutningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -56,16 +56,16 @@ Följande egenskaper stöds för den länkade tjänsten Netezza:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen **Type** måste anges till **Netezza**. | Ja |
-| Begär | En ODBC-anslutningssträng för att ansluta till Netezza. <br/>Du kan också ställa in lösen ord i Azure Key Vault och hämta `pwd` konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Inga |
+| typ | Egenskapen **Type** måste anges till **Netezza**. | Yes |
+| Begär | En ODBC-anslutningssträng för att ansluta till Netezza. <br/>Du kan också ställa in lösen ord i Azure Key Vault och hämta `pwd` konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Yes |
+| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |No |
 
 En typisk anslutnings sträng är `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>` . I följande tabell beskrivs fler egenskaper som du kan ange:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| SecurityLevel | Säkerhets nivån (SSL/TLS) som driv rutinen använder för att ansluta till data lagret. Driv rutinen stöder SSL-anslutningar med enkelriktad autentisering med hjälp av SSL version 3. <br>Exempel: `SecurityLevel=preferredSecured`. De värden som stöds är:<br/>- **Endast oskyddade** (**onlyUnSecured**): driv rutinen använder inte TLS.<br/>- **Föredra oskyddad (preferredUnSecured) (standard)**: om servern tillhandahåller ett alternativ använder driv rutinen inte TLS. <br/>- **Preferred Secure (preferredSecured)**: om servern tillhandahåller ett alternativ använder driv rutinen TLS. <br/>- **Endast skyddat (onlySecured)**: driv rutinen ansluter inte om det inte finns någon TLS-anslutning. | Inga |
-| CaCertFile | Den fullständiga sökvägen till TLS/SSL-certifikatet som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om TLS är aktiverat |
+| SecurityLevel | Den säkerhets nivå som driv rutinen använder för att ansluta till data lagret. Driv rutinen stöder SSL-anslutningar med enkelriktad autentisering med hjälp av SSL version 3. <br>Exempel: `SecurityLevel=preferredSecured`. De värden som stöds är:<br/>- **Endast oskyddade** (**onlyUnSecured**): driv rutinen använder inte SSL.<br/>- **Föredra oskyddad (preferredUnSecured) (standard)**: om servern tillhandahåller ett alternativ använder driv rutinen inte SSL. <br/>- **Preferred Secure (preferredSecured)**: om servern tillhandahåller ett alternativ använder driv rutinen SSL. <br/>- **Endast skyddat (onlySecured)**: driv rutinen ansluter inte om en SSL-anslutning är tillgänglig. | No |
+| CaCertFile | Den fullständiga sökvägen till det SSL-certifikat som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
 
 **Exempel**
 
@@ -121,7 +121,7 @@ Om du vill kopiera data från Netezza anger du egenskapen **Type** för data upp
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **NetezzaTable** | Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **NetezzaTable** | Yes |
 | schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
 | tabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
 | tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för nya arbets belastningar. | Nej (om "fråga" i aktivitets källan har angetts) |
@@ -157,13 +157,13 @@ Om du vill kopiera data från Netezza anger du **käll** typen i kopierings akti
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **NetezzaSource**. | Ja |
+| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **NetezzaSource**. | Yes |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"` | Nej (om "tableName" i data uppsättningen har angetts) |
-| partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Netezza. <br>Tillåtna värden är: **ingen** (standard), **DataSlice**och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (dvs. inte `None` ), styrs graden av parallellitet för data från en Netezza-databas genom [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) att ställa in på kopierings aktiviteten. | Inga |
-| partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när partition alternativet inte är `None` . | Inga |
-| partitionColumnName | Ange namnet på den käll kolumn **i Integer-typ** som ska användas av intervall partitionering för parallell kopiering. Om den inte anges identifieras primär nyckeln för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [parallell kopiering från avsnittet Netezza](#parallel-copy-from-netezza) . | Inga |
-| partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när partition alternativet är `DynamicRange` . Om du använder Query för att hämta källdata, Hook `?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från Netezza](#parallel-copy-from-netezza) . | Inga |
-| partitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från Netezza](#parallel-copy-from-netezza) . | Inga |
+| partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Netezza. <br>Tillåtna värden är: **ingen** (standard), **DataSlice**och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (dvs. inte `None` ), styrs graden av parallellitet för data från en Netezza-databas genom [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) att ställa in på kopierings aktiviteten. | No |
+| partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när partition alternativet inte är `None` . | No |
+| partitionColumnName | Ange namnet på den käll kolumn **i Integer-typ** som ska användas av intervall partitionering för parallell kopiering. Om den inte anges identifieras primär nyckeln för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [parallell kopiering från avsnittet Netezza](#parallel-copy-from-netezza) . | No |
+| partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när partition alternativet är `DynamicRange` . Om du använder Query för att hämta källdata, Hook `?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från Netezza](#parallel-copy-from-netezza) . | No |
+| partitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från Netezza](#parallel-copy-from-netezza) . | No |
 
 **Exempel:**
 

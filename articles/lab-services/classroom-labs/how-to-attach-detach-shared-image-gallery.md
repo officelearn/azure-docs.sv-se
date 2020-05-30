@@ -11,17 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 05/28/2020
 ms.author: spelluru
-ms.openlocfilehash: aef5cd13742c0265851f5ba2918d557b4e1026d0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7ae0fa5a8816f353636c9b4d58293e825361b207
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592652"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204303"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Koppla eller koppla från ett delat avbildnings galleri i Azure Lab Services
 Den här artikeln visar hur du kopplar eller kopplar från ett delat avbildnings galleri till ett labb konto. 
+
+> [!NOTE]
+> När du [sparar en mall bild av ett labb](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) i Azure Lab Services till ett delat bild galleri laddas bilden upp till galleriet som en specialiserad bild. [Specialiserade avbildningar](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) behåller datorspecifik information och användar profiler. Du kan fortfarande ladda upp en generaliserad avbildning direkt till galleriet utanför Azure Lab Services. 
+>
+> En labb skapare kan skapa en mall för virtuella datorer baserat på både generaliserade och specialiserade avbildningar i Azure Lab Services. 
 
 ## <a name="scenarios"></a>Scenarier
 Här är några av de scenarier som stöds av den här funktionen: 
@@ -29,11 +34,7 @@ Här är några av de scenarier som stöds av den här funktionen:
 - En labb konto administratör bifogar ett delat avbildnings galleri till labb kontot och laddar upp en bild till galleriet för delad avbildning utanför kontexten för ett labb. Sedan kan Lab-skapare använda avbildningen från galleriet för delad avbildning för att skapa labb labb. 
 - Ett labb konto administratör bifogar ett delat avbildnings galleri till labb kontot. En labb skapare (instruktör) sparar den anpassade avbildningen av sitt labb labb i det delade avbildnings galleriet. Sedan kan andra labb skapare välja den här avbildningen från galleriet för delade avbildningar för att skapa en mall för sina labb. 
 
-    När en bild sparas i ett delat bild galleri, Azure Lab Services replikerar den sparade avbildningen till andra regioner som är tillgängliga i samma [geografi](https://azure.microsoft.com/global-infrastructure/geographies/). Det garanterar att avbildningen är tillgänglig för labb som skapats i andra regioner i samma geografi. Att spara bilder i ett delat avbildnings Galleri debiteras ytterligare en kostnad, vilket innefattar kostnad för alla replikerade avbildningar. Kostnaden är separat från Azure Lab Services användnings kostnad. Mer information om priser för delade avbildnings gallerier finns i avsnittet [Shared Image Gallery – fakturering]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
-
-    > [!NOTE]
-    > Azure Lab Services har stöd för att skapa virtuella mall-datorer baserat på både **generaliserade** och **specialiserade** avbildningar i ett delat avbildnings Galleri. 
-
+    När en bild sparas i ett delat bild galleri, Azure Lab Services replikerar den sparade avbildningen till andra regioner som är tillgängliga i samma [geografi](https://azure.microsoft.com/global-infrastructure/geographies/). Det garanterar att avbildningen är tillgänglig för labb som skapats i andra regioner i samma geografi. Att spara bilder i ett delat avbildnings Galleri debiteras ytterligare en kostnad, vilket innefattar kostnad för alla replikerade avbildningar. Kostnaden är separat från Azure Lab Services användnings kostnad. Mer information om priser för delade avbildnings gallerier finns i avsnittet [Shared Image Gallery – fakturering](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera när labb kontot skapas
 När du skapar ett labb konto kan du koppla ett delat avbildnings galleri till labb kontot. Du kan antingen välja ett befintligt delat avbildnings Galleri från den nedrullningsbara listan eller skapa ett nytt. Om du vill skapa och koppla ett delat avbildnings galleri till labb kontot väljer du **Skapa nytt**, anger ett namn för galleriet och anger **OK**. 
@@ -95,4 +96,4 @@ Endast ett delat avbildnings Galleri kan kopplas till ett labb. Om du vill koppl
 ## <a name="next-steps"></a>Nästa steg
 Information om hur du sparar en labb avbildning i det delade avbildnings galleriet eller använder en avbildning från galleriet för delade avbildningar för att skapa en virtuell dator finns i [använda delade avbildnings galleriet](how-to-use-shared-image-gallery.md).
 
-Mer information om delade avbildnings gallerier i allmänhet finns i avsnittet [Shared Image Gallery](../../virtual-machines/windows/shared-image-galleries.md).
+Mer information om delade avbildnings gallerier i allmänhet finns i avsnittet [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries).

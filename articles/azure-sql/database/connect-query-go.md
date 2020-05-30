@@ -11,34 +11,34 @@ author: David-Engel
 ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: 58d0cc61ae01e63e707d81e33770d6ea1e6ba491
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d9cb49fdc425028e718216e0127821933fcc3b9f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054499"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84189537"
 ---
-# <a name="quickstart-use-golang-to-query-a-azure-sql-database"></a>Snabb start: använda Golang för att fråga en Azure SQL-databas
+# <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database"></a>Snabb start: Använd Golang för att fråga en databas i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-I den här snabbstarten kommer du att använda programmeringsspråket [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) för att ansluta till en Azure SQL-databas. Därefter kommer du att köra Transact-SQL-uttryck för att fråga och redigera data. [Golang](https://golang.org/) är ett programmeringsspråk med öppen källkod som gör det enkelt att skapa enkel, pålitlig och effektiv programvara.  
+I den här snabb starten använder du [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) -programmeringsspråk för att ansluta till en databas i Azure SQL Database. Därefter kommer du att köra Transact-SQL-uttryck för att fråga och redigera data. [Golang](https://golang.org/) är ett programmeringsspråk med öppen källkod som gör det enkelt att skapa enkel, pålitlig och effektiv programvara.  
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra den här snabbstarten:
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- En Azure SQL-databas. Du kan använda någon av dessa snabb starter för att skapa och konfigurera en databas i Azure SQL:
+- En databas i Azure SQL Database. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  || SQL Database | SQL-hanterad instans | SQL Server på Azure VM |
+  || SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
   |:--- |:--- |:---|:---|
   | Skapa| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
   | Konfigurera | [IP-brandväggsregel på servernivå](firewall-create-server-level-portal-quickstart.md)| [Anslutning från en virtuell dator](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Anslutning från en lokal plats](../managed-instance/point-to-site-p2s-configure.md) | [Anslut till SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
+  |||[Anslutning från lokal plats](../managed-instance/point-to-site-p2s-configure.md) | [Ansluta till en SQL Server-instans](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Återställa Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
-  |||Återställa eller importera Adventure Works från [BACPAC](database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Återställa eller importera Adventure Works från [BACPAC](database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från en [BACPAC](database-import.md) -fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Återställa eller importera Adventure Works från en [BACPAC](database-import.md) -fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -50,18 +50,18 @@ Följande krävs för att slutföra den här snabbstarten:
   - **Ubuntu**: installera Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
   - **Windows**: installera Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
 
-## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
+## <a name="get-server-connection-information"></a>Hämta information om Server anslutning
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
+Hämta anslutnings informationen du behöver för att ansluta till databasen i Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Gå till sidan **SQL-databaser** eller **SQL-hanterade instanser** .
 
-3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en Azure SQL Database eller det fullständigt kvalificerade Server namnet (eller IP-adressen) bredvid **värd** för en Azure SQL-hanterad instans eller SQL Server i en virtuell Azure-dator. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
+3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en databas i Azure SQL Database eller det fullständigt kvalificerade Server namnet (eller IP-adressen) bredvid **värd** för en Azure SQL-hanterad instans eller SQL Server på Azure VM. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
 
 > [!NOTE]
-> Anslutnings information för SQL Server på en virtuell Azure-dator finns i [Anslut till SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server)
+> Anslutnings information för SQL Server på den virtuella Azure-datorn finns i [Anslut till en SQL Server instans](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
 
 ## <a name="create-golang-project-and-dependencies"></a>Skapa Golang-projekt och beroenden
 
@@ -104,13 +104,13 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
    GO
    ```
 
-2. Använd `sqlcmd` för att ansluta till databasen och köra det nya SQL-skriptet. Ersätt lämpliga värden för din server, databas, användarnamn och lösenord.
+2. Använd `sqlcmd` för att ansluta till databasen och köra ditt nyligen skapade Azure SQL-skript. Ersätt lämpliga värden för din server, databas, användarnamn och lösenord.
 
    ```bash
    sqlcmd -S <your_server>.database.windows.net -U <your_username> -P <your_password> -d <your_database> -i ./CreateTestData.sql
    ```
 
-## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL Database
+## <a name="insert-code-to-query-the-database"></a>Infoga kod för att fråga databasen
 
 1. Skapa en fil med namnet **sample.go** i mappen **SqlServerSample**.
 
@@ -332,7 +332,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utforma din första Azure SQL-databas](design-first-database-tutorial.md)
-- [Golang-drivrutin för Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
+- [Utforma din första databas i Azure SQL Database](design-first-database-tutorial.md)
+- [Golang-drivrutin för SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Rapportera problem eller ställ frågor](https://github.com/denisenkom/go-mssqldb/issues)
 

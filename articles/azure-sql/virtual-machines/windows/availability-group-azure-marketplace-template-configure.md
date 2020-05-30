@@ -3,7 +3,7 @@ title: Konfigurera hög tillgänglighet för Azure Resource Manager virtuella da
 description: Den här självstudien visar hur du skapar en Always on-tillgänglighets grupp med Azure Virtual Machines i Azure Resource Manager läge.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: f824ef4964a1039c5ed866e470d19e1306107afe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d00d8245f14b042b5fa779697ed74edacaf397a6
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049591"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219604"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Konfigurera Always on Availability groups i Azure Virtual Machines automatiskt: Resource Manager
 
@@ -67,10 +67,10 @@ Azure tillhandahåller en galleri bild för hela lösningen. Så här hittar du 
 1. Logga in på Azure Portal med ditt konto.
 2. I Azure Portal väljer du **skapa en resurs** för att öppna det **nya** fönstret.
 3. I det **nya** fönstret söker du efter **AlwaysOn**.
-   ![Hitta AlwaysOn-mall](./media/availability-group-azure-marketplace-template-configure/16-findalwayson.png)
-4. Leta upp **SQL Server AlwaysOn-kluster**i Sök resultaten.
-   ![AlwaysOn-mall](./media/availability-group-azure-marketplace-template-configure/17-alwaysontemplate.png)
-5. Välj **Resource Manager**på **Välj en distributions modell**.
+  Azure Marketplace visar Sök resultat som inkluderar SQL Server-klustret. Den här funktionen är en förhandsversion.
+4. Leta upp och klicka på **SQL Server AlwaysOn-kluster (för hands version)** i Sök resultaten. Följ anvisningarna för att skapa lösningen.
+
+I följande avsnitt beskrivs ingången för lösningen. 
 
 ### <a name="basics"></a>Grundläggande inställningar
 

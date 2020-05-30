@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065000"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194474"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Viktig information för gateway för datahantering
 > [!NOTE]
@@ -49,8 +49,8 @@ Det går inte att uppdatera viktig information här. Hämta senaste versions inf
 -   Du kan lägga till DNS-poster i vitlista Service Bus istället för att vit listning alla Azure IP-adresser från brand väggen (om det behövs). Mer information finns här.
 -   Nu kan du kopiera data till/från en enda Block-Blob upp till 4,75 TB, vilket är den högsta tillåtna storleken för Block-Blob. (den tidigare gränsen var 195 GB).
 -   Fast: problem med slut på minne när flera små filer har zippats under kopierings aktiviteten.
--   Fixed: index out of Range-problem vid kopiering från dokument databas till en lokal SQL Server med idempotens-funktion.
--   Fast: SQL Cleanup-skriptet fungerar inte med lokala SQL Server från guiden Kopiera.
+-   Fixed: index out of Range-problem vid kopiering från dokument databas till SQL Server med idempotens-funktionen.
+-   Fast: SQL Cleanup-skriptet fungerar inte med SQL Server från guiden Kopiera.
 -   Fast: kolumn namn med blank steg i slutet fungerar inte i kopierings aktiviteten.
 
 ## <a name="28662833"></a>2.8.66283.3
@@ -111,7 +111,7 @@ Det går inte att uppdatera viktig information här. Hämta senaste versions inf
 *  DB2-drivrutinen stöder nu z/OS och DB2 för i (som/400) tillsammans med de plattformar som redan stöds (Linux, UNIX och Windows).
 *  Stöder användning av Azure Cosmos DB som källa eller mål för lokala data lager
 *  Har stöd för kopiering av data från/till kall/snabb blob-lagring tillsammans med det redan stödda allmänna lagrings kontot.
-*  Gör att du kan ansluta till lokala SQL Server via gateway med fjärrinloggnings privilegier.  
+*  Gör att du kan ansluta till SQL Server via gateway med behörighet för fjärrinloggning.  
 
 ## <a name="2060131"></a>2.0.6013.1
 
@@ -126,7 +126,7 @@ Det går inte att uppdatera viktig information här. Hämta senaste versions inf
     *  Organisera om och förenklade kontroller.
 
     *  Du kan kopiera data från en lagrings plats med [verktyget kod fritt kopiering](data-factory-copy-data-wizard-tutorial.md). Se [mellanlagrad kopia](data-factory-copy-activity-performance.md#staged-copy) för information om den här funktionen i allmänhet.
-*  Du kan använda Data Management Gateway för att ingressa data direkt från en lokal SQL Server-databas till Azure Machine Learning.
+*  Du kan använda Data Management Gateway för att ingressa data direkt från en SQL Server-databas till Azure Machine Learning.
 
 *  Prestandaförbättringar
 

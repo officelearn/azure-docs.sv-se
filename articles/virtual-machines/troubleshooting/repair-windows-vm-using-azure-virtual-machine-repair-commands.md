@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 6520d508a025aeeecf0c1890224a0691eae09f74
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b754c9e02567939569bf2ef59359dbb2614a6647
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774431"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219898"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparera en virtuell Windows-dator med hjälp av reparationskommandon för virtuella Azure-datorer
 
@@ -72,20 +72,19 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
    az extension update -n vm-repair
    ```
 
-3. Kör `az vm repair create`. Det här kommandot skapar en kopia av OS-disken för den icke-funktionella virtuella datorn, skapar en virtuell reparations dator i en ny resurs grupp och kopplar disk kopian av operativ systemet.  Den virtuella reparations datorn kommer att ha samma storlek och region som den icke-funktionella virtuella datorn som angetts.
+3. Kör `az vm repair create`. Det här kommandot skapar en kopia av OS-disken för den icke-funktionella virtuella datorn, skapar en virtuell reparations dator i en ny resurs grupp och kopplar disk kopian av operativ systemet.  Den virtuella reparations datorn kommer att ha samma storlek och region som den icke-funktionella virtuella datorn som angetts. Resurs gruppen och det virtuella dator namnet som används i alla steg är för den icke-funktionella virtuella datorn.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. Kör `az vm repair run`. Det här kommandot kommer att köra det angivna reparations skriptet på den anslutna disken via den virtuella reparations datorn.  Om fel söknings guiden som du använder har angett ett kör-ID ska du använda den här, annars kan du använda `az vm repair list-scripts` för att se tillgängliga reparations skript.
+4. Kör `az vm repair run`. Det här kommandot kommer att köra det angivna reparations skriptet på den anslutna disken via den virtuella reparations datorn. Om fel söknings guiden som du använder har angett ett kör-ID ska du använda den här, annars kan du använda `az vm repair list-scripts` för att se tillgängliga reparations skript. Resurs gruppen och det virtuella dator namnet används här för den icke-funktionella virtuella datorn som användes i steg 3.
 
    ```azurecli-interactive
-
-   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id win-hello-world --verbose
+   az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
 
-5. Kör `az vm repair restore`. Det här kommandot byter ut den reparerade OS-disken mot den ursprungliga OS-disken för den virtuella datorn.
+5. Kör `az vm repair restore`. Det här kommandot byter ut den reparerade OS-disken mot den ursprungliga OS-disken för den virtuella datorn. Resurs gruppen och det virtuella dator namnet används här för den icke-funktionella virtuella datorn som användes i steg 3.
 
    ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose

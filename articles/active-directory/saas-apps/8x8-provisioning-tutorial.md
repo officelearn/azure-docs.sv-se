@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 6fc14bd41faf6a86953b82f8a7ea7bd75b746cf9
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: b200aabff1231cdf383d30ad2e671c4b46ca91bb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801683"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196217"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Självstudie: Konfigurera 8x8 för automatisk användar etablering
 
@@ -33,7 +33,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både 8x8 Config
 > * Behåll användarattribut synkroniserade mellan Azure AD och 8x8
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/8x8virtualoffice-tutorial) till 8x8 (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -116,7 +116,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 7. Välj **Spara**.
 
-8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till 8x8**.
+8. Under avsnittet **mappningar** väljer du **etablera Azure Active Directory användare**.
 
 9. Granska de användarattribut som synkroniseras från Azure AD till 8x8 i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i 8x8 för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att 8x8-API: et stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
 
@@ -125,7 +125,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |userName|Sträng|Anger både användar namn och Federations-ID|
    |externalId|Sträng||
    |aktiv|Boolesk||
-   |rubrik|Sträng||
+   |title|Sträng||
    |e-postmeddelanden [typ EQ "Work"]. värde|Sträng||
    |Name. givenName|Sträng||
    |Name. familyName|Sträng||

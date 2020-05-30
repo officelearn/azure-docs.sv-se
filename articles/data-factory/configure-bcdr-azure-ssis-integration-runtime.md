@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: 479e57a6001e143e233457967d55ea0e2fb6d3de
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021066"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195718"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Konfigurera Azure-SSIS integration runtime med SQL Database geo-replikering och redundans
 
@@ -29,11 +29,11 @@ Mer information om geo-replikering och redundans för SQL Database finns i [Öve
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-ssis-ir-failover-with-a-sql-database-managed-instance"></a>Azure-SSIS IR redundans med en SQL Database Hanterad instans
+## <a name="azure-ssis-ir-failover-with-a-sql-managed-instance"></a>Azure-SSIS IR redundans med en SQL-hanterad instans
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-En Azure SQL Database Hanterad instans använder en *huvud nyckel för databasen (DMK)* för att skydda data, autentiseringsuppgifter och anslutnings information som lagras i en databas. Om du vill aktivera automatisk dekryptering av DMK krypteras en kopia av nyckeln via *serverns huvud nyckel (SMK)*. 
+En Azure SQL-hanterad instans använder en *huvud nyckel för databasen (DMK)* för att skydda data, autentiseringsuppgifter och anslutnings information som lagras i en databas. Om du vill aktivera automatisk dekryptering av DMK krypteras en kopia av nyckeln via *serverns huvud nyckel (SMK)*. 
 
 SMK replikeras inte i en failover-grupp. Du måste lägga till ett lösen ord på både den primära och sekundära instansen för DMK dekryptering efter redundansväxlingen.
 
@@ -43,7 +43,7 @@ SMK replikeras inte i en failover-grupp. Du måste lägga till ett lösen ord p�
     ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
     ```
 
-2. Skapa en failover-grupp på en Azure SQL Database Hanterad instans.
+2. Skapa en failover-grupp på en SQL-hanterad instans.
 
 3. Kör **sp_control_dbmasterkey_password** på den sekundära instansen genom att använda det nya krypterings lösen ordet.
 
@@ -97,9 +97,9 @@ Utför följande steg när redundans inträffar:
 
 3. Restart the Azure-SSIS IR.
 
-### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Database managed instance
+### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Managed Instance
 
-This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of an Azure SQL Database managed instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
+This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of a Azure SQL Managed Instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
 
 #### Solution
 

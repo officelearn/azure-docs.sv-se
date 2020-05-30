@@ -1,7 +1,7 @@
 ---
 title: Lokala SQL Server
 titleSuffix: ML Studio (classic) - Azure
-description: Använd data från en lokal SQL Server databas för att utföra avancerad analys med Azure Machine Learning Studio (klassisk).
+description: Använd data från en SQL Server Database för att utföra avancerad analys med Azure Machine Learning Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,18 +10,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 890486214eb67be26479b122c88c7a6b640b8ade
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ff0169d0606728898bc6157d05f2013607e48f0c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117793"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193819"
 ---
-# <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Utföra analyser med Azure Machine Learning Studio (klassisk) med hjälp av en lokal SQL Server-databas
+# <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Utföra analyser med Azure Machine Learning Studio (klassisk) med hjälp av en SQL Server databas
 
-Företag som arbetar med lokala data skulle till exempel kunna dra nytta av molnets skala och flexibilitet för sina arbets belastningar för Machine Learning. Men de vill inte störa sina aktuella affärs processer och arbets flöden genom att flytta sina lokala data till molnet. Azure Machine Learning Studio (klassisk) har nu stöd för att läsa data från en lokal SQL Server-databas och sedan träna och värdera en modell med dessa data. Du behöver inte längre kopiera och synkronisera data mellan molnet och den lokala servern manuellt. I stället kan modulen **Importera data** i Azure Machine Learning Studio (klassisk) nu läsa direkt från den lokala SQL Server databasen för dina utbildnings-och Poäng uppgifter.
+Företag som arbetar med lokala data skulle till exempel kunna dra nytta av molnets skala och flexibilitet för sina arbets belastningar för Machine Learning. Men de vill inte störa sina aktuella affärs processer och arbets flöden genom att flytta sina lokala data till molnet. Azure Machine Learning Studio (klassisk) har nu stöd för att läsa data från en SQL Server-databas och sedan träna och värdera en modell med dessa data. Du behöver inte längre kopiera och synkronisera data mellan molnet och den lokala servern manuellt. I stället kan modulen **Importera data** i Azure Machine Learning Studio (klassisk) nu läsas direkt från din SQL Server databas för dina utbildnings-och Poäng jobb.
 
-Den här artikeln innehåller en översikt över hur du intränger mot lokala SQL Server-data i Azure Machine Learning Studio (klassisk). Det förutsätter att du är bekant med Studio (klassiska) begrepp som arbets ytor, moduler, data uppsättningar, experiment *osv.*
+Den här artikeln innehåller en översikt över hur du intränger SQL Server data i Azure Machine Learning Studio (klassisk). Det förutsätter att du är bekant med Studio (klassiska) begrepp som arbets ytor, moduler, data uppsättningar, experiment *osv.*
 
 > [!NOTE]
 > Den här funktionen är inte tillgänglig för kostnads fria arbets ytor. Mer information om priser och nivåer för Machine Learning finns [Azure Machine Learning prissättning](https://azure.microsoft.com/pricing/details/machine-learning/).
@@ -33,7 +33,7 @@ Den här artikeln innehåller en översikt över hur du intränger mot lokala SQ
 
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Installera Data Factory egen värd Integration Runtime
-Om du vill komma åt en lokal SQL Server databas i Azure Machine Learning Studio (klassisk) måste du ladda ned och installera Data Factory egen värd Integration Runtime, tidigare kallat Data Management Gateway. När du konfigurerar anslutningen i Machine Learning Studio (klassisk) har du möjlighet att ladda ned och installera Integration Runtime (IR) med hjälp av dialog rutan **Hämta och registrera data Gateway** som beskrivs nedan.
+Om du vill komma åt en SQL Server databas i Azure Machine Learning Studio (klassisk) måste du ladda ned och installera Data Factory egen värd Integration Runtime, tidigare kallat Data Management Gateway. När du konfigurerar anslutningen i Machine Learning Studio (klassisk) har du möjlighet att ladda ned och installera Integration Runtime (IR) med hjälp av dialog rutan **Hämta och registrera data Gateway** som beskrivs nedan.
 
 
 Du kan också installera IR i förväg genom att ladda ned och köra MSI-installationspaketet från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). MSI kan också användas för att uppgradera en befintlig IR till den senaste versionen, med alla inställningar bevarade.
@@ -64,8 +64,8 @@ Tänk på följande när du konfigurerar och använder en Data Factory Integrati
 
 Du hittar detaljerad information om installations krav, installations steg och fel söknings tips i artikeln [integration runtime i Data Factory](../../data-factory/concepts-integration-runtime.md).
 
-## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-id_toc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data från din lokala SQL Server-databas till Azure Machine Learning
-I den här genom gången ska du konfigurera ett Azure Data Factory Integration Runtime på en Azure Machine Learning arbets yta, konfigurera den och sedan läsa data från en lokal SQL Server databas.
+## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-id_toc450838866-classanchorspanspaningress-data-from-your-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data från SQL Server-databasen till Azure Machine Learning
+I den här genom gången ska du konfigurera ett Azure Data Factory Integration Runtime på en Azure Machine Learning arbets yta, konfigurera den och sedan läsa data från en SQL Server databas.
 
 > [!TIP]
 > Innan du börjar inaktiverar du webbläsarens blockering av popup-fönster för `studio.azureml.net` . Om du använder Google Chrome-webbläsaren kan du ladda ned och installera en av de många plugin-program som är tillgängliga i Google Chrome WebStore [Klicka en gång till app-tillägget](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
@@ -74,7 +74,7 @@ I den här genom gången ska du konfigurera ett Azure Data Factory Integration R
 > Azure Data Factory egen värd Integration Runtime tidigare kallades tidigare Data Management Gateway. I steg-för-steg-självstudierna kan du fortsätta att referera till den som en gateway.  
 
 ### <a name="step-1-create-a-gateway"></a>Steg 1: skapa en gateway
-Det första steget är att skapa och konfigurera en gateway för att få åtkomst till din lokala SQL-databas.
+Det första steget är att skapa och konfigurera en gateway för att få åtkomst till din SQL-databas.
 
 1. Logga in på [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net/Home/) och välj den arbets yta som du vill arbeta i.
 2. Klicka på bladet **Inställningar** till vänster och klicka sedan på fliken **datagatewayer** överst.
@@ -121,7 +121,7 @@ Du är nu redo att använda dina lokala data.
 Du kan skapa och konfigurera flera gateways i Studio (klassisk) för varje arbets yta. Du kan till exempel ha en gateway som du vill ansluta till dina test data källor under utvecklingen och en annan gateway för dina produktions data källor. Azure Machine Learning Studio (klassisk) ger dig flexibiliteten att konfigurera flera gateways beroende på din företags miljö. För närvarande kan du inte dela en gateway mellan arbets ytorna och bara en gateway kan installeras på en enda dator. Mer information finns i [Flytta data mellan lokala källor och molnet med data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Steg 2: Använd gatewayen för att läsa data från en lokal data Källa
-När du har konfigurerat gatewayen kan du lägga till en modul för att **Importera data** till ett experiment som indata från den lokala SQL Server databasen.
+När du har konfigurerat gatewayen kan du lägga till en modul för att **Importera data** till ett experiment som indata från den SQL Server databasen.
 
 1. Välj fliken **experiment** i Machine Learning Studio (klassisk), klicka på **+ ny** i det nedre vänstra hörnet och välj **Tom experiment** (eller Välj ett av flera exempel experiment som är tillgängliga).
 2. Leta upp och dra modulen **Importera data** till experimentets arbets yta.
@@ -133,7 +133,7 @@ När du har konfigurerat gatewayen kan du lägga till en modul för att **Import
 
    ![Välj data Gateway för modulen importera data](./media/use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
 6. Ange SQL **Database-servernamnet** och **databas namnet**, tillsammans med den SQL **Database-fråga** som du vill köra.
-7. Klicka på **Ange värden** under **användar namn och lösen ord** och ange autentiseringsuppgifterna för databasen. Du kan använda Windows-integrerad autentisering eller SQL Server autentisering beroende på hur din lokala SQL Server har kon figurer ATS.
+7. Klicka på **Ange värden** under **användar namn och lösen ord** och ange autentiseringsuppgifterna för databasen. Du kan använda Windows-integrerad autentisering eller SQL Server autentisering beroende på hur din SQL Server har kon figurer ATS.
 
    ![Ange autentiseringsuppgifter för databasen](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
@@ -144,4 +144,4 @@ När du har konfigurerat gatewayen kan du lägga till en modul för att **Import
 
 När experimentet har körts kan du visualisera data som du har importerat från databasen genom att klicka på utdataporten för modulen **Importera data** och välja **visualisera**.
 
-När du har skapat ditt experiment kan du distribuera och operationalisera din modell. Med batch-körnings tjänsten kommer data från den lokala SQL Server-databasen som kon figurer ATS i modulen **Importera data** att läsas och användas för poängsättning. Även om du kan använda tjänsten Request Response för att värdera lokala data, rekommenderar Microsoft att du använder [Excel-tillägget](excel-add-in-for-web-services.md) i stället. För närvarande stöds inte att skriva till en lokal SQL Server-databas via **export data** , varken i experimentet eller de publicerade webb tjänsterna.
+När du har skapat ditt experiment kan du distribuera och operationalisera din modell. Med batch-körnings tjänsten kommer data från den SQL Server databas som kon figurer ATS i modulen **Importera data** att läsas och användas för poängsättning. Även om du kan använda tjänsten Request Response för att värdera lokala data, rekommenderar Microsoft att du använder [Excel-tillägget](excel-add-in-for-web-services.md) i stället. För närvarande stöds inte att skriva till en SQL Server-databas via **export data** , varken i experimentet eller de publicerade webb tjänsterna.

@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 387ec3f792b5d61b6c909b4955a588146aa258f5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 0f1e43e4300cff6fba1c71d2b7740a3b2b678253
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050683"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218945"
 ---
 # <a name="data-discovery--classification"></a>Dataidentifiering och -klassificering
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -34,7 +34,7 @@ Dina mest känsliga data kan omfatta affärs-, finans-, sjukvårds-eller personl
 Data identifiering & klassificering är en del av det [avancerade data säkerhets](advanced-data-security.md) erbjudandet, som är ett enhetligt paket för avancerade funktioner i Azure SQL. Du kan komma åt och hantera data identifierings & klassificering via det centrala SQL-avsnittet **Avancerad data säkerhet** i Azure Portal.
 
 > [!NOTE]
-> Information om SQL Server (lokalt) finns i [identifiering och klassificering av SQL-data](https://go.microsoft.com/fwlink/?linkid=866999).
+> Information om SQL Server lokalt finns i avsnittet [SQL data Discovery & klassificering](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>Vad är data identifierings & klassificering?
 
@@ -42,7 +42,7 @@ Data identifierings & klassificeringen introducerar en uppsättning avancerade t
 
 - **Identifiering och rekommendationer:** Klassificerings motorn genomsöker din databas och identifierar kolumner som innehåller potentiellt känsliga data. Det ger dig ett enkelt sätt att granska och tillämpa Rekommenderad klassificering via Azure Portal.
 
-- **Märkning:** Du kan använda känslighets klassificerings etiketter bestående av kolumner genom att använda nya metadata-attribut som har lagts till i SQL Database-motorn. Dessa metadata kan sedan användas för avancerade, känslighets beroende-baserade gransknings-och skydds scenarier.
+- **Märkning:** Du kan använda känslighets klassificerings etiketter bestående av kolumner genom att använda nya metadata-attribut som har lagts till i SQL Server databas motorn. Dessa metadata kan sedan användas för avancerade, känslighets beroende-baserade gransknings-och skydds scenarier.
 
 - **Frågeresultat – ange känslighet:** Känsligheten för en frågeresultat beräknas i real tid för gransknings syfte.
 
@@ -66,9 +66,9 @@ Data identifierings & klassificeringen innehåller en inbyggd uppsättning käns
 
 Du definierar och anpassar din klassificerings taxonomi på en central plats för hela Azure-organisationen. Den platsen finns [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), som en del av din säkerhets princip. Endast användare med administratörs behörighet för organisationens rot hanterings grupp kan utföra den här åtgärden.
 
-Som en del av princip hanteringen för SQL information Protection kan du definiera anpassade etiketter, ranka dem och koppla dem till en viss uppsättning informations typer. Du kan också lägga till egna anpassade informations typer och konfigurera dem med sträng mönster. Mönstren läggs till i identifierings logiken för att identifiera den här typen av data i dina databaser.
+Som en del av princip hanteringen för informations skydd kan du definiera anpassade etiketter, ranka dem och koppla dem till en viss uppsättning informations typer. Du kan också lägga till egna anpassade informations typer och konfigurera dem med sträng mönster. Mönstren läggs till i identifierings logiken för att identifiera den här typen av data i dina databaser.
 
-Läs mer om hur du anpassar och hanterar principer i [SQL information Protection policy instruktions guide](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+Mer information finns i [Anpassa SQL information Protection-principen i Azure Security Center (för hands version)](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
 
 När du har definierat principen för hela organisationen kan du fortsätta att klassificera enskilda databaser med hjälp av den anpassade principen.
 
@@ -121,7 +121,7 @@ En viktig aspekt av informations skyddets paradigm är möjligheten att övervak
 
 ![Gransknings logg](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
-## <a name="permissions"></a><a id="permissions"></a>Behörigheter
+## <a name="permissions"></a><a id="permissions"></a>Åtkomst
 
 Dessa inbyggda roller kan läsa data klassificeringen för en databas:
 
@@ -193,4 +193,4 @@ Du kan använda REST API för att program mässigt hantera klassificeringar och 
 
 - Läs mer om [Avancerad data säkerhet](advanced-data-security.md).
 - Överväg att konfigurera [Azure SQL-granskning](../../azure-sql/database/auditing-overview.md) för övervakning och granskning av åtkomst till dina klassificerade känsliga data.
-- En presentation som innehåller identifiering och klassificering av data finns i [identifiering, klassificering, etikettering & skydda SQL-data | Data som visas](https://www.youtube.com/watch?v=itVi9bkJUNc).
+- En presentation som innehåller & klassificering för data identifiering finns i avsnittet [upptäcka, klassificera, etikettera & skydda SQL-data | Data som visas](https://www.youtube.com/watch?v=itVi9bkJUNc).

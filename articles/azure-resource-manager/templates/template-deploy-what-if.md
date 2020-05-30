@@ -1,23 +1,23 @@
 ---
 title: Malldistribution vad-om (för hands version)
 description: Ta reda på vilka ändringar som sker i resurserna innan du distribuerar en Azure Resource Manager-mall.
-author: mumian
+author: tfitzmac
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: jgao
-ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.date: 05/29/2020
+ms.author: tomfitz
+ms.openlocfilehash: 31ef0f26043c416ff902fe792bae064c63f15b20
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82581197"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218297"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM-mall för att distribuera konsekvens åtgärder (för hands version)
 
 Innan du distribuerar en Azure Resource Manager-mall (ARM) kan du förhandsgranska de ändringar som kommer att ske. Azure Resource Manager tillhandahåller åtgärden vad händer om du kan se hur resurser kommer att ändras om du distribuerar mallen. Konsekvens åtgärden gör inga ändringar i befintliga resurser. I stället förväntas ändringarna om den angivna mallen distribueras.
 
 > [!NOTE]
-> Konsekvens åtgärden är för närvarande en för hands version. Som en för hands version kan resultatet ibland visa att en resurs kommer att ändras när ingen ändring sker. Vi arbetar för att minska problemen, men vi behöver din hjälp. Rapportera de här problemen vid [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+> Konsekvens åtgärden är för närvarande en för hands version. Som en för hands version kan resultatet ibland visa att en resurs kommer att ändras när ingen ändring sker. Vi arbetar för att minska problemen, men vi behöver din hjälp. Rapportera de här problemen vid [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
 Du kan använda åtgärden vad händer om med Azure PowerShell, Azure CLI eller REST API åtgärder.
 
@@ -101,7 +101,7 @@ Resource changes: 1 to modify.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Om du vill förhandsgranska ändringar innan du distribuerar en mall `-Whatif` lägger du till parametern switch i distributions kommandot.
+Om du vill förhandsgranska ändringar innan du distribuerar en mall lägger du till `-Whatif` parametern switch i distributions kommandot.
 
 * `New-AzResourceGroupDeployment -Whatif`för resurs grupps distributioner
 * `New-AzSubscriptionDeployment -Whatif`och `New-AzDeployment -Whatif` för distributioner på prenumerations nivå
@@ -118,12 +118,12 @@ Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill förhandsgranska ändringar innan du distribuerar en `what-if` mall använder du med kommandot distribution.
+Om du vill förhandsgranska ändringar innan du distribuerar en mall använder `what-if` du med kommandot distribution.
 
 * `az deployment group what-if`för resurs grupps distributioner
 * `az deployment sub what-if`för distributioner på prenumerations nivå
 
-Du kan använda `--confirm-with-what-if` växeln (eller dess kort form `-c`) för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen.
+Du kan använda `--confirm-with-what-if` växeln (eller dess kort form `-c` ) för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen.
 
 * `az deployment group create --confirm-with-what-if`eller `-c` för resurs grupps distributioner
 * `az deployment sub create --confirm-with-what-if`eller `-c` för distributioner på prenumerations nivå
@@ -150,11 +150,11 @@ För REST API använder du:
 
 - **Ignorera**: resursen finns, men har inte definierats i mallen. Resursen kommer inte att distribueras eller ändras.
 
-- **Nochang**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras, men egenskaperna för resursen ändras inte. Den här ändrings typen returneras när [ResultFormat](#result-format) är inställd `FullResourcePayloads`på, vilket är standardvärdet.
+- **Nochang**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras, men egenskaperna för resursen ändras inte. Den här ändrings typen returneras när [ResultFormat](#result-format) är inställd på `FullResourcePayloads` , vilket är standardvärdet.
 
-- **Ändra**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras och egenskaperna för resursen ändras. Den här ändrings typen returneras när [ResultFormat](#result-format) är inställd `FullResourcePayloads`på, vilket är standardvärdet.
+- **Ändra**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras och egenskaperna för resursen ändras. Den här ändrings typen returneras när [ResultFormat](#result-format) är inställd på `FullResourcePayloads` , vilket är standardvärdet.
 
-- **Distribuera**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras. Egenskaperna för resursen kanske inte ändras. Åtgärden returnerar den här ändrings typen när den inte har tillräckligt med information för att avgöra om några egenskaper kommer att ändras. Du ser bara det här villkoret när [ResultFormat](#result-format) är `ResourceIdOnly`inställt på.
+- **Distribuera**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras. Egenskaperna för resursen kanske inte ändras. Åtgärden returnerar den här ändrings typen när den inte har tillräckligt med information för att avgöra om några egenskaper kommer att ändras. Du ser bara det här villkoret när [ResultFormat](#result-format) är inställt på `ResourceIdOnly` .
 
 ## <a name="result-format"></a>Resultat format
 
@@ -165,7 +165,7 @@ Du styr detalj nivån som returneras om förväntade ändringar. Du kan välja m
 
 Standardvärdet är **FullResourcePayloads**.
 
-Använd `-WhatIfResultFormat` parametern för PowerShell-distributions kommandon. Använd `ResultFormat` parametern i programmerings objekt kommandon.
+Använd parametern för PowerShell-distributions kommandon `-WhatIfResultFormat` . Använd parametern i programmerings objekt kommandon `ResultFormat` .
 
 För Azure CLI använder du `--result-format` parametern.
  
@@ -397,9 +397,19 @@ Are you sure you want to execute the deployment?
 
 Du ser de förväntade ändringarna och kan bekräfta att du vill att distributionen ska köras.
 
+## <a name="sdks"></a>SDK:er
+
+Du kan använda konsekvens åtgärden via Azure SDK: er.
+
+* För python använder du [vad-om](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations?view=azure-python#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
+
+* För Java använder du [DeploymentWhatIf-klass](/java/api/com.microsoft.azure.management.resources.deploymentwhatif?view=azure-java-stable).
+
+* För .NET använder du [klassen DeploymentWhatIf](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du upptäcker felaktiga resultat från för hands versionen av vad-om, kan du rapportera problemen på [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- Om du upptäcker felaktiga resultat från för hands versionen av vad-om, kan du rapportera problemen på [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 - Information om hur du distribuerar mallar med Azure PowerShell finns i [distribuera resurser med ARM-mallar och Azure PowerShell](deploy-powershell.md).
 - Information om hur du distribuerar mallar med Azure CLI finns i [distribuera resurser med ARM-mallar och Azure CLI](deploy-cli.md).
 - Information om hur du distribuerar mallar med REST finns i [distribuera resurser med ARM-mallar och Resource Manager REST API](deploy-rest.md).

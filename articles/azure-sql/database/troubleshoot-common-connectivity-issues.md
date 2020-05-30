@@ -13,14 +13,15 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 34c790ee77c05e9e8c5a57a23e153bd9898c1cff
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 53bfe029038e9bf2a85cc8c571417be462fd4502
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045559"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188053"
 ---
-# <a name="troubleshooting-transient-connection-errors"></a>Felsöka tillfälliga anslutnings fel
+# <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Felsök tillfälliga anslutnings fel i SQL Database och SQL-hanterad instans
+
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Den här artikeln beskriver hur du kan förhindra, felsöka, diagnostisera och minimera anslutnings fel och tillfälliga fel som klient programmet stöter på när det interagerar med Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics. Lär dig hur du konfigurerar omprövnings logik, skapar anslutnings strängen och justerar andra anslutnings inställningar.
@@ -29,7 +30,7 @@ Den här artikeln beskriver hur du kan förhindra, felsöka, diagnostisera och m
 
 ## <a name="transient-errors-transient-faults"></a>Tillfälliga fel (tillfälliga fel)
 
-Ett tillfälligt fel, som även kallas ett tillfälligt fel, har en underliggande orsak som snart löser sig själv. En tillfällig orsak till tillfälliga fel är när Azure-systemet snabbt byter maskin varu resurser för att få bättre belastnings utjämning för olika arbets belastningar. De flesta av dessa omkonfigurations händelser slutförs på mindre än 60 sekunder. Under den här tids perioden för omkonfiguration kan du ha problem med att ansluta till SQL Database. Program som ansluter till SQL Database ska byggas för att förvänta sig dessa tillfälliga fel. Hantera dem genom att implementera logik för omprövning i koden i stället för att visa dem till användare som program fel.
+Ett tillfälligt fel, som även kallas ett tillfälligt fel, har en underliggande orsak som snart löser sig själv. En tillfällig orsak till tillfälliga fel är när Azure-systemet snabbt byter maskin varu resurser för att få bättre belastnings utjämning för olika arbets belastningar. De flesta av dessa omkonfigurations händelser slutförs på mindre än 60 sekunder. Under den här tids perioden för omkonfiguration kan du ha problem med att ansluta till databasen i SQL Database. Program som ansluter till din databas bör byggas för att förvänta sig dessa tillfälliga fel. Hantera dem genom att implementera logik för omprövning i koden i stället för att visa dem till användare som program fel.
 
 Om ditt klient program använder ADO.NET, meddelas ditt program om det tillfälliga felet genom Throw of **SqlException**.
 
@@ -37,13 +38,13 @@ Om ditt klient program använder ADO.NET, meddelas ditt program om det tillfäll
 
 ### <a name="connection-vs-command"></a>Anslutning vs.-kommando
 
-Gör om SQL-anslutningen eller upprätta den igen, beroende på följande:
+Försök att ansluta till SQL Database-och SQL-hanterad instans eller upprätta den igen, beroende på följande:
 
 - **Ett tillfälligt fel inträffar under en anslutning försök**
 
 Försök ansluta igen efter en fördröjning på flera sekunder.
 
-- **Ett tillfälligt fel inträffar under ett SQL-kommando**
+- **Ett tillfälligt fel inträffar under kommandot SQL Database och SQL-hanterad instans fråga**
 
 Försök inte omedelbart att köra kommandot igen. I stället kan du efter en fördröjning upprätta anslutningen. Försök sedan utföra kommandot på nytt.
 
@@ -51,15 +52,15 @@ Försök inte omedelbart att köra kommandot igen. I stället kan du efter en f�
 
 ## <a name="retry-logic-for-transient-errors"></a>Logik för omprövning av tillfälliga fel
 
-Klient program som ibland stöter på ett tillfälligt fel är mer robusta när de innehåller logik för återförsök. När ditt program kommunicerar med SQL Database via mellanprodukter från tredje part, frågar du leverantören om mellanprodukter innehåller omprövnings logik för tillfälliga fel.
+Klient program som ibland stöter på ett tillfälligt fel är mer robusta när de innehåller logik för återförsök. När ditt program kommunicerar med databasen i SQL Database via mellanprodukter från tredje part, frågar du leverantören om mellanprodukter innehåller omprövnings logik för tillfälliga fel.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
 ### <a name="principles-for-retry"></a>Principer för återförsök
 
 - Om felet är tillfälligt kan du försöka öppna en anslutning igen.
-- Försök inte direkt med en SQL- `SELECT` instruktion som misslyckades med ett tillfälligt fel. Upprätta i stället en ny anslutning och försök sedan igen `SELECT` .
-- Om ett SQL `UPDATE` -uttryck Miss lyckas med ett tillfälligt fel upprättar du en ny anslutning innan du försöker uppdatera igen. Logiken för omprövning måste se till att antingen hela databas transaktionen har avslut ATS eller att hela transaktionen återställs.
+- Försök inte direkt med en SQL Database-eller SQL-hanterad instans- `SELECT` instruktion som misslyckades med ett tillfälligt fel. Upprätta i stället en ny anslutning och försök sedan igen `SELECT` .
+- När en SQL Database-eller SQL-hanterad instans `UPDATE` -instruktionen Miss lyckas med ett tillfälligt fel, upprätta en ny anslutning innan du försöker uppdatera igen. Logiken för omprövning måste se till att antingen hela databas transaktionen har avslut ATS eller att hela transaktionen återställs.
 
 ### <a name="other-considerations-for-retry"></a>Andra överväganden för återförsök
 
@@ -78,8 +79,8 @@ Du kanske också vill ange ett maximalt antal försök innan programmet självav
 
 Kod exempel med logik för omprövning finns på:
 
-- [Ansluta elastiskt till SQL med ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [Ansluta elastiskt till SQL med PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [Anslut elastiskt till Azure SQL med ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Ansluta elastiskt till Azure SQL med PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -126,7 +127,7 @@ För att göra det här testet användbart identifierar programmet en körnings 
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>.NET SqlConnection-parametrar för anslutnings försök
 
-Om klient programmet ansluter till SQL Database med hjälp av .NET Framework Class **system. data. SqlClient. SQLConnection**, använder du .NET 4.6.1 eller senare (eller .net Core) så att du kan använda funktionen för att ansluta igen. Mer information om funktionen finns på [den här webb sidan](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
+Om klient programmet ansluter till databasen i SQL Database med hjälp av .NET Framework Class **system. data. SqlClient. SQLConnection**, använder du .NET 4.6.1 eller senare (eller .net Core) så att du kan använda funktionen för att ansluta igen. Mer information om funktionen finns på [den här webb sidan](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -159,13 +160,13 @@ Anta att ditt program har robust anpassad omprövnings logik. Det kan försöka 
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
-## <a name="connections-to-sql-database"></a>Anslutningar till SQL Database
+## <a name="connections-to-your-database-in-sql-database"></a>Anslutningar till databasen i SQL Database
 
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### <a name="connection-connection-string"></a>Anslutning: anslutnings sträng
 
-Anslutnings strängen som krävs för att ansluta till SQL Database skiljer sig något från den sträng som används för att ansluta till SQL Server. Du kan kopiera anslutnings strängen för databasen från [Azure Portal](https://portal.azure.com/).
+Anslutnings strängen som krävs för att ansluta till databasen skiljer sig något från den sträng som används för att ansluta till SQL Server. Du kan kopiera anslutnings strängen för databasen från [Azure Portal](https://portal.azure.com/).
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
@@ -179,7 +180,7 @@ Om du glömmer att konfigurera IP-adressen, Miss lyckas programmet med ett anvä
 
 [!INCLUDE [sql-database-include-ip-address-22-portal](../../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-Mer information finns i [Konfigurera brand Väggs inställningar på SQL Database](firewall-configure.md).
+Mer information finns i [Konfigurera brand Väggs inställningar i SQL Database](firewall-configure.md).
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
 ### <a name="connection-ports"></a>Anslutning: portar
@@ -193,7 +194,7 @@ Om ditt klient program till exempel finns på en Windows-dator kan du använda W
 
 Om ditt klient program finns på en virtuell Azure-dator (VM) läser du [portarna utöver 1433 för ADO.NET 4,5 och SQL Database](adonet-v12-develop-direct-route-ports.md).
 
-Bakgrunds information om konfiguration av portar och IP-adresser Azure SQL Database finns i [Azure SQL Database brand vägg](firewall-configure.md).
+Bakgrunds information om konfiguration av portar och IP-adresser i databasen finns [Azure SQL Database brand vägg](firewall-configure.md).
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
@@ -222,7 +223,7 @@ Om du använder ADO.NET 4,0 eller tidigare rekommenderar vi att du uppgraderar t
 
 ### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnostik: testa om verktyg kan ansluta
 
-Om programmet inte kan ansluta till SQL Database, är ett diagnos alternativ att försöka ansluta med ett verktygs program. Vi rekommenderar att verktyget ansluter med hjälp av samma bibliotek som programmet använder.
+Om programmet inte kan ansluta till databasen i SQL Database, är ett diagnostiskt alternativ att försöka ansluta med ett verktygs program. Vi rekommenderar att verktyget ansluter med hjälp av samma bibliotek som programmet använder.
 
 På en Windows-dator kan du prova följande verktyg:
 
@@ -242,7 +243,7 @@ I Linux kan följande verktyg vara användbara:
 - `netstat -nap`
 - `nmap -sS -O 127.0.0.1`: Ändra värdet i exemplet så att det blir din IP-adress.
 
-I Windows kan verktyget [Portqry. exe](https://www.microsoft.com/download/details.aspx?id=17148) vara till hjälp. Här är en exempel körning som efterfrågade port situationen på SQL Database och som kördes på en bärbar dator:
+I Windows kan verktyget [Portqry. exe](https://www.microsoft.com/download/details.aspx?id=17148) vara till hjälp. Här är en exempel körning som efterfrågade port situationen på en databas i SQL Database och som kördes på en bärbar dator:
 
 ```cmd
 [C:\Users\johndoe\]
@@ -276,7 +277,7 @@ Enterprise Library 6 (EntLib60) erbjuder .NET-hanterade klasser som hjälp vid l
 
 Här följer några Transact-SQL SELECT-uttryck som frågar efter fel loggar och annan information.
 
-| Fråga efter logg | Beskrivning |
+| Fråga efter logg | Description |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[Sys. event_log](https://msdn.microsoft.com/library/dn270018.aspx) -vyn innehåller information om enskilda händelser som innehåller vissa som kan orsaka tillfälliga fel eller anslutnings fel.<br/><br/>Vi rekommenderar att du korrelerar **start_time** -eller **end_times** värden med information om när ditt klient program fick problem.<br/><br/>Du måste ansluta till *huvud* databasen för att köra den här frågan. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |I [sys. database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) -vyn finns det sammanställda antalet händelse typer för ytterligare diagnostik.<br/><br/>Du måste ansluta till *huvud* databasen för att köra den här frågan. |
@@ -326,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
 
-Enterprise Library 6 (EntLib60) är ett ramverk med .NET-klasser som hjälper dig att implementera robusta klienter i moln tjänster, varav en är den SQL Database tjänsten. Information om hur du hittar ämnen som är reserverade för varje utrymme där EntLib60 kan hjälpa finns i [företags bibliotek 6 – April 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
+Enterprise Library 6 (EntLib60) är ett ramverk med .NET-klasser som hjälper dig att implementera robusta klienter i moln tjänster, varav en är SQL Database. Information om hur du hittar ämnen som är reserverade för varje utrymme där EntLib60 kan hjälpa finns i [företags bibliotek 6 – April 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
 Omprövnings logik för hantering av tillfälliga fel är ett utrymme där EntLib60 kan hjälpa dig. Mer information finns i [4-perseverance, hemlighet för alla Triumphs: Använd program blocket för den tillfälliga fel hanteringen](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 

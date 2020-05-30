@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 8354be28203f1d466df6a22159fef87c9ae6f803
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4d4b2f0305e1069ac7873df24d834ab55512aff7
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199745"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219721"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
 
@@ -39,7 +39,7 @@ Tänk på följande faktorer när du väljer en skalnings typ:
 
 Autoskalning övervakar kontinuerligt klustret och samlar in följande mått:
 
-|Mått|Beskrivning|
+|Metric|Beskrivning|
 |---|---|
 |Total väntande processor|Det totala antalet kärnor som krävs för att starta körningen av alla väntande behållare.|
 |Totalt väntande minne|Det totala minne (i MB) som krävs för att starta körningen av alla väntande behållare.|
@@ -182,12 +182,12 @@ Du kan skapa ett HDInsight-kluster med schemabaserade autoskalning av en Azure R
             "minInstanceCount": 10,
             "maxInstanceCount": 10
           }
-        },
+        }
       ]
     }
   },
   "name": "workernode",
-  "targetInstanceCount": 4,
+  "targetInstanceCount": 4
 }
 ```
 
@@ -210,7 +210,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 Använd lämpliga parametrar i nytto lasten för begäran. JSON-nyttolasten nedan kan användas för att aktivera autoskalning. Använd nytto lasten `{autoscale: null}` för att inaktivera autoskalning.
 
 ```json
-{ autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }
+{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 2 } } }
 ```
 
 Se föregående avsnitt om hur du [aktiverar belastningsutjämnad autoskalning](#load-based-autoscaling) för en fullständig beskrivning av alla nytto Last parametrar.
@@ -225,7 +225,7 @@ Kluster statusen som visas i Azure Portal kan hjälpa dig att övervaka automati
 
 Alla de kluster status meddelanden som du kan se förklaras i listan nedan.
 
-| Klusterstatus | Beskrivning |
+| Klusterstatus | Description |
 |---|---|
 | Körs | Klustret fungerar normalt. Alla tidigare autoskalning-aktiviteter har slutförts. |
 | Uppdatera  | Konfigurationen för automatisk skalning av klustret uppdateras.  |

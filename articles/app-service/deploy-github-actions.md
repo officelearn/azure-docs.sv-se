@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 57ca5b0880d4b027e33bc0d01fc6225eb886029b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be6b5f0af17aa8343dcb74fd5f0710d44332ce0e
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084999"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193294"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
@@ -59,12 +59,12 @@ Du kan också använda autentiseringsuppgifter på program nivå, t. ex. publice
 
 3. Klistra in innehållet för den hämtade publicerings profil filen i fältet hemligt värde.
 
-4. Nu i arbets flödes filen i din gren `.github/workflows/workflow.yml` : Ersätt hemligheten för indata `publish-profile` för åtgärden Distribuera Azure Web App.
+4. Nu i arbets flödes filen i din gren: `.github/workflows/workflow.yml` Ersätt hemligheten för indata för `publish-profile` åtgärden Distribuera Azure Web App.
     
     ```yaml
         - uses: azure/webapps-deploy@v2
           with:
-            creds: ${{ secrets.azureWebAppPublishProfile }}
+            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
     ```
 
 5. Du ser hemligheten som visas nedan när den har definierats.
@@ -182,9 +182,9 @@ I följande exempel visas den del av arbets flödet som bygger webbappen på de 
 ```
 ## <a name="deploy-to-app-service"></a>Distribuera till App Service
 
-Om du vill distribuera din kod till en App Service-app `azure/webapps-deploy@v2` använder du åtgärden. Den här åtgärden har fyra parametrar:
+Om du vill distribuera din kod till en App Service-app använder du `azure/webapps-deploy@v2` åtgärden. Den här åtgärden har fyra parametrar:
 
-| **ProfileServiceApplicationProxy**  | **Förklaring**  |
+| **Parameter**  | **Förklaring**  |
 |---------|---------|
 | **App-Name** | Kunna Namnet på App Service-appen | 
 | **publicera – profil** | Valfritt Publicera profil filens innehåll med webb distributions hemligheter |

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/16/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 02f7d7e2735717a7a6e7a56273551197c16b77aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4309f1dc63ac7dd96e22f4564a32aae6ed59ad84
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659245"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195794"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto
 
@@ -37,13 +37,7 @@ Du kan använda PowerShell eller Azure CLI för att hämta värdet för den **se
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Om du vill hämta den senaste synkroniseringen för lagrings kontot med PowerShell installerar du en version av modulen AZ. Storage som har stöd för att hämta geo-replikerings statistik. Exempel:
-
-```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.14.0 –AllowClobber –Force
-```
-
-Kontrol lera sedan lagrings kontots **GeoReplicationStats. LastSyncTime** -egenskap. Kom ihåg att ersätta plats hållarnas värden med dina egna värden:
+Om du vill hämta den senaste synkroniseringen för lagrings kontot med PowerShell installerar du version 1.11.0 eller senare av modulen [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) . Kontrol lera sedan lagrings kontots **GeoReplicationStats. LastSyncTime** -egenskap. Kom ihåg att ersätta plats hållarnas värden med dina egna värden:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `

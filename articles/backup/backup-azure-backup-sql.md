@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server till Azure som en DPM-arbetsbelastning
 description: En introduktion till att säkerhetskopiera SQL Server databaser med hjälp av tjänsten Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 01504fcfd81040d75e57ce62a9f77a5bb248d59b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6a612bc56d1fa6b70ac89ed48f28d1ae48da2e6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183797"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195785"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Säkerhetskopiera SQL Server till Azure som en DPM-arbetsbelastning
 
@@ -39,11 +39,11 @@ För att skydda SQL Server databaser i Azure måste du först skapa en princip f
 1. Välj **ny** för att skapa en skydds grupp.
 
     ![Skapa en skyddsgrupp](./media/backup-azure-backup-sql/protection-group.png)
-1. På sidan Start granskar du vägledningen om hur du skapar en skydds grupp. Välj sedan **Nästa**.
+1. På sidan Start granskar du vägledningen om hur du skapar en skydds grupp. Välj **Nästa**.
 1. Välj **servrar**.
 
     ![Välj typ av skydds grupp för servrar](./media/backup-azure-backup-sql/pg-servers.png)
-1. Expandera den SQL Server dator där de databaser som du vill säkerhetskopiera finns. Du ser de data källor som kan säkerhets kopie ras från den servern. Expandera **alla SQL-resurser** och välj sedan de databaser som du vill säkerhetskopiera. I det här exemplet väljer du ReportServer $ MSDPM2012 och ReportServer $ MSDPM2012TempDB. Välj sedan **Nästa**.
+1. Expandera den SQL Server virtuella dator där de databaser som du vill säkerhetskopiera finns. Du ser de data källor som kan säkerhets kopie ras från den servern. Expandera **alla SQL-resurser** och välj sedan de databaser som du vill säkerhetskopiera. I det här exemplet väljer du ReportServer $ MSDPM2012 och ReportServer $ MSDPM2012TempDB. Välj **Nästa**.
 
     ![Välj en SQL Server databas](./media/backup-azure-backup-sql/pg-databases.png)
 1. Ge skydds gruppen ett namn och välj sedan **Jag vill ha onlineskydd**.
@@ -68,7 +68,7 @@ För att skydda SQL Server databaser i Azure måste du först skapa en princip f
 
     Om du väljer **utöka volymerna automatiskt**, kan DPM identifiera den ökade säkerhets kopierings volymen eftersom produktions data växer. Om du inte väljer **utöka volymerna automatiskt**, begränsar DPM lagringen av säkerhets kopior till data källorna i skydds gruppen.
 
-1. Om du är administratör kan du välja att överföra den första säkerhets kopieringen **automatiskt över nätverket** och välja överförings tiden. Eller Välj att **manuellt** överföra säkerhets kopian. Välj sedan **Nästa**.
+1. Om du är administratör kan du välja att överföra den första säkerhets kopieringen **automatiskt över nätverket** och välja överförings tiden. Eller Välj att **manuellt** överföra säkerhets kopian. Välj **Nästa**.
 
     ![Välj en metod för att skapa repliker](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -76,13 +76,13 @@ För att skydda SQL Server databaser i Azure måste du först skapa en princip f
 
     När den första säkerhets kopieringen är klar fortsätter säkerhets kopieringarna stegvis på den första säkerhets kopian. Stegvisa säkerhets kopieringar tenderar att vara små och överförs enkelt över nätverket.
 
-1. Välj när du vill köra en konsekvens kontroll. Välj sedan **Nästa**.
+1. Välj när du vill köra en konsekvens kontroll. Välj **Nästa**.
 
     ![Välj när du vill köra en konsekvens kontroll](./media/backup-azure-backup-sql/pg-consistent.png)
 
     DPM kan köra en konsekvens kontroll på säkerhets kopierings punktens integritet. Den beräknar säkerhets kopian för säkerhets kopian på produktions servern (SQL Server datorn i det här exemplet) och de säkerhetskopierade data för filen i DPM. Om kontrollen hittar en konflikt antas den säkerhetskopierade filen i DPM vara skadad. DPM åtgärdar säkerhetskopierade data genom att skicka block som motsvarar matchnings fel för kontroll summan. Eftersom konsekvens kontrollen är en prestanda intensiv åtgärd kan administratörer välja att schemalägga konsekvens kontrollen eller köra den automatiskt.
 
-1. Välj de data källor som ska skyddas i Azure. Välj sedan **Nästa**.
+1. Välj de data källor som ska skyddas i Azure. Välj **Nästa**.
 
     ![Välj data källor som ska skyddas i Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)
 1. Om du är administratör kan du välja säkerhets kopierings scheman och lagrings principer som passar organisationens principer.
@@ -148,12 +148,12 @@ En återställnings punkt skapas när den första säkerhets kopieringen sker. I
 1. Högerklicka på databas namnet och välj **Återställ**.
 
     ![Återställa en databas från Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. DPM visar information om återställnings punkten. Välj **Nästa**. Om du vill skriva över databasen väljer du återställnings typen **Återställ till den ursprungliga instansen av SQL Server**. Välj sedan **Nästa**.
+1. DPM visar information om återställnings punkten. Välj **Nästa**. Om du vill skriva över databasen väljer du återställnings typen **Återställ till den ursprungliga instansen av SQL Server**. Välj **Nästa**.
 
     ![Återställa en databas till dess ursprungliga plats](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     I det här exemplet tillåter DPM att databasen återställs till en annan SQL Server instans eller till en fristående nätverksmapp.
-1. På sidan **Ange återställnings alternativ** kan du välja återställnings alternativ. Du kan till exempel välja **nätverks bandbredds begränsning** för att begränsa bandbredden som används i återställningen. Välj sedan **Nästa**.
+1. På sidan **Ange återställnings alternativ** kan du välja återställnings alternativ. Du kan till exempel välja **nätverks bandbredds begränsning** för att begränsa bandbredden som används i återställningen. Välj **Nästa**.
 1. På sidan **Sammanfattning** visas den aktuella återställnings konfigurationen. Välj **Återställ**.
 
     Återställnings status visar den databas som återställs. Du kan välja **Stäng** om du vill stänga guiden och se förloppet i arbets ytan **övervakning** .

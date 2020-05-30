@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 2476cf360909374f711564fb5fad5c9e0706083d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 2711160534270f38845ab7b48234f4a441c236b4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562482"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195875"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Azure Data Box Gateway säkerhet och data skydd
 
@@ -27,7 +27,6 @@ Data Box Gateway lösningen består av fyra huvud komponenter som interagerar me
 - **Data Box gateway enhet**. Den virtuella enhet som du etablerar i hypervisor-systemet som du anger. Den här virtuella enheten används för att importera dina lokala data till Azure.
 - **Klienter/värdar som är anslutna till enheten**. Klienterna i din infrastruktur som ansluter till Data Box Gateway-enheten och innehåller data som behöver skyddas.
 - **Moln lagring**. Platsen i Azure Cloud Platform där data lagras. Den här platsen är vanligt vis det lagrings konto som är kopplat till Data Box Gateway resurs som du skapar.
-
 
 ## <a name="data-box-gateway-service-protection"></a>Data Box Gateway tjänst skydd
 
@@ -64,7 +63,6 @@ Du kan:
 [!INCLUDE [data-box-edge-gateway-password-best-practices](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - Använd det lokala webb gränssnittet för att [ändra lösen ordet](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Om du ändrar lösen ordet ska du se till att meddela alla fjärråtkomst-användare så att de inte har problem med att logga in.
 
-
 ## <a name="protect-your-data"></a>Skydda dina data
 
 I det här avsnittet beskrivs Data Box Gateway säkerhetsfunktioner som skyddar data som överförs och lagras.
@@ -77,10 +75,18 @@ I det här avsnittet beskrivs Data Box Gateway säkerhetsfunktioner som skyddar 
 
 [!INCLUDE [data-box-edge-gateway-data-flight](../../includes/data-box-edge-gateway-data-flight.md)]
 
-### <a name="protect-data-via-storage-accounts"></a>Skydda data via lagrings konton
+### <a name="protect-data-using-storage-accounts"></a>Skydda data med hjälp av lagrings konton
 
 [!INCLUDE [data-box-edge-gateway-data-storage-accounts](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
+
 - Rotera och [Synkronisera dina lagrings konto nycklar](data-box-gateway-manage-shares.md#sync-storage-keys) regelbundet för att hjälpa till att skydda ditt lagrings konto från obehöriga användare.
+
+### <a name="protect-the-device-data-using-bitlocker"></a>Skydda enhets data med BitLocker
+
+För att skydda de virtuella diskarna på din Data Box Gateway virtuella dator, rekommenderar vi att du aktiverar BitLocker. BitLocker är inte aktiverat som standard. Mer information finns i:
+
+- [Inställningar för krypterings stöd i Hyper-V Manager](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [Stöd för BitLocker i en virtuell dator](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="manage-personal-information"></a>Hantera personlig information
 

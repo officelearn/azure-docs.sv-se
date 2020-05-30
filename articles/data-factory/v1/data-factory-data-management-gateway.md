@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 76f8b741eb49949bb59ab5e1a4b7279f84b77111
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021576"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188296"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "84021576"
 
 Data Management Gateway är en klient agent som du måste installera i din lokala miljö för att kunna kopiera data mellan moln-och lokala data lager. De lokala data lager som stöds av Data Factory visas i avsnittet [data källor som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 
-Den här artikeln kompletterar genom gången i artikeln [Flytta data mellan lokala och molnbaserade data lager](data-factory-move-data-between-onprem-and-cloud.md) . I genom gången skapar du en pipeline som använder gatewayen för att flytta data från en lokal SQL Server-databas till en Azure-blob. Den här artikeln innehåller detaljerad djupgående information om data Management Gateway.
+Den här artikeln kompletterar genom gången i artikeln [Flytta data mellan lokala och molnbaserade data lager](data-factory-move-data-between-onprem-and-cloud.md) . I genom gången skapar du en pipeline som använder gatewayen för att flytta data från en SQL Server-databas till en Azure-blob. Den här artikeln innehåller detaljerad djupgående information om data Management Gateway.
 
 Du kan skala ut en gateway för data hantering genom att associera flera lokala datorer med gatewayen. Du kan skala upp genom att öka antalet data förflyttnings jobb som kan köras samtidigt på en nod. Den här funktionen är också tillgänglig för en logisk Gateway med en enda nod. Mer information finns i avsnittet [skala data Management Gateway i Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) artikeln.
 
@@ -140,7 +140,7 @@ Det finns två brand väggar som du måste tänka på: **företags brand väggen
 
 På företags brand Väggs nivå måste du konfigurera följande domäner och utgående portar:
 
-| Domännamn | Portar | Beskrivning |
+| Domännamn | Portar | Description |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Används för kommunikation med Server dels tjänst för data flyttning |
 | *.core.windows.net |443 |Används för mellanlagrad kopia med Azure Blob (om det kon figurer ATS)|
@@ -164,7 +164,7 @@ Gör så här om du till exempel vill kopiera från **ett lokalt data lager till
 * Konfigurera brand Väggs inställningarna för logisk SQL Server för att lägga till IP-adressen för gateway-datorn i listan över tillåtna IP-adresser.
 
 > [!NOTE]
-> Om brand väggen inte tillåter utgående port 1433, kan gatewayen inte komma åt Azure SQL direkt. I det här fallet kan du använda [mellanlagrad kopia](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) för att SQL Azure databas/SQL Azure DW. I det här scenariot behöver du bara HTTPS (port 443) för data flytten.
+> Om brand väggen inte tillåter utgående port 1433, kan gatewayen inte komma åt Azure SQL direkt. I det här fallet kan du använda [mellanlagrad kopia](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) till SQL Database/SQL-hanterad instans/SQL Azure DW. I det här scenariot behöver du bara HTTPS (port 443) för data flytten.
 >
 >
 
@@ -362,7 +362,7 @@ I Azure Portal kan du Visa en ögonblicks bild av resursutnyttjande i real tid (
 
 Följande tabell innehåller beskrivningar av kolumner i listan **Gateway-noder** :
 
-Övervaknings egenskap | Beskrivning
+Övervaknings egenskap | Description
 :------------------ | :----------
 Name | Namnet på den logiska gatewayen och noder som är associerade med gatewayen. Node är en lokal Windows-dator där gatewayen är installerad. Information om hur du har fler än en nod (upp till fyra noder) i en enda logisk Gateway finns i [Data Management Gateway-hög tillgänglighet och skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md).
 Status | Status för den logiska gatewayen och gateway-noderna. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i avsnittet om [Gateway-status](#gateway-status) .
@@ -543,4 +543,4 @@ Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_Re
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Se artikeln [Flytta data mellan lokala och molnbaserade data lager](data-factory-move-data-between-onprem-and-cloud.md) . I genom gången skapar du en pipeline som använder gatewayen för att flytta data från en lokal SQL Server-databas till en Azure-blob.
+* Se artikeln [Flytta data mellan lokala och molnbaserade data lager](data-factory-move-data-between-onprem-and-cloud.md) . I genom gången skapar du en pipeline som använder gatewayen för att flytta data från en SQL Server-databas till en Azure-blob.

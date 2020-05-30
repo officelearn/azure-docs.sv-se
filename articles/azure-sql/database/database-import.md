@@ -1,6 +1,6 @@
 ---
-title: Importera en BACPAC-fil för att skapa en databas i Azure SQL
-description: Skapa en ny Azure SQL Database-eller Azure SQL-hanterad instans databas från en BACPAC-fil.
+title: Importera en BACPAC-fil för att skapa en databas i Azure SQL Database
+description: Skapa en ny databas i Azure SQL Database eller Azure SQL-hanterad instans från en BACPAC-fil.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 25e8790ed0fd5a9a9d93458c3c247632defa778a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 81a77e3a5fac19b4d6116a74221d3506d603bff9
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050676"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218819"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: importera en BACPAC-fil till en databas i Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Du kan importera en SQL Server-databas till en Azure SQL Database-eller SQL-hanterad instans med hjälp av en [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) -fil. Du kan importera data från en `BACPAC` fil som lagras i Azure Blob Storage (endast standard lagring) eller från lokal lagring på en lokal plats. För att maximera importhastigheten genom att ge fler och snabbare resurser ska du skala databasen till en högre tjänstnivå och beräkningsstorlek under importprocessen. Du kan sedan skala ned när importen har slutförts.
+Du kan importera en SQL Server-databas till Azure SQL Database eller SQL-hanterad instans med hjälp av en [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) -fil. Du kan importera data från en BACPAC-fil lagrad i Azure Blob Storage (endast standardlagring) eller från lokal lagring på en lokal plats. För att maximera importhastigheten genom att ge fler och snabbare resurser ska du skala databasen till en högre tjänstnivå och beräkningsstorlek under importprocessen. Du kan sedan skala ned när importen har slutförts.
 
 > [!NOTE]
 > Den importerade databasens kompatibilitetsnivå baseras på käll databasens kompatibilitetsnivå.
@@ -35,7 +35,7 @@ Titta på den här videon för att se hur du importerar från en BACPAC-fil i Az
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
 
-[Azure Portal](https://portal.azure.com) har *bara* stöd för att skapa en enda Azure SQL Database och *endast* från en BACPAC-fil som lagras i Azure Blob Storage.
+[Azure Portal](https://portal.azure.com) har *bara* stöd för att skapa en enda databas i Azure SQL Database och *endast* från en BACPAC-fil som lagras i Azure Blob Storage.
 
 Om du vill migrera en databas till en [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) från en BACPAC-fil, använder du SQL Server Management Studio eller SQLPackage med hjälp av Azure Portal eller Azure PowerShell stöds inte för närvarande.
 
@@ -48,7 +48,7 @@ Om du vill migrera en databas till en [Azure SQL-hanterad instans](../managed-in
 
 1. Välj lagrings kontot och behållaren för BACPAC-filen och välj sedan den BACPAC-fil som du vill importera från.
 
-1. Ange den nya databas storleken (vanligt vis samma som ursprung) och ange mål SQL Server autentiseringsuppgifter. En lista över möjliga värden för en ny Azure SQL Database finns i [skapa databas](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
+1. Ange den nya databas storleken (vanligt vis samma som ursprung) och ange mål SQL Server autentiseringsuppgifter. En lista över möjliga värden för en ny databas i Azure SQL Database finns i [skapa databas](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
    ![Databas import2](./media/database-import/sql-server-import-database-settings.png)
 
@@ -157,7 +157,7 @@ Du kan också använda de här guiderna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du ansluter till och frågar en Azure SQL Database finns i [snabb start: Azure SQL Database: använd SQL Server Management Studio för att ansluta och fråga efter data](connect-query-ssms.md).
+- Information om hur du ansluter till och frågar en databas i Azure SQL Database finns i [snabb start: Azure SQL Database: använd SQL Server Management Studio för att ansluta till och fråga efter data](connect-query-ssms.md).
 - En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407) (på engelska).
 - En beskrivning av hela processen för migrering av SQL Server databasen, inklusive prestanda rekommendationer, finns i [SQL Server Database migration till Azure SQL Database](migrate-to-database-from-sql-server.md).
 - Information om hur du hanterar och delar lagrings nycklar och signaturer för delad åtkomst på ett säkert sätt finns i [Azure Storage Security guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

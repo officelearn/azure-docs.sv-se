@@ -1,14 +1,14 @@
 ---
 title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
-ms.date: 04/03/2020
+ms.date: 05/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: a4f136bc805cd48d05c2378b47966b4e4e4c60fb
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: de9b3c5242f361c9f0cf7128a5ec32c0e7dce428
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168513"
+ms.locfileid: "84205032"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -17,14 +17,15 @@ Läs mer om [villkor](#conditions).
 
 Genom att definiera konventioner kan du kontrol lera kostnaderna och enklare hantera dina resurser. Du kan till exempel ange att endast vissa typer av virtuella datorer ska tillåtas. Du kan också kräva att alla resurser har en viss tagg. Principer ärvs av alla underordnade resurser. Om en princip tillämpas på en resurs grupp, gäller den för alla resurser i resurs gruppen.
 
-Princip definitions schema finns här:[https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
+Princip definitions schema finns här:[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Du använder JSON för att skapa en princip definition. Princip definitionen innehåller element för:
 
-- mode
-- parameters
 - visningsnamn
 - description
+- mode
+- metadata
+- parameters
 - princip regel
   - logisk utvärdering
   - effekt
@@ -34,7 +35,13 @@ Följande JSON visar till exempel en princip som begränsar var resurserna distr
 ```json
 {
     "properties": {
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
         "mode": "all",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Locations"
+        },
         "parameters": {
             "allowedLocations": {
                 "type": "array",
@@ -46,8 +53,6 @@ Följande JSON visar till exempel en princip som begränsar var resurserna distr
                 "defaultValue": [ "westus2" ]
             }
         },
-        "displayName": "Allowed locations",
-        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
         "policyRule": {
             "if": {
                 "not": {
@@ -63,7 +68,22 @@ Följande JSON visar till exempel en princip som begränsar var resurserna distr
 }
 ```
 
-Alla Azure Policys exempel finns på [Azure policy exempel](../samples/index.md).
+Azure Policy inbyggda program och mönster finns på [Azure policy exempel](../samples/index.md).
+
+## <a name="display-name-and-description"></a>Visnings namn och beskrivning
+
+Du kan använda **DisplayName** och **Description** för att identifiera princip definitionen och tillhandahålla kontext när den används. **DisplayName** får innehålla högst _128_ tecken och **beskrivningen** får bestå av högst _512_ tecken.
+
+> [!NOTE]
+> Under skapandet eller uppdateringen av en princip definition definieras **ID**, **typ**och **namn** av egenskaper som är externa för JSON och är inte nödvändiga i JSON-filen. Hämtning av princip definitionen via SDK returnerar egenskaperna **ID**, **typ**och **namn** som en del av JSON, men var och en är skrivskyddad information som är relaterad till princip definitionen.
+
+## <a name="type"></a>Typ
+
+Det går inte att ange **typ** egenskapen, det finns tre värden som returneras av SDK och visas i portalen:
+
+- `Builtin`: Dessa princip definitioner tillhandahålls och underhålls av Microsoft.
+- `Custom`: Alla princip definitioner som skapats av kunder har det här värdet.
+- `Static`: Anger en [regel](./regulatory-compliance.md) definition för efterlevnad med Microsoft- **ägarskap**. Kompabilitets resultatet för dessa princip definitioner är resultatet av granskningar från tredje part i Microsoft-infrastrukturen. I Azure Portal visas det här värdet ibland som **Microsoft Managed**. Mer information finns i [delat ansvar i molnet](../../../security/fundamentals/shared-responsibility.md).
 
 ## <a name="mode"></a>Läge
 
@@ -93,6 +113,20 @@ Följande resurs leverantörs lägen stöds för närvarande under för hands ve
 > [!NOTE]
 > Resurs leverantörs lägen stöder bara inbyggda princip definitioner och stöder inte initiativ i för hands versionen.
 
+## <a name="metadata"></a>Metadata
+
+Den valfria `metadata` egenskapen innehåller information om princip definitionen. Kunder kan definiera egenskaper och värden som är användbara för deras organisation i `metadata` . Det finns dock några _gemensamma_ egenskaper som används av Azure policy och i inbyggda moduler.
+
+### <a name="common-metadata-properties"></a>Gemensamma egenskaper för metadata
+
+- `version`(sträng): spårar information om versionen av innehållet i en princip definition.
+- `category`(sträng): anger under vilken kategori i Azure Portal princip definitionen visas.
+- `preview`(boolesk): true eller false flagga för om princip definitionen är för _hands version_.
+- `deprecated`(boolesk): true eller false flagga för om princip definitionen har marker ATS som _föråldrad_.
+
+> [!NOTE]
+> Azure Policy tjänsten använder `version` , `preview` , och `deprecated` Egenskaper för att förmedla ändrings nivån till en inbyggd princip definition eller initiativ och tillstånd. Formatet `version` är: `{Major}.{Minor}.{Patch}` . Vissa tillstånd, till exempel _föråldrad_ eller för _hands version_, läggs till i `version` egenskapen eller i en annan egenskap som **boolesk**. Mer information om hur Azure Policy inbyggda versioner finns i [inbyggd versions hantering](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+
 ## <a name="parameters"></a>Parametrar
 
 Med parametrar kan du förenkla princip hanteringen genom att minska antalet princip definitioner. Tänk på parametrar som fälten i ett formulär – `name` ,, `address` `city` , `state` . Dessa parametrar är alltid desamma, men deras värden ändras baserat på de enskilda som fyller i formuläret.
@@ -105,17 +139,11 @@ Parametrar fungerar på samma sätt när du skapar principer. Genom att inkluder
 
 En parameter har följande egenskaper som används i princip definitionen:
 
-- **namn**: namnet på din parameter. Används av `parameters` distributions funktionen i princip regeln. Mer information finns i [använda ett parameter värde](#using-a-parameter-value).
+- `name`: Namnet på din parameter. Används av `parameters` distributions funktionen i princip regeln. Mer information finns i [använda ett parameter värde](#using-a-parameter-value).
 - `type`: Anger om parametern är en **sträng**, en **matris**, ett **objekt**, ett **booleskt värde** **, ett** **flyttal**eller en **datetime**.
 - `metadata`: Definierar under egenskaper som främst används av Azure Portal för att Visa användarvänlig information:
   - `description`: En förklaring av vad parametern används för. Kan användas för att ge exempel på acceptabla värden.
   - `displayName`: Det egna namnet visas i portalen för parametern.
-  - `version`: (Valfritt) spårar information om versionen av innehållet i en princip definition.
-
-    > [!NOTE]
-    > Azure Policy tjänsten använder `version` , `preview` , och `deprecated` Egenskaper för att förmedla ändrings nivån till en inbyggd princip definition eller initiativ och tillstånd. Formatet `version` är: `{Major}.{Minor}.{Patch}` . Vissa tillstånd, till exempel _föråldrad_ eller för _hands version_, läggs till i `version` egenskapen eller i en annan egenskap som **boolesk**.
-
-  - `category`: (Valfritt) fastställer under vilken kategori i Azure Portal princip definitionen visas.
   - `strongType`: (Valfritt) används för att tilldela princip definitionen via portalen. Innehåller en Sammanhangs medveten lista. Mer information finns i [strongType](#strongtype).
   - `assignPermissions`: (Valfritt) Ange som _Sant_ för att Azure Portal skapa roll tilldelningar under princip tilldelning. Den här egenskapen är användbar om du vill tilldela behörigheter utanför tilldelnings omfånget. Det finns en roll tilldelning per roll definition i principen (eller per roll definition i alla principer i initiativet). Parametervärdet måste vara en giltig resurs eller ett giltigt omfång.
 - `defaultValue`: (Valfritt) anger värdet för parametern i en tilldelning om inget värde anges.
@@ -180,13 +208,6 @@ Om definitions platsen är:
 
 - Endast **prenumerations** resurser i den prenumerationen kan tilldelas principen.
 - **Hanterings grupp** – endast resurser inom underordnade hanterings grupper och underordnade prenumerationer kan tilldelas principen. Om du planerar att tillämpa princip definitionen på flera prenumerationer måste platsen vara en hanterings grupp som innehåller dessa prenumerationer.
-
-## <a name="display-name-and-description"></a>Visnings namn och beskrivning
-
-Du kan använda **DisplayName** och **Description** för att identifiera princip definitionen och tillhandahålla kontext när den används. **DisplayName** får innehålla högst _128_ tecken och **beskrivningen** får bestå av högst _512_ tecken.
-
-> [!NOTE]
-> Under skapandet eller uppdateringen av en princip definition definieras **ID**, **typ**och **namn** av egenskaper som är externa för JSON och är inte nödvändiga i JSON-filen. Hämtning av princip definitionen via SDK returnerar egenskaperna **ID**, **typ**och **namn** som en del av JSON, men var och en är skrivskyddad information som är relaterad till princip definitionen.
 
 ## <a name="policy-rule"></a>Principregel
 
@@ -713,88 +734,9 @@ Den här exempel regeln söker efter eventuella matchningar av **ipRules \[ \* \
 
 Mer information finns i [utvärdera []- \* aliaset](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
-## <a name="initiatives"></a>Initiativ
-
-Med initiativ kan du gruppera flera relaterade princip definitioner för att förenkla tilldelningar och hantering eftersom du arbetar med en grupp som ett enda objekt. Du kan till exempel gruppera relaterade definitioner av princip definitioner till ett enda initiativ. I stället för att tilldela varje princip individuellt, tillämpar du initiativet.
-
-> [!NOTE]
-> När ett initiativ har tilldelats kan parametrarna på initiativ nivå inte ändras. På grund av detta är rekommendationen att ange ett **Standardvärde** när du definierar parametern.
-
-I följande exempel visas hur du skapar ett initiativ för att hantera två Taggar: `costCenter` och `productName` . Den använder två inbyggda principer för att tillämpa standard tag gen svärdet.
-
-```json
-{
-    "properties": {
-        "displayName": "Billing Tags Policy",
-        "policyType": "Custom",
-        "description": "Specify cost Center tag and product name tag",
-        "parameters": {
-            "costCenterValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for Cost Center tag"
-                },
-                "defaultValue": "DefaultCostCenter"
-            },
-            "productNameValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for product Name tag"
-                },
-                "defaultValue": "DefaultProduct"
-            }
-        },
-        "policyDefinitions": [{
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            }
-        ]
-    }
-}
-```
-
 ## <a name="next-steps"></a>Nästa steg
 
+- Se [initiativ definitions strukturen](./initiative-definition-structure.md)
 - Granska exempel i [Azure policy exempel](../samples/index.md).
 - Granska [Förstå policy-effekter](effects.md).
 - Lär dig att [program mässigt skapa principer](../how-to/programmatically-create.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 828f738ff8923dc8194e2449f5fb0be74ef45ad7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70f124a498ff4aa45b5d90f6221fe3d0121e804a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473565"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221036"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för API Management-autentisering
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -48,16 +48,16 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Krävs|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
-|autentisering – grundläggande|Rot element.|Ja|
+|autentisering – grundläggande|Rot element.|Yes|
 
 ### <a name="attributes"></a>Attribut
 
-|Name|Beskrivning|Krävs|Standardvärde|
+|Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
-|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Ja|Ej tillämpligt|
-|password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Ja|Ej tillämpligt|
+|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Yes|Ej tillämpligt|
+|password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Yes|Ej tillämpligt|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -88,13 +88,13 @@ I det här exemplet identifieras klient certifikatet med resurs namnet.
 
 ### <a name="elements"></a>Element  
   
-|Name|Beskrivning|Krävs|  
+|Name|Beskrivning|Obligatorisk|  
 |----------|-----------------|--------------|  
-|autentisering-certifikat|Rot element.|Ja|  
+|autentisering-certifikat|Rot element.|Yes|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Krävs|Standardvärde|  
+|Name|Beskrivning|Obligatorisk|Standard|  
 |----------|-----------------|--------------|-------------|  
 |begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|  
 |certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|  
@@ -135,7 +135,21 @@ I det här exemplet identifieras klient certifikatet med resurs namnet.
 ```xml  
 <authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
 ```
-  
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"/> <!--Your own Azure AD Application-->
+```
+
+#### <a name="use-managed-identity-and-set-header-manually"></a>Använd hanterad identitet och ange sidhuvudet manuellt
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"
+   output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Your own Azure AD Application-->
+<set-header name="Authorization" exists-action="override">
+   <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
+</set-header>
+```
+
 #### <a name="use-managed-identity-in-send-request-policy"></a>Använd hanterad identitet i skicka begär ande princip
 ```xml  
 <send-request mode="new" timeout="20" ignore-error="false">
@@ -147,17 +161,17 @@ I det här exemplet identifieras klient certifikatet med resurs namnet.
 
 ### <a name="elements"></a>Element  
   
-|Name|Beskrivning|Krävs|  
+|Name|Beskrivning|Obligatorisk|  
 |----------|-----------------|--------------|  
-|autentisering-hanterad-identitet |Rot element.|Ja|  
+|autentisering-hanterad-identitet |Rot element.|Yes|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Krävs|Standardvärde|  
+|Name|Beskrivning|Obligatorisk|Standard|  
 |----------|-----------------|--------------|-------------|  
-|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Ja|Ej tillämpligt|  
-|output-token-variabel-namn|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token- `string`värde som en objekt typ. |Nej|Ej tillämpligt|  
-|Ignorera-fel|Booleskt. Om detta är `true`inställt på, fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|Nej|falskt|  
+|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Yes|Ej tillämpligt|  
+|output-token-variabel-namn|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token-värde som en objekt typ `string` . |No|Ej tillämpligt|  
+|Ignorera-fel|Booleskt. Om detta är inställt på `true` , fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|No|falskt|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

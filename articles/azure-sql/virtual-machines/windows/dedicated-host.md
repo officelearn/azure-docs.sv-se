@@ -1,6 +1,6 @@
 ---
-title: SQL Server VM på en dedikerad Azure-värd
-description: Läs mer om informationen om att köra en SQL Server VM på en dedikerad Azure-värd.
+title: Kör SQL Server VM på en dedikerad Azure-värd
+description: Lär dig hur du kör en SQL Server VM på en dedikerad Azure-värd.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,17 +14,17 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a16ec7a3fa1f41d8c9339f84be6a0ffc3842d099
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1c16c2cdae671a9b18a34b88b9490b5b61c24c8e
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046028"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220230"
 ---
-# <a name="sql-server-vm-on-an-azure-dedicated-host"></a>SQL Server VM på en dedikerad Azure-värd 
+# <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Kör SQL Server VM på en dedikerad Azure-värd 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Den här artikeln beskriver information om hur du använder en SQL Server VM med en [dedikerad Azure-värd](/azure/virtual-machines/windows/dedicated-hosts). Ytterligare information om den dedikerade Azure-värden finns i blogg inlägget [Introduktion till Azure-dedikerad värd](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
+Den här artikeln innehåller information om hur du använder en SQL Server virtuell dator (VM) med en [dedikerad Azure-värd](/azure/virtual-machines/windows/dedicated-hosts). Ytterligare information om den dedikerade Azure-värden finns i blogg inlägget [Introduktion till Azure-dedikerad värd](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 
 ## <a name="overview"></a>Översikt
 Den [dedikerade Azure-värden](/azure/virtual-machines/windows/dedicated-hosts) är en tjänst som tillhandahåller fysiska servrar som kan vara värd för en eller flera virtuella datorer som är dedikerade till en Azure-prenumeration. Dedikerade värdar är samma fysiska servrar som används i Microsofts Data Center, som en resurs. Du kan etablera dedikerade värdar inom en region, tillgänglighets zon och fel domän. Sedan kan du placera virtuella datorer direkt i dina etablerade värdar, i vilken konfiguration som passar bäst för dina behov.
@@ -36,22 +36,22 @@ Den [dedikerade Azure-värden](/azure/virtual-machines/windows/dedicated-hosts) 
 
 ## <a name="licensing"></a>Licensiering
 
-Du kan välja mellan två olika licensierings alternativ när du lägger till SQL Server VM på en dedikerad Azure-värd. 
+Du kan välja mellan två olika licensierings alternativ när du placerar SQL Server VM på en dedikerad Azure-värd. 
 
   - **SQL VM-licensiering**: Detta är det befintliga licensierings alternativet, där du betalar för varje SQL Server VM-licens individuellt. 
   - **Dedikerad värd licensiering**: den nya licensierings modellen som är tillgänglig för den dedikerade Azure-värden, där SQL Server licenser paketeras och betalas för på värdnivå. 
 
 
 Alternativ på värdnivå för att använda befintliga SQL Server-licenser: 
-  - SQL Server Enterprise Edition Azure Hybrid-förmån
+  - SQL Server Enterprise Edition Azure Hybrid-förmån (AHB)
     - Tillgängligt för kunder med SA eller prenumeration.
     - Licensiera alla tillgängliga fysiska kärnor och njut av obegränsad virtualisering (upp till max virtuella processorer som stöds av värden).
-        - Mer information om hur du tillämpar Azure Hybrid-förmån på den dedikerade Azure-värden finns i [vanliga frågor och svar om Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/faq/). 
+        - Mer information om hur du tillämpar AHB på den dedikerade Azure-värden finns i [Azure Hybrid-förmån vanliga frågor och svar](https://azure.microsoft.com/pricing/hybrid-benefit/faq/). 
   - SQL Server licenser som förvärv ATS före 1 oktober
       - SQL Server Enterprise Edition har licens alternativen värd och per virtuell dator. 
-      - SQL Server Standard versionen har endast alternativet av-VM-licens tillgänglig. 
+      - SQL Server Standard versionen har bara en licens för alternativet per virtuell dator tillgänglig. 
           - Mer information finns i [Microsofts produkt villkor](https://www.microsoft.com/licensing/product-licensing/products). 
-  - Om inget SQL Server dedikerat alternativ för värd nivå är markerat kan SQL Server AHB väljas på nivån för enskilda virtuella datorer, precis som med virtuella datorer med flera innehavare.
+  - Om inget SQL Server dedikerat alternativ på värdnivå är markerat kan du välja SQL Server AHB på nivån för enskilda virtuella datorer, precis som du skulle göra med virtuella datorer med flera innehavare.
 
 
 
@@ -62,7 +62,7 @@ Processen för att lägga till en befintlig SQL Server VM på den dedikerade vä
 
 ## <a name="virtualization"></a>Virtualisering 
 
-En av fördelarna med en dedikerad värd är obegränsad virtualisering. Du kan till exempel ha licenser för 64 virtuella kärnor, men du kan konfigurera värden så att den har 128 virtuella kärnor, så du får dubbla virtuella kärnor men betalar bara för hälften av SQL Server licenser. 
+En av fördelarna med en dedikerad värd är obegränsad virtualisering. Du kan t. ex. ha licenser för 64 virtuella kärnor, men du kan konfigurera värden så att den har 128 virtuella kärnor, så du får dubbla virtuella kärnor men bara betala hälften av vad du vill för SQL Server licenser. 
 
 Eftersom eftersom det är din värd, är du berättigad att ställa in virtualiseringen med 1:2-förhållandet. 
 

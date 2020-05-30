@@ -2,13 +2,13 @@
 title: Övervaknings kostnad för Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs övervaknings kostnaden för mått & inventerings data som samlas in av Azure Monitor för behållare för att hjälpa kunderna att hantera deras användning och tillhör ande kostnader.
 ms.topic: conceptual
-ms.date: 05/27/2020
-ms.openlocfilehash: 44802f611919fbf88894576eecf581a668e05b5b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 05/29/2020
+ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122467"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204658"
 ---
 # <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Förstå övervaknings kostnader för Azure Monitor för behållare
 
@@ -140,6 +140,8 @@ Med standard [priset](https://azure.microsoft.com/pricing/details/monitor/) för
 - Fakturerbara behållar logg data inmatat av logsource-post
 
 - Fakturerbara diagnostikdata som matats in av loggar för den diagnostiska huvud noden
+
+Om du vill veta mer om hur du hanterar rättigheter och behörigheter till arbets boken granskar du [åtkomst kontroll](../platform/workbooks-access-control.md).
 
 När du har slutfört analysen för att avgöra vilken källa eller vilka källor som genererar mest data eller data som överstiger dina krav kan du konfigurera om data insamling. Information om hur du konfigurerar insamling av STDOUT-, stderr-och miljövariabler beskrivs i artikeln [Konfigurera inställningar för agent data insamling](container-insights-agent-config.md) .
 

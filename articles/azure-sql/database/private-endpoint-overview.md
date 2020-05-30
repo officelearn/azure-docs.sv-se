@@ -9,17 +9,17 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 302a755dc32ad36e214ba4982a03da126f6aed04
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e1093e57757d780bf5393b6cb1bb45a706b18b11
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054667"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219869"
 ---
 # <a name="private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Privat länk för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en **privat slut punkt**. En lista över PaaS-tjänster som stöder funktionen för privat länk finns på [dokumentations sidan för privat länk](../index.yml) . En privat slut punkt är en privat IP-adress inom ett särskilt [VNet](../../virtual-network/virtual-networks-overview.md) och undernät.
+Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en **privat slut punkt**. En lista över PaaS-tjänster som stöder funktionen för privat länk finns på [dokumentations sidan för privat länk](../../private-link/index.yml) . En privat slut punkt är en privat IP-adress inom ett särskilt [VNet](../../virtual-network/virtual-networks-overview.md) och undernät.
 
 > [!IMPORTANT]
 > Den här artikeln gäller både Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse). För enkelhetens skull refererar termen "databas" till båda databaserna i Azure SQL Database och Azure Synapse Analytics. På samma sätt refererar alla referenser till "Server" till den [logiska SQL-Server](logical-servers.md) som är värd för Azure SQL Database och Azure Synapse Analytics. Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser**.

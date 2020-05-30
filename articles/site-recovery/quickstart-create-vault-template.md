@@ -6,12 +6,12 @@ ms.custom: subject-armqs
 ms.date: 04/29/2020
 author: davidsmatlak
 ms.author: v-dasmat
-ms.openlocfilehash: 47c25ebd0fe18d470b04ccbcc85a8638c1ce0346
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598408"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217289"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Snabb start: skapa ett Recovery Services valv med en Resource Manager-mall
 
@@ -21,7 +21,7 @@ I den här snabb starten beskrivs hur du konfigurerar ett Recovery Services valv
 
 Om du inte har en aktiv Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Inga.
 
@@ -35,7 +35,7 @@ Mallen som används i den här snabb starten är från [Azure snabb starts-malla
 
 Två Azure-resurser definieras i mallen:
 
-- [Microsoft. RecoveryServices-valv](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults): skapar valvet.
+- [Microsoft. RecoveryServices-valv](/azure/templates/microsoft.recoveryservices/vaults): skapar valvet.
 - [Microsoft. RecoveryServices/valv/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs): konfigurerar valvets inställningar för redundans för säkerhets kopiering.
 
 Mallen innehåller valfria parametrar för valvets säkerhets kopierings konfiguration. Inställningarna för redundans är lokalt redundant lagring (LRS) eller Geo-redundant lagring (GRS). Mer information finns i [set Storage redundans](../backup/backup-create-rs-vault.md#set-storage-redundancy).

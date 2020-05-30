@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13a5fc216abc890c19ce3a2d75335431fe2a6799
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41761f8724f1913972298a50d2c35489ddd715b9
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79528650"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219038"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrera från Federation till direktautentisering för Azure Active Directory
 
@@ -25,6 +25,9 @@ I den här artikeln beskrivs hur du flyttar organisations domäner från Active 
 
 > [!NOTE]
 > Att ändra autentiseringsmetoden kräver planering, testning och eventuella stillestånds tider. [Stegvis](how-to-connect-staged-rollout.md) distribution är ett alternativt sätt att testa och gradvis migrera från Federation till molnbaserad autentisering med hjälp av direktautentisering.
+> 
+> Om du planerar att använda stegvis distribution bör du komma ihåg att inaktivera funktionerna för stegvis distribution när du är klar med att klippa ut.  Mer information finns i [migrera till molnbaserad autentisering med hjälp av mellanlagrad](how-to-connect-staged-rollout.md) distribution
+
 
 ## <a name="prerequisites-for-migrating-to-pass-through-authentication"></a>Krav för migrering till direktautentisering
 
@@ -223,7 +226,7 @@ Du har planerat din lösning. Nu kan du implementera det. Implementeringen omfat
 
 För att enheterna ska kunna använda sömlös SSO måste du lägga till en Azure AD-URL till användarnas intranät zons inställningar med hjälp av en grup princip i Active Directory.
 
-Som standard beräknar webbläsare automatiskt rätt zon, antingen Internet eller intranät, från en URL. Till exempel **http\/\/: contoso/** Maps till zonen Intranät och **\/\/http: intranet.contoso.com** Maps till zonen Internet (eftersom URL: en innehåller en punkt). Webbläsare skickar Kerberos-biljetter till en moln slut punkt, t. ex. Azure AD-URL, endast om du lägger till URL: en i webbläsarens intranät zon.
+Som standard beräknar webbläsare automatiskt rätt zon, antingen Internet eller intranät, från en URL. Till exempel **http: \/ \/ contoso/** Maps till zonen intranät och **http: \/ \/ intranet.contoso.com** Maps till zonen Internet (eftersom URL: en innehåller en punkt). Webbläsare skickar Kerberos-biljetter till en moln slut punkt, t. ex. Azure AD-URL, endast om du lägger till URL: en i webbläsarens intranät zon.
 
 Slutför stegen för att [distribuera](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start) de nödvändiga ändringarna på enheterna.
 
@@ -269,7 +272,7 @@ Använd den här metoden om du ursprungligen konfigurerade AD FS miljön med Azu
 
 Nästa. distribuera ytterligare autentiseringsmetoder:
 
-1. I Azure Portal går du till **Azure Active Directory** > **Azure AD Connect**och väljer sedan **direktautentisering**.
+1. I Azure Portal går du till **Azure Active Directory**  >  **Azure AD Connect**och väljer sedan **direktautentisering**.
 2. På sidan **direkt autentisering** väljer du knappen **Hämta** .
 3. På sidan **Ladda ned agent** väljer du **Godkänn villkor och hämta**.
 
@@ -331,7 +334,7 @@ Börja med att aktivera direktautentisering:
 
 Sedan distribuerar du ytterligare autentiseringsmetoder:
 
-1. I Azure Portal går du till **Azure Active Directory** > **Azure AD Connect**och väljer sedan **direktautentisering**.
+1. I Azure Portal går du till **Azure Active Directory**  >  **Azure AD Connect**och väljer sedan **direktautentisering**.
 2. På sidan **direkt autentisering** väljer du knappen **Hämta** . 
 3. På sidan **Ladda ned agent** väljer du **Godkänn villkor och hämta**.
  
@@ -359,7 +362,7 @@ Slutför konverteringen med hjälp av Azure AD PowerShell-modulen:
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
    ```
  
-3. I Azure AD-portalen väljer du **Azure Active Directory** > **Azure AD Connect**.
+3. I Azure AD-portalen väljer du **Azure Active Directory**  >  **Azure AD Connect**.
 4. När du har konverterat alla federerade domäner kontrollerar du följande inställningar:
    * **Federationen** är inställd på **inaktive rad**.
    * **Sömlös enkel inloggning** har angetts till **aktive rad**.
@@ -378,7 +381,7 @@ När din klient använder federerade identiteter omdirigerades användarna från
 Så här testar du direktautentisering:
 
 1. Öppna Internet Explorer i InPrivate-läge så att sömlös inloggning inte loggar in automatiskt.
-2. Gå till Office 365-inloggnings sidan ([https://portal.office.com](https://portal.office.com/)).
+2. Gå till Office 365-inloggnings sidan ( [https://portal.office.com](https://portal.office.com/) ).
 3. Ange ett UPN för användare och välj sedan **Nästa**. Se till att du anger UPN för en hybrid användare som har synkroniserats från din lokala Active Directory-instans och som tidigare använde federerad autentisering. En sida där du anger användar namn och lösen ord visas:
 
    ![Skärm bild som visar inloggnings sidan där du anger ett användar namn](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)
@@ -396,8 +399,8 @@ Så här testar du sömlös SSO:
 1. Logga in på en domänansluten dator som är ansluten till företags nätverket.
 2. I Internet Explorer eller Chrome går du till någon av följande URL: er (Ersätt "contoso" med din domän):
 
-   * https:\/\/myapps.Microsoft.com/contoso.com
-   * https:\/\/myapps.Microsoft.com/contoso.onmicrosoft.com
+   * https: \/ \/ myapps.Microsoft.com/contoso.com
+   * https: \/ \/ myapps.Microsoft.com/contoso.onmicrosoft.com
 
    Användaren omdirigeras en kort stund till inloggnings sidan för Azure AD, som visar meddelandet "försöker logga in dig". Användaren behöver inte ange något användar namn eller lösen ord.<br />
 

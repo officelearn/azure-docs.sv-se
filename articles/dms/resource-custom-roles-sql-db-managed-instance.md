@@ -1,7 +1,7 @@
 ---
 title: 'Anpassade roller: migrering online SQL Server till SQL-hanterad instans'
 titleSuffix: Azure Database Migration Service
-description: Lär dig att använda de anpassade rollerna för SQL Server till Azure SQL Database hanterade instanser online-migreringar.
+description: Lär dig att använda de anpassade rollerna för SQL Server till Azure SQL Managed instance online-migreringar.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: e9a1024ca3ab68841474ab051c029042df4915b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d9f222818726fa81dd28fe70042cbfc51162e27
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78254947"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187453"
 ---
-# <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Anpassade roller för SQL Server till SQL Database hanterade instanser online-migreringar
+# <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Anpassade roller för SQL Server till Azure SQL Managed instance online-migreringar
 
 Azure Database Migration Service använder ett APP-ID för att interagera med Azure-tjänster. APP-ID: t kräver antingen rollen deltagare på prenumerations nivån (som många företags säkerhets avdelningar inte tillåter) eller skapar anpassade roller som ger de behörigheter som krävs för Azure Database migrations service. Eftersom det finns en gräns på 2 000 anpassade roller i Azure Active Directory kanske du vill kombinera alla behörigheter som krävs specifikt av APP-ID: t i en eller två anpassade roller och sedan ge appen ID den anpassade rollen för specifika objekt eller resurs grupper (jämfört med prenumerations nivån). Om antalet anpassade roller inte är ett problem kan du dela upp de anpassade rollerna efter resurs typ för att skapa tre anpassade roller totalt enligt beskrivningen nedan.
 
@@ -30,7 +30,7 @@ I avsnittet AssignableScopes i JSON-strängen för roll definition kan du styra 
 Vi rekommenderar för närvarande att du skapar minst två anpassade roller för APP-ID: t, en på resurs nivå och den andra på prenumerations nivån.
 
 > [!NOTE]
-> Det senaste anpassade roll kravet kan komma att tas bort, eftersom nya SQL Database Hanterad instans kod distribueras till Azure.
+> Det senaste anpassade roll kravet kan komma att tas bort, eftersom ny SQL-hanterad instans kod distribueras till Azure.
 
 **Anpassad roll för app-ID**. Den här rollen krävs för att Azure Database Migration Service migrering på *resurs* -eller *resurs grupps* nivå (mer information om app-ID finns i artikeln [använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
 
@@ -87,14 +87,14 @@ Mer information finns i artikeln [anpassade roller för Azure-resurser](https://
 
 När du har skapat dessa anpassade roller måste du lägga till roll tilldelningar till användare och APP-ID: n till lämpliga resurser eller resurs grupper:
 
-* Rollen "DMS-roll-app-ID" måste beviljas till det APP-ID som ska användas för migreringen, och även på lagrings kontot Azure Database Migration Service instans och SQL Database hanterade instans resurs nivåer.
+* Rollen "DMS-roll-app-ID" måste beviljas till det APP-ID som ska användas för migreringen, och även på resurs nivåerna lagrings konto, Azure Database Migration Service instans och SQL-hanterad instans.
 * Rollen "DMS-roll-app-ID-sub" måste beviljas till APP-ID på prenumerations nivån (det går inte att bevilja resursen eller resurs gruppen). Det här kravet är tillfälligt tills en kod uppdatering har distribuerats.
 
 ## <a name="expanded-number-of-roles"></a>Expanderat antal roller
 
 Om antalet anpassade roller i Azure Active Directory inte är ett problem, rekommenderar vi att du skapar totalt tre roller. Du behöver fortfarande ha rollen "DMS-roll-app-ID – sub", men rollen "DMS-roll-app-ID" ovan är uppdelad efter resurs typ i två olika roller.
 
-**Anpassad roll för APP-ID för SQL Database Hanterad instans**
+**Anpassad roll för APP-ID för SQL-hanterad instans**
 
 ```json
 {

@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/08/2020
-ms.openlocfilehash: 5bb5d5dd5110f176b59a99f6a3aa223184158da5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/28/2020
+ms.openlocfilehash: 3c9c5e69eea72b20da485ffb1edf806f2c9f3b41
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982318"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195308"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor for VMs översikt
 
@@ -24,7 +24,7 @@ Så här konfigurerar du Azure Monitor for VMs:
 * Aktivera två eller flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer i en angiven prenumeration eller resurs grupp med hjälp av PowerShell.
 * Aktivera Azure Monitor for VMs för att övervaka virtuella datorer eller fysiska datorer som finns i företagets nätverk eller i annan moln miljö.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att du förstår informationen i följande avsnitt. 
 
@@ -80,7 +80,7 @@ Använd någon av följande metoder för att konfigurera din arbets yta för sce
 
 I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor for VMs stöder. Senare i det här avsnittet finns en fullständig lista med information om de viktigaste och lägre Linux OS-versionerna och de kernel-versioner som stöds.
 
-|OS-version |Prestanda |Kartor |
+|OS-version |Prestanda |Maps |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -134,7 +134,7 @@ I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor f
 
 | OS-version | Kernelversion |
 |:--|:--|
-| 18,04 | 5,0 (inkluderar Azure-justerad kernel)<br>4,18*<br>4,15* |
+| 18,04 | 5.3.0 – 1020<br>5,0 (inkluderar Azure-justerad kernel)<br>4,18* <br> 4,15* |
 | 16.04.3 | 4,15. * |
 | 16,04 | 4,13.\*<br>4,11.\*<br>4,10.\*<br>4,8.\*<br>4,4.\* |
 
@@ -165,18 +165,18 @@ I en hybrid miljö kan du ladda ned och installera beroende agenten manuellt ell
 
 I följande tabell beskrivs de anslutna källor som kart funktionen stöder i en hybrid miljö.
 
-| Ansluten källa | Stöds | Beskrivning |
+| Ansluten källa | Stöds | Description |
 |:--|:--|:--|
-| Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
-| Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
-| System Center Operations Manager-hanteringsgrupp | Nej | |
+| Windows-agenter | Yes | Tillsammans med [Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
+| Linux-agenter | Yes | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
+| System Center Operations Manager-hanteringsgrupp | No | |
 
 Du kan ladda ned beroende agenten från följande platser:
 
 | Fil | Operativsystem | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.3.9380 | 40763BD0A5B60707DF3F9E7BCC17D917F5CE995F2F5A4633D8B733F3BE143921  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.3.9380 | BB41BB59BDD293968F02A9EF821F9639406AA1BDF1F67925DB9EE00D54AA7F0B |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
@@ -188,7 +188,7 @@ Mer information om hur du styr åtkomsten till en Log Analytics arbets yta finns
 
 Aktivera Azure Monitor for VMs med någon av de metoder som beskrivs i den här tabellen:
 
-| Distributions tillstånd | Metod | Beskrivning |
+| Distributions tillstånd | Metod | Description |
 |------------------|--------|-------------|
 | Enskild virtuell Azure-dator eller skalnings uppsättning för virtuell dator | [Aktivera från den virtuella datorn](vminsights-enable-single-vm.md) | Du kan aktivera en enskild virtuell Azure-dator genom att välja **insikter** direkt från den virtuella datorn eller skalnings uppsättningen för virtuella datorer. |
 | Flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer | [Aktivera via Azure Policy](vminsights-enable-at-scale-policy.md) | Du kan aktivera flera virtuella Azure-datorer med hjälp av Azure Policy och tillgängliga princip definitioner. |
@@ -199,7 +199,7 @@ Aktivera Azure Monitor for VMs med någon av de metoder som beskrivs i den här 
 
 När Azure Monitor for VMs har Aktiver ATS och kon figurer ATS med en Log Analytics arbets yta vidarebefordras ett hanterings paket till alla Windows-datorer som rapporterar till arbets ytan. Om du har [integrerat din System Center Operations Manager hanterings grupp](../../azure-monitor/platform/om-agents.md) med arbets ytan Log Analytics distribueras tjänstkarta hanterings paketet från hanterings gruppen till Windows-datorer som rapporterar till hanterings gruppen.  
 
-Hanterings paketet heter *Microsoft. IntelligencePacks. ApplicationDependencyMonitor*. Den skrivs till `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` mappen. Data källan som hanterings paketet använder är `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`.
+Hanterings paketet heter *Microsoft. IntelligencePacks. ApplicationDependencyMonitor*. Den skrivs till `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` mappen. Data källan som hanterings paketet använder är `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll` .
 
 ## <a name="diagnostic-and-usage-data"></a>Diagnostik-och användnings data
 

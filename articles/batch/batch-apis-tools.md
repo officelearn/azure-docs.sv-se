@@ -2,14 +2,14 @@
 title: 'API: er och verktyg för utvecklare'
 description: Läs mer om API:er och verktyg som är tillgängliga för utveckling av lösningar med Azure Batch-tjänsten.
 ms.topic: conceptual
-ms.date: 05/22/2010
+ms.date: 05/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: cd87419cd8c389be861cb88071884f8da1c3c1a3
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: c05ab55f087710028f51231aec6094b350aface2
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870586"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220370"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Översikt över Batch-API:er och verktyg
 
@@ -41,22 +41,22 @@ Endast åtgärder från hanterings-API: erna spåras i aktivitets loggen. API: e
 
 Dina program och tjänster kan skicka direkta REST-API-anrop eller använda ett eller flera av följande klientbibliotek för att köra och hantera dina Azure Batch-arbetsbelastningar.
 
-| API | API-referens | Ladda ned | Självstudier | Kodexempel | Mer information |
+| API | API-referens | Ladda ned | Självstudie | Kodexempel | Mer information |
 | --- | --- | --- | --- | --- | --- |
 | **REST för Batch** |[docs.microsoft.com](https://docs.microsoft.com/rest/api/batchservice/) |Ej tillämpligt |- |- | [Versioner som stöds](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **.NET för Batch** |[docs.microsoft.com](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[Självstudier](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [Viktig information](https://aka.ms/batch-net-dataplane-changelog) |
-| **Python för Batch** |[docs.microsoft.com](https://docs.microsoft.com/python/api/overview/azure/batch/client?view=azure-python) |[PyPI](https://pypi.org/project/azure-batch/) |[Självstudier](tutorial-parallel-python.md)|[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch) | [Viktigt](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
-| **Batch Node.js** |[docs.microsoft.com](https://docs.microsoft.com/javascript/api/overview/azure/batch/client?view=azure-node-latest) |[NPM](https://www.npmjs.com/package/azure-batch) |[Självstudier](batch-nodejs-get-started.md) |- | [Viktigt](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
+| **.NET för Batch** |[docs.microsoft.com](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[Självstudie](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [Viktig information](https://aka.ms/batch-net-dataplane-changelog) |
+| **Python för Batch** |[docs.microsoft.com](https://docs.microsoft.com/python/api/overview/azure/batch/client?view=azure-python) |[PyPI](https://pypi.org/project/azure-batch/) |[Självstudie](tutorial-parallel-python.md)|[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch) | [Viktigt](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
+| **Batch Node.js** |[docs.microsoft.com](https://docs.microsoft.com/javascript/api/overview/azure/batch/client?view=azure-node-latest) |[NPM](https://www.npmjs.com/package/azure-batch) |[Självstudie](batch-nodejs-get-started.md) |- | [Viktigt](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[docs.microsoft.com](https://docs.microsoft.com/java/api/overview/azure/batch?view=azure-java-stable) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Java) | [Viktigt](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## <a name="batch-management-apis"></a>API:er för Batch Management
 
 Azure Resource Manager-API:erna för Batch ger programmatisk åtkomst till Batch-konton. Med dessa API:er kan du programmässigt hantera Batch-konton, kvoter, programpaket och andra resurser i Microsoft.Batch-providern.  
 
-| API | API-referens | Ladda ned | Självstudier | Kodexempel |
+| API | API-referens | Ladda ned | Självstudie | Kodexempel |
 | --- | --- | --- | --- | --- |
 | **Batch Management REST** |[docs.microsoft.com](https://docs.microsoft.com/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **Batch Management .NET** |[docs.microsoft.com](https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [Självstudier](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
+| **Batch Management .NET** |[docs.microsoft.com](https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [Självstudie](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
 | **Batch Management Python** |[docs.microsoft.com](https://docs.microsoft.com/python/api/overview/azure/batch/management?view=azure-python) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
 | **Batch Management Node.js** |[docs.microsoft.com](https://docs.microsoft.com/javascript/api/overview/azure/batch/management?view=azure-node-latest) |[NPM](https://www.npmjs.com/package/azure-arm-batch) |- |- | 
 | **Batch Management Java** |[docs.microsoft.com](https://docs.microsoft.com/java/api/overview/azure/batch/management?view=azure-java-stable) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |

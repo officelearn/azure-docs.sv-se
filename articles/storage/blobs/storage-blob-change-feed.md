@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 4287bd766d73d7fae42aec54950ad5a3f09b5ba3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bf22e10bc0a4b969c41d4a377ddba7fcadd9c147
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120427"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193382"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Ändra stöd för feed i Azure Blob Storage (för hands version)
 
@@ -37,7 +37,7 @@ Stöd för ändring av feed passar bra för scenarier som bearbetar data baserat
 
   - Skapa anslutna program pipelines som reagerar på ändrings händelser eller schema körningar baserat på skapade eller ändrade objekt.
   
-Change feed är en nödvändig funktion för återställning av en [tidpunkt för block-blobar](point-in-time-restore-overview.md).
+Change feed är en nödvändig funktion för [objekt replikering](object-replication-overview.md) och [återställning av tidpunkter för att blockera blobbar](point-in-time-restore-overview.md).
 
 > [!NOTE]
 > Ändra feed tillhandahåller en varaktig, ordnad logg modell av de ändringar som görs i en blob. Ändringar skrivs och görs tillgängliga i din Change feed-logg inom en ordning med några minuter av ändringen. Om ditt program måste reagera på händelser mycket snabbare än så kan du överväga att använda [Blob Storage händelser](storage-blob-event-overview.md) i stället. [Blob Storage-händelser](storage-blob-event-overview.md) tillhandahåller engångs händelser i real tid som gör det möjligt för dina Azure Functions eller program att snabbt reagera på ändringar som görs i en blob. 

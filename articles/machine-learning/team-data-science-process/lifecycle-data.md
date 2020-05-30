@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3c299e9ec42d63812804b5ff7e50324a2de94200
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720511"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195073"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Data hämtning och förståelse av steg för team data vetenskaps processen
 
@@ -55,7 +55,7 @@ TDSP tillhandahåller ett automatiserat verktyg som kallas [idé](https://github
 När du är nöjd med kvaliteten på de rensade data är nästa steg att bättre förstå de mönster som finns i data. Med den här data analysen kan du välja och utveckla en lämplig förutsägelse modell för målet. Leta efter bevis för hur väl anslutna data är till målet. Ta sedan reda på om det finns tillräckligt med data för att gå vidare med nästa modell steg. Den här processen är ofta iterativ. Du kan behöva hitta nya data källor med mer exakta eller mer relevanta data för att utöka den data uppsättning som ursprungligen identifierades i föregående steg. 
 
 ### <a name="set-up-a-data-pipeline"></a>Konfigurera en datapipeline
-Förutom den första inmatningen och rensningen av data, behöver du vanligt vis skapa en process för att skapa nya data eller uppdatera informationen regelbundet som en del av en pågående inlärnings process. Poängen kan vara slutförd med en datapipeline eller ett arbets flöde. [Med Azure Data Factory artikeln flytta data från en lokal SQL Server instans till Azure SQL Database med](move-sql-azure-adf.md) får du ett exempel på hur du konfigurerar en pipeline med [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
+Förutom den första inmatningen och rensningen av data, behöver du vanligt vis skapa en process för att skapa nya data eller uppdatera informationen regelbundet som en del av en pågående inlärnings process. Poängen kan vara slutförd med en datapipeline eller ett arbets flöde. [Med artikeln flytta data från en SQL Server instans till Azure SQL Database med Azure Data Factory](move-sql-azure-adf.md) får du ett exempel på hur du konfigurerar en pipeline med [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
 
 I det här steget utvecklar du en lösnings arkitektur för data pipelinen. Du utvecklar pipelinen parallellt med nästa steg i data vetenskaps projektet. Beroende på dina affärs behov och begränsningarna för dina befintliga system där den här lösningen integreras, kan pipelinen vara något av följande alternativ: 
 
@@ -63,7 +63,7 @@ I det här steget utvecklar du en lösnings arkitektur för data pipelinen. Du u
    * Strömning eller real tid 
    * En hybrid 
 
-## <a name="artifacts"></a>Artefakter
+## <a name="artifacts"></a>Artifacts
 Följande är slut produkterna i det här skedet:
 
    * [Data kvalitets rapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): den här rapporten innehåller data sammanfattningar, relationerna mellan varje attribut och mål, variabel rangordning med mera. [Idé](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) verktyget som tillhandahålls som en del av TDSP kan snabbt generera den här rapporten på valfri tabell data uppsättning, till exempel en CSV-fil eller en Relations tabell. 

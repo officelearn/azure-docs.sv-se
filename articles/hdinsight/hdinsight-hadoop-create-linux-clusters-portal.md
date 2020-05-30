@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 8d4e9a1e255884b9250879ab486d7a4e2849473a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2a9b149bd76ed276f3210f27ea0f60bbc7b7662
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192101"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190895"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal
 
@@ -25,7 +25,7 @@ Azure Portal är ett webbaserat hanterings verktyg för tjänster och resurser s
 
 Azure Portal visar de flesta av kluster egenskaperna. Med hjälp av Azure Resource Manager mallar kan du dölja många detaljer. Mer information finns i [skapa Apache Hadoop kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-clusters"></a>Skapa kluster
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
     ![Skapa ett nytt kluster i Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "Skapa ett nytt kluster i Azure Portal")
 
-1. Välj **Analytics** > **Azure HDInsight** för att gå till sidan **skapa HDInsight-kluster** .
+1. Välj **Analytics**  >  **Azure HDInsight** för att gå till sidan **skapa HDInsight-kluster** .
 
 ## <a name="basics"></a>Grundläggande inställningar
 
@@ -62,6 +62,9 @@ På fliken **grundläggande** anger du följande information:
 Välj **Nästa: lagrings >>** för att gå vidare till nästa flik.
 
 ## <a name="storage"></a>Storage
+
+> [!WARNING] 
+> Från 2020 och med den 15 juni kommer kunder inte att kunna skapa ett nytt huvud namn för tjänsten med HDInsight. Se [skapa tjänstens huvud namn och certifikat](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) med hjälp av Azure Active Directory.
 
 ![HDInsight skapa kluster lagring](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Skapa ett nytt kluster i Azure Portal-lagring")
 

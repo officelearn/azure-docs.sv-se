@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/14/2018
-ms.openlocfilehash: eb0c88797dc23c912ce360dbcfd10f210b694fbd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4d0800d109d17c1233a18966d84a498596e8e834
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043942"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188196"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatisera replikeringen av schema ändringar i Azure SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -209,7 +209,7 @@ Om du vill rensa posterna i tabellen schema ändrings spårning, använder du DE
 
 -   Du kan bara göra schema ändringar i databasen där DDL-utlösaren skapas.
 
--   Om du gör en ändring i en lokal SQL Server databas, se till att schema ändringen stöds i Azure SQL Database.
+-   Om du gör en ändring i en SQL Server databas kontrollerar du att schema ändringen stöds i Azure SQL Database.
 
 -   Om schema ändringar görs i andra databaser än databasen där DDL-utlösaren skapas replikeras inte ändringarna. För att undvika det här problemet kan du skapa DDL-utlösare för att blockera ändringar på andra slut punkter.
 
@@ -225,7 +225,7 @@ Mer information om SQL Data Sync finns i:
 
 -   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
 -   Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-data-sync-sql-server-configure.md)
+    - I portalen – [Självstudier: konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server](sql-data-sync-sql-server-configure.md)
     - Med PowerShell
         -  [Använd PowerShell för att synkronisera mellan flera databaser i Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Använda PowerShell för att synkronisera mellan en databas i Azure SQL Database och en databas i en SQL Server instans](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

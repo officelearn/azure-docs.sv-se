@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/09/2020
 ms.author: glenga
-ms.openlocfilehash: 749b733039e89421ac33ef76a11f3291b296e718
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6944d2e6a8f762e62c14f6f3fa3f600a9b3c333e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80673194"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195031"
 ---
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
@@ -17,7 +17,7 @@ Kör din funktion genom att starta den lokala Azure Functions runtime-värden fr
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python"
 ```
-func start
+func host start
 ```
 ::: zone-end
 
@@ -51,12 +51,12 @@ Http Functions:
 </pre>
 
 >[!NOTE]  
-> Om HttpExample inte visas som visas nedan, kommer du förmodligen igång värden från utsidan av projektets rotmapp. I så fall kan du använda **CTRL**+**C** för att stoppa värden, navigera till projektets rotmapp och köra föregående kommando igen.
+> Om HttpExample inte visas som visas nedan, kommer du förmodligen igång värden från utsidan av projektets rotmapp. I så fall kan du använda **CTRL** + **C** för att stoppa värden, navigera till projektets rotmapp och köra föregående kommando igen.
 
-Kopiera URL: en för `HttpExample` din funktion från utdata till en webbläsare och Lägg till frågesträngen `?name=<your-name>`och gör den fullständiga URL: `http://localhost:7071/api/HttpExample?name=Functions`en som. Webbläsaren ska visa ett meddelande som `Hello Functions`:
+Kopiera URL: en för din `HttpExample` funktion från utdata till en webbläsare och Lägg till frågesträngen och `?name=<your-name>` gör den fullständiga URL: en som `http://localhost:7071/api/HttpExample?name=Functions` . Webbläsaren ska visa ett meddelande som `Hello Functions` :
 
 ![Resultatet av funktionen körs lokalt i webbläsaren](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
 
 Terminalen där du startade projektet visar också logg data när du gör förfrågningar.
 
-När du är klar kan du använda **CTRL**+**C** och `y` välja att stoppa funktions värden.
+När du är klar kan du använda **CTRL** + **C** och välja `y` att stoppa funktions värden.

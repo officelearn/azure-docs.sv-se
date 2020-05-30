@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: ab104463ad0bd3db88af47176d541dd4074037d7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9069ec574af54c5c44efac5a6a9df1da62053219
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048443"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195091"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Översikt över Azure SQL Database elastisk fråga (för hands version)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Funktionen elastisk fråga (i för hands version) gör att du kan köra en Trans
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 
-Fråga över databaser i Azure SQL Database helt i T-SQL. Detta möjliggör skrivskyddad fråga i fjärrdatabaser och ger ett alternativ för aktuella lokala SQL Server-kunder att migrera program med hjälp av tre-och fyr dels namn eller länkade servrar till SQL Database.
+Fråga över databaser i Azure SQL Database helt i T-SQL. Detta möjliggör skrivskyddad fråga i fjärrdatabaser och ger ett alternativ för nuvarande SQL Server-kunder att migrera program med hjälp av tre-och fyra delar eller en länkad server till SQL Database.
 
 ### <a name="available-on-standard-tier"></a>Tillgängligt på standard nivån
 
@@ -146,7 +146,7 @@ Elastisk fråga ingår i kostnaden för Azure SQL Database. Observera att topolo
 * Med undantag för nvarchar (max) stöds inte LOB-typer (inklusive spatiala typer) i externa tabell definitioner. Som en lösning kan du skapa en vy på den fjärranslutna databasen som överför LOB-typen till nvarchar (max), definiera den externa tabellen över vyn i stället för bas tabellen och sedan omvandla den till den ursprungliga LOB-typen i dina frågor.
 * Kolumner av typen nvarchar (max) i resultat uppsättning inaktivera avancerad batching-Technics som används i elastiska fråge implementeringar och kan påverka prestanda för frågor i en storleksordning, eller till och med två storleksordningar i icke-kanoniska användnings fall där stora mängder icke-aggregerade data överförs som ett resultat av en fråga.
 * Kolumn statistik över externa tabeller stöds inte för närvarande. Tabell statistik stöds, men du måste skapa den manuellt.
-* Elastisk fråga fungerar endast med Azure SQL Database. Du kan inte använda den för att skicka frågor till lokala SQL Server eller SQL Server i en virtuell dator.
+* Elastisk fråga fungerar endast med Azure SQL Database. Du kan inte använda den för att skicka frågor till en SQL Server instans.
 
 ## <a name="feedback"></a>Feedback
 

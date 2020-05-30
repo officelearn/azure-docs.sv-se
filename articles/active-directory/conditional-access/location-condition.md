@@ -6,69 +6,74 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
 ms.workload: identity
-ms.date: 11/21/2019
+ms.date: 05/28/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 915675af1e646f2cb77e36c0018ed372ff9496fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: contperfq4
+ms.openlocfilehash: 781d8b89dd1b7fa6b2ed9707f6d4c485b4abdf20
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263236"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220608"
 ---
-# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Vad är plats villkoret i Azure Active Directory villkorlig åtkomst? 
+# <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Använda plats villkoret i en princip för villkorlig åtkomst 
 
-Med [Azure Active Directory (Azure AD) villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)kan du styra hur behöriga användare får åtkomst till dina molnappar. Plats villkoret för en princip för villkorlig åtkomst gör att du kan använda inställningar för åtkomst kontroll till användarnas nätverks platser.
+Enligt beskrivningen i [översikts artikeln](overview.md) principer för villkorlig åtkomst är de mest grundläggande en if-then-sats som kombinerar signaler, för att fatta beslut och tillämpa organisations principer. En av dessa signaler som kan införlivas i besluts fattandet är nätverks plats.
 
-Den här artikeln innehåller den information du behöver för att konfigurera plats villkoret.
+![Konceptuell villkorlig signal plus beslut för att få tillämpning](./media/location-condition/conditional-access-signal-decision-enforcement.png)
 
-## <a name="locations"></a>Platser
-
-Azure AD möjliggör enkel inloggning till enheter, appar och tjänster från var som helst på det offentliga Internet. Med plats villkoret kan du styra åtkomsten till dina molnappar baserat på användarens nätverks plats. Vanliga användnings fall för plats villkoret är:
+Organisationer kan använda den här nätverks platsen för vanliga uppgifter, t. ex.: 
 
 - Kräver Multi-Factor Authentication för användare som har åtkomst till en tjänst när de är utanför företags nätverket.
 - Blockera åtkomst för användare som har åtkomst till en tjänst från vissa länder eller regioner.
 
-En plats är en etikett för en nätverks plats som antingen representerar en namngiven plats eller en Multi-Factor Authentication-betrodd IP-adress.
+Nätverks platsen bestäms av den offentliga IP-adressen som en klient tillhandahåller för att Azure Active Directory. Principer för villkorlig åtkomst gäller som standard för alla IPv4-och IPv6-adresser. 
+
+> [!TIP]
+> IPV6-intervall stöds bara i gränssnittet för den **[namngivna platsen (för hands version)](#preview-features)** . 
 
 ## <a name="named-locations"></a>Namngivna platser
 
-Med namngivna platser kan du skapa logiska grupperingar av IP-adressintervall eller länder och regioner.
+Platser anges i Azure Portal under **Azure Active Directory**  >  **säkerhets**  >  **åtkomst till**  >  **namngivna platser**. Dessa namngivna nätverks platser kan innehålla platser som en organisations nätverks intervall, VPN-adressintervall eller intervall som du vill blockera. 
 
-Du kan komma åt dina namngivna platser i avsnittet **Hantera** på sidan för villkorlig åtkomst.
+![Namngivna platser i Azure Portal](./media/location-condition/new-named-location.png)
 
-![Namngivna platser i villkorlig åtkomst](./media/location-condition/02.png)
-
-En namngiven plats har följande komponenter:
-
-![Skapa en ny namngiven plats](./media/location-condition/42.png)
-
-- **Namn** – visnings namnet för en namngiven plats.
-- **IP-intervall** – ett eller flera IPv4-ADRESSINTERVALL i CIDR-format. Det finns inte stöd för att ange ett IPv6-adressintervall.
-
-   > [!NOTE]
-   > IPv6-adressintervall kan för närvarande inte tas med på en namngiven plats. Detta innebär att IPv6-intervall inte kan uteslutas från en princip för villkorlig åtkomst.
-
-- **Markera som betrodd plats** – en flagga som du kan ange för en namngiven plats för att ange en betrodd plats. Normalt är betrodda platser nätverks områden som styrs av IT-avdelningen. Förutom villkorlig åtkomst används även betrodda namngivna platser av Azure Identity Protection och Azure AD-säkerhetsrapporter för att minska antalet [falska positiva identifieringar](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
-- **Länder/regioner** – med det här alternativet kan du välja ett eller flera länder eller regioner för att definiera en namngiven plats.
-- **Inkludera okända områden** -vissa IP-adresser mappas inte till ett visst land eller en viss region. Med det här alternativet kan du välja om de här IP-adresserna ska tas med på den namngivna platsen. Använd den här inställningen när principen som använder den namngivna platsen ska gälla för okända platser.
+Om du vill konfigurera en plats måste du ange minst ett **namn** och IP-intervallet. 
 
 Antalet namngivna platser som du kan konfigurera begränsas av storleken på det relaterade objektet i Azure AD. Du kan konfigurera platser baserat på följande begränsningar:
 
-- En namngiven plats med upp till 1200 IP-intervall.
+- En namngiven plats med upp till 1200 IPv4-intervall.
 - Högst 90 namngivna platser med ett IP-adressintervall tilldelat var och en av dem.
 
-Principen för villkorlig åtkomst gäller för IPv4-och IPv6-trafik. Namngivna platser tillåter inte att IPv6-intervall konfigureras. Den här begränsningen orsakar följande situationer:
+> [!TIP]
+> IPV6-intervall stöds bara i gränssnittet för den **[namngivna platsen (för hands version)](#preview-features)** . 
 
-- Principen för villkorlig åtkomst kan inte riktas mot specifika IPv6-intervall
-- Principen för villkorlig åtkomst kan inte exkludera vissa IPV6-intervall
+### <a name="trusted-locations"></a>Betrodda platser
 
-Om en princip är konfigurerad att gälla för "valfri plats" gäller den för IPv4-och IPv6-trafik. Namngivna platser som kon figurer ATS för angivna länder och regioner stöder endast IPv4-adresser. IPv6-trafik inkluderas bara om alternativet för att inkludera okända områden har marker ATS.
+När du skapar en nätverks plats har en administratör möjlighet att markera en plats som en betrodd plats. 
 
-## <a name="trusted-ips"></a>Tillförlitliga IP-adresser
+![Betrodda platser i Azure Portal](./media/location-condition/new-trusted-location.png)
+
+Det här alternativet kan användas för att räkna i principer för villkorlig åtkomst där du kan till exempel kräva registrering för Multi-Factor Authentication från en betrodd nätverks plats. Det kan också vara en faktor i Azure AD Identity Protections risk beräkning, vilket minskar risken för användares inloggning när den kommer från en plats som är markerad som betrodd.
+
+### <a name="countries-and-regions"></a>Länder och regioner
+
+Vissa organisationer kan välja att definiera hela länder eller regioner IP-gränser som namngivna platser för principer för villkorlig åtkomst. De kan använda dessa platser när de blockerar onödig trafik när de vet att giltiga användare aldrig kommer från en plats som Nord Korea. Dessa mappningar av IP-adresser till land uppdateras regelbundet. 
+
+> [!NOTE]
+> Länderna inkluderar inte IPv6-adress intervall, endast kända IPv4-adressintervall.
+
+![Skapa en ny lands-eller regions-baserad plats i Azure Portal](./media/location-condition/new-named-location-country-region.png)
+
+#### <a name="include-unknown-areas"></a>Inkludera okända områden
+
+Vissa IP-adresser mappas inte till ett visst land eller en viss region. Om du vill avbilda dessa IP-platser markerar du kryss rutan **Inkludera okända områden** när du definierar en plats. Med det här alternativet kan du välja om de här IP-adresserna ska tas med på den namngivna platsen. Använd den här inställningen när principen som använder den namngivna platsen ska gälla för okända platser.
+
+### <a name="configure-mfa-trusted-ips"></a>Konfigurera MFA-betrodda IP-adresser
 
 Du kan också konfigurera IP-adressintervall som representerar organisationens lokala intranät i [inställningarna för Multi-Factor Authentication-tjänsten](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Med den här funktionen kan du konfigurera upp till 50 IP-adressintervall. IP-adressintervallet är i CIDR-format. Mer information finns i [betrodda IP-adresser](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
@@ -83,19 +88,44 @@ När du har markerat det här alternativet, inklusive den namngivna platsen **MF
 För mobil-och skriv bords program, som har länge livs längd för sessionens livs längd, utvärderas villkorlig åtkomst regelbundet om. Standardvärdet är en gång i timmen. Om det interna nätverks anspråk bara utfärdas vid tidpunkten för den inledande autentiseringen kanske inte Azure AD har en lista över betrodda IP-intervall. I det här fallet är det svårare att avgöra om användaren fortfarande befinner sig i företags nätverket:
 
 1. Kontrol lera att användarens IP-adress finns i något av de betrodda IP-intervallen.
-2. Kontrol lera om de tre första oktetterna i användarens IP-adress matchar de tre första oktetterna i IP-adressen för den inledande autentiseringen. IP-adressen jämförs med den första autentiseringen när den interna nätverks anspråket utfärdades ursprungligen och användar platsen verifierades.
+1. Kontrol lera om de tre första oktetterna i användarens IP-adress matchar de tre första oktetterna i IP-adressen för den inledande autentiseringen. IP-adressen jämförs med den första autentiseringen när den interna nätverks anspråket utfärdades ursprungligen och användar platsen verifierades.
 
 Om båda stegen inte fungerar, anses en användare inte längre på en betrodd IP-adress.
 
-## <a name="location-condition-configuration"></a>Konfiguration av plats villkor
+## <a name="preview-features"></a>Förhandsgranskningsfunktioner
+
+Förutom den allmänt tillgängliga namngivna plats funktionen finns det också en namngiven plats (för hands version). Du kan komma åt för hands versionen av den namngivna platsen genom att använda banderollen längst upp på bladet aktuell namngiven plats.
+
+![Prova för hands versionen av namngivna platser](./media/location-condition/preview-features.png)
+
+Med den namngivna platsens för hands version kan du
+
+- Konfigurera upp till 195 namngivna platser
+- Konfigurera upp till 2000 IP-intervall per namngiven plats
+- Konfigurera upp till IPv6-adresser
+
+Vi har också lagt till ytterligare kontroller för att minska ändringen av felaktig konfiguration.
+
+- Privata IP-adressintervall kan inte längre konfigureras
+- Antalet IP-adresser som kan ingå i ett intervall är begränsat. Endast CIDR-masker som är större än/8 kommer att tillåtas när du konfigurerar ett IP-intervall.
+
+I för hands versionen finns det nu två alternativ för att skapa: 
+
+- **Ländernas plats**
+- **Plats för IP-intervall**
+
+> [!NOTE]
+> Länderna inkluderar inte IPv6-adress intervall, endast kända IPv4-adressintervall.
+
+![Namngivna platser för hands versions gränssnitt](./media/location-condition/named-location-preview.png)
+
+## <a name="location-condition-in-policy"></a>Plats villkor i princip
 
 När du konfigurerar plats villkoret har du möjlighet att skilja mellan:
 
 - Valfri plats
 - Alla betrodda platser
 - Valda platser
-
-![Konfiguration av plats villkor](./media/location-condition/01.png)
 
 ### <a name="any-location"></a>Valfri plats
 
@@ -129,12 +159,9 @@ Som standard utfärdar Azure AD en token per timme. När du har flyttat företag
 
 IP-adressen som används i princip utvärderingen är användarens offentliga IP-adress. För enheter i ett privat nätverk är den här IP-adressen inte klientens IP-adress för användarens enhet i intranätet, den är den adress som används av nätverket för att ansluta till det offentliga Internet.
 
-> [!WARNING]
-> Om enheten bara har en IPv6-adress stöds inte konfigurering av plats villkoret.
-
 ### <a name="bulk-uploading-and-downloading-of-named-locations"></a>Mass överföring och hämtning av namngivna platser
 
-När du skapar eller uppdaterar namngivna platser för Mass uppdateringar kan du ladda upp eller ladda ned en CSV-fil med IP-intervall. En uppladdning ersätter IP-intervallen i listan med dem från filen. Varje rad i filen innehåller ett IP-adressintervall i CIDR-format.
+När du skapar eller uppdaterar namngivna platser för Mass uppdateringar kan du ladda upp eller ladda ned en CSV-fil med IP-intervall. Vid en uppladdning ersätts IP-intervallen i listan med intervallen från filen. Varje rad i filen innehåller ett IP-adressintervall i CIDR-format.
 
 ### <a name="cloud-proxies-and-vpns"></a>Cloud-proxyservrar och VPN-nätverk
 
@@ -144,9 +171,9 @@ När en molnbaserad proxy är på plats kan en princip som används för att kr�
 
 ### <a name="api-support-and-powershell"></a>API-stöd och PowerShell
 
-API och PowerShell stöds ännu inte för namngivna platser eller för principer för villkorlig åtkomst.
+API och PowerShell stöds ännu inte för namngivna platser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst, se [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md).
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö, se [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md).
+- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst kan du läsa artikeln [skapa en princip för villkorlig åtkomst](concept-conditional-access-policies.md).
+- Letar du efter en exempel princip med plats villkoret? Se artikeln [villkorlig åtkomst: blockera åtkomst efter plats](howto-conditional-access-policy-location.md)

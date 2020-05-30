@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: e38e9a66db9e775023ff5c7940fd892eb0926824
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: f739134cd066f4dcc7fdf3da16c6db99a54d6265
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170740"
+ms.locfileid: "84204947"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Aktivera Uppdateringshantering från ett Automation-konto
 
@@ -78,4 +78,4 @@ Manuellt installerade datorer eller datorer som redan rapporterar till din arbet
 * Om du vill använda Uppdateringshantering för virtuella datorer läser du [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).
 * Information om hur du felsöker allmänna Uppdateringshantering fel finns i [felsöka uppdateringshantering problem](troubleshoot/update-management.md).
 * Information om hur du felsöker problem med Windows Update-agenten finns i [Felsöka problem med Windows Update-agenten](troubleshoot/update-agent-issues.md).
-* Information om hur du felsöker problem med Linux Update-agenten finns i[Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).
+* Information om hur du felsöker problem med Linux Update-agenten finns i [Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).

@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 1265d018997f9540e14e83ab15a44e78f4f86fb1
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 7ec10366ec51be86fa45d25eca87ea86e82338f7
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402670"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220450"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Dehydratisera BLOB-data från Arkiv lag rings nivå
 
@@ -97,7 +97,7 @@ $ctx = $storageAccount.Context
 $blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
 
 #Change the blob’s access tier to Hot using Standard priority rehydrate
-$blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
+$blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
 ```
 ---
 
@@ -120,7 +120,7 @@ $ctx = $storageAccount.Context
 Start-AzStorageBlobCopy -SrcContainer $srcContainerName -SrcBlob $srcBlobName -DestContainer $destContainerName -DestBlob $destBlobName -StandardBlobTier Hot -RehydratePriority Standard -Context $ctx
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Lär dig mer om Blob Storage nivåer](storage-blob-storage-tiers.md)
 * [Kontrollera priser för frekvent/lågfrekvent lagring och arkivlagring i Blob Storage-/GPv2-konton efter region](https://azure.microsoft.com/pricing/details/storage/)

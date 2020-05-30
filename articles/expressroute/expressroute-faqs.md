@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 085830ee1c8e7556a7c3390aaf6e638245d20324
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 99549be75e812668c07d9d71062d9d0f8c7b58ec
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745764"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217536"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -84,7 +84,7 @@ Om din ExpressRoute-krets är aktive rad för Microsoft-peering för Azure kan d
 
 **Tillåtna**
 
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI – tillgängligt via en regional Azure-community, finns [här](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) för hur du kan ta reda på den region där din Power BI-klient finns.
 * Azure Active Directory
 * [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
@@ -118,7 +118,7 @@ Om du ser meddelandet "validering krävs" samlar du in dokumenten som visar att 
 Dynamics 365-och Common Data Service-miljöer (CD) är värdbaserade på Azure och därför drar kunderna nytta av det underliggande ExpressRoute-stödet för Azure-resurser. Du kan ansluta till dess tjänst slut punkter om ditt router-filter innehåller Azure-regionerna som dina Dynamics 365/CD-miljöer finns i.
 
 > [!NOTE]
-> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) krävs **inte** för Dynamics 365-anslutning via Azure ExpressRoute.
+> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) krävs **inte** för Dynamics 365-anslutning via Azure ExpressRoute om ExpressRoute-kretsen har distribuerats inom samma [naturpolitisk region](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers#expressroute-locations).
 
 ## <a name="data-and-connections"></a>Data och anslutningar
 

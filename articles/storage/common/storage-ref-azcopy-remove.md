@@ -8,12 +8,12 @@ ms.date: 05/04/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: f76489f384f233f65eb8fcca3a8359cd5b67c20a
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: ab085b9a41120a9f56c1c2e39a89def8c3893747
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780733"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221073"
 ---
 # <a name="azcopy-remove"></a>azcopy ta bort
 
@@ -55,13 +55,13 @@ azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/virtual/
 Ta bort en delmängd av blobbar i en virtuell katalog (till exempel: endast jpg-och PDF-filer, eller om BLOB-namnet är "exactName"):
 
 ```azcopy
-azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --include="*.jpg;*.pdf;exactName"
+azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --include-pattern="*.jpg;*.pdf;exactName"
 ```
 
 Ta bort en hel virtuell katalog, men exkludera vissa blobbar från omfånget (till exempel: varje blob som börjar med foo eller slutar med bar):
 
 ```azcopy
-azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude="foo*;*bar"
+azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude-pattern="foo*;*bar"
 ```
 
 Ta bort vissa blobbar och virtuella kataloger genom att placera deras relativa sökvägar (inte URL-kodade) i en fil:
@@ -111,12 +111,12 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
-|Alternativ|Beskrivning|
+|Alternativ|Description|
 |---|---|
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|
-|--sträng för betrodd-Microsoft-suffix   | Anger ytterligare domänsuffix där Azure Active Directory inloggnings-token kan skickas.  Standardvärdet är '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. De som anges här läggs till i standardvärdet. För säkerhet ska du bara placeras Microsoft Azure domäner här. Avgränsa flera poster med semikolon.|
+|--sträng för betrodd-Microsoft-suffix   |Anger ytterligare domänsuffix där Azure Active Directory inloggnings-token kan skickas.  Standardvärdet är '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. De som anges här läggs till i standardvärdet. För säkerhet ska du bara placeras Microsoft Azure domäner här. Avgränsa flera poster med semikolon.|
 
 ## <a name="see-also"></a>Se även
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

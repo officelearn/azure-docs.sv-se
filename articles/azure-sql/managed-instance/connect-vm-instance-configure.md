@@ -12,24 +12,24 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: b94993a67fadad2c31c8787deab49e62dd457512
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9cfb8d2f9c7a04c519674856ca0e5603e0f9f782
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044376"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219761"
 ---
-# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-managed-instance"></a>Snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL-hanterad instans
+# <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Snabb start: Konfigurera en virtuell Azure-dator för att ansluta till en Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Den här snabb starten visar hur du konfigurerar en virtuell Azure-dator för att ansluta till en Azure SQL-hanterad instans med hjälp av SQL Server Management Studio (SSMS). 
 
 
-En snabb start som visar hur du ansluter från en lokal klient dator med en punkt-till-plats-anslutning i stället finns i [Konfigurera en punkt-till-plats-anslutning](point-to-site-p2s-configure.md)
+En snabb start som visar hur du ansluter från en lokal klient dator med en punkt-till-plats-anslutning i stället finns i [Konfigurera en punkt-till-plats](point-to-site-p2s-configure.md)-anslutning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-I den här snabb starten används de resurser som skapats i [skapa en SQL-hanterad instans](instance-create-quickstart.md) som start punkt.
+I den här snabb starten används de resurser som skapats i [skapa en hanterad instans](instance-create-quickstart.md) som start punkt.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -37,9 +37,9 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-new-subnet-vnet"></a>Skapa ett nytt undernät VNet
 
-Följande steg skapar ett nytt undernät i det virtuella SQL-hanterade instans-VNet så att en virtuell Azure-dator kan ansluta till SQL-hanterad instans. Under nätet för SQL-hanterad instans är dedikerat för SQL-hanterade instanser. Du kan inte skapa några andra resurser, t. ex. Azure Virtual Machines, i det under nätet.
+Följande steg skapar ett nytt undernät i det virtuella SQL-hanterade instans-VNet så att en virtuell Azure-dator kan ansluta till den hanterade instansen. Under nätet för SQL-hanterad instans är dedikerat till hanterade instanser. Du kan inte skapa några andra resurser, t. ex. Azure Virtual Machines, i det under nätet.
 
-1. Öppna resurs gruppen för den SQL-hanterade instans som du skapade i snabb starten [skapa en SQL-hanterad instans](instance-create-quickstart.md) . Välj det virtuella nätverket för din SQL-hanterade instans.
+1. Öppna resurs gruppen för den hanterade instans som du skapade i snabb starten för att [skapa en hanterad instans](instance-create-quickstart.md) . Välj det virtuella nätverket för din hanterade instans.
 
    ![SQL-hanterade instans resurser](./media/connect-vm-instance-configure/resources.png)
 
@@ -49,26 +49,26 @@ Följande steg skapar ett nytt undernät i det virtuella SQL-hanterade instans-V
 
 3. Fyll i formuläret med hjälp av informationen i den här tabellen:
 
-   | Inställningen| Föreslaget värde | Beskrivning |
+   | Inställning| Föreslaget värde | Description |
    | ---------------- | ----------------- | ----------- |
    | **Namn** | Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
    | **Adressintervall (CIDR-block)** | Ett giltigt intervall | Standardvärdet är användbart för den här snabb starten.|
-   | **Nätverks säkerhets grupp** | Inga | Standardvärdet är användbart för den här snabb starten.|
-   | **Routningstabell** | Inga | Standardvärdet är användbart för den här snabb starten.|
+   | **Nätverks säkerhets grupp** | Ingen | Standardvärdet är användbart för den här snabb starten.|
+   | **Routningstabell** | Ingen | Standardvärdet är användbart för den här snabb starten.|
    | **Tjänstslutpunkter** | 0 valda | Standardvärdet är användbart för den här snabb starten.|
-   | **Delegering av undernät** | Inga | Standardvärdet är användbart för den här snabb starten.|
+   | **Delegering av undernät** | Ingen | Standardvärdet är användbart för den här snabb starten.|
 
    ![Nytt SQL Managed instance-undernät för virtuell klient dator](./media/connect-vm-instance-configure/new-subnet.png)
 
 4. Välj **OK** för att skapa ytterligare ett UNDERNÄT i SQL Managed instance VNet.
 
-## <a name="create-vm-in-new-subnet"></a>Skapa virtuell dator i nytt undernät 
+## <a name="create-a-vm-in-the-new-subnet"></a>Skapa en virtuell dator i det nya under nätet 
 
-Följande steg visar hur du skapar en virtuell dator i det nya under nätet för att ansluta till den SQL-hanterade instansen.
+Följande steg visar hur du skapar en virtuell dator i det nya under nätet för att ansluta till SQL-hanterad instans.
 
 ## <a name="prepare-the-azure-virtual-machine"></a>Förbered den virtuella Azure-datorn
 
-Eftersom SQL-hanterad instans placeras i din privata Virtual Network måste du skapa en virtuell Azure-dator med ett installerat SQL-klient verktyg, t. ex. SQL Server Management Studio eller Azure Data Studio. Med det här verktyget kan du ansluta till SQL-hanterad instans och köra frågor. Den här snabbstarten använder SQL Server Management Studio.
+Eftersom SQL-hanterad instans placeras i ditt privata virtuella nätverk måste du skapa en virtuell Azure-dator med ett installerat SQL-klient verktyg, t. ex. SQL Server Management Studio eller Azure Data Studio. Med det här verktyget kan du ansluta till SQL-hanterad instans och köra frågor. Den här snabbstarten använder SQL Server Management Studio.
 
 Det enklaste sättet att skapa en virtuell klient dator med alla nödvändiga verktyg är att använda Azure Resource Manager mallar.
 
@@ -78,20 +78,20 @@ Det enklaste sättet att skapa en virtuell klient dator med alla nödvändiga ve
 
 2. Fyll i formuläret med hjälp av informationen i följande tabell:
 
-   | Inställningen| Föreslaget värde | Beskrivning |
+   | Inställning| Föreslaget värde | Description |
    | ---------------- | ----------------- | ----------- |
    | **Prenumeration** | En giltig prenumeration | Måste vara en prenumeration där du har behörighet att skapa nya resurser. |
-   | **Resurs grupp** |Den resurs grupp som du angav i snabb starten för att [skapa SQL-hanterad instans](instance-create-quickstart.md) .|Den här resurs gruppen måste vara den som VNet finns i.|
+   | **Resurs grupp** |Den resurs grupp som du angav i snabb starten för att [skapa SQL-hanterad instans](instance-create-quickstart.md)|Den här resurs gruppen måste vara den som VNet finns i.|
    | **Position** | Platsen för resurs gruppen | Det här värdet fylls i baserat på den valda resurs gruppen. |
    | **Namn på virtuell dator**  | Valfritt giltigt namn | Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
-   |**Administratörens användar namn**|Alla giltiga användar namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder det här användar namnet varje gången du [ansluter till den virtuella datorn](#connect-to-virtual-machine).|
-   |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Du använder det här lösen ordet när som helst när du [ansluter till den virtuella datorn](#connect-to-virtual-machine).|
+   |**Administratörens användar namn**|Alla giltiga användar namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder det här användar namnet varje gången du [ansluter till den virtuella datorn](#connect-to-the-virtual-machine).|
+   |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Du använder det här lösen ordet när som helst när du [ansluter till den virtuella datorn](#connect-to-the-virtual-machine).|
    | **Storlek på virtuell dator** | Vilken giltig storlek som helst | Standardvärdet i den här mallen för **Standard_B2s** räcker för den här snabb starten. |
    | **Position**|[resourceGroup (). location].| Ändra inte det här värdet. |
-   | **Virtual Network namn**|Det virtuella nätverk där du skapade SQL-hanterad instans.|
-   | **Under näts namn**|Namnet på det undernät som du skapade i föregående procedur| Välj inte det undernät där du skapade SQL-hanterad instans.|
+   | **Virtual Network namn**|Det virtuella nätverk där du skapade den hanterade instansen|
+   | **Under näts namn**|Namnet på det undernät som du skapade i föregående procedur| Välj inte det undernät där du skapade den hanterade instansen.|
    | **artefakt plats** | [Deployment (). Properties. templateLink. URI] | Ändra inte det här värdet. |
-   | **SAS-token för artefakt plats** | lämna tomt | Ändra inte det här värdet. |
+   | **SAS-token för artefakt plats** | Lämna tomt | Ändra inte det här värdet. |
 
    ![Skapa en virtuell klientdator](./media/connect-vm-instance-configure/create-client-sql-vm.png)
 
@@ -104,9 +104,9 @@ Det enklaste sättet att skapa en virtuell klient dator med alla nödvändiga ve
 > [!IMPORTANT]
 > Fortsätt inte förrän cirka 15 minuter efter det att den virtuella datorn har skapats för att ange tid för att de färdiga skripten ska installeras SQL Server Management Studio.
 
-## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
+## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 
-Följande steg visar hur du ansluter till den nya virtuella datorn med hjälp av en fjärrskrivbordsanslutning.
+Följande steg visar hur du ansluter till din nya virtuella dator med hjälp av en fjärr skrivbords anslutning.
 
 1. När distributionen är klar går du till den virtuella datorresursen.
 
@@ -125,7 +125,7 @@ Följande steg visar hur du ansluter till den nya virtuella datorn med hjälp av
 
 4. Stäng formuläret **Anslut till virtuell dator** .
 5. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn.
-6. När du uppmanas väljer du **Anslut**. På en Mac-dator behöver du en RDP-klient som denna [Fjärrskrivbordsklient](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) från Mac App Store.
+6. När du uppmanas väljer du **Anslut**. På en Mac behöver du en RDP-klient, till exempel [den här fjärr skrivbords klienten](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) från Mac App Store.
 
 7. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn och välj sedan **OK**.
 
@@ -135,12 +135,12 @@ Du är ansluten till den virtuella datorn i Serverhanteraren instrument panelen.
 
 ## <a name="connect-to-sql-managed-instance"></a>Ansluta till hanterad SQL-instans 
 
-1. Öppna SQL Server Management Studio (SSMS) i den virtuella datorn.
+1. Öppna SQL Server Management Studio på den virtuella datorn.
 
    Det tar en stund att öppna eftersom den måste slutföra konfigurationen eftersom det är första gången SSMS har startats.
-2. I dialog rutan **Anslut till Server** anger du det fullständigt kvalificerade **värd namnet** för din SQL-hanterade instans i rutan **Server namn** . Välj **SQL Server autentisering**, ange ditt användar namn och lösen ord och välj sedan **Anslut**.
+2. I dialog rutan **Anslut till Server** anger du det fullständigt kvalificerade **värd namnet** för din hanterade instans i rutan **Server namn** . Välj **SQL Server autentisering**, ange ditt användar namn och lösen ord och välj sedan **Anslut**.
 
-    ![ssms anslut](./media/connect-vm-instance-configure/ssms-connect.png)  
+    ![SSMS ansluta](./media/connect-vm-instance-configure/ssms-connect.png)  
 
 När du ansluter kan du visa system- och användardatabaserna i noden för databaser och olika objekt i noderna för säkerhet, server-objekt, replikering, hantering, SQL Server Agent och XEvent Profiler.
 
@@ -148,4 +148,4 @@ När du ansluter kan du visa system- och användardatabaserna i noden för datab
 
 - En snabb start som visar hur du ansluter från en lokal klient dator med en punkt-till-plats-anslutning finns i [Konfigurera en punkt-till-plats](point-to-site-p2s-configure.md)-anslutning.
 - En översikt över anslutnings alternativen för program finns i [ansluta dina program till SQL-hanterad instans](connect-application-instance.md).
-- Om du vill återställa en befintlig SQL Server databas från en lokal plats till en SQL-hanterad instans kan du använda [Azure Database migration service (DMS) för migrering](../../dms/tutorial-sql-server-to-managed-instance.md) eller [T-SQL RESTORE-kommandot](restore-sample-database-quickstart.md) för att återställa från en databas säkerhets kopia.
+- Om du vill återställa en befintlig SQL Server databas från en lokal plats till en hanterad instans kan du använda [Azure Database migration service för migrering](../../dms/tutorial-sql-server-to-managed-instance.md) eller [T-SQL RESTORE-kommandot](restore-sample-database-quickstart.md) för att återställa från en säkerhets kopia av databasen.

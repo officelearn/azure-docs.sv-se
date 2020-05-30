@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs populära allmänna frågor om Azure S
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 270fa8de3346063d047b38132438f8097d87689d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2e6cbac9896fc2bc6b3d4d95a28a25d8177bd7a5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744105"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193565"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Allmänna frågor om Azure Site Recovery
 
@@ -195,7 +195,37 @@ Ja. Du kan läsa mer om hur du begränsar bandbredden i de här artiklarna:
 * [Kapacitets planering för att replikera virtuella VMware-datorer och fysiska servrar](site-recovery-plan-capacity-vmware.md)
 * [Kapacitets planering för att replikera virtuella Hyper-V-datorer till Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
+### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Kan jag aktivera replikering med program konsekvens i Linux-servrar? 
+Ja. Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med pre och post-Options används av Azure Site Recovery Mobility-agenten när appen är konsekvent. Nedan visas stegen för att aktivera det.
 
+1. Logga in som rot i datorn.
+2. Ändra katalogen till Azure Site Recovery mobilitets agentens installations plats. Standardvärdet är "/usr/local/ASR"<br>
+    `# cd /usr/local/ASR`
+3. Ändra katalogen till "VX/scripts" under installations plats<br>
+    `# cd VX/scripts`
+4. Skapa ett bash shell-skript med namnet "customscript.sh" med körnings behörigheter för rot användare.<br>
+    a. Skriptet ska ha stöd för "--pre" och "--post" (Observera de dubbla strecken) kommando rads alternativ<br>
+    b. När skriptet anropas med för hands alternativ ska det låsa programdata/utdata och när de anropas med alternativet post-option, ska det Tina in program indata/utdata.<br>
+    c. En exempel-mall –<br>
+
+    `# cat customscript.sh`<br>
+
+```
+    #!/bin/bash
+
+    if [ $# -ne 1 ]; then
+        echo "Usage: $0 [--pre | --post]"
+        exit 1
+    elif [ "$1" == "--pre" ]; then
+        echo "Freezing app IO"
+        exit 0
+    elif [ "$1" == "--post" ]; then
+        echo "Thawed app IO"
+        exit 0
+    fi
+```
+
+5. Lägg till kommandona Freeze och unfrysa indata/utdata i för-och efter-steg för de program som kräver program konsekvens. Du kan välja att lägga till ett annat skript som anger de och anropar det från "customscript.sh" med för-och efter-alternativ.
 
 ## <a name="failover"></a>Redundans
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Hur får jag åtkomst till virtuella Azure-datorer efter redundansväxlingen om jag växlar över till Azure?

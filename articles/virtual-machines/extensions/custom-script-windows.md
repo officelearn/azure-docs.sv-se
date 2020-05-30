@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a8b1c53a5c060f2124a36b69365bdd9b62896b56
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478146"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220962"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skripttillägg för Windows
 
@@ -23,14 +23,24 @@ Det anpassade skript tillägget laddar ned och kör skript på virtuella Azure-d
 
 Det här dokumentet beskriver hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell-modulen, Azure Resource Manager mallar och information om fel söknings steg i Windows-system.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!NOTE]  
 > Använd inte anpassat skript tillägg för att köra Update-AzVM med samma virtuella dator som parametern, eftersom det väntar på sig själv.  
 
 ### <a name="operating-system"></a>Operativsystem
 
-Tillägget för anpassat skript för Windows körs i tillägget tillägg som stöds OSs. mer information finns i det här [Azure-tillägget stöds operativ system](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
+Tillägget för anpassat skript för Windows kommer att köras i tillägget tillägg som stöds OSs.
+### <a name="windows"></a>Windows
+
+* Windows Server 2008 R2
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows 10
+* Windows Server 2016
+* Windows Server 2016 Core
+* Windows Server 2019
+* Windows Server 2019 Core
 
 ### <a name="script-location"></a>Skript plats
 
@@ -131,7 +141,7 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 * `commandToExecute`: (**krävs**, sträng) Start punkt skriptet som ska köras. Använd det här fältet i stället om kommandot innehåller hemligheter som lösen ord, eller om dina fileUris är känsliga.
 * `fileUris`: (valfritt, sträng mat ris) URL: er för fil (er) som ska hämtas.
 * `timestamp`(valfritt, 32-bitars heltal) Använd endast det här fältet för att utlösa en körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
-* `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter för lagring måste `fileUris` alla vara URL: er för Azure-blobar.
+* `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter `fileUris` för lagring måste alla vara URL: er för Azure-blobar.
 * `storageAccountKey`: (valfritt, sträng) åtkomst nyckeln för lagrings kontot
 * `managedIdentity`: (valfritt, JSON-objekt) den [hanterade identiteten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för nedladdning av fil (er)
   * `clientId`: (valfritt, sträng) klient-ID: t för den hanterade identiteten
@@ -196,7 +206,7 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. JSON-schem
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-`Set-AzVMCustomScriptExtension` Kommandot kan användas för att lägga till det anpassade skript tillägget till en befintlig virtuell dator. Mer information finns i [set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
+`Set-AzVMCustomScriptExtension`Kommandot kan användas för att lägga till det anpassade skript tillägget till en befintlig virtuell dator. Mer information finns i [set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
 Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
@@ -211,7 +221,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>Använda flera skript
 
-I det här exemplet har du tre skript som används för att bygga servern. **CommandToExecute** anropar det första skriptet och du har också alternativ för hur andra anropas. Du kan till exempel ha ett huvud skript som styr körningen, med rätt fel hantering, loggning och tillstånds hantering. Skripten laddas ned till den lokala datorn för att köra. `1_Add_Tools.ps1` Du skulle till exempel kunna anropa `2_Add_Features.ps1` genom att `.\2_Add_Features.ps1` lägga till i skriptet och upprepa processen för de andra skript som du definierar i `$settings`.
+I det här exemplet har du tre skript som används för att bygga servern. **CommandToExecute** anropar det första skriptet och du har också alternativ för hur andra anropas. Du kan till exempel ha ett huvud skript som styr körningen, med rätt fel hantering, loggning och tillstånds hantering. Skripten laddas ned till den lokala datorn för att köra. `1_Add_Tools.ps1`Du skulle till exempel kunna anropa `2_Add_Features.ps1` genom att lägga till `.\2_Add_Features.ps1` i skriptet och upprepa processen för de andra skript som du definierar i `$settings` .
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -265,7 +275,7 @@ Du kan också ange egenskapen [ForceUpdateTag](/dotnet/api/microsoft.azure.manag
 
 ### <a name="using-invoke-webrequest"></a>Använda Invoke-webbegäran
 
-Om du använder [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) i skriptet måste du ange parametern `-UseBasicParsing` , annars visas följande fel meddelande när du kontrollerar den detaljerade statusen:
+Om du använder [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) i skriptet måste du ange parametern, `-UseBasicParsing` annars visas följande fel meddelande när du kontrollerar den detaljerade statusen:
 
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
@@ -328,17 +338,17 @@ De angivna filerna laddas ned till följande mapp på den virtuella mål datorn.
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
 
-där `<n>` är ett decimal tal som kan ändras mellan körningar av tillägget.  `1.*` Värdet matchar det faktiska, aktuella `typeHandlerVersion` värdet för tillägget.  Den faktiska katalogen kan till exempel vara `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+där `<n>` är ett decimal tal som kan ändras mellan körningar av tillägget.  `1.*`Värdet matchar det faktiska, aktuella `typeHandlerVersion` värdet för tillägget.  Den faktiska katalogen kan till exempel vara `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2` .  
 
-När `commandToExecute` kommandot körs anger tillägget den här katalogen (till exempel `...\Downloads\2`) som den aktuella arbets katalogen. Den här processen gör det möjligt att använda relativa sökvägar för att hitta filerna `fileURIs` som hämtats via egenskapen. Se tabellen nedan för exempel.
+När `commandToExecute` kommandot körs anger tillägget den här katalogen (till exempel `...\Downloads\2` ) som den aktuella arbets katalogen. Den här processen gör det möjligt att använda relativa sökvägar för att hitta filerna som hämtats via `fileURIs` egenskapen. Se tabellen nedan för exempel.
 
-Eftersom den absoluta nedladdnings Sök vägen kan variera med tiden är det bättre att välja relativa skript-och fil Sök vägar `commandToExecute` i strängen, närhelst det är möjligt. Ett exempel:
+Eftersom den absoluta nedladdnings Sök vägen kan variera med tiden är det bättre att välja relativa skript-och fil Sök vägar i `commandToExecute` strängen, närhelst det är möjligt. Ett exempel:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-Sök vägs information efter det första URI-segmentet behålls för filer `fileUris` som hämtats via egenskaps listan.  Som visas i tabellen nedan mappas hämtade filer till under kataloger med hämtning för att avspegla `fileUris` värdenanas struktur.  
+Sök vägs information efter det första URI-segmentet behålls för filer som hämtats via `fileUris` egenskaps listan.  Som visas i tabellen nedan mappas hämtade filer till under kataloger med hämtning för att avspegla `fileUris` värdenanas struktur.  
 
 #### <a name="examples-of-downloaded-files"></a>Exempel på hämtade filer
 

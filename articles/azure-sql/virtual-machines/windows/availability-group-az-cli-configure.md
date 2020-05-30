@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en tillgänglighets grupp (Azure CLI)
+title: Konfigurera en tillgänglighets grupp med hjälp av Azure CLI
 description: Använd Azure CLI för att skapa Windows-redundansklustret, tillgänglighets gruppens lyssnare och den interna belastningsutjämnaren i en SQL Server VM i Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a48095343fd24071a20d789704b8146be79d02c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 23667e8a50d2ef3a7a31aeb165c0b5d43bcf3eca
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041982"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219613"
 ---
-# <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Använd Azure CLI för att konfigurera en tillgänglighets grupp som alltid är tillgänglig för SQL Server på en virtuell Azure-dator
+# <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-azure-vm"></a>Använd Azure CLI för att konfigurera en tillgänglighets grupp som alltid är tillgänglig för SQL Server på virtuell Azure-dator
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Den här artikeln beskriver hur du använder [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) för att distribuera ett Windows-redundanskluster, lägger till SQL Server virtuella datorer i klustret och skapar den interna belastningsutjämnaren och lyssnare för en tillgänglighets grupp som alltid är tillgänglig. Distribution av Always on-tillgänglighetsgrupper görs fortfarande manuellt via SQL Server Management Studio (SSMS). 
@@ -38,7 +38,7 @@ Om du vill automatisera installationen av en tillgänglighets grupp som alltid �
 Du behöver följande konto behörigheter för att konfigurera tillgänglighets gruppen Always on med hjälp av Azure CLI: 
 
 - Ett befintligt domän användar konto som har behörighet att **skapa dator objekt** i domänen. Till exempel har ett domän administratörs konto vanligt vis tillräcklig behörighet (till exempel: account@domain.com ). _Detta konto bör också vara en del av den lokala administratörs gruppen på varje virtuell dator för att skapa klustret._
-- Domän användar kontot som styr SQL Servers tjänsten. 
+- Domän användar kontot som styr SQL Server. 
  
 ## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>Steg 1: skapa ett lagrings konto som ett moln vittne
 Klustret behöver ett lagrings konto för att fungera som moln vittne. Du kan använda ett befintligt lagrings konto, eller så kan du skapa ett nytt lagrings konto. Om du vill använda ett befintligt lagrings konto kan du gå vidare till nästa avsnitt. 

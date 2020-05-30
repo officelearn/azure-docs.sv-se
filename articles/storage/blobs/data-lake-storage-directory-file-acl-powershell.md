@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: c859176857f64559b9a2994c9cfc2d4ec5f61e57
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 580f8652fcfa4e9ff21abc00f6da36caf12dda51
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691083"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193475"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd PowerShell för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
 Den här artikeln visar hur du använder PowerShell för att skapa och hantera kataloger, filer och behörigheter i lagrings konton med hierarkiskt namn område (HNS) aktiverat. 
 
-[Gen1 till Gen2-mappning](#gen1-gen2-map) | [ger feedback](https://github.com/Azure/azure-powershell/issues)
+[Gen1 till Gen2-mappning](#gen1-gen2-map)  |  [Ge feedback](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Ett lagrings konto med hierarkiskt namn område (HNS) aktiverat. Följ [de här](data-lake-storage-quickstart-create-account.md) anvisningarna för att skapa en.
 > * .NET Framework är 4.7.2 eller senare installerad. Se [Ladda ned .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
-> * PowerShell- `5.1` version eller högre.
+> * PowerShell-version `5.1` eller högre.
 
 ## <a name="install-the-powershell-module"></a>Installera PowerShell-modulen
 
@@ -85,7 +85,7 @@ $ctx = $storageAccount.Context
 
 Ett fil system fungerar som en behållare för dina filer. Du kan skapa en med hjälp av `New-AzDatalakeGen2FileSystem` cmdleten. 
 
-I det här exemplet skapas ett fil `my-file-system`system med namnet.
+I det här exemplet skapas ett fil system med namnet `my-file-system` .
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -96,7 +96,7 @@ New-AzDatalakeGen2FileSystem -Context $ctx -Name $filesystemName
 
 Skapa en katalog referens med hjälp av `New-AzDataLakeGen2Item` cmdleten. 
 
-Det här exemplet lägger till en `my-directory` katalog med namnet i ett fil system.
+Det här exemplet lägger till en katalog med namnet `my-directory` i ett fil system.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -112,7 +112,7 @@ $dir = New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $d
 
 ## <a name="show-directory-properties"></a>Visa katalog egenskaper
 
-Det här exemplet hämtar en katalog med hjälp `Get-AzDataLakeGen2Item` av cmdleten och skriver sedan ut egenskaps värden till-konsolen.
+Det här exemplet hämtar en katalog med hjälp av `Get-AzDataLakeGen2Item` cmdleten och skriver sedan ut egenskaps värden till-konsolen.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -128,9 +128,9 @@ $dir.Properties.Metadata
 
 ## <a name="rename-or-move-a-directory"></a>Byta namn på eller flytta en katalog
 
-Byt namn på eller flytta en katalog med `Move-AzDataLakeGen2Item` hjälp av cmdleten.
+Byt namn på eller flytta en katalog med hjälp av `Move-AzDataLakeGen2Item` cmdleten.
 
-I det här exemplet byter namn på en katalog från `my-directory` namnet till namnet `my-new-directory`.
+I det här exemplet byter namn på en katalog från namnet `my-directory` till namnet `my-new-directory` .
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -142,7 +142,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 > [!NOTE]
 > Använd `-Force` parametern om du vill skriva över utan prompter.
 
-I `my-directory` `my-directory-2` det här exemplet flyttas en katalog med namnet till en under `my-subdirectory`katalog med namnet. 
+I det här exemplet flyttas en katalog med namnet `my-directory` till en under katalog med `my-directory-2` namnet `my-subdirectory` . 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -153,9 +153,9 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 
 ## <a name="delete-a-directory"></a>Ta bort en katalog
 
-Ta bort en katalog med hjälp `Remove-AzDataLakeGen2Item` av cmdleten.
+Ta bort en katalog med hjälp av `Remove-AzDataLakeGen2Item` cmdleten.
 
-Det här exemplet tar bort en `my-directory`katalog med namnet. 
+Det här exemplet tar bort en katalog med namnet `my-directory` . 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -169,7 +169,7 @@ Du kan använda- `-Force` parametern för att ta bort filen utan någon prompt.
 
 Hämta en fil från en katalog med hjälp av `Get-AzDataLakeGen2ItemContent` cmdleten.
 
-I det här exemplet hämtas en `upload.txt` fil med namnet från `my-directory`en katalog med namnet. 
+I det här exemplet hämtas en fil med namnet `upload.txt` från en katalog med namnet `my-directory` . 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -182,7 +182,7 @@ Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $f
 
 Lista innehållet i en katalog med hjälp av `Get-AzDataLakeGen2ChildItem` cmdleten. Du kan använda den valfria parametern `-OutputUserPrincipalName` för att hämta namnet (i stället för objekt-ID) för användare.
 
-I det här exemplet visas innehållet i en katalog `my-directory`med namnet.
+I det här exemplet visas innehållet i en katalog med namnet `my-directory` .
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -190,7 +190,7 @@ $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -OutputUserPrincipalName
 ```
 
-I följande exempel visas egenskaperna `ACL`, `Permissions`, `Group`och `Owner` för varje objekt i katalogen. `-FetchProperty` Parametern krävs för att hämta värden för `ACL` egenskapen. 
+I följande exempel visas `ACL` egenskaperna, `Permissions` , `Group` och `Owner` för varje objekt i katalogen. `-FetchProperty`Parametern krävs för att hämta värden för `ACL` egenskapen. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -202,13 +202,13 @@ $properties.Group
 $properties.Owner
 ```
 
-Om du vill visa innehållet i ett fil system utelämnar `-Path` du parametern från kommandot.
+Om du vill visa innehållet i ett fil system utelämnar du `-Path` parametern från kommandot.
 
 ## <a name="upload-a-file-to-a-directory"></a>Ladda upp en fil till en katalog
 
-Ladda upp en fil till en katalog med hjälp `New-AzDataLakeGen2Item` av cmdleten.
+Ladda upp en fil till en katalog med hjälp av `New-AzDataLakeGen2Item` cmdleten.
 
-I det här exemplet överförs en fil med `upload.txt` namnet till en katalog `my-directory`med namnet. 
+I det här exemplet överförs en fil med namnet `upload.txt` till en katalog med namnet `my-directory` . 
 
 ```powershell
 $localSrcFile =  "upload.txt"
@@ -230,7 +230,7 @@ $file1.Properties.Metadata
 
 ## <a name="show-file-properties"></a>Visa fil egenskaper
 
-Det här exemplet hämtar en fil med hjälp `Get-AzDataLakeGen2Item` av cmdleten och skriver sedan ut egenskaps värden till-konsolen.
+Det här exemplet hämtar en fil med hjälp av `Get-AzDataLakeGen2Item` cmdleten och skriver sedan ut egenskaps värden till-konsolen.
 
 ```powershell
 $filepath =  "my-directory/upload.txt"
@@ -247,9 +247,9 @@ $file.Properties.Metadata
 
 ## <a name="delete-a-file"></a>Ta bort en fil
 
-Ta bort en fil med hjälp `Remove-AzDataLakeGen2Item` av cmdleten.
+Ta bort en fil med hjälp av `Remove-AzDataLakeGen2Item` cmdleten.
 
-Det här exemplet tar bort en `upload.txt`fil med namnet. 
+Det här exemplet tar bort en fil med namnet `upload.txt` . 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -268,7 +268,7 @@ Du kan hämta, ange och uppdatera åtkomst behörigheter för fil system, katalo
 
 ### <a name="get-an-acl"></a>Hämta en ACL
 
-Hämta ACL för en katalog eller fil med hjälp av `Get-AzDataLakeGen2Item`cmdleten.
+Hämta ACL för en katalog eller fil med hjälp av `Get-AzDataLakeGen2Item` cmdleten.
 
 Det här exemplet hämtar ACL: en för ett **fil system** och skriver sedan ut ACL: en till-konsolen.
 
@@ -303,7 +303,7 @@ I det här exemplet har ägande användaren Läs-, skriv-och körnings behörigh
 
 ### <a name="set-an-acl"></a>Ange en ACL
 
-Använd `set-AzDataLakeGen2ItemAclObject` cmdleten för att skapa en ACL för ägande användare, ägande grupp eller andra användare. Använd sedan cmdleten `Update-AzDataLakeGen2Item` för att genomföra ACL: en.
+Använd `set-AzDataLakeGen2ItemAclObject` cmdleten för att skapa en ACL för ägande användare, ägande grupp eller andra användare. Använd sedan `Update-AzDataLakeGen2Item` cmdleten för att genomföra ACL: en.
 
 I det här exemplet anges ACL: en för ett **fil system** för ägande användare, ägande grupp eller andra användare, och sedan skrivs ACL: en ut till-konsolen.
 
@@ -405,13 +405,13 @@ foreach ($a in $aclnew)
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew
 ```
 
-<a id="gen1-gen2-map" />
+<a id="gen1-gen2-map"></a>
 
 ## <a name="gen1-to-gen2-mapping"></a>Gen1 till Gen2-mappning
 
 I följande tabell visas hur cmdletarna som används för Data Lake Storage Gen1 mappas till-cmdletarna för Data Lake Storage Gen2.
 
-|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Obs! |
+|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Anteckningar |
 |--------|---------|-----|
 |Get-AzDataLakeStoreChildItem|Get-AzDataLakeGen2ChildItem|Som standard listar get-AzDataLakeGen2ChildItem-cmdlet endast den första nivån underordnade objekt. Parametern-rekursivt listar underordnade objekt rekursivt. |
 |Get-AzDataLakeStoreItem<br>Get-AzDataLakeStoreItemAclEntry<br>Get-AzDataLakeStoreItemOwner<br>Get-AzDataLakeStoreItemPermission|Get-AzDataLakeGen2Item|Utgående objekt i get-AzDataLakeGen2Item-cmdleten har följande egenskaper: ACL, ägare, grupp, behörighet.|

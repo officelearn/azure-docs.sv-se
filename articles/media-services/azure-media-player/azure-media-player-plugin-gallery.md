@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 4ca74e9c10175f2c34133886e1c8a06782b588c2
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: ba8f60ea10a8b0b85bc030b23dfa71cf3cb264ff
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148233"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195653"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Azure Media Player plugin-Galleri #
 
@@ -23,7 +23,7 @@ ms.locfileid: "84148233"
 | **Nyårs!** AMP360Video                | [Demonstration](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | Med plugin-programmet kan du visualisera 360-video i amp antingen på Skriv bordet eller i VR-kompatibla enheter. Den fullständiga dokumentationen finns [här](https://doc\.babylonjs\.com/extensions/amp360video): |
 |  Beskrivning av Sprite                         | [Demonstration](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Azure Media Player (AMP) plugin-programmet för tids linje åter givning av en video miniatyr bild som genereras från Azure Media Services (AMS) Media Encoder Standard (marknads status). |
 | Diagnostiskt överlägg                 | [Demonstration](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Detta plugin-program visar: alla nyckel parametrar, statistik för video, alla händelser i livs cykeln för video uppspelning och information om DRM-skydd, till exempel nyckel-ID, URL: er för licens hämtning, om den är skyddad.                                                                                                                                                                      |
-| Kalkylator för bild frekvens och tidskod | [Demonstration](http://mconvertitest001.blob.core.windows.net/public/example.html)                        | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Det här plugin-programmet beräknar bild frekvensen för videon baserat på `tfhd` / `trun` MP4-rutorna för det första MPEG-streck-videofragmentet, parsar tids skalan från klient manifestet för MPEG-streck och ger också ett sätt att generera tids koden för en specifik absolut tid från spelaren (samt ger den absoluta tiden för spelaren som anges för tidskod) |
+| Kalkylator för bild frekvens och tidskod | Ingen demo tillgänglig | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Det här plugin-programmet beräknar bild frekvensen för videon baserat på `tfhd` / `trun` MP4-rutorna för det första MPEG-streck-videofragmentet, parsar tids skalan från klient manifestet för MPEG-streck och ger också ett sätt att generera tids koden för en specifik absolut tid från spelaren (samt ger den absoluta tiden för spelaren som anges för tidskod) |
 | <strike>Uppspelnings hastighet</strike>                      | [Demonstration](https://azure-samples.github.io/media-services-javascript-Azure-Media-Player-playback-rate-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Med det här plugin-programmet kan användarna kontrol lera vilken hastighet i videon. *OBS! den här funktionen är automatiskt tillgänglig i version AMP v 2.0.0 + men inaktive rad som standard.* Om du vill lära dig hur du aktiverar det kan du kolla in våra exempel [här](https://github.com/Azure-Samples/azure-media-player-samples) |
 | Tips för hov rings tid                      | [Demonstration](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Visar ett tids tips över förlopps indikatorn vid mus hovring för att söka efter tid. *Obs! det här plugin-programmet är redan integrerat i amp* , men om du är intresse rad av att se hur det är programmerat kan du ta en titt.                                                                                                                       |
 | Rubrik överlägg                       | [Demonstration](https://azure-samples.github.io/media-services-javascript-azure-media-player-title-overlay-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-title-overlay-plugin)                     | Överlägg som kan konfigureras med en video rubrik över skärmen |

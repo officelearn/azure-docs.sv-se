@@ -13,17 +13,17 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d59c022d72269e0e353f52727d36e18f1c321598
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 49b669627507af0e3e7386f31e344082cc4686df
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051138"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219312"
 ---
-# <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Massregistrera virtuella SQL-datorer i Azure med SQL VM-resursprovidern
+# <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrera flera virtuella SQL-datorer i Azure med providern för SQL VM-resurs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)][!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-I den här artikeln beskrivs hur du avregistrerar din SQL Server virtuella dator (VM) i Azure med providern för SQL VM-resursen med hjälp av `Register-SqlVMs` PowerShell-cmdleten.
+Den här artikeln beskriver hur du registrerar SQL Server virtuella datorer i bulk i Azure med den virtuella SQL-adressresursen med hjälp av `Register-SqlVMs` PowerShell-cmdleten.
 
 `Register-SqlVMs`Cmdleten kan användas för att registrera alla virtuella datorer i en angiven lista med prenumerationer, resurs grupper eller en lista med virtuella datorer. Cmdleten registrerar de virtuella datorerna i läget för _förenklad_ hantering och genererar sedan både en [rapport och en loggfil](#output-description). 
 
@@ -40,15 +40,15 @@ Du behöver följande för att kunna registrera SQL Server VM med resurs leveran
 - Den senaste versionen av [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Den senaste versionen av [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
-## <a name="getting-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 Innan du fortsätter måste du först skapa en lokal kopia av skriptet, importera det som en PowerShell-modul och ansluta till Azure. 
 
-### <a name="create-script"></a>Skapa skript
+### <a name="create-the-script"></a>Skapa skriptet
 
 Om du vill skapa skriptet kopierar du det [fullständiga skriptet](#full-script) från slutet av den här artikeln och sparar det lokalt som `RegisterSqlVMs.psm1` . 
 
-### <a name="import-script"></a>Importera skript
+### <a name="import-the-script"></a>Importera skriptet
 
 När skriptet har skapats kan du importera det som en modul i PowerShell-terminalen. 
 
@@ -67,7 +67,7 @@ Connect-AzAccount
 ```
 
 
-## <a name="all-vms-in-list-of-subscriptions"></a>Alla virtuella datorer i listan över prenumerationer 
+## <a name="register-all-vms-in-a-list-of-subscriptions"></a>Registrera alla virtuella datorer i en lista över prenumerationer 
 
 Använd följande cmdlet för att registrera alla SQL Server virtuella datorer i en lista över prenumerationer:
 
@@ -91,7 +91,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="all-vms-in-a-single-subscription"></a>Alla virtuella datorer i en enda prenumeration
+## <a name="register-all-vms-in-a-single-subscription"></a>Registrera alla virtuella datorer i en enda prenumeration
 
 Använd följande cmdlet för att registrera alla SQL Server virtuella datorer i en enda prenumeration: 
 
@@ -113,7 +113,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="all-vms-in-multiple-resource-groups"></a>Alla virtuella datorer i flera resurs grupper
+## <a name="register-all-vms-in-multiple-resource-groups"></a>Registrera alla virtuella datorer i flera resurs grupper
 
 Använd följande cmdlet för att registrera alla SQL Server virtuella datorer i flera resurs grupper inom en enda prenumeration:
 
@@ -134,7 +134,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="all-vms-in-a-resource-group"></a>Alla virtuella datorer i en resurs grupp
+## <a name="resister-all-vms-in-a-resource-group"></a>Resyster alla virtuella datorer i en resurs grupp
 
 Använd följande cmdlet för att registrera alla SQL Server virtuella datorer i en enda resurs grupp: 
 
@@ -155,7 +155,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="specific-vms-in-single-resource-group"></a>Vissa virtuella datorer i en enda resurs grupp
+## <a name="register-specific-vms-in-single-resource-group"></a>Registrera vissa virtuella datorer i en enda resurs grupp
 
 Använd följande cmdlet för att registrera vissa SQL Server virtuella datorer i en enda resurs grupp:
 
@@ -176,7 +176,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="specific-vm"></a>Speciell virtuell dator
+## <a name="register-a-specific-vm"></a>Registrera en speciell virtuell dator
 
 Använd följande cmdlet för att registrera en speciell SQL Server virtuell dator: 
 
@@ -217,11 +217,11 @@ Rapporten skapas som en `.txt` fil med namnet `RegisterSqlVMScriptReport<Timesta
 
 ### <a name="log"></a>Logga 
 
-Fel loggas i logg filen med namnet `VMsNotRegisteredDueToError<Timestamp>.log` där tidsstämpeln är den tid då skriptet startade. Om felet finns på prenumerations nivån innehåller loggen det kommaavgränsade SubscriptionID och fel meddelandet. Om felet är med den virtuella dator registreringen innehåller loggen prenumerations-ID, resurs gruppens namn, namn på virtuell dator, felkod och meddelande avgränsade med kommatecken. 
+Fel loggas i logg filen med namnet `VMsNotRegisteredDueToError<Timestamp>.log` , där tidsstämpel är den tid då skriptet startade. Om felet finns på prenumerations nivån innehåller loggen det kommaavgränsade prenumerations-ID: t och fel meddelandet. Om felet är med den virtuella dator registreringen innehåller loggen prenumerations-ID, resurs gruppens namn, namn på virtuell dator, felkod och meddelande avgränsade med kommatecken. 
 
 ## <a name="remarks"></a>Kommentarer
 
-Tänk på följande när du registrerar SQL Server virtuella datorer med resurs leverantören med det tillhandahållna skriptet:
+När du registrerar SQL Server virtuella datorer med resurs leverantören med hjälp av det tillhandahållna skriptet bör du tänka på följande:
 
 - Registrering med resurs leverantören kräver att en gästa Gent körs på SQL Server VM. Windows Server 2008-avbildningar har ingen gästa Gent, så de här virtuella datorerna kommer att Miss Miss sen och måste registreras manuellt med [hanterings läget för noagent](sql-vm-resource-provider-register.md#management-modes).
 - Det finns ett omprövnings logik som är inbyggt för att lösa transparenta fel. Om den virtuella datorn har registrerats är det en snabb åtgärd. Men om registreringen Miss lyckas görs ett nytt försök för varje virtuell dator.  Därför bör du tillåta betydande tid att slutföra registrerings processen – även om det faktiska tids kravet är beroende av typ och antal fel. 

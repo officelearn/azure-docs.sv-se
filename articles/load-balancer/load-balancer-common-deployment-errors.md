@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: b596e349d789584de07943332ede6f6897a1fd22
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658636"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221000"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Felsök vanliga problem med Azure-distribution med Azure Load Balancer
 
@@ -28,6 +28,7 @@ I den här artikeln beskrivs några vanliga Azure Load Balancer distributions fe
 |DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| Både offentlig IP SKU och Load Balancer SKU måste matcha. Se till att Azure Load Balancer och offentliga IP-SKU: er matchar. Standard-SKU rekommenderas för produktions arbets belastningar. Läs mer om [skillnaderna i SKU: er](./skus.md)  |
 |DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | Skalnings uppsättningar för virtuella datorer är standard till grundläggande belastningsutjämnare när SKU: n har angetts eller distribuerats utan offentliga standard-IP-adresser. Distribuera om skalnings uppsättningen för virtuella datorer med standard offentliga IP: er på de enskilda instanserna för att säkerställa att Standard Load Balancer är markerat eller Välj en standard LB när du distribuerar den virtuella datorns skalnings uppsättning från Azure Portal. |
 |MaxAvailabilitySetsInLoadBalancerReached | Backend-poolen för en Load Balancer kan innehålla högst 150 tillgänglighets uppsättningar. Om du inte har de tillgänglighets uppsättningar som uttryckligen definierats för dina virtuella datorer i backend-poolen, hamnar varje enskild virtuell dator i sin egen tillgänglighets uppsättning. Därför skulle distribution av 150 fristående virtuella datorer innebära att den skulle ha 150 tillgänglighets uppsättningar, så att gränsen uppnåddes. Du kan distribuera en tillgänglighets uppsättning och lägga till ytterligare virtuella datorer i den som en lösning. |
+|NetworkInterfaceAndLoadBalancerAreInDifferentAvailabilitySets | För Basic SKU-belastningsutjämnare måste nätverks gränssnittet och belastningsutjämnaren finnas i samma tillgänglighets uppsättning. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig| Du kan inte ha mer än en regel för en angiven belastningsutjämnare (intern, offentlig) med samma server dels port och protokoll som refereras till av samma skalnings uppsättning för den virtuella datorn. Uppdatera regeln om du vill ändra den här regeln för att skapa dubbletter. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndVmssIPConfig| Du kan inte ha mer än en regel för en angiven belastningsutjämnare (intern, offentlig) med samma server dels port och protokoll som refereras till av samma skalnings uppsättning för den virtuella datorn. Uppdatera dina regel parametrar om du vill ändra den här dubbletten av regeln. |
 |AnotherInternalLoadBalancerExists| Du kan bara ha en Load Balancer av typen intern referens till samma uppsättning virtuella datorer/nätverks gränssnitt i Server delen för Load Balancer. Uppdatera din distribution så att du bara skapar en Load Balancer av samma typ. |

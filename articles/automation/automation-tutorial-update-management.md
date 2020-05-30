@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 917a7ccbf17fdb1e2691f1a3a8368b40006f6d7b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 79cffa7aedd0fc04dd4a747ef28bc67cacf37905
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170315"
+ms.locfileid: "84204896"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
@@ -211,4 +211,4 @@ När din uppdaterings distribution har slutförts visas den avisering som du har
 * Information om hur du tar bort virtuella datorer från Uppdateringshantering finns i [ta bort virtuella datorer från uppdateringshantering](automation-remove-vms-from-update-management.md).
 * Information om hur du felsöker allmänna Uppdateringshantering fel finns i [felsöka uppdateringshantering problem](troubleshoot/update-management.md).
 * Information om hur du felsöker problem med Windows Update-agenten finns i [Felsöka problem med Windows Update-agenten](troubleshoot/update-agent-issues.md).
-* Information om hur du felsöker problem med Linux Update-agenten finns i[Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).
+* Information om hur du felsöker problem med Linux Update-agenten finns i [Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).

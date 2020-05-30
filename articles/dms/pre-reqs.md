@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: 904ebb2e97ef84e1b0c2a83e5cb153bdb7e44746
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9aaf334b328b2e20ed94f0c7c87727add1f2baee
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018930"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195670"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Översikt över förutsättningar för att använda Azure Database Migration Service
 
@@ -125,9 +125,9 @@ När du använder Azure Database Migration Service för att utföra SQL Server t
    > En fullständig lista över de krav som krävs för att använda Azure Database Migration Service för att utföra migreringar från SQL Server till Azure SQL Database finns i självstudien [migrera SQL Server till Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).
    >
 
-## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Krav för migrering av SQL Server till en Azure SQL Database Hanterad instans
+## <a name="prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance"></a>Krav för migrering av SQL Server till en Azure SQL-hanterad instans
 
-* Skapa en Azure SQL Database Hanterad instans genom att följa informationen i artikeln [skapa en Azure SQL Database Hanterad instans i Azure Portal](https://aka.ms/sqldbmi).
+* Skapa en SQL-hanterad instans genom att följa informationen i artikeln [skapa en hanterad Azure SQL-instans i Azure Portal](https://aka.ms/sqldbmi).
 * Öppna brand väggarna för att tillåta SMB-trafik på port 445 för den Azure Database Migration Service IP-adressen eller under nätets intervall.
 * Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-SQL Server, som har standardinställningen TCP-port 1433.
 * Om du kör flera namngivna SQL Server-instanser med dynamiska portar kan du vilja aktivera SQL Browser Service och tillåta åtkomst till UDP-port 1434 via dina brandväggar så att Azure Database Migration Service kan ansluta till en namngiven instans på källservern.
@@ -138,7 +138,7 @@ När du använder Azure Database Migration Service för att utföra SQL Server t
 * Skapa en BLOB-behållare och hämta dess SAS-URI genom att följa stegen i artikeln [Hantera Azure Blob Storage-resurser med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Se till att välja alla behörigheter (läsa, skriva, ta bort, lista) i princip fönstret när du skapar SAS-URI: n.
 
    > [!NOTE]
-   > En fullständig lista över de krav som krävs för att använda Azure Database Migration Service för att utföra migreringar från SQL Server till Azure SQL Database Hanterad instans finns i självstudien [migrera SQL Server till Azure SQL Database Hanterad instans](https://aka.ms/migratetomiusingdms).
+   > En fullständig lista över de krav som krävs för att använda Azure Database Migration Service för att utföra migreringar från SQL Server till SQL-hanterad instans finns i självstudien [migrera SQL Server till SQL-hanterad instans](https://aka.ms/migratetomiusingdms).
 
 ## <a name="next-steps"></a>Nästa steg
 

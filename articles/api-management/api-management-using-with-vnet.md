@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2020
 ms.author: apimpm
-ms.openlocfilehash: 92473dc7553286867a33100d7328dd0320d55823
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.custom: references_regions
+ms.openlocfilehash: 016a907e3e660ca6da9dc637b2c9c844b7077b84
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799921"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193969"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -31,7 +32,7 @@ Azure API Management kan distribueras inuti det virtuella nätverket (VNET), så
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
@@ -96,7 +97,7 @@ När din API Management-tjänst är ansluten till det virtuella nätverket, är 
 
 ![Lägg till API från VPN][api-management-setup-vpn-add-api]
 
-## <a name="common-network-configuration-issues"></a><a name="network-configuration-issues"> </a>Vanliga problem vid konfiguration av nätverk
+## <a name="common-network-configuration-issues"></a><a name="network-configuration-issues"> </a>Vanliga problem med nätverks konfiguration
 Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå när du distribuerar API Management tjänst till en Virtual Network.
 
 * **Anpassad DNS-Server konfiguration**: API Management tjänsten är beroende av flera Azure-tjänster. När API Management finns i ett VNET med en anpassad DNS-server måste du matcha värd namnen för dessa Azure-tjänster. Följ [den här](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) vägledningen om anpassad DNS-konfiguration. Se tabellen portar nedan och andra nätverks krav för referens.

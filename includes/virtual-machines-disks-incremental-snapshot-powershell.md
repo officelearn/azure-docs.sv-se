@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3eec6583ebdff35d7e40d2eec305a947de0cb87c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d63ec0c2d82ec316a61771b4642731c932b045cf
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299471"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84224928"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -32,11 +32,11 @@ Du kan använda Azure PowerShell för att skapa en stegvis ögonblicks bild. Du 
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 ```
 
-När den är installerad loggar du in på PowerShell-sessionen `az login`med.
+När den är installerad loggar du in på PowerShell-sessionen med `Connect-AzAccount` .
 
 Om du vill skapa en stegvis ögonblicks bild med Azure PowerShell anger du konfigurationen med [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) med `-Incremental` parametern och skickar den som en variabel till [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) via `-Snapshot` parametern.
 
-Ersätt `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`och `<yourDesiredSnapShotNameHere>` med dina värden, kan du använda följande skript för att skapa en stegvis ögonblicks bild:
+Ersätt `<yourDiskNameHere>` , `<yourResourceGroupNameHere>` och `<yourDesiredSnapShotNameHere>` med dina värden, kan du använda följande skript för att skapa en stegvis ögonblicks bild:
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
@@ -47,7 +47,7 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
 ```
 
-Du kan identifiera stegvisa ögonblicks bilder från samma disk med `SourceResourceId` `SourceUniqueId` egenskaperna och för ögonblicks bilder. `SourceResourceId`är Azure Resource Manager resurs-ID för den överordnade disken. `SourceUniqueId`är värdet som ärvs från diskens `UniqueId` egenskap. Om du skulle ta bort en disk och sedan skapa en ny disk med samma namn, ändras `UniqueId` egenskapens värde.
+Du kan identifiera stegvisa ögonblicks bilder från samma disk med `SourceResourceId` `SourceUniqueId` egenskaperna och för ögonblicks bilder. `SourceResourceId`är Azure Resource Manager resurs-ID för den överordnade disken. `SourceUniqueId`är värdet som ärvs från `UniqueId` diskens egenskap. Om du skulle ta bort en disk och sedan skapa en ny disk med samma namn, `UniqueId` ändras egenskapens värde.
 
 Du kan använda `SourceResourceId` och `SourceUniqueId` för att skapa en lista över alla ögonblicks bilder som är associerade med en viss disk. Ersätt `<yourResourceGroupNameHere>` med ditt värde och Använd sedan följande exempel för att visa en lista över dina befintliga stegvisa ögonblicks bilder:
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f9e576599fe1b329807427181d5de3fa37c9adea
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: efe7a68f7102da0b39def676306ce96ad00f5ff8
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041842"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204964"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -112,7 +112,7 @@ För att komma åt sidan **Azure SQL-resurser** väljer du **azure SQL** på Azu
 ![Sök efter Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
 
 > [!NOTE]
-> **Azure SQL** är ett snabbt och enkelt sätt att få åtkomst till alla dina SQL-databaser, elastiska pooler, databas servrar, SQL-hanterade instanser och virtuella SQL-datorer. Azure SQL är inte en tjänst eller resurs. 
+> **Azure SQL** är ett snabbt och enkelt sätt att få åtkomst till alla dina Azure SQL-databaser, elastiska pooler, logiska servrar, hanterade instanser och virtuella datorer. Azure SQL är inte en tjänst eller resurs. 
 
 Om du vill hantera befintliga resurser väljer du önskat objekt i listan. Om du vill skapa nya Azure SQL-resurser väljer du **+ Lägg till**. 
 

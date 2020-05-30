@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server arbets belastningar på Azure Stack
 description: I den här artikeln lär du dig hur du konfigurerar Microsoft Azure Backup Server (MABS) för att skydda SQL Server databaser på Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 03211e1147f96429a8406c4c95654161ed2bf308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b2d41bdccd67539205b74a0ce277b3b01a685c6c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74172315"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192986"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Säkerhetskopiera SQL Server på Azure Stack
 
@@ -65,7 +65,7 @@ Hantering av SQL Server databas säkerhets kopiering till Azure och återställn
 
     ![Metod för inledande replikering](./media/backup-azure-backup-sql/pg-manual.png)
 
-    Den första säkerhets kopian kräver att hela data källan överförs (SQL Server databas) från produktions servern (SQL Server datorn) till Azure Backup Server. Dessa data kan vara stora och överföring av data över nätverket kan överskrida bandbredden. Därför kan du välja att överföra den första säkerhets kopieringen: **manuellt** (med hjälp av flyttbara medier) för att undvika överbelastning av bandbredd eller **automatiskt över nätverket** (vid en viss tidpunkt).
+    Den första säkerhets kopian kräver att hela data källan överförs (SQL Server databas) från produktions servern (SQL Server dator) till Azure Backup Server. Dessa data kan vara stora och överföring av data över nätverket kan överskrida bandbredden. Därför kan du välja att överföra den första säkerhets kopieringen: **manuellt** (med hjälp av flyttbara medier) för att undvika överbelastning av bandbredd eller **automatiskt över nätverket** (vid en viss tidpunkt).
 
     När den första säkerhets kopieringen är klar är resten av säkerhets kopieringarna stegvisa säkerhets kopior på den första säkerhets kopian. Stegvisa säkerhets kopieringar tenderar att vara små och överförs enkelt över nätverket.
 
@@ -73,7 +73,7 @@ Hantering av SQL Server databas säkerhets kopiering till Azure och återställn
 
     ![Konsekvens kontroll](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Azure Backup Server utför en konsekvens kontroll av säkerhets kopierings punktens integritet. Azure Backup Server beräknar den säkerhetskopierade filens kontroll summa på produktions servern (SQL Server datorn i det här scenariot) och de säkerhetskopierade data för den filen. Om det uppstår en konflikt antas det att den säkerhetskopierade filen på Azure Backup Server är skadad. Azure Backup Server reserverar säkerhetskopierade data genom att skicka blocken som motsvarar felaktig kontroll summa. Eftersom konsekvens kontroller är prestanda intensiva kan du schemalägga konsekvens kontrollen eller köra den automatiskt.
+    Azure Backup Server utför en konsekvens kontroll av säkerhets kopierings punktens integritet. Azure Backup Server beräknar kontroll summan för säkerhets kopian på produktions servern (SQL Server datorn i det här scenariot) och de säkerhetskopierade data för den filen. Om det uppstår en konflikt antas det att den säkerhetskopierade filen på Azure Backup Server är skadad. Azure Backup Server reserverar säkerhetskopierade data genom att skicka blocken som motsvarar felaktig kontroll summa. Eftersom konsekvens kontroller är prestanda intensiva kan du schemalägga konsekvens kontrollen eller köra den automatiskt.
 
 10. Om du vill ange onlineskydd för data källorna väljer du de databaser som ska skyddas till Azure och klickar på **Nästa**.
 

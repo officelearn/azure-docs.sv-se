@@ -10,24 +10,24 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: ed317039e683ef36054d5ace612e09ca75dfa11e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9a02a01bb55e63322964b52a5f4d6113b3280360
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837390"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220725"
 ---
-# <a name="sign-in-to-azure-using-email-as-an-alternate-login-id-preview"></a>Logga in på Azure med e-post som ett alternativt inloggnings-ID (förhands granskning)
+# <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Logga in för att Azure Active Directory med e-post som ett alternativt inloggnings-ID (för hands version)
 
-Många organisationer vill att användarna ska kunna logga in på Azure med samma autentiseringsuppgifter som den lokala katalog miljön. Med den här metoden, som kallas hybrid autentisering, behöver användarna bara komma ihåg en uppsättning autentiseringsuppgifter.
+Många organisationer vill att användarna ska kunna logga in på Azure Active Directory (Azure AD) med samma autentiseringsuppgifter som den lokala katalog miljön. Med den här metoden, som kallas hybrid autentisering, behöver användarna bara komma ihåg en uppsättning autentiseringsuppgifter.
 
 Vissa organisationer har inte flyttats till hybrid autentisering av följande anledningar:
 
-* Som standard har Azure Active Directory (Azure AD) User Principal Name (UPN) angetts till samma UPN som den lokala katalogen.
-* Att ändra Azure AD UPN skapar en mis-matchning mellan lokal-och Azure-miljöer som kan orsaka problem med vissa program och tjänster.
-* På grund av affärs-eller efterföljandekrav vill inte organisationen använda det lokala UPN för att logga in på Azure.
+* Som standard har Azure AD-User Principal Name (UPN) angetts till samma UPN som den lokala katalogen.
+* Att ändra Azure AD UPN skapar en mis-matchning mellan lokal-och Azure AD-miljöer som kan orsaka problem med vissa program och tjänster.
+* På grund av affärs-eller efterföljandekrav vill inte organisationen använda det lokala UPN för att logga in på Azure AD.
 
-För att hjälpa till med att flytta till hybrid autentisering kan du nu konfigurera Azure AD så att användarna kan logga in på Azure med ett e-postmeddelande i din verifierade domän som ett alternativt inloggnings-ID. Om *contoso* till exempel har ändrats till *Fabrikam*, i stället för att fortsätta logga in med det äldre `balas@contoso.com` UPN, kan du nu använda e-post som ett alternativt inloggnings-ID. För att få åtkomst till ett program eller tjänster loggar användare in på Azure med hjälp av deras tilldelade e-post, till exempel `balas@fabrikam.com` .
+För att hjälpa till med att flytta till hybrid autentisering kan du nu konfigurera Azure AD så att användarna kan logga in med ett e-postmeddelande i din verifierade domän som ett alternativt inloggnings-ID. Om *contoso* till exempel har ändrats till *Fabrikam*, i stället för att fortsätta logga in med det äldre `balas@contoso.com` UPN, kan du nu använda e-post som ett alternativt inloggnings-ID. För att få åtkomst till ett program eller tjänster loggar användare in på Azure AD med sin tilldelade e-postadress, till exempel `balas@fabrikam.com` .
 
 |     |
 | --- |
@@ -36,17 +36,15 @@ För att hjälpa till med att flytta till hybrid autentisering kan du nu konfigu
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Översikt över inloggnings metoder för Azure AD
 
-Användarens huvud namn (UPN) är unika identifierare för ett användar konto i både din lokala katalog och i Azure AD. Varje användar konto i en katalog representeras av ett UPN, till exempel `balas@contoso.com` . Som standard, när du synkroniserar en lokal Active Directory Domain Services (AD DS)-miljö med Azure AD, är Azure AD UPN konfigurerat för att matcha det lokala UPN-värdet.
+Om du vill logga in på Azure AD anger du ett namn som unikt identifierar sitt konto. Tidigare kunde du bara använda Azure AD UPN som inloggnings namn.
 
-I många organisationer är det bra att ange det lokala UPN och Azure AD UPN som ska matchas. När användarna loggar in på Azure-program och-tjänster använder de sina Azure AD UPN. Vissa organisationer kan dock inte använda matchande UPN för inloggning på grund av affärs principer eller problem med användar upplevelsen.
+Den här metoden var perfekt för organisationer där det lokala UPN: en är användarens önskade inloggnings-e-post. Dessa organisationer ställer in Azure AD UPN till exakt samma värde som det lokala UPN, och användarna får en enhetlig inloggnings upplevelse.
 
-Organisationer som inte kan använda matchande UPN i Azure AD har några alternativ:
+I vissa organisationer används dock inte det lokala UPN-namnet som inloggnings namn. I lokala miljöer konfigurerar du den lokala AD DS för att tillåta inloggning med ett alternativt inloggnings-ID. Att ange Azure AD UPN till samma värde som det lokala UPN: t är inte ett alternativ eftersom Azure AD sedan kräver att användare loggar in med det värdet.
 
-* En metod är att ställa in Azure AD UPN till något annat baserat på affärs behoven, till exempel `balas@fabrikam.com` .
-    * Men inte alla program och tjänster är kompatibla med att använda ett annat värde för det lokala UPN: t och Azure AD UPN.
-* En bättre metod är att se till att Azure AD och lokala UPN är inställda på samma värde och konfigurerar Azure AD så att användarna kan logga in på Azure med sina e-postmeddelanden som ett alternativt inloggnings-ID.
+Den typiska lösningen på det här problemet var att ange Azure AD UPN till den e-postadress som användaren förväntar sig att logga in med. Den här metoden fungerar, men resulterar i olika UPN mellan lokala AD och i Azure AD, och den här konfigurationen är inte kompatibel med alla Microsoft 365 arbets belastningar.
 
-Med e-post som ett alternativt inloggnings-ID kan användarna fortfarande logga in på Azure genom att ange sitt UPN, men kan också logga in med sin e-post. För att stödja detta definierar du en e-postadress i användarens *proxyAddresses* -attribut i den lokala katalogen. Detta *proxyAddress* -attribut stöder en eller flera e-postadresser.
+En annan metod är att synkronisera Azure AD och lokala UPN: er till samma värde och sedan konfigurera Azure AD så att användarna kan logga in på Azure AD med en verifierad e-postadress. För att tillhandahålla den här funktionen definierar du en eller flera e-postadresser i användarens *proxyAddresses* -attribut i den lokala katalogen. *ProxyAddresses* synkroniseras sedan automatiskt till Azure AD med hjälp av Azure AD Connect.
 
 ## <a name="synchronize-sign-in-email-addresses-to-azure-ad"></a>Synkronisera inloggnings-e-postadresser till Azure AD
 

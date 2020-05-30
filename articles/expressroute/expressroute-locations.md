@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 70f90026e4a67fe1f8b1d5f790aed87652975045
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 9d60a17207f06333f81da9b28acd9aabe7e8db47
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798628"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221237"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -74,7 +74,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 
 ### <a name="global-commercial-azure"></a>Global kommersiell Azure
 
-| **Tjänstleverantör** | **Microsoft Azure** | **Office 365**  | **Platser** |
+| **Tjänstleverantör** | **Microsoft Azure** | **Office 365**  | **Platser** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Stöds |Stöds |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Stöds | Stöds | Chennai2, Mumbai2 |
@@ -127,7 +127,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, London, Newport (Wales), Sao Paulo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Stöds |Stöds |Busan, Söul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Stöds |Stöds |Kapstaden, Johannesburg |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds |Stöds |Amsterdam, Atlanta, Auckland, Chicago, Borås, Denver, Dubai2, Dublin, Frankfurt, Genève, Hongkong SAR, Las Vegas, London, London2, Los Angeles, Melbourne, Miami, Montrealprotokollet, New York, Oslo, Perth, Quebec City, San Antonio, Seattle, kisel dal, Singapore, Singapore2, Sydney, Sydney2, Tokyo, Toronto, Washington DC, Zürich |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds |Stöds |Amsterdam, Atlanta, Auckland, Chicago, Borås, Denver, Dubai2, Dublin, Frankfurt, Genève, Hong Kong SAR, Las Vegas, London, London2, Los Angeles, Melbourne, Miami, Montrealprotokollet, New York, Oslo, Perth, Quebec City, San Antonio, Seattle, kisel dal, Singapore, Singapore2, Stavanger, Stockholm, Sydney, Sydney2, Tokyo, Tokyo2 Toronto, Washington DC, Zürich |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Stöds |Stöds |London |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Stöds |Stöds |Borås, Los Angeles, Miami, Sao Paulo, Washington DC |
 | **[Nästa generations data](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Stöds |Stöds |Newport(Wales) |
@@ -160,7 +160,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Telus](https://www.telus.com)** |Stöds |Stöds |Montrealprotokollet, Seattle, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Stöds |Stöds |Kapstaden, Johannesburg |
 | **[TID dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Stöds | Stöds | Kuala Lumpur |
-| **[Transtelco](https://transtelco.net/enterprise-services/)** |Stöds |Stöds |Dallas, Los Angeles|
+| **[Transtelco](https://transtelco.net/enterprise-services/)** |Stöds |Stöds |Borås, Mexiko, Los Angeles|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Stöds |Stöds |Sao Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Stöds |Stöds |Amsterdam, Norrköping, Borås, Hongkong SAR, London, Mumbai, Silicon dal, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **[Viasat](http://www.directcloud.viasatbusiness.com/)** | Stöds | Stöds | Washington DC2 |
@@ -177,7 +177,7 @@ De nationella Azure-molnen är isolerade från varandra och från globala affär
 
 ### <a name="us-government-cloud"></a>U.S. Government-moln
 
-| **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
+| **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Stöds |Stöds |Chicago, Phoenix, Silicon dal, Washington DC |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Stöds |Stöds |New York, Phoenix, San-Antonio, Washington DC |
@@ -188,7 +188,7 @@ De nationella Azure-molnen är isolerade från varandra och från globala affär
 
 ### <a name="china"></a>Kina
 
-| **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
+| **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
 | --- | --- | --- | --- |
 | **China Telecom** |Stöds |Stöds inte |Beijing, Beijing2, Shanghai, Shanghai2 |
 | **Kina, Unicom** | Stöds | Stöds inte | Beijing2, Shanghai2 |
@@ -198,7 +198,7 @@ Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expres
 
 ### <a name="germany"></a>Tyskland
 
-| **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
+| **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Stöds |Stöds inte |Frankfurt |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds inte |Frankfurt |

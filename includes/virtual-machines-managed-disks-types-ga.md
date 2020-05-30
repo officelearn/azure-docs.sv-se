@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6740ea320f2d950386da12eb44726e2c826b60a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d263a1fb329f5a18fec760413300296643768c1d
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80386111"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84200509"
 ---
 ## <a name="premium-ssd"></a>Premium SSD
 
@@ -70,6 +70,6 @@ När du använder hanterade diskar gäller följande saker:
 - Utgående data överföringar
 - Antal transaktioner
 
-**Hanterad disk storlek**: hanterade diskar debiteras enligt den etablerade storleken. Azure mappar den etablerade storleken (avrundat uppåt) till den närmaste erbjudna disk storleken. Mer information om de disk storlekar som erbjuds finns i föregående tabeller. Varje disk mappar till ett erbjudande för allokerad disk storlek och debiteras enligt detta. Om du till exempel har upprättat en 200 GiB Standard SSD, mappas den till disk storleks erbjudandet för E15 (256 GiB). Faktureringen för en etablerad disk beräknas per timme genom att använda det månatliga priset för det Premium Storage erbjudandet. Om du till exempel har upprättat en E10-disk och tagit bort den efter 20 timmar debiteras du för E10-erbjudandet som har klassificerats till 20 timmar. Detta gäller oavsett hur mycket faktisk data som skrivs till disken.
+**Hanterad disk storlek**: hanterade diskar debiteras enligt den etablerade storleken. Azure mappar den etablerade storleken (avrundat uppåt) till den närmaste erbjudna disk storleken. Mer information om de disk storlekar som erbjuds finns i föregående tabeller. Varje disk mappar till ett erbjudande för allokerad disk storlek och debiteras enligt detta. Om du till exempel har upprättat en 200 GiB Standard SSD, mappas den till disk storleks erbjudandet för E15 (256 GiB). Faktureringen för en etablerad disk beräknas per timme genom att använda det månatliga priset för lagrings erbjudandet. Om du till exempel har upprättat en E10-disk och tagit bort den efter 20 timmar debiteras du för E10-erbjudandet som har klassificerats till 20 timmar. Detta gäller oavsett hur mycket faktisk data som skrivs till disken.
 
 **Ögonblicks bilder**: ögonblicks bilder faktureras baserat på storleken som används. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB.

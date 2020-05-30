@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/8/2020
-ms.openlocfilehash: 5f4988ad5df5507f9d6acd330a8f8bba9062be0d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ead7361ba48a9a1b646310d3a47850545fff3ade
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84012950"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195607"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 
@@ -33,7 +33,7 @@ Azure Data Lake Storage utdata från Stream Analytics är för närvarande inte 
 
 I följande tabell visas egenskaps namn och beskrivningar för att konfigurera Data Lake Storage gen 1-utdata.   
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | --- | --- |
 | Utdataalias | Ett eget namn som används i frågor för att dirigera utdata från frågan till Data Lake Store. |
 | Prenumeration | Den prenumeration som innehåller ditt Azure Data Lake Storage-konto. |
@@ -51,15 +51,15 @@ I följande tabell visas egenskaps namn och beskrivningar för att konfigurera D
 
 Du kan använda [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) som utdata för data som är i relation till typ eller för program som är beroende av innehåll som finns i en Relations databas. Stream Analytics jobb skriver till en befintlig tabell i SQL Database. Tabell schemat måste exakt matcha fälten och deras typer i jobbets utdata. Du kan också ange [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) som utdata via alternativet SQL Database utdata. Information om hur du kan förbättra Skriv data flödet finns i artikeln [Stream Analytics med Azure SQL Database som utdata](stream-analytics-sql-output-perf.md) .
 
-Du kan också använda [Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) som utdata. Du måste [Konfigurera den offentliga slut punkten i Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) och manuellt konfigurera följande inställningar i Azure Stream Analytics. Den virtuella Azure-datorn som kör SQL Server med en databas ansluten stöds också genom att konfigurera inställningarna manuellt nedan.
+Du kan också använda en [hanterad Azure SQL-instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) som utdata. Du måste [Konfigurera den offentliga slut punkten i SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) och manuellt konfigurera följande inställningar i Azure Stream Analytics. Den virtuella Azure-datorn som kör SQL Server med en databas ansluten stöds också genom att konfigurera inställningarna manuellt nedan.
 
 I följande tabell visas egenskaps namnen och deras beskrivning för att skapa en SQL Database utdata.
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | --- | --- |
 | Utdataalias |Ett eget namn som används i frågor för att dirigera frågeresultatet till den här databasen. |
 | Databas | Namnet på databasen dit du skickar dina utdata. |
-| servernamn | Det logiska SQL Server-namnet eller namnet på den hanterade instansen. För Azure SQL Database Hanterad instans måste du ange port 3342. Till exempel *sampleserver. public. Database. Windows. net, 3342* |
+| servernamn | Det logiska SQL Server-namnet eller namnet på den hanterade instansen. För SQL-hanterad instans måste du ange port 3342. Till exempel *sampleserver. public. Database. Windows. net, 3342* |
 | Användarnamn | Det användar namn som har Skriv behörighet till databasen. Stream Analytics stöder endast SQL-autentisering. |
 | lösenordsinställning | Lösen ordet för att ansluta till databasen. |
 | Tabell | Tabell namnet där utdata skrivs. Tabell namnet är Skift läges känsligt. Schemat för den här tabellen ska exakt matcha det antal fält och deras typer som jobbets utdata genererar. |
@@ -84,7 +84,7 @@ Om du vill använda Azure-Synapse som utdata måste du kontrol lera att lagrings
 
 I följande tabell visas egenskaps namn och beskrivningar för att skapa am Azure Synapse Analytics-utdata.
 
-|Egenskapsnamn|Beskrivning|
+|Egenskapsnamn|Description|
 |-|-|
 |Utdataalias |Ett eget namn som används i frågor för att dirigera frågeresultatet till den här databasen. |
 |Databas |SQL-poolnamn där du ska skicka utdata. |
@@ -101,7 +101,7 @@ Azure Blob Storage erbjuder en kostnads effektiv och skalbar lösning för att l
 
 I följande tabell visas egenskaps namn och beskrivningar för att skapa en BLOB eller ADLS Gen2 utdata.
 
-| Egenskapsnamn       | Beskrivning                                                                      |
+| Egenskapsnamn       | Description                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
 | Utdataalias        | Ett eget namn som används i frågor för att dirigera frågeresultatet till blob-lagringen. |
 | Lagringskonto     | Namnet på det lagrings konto där du ska skicka dina utdata.               |
@@ -134,7 +134,7 @@ När du använder Blob Storage som utdata skapas en ny fil i blobben i följande
 
 Du behöver några parametrar för att konfigurera data strömmar från Event Hub som utdata.
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | --- | --- |
 | Utdataalias | Ett eget namn som används i frågor för att dirigera frågeresultatet till den här händelsehubben. |
 | Namnområde för händelsehubb | En behållare för en uppsättning meddelande enheter. När du skapade en ny händelsehubben, skapade du även ett namn område för Event Hub. |
@@ -156,7 +156,7 @@ Power BI utdata från Stream Analytics är för närvarande inte tillgängligt i
 
 I följande tabell visas egenskaps namn och beskrivningar för att konfigurera Power BI-utdata.
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | --- | --- |
 | Utdataalias |Ange ett eget namn som används i frågor för att dirigera frågeresultatet till Power BI utdata. |
 | Grupp arbets yta |Om du vill aktivera delning av data med andra Power BI användare kan du välja grupper inuti ditt Power BI konto eller välja **min arbets yta** om du inte vill skriva till en grupp. Att uppdatera en befintlig grupp kräver att Power BI autentisering förnyas. |
@@ -207,7 +207,7 @@ Datumtid | Sträng | Sträng |  Datumtid | Sträng
 
 I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa ett tabell resultat.
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | --- | --- |
 | Utdataalias |Ett eget namn som används i frågor för att dirigera frågeresultatet till den här tabell lagringen. |
 | Lagringskonto |Namnet på det lagrings konto där du ska skicka dina utdata. |
@@ -225,7 +225,7 @@ I [kompatibilitetsnivå 1,2](stream-analytics-compatibility-level.md)använder A
 
 I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa utdata från kön.
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | --- | --- |
 | Utdataalias |Ett eget namn som används i frågor för att dirigera frågeresultatet till den här Service Bus kön. |
 | Service Bus namnrymd |En behållare för en uppsättning meddelande enheter. |
@@ -246,7 +246,7 @@ Service Bus köer tillhandahåller en en-till-en-kommunikations metod från sän
 
 I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa ett Service Bus avsnitts utdata.
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | --- | --- |
 | Utdataalias |Ett eget namn som används i frågor för att dirigera frågeresultatet till den här Service Bus ämnet. |
 | Service Bus namnrymd |En behållare för en uppsättning meddelande enheter. När du skapade en ny händelsehubben, skapade du också ett Service Bus-namnområde. |
@@ -272,7 +272,7 @@ Azure Cosmos DB utdata från Stream Analytics är för närvarande inte tillgän
 
 I följande tabell beskrivs egenskaperna för att skapa en Azure Cosmos DB utdata.
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | --- | --- |
 | Utdataalias | Ett alias för att referera till utdata i din Stream Analytics fråga. |
 | Kanalmottagare | Azure Cosmos DB. |
@@ -290,7 +290,7 @@ Azure Functions utdata från Stream Analytics är för närvarande inte tillgän
 
 Azure Stream Analytics anropar Azure Functions via HTTP-utlösare. Azure Functions-utmatnings kortet är tillgängligt med följande konfigurerbara egenskaper:
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | --- | --- |
 | Funktionsapp |Namnet på din Azure Functions-app. |
 | Funktion |Namnet på funktionen i din Azure Functions-app. |
@@ -351,16 +351,16 @@ I följande tabell sammanfattas partitionens stöd och antalet utgående skrivar
 
 | Utdatatyp | Partitionerings stöd | Partitionsnyckeln  | Antal utgående skrivare |
 | --- | --- | --- | --- |
-| Azure Data Lake Store | Ja | Använd {date}-och {Time}-tokens i mönstret Path-prefix. Välj datum format, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ eller MM-DD-ÅÅÅÅ. HH används för tids formatet. | Följer standardpartitionering för [kan göras parallella frågor](stream-analytics-scale-jobs.md). |
+| Azure Data Lake Store | Yes | Använd {date}-och {Time}-tokens i mönstret Path-prefix. Välj datum format, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ eller MM-DD-ÅÅÅÅ. HH används för tids formatet. | Följer standardpartitionering för [kan göras parallella frågor](stream-analytics-scale-jobs.md). |
 | Azure SQL Database | Ja, måste aktive ras. | Baserat på PARTITION BY-satsen i frågan. | När alternativet Ärv partitionering är aktiverat, följer du inpartitionering för [fullständiga kan göras parallella-frågor](stream-analytics-scale-jobs.md). Mer information om hur du uppnår bättre Skriv data flödes prestanda när du läser in data i Azure SQL Database finns [Azure Stream Analytics utdata till Azure SQL Database](stream-analytics-sql-output-perf.md). |
-| Azure Blob Storage | Ja | Använd {date}-och {Time}-token från dina händelse fält i Sök vägs mönstret. Välj datum format, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ eller MM-DD-ÅÅÅÅ. HH används för tids formatet. BLOB-utdata kan partitioneras med ett enda anpassat Event-attribut {FieldName} eller {datetime: \<specifier> }. | Följer standardpartitionering för [kan göras parallella frågor](stream-analytics-scale-jobs.md). |
+| Azure Blob Storage | Yes | Använd {date}-och {Time}-token från dina händelse fält i Sök vägs mönstret. Välj datum format, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ eller MM-DD-ÅÅÅÅ. HH används för tids formatet. BLOB-utdata kan partitioneras med ett enda anpassat Event-attribut {FieldName} eller {datetime: \<specifier> }. | Följer standardpartitionering för [kan göras parallella frågor](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Ja | Ja | Varierar beroende på partition justering.<br /> När partitionsnyckel för Event Hub-utdata är jämnt justerad med föregående steg i frågan, är antalet skrivare samma som antalet partitioner i Event Hub-utdata. Varje skrivare använder [klassen EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) för att skicka händelser till den angivna partitionen. <br /> När partitionsnyckel för utdata i Event Hub inte är justerad till föregående steg i frågan, är antalet skrivare samma som antalet partitioner i det föregående steget. Varje skrivare använder [klassen SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) i **EventHubClient** för att skicka händelser till alla utdata-partitioner. |
-| Power BI | Nej | Inga | Inte tillämpligt. |
-| Azure Table Storage | Ja | Kolumnen utdata.  | Följer den inmatade partitionen för [helt parallella frågor](stream-analytics-scale-jobs.md). |
-| Azure Service Bus-ämne | Ja | Väljs automatiskt. Antalet partitioner baseras på [Service Bus SKU och storlek](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckel är ett unikt heltals värde för varje partition.| Samma som antalet partitioner i avsnittet utdata.  |
-| Azure Service Bus-kö | Ja | Väljs automatiskt. Antalet partitioner baseras på [Service Bus SKU och storlek](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckel är ett unikt heltals värde för varje partition.| Samma som antalet partitioner i kön. |
-| Azure Cosmos DB | Ja | Baserat på PARTITION BY-satsen i frågan. | Följer den inmatade partitionen för [helt parallella frågor](stream-analytics-scale-jobs.md). |
-| Azure Functions | Ja | Baserat på PARTITION BY-satsen i frågan. | Följer den inmatade partitionen för [helt parallella frågor](stream-analytics-scale-jobs.md). |
+| Power BI | No | Ingen | Inte tillämpligt. |
+| Azure Table Storage | Yes | Kolumnen utdata.  | Följer den inmatade partitionen för [helt parallella frågor](stream-analytics-scale-jobs.md). |
+| Azure Service Bus-ämne | Yes | Väljs automatiskt. Antalet partitioner baseras på [Service Bus SKU och storlek](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckel är ett unikt heltals värde för varje partition.| Samma som antalet partitioner i avsnittet utdata.  |
+| Azure Service Bus-kö | Yes | Väljs automatiskt. Antalet partitioner baseras på [Service Bus SKU och storlek](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckel är ett unikt heltals värde för varje partition.| Samma som antalet partitioner i kön. |
+| Azure Cosmos DB | Yes | Baserat på PARTITION BY-satsen i frågan. | Följer den inmatade partitionen för [helt parallella frågor](stream-analytics-scale-jobs.md). |
+| Azure Functions | Yes | Baserat på PARTITION BY-satsen i frågan. | Följer den inmatade partitionen för [helt parallella frågor](stream-analytics-scale-jobs.md). |
 
 Antalet utgående skrivare kan också kontrol leras med hjälp av `INTO <partition count>` (se [i](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count))-satsen i din fråga, vilket kan vara till hjälp när du vill uppnå en önskad jobb sto pol Ogin. Om ditt utmatnings kort inte är partitionerat, kommer brist på data i en partition att orsaka en fördröjning upp till den sena tiden för införsel. I sådana fall slås utdata samman till en enda skrivare, vilket kan orsaka Flask halsar i din pipeline. Om du vill veta mer om principen för att komma i beaktande, se [Azure Stream Analytics händelse ordning](stream-analytics-out-of-order-and-late-events.md).
 

@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 05/28/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 6e6be4cd0f8053d356183a75c5a012dee0bd8c68
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: cded8fef70e22ffebc412ea37898100cda4bb3df
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771323"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219026"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar
 
@@ -50,7 +50,14 @@ Log Analytics dedikerade kluster är samlingar av arbets ytor i ett enda hantera
 
 Reservations nivån för kluster kapaciteten konfigureras via program mässigt med Azure Resource Manager med hjälp av `Capacity` parametern under `Sku` . `Capacity`Anges i enheter om GB och kan ha värden på 1000 GB/dag eller mer i steg om 100 GB/dag. Detta beskrivs [här](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). Om ditt kluster behöver en reservation över 2000 GB/dag kontaktar du oss på [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
 
-Eftersom faktureringen för inmatade data görs på kluster nivå har de arbets ytor som är associerade till ett kluster inte längre någon pris nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. Observera att tilldelningar per nod från [Azure Security Center](https://docs.microsoft.com/azure/security-center/) tillämpas på arbets ytans nivå före denna agg regering av sammanställda data för alla arbets ytor i klustret. Data kvarhållning faktureras fortfarande på arbets ytans nivå. Observera att kluster faktureringen startar när klustret skapas, oavsett om arbets ytorna har kopplats till klustret. 
+Det finns två fakturerings lägen för användning i ett kluster. Dessa kan anges av- `billingType` parametern när [du konfigurerar klustret](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#cmk-manage). De två lägena är: 
+
+1. **Kluster**: i det här fallet (som är standard) görs faktureringen för inmatade data på kluster nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. Observera att tilldelningar per nod från [Azure Security Center](https://docs.microsoft.com/azure/security-center/) tillämpas på arbets ytans nivå före denna agg regering av sammanställda data för alla arbets ytor i klustret. 
+
+2. **Arbets ytor**: kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](https://docs.microsoft.com/azure/security-center/) för varje arbets yta.) Om den totala data volymen som matas in i en arbets yta för en dag är lägre än kapacitets reservationen debiteras varje arbets yta för sina inmatade data med den effektiva reservations taxan per GB som faktureras en bråkdel av kapacitets reservationen och den oanvända delen av kapacitets reservationen debiteras till kluster resursen. Om den totala data volymen som matas in på en arbets yta för en dag är mer än kapacitets reservationen debiteras varje arbets yta för en bråkdel av kapacitets reservationen baserat på den inmatade data dagen och varje arbets yta för en bråkdel av inmatade data ovanför kapacitets reservationen. Det finns inget debiteras för kluster resursen om den totala data volymen som matas in på en arbets yta för en dag är över kapacitets reservationen.
+
+
+I kluster fakturerings alternativ faktureras data lagring på arbets ytans nivå. Observera att kluster faktureringen startar när klustret skapas, oavsett om arbets ytorna har kopplats till klustret. Observera också att arbets ytor som är kopplade till ett kluster inte längre har en pris nivå.
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Beräkna kostnaderna för att hantera din miljö 
 
@@ -398,12 +405,13 @@ Här är några användbara exempel frågor för att gå djupare i data källan 
 + Datatypen **AzureDiagnostics**
   - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
-### <a name="tips-for-reducing-data-volume"></a>Tips för att minska data volymen
+## <a name="tips-for-reducing-data-volume"></a>Tips för att minska data volymen
 
 Några förslag på hur du minskar mängden loggar som samlas in är:
 
 | Källan för hög datavolym | Hur du minskar datavolym |
 | -------------------------- | ------------------------- |
+| Container Insights         | [Konfigurera behållar insikter](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) för att endast samla in de data du behöver. |
 | Säkerhetshändelser            | Välj [vanliga eller minimala säkerhetshändelser](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> Ändra principen för säkerhetsgranskning för att endast samla in händelser som behövs. Du kan särskilt se över behovet att samla in händelser för att <br> - [granska filtreringplattform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [granska register](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [granska filsystem](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [granska kernelobjekt](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [granska hantering av manipulering](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> – granska flyttbara lagrings enheter |
 | Prestandaräknare       | Ändra [prestandaräknarens konfiguration](data-sources-performance-counters.md) för att: <br> - Minska insamlingsfrekvensen <br> - Minska antalet prestandaräknare |
 | Händelseloggar                 | Ändra [händelseloggens konfiguration](data-sources-windows-events.md) för att: <br> - Minska antalet händelseloggar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informationsnivå* |

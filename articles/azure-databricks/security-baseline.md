@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e6c51e80a0a9a68dc6ec11e03c133f3480eb4329
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 66043ae4f569e4151be829ca361232accb2f0ebd
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170485"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219389"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Azures säkerhets bas linje för Azure Databricks
 
@@ -404,7 +404,7 @@ Obs: Azure Databricks diagnostikloggar kräver Azure Databricks Premiums plan
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: granska och stäm regelbundet av användar åtkomst
 
-**Vägledning**: Azure AD innehåller loggar som hjälper till att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst. Du kan också implementera SCIM-API: er och Azure Databricks diagnostikloggar för att granska användar åtkomst. Du kan också använda SCIM-API: er och Azure Databricks diagnostikloggar för att granska användar åtkomst.
+**Vägledning**: Azure AD innehåller loggar som hjälper till att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst. Du kan också implementera SCIM-API: er och Azure Databricks diagnostikloggar för att granska användar åtkomst.
 
 Dessutom kan du regelbundet granska och hantera användar åtkomst i Azure Databricks administratörs konsolen.
 

@@ -3,12 +3,12 @@ title: Information om princip tilldelnings strukturen
 description: Beskriver den princip tilldelnings definition som används av Azure Policy för att relatera princip definitioner och parametrar till resurser för utvärdering.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9f400aa72508822f8fff2fe41fb17ce98339737
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683224"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205049"
 ---
 # <a name="azure-policy-assignment-structure"></a>Tilldelningsstruktur i Azure Policy
 
@@ -61,10 +61,10 @@ Egenskapen **enforcementMode** ger kunderna möjlighet att testa resultatet av e
 
 Den här egenskapen har följande värden:
 
-|Läge |JSON-värde |Typ |Åtgärda manuellt |Aktivitets logg post |Beskrivning |
+|Läge |JSON-värde |Typ |Åtgärda manuellt |Aktivitets logg post |Description |
 |-|-|-|-|-|-|
-|Enabled |Standardvärde |sträng |Ja |Ja |Princip påverkan tillämpas när en resurs skapas eller uppdateras. |
-|Disabled |DoNotEnforce |sträng |Ja |Nej | Princip påverkan tillämpas inte när en resurs skapas eller uppdateras. |
+|Enabled |Standard |sträng |Ja |Ja |Princip påverkan tillämpas när en resurs skapas eller uppdateras. |
+|Disabled |DoNotEnforce |sträng |Yes |Inga | Princip påverkan tillämpas inte när en resurs skapas eller uppdateras. |
 
 Om **enforcementMode** inte anges i en princip eller initiativ definition används värdet _default_ . [Reparations uppgifter](../how-to/remediate-resources.md) kan startas för [deployIfNotExists](./effects.md#deployifnotexists) -principer, även när **enforcementMode** har angetts till _DoNotEnforce_.
 
@@ -75,7 +75,7 @@ Tilldelningens **omfattning** inkluderar alla underordnade resurs behållare och
 ## <a name="policy-definition-id"></a>ID för princip definition
 
 Det här fältet måste vara det fullständiga Sök vägs namnet för antingen en princip definition eller en initiativ definition.
-`policyDefinitionId`är en sträng och inte en matris. Vi rekommenderar att om flera principer ofta tilldelas tillsammans, så att du kan använda ett [initiativ](./definition-structure.md#initiatives) i stället.
+`policyDefinitionId`är en sträng och inte en matris. Vi rekommenderar att om flera principer ofta tilldelas tillsammans, så att du kan använda ett [initiativ](./initiative-definition-structure.md) i stället.
 
 ## <a name="parameters"></a>Parametrar
 
@@ -93,7 +93,7 @@ Den här designen gör det möjligt att återanvända en princip eller initiativ
 }
 ```
 
-I det här exemplet är `prefix` parametrarna som tidigare definierats i princip definitionen och `suffix`. Den här princip tilldelningen `prefix` anger till **Avda** och `suffix` till **-LC**. Samma princip definition kan återanvändas med en annan uppsättning parametrar för en annan avdelning, vilket minskar dupliceringen och komplexiteten i princip definitioner samtidigt som den ger flexibilitet.
+I det här exemplet är parametrarna som tidigare definierats i princip definitionen `prefix` och `suffix` . Den här princip tilldelningen anger `prefix` till **Avda** och `suffix` till **-LC**. Samma princip definition kan återanvändas med en annan uppsättning parametrar för en annan avdelning, vilket minskar dupliceringen och komplexiteten i princip definitioner samtidigt som den ger flexibilitet.
 
 ## <a name="next-steps"></a>Nästa steg
 

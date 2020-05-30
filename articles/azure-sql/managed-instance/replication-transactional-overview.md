@@ -12,17 +12,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: e55b75b26eec3112472d78c0c22c147a80177007
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: e23b772c6f57a2649d626e879d404e76ab2ab380
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118707"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219345"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Transaktionell replikering med Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Transaktionell replikering är en funktion i Azure SQL-hanterad instans och SQL Server som gör att du kan replikera data från en tabell i en Azure SQL-hanterad instans eller en SQL Server till tabeller som placerats i fjärrdatabaser. Med den här funktionen kan du synkronisera flera tabeller i olika databaser.
+Transaktionsreplikering är en funktion i Azure SQL-hanterad instans och SQL Server som gör att du kan replikera data från en tabell i en Azure SQL-hanterad instans eller en SQL Server instans till tabeller som placeras på fjärrdatabaser. Med den här funktionen kan du synkronisera flera tabeller i olika databaser.
 
 ## <a name="overview"></a>Översikt
 
@@ -43,17 +43,17 @@ Nyckel komponenterna i Transaktionsreplikering är **utgivare**, **distributör*
 
 | Roll | Azure SQL Database | Hanterad Azure SQL-instans |
 | :----| :------------- | :--------------- |
-| **Utgivare** | Nej | Ja |
-| **Möjligheter** | Nej | Ja|
-| **Pull-prenumerant** | Nej | Ja|
+| **Publisher** | No | Yes |
+| **Möjligheter** | No | Yes|
+| **Pull-prenumerant** | No | Yes|
 | **Push-prenumerant**| Ja | Ja|
 | &nbsp; | &nbsp; | &nbsp; |
 
-**Utgivaren** publicerar ändringar som gjorts i vissa tabeller (artiklar) genom att skicka uppdateringarna till distributören. Utgivaren kan vara en hanterad Azure SQL-instans eller en SQL Server.
+**Utgivaren** publicerar ändringar som gjorts i vissa tabeller (artiklar) genom att skicka uppdateringarna till distributören. Utgivaren kan vara en hanterad Azure SQL-instans eller en SQL Server instans.
 
-**Distributören** samlar in ändringar i artiklarna från en utgivare och distribuerar dem till prenumeranterna. Distributören kan antingen vara Azure SQL-hanterad instans eller SQL Server (vilken version som helst som är lika med eller högre än utgivar versionen).
+**Distributören** samlar in ändringar i artiklarna från en utgivare och distribuerar dem till prenumeranterna. Distributören kan antingen vara en Azure SQL-hanterad instans eller en SQL Server instans (vilken version som helst som är lika med eller högre än utgivar versionen).
 
-**Prenumeranten** tar emot ändringar som gjorts på utgivaren. SQL Server och Azure SQL Managed instance kan båda vara push-och pull-prenumeranter, även om en pull-prenumeration inte stöds när distributören är en Azure SQL-hanterad instans och prenumeranten inte är det. Azure SQL Database kan bara vara en push-prenumerant.
+**Prenumeranten** tar emot ändringar som gjorts på utgivaren. En SQL Server instans och en Azure SQL-hanterad instans kan både vara push-och pull-prenumeranter, även om en pull-prenumeration inte stöds när distributören är en Azure SQL-hanterad instans och prenumeranten inte är det. En databas i Azure SQL Database kan bara vara en push-prenumerant.
 
 En Azure SQL-hanterad instans kan stödja en prenumerant från följande versioner av SQL Server:
 
@@ -72,19 +72,19 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
 
 | Replikering | Azure SQL Database | Hanterad Azure SQL-instans |
 | :----| :------------- | :--------------- |
-| [**Standard transaktion**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Ja |
-| [**Ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Ja|
-| [**Sammanfoga replikering**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nej | Nej|
-| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nej | Nej|
-| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nej | Ja|
-| [**Uppdaterings bara prenumerationer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nej | Nej|
+| [**Standard transaktion**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Yes |
+| [**Ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Yes|
+| [**Sammanfoga replikering**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Inga | Inga|
+| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Inga | Inga|
+| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
+| [**Uppdaterings bara prenumerationer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Inga | Inga|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Support mat ris
 
-  Matrisen för stöd för transaktionella replikering för Azure SQL Managed instance är samma som den för SQL Server lokalt.
+  Matrisen för stöd för transaktionella replikering för Azure SQL Managed instance är samma som den för SQL Server.
   
-| **Utgivare**   | **Möjligheter** | **Prenumerant** |
+| **Publisher**   | **Möjligheter** | **Prenumerant** |
 | :------------   | :-------------- | :------------- |
 | SQL Server 2019 | SQL Server 2019 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/>  |
 | SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
@@ -114,15 +114,15 @@ Transaktionell replikering är användbart i följande scenarier:
 
 I allmänhet måste utgivaren och distributören vara antingen i molnet eller lokalt. Följande konfigurationer stöds:
 
-### <a name="publisher-with-local-distributor-on-sql-mi"></a>Utgivare med lokal distributör på SQL MI
+### <a name="publisher-with-local-distributor-on-sql-managed-instance"></a>Utgivare med lokal distributör på SQL-hanterad instans
 
 ![Enskild instans som utgivare och distributör](./media/replication-transactional-overview/01-single-instance-asdbmi-pubdist.png)
 
-Utgivare och distributör konfigureras inom en enda hanterad instans och distribuerar ändringar till andra Azure-SQL Server, Azure SQL-hanterad instans eller SQL Server lokalt eller i en virtuell dator.
+Utgivare och distributör konfigureras inom en enskild SQL-hanterad instans och distribuerar ändringar till en annan SQL-hanterad instans, SQL Database eller SQL Server instans.
 
-### <a name="publisher-with-remote-distributor-on-sql-mi"></a>Utgivare med fjärrdistributör på SQL MI
+### <a name="publisher-with-remote-distributor-on-sql-managed-instance"></a>Utgivare med fjärrdistributör på SQL-hanterad instans
 
-I den här konfigurationen publicerar en hanterad instans ändringar i distributören som placerats på en annan hanterad instans som kan hantera många hanterade instanser och distribuera ändringar till ett eller flera mål på Azure SQL Server, Azure SQL-hanterad instans eller SQL Server lokalt eller i en virtuell dator.
+I den här konfigurationen publicerar en hanterad instans ändringar i en åter försäljare som placerats på en annan SQL-hanterad instans som kan hantera flera SQL-hanterade instanser och distribuera ändringar till ett eller flera mål på Azure SQL Database, Azure SQL-hanterad instans eller SQL Server.
 
 ![Separata instanser för utgivare och distributör](./media/replication-transactional-overview/02-separate-instances-asdbmi-pubdist.png)
 
@@ -131,11 +131,11 @@ Utgivare och distributör konfigureras på två hanterade instanser. Det finns v
 - Båda hanterade instanser finns på samma vNet.
 - Båda hanterade instanser finns på samma plats.
 
-### <a name="on-prem-pubdist-with-remote-subscriber"></a>Lokal pub/förd med fjärran sluten prenumerant
+### <a name="on-premises-publisherdistributor-with-remote-subscriber"></a>Lokal utgivare/distributör med fjärran sluten prenumerant
 
 ![Azure SQL Database som prenumerant](./media/replication-transactional-overview/03-azure-sql-db-subscriber.png)
 
-I den här konfigurationen är en Azure SQL Database-eller Azure SQL-hanterad instans databas en prenumerant. Den här konfigurationen stöder migrering från lokal plats till Azure. Om en prenumerant är Azure SQL Database måste den vara i push-läge.  
+I den här konfigurationen är en databas i Azure SQL Database eller Azure SQL-hanterad instans en prenumerant. Den här konfigurationen stöder migrering från lokal plats till Azure. Om en prenumerant är en databas i Azure SQL Database måste den vara i push-läge.  
 
 ## <a name="requirements"></a>Krav
 
@@ -151,7 +151,7 @@ I den här konfigurationen är en Azure SQL Database-eller Azure SQL-hanterad in
 
 ## <a name="with-failover-groups"></a>Med failover-grupper
 
-[Aktiv geo-replikering](../database/active-geo-replication-overview.md) stöds inte med en SQL-hanterad instans med transaktionell replikering. I stället för aktiv geo-replikering använder du [grupper för automatisk redundans](../database/auto-failover-group-overview.md), men Observera att publikationen måste [tas bort manuellt](transact-sql-tsql-differences-sql-server.md#replication) från den primära hanterade instansen och återskapas på den sekundära SQL-hanterade instansen efter redundansväxlingen.
+[Aktiv geo-replikering](../database/active-geo-replication-overview.md) stöds inte med en SQL-hanterad instans med transaktionell replikering. I stället för aktiv geo-replikering använder du [grupper för automatisk redundans](../database/auto-failover-group-overview.md), men Observera att publikationen måste [tas bort manuellt](transact-sql-tsql-differences-sql-server.md#replication) från den primära hanterade instansen och sedan återskapas på den sekundära SQL-hanterade instansen efter redundansväxlingen.
 
 Om geo-replikering har Aktiver ATS för en **utgivare** eller **distributör** av SQL-hanterad instans i en [grupp för växling vid fel](../database/auto-failover-group-overview.md), måste SQL-hanterad instans administratör rensa alla publikationer på den gamla primären och konfigurera om dem på den nya primära efter en redundansväxling. Följande aktiviteter behövs i det här scenariot:
 
@@ -193,14 +193,14 @@ Om geo-replikering har Aktiver ATS på en **prenumerants** instans i en failover
 
 Mer information om hur du konfigurerar Transaktionsreplikering finns i följande Självstudier:
 
-- [Konfigurera replikering mellan en MI-utgivare och prenumerant](../managed-instance/replication-between-two-instances-configure-tutorial.md)
-- [Konfigurera replikering mellan en MI-utgivare, MI-distributör och SQL Server prenumerant](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
+- [Konfigurera replikering mellan en SQL-hanterad instans utgivare och prenumerant](../managed-instance/replication-between-two-instances-configure-tutorial.md)
+- [Konfigurera replikering mellan en SQL-hanterad instans utgivare, SQL-hanterad instans distributör och SQL Server prenumerant](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
 - [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-- [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) med hjälp av Server namnet som prenumeranten (till exempel `N'azuresqldbdns.database.windows.net` och Azure SQL Database namn som mål databas (till exempel **AdventureWorks**. )
+- [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) med hjälp av Server namnet som prenumeranten (till exempel `N'azuresqldbdns.database.windows.net` och databasen i Azure SQL Database namn som mål databas (till exempel **AdventureWorks**. )
 
 ## <a name="see-also"></a>Se även  
 
-- [Replikering med en MI-och failover-grupp](transact-sql-tsql-differences-sql-server.md#replication)
+- [Replikering med en SQL-hanterad instans och en failover-grupp](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replikering till SQL-databas](../database/replication-to-sql-database.md)
 - [Replikering till hanterad instans](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

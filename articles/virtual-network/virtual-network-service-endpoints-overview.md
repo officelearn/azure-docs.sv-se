@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 4a2a7af23005e3c033d455d52f61cef2b7564b7f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9dd4bc79760dde00808358fe489f6e539c2b9a2e
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018760"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220438"
 ---
 # <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
-Tjänst slut punkter för Virtual Network (VNet) utökar det privata adress utrymmet för det virtuella nätverket. Slut punkterna utökar också identiteten för ditt VNet till Azure-tjänsterna via en direkt anslutning. Med slutpunkter kan du skydda dina kritiska Azure-tjänstresurser till endast dina virtuella nätverk. Trafik från ditt VNet till Azure-tjänsten förblir alltid på Microsoft Azure-stamnätverket.
+Virtual Network tjänst slut punkten för virtuella nätverk ger säker och direkt anslutning till Azure-tjänster via en optimerad väg över Azures stamnät nätverk. Med slutpunkter kan du skydda dina kritiska Azure-tjänstresurser till endast dina virtuella nätverk. Med tjänstens slut punkter kan privata IP-adresser i VNet komma åt slut punkten för en Azure-tjänst utan att behöva en offentlig IP-adress på det virtuella nätverket.
 
 Den här funktionen är tillgänglig för följande Azure-tjänster och-regioner. *Microsoft. \* * Resource är i parentes. Aktivera den här resursen från under näts sidan när du konfigurerar tjänstens slut punkter för tjänsten:
 
@@ -151,5 +151,5 @@ Vanliga frågor och svar [Virtual Network finns i vanliga frågor och svar om se
 - [Skydda en Azure SQL Data Warehouse till ett virtuellt nätverk](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Azure Service integration i virtuella nätverk](virtual-network-for-azure-services.md)
 - [Virtual Network tjänst slut punkts principer](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Azure Resource Manager mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
 

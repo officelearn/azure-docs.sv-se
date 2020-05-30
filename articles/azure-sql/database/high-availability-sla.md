@@ -1,6 +1,6 @@
 ---
 title: Hög tillgänglighet
-titleSuffix: Azure SQL Database & SQL Managed Instance
+titleSuffix: Azure SQL Database and SQL Managed Instance
 description: Lär dig mer om funktioner och funktioner för hög tillgänglighet för Azure SQL Database och SQL-hanterad instans tjänst
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,17 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: ca340ce86dc4e6c028840fd7bfdb909ea097629e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 527fe8fa2ad8916f9e5209e4823457d81e745034
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043326"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219357"
 ---
-# <a name="high-availability-for-azure-sql-database--sql-managed-instance"></a>Hög tillgänglighet för Azure SQL Database & SQL-hanterad instans
+# <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Hög tillgänglighet för Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Målet med hög tillgänglighets arkitekturen i Azure SQL Database-och SQL-hanterade instans är att garantera att databasen är igång minst 99,99% av tiden (mer information om ett särskilt service avtal för olika nivåer finns i [SLA för Azure SQL Database & SQL-hanterad instans](https://azure.microsoft.com/support/legal/sla/sql-database/)) utan att oroa dig över påverkan av underhålls åtgärder och avbrott. Azure hanterar automatiskt kritiska underhålls uppgifter, till exempel korrigeringar, säkerhets kopieringar, Windows-och SQL-uppgraderingar, samt oplanerade händelser som underliggande maskin vara, program eller nätverks fel.  När den underliggande SQL-instansen har korrigerats eller växlar över, märks inte stillestånds tiden om du [använder logik för omprövning](develop-overview.md#resiliency) i din app. SQL Database och SQL-hanterad instans kan snabbt återställas även under de mest kritiska omständigheterna för att se till att dina data alltid är tillgängliga.
+Målet med hög tillgänglighets arkitekturen i Azure SQL Database-och SQL-hanterade instans är att garantera att databasen är igång minst 99,99% av tiden (mer information om ett särskilt service avtal för olika nivåer finns i [SLA för Azure SQL Database och SQL-hanterad instans](https://azure.microsoft.com/support/legal/sla/sql-database/)) utan att oroa dig över påverkan av underhålls åtgärder och avbrott. Azure hanterar automatiskt kritiska underhålls uppgifter, till exempel korrigeringar, säkerhets kopieringar, Windows-och Azure SQL-uppgraderingar, samt oplanerade händelser som underliggande maskin vara, program vara eller nätverks fel.  När den underliggande databasen i Azure SQL Database korrigeras eller flyttas över, märks inte stillestånds tiden om du [använder logik för omprövning](develop-overview.md#resiliency) i appen. SQL Database och SQL-hanterad instans kan snabbt återställas även under de mest kritiska omständigheterna för att se till att dina data alltid är tillgängliga.
 
 Lösningen för hög tillgänglighet är utformad för att säkerställa att allokerade data aldrig går förlorade på grund av problem, att underhålls åtgärder inte påverkar din arbets belastning och att databasen inte är en enskild felpunkt i din program varu arkitektur. Det finns inga underhålls perioder som kräver att du stoppar arbets belastningen medan databasen uppgraderas eller underhålls.
 
@@ -52,9 +52,9 @@ Premium-och Affärskritisk tjänst nivåerna utnyttjar Premium Availability-mode
 
 ![Kluster med noder i databas motorn](./media/high-availability-sla/business-critical-service-tier.png)
 
-De underliggande databasfilerna (. MDF/. ldf) placeras på den anslutna SSD-lagringen för att tillhandahålla mycket låg latens i/o för din arbets belastning. Hög tillgänglighet implementeras med hjälp av en teknik som liknar SQL Server [Always on-tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Klustret innehåller en enda primär replik som kan nås av kundens arbets belastningar med Läs-och skriv åtgärder och upp till tre sekundära repliker (data bearbetning och lagring) som innehåller kopior av data. Den primära noden skickar konstanter ändringar till de sekundära noderna i ordning och säkerställer att data synkroniseras till minst en sekundär replik innan varje transaktion bekräftas. Den här processen garanterar att om den primära noden kraschar av någon anledning finns det alltid en helt synkroniserad nod att redundansväxla till. Redundansväxlingen initieras av Azure-Service Fabric. När den sekundära repliken blir den nya primära noden skapas en annan sekundär replik för att säkerställa att klustret har tillräckligt många noder (kvorumkonfigurationen). När redundansväxlingen är klar omdirigeras SQL-anslutningar automatiskt till den nya primära noden.
+De underliggande databasfilerna (. MDF/. ldf) placeras på den anslutna SSD-lagringen för att tillhandahålla mycket låg latens i/o för din arbets belastning. Hög tillgänglighet implementeras med hjälp av en teknik som liknar SQL Server [Always on-tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Klustret innehåller en enda primär replik som kan nås av kundens arbets belastningar med Läs-och skriv åtgärder och upp till tre sekundära repliker (data bearbetning och lagring) som innehåller kopior av data. Den primära noden skickar konstanter ändringar till de sekundära noderna i ordning och säkerställer att data synkroniseras till minst en sekundär replik innan varje transaktion bekräftas. Den här processen garanterar att om den primära noden kraschar av någon anledning finns det alltid en helt synkroniserad nod att redundansväxla till. Redundansväxlingen initieras av Azure-Service Fabric. När den sekundära repliken blir den nya primära noden skapas en annan sekundär replik för att säkerställa att klustret har tillräckligt många noder (kvorumkonfigurationen). När redundansväxlingen är klar omdirigeras Azure SQL-anslutningar automatiskt till den nya primära noden.
 
-Som en extra förmån innehåller Premium Availability-modellen möjligheten att omdirigera skrivskyddade SQL-anslutningar till en av de sekundära replikerna. Den här funktionen kallas för [Läs utskalning](read-scale-out.md). Den ger 100% ytterligare beräknings kapacitet utan extra kostnad för att inaktivera Läs åtgärder, till exempel analytiska arbets belastningar, från den primära repliken.
+Som en extra förmån innehåller Premium Availability-modellen möjligheten att omdirigera skrivskyddade Azure SQL-anslutningar till en av de sekundära replikerna. Den här funktionen kallas för [Läs utskalning](read-scale-out.md). Den ger 100% ytterligare beräknings kapacitet utan extra kostnad för att inaktivera Läs åtgärder, till exempel analytiska arbets belastningar, från den primära repliken.
 
 ## <a name="hyperscale-service-tier-availability"></a>Tillgänglighet för storskalig Service Tier
 
@@ -102,7 +102,7 @@ En redundansväxling kan initieras med hjälp av REST API eller PowerShell. För
 
 ## <a name="conclusion"></a>Slutsats
 
-Azure SQL Database och Azure SQL-hanterad instans har en inbyggd lösning för hög tillgänglighet, som är djupt integrerad med Azure-plattformen. Det beror på Service Fabric för identifiering och återställning av fel i Azure Blob Storage för data skydd och på Tillgänglighetszoner för högre fel tolerans. Dessutom använder SQL Database-och SQL-hanterade instanser den alltid tillgängliga grupp tekniken från SQL Server för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att helt kunna utnyttja fördelarna med en blandad lagrings modell och stödja de mest krävande service avtal.
+Azure SQL Database och Azure SQL-hanterad instans har en inbyggd lösning för hög tillgänglighet, som är djupt integrerad med Azure-plattformen. Det beror på Service Fabric för identifiering och återställning av fel i Azure Blob Storage för data skydd och på Tillgänglighetszoner för högre fel tolerans. Dessutom utnyttjar SQL Database-och SQL-hanterade instanser den Always on-tillgänglighetsgrupper från SQL Server-instansen för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att helt kunna utnyttja fördelarna med en blandad lagrings modell och stödja de mest krävande service avtal.
 
 ## <a name="next-steps"></a>Nästa steg
 

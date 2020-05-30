@@ -1,6 +1,6 @@
 ---
 title: Köra SSIS-paket med Azure SQL-hanterad instans agent
-description: Lär dig hur du kör SSIS-paket med hjälp av Azure SQL Database hanterade instans agenten.
+description: Lär dig hur du kör SSIS-paket med hjälp av Azure SQL-hanterad instans agent.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -9,28 +9,28 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: fe32d67dd5d15ccf2f889cf40b79d35c890d5313
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: f911a8dad094949f0a515116a79fff698a326547
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148301"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191075"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Köra SSIS-paket med Azure SQL-hanterad instans agent
 
-Den här artikeln beskriver hur du kör ett SQL Server Integration Services-paket (SSIS) med hjälp av Azure SQL Database hanterade instans agenten. Den här funktionen innehåller beteenden som liknar när du schemalägger SSIS-paket med hjälp av SQL Server Agent i din lokala miljö.
+Den här artikeln beskriver hur du kör ett SQL Server Integration Services-paket (SSIS) med hjälp av Azure SQL-hanterad instans agent. Den här funktionen innehåller beteenden som liknar när du schemalägger SSIS-paket med hjälp av SQL Server Agent i din lokala miljö.
 
-Med den här funktionen kan du köra SSIS-paket som lagras i SSISDB i en Azure SQL Database Hanterad instans eller ett fil system som Azure Files.
+Med den här funktionen kan du köra SSIS-paket som lagras i SSISDB i en SQL-hanterad instans eller ett fil system som Azure Files.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda den här funktionen [laddar du ned](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) och installerar den senaste versionen av SQL Server Management Studio (SSMS), som är version 18,5.
 
-Du måste också [etablera en Azure-SSIS integration runtime](tutorial-create-azure-ssis-runtime-portal.md) i Azure Data Factory. Den använder en Azure SQL Database Hanterad instans som en slut punkts Server. 
+Du måste också [etablera en Azure-SSIS integration runtime](tutorial-create-azure-ssis-runtime-portal.md) i Azure Data Factory. Den använder en SQL-hanterad instans som en slut punkts Server. 
 
 ## <a name="run-an-ssis-package-in-ssisdb"></a>Köra ett SSIS-paket i SSISDB
-I den här proceduren använder du Azure SQL Database hanterade instans agenten för att anropa ett SSIS-paket som är lagrat i SSISDB.
+I den här proceduren använder du SQL-hanterad instans agent för att anropa ett SSIS-paket som är lagrat i SSISDB.
 
-1. I den senaste versionen av SSMS ansluter du till en Azure SQL Database Hanterad instans.
+1. I den senaste versionen av SSMS ansluter du till en SQL-hanterad instans.
 1. Skapa ett nytt Agent jobb och ett nytt jobb steg. Under **SQL Server Agent**högerklickar du på mappen **jobb** och väljer sedan **nytt jobb**.
 
    ![Val för att skapa ett nytt Agent jobb](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
@@ -40,7 +40,7 @@ I den här proceduren använder du Azure SQL Database hanterade instans agenten 
    ![Val för att skapa ett nytt SSIS-jobb steg](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
 
 1. På fliken **paket** väljer du **SSIS Catalog** som typ av paket källa.
-1. Eftersom SSISDB finns i en Azure SQL Database Hanterad instans behöver du inte ange autentisering.
+1. Eftersom SSISDB finns i en SQL-hanterad instans behöver du inte ange autentisering.
 1. Ange ett SSIS-paket från SSISDB.
 
    ![Fliken paket med val för paketets käll typ](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
@@ -58,9 +58,9 @@ I den här proceduren använder du Azure SQL Database hanterade instans agenten 
 
 
 ## <a name="run-an-ssis-package-in-the-file-system"></a>Köra ett SSIS-paket i fil systemet
-I den här proceduren använder du Azure SQL Database hanterade instans agenten för att köra ett SSIS-paket som lagras i fil systemet.
+I den här proceduren använder du SQL-hanterad instans agent för att köra ett SSIS-paket som lagras i fil systemet.
 
-1. I den senaste versionen av SSMS ansluter du till en Azure SQL Database Hanterad instans.
+1. I den senaste versionen av SSMS ansluter du till en SQL-hanterad instans.
 1. Skapa ett nytt Agent jobb och ett nytt jobb steg. Under **SQL Server Agent**högerklickar du på mappen **jobb** och väljer sedan **nytt jobb**.
 
    ![Val för att skapa ett nytt Agent jobb](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
@@ -103,7 +103,7 @@ I den här proceduren använder du Azure SQL Database hanterade instans agenten 
 
 
 ## <a name="cancel-ssis-package-execution"></a>Avbryta körningen av SSIS-paket
-Om du vill avbryta paket körningen från ett Azure SQL Database hanterat instans Agent jobb utför du följande steg i stället för att omedelbart stoppa Agent jobbet:
+Om du vill avbryta paket körningen från ett SQL-hanterat instans Agent jobb utför du följande steg i stället för att omedelbart stoppa Agent jobbet:
 
 1. Hitta SQL Agent- **jobId** från **msdb. dbo. sysjobs**.
 1. Hitta motsvarande SSIS- **executionId frågeparameter** baserat på jobb-ID: t med hjälp av den här frågan:

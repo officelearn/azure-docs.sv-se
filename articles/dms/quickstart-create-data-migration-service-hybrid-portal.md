@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
-ms.openlocfilehash: dd3e77610749eb5d146b0c0b7cf9d307fba0dd83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79370244"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195677"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Snabb start: skapa en instans i hybrid läge med Azure Portal & Azure Database Migration Service
 
@@ -26,7 +26,7 @@ Azure Database Migration Service hybrid läge hanterar migrering av databasen me
 >[!NOTE]
 >Azure Database Migration Service som körs i hybrid läge stöder för närvarande SQL Server migreringar till:
 >
->- Azure SQL Database Hanterad instans med nästan noll nedtid (online).
+>- Azure SQL-hanterad instans med nästan noll stillestånd (online).
 >- Azure SQL Database en enkel databas med vissa stillestånds tider (offline).
 >- MongoDb till Azure CosmosDB med nästan noll stillestånd (online).
 >- MongoDb till Azure CosmosDB med vissa stillestånds tider (offline).
@@ -191,5 +191,5 @@ Fyll i parametrarna överst i skriptet och kör skriptet från en administratör
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Migrera SQL Server till en Azure SQL Database Hanterad instans online](tutorial-sql-server-managed-instance-online.md)
-> [migrera SQL Server till en enskild databas eller en databas i poolen i Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)
+> [Migrera SQL Server till en Azure SQL-hanterad instans online](tutorial-sql-server-managed-instance-online.md) 
+>  [Migrera SQL Server till Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)

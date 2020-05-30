@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 80b8adfc26cd87e0788852e98fddb0fd3f2e8cd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188594"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204743"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -215,8 +215,8 @@ Mer information finns i [skapa och hantera principer för att genomdriva efterle
 **Bästa praxis**: identifiera de roller som ansvarar för övervakning av princip överträdelser och se till att rätt reparations åtgärd vidtas snabbt.   
 **Information**: ha den tilldelade rollen övervaka efterlevnaden via [Azure Portal](../../governance/policy/how-to/get-compliance-data.md#portal) eller via [kommando raden](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
-**Bästa praxis**: Azure policy är en teknisk åter givning av en organisations skriftliga principer. Mappa alla Azure-principer till organisations principer för att minska förvirring och öka konsekvens.   
-**Information**: dokument mappning i din organisations dokumentation eller i själva Azure policy definitionen genom att lägga till en referens till organisations principen i [Azure policy definition](../../governance/policy/concepts/definition-structure.md#display-name-and-description) eller beskrivningen av [Azure policy initiativ](../../governance/policy/concepts/definition-structure.md#initiatives) .
+**Bästa praxis**: Azure policy är en teknisk åter givning av en organisations skriftliga principer. Mappa alla Azure Policys definitioner till organisations principer för att minska förvirring och öka konsekvens.   
+**Information**: dokument mappning i din organisations dokumentation eller i själva Azure policy definitionen genom att lägga till en referens till organisations principen i [princip definitionen](../../governance/policy/concepts/definition-structure.md#display-name-and-description) eller beskrivningen av [initiativ definitionen](../../governance/policy/concepts/initiative-definition-structure.md#metadata) .
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Övervaka Azure AD-riskfyllda rapporter
 De flesta säkerhets överträdelser sker när angripare får åtkomst till en miljö genom att stjäla en användares identitet. Det är ingen enkel uppgift att identifiera komprometterade identiteter. Azure AD använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera misstänkta åtgärder som är relaterade till dina användar konton. Varje misstänkt misstänkt åtgärd lagras i en post som kallas för [identifiering av risker](../../active-directory/reports-monitoring/concept-risk-events.md). Identifieringar av risker registreras i Azure AD-säkerhetsrapporter. Mer information finns i artikeln om säkerhets [rapporter för användare](../../active-directory/reports-monitoring/concept-user-at-risk.md) och [riskfyllda inloggningar](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).

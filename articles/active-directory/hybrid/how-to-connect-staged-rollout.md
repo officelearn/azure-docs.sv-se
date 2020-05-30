@@ -6,20 +6,20 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 886a25fbf78f6071db55c02517621146b507f4ac
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644156"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221280"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrera till molnbaserad autentisering med stegvis distribution (för hands version)
 
-Genom att använda en stegvis distributions metod kan du migrera från federerad autentisering till molnbaserad autentisering. Den här artikeln beskriver hur du gör-växeln. Innan du påbörjar den mellanlagrade distributionen bör du ta hänsyn till konsekvenserna om ett eller flera av följande villkor är uppfyllda:
+Genom att använda en stegvis distributions metod kan du undvika en start punkt av hela domänen.  På så sätt kan du selektivt testa grupper av användare med funktioner för molnbaserad autentisering som Azure Multi-Factor Authentication (MFA), villkorlig åtkomst, identitets skydd för läckta autentiseringsuppgifter, identitets styrning och andra.  Den här artikeln beskriver hur du gör-växeln. Innan du påbörjar den mellanlagrade distributionen bör du ta hänsyn till konsekvenserna om ett eller flera av följande villkor är uppfyllda:
     
 -  Du använder för närvarande en lokal Multi-Factor Authentication-Server. 
 -  Du använder smartkort för autentisering. 
@@ -33,13 +33,13 @@ En översikt över funktionen finns i "Azure Active Directory: Vad är mellanlag
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 -   Du har en Azure Active Directory-klient (Azure AD) med federerade domäner.
 
 -   Du har valt att flytta till något av två alternativ:
-    - **Alternativ A**  -  *hash-synkronisering av lösen ord (synkronisering)*  +  *sömlös enkel inloggning (SSO)*
-    - **Alternativ B**  -  *direktautentisering*  +  *sömlös SSO*
+    - **Alternativ A**  -  *hash-synkronisering av lösen ord (synkronisering)*  +  *sömlös enkel inloggning (SSO)*.  Mer information finns i [Vad är lösen ords-hash-synkronisering](whatis-phs.md) och [Vad är sömlös SSO](how-to-connect-sso.md)
+    - **Alternativ B**  -  *direktautentisering*  +  *sömlös SSO*.  Mer information finns i [Vad är direktautentisering](how-to-connect-pta.md)  
     
     Även om *sömlös enkel inloggning* är valfritt, rekommenderar vi att du aktiverar det för att få en tyst inloggnings upplevelse för användare som kör domänanslutna datorer inifrån ett företags nätverk.
 
@@ -76,12 +76,14 @@ Följande scenarier stöds inte för stegvis distribution:
     - Dynamiska grupper *stöds inte* för mellanlagrad distribution.
     - Kontakt objekt inuti gruppen kommer att blockera gruppen från att läggas till.
 
-- Du måste fortfarande göra den slutliga start punkt från federerad till molnbaserad autentisering med hjälp av Azure AD Connect eller PowerShell. Den mellanlagrade distributionen växlar inte domäner från federerade till hanterade.
+- Du måste fortfarande göra den slutliga start punkt från federerad till molnbaserad autentisering med hjälp av Azure AD Connect eller PowerShell. Den mellanlagrade distributionen växlar inte domäner från federerade till hanterade.  Mer information om domän-start punkt finns i [Migrera från Federation till hash-synkronisering av lösen ord](plan-migrate-adfs-password-hash-sync.md) och [Migrera från Federation till vidarekoppling](plan-migrate-adfs-pass-through-authentication.md)
+
+
 
 - När du först lägger till en säkerhets grupp för stegvis distribution är du begränsad till 200 användare för att undvika en UX-timeout. När du har lagt till gruppen kan du lägga till fler användare direkt till den, efter behov.
 
 >[!NOTE]
-> Eftersom klient organisationens slut punkter inte skickar inloggnings tips, stöds de inte för mellanlagrad distribution.  SAML-program använder klientens slut punkter och har inte heller stöd för mellanlagrad distribution.
+> Eftersom klient organisationens slut punkter inte skickar inloggnings tips, stöds de inte för mellanlagrad distribution. 
 
 ## <a name="get-started-with-staged-rollout"></a>Kom igång med stegvis distribution
 

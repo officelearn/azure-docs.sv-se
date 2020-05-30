@@ -1,5 +1,5 @@
 ---
-title: Konfigurera replikering mellan två Azure SQL-hanterade instanser
+title: Konfigurera replikering mellan hanterade instanser
 titleSuffix: Azure SQL Managed Instance
 description: I den här självstudien får du lära dig att konfigurera Transaktionsreplikering mellan en Azure SQL-hanterad instans utgivare/distributör och en SQL-hanterad instans prenumerant.
 services: sql-database
@@ -12,52 +12,53 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 5603c6a828eb27bec43cf1fcb1924ad3ec430685
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 507207c9c8de96d18d11299b9ab5c2566c061150
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051831"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219676"
 ---
-# <a name="tutorial-configure-replication-between-two-azure-sql-managed-instances"></a>Självstudie: Konfigurera replikering mellan två Azure SQL-hanterade instanser
+# <a name="tutorial-configure-replication-between-two-managed-instances"></a>Självstudie: Konfigurera replikering mellan två hanterade instanser
+
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Med Transaktionsreplikering kan du replikera data från en databas till en annan som finns i antingen SQL Server eller en [Azure SQL-hanterad instans](sql-managed-instance-paas-overview.md) (offentlig för hands version). En SQL-hanterad instans kan vara utgivare, distributör eller prenumerant i replikeringstopologin. Se [konfigurationer för transaktionell replikering](replication-transactional-overview.md#common-configurations) för tillgängliga konfigurationer.
+Med Transaktionsreplikering kan du replikera data från en databas till en annan som finns på antingen SQL Server eller [Azure SQL-hanterad instans](sql-managed-instance-paas-overview.md) (offentlig för hands version). SQL-hanterad instans kan vara utgivare, distributör eller prenumerant i replikeringstopologin. Se [konfigurationer för transaktionell replikering](replication-transactional-overview.md#common-configurations) för tillgängliga konfigurationer.
 
 > [!NOTE]
 > I den här artikeln beskrivs användningen av [transaktionell replikering](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL-hanterad instans. Den är inte relaterad till [redundansväxlingen](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), en funktion för Azure SQL-hanterad instans som gör att du kan skapa kompletta läsbara repliker av enskilda instanser.
 
-I den här självstudien får du lära dig att konfigurera en SQL-hanterad instans som utgivare och distributör och sedan en andra SQL-hanterad instans som prenumerant.  
+I den här självstudien får du lära dig att konfigurera en hanterad instans som utgivare och distributör och sedan en andra hanterad instans som prenumerant.  
 
 ![Replikera mellan två hanterade instanser](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
   > [!NOTE]
-  > - Den här artikeln är avsedd att hjälpa en avancerad användare att konfigurera replikering med en SQL-hanterad instans från slut punkt till slut punkt som börjar med att skapa resurs gruppen. Om du redan har distribuerat hanterade instanser kan du gå vidare till [steg 4](#4---create-a-publisher-database) för att skapa en utgivar databas, eller [steg 6](#6---configure-distribution) om du redan har en utgivare och prenumerations databas och är redo att börja konfigurera replikering.  
-  > - Den här artikeln konfigurerar utgivaren och distributören på samma hanterade instans. Om du vill placera distributören på en separat hanterade-instans går du till självstudien [Konfigurera replikering mellan en mi-utgivare och en mi-distributör](replication-two-instances-and-sql-server-configure-tutorial.md). 
+  > - Den här artikeln är avsedd att hjälpa en avancerad användare att konfigurera replikering med SQL-hanterad instans från slut punkt till slut punkt, från och med att skapa resurs gruppen. Om du redan har distribuerat hanterade instanser kan du gå vidare till [steg 4](#4---create-a-publisher-database) för att skapa en utgivar databas, eller [steg 6](#6---configure-distribution) om du redan har en utgivare och prenumerations databas och är redo att börja konfigurera replikering.  
+  > - Den här artikeln konfigurerar utgivaren och distributören på samma hanterade instans. Information om hur du placerar distributören på en separat hanterad instans finns i självstudien [Konfigurera Transaktionsreplikering mellan Azure SQL-hanterad instans och SQL Server](replication-two-instances-and-sql-server-configure-tutorial.md). 
 
 ## <a name="requirements"></a>Krav
 
-Att konfigurera en SQL-hanterad instans så att den fungerar som en utgivare och/eller en distributör kräver:
+Att konfigurera SQL-hanterad instans så att den fungerar som en utgivare och/eller en distributör kräver:
 
-- Att utgivarens SQL-hanterade instans finns i samma virtuella nätverk som distributören och prenumeranten eller att [vNet-peering](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) har kon figurer ATS mellan de virtuella nätverken i alla tre entiteter. 
+- Att utgivarens hanterade instans finns i samma virtuella nätverk som distributören och prenumeranten, eller att [peering för virtuellt nätverk](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) har kon figurer ATS mellan de virtuella nätverken i alla tre entiteter. 
 - Anslutningen använder SQL-autentisering mellan replikeringsdeltagare.
-- En Azure Storage konto resurs för replikeringens arbets katalog.
-- Port 445 (TCP utgående) är öppen i säkerhets reglerna för NSG för de SQL-hanterade instanserna för åtkomst till Azure-filresursen.  Om felet uppstår `failed to connect to azure storage \<storage account name> with os error 53` måste du lägga till en utgående regel i NSG för rätt undernät för SQL-hanterad instans.
+- En Azure Storage-konto resurs för replikeringens arbets katalog.
+- Port 445 (TCP utgående) är öppen i säkerhets reglerna för NSG för de hanterade instanserna för åtkomst till Azure-filresursen.  Om felet uppstår `failed to connect to azure storage \<storage account name> with os error 53` måste du lägga till en utgående regel i NSG för rätt undernät för SQL-hanterad instans.
 
 ## <a name="1---create-a-resource-group"></a>1 – Skapa en resurs grupp
 
 Använd [Azure Portal](https://portal.azure.com) för att skapa en resurs grupp med namnet `SQLMI-Repl` .  
 
-## <a name="2---create-sql-managed-instances"></a>2 – skapa SQL-hanterade instanser
+## <a name="2---create-managed-instances"></a>2 – skapa hanterade instanser
 
-Använd [Azure Portal](https://portal.azure.com) för att skapa två [SQL-hanterade instanser](instance-create-quickstart.md) i samma virtuella nätverk och undernät. Namnge till exempel de två SQL-hanterade instanserna:
+Använd [Azure Portal](https://portal.azure.com) för att skapa två [SQL-hanterade instanser](instance-create-quickstart.md) i samma virtuella nätverk och undernät. Namnge till exempel de två hanterade instanserna:
 
 - `sql-mi-pub`(tillsammans med några tecken för slumpmässig het)
 - `sql-mi-sub`(tillsammans med några tecken för slumpmässig het)
 
-Du måste också [Konfigurera en virtuell Azure-dator för att ansluta](connect-vm-instance-configure.md) till dina SQL-hanterade instanser. 
+Du måste också [Konfigurera en virtuell Azure-dator för att ansluta](connect-vm-instance-configure.md) till dina hanterade instanser. 
 
-## <a name="3---create-azure-storage-account"></a>3 – Skapa Azure Storage konto
+## <a name="3---create-an-azure-storage-account"></a>3 – skapa ett Azure Storage-konto
 
 [Skapa ett Azure Storage-konto](/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbets katalogen och skapa sedan en [fil resurs](../../storage/files/storage-how-to-create-file-share.md) i lagrings kontot. 
 
@@ -73,7 +74,7 @@ Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../../st
 
 ## <a name="4---create-a-publisher-database"></a>4 – skapa en utgivar databas
 
-Anslut till din `sql-mi-pub` SQL-hanterade instans med hjälp av SQL Server Management Studio och kör följande Transact-SQL-kod (T-SQL) för att skapa utgivar databasen:
+Anslut till din `sql-mi-pub` hanterade instans med hjälp av SQL Server Management Studio och kör följande Transact-SQL-kod (T-SQL) för att skapa en utgivar databas:
 
 ```sql
 USE [master]
@@ -107,7 +108,7 @@ GO
 
 ## <a name="5---create-a-subscriber-database"></a>5 – skapa en prenumerations databas
 
-Anslut till din `sql-mi-sub` SQL-hanterade instans med hjälp av SQL Server Management Studio och kör följande T-SQL-kod för att skapa din tomma prenumerations databas:
+Anslut till din `sql-mi-sub` hanterade instans med hjälp av SQL Server Management Studio och kör följande T-SQL-kod för att skapa din tomma prenumerations databas:
 
 ```sql
 USE [master]
@@ -128,7 +129,7 @@ GO
 
 ## <a name="6---configure-distribution"></a>6 – Konfigurera distribution
 
-Anslut till din `sql-mi-pub` SQL-hanterade instans med hjälp av SQL Server Management Studio och kör följande T-SQL-kod för att konfigurera distributions databasen.
+Anslut till din `sql-mi-pub` hanterade instans med hjälp av SQL Server Management Studio och kör följande T-SQL-kod för att konfigurera distributions databasen.
 
 ```sql
 USE [master]
@@ -165,7 +166,7 @@ EXEC sp_adddistpublisher
    > [!NOTE]
    > Se till att endast använda omvända snedstreck ( `\` ) för parametern file_storage. Om du använder ett snedstreck ( `/` ) kan det orsaka ett fel när du ansluter till fil resursen.
 
-Det här skriptet konfigurerar en lokal utgivare på SQL-hanterad instans, lägger till en länkad server och skapar en uppsättning jobb för SQL Server Agent.
+Det här skriptet konfigurerar en lokal utgivare på den hanterade instansen, lägger till en länkad server och skapar en uppsättning jobb för SQL Server agenten.
 
 ## <a name="8---create-publication-and-subscriber"></a>8 – Skapa publikation och prenumerant
 
@@ -248,7 +249,7 @@ EXEC sp_startpublication_snapshot
 
 ## <a name="9---modify-agent-parameters"></a>9 – ändra agent parametrar
 
-En Azure SQL-hanterad instans har för närvarande en del Server dels problem med replikerings agenter. Även om det här problemet åtgärdas är lösningen att öka timeout-värdet för inloggning för-replik agenterna.
+En Azure SQL-hanterad instans har för närvarande en del Server dels problem med replikerings agenter. Även om det här problemet åtgärdas är lösningen att öka värdet för inloggnings tids gränsen för-replik agenterna.
 
 Kör följande T-SQL-kommando på utgivaren för att öka inloggnings tids gränsen:
 

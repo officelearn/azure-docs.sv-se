@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 07/17/2017
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 46a12006274ca8516c936e37189c9233dde9b410
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 39539f29df48d19b956b8bab6f63da50473453d4
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125204"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221302"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -51,6 +51,8 @@ När du arbetar med skalnings uppsättningar och belastningsutjämnare för virt
   * Varje skalnings uppsättning för virtuella datorer måste ha en inkommande NAT-regel.
   * När skalnings uppsättningen har skapats kan Server dels porten inte ändras för en belastnings Utjämnings regel som används av en hälso avsökning av belastningsutjämnaren. Om du vill ändra porten kan du ta bort hälso avsökningen genom att uppdatera skalnings uppsättningen för den virtuella Azure-datorn, uppdatera porten och sedan konfigurera hälso avsökningen igen.
   * När du använder skalnings uppsättningen för den virtuella datorn i belastningsutjämnaren för belastningsutjämnaren skapas standard reglerna för inkommande NAT automatiskt.
+* **Inkommande NAT-pool**:
+  * Inkommande NAT-pool är en samling inkommande NAT-regler. 1 inkommande NAT-pool kan inte stödja flera VM Scale Sets.
 * **Belastnings Utjämnings regler**:
   * När du använder skalnings uppsättningen för den virtuella datorn i den fjärranslutna poolen för belastningsutjämnaren skapas standard regeln för belastnings utjämning automatiskt.
 * **Utgående regler**:

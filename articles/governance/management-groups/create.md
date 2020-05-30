@@ -3,12 +3,12 @@ title: Skapa hanterings grupper för att organisera resurser – Azure-styrning
 description: Lär dig hur du skapar Azure-hanterings grupper för att hantera flera resurser med hjälp av portalen, Azure PowerShell och Azure CLI.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 34815089367512c4aa54f148c118a669625d0ea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0abecf02062dd4461274a9bc3722d46e6e7cc3d1
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381593"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220747"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för organisering och hantering av resurser
 
@@ -27,11 +27,9 @@ Du kan skapa hanterings gruppen med hjälp av portalen, en [Resource Manager-mal
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **all** > **hantering**av tjänster och styrning.
+1. Välj **all**hantering av tjänster och  >  **styrning**.
 
-1. Välj **Cost Management + fakturering**
-
-1. På sidan Cost Management + fakturerings hanterings grupper väljer du **hanteringsgrupper**
+1. Välj **hanteringsgrupper**.
 
 1. Välj **+ Lägg till hanterings grupp**.
 

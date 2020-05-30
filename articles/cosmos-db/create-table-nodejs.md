@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 08/06/2019
+ms.date: 05/28/2020
 ms.author: sngun
-ms.openlocfilehash: e0d2d2ea99822c95b9fab73642db37430771c583
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 83ba361541949b1be8205361d968ec6614b97cc9
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82083775"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217950"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med Node.js och Azure Cosmos DB
 
@@ -26,9 +26,9 @@ ms.locfileid: "82083775"
 
 I den här snabb starten skapar du ett Azure Cosmos DB Tabell-API konto och använder Datautforskaren och en Node. js-app som klonas från GitHub för att skapa tabeller och entiteter. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med en URI `https://localhost:8081` och nyckeln. `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med en URI `https://localhost:8081` och nyckeln `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
 - [Node. js-0.10.29 +](https://nodejs.org/) .
 - [Git](https://git-scm.com/downloads).
 
@@ -70,8 +70,68 @@ Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra a
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-> ! Beskrivning En mer detaljerad genom gång av liknande kod finns i artikeln [Cosmos DB tabell-API exempel](table-storage-how-to-use-nodejs.md) . 
+> [!TIP]
+> En mer detaljerad genom gång av liknande kod finns i artikeln [Cosmos DB tabell-API exempel](table-storage-how-to-use-nodejs.md) . 
 
+## <a name="review-the-code"></a>Granska koden
+
+Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera anslutnings sträng](#update-your-connection-string) avsnittet i det här dokumentet.
+
+* Följande kod visar hur du skapar en tabell i Azure Storage:
+
+  ```javascript
+  storageClient.createTableIfNotExists(tableName, function (error, createResult) {
+    if (error) return callback(error);
+
+    if (createResult.isSuccessful) {
+      console.log("1. Create Table operation executed successfully for: ", tableName);
+    }
+  }
+
+  ```
+
+* Följande kod visar hur du infogar data i tabellen:
+
+  ```javascript
+  var customer = createCustomerEntityDescriptor("Harp", "Walter", "Walter@contoso.com", "425-555-0101");
+
+  storageClient.insertOrMergeEntity(tableName, customer, function (error, result, response) {
+    if (error) return callback(error);
+
+    console.log("   insertOrMergeEntity succeeded.");
+  }
+  ```
+
+* Följande kod visar hur du frågar efter data från tabellen:
+
+  ```javascript
+  console.log("6. Retrieving entities with surname of Smith and first names > 1 and <= 75");
+
+  var storageTableQuery = storage.TableQuery;
+  var segmentSize = 10;
+
+  // Demonstrate a partition range query whereby we are searching within a partition for a set of entities that are within a specific range. 
+  var tableQuery = new storageTableQuery()
+      .top(segmentSize)
+      .where('PartitionKey eq ?', lastName)
+      .and('RowKey gt ?', "0001").and('RowKey le ?', "0075");
+  
+  runPageQuery(tableQuery, null, function (error, result) {
+  
+      if (error) return callback(error);
+  
+  ```
+
+* Följande kod visar hur du tar bort data från tabellen:
+
+  ```javascript
+  storageClient.deleteEntity(tableName, customer, function entitiesQueried(error, result) {
+      if (error) return callback(error);
+  
+      console.log("   deleteEntity succeeded.");
+  }
+  ```
+  
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen. 

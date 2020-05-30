@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9ea63192732184ff7a13ff1465a5b393a282f9d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32ef66c0a6d585e785fccb038a2b499c7f7f66db
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262204"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204777"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i virtuella nätverk i Azure
 
@@ -70,7 +70,7 @@ Azure-angiven namn matchning omfattar följande funktioner:
 * Du kan använda namn matchning mellan virtuella datorer i virtuella nätverk som använder Azure Resource Manager distributions modell, utan att det krävs något fullständigt domän namn. Virtuella nätverk i den klassiska distributions modellen kräver ett fullständigt domän namn när du matchar namn i olika moln tjänster. 
 * Du kan använda värdnamn som bäst beskriver dina distributioner i stället för att arbeta med automatiskt genererade namn.
 
-### <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Att tänka på
 
 Saker att tänka på när du använder Azure-angiven namn matchning:
 * Det går inte att ändra Azure-skapade DNS-suffix.
@@ -84,9 +84,9 @@ Saker att tänka på när du använder Azure-angiven namn matchning:
 
 ### <a name="reverse-dns-considerations"></a>Omvända DNS-överväganden
 Omvänd DNS stöds i alla ARM-baserade virtuella nätverk. Du kan utfärda omvända DNS-frågor (PTR-frågor) om du vill mappa IP-adresser för virtuella datorer till FQDN: er för virtuella datorer.
-* Alla PTR-frågor för IP-adresser för virtuella datorer kommer att returnera FQDN \[:\]er för formatet VMName. Internal.cloudapp.net
-* Vanlig sökning på FQDN: er för \[formatet\]VMName. Internal.cloudapp.net kommer att matcha till den IP-adress som tilldelats den virtuella datorn.
-* Om det virtuella nätverket är länkat till en [Azure DNS privata zoner](../dns/private-dns-overview.md) som ett virtuellt register, kommer de omvända DNS-frågorna returnera två poster. En post kommer från formatet \[VMName.\] [priatednszonename] och andra skulle ha formatet \[vmname\]. Internal.cloudapp.net
+* Alla PTR-frågor för IP-adresser för virtuella datorer kommer att returnera FQDN: er för formatet \[ VMName \] . Internal.cloudapp.net
+* Vanlig sökning på FQDN: er för formatet \[ VMName \] . Internal.cloudapp.net kommer att matcha till den IP-adress som tilldelats den virtuella datorn.
+* Om det virtuella nätverket är länkat till en [Azure DNS privata zoner](../dns/private-dns-overview.md) som ett virtuellt register, kommer de omvända DNS-frågorna returnera två poster. En post kommer från formatet \[ VMName \] . [ privatednszonename] och andra skulle ha formatet \[ VMName \] . Internal.cloudapp.net
 * Omvänd DNS-sökning är begränsad till ett angivet virtuellt nätverk även om det är peer-kopplat till andra virtuella nätverk. Omvända DNS-frågor (PTR-frågor) för IP-adresser för virtuella datorer som finns i peer-kopplade virtuella nätverk returnerar NXDOMAIN.
 * Om du vill inaktivera omvänd DNS-funktion i ett virtuellt nätverk kan du göra det genom att skapa en zon för omvänd sökning med [Azure DNS privata zoner](../dns/private-dns-overview.md) och länka zonen till det virtuella nätverket. Exempel: om IP-adressutrymmet för det virtuella nätverket är 10.20.0.0/16 kan du skapa en tom privat DNS-zon 20.10.in-addr. arpa och länka den till det virtuella nätverket. När du länkar zonen till det virtuella nätverket bör du inaktivera automatisk registrering på länken. Den här zonen åsidosätter standard zoner för omvänd sökning för det virtuella nätverket och eftersom den här zonen är tom kommer du att få NXDOMAIN för dina omvända DNS-frågor. I vår [snabb starts guide](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) finns mer information om hur du skapar en privat DNS-zon och länkar den till ett virtuellt nätverk.
 
@@ -108,19 +108,19 @@ Standard-DNS-klienten för Windows har en inbyggd DNS-cache. Vissa Linux-distrib
 Det finns ett antal olika tillgängliga DNS-caching-paket (till exempel dnsmasq). Så här installerar du dnsmasq på de vanligaste distributionerna:
 
 * **Ubuntu (använder resolvconf)**:
-  * Installera dnsmasq-paketet med `sudo apt-get install dnsmasq`.
+  * Installera dnsmasq-paketet med `sudo apt-get install dnsmasq` .
 * **SUSE (använder netconf)**:
-  * Installera dnsmasq-paketet med `sudo zypper install dnsmasq`.
-  * Aktivera dnsmasq-tjänsten med `systemctl enable dnsmasq.service`. 
-  * Starta dnsmasq-tjänsten med `systemctl start dnsmasq.service`. 
+  * Installera dnsmasq-paketet med `sudo zypper install dnsmasq` .
+  * Aktivera dnsmasq-tjänsten med `systemctl enable dnsmasq.service` . 
+  * Starta dnsmasq-tjänsten med `systemctl start dnsmasq.service` . 
   * Redigera **/etc/sysconfig/Network/config**och ändra *NETCONFIG_DNS_FORWARDER = ""* till *dnsmasq*.
-  * Uppdatera matcha. conf med `netconfig update`, för att ställa in cachen som den lokala DNS-matcharen.
+  * Uppdatera matcha. conf med `netconfig update` , för att ställa in cachen som den lokala DNS-matcharen.
 * **CentOS (använder NetworkManager)**:
-  * Installera dnsmasq-paketet med `sudo yum install dnsmasq`.
-  * Aktivera dnsmasq-tjänsten med `systemctl enable dnsmasq.service`.
-  * Starta dnsmasq-tjänsten med `systemctl start dnsmasq.service`.
+  * Installera dnsmasq-paketet med `sudo yum install dnsmasq` .
+  * Aktivera dnsmasq-tjänsten med `systemctl enable dnsmasq.service` .
+  * Starta dnsmasq-tjänsten med `systemctl start dnsmasq.service` .
   * Lägg till *lägga Domain-Name-servers 127.0.0.1;* till **/etc/dhclient-eth0.conf**.
-  * Starta om nätverks tjänsten med `service network restart`, för att ställa in cachen som den lokala DNS-matcharen.
+  * Starta om nätverks tjänsten med `service network restart` , för att ställa in cachen som den lokala DNS-matcharen.
 
 > [!NOTE]
 > Dnsmasq-paketet är bara ett av många DNS-cacheminnen som är tillgängliga för Linux. Innan du använder den kontrollerar du lämpligheten för dina specifika behov och kontrollerar att ingen annan cache är installerad.
@@ -133,7 +133,7 @@ DNS är i första hand ett UDP-protokoll. Eftersom UDP-protokollet inte garanter
 * Försök att köra Windows-operativsystem igen efter en sekund och sedan igen efter ytterligare två sekunder, fyra sekunder och ytterligare fyra sekunder. 
 * De nya standarderna för Linux-installationen efter fem sekunder. Vi rekommenderar att du ändrar specifikationerna för återförsök till fem gånger, med ett sekunders intervall.
 
-Kontrol lera de aktuella inställningarna på en virtuell Linux `cat /etc/resolv.conf`-dator med. Titta på *alternativ* raden, till exempel:
+Kontrol lera de aktuella inställningarna på en virtuell Linux-dator med `cat /etc/resolv.conf` . Titta på *alternativ* raden, till exempel:
 
 ```bash
 options timeout:1 attempts:5
@@ -149,7 +149,7 @@ Filen matcha. conf genereras vanligt vis automatiskt och bör inte redige ras. D
   2. Kör `netconfig update` för att uppdatera.
 * **CentOS** (använder NetworkManager):
   1. Lägg till *ECHO "alternativ timeout: 1 försök: 5"* till **/etc/NetworkManager/dispatcher.d/11-dhclient**.
-  2. Uppdatera med `service network restart`.
+  2. Uppdatera med `service network restart` .
 
 ## <a name="name-resolution-that-uses-your-own-dns-server"></a>Namn matchning som använder din egen DNS-Server
 
@@ -218,7 +218,7 @@ När du använder Azure Resource Manager distributions modell kan du ange DNS-se
 När du använder den klassiska distributions modellen kan du ange DNS-servrar för det virtuella nätverket i Azure Portal eller i [nätverks konfigurations filen](https://msdn.microsoft.com/library/azure/jj157100). För moln tjänster kan du ange DNS-servrar via [tjänst konfigurations filen](https://msdn.microsoft.com/library/azure/ee758710) eller med hjälp av PowerShell, med [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> Om du ändrar DNS-inställningarna för ett virtuellt nätverk eller en virtuell dator som redan har distribuerats måste du utföra ett förnyat DHCP-lån på alla berörda virtuella datorer i det virtuella nätverket för att de nya DNS-inställningarna ska börja gälla. För virtuella datorer som kör Windows OS kan du göra detta genom att `ipconfig /renew` skriva direkt i den virtuella datorn. Stegen varierar beroende på operativ system. Se relevant dokumentation för din OS-typ.
+> Om du ändrar DNS-inställningarna för ett virtuellt nätverk eller en virtuell dator som redan har distribuerats måste du utföra ett förnyat DHCP-lån på alla berörda virtuella datorer i det virtuella nätverket för att de nya DNS-inställningarna ska börja gälla. För virtuella datorer som kör Windows OS kan du göra detta genom att skriva `ipconfig /renew` direkt i den virtuella datorn. Stegen varierar beroende på operativ system. Se relevant dokumentation för din OS-typ.
 
 ## <a name="next-steps"></a>Nästa steg
 

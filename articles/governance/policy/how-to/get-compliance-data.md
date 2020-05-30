@@ -3,12 +3,12 @@ title: Hämta information om efterlevnadsprinciper
 description: Azure Policy utvärderingar och effekter avgör efterlevnad. Lär dig hur du hämtar information om kompatibiliteten för dina Azure-resurser.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 55f0b471eff15140de0a586fd5d326d9cd913b1a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e4d63355b793f69ccc2ed7aaa44bfb60a3a8440e
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747089"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204845"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser
 
@@ -121,9 +121,9 @@ Följande tabell visar hur olika princip effekter fungerar med villkors utvärde
 | Resurs tillstånd | Verkan | Princip utvärdering | Kompatibilitetstillstånd |
 | --- | --- | --- | --- |
 | Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Sant | Icke-kompatibel |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Falskt | Kompatibel |
 | Ny | Audit, AuditIfNotExist\* | Sant | Icke-kompatibel |
-| Ny | Audit, AuditIfNotExist\* | False | Kompatibel |
+| Ny | Audit, AuditIfNotExist\* | Falskt | Kompatibel |
 
 \* För åtgärderna Append, DeployIfNotExist och AuditIfNotExist måste IF-instruktionen är TRUE.
 Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
@@ -148,6 +148,9 @@ Procent andelen kompatibilitet bestäms genom att dela upp **kompatibla** resurs
 _Totalt antal resurser_ definieras som summan av de **kompatibla**, **icke-kompatibla**och **motstridiga** resurserna. De övergripande kompatibilitets numren är summan av distinkta resurser som är **kompatibla** med summan av alla distinkta resurser. I bilden nedan finns det 20 distinkta resurser som är tillämpliga och endast en är **icke-kompatibel**. Den övergripande resursens kompatibilitet är 95% (19 av 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Exempel på sidan efterlevnad av principer" border="false":::
+
+> [!NOTE]
+> Regelefterlevnad som följer Azure Policy är en förhands gransknings funktion. Egenskaperna för efterlevnad från SDK och sidor i portalen är olika för aktiverade initiativ. Mer [information finns i regelefterlevnad](../concepts/regulatory-compliance.md)
 
 ## <a name="portal"></a>Portalen
 

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8570bce87aeea5473b4aadf9bd30bc0a648a6f0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 331d0cd4a20cb4351a1bc9a204c500386c499ada
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72518309"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220147"
 ---
 # <a name="azcopy-bench"></a>azcopy bench
 
@@ -43,15 +43,15 @@ azcopy bench [destination] [flags]
 
 Kör ett benchmark-test med standard parametrar (lämpligt för benchmarking-nätverk upp till 1 Gbit/s):
 
-- AzCopy bänk "https://[Account]. blob. Core. Windows. net/[container]? <SAS>"
+- AzCopy bänk "https://[Account]. blob. Core. Windows. net/[container]? <SAS> "
 
 Kör ett benchmark-test som överför 100-filer, varje 2-GiB i storlek: (lämpligt för benchmarking i ett snabbt nätverk, t. ex. 10 Gbit/s): '
 
-- AzCopy bänk "https://[Account]. blob. Core. Windows. net/[container]? <SAS>" --fil-Count 100--storlek per fil – 2G
+- AzCopy bänk "https://[Account]. blob. Core. Windows. net/[container]? <SAS> " --fil-Count 100--storlek per fil – 2G
 
 Samma som ovan, men Använd 50 000-filer, varje 8 MiB i storlek och beräkna deras MD5-hash-värden (på samma sätt som flaggan------en-MD5 gör detta i kopierings kommandot). Syftet med----MD5 vid benchmarking är att testa om MD5-beräkningen påverkar data flödet för det valda fil antalet och storleken:
 
-- AzCopy bänk "https://[Account]. blob. Core. Windows. net/[container]? <SAS>" --antal filer 50000--storleks per fil 8 M------a-MD5
+- AzCopy bänk "https://[Account]. blob. Core. Windows. net/[container]? <SAS> " --antal filer 50000--storleks per fil 8 M------a-MD5
 
 ## <a name="options"></a>Alternativ
 
@@ -77,6 +77,8 @@ Samma som ovan, men Använd 50 000-filer, varje 8 MiB i storlek och beräkna der
 
 **--Skriv** sträng format för kommandots utdata. Alternativen är: text, JSON. Standardvärdet är ' text '. (standard text).
 
+**--sträng för betrodd-Microsoft-suffix** anger ytterligare domänsuffix där Azure Active Directory inloggnings-token kan skickas.  Standardvärdet är '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. De som anges här läggs till i standardvärdet. För säkerhet ska du bara placeras Microsoft Azure domäner här. Avgränsa flera poster med semikolon.
+
 ## <a name="see-also"></a>Se även
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

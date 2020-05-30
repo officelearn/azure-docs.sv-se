@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 327aadbc2996e91ef0f7639da86a647ddd42247c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 937b836582cfcbf11564aa28b11cd8647afa835c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81410946"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191114"
 ---
 # <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?
 
@@ -83,7 +83,7 @@ Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinf
 
 Länkade tjänster används för två syften i Data Factory:
 
-- Att representera ett **datalager** som inkluderar, men inte begränsas till, en lokal SQL Server-databas, Oracle-databas, filresurs eller ett Azure Blob Storage-konto. En lista över datalager som stöds finns i artikeln om [kopieringsaktiviteter](copy-activity-overview.md).
+- För att representera ett **data lager** som innehåller, men inte begränsat till, en SQL Server databas, Oracle-databas, fil resurs eller Azure Blob Storage-konto. En lista över datalager som stöds finns i artikeln om [kopieringsaktiviteter](copy-activity-overview.md).
 
 - Så här visar du en **beräkningsresurs** som kan vara värd för körningen av en aktivitet. HDInsightHive-aktiviteten körs till exempel på ett HDInsight Hadoop-kluster. En lista över transformeringsaktiviteter och beräkningsmiljöer som stöds finns i artikeln om [omvandling av data](transform-data.md).
 

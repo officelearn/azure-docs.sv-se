@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: f4bec780fcf40b4fbee7ccf6c59463a5efb1adc0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 73f0a733d4f32042e5ea3439282f88db0c065433
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048779"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188718"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Datasynkronisering baseras på begreppet Sync-grupp. En Sync-grupp är en grupp 
 Datasynkroniseringen använder en nav-och eker-topologi för att synkronisera data. Du definierar en av databaserna i Sync-gruppen som Hub-databasen. Resten av databaserna är medlems databaser. Synkronisering sker bara mellan hubben och enskilda medlemmar.
 
 - **Hub-databasen** måste vara en Azure SQL Database.
-- **Medlems databaserna** kan vara antingen Azure SQL Database, lokala SQL Server databaser eller SQL Server instanser på virtuella Azure-datorer.
+- **Medlems databaserna** kan vara antingen databaser i Azure SQL Database eller i instanser av SQL Server.
 - **Sync-databasen** innehåller metadata och logg för datasynkronisering. Sync-databasen måste vara en Azure SQL Database som finns i samma region som Hub-databasen. Sync-databasen är en kund som har skapats och kunden äger.
 
 > [!NOTE]
@@ -64,7 +64,7 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 | Haveriberedskap | [Azure geo-redundanta säkerhets kopieringar](automated-backups-overview.md) |
 | Läs skala | [Använd skrivskyddade repliker för att belastningsutjämna skrivskyddade arbets belastningar för frågor (för hands version)](read-scale-out.md) |
 | ETL (OLTP till OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) eller [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
-| Migrering från lokala SQL Server till Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+| Migrering från SQL Server till Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
 
@@ -184,9 +184,9 @@ SQL Data Sync är tillgängligt i alla regioner.
 
 Ja. Du måste ha ett SQL Database-konto för att vara värd för Hub-databasen.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Kan jag endast använda datasynkronisering för att synkronisera mellan SQL Server lokala databaser
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-databases-only"></a>Kan jag endast använda datasynkronisering för att synkronisera mellan SQL Server-databaser
 
-Inte direkt. Du kan synkronisera mellan SQL Server lokala databaser indirekt, genom att skapa en nav databas i Azure och sedan lägga till de lokala databaserna i Sync-gruppen.
+Inte direkt. Du kan synkronisera mellan SQL Server-databaser indirekt, genom att skapa en Hubbs databas i Azure och sedan lägga till de lokala databaserna i gruppen Sync.
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Kan jag använda Data Sync för att synkronisera mellan SQL-databaser som tillhör olika prenumerationer
 

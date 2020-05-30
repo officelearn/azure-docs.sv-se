@@ -1,6 +1,6 @@
 ---
 title: Kopiera lokala data med Azure Kopiera data-verktyget
-description: Skapa en Azure-datafabrik och kopiera sedan data från en lokal SQL Server-databas till Azure Blob Storage med hjälp av verktyget Kopiera data.
+description: Skapa en Azure Data Factory och Använd sedan Kopiera data-verktyget för att kopiera data från en SQL Server-databas till Azure Blob Storage.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.openlocfilehash: 6b4df324fec38d08355754146d8be76d225e6cb7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418600"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194594"
 ---
-# <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage med hjälp av verktyget Kopiera data
+# <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Kopiera data från en SQL Server-databas till Azure Blob Storage med hjälp av Kopiera data-verktyget
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Aktuell version](tutorial-hybrid-copy-data-tool.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudien skapar du en datafabrik i Azure Portal. Sedan använder du verktyget Kopiera data för att skapa en pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage.
+I den här självstudien skapar du en datafabrik i Azure Portal. Sedan använder du verktyget Kopiera data för att skapa en pipeline som kopierar data från en SQL Server-databas till Azure Blob Storage.
 
 > [!NOTE]
 > - Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Data Factory](introduction.md).
@@ -37,7 +37,7 @@ I den här självstudien får du göra följande:
 > * Använd verktyget Kopiera data för att skapa en pipeline.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -47,7 +47,7 @@ Om du vill skapa Data Factory-instanser måste det användar konto som du använ
 Gå till Azure Portal om du vill se vilka behörigheter du har i prenumerationen. Välj användarnamnet längst upp till höger och välj sedan **Behörigheter**. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. Exempelinstruktioner för hur du lägger till en användare till en roll finns i [Hantera åtkomst med RBAC och Azure-portalen](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 och 2017
-I den här självstudien använder du en lokal SQL Server-databas som *källdatalager*. Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Blob Storage (mottagare). Skapa sedan en tabell med namnet **emp** i SQL Server-databasen och infoga ett par exempelposter i tabellen.
+I den här självstudien använder du en SQL Server-databas som *käll* data lager. Pipelinen i data fabriken som du skapar i den här självstudien kopierar data från den här SQL Server databasen (källa) till Blob Storage (mottagare). Skapa sedan en tabell med namnet **emp** i SQL Server-databasen och infoga ett par exempelposter i tabellen.
 
 1. Starta SQL Server Management Studio. Om det inte redan är installerat på datorn öppnar du [Ladda ner SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -74,7 +74,7 @@ I den här självstudien använder du en lokal SQL Server-databas som *källdata
     ```
 
 ### <a name="azure-storage-account"></a>Azure Storage-konto
-I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination eller mottagare. Om du inte har något allmänt lagringskonto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Blob Storage (mottagare). 
+I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination eller mottagare. Om du inte har något allmänt lagringskonto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Pipelinen i data fabriken som du skapar i den här självstudien kopierar data från den SQL Server databasen (källa) till Blob Storage (mottagare). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
 Du använder namnet och nyckeln för lagringskontot i den här självstudien. Gör så här för att hämta namnet och nyckeln till lagringskontot:
@@ -109,7 +109,7 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På menyn till vänster väljer du **+ skapa en resurs** > **analys** > **Data Factory**.
+1. På menyn till vänster väljer du **+ skapa en resurs**  >  **analys**  >  **Data Factory**.
 
    ![Skapa ny datafabrik](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -169,13 +169,13 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
     a. Under **Namn** anger du **SqlServerLinkedService**.
 
-    b. Under **Servernamn** anger du namnet på din lokala SQL Server-instans.
+    b. Under **Servernamn** anger du namnet på SQL Server-instansen.
 
     c. Under **Databasnamn** anger du namnet på din lokala databas.
 
     d. Under **Autentiseringstyp** väljer du lämplig autentisering.
 
-    e. Under **Användarnamn** anger du namnet på en användare med åtkomst till lokal SQL Server.
+    e. Under **användar namn**anger du namnet på användaren med åtkomst till SQL Server.
 
     f. Ange **lösenordet** för användaren.
 
@@ -233,7 +233,7 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
 
 ## <a name="next-steps"></a>Nästa steg
-Pipelinen i det här exemplet kopierar data från en lokal SQL Server-databas till Blob Storage. Du har lärt dig att:
+Pipelinen i det här exemplet kopierar data från en SQL Server-databas till Blob Storage. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.

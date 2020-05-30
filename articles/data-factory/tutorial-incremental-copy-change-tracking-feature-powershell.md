@@ -1,6 +1,6 @@
 ---
 title: Kopiera data stegvis med Ändringsspårning
-description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar deltadata stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL-databas.
+description: I den här självstudien skapar du en Azure Data Factory pipeline som kopierar delta data stegvis från flera tabeller i en SQL Server databas till Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 7937c2c623fdca4e59dc0aac059bd1b8fd735a21
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b83b10c15bcc5d1a8ea9fc094e1d709d57221902
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119170"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196164"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsinformation
 
@@ -44,7 +44,7 @@ I en dataintegrationslösning är stegvis inläsning av data efter den första d
 Här följer de typiska arbetsflödesstegen från slutpunkt till slutpunkt för att stegvis läsa in data med ändringsspårningstekniken.
 
 > [!NOTE]
-> Både Azure SQL Database och SQL Server stöder ändringsspårningsteknik. I den här självstudien används Azure SQL Database som källdatalager. Du kan också använda en lokal SQL Server.
+> Både Azure SQL Database och SQL Server stöder ändringsspårningsteknik. I den här självstudien används Azure SQL Database som källdatalager. Du kan också använda en SQL Server instans.
 
 1. **Inledande inläsning av historiska data** (kör en gång):
     1. Aktivera ändringsspårningsteknik i Azure SQL-källdatabasen.

@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 35754270b560b219f762652c6ea9bd0f15e6f661
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b56dd81cd0cdc5d9a6917b0bf43c3fceeff63c4a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053839"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216548"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Självstudie: utforma en Relations databas i Azure SQL Database med SSMS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,9 +50,9 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL Database
+## <a name="create-a-blank-database-in-azure-sql-database"></a>Skapa en tom databas i Azure SQL Database
 
-En Azure SQL Database skapas med en definierad uppsättning beräknings-och lagrings resurser. Databasen skapas i en Azure- [resurs grupp](../../active-directory-b2c/overview.md) och hanteras med hjälp av en [logisk SQL-Server](logical-servers.md).
+En databas i Azure SQL Database skapas med en definierad uppsättning beräknings-och lagrings resurser. Databasen skapas i en Azure- [resurs grupp](../../active-directory-b2c/overview.md) och hanteras med hjälp av en [logisk SQL-Server](logical-servers.md).
 
 Följ de här stegen för att skapa en tom databas.
 
@@ -63,7 +63,7 @@ Följ de här stegen för att skapa en tom databas.
 
 3. Fyll i **SQL Database** formuläret med följande information, som du ser på föregående bild:
 
-    | Inställningen       | Föreslaget värde | Beskrivning |
+    | Inställning       | Föreslaget värde | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Databas namn** | *yourDatabase* | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Prenumeration** | *yourSubscription*  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
@@ -72,7 +72,7 @@ Följ de här stegen för att skapa en tom databas.
 
 4. Klicka på **Server** för att använda en befintlig server eller skapa och konfigurera en ny server. Välj antingen en befintlig server eller klicka på **Skapa en ny server** och fyll i följande information i formuläret **Ny server**:
 
-    | Inställningen       | Föreslaget värde | Beskrivning |
+    | Inställning       | Föreslaget värde | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Server namn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
     | **Inloggning för Server administratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
@@ -96,10 +96,10 @@ Följ de här stegen för att skapa en tom databas.
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Skapa en IP-brandväggsregel på servernivå
 
-SQL Database-tjänsten skapar en IP-brandvägg på servernivå. Den här brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern såvida inte en brandväggsregel tillåter deras IP-adresser genom brandväggen. Om du vill aktivera extern anslutning till databasen måste du först lägga till en IP-brandväggsregel för din IP-adress (eller IP-adressintervall). Följ de här stegen för att skapa en [regel för IP-brandvägg på server nivå](firewall-configure.md).
+Azure SQL Database skapar en IP-brandvägg på server nivå. Den här brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern såvida inte en brandväggsregel tillåter deras IP-adresser genom brandväggen. Om du vill aktivera extern anslutning till databasen måste du först lägga till en IP-brandväggsregel för din IP-adress (eller IP-adressintervall). Följ de här stegen för att skapa en [regel för IP-brandvägg på server nivå](firewall-configure.md).
 
 > [!IMPORTANT]
-> SQL Database-tjänsten kommunicerar via port 1433. Om du försöker ansluta till den här tjänsten från ett företagsnätverk kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till databasen om administratören öppnar port 1433.
+> Azure SQL Database kommunicerar via port 1433. Om du försöker ansluta till den här tjänsten från ett företagsnätverk kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till databasen om administratören öppnar port 1433.
 
 1. När distributionen är klar väljer du **SQL-databaser** på Azure Portal-menyn eller söker efter och väljer *SQL-databaser* från vilken sida som helst.  
 
@@ -131,7 +131,7 @@ Använd [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ss
 1. Öppna SQL Server Management Studio.
 2. I dialogrutan **Anslut till server** anger du följande information:
 
-   | Inställningen       | Föreslaget värde | Beskrivning |
+   | Inställning       | Föreslaget värde | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Servertyp** | Databasmotor | Det här värdet är obligatoriskt. |
    | **Server namn** | Fullständigt kvalificerat servernamn | Till exempel *yourserver.database.windows.net*. |

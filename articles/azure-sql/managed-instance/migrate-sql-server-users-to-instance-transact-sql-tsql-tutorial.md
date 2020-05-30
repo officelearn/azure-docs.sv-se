@@ -1,6 +1,6 @@
 ---
 title: Migrera SQL Server Windows-användare och grupper till SQL-hanterad instans med T-SQL
-description: Lär dig mer om hur du migrerar SQL Server lokala Windows-användare och-grupper till en Azure SQL-hanterad instans
+description: Lär dig mer om hur du migrerar Windows-användare och grupper i en SQL Server instans till en Azure SQL-hanterad instans
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,14 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
-ms.openlocfilehash: aba5013bbba95efcb5f27af5aa61f91d880601aa
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 79a9f59b4fb6f7ae71c1e6866e8c50baa4e7974b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053557"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193754"
 ---
-# <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Självstudie: Migrera SQL Server lokala Windows-användare och grupper till en Azure SQL-hanterad instans med T-SQL DDL-syntax
+# <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Självstudie: migrera Windows-användare och grupper i en SQL Server instans till en Azure SQL-hanterad instans med hjälp av en T-SQL DDL-syntax
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Följande krav gäller för att slutföra den här självstudien:
 
 ## <a name="t-sql-ddl-syntax"></a>DDL-syntax för T-SQL
 
-Nedan finns T-SQL DDL-syntaxen som används för att stödja SQL Server lokala Windows-användare och grupper migrering till SQL-hanterad instans med Azure AD-autentisering.
+Nedan finns T-SQL DDL-syntaxen som används för att stödja migrering av Windows-användare och grupper från en SQL Server instans till SQL-hanterad instans med Azure AD-autentisering.
 
 ```sql
 -- For individual Windows users with logins
@@ -77,7 +77,7 @@ Mappar om en användare till Azure AD-inloggningen
 _Namn_</br>
 Anger namnet på den grupp som identifierats i databasen.
 
-## <a name="part-1-create-logins-for-sql-server-on-premises-users-and-groups"></a>Del 1: skapa inloggningar för SQL Server lokala användare och grupper
+## <a name="part-1-create-logins-in-sql-server-for-windows-users-and-groups"></a>Del 1: skapa inloggningar i SQL Server för Windows-användare och-grupper
 
 > [!IMPORTANT]
 > Följande syntax skapar en användare och en grupp inloggning i din SQL Server. Du måste kontrol lera att användaren och gruppen finns i din Active Directory (AD) innan du kör syntaxen nedan. </br> </br>

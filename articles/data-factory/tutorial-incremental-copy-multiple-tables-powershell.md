@@ -1,6 +1,6 @@
 ---
 title: Kopiera flera tabeller stegvis med PowerShell
-description: I den här självstudien skapar du en Azure Data Factory pipeline som kopierar delta data stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL Database.
+description: I den här självstudien skapar du en Azure Data Factory pipeline som kopierar delta data stegvis från flera tabeller i en SQL Server databas till en Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: 84df242cdbfedd0cd1442ac4c4da7f4b6139d244
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a3fc4a7fa905e7538199d3b26a0cd8b9791aaac4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020752"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194530"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL Database
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data från flera tabeller i lokala SQL Server till en Azure SQL Database.    
+I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data från flera tabeller i en SQL Server-databas till en Azure SQL Database.    
 
 I den här självstudiekursen får du göra följande:
 
@@ -69,12 +69,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
+* **SQL Server**. Du använder en SQL Server databas som käll data lager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md). 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Skapa källtabeller i din SQL Server-databas
 
-1. Öppna [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)och anslut till din lokala SQL Server-databas.
+1. Öppna [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)och Anslut till SQL Server-databasen.
 
 2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga**.
 
@@ -113,7 +113,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Skapa mål tabeller i din Azure SQL Database
 
-1. Öppna [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)och anslut till din lokala SQL Server-databas.
+1. Öppna [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)och Anslut till SQL Server-databasen.
 
 2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga**.
 
@@ -289,11 +289,11 @@ Observera följande punkter:
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 
-Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet skapar du länkade tjänster till din lokala SQL Server-databas och Azure SQL Database. 
+Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet skapar du länkade tjänster till din SQL Server databas och Azure SQL Database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Skapa länkad tjänst till SQL Server
 
-I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
+I det här steget länkar du SQL Server-databasen till data fabriken.
 
 1. Skapa en JSON-fil med namnet **SqlServerLinkedService. JSON** i mappen mappen c:\adftutorials\inccopymultitabletutorial (skapa de lokala mapparna om de inte redan finns) med följande innehåll. Välj rätt avsnitt baserat på vilken autentisering du använder när du ansluter till SQL Server.  
 
@@ -839,7 +839,7 @@ Kör följande frågor mot SQL-måldatabasen i SQL Server Management Studio för
 select * from customer_table
 ```
 
-**Resultat**
+**Utdata**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -857,7 +857,7 @@ PersonID    Name    LastModifytime
 select * from project_table
 ```
 
-**Resultat**
+**Utdata**
 
 ```
 ===================================
@@ -874,7 +874,7 @@ project3    2017-03-04 05:16:00.000
 select * from watermarktable
 ```
 
-**Resultat**
+**Utdata**
 
 ```
 ======================================
@@ -922,7 +922,7 @@ Kör följande frågor mot måldatabasen i SQL Server Management Studio för att
 select * from customer_table
 ```
 
-**Resultat**
+**Utdata**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -942,7 +942,7 @@ Lägg märke till de nya värdena för **Name** och **LastModifytime** för **Pe
 select * from project_table
 ```
 
-**Resultat**
+**Utdata**
 
 ```
 ===================================
@@ -962,7 +962,7 @@ Observera att posten **NewProject** har lagts till i project_table.
 select * from watermarktable
 ```
 
-**Resultat**
+**Utdata**
 
 ```
 ======================================

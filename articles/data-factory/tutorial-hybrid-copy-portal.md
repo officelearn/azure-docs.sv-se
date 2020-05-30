@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 03/12/2020
-ms.openlocfilehash: 7e222762c8bfa7218fd27e15b97de7b1166d749d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/29/2020
+ms.openlocfilehash: 708236cbbd9bf10c6e9edf6b59a3d8e814a40e9f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418583"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194605"
 ---
-# <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
+# <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Kopiera data från en SQL Server-databas till Azure Blob Storage
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudien använder du användargränssnittet för Azure Data Factory för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet.
+I den här självstudien använder du Azure Data Factory användar gränssnitt (UI) för att skapa en Data Factory-pipeline som kopierar data från en SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet.
 
 > [!NOTE]
 > Den här artikeln ger inte någon detaljerad introduktion till Data Factory. Mer information finns i [Introduktion till Data Factory](introduction.md).
@@ -38,7 +38,7 @@ I den här självstudien får du göra följande:
 > * Starta en pipelinekörning.
 > * Övervaka pipelinekörningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -48,7 +48,7 @@ Om du vill skapa Data Factory-instanser måste det användar konto som du använ
 Gå till Azure Portal om du vill se vilka behörigheter du har i prenumerationen. Välj användarnamnet längst upp till höger och välj sedan **Behörigheter**. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. Exempelinstruktioner för hur du lägger till en användare till en roll finns i [Hantera åtkomst med RBAC och Azure-portalen](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 och 2017
-I den här självstudien använder du en lokal SQL Server-databas som *källdatalager*. Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Blob Storage (mottagare). Skapa sedan en tabell med namnet **emp** i SQL Server-databasen och infoga ett par exempelposter i tabellen.
+I den här självstudien använder du en SQL Server-databas som *käll* data lager. Pipelinen i data fabriken som du skapar i den här självstudien kopierar data från den här SQL Server databasen (källa) till Blob Storage (mottagare). Skapa sedan en tabell med namnet **emp** i SQL Server-databasen och infoga ett par exempelposter i tabellen.
 
 1. Starta SQL Server Management Studio. Om det inte redan är installerat på datorn öppnar du [Ladda ner SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -74,7 +74,7 @@ I den här självstudien använder du en lokal SQL Server-databas som *källdata
    ```
 
 ### <a name="azure-storage-account"></a>Azure Storage-konto
-I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination eller mottagare. Om du inte har något allmänt Azure Storage-konto kan du läsa [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den lokala SQL Server-databasen (källa) till Blob Storage (mottagare). 
+I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination eller mottagare. Om du inte har något allmänt Azure Storage-konto kan du läsa [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Pipelinen i data fabriken som du skapar i den här självstudien kopierar data från SQL Server databas (källa) till Blob Storage (mottagare). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
 Du använder namnet och nyckeln för lagringskontot i den här självstudien. Gör så här för att hämta namnet och nyckeln till lagringskontot:
@@ -110,7 +110,7 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 I det här steget skapar du en datafabrik och startar sedan användargränssnittet för Data Factory för att skapa en pipeline i datafabriken.
 
 1. Öppna webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. På den vänstra menyn väljer du **skapa en resurs** > **analys** > **Data Factory**:
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **analys**  >  **Data Factory**:
 
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -144,7 +144,7 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 
    ![Sidan Nu sätter vi igång](./media/doc-common-process/get-started-page.png)
 
-1. På fliken **Allmänt** längst ned i fönstret **Egenskaper** anger du **SQLServerToBlobPipeline**som **namn**.
+1. I panelen Allmänt under **Egenskaper**anger du **SQLServerToBlobPipeline** som **namn**. Komprimera sedan panelen genom att klicka på egenskaps ikonen i det övre högra hörnet.
 
 1. I rutan **aktiviteter** , expanderar du **Flytta & Transform**. Dra och släpp aktiviteten **Kopiera** på pipelinedesignytan. Ge aktiviteten namnet **CopySqlServerToAzureBlobActivity**.
 
@@ -178,7 +178,7 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 
     d. Under **Autentiseringstyp** väljer du den autentiseringstyp som Data Factory ska använda för att ansluta till SQL Server-databasen.
 
-    e. Under **Användarnamn** och **Lösenord** anger du användarnamnet och lösenordet. Om du behöver använda ett omvänt snedstreck (\\) i ditt användarkonto eller servernamn infogar du escape-tecknet framför det (\\). Använd till exempel min *domän\\\\-användare*.
+    e. Under **Användarnamn** och **Lösenord** anger du användarnamnet och lösenordet. Om du behöver använda ett omvänt snedstreck (\\) i ditt användarkonto eller servernamn infogar du escape-tecknet framför det (\\). Använd till exempel min *domän- \\ \\ användare*.
 
     f. Välj **Testanslutning**. Det här steget är att bekräfta att Data Factory kan ansluta till SQL Server-databasen med hjälp av den integration runtime med egen värd som du har skapat.
 
@@ -186,7 +186,7 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
  
     ![Ny länkad tjänst (SQL Server)](./media/tutorial-hybrid-copy-portal/new-sqlserver-linked-service.png)
 
-1. När den länkade tjänsten har skapats går du tillbaka till sidan **Ange egenskaper** för SqlServerDataset. Utför följande steg:
+1. När den länkade tjänsten har skapats går du tillbaka till sidan **Ange egenskaper** för SqlServerDataset. Gör följande:
 
     a. Bekräfta att du ser **SqlServerLinkedService** i **Länkad tjänst**.
 
@@ -219,11 +219,11 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
     c. I **fil** delen väljer du **Lägg till dynamiskt innehåll**.
     ![dynamiska uttryck för lösning av filnamn](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-    d. Lägg `@CONCAT(pipeline().RunId, '.txt')`till och välj sedan **Slutför**. Den här åtgärden byter namn på filen med PipelineRunID. txt.
+    d. Lägg till `@CONCAT(pipeline().RunId, '.txt')` och välj sedan **Slutför**. Den här åtgärden byter namn på filen med PipelineRunID. txt.
 
 1. Gå till fliken med pipelinen öppen eller välj pipelinen i trädvyn. I **Sink Dataset** (Datauppsättning för mottagare) bekräftar du att **AzureBlobDataset** är vald.
 
-1. Verifiera pipelineinställningarna genom att välja **Verifiera** i verktygsfältet för pipelinen. Om du vill stänga **resultatet av pipe**-verifiering **>>** väljer du ikonen.
+1. Verifiera pipelineinställningarna genom att välja **Verifiera** i verktygsfältet för pipelinen. Om du vill stänga **resultatet av pipe-verifiering**väljer du **>>** ikonen.
     ![verifiera pipeline](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
     
 

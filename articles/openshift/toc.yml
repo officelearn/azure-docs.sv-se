@@ -75,7 +75,7 @@
       href: /rest/api/openshift
 - name: Resurser
   items:
-    - name: Vanliga frågor
+    - name: Vanliga frågor och svar
       href: openshift-faq.md
     - name: Felsökning
       href: troubleshoot.md

@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: carlrab, vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: e57f13ee1f9e9044751bc6b286c2b90174b52119
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1b709d1968a066ab5e4da4fef1659150d645ac26
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054109"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196924"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Använd PowerShell för att konfigurera SQL Database granskning och Avancerat skydd
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -58,6 +58,6 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
 
 Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../powershell-script-content-guide.md).

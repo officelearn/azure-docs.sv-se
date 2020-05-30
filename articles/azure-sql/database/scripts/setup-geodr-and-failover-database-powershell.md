@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: Konfigurera aktiv geo-replikering för Azure SQL Database'
-description: Azure PowerShell exempel skript för att konfigurera aktiv geo-replikering för Azure SQL Database och redundansväxla det.
+description: Använd ett Azure PowerShell exempel skript för att konfigurera aktiv geo-replikering för Azure SQL Database och redundansväxla det.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,18 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4dbe896211e03a068975df8aabdce78632ab7fd7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d63e6a58caf218022e3ebf7423e2495e98d9485c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053305"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196746"
 ---
-# <a name="use-powershell-to-configure-active-geo-replication---azure-sql-database"></a>Använd PowerShell för att konfigurera aktiv geo-replikering – Azure SQL Database
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-database-in-azure-sql-database"></a>Använd PowerShell för att konfigurera aktiv geo-replikering för en databas i Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Detta exempel på PowerShell-skript konfigurerar aktiv geo-replikering för en Azure SQL Database och växlar den till en sekundär replik av databasen.
+Det här Azure PowerShell skript exemplet konfigurerar aktiv geo-replikering för en databas i Azure SQL Database och växlar den till en sekundär replik av databasen.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -62,6 +63,6 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
 
 Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../powershell-script-content-guide.md).

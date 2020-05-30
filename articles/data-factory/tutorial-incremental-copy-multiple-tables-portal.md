@@ -1,6 +1,6 @@
 ---
 title: Kopiera flera tabeller stegvis med Azure Portal
-description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar deltadata stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL-databas.
+description: I den här självstudien skapar du en Azure Data Factory pipeline som kopierar delta data stegvis från flera tabeller i en SQL Server-databas till en Azure SQL-databas.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: 4649ac8bbef23711ed45baffa15bb9e8bff8daec
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 3c29d7b30541e0d289182d448b5bcbf69d02a3dc
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119185"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194562"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
+I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data från flera tabeller i en SQL Server-databas till en Azure SQL-databas.    
 
 I den här självstudiekursen får du göra följande:
 
@@ -68,12 +68,12 @@ Här är några viktiga steg för att skapa den här lösningen:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
+* **SQL Server**. Du använder en SQL Server databas som käll data lager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md). 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Skapa källtabeller i din SQL Server-databas
 
-1. Öppna SQL Server Management Studio och anslut till din lokala SQL-serverdatabas.
+1. Öppna SQL Server Management Studio och anslut till din SQL Serverdatabas.
 
 1. I **Server Explorer**högerklickar du på databasen och väljer **ny fråga**.
 
@@ -281,10 +281,10 @@ När du flyttar data från ett datalager i ett privat nätverk (lokalt) till ett
 1. Bekräfta att du ser **MySelfHostedIR** i listan över Integration Runtimes.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
-Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet får du skapa länkade tjänster till din lokala SQL Server-databas och din Azure SQL-databas. 
+Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet skapar du länkade tjänster till din SQL Server databas och Azure SQL Database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Skapa länkad tjänst till SQL Server
-I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
+I det här steget länkar du SQL Server-databasen till data fabriken.
 
 1. I fönstret **Anslutningar** växlar du från fliken **Integration Runtimes** till fliken med **länkade tjänster** och klickar på **+ Ny**.
 
@@ -520,7 +520,7 @@ Kör följande frågor mot SQL-måldatabasen i SQL Server Management Studio för
 select * from customer_table
 ```
 
-**Resultat**
+**Utdata**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -538,7 +538,7 @@ PersonID    Name    LastModifytime
 select * from project_table
 ```
 
-**Resultat**
+**Utdata**
 
 ```
 ===================================
@@ -555,7 +555,7 @@ project3    2017-03-04 05:16:00.000
 select * from watermarktable
 ```
 
-**Resultat**
+**Utdata**
 
 ```
 ======================================
@@ -617,7 +617,7 @@ I SQL Server Management Studio kör du följande frågor mot mål-SQL-databasen 
 select * from customer_table
 ```
 
-**Resultat**
+**Utdata**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -637,7 +637,7 @@ Lägg märke till de nya värdena för **Name** och **LastModifytime** för **Pe
 select * from project_table
 ```
 
-**Resultat**
+**Utdata**
 
 ```
 ===================================
@@ -657,7 +657,7 @@ Observera att posten **NewProject** har lagts till i project_table.
 select * from watermarktable
 ```
 
-**Resultat**
+**Utdata**
 
 ```
 ======================================

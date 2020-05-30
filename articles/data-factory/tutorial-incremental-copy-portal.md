@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: b1660c3a6d3bfe262493722c5aad0a08778b1964
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f5a7bc3cd22d49a65ba3b83d2a9ff41112d07c1a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119144"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194535"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av Azure Portal
 
@@ -398,7 +398,7 @@ I den här självstudiekursen fick du:
 > * Övervaka den andra pipelinekörningen
 > * Granska resultatet från den andra körningen
 
-I den här självstudien kopierade en pipeline data från en enskild tabell i en SQL-databas till Blob-lagring. Fortsätt till följande självstudie för att lära dig hur du kopierar data från flera tabeller till en lokal SQL Server-databas till en SQL-databas.
+I den här självstudien kopierade en pipeline data från en enskild tabell i en SQL-databas till Blob-lagring. Gå vidare till följande självstudie för att lära dig hur du kopierar data från flera tabeller i en SQL Server databas till SQL Database.
 
 > [!div class="nextstepaction"]
 >[Läs in data stegvist från flera tabeller i SQL Server till Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)

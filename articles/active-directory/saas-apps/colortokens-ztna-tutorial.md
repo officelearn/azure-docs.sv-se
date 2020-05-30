@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 315d8bce655cdf21160e3b4c75d2182ff41200a4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 37d3127ed9082c73218aede7daf054f0bfe3df2c
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666056"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204431"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-colortokens-ztna"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med ColorTokens ZTNA
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig att integrera ColorTokens-ZTNA med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -82,11 +82,8 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<COLORMASTER_HOST>/colormaster/api/v1/<TENANT_NAME>/saml/login?resourceId=<RESOURCEID>&iwa=<TRUE/FALSE>`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<tenantname>.spectrum.colortokens.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<COLORMASTER_HOST>.com/<TENANT_NAME>`
-
-    c. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<COLORMASTER_HOST>.com/<TENANT_NAME>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [COLORTOKENS ZTNA client support team](mailto:support@colortokens.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

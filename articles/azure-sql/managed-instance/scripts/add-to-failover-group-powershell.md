@@ -1,7 +1,7 @@
 ---
-title: 'PowerShell: Lägg till instans i gruppen för automatisk redundans'
+title: 'PowerShell: lägga till en hanterad instans i en grupp för automatisk redundans'
 titleSuffix: Azure SQL Managed Instance
-description: Azure PowerShell exempel skript för att skapa en hanterad Azure SQL-instans, lägga till den i en grupp för automatisk redundans och testa redundans.
+description: Azure PowerShell exempel skript för att skapa en hanterad instans, lägga till den i en grupp för automatisk redundans och testa redundans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,23 +12,24 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 0dbd6fbefababd36d87047a91d3ec320dc795e65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 27179f217d370a5ae4b9a4e87eaebc7659b66930
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053983"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220942"
 ---
-# <a name="use-powershell-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Använd PowerShell för att lägga till en hanterad Azure SQL-instans i en failover-grupp 
+# <a name="use-powershell-to-add-a-managed-instance-to-a-failover-group"></a>Använda PowerShell för att lägga till en hanterad instans i en failover-grupp 
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
-Det här PowerShell-skriptet skapar två SQL-hanterade instanser, lägger till dem i en grupp för redundans och testar sedan redundans från den primära SQL-hanterade instansen till den sekundära SQL-hanterade instansen 
+Det här PowerShell-skriptet skapar två hanterade instanser, lägger till dem i en grupp för växling vid fel och testar sedan redundans från den primära hanterade instansen till den sekundära hanterade instansen. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell-1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell 1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sample-scripts"></a>Exempelskript
 
@@ -36,7 +37,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den. Du måste ta bort resurs gruppen två gånger. Om du tar bort resurs gruppen första gången tas SQL-hanterad instans och virtuella kluster bort, men det går inte att utföra fel meddelandet `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.` . Kör kommandot Remove-AzResourceGroup en andra gång för att ta bort eventuella kvarvarande resurser samt resurs gruppen.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den. Du måste ta bort resurs gruppen två gånger. Om du tar bort resurs gruppen första gången tas den hanterade instansen och virtuella kluster bort, men fel meddelandet kommer att Miss sen `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'` . Kör kommandot Remove-AzResourceGroup en andra gång för att ta bort eventuella kvarvarande resurser samt resurs gruppen.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
@@ -62,8 +63,8 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Uppdaterar en nätverks säkerhets grupp.  | 
 | [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Lägger till en väg i en routningstabell. |
 | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Uppdaterar en routningstabell.  |
-| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Skapar en hanterad Azure SQL-instans.  |
-| [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Returnerar information om SQL-hanterad instans. |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Skapar en hanterad instans.  |
+| [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Returnerar information om den hanterade Azure SQL-instansen. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Skapar en offentlig IP-adress.  | 
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Skapar en IP-konfiguration för en Virtual Network Gateway |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Skapar en Virtual Network Gateway |
@@ -75,6 +76,6 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
 
-Ytterligare PowerShell-skript exempel för SQL-hanterad instans finns i [PowerShell-skripten för Azure SQL-hanterad instans](../../database/powershell-script-content-guide.md).
+Ytterligare PowerShell-skript exempel för SQL-hanterad instans finns i [PowerShell-skript för Azure SQL-hanterad](../../database/powershell-script-content-guide.md)instans.

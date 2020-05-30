@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell: synkronisera mellan SQL Database och SQL Server lokalt'
-description: Azure PowerShell-exempelskript för att synkronisera mellan en Azure SQL-databas och en lokal SQL Server-databas
+title: 'PowerShell: synkronisera data mellan SQL Database och SQL Server'
+description: Använd ett Azure PowerShell exempel skript för att synkronisera data mellan Azure SQL Database och SQL Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,17 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 5455136570ebdec4efbbc8ea7b74862f9a3be902
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ca07e30f9d3ef8dee185884cfb4946d93b515932
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053533"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196720"
 ---
-# <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Använda PowerShell för att synkronisera mellan en SQL Database och en lokal SQL Server-databas
+# <a name="use-powershell-to-sync-data-between-sql-database-and-sql-server"></a>Använd PowerShell för att synkronisera data mellan SQL Database och SQL Server
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Detta PowerShell-exempel konfigurerar Data Sync för att synkronisera mellan en Azure SQL-databas och en lokal SQL Server-databas. 
+Detta Azure PowerShell exempel konfigurerar datasynkronisering för att synkronisera data mellan Azure SQL Database och SQL Server. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -36,10 +37,10 @@ En översikt över SQL Data Sync finns i [synkronisera data i flera molnbaserade
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Skapa en Azure SQL Database från AdventureWorksLT exempel databas som hubb databas
-- Skapa en Azure SQL Database i samma region som Sync-databasen
-- Skapa en lokal SQL Server databas som medlems databas
-- Uppdatera parameter plats hållarna innan du kör exemplet
+- Skapa en databas i Azure SQL Database från en AdventureWorksLT-exempel databas som en nav-databas.
+- Skapa en databas i Azure SQL Database i samma region som Sync-databasen.
+- Skapa en databas i en SQL Server-instans som en medlems databas.
+- Uppdatera parameter plats hållarna innan du kör exemplet.
 
 ## <a name="example"></a>Exempel
 
@@ -111,7 +112,7 @@ $agentkey
 
 # DO THE FOLLOWING BEFORE THE NEXT STEP
 # Install the on-premises sync agent on your machine and register the sync agent using the agent key generated above to bring the sync agent online.
-# Add the SQL server database information including server name, database name, user name, password on the configuration tool within the sync agent.  
+# Add the SQL Server database information including server name, database name, user name, password on the configuration tool within the sync agent.  
 
 # create a new sync group
 Write-Host "Creating Sync Group "$syncGroupName"..."
@@ -129,7 +130,7 @@ $credential = $Host.ui.PromptForCredential("Need credential",
               "",
               "")
 
-# get information from sync agent and confirm your SQL Server was configured (note the database ID to use for the sqlServerDatabaseID in the next step)
+# get information from sync agent and confirm your SQL Server instance was configured (note the database ID to use for the sqlServerDatabaseID in the next step)
 $syncAgentInfo = Get-AzSqlSyncAgentLinkedDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -SyncAgentName $syncAgentName
 
 # add a new sync member
@@ -293,15 +294,15 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzSqlSyncAgent](/powershell/module/az.sql/New-azSqlSyncAgent) |  Skapar en ny synkroniseringsagent |
-| [New-AzSqlSyncAgentKey](/powershell/module/az.sql/New-azSqlSyncAgentKey) |  Genererar agentnyckeln som är kopplad till synkroniseringsagenten |
-| [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  Hämta all information för synkroniseringsagenten |
-| [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  Lägga till en ny medlem i synkroniseringsgruppen |
-| [Uppdatera – AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  Uppdaterar information för databasschema |
-| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  Hämta information för databasschema |
-| [Uppdatera – AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  Uppdaterar synkroniseringsgruppen |
-| [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | Utlöser en synkronisering |
-| [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  Kontrollerar synkroniseringsloggen |
+| [New-AzSqlSyncAgent](/powershell/module/az.sql/New-azSqlSyncAgent) |  Skapar en ny Sync-agent. |
+| [New-AzSqlSyncAgentKey](/powershell/module/az.sql/New-azSqlSyncAgentKey) |  Genererar den agent nyckel som är kopplad till Sync-agenten. |
+| [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  Hämta all information för Sync-agenten. |
+| [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  Lägg till en ny medlem i Sync-gruppen. |
+| [Uppdatera – AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  Uppdaterar databasens schema information. |
+| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  Hämta information om databas schema. |
+| [Uppdatera – AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  Uppdaterar Sync-gruppen. |
+| [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | Utlöser en synkronisering. |
+| [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  Kontrollerar Sync-loggen. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
@@ -314,18 +315,17 @@ Mer information om SQL Data Sync finns i:
 
 - Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](../sql-data-sync-data-sql-server-sql-database.md)
 - Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](../sql-data-sync-sql-server-configure.md)
-    - Med PowerShell
-        -  [Använd PowerShell för att synkronisera mellan flera databaser i Azure SQL Database](sql-data-sync-sync-data-between-sql-databases.md)
+    - Använd Azure Portal- [självstudie: konfigurera SQL Data Sync för att synkronisera data mellan en databas i Azure SQL Database och en SQL Server lokal databas](../sql-data-sync-sql-server-configure.md)
+    - Använd PowerShell – [Använd PowerShell för att synkronisera mellan flera databaser i Azure SQL Database](sql-data-sync-sync-data-between-sql-databases.md)
 - Data Sync-agent – [Data Sync-agent för SQL Data Sync i Azure](../sql-data-sync-agent-overview.md)
 - Bästa praxis – [metod tips för SQL Data Sync i Azure](../sql-data-sync-best-practices.md)
 - Övervaka [SQL Data Sync med Azure Monitor loggar](../sql-data-sync-monitor-sync.md)
 - Felsök – [Felsök problem med SQL Data Sync i Azure](../sql-data-sync-troubleshoot.md)
 - Uppdatera synkroniseringsschemat
-    - Med Transact-SQL – [automatisera replikeringen av schema ändringar i SQL Data Sync i Azure](../sql-data-sync-update-sync-schema.md)
-    - Med PowerShell – [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](update-sync-schema-in-sync-group.md)
+    - Använda Transact-SQL – [automatisera replikeringen av schema ändringar i SQL Data Sync i Azure](../sql-data-sync-update-sync-schema.md)
+    - Använd PowerShell – [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsresurs](update-sync-schema-in-sync-group.md)
 
-Mer information om SQL Database finns i:
+Mer information om Azure SQL Database finns i:
 
 - [Översikt över SQL Database](../sql-database-paas-overview.md)
 - [Livscykelhantering för databas](https://msdn.microsoft.com/library/jj907294.aspx)

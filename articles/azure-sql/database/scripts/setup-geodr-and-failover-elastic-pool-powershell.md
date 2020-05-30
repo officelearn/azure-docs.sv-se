@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4ac9da943f56101661da1308c393b80ccf74e871
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c0cc21471789a175ee2483e3969bc6e47f6322ea
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053449"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196691"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Använda PowerShell för att konfigurera aktiv geo-replikering för en pooldatabas i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Det här PowerShell-skriptexemplet konfigurerar aktiv geo-replikering för en pooldatabas i Azure SQL Database och redundansväxlar den till den sekundära repliken av databasen.
+Det här Azure PowerShell skript exemplet konfigurerar aktiv geo-replikering för en poolad databas i Azure SQL Database och växlar den till den sekundära repliken av databasen.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -62,6 +62,6 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
 
 Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../powershell-script-content-guide.md).

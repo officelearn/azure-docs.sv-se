@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: f0a4bb23d8a868e7c11153748259eba23a0cca38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 81732f13b85a7c0b514aad61c40802f4547957c2
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79501816"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219130"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudie: kopiera data till Azure Data Box via NFS
 
@@ -23,11 +23,11 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
-> * Krav
+> * Förutsättningar
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
@@ -93,8 +93,10 @@ När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Gr
   * Ärendet bevaras i namnet.
   * Filerna är inte Skift läges känsliga.
 
-    Om du t. ex `SampleFile.txt` . `Samplefile.Txt`kopierar och så bevaras ärendet i namnet när det kopieras till data Box-enhet, men den andra filen kommer att skriva över den första som dessa betraktas som en fil.
-* Se till att du underhåller en kopia av käll informationen tills du kan bekräfta att Data Box-enhet har överfört dina data till Azure Storage.
+    Om du t. ex. kopierar `SampleFile.txt` och så `Samplefile.Txt` bevaras ärendet i namnet när det kopieras till data Box-enhet, men den andra filen kommer att skriva över den första som dessa betraktas som en fil.
+
+> [!IMPORTANT]
+> Se till att du underhåller en kopia av käll informationen tills du kan bekräfta att Data Box-enhet har överfört dina data till Azure Storage.
 
 Om du använder en Linux-värddator använder du en kopieringsverktyg som liknar Robocopy. Några av alternativen som är tillgängliga i Linux är [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) eller [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -102,31 +104,31 @@ Kommandot `cp` är ett av de bästa alternativen för att kopiera en katalog. Me
 
 Om du använder rsync-alternativet för en flertrådig kopia följer du dessa riktlinjer:
 
- - Installera **CIFS Utils**- eller **NFS Utils**-paketet, beroende på vilket filsystem din Linux-klient använder.
+* Installera **CIFS Utils**- eller **NFS Utils**-paketet, beroende på vilket filsystem din Linux-klient använder.
 
     `sudo apt-get install cifs-utils`
 
     `sudo apt-get install nfs-utils`
 
- -  Installera **Rsync** och **Parallel** (varierar beroende på distribuerad Linux-version).
+* Installera **rsync** och **Parallel** (varierar beroende på den distribuerade Linux-versionen).
 
     `sudo apt-get install rsync`
    
     `sudo apt-get install parallel` 
 
- - Skapa en monteringspunkt.
+* Skapa en monteringspunkt.
 
     `sudo mkdir /mnt/databox`
 
- - Montera volymen.
+* Montera volymen.
 
     `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
 
- - Spegla mappkatalogstrukturen.  
+* Spegla mappkatalogstrukturen.  
 
     `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
 
- - Kopiera filerna. 
+* Kopiera filerna.
 
     `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
 
@@ -140,22 +142,20 @@ Om du använder rsync-alternativet för en flertrådig kopia följer du dessa ri
 Öppna målmappen för att visa och verifiera de kopierade filerna. Om det uppstod fel under kopieringsprocessen laddar du ned felfilerna för felsökning. Mer information finns i [Visa felloggar under datakopiering till Data Box](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel i samband med datakopieringen finns i [Felsöka problem med Data Box](data-box-troubleshoot.md).
 
 För att säkerställa dataintegriteten beräknas kontrollsumman infogat när data kopieras. När kopieringen är klar kontrollerar du det använda utrymmet och det lediga utrymmet på enheten.
-    
-   ![Kontrollera ledigt och använt utrymme på instrumentpanelen](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
+   ![Kontrollera ledigt och använt utrymme på instrumentpanelen](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Krav
+>
+> * Förutsättningar
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
-
 
 Gå vidare till nästa självstudie och lär dig hur du skickar tillbaka din Data Box-enhet till Microsoft.
 
 > [!div class="nextstepaction"]
 > [Skicka din Azure Data Box till Microsoft](./data-box-deploy-picked-up.md)
-

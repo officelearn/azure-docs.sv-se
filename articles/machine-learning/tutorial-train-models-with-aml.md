@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: bcc9e748cb5f88084b9cd3254654f9dc0fbc8aa1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60f539dfad4f5f3942be92f35b84cc42968f95a0
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115575"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220740"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Självstudie: träna bild klassificerings modeller med MNIST-data och scikit-lär 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,12 +34,12 @@ Läs hur du vidtar följande åtgärder:
 
 Du lär dig hur du väljer en modell och distribuerar den i [del två av den här självstudien](tutorial-deploy-models-with-aml.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 >[!NOTE]
 > Koden i den här artikeln har testats med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -version 1.0.83.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [självstudien: kom igång med att skapa ditt första Azure ml-experiment](tutorial-1st-experiment-sdk-setup.md) för att:
     * Skapa en arbetsyta
@@ -84,7 +84,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### <a name="connect-to-a-workspace"></a>Anslut till en arbetsyta
 
-Skapa ett arbetsyteobjekt från den befintliga arbetsytan. `Workspace.from_config()`läser filen **config. JSON** och läser in informationen i ett objekt med namnet `ws`:
+Skapa ett arbetsyteobjekt från den befintliga arbetsytan. `Workspace.from_config()`läser filen **config. JSON** och läser in informationen i ett objekt med namnet `ws` :
 
 ```python
 # load workspace configuration from the config.json file in the current folder.
@@ -107,7 +107,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 Genom att använda Azure Machine Learning Compute, en hanterad tjänst så kan datavetare träna maskininlärningsmodeller i kluster med virtuella Azure-datorer. Exempel innefattar virtuella datorer med GPU-stöd. I den här självstudien ska du skapa Azure Machine Learning Compute som din träningsmiljö. Du kommer att skicka python-kod som ska köras på den här virtuella datorn senare i självstudien. 
 
-Koden nedan skapar beräkningsklustren åt dig om de inte redan finns på din arbetsyta.
+Koden nedan skapar beräkningsklustren åt dig om de inte redan finns på din arbetsyta. Det konfigurerar ett kluster som skalar ned till 0 när det inte används och kan skala upp till högst 4 noder. 
 
  **Det tar cirka fem minuter att skapa beräknings målet.** Om beräknings resursen redan finns i arbets ytan använder koden den och hoppar över skapande processen.
 
@@ -159,9 +159,9 @@ Innan du tränar en modell så måste du förstå de data som du använder för 
 
 ### <a name="download-the-mnist-dataset"></a>Ladda ned MNIST-datauppsättningen
 
-Använd Azures öppna data uppsättningar för att hämta RAW MNIST-datafilerna. [Azure Open-datauppsättningar](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) är granskade offentliga data uppsättningar som du kan använda för att lägga till scenario-/regionsspecifika funktioner till maskin inlärnings lösningar för mer exakta modeller. Varje data uppsättning har en motsvarande klass `MNIST` , i det här fallet för att hämta data på olika sätt.
+Använd Azures öppna data uppsättningar för att hämta RAW MNIST-datafilerna. [Azure Open-datauppsättningar](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) är granskade offentliga data uppsättningar som du kan använda för att lägga till scenario-/regionsspecifika funktioner till maskin inlärnings lösningar för mer exakta modeller. Varje data uppsättning har en motsvarande klass, `MNIST` i det här fallet för att hämta data på olika sätt.
 
-Den här koden hämtar data som ett `FileDataset` objekt, vilket är en underordnad klass `Dataset`till. En `FileDataset` refererar till en eller flera filer i alla format i dina data lager eller offentliga URL: er. Klassen ger dig möjlighet att ladda ned eller montera filerna i beräkningen genom att skapa en referens till data käll platsen. Dessutom registrerar du data uppsättningen på din arbets yta för enkel hämtning under utbildningen.
+Den här koden hämtar data som ett `FileDataset` objekt, vilket är en underordnad klass till `Dataset` . En `FileDataset` refererar till en eller flera filer i alla format i dina data lager eller offentliga URL: er. Klassen ger dig möjlighet att ladda ned eller montera filerna i beräkningen genom att skapa en referens till data käll platsen. Dessutom registrerar du data uppsättningen på din arbets yta för enkel hämtning under utbildningen.
 
 Följ anvisningarna [för att](how-to-create-register-datasets.md) lära dig mer om data uppsättningar och deras användning i SDK.
 
@@ -300,7 +300,7 @@ Observera hur skriptet hämtar data och sparar modeller:
 
 + Övnings skriptet sparar din modell i en katalog med namnet **outputs**. Allt som skrivs i den här katalogen överförs automatiskt till din arbetsyta. Du kommer åt din modell från den här katalogen senare i självstudien. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
-+ Utbildnings skriptet kräver att filen `utils.py` läser in data mängden korrekt. Följande kod kopieras `utils.py` till `script_folder` så att filen kan nås tillsammans med övnings skriptet på fjär resursen.
++ Utbildnings skriptet kräver `utils.py` att filen läser in data mängden korrekt. Följande kod kopieras `utils.py` till `script_folder` så att filen kan nås tillsammans med övnings skriptet på fjär resursen.
 
   ```python
   import shutil

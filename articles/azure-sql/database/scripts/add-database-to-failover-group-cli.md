@@ -1,6 +1,6 @@
 ---
-title: 'Azure CLI: Lägg till databas i redundans gruppen'
-description: Exempel skript för Azure CLI för att skapa en Azure SQL Database, lägga till den i en grupp för automatisk redundans och testa redundans.
+title: 'Azure CLI: Lägg till en databas i en failover-grupp'
+description: Använd Azure CLI-exempel skriptet för att skapa en databas i Azure SQL Database, lägga till den i en grupp för automatisk redundans och testa redundans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,18 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: fcad936c6fe4b50e0e16b6a059e9565418b5bdad
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 09c98f626d9f32a2a6f9f3e31e0db0e4751adacb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053953"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196979"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-into-a-failover-group"></a>Använd CLI för att lägga till en Azure SQL Database i en grupp för redundans
+# <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Använd Azure CLI för att lägga till en databas i en grupp för växling vid fel
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Det här skript exemplet för Azure CLI skapar ett Azure SQL Database, skapar en grupp för växling vid fel, lägger till databasen i den och testar redundansväxlingen.
+Det här skript exemplet för Azure CLI skapar en databas i Azure SQL Database, skapar en grupp för växling vid fel, lägger till databasen i den och testar redundansväxlingen.
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 

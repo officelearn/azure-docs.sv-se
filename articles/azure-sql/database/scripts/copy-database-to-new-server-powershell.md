@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: a361ce058c9bc54ab1e669faf1ca8c9870b54969
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ae2a4ce3c8c1b3760dc83d01def9694b1d20fea0
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053743"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196943"
 ---
 # <a name="use-powershell-to-copy-a-database-to-a-new-server"></a>Använd PowerShell för att kopiera en databas till en ny server
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Det här PowerShell-skriptexemplet skapar en kopia av en befintlig databas på en ny server.
+Det här Azure PowerShell skript exemplet skapar en kopia av en befintlig databas i Azure SQL Database på en ny server.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -57,6 +57,6 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
 
 Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../powershell-script-content-guide.md).

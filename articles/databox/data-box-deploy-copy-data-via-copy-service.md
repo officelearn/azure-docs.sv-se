@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: ef0d79cae11a382bcca0ddb61e1d4a04b5db41e9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79501875"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219165"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Självstudie: Använd tjänsten data kopiering för att kopiera data till Azure Data Box (för hands version)
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 >
 > * Kopiera data till Data Box
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
@@ -50,20 +50,21 @@ När du har anslutit till NAS är nästa steg att kopiera data. Granska följand
 
 * Om data ändras när datakopieringstjänsten läser dem kan det uppstå fel eller skadade data.
 
-* Se till att du underhåller en kopia av käll informationen tills du kan bekräfta att Data Box-enhet har överfört dina data till Azure Storage.
+> [!IMPORTANT]
+> Se till att du underhåller en kopia av käll informationen tills du kan bekräfta att Data Box-enhet har överfört dina data till Azure Storage.
 
 För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa ett jobb:
 
-1. I det lokala webb gränssnittet för din data Box-enhet enhet går du till **Hantera** > **Kopiera data**.
+1. I det lokala webb gränssnittet för din data Box-enhet enhet går du till **Hantera**  >  **Kopiera data**.
 2. På sidan **Kopiera data** väljer du **Skapa**.
 
     ![Välj Skapa på sidan ”Kopiera data”](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
 
 3. I dialogrutan **Konfigurera och starta** fyller du i följande fält:
     
-    |Field                          |Värde    |
+    |Fält                          |Värde    |
     |-------------------------------|---------|
-    |**Jobbnamn**                       |Ett unikt namn med färre än 230 tecken för jobbet. Följande tecken tillåts inte i jobbnamnet: \<, \>, \|, \?, \*, \\, \:, \/ och \\\.         |
+    |**Jobbnamn**                       |Ett unikt namn med färre än 230 tecken för jobbet. Dessa tecken är inte tillåtna i jobb namnet:,,,,,, \<, \> \| \? \* \\ \: \/ och\\\.         |
     |**Källplats**                |Ange SMB-sökvägen till datakällan i formatet: `\\<ServerIPAddress>\<ShareName>` eller `\\<ServerName>\<ShareName>`.        |
     |**Användar**                       |Användarnamn i `\\<DomainName><UserName>`-format för åtkomst till datakällan. Om en lokal administratör ansluter behöver de uttryckliga säkerhets behörigheter. Högerklicka på mappen, Välj **Egenskaper** och välj sedan **säkerhet**. Detta bör lägga till den lokala administratören på fliken **säkerhet** .       |
     |**Lösenord**                       |Lösenord för åtkomst till datakällan.           |
@@ -150,4 +151,3 @@ Gå vidare till nästa självstudie och lär dig hur du skickar tillbaka din Dat
 
 > [!div class="nextstepaction"]
 > [Skicka din Azure Data Box-enhet till Microsoft](./data-box-deploy-picked-up.md)
-

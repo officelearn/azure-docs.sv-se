@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: skapa en enskild databas'
-description: Azure PowerShell exempel skript för att skapa en enda Azure SQL Database.
+description: Använd ett Azure PowerShell exempel skript för att skapa en enda databas i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,17 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9468ebd91ac0742c928bfd5cd1e1c449ae62c69b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d8cc407e09702472978e645650ebe8df0963ff7b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053737"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196900"
 ---
-# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-server-level-firewall-rule"></a>Använd PowerShell för att skapa en enda Azure SQL Database och konfigurera en brand Väggs regel på server nivå
+# <a name="use-powershell-to-create-a-single-database-and-configure-a-server-level-firewall-rule"></a>Använd PowerShell för att skapa en enskild databas och konfigurera en brand Väggs regel på server nivå
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Detta exempel på PowerShell-skript skapar ett Azure SQL Database och konfigurerar en brand Väggs regel på server nivå. När skriptet har körts utan problem kan SQL-databasen nås från alla Azure-tjänster och den konfigurerade IP-adressen.
+Det här Azure PowerShell skript exemplet skapar en enda databas i Azure SQL Database och konfigurerar en brand Väggs regel på server nivå. När skriptet har körts kan databasen nås från alla Azure-tjänster och den konfigurerade IP-adressen.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -56,6 +57,6 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
 
 Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../powershell-script-content-guide.md).

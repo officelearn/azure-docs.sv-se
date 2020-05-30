@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: f880f189b19b4909268b6e0b24654fc4682ab7c8
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 54f09c4b35f31619c3dcaa027c70444595c4352e
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759191"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196518"
 ---
 # <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Självstudie: skapa ett etikett projekt (för hands version) för bild klassificering med flera klasser 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ I den här självstudien använder du bilder av katter och hundar.  Eftersom var
 > * Etikettera dina data.  Antingen du eller dina etiketter kan utföra den här uppgiften.
 > * Slutför projektet genom att granska och exportera data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
@@ -64,7 +64,7 @@ Azure Machine Learning data lager används för att lagra anslutnings informatio
 
 1. Fyll i formuläret med följande inställningar:
 
-    Fält|Beskrivning 
+    Fält|Description 
     ---|---
     Data lager namn | Ge data lagret ett namn.  Här använder vi **labeling_tutorial**.
     Data lager typ | Välj lagrings typ.  Här använder vi **Azure Blob Storage**, den önskade lagringen för avbildningar.
@@ -83,13 +83,13 @@ Nu när du har åtkomst till de data som du vill ha med etikett, skapar du ett e
 
 1. Välj **+ Lägg till projekt**.
 
-    ![Skapa ett projekt](media/tutorial-labeling/create-project.png)
+    :::image type="content" source="media/tutorial-labeling/create-project.png" alt-text="Skapa ett projekt":::
 
 ### <a name="project-details"></a>Projekt information
 
 1. Använd följande indata för formuläret **projekt information** :
 
-    Fält|Beskrivning 
+    Fält|Description 
     ---|---
     Projektnamn | Ge ditt projekt ett namn.  Här kommer vi att använda **självstudie – katter-n-hundar**.
     Etikettering av uppgifts typ | Välj **bild klassificering flera klasser**.  

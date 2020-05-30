@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: fc37ccac5a2a3373907fd7d066fb9aa16ace38b8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1cfc6f71543787fb6e8393fe4a5162ffefb0a3a0
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053521"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196661"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Det här PowerShell-exemplet uppdaterar synkroniseringsschemat i en befintlig synkroniseringsgrupp för SQL Data Sync. När du synkroniserar flera tabeller får du hjälp av det här skriptet att uppdatera synkroniseringsschemat på ett effektivt sätt. Det här exemplet visar hur skriptet **UpdateSyncSchema** används. Det finns på GitHub som [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
+I det här Azure PowerShell-exemplet uppdateras synkroniseringsschemat i en befintlig SQL Data Sync Sync-grupp. När du synkroniserar flera tabeller får du hjälp av det här skriptet att uppdatera synkroniseringsschemat på ett effektivt sätt. Det här exemplet visar hur skriptet **UpdateSyncSchema** används. Det finns på GitHub som [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -67,10 +67,10 @@ Skriptet **UpdateSyncSchema** innehåller följande parametrar:
 | $syncGroupName | Synkroniseringsgruppens namn. |
 | $memberName | Ange medlemsnamnet om du vill läsa in databasschemat från synkroniseringsmedlemmen i stället för från hubbdatabasen. Lämna den här parametern tom om du vill läsa in databasschemat från hubben. |
 | $timeoutInSeconds | Tidsgräns när skriptet uppdaterar databasschemat. Standardvärdet är 900 sekunder. |
-| $refreshDatabaseSchema | Ange om skriptet behöver uppdatera databasschemat. Om ditt databasschemat har ändrats från den tidigare konfigurationen, till exempel om du har lagt till en ny tabell eller kolumn, måste du uppdatera schemat innan du konfigurerar om det. Standardvärdet är false. |
+| $refreshDatabaseSchema | Ange om skriptet behöver uppdatera databasschemat. Om ditt databas schema har ändrats från den tidigare konfigurationen (till exempel om du har lagt till en ny tabell eller på nytt-kolumn) måste du uppdatera schemat innan du konfigurerar om det. Standardvärdet är false. |
 | $addAllTables | Om värdet är true läggs alla giltiga tabeller och kolumner till i synkroniseringsschemat. Värdena för $TablesAndColumnsToAdd och $TablesAndColumnsToRemove ignoreras. |
-| $tablesAndColumnsToAdd | Ange tabeller eller kolumner som ska läggas till i synkroniseringsschemat. Alla tabell- och kolumnnamn måste vara helt avgränsade med schemanamnet. Exempel: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Flera tabell- och kolumnnamn kan anges och avgränsas med kommatecken (,). |
-| $tablesAndColumnsToRemove | Ange tabeller eller kolumner som ska tas bort från synkroniseringsschemat. Alla tabell- och kolumnnamn måste vara helt avgränsade med schemanamnet. Exempel: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Flera tabell- och kolumnnamn kan anges och avgränsas med kommatecken (,). |
+| $tablesAndColumnsToAdd | Ange tabeller eller kolumner som ska läggas till i synkroniseringsschemat. Alla tabell- och kolumnnamn måste vara helt avgränsade med schemanamnet. Exempel: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Flera tabell-eller kolumn namn kan anges och avgränsas med kommatecken (,). |
+| $tablesAndColumnsToRemove | Ange tabeller eller kolumner som ska tas bort från synkroniseringsschemat. Alla tabell- och kolumnnamn måste vara helt avgränsade med schemanamnet. Exempel: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Flera tabell-eller kolumn namn kan anges och avgränsas med kommatecken (,). |
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
@@ -78,9 +78,9 @@ Skriptet **UpdateSyncSchema** använder följande parametrar. Varje kommando i t
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncgroup) | Returnerar information om en synkroniseringsgrupp. |
+| [Get-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncgroup) | Returnerar information om en Sync-grupp. |
 | [Uppdatera – AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncgroup) | Uppdaterar en synkroniseringsgrupp. |
-| [Get-AzSqlSyncMember](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncmember) | Returnerar information om en synkroniseringsmedlem. |
+| [Get-AzSqlSyncMember](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncmember) | Returnerar information om en synkroniserad medlem. |
 | [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncschema) | Returnerar information om ett synkroniseringsschema. |
 | [Uppdatera – AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncschema) | Uppdaterar ett synkroniseringsschema. |
 
@@ -88,22 +88,22 @@ Skriptet **UpdateSyncSchema** använder följande parametrar. Varje kommando i t
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Ytterligare PowerShell-skript exempel för SQL Database finns i [Azure SQL Database PowerShell-skript](../powershell-script-content-guide.md).
+Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../powershell-script-content-guide.md).
 
 Mer information om SQL Data Sync finns i:
 
-- Översikt – [synkronisera data över flera molnbaserade och lokala databaser med SQL Data Sync i Azure](../sql-data-sync-data-sql-server-sql-database.md)
+- Översikt – [synkronisera data mellan Azure SQL Database och SQL Server med SQL Data Sync i Azure](../sql-data-sync-data-sql-server-sql-database.md)
 - Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](../sql-data-sync-sql-server-configure.md)
-    - Med PowerShell
-        -  [Använd PowerShell för att synkronisera mellan flera databaser i Azure SQL Database](sql-data-sync-sync-data-between-sql-databases.md)
-        -  [Använda PowerShell för att synkronisera mellan en databas i Azure SQL Database och en databas i en SQL Server instans](sql-data-sync-sync-data-between-azure-onprem.md)
+    - Använd Azure Portal- [självstudie: konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server](../sql-data-sync-sql-server-configure.md)
+    - Använd PowerShell
+        -  [Använd PowerShell för att synkronisera data mellan flera databaser i Azure SQL Database](sql-data-sync-sync-data-between-sql-databases.md)
+        -  [Använd PowerShell för att synkronisera data mellan Azure SQL Database och SQL Server](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync-agent – [Data Sync-agent för SQL Data Sync i Azure](../sql-data-sync-agent-overview.md)
 - Bästa praxis – [metod tips för SQL Data Sync i Azure](../sql-data-sync-best-practices.md)
 - Övervaka [SQL Data Sync med Azure Monitor loggar](../sql-data-sync-monitor-sync.md)
 - Felsök – [Felsök problem med SQL Data Sync i Azure](../sql-data-sync-troubleshoot.md)
 - Uppdatera synkroniseringsschemat
-    - Med Transact-SQL – [automatisera replikeringen av schema ändringar i SQL Data Sync i Azure](../sql-data-sync-update-sync-schema.md)
+    - Använda Transact-SQL – [automatisera replikeringen av schema ändringar i SQL Data Sync i Azure](../sql-data-sync-update-sync-schema.md)
 
 Mer information om SQL Database finns i:
 

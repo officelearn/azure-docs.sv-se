@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell: Flytta databasen mellan elastiska pooler'
-description: Azure PowerShell exempel skript för att flytta en databas i SQL Database mellan två elastiska pooler med hjälp av PowerShell.
+title: 'PowerShell: flytta en databas mellan elastiska pooler'
+description: Använd ett Azure PowerShell exempel skript för att flytta en databas i SQL Database mellan två elastiska pooler.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -11,17 +11,18 @@ author: stevestein
 ms.reviewer: ''
 ms.author: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: f2811fd16dbda13a98ae7e7cb3de0671b278d698
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: de26542c56eeddefc560c17a9d7b03f18f7c15a3
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053707"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196785"
 ---
-# <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Använd PowerShell för att skapa elastiska pooler och flytta databaser mellan elastiska pooler
+# <a name="use-powershell-to-create-elastic-pools-and-move-a-database-between-them"></a>Använd PowerShell för att skapa elastiska pooler och flytta en databas mellan dem
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Det här exemplet på PowerShell-skript skapar två elastiska pooler och flyttar en databas i SQL Database från en elastisk pool till en annan elastisk pool och flyttar sedan en databas från en elastisk pool till en enda databasens beräknings storlek.
+Det här PowerShell-skriptet skapar två elastiska pooler, flyttar en poolad databas i SQL Database från en elastisk SQL-pool till en annan SQL elastisk pool och flyttar sedan den sammanslagna databasen från den elastiska SQL-poolen till en enda databas i Azure SQL Database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -31,7 +32,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 ## <a name="sample-script"></a>Exempelskript
 
-[!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1?highlight=18-19 "Move database between pools")]
+[!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1?highlight=18-19 "Move a database between pools")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
@@ -57,6 +58,6 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
 
 Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../powershell-script-content-guide.md).

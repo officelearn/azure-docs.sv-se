@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: 33c83beccd13fd0e7d9991ab878289a8f2a89b06
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: a34ac27459a84048ac5fc9ef10f6f55def6cec78
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118694"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221324"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Självstudie: Konfigurera Transaktionsreplikering mellan Azure SQL-hanterad instans och SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,13 +26,13 @@ I den här guiden får du lära dig att:
 >
 > - Konfigurera en hanterad instans som en replik utgivare.
 > - Konfigurera en hanterad instans som en replikerings-distributör.
-> - Konfigurera en SQL Server som prenumerant.
+> - Konfigurera SQL Server som prenumerant.
 
-![Replikering mellan en SQL MI pub, SQL MI dist och en SQL Server sub](./media/replication-two-instances-and-sql-server-configure-tutorial/sqlmi-to-sql-replication.png)
+![Replikering mellan en hanterad instans utgivare, en hanterad instans distributör och SQL Server prenumerant](./media/replication-two-instances-and-sql-server-configure-tutorial/sqlmi-to-sql-replication.png)
 
-Den här självstudien är avsedd för en erfaren mål grupp och förutsätter att användaren är bekant med att distribuera och ansluta till både hanterade instanser och SQL Server virtuella datorer i Azure. Därför är vissa steg i den här självstudien glansiga.
+Den här självstudien är avsedd för en erfaren mål grupp och förutsätter att användaren är van vid distribution och anslutning till både hanterade instanser och SQL Server virtuella datorer i Azure. Därför är vissa steg i den här självstudien glansiga.
 
-Läs mer i [Översikt över Azure SQL-hanterade instanser](sql-managed-instance-paas-overview.md)och artiklar om [SQL-transaktionell replikering](replication-transactional-overview.md) .
+Läs mer i [Översikt över översikt över Azure SQL-hanterade instanser](sql-managed-instance-paas-overview.md) och artiklar om [SQL-transaktionella replikering](replication-transactional-overview.md) .
 
 Information om hur du konfigurerar replikering mellan en hanterad instans utgivare och en hanterad instans prenumerant finns i [Konfigurera transaktionell replikering mellan två hanterade instanser](replication-between-two-instances-configure-tutorial.md).
 
@@ -42,10 +42,10 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - Erfarenhet av distribution av två hanterade instanser i samma virtuella nätverk.
-- En SQL Server prenumerant, antingen lokalt eller en virtuell Azure-dator. I den här självstudien används en virtuell Azure-dator.  
+- En SQL Server prenumerant, antingen lokalt eller på en virtuell Azure-dator. I den här självstudien används en virtuell Azure-dator.  
 - [SQL Server Management Studio (SSMS) 18,0 eller senare](/sql/ssms/download-sql-server-management-studio-ssms).
 - Den senaste versionen av [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0).
-- Port 445 och 1433 tillåter SQL-trafik både på Azure-brandväggen och Windows-brandväggen.
+- Portarna 445 och 1433 tillåter SQL-trafik både i Azure-brandväggen och Windows-brandväggen.
 
 ## <a name="1---create-the-resource-group"></a>1 – Skapa resurs gruppen
 
@@ -64,12 +64,12 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 
 Skapa två hanterade instanser i den här nya resurs gruppen med hjälp av [Azure Portal](https://portal.azure.com).
 
-- Namnet på utgivarens hanterade instans ska vara: `sql-mi-publisher` (tillsammans med några tecken för slumpmässigheten) och namnet på det virtuella nätverket ska vara `vnet-sql-mi-publisher` .
-- Namnet på den hanterade instansen av distributör ska vara: `sql-mi-distributor` (tillsammans med några tecken för slumpmässig het) och bör finnas _i samma virtuella nätverk som utgivarens hanterade instans_.
+- Namnet på den hanterade instansen av utgivare ska vara `sql-mi-publisher` (tillsammans med några tecken för slumpmässigheten) och namnet på det virtuella nätverket ska vara `vnet-sql-mi-publisher` .
+- Namnet på den hanterade instansen av distributören ska vara `sql-mi-distributor` (tillsammans med några tecken för slumpmässigheten) och bör vara _i samma virtuella nätverk som utgivarens hanterade instans_.
 
    ![Använda Publisher VNet för distributören](./media/replication-two-instances-and-sql-server-configure-tutorial/use-same-vnet-for-distributor.png)
 
-Mer information om hur du skapar en hanterad instans finns i [skapa en hanterad instans i portalen](instance-create-quickstart.md)
+Mer information om hur du skapar en hanterad instans finns i [skapa en hanterad instans i portalen](instance-create-quickstart.md).
 
   > [!NOTE]
   > För enkelhetens skull, och eftersom det är den vanligaste konfigurationen, föreslår den här självstudien placeringen av den hanterade instansen av distributör i samma virtuella nätverk som utgivaren. Det är dock möjligt att skapa distributören i ett separat virtuellt nätverk. För att göra det måste du konfigurera VPN-peering mellan virtuella nätverk för utgivaren och distributören och sedan konfigurera VPN-peering mellan distributörens virtuella nätverk och prenumerant.
@@ -83,7 +83,7 @@ Skapa en virtuell SQL Server virtuell dator med hjälp av [Azure Portal](https:/
 - Resurs grupp: samma som den hanterade instansen
 - Virtuellt nätverk:`sql-vm-sub-vnet`
 
-Mer information om hur du distribuerar en SQL Server VM till Azure finns i [snabb start: skapa SQL Server VM](../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
+Mer information om hur du distribuerar en SQL Server VM till Azure finns i [snabb start: skapa en SQL Server VM](../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
 ## <a name="4---configure-vpn-peering"></a>4 – Konfigurera VPN-peering
 
@@ -118,13 +118,13 @@ Add-AzVirtualNetworkPeering `
   -VirtualNetwork $virtualNetwork2 `
   -RemoteVirtualNetworkId $virtualNetwork1.Id
 
-# Check status of peering on the publisher vNet; should say connected
+# Check status of peering on the publisher VNet; should say connected
 Get-AzVirtualNetworkPeering `
  -ResourceGroupName $resourceGroup `
  -VirtualNetworkName $pubvNet `
  | Select PeeringState
 
-# Check status of peering on the subscriber vNet; should say connected
+# Check status of peering on the subscriber VNet; should say connected
 Get-AzVirtualNetworkPeering `
  -ResourceGroupName $resourceGroup `
  -VirtualNetworkName $subvNet `
@@ -132,17 +132,17 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-När VPN-peering har upprättats kan du testa anslutningen genom att starta SQL Server Management Studio (SSMS) på din SQL Server och ansluta till båda hanterade instanserna. Mer information om hur du ansluter till en hanterad instans med hjälp av SSMS finns i [använda SSMS för att ansluta till mi](point-to-site-p2s-configure.md#connect-with-ssms).
+När VPN-peering har upprättats kan du testa anslutningen genom att starta SQL Server Management Studio (SSMS) på SQL Server och ansluta till båda hanterade instanserna. Mer information om hur du ansluter till en hanterad instans med hjälp av SSMS finns i [använda SSMS för att ansluta till SQL-hanterad instans](point-to-site-p2s-configure.md#connect-with-ssms).
 
 ![Testa anslutningen till de hanterade instanserna](./media/replication-two-instances-and-sql-server-configure-tutorial/test-connectivity-to-mi.png)
 
-## <a name="5---create-private-dns-zone"></a>5 – skapa en privat DNS-zon
+## <a name="5---create-a-private-dns-zone"></a>5 – skapa en privat DNS-zon
 
 En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL Server.
 
-### <a name="create-private-dns-zone"></a>Skapa en privat DNS-zon
+### <a name="create-a-private-dns-zone"></a>Skapa en privat DNS-zon
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **skapa en resurs** för att skapa en ny Azure-resurs.
 1. Sök `private dns zone` på Azure Marketplace.
 1. Välj den **privat DNS zon** resurs som publicerats av Microsoft och välj sedan **skapa** för att skapa DNS-zonen.
@@ -153,13 +153,13 @@ En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL
 
 1. Välj **Granska + skapa**. Granska parametrarna för din privata DNS-zon och välj **skapa** för att skapa din resurs.
 
-### <a name="create-a-record"></a>Skapa en post
+### <a name="create-an-a-record"></a>Skapa en A-post
 
 1. Gå till din nya **privat DNS zon** och välj **Översikt**.
-1. Välj **+ post uppsättning** för att skapa en ny a-post.
+1. Välj **+ post uppsättning** för att skapa en ny post.
 1. Ange namnet på din SQL Server VM samt den privata interna IP-adressen.
 
-   ![Konfigurera en post](./media/replication-two-instances-and-sql-server-configure-tutorial/configure-a-record.png)
+   ![Konfigurera en A-post](./media/replication-two-instances-and-sql-server-configure-tutorial/configure-a-record.png)
 
 1. Välj **OK** för att skapa en post.
 
@@ -176,7 +176,7 @@ En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL
 1. Välj **OK** för att länka ditt virtuella nätverk.
 1. Upprepa de här stegen för att lägga till en länk till det virtuella prenumeranten för prenumerant, med ett namn som `Sub-link` .
 
-## <a name="6---create-azure-storage-account"></a>6 – Skapa Azure Storage konto
+## <a name="6---create-an-azure-storage-account"></a>6 – skapa ett Azure Storage-konto
 
 [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbets katalogen och skapa sedan en [fil resurs](../../storage/files/storage-how-to-create-file-share.md) i lagrings kontot.
 
@@ -192,11 +192,11 @@ Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../../st
 
 ## <a name="7---create-a-database"></a>7 – skapa en databas
 
-Skapa en ny databas på utgivar MI. Det gör du på följande sätt:
+Skapa en ny databas på utgivarens hanterade instans. Det gör du på följande sätt:
 
-1. Starta SQL Server Management Studio (SSMS) på din SQL Server.
+1. Starta SQL Server Management Studio på SQL Server.
 1. Anslut till den `sql-mi-publisher` hanterade instansen.
-1. Öppna ett **nytt frågefönster** och kör följande T-SQL-fråga för att skapa databasen:
+1. Öppna ett **nytt frågefönster** och kör följande T-SQL-fråga för att skapa databasen.
 
 ```sql
 -- Create the databases
@@ -242,7 +242,7 @@ GO
 
 När anslutningen har upprättats och du har en exempel databas kan du konfigurera distributionen på din `sql-mi-distributor` hanterade instans. Det gör du på följande sätt:
 
-1. Starta SQL Server Management Studio (SSMS) på din SQL Server.
+1. Starta SQL Server Management Studio på SQL Server.
 1. Anslut till den `sql-mi-distributor` hanterade instansen.
 1. Öppna ett **nytt frågefönster** och kör följande Transact-SQL-kod för att konfigurera distributionen på den hanterade distributörs instansen:
 
@@ -264,16 +264,16 @@ När anslutningen har upprättats och du har en exempel databas kan du konfigure
 1. Anslut till den `sql-mi-publisher` hanterade instansen.
 1. Öppna ett **nytt frågefönster** och kör följande Transact-SQL-kod för att registrera distributören på utgivaren:
 
-```sql
-Use MASTER
-EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
-```
+   ```sql
+   Use MASTER
+   EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
+   ```
 
 ## <a name="9---create-the-publication"></a>9 – skapa publikationen
 
 När distributionen har kon figurer ATS kan du nu skapa publikationen. Det gör du på följande sätt:
 
-1. Starta SQL Server Management Studio (SSMS) på din SQL Server.
+1. Starta SQL Server Management Studio på SQL Server.
 1. Anslut till den `sql-mi-publisher` hanterade instansen.
 1. I **Object Explorer**expanderar du noden **replikering** och högerklickar på mappen för den **lokala publikationen** . Välj **ny publikation...**.
 1. Välj **Nästa** för att gå förbi Välkomst sidan.
@@ -282,7 +282,7 @@ När distributionen har kon figurer ATS kan du nu skapa publikationen. Det gör 
 1. Markera kryss rutan bredvid **tabeller**på sidan **artiklar** . Välj **Nästa**.
 1. På sidan **filtrera tabell rader** väljer du **Nästa** utan att lägga till några filter.
 1. På sidan **ögonblicks bild agent** markerar du kryss rutan bredvid **skapa ögonblicks bild direkt och håller ögonblicks bilden tillgänglig för att initiera prenumerationer**. Välj **Nästa**.
-1. På sidan **agent säkerhet** väljer du **säkerhets inställningar..**. Ange SQL Server inloggnings uppgifter som ska användas för ögonblicks bild agenten och för att ansluta till utgivaren. Välj **OK** för att stänga **säkerhets sidan för ögonblicks bild agent** . Välj **Nästa**.
+1. På sidan **agent säkerhet** väljer du **säkerhets inställningar...**. Ange SQL Server inloggnings uppgifter som ska användas för ögonblicks bild agenten och för att ansluta till utgivaren. Välj **OK** för att stänga **säkerhets sidan för ögonblicks bild agent** . Välj **Nästa**.
 
    ![Konfigurera säkerhet för ögonblicks bild agent](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
@@ -294,7 +294,7 @@ När distributionen har kon figurer ATS kan du nu skapa publikationen. Det gör 
 
 När publikationen har skapats kan du skapa prenumerationen. Det gör du på följande sätt:
 
-1. Starta SQL Server Management Studio (SSMS) på din SQL Server.
+1. Starta SQL Server Management Studio på SQL Server.
 1. Anslut till den `sql-mi-publisher` hanterade instansen.
 1. Öppna ett **nytt frågefönster** och kör följande Transact-SQL-kod för att lägga till prenumerations-och distributions agenten. Använd DNS som en del av namnet på prenumeranten.
 
@@ -344,7 +344,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 1. Navigera till din resurs grupp i [Azure Portal](https://portal.azure.com).
-1. Välj de hanterade instanserna och välj sedan **ta bort**. Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. Den här processen kan ta lite tid att slutföra i bakgrunden och tills den är klar kan du inte ta bort det *virtuella klustret* eller andra beroende resurser. Övervaka borttagningen på fliken aktivitet för att bekräfta att den hanterade instansen har tagits bort.
+1. Välj de hanterade instanserna och välj sedan **ta bort**. Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. Den här processen kan ta lite tid att slutföra i bakgrunden och tills den är klar kommer du inte att kunna ta bort det *virtuella klustret* eller andra beroende resurser. Övervaka borttagningen på fliken **aktivitet** för att bekräfta att den hanterade instansen har tagits bort.
 1. När den hanterade instansen har tagits bort tar du bort det *virtuella klustret* genom att markera det i resurs gruppen och sedan välja **ta bort**. Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**.
 1. Ta bort eventuella återstående resurser. Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**.
 1. Ta bort resurs gruppen genom att välja **ta bort resurs**grupp, Skriv namnet på resurs gruppen `myResourceGroup` och välj sedan **ta bort**.
@@ -368,7 +368,9 @@ Detta beror förmodligen på att port 445 är stängd i antingen Azure-brandväg
 `Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 55.`
 
 Om du använder ett snedstreck i stället för omvänt snedstreck i fil resursens fil Sök väg kan detta fel uppstå.
-Detta är OK: `\\replstorage.file.core.windows.net\replshare` Detta kan orsaka ett OS 55-fel:`'\\replstorage.file.core.windows.net/replshare'`
+  
+  - Detta är OK:`\\replstorage.file.core.windows.net\replshare`
+  - Detta kan orsaka ett OS 55-fel:`'\\replstorage.file.core.windows.net/replshare'`
 
 ### <a name="could-not-connect-to-subscriber"></a>Det gick inte att ansluta till prenumeranten
 
@@ -382,7 +384,7 @@ Möjliga lösningar:
 - Se till att TCP/IP är aktiverat på prenumeranten.
 - Bekräfta att DNS-namnet användes när prenumeranten skapades.
 - Kontrol lera att de virtuella nätverken är korrekt länkade i den privata DNS-zonen.
-- Kontrol lera att A-posten är korrekt konfigurerad.
+- Verifiera att en post är korrekt konfigurerad.
 - Kontrol lera att din VPN-peering är korrekt konfigurerad.
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>Det går inte att prenumerera på några publikationer
@@ -397,7 +399,7 @@ När du lägger till en ny prenumeration med hjälp av guiden **ny prenumeration
 
 ### <a name="enable-security-features"></a>Aktivera säkerhetsfunktioner
 
-Mer information om hur du skyddar databasen finns i artikeln följande funktioner för [hanterade instanser](sql-managed-instance-paas-overview.md#security-features) . Följande säkerhetsfunktioner diskuteras:
+Se artikeln [Vad är en Azure SQL-hanterad instans?](sql-managed-instance-paas-overview.md#advanced-security-and-compliance) för en omfattande lista över olika sätt att skydda databasen. Följande säkerhetsfunktioner diskuteras:
 
 - [SQL-hanterad instans granskning](auditing-configure.md)
 - [Alltid krypterad](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
@@ -408,7 +410,7 @@ Mer information om hur du skyddar databasen finns i artikeln följande funktione
 
 ### <a name="sql-managed-instance-capabilities"></a>SQL-hanterade instans funktioner
 
-En fullständig översikt över funktionerna för hanterade instanser finns i:
+En fullständig översikt över funktioner för hanterade instanser finns i:
 
 > [!div class="nextstepaction"]
 > [SQL-hanterade instans funktioner](sql-managed-instance-paas-overview.md)

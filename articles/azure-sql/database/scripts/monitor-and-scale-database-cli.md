@@ -1,6 +1,6 @@
 ---
-title: 'Azure CLI: övervaka & skalnings databas i Azure SQL Database'
-description: Exempel skript för Azure CLI för att övervaka och skala en enskild databas i Azure SQL Database
+title: 'Azure CLI: övervaka och skala en enskild databas i Azure SQL Database'
+description: Använd ett Azure CLI-exempel skript för att övervaka och skala en enskild databas i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,19 +11,20 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: be57309e4b327027ed0185c8eabf783a18cc957e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e6fc57a1e0d8988666dd4fe1391e157a2a15f682
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053725"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196822"
 ---
-# <a name="use-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Använd CLI för att övervaka och skala en enskild databas i Azure SQL Database
+# <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Använd Azure CLI för att övervaka och skala en enskild databas i Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 Detta exempel på Azure CLI-skript skalar en enskild databas i Azure SQL Database till en annan beräknings storlek efter att ha frågat om storleks informationen för databasen.
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda Azure CLI lokalt, kräver den här artikeln att du kör Azure CLI version 2,0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -39,10 +40,10 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="run-the-script"></a>Kör skriptet
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a single database in Azure SQL Database")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a database in Azure SQL Database")]
 
 > [!TIP]
-> Använd [AZ SQL DB op List](/cli/azure/sql/db/op?#az-sql-db-op-list) för att hämta en lista över åtgärder som utförs i databasen och [AZ SQL DB op Cancel](/cli/azure/sql/db/op#az-sql-db-op-cancel) för att avbryta en uppdaterings åtgärd för databasen.
+> Använd [AZ SQL DB op List](/cli/azure/sql/db/op?#az-sql-db-op-list) för att hämta en lista över åtgärder som utförts i databasen och Använd [AZ SQL DB op Cancel](/cli/azure/sql/db/op#az-sql-db-op-cancel) för att avbryta en uppdaterings åtgärd på databasen.
 
 ### <a name="clean-up-deployment"></a>Rensa distribution
 
@@ -59,7 +60,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | | |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Server kommandon. |
-| [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Visar användningsinformation om storlek för en enkel databas eller en pooldatabas. |
+| [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Visar användningsinformation om storlek för en databas. |
 
 ## <a name="next-steps"></a>Nästa steg
 

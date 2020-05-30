@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: importera BACPAC-fil (Azure SQL Database)'
+title: 'PowerShell: importera en BACPAC-fil till en ny databas i Azure SQL Database'
 description: Azure PowerShell exempel skript för att importera en BACPAC-fil till en databas i SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
-ms.openlocfilehash: 6ee3363be0e59ab6b14ea6c1f385ba3012f412a5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5cd4b4049b5584673a6988ab175c1a5da5fdc18b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054085"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196887"
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Använd PowerShell för att importera en BACPAC-fil till en databas i SQL Database
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Detta exempel på PowerShell-skript importerar en databas från en BACPAC-fil till en databas i SQL Database.  
+I det här Azure PowerShell-skript exemplet importeras en databas från en BACPAC-fil till en ny databas i SQL Database.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -55,6 +55,6 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
 
 Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../powershell-script-content-guide.md).

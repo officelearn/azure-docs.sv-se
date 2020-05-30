@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 12/08/2019
 ms.author: alehall
-ms.openlocfilehash: fa5568a5af483a61b4e0854cbc7c2ade3b8dc4b1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4461ad5e1ddd867305b5fbbd01bc84f3af9035d7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75889150"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197137"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Självstudie: Strömma data till Azure Databricks med Event Hubs
 
@@ -44,7 +44,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
 > Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
 - Ett Event Hubs-namnområde.
@@ -62,7 +62,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. I Azure Portal väljer du **skapa en resurs** > **data och analys** > **Azure Databricks**.
+1. I Azure Portal väljer du **skapa en resurs**  >  **data och analys**  >  **Azure Databricks**.
 
     ![Databricks på Azure Portal](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
@@ -143,7 +143,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
    * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.12`
    * Twitter-API – `org.twitter4j:twitter4j-core:4.0.7`
 
-3. Välj **Installera**.
+3. Välj **installera**.
 
 4. Kontrol lera att båda biblioteken är installerade och bifogas korrekt i kluster menyn.
 
@@ -175,7 +175,7 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 I anteckningsboken **SendTweetsToEventHub** klistrar du in följande kod och ersätter platshållarna med värden för Event Hubs-namnrymden och det Twitter-program som du skapade tidigare. Anteckningsboken strömmar tweets med nyckelordet ”Azure” till Event Hubs i realtid.
 
 > [!NOTE]
-> Twitter API har vissa begränsningar och [kvoter](https://developer.twitter.com/en/docs/basics/rate-limiting.html)för begäran. Om du inte är nöjd med standard hastighets begränsning i Twitter-API kan du generera text innehåll utan att använda Twitter-API i det här exemplet. Det gör du genom att ställa in variabel `test` **data källa** till i stället för `twitter` och fylla i listan **testSource** med önskade test indata.
+> Twitter API har vissa begränsningar och [kvoter](https://developer.twitter.com/en/docs/basics/rate-limiting.html)för begäran. Om du inte är nöjd med standard hastighets begränsning i Twitter-API kan du generera text innehåll utan att använda Twitter-API i det här exemplet. Det gör du genom att ställa in variabel **data källa** till `test` i stället för `twitter` och fylla i listan **testSource** med önskade test indata.
 
 ```scala
     import scala.collection.JavaConverters._
@@ -283,7 +283,7 @@ Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Utdata som l
 
     Sent event: 4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie
 
-    Sent event: Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
+    Sent event: Migrate your databases to a fully managed service with Azure SQL Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
 
     Sent event: Top 10 Tricks to #Save Money with #Azure Virtual Machines https://t.co/F2wshBXdoz #Cloud
 
@@ -388,7 +388,7 @@ Utdatan liknar nu följande kodfragment:
     |0     |2018-03-09 05:49:08.86 |1520574548|Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
     https://t.co/7vs7cKtvah
     #cloudcomputing #Azure          |
-    |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
+    |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with Azure SQL Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
     |0     |2018-03-09 05:49:02.936|1520574542|@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|
     |176   |2018-03-09 05:49:20.801|1520574560|4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie                                                    |
     +------+-----------------+----------+-------+
@@ -398,7 +398,7 @@ Utdatan liknar nu följande kodfragment:
     ...
     ...
 
-Klart! Med Azure Databricks har du nu strömmat data till Azure Event Hubs nästan i realtid. Du har sedan använt dataströmmen med Event Hubs-anslutningsprogrammet för Apache Spark. Mer information om hur du använder Event Hubs-anslutningsprogrammet för Apache Spark finns i [dokumentationen till anslutningsprogrammet](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+Det är allt. Med Azure Databricks har du nu strömmat data till Azure Event Hubs nästan i realtid. Du har sedan använt dataströmmen med Event Hubs-anslutningsprogrammet för Apache Spark. Mer information om hur du använder Event Hubs-anslutningsprogrammet för Apache Spark finns i [dokumentationen till anslutningsprogrammet](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

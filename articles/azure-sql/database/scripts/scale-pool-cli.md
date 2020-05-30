@@ -1,6 +1,6 @@
 ---
-title: 'AZ CL: skala en elastisk pool'
-description: Skriptexempel för Azure CLI för skalning av en elastisk pool i Azure SQL Database
+title: 'Azure CLI: skala en elastisk pool'
+description: Använd ett Azure CLI-exempel skript för att skala en elastisk pool i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -11,19 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 04736fbfeef9cf0584cf7c1f1a5daf91813ecbc7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 30862a85796fbe4373a88d80d9a6d26c8cf98901
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053947"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196742"
 ---
-# <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Använda CLI för skalning av en elastisk pool i Azure SQL Database
+# <a name="use-the-azure-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Använd Azure CLI för att skala en elastisk pool i Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 Det här skript exemplet för Azure CLI skapar elastiska pooler i Azure SQL Database, flyttar databaser i pooler och ändrar data bearbetnings storlekar i elastisk pool.
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda Azure CLI lokalt, kräver det här avsnittet att du kör Azure CLI version 2,0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 

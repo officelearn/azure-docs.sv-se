@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Lägg till elastisk pool i en grupp för automatisk redundans'
+title: 'PowerShell: lägga till en elastisk pool i en grupp för automatisk redundans'
 description: Azure PowerShell exempel skript för att skapa en Azure SQL Database elastisk pool, lägga till den i en grupp för automatisk redundans och testa redundans.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b756ad44c9702d7b8a2e1fe02c1404e0309f4f10
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d9c387a095f81978bc57f6ce6365596cafffc39c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054115"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196984"
 ---
-# <a name="use-powershell-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Använd PowerShell för att lägga till en Azure SQL Database elastisk pool i en failover-grupp
+# <a name="use-powershell-to-add-an-elastic-pool-to-a-failover-group"></a>Använd PowerShell för att lägga till en elastisk pool i en failover-grupp
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Det här exemplet på PowerShell-skript skapar en enda databas, lägger till den i en elastisk pool, skapar en failover-grupp och testar redundans.
+Det här Azure PowerShell skript exemplet skapar en databas i Azure SQL Database, lägger till den i en elastisk pool, skapar en failover-grupp och testar redundans.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]

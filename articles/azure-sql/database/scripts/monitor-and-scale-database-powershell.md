@@ -1,6 +1,6 @@
 ---
-title: PowerShell-exempel – övervaka-en enkel databas i Azure SQL Database
-description: Azure PowerShell exempel skript för att övervaka och skala en enskild databas i Azure SQL Database
+title: Använd PowerShell för att övervaka och skala en enskild databas i Azure SQL Database
+description: Använd ett Azure PowerShell exempel skript för att övervaka och skala en enskild databas i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,17 +11,18 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 9fa70e5888ecde8437c7d6ea6bbd52827eb6639d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d4f33a2601d9c19896c006af010a394f21fc8219
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054073"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196857"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Använd PowerShell för att övervaka och skala en enskild databas i Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Det här PowerShell-skriptexemplet övervakar prestandavärden för en databas, skalar ut den till en större beräkningsstorlek och skapar en varningsregel för ett av prestandamåtten.
+Det här PowerShell-skript exemplet övervakar prestanda måtten för en enskild databas, skalar den till en högre beräknings storlek och skapar en varnings regel för ett av prestanda måtten.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -55,13 +56,13 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en server som är värd för en enskild databas eller elastisk pool. |
 | [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) | Visar användningsinformation om storlek för databasen.|
-| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Uppdaterar databasegenskaper eller flyttar en databas till, från eller mellan elastiska pooler. |
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Uppdaterar databas egenskaper eller flyttar databasen till, från eller mellan elastiska pooler. |
 | [Add-AzMetricAlertRule](/powershell/module/az.monitor/add-azmetricalertrule) | Ställer in en varnings regel för att automatiskt övervaka mått i framtiden. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
 
 Ytterligare PowerShell-skript exempel finns i [Azure PowerShell skript](../powershell-script-content-guide.md).

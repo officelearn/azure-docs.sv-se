@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b3616a338666dbb10fe7500bad8c1e8239fd2c92
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561631"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196641"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Självstudie: etablera Azure Data Box Gateway i Hyper-V
 
@@ -31,9 +31,9 @@ I den här guiden får du lära dig att:
 > * Etablera en virtuell enhet i hypervisor-program
 > * Starta den virtuella enheten och hämta IP-adressen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 De nödvändiga komponenterna för att etablera en virtuell enhet på ett värdsystem som kör Hyper-V i Windows Server 2016 eller Windows Server 2012 R2 följer nedan.
 
@@ -64,8 +64,8 @@ Innan du distribuerar en enhet kontrollerar du att:
 
 Innan du börjar:
 
-- Granska nätverkskraven för att distribuera en Data Box Gateway och konfigurera datacenternätverket enligt kraven. Mer information finns i [Nätverkskrav för Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
-- Se till att den minsta Internetbandbredden är 20 Mbps för att enheten ska fungera optimalt.
+* Granska nätverkskraven för att distribuera en Data Box Gateway och konfigurera datacenternätverket enligt kraven. Mer information finns i [Nätverkskrav för Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
+* Se till att den minsta Internetbandbredden är 20 Mbps för att enheten ska fungera optimalt.
 
 ## <a name="check-the-host-system"></a>Kontrollera värdsystemet
 
@@ -75,11 +75,17 @@ För att skapa en virtuell enhet behöver du följande:
 * Microsoft Hyper-V Manager på en Microsoft Windows-klient som är ansluten till värden.
 * Kontrollera att den underliggande maskinvaran (värdsystemet) där du skapar den virtuella enheten kan dedikera följande resurser till din virtuella enhet:
 
-    * Minst 4 virtuella processorer.
-    * Minst 8 GB RAM.
-    * Ett nätverksgränssnitt anslutet till det nätverk som kan dirigera trafik till Internet. 
-    * En operativsystemdisk på 250 GB.
-    * En virtuell disk på 2 TB för systemdata.
+  * Minst 4 virtuella processorer.
+  * Minst 8 GB RAM.
+  * Ett nätverksgränssnitt anslutet till det nätverk som kan dirigera trafik till Internet.
+  * En operativsystemdisk på 250 GB.
+  * En virtuell disk på 2 TB för systemdata.
+
+## <a name="bitlocker-considerations"></a>BitLocker-överväganden
+
+* Vi rekommenderar att du aktiverar BitLocker på din Data Box Gateway virtuella dator. BitLocker är inte aktiverat som standard. Mer information finns i:
+  * [Inställningar för krypterings stöd i Hyper-V Manager](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [Stöd för BitLocker i en virtuell dator](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>Etablera en virtuell enhet i hypervisor-program
 
@@ -136,7 +142,7 @@ Utför följande steg för att etablera en enhet i ditt hypervisor-program.
 
     ![Sidan Ange namn och plats](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
 19. På sidan **Konfigurera disk** väljer du alternativet **Skapa en ny tom virtuell hårddisk** och anger storleken till **2 TB** (eller mer).
-    
+
     2 TB är minimikravet, men du kan alltid etablera en större disk. Observera att du inte kan komprimera disken när den har etablerats. Om du försöker minska disk resultatet försvinner alla lokala data på enheten. Det finns inte stöd för att utöka data disken. Klicka på **Nästa**.
 
     ![Sidan Konfigurera disk](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
@@ -148,9 +154,11 @@ Utför följande steg för att etablera en enhet i ditt hypervisor-program.
     ![Sidan Inställningar](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Starta den virtuella enheten och hämta IP-adressen
+
 Utför följande steg för att starta den virtuella enheten och ansluta till den.
 
 #### <a name="to-start-the-virtual-device"></a>Så startar du den virtuella enheten
+
 1. Starta den virtuella enheten.
 
    ![Starta virtuell enhet](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
@@ -159,26 +167,25 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
 3. Du kan behöva vänta 10–15 minuter innan enheten blir klar. Ett statusmeddelande visas på konsolen som visar förloppet. När enheten är klar går du till **Åtgärd**. Tryck `Ctrl + Alt + Delete` för att logga in på den virtuella enheten. Standardanvändaren är *EdgeUser* och standardlösenordet är *Password1*.
 
    ![Logga in på den virtuella enheten](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-   
-6. Steg 5–7 gäller bara när du startar i en icke-DHCP-miljö. Om du använder en DHCP-miljö hoppar du över dessa steg. Om du startade enheten i en icke-DHCP-miljö visas ett meddelande som reflekterar det.
-    
-7. Konfigurera nätverket genom att använda kommandot `Get-HcsIpAddress` för att lista de nätverksgränssnitt som har aktiverats på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
 
-8. Använd cmdleten `Set-HcsIpAddress` för att konfigurera nätverket. Se följande exempel:
+4. Steg 5–7 gäller bara när du startar i en icke-DHCP-miljö. Om du använder en DHCP-miljö hoppar du över dessa steg. Om du startade enheten i en icke-DHCP-miljö visas ett meddelande som reflekterar det.
+
+5. Konfigurera nätverket genom att använda kommandot `Get-HcsIpAddress` för att lista de nätverksgränssnitt som har aktiverats på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
+
+6. Använd cmdleten `Set-HcsIpAddress` för att konfigurera nätverket. Se följande exempel:
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
-    
-9. När den inledande installationen är klar och enheten har startats visas enhetens banderollstext. Anteckna den IP-adress och den URL som visas i banderollstexten för att hantera enheten. Använd den här IP-adressen för att ansluta till webbgränssnittet för den virtuella enheten och slutföra den lokala installationen och aktiveringen.
+
+7. När den inledande installationen är klar och enheten har startats visas enhetens banderollstext. Anteckna den IP-adress och den URL som visas i banderollstexten för att hantera enheten. Använd den här IP-adressen för att ansluta till webbgränssnittet för den virtuella enheten och slutföra den lokala installationen och aktiveringen.
 
    ![Banderoll för virtuell enhet med IP-adress och anslutnings-URL](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
-      
 
 Om enheten inte uppfyller minimikraven för konfiguration visas ett felmeddelande i banderollstexten. Ändra enhetskonfigurationen så att datorn har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Se de lägsta konfigurations kraven i [kontrol lera att värd systemet uppfyller minimi kraven för virtuella enheter](#check-the-host-system).
 
 Om du möter andra fel under den inledande konfigurationen med hjälp av det lokala webb gränssnittet, se följande arbets flöden:
 
-- [Kör diagnostiska tester för att felsöka konfiguration av webb gränssnitt](data-box-gateway-troubleshoot.md#run-diagnostics).
-- [Generera logg paket och visa loggfiler](data-box-gateway-troubleshoot.md#collect-support-package).
+* [Kör diagnostiska tester för att felsöka konfiguration av webb gränssnitt](data-box-gateway-troubleshoot.md#run-diagnostics).
+* [Generera logg paket och visa loggfiler](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Nästa steg
 

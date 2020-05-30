@@ -87,8 +87,6 @@
           href: howto-manage-devices.md
         - name: Konfigurera regler
           href: howto-configure-rules.md
-        - name: Använd arbetsflöden för att integrera med andra tjänster
-          href: howto-configure-rules-advanced.md
         - name: Analysera dina enhetsdata
           href: howto-create-analytics.md
         - name: Lägga till paneler på din instrumentpanel
@@ -103,6 +101,8 @@
           href: howto-export-data.md
         - name: Skapa webhooks med regler
           href: howto-create-webhooks.md
+        - name: Använd arbetsflöden för att integrera med andra tjänster
+          href: howto-configure-rules-advanced.md
         - name: Anslut Azure Monitor åtgärdsgrupper för regler
           href: howto-use-action-groups.md
         - name: Skapa anpassade roller

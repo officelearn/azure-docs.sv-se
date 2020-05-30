@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 00d54f9adcab93152881852b6fcac417e9d7c7d9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f1fb209f44ae7922de87277100fbf55add184766
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409907"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194498"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Läsa in data stegvis från ett källdatalager till ett måldatalager
 
@@ -32,7 +32,7 @@ I det här fallet definierar du en vattenstämpel i din källdatabas. En vattens
 
 Stegvisa instruktioner finns i följande självstudier: 
 - [Kopiera data stegvis från en tabell i Azure SQL Database till Azure Blob Storage](tutorial-incremental-copy-powershell.md)
-- [Kopiera data stegvist från flera tabeller i en lokal SQL Server till Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+- [Kopiera data stegvis från flera tabeller i en SQL Server instans till Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 För mallar, se följande:
 - [Deltakopiera med kontrolltabellen](solution-template-delta-copy-with-control-table.md)

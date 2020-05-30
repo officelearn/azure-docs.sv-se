@@ -1,7 +1,7 @@
 ---
-title: 'Skapa en instans (ARM-mall & PowerShell) '
+title: Skapa en hanterad instans (ARM-mall & PowerShell)
 titleSuffix: Azure SQL Managed Instance
-description: Använd det här Azure PowerShell exempel skriptet för att skapa en hanterad Azure SQL-instans.
+description: Använd det här Azure PowerShell exempel skriptet för att skapa en hanterad instans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,40 +12,41 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 55b0c8f569a91075d4cd87541af7aeff5da69f9a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9024759f87d30cddfa2f3b7ea6b965ce03632f59
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053971"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220871"
 ---
-# <a name="use-powershell-with-azure-resource-manager-template-to-create-an-azure-sql-managed-instance"></a>Använd PowerShell med Azure Resource Manager mall för att skapa en hanterad Azure SQL-instans
+# <a name="use-powershell-with-an-azure-resource-manager-template-to-create-a-managed-instance"></a>Använd PowerShell med en Azure Resource Manager mall för att skapa en hanterad instans
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
-Azure SQL-hanterad instans kan skapas med Azure PowerShell biblioteks-och Azure Resource Manager mallar.
+Du kan skapa en hanterad instans med hjälp av Azure PowerShell bibliotek och Azure Resource Manager mallar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell-1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt kör `Connect-AzAccount` du för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell 1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt kör `Connect-AzAccount` du för att skapa en anslutning till Azure.
 
 Azure PowerShell-kommandon kan starta distribution med hjälp av en fördefinierad Azure Resource Manager-mall. Följande egenskaper kan anges i mallen:
 
-- SQL-hanterad instans namn
+- Namn på hanterad instans
 - Användarnamn och lösenord för SQL-administratör.
 - Storleken på instansen (antal kärnor och högsta tillåtna lagringsstorlek).
 - Virtuellt nätverk och undernät där instansen ska placeras.
-- Sorteringen av instansen på servernivå (förhandsversion).
+- Sortering på server nivå för instansen (förhands granskning).
 
-Instansnamn, SQL-administratörsanvändarnamn, virtuellt nätverk/undernät och sortering kan inte ändras senare. Andra instansegenskaper kan ändras.
+Instans namn, SQL-administratörens användar namn, VNet/undernät och sortering kan inte ändras senare. Andra instansegenskaper kan ändras.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det här exemplet förutsätter att du har [skapat en giltig nätverks miljö](../virtual-network-subnet-create-arm-template.md) eller [ändrat ett befintligt VNet](../vnet-existing-add-subnet.md) för din SQL-hanterade instans. Du kan förbereda nätverks miljön med en separat [Azure-resurs hanterad mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment), om det behövs. 
+Det här exemplet förutsätter att du har [skapat en giltig nätverks miljö](../virtual-network-subnet-create-arm-template.md) eller [ändrat ett befintligt virtuellt](../vnet-existing-add-subnet.md) nätverk för din hanterade instans. Du kan förbereda nätverks miljön med en separat [Azure Resource Manager mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment), om det behövs. 
 
 
-Exemplet använder cmdletarna [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) och [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) så kontrol lera att du har installerat följande PowerShell-moduler:
+Exemplet använder cmdletarna [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) och [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork), så kontrol lera att du har installerat följande PowerShell-moduler:
 
 ```powershell
 Install-Module Az.Network
@@ -112,7 +113,7 @@ Uppdatera följande PowerShell-skript med rätt fil Sök väg för den. JSON-fil
 $subscriptionId = "ed827499-xxxx-xxxx-xxxx-xxxxxxxxxx"
 Select-AzSubscription -SubscriptionId $subscriptionId
 
-# Managed Instance properties
+# Managed instance properties
 $resourceGroup = "rg_mi"
 $location = "West Central US"
 $name = "managed-instance-name"
@@ -127,16 +128,16 @@ $vNet = Get-AzVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResourceGro
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name $SubnetName -VirtualNetwork $vNet
 $subnetId = $subnet.Id
 
-# Deploy Instance using Azure Resource Manager template:
+# Deploy instance using Azure Resource Manager template:
 New-AzResourceGroupDeployment  -Name MyDeployment -ResourceGroupName $resourceGroup  `
                                     -TemplateFile 'C:\...\create-managed-instance.json' `
                                     -instance $name -user $user -pwd $secpasswd -subnetId $subnetId
 ```
 
-När skriptet har slutförts kan SQL-hanterad instans nås från alla Azure-tjänster och den konfigurerade IP-adressen.
+När skriptet har slutförts kan den hanterade instansen nås från alla Azure-tjänster och den konfigurerade IP-adressen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
 
-Ytterligare PowerShell-skript exempel för SQL-hanterad instans finns i [PowerShell-skripten för Azure SQL-hanterad instans](../../database/powershell-script-content-guide.md).
+Ytterligare PowerShell-skript exempel för Azure SQL-hanterad instans finns i [PowerShell-skript för Azure SQL-hanterad instans](../../database/powershell-script-content-guide.md).

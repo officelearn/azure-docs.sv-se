@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: c6f3a912a9b3c9ff65fb9975eaf13b38ee3d9483
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870702"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195293"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Hugo-webbplats till Azures statiska Web Apps för hands version
 
 Den här artikeln visar hur du skapar och distribuerar ett [Hugo](https://gohugo.io/) -webbprogram till [azures statiska Web Apps](overview.md). Det slutliga resultatet är en ny Azure-statisk Web Apps med associerade GitHub-åtgärder som ger dig kontroll över hur appen byggs och publiceras.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -28,7 +28,7 @@ I de här självstudierna får du lära dig att
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
 - Ett GitHub-konto. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://github.com/join).
@@ -153,7 +153,7 @@ Sedan lägger du till de konfigurations inställningar som bygg processen använ
 
 1. Öppna appen Hugo i en text redigerare och öppna filen _. GitHub/arbets flöden/Azure-Pages-<WORKFLOW_NAME>. yml_ .
 
-1. Ersätt raden `- uses: actions/checkout@v2` (rad 18) med följande för att bygga Hugo-programmet.
+1. Ersätt raden `- uses: actions/checkout@v2` (rad 18) med följande för att bygga Hugo-programmet. Om du behöver Hugo Extended, ta bort kommentar `extended: true` .
 
    ```yml
    - uses: actions/checkout@v2
@@ -164,6 +164,7 @@ Sedan lägger du till de konfigurations inställningar som bygg processen använ
      uses: peaceiris/actions-hugo@v2.4.8
      with:
        hugo-version: "latest"
+       # extended: true
 
    - name: Build
      run: hugo

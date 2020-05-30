@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75411946"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195582"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Självstudiekurs: Skapa en cache-aside-resultattavla för ASP.NET
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -615,7 +615,7 @@ Den autogenererade kod som skapats som en del av det här exemplet innehåller m
     </table>
     ```
 
-1. Bläddra till slutet av filen **index. cshtml** och Lägg till följande `tr` -element så att det är den sista raden i den sista tabellen i filen:
+1. Bläddra till slutet av filen **index. cshtml** och Lägg till följande- `tr` element så att det är den sista raden i den sista tabellen i filen:
 
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
@@ -642,9 +642,9 @@ Köra appen lokalt:
 
 ## <a name="publish-and-run-in-azure"></a>Publicera och köra i Azure
 
-### <a name="provision-a-sql-azure-database-for-the-app"></a>Etablera en SQL Azure-databas för appen
+### <a name="provision-a-database-for-the-app"></a>Etablera en databas för appen
 
-I det här avsnittet etablerar du en ny SQL Azure-databas som appen ska användas när den finns i Azure.
+I det här avsnittet ska du etablera en ny databas i SQL Database för appen att använda medan den är värd i Azure.
 
 1. Klicka på [Skapa en resurs](https://portal.azure.com/) längst upp till vänster i **Azure Portal**.
 
@@ -652,7 +652,7 @@ I det här avsnittet etablerar du en ny SQL Azure-databas som appen ska använda
 
 1. Använd följande inställningar för den nya SQL-databasen:
 
-   | Inställningen       | Föreslaget värde | Beskrivning |
+   | Inställning       | Föreslaget värde | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Databas namn** | *ContosoTeamsDatabase* | För giltiga databas namn, se [databas identifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Prenumeration** | *Din prenumeration*  | Välj samma prenumeration som du använde för att skapa cachen och vara värd för apptjänsten. |
@@ -661,7 +661,7 @@ I det här avsnittet etablerar du en ny SQL Azure-databas som appen ska använda
 
 1. Under **Server** klickar du på **Konfigurera nödvändiga inställningar** > **Skapa en ny server** och ange följande information och klicka sedan på knappen **Välj**:
 
-   | Inställningen       | Föreslaget värde | Beskrivning |
+   | Inställning       | Föreslaget värde | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Server namn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
    | **Inloggning för Server administratör** | Valfritt giltigt namn | För giltiga inloggnings namn, se [databas identifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
@@ -701,7 +701,7 @@ I det här steget i självstudien publicerar du programuppdateringarna i Azure f
 
     I följande tabell beskrivs varje åtgärdslänk från exempelprogrammet:
 
-    | Action | Beskrivning |
+    | Åtgärd | Description |
     | --- | --- |
     | Skapa Ny |Skapa ett nytt team. |
     | Spela säsong |Spela en spelsäsong, uppdatera teamstatistiken och avmarkera inaktuell teamdata från cachen. |

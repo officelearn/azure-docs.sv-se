@@ -422,6 +422,8 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Skapa en virtuell dator
                   items:
+                    - name: Specialiserade
+                      href: ../vm-specialized-image-version-cli.md
                     - name: Generaliserade
                       href: ../vm-generalized-image-version-cli.md
                 - name: Uppdatera avbildningsresurser

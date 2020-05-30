@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d8c3bde0f32c1df6c98f6a71f6ab830c21256903
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76906287"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220271"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge modul
 
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure IoT Edge-enhet:
 
@@ -60,16 +60,16 @@ I det här avsnittet skapar du ett Azure Stream Analytics jobb som gör följand
 
 När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-enhet måste det lagras på ett sätt som kan anropas från enheten. Du kan använda ett befintligt Azure Storage konto eller skapa ett nytt nu.
 
-1. I Azure Portal går du till **skapa ett resurs** > **lagrings** > **lagrings konto**.
+1. I Azure Portal går du till **skapa ett resurs**  >  **lagrings**  >  **lagrings konto**.
 
 1. Skapa lagringskontot genom att ange följande värden:
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Prenumeration | Välj samma prenumeration som din IoT-hubb. |
    | Resursgrupp | Vi rekommenderar att du använder samma resurs grupp för alla test resurser för IoT Edge snabb starter och självstudier. Till exempel **IoTEdgeResources**. |
    | Name | Ange ett unikt namn för lagringskontot. |
-   | Plats | Välj en plats i närheten av dig. |
+   | Location | Välj en plats i närheten av dig. |
 
 1. Behåll standardvärdena för de andra fälten och välj **Granska + skapa**.
 
@@ -77,16 +77,16 @@ När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-en
 
 ### <a name="create-a-new-job"></a>Skapa ett nytt jobb
 
-1. I Azure Portal går du till **skapa en resurs** > **Sakernas Internet** > **Stream Analytics jobb**.
+1. I Azure Portal går du till **skapa en resurs**  >  **Sakernas Internet**  >  **Stream Analytics jobb**.
 
 1. Skapa jobbet genom att ange följande värden:
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Jobbnamn | Ange ett namn för ditt jobb. Till exempel **IoTEdgeJob** |
    | Prenumeration | Välj samma prenumeration som din IoT-hubb. |
    | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
-   | Plats | Välj en plats i närheten av dig. |
+   | Location | Välj en plats i närheten av dig. |
    | Värdmiljö | Välj **Gräns**. |
 
 1. Välj **Skapa**.
@@ -169,7 +169,7 @@ I den här självstudien ska du distribuera två moduler. Den första är **Simu
    1. Klicka på **Lägg till** och välj **IoT Edge-modul**.
    1. Skriv **SimulatedTemperatureSensor**som namn.
    1. Ange **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0** som URI för avbildning.
-   1. Lämna de andra inställningarna som de är och välj **Spara**.
+   1. Lämna de andra inställningarna oförändrade och välj **Lägg till**.
 
 1. Lägg till ditt Azure Stream Analytics Edge-jobb med följande steg:
 
@@ -187,7 +187,7 @@ I den här självstudien ska du distribuera två moduler. Den första är **Simu
 
    Som standard tar modulen Stream Analytics samma namn som det jobb den baseras på. Du kan ändra modulnamnet på den här sidan om du vill, men det är inte nödvändigt.
 
-1. Välj **Avbryt** eller **Spara**.
+1. Välj **Uppdatera** eller **Avbryt**.
 
 1. Anteckna namnet på din Stream Analytics-modul eftersom du behöver den i nästa steg. Välj sedan **Nästa: vägar** för att fortsätta.
 

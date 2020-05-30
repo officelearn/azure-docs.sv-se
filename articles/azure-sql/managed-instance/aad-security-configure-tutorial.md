@@ -10,20 +10,20 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 54195652cfdf476f364a31bf710852dab33fb154
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5152f78b428008d3f9a76264f2253167e6c5a138
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053485"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219802"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Självstudie: säkerhet i Azure SQL-hanterad instans med hjälp av Azure AD server-huvudobjekt (inloggningar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-SQL-hanterad instans innehåller nästan alla säkerhetsfunktioner som den senaste SQL Server lokala (Enterprise Edition) databas motorn har:
+Azure SQL-hanterad instans innehåller nästan alla säkerhetsfunktioner som den senaste SQL Server (Enterprise Edition) databas motorn har:
 
-- Begränsa åtkomst i en isolerad miljö
-- Använd autentiseringsmekanismer som kräver identitet (Azure AD, SQL-autentisering)
+- Begränsa åtkomsten i en isolerad miljö
+- Använd autentiseringsmekanismer som kräver identitet: Azure Active Directory (Azure AD) och SQL-autentisering
 - Använda auktorisering med rollbaserade medlemskap och behörigheter
 - Aktivera säkerhetsfunktioner
 
@@ -31,8 +31,8 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
-> - Skapa en Azure Active Directory (AD) Server huvud namn (inloggning) för en SQL-hanterad instans
-> - Bevilja behörigheter till Azure AD server-Huvudkonton (inloggningar) i en SQL-hanterad instans
+> - Skapa ett Azure AD server-huvudobjekt (inloggning) för en hanterad instans
+> - Bevilja behörigheter till Azure AD-serverhuvudkonton (inloggningar) i en hanterad instans
 > - Skapa Azure AD-användare från Azure AD-serverhuvudkonton (inloggningar)
 > - Tilldela behörigheter till Azure AD-användare och hantera databassäkerhet
 > - Använda personifiering med Azure AD-användare
@@ -46,33 +46,33 @@ Mer information finns i [Översikt över Azure SQL Managed instance](sql-managed
 För att kunna slutföra den här självstudien behöver du följande:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
-- En SQL-hanterad instans
-  - Följ den här artikeln: [snabb start: skapa en SQL-hanterad instans](instance-create-quickstart.md)
-- Ha åtkomst till din SQL-hanterade instans och [etablerad en Azure AD-administratör för SQL-hanterad instans](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Du kan läsa mer här:
-  - [Anslut ditt program till en SQL-hanterad instans](connect-application-instance.md)
+- En hanterad instans
+  - Följ den här artikeln: [snabb start: skapa en hanterad instans](instance-create-quickstart.md)
+- Kunna komma åt din hanterade instans och [ha etablerat en Azure AD-administratör för den hanterade instansen](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Du kan läsa mer här:
+  - [Ansluta program till en hanterad instans](connect-application-instance.md)
   - [Anslutnings arkitektur för SQL-hanterad instans](connectivity-architecture-overview.md)
   - [Konfigurera och hantera Azure Active Directory-autentisering med SQL](../database/authentication-aad-configure.md)
 
 ## <a name="limit-access"></a>Begränsa åtkomst 
 
-SQL-hanterade instanser kan nås via en privat IP-adress. Ungefär som en isolerad SQL Server lokal miljö behöver program eller användare åtkomst till SQL Managed instance Network (VNet) innan en anslutning kan upprättas. Mer information finns i följande artikel: [Anslut ditt program till en SQL-hanterad instans](connect-application-instance.md).
+Hanterade instanser kan nås via en privat IP-adress. På samma sätt som en isolerad SQL Server-miljö behöver program eller användare åtkomst till SQL Managed instance Network (VNet) innan en anslutning kan upprättas. Mer information finns i [ansluta ditt program till SQL-hanterad instans](connect-application-instance.md).
 
-Det är också möjligt att konfigurera en tjänst slut punkt på en SQL-hanterad instans, vilket möjliggör offentliga anslutningar på samma sätt som för Azure SQL Database.
-Mer information finns i följande artikel [Konfigurera en offentlig slut punkt i Azure SQL-hanterad instans](public-endpoint-configure.md).
+Det är också möjligt att konfigurera en tjänst slut punkt på en hanterad instans, vilket möjliggör offentliga anslutningar på samma sätt som för Azure SQL Database.
+Mer information finns i [Konfigurera offentlig slut punkt i Azure SQL-hanterad instans](public-endpoint-configure.md).
 
 > [!NOTE]
 > Även om du har aktiverat tjänstens slut punkter gäller inte [Azure SQL Database brand Väggs regler](../database/firewall-configure.md) . Den hanterade Azure SQL-instansen har sin egen [inbyggda brand vägg](management-endpoint-verify-built-in-firewall.md) för att hantera anslutningen.
 
 ## <a name="create-an-azure-ad-server-principal-login-using-ssms"></a>Skapa ett Azure AD server-huvudobjekt (inloggning) med SSMS
 
-Det första Azure AD server-huvudobjektet (inloggning) kan skapas av standard kontot för SQL-administratörer (icke-Azure AD) som är a `sysadmin` , eller Azure AD-administratören för den SQL-hanterade instans som skapades under etablerings processen. Mer information finns i [etablera en Azure Active Directory administratör för din SQL-hanterade instans](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+Det första Azure AD server-huvudobjektet (inloggning) kan skapas av standard kontot för SQL-administratörer (icke-Azure AD) som är a `sysadmin` , eller Azure AD-administratören för den hanterade instans som skapades under etablerings processen. Mer information finns i [etablera en Azure Active Directory administratör för SQL-hanterad instans](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
-I följande artiklar finns exempel på hur du ansluter till din SQL-hanterade instans:
+I följande artiklar finns exempel på hur du ansluter till SQL-hanterad instans:
 
-- [Snabb start: Konfigurera virtuell Azure-dator för att ansluta till en SQL-hanterad instans](connect-vm-instance-configure.md)
-- [Snabb start: Konfigurera en punkt-till-plats-anslutning till en SQL-hanterad instans från den lokala platsen](point-to-site-p2s-configure.md)
+- [Snabb start: Konfigurera virtuell Azure-dator för att ansluta till SQL-hanterad instans](connect-vm-instance-configure.md)
+- [Snabb start: Konfigurera en punkt-till-plats-anslutning till SQL-hanterad instans från lokal plats](point-to-site-p2s-configure.md)
 
-1. Logga in på SQL-hanterad instans med ett standard konto för SQL-inloggning (icke-Azure AD) som är en `sysadmin` Azure AD-administratör för mi, med hjälp av [SQL Server Management Studio](point-to-site-p2s-configure.md#connect-with-ssms).
+1. Logga in på den hanterade instansen med ett standard konto för SQL-inloggning (icke-Azure AD) som är en `sysadmin` Azure AD-administratör för SQL-hanterad instans med hjälp av [SQL Server Management Studio](point-to-site-p2s-configure.md#connect-with-ssms).
 
 2. I **Object Explorer** högerklickar du på servern och väljer **Ny fråga**.
 
@@ -114,18 +114,18 @@ För att andra Azure AD-serverhuvudkonton (inloggningar) ska kunna skapas måste
 
 ### <a name="sql-authentication"></a>SQL-autentisering
 
-- Om inloggningen är ett SQL-huvudkonto kan inloggningar som ingår i rollen `sysadmin` använda kommandot create för att skapa inloggningar för en Azure AD-konto.
+- Om inloggningen är ett SQL-huvud kan endast inloggningar som är en del av `sysadmin` rollen använda kommandot Skapa för att skapa inloggningar för ett Azure AD-konto.
 
 ### <a name="azure-ad-authentication"></a>Azure AD-autentisering
 
 - För att ge det nyligen skapade Azure AD-serverhuvudkontot (inloggning) möjlighet att skapa andra inloggningar för andra Azure AD-användare, grupper eller program beviljar du inloggningen serverrollen `sysadmin` eller `securityadmin`.
 - Som minst måste behörigheten **ALTER ANY LOGIN** ges till Azure AD-serverhuvudkontot (inloggning) för att skapa andra Azure AD-serverhuvudkonton (inloggningar).
 - Som standard är standard behörigheten som beviljats nyligen skapade Azure AD server-Huvudkonton (inloggningar) i huvud servern: **Anslut SQL** och **Visa alla databaser**.
-- `sysadmin`Server rollen kan beviljas till många Azure AD server-Huvudkonton (inloggningar) i en SQL-hanterad instans.
+- Serverrollen `sysadmin` kan ges till många Azure AD-serverhuvudkonton (inloggningar) i en hanterad instans.
 
 Så här lägger du till inloggningen till serverrollen `sysadmin`:
 
-1. Logga in på den SQL-hanterade instansen igen eller Använd den befintliga anslutningen till Azure AD-administratören eller SQL-huvudobjektet som är en `sysadmin` .
+1. Logga in på den hanterade instansen igen eller Använd den befintliga anslutningen till Azure AD-administratören eller SQL-huvudobjektet som är en `sysadmin` .
 
 1. I **Object Explorer** högerklickar du på servern och väljer **Ny fråga**.
 
@@ -147,7 +147,7 @@ Så här lägger du till inloggningen till serverrollen `sysadmin`:
 
 När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin`-privilegier kan den inloggningen skapa ytterligare inloggningar med hjälp av satsen **FROM EXTERNAL PROVIDER** (Från extern provider) med **CREATE LOGIN** (Skapa inloggning).
 
-1. Anslut till den SQL-hanterade instansen med Azure AD server-huvudobjektet (inloggning) med hjälp av SQL Server Management Studio. Ange värd namnet för SQL-hanterad instans. Det finns tre alternativ att välja mellan när du loggar in med ett Azure AD-konto för autentisering i SSMS:
+1. Anslut till den hanterade instansen med Azure AD-serverhuvudkontot (inloggning) med hjälp av SQL Server Management Studio. Ange värd namnet för SQL-hanterad instans. Det finns tre alternativ att välja mellan när du loggar in med ett Azure AD-konto för autentisering i SSMS:
 
    - Active Directory – Universell med stöd för MFA
    - Active Directory – lösenord
@@ -155,9 +155,9 @@ När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin
 
      ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
-     Mer information finns i följande artikel: [Universal Authentication (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md)
+     Mer information finns i [Universal Authentication (SSMS-stöd för Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
-1. Välj **Active Directory – Universell med stöd för MFA**. Sedan öppnas ett inloggningsfönster för Multi-Factor Authentication (MFA). Logga in med ditt Azure AD-lösenord.
+1. Välj **Active Directory – Universell med stöd för MFA**. Detta öppnar ett Multi-Factor Authentication inloggnings fönster. Logga in med ditt Azure AD-lösenord.
 
     ![mfa-login-prompt.png](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
@@ -171,7 +171,7 @@ När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin
     GO
     ```
 
-    Det här exemplet skapar en inloggning för Azure AD-användaren bob@aadsqlmi.net, vars domän aadsqlmi.net är federerad med Azure AD:s aadsqlmi.onmicrosoft.com.
+    I det här exemplet skapas en inloggning för Azure AD bob@aadsqlmi.net -användaren, vars domän aadsqlmi.net är federerad med Azure ad aadsqlmi.onmicrosoft.com-domänen.
 
     Kör följande T-SQL-kommando. Federerade Azure AD-konton är ersättningar för SQL-hanterade instanser för lokala Windows-inloggningar och användare.
 
@@ -182,7 +182,7 @@ När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin
     GO
     ```
 
-1. Skapa en databas i SQL-hanterad instans med hjälp av syntaxen [create Database](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) . Den här databasen används för att testa användarinloggningar i nästa avsnitt.
+1. Skapa en databas i den hanterade instansen med hjälp av syntaxen [create Database](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) . Den här databasen används för att testa användarinloggningar i nästa avsnitt.
     1. I **Object Explorer** högerklickar du på servern och väljer **Ny fråga**.
     1. Använd följande syntax i frågefönstret för att skapa en databas med namnet **MyMITestDB**.
 
@@ -195,7 +195,7 @@ När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin
 
 1. Öppna ett nytt frågefönster i SQL Server Management Studio.
 
-    Det här exemplet förutsätter att det finns en grupp som heter _mygroup_ i Azure AD. Kör följande kommando:
+    Det här exemplet förutsätter att det finns en grupp som heter min _grupp_ i Azure AD. Kör följande kommando:
 
     ```sql
     USE master
@@ -204,7 +204,7 @@ När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin
     GO
     ```
 
-1. Som ett test loggar du in på den SQL-hanterade instansen med den nyligen skapade inloggningen eller gruppen. Öppna en ny anslutning till SQL-hanterad instans och Använd den nya inloggningen vid autentisering.
+1. Testa att logga in på den hanterade instansen med den nyligen skapade inloggningen eller gruppen. Öppna en ny anslutning till den hanterade instansen och använd den nya inloggningen som autentisering.
 1. I **Object Explorer** högerklickar du på servern och väljer **Ny fråga** för den nya anslutningen.
 1. Kontrollera serverbehörigheter för det nyligen skapade Azure AD-serverhuvudkontot (inloggning) genom att köra följande kommando:
 
@@ -214,13 +214,13 @@ När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin
       ```
 
 > [!NOTE]
-> Azure AD-gäst användare stöds för inloggningar med SQL-hanterade instanser, endast när de läggs till som en del av en Azure AD-grupp. En Azure AD-gäst användare är ett konto som är inbjuden till den Azure AD som den SQL-hanterade instansen tillhör, från en annan Azure AD. Till exempel kan joe@contoso.com (Azure AD-konto) eller steve@outlook.com (MSA-konto) läggas till en grupp i Azure AD aadsqlmi. När användarna har lagts till i en grupp kan en inloggning skapas i **huvud** databasen för SQL-hanterad instans för gruppen med hjälp av syntaxen för att **Skapa inloggning** . Gäst användare som är medlemmar i den här gruppen kan ansluta till den SQL-hanterade instansen med hjälp av sina aktuella inloggningar (till exempel joe@contoso.com eller steve@outlook.com ).
+> Azure AD-gäst användare stöds för inloggningar med SQL-hanterade instanser, endast när de läggs till som en del av en Azure AD-grupp. En Azure AD-gäst användare är ett konto som bjuds in till den Azure AD-instans som den hanterade instansen tillhör, från en annan Azure AD-instans. Till exempel joe@contoso.com kan du lägga till (Azure AD-konto) eller steve@outlook.com (Microsoft-konto) i en grupp i Azure AD aadsqlmi-instansen. När användarna har lagts till i en grupp kan en inloggning skapas i **huvud** databasen för SQL-hanterad instans för gruppen med hjälp av syntaxen för att **Skapa inloggning** . Gäst användare som är medlemmar i den här gruppen kan ansluta till den hanterade instansen med hjälp av sina aktuella inloggningar (till exempel joe@contoso.com eller steve@outlook.com ).
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login"></a>Skapa en Azure AD-användare från Azure AD server-huvudobjektet (inloggning)
 
-Auktorisering till enskilda databaser fungerar ungefär på samma sätt i SQL-hanterad instans på samma sätt som med SQL Server lokalt. En användare kan skapas från en befintlig inloggning i en databas och få behörigheter för databasen eller läggas till i en databasroll.
+Auktorisering till enskilda databaser fungerar ungefär på samma sätt i SQL-hanterad instans som med databaser i SQL Server. En användare kan skapas från en befintlig inloggning i en databas och få behörigheter för databasen eller läggas till i en databasroll.
 
-Nu när vi har skapat en databas som heter **MyMITestDB**, och en inloggning som endast har standardbehörigheterna, är nästa steg att skapa en användare från den inloggningen. Vid det tillfället kan inloggningen ansluta till SQL-hanterad instans och se alla databaser, men de kan inte samverka med databaserna. Om du loggar in med Azure AD-kontot som har standardbehörigheterna och försöker expandera den nyligen skapade databasen visas följande fel:
+Nu när vi har skapat en databas som heter **MyMITestDB**, och en inloggning som endast har standardbehörigheterna, är nästa steg att skapa en användare från den inloggningen. För tillfället kan inloggningen ansluta till den hanterade instansen och se alla databaser, men inte interagera med databaserna. Om du loggar in med Azure AD-kontot som har standardbehörigheterna och försöker expandera den nyligen skapade databasen visas följande fel:
 
 ![ssms-db-not-accessible.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
@@ -228,7 +228,7 @@ Läs mer om hur du beviljar databasbehörigheter i [Getting Started with Databas
 
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Skapa en Azure AD-användare och skapa en exempeltabell
 
-1. Logga in på den SQL-hanterade instansen med ett `sysadmin` konto med hjälp av SQL Server Management Studio.
+1. Logga in på den hanterade instansen med ett `sysadmin`-konto i SQL Server Management Studio.
 1. I **Object Explorer** högerklickar du på servern och väljer **Ny fråga**.
 1. I frågefönstret använder du följande syntax för att skapa en Azure AD-användare från ett Azure AD-serverhuvudkonto (inloggning):
 
@@ -250,7 +250,7 @@ Läs mer om hur du beviljar databasbehörigheter i [Getting Started with Databas
 
 1. Det finns även stöd för att skapa en Azure AD-användare från ett Azure AD-serverhuvudkonto (inloggning) som är en grupp.
 
-    I följande exempel skapas en inloggning för Azure AD-gruppen _mygroup_ som finns i din Azure AD.
+    I följande exempel skapas en inloggning för Azure _AD Group-gruppen som finns_ i din Azure AD-instans.
 
     ```sql
     USE MyMITestDB
@@ -259,7 +259,7 @@ Läs mer om hur du beviljar databasbehörigheter i [Getting Started with Databas
     GO
     ```
 
-    Alla användare som tillhör **mygroup** kan komma åt databasen **MyMITestDB**.
+    Alla användare som tillhör *mygroup* kan komma åt databasen **MyMITestDB**.
 
     > [!IMPORTANT]
     > När du skapar en **USER** (Användare) från ett Azure AD-serverhuvudkonto (inloggning) anger du samma user_name som login_name från **LOGIN** (Inloggning).
@@ -293,7 +293,7 @@ Läs mer om hur du beviljar databasbehörigheter i [Getting Started with Databas
 
 För att användaren ska kunna se data i databasen ger vi användaren [roller på databasnivå](/sql/relational-databases/security/authentication-access/database-level-roles).
 
-1. Logga in på den SQL-hanterade instansen med ett `sysadmin` konto med hjälp av SQL Server Management Studio.
+1. Logga in på den hanterade instansen med ett `sysadmin`-konto i SQL Server Management Studio.
 
 1. I **Object Explorer** högerklickar du på servern och väljer **Ny fråga**.
 
@@ -316,14 +316,14 @@ För att användaren ska kunna se data i databasen ger vi användaren [roller p�
     GO
     ```
 
-1. Kontrollera att Azure AD-användaren som har skapats i databasen finns genom att köra följande kommando:
+1. Kontrol lera att Azure AD-användaren som skapades i databasen finns genom att köra följande kommando:
 
     ```sql
     SELECT * FROM sys.database_principals
     GO
     ```
 
-1. Skapa en ny anslutning till den SQL-hanterade instansen med användaren som har lagts till i `db_datareader` rollen.
+1. Skapa en ny anslutning till den hanterade instansen med användaren som lades till i rollen `db_datareader`.
 1. Expandera databasen i **Object Explorer** du vill se tabellen.
 
     ![ssms-test-table.png](./media/aad-security-configure-tutorial/ssms-test-table.png)
@@ -345,7 +345,7 @@ SQL-hanterad instans stöder personifiering av Azure AD-säkerhetsobjekt på ser
 
 ### <a name="test-impersonation"></a>Testa personifiering
 
-1. Logga in på den SQL-hanterade instansen med ett `sysadmin` konto med hjälp av SQL Server Management Studio.
+1. Logga in på den hanterade instansen med ett `sysadmin`-konto i SQL Server Management Studio.
 
 1. I **Object Explorer** högerklickar du på servern och väljer **Ny fråga**.
 
@@ -385,9 +385,9 @@ SQL-hanterad instans stöder personifiering av Azure AD-säkerhetsobjekt på ser
 
 ## <a name="use-cross-database-queries"></a>Använda frågor över databaser
 
-Databasöverskridande frågor stöds för Azure AD-konton med Azure AD-serverhuvudkonton (inloggningar). Vi måste skapa en annan databas och tabell för att testa en databasöverskridande fråga med en Azure AD-grupp. Du behöver inte skapa en annan databas och tabell om det redan finns.
+Databasöverskridande frågor stöds för Azure AD-konton med Azure AD-serverhuvudkonton (inloggningar). Vi måste skapa en annan databas och tabell för att testa en databasöverskridande fråga med en Azure AD-grupp. Du kan hoppa över att skapa en annan databas och tabell om det redan finns en.
 
-1. Logga in på den SQL-hanterade instansen med ett `sysadmin` konto med hjälp av SQL Server Management Studio.
+1. Logga in på den hanterade instansen med ett `sysadmin`-konto i SQL Server Management Studio.
 1. I **Object Explorer** högerklickar du på servern och väljer **Ny fråga**.
 1. I frågefönstret använder du följande kommando för att skapa en databas med namnet **MyMITestDB2** och en tabell med namnet **TestTable2**:
 
@@ -416,7 +416,7 @@ Databasöverskridande frågor stöds för Azure AD-konton med Azure AD-serverhuv
     GO
     ```
 
-1. Logga in på den SQL-hanterade instansen med SQL Server Management Studio som medlem i _gruppen Azure AD Group._ Öppna ett nytt frågefönster och kör instruktionen SELECT över flera databaser:
+1. Logga in på den hanterade instansen med SQL Server Management Studio som medlem _i gruppen Azure AD Group._ Öppna ett nytt frågefönster och kör instruktionen SELECT över flera databaser:
 
     ```sql
     USE MyMITestDB
@@ -432,7 +432,7 @@ Databasöverskridande frågor stöds för Azure AD-konton med Azure AD-serverhuv
 - Åtgärder för databassäkerhetskopiering och -återställning kan köras av Azure AD-serverhuvudkonton (inloggningar).
 - [Granskning](auditing-configure.md) av alla instruktioner som är relaterade till Azure AD-serverhuvudkonton (inloggningar) och autentiseringshändelser.
 - Dedikerad administratörsanslutning för Azure AD-serverhuvudkonton (inloggningar) som är medlemmar i serverrollen `sysadmin`.
-- Azure AD-serverhuvudkonton (inloggningar) stöds med hjälp av den [sqlcmd-verktyget](/sql/tools/sqlcmd-utility) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)-verktyget.
+- Azure AD server-Huvudkonton (inloggningar) stöds med hjälp av verktyget [SQLCMD](/sql/tools/sqlcmd-utility) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) .
 - Inloggningsutlösare stöds för inloggningshändelser som kommer från Azure AD-serverhuvudkonton (inloggningar).
 - Service Broker och DBMail kan konfigureras med hjälp av Azure AD-serverhuvudkonton (inloggningar).
 
@@ -440,7 +440,7 @@ Databasöverskridande frågor stöds för Azure AD-konton med Azure AD-serverhuv
 
 ### <a name="enable-security-features"></a>Aktivera säkerhetsfunktioner
 
-I artikeln om [säkerhets funktioner för SQL-hanterade instanser](sql-managed-instance-paas-overview.md#security-features) finns en omfattande lista över olika sätt att skydda databasen. Följande säkerhetsfunktioner diskuteras:
+Se artikeln [SQL-hanterad instans säkerhetsfunktioner](sql-managed-instance-paas-overview.md#security-features) för en omfattande lista över olika sätt att skydda databasen. Följande säkerhetsfunktioner diskuteras:
 
 - [SQL-hanterad instans granskning](auditing-configure.md)
 - [Alltid krypterad](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
@@ -449,9 +449,9 @@ I artikeln om [säkerhets funktioner för SQL-hanterade instanser](sql-managed-i
 - [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security)
 - [Transparent data kryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
-### <a name="managed-instance-capabilities"></a>Hanterade instansfunktioner
+### <a name="sql-managed-instance-capabilities"></a>SQL-hanterade instans funktioner
 
-En fullständig översikt över funktioner i SQL-hanterad instans finns i:
+En fullständig översikt över funktioner för SQL-hanterad instans finns i:
 
 > [!div class="nextstepaction"]
 > [SQL-hanterade instans funktioner](sql-managed-instance-paas-overview.md)

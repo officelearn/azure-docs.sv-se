@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 54adcb6c6da62406dda5df738dde06dee5d6b1e0
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 95370a45b9fce69e5c1d06ac9bb987e1bfcfba4f
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167391"
+ms.locfileid: "84204080"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Aktivera Uppdateringshantering från en runbook
 
@@ -105,4 +105,4 @@ Du måste ha aktiverat Uppdateringshantering för att en virtuell Azure-dator sk
 * Om du vill använda Uppdateringshantering för virtuella datorer läser du [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).
 * Information om hur du felsöker allmänna Uppdateringshantering fel finns i [felsöka uppdateringshantering problem](troubleshoot/update-management.md).
 * Information om hur du felsöker problem med Windows Update-agenten finns i [Felsöka problem med Windows Update-agenten](troubleshoot/update-agent-issues.md).
-* Information om hur du felsöker problem med Linux Update-agenten finns i[Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).
+* Information om hur du felsöker problem med Linux Update-agenten finns i [Felsöka problem med Linux Update Agent](troubleshoot/update-agent-issues-linux.md).

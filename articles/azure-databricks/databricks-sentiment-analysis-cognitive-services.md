@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 382dff156c088f367200f0dd46c3758193ade189
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4979129331114cf22f459ce632ac3674a7d866d1
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75889232"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197184"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Självstudie: Attitydanalys på strömmad data med hjälp av Azure Databricks
 
@@ -45,7 +45,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
 > Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-azure-portal)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
 - Ett Event Hubs-namnområde.
@@ -63,7 +63,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/?WT.mc_id=sparkeventhubs-
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. I Azure Portal väljer du **skapa en resurs** > **data och analys** > **Azure Databricks**.
+1. I Azure Portal väljer du **skapa en resurs**  >  **data och analys**  >  **Azure Databricks**.
 
     ![Databricks på Azure Portal](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
@@ -148,7 +148,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
      ![Ange maven-koordinater](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search-dialogue.png "Sök maven-koordinater")
 
-3. Välj **Installera**.
+3. Välj **installera**.
 
 4. Kontrol lera att båda biblioteken är installerade och bifogas korrekt i kluster menyn.
 
@@ -164,7 +164,7 @@ I den här självstudien använder du [Azure Cognitive Services textanalys-API: 
 
 2. Välj **+ Skapa en resurs**.
 
-3. Under Azure Marketplace väljer du **AI och Cognitive Services** > **API för textanalys**.
+3. Under Azure Marketplace väljer du **AI och Cognitive Services**  >  **API för textanalys**.
 
     ![Skapa konto för kognitiva tjänster](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "Skapa konto för kognitiva tjänster")
 
@@ -216,7 +216,7 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 I anteckningsboken **SendTweetsToEventHub** klistrar du in följande kod och ersätter platshållarna med värden för Event Hubs-namnrymden och det Twitter-program som du skapade tidigare. Anteckningsboken strömmar tweets med nyckelordet ”Azure” till Event Hubs i realtid.
 
 > [!NOTE]
-> Twitter API har vissa begränsningar och [kvoter](https://developer.twitter.com/en/docs/basics/rate-limiting.html)för begäran. Om du inte är nöjd med standard hastighets begränsning i Twitter-API kan du generera text innehåll utan att använda Twitter-API i det här exemplet. Det gör du genom att ställa in variabel `test` **data källa** till i stället för `twitter` och fylla i listan **testSource** med önskade test indata.
+> Twitter API har vissa begränsningar och [kvoter](https://developer.twitter.com/en/docs/basics/rate-limiting.html)för begäran. Om du inte är nöjd med standard hastighets begränsning i Twitter-API kan du generera text innehåll utan att använda Twitter-API i det här exemplet. Det gör du genom att ställa in variabel **data källa** till `test` i stället för `twitter` och fylla i listan **testSource** med önskade test indata.
 
 ```scala
     import scala.collection.JavaConverters._
@@ -324,7 +324,7 @@ Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Utdata som l
 
     Sent event: 4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie
 
-    Sent event: Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
+    Sent event: Migrate your databases to a fully managed service with Azure SQL Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
 
     Sent event: Top 10 Tricks to #Save Money with #Azure Virtual Machines https://t.co/F2wshBXdoz #Cloud
 
@@ -429,7 +429,7 @@ Utdatan liknar nu följande kodfragment:
     |0     |2018-03-09 05:49:08.86 |1520574548|Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
     https://t.co/7vs7cKtvah
     #cloudcomputing #Azure          |
-    |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
+    |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
     |0     |2018-03-09 05:49:02.936|1520574542|@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|
     |176   |2018-03-09 05:49:20.801|1520574560|4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie                                                    |
     +------+-----------------+----------+-------+
@@ -607,14 +607,14 @@ Du bör se utdata som liknar följande kodavsnitt:
     +--------------------------------+------------------+
     |Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
     https://t.co/7vs7cKtvah   #cloudcomputing #Azure          |0.7761918306350708|
-    |Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |0.8558163642883301|
+    |Migrate your databases to a fully managed service with Azure SQL Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |0.8558163642883301|
     |@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|0.5               |
     |4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie                                                    |0.5               |
     +--------------------------------+------------------+
 
 Ett värde nära **1** i kolumnen **Attityd** innebär en bra Azure-upplevelse. Ett värde närmare **0** tyder på problem som användare kan uppleva när de använder Microsoft Azure.
 
-Klart! Med Azure Databricks har du strömmat data till Azure Event Hubs, använt dataströmmar med Event Hubs-anslutningsappen och sedan kört sentimentanalys på strömmande data nästan i realtid.
+Det är allt. Med Azure Databricks har du strömmat data till Azure Event Hubs, använt dataströmmar med Event Hubs-anslutningsappen och sedan kört sentimentanalys på strömmande data nästan i realtid.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

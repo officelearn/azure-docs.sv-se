@@ -10,12 +10,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: db2ff5916b8a90b0ef3ec8ff8af2de7ae3265f6a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 057ffcdc8a21567e909d768236e454ee10036115
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053899"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216562"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Självstudie: utforma en Relations databas i Azure SQL Database C&#x23; och ADO.NET
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,11 +40,11 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 
 En installation av [Visual Studio 2019](https://www.visualstudio.com/downloads/) eller senare.
 
-## <a name="create-a-blank-azure-sql-database"></a>Skapa en tom Azure SQL Database
+## <a name="create-a-blank-database-in-azure-sql-database"></a>Skapa en tom databas i Azure SQL Database
 
-En Azure SQL Database skapas med en definierad uppsättning beräknings-och lagrings resurser. Databasen skapas i en Azure- [resurs grupp](../../active-directory-b2c/overview.md) och hanteras med hjälp av en [logisk SQL-Server](logical-servers.md).
+En databas i Azure SQL Database skapas med en definierad uppsättning beräknings-och lagrings resurser. Databasen skapas i en Azure- [resurs grupp](../../active-directory-b2c/overview.md) och hanteras med hjälp av en [logisk SQL-Server](logical-servers.md).
 
-Följ de här stegen för att skapa en tom SQL Database.
+Följ de här stegen för att skapa en tom databas.
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 2. Välj **Databaser** i avsnittet Azure Marketplace på sidan **Nytt** och klicka sedan på **SQL Database** i avsnittet **Aktuellt**.
@@ -53,7 +53,7 @@ Följ de här stegen för att skapa en tom SQL Database.
 
 3. Fyll i **SQL Database** formuläret med följande information, som du ser på föregående bild:
 
-    | Inställningen       | Föreslaget värde | Beskrivning |
+    | Inställning       | Föreslaget värde | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Databas namn** | *yourDatabase* | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Prenumeration** | *yourSubscription*  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
@@ -62,11 +62,11 @@ Följ de här stegen för att skapa en tom SQL Database.
 
 4. Klicka på **Server** för att använda en befintlig server eller skapa och konfigurera en ny server. Välj antingen en befintlig server eller klicka på **Skapa en ny server** och fyll i följande information i formuläret **Ny server**:
 
-    | Inställningen       | Föreslaget värde | Beskrivning |
+    | Inställning       | Föreslaget värde | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Server namn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
     | **Inloggning för Server administratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
-    | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
+    | **Lösenord** | Valfritt giltigt lösenord | Lösen ordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
     | **Position** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa databas-server](./media/design-first-database-csharp-tutorial/create-database-server.png)
@@ -86,12 +86,12 @@ Följ de här stegen för att skapa en tom SQL Database.
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Skapa en IP-brandväggsregel på servernivå
 
-SQL Database-tjänsten skapar en IP-brandvägg på servernivå. Den här brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern såvida inte en brandväggsregel tillåter deras IP-adresser genom brandväggen. Om du vill aktivera extern anslutning till databasen måste du först lägga till en IP-brandväggsregel för din IP-adress (eller IP-adressintervall). Följ de här stegen för att skapa en [regel för IP-brandvägg på server nivå](firewall-configure.md).
+SQL Database skapar en IP-brandvägg på server nivå. Den här brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern såvida inte en brandväggsregel tillåter deras IP-adresser genom brandväggen. Om du vill aktivera extern anslutning till databasen måste du först lägga till en IP-brandväggsregel för din IP-adress (eller IP-adressintervall). Följ de här stegen för att skapa en [regel för IP-brandvägg på server nivå](firewall-configure.md).
 
 > [!IMPORTANT]
-> SQL Database-tjänsten kommunicerar via port 1433. Om du försöker ansluta till den här tjänsten från ett företagsnätverk kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till databasen om administratören öppnar port 1433.
+> SQL Database kommunicerar via port 1433. Om du försöker ansluta till den här tjänsten från ett företagsnätverk kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till databasen om administratören öppnar port 1433.
 
-1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på *yourDatabase* på sidan **SQL-databaser**. Översiktssidan för databasen öppnas och visar det fullständigt kvalificerade **servernamnet** (till exempel *yourserver.database.windows.net*) tillsammans med alternativ för ytterligare konfiguration.
+1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och sedan på *YourDatabase* på sidan **SQL-databaser** . Översiktssidan för databasen öppnas och visar det fullständigt kvalificerade **servernamnet** (till exempel *yourserver.database.windows.net*) tillsammans med alternativ för ytterligare konfiguration.
 
 2. Kopiera det här fullständigt kvalificerade servernamnet. Du behöver det när du ansluter till servern och dess databaser från SQL Server Management Studio.
 
@@ -110,7 +110,7 @@ SQL Database-tjänsten skapar en IP-brandvägg på servernivå. Den här brandv�
 Din IP-adress kan nu passera genom IP-brandväggen. Nu kan du ansluta till din databas med SQL Server Management Studio eller något annat verktyg som du själv väljer. Se till att använda serveradmin-kontot som du skapade tidigare.
 
 > [!IMPORTANT]
-> Som standard är åtkomst via IP-brandväggen för SQL Database aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
+> Som standard är åtkomst via IP-brandväggen för SQL Database aktiverad för alla Azure-tjänster. Klicka på **av** på den här sidan om du vill inaktivera åtkomst för alla Azure-tjänster.
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../../includes/sql-database-csharp-adonet-create-query-2.md)]
 

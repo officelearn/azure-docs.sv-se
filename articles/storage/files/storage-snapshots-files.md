@@ -7,28 +7,33 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b50407b3ea7389388577d229f67a4e4baca4296d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: d415ef165da18312a458d7d14fba18acd1bf44cf
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873578"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235611"
 ---
-# <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över resursögonblicksbilder för Azure Files 
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över resursögonblicksbilder för Azure Files
+
 Azure Files ger möjlighet att ta bort ögonblicks bilder av fil resurser. Dela ögonblicks bilder fångar resurs statusen vid den tidpunkten. I den här artikeln beskriver vi vilka funktioner som delar ögonblicks bilder och hur du kan dra nytta av dem i ditt anpassade användnings fall.
 
 ## <a name="when-to-use-share-snapshots"></a>När du ska använda resurs ögonblicks bilder
 
 ### <a name="protection-against-application-error-and-data-corruption"></a>Skydd mot program fel och skadade data
+
 Program som använder fil resurser utför åtgärder som att skriva, läsa, lagra, överföra och bearbeta. Om ett program är felkonfigurerat eller om ett oavsiktligt fel har införts, kan oavsiktlig överskrivning eller skada ske i ett fåtal block. För att skydda dig mot dessa scenarier kan du ta en ögonblicks bild av en resurs innan du distribuerar ny program kod. Om ett fel eller ett program fel introduceras med den nya distributionen kan du gå tillbaka till en tidigare version av dina data på fil resursen. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Skydd mot oavsiktliga borttagningar eller oavsiktliga ändringar
+
 Tänk dig att du arbetar med en textfil i en fil resurs. När text filen har stängts förlorar du möjligheten att ångra ändringarna. I dessa fall måste du återställa en tidigare version av filen. Du kan använda resurs ögonblicks bilder för att återställa tidigare versioner av filen om den av misstag har bytt namn eller tagits bort.
 
 ### <a name="general-backup-purposes"></a>Allmänna säkerhets kopierings syfte
-När du har skapat en fil resurs kan du regelbundet skapa en resurs ögonblicks bild av fil resursen för att använda den för säkerhets kopiering av data. En resurs ögonblicks bild, när den tas med jämna mellanrum, hjälper till att underhålla tidigare versioner av data som kan användas för framtida gransknings krav eller katastrof återställning.
+
+När du har skapat en fil resurs kan du regelbundet skapa en resurs ögonblicks bild av fil resursen för att använda den för säkerhets kopiering av data. En resurs ögonblicks bild, när den tas med jämna mellanrum, hjälper till att underhålla tidigare versioner av data som kan användas för framtida gransknings krav eller katastrof återställning. Vi rekommenderar att du använder [säkerhets kopiering av Azure-filresurs](../../backup/azure-file-share-backup-overview.md) som säkerhets kopierings lösning för att ta och hantera ögonblicks bilder. Du kan också ta och hantera ögonblicks bilder själv, antingen med CLI eller PowerShell.
 
 ## <a name="capabilities"></a>Funktioner
+
 En ögonblicks bild av en resurs är en skrivskyddad kopia av dina data vid en viss tidpunkt. Du kan skapa, ta bort och hantera ögonblicks bilder med hjälp av REST API. Samma funktioner är också tillgängliga i klient biblioteket, Azure CLI och Azure Portal. 
 
 Du kan visa ögonblicks bilder av en resurs med hjälp av både REST API och SMB. Du kan hämta listan över versioner av katalogen eller filen och du kan montera en speciell version direkt som en enhet (endast tillgänglig i Windows-se [gränser](#limits)). 
@@ -48,7 +53,8 @@ När du skapar en resurs ögonblicks bild av en fil resurs kopieras filerna i re
 
 Det går inte att ta bort en resurs som har ögonblicks bilder av resursen om du inte tar bort alla ögonblicks bilder först.
 
-## <a name="space-usage"></a>Utrymmes användning 
+## <a name="space-usage"></a>Utrymmes användning
+
 Resurs ögonblicks bilder är stegvisa. Endast de data som har ändrats efter att du har sparat den senaste ögonblicks bilden av resursen. Detta minimerar den tid som krävs för att skapa ögonblicks bilden av resursen och sparar pengar på lagrings kostnaderna. Alla Skriv åtgärder till åtgärden för objekt-eller egenskaps-eller metadata-uppdatering räknas till "ändrat innehåll" och lagras i resurs ögonblicks bilden. 
 
 För att spara utrymme kan du ta bort resurs ögonblicks bilden för den period då omsättningen var högst.
@@ -58,6 +64,7 @@ För att spara utrymme kan du ta bort resurs ögonblicks bilden för den period 
 Ögonblicks bilder räknas inte mot din gräns för 5 TB-resursen. Det finns ingen gräns för hur mycket utrymmes resurs ögonblicks bilder som upptas totalt. Lagrings konto gränser gäller fortfarande.
 
 ## <a name="limits"></a>Begränsningar
+
 Det maximala antalet resurs ögonblicks bilder som Azure Files tillåter idag är 200. Efter 200 resurs ögonblicks bilder måste du ta bort gamla ögonblicks bilder av resurser för att skapa nya. 
 
 Det finns ingen gräns för samtidiga anrop för att skapa resurs ögonblicks bilder. Det finns ingen gräns för mängden utrymme som delar ögonblicks bilder av en viss fil resurs som kan använda. 
@@ -65,6 +72,7 @@ Det finns ingen gräns för samtidiga anrop för att skapa resurs ögonblicks bi
 Idag är det inte möjligt att montera ögonblicks bilder av resurser i Linux. Detta beror på att Linux SMB-klienten inte stöder montering av ögonblicks bilder som Windows gör.
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Kopiera data tillbaka till en resurs från resurs ögonblicks bild
+
 Kopierings åtgärder som involverar filer och resurs ögonblicks bilder följer dessa regler:
 
 Du kan kopiera enskilda filer i en ögonblicks bild av en fil resurs till dess bas resurs eller någon annan plats. Du kan återställa en tidigare version av en fil eller återställa hela fil resursen genom att kopiera filen från den delade ögonblicks bilden. Resurs ögonblicks bilden höjs inte till bas resursen. 
@@ -75,8 +83,9 @@ Du kan kopiera en fil i en resurs ögonblicks bild till ett annat mål med ett a
 
 När en målfil skrivs över med en kopia förblir alla resurs ögonblicks bilder som är associerade med den ursprungliga mål filen oförändrade.
 
-## <a name="general-best-practices"></a>Allmän bästa praxis 
-När du kör en infrastruktur på Azure kan du automatisera säkerhets kopieringar för data återställning närhelst det är möjligt. Automatiserade åtgärder är mer pålitliga än manuella processer, vilket hjälper till att förbättra data skydd och återställning. Du kan använda REST API, klient-SDK eller skript för automatisering.
+## <a name="general-best-practices"></a>Allmän bästa praxis
+
+Vi rekommenderar att du använder [säkerhets kopiering av Azure-filresurs](../../backup/azure-file-share-backup-overview.md) som en säkerhets kopierings lösning för automatisering av ögonblicks bilder, samt hantering av ögonblicks bilder. När du kör en infrastruktur på Azure kan du automatisera säkerhets kopieringar för data återställning närhelst det är möjligt. Automatiserade åtgärder är mer pålitliga än manuella processer, vilket hjälper till att förbättra data skydd och återställning. Du kan använda Azure-filresursens säkerhets kopiering, REST API, klient-SDK eller skript för automatisering.
 
 Innan du distribuerar Schemaläggaren för resurs ögonblicks bilder bör du ta hänsyn till din resurs frekvens för ögonblicks bilder och inställningarna för kvarhållning för att undvika onödiga kostnader.
 
@@ -84,6 +93,7 @@ Resurs ögonblicks bilder tillhandahåller bara skydd på filnivå. Resurs ögon
 
 ## <a name="next-steps"></a>Nästa steg
 - Arbeta med resurs ögonblicks bilder i:
+    - [Säkerhets kopiering av Azure-filresurs](../../backup/azure-file-share-backup-overview.md)
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)

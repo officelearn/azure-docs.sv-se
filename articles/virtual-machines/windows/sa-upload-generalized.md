@@ -9,12 +9,12 @@ ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: e2ecdb6f436806f93610325b4d5adf28cb3253e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc2e2ff0edc09e613b1da0a503eff9d53ebcf7a9
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099639"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234629"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Överför en generaliserad virtuell hård disk till Azure för att skapa en ny virtuell dator
 
@@ -115,7 +115,7 @@ Följ dessa steg om du behöver skapa ett lagrings konto:
  
 ### <a name="start-the-upload"></a>Starta överföringen 
 
-Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp avbildningen till en behållare i ditt lagrings konto. I det här exemplet överförs filen **myVHD. VHD** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagrings konto med namnet **mystorageaccount** i resurs gruppen **myResourceGroup** . Filen kommer att placeras i behållaren **som heter** behållaren och det nya fil namnet kommer att vara **myUploadedVHD. VHD**.
+Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp avbildningen till en behållare i ditt lagrings konto. I det här exemplet överförs filen **myVHD. VHD** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagrings konto med namnet **Mystorageaccount** i resurs gruppen **myResourceGroup** . Filen kommer att placeras i behållaren **som heter** behållaren och det nya fil namnet kommer att vara **myUploadedVHD. VHD**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -148,7 +148,7 @@ Du kan nu använda den överförda virtuella hård disken för att skapa en ny v
 
 ### <a name="set-the-uri-of-the-vhd"></a>Ange URI för den virtuella hård disken
 
-URI: n för den virtuella hård disken som ska användas är i formatet: https://**mystorageaccount****. blob.Core.Windows.net/**/finns**MyVhdName**. VHD. I det här exemplet finns den virtuella hård disken med namnet **myVHD** i lagrings kontot **mystorageaccount** i behållarens **behållare.**
+URI: n för den virtuella hård disken som ska användas är i formatet: https://**mystorageaccount****. blob.Core.Windows.NET/finns** / **MyVhdName**. VHD. I det här exemplet finns den virtuella hård disken med namnet **myVHD** i lagrings kontot **mystorageaccount** i behållarens **behållare.**
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -175,7 +175,7 @@ Skapa vNet och undernät för det [virtuella nätverket](../../virtual-network/v
     ```    
 
 ### <a name="create-a-public-ip-address-and-network-interface"></a>Skapa en offentlig IP-adress och ett nätverks gränssnitt
-För att upprätta kommunikation med den virtuella datorn i det virtuella nätverket behöver du en [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) och ett nätverksgränssnitt.
+För att upprätta kommunikation med den virtuella datorn i det virtuella nätverket behöver du en [offentlig IP-adress](../../virtual-network/public-ip-addresses.md) och ett nätverksgränssnitt.
 
 1. Skapa en offentlig IP-adress. I det här exemplet skapas en offentlig IP-adress med namnet **myPip**. 
    
@@ -276,7 +276,7 @@ Följande PowerShell-skript visar hur du konfigurerar konfigurationen för virtu
 ```
 
 ## <a name="verify-that-the-vm-was-created"></a>Verifiera att den virtuella datorn har skapats
-När du är klar bör du se den nyligen skapade virtuella datorn i [Azure Portal](https://portal.azure.com) under **Bläddra** > i**virtuella datorer**, eller genom att använda följande PowerShell-kommandon:
+När du är klar bör du se den nyligen skapade virtuella datorn i [Azure Portal](https://portal.azure.com) under **Bläddra**i  >  **virtuella datorer**, eller genom att använda följande PowerShell-kommandon:
 
 ```powershell
     $vmList = Get-AzVM -ResourceGroupName $rgName

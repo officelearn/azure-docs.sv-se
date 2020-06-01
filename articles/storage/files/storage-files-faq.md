@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 8896aba104a99d323b3c39cfaeab6043d1c12f9d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 620628b244bf107ad0dc2e2242d174ef798450da
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832018"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235629"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -98,10 +98,16 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
   **Jag skapade en fil direkt i min Azure-filresurs med hjälp av SMB eller i portalen. Hur lång tid tar det för filen att synkronisera till servrarna i Sync-gruppen?**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
+
+* <a id="afs-sync-time"></a>
+  **Hur lång tid tar det för Azure File Sync att ladda upp 1TiB av data?**
+  
+    Prestandan varierar beroende på dina miljö inställningar, konfiguration och om detta är en inledande synkronisering eller en pågående synkronisering. Mer information finns i [Azure File Sync prestanda mått](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
+
 * <a id="afs-conflict-resolution"></a>**Vad händer om samma fil ändras på två servrar på ungefär samma tid?**  
     Azure File Sync använder en enkel lösning för konflikt lösning: vi behåller båda ändringarna i filer som ändras på två servrar på samma gång. Den senast skrivna ändringen behåller det ursprungliga fil namnet. Den äldre filen har "källa"-datorn och konflikt numret som lagts till i namnet. Den följer denna taxonomi: 
    
-    \<FileNameWithoutExtension \> - \< MachineName \> \[ -# \] . \< EXT\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
     Den första konflikten i CompanyReport. docx skulle till exempel bli CompanyReport-CentralServer. docx om CentralServer är där den äldre skrivningen ägde rum. Den andra konflikten skulle ha namnet CompanyReport-CentralServer-1. docx. Azure File Sync stöder 100-konfliktskapande filer per fil. När det maximala antalet konfliktskapande filer har nåtts kommer filen inte att synkroniseras förrän antalet konfliktskapande filer är mindre än 100.
 

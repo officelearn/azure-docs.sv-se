@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: efe7a68f7102da0b39def676306ce96ad00f5ff8
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 56d461e2efb0923367a149e9b4234d03ed204a9c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204964"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84229898"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -144,7 +144,7 @@ CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det s
 
 ### <a name="networking"></a>Nätverk
 * [Översikt över Virtual Network](../../../virtual-network/virtual-networks-overview.md)
-* [IP-adresser i Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [IP-adresser i Azure](../../../virtual-network/public-ip-addresses.md)
 * [Skapa ett fullständigt domännamn i Azure-portalen](../../../virtual-machines/linux/portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL

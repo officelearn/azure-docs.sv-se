@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/01/2019
-ms.openlocfilehash: 3a3bbe384b91307471786fe904e880fb7e1a9af8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: 65d7cb60d0d3df43323833f254278c20abacc9d1
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049892"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231222"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -207,22 +207,22 @@ Om du vill skapa en storskalig databas i en region som inte är listad som stöd
 
 Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från och med GA.  Vi arbetar aktivt för att ta bort så många av dessa begränsningar som möjligt.
 
-| Problem | Beskrivning |
+| Problem | Description |
 | :---- | :--------- |
-| I fönstret hantera säkerhets kopior för en server visas inte storskaliga databaser, de kommer att filtreras från vyn  | Storskaligt har en separat metod för att hantera säkerhets kopieringar, och eftersom inställningarna för långsiktig kvarhållning och tidpunkten för kvarhållning av säkerhets kopior inte tillämpas/är ogiltiga. Därför visas inte storskaliga databaser i fönstret hantera säkerhets kopiering. |
-| Återställning från tidpunkt | Du kan återställa en storskalig databas till en databas som inte är storskalig, inom lagrings perioden för icke-storskalig databas. Det går inte att återställa en icke-storskalig databas till en storskalig databas.|
+| I fönstret hantera säkerhets kopior för en server visas inte storskaliga databaser, de kommer att filtreras från vyn  | Storskaligt har en separat metod för att hantera säkerhets kopieringar, och därför gäller inte inställningarna för långsiktig kvarhållning och tidpunkt för kvarhållning av säkerhets kopior. Därför visas inte storskaliga databaser i fönstret hantera säkerhets kopiering.|
+| Återställning från tidpunkt | En databas som inte är storskalig kan inte återställas som en storskalig databas och en storskalig databas kan inte återställas som en databas som inte är storskalig. För en icke-storskalig databas som har migrerats till storskalig genom att ändra dess tjänst nivå återställer du till en tidpunkt innan migreringen och inom lagrings perioden för säkerhets kopior av databasen är möjlig [program mässigt](recovery-using-backups.md#programmatically-performing-recovery-by-using-automated-backups). Den återställda databasen får inte skalas. |
 | Om en databas har en eller flera datafiler som är större än 1 TB, Miss lyckas migreringen | I vissa fall kan det vara möjligt att undvika det här problemet genom att minska de stora filerna till mindre än 1 TB. Om du migrerar en databas som används under migreringsprocessen ser du till att ingen fil får större än 1 TB. Använd följande fråga för att fastställa storleken på databasfilerna. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | SQL-hanterad instans | Azure SQL Managed instance stöds för närvarande inte med storskaliga databaser. |
-| Elastiska pooler |  Elastiska pooler stöds för närvarande inte med SQL Database storskalig.|
+| Elastiska pooler |  Elastiska pooler stöds för närvarande inte med skalning.|
 | Migrering till storskalig skalning är för närvarande en enkelriktad åtgärd | När en databas har migrerats till storskalig kan den inte migreras direkt till en icke-storskalig tjänst nivå. Det enda sättet att migrera en databas från storskalig till icke-storskalig är att exportera/importera med hjälp av en BACPAC-fil eller annan teknik för data förflyttning (Mass kopiering, Azure Data Factory, Azure Databricks, SSIS osv.) BACPAC export/import från Azure Portal, från PowerShell med [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) eller [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), från Azure CLI med hjälp av [AZ SQL DB export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) och [az SQL DB-import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)och från [REST API](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) stöds inte. BACPAC import/export för mindre storskaliga databaser (upp till 200 GB) stöds med SSMS och [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) version 18,4 och senare. För större databaser kan BACPAC export/import ta lång tid och kan Miss lyckas av olika orsaker.|
-| Migrering av databaser med beständiga minnes objekt | Storskaligt stöder endast icke-beständiga minnes objekt (tabell typer, inbyggda SPs och funktioner).  Permanenta InMemory-tabeller och andra objekt måste släppas och återskapas som icke-minnesbaserade objekt innan migreringen av en databas till den storskaliga tjänst nivån.|
+| Migrering av databaser med permanenta InMemory OLTP-objekt | Storskaligt stöder endast icke-beständiga minnesbaserade OLTP-objekt (tabell typer, inbyggda SPs och funktioner).  Permanenta InMemory OLTP-tabeller och andra objekt måste släppas och återskapas som diskbaserade objekt innan en databas migreras till den storskaliga tjänst nivån.|
 | Geo-replikering  | Du kan inte konfigurera geo-replikering för Azure SQL Database storskaligt. |
 | Databas kopia | Du kan inte använda databas kopiering ännu för att skapa en ny databas i Azure SQL-skalning. |
-| TDE/AKV-integrering | Transparent databas kryptering med hjälp av Azure Key Vault (kallas ofta för att hämta egna nycklar eller BYOK) stöds ännu inte för Azure SQL Database storskalig, men TDE med tjänst hanterade nycklar stöds fullt ut. |
-|Intelligenta databas funktioner | Med undantag för alternativet "framtvinga plan" stöds inte alla andra alternativ för automatisk justering i den storskaliga: alternativen kan verka vara aktiverade, men inga rekommendationer eller åtgärder har gjorts. |
-|Information om frågeprestanda | Fråga prestanda insikter stöds för närvarande inte för storskaliga databaser. |
+| TDE/AKV-integrering | Transparent databas kryptering med hjälp av Azure Key Vault (kallas ofta för att ta med din egen nyckel eller BYOK) är för närvarande en för hands version. |
+| Intelligenta databas funktioner | Med undantag för alternativet "framtvinga plan" stöds inte alla andra alternativ för automatisk justering i den storskaliga: alternativen kan verka vara aktiverade, men inga rekommendationer eller åtgärder har gjorts. |
+| Information om frågeprestanda | Fråga prestanda insikter stöds för närvarande inte för storskaliga databaser. |
 | Krymp databas | DBCC SHRINKDATABASE eller DBCC SHRINKFILE stöds för närvarande inte för storskaliga databaser. |
-| Kontroll av databas integritet | DBCC CHECKDB stöds för närvarande inte för storskaliga databaser. Mer information om data integritets hantering i Azure SQL Database finns i [data integritet i Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) . |
+| Kontroll av databas integritet | DBCC CHECKDB stöds för närvarande inte för storskaliga databaser. DBCC CHECKFILEGROUP och DBCC CHECKTABLE kan användas som en lösning. Mer information om data integritets hantering i Azure SQL Database finns i [data integritet i Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) . |
 
 ## <a name="next-steps"></a>Nästa steg
 

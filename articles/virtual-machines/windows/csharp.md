@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 07c66b2955f3df1ffae1a0cb0c2b0888bdc790e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4fd7ccc7b6df85397fd547f8e1e48b776f12c0df
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082891"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234520"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp av C # #
 
@@ -25,21 +25,21 @@ En [virtuell Azure-dator](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%
 > * Skapa resurser
 > * Utföra hanterings uppgifter
 > * Ta bort resurser
-> * Köra appen
+> * Kör programmet
 
 Det tar ungefär 20 minuter att utföra dessa steg.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
 1. Om du inte redan har gjort det installerar du [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.net Desktop Development** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **.NET Framework 4-4,6 utvecklingsverktyg** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen med hjälp av Visual Studio Launcher.
-2. I Visual Studio klickar du på **fil** > **nytt** > **projekt**.
-3. I **mallar** > **Visual C#** väljer du **konsol program (.NET Framework)**, anger *myDotnetProject* som namn på projektet, väljer projektets plats och klickar sedan på **OK**.
+2. I Visual Studio klickar du på **fil**  >  **nytt**  >  **projekt**.
+3. I **mallar**  >  **Visual C#** väljer du **konsol program (.NET Framework)**, anger *myDotnetProject* som namn på projektet, väljer projektets plats och klickar sedan på **OK**.
 
 ## <a name="install-the-package"></a>Installera paketet
 
 NuGet-paket är det enklaste sättet att installera de bibliotek som du behöver för att slutföra de här stegen. Gör så här för att hämta de bibliotek som du behöver i Visual Studio:
 
-1. Klicka på **verktyg** > **NuGet Package Manager**och klicka sedan på **Package Manager-konsolen**.
+1. Klicka på **verktyg**  >  **NuGet Package Manager**och klicka sedan på **Package Manager-konsolen**.
 2. Skriv det här kommandot i-konsolen:
 
     ```
@@ -52,7 +52,7 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
 
 ### <a name="create-the-authorization-file"></a>Skapa verifierings filen
 
-1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *azureauth. Properties*och klicka sedan på **Lägg till**.
+1. I Solution Explorer högerklickar du på *myDotnetProject*  >  **Lägg till**  >  **nytt objekt**och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *azureauth. Properties*och klicka sedan på **Lägg till**.
 2. Lägg till följande egenskaper för auktorisering:
 
     ```
@@ -66,7 +66,7 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
     graphURL=https://graph.microsoft.com/
     ```
 
-    Ersätt ** &lt;prenumerations-&gt; ID** med prenumerations-ID, ** &lt;program&gt; -ID** med Active Directory-program-ID, ** &lt;autentisering-&gt; nyckel** med program nyckeln och ** &lt;klient-&gt; ID** med klient-ID: t.
+    Ersätt ** &lt; prenumerations- &gt; ID** med prenumerations-ID, ** &lt; program &gt; -ID** med Active Directory-program-ID, ** &lt; autentisering- &gt; nyckel** med program nyckeln och klient-ID med klient- ** &lt; ID: t &gt; ** .
 
 3. Spara filen azureauth. Properties. 
 4. Ange en miljö variabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till den auktoriserade filen som du skapade. Du kan till exempel använda följande PowerShell-kommando:
@@ -136,7 +136,7 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
 
 ### <a name="create-the-public-ip-address"></a>Skapa den offentliga IP-adressen
 
-En [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) krävs för att kommunicera med den virtuella datorn.
+En [offentlig IP-adress](../../virtual-network/public-ip-addresses.md) krävs för att kommunicera med den virtuella datorn.
 
 Om du vill skapa den offentliga IP-adressen för den virtuella datorn lägger du till den här koden i huvud metoden:
    
@@ -378,7 +378,7 @@ Om du vill ta bort resurs gruppen lägger du till den här koden i huvud metoden
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Det bör ta ungefär fem minuter för konsol programmet att köras helt från början till slut. 
 

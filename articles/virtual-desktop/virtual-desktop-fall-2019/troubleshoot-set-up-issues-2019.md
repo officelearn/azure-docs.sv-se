@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5825466c099a8c57477f2d9d0420da74ccb2e96d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 195668886a0c1ba9f96939a7e5e3960a6932dee5
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615401"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235897"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -28,13 +28,29 @@ Besök [Windows-Tech-communityn för Windows](https://techcommunity.microsoft.co
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Hämtar Windows 10 Enterprise-avbildningen för flera sessioner
 
-Om du vill använda Windows 10 Enterprise-avbildningen av flera sessioner går du till Azure Marketplace, väljer **Kom igång** > **Microsoft Windows 10** > och [Windows 10 Enterprise för virtuella skriv bord, version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Om du vill använda Windows 10 Enterprise-avbildningen av flera sessioner går du till Azure Marketplace, väljer **Kom igång**  >  **Microsoft Windows 10** > och [Windows 10 Enterprise för virtuella skriv bord, version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ![En skärm bild av att välja Windows 10 Enterprise för virtuella skriv bord, version 1809.](../media/AzureMarketPlace.png)
 
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Skapar Windows Virtual Desktop-klient
 
 I det här avsnittet beskrivs möjliga problem när du skapar Windows-klienten för virtuella skriv bord.
+
+### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>Fel: AADSTS650052 appen behöver åtkomst till en tjänst.
+
+Exempel på RAW-fel:
+
+```Error
+AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+configuration of your service subscriptions.650052 Message The app needs access to a service
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+Contact your IT Admin to review the configuration of your service subscriptions.
+```
+
+**Orsak:** Medgivande beviljas inte till virtuellt Windows-skrivbord i Azure Active Directory-instansen.
+
+**KORRIGERA:** [Följ den här guiden](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) för att bevilja medgivande.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fel: användaren har inte behörighet att fråga hanterings tjänsten
 
@@ -122,7 +138,7 @@ Följ dessa anvisningar för att felsöka misslyckade distributioner av Azure Re
 3. När felet har identifierats använder du fel meddelandet och resurserna i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) för att åtgärda problemet.
 4. Ta bort alla resurser som har skapats under den tidigare distributionen och försök att distribuera mallen igen.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fel: distributionen misslyckades....\<hostname>/JoinDomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fel: distributionen misslyckades.... \<hostname> /JoinDomain
 
 ![Det gick inte att distribuera skärm bilden.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
 

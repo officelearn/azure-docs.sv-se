@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: 1345cc67137a4fb3b6d54443e71f1a8813b5b06c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6e76e2966cd2bcba2606f6b87c99cb34208f8f24
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122816"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234453"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>Snabb start: skapa ett geo-replikerat behållar register med hjälp av en Resource Manager-mall
 
@@ -31,7 +31,7 @@ Inga.
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). Mallen konfigurerar ett register och en ytterligare regional replik.
+Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). Mallen konfigurerar ett register och en ytterligare regional replik.
 
 :::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json" range="1-81" highlight="45-74" :::
 
@@ -50,7 +50,7 @@ Du hittar fler Azure Container Registry mal sampel i [galleriet snabb starts mal
 
  2. Välj eller ange följande värden.
 
-    * **Prenumeration**: Välj en Azure-prenumeration.
+    * **Prenumeration**: välj en Azure-prenumeration.
     * **Resurs grupp**: Välj **Skapa ny**, ange ett unikt namn för resurs gruppen och välj sedan **OK**.
     * **Plats**: Välj en plats för resursgruppen. Exempel: **centrala USA**.
     * **ACR namn**: acceptera det genererade namnet för registret eller ange ett namn. Det måste vara globalt unikt.
@@ -64,7 +64,7 @@ Du hittar fler Azure Container Registry mal sampel i [galleriet snabb starts mal
 
      :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Portal meddelande":::
 
- Azure Portal används för att distribuera mallen. Förutom Azure Portal kan du använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-cli.md).
+ Azure-portalen används för att distribuera mallen. Förutom Azure Portal kan du använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-cli.md).
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
@@ -94,4 +94,4 @@ I den här snabb starten skapade du en Azure Container Registry med en Resource 
 En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i:
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa och distribuera din första Azure Resource Manager-mall](/azure/azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Självstudie: skapa och distribuera din första Azure Resource Manager-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

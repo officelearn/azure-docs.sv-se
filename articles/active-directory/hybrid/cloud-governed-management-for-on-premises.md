@@ -9,16 +9,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 510a5562740260eb2946ded074a5c37804c55375
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec74b9391c780cf673fe47bd82cc6d92534eb56d
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67109526"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234088"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Hur Azure AD levererar hantering av moln styrning för lokala arbets belastningar
 
@@ -117,4 +117,4 @@ I hybrid miljöer är Microsofts strategi att aktivera distributioner där **mol
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du kommer igång med den här resan finns i distributions planerna för Azure AD som <https://aka.ms/deploymentplans> finns på. De ger fullständig vägledning om hur du distribuerar Azure Active Directory (Azure AD)-funktioner. I varje plan förklaras affärs värde, planerings överväganden, design och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD. Microsoft uppdaterar kontinuerligt distributions planer med bästa praxis som lärts från kund distributioner och annan feedback när vi lägger till nya funktioner för hantering från molnet med Azure AD.
+Mer information om hur du kommer igång med den här resan finns i distributions planerna för Azure AD som finns på <https://aka.ms/deploymentplans> . De ger fullständig vägledning om hur du distribuerar Azure Active Directory (Azure AD)-funktioner. I varje plan förklaras affärs värde, planerings överväganden, design och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD. Microsoft uppdaterar kontinuerligt distributions planer med bästa praxis som lärts från kund distributioner och annan feedback när vi lägger till nya funktioner för hantering från molnet med Azure AD.

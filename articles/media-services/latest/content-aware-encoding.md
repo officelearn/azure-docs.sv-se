@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 9cb38037b905e9d7f938b648954bcb9e419be5af
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217430"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234900"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Använd den innehålls medveten kodnings inställningen för att hitta det optimala värdet för bit hastighet för en specifik lösning
 
@@ -55,9 +55,10 @@ Nedan visas resultatet för en annan kategori av käll innehåll, där kodaren k
 
 Du kan skapa transformeringar som använder den här för inställningen enligt följande. 
 
-> [!TIP]
-> I avsnittet [Nästa steg](#next-steps) hittar du självstudier som använder omvandla-utdata. Utmatnings till gången kan levereras från Media Services slut punkter för direkt uppspelning i protokoll som MPEG-streck och HLS (se självstudierna).
+I avsnittet [Nästa steg](#next-steps) hittar du självstudier som använder omvandla-utdata. Utmatnings till gången kan levereras från Media Services slut punkter för direkt uppspelning i protokoll som MPEG-streck och HLS (se självstudierna).
 
+> [!NOTE]
+> Se till att använda **ContentAwareEncoding** -förinställning som inte är ContentAwareEncodingExperimental.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -77,8 +78,6 @@ TransformOutput[] output = new TransformOutput[]
 
 > [!NOTE]
 > Kodning av jobb med för `ContentAwareEncoding` inställningarna faktureras baserat på utdata minuter. 
-
-Se till att använda **ContentAwareEncoding** -förinställning som inte är ContentAwareEncodingExperimental.
   
 ## <a name="next-steps"></a>Nästa steg
 

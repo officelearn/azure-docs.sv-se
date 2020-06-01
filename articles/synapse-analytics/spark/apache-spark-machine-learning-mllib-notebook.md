@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: c2e1dbba61399ee3a4435f4f287b47f4bfd6f872
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: f00df1bc204e4d271f1c903ec50759cba3c56774
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774449"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235876"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Bygg en Machine Learning-app med Apache Spark MLlib och Azure Synapse Analytics
 
@@ -70,48 +70,32 @@ I följande steg utvecklar du en modell för att förutsäga om en viss resa inn
 
 Eftersom rå data är i ett Parquet-format kan du använda Spark-kontexten för att hämta filen till minnet som en dataframe direkt. Medan koden nedan använder standard alternativen, är det möjligt att tvinga mappning av data typer och andra schemaattribut om det behövs.
 
-1. Kör följande rader för att skapa en spark-dataframe genom att klistra in koden i en ny cell. I det första avsnittet tilldelas Azure Storage Access-information till variabler. I det andra avsnittet kan Spark läsa från Blob Storage via fjärr anslutning. Den sista raden med kod läser Parquet, men inga data läses in i det här läget.
+1. Kör följande rader för att skapa en spark-dataframe genom att klistra in koden i en ny cell. Detta hämtar data via det öppna data uppsättnings-API: et. Att hämta alla dessa data genererar cirka 1 500 000 000 rader. Beroende på storleken på din spark-pool (för hands version) kan rå data vara för stora eller ta för lång tid att arbeta med. Du kan filtrera bort dessa data till något mindre. Användningen av start_date och end_date använder ett filter som returnerar en månad med data.
 
     ```python
-    # Azure storage access info
-    blob_account_name = "azureopendatastorage"
-    blob_container_name = "nyctlc"
-    blob_relative_path = "yellow"
-    blob_sas_token = r""
+    from azureml.opendatasets import NycTlcYellow
 
-    # Allow SPARK to read from Blob remotely
-    wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
-    spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
-
-    # SPARK read parquet, note that it won't load any data yet by now
-    df = spark.read.parquet(wasbs_path)
+    end_date = parser.parse('2018-06-06')
+    start_date = parser.parse('2018-05-01')
+    nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
+    filtered_df = nyc_tlc.to_spark_dataframe()
     ```
 
-2. Att hämta alla dessa data genererar cirka 1 500 000 000 rader. Beroende på storleken på din spark-pool (för hands version) kan rå data vara för stora eller ta för lång tid att arbeta med. Du kan filtrera bort dessa data till något mindre. Om det behövs kan du lägga till följande rader för att filtrera data nedåt till ungefär 2 000 000 rader för att få en mer effektiv upplevelse. Använd de här parametrarna för att hämta en vecka med data.
-
-    ```python
-    # Create an ingestion filter
-    start_date = '2018-05-01 00:00:00'
-    end_date = '2018-05-08 00:00:00'
-
-    filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
-    ```
-
-3. Nack delen med enkel filtrering är att från ett statistiskt perspektiv kan det leda till en förskjutning i data. En annan metod är att använda den inbyggda samplingen i Spark. Följande kod minskar data uppsättningen nedåt till ungefär 2000 rader, om den tillämpas efter koden ovan. Det här samplings steget kan användas i stället för det enkla filtret eller tillsammans med det enkla filtret.
+2. Nack delen med enkel filtrering är att från ett statistiskt perspektiv kan det leda till en förskjutning i data. En annan metod är att använda den inbyggda samplingen i Spark. Följande kod minskar data uppsättningen nedåt till ungefär 2000 rader, om den tillämpas efter koden ovan. Det här samplings steget kan användas i stället för det enkla filtret eller tillsammans med det enkla filtret.
 
     ```python
     # To make development easier, faster and less expensive down sample for now
     sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
     ```
 
-4. Nu går det att titta på data för att se vad som lästs. Det är normalt bättre att granska data med en delmängd i stället för den fullständiga uppsättningen, beroende på storleken på data uppsättningen. Följande kod erbjuder två sätt att visa data: den tidigare är Basic och den senare ger en mycket rikare rutnäts upplevelse, samt möjligheten att visualisera data grafiskt.
+3. Nu går det att titta på data för att se vad som lästs. Det är normalt bättre att granska data med en delmängd i stället för den fullständiga uppsättningen, beroende på storleken på data uppsättningen. Följande kod erbjuder två sätt att visa data: den tidigare är Basic och den senare ger en mycket rikare rutnäts upplevelse, samt möjligheten att visualisera data grafiskt.
 
     ```python
-    sampled_taxi_df.show(5)
-    display(sampled_taxi_df.show(5))
+    #sampled_taxi_df.show(5)
+    display(sampled_taxi_df)
     ```
 
-5. Beroende på storleken på data uppsättningens storlek och ditt behov av att experimentera eller köra antecknings boken kan det vara lämpligt att cachelagra data uppsättningen lokalt i arbets ytan. Det finns tre sätt att utföra explicit cachelagring:
+4. Beroende på storleken på data uppsättningens storlek och ditt behov av att experimentera eller köra antecknings boken kan det vara lämpligt att cachelagra data uppsättningen lokalt i arbets ytan. Det finns tre sätt att utföra explicit cachelagring:
 
    - Spara dataframe lokalt som en fil
    - Spara dataframe som en temporär tabell eller vy

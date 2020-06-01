@@ -5,24 +5,20 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: a4549bd2947332d7140f4f440a5344f417430554
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aa1999df83c3a3926f3410ea7ee48af75b2dd515
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122756"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231534"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Snabb start: skapa din första funktion i Azure med Visual Studio
 
-Med Azure Functions kan du köra din kod i en miljö utan server utan att först behöva skapa en virtuell dator eller publicera ett webb program.
+I den här artikeln använder du Visual Studio för att skapa en C#-baserad funktion i C#-klassen som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverbaserade miljön för Azure Functions.  
 
-I den här snabb starten får du lära dig hur du använder Visual Studio 2019 för att lokalt skapa och testa en "Hello World" HTTP trigger C#-Function-app, som du sedan publicerar till Azure. 
+Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto.
 
-![Svar för funktion-localhost i webbläsaren](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
-
-Den här snabb starten är utformad för Visual Studio 2019. 
-
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen måste du först installera [Visual Studio 2019](https://azure.microsoft.com/downloads/). Se till att du väljer arbets belastningen **Azure Development** under installationen. Om du vill skapa ett Azure Functions-projekt med hjälp av Visual Studio 2017 i stället måste du först installera de [senaste Azure Functions verktygen](functions-develop-vs.md#check-your-tools-version).
 
@@ -34,11 +30,19 @@ Om du inte har en [Azure-prenumeration](../guides/developer/azure-developer-guid
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Visual Studio skapar ett projekt och en klass som innehåller en exempel kod för funktionen HTTP-utlösare. `FunctionName`Attributet Method anger namnet på funktionen, som som standard är `Function1` . `HttpTrigger`Attributet anger att funktionen utlöses av en HTTP-begäran. Den formaterade exempelkoden skickar ett HTTP-svar som innehåller ett värde från förfrågan eller frågesträngen.
+Visual Studio skapar ett projekt och en klass som innehåller en exempel kod för funktionen HTTP-utlösare. Den formaterade exempelkoden skickar ett HTTP-svar som innehåller ett värde från förfrågan eller frågesträngen. `HttpTrigger`Attributet anger att funktionen utlöses av en HTTP-begäran. 
 
-Utöka funktionerna i din funktion med indata och utgående bindningar genom att tillämpa lämpliga attribut för-metoden. Mer information finns i avsnittet [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) (Utlösare och bindningar) i [Azure Functions C# developer reference](functions-dotnet-class-library.md) (Azure Functions C#-referens för utvecklare).
+## <a name="rename-the-function"></a>Byt namn på funktionen
 
-Nu när du har skapat ditt funktions projekt och en HTTP-utlösare kan du testa den på den lokala datorn.
+`FunctionName`Attributet Method anger namnet på funktionen, som som standard genereras som `Function1` . Eftersom verktyget inte tillåter att du åsidosätter standard funktions namnet när du skapar projektet ska du ta en minut för att skapa ett bättre namn för funktions klassen, filen och metadata.
+
+1. Högerklicka på filen Function1.cs i **Utforskaren**och Byt namn på den till `HttpExample.cs` .
+
+1. I koden byter du namn på Function1-klassen till ' HttpExample '.
+
+1. I `HttpTrigger` metoden med namnet `run` byter du namn på `FunctionName` attributet Method till `HttpExample` .
+
+Nu när du har bytt namn på funktionen kan du testa den på den lokala datorn.
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
@@ -56,19 +60,41 @@ Innan du kan publicera ditt projekt måste du ha en Function-app i din Azure-pre
 
 ## <a name="test-your-function-in-azure"></a>Testa din funktion i Azure
 
-1. Kopiera bas-URL: en för Function-appen från sidan **publicera** profil. Ersätt den `localhost:port` del av URL: en som du använde för att testa funktionen lokalt med den nya bas-URL: en. Lägg till frågesträngen `?name=<YOUR_NAME>` till denna URL och kör begäran.
+1. I Cloud Explorer ska din nya Function-app väljas. Om inte, expanderar du prenumerationen > **app Services**och väljer sedan den nya Function-appen.
+
+1. Högerklicka på Function-appen och välj **Öppna i webbläsare**. Detta öppnar roten för din Function-app i din standard webbläsare och visar sidan som visar att funktions programmet körs. 
+
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="Function-appen körs":::
+
+1. I adress fältet i webbläsaren lägger du till strängen i `/api/HttpExample?name=Functions` bas-URL: en och kör begäran.
 
     Den URL som anropar funktionen HTTP-utlösare har följande format:
 
-    `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
+    `http://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
 
-2. Klistra in den nya URL:en för HTTP-begäran i webbläsarens adressfält. Följande bild visar svaret i webbläsaren till den fjärranslutna GET-begäran som returnerades av funktionen:
+2. Gå till denna URL så ser du ett svar i webbläsaren till den fjärranslutna GET-begäran som returnerades av funktionen, som ser ut som i följande exempel:
 
-    ![Funktionssvar i webbläsaren](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Funktionssvar i webbläsaren":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
+De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Om du planerar att arbeta med efterföljande snabb starter, självstudier eller med någon av de tjänster som du har skapat i den här snabb starten ska du inte rensa resurserna.
+
+*Resurser* i Azure avser funktionsappar, funktioner, lagringskonton och så vidare. De är grupperade i *resurs grupper*och du kan ta bort allt i en grupp genom att ta bort gruppen. 
+
+Du skapade resurser för att slutföra de här snabbstarterna. Det är möjligt att du debiteras för de här resurserna beroende på din [kontostatus](https://azure.microsoft.com/account/) och dina [servicepriser](https://azure.microsoft.com/pricing/). Om du inte behöver resurserna längre så visar vi hur du tar bort dem här:
+
+1. I Cloud Explorer expanderar du prenumerationen > **app Services**, högerklickar på din Function-app och väljer **Öppna i portalen**. 
+
+1. På sidan Function-app väljer du fliken **Översikt** och väljer sedan länken under **resurs grupp**.
+
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Välj den resurs grupp som ska tas bort från sidan funktions program":::
+
+2. På sidan **resurs grupp** granskar du listan över resurser som ingår och kontrollerar att de är de som du vill ta bort.
+ 
+3. Välj **Ta bort resursgrupp** och följ instruktionerna.
+
+   Borttagningen kan ta några minuter. När du är färdig visas ett meddelande i några sekunder. Du kan även välja klockikonen längst upp på sidan för att se meddelandet.
 
 ## <a name="next-steps"></a>Nästa steg
 

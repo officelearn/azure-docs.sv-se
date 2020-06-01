@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 03/09/2020
-ms.openlocfilehash: a437cd1b3cb8018229cf6445e23314cf17bf10a2
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.date: 05/28/2020
+ms.openlocfilehash: 88d5c36829e2920e18a1be44ba43d7defe883d3e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219861"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231245"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database--sql-managed-instance"></a>Välj mellan vCore-och DTU-inköps modeller – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -82,15 +82,7 @@ Med den vCore-baserade inköps modellen kan du välja beräknings-och lagrings r
 
 Om din Azure SQL Database använder mer än 300 DTU: er kan du minska kostnaderna genom att konvertera till den vCore-baserade inköps modellen. Du kan konvertera genom att använda ditt API eller genom att använda Azure Portal, utan drift stopp. Konverteringen är dock inte obligatorisk och sker inte automatiskt. Om den DTU-baserade inköps modellen uppfyller dina prestanda-och affärs behov bör du fortsätta att använda den.
 
-Om du vill konvertera från den DTU-baserade inköps modellen till den vCore-baserade inköps modellen väljer du beräknings storlek med hjälp av följande regler:
-
-- Varje 100 DTU: er på standard nivån kräver minst 1 vCore på Generell användning tjänst nivå.
-- Varje 125 DTU: er på Premium nivån kräver minst 1 vCore på Affärskritisk tjänst nivå.
-
-> [!NOTE]
-> VCore storleks rikt linjer för DTU för storleks ändring är ungefärliga och tillhandahålls för att hjälpa till med den första uppskattningen av mål databasens tjänst mål. Den optimala konfigurationen av mål databasen är arbets belastnings beroende.
->
-> Att uppnå optimal pris/prestanda-kvot kan kräva att du kan dra nytta av flexibiliteten i vCore-modellen för att justera antalet virtuella kärnor, [maskin varu generering](service-tiers-vcore.md#hardware-generations), [tjänst-](service-tiers-vcore.md#service-tiers) och [beräknings](service-tiers-vcore.md#compute-tiers) nivåer samt justering av andra parametrar för databas konfiguration, till exempel [Maximal grad av parallellitet](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+Om du vill konvertera från den DTU-baserade inköps modellen till den vCore-baserade inköps modellen läser du [Migrera från DTU till vCore](migrate-dtu-to-vcore.md).
 
 ## <a name="dtu-based-purchasing-model"></a>DTU-baserad inköps modell
 

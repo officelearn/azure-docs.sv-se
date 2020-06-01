@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a852ddc68a6f51e677e5ff2e641ada25f4bf0105
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 581efde3128294a326bdfd08e622a8dcabe5784d
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70101368"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232657"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -82,7 +82,7 @@ Det finns andra artiklar tillgängliga på SAP-arbetsbelastningar på Azure. Bö
 
 Följande SAP-anteckningar är relaterade till SAP på Azure i förhållande till det utrymme som beskrivs i det här dokumentet.
 
-| Antecknings nummer | Titel |
+| Antecknings nummer | Rubrik |
 | --- | --- |
 | [1928533] |SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -280,7 +280,7 @@ Dessa bästa metoder är resultatet av hundratals kund distributioner:
 
 - De virtuella nätverk som SAP-programmet har distribuerats till har inte åtkomst till Internet.
 - De virtuella databas datorerna körs i samma virtuella nätverk som program lagret.
-- De virtuella datorerna i det virtuella nätverket har en statisk allokering av den privata IP-adressen. Mer information finns i [IP-diagramtyper och autentiseringsmetoder i Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
+- De virtuella datorerna i det virtuella nätverket har en statisk allokering av den privata IP-adressen. Mer information finns i [IP-diagramtyper och autentiseringsmetoder i Azure](../../../virtual-network/public-ip-addresses.md).
 - Begränsningar för routning till och från de virtuella DBMS-datorerna har *inte* ställts in med brand väggar som är installerade på lokala DBMS-datorer. I stället definieras trafik dirigeringen med [nätverks säkerhets grupper (NSG: er)](https://docs.microsoft.com/azure/virtual-network/security-overview).
 - Om du vill avgränsa och isolera trafik till den virtuella DBMS-datorn tilldelar du olika nätverkskort till den virtuella datorn. Varje nätverkskort får en annan IP-adress och varje nätverkskort tilldelas till ett annat virtuellt nätverks under nät. Varje undernät har olika NSG-regler. Isolering eller separering av nätverks trafik är ett mått för routning. Den används inte för att ange kvoter för nätverks data flöde.
 

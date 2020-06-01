@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 8ef16f581a4b945d3a5e6ef58166eeed900f3bb3
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 9d607f0ad1ab9d9924cd05ce1a66bee34e4ff18d
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140896"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84229867"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
@@ -57,21 +57,19 @@ Vi har även testat de flesta vanliga program driv rutiner, men du kan se inform
 
 Detta är de steg som en användare/ett program behöver för att autentisera med Azure AD som beskrivs nedan:
 
+### <a name="prerequisites"></a>Förutsättningar
+
+Du kan följa med i Azure Cloud Shell, en virtuell Azure-dator eller på den lokala datorn. Kontrol lera att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
+
 ### <a name="step-1-authenticate-with-azure-ad"></a>Steg 1: autentisera med Azure AD
 
-Kontrol lera att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
-
-Anropa Azure CLI-verktyget för att autentisera med Azure AD. Du måste ange ditt användar-ID och lösen ord för Azure AD.
+Börja med att autentisera med Azure AD med hjälp av Azure CLI-verktyget. Det här steget krävs inte i Azure Cloud Shell.
 
 ```
 az login
 ```
 
-Det här kommandot startar ett webbläsarfönster till sidan Azure AD-autentisering.
-
-> [!NOTE]
-> Du kan också använda Azure Cloud Shell för att utföra dessa steg.
-> Tänk på att när du hämtar Azure AD-åtkomsttoken i Azure Cloud Shell måste du explicit anropa `az login` och logga in igen (i det separata fönstret med en kod). När detta tecken i `get-access-token` kommandot fungerar som förväntat.
+Kommandot startar ett webbläsarfönster på sidan Azure AD-autentisering. Du måste ange ditt användar-ID och lösen ord för Azure AD.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Steg 2: Hämta Azure AD-åtkomsttoken
 
@@ -79,19 +77,19 @@ Anropa Azure CLI-verktyget för att hämta en åtkomsttoken för Azure AD-autent
 
 Exempel (för offentligt moln):
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 Resurs svärdet ovan måste anges exakt som det visas. För andra moln kan resurs värdet slås upp med:
 
-```shell
+```azurecli-interactive
 az cloud show
 ```
 
 För Azure CLI version 2.0.71 och senare kan kommandot anges i följande bekväma version för alla moln:
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
 

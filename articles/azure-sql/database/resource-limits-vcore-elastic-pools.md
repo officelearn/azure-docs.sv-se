@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 03/03/2020
-ms.openlocfilehash: 48f37a29b227c714552596337d3ff3c692830488
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: 03884a7d1b834ef8c176434ad4127e1638aabcb1
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041411"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235749"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Resurs begränsningar för elastiska pooler med vCore inköps modell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Minne (GB)|7|14|21|28|35|42|
 |Max antal databaser per pool <sup>1</sup>|100|200|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
 |Maximal data storlek (GB)|512|756|1536|1536|1536|2048|
 |Maximal logg storlek|154|227|461|461|461|614|
 |Maximal data storlek för TempDB (GB)|32|64|96|128|160|192|
@@ -60,8 +60,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
 |Antal repliker|1|1|1|1|1|1|
-|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
-|Lässkalning|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Multi-AZ|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Lässkalning|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 <sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
@@ -79,7 +79,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Minne (GB)|49|56|63|70|112|159,5|
 |Max antal databaser per pool <sup>1</sup>|500|500|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
 |Maximal data storlek (GB)|2048|2048|2048|2048|3584|4096|
 |Största logg storlek (GB)|614|614|614|614|1075|1229|
 |Maximal data storlek för TempDB (GB)|224|256|288|320|512|768|
@@ -92,8 +92,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1... 7|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 9|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 10, 16|0, 0,25, 0,5, 1... 10, 16, 24|
 |Antal repliker|1|1|1|1|1|1|
-|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
-|Lässkalning|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Multi-AZ|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Lässkalning|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 <sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
@@ -113,7 +113,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Minne (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
 |Max antal databaser per pool <sup>1</sup>|100|200|500|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
 |Maximal data storlek (GB)|512|756|1536|1536|1536|2048|2048|
 |Största logg storlek (GB)|154|227|461|461|461|614|614|
 |Maximal data storlek för TempDB (GB)|64|128|192|256|320|384|448|
@@ -126,8 +126,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
 |Antal repliker|1|1|1|1|1|1|1|
-|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
-|Lässkalning|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Multi-AZ|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Lässkalning|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 <sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
@@ -145,21 +145,21 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Minne (GB)|83|93,4|103,8|124,6|166,1|207,6|415,2|
 |Max antal databaser per pool <sup>1</sup>|500|500|500|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
 |Maximal data storlek (GB)|2048|3072|3072|3072|4096|4096|4096|
 |Största logg storlek (GB)|614|922|922|922|1229|1229|1229|
 |Maximal data storlek för TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Lagringstyp|Premium-lagring (Remote)|Premium-lagring (Remote)|Premium-lagring (Remote)|Premium-lagring (Remote)|Premium-lagring (Remote)|Premium-lagring (Remote)|Premium-lagring (Remote)|
 |I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
-|Max data IOPS per pool <sup>2</sup> |6 400|7 200|8,000|9 600|12 800|16 000|32 000|
+|Max data IOPS per pool <sup>2</sup> |6 400|7 200|8,000|9 600|12 800|16 000|16 000|
 |Högsta logg hastighet per pool (Mbit/s)|37,5|37,5|37,5|37,5|37,5|37,5|37,5|
 |Maximalt antal samtidiga arbetare per pool (begär Anden) <sup>3</sup>|1 680|1890|2100|2 520|3 360|4200|8400|
 |Maximalt antal samtidiga inloggningar per pool (begär Anden) <sup>3</sup>|1 680|1890|2100|2 520|3 360|4200|8400|
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1... 16|0, 0,25, 0,5, 1... 18|0, 0,25, 0,5, 1... 20|0, 0,25, 0,5, 1... 20, 24|0, 0,25, 0,5, 1... 20, 24, 32|0, 0,25, 0,5, 1... 16, 24, 32, 40|0, 0,25, 0,5, 1... 16, 24, 32, 40, 80|
 |Antal repliker|1|1|1|1|1|1|1|
-|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
-|Lässkalning|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Multi-AZ|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Lässkalning|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 <sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
@@ -178,8 +178,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Virtuella kärnor|72|
 |Minne (GB)|136,2|
 |Max antal databaser per pool <sup>1</sup>|500|
-|Columnstore-stöd|Ja|
-|Minnes intern OLTP-lagring (GB)|Saknas|
+|Columnstore-stöd|Yes|
+|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|
 |Maximal data storlek (GB)|4096|
 |Största logg storlek (GB)|1024|
 |Maximal data storlek för TempDB (GB)|333|
@@ -192,8 +192,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga sessioner|30 000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0-72|
 |Antal repliker|1|
-|Multi-AZ|Saknas|
-|Lässkalning|Saknas|
+|Multi-AZ|Ej tillämpligt|
+|Lässkalning|Ej tillämpligt|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|
 
 <sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
@@ -247,7 +247,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Virtuella kärnor|7|8|9|10|16|24|
 |Minne (GB)|49|56|63|70|112|159,5|
 |Max antal databaser per pool <sup>1</sup>|100|100|100|100|100|100|
-|Columnstore-stöd|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Columnstore-stöd|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
 |Minnes intern OLTP-lagring (GB)|7|8|9,5|11|20|36|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |Maximal data storlek (GB)|1024|1024|1024|1024|1024|1024|
@@ -347,7 +347,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Virtuella kärnor|128|
 |Minne (GB)|3767,1|
 |Max antal databaser per pool <sup>1</sup>|100|
-|Columnstore-stöd|Ja|
+|Columnstore-stöd|Yes|
 |Minnes intern OLTP-lagring (GB)|1768|
 |Maximal data storlek (GB)|4096|
 |Största logg storlek (GB)|2048|
@@ -361,8 +361,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga sessioner|30 000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0-128|
 |Antal repliker|4|
-|Multi-AZ|Ja|
-|Lässkalning|Ja|
+|Multi-AZ|Yes|
+|Lässkalning|Yes|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|
 
 <sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.

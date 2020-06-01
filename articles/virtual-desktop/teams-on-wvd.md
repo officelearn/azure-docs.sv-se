@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65f0cf66dc6cef33e98258106e5f1573efdf39e5
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 90432d3aa0ce9ebdecc7d0314b1352e46db0ac47
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203875"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234568"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använd Microsoft Teams på Windows Virtual Desktop
 
@@ -94,7 +94,7 @@ När du har installerat WebSocket-tjänsten och Teams Desktop-appen följer du d
 
 3. Välj användar profil avbildningen och välj sedan **Inställningar**.
 
-      Om medie optimeringar läses in räknas ljud enheterna och kamerorna som är tillgängliga lokalt i enhets menyn. Om menyn visar **fjärrljud**avslutar du team-appen och försöker igen. Om enheterna fortfarande inte visas på menyn kontrollerar du att alla installations steg ovan har genomförts.
+      Om medie optimeringar läses in räknas ljud enheterna och kamerorna som är tillgängliga lokalt i enhets menyn. Om menyn visar **fjärrljud**avslutar du team-appen och försöker igen. Om enheterna fortfarande inte visas i menyn går du tillbaka till [Installera Microsoft Teams](#install-microsoft-teams) och kontrollerar att du har slutfört installations processen.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 
@@ -140,10 +140,8 @@ Genom att anpassa en värd Pools Remote Desktop Protocol egenskaper (RDP), t. ex
 
 Ange följande RDP-egenskaper för att aktivera omdirigering av mikrofon och kamera:
 
-|RDP-egenskaper   | Description |
-|-----------------|-------------|
-|audiocapturemode: i: 1  | Aktivera ljud fångst från den lokala enheten och omdirigera till ett ljud program i fjärrsessionen |
-|Audio mode: i: 0         | Spela upp ljud på den lokala datorn |
-|camerastoredirect: s: * | Omdirigera alla kameror |
+- `audiocapturemode:i:1`aktiverar ljud fångst från den lokala enheten och redirets ljud program i fjärrsessionen.
+- `audiomode:i:0`spelar upp ljud på den lokala datorn.
+- `camerastoredirect:s:*`omdirigerar alla kameror.
 
 Läs mer i [anpassa Remote Desktop Protocol egenskaper för en adresspool](customize-rdp-properties.md).

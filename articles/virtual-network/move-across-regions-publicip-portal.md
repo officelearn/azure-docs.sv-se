@@ -1,27 +1,27 @@
 ---
-title: Flytta den offentliga Azure-IP-adressen till en annan Azure-region med hjälp av Azure Portal
-description: Använd Azure Resource Manager mall för att flytta den offentliga Azure-IP-adressen från en Azure-region till en annan med hjälp av Azure Portal.
+title: Flytta Azures offentliga IP-konfiguration till en annan Azure-region Azure Portal
+description: Använd en mall för att flytta den offentliga Azure-IP-konfigurationen från en Azure-region till en annan med hjälp av Azure Portal.
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 6dd4b3279fc0110fff2ee0397a785c87b63644d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4fd5da3c910b10c81caccde307df0fd36e2fa78
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147832"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235403"
 ---
-# <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Flytta den offentliga Azure-IP-adressen till en annan region med hjälp av Azure Portal
+# <a name="move-azure-public-ip-configuration-to-another-region-using-the-azure-portal"></a>Flytta Azures offentliga IP-konfiguration till en annan region med hjälp av Azure Portal
 
-Det finns olika scenarier där du vill flytta dina befintliga offentliga Azure-IP-adresser från en region till en annan. Du kanske till exempel vill skapa en offentlig IP-adress med samma konfiguration och SKU för testning. Du kanske också vill flytta en offentlig IP-adress till en annan region som en del av Disaster Recovery-planeringen.
+Det finns olika scenarier där du vill flytta dina befintliga offentliga Azure-IP-konfigurationer från en region till en annan. Du kanske till exempel vill skapa en offentlig IP-adress med samma konfiguration och SKU för testning. Du kanske också vill flytta en offentlig IP-konfiguration till en annan region som en del av Disaster Recovery-planeringen.
 
-Offentliga Azure-IP-adresser är regions information och kan inte flyttas från en region till en annan. Du kan dock använda en Azure Resource Manager-mall för att exportera den befintliga konfigurationen av en offentlig IP-adress.  Du kan sedan mellanlagra resursen i en annan region genom att exportera den offentliga IP-adressen till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen.  Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+**Offentliga Azure-IP-adresser är regions information och kan inte flyttas från en region till en annan.** Du kan dock använda en Azure Resource Manager-mall för att exportera den befintliga konfigurationen av en offentlig IP-adress.  Du kan sedan mellanlagra resursen i en annan region genom att exportera den offentliga IP-adressen till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen.  Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Se till att den offentliga Azure-IP-adressen finns i den Azure-region som du vill flytta från.
 
@@ -41,12 +41,12 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
 
 ### <a name="export-the-template-and-deploy-from-a-script"></a>Exportera mallen och distribuera från ett skript
 
-1. Logga in på [Azure Portal](https://portal.azure.com) > **resurs grupper**.
+1. Logga in på [Azure Portal](https://portal.azure.com)  >  **resurs grupper**.
 2. Leta upp resurs gruppen som innehåller den offentliga käll-IP-adressen och klicka på den.
-3. Välj**Exportera mall**för > **Inställningar** > .
+3. Välj **Settings**  >  **Exportera mall**för > inställningar.
 4. Välj **distribuera** på bladet **Exportera mall** .
-5. Klicka på **mall** > **Redigera parametrar** för att öppna filen **parametrar. JSON** i online-redigeraren.
-8. Om du vill redigera parametern för det offentliga IP-namnet ändrar du egenskapen under **parameter** > **värde** från den offentliga IP-adressen till namnet på din mål-offentliga IP-adress, se till att namnet är inom citat tecken:
+5. Klicka på **mall**  >  **Redigera parametrar** för att öppna filen **parametrar. JSON** i online-redigeraren.
+8. Om du vill redigera parametern för det offentliga IP-namnet ändrar du egenskapen under **parameter**  >  **värde** från den offentliga IP-adressen till namnet på din mål-offentliga IP-adress, se till att namnet är inom citat tecken:
 
     ```json
             {
@@ -62,7 +62,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
     ```
 8.  Klicka på **Spara** i redigeraren.
 
-9.  Klicka på **mall** > **Redigera mall** för att öppna filen **Template. JSON** i online-redigeraren.
+9.  Klicka på **mall**  >  **Redigera mall** för att öppna filen **Template. JSON** i online-redigeraren.
 
 10. Om du vill redigera mål regionen där den offentliga IP-adressen ska flyttas ändrar du egenskapen **location** under **resurser**:
 
@@ -90,11 +90,11 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
              ]
     ```
 
-11. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA** = **, centrala.**
+11. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA**  =  **, centrala**.
 
 12. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
 
-    * **SKU** – du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU** > -**namn** i filen **Template. JSON** :
+    * **SKU** – du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU**-  >  **namn** i filen **Template. JSON** :
 
         ```json
           "resources": [
@@ -140,11 +140,11 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
 
 13. Klicka på **Spara** i redigeraren online.
 
-14. Klicka på **grundläggande** > **prenumeration** för att välja den prenumeration där den offentliga mål-IP-adressen ska distribueras.
+14. Klicka på **grundläggande**  >  **prenumeration** för att välja den prenumeration där den offentliga mål-IP-adressen ska distribueras.
 
-15. Klicka på **grundläggande** > **resurs grupp** för att välja den resurs grupp där den offentliga mål-IP-adressen ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för den offentliga IP-adressen.  Se till att namnet inte är samma som käll resurs gruppen för den befintliga offentliga IP-adressen.
+15. Klicka på **grundläggande**  >  **resurs grupp** för att välja den resurs grupp där den offentliga mål-IP-adressen ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för den offentliga IP-adressen.  Se till att namnet inte är samma som käll resurs gruppen för den befintliga offentliga IP-adressen.
 
-16. Kontrol lera att **grundläggande** > **platser** är inställt på den mål plats där du vill att den offentliga IP-adressen ska distribueras.
+16. Kontrol lera att **grundläggande**  >  **platser** är inställt på den mål plats där du vill att den offentliga IP-adressen ska distribueras.
 
 17. Verifiera under **Inställningar** att namnet matchar namnet som du angav i parameter redigeraren ovan.
 

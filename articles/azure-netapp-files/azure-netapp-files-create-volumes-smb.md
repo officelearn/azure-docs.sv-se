@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 05/29/2020
 ms.author: b-juche
-ms.openlocfilehash: 6cb3fa56e679bc911f12e99379152fc8e1fb7526
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ef54eddd52d67f595fe78cd8bba9f308a4f19a94
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832847"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235228"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -175,9 +175,6 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
     Active Directory anslutningen som du skapade visas.
 
     ![Active Directory anslutningar](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
-
-> [!NOTE] 
-> Du kan redigera fälten användar namn och lösen ord när du har sparat Active Directory anslutningen. Inga andra värden kan redige ras efter att anslutningen har sparats. Om du behöver ändra andra värden måste du först ta bort alla distribuerade SMB-volymer och sedan ta bort och återskapa Active Directory anslutningen.
 
 ## <a name="add-an-smb-volume"></a>Lägg till en SMB-volym
 

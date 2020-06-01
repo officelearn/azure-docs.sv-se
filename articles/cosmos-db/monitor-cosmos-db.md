@@ -8,27 +8,44 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 5056762dab18ae23980c7d3b3ebfbb3c3014fa56
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a31636e4e56ddeb9f48cd8c955dc4415dacdc178
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798701"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234936"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Övervaknings Azure Cosmos DB
 
 När du har viktiga program och affärs processer som förlitar sig på Azure-resurser, vill du övervaka resurserna för deras tillgänglighet, prestanda och drift. Den här artikeln beskriver övervaknings data som genererats av Azure Cosmos-databaser och hur du kan använda funktionerna i Azure Monitor för att analysera och varna för dessa data.
 
+Du kan övervaka dina data med mått på klient sidan och Server sidan. När du använder mått på Server sidan kan du övervaka de data som lagras i Azure Cosmos DB med följande alternativ:
+
+* **Övervaka från Azure Cosmos DB Portal:** Du kan övervaka med de mått som är tillgängliga på fliken **mått** i Azure Cosmos-kontot. Måtten på den här fliken är data flöde, lagring, tillgänglighet, latens, konsekvens och system nivå mått. Som standard har dessa mått en kvarhållningsperiod på 7 dagar. Läs mer i avsnittet [övervaknings data som samlas in från Azure Cosmos DB](#monitoring-from-azure-cosmos-db) i den här artikeln.
+
+* **Övervaka med mått i Azure Monitor:** Du kan övervaka måtten för ditt Azure Cosmos-konto och skapa instrument paneler från Azure Monitor. Azure Monitor samlar in Azure Cosmos DB mått som standard har du inte konfigurerat något explicit. Dessa mått samlas in med en-minuters kornig het, medan kornigheten kan variera beroende på vilket mått du väljer. Som standard har dessa mått en kvarhållningsperiod på 30 dagar. De flesta mått som är tillgängliga från föregående alternativ är också tillgängliga i dessa mått. Mer information finns i avsnittet [analysera mått data](#analyze-metric-data) i den här artikeln.
+
+* **Övervaka med diagnostikloggar i Azure Monitor:** Du kan övervaka loggarna för ditt Azure Cosmos-konto och skapa instrument paneler från Azure Monitor. Telemetri som händelser och spår som inträffar vid en andra kornig het lagras som loggar. Till exempel, om data flödet för en behållare är ändringar, ändras egenskaperna för ett Cosmos-konto och dessa händelser samlas in i loggarna. Du kan analysera dessa loggar genom att köra frågor på insamlade data. Mer information finns i avsnittet [analysera logg data](#analyze-log-data) i den här artikeln.
+
+* **Övervaka program mässigt med SDK: er:** Du kan övervaka ditt Azure Cosmos-konto program mässigt genom att använda SDK: er för .NET, Java, python, Node. js och rubrikerna i REST API. Mer information finns i avsnittet [övervakning Azure Cosmos DB program mässigt](#monitor-cosmosdb-programmatically) i den här artikeln.
+
+Följande bild visar olika alternativ som är tillgängliga för att övervaka Azure Cosmos DB konto via Azure Portal:
+
+![Tillgängliga övervaknings alternativ i Azure Portal](media/monitor-cosmos-db/monitoring-options-portal.png)
+
+När du använder Azure Cosmos DB kan du på klient sidan samla in information om begär ande avgift, aktivitets-ID, undantag/stack spårnings information, HTTP-status/under status kod, diagnostisk sträng för att felsöka eventuella problem som kan uppstå. Den här informationen krävs också om du behöver kontakta Azure Cosmos DB support-teamet.  
+
 ## <a name="what-is-azure-monitor"></a>Vad är Azure Monitor?
+
 Azure Cosmos DB skapar övervaknings data med hjälp av [Azure Monitor](../azure-monitor/overview.md) som är en fullständig stack övervaknings tjänst i Azure som innehåller en fullständig uppsättning funktioner för att övervaka dina Azure-resurser, förutom resurser i andra moln och lokalt.
 
 Om du inte redan är bekant med att övervaka Azure-tjänster börjar du med artikeln [övervaka Azure-resurser med Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) som beskriver följande:
 
-- Vad är Azure Monitor?
-- Kostnader för övervakning
-- Övervaknings data som samlas in i Azure
-- Konfigurerar data insamling
-- Standard verktyg i Azure för analys och avisering om övervaknings data
+* Vad är Azure Monitor?
+* Kostnader för övervakning
+* Övervaknings data som samlas in i Azure
+* Konfigurerar data insamling
+* Standard verktyg i Azure för analys och avisering om övervaknings data
 
 Följande avsnitt bygger på den här artikeln genom att beskriva de specifika data som samlats in från Azure Cosmos DB och tillhandahålla exempel för att konfigurera data insamling och analysera data med Azure-verktyg.
 
@@ -39,7 +56,27 @@ Azure Monitor för Azure Cosmos DB baseras på [arbets bokens funktion i Azure M
 > [!NOTE]
 > När du skapar behållare ser du till att du inte skapar två behållare med samma namn men med olika Skift läge. Det beror på att vissa delar av Azure-plattformen inte är Skift läges känsliga, och det kan leda till förvirring/kollisioner för telemetri och åtgärder på behållare med sådana namn.
 
-## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Visa mått på åtgärds nivå för Azure Cosmos DB
+## <a name="monitor-data-collected-from-azure-cosmos-db-portal"></a><a id="monitoring-from-azure-cosmos-db"></a>Övervaka data som samlas in från Azure Cosmos DB Portal
+
+Azure Cosmos DB samlar in samma typer av övervaknings data som andra Azure-resurser som beskrivs i [övervaknings data från Azure-resurser](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). Se [Azure Cosmos DB övervaknings data referens](monitor-cosmos-db-reference.md) för en detaljerad referens för de loggar och mått som skapats av Azure Cosmos dB.
+
+På sidan **Översikt** i Azure Portal för varje Azure Cosmos-databas finns en kort vy över databas användningen, inklusive begäran och fakturerings användningen per timme. Detta är användbar information, men bara en liten mängd tillgängliga övervaknings data. En del av dessa data samlas in automatiskt och är tillgängliga för analys så fort du skapar databasen, medan du kan aktivera ytterligare data insamling med en viss konfiguration.
+
+![Översikts sida](media/monitor-cosmos-db/overview-page.png)
+
+## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a>Analysera mått data
+
+Azure Cosmos DB ger en anpassad upplevelse för att arbeta med mått. Se [övervaka och felsök Azure Cosmos DB mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) för information om hur du använder den här upplevelsen och för att analysera olika Azure Cosmos DB scenarier.
+
+Du kan analysera mått för Azure Cosmos DB med mått från andra Azure-tjänster med hjälp av Metric Explorer genom att öppna **mått** från **Azure Monitor** -menyn. Mer information om hur du använder det här verktyget finns i [komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) . Alla mått för Azure Cosmos DB finns i namn området **Cosmos DB standard mått**. Du kan använda följande dimensioner med dessa mått när du lägger till ett filter i ett diagram:
+
+* CollectionName
+* DatabaseName
+* OperationType
+* Region
+* StatusCode
+
+### <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Visa mått på åtgärds nivå för Azure Cosmos DB
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -67,34 +104,14 @@ Du kan gruppera mått med hjälp av alternativet **Använd delning** . Du kan ti
 
 ![Lägg till Använd delnings filter](./media/monitor-cosmos-db/apply-metrics-splitting.png)
 
-## <a name="monitoring-data-collected-from-azure-cosmos-db"></a>Övervaknings data som samlas in från Azure Cosmos DB
+## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a>Analysera loggdata
 
-Azure Cosmos DB samlar in samma typer av övervaknings data som andra Azure-resurser som beskrivs i [övervaknings data från Azure-resurser](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). Se [Azure Cosmos DB övervaknings data referens](monitor-cosmos-db-reference.md) för en detaljerad referens för de loggar och mått som skapats av Azure Cosmos dB.
-
-På sidan **Översikt** i Azure Portal för varje Azure Cosmos-databas finns en kort vy över databas användningen, inklusive begäran och fakturerings användningen per timme. Detta är användbar information, men bara en liten mängd tillgängliga övervaknings data. En del av dessa data samlas in automatiskt och är tillgängliga för analys så fort du skapar databasen, medan du kan aktivera ytterligare data insamling med en viss konfiguration.
-
-![Översikts sida](media/monitor-cosmos-db/overview-page.png)
-
-## <a name="analyzing-metric-data"></a>Analysera mått data
-
-Azure Cosmos DB ger en anpassad upplevelse för att arbeta med mått. Se [övervaka och felsök Azure Cosmos DB mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) för information om hur du använder den här upplevelsen och för att analysera olika Azure Cosmos DB scenarier.
-
-Du kan analysera mått för Azure Cosmos DB med mått från andra Azure-tjänster med hjälp av Metric Explorer genom att öppna **mått** från **Azure Monitor** -menyn. Mer information om hur du använder det här verktyget finns i [komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) . Alla mått för Azure Cosmos DB finns i namn området **Cosmos DB standard mått**. Du kan använda följande dimensioner med dessa mått när du lägger till ett filter i ett diagram:
-
-- CollectionName
-- DatabaseName
-- OperationType
-- Region
-- StatusCode
-
-## <a name="analyzing-log-data"></a>Analysera loggdata
 Data i Azure Monitor loggar lagras i tabeller som varje tabell har en egen uppsättning unika egenskaper. Azure Cosmos DB lagrar data i följande tabeller.
 
 | Tabell | Beskrivning |
 |:---|:---|
 | AzureDiagnostics | Vanlig tabell som används av flera tjänster för att lagra resurs loggar. Resurs loggar från Azure Cosmos DB kan identifieras med `MICROSOFT.DOCUMENTDB` .   |
-| AzureActivity    | Vanlig tabell som lagrar alla poster från aktivitets loggen. 
-
+| AzureActivity    | Vanlig tabell som lagrar alla poster från aktivitets loggen.
 
 > [!IMPORTANT]
 > När du väljer **loggar** från Azure Cosmos DB-menyn öppnas Log Analytics med fråge omfånget som är inställt på den aktuella Azure Cosmos-databasen. Det innebär att logg frågor bara innehåller data från den resursen. Om du vill köra en fråga som innehåller data från andra databaser eller data från andra Azure-tjänster väljer du **loggar** på **Azure Monitor** -menyn. Mer information finns i [logg frågans omfång och tidsintervall i Azure Monitor Log Analytics](../azure-monitor/log-query/scope.md) .
@@ -130,7 +147,7 @@ Följande är frågor som du kan använda för att övervaka dina Azure Cosmos-d
     | summarize count() by Resource
     ```
 
-## <a name="monitor-azure-cosmos-db-programmatically"></a>Övervaka Azure Cosmos DB program mässigt
+## <a name="monitor-azure-cosmos-db-programmatically"></a><a id="monitor-cosmosdb-programmatically"></a>Övervaka Azure Cosmos DB program mässigt
 
 Konto nivå måtten som är tillgängliga i portalen, till exempel användning av konto lagring och totalt antal begär Anden, är inte tillgängliga via SQL-API: erna. Du kan dock hämta användnings data på samlings nivå med hjälp av SQL-API: erna. Gör följande för att hämta data på samlings nivå:
 
@@ -146,9 +163,7 @@ Frågor för att hämta enskilda mått använder följande format:
 
     https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
 
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azure Cosmos DB övervaknings data referens](monitor-cosmos-db-reference.md) för referenser till loggar och mått som skapats av Azure Cosmos dB.
-- Mer information om övervakning av Azure-resurser finns i [övervaka Azure-resurser med Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) .
+* Se [Azure Cosmos DB övervaknings data referens](monitor-cosmos-db-reference.md) för referenser till loggar och mått som skapats av Azure Cosmos dB.
+* Mer information om övervakning av Azure-resurser finns i [övervaka Azure-resurser med Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) .

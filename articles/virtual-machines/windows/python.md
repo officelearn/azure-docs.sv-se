@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: b2172d44b4136b51c0ea459868ebd5b0572bb004
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81b8f83115a8bcb953fc4445899f7ea9afc1007c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82098076"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233340"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp av python
 
@@ -25,15 +25,15 @@ En [virtuell Azure-dator](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%
 > * Skapa resurser
 > * Utföra hanterings uppgifter
 > * Ta bort resurser
-> * Köra appen
+> * Kör programmet
 
 Det tar ungefär 20 minuter att utföra dessa steg.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
 1. Om du inte redan har gjort det installerar du [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **python-utveckling** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **Python 3 64-bitar (3.6.0)** automatiskt väljs åt dig. Om du redan har installerat Visual Studio kan du lägga till python-arbetsbelastningen med Visual Studio Launcher.
-2. När du har installerat och startat Visual Studio klickar du på **fil** > **nytt** > **projekt**.
-3. Klicka på **mallar** > **python** > **python Application**, ange *myPythonProject* som namn på projektet, Välj platsen för projektet och klicka sedan på **OK**.
+2. När du har installerat och startat Visual Studio klickar du på **fil**  >  **nytt**  >  **projekt**.
+3. Klicka på **mallar**  >  **python**  >  **python Application**, ange *myPythonProject* som namn på projektet, Välj platsen för projektet och klicka sedan på **OK**.
 
 ## <a name="install-packages"></a>Installera paket
 
@@ -164,7 +164,7 @@ Alla resurser måste finnas i en [resurs grupp](../../azure-resource-manager/man
     input('Availability set created. Press enter to continue...')
     ```
 
-En [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) krävs för att kommunicera med den virtuella datorn.
+En [offentlig IP-adress](../../virtual-network/public-ip-addresses.md) krävs för att kommunicera med den virtuella datorn.
 
 1. Om du vill skapa en offentlig IP-adress för den virtuella datorn lägger du till den här funktionen efter variablerna i. py-filen:
 
@@ -554,7 +554,7 @@ Eftersom du debiteras för resurser som används i Azure är det alltid en bra i
 
 3. Spara *myPythonProject.py*.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 1. Kör konsol programmet genom att klicka på **Start** i Visual Studio.
 

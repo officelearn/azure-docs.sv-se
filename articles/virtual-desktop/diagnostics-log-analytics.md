@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bd28117350913bc25f5bf7cec08d28683ad9daca
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 04c02cb493941d101cf230b1ca3dab32aaa7a2fc
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020072"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234560"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Använd Log Analytics för funktionen diagnostik
 
@@ -117,6 +117,9 @@ Du kan komma åt Log Analytics arbets ytor på Azure Portal eller Azure Monitor.
 4. Följ instruktionerna på sidan loggning för att ange omfånget för frågan.  
 
 5. Du är redo att fråga diagnostik. Alla diagnostiska tabeller har prefixet "WVD".
+
+>[!NOTE]
+>Mer detaljerad information om de tabeller som lagras i Azure Monitor loggar finns i [Azure Monitor data](https://docs.microsoft.com/azure/azure-monitor/reference/)återställningen. Alla tabeller som är relaterade till Windows Virtual Desktop kallas "WVD".
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>Takt för att skicka diagnostiska händelser
 
@@ -239,10 +242,32 @@ WVDErrors
 | render barchart 
 ```
 
+Så här hittar du förekomst av ett fel för alla användare:
+
+```kusto
+WVDErrors 
+| where ServiceError =="false" 
+| summarize usercount = count(UserName) by CodeSymbolic 
+| sort by usercount desc
+| render barchart 
+```
+
+Kör den här frågan för att fråga appar som användare har öppnat:
+
+```kusto
+WVDCheckpoints 
+| where TimeGenerated > ago(7d)
+| where Name == "LaunchExecutable"
+| extend App = parse_json(Parameters).filename
+| summarize Usage=count(UserName) by tostring(App)
+| sort by Usage desc
+| render columnchart
+```
 >[!NOTE]
->Den viktigaste tabellen för fel sökning är WVDErrors. Använd den här frågan för att förstå vilka problem som inträffar för användar aktiviteter som anslutningar eller flöden när en användare prenumererar på listan över appar eller skriv bord. I tabellen visas hanterings fel och problem med värd registrering.
->
->Om du behöver hjälp med att lösa ett problem under en offentlig för hands version ser du till att du ger det fel meddelandet i din supportbegäran. Se också till att tjänstens felvärde alltid står ServiceError = "false". Ett "falskt"-värde innebär att problemet kan lösas av en administratörs uppgift i slutet. Om ServiceError = "true" måste du eskalera problemet till Microsoft.
+>- När en användare öppnar fullständig skriv bord spåras inte appens användning i sessionen som kontroll punkter i WVDCheckpoints-tabellen.
+>- Kolumnen ResourcesAlias i tabellen WVDConnections visar om en användare har anslutit till ett fullständigt skriv bord eller en publicerad app. Kolumnen visar bara den första app som de är öppna under anslutningen. Alla publicerade appar som användaren öppnar spåras i WVDCheckpoints.
+>- I WVDErrors-tabellen visas hanterings fel, problem med värd registrering och andra problem som inträffar när användaren prenumererar på en lista över appar eller skriv bord.
+>- WVDErrors hjälper dig att identifiera problem som kan lösas av administrativa uppgifter. Värdet på ServiceError står alltid "false" för dessa typer av problem. Om ServiceError = "true" måste du eskalera problemet till Microsoft. Se till att du anger CorrelationID för de fel som du eskalerar.
 
 ## <a name="next-steps"></a>Nästa steg 
 

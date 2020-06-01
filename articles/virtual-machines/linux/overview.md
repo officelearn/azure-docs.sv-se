@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9921db093cc111917d50acfccc10165c0eab6b0f
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 98a118ef662abd323854911e9fc1ffc6b7374db2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930751"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232982"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Virtuella Linux-datorer i Azure
 
@@ -45,7 +45,7 @@ Alla resurser som skapats i Azure fördelas på flera [geografiska områden](htt
 
 I den här tabellen finns några exempel på hur du kan hämta en lista över tillgängliga platser.
 
-| Metod | Beskrivning |
+| Metod | Description |
 | --- | --- |
 | Azure Portal |Välj en plats i listan när du skapar en virtuell dator. |
 | Azure PowerShell |Använd kommandot [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
@@ -108,7 +108,7 @@ Azure har stöd för [Cloud-Init](https://cloud-init.io/) i de flesta Linux-dist
 
 ## <a name="networking"></a>Nätverk
 * [Översikt över virtuella nätverk](../../virtual-network/virtual-networks-overview.md)
-* [IP-adresser i Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [IP-adresser i Azure](../../virtual-network/public-ip-addresses.md)
 * [Öppna portar till en virtuell Linux-dator i Azure](nsg-quickstart.md)
 * [Skapa ett fullständigt domännamn i Azure-portalen](portal-create-fqdn.md)
 

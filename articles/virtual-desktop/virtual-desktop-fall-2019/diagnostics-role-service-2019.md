@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657246"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235556"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identifiera och diagnostisera problem
 
@@ -161,7 +161,7 @@ I följande tabell visas vanliga fel som dina administratörer kan köra i.
 
 |Numerisk kod|Felkod|Föreslagen lösning|
 |---|---|---|
-|– 2147467259|ConnectionFailedAdErrorNoSuchMember|Användaren är inte medlem i Azure Active Directory. Följ instruktionerna i [Active Directory Administrationscenter](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) för att lägga till dem.|
+|– 2147467259|ConnectionFailedAdErrorNoSuchMember|Användaren är inte medlem i Active Directory. Följ instruktionerna i [Active Directory Administrationscenter](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) för att lägga till dem.|
 |– 2147467259|ConnectionFailedAdTrustedRelationshipFailure|Sessions värden är inte korrekt ansluten till Active Directory.|
 |– 2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Anslutningarna misslyckades eftersom sessions värden inte är tillgänglig. Kontrol lera hälso tillståndet för sessionens värd.|
 |– 2146233088|ConnectionFailedClientDisconnect|Om det här felet ofta visas kontrollerar du att användarens dator är ansluten till nätverket.|
@@ -172,6 +172,7 @@ I följande tabell visas vanliga fel som dina administratörer kan köra i.
 |8|ConnectionBroken|Anslutningen mellan klienten och gatewayen eller servern släpptes. Ingen åtgärd krävs om den inte sker utan förvarning.|
 |14|UnexpectedNetworkDisconnect|Anslutningen till nätverket har släppts. Be användaren att ansluta igen.|
 |24|ReverseConnectFailed|Den virtuella datorns värd har ingen direkt rad information till RD Gateway. Se till att IP-adressen för gatewayen kan matchas.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|Användaren är inte medlem i Active Directory. Följ instruktionerna i [Active Directory Administrationscenter](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) för att lägga till dem.|
 
 ## <a name="next-steps"></a>Nästa steg
 

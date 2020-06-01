@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c4f3ec2727d06528eab788a2a24a6190fe26533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ede0f5d74ceb5ce79cdfc095b3ffeccd96a1b3b
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606151"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84230127"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer
 Det här dokumentet innehåller rikt linjer för att konfigurera Azure-infrastruktur och operativ SAP HANA system som distribueras på virtuella Azure-datorer (VM: ar). Dokumentet innehåller också konfigurations information för SAP HANA skala ut för VM-SKU: n för M128s. Detta dokument är inte avsett att ersätta standard-SAP-dokumentationen, som innehåller följande innehåll:
@@ -29,10 +29,10 @@ Det här dokumentet innehåller rikt linjer för att konfigurera Azure-infrastru
 - [Installations guider för SAP](https://service.sap.com/instguides)
 - [SAP-anteckningar](https://service.sap.com/notes)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda den här guiden behöver du grundläggande kunskaper om följande Azure-komponenter:
 
-- [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+- [Virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Azure-nätverk och virtuella nätverk](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
@@ -104,7 +104,7 @@ Artiklarna [Azure Virtual Data Center: ett nätverks perspektiv](https://docs.mi
 >Trafik som flödar mellan ett nav-VNet och ekrar VNet med hjälp av [Azure VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) omfattas av ytterligare [kostnader](https://azure.microsoft.com/pricing/details/virtual-network/). Utifrån dessa kostnader kan du behöva överväga att göra kompromisser mellan att köra en strikt hubb och eker-nätverks design och köra flera [Azure ExpressRoute-gatewayer](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) som du ansluter till ekrar för att kringgå VNet-peering. Azure ExpressRoute-gatewayer introducerar dock även ytterligare [kostnader](https://azure.microsoft.com/pricing/details/vpn-gateway/) . Du kan också stöta på ytterligare kostnader för program från tredje part som du använder för loggning, granskning och övervakning av nätverks trafik. Beroende på kostnaderna för data utbyte via VNet-peering på en sida och kostnader som skapats av ytterligare Azure ExpressRoute-gatewayer och ytterligare program varu licenser, kan du besluta om mikrosegmentering i ett VNet med hjälp av undernät som isolerade enheter i stället för virtuella nätverk.
 
 
-En översikt över olika metoder för att tilldela IP-adresser finns i [IP-diagramtyper och autentiseringsmetoder i Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+En översikt över olika metoder för att tilldela IP-adresser finns i [IP-diagramtyper och autentiseringsmetoder i Azure](../../../virtual-network/public-ip-addresses.md). 
 
 För virtuella datorer som kör SAP HANA bör du arbeta med statiska IP-adresser tilldelade. Orsak är att vissa konfigurationsfiler för HANA-referens-IP-adresser.
 
@@ -175,7 +175,7 @@ När din Azure VM-infrastruktur har distribuerats, och alla andra förberedelser
 - Installera SAP HANA Master-noden enligt SAP-dokumentationen
 - Om du använder Azure Premium Storage eller Ultra disk Storage med icke-delade diskar av/Hana/data och/Hana/log måste du ändra filen Global. ini och lägga till parametern "basepath_shared = nej" i filen Global. ini. Med den här parametern kan SAP HANA köras i skalbart utan "delade" **/Hana/data** -och **/Hana/log** -volymer mellan noderna. Information finns dokumenterad i [SAP obs #2080991](https://launchpad.support.sap.com/#/notes/2080991). Om du använder NFS-volymer baserade på ANF för/Hana/data och/Hana/log behöver du inte göra den här ändringen
 - Efter ändringen i filen Global. ini startar du om SAP HANA-instansen
-- Lägg till ytterligare arbetsnoder. Se även <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Ange det interna nätverket för SAP HANA kommunikation mellan noder under installationen eller efteråt med, till exempel, den lokala hdblcm. Mer detaljerad dokumentation finns även i [SAP obs #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
+- Lägg till ytterligare arbetsnoder. Se även <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html> . Ange det interna nätverket för SAP HANA kommunikation mellan noder under installationen eller efteråt med, till exempel, den lokala hdblcm. Mer detaljerad dokumentation finns även i [SAP obs #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
 Information om hur du konfigurerar ett SAP HANA skalbart system med noden vänte läge på SUSE Linux beskrivs i detalj i [distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer genom att använda Azure NetApp Files på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse). Motsvarande dokumentation för Red Hat finns i artikeln [distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer genom att använda Azure NetApp Files på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel). 
 
@@ -316,7 +316,7 @@ Mer information om hur du konfigurerar och underhåller support anslutningar via
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Hög tillgänglighet med SAP HANA på virtuella Azure-datorer
 Om du kör SUSE Linux Enterprise Server eller Red Hat kan du upprätta ett pacemaker-kluster med STONITH-enheter. Du kan använda enheterna för att konfigurera en SAP HANA-konfiguration som använder synkron replikering med HANA-systemreplikering och automatisk redundans. Mer information finns i avsnittet "nästa steg".
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Bekanta dig med artiklarna som de visas i listan
 - [Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)

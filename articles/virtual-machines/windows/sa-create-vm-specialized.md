@@ -9,12 +9,12 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: 60b0a0f0d83b9b83c9cf8d530881508af591de59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b2466cc1d36206d0a6a382c948969ad6c28a199f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099656"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232815"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Skapa en virtuell dator från en specialiserad virtuell hård disk i ett lagrings konto
 
@@ -72,7 +72,7 @@ Följ dessa steg om du behöver skapa ett lagrings konto:
     ```
    
 ### <a name="upload-the-vhd-to-your-storage-account"></a>Ladda upp den virtuella hårddisken till lagringskontot
-Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp avbildningen till en behållare i ditt lagrings konto. I det här exemplet överförs filen **myVHD. VHD** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagrings konto med namnet **mystorageaccount** i resurs gruppen **myResourceGroup** . Filen kommer att placeras i behållaren **som heter** behållaren och det nya fil namnet kommer att vara **myUploadedVHD. VHD**.
+Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp avbildningen till en behållare i ditt lagrings konto. I det här exemplet överförs filen **myVHD. VHD** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagrings konto med namnet **Mystorageaccount** i resurs gruppen **myResourceGroup** . Filen kommer att placeras i behållaren **som heter** behållaren och det nya fil namnet kommer att vara **myUploadedVHD. VHD**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -112,7 +112,7 @@ Kontrol lera att du:
 ### <a name="deallocate-the-vm"></a>Frigöra den virtuella datorn
 Frigör den virtuella hård disken som ska kopieras. 
 
-* **Portal**: Klicka på **Virtual Machines** > **myVM** > stoppa
+* **Portal**: Klicka på **Virtual Machines**  >  **myVM** > stoppa
 * **PowerShell**: Använd [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) för att stoppa (frigöra) den virtuella datorn med namnet **myVM** i resurs gruppen **myResourceGroup**.
 
 ```powershell
@@ -122,11 +122,11 @@ Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 **Status** för den virtuella datorn i Azure Portal ändras från **stoppad** till **stoppad (Frigjord)**.
 
 ### <a name="get-the-storage-account-urls"></a>Hämta lagrings kontots URL: er
-Du behöver URL: er för käll-och mål lagrings kontona. URL: erna ser ut `https://<storageaccount>.blob.core.windows.net/<containerName>/`så här:. Om du redan känner till lagrings kontot och behållar namnet kan du bara byta ut informationen mellan hakparenteserna för att skapa din URL. 
+Du behöver URL: er för käll-och mål lagrings kontona. URL: erna ser ut så här: `https://<storageaccount>.blob.core.windows.net/<containerName>/` . Om du redan känner till lagrings kontot och behållar namnet kan du bara byta ut informationen mellan hakparenteserna för att skapa din URL. 
 
 Du kan använda Azure Portal eller Azure PowerShell för att hämta URL: en:
 
-* **Portal**: Klicka på **>** för **alla** > lagrings**konton** > lagrings*konto* > **blobbar** och din käll-VHD-fil är förmodligen i behållaren för **virtuella hård diskar** . Klicka på **Egenskaper** för behållaren och kopiera texten med etiketten **URL**. Du behöver URL: er för både käll-och mål behållarna. 
+* **Portal**: Klicka på **>** för **alla**lagrings konton lagrings  >  **Storage accounts**  >  *konto*  >  **blobbar** och din käll-VHD-fil är förmodligen i behållaren för **virtuella hård diskar** . Klicka på **Egenskaper** för behållaren och kopiera texten med etiketten **URL**. Du behöver URL: er för både käll-och mål behållarna. 
 * **PowerShell**: Använd [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) för att hämta information om den virtuella datorn med namnet **myVM** i resurs gruppen **myResourceGroup**. I resultatet tittar du på **lagrings profil** avsnittet för VHD- **URI: n**. Den första delen av URI: n är URL: en till behållaren och den sista delen är OS-VHD-namnet för den virtuella datorn.
 
 ```powershell
@@ -136,7 +136,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>Hämta åtkomst nycklar för lagring
 Hitta åtkomst nycklarna för käll-och mål lagrings kontona. Mer information om åtkomst nycklar finns i [om Azure Storage-konton](../../storage/common/storage-create-storage-account.md).
 
-* **Portal**: Klicka på **alla tjänster** > **lagrings konton** > *lagrings kontots* > **åtkomst nycklar**. Kopiera nyckeln märkt som **KEY1**.
+* **Portal**: Klicka på **alla tjänster**  >  **lagrings konton**  >  *lagrings kontots*  >  **åtkomst nycklar**. Kopiera nyckeln märkt som **KEY1**.
 * **PowerShell**: Använd [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) för att hämta lagrings nyckeln för lagrings kontot **mystorageaccount** i resurs gruppen **myResourceGroup**. Kopiera nyckeln med etiketten **KEY1**.
 
 ```powershell
@@ -225,7 +225,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
 Mer information om slut punkter och NSG-regler finns i [öppna portar till en virtuell dator i Azure med hjälp av PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Skapa en offentlig IP-adress och ett nätverkskort
-För att upprätta kommunikation med den virtuella datorn i det virtuella nätverket behöver du en [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) och ett nätverksgränssnitt.
+För att upprätta kommunikation med den virtuella datorn i det virtuella nätverket behöver du en [offentlig IP-adress](../../virtual-network/public-ip-addresses.md) och ett nätverksgränssnitt.
 
 1. Skapa den offentliga IP-adressen. I det här exemplet anges namnet på den offentliga IP-adressen till **myIP**.
    
@@ -278,7 +278,7 @@ $dataDiskName = $vmName + "dataDisk"
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
 ```
 
-När du använder ett lagrings konto ser data och operativ system disk-URL: er ut `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`ungefär så här:. Du hittar det här på portalen genom att bläddra till mål lagrings behållaren, klicka på det operativ system eller den data-VHD som kopierades och sedan kopiera innehållet i URL: en.
+När du använder ett lagrings konto ser data och operativ system disk-URL: er ut ungefär så här: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd` . Du hittar det här på portalen genom att bläddra till mål lagrings behållaren, klicka på det operativ system eller den data-VHD som kopierades och sedan kopiera innehållet i URL: en.
 
 
 ### <a name="complete-the-vm"></a>Slutför den virtuella datorn 
@@ -300,7 +300,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verifiera att den virtuella datorn har skapats
-Du bör se den nyligen skapade virtuella datorn antingen i [Azure Portal](https://portal.azure.com), under **alla tjänster** > **virtuella datorer**eller med hjälp av följande PowerShell-kommandon:
+Du bör se den nyligen skapade virtuella datorn antingen i [Azure Portal](https://portal.azure.com), under **alla tjänster**  >  **virtuella datorer**eller med hjälp av följande PowerShell-kommandon:
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $rgName

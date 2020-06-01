@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 91435c2c5ca825793988e002c1ab9f6caacf2b17
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 81d02b32bc1eb6edf22845a4d02ba2ba02536855
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652560"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236325"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Använda Azure Active Directory för autentisering med PostgreSQL
 
@@ -54,21 +54,19 @@ Vi har för närvarande testat följande klienter:
 
 Detta är de steg som en användare/ett program behöver för att autentisera med Azure AD som beskrivs nedan:
 
+### <a name="prerequisites"></a>Förutsättningar
+
+Du kan följa med i Azure Cloud Shell, en virtuell Azure-dator eller på den lokala datorn. Kontrol lera att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
+
 ### <a name="step-1-authenticate-with-azure-ad"></a>Steg 1: autentisera med Azure AD
 
-Kontrol lera att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
+Börja med att autentisera med Azure AD med hjälp av Azure CLI-verktyget. Det här steget krävs inte i Azure Cloud Shell.
 
-Anropa Azure CLI-verktyget för att autentisera med Azure AD. Du måste ange ditt användar-ID och lösen ord för Azure AD.
-
-```azurecli-interactive
+```
 az login
 ```
 
-Det här kommandot startar ett webbläsarfönster till sidan Azure AD-autentisering.
-
-> [!NOTE]
-> Du kan också använda Azure Cloud Shell för att utföra dessa steg.
-> Tänk på att när du hämtar Azure AD-åtkomsttoken i Azure Cloud Shell måste du explicit anropa `az login` och logga in igen (i det separata fönstret med en kod). När detta tecken i `get-access-token` kommandot fungerar som förväntat.
+Kommandot startar ett webbläsarfönster på sidan Azure AD-autentisering. Du måste ange ditt användar-ID och lösen ord för Azure AD.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Steg 2: Hämta Azure AD-åtkomsttoken
 

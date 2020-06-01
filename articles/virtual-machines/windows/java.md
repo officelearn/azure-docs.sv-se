@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: a99924983bf0e78bd8c8901e25819a363583169a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6218906760baad0673b6599a278d50c6c73e1a0
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870035"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232977"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Skapa och hantera virtuella Windows-datorer i Azure med Java
 
@@ -26,7 +26,7 @@ En [virtuell Azure-dator](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%
 > * Skapa resurser
 > * Utföra hanterings uppgifter
 > * Ta bort resurser
-> * Köra appen
+> * Kör programmet
 
 Det tar ungefär 20 minuter att utföra dessa steg.
 
@@ -45,7 +45,7 @@ Det tar ungefär 20 minuter att utföra dessa steg.
 
 ## <a name="add-dependencies"></a>Lägg till beroenden
 
-1. Under `testAzureApp` mappen öppnar du `pom.xml` filen och lägger till build-konfigurationen till &lt;projektet&gt; för att möjliggöra skapandet av ditt program:
+1. Under `testAzureApp` mappen öppnar du `pom.xml` filen och lägger till build-konfigurationen till &lt; projektet &gt; för att möjliggöra skapandet av ditt program:
 
     ```xml
     <build>
@@ -114,7 +114,7 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
 
 ### <a name="create-the-authorization-file"></a>Skapa verifierings filen
 
-1. Skapa en fil med `azureauth.properties` namnet och Lägg till följande egenskaper:
+1. Skapa en fil med namnet `azureauth.properties` och Lägg till följande egenskaper:
 
     ```
     subscription=<subscription-id>
@@ -127,7 +127,7 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
     graphURL=https://graph.microsoft.com/
     ```
 
-    Ersätt ** &lt;prenumerations-&gt; ID** med prenumerations-ID, ** &lt;program&gt; -ID** med Active Directory-program-ID, ** &lt;autentisering-&gt; nyckel** med program nyckeln och ** &lt;klient-&gt; ID** med klient-ID: t.
+    Ersätt ** &lt; prenumerations- &gt; ID** med prenumerations-ID, ** &lt; program &gt; -ID** med Active Directory-program-ID, ** &lt; autentisering- &gt; nyckel** med program nyckeln och klient-ID med klient- ** &lt; ID: t &gt; ** .
 
 2. Spara filen.
 3. Ange en miljö variabel med namnet AZURE_AUTH_LOCATION i ditt gränssnitt med den fullständiga sökvägen till autentiserings filen.
@@ -211,7 +211,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### <a name="create-the-public-ip-address"></a>Skapa den offentliga IP-adressen
 
-En [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) krävs för att kommunicera med den virtuella datorn.
+En [offentlig IP-adress](../../virtual-network/public-ip-addresses.md) krävs för att kommunicera med den virtuella datorn.
 
 Om du vill skapa den offentliga IP-adressen för den virtuella datorn lägger du till den här koden i try-blocket i huvud metoden:
 
@@ -451,7 +451,7 @@ Eftersom du debiteras för resurser som används i Azure är det alltid en bra i
 
 2. Spara App.java-filen.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Det bör ta ungefär fem minuter för konsol programmet att köras helt från början till slut.
 

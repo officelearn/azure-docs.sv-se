@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 2939726898abc2abc0e62d0e36feedbfe7ba3645
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d378f111104feb678d3d89f4a4c51998c67f2e1
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086410"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234536"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en särskild disk med PowerShell
 
@@ -112,7 +112,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Om du vill använda den här ögonblicks bilden för att skapa en virtuell dator som måste vara hög `-AccountType Premium_LRS` , lägger du till parametern i kommandot New-AzSnapshotConfig. Den här parametern skapar ögonblicks bilden så att den lagras som en Premium-hanterad disk. Premium Managed Disks är dyrare än standard, så se till att du behöver Premium innan du använder den här parametern.
+Om du vill använda den här ögonblicks bilden för att skapa en virtuell dator som måste vara hög, lägger du till parametern `-AccountType Premium_LRS` i kommandot New-AzSnapshotConfig. Den här parametern skapar ögonblicks bilden så att den lagras som en Premium-hanterad disk. Premium Managed Disks är dyrare än standard, så se till att du behöver Premium innan du använder den här parametern.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Skapa en ny disk från ögonblicks bilden
 
@@ -193,7 +193,7 @@ $nsg = New-AzNetworkSecurityGroup `
 Mer information om slut punkter och NSG-regler finns i [öppna portar till en virtuell dator i Azure med hjälp av PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Skapa en offentlig IP-adress och ett nätverkskort
-Om du vill aktivera kommunikation med den virtuella datorn i det virtuella nätverket behöver du en [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) och ett nätverks gränssnitt.
+Om du vill aktivera kommunikation med den virtuella datorn i det virtuella nätverket behöver du en [offentlig IP-adress](../../virtual-network/public-ip-addresses.md) och ett nätverks gränssnitt.
 
 1. Skapa den offentliga IP-adressen. I det här exemplet anges namnet på den offentliga IP-adressen till *myIP*.
    
@@ -261,7 +261,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verifiera att den virtuella datorn har skapats
-Du bör se den nyligen skapade virtuella datorn antingen i [Azure Portal](https://portal.azure.com) under **Bläddra** > i**virtuella datorer**eller med hjälp av följande PowerShell-kommandon.
+Du bör se den nyligen skapade virtuella datorn antingen i [Azure Portal](https://portal.azure.com) under **Bläddra**i  >  **virtuella datorer**eller med hjälp av följande PowerShell-kommandon.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

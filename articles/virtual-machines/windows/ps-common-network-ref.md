@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 8cf6d59d93a1b26d79911fc9fa9251ea3d0689ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78aac1e49b23cf7fd294314f335aa429e8458639
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82098449"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233367"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Vanliga PowerShell-kommandon för virtuella Azure-nätverk
 
@@ -31,7 +31,7 @@ Vissa variabler kan vara användbara för dig om du kör fler än ett av kommand
 | ---- | ------- |
 | Skapa undernätskonfigurationer |$subnet 1 = [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "mySubnet1"-AddressPrefix xx. X. X. X/XX<BR>$subnet 2 = New-AzVirtualNetworkSubnetConfig-Name "mySubnet2"-AddressPrefix XX. X. X. X/XX<BR><BR>Ett vanligt nätverk kan ha ett undernät för en [belastningsutjämnare mot Internet](../../load-balancer/load-balancer-internet-overview.md) och ett separat undernät för en [intern belastningsutjämnare](../../load-balancer/load-balancer-internal-overview.md). |
 | Skapa ett virtuellt nätverk |$vnet = [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) -Name "myVNet"-ResourceGroupName $MyResourceGroup-location $location-AddressPrefix xx. X. X. X/XX-undernät $subnet 1, $subnet 2 |
-| Testa ett unikt domän namn |[Test-AzDnsAvailability](https://docs.microsoft.com/powershell/module/az.network/test-azdnsavailability) -DomainNameLabel "myDNS" – plats $location<BR><BR>Du kan ange ett DNS-domännamn för en [offentlig IP-resurs](../../virtual-network/virtual-network-ip-addresses-overview-arm.md), vilket skapar en mappning för DomainName.location.cloudapp.Azure.com till den offentliga IP-adressen i de Azure-HANTERAde DNS-servrarna. Namnet får endast innehålla bokstäver, siffror och bindestreck. Det första och sista tecknet måste vara en bokstav eller en siffra och domän namnet måste vara unikt inom dess Azure-plats. Om **Sant** returneras är det föreslagna namnet globalt unikt. |
+| Testa ett unikt domän namn |[Test-AzDnsAvailability](https://docs.microsoft.com/powershell/module/az.network/test-azdnsavailability) -DomainNameLabel "myDNS" – plats $location<BR><BR>Du kan ange ett DNS-domännamn för en [offentlig IP-resurs](../../virtual-network/public-ip-addresses.md), vilket skapar en mappning för DomainName.location.cloudapp.Azure.com till den offentliga IP-adressen i de Azure-HANTERAde DNS-servrarna. Namnet får endast innehålla bokstäver, siffror och bindestreck. Det första och sista tecknet måste vara en bokstav eller en siffra och domän namnet måste vara unikt inom dess Azure-plats. Om **Sant** returneras är det föreslagna namnet globalt unikt. |
 | Skapa en offentlig IP-adress |$pip = [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) -Name "myPublicIp"-ResourceGroupName $MyResourceGroup-DomainNameLabel "myDNS" – location $location-AllocationMethod Dynamic<BR><BR>Den offentliga IP-adressen använder det domän namn som du tidigare har testat och används av belastningsutjämnarens konfiguration av klient delen. |
 | Skapa en IP-konfiguration för klient delen |$frontendIP = [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) -Name "myFrontendIP"-PublicIpAddress $pip<BR><BR>Klient dels konfigurationen omfattar den offentliga IP-adress som du skapade tidigare för inkommande nätverks trafik. |
 | Skapa en serverdelsadresspool |$beAddressPool = [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) -Name "myBackendAddressPool"<BR><BR>Tillhandahåller interna adresser för den belastningsutjämnare som nås via ett nätverks gränssnitt. |
@@ -65,7 +65,7 @@ Vissa variabler kan vara användbara för dig om du kör fler än ett av kommand
 | Ta bort en lastbalanserare |[Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancer) -Name "myLoadBalancer"-ResourceGroupName $myResourceGroup<BR><BR>Tar bort den angivna belastningsutjämnaren från resurs gruppen. |
 | Ta bort en offentlig IP-adress |[Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress)-Name "unipaddress"-ResourceGroupName $myResourceGroup<BR><BR>Tar bort den angivna offentliga IP-adressen från resurs gruppen. |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Använd det nätverks gränssnitt som du nyss skapade när du [skapar en virtuell dator](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

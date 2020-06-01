@@ -3,12 +3,12 @@ title: Privata slutpunkter
 description: Förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: bc778506819c44291bb2d8f69cdd9ac0aed51399
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 2696f3fdbc4e9061afee266ae36ae8d3507026fc
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007861"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231423"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
@@ -110,7 +110,7 @@ Om du vill skapa en separat privat DNS-zon i Azure kan du göra samma sak med sa
 
 Referera till [den här listan](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) för region koder.
 
-För URL-namn konventioner i National geografiska områden:
+För URL-namn konventioner i nationella regioner:
 
 - [Kina](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [Tyskland](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)

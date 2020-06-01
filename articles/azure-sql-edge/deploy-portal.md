@@ -2,19 +2,19 @@
 title: Distribuera Azure SQL Edge (för hands version) med hjälp av Azure Portal
 description: Lär dig hur du distribuerar Azure SQL Edge (för hands version) med hjälp av Azure Portal
 keywords: Distribuera SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 0ddfc445ee8bd67b39de4ddd013a25f20fd75315
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 43359b66ba747dba7b3294d022a2c1aa2a3e624c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681217"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233249"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Distribuera Azure SQL Edge (för hands version) 
 
@@ -116,7 +116,7 @@ Azure Marketplace är ett online-program och tjänster för tjänster där du ka
 
 I den här snabb starten har du distribuerat en SQL Edge-modul på en IoT Edge enhet.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Machine Learning och artificiell intelligens med ONNX i SQL Edge](onnx-overview.md).
 - [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med hjälp av IoT Edge](tutorial-deploy-azure-resources.md).

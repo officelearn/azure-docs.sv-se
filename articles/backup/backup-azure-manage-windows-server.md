@@ -3,12 +3,12 @@ title: Hantera Azure Recovery Services-valv och-servrar
 description: I den här artikeln lär du dig hur du använder översikts instrument panelen för Recovery Services valv för att övervaka och hantera Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 1a4d23c157700f42422cfe7ca8fa1c49e2cf128a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131978"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234599"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
@@ -95,7 +95,7 @@ Listan med aviseringar om säkerhets kopiering visar den valda informationen fö
 
 | Aviseringsnivå | Händelser som genererar aviseringar |
 | ----------- | ----------- |
-| Kritisk | Du får viktiga aviseringar när: säkerhets kopierings jobben inte fungerar, om återställnings jobben inte fungerar och när du slutar skydda en server, men behåller data.|
+| Kritiskt | Du får viktiga aviseringar när: säkerhets kopierings jobben inte fungerar, om återställnings jobben inte fungerar och när du slutar skydda en server, men behåller data.|
 | Varning | Du får varnings aviseringar när: säkerhets kopierings jobben har slutförts med varningar, till exempel om färre än 100 filer inte säkerhets kopie ras på grund av problem med skada, eller när fler än 1 000 000 filer har säkerhetskopierats). |
 | Information | för närvarande används inga informations aviseringar. |
 
@@ -110,7 +110,7 @@ Som standard visas all information, förutom den **senaste förekomst tiden**, i
 * Varning
 * Säkerhets kopierings objekt
 * Skyddad Server
-* Severity
+* Allvarlighetsgrad
 * Varaktighet
 * Skapande tid
 * Status
@@ -243,7 +243,7 @@ Du kan visa en åtgärd eller alla åtgärder. Det går inte att välja två ell
 Du kan visa all status eller en. Du kan inte välja två eller tre status värden. Tillgängliga statusar är:
 
 * Alla status
-* Slutfört
+* Slutförd
 * Pågår
 * Misslyckades
 * Avbrutna
@@ -274,9 +274,9 @@ Panelen lagring av säkerhets kopior på instrument panelen visar förbrukad lag
 
 **Problem:** Jobb och/eller varningar från Azure Backup-agenten visas inte i portalen.
 
-**Fel söknings steg:** Processen ```OBRecoveryServicesManagementAgent```skickar jobbet och aviserings data till Azure Backup tjänsten. Ibland kan den här processen bli fastnad eller stängas av.
+**Fel söknings steg:** Processen ```OBRecoveryServicesManagementAgent``` skickar jobbet och aviserings data till Azure Backup tjänsten. Ibland kan den här processen bli fastnad eller stängas av.
 
-1. Kontrol lera att processen inte körs genom att öppna **aktivitets hanteraren**och köra ```OBRecoveryServicesManagementAgent``` kontrollen.
+1. Kontrol lera att processen inte körs genom att öppna **aktivitets hanteraren**och ```OBRecoveryServicesManagementAgent``` köra kontrollen.
 
 2. Om processen inte körs öppnar du **kontroll panelen**och bläddrar i listan över tjänster. Starta eller starta om **Microsoft Azure Recovery Services hanterings agenten**.
 

@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 98398510acb1eec29ea603d869f1e9ec383cb210
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5995242f84738eca1b2be680e3f744e36831d78f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758953"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235341"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -206,11 +206,77 @@ Disk skrivnings åtgärder per sekund | virtualDisk. numberWriteAveraged. Averag
 NIC-läst data flöde (MB per sekund) | net. Received. Average | Beräkning för VM-storlek
 NÄTVERKSKORT skriver data flöde (MB per sekund) | net. överföring. genomsnitt  |Beräkning för VM-storlek
 
+
+### <a name="installed-apps-metadata"></a>Metadata för installerade appar
+
+Program identifiering samlar in installerade program och operativ system data.
+
+#### <a name="windows-vm-apps-data"></a>Data för Windows VM-appar
+
+Här är de installerade program data som installationen samlar in från varje virtuell dator som är aktive rad för program identifiering. Dessa data skickas till Azure.
+
+**Data** | **Registerplats** | **Nyckel**
+--- | --- | ---
+Programnamn  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
+Version  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Leverantör  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+
+#### <a name="windows-vm-features-data"></a>Windows VM features-data
+
+Här är de funktions data som installationen samlar in från varje virtuell dator som är aktive rad för program identifiering. Dessa data skickas till Azure.
+
+**Data**  | **PowerShell-cmdlet** | **Egenskap**
+--- | --- | ---
+Name  | Get-WindowsFeature  | Name
+Funktions typ | Get-WindowsFeature  | FeatureType
+Överordnad  | Get-WindowsFeature  | Överordnad
+
+#### <a name="windows-vm-sql-server-metadata"></a>Windows VM SQL Server metadata
+
+Här är SQL Server-metadata som enheten samlar in från virtuella datorer som kör Microsoft SQL Server aktiverat för program identifiering. Dessa data skickas till Azure.
+
+**Data**  | **Registerplats**  | **Nyckel**
+--- | --- | ---
+Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Utgåva  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Utgåva 
+Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | SP
+Version  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Version 
+
+#### <a name="windows-vm-operating-system-data"></a>Operativ system data för Windows VM
+
+Här är de operativ Systems data som installations programmet samlar in varje virtuell dator som är aktive rad för program identifiering. Dessa data skickas till Azure.
+
+Data  | WMI-klass  | Egenskap för WMI-klass
+--- | --- | ---
+Name  | Win32_operatingsystem  | Caption
+Version  | Win32_operatingsystem  | Version
+Arkitektur  | Win32_operatingsystem  | OSArchitecture
+
+#### <a name="linux-vm-apps-data"></a>Data för virtuella Linux-appar
+
+Här är de installerade program data som installationen samlar in från varje virtuell dator som är aktive rad för program identifiering. Ett eller flera av kommandona körs baserat på den virtuella datorns operativ system. Dessa data skickas till Azure.
+
+Data  | Kommando
+--- | --- 
+Name | RPM, dpkg-fråga, fäst
+Version | RPM, dpkg-fråga, fäst
+Leverantör | RPM, dpkg-fråga, fäst
+
+#### <a name="linux-vm-operating-system-data"></a>Operativ system data för Linux VM
+
+Här är de operativ Systems data som installations programmet samlar in varje virtuell dator som är aktive rad för program identifiering. Dessa data skickas till Azure.
+
+**Data**  | **Kommandoprompt** 
+--- | --- | ---
+Name <br/> version | Samlas in från en eller flera av följande filer:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Arkitektur | uname
+
+
 ### <a name="app-dependencies-metadata"></a>Metadata för app-beroenden
 
 Beroende analys av agent samlar in anslutnings-och process data.
 
-#### <a name="connection-data"></a>Anslutnings data
+#### <a name="windows-vm-app-dependencies-data"></a>Windows VM-appens beroende data
 
 Här är de anslutnings data som enheten samlar in från varje virtuell dator som är aktive rad för en agent utan agent analys. Dessa data skickas till Azure.
 
@@ -224,7 +290,7 @@ Status för TCP-anslutning | Netstat
 Process-ID | Netstat
 Antal aktiva anslutningar | Netstat
 
-#### <a name="process-data"></a>Bearbeta data
+
 Här är process data som enheten samlar in från varje virtuell dator som är aktive rad för en agent utan agent analys. Dessa data skickas till Azure.
 
 **Data** | **WMI-klass** | **Egenskap för WMI-klass**
@@ -233,7 +299,7 @@ Processnamn | Win32_Process | ExecutablePath
 Process argument | Win32_Process | Raden
 Programnamn | Win32_Process | VersionInfo. ProductName-parameter för egenskapen ExecutablePath
 
-#### <a name="linux-vm-data"></a>VIRTUELLA Linux-Datadata
+#### <a name="linux-vm-app-dependencies-data"></a>Linux VM-appens beroende data
 
 Här är anslutnings-och process data som installations programmet samlar in från varje Linux-VM som är aktive rad för en agent utan agent för beroende analys. Dessa data skickas till Azure.
 

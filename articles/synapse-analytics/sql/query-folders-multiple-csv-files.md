@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: bb5c01bac512504fc6bee52be7cf619f29bdf959
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cb136fa9a3dc63144d26820b7170250b3598ba77
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117172"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235416"
 ---
 # <a name="query-folders-and-multiple-csv-files"></a>Fråga mappar och flera CSV-filer  
 
@@ -27,10 +27,6 @@ SQL på begäran stöder läsning av flera filer/mappar med jokertecken som likn
 Ditt första steg är att **skapa en databas** där du ska köra frågorna. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
 Du använder mappen *CSV/taxi* för att följa exempel frågorna. Den innehåller NYC taxi-Yellow taxi-resa registrerar data från 2016 juli till 2018 juni. Filerna i *CSV/taxi* har namnet efter år och månad med följande mönster: yellow_tripdata_ <year> - <month> . csv
-        
-Varje fil har följande struktur:
-        
-    [First 10 rows of the CSV file](./media/querying-folders-and-multiple-csv-files/nyc-taxi.png)
 
 ## <a name="read-all-files-in-folder"></a>Läsa alla filer i mappen
     

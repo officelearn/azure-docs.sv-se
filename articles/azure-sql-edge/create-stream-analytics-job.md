@@ -2,19 +2,19 @@
 title: Skapa ett T-SQL-strömmande jobb i Azure SQL Edge (för hands version)
 description: Lär dig mer om att skapa Stream Analytics jobb i Azure SQL Edge (för hands version)
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7db7f9548a3daa86a53dd37fbe088661e8b7b17e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 323ec00667350917e6b16827f908ac1abeee77d6
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685170"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233313"
 ---
 # <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Skapa Stream Analytics jobb i Azure SQL Edge (för hands version) 
 
@@ -210,7 +210,7 @@ Direkt uppspelnings jobbet kan ha någon av följande statusar
 | Stoppad | Direkt uppspelnings jobbet har stoppats |
 | Misslyckades | Streaming-jobbet misslyckades. Detta är vanligt vis ett tecken på ett allvarligt fel under bearbetningen |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Visa metadata som är kopplade till strömmande jobb i Azure SQL Edge (för hands version)](streaming-catalog-views.md) 
 - [Skapa en extern ström](create-external-stream-transact-sql.md)

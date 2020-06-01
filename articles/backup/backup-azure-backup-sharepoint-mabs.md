@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SharePoint-grupp till Azure med MABS
 description: Använd Azure Backup Server för att säkerhetskopiera och återställa dina SharePoint-data. Den här artikeln innehåller information om hur du konfigurerar SharePoint-servergruppen så att önskade data kan lagras i Azure. Du kan återställa skyddade SharePoint-data från disk eller från Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e429eeb5319a12c3483510072fd82c69c8d8ab3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657286"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234791"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Säkerhetskopiera en SharePoint-grupp till Azure med MABS
 
@@ -30,7 +30,7 @@ Det finns några saker du behöver bekräfta innan du säkerhetskopierar en Shar
 
 * MABS tillhandahåller inte säkerhets kopior av SharePoint SQL Server-databaser som finns på SOFS-resurser (Scale-Out File Server).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter kontrollerar du att du uppfyller alla [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) för att skydda arbets belastningar. Vissa uppgifter för krav är: skapa ett säkerhets kopierings valv, Hämta autentiseringsuppgifter för valvet, installera Azure Backup Agent och registrera Azure Backup Server med valvet.
 
@@ -68,10 +68,9 @@ Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skyddet f�
 
     * Ange administratörsbehörigheterna för servergruppen. Det här kontot ska vara medlem av den lokala administratörsgruppen på WFE-servern Om Server grupps administratören inte är en lokal administratör ska du bevilja följande behörigheter på WFE-servern:
 
-        * Ge WSS \_ admin \_ WPG-gruppen fullständig behörighet till mappen Mabs \( % Program Files% \\ Data Protection Manager \\ DPM \) .
-            -A
+        * Ge **WSS_Admin_WPGs** gruppen fullständig behörighet till mappen Mabs ( `%Program Files%\Data Protection Manager\DPM\` ).
 
-        * Ge WSS \_ admin \_ WPG-gruppen Läs behörighet till Mabs-register nyckeln \( HKEY \_ Local \_ Machine \\ Software \\ Microsoft \\ Microsoft Data Protection Manager \) .
+        * Bevilja **WSS_Admin_WPGs** gruppen Läs behörighet till register nyckeln Mabs ( `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager` ).
 
         När du har kört ConfigureSharePoint. exe måste du köra om den om det finns en ändring i administratörs uppgifterna för SharePoint-servergruppen.
 

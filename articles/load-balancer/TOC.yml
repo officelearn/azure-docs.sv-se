@@ -60,8 +60,6 @@
       href: load-balancer-multivip-overview.md
     - name: Utgående anslutningar
       href: load-balancer-outbound-connections.md
-    - name: Regler för utgående trafik
-      href: load-balancer-outbound-rules-overview.md
     - name: TCP-återställning vid tidsgräns för inaktivitet
       href: load-balancer-tcp-reset.md
     - name: Standard Load Balancer och tillgänglighetszoner

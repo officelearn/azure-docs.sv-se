@@ -3,13 +3,13 @@ title: Partner som integrerar med Azure Monitor
 description: Lär dig mer om Azure Monitors partner och hur du kan komma åt dokumentation för integrering med dem.
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.openlocfilehash: a9ba9972bcdd5b7e4bd1c4b489dcea08b5502a72
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/29/2020
+ms.openlocfilehash: 3224a9420d5a434ed9e3d8902f430f4e1ee28bcd
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854947"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233403"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
 
@@ -108,6 +108,9 @@ Grafana är ett program med öppen källkod som gör det möjligt att visualiser
 
 InfluxData är skaparen av InfluxDB och levererar en modern plattform med öppen källkod som skapats från grunden för analys av mått och händelser (tids serie data) för DevOps-och IoT-program. Oavsett om data kommer från människor, sensorer eller datorer ger InfluxData utvecklare möjlighet att skapa nästa generations övervaknings-, analys-och IoT-program snabbare, enklare och att skala ut verkligt affärs värde snabbt. Baserat på San Francisco är InfluxData över 420 kunder som är Cisco, eBay, IBM och Siemens.
 
+InfluxData är skaparen av InfluxDB, tids serie databasen med öppen källkod. Vår teknik är syftet – byggd för att hantera de enorma volymerna av tidsstämplade data som skapats av IoT-enheter, program, nätverk, behållare och datorer. Vi är på uppdrag att hjälpa utvecklare och organisationer, till exempel IBM, Visa, Siemens, Tesla och NASA, lagra och analysera real tids data, vilket ger dem möjlighet att skapa transformativa övervaknings-, analys-och IoT-program snabbare och att skala. Microsoft Azure övervakarens mått och händelse insamlings funktioner kan utökas med InfluxData-agenten för tele som gör att Microsoft-användare kan dra nytta av en ledande databas lösning för tids serier och dra nytta av de växande bidragen med öppen källkod till teleympkvistar.
+
+
 [Gå till dokumentationen.][influxdata-doc]
 
 
@@ -115,7 +118,7 @@ InfluxData är skaparen av InfluxDB och levererar en modern plattform med öppen
 
 ![Logo typ för logik övervakare](./media/partners/logicmonitor.png)
 
-LogicMonitor&reg; är den ledande SaaS-baserade prestanda övervaknings plattformen för komplex IT-infrastruktur. Med täckning för tusentals tekniker ger LogicMonitor detaljerad insyn i infrastruktur-och program prestanda. LM Clouds omfattande Azure-övervakning gör det möjligt för användare att korrelera prestanda för Azure-molnet, lokala resurser och hybrid moln resurser – allt från en enda plattform. Automatisk resurs identifiering, som är inbyggt i övervakningsfunktionerna, förkonfigurerade tröskelvärden för aviseringar och anpassningsbara instrument paneler kombinerar för att ge den den hastighet, flexibilitet och synlighet som krävs för att lyckas.
+LogicMonitor &reg; är den ledande SaaS-baserade prestanda övervaknings plattformen för komplex IT-infrastruktur. Med täckning för tusentals tekniker ger LogicMonitor detaljerad insyn i infrastruktur-och program prestanda. LM Clouds omfattande Azure-övervakning gör det möjligt för användare att korrelera prestanda för Azure-molnet, lokala resurser och hybrid moln resurser – allt från en enda plattform. Automatisk resurs identifiering, som är inbyggt i övervakningsfunktionerna, förkonfigurerade tröskelvärden för aviseringar och anpassningsbara instrument paneler kombinerar för att ge den den hastighet, flexibilitet och synlighet som krävs för att lyckas.
 
 [Gå till dokumentationen.][logicmonitor-doc]
 

@@ -2,19 +2,19 @@
 title: Funktioner som stöds i Azure SQL Edge (för hands version)
 description: Lär dig mer om de funktioner som stöds av Azure SQL Edge (för hands version)
 keywords: Introduktion till SQL Edge, vad är SQL Edge, SQL Edge-översikt
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f0994ac1d28118869f0d5c2844a034623d101ee8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e3bac1cbb0e57f9be4a489207f2fe8b30b5d457e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684366"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233215"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Funktioner som stöds i Azure SQL Edge (för hands version) 
 
@@ -106,7 +106,7 @@ Listan nedan innehåller SQL Server 2019 på Linux-funktioner som för närvaran
 | &nbsp; | Distributed Replay |
 | **Hanterbarhet** | SQL Server-verktyg kontroll punkt |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Distribuera Azure SQL Edge](deploy-portal.md)
 - [Konfigurera Azure SQL Edge](configure.md)

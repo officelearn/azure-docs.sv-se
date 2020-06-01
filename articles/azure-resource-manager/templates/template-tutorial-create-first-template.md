@@ -2,15 +2,15 @@
 title: Självstudie – Skapa & distribuera mall
 description: Skapa din första Azure Resource Manager-mall. I självstudien får du lära dig mer om mallens syntax och hur du distribuerar ett lagrings konto.
 author: mumian
-ms.date: 05/20/2020
+ms.date: 05/29/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2180ca80d87643eb885d814318e516b4b3c53f37
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: dff1dd15f7f161f25ef7de54e36fa83e3e0036d2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714805"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235221"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Självstudie: skapa och distribuera din första ARM-mall
 
@@ -40,6 +40,9 @@ Du behöver också antingen Azure PowerShell eller Azure CLI för att distribuer
 
 När du har installerat antingen Azure PowerShell eller Azure CLI kontrollerar du att du loggar in för första gången. Mer information finns i [Logga in-PowerShell](/powershell/azure/install-az-ps#sign-in) eller [Logga in – Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
 
+> [!IMPORTANT]
+> Om du använder Azure CLI kontrollerar du att du har version 2,6 eller senare. Kommandona som visas i den här själv studie kursen fungerar inte om du använder tidigare versioner. Om du vill kontrol lera den installerade versionen använder du: `az --version` .
+
 OK, du är redo att börja lära dig om mallar.
 
 ## <a name="create-your-first-template"></a>Skapa din första mall
@@ -67,7 +70,7 @@ OK, du är redo att börja lära dig om mallar.
 
     JSON-filen innehåller följande element:
 
-    - **$schema**: anger platsen för JSON schema filen. Schema filen beskriver de egenskaper som är tillgängliga i en mall. Schemat definierar till exempel **resurser** som en av de giltiga egenskaperna för en mall. Bry dig inte om att datumet för schemat är 2019-04-01. Den här schema versionen är uppdaterad och innehåller alla de senaste funktionerna. Schema datumet har inte ändrats på grund av att det inte har skett några ändringar sedan introduktionen.
+    - **$schema**: anger platsen för JSON schema filen. Schema filen beskriver de egenskaper som är tillgängliga i en mall. Schemat definierar till exempel **resurser** som en av de giltiga egenskaperna för en mall. Bry dig inte om att datumet för schemat är 2019-04-01. Den här schema versionen är aktuell och innehåller alla de senaste funktionerna. Schema datumet har inte ändrats på grund av att det inte har skett några ändringar sedan introduktionen.
     - **contentVersion**: anger versionen för mallen (till exempel 1.0.0.0). Du kan ange valfritt värde för det här elementet. Använd det här värdet om du vill dokumentera viktiga ändringar i mallen. När du distribuerar resurser med hjälp av mallen kan det här värdet användas för att se till att rätt mall används.
     - **resurser**: innehåller de resurser som du vill distribuera eller uppdatera. För närvarande är det tomt, men du kommer att lägga till resurser senare.
 

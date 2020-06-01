@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e4b56f18bf8a2ed1c22b00b8a57efdbf06eb7fa2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9bf7339e500a006c168311145a9a5d992b07f145
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183342"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231809"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudie: aktivera autentisering i ett webb program med hjälp av Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet.
 * Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **ASP.net och webb utveckling** .
@@ -61,7 +61,7 @@ Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar (för hands version)**, Välj fliken **ägda program** och välj sedan *webapp1* -programmet.
 1. Välj **autentisering**och välj sedan **testa den nya upplevelsen** (om den visas).
-1. Under **webb**väljer du länken **Lägg till URI** , anger `https://localhost:44316`och väljer sedan **Spara**.
+1. Under **webb**väljer du länken **Lägg till URI** , anger `https://localhost:44316` och väljer sedan **Spara**.
 1. Välj **Översikt**.
 1. Registrera **program-ID (Client)** för användning i ett senare steg när du konfigurerar webb programmet.
 
@@ -92,12 +92,13 @@ Uppdatera inställningarna i Web. config-filen så att de fungerar med ditt anv�
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
 1. I projektet **TaskWebApp** öppnar du **Web.config**-filen.
-    1. Uppdatera värdet för `ida:Tenant` och `ida:AadInstance` med namnet på Azure AD B2C klienten som du skapade. Ersätt `fabrikamb2c` till exempel med `contoso`.
+    1. Uppdatera värdet för `ida:Tenant` och `ida:AadInstance` med namnet på Azure AD B2C klienten som du skapade. Ersätt till exempel `fabrikamb2c` med `contoso` .
+    1. Ersätt värdet för `ida:TenantId` med katalog-ID: t, som du hittar i egenskaperna för din Azure B2C-klient (i Azure Portal under **Azure Active Directory**  >  **Egenskaper**  >  **katalog-ID**).
     1. Ersätt värdet för `ida:ClientId` med det program-ID som du har spelat in.
-    1. Ersätt värdet för `ida:ClientSecret` med den nyckel som du registrerade. Om klient hemligheten innehåller fördefinierade XML-entiteter, till exempel mindre än`<`(), större än`>`(), et`&`-tecken () eller dubbelt citat tecken (`"`), måste du undanta dessa tecken genom XML-kodning av klient hemligheten innan du lägger till den i Web. config.
-    1. Ersätt värdet för `ida:SignUpSignInPolicyId` med `b2c_1_signupsignin1`.
-    1. Ersätt värdet för `ida:EditProfilePolicyId` med `b2c_1_profileediting1`.
-    1. Ersätt värdet för `ida:ResetPasswordPolicyId` med `b2c_1_passwordreset1`.
+    1. Ersätt värdet för `ida:ClientSecret` med den nyckel som du registrerade. Om klient hemligheten innehåller fördefinierade XML-entiteter, till exempel mindre än ( `<` ), större än ( `>` ), et-tecken ( `&` ) eller dubbelt citat `"` tecken (), måste du undanta dessa tecken genom XML-kodning av klient hemligheten innan du lägger till den i Web. config.
+    1. Ersätt värdet för `ida:SignUpSignInPolicyId` med `b2c_1_signupsignin1` .
+    1. Ersätt värdet för `ida:EditProfilePolicyId` med `b2c_1_profileediting1` .
+    1. Ersätt värdet för `ida:ResetPasswordPolicyId` med `b2c_1_passwordreset1` .
 
 ## <a name="run-the-sample"></a>Kör exemplet
 

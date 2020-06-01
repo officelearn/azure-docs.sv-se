@@ -3,12 +3,12 @@ title: Konfigurera en QnA Maker tjänst – QnA Maker
 description: Innan du kan skapa en QnA Maker kunskaps banker måste du först konfigurera en QnA Maker tjänst i Azure. Alla som har behörighet att skapa nya resurser i en prenumeration kan konfigurera en QnA Maker-tjänst.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 521d0388e4ee739b1ac840e482174ac466781f5f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171182"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235521"
 ---
 # <a name="manage-qna-maker-resources"></a>Hantera QnA Maker resurser
 
@@ -210,6 +210,11 @@ För att hålla appen för förutsägelse slut punkt inläst även när det inte
 1. Du tillfrågas om du vill starta om appen för att använda den nya inställningen. Välj **Fortsätt**.
 
 Läs mer om hur du konfigurerar App Service [allmänna inställningar](../../../app-service/configure-common.md#configure-general-settings).
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Konfigurera App Service-miljön som värd för QNA Maker App Service
+App Service-miljön kan användas som värd för QnA Maker app service. Om App Service-miljön är internt måste du följa dessa steg:
+1. Skapa en app service och en Azure Search-tjänst.
+2. Exponera app service på en offentlig DNS-och vitlista-QnA Maker service tag: CognitiveServicesManagement eller håll den mot Internet.
+3. Skapa en QnA Maker kognitiv tjänst instans (Microsoft. CognitiveServices/Accounts) med Azure Resource Manager där QnA Maker-slutpunkten ska vara inställd på App Service-miljön. 
 
 ## <a name="business-continuity-with-traffic-manager"></a>Affärs kontinuitet med Traffic Manager
 

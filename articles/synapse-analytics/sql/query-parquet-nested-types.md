@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 82edee84317b5d542bf65e29514286f96c18bbcc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d5a10e3fe2803c7b9a10abe9bf959a694030cc8c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744225"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235444"
 ---
 # <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga Parquet kapslade typer med SQL on-demand (för hands version) i Azure Synapse Analytics
 
 I den här artikeln får du lära dig hur du skriver en fråga med SQL på begäran (för hands version) i Azure Synapse Analytics.  Den här frågan läser Parquet-kapslade typer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att **skapa en databas** med en data källa som refererar till. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
@@ -41,7 +41,9 @@ FROM
 
 ## <a name="access-elements-from-nested-columns"></a>Få åtkomst till element från kapslade kolumner
 
-Följande fråga läser filen *structExample. Parquet* och visar hur du delar upp element i en kapslad kolumn:
+Följande fråga läser filen *structExample. Parquet* och visar hur man Surface-element i en kapslad kolumn. Det finns två sätt att referera till kapslat värde:
+- Ange det kapslade värdet Path-uttrycket efter typ specifikationen.
+- Formatera kolumn namnet som en kapslad sökväg med hjälp av "." för att referera till fälten.
 
 ```sql
 SELECT
@@ -53,15 +55,15 @@ FROM
         FORMAT='PARQUET'
     )
     WITH (
-        -- you can see original n"sted columns values by uncommenting lines below
+        -- you can see original nested columns values by uncommenting lines below
         --DateStruct VARCHAR(8000),
-        [DateStruct.Date] DATE,
+        [DateValue] DATE '$.DateStruct.Date',
         --TimeStruct VARCHAR(8000),
         [TimeStruct.Time] TIME,
         --TimestampStruct VARCHAR(8000),
         [TimestampStruct.Timestamp] DATETIME2,
         --DecimalStruct VARCHAR(8000),
-        [DecimalStruct.Decimal] DECIMAL(18, 5),
+        DecimalValue DECIMAL(18, 5) '$.DecimalStruct.Decimal',
         --FloatStruct VARCHAR(8000),
         [FloatStruct.Float] FLOAT
     ) AS [r];

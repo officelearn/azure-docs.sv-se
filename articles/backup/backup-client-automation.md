@@ -3,12 +3,12 @@ title: Använd PowerShell för att säkerhetskopiera Windows Server till Azure
 description: I den här artikeln lär du dig hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hur du hanterar säkerhets kopiering och återställning.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 67c80a76720dd544da355ee00540cd11a22bfb10
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: bd7a48fa44d33274fe2378d0efdce13eae86aff4
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848175"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234656"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 

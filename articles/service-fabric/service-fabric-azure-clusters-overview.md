@@ -7,12 +7,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75614680"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234694"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Översikt över Service Fabric kluster i Azure
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en klusternod. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, Service Fabric balanseringen av tjänste partitionens repliker och instanser över det ökade antalet noder. Övergripande program prestanda förbättras och konkurrens för åtkomst till minnes minskningar. Om noderna i klustret inte används effektivt kan du minska antalet noder i klustret. Service Fabric åter balanserar partitionens repliker och instanser över det minskade antalet noder för att bättre kunna använda maskin varan på varje nod.
@@ -48,9 +48,9 @@ Du kan använda skalnings uppsättningar för att distribuera och hantera en sam
 Mer information finns i [Service Fabric nodtyper och skalnings uppsättningar för virtuella datorer](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Virtuella dator instanser är anslutna bakom en [Azure-belastningsutjämnare](/azure/load-balancer/load-balancer-overview), som är associerad med en [offentlig IP-adress](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) och en DNS-etikett.  När du etablerar ett kluster * &lt;med&gt;kluster*namn, DNS-namnet, * &lt;kluster&gt;namn.&lt; Location&gt;. cloudapp.Azure.com* är DNS-etiketten som är associerad med belastningsutjämnaren framför skalnings uppsättningen.
+Virtuella dator instanser är anslutna bakom en [Azure-belastningsutjämnare](/azure/load-balancer/load-balancer-overview), som är associerad med en [offentlig IP-adress](../virtual-network/public-ip-addresses.md) och en DNS-etikett.  När du etablerar ett kluster * &lt; med &gt; kluster*namn, DNS-namnet, * &lt; kluster namn &gt; . &lt; Location &gt; . cloudapp.Azure.com* är DNS-etiketten som är associerad med belastningsutjämnaren framför skalnings uppsättningen.
 
-Virtuella datorer i ett kluster har bara [privata IP-adresser](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Hanterings trafik och tjänst trafik dirigeras via den offentliga belastningsutjämnaren.  Nätverks trafik dirigeras till dessa datorer via NAT-regler (klienter ansluter till vissa noder/instanser) eller regler för belastnings utjämning (trafik går till resursallokeringar med resursallokering).  En belastningsutjämnare har en associerad offentlig IP-adress med ett DNS-namn i formatet: * &lt;kluster&gt;namn&lt; . Location&gt;. cloudapp.Azure.com*.  En offentlig IP-adress är en annan Azure-resurs i resurs gruppen.  Om du definierar flera nodtyper i ett kluster skapas en belastningsutjämnare för varje nodtyp/skalnings uppsättning. Eller så kan du konfigurera en enskild belastningsutjämnare för flera nodtyper.  Den primära nodtypen har DNS-etiketten * &lt;kluster&gt;namn.&lt; Location&gt;. cloudapp.Azure.com*, andra nodtyper har DNS-etiketten * &lt;&gt;-&lt;kluster-NodeType&gt;.&lt; Location&gt;. cloudapp.Azure.com*.
+Virtuella datorer i ett kluster har bara [privata IP-adresser](../virtual-network/private-ip-addresses.md).  Hanterings trafik och tjänst trafik dirigeras via den offentliga belastningsutjämnaren.  Nätverks trafik dirigeras till dessa datorer via NAT-regler (klienter ansluter till vissa noder/instanser) eller regler för belastnings utjämning (trafik går till resursallokeringar med resursallokering).  En belastningsutjämnare har en associerad offentlig IP-adress med ett DNS-namn i formatet: * &lt; kluster namn &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  En offentlig IP-adress är en annan Azure-resurs i resurs gruppen.  Om du definierar flera nodtyper i ett kluster skapas en belastningsutjämnare för varje nodtyp/skalnings uppsättning. Eller så kan du konfigurera en enskild belastningsutjämnare för flera nodtyper.  Den primära nodtypen har DNS-etiketten * &lt; kluster namn &gt; . &lt; Location &gt; . cloudapp.Azure.com*, andra nodtyper har DNS-etiketten * &lt; kluster- &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Lagringskonton
 Varje typ av klusternod stöds av ett [Azure Storage-konto](/azure/storage/common/storage-introduction) och hanterade diskar.

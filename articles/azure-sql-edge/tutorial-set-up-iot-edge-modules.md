@@ -2,19 +2,19 @@
 title: Konfigurera IoT Edge moduler i Azure SQL Edge
 description: I del två av den här tre delen av Azure SQL Edge-självstudierna för förutsägelse av järn Malms orenheter, konfigurerar du IoT Edge moduler och anslutningar.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: bbbbe09aac30165a2f9b7bbe54f58e0c09a6cf09
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a4087ef56712e098443009bd0457029394ea7b51
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599687"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235023"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Konfigurera IoT Edge moduler och anslutningar
 
@@ -25,7 +25,7 @@ I del två av den här självstudien i tre delar om förutsägelse av järn Malm
 
 ## <a name="create-azure-stream-analytics-module"></a>Skapa Azure Stream Analytics modul
 
-Skapa en Azure Stream Analytics-modul som ska användas i den här självstudien. Mer information om hur du använder strömnings jobb med SQL Edge finns i [använda strömnings jobb med SQL Database Edge](https://docs.microsoft.com/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
+Skapa en Azure Stream Analytics-modul som ska användas i den här självstudien. Mer information om hur du använder strömnings jobb med SQL Edge finns i [använda strömnings jobb med SQL Edge](stream-analytics.md).
 
 När Azure Stream Analytics jobb har skapats med värd miljön inställd som Edge, ställer du in indata och utdata för självstudien.
 
@@ -35,7 +35,7 @@ När Azure Stream Analytics jobb har skapats med värd miljön inställd som Edg
    -----|-----
    Format för händelse serialisering|JSON
    Kodning|UTF-8
-   Händelse komprimerings typ|Inga
+   Händelse komprimerings typ|Ingen
 
 2. Skapa **utdata**genom att klicka på **+ Lägg till** och välja SQL Database. Fyll i avsnittet information med följande information.
 
@@ -91,7 +91,7 @@ Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
 
    *inloggnings Server för containerregistry* / *namn på databas*:*taggnamn*
 
-   Till exempel:
+   Ett exempel:
 
    ```
    ASEdemocontregistry.azurecr.io/silicaprediction:amd64
@@ -101,7 +101,7 @@ Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Distribuera Azure SQL Edge-modulen
 
-1. Distribuera Azure SQL Edge-modulen genom att följa stegen i [distribuera Azure SQL Database Edge Preview](https://docs.microsoft.com/azure/sql-database-edge/deploy-portal#deploy-sql-database-edge).
+1. Distribuera Azure SQL Edge-modulen genom att följa stegen som beskrivs i [Distribuera Azure SQL Edge (för hands version)](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
 
 2. På sidan **Ange väg** på sidan **Ange moduler** anger du vägarna för modulen till IoT Edge Hub-kommunikationen på följande sätt. 
 
@@ -110,7 +110,7 @@ Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
    BrokeredEndpoint("/modules/<your_azure_sql_edge_module>/inputs/<your_input_stream_name>")
    ```
 
-   Till exempel:
+   Ett exempel:
 
    ```
    FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEndpoint("/modules/AzureSQLEdge/inputs/Input1")
@@ -128,6 +128,6 @@ Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
        }
    ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Distribuera ML-modell på Azure SQL Edge med ONNX](tutorial-run-ml-model-on-sql-edge.md)

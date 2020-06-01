@@ -1,0 +1,21 @@
+---
+author: DCtheGeek
+ms.service: azure-policy
+ms.topic: include
+ms.date: 05/29/2020
+ms.author: dacoulte
+ms.custom: generated
+ms.openlocfilehash: 807dde49c352c3a4fc64fd540a0387e4cf77ae86
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233889"
+---
+|Name |Beskrivning |Påverkan (ar) |Version |GitHub |
+|---|---|---|---|---|
+|[Konfigurera tillåtna-modul författare för angivna Azure Machine Learning-beräkningar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53c70b02-63dd-11ea-bc55-0242ac130003) |Den här principen hjälper till att ge tillåten modul författare i angivna Azure Machine Learning-beräkningar och kan tilldelas på arbets ytan. Mer information finns på [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc) . |enforceSetting, inaktiverat |1.0.0 – för hands version |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedModuleAuthors_EnforceSetting.json) |
+|[Konfigurera tillåtna python-paket för angivna Azure Machine Learning-beräkningar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77eeea86-7e81-4a7d-9067-de844d096752) | Den här principen hjälper till att tillhandahålla tillåtna python-paket i angivna Azure Machine Learning-beräkningar och kan tilldelas på arbets ytan. Mer information finns på [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc) . |enforceSetting, inaktiverat |1.0.0 – för hands version |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedPythonPackageChannels_EnforceSetting.json) |
+|[Konfigurera tillåtna register för angivna Azure Machine Learning-beräkningar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5853517a-63de-11ea-bc55-0242ac130003) |Den här principen hjälper till att tillhandahålla register som tillåts i angivna Azure Machine Learning-beräkningar och kan tilldelas på arbets ytan. Mer information finns på [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc) . |enforceSetting, inaktiverat |1.0.0 – för hands version |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedACRs_EnforceSetting.json) |
+|[Konfigurera en godkännande slut punkt som anropades innan jobb som körs för angivna Azure Machine Learning-beräkningar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3948394e-63de-11ea-bc55-0242ac130003) |Den här principen hjälper till att konfigurera en godkännande slut punkt som anropades innan jobb som körs för angivna Azure Machine Learning-beräkningar och kan tilldelas på arbets ytan. Mer information. Mer information finns på [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc) . |enforceSetting, inaktiverat |1.0.0 – för hands version |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/ApprovalEndpoint_EnforceSetting.json) |
+|[Konfigurera logg filter uttryck och data lager som ska användas för fullständiga loggar för angivna Azure Machine Learning-beräkningar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d413020-63de-11ea-bc55-0242ac130003) |Den här principen hjälper till att tillhandahålla logg filter uttryck och data lager som ska användas för fullständiga loggar i angivna Azure Machine Learning-beräkningar och kan tilldelas på arbets ytan. Mer information finns på [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc) . |enforceSetting, inaktiverat |1.0.0 – för hands version |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedLogFilter_EnforceSetting.json) |

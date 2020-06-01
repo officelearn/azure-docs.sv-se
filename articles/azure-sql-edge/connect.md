@@ -2,19 +2,19 @@
 title: Anslut och fråga Azure SQL Edge (för hands version)
 description: Lär dig mer om att ansluta och skicka frågor till Azure SQL Edge (för hands version)
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 17bb5afebe0335bcdcf40298490f94999c04a621
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e7034c3f664eeba802341510b109ba9cc57845a8
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596920"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235138"
 ---
 # <a name="connect-and-query-azure-sql-edge-preview"></a>Anslut och fråga Azure SQL Edge (för hands version)
 
@@ -32,7 +32,7 @@ Anslutningar till en Azure SQL Edge-instans kan göras från något av de vanlig
 * [SQLCMD](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) -SQLCMD-klient verktyg ingår redan i Azure SQL Edge-behållar avbildningen. Om du ansluter till en behållare som körs med ett interaktivt bash-gränssnitt kan du köra verktygen lokalt.
 * [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)
 * [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)
-* [Visuell Studio-kod](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
+* [Visual Studio-koden](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
 
 Om du vill ansluta till en Azure SQL Edge-databasmotor från en nätverks dator behöver du följande
 

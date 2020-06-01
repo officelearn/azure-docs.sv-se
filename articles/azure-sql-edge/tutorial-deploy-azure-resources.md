@@ -2,25 +2,25 @@
 title: Konfigurera resurser för att distribuera en ML-modell i Azure SQL Edge
 description: I del en av den här tre delen av Azure SQL Edge-självstudierna för förutsägelse av järn Malms orenheter, installerar du den nödvändiga program varan och konfigurerar nödvändiga Azure-resurser för att distribuera en maskin inlärnings modell i Azure SQL Edge.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: c74e402fa1faa883b1e456f11a8d9d7b1e750d27
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 30c024aafc1cf8f479de77107b7f0aaaa262d47c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772853"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235081"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Installera program vara och konfigurera resurser för självstudien
 
 I den här självstudien med tre delar skapar du en maskin inlärnings modell för att förutsäga halten av järn malm som en procent andel kiseldioxid och distribuerar sedan modellen i Azure SQL Edge. I del ett installerar du den nödvändiga program varan och distribuerar Azure-resurser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 2. Installera [python-3.6.8](https://www.python.org/downloads/release/python-368/).

@@ -4,12 +4,12 @@ description: Lär dig mer om standard Azure Batch kvoter, gränser och begränsn
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: b172800e6ed2a28315da3b45eb39f2207f8f1c16
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 3168c6fc60b2552129e9a11fbf6e8e24d9b37b14
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780008"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84229838"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -126,7 +126,7 @@ När du har skickat in ditt support ärende kontaktar Azure-supporten. Kvot beg�
 Batch-pooler i den virtuella dator konfigurationen som distribueras i ett virtuellt Azure-nätverk allokerar automatiskt ytterligare Azure nätverks resurser. Följande resurser behövs för varje 50-pool i ett virtuellt nätverk:
 
 * En [nätverks säkerhets grupp](../virtual-network/security-overview.md#network-security-groups)
-* En [offentlig IP-adress](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* En [offentlig IP-adress](../virtual-network/public-ip-addresses.md)
 * En [belastningsutjämnare](../load-balancer/load-balancer-overview.md)
 
 De här resurserna allokeras i prenumerationen som innehåller det virtuella nätverk som angavs när du skapade batch-poolen. Dessa resurser begränsas av prenumerationens [resurskvoter](../azure-resource-manager/management/azure-subscription-service-limits.md). Om du planerar distributioner av stora pooler i ett virtuellt nätverk kontrollerar du prenumerationens kvoter för dessa resurser. Om det behövs kan du begära en ökning av Azure Portal genom att välja **Hjälp + Support**.

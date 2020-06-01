@@ -2,19 +2,19 @@
 title: Synkronisera data från Azure SQL Edge (för hands version) med hjälp av SQL Data Sync
 description: Lär dig mer om att synkronisera data från Azure SQL Edge (för hands version) med hjälp av Azure SQL Data Sync
 keywords: SQL Edge, synkronisera data från SQL Edge, SQL Edge Data Sync
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f72602143063807043d53bb1779866fe521f9f59
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7aa7c33a94980081efa3bc54422389aef7defa61
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196457"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235007"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Självstudie: synkronisera data från SQL Edge till Azure SQL Database med SQL Data Sync
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b08e8e4d6623277d1935fc85e302e8ce3c88eea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: da5211206c12f2fe3259fcbbf196a7728c026b26
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124405"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234106"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Självstudie: skapa en klient i Windows Virtual Desktop
 
@@ -152,9 +152,6 @@ New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinition
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-
-En mer djupgående genom gång finns i vår [utbildnings väg för Windows för virtuella datorer](https://docs.microsoft.com/learn/paths/m365-wvd/).
-
 När du har skapat din klient organisation måste du skapa ett huvud namn för tjänsten i Azure Active Directory och tilldela den en roll i det virtuella Windows-skrivbordet. Tjänstens huvud namn gör att du kan distribuera Windows Virtual Desktop Azure Marketplace-erbjudandet för att skapa en adresspool. Om du vill veta mer om värdar för pooler fortsätter du till självstudien för att skapa en adresspool i Windows Virtual Desktop.
 
 > [!div class="nextstepaction"]

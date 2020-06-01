@@ -4,12 +4,12 @@ description: Beskriver hur du löser vanliga fel när du distribuerar resurser t
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.openlocfilehash: bc1568c53cdb5518f694d77a2f28f3cf77296ee2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1b7a318f73a513d699de97f0973ece9b6481b93
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460389"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84230619"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga fel i Azure-distributioner med Azure Resource Manager
 
@@ -27,7 +27,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | AccountPropertyCannotBeSet | Kontrol lera egenskaperna för tillgängligt lagrings konto. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | Det finns inga tillgängliga resurser för klustret eller regionen eller så stöds inte den begärda virtuella dator storleken. Försök igen vid ett senare tillfälle eller begär en annan VM-storlek. | [Etablerings-och tilldelnings problem för Linux](../../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [etablering och tilldelning av Windows](../../virtual-machines/windows/troubleshoot-deployment-new-vm.md) och [fel sökning av allokeringsfel](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Vänta tills den samtidiga åtgärden har slutförts. | |
-| AuthorizationFailed | Ditt konto eller tjänstens huvud namn har inte tillräcklig åtkomst för att slutföra distributionen. Kontrol lera vilken roll ditt konto tillhör och dess åtkomst till distributions omfånget.<br><br>Du kan få det här felet när en resurs leverantör som krävs inte är registrerad. | [Rollbaserad åtkomstkontroll i Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Lös registrering](error-register-resource-provider.md) |
+| AuthorizationFailed | Ditt konto eller tjänstens huvud namn har inte tillräcklig åtkomst för att slutföra distributionen. Kontrol lera vilken roll ditt konto tillhör och dess åtkomst till distributions omfånget.<br><br>Du kan få det här felet när en resurs leverantör som krävs inte är registrerad. | [Rollbaserad Access Control i Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Lös registrering](error-register-resource-provider.md) |
 | BadRequest | Du skickade distributions värden som inte matchar det som förväntas av Resource Manager. Kontrol lera meddelandet om inre status för att få hjälp med fel sökning. | [Referera till mallar](/azure/templates/) och [platser som stöds](resource-location.md) |
 | Konflikt | Du begär en åtgärd som inte är tillåten i resursens aktuella tillstånd. Till exempel tillåts disk storleks ändring bara när du skapar en virtuell dator eller när den virtuella datorn frigörs. | |
 | DeploymentActiveAndUneditable | Vänta tills en samtidig distribution till den här resurs gruppen har slutförts. | |
@@ -62,8 +62,8 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | OperationNotAllowed | Distributionen försöker utföra en åtgärd som överskrider kvoten för prenumerationen, resurs gruppen eller regionen. Om möjligt kan du ändra distributionen så att den ligger inom kvoterna. Annars kan du överväga att begära en ändring av dina kvoter. | [Lösa kvoter](error-resource-quota.md) |
 | ParentResourceNotFound | Kontrol lera att det finns en överordnad resurs innan du skapar underordnade resurser. | [Matcha överordnad resurs](error-parent-resource.md) |
 | PasswordTooLong | Du kanske har valt ett lösen ord med för många tecken eller konverterat ditt lösen ord till en säker sträng innan du skickar det som en parameter. Om mallen innehåller en **säker sträng** -parameter behöver du inte konvertera värdet till en säker sträng. Ange lösen ordets värde som text. |  |
-| PrivateIPAddressInReservedRange | Den angivna IP-adressen innehåller ett adress intervall som krävs av Azure. Ändra IP-adress för att undvika reserverat intervall. | [IP-adresser](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PrivateIPAddressNotInSubnet | Den angivna IP-adressen ligger utanför under nätets intervall. Ändra IP-adressen så att den hamnar inom under nätets intervall. | [IP-adresser](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
+| PrivateIPAddressInReservedRange | Den angivna IP-adressen innehåller ett adress intervall som krävs av Azure. Ändra IP-adress för att undvika reserverat intervall. | [IP-adresser](../../virtual-network/public-ip-addresses.md) |
+| PrivateIPAddressNotInSubnet | Den angivna IP-adressen ligger utanför under nätets intervall. Ändra IP-adressen så att den hamnar inom under nätets intervall. | [IP-adresser](../../virtual-network/public-ip-addresses.md) |
 | PropertyChangeNotAllowed | Vissa egenskaper kan inte ändras i en distribuerad resurs. Begränsa ändringarna till tillåtna egenskaper när du uppdaterar en resurs. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | RequestDisallowedByPolicy | Din prenumeration innehåller en resurs princip som förhindrar en åtgärd som du försöker utföra under distributionen. Hitta principen som blockerar åtgärden. Om möjligt kan du ändra distributionen för att uppfylla begränsningarna från principen. | [Lös principer](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Ange ett resurs namn som inte innehåller ett reserverat namn. | [Reserverade resurs namn](error-reserved-resource-name.md) |

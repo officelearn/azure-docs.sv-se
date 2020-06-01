@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: d890fcb6a43b43e0be0df8e6f6ff0817bdd03115
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 161dde34a4f459640d262197fd5ccbb16ac51d04
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83998049"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237678"
 ---
 Den här Spiralbaserade snabb starten vägleder dig genom att få svar från din kunskaps bas.
 
@@ -80,6 +80,8 @@ Använd kunskaps basen från föregående snabb till-fråga för ett svar basera
     Om det finns ett fråge-och svars par som inte uppfyllde Sök termen men som uppfyller filtret, returneras det inte. I stället returneras det allmänna svaret `No good match found in KB.` .
 
 ## <a name="use-debug-query-property"></a>Använd egenskapen Felsök fråga
+> [!NOTE]
+>Vi rekommenderar inte att du använder egenskapen debug för något beroende. Den här egenskapen har lagts till för att hjälpa produkt teamet vid fel sökning.
 
 Felsöknings information hjälper dig att förstå hur det returnerade svaret har fastställts. Även om det är användbart är det inte nödvändigt. Om du vill generera ett svar med felsöknings information lägger du till `debug` egenskapen:
 

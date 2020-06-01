@@ -1,15 +1,15 @@
 ---
 title: Inbyggda princip definitioner för Azure Backup
 description: Visar Azure Policy inbyggda princip definitioner för Azure Backup. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 05/13/2020
+ms.date: 05/29/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 8f910d9926678ee3c3fb0fe5f9af1476c23375da
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a4b36e619356384b2983cacd9a61cba148cc581a
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635826"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234987"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-backup"></a>Azure Policy inbyggda princip definitioner för Azure Backup
 

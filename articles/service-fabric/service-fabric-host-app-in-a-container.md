@@ -3,12 +3,12 @@ title: Distribuera en .NET-app i en behållare till Azure Service Fabric
 description: Lär dig hur du använder en container med ett befintligt .NET-program med hjälp av Visual Studio och hur du felsöker containrar i Service Fabric lokalt. Programmet i containern skickas via push-teknik till ett Azure-containerregister och distribueras till ett Service Fabric-kluster. När det har distribuerats till Azure använder programmet Azure SQL DB för att spara data.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 06c284a06be4879f9ecb514ed30c28332cd11cc8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: aa99897da99ff1a1443e548e98ae415b6a8d49f5
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017009"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234225"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
@@ -233,7 +233,7 @@ Nu när programmet är klart kan du distribuera det till klustret i Azure direkt
 
 ![Publicera programmet][publish-app]
 
-Följ distributionsförloppet i utdatafönstret När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Till exempel https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Följ distributionsförloppet i utdatafönstret När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Till exempel `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
 ![Fabrikam-webbexempel][fabrikam-web-page-deployed]
 

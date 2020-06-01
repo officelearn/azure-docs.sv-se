@@ -3,12 +3,12 @@ title: Azure-resurser – QnA Maker
 description: QnA Maker använder flera Azure-källor, var och en med ett annat syfte. Om du förstår hur de används individuellt kan du planera för och välja rätt pris nivå eller veta när du ska ändra pris nivån. Om du förstår hur de används i kombinationen kan du hitta och åtgärda problem när de inträffar.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80873913"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236077"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Azure-resurser för QnA Maker
 
@@ -62,7 +62,7 @@ I följande tabell får du några rikt linjer på hög nivå.
 
 ## <a name="when-to-change-a-pricing-tier"></a>När du ska ändra en pris nivå
 
-|Uppgradera|Orsak|
+|Uppgradera|Anledning|
 |--|--|
 |[Uppgradera](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) SKU för QnA Maker hantering|Du vill ha fler QnA-par eller dokument källor i din kunskaps bas.|
 |[Uppgradera](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU och kontrol lera Kognitiv sökning nivå och [skapa kognitiv sökning repliker](../../../search/search-capacity-planning.md)|Kunskaps basen behöver för att betjäna fler förfrågningar från din klient app, till exempel en chatt-robot.|
@@ -72,7 +72,7 @@ Hämta de senaste körnings uppdateringarna genom att [uppdatera App Service i A
 
 ## <a name="resource-naming-considerations"></a>Överväganden för resurs namn givning
 
-Resurs namnet för QnA Maker resursen, till exempel `qna-westus-f0-b`, används också för att ge de andra resurserna.
+Resurs namnet för QnA Maker resursen, till exempel `qna-westus-f0-b` , används också för att ge de andra resurserna.
 
 Med Azure Portal skapa-fönstret kan du skapa en QnA Maker resurs och välja pris nivåer för de andra resurserna.
 
@@ -144,13 +144,13 @@ För att fråga den publicerade kunskaps basen använder alla publicerade kunska
 
 QnA Maker skapar flera Azure-resurser. Använd följande tabell för att ta reda på vad du kan och inte kan dela för att minska hanteringen och dra nytta av kostnads delning:
 
-|Tjänst|Dela|Orsak|
+|Tjänst|Dela|Anledning|
 |--|--|--|
 |Cognitive Services|X|Inte möjlig enligt design|
 |App Service-plan|✔|Fast disk utrymme som allokerats för en App Service plan. Om andra appar som delar samma App Service plan använder betydande disk utrymme, kommer QnAMaker App Service-instansen att drabbas av problem.|
 |App Service|X|Inte möjlig enligt design|
 |Application Insights|✔|Kan delas|
-|Söktjänst|✔|1. `testkb` är ett reserverat namn för QnAMaker-tjänsten. den kan inte användas av andra.<br>2. synonym mappningen med namnet `synonym-map` är reserverad för QnAMaker-tjänsten.<br>3. antalet publicerade kunskaps baser är begränsat av Sök tjänst nivån. Om det finns lediga index är andra tjänster som kan använda dem.|
+|Söktjänst|✔|1. `testkb` är ett reserverat namn för QnAMaker-tjänsten. det kan inte användas av andra.<br>2. synonym mappningen med namnet `synonym-map` är reserverad för QnAMaker-tjänsten.<br>3. antalet publicerade kunskaps baser är begränsat av Sök tjänst nivån. Om det finns lediga index är andra tjänster som kan använda dem.|
 
 ### <a name="using-a-single-cognitive-search-service"></a>Använda en enda Kognitiv sökning-tjänst
 
@@ -172,7 +172,7 @@ Använd de här nycklarna när du gör förfrågningar till tjänsten via API: e
 
 ![Nyckelhantering](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Name|Plats|Syfte|
+|Name|Location|Syfte|
 |--|--|--|
 |Redigerings nyckel|[Azure Portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Dessa nycklar används för att få åtkomst till [API: erna för QNA Maker Management-tjänsten](https://go.microsoft.com/fwlink/?linkid=2092179). Med dessa API: er kan du redigera frågorna och svaren i din kunskaps bas och publicera din kunskaps bas. Nycklarna skapas när du skapar en ny QnA Maker-tjänst.<br><br>Sök efter dessa nycklar på **Cognitive Services** resurs på sidan **nycklar** .|
 |Frågans slut punkts nyckel|[QnA Maker-portalen](https://www.qnamaker.ai)|Dessa nycklar används för att skicka frågor till den publicerade kunskaps bas slut punkten för att få svar på en användar fråga. Du använder vanligt vis den här fråge slut punkten i din Chat-robot eller i klient program koden som ansluter till QnA Maker-tjänsten. De här nycklarna skapas när du publicerar din QnA Maker-kunskaps bas.<br><br>Sök efter dessa nycklar på sidan **tjänst inställningar** . Hitta den här sidan från användarens meny längst upp till höger på sidan på den nedrullningsbara menyn.|
@@ -182,6 +182,14 @@ Använd de här nycklarna när du gör förfrågningar till tjänsten via API: e
 Term redigerings-och fråge slut punkts nyckeln är rätt villkor. Föregående term var **prenumerations nyckel**. Om du ser en annan dokumentation som hänvisar till prenumerations nycklar motsvarar dessa referenser till redigerings-och fråge slut punkts nycklar (används i körnings miljön).
 
 Du måste veta vad nyckeln har åtkomst till, kunskaps bas hantering eller kunskaps bas frågor för att veta vilken nyckel du behöver hitta.
+
+## <a name="recommended-settings-for-network-isolation"></a>Rekommenderade inställningar för nätverks isolering
+
+* Skydda kognitiva tjänst resurser från offentlig åtkomst genom [att konfigurera det virtuella nätverket](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Skydda App Service (QnA Runtime) från offentlig åtkomst:
+    * Tillåt enbart trafik från kognitiva tjänst-IP: er. Dessa ingår redan i service tag gen "CognitiveServicesManagement". Detta krävs för att skapa API: er (Skapa/uppdatera KB) för att anropa app service och uppdatera Azure Search-tjänsten enligt detta.
+    * Se till att du även tillåter andra start punkter som bot service, QnA Maker portal (kan vara ditt företags nätverket) osv. för förutsägelse "GenerateAnswer" API-åtkomst.
+    * Läs [Mer information om service märken.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
 ## <a name="next-steps"></a>Nästa steg
 

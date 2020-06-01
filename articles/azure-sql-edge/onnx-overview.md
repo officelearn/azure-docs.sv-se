@@ -2,19 +2,19 @@
 title: Machine Learning och AI med ONNX i Azure SQL Edge (för hands version)
 description: Machine Learning i Azure SQL Edge (för hands version) stöder modeller i formatet Open neurala Network Exchange (ONNX). ONNX är ett öppet format som du kan använda för att Interchange modeller mellan olika ramverk och verktyg för maskin inlärning.
 keywords: Distribuera SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 12c1294a804c2063d405c5ec08440865283d51d3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3b36052fa3ee0d7d449be1719e67554b539d0207
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597368"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233183"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge-preview"></a>Machine Learning och AI med ONNX i SQL Edge (för hands version)
 

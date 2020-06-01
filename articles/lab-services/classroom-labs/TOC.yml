@@ -24,6 +24,8 @@
       href: classroom-labs-concepts.md
     - name: Classroom Labs-arkitekturens grunder
       href: classroom-labs-fundamentals.md
+    - name: Kapacitetsbegränsningar
+      href: capacity-limits.md
     - name: Scenarier
       items:
         - name: Använda labb i klasser

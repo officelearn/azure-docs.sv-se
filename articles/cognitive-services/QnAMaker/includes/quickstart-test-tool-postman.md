@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 095f3396c483f4b8f80ab6c31ee369f2082f560c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a5af58c645720f0643e9245dc106248e36f2658f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83998085"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237717"
 ---
 Denna Postmanbaserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas.
 
@@ -37,7 +37,7 @@ Använd den här proceduren för att konfigurera Postman och Läs sedan vart och
 
 1. På sidan **Inställningar** för kunskaps basen väljer du fliken **Postman** för att se konfigurationen som används för att generera ett svar från kunskaps basen. Kopiera följande information som ska användas i Postman.
 
-    |Name|Inställningen|Syfte och värde|
+    |Name|Inställning|Syfte och värde|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Detta är HTTP-metoden och-vägen för URL: en.|
     |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|Detta är värd för URL: en. Sammanfoga värden och publicera värden för att hämta den fullständiga generateAnswer-URL: en.|
@@ -108,7 +108,7 @@ I en tidigare snabb start lades metadata till i två QnA-par för att skilja mel
 ## <a name="use-debug-query-property"></a>Använd egenskapen Felsök fråga
 
 > [!NOTE]
->Vi rekommenderar inte att du använder debug-poreperty för alla beroenden. Den här egenskapen har lagts till för att hjälpa produkt teamet vid fel sökning.
+>Vi rekommenderar inte att du använder egenskapen debug för något beroende. Den här egenskapen har lagts till för att hjälpa produkt teamet vid fel sökning.
 
 Felsöknings information hjälper dig att förstå hur det returnerade svaret har fastställts. Även om det är användbart är det inte nödvändigt. Om du vill generera ett svar med felsöknings information lägger du till `debug` egenskapen:
 

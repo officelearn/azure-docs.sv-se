@@ -3,12 +3,12 @@ title: Felsöka vanliga fel
 description: 'Lär dig hur du felsöker problem med att skapa princip definitioner, de olika SDK: n och tillägget för Kubernetes.'
 ms.date: 05/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 8935176badabf559d494c3d60fb1dec236efbdc2
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: b1cb8ab51ecc00610f1e04532ba3063be5415607
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221379"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234177"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Felsöka fel med hjälp av Azure Policy
 
@@ -130,7 +130,7 @@ Det genererade lösen ordet innehåller ett kommatecken ( `,` ) som Helm-diagram
 
 #### <a name="resolution"></a>Lösning
 
-Undanta kommatecken ( `,` ) i lösen ordet när det körs `helm install azure-policy-addon` med ett Backsteg ( `\` ).
+Undanta kommatecken ( `,` ) i lösen ordet när du kör `helm install azure-policy-addon` med ett omvänt snedstreck ( `\` ).
 
 ### <a name="scenario-install-using-helm-chart-fails-as-name-already-exists"></a>Scenario: det går inte att installera med Helm-diagram eftersom namnet redan finns
 

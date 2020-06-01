@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure Data Lake Analytics
 description: Visar Azure Policy inbyggda princip definitioner för Azure Data Lake Analytics. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 05/13/2020
+ms.date: 05/29/2020
 ms.topic: sample
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-samples
-ms.openlocfilehash: d54f2c8a67e85c2bd91f277dbf5b17c570f77f8a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 58ffee557127bebb8b8d26be0ae87ab55f767b2b
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643872"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234436"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-data-lake-analytics"></a>Azure Policy inbyggda princip definitioner för Azure Data Lake Analytics
 

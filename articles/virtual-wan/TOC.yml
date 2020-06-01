@@ -98,6 +98,8 @@
               href: virtual-wan-route-table.md
         - name: Visa effektiva vägar för virtuell hubb
           href: effective-routes-virtual-hub.md
+        - name: Flera ISP-länkar – val av Azure-sökväg
+          href: path-selection-multiple-links.md
     - name: Säkerhet
       items:
         - name: Installera Azure Firewall i en hubb

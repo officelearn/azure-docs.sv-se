@@ -67,15 +67,17 @@
         - name: Skapa ett första ML-experiment (R)
           href: tutorial-1st-r-experiment.md
     - name: Maskininlärning CLI
-      href: tutorial-train-deploy-model-cli.md
+      items:
+        - name: Träna och distribuera med CLI
+          href: tutorial-train-deploy-model-cli.md
+        - name: Skapa arbetsytor med Resource Manager-mallar
+          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio-koden
       items:
         - name: Konfigurera tillägget för Azure Machine Learning
           href: tutorial-setup-vscode-extension.md
         - name: Träna och distribuera en TensorFlow-modell för avbildningsklassificering
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Skapa en arbetsyta med en Resource Manager-mall
-      href: tutorial-resource-manager-workspace.md
 - name: Exempel
   items:
     - name: Jupyter Notebook

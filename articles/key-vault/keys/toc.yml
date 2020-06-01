@@ -17,12 +17,12 @@
       href: quick-create-python.md
 - name: Självstudier
   items:
-    - name: Importera HSM-skyddade nycklar
+    - name: Importera HSM-skyddade nycklar (översikt)
       href: hsm-protected-keys.md
-    - name: Importera HSM-skyddade nycklar (förhandsversion)
-      href: hsm-protected-keys-vendor-agnostic-byok.md
-    - name: Importera HSM-skyddade nycklar (äldre version)
-      href: hsm-protected-keys-legacy.md
+    - name: Importera HSM-skyddade nycklar (BYOK)
+      href: hsm-protected-keys-byok.md
+    - name: Importera HSM-skyddade nycklar (nCipher)
+      href: hsm-protected-keys-ncipher.md
 - name: Exempel
   items:
     - name: Inbyggda Azure Policy-program
@@ -47,6 +47,8 @@
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.keyvault/allversions
       displayName: ARM
+    - name: Specifikation för Bring your own key
+      href: byok-specification.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

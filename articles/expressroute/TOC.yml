@@ -24,28 +24,28 @@
           href: work-remotely-support.md
     - name: Anslutningsmodeller
       href: expressroute-connectivity-models.md
-    - name: Kretsar och peering
-      href: expressroute-circuit-peerings.md
     - name: Platser och partners
       items:
         - name: Leverantörer efter plats
           href: expressroute-locations-providers.md
         - name: Platser efter leverantör
           href: expressroute-locations.md
-    - name: Om virtuella nätverksgatewayer
-      href: expressroute-about-virtual-network-gateways.md
     - name: Krav
       href: expressroute-prerequisites.md
     - name: Arbetsflöden
       href: expressroute-workflows.md
     - name: Routningskrav
       href: expressroute-routing.md
+    - name: Kretsar och peering
+      items:
+        - name: Om kretsar och peering
+          href: expressroute-circuit-peerings.md
+        - name: Flytta kretsar från klassisk till Resource Manager
+          href: expressroute-move.md
     - name: BFD via ExpressRoute
       href: expressroute-bfd.md
     - name: QoS-krav
       href: expressroute-qos.md
-    - name: Om att flytta kretsar från klassisk till Resource Manager
-      href: expressroute-move.md
     - name: Om ExpressRoute FastPath
       href: about-fastpath.md
     - name: Om ExpressRoute Direct
@@ -54,6 +54,10 @@
       href: expressroute-global-reach.md
     - name: Om ExpressRoute-kryptering
       href: expressroute-about-encryption.md
+    - name: Säkerhetskontroller
+      href: expressroute-security-controls.md
+    - name: Om virtuella nätverksgatewayer
+      href: expressroute-about-virtual-network-gateways.md
     - name: Ansluta Azure till ett offentligt moln
       href: expressroute-connect-azure-to-public-cloud.md
     - name: Interoperabilitet för serverdelsanslutning
@@ -68,11 +72,9 @@
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Anslutning mellan nätverk
       href: cross-network-connectivity.md
-    - name: Inbyggda säkerhetskontroller
-      href: expressroute-security-controls.md
-    - name: Utforma för hög tillgänglighet
+    - name: Hög tillgänglighet – Design
       href: designing-for-high-availability-with-expressroute.md
-    - name: Utforma för haveriberedskap
+    - name: Haveriberedskap – Design
       items:
         - name: Privat peering
           href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
@@ -165,6 +167,8 @@
           href: expressroute-monitoring-metrics-alerts.md
         - name: Konfigurera övervakare av nätverksprestanda för ExpressRoute
           href: how-to-npm.md
+        - name: Konfigurera anpassade aviseringar för att övervaka annonserade vägar
+          href: how-to-custom-route-alert.md
     - name: Klassiska och äldre artiklar
       items:
         - name: Ändra en krets

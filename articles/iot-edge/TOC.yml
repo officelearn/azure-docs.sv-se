@@ -177,6 +177,8 @@
       items:
         - name: Övervaka IoT Edge-distributioner
           href: how-to-monitor-iot-edge-deployments.md
+        - name: Övervaka modultvillingar
+          href: how-to-monitor-module-twins.md
         - name: Direkta metoder för EdgeAgent
           href: how-to-edgeagent-direct-method.md
     - name: Använda IoT Edge-enheter som gatewayer

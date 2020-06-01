@@ -25,6 +25,8 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: Skapa datafabrik – Resource Manager-mall
       href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Säkerhet – aktivera kundhanterad nyckelkryptering
+      href: quickstart-enable-customer-managed-key.md
     - name: Skapa ett dataflöde
       href: data-flow-create.md
 - name: Självstudier
@@ -39,7 +41,7 @@
               href: tutorial-copy-data-portal.md
             - name: .NET
               href: tutorial-copy-data-dot-net.md
-        - name: Från en lokal SQL Server-databas till Azure Blob Storage
+        - name: Från en SQL Server-databas till Azure Blob Storage
           items:
             - name: Kopiera data-verktyg
               href: tutorial-hybrid-copy-data-tool.md
@@ -76,7 +78,7 @@
                   href: tutorial-incremental-copy-portal.md
                 - name: Azure PowerShell
                   href: tutorial-incremental-copy-powershell.md
-            - name: Från flera lokala SQL Server-tabeller
+            - name: Från flera SQL Server-databastabeller
               items:
                 - name: Användargränssnitt
                   href: tutorial-incremental-copy-multiple-tables-portal.md
@@ -605,6 +607,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Aktivera Azure AD-autentisering för Azure-SSIS IR
           href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Ansluta till data med Windows-autentisering
+          href: ssis-azure-connect-with-windows-auth.md
+        - name: Spara filer och anslut till filresurser
+          href: ssis-azure-files-file-shares.md
         - name: Etablera Enterprise Edition för Azure-SSIS IR
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Inbyggda och förinstallerade komponenter på Azure-SSIS IR
@@ -623,6 +629,8 @@
           href: how-to-use-sql-managed-instance-with-ir.md
         - name: Migrera SSIS-jobb med SSMS
           href: how-to-migrate-ssis-job-ssms.md
+        - name: Hantera paket med Azure-SSIS IR-paketlager
+          href: azure-ssis-integration-runtime-package-store.md
     - name: Skapa utlösare
       items:
         - name: Skapa en händelsebaserad utlösare

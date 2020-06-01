@@ -58,7 +58,7 @@
       items:
         - name: Importera data
           href: import-data.md
-        - name: Använda data från lokal SQL
+        - name: Använda data från SQL Server
           displayName: on-premises
           href: use-data-from-an-on-premises-sql-server.md
     - name: Inlärningsmodeller

@@ -52,7 +52,7 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
     - **Azure Security Center**: aktivera det här för att lägga till ett extra lager med hot skydd i IoT och dina enheter. Det här alternativet är inte tillgängligt för hubbar på den kostnads fria nivån. Mer information om den här funktionen finns [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/).
 
-    - **Avancerade inställningar** > **enhet-till-moln-partitioner**: den här egenskapen relaterar enhets-till-moln-meddelanden till antalet samtidiga läsare av meddelanden. De flesta hubbar behöver bara fyra partitioner.
+    - **Avancerade inställningar**  >  **Partitioner från enhet till moln**: den här egenskapen relaterar meddelanden från enhet till moln till antalet samtidiga läsare av meddelanden. De flesta hubbar behöver bara fyra partitioner.
 
 1.  Välj **Nästa: Taggar** för att fortsätta till nästa skärm.
 

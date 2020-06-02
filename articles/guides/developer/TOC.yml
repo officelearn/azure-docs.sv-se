@@ -6,7 +6,7 @@
       href: 'https://aka.ms/azsdkpackages'
 - name: Snabbstart
   items:
-    - name: Webbappar
+    - name: Web Apps
       href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html'
     - name: Virtuella datorer
       items:
@@ -48,7 +48,7 @@
   items:
     - name: Azure CLI
       items:
-        - name: Webbappar
+        - name: Web Apps
           href: 'https://docs.microsoft.com/azure/app-service/samples-cli'
         - name: Virtuell Linux-dator
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples'
@@ -56,13 +56,13 @@
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples'
     - name: Azure PowerShell
       items:
-        - name: Webbappar
+        - name: Web Apps
           href: 'https://docs.microsoft.com/azure/app-service/samples-powershell'
         - name: Virtuell Linux-dator
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples'
         - name: Virtuell Windows-dator
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples'
-- name: Koncept
+- name: Begrepp
   items:
     - name: Fakturering och prenumerationer
       href: 'https://docs.microsoft.com/azure/billing/billing-getting-started'
@@ -175,7 +175,7 @@
         - name: PHP
           href: 'https://github.com/Azure/azure-sdk-for-php/blob/master/README.md'
         - name: Python
-          href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/'
+          href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/README.md'
         - name: Ruby
           href: 'https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md'
     - name: Kommandoradsgränssnitt

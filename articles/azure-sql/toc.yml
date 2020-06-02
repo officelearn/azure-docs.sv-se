@@ -50,6 +50,8 @@
               href: database/advanced-data-security.md
             - name: Advanced Threat Protection
               href: database/threat-detection-overview.md
+            - name: Dataidentifiering och -klassificering
+              href: database/data-discovery-and-classification-overview.md
             - name: Dynamisk datamaskning
               href: database/dynamic-data-masking-overview.md
             - name: Sårbarhetsbedömning för SQL
@@ -73,8 +75,6 @@
                   href: database/transparent-data-encryption-tde-overview.md
                 - name: BYOK (bring your own key)
                   href: database/transparent-data-encryption-byok-overview.md
-                - name: Dataidentifiering och -klassificering
-                  href: database/data-discovery-and-classification-overview.md
         - name: Verksamhetskontinuitet
           displayName: 'Backup, back up, restore, recovery'
           items:

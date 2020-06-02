@@ -7,12 +7,8 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: 'Använd C#'
-      href: Quickstart.md
-    - name: Använda Node.js
-      href: quickstart-nodejs.md
-    - name: Använda Swift (iOS)
-      href: ios-quickstart.md
+    - name: Använda klientbiblioteket
+      href: ./quickstarts/client-libraries.md
 - name: Självstudier
   items:
     - name: Starta Avancerad läsare (Python)

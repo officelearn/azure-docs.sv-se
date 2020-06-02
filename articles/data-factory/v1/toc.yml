@@ -199,8 +199,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fallstudier
       href: data-factory-customer-case-studies.md
-    - name: Utbildningsväg
-      href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
     - name: Frågesida på Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
     - name: Prissättning

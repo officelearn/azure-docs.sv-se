@@ -92,6 +92,8 @@
       href: template-samples.md
     - name: Kodexempel
       href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
+    - name: Inbyggda Azure Policy-program
+      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Event Grid-terminologi

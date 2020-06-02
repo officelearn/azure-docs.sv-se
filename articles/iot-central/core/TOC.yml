@@ -123,6 +123,8 @@
               href: howto-customize-ui.md
             - name: Exportera ditt program
               href: howto-use-app-templates.md
+            - name: Övervaka programhälsa
+              href: howto-monitor-application-health.md
         - name: Hantera från andra platser
           items:
             - name: Hantera från Azure-portalen

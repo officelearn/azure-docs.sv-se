@@ -4,12 +4,12 @@ description: Lär dig mer om Azure Monitors partner och hur du kan komma åt dok
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 3224a9420d5a434ed9e3d8902f430f4e1ee28bcd
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233403"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248979"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
 
@@ -105,8 +105,6 @@ Grafana är ett program med öppen källkod som gör det möjligt att visualiser
 ## <a name="influxdata"></a>InfluxData
 
 ![InfluxData-logotyp](./media/partners/Influxdata.png)
-
-InfluxData är skaparen av InfluxDB och levererar en modern plattform med öppen källkod som skapats från grunden för analys av mått och händelser (tids serie data) för DevOps-och IoT-program. Oavsett om data kommer från människor, sensorer eller datorer ger InfluxData utvecklare möjlighet att skapa nästa generations övervaknings-, analys-och IoT-program snabbare, enklare och att skala ut verkligt affärs värde snabbt. Baserat på San Francisco är InfluxData över 420 kunder som är Cisco, eBay, IBM och Siemens.
 
 InfluxData är skaparen av InfluxDB, tids serie databasen med öppen källkod. Vår teknik är syftet – byggd för att hantera de enorma volymerna av tidsstämplade data som skapats av IoT-enheter, program, nätverk, behållare och datorer. Vi är på uppdrag att hjälpa utvecklare och organisationer, till exempel IBM, Visa, Siemens, Tesla och NASA, lagra och analysera real tids data, vilket ger dem möjlighet att skapa transformativa övervaknings-, analys-och IoT-program snabbare och att skala. Microsoft Azure övervakarens mått och händelse insamlings funktioner kan utökas med InfluxData-agenten för tele som gör att Microsoft-användare kan dra nytta av en ledande databas lösning för tids serier och dra nytta av de växande bidragen med öppen källkod till teleympkvistar.
 

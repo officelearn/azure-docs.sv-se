@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 71d28a19316bf1b618ec9008a5e96a503687b202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bec5e68b334cada7f83c5dbeb9ba50203835d770
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681951"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265326"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Använda Microsoft Smooth Streaming-plugin-programmet för Adobe Open Source Media Framework  
 ## <a name="overview"></a>Översikt
@@ -43,7 +43,7 @@ Plugin-programmet stöder inläsning och uppspelning av Smooth Streaming innehå
 * Flera ljud språks växling med inbyggda API: er för OSMF
 * Val av maximal uppspelnings kvalitet med inbyggda API: er för OSMF
 * Sidvagn med dold textning med OSMF textnings-plugin
-* Adobe&reg; Flash&reg; Player 11,4 eller senare.
+* Adobe &reg; Flash &reg; Player 11,4 eller senare.
 * Den här versionen stöder endast OSMF 2,0.
 
 ## <a name="supported-features-and-known-issues"></a>Funktioner som stöds och kända problem
@@ -328,10 +328,10 @@ paketfilerna
 }
 
 ## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Kasta medie uppspelning med SS-ODMF dynamiskt plugin-program
-Smooth Streaming för dynamiskt plugin-program för OSMF är kompatibelt med [SMP (strobe Media uppspelning)](http://osmf.org/strobe_mediaplayback.html). Du kan använda SS för OSMF-plugin-programmet för att lägga till Smooth Streaming innehålls uppspelning till SMP. Det gör du genom att kopiera "MSAdaptiveStreamingPlugin-v 1.0.3-OSMF 2.0. swf" under en webb server för HTTP-belastning med hjälp av följande steg:
+Smooth Streaming för dynamiskt plugin-program för OSMF är kompatibelt med [SMP (strobe Media uppspelning)](https://sourceforge.net/adobe/smp/home/Strobe%20Media%20Playback/). Du kan använda SS för OSMF-plugin-programmet för att lägga till Smooth Streaming innehålls uppspelning till SMP. Det gör du genom att kopiera "MSAdaptiveStreamingPlugin-v 1.0.3-OSMF 2.0. swf" under en webb server för HTTP-belastning med hjälp av följande steg:
 
 1. Bläddra i [installations sidan för ljud uppspelnings mediet](http://osmf.org/dev/2.0gm/setup.html). 
-2. Ange src till en Smooth Streaming källa (t. ex. http:\//devplatem.VO.msecnd.net/Sintel/Sintel_H264.ISM/manifest) 
+2. Ange src till en Smooth Streaming källa (t. ex. http: \/ /devplatem.VO.msecnd.net/Sintel/Sintel_H264.ISM/manifest) 
 3. Gör önskade konfigurations ändringar och klicka på Förhandsgranska och uppdatera.
    
    **Obs!** Webb servern för innehållet måste ha en giltig crossdomain. XML-fil. 
@@ -380,8 +380,8 @@ Smooth Streaming för dynamiskt plugin-program för OSMF är kompatibelt med [SM
         </embed>
         </object>
         </html>
-2. Spara HTML-sidan och publicera på en webb server. Bläddra till den publicerade webb sidan med din favorit webbläsare&reg; i Flash Player (Internet Explorer, Chrome, Firefox, så vidare).
-3. Njut av Smooth Streaming innehåll i&reg; Adobe&reg; Flash Player.
+2. Spara HTML-sidan och publicera på en webb server. Bläddra till den publicerade webb sidan med din favorit webbläsare i Flash &reg; Player (Internet Explorer, Chrome, Firefox, så vidare).
+3. Njut av Smooth Streaming innehåll i Adobe &reg; Flash &reg; Player.
 
 Mer information om allmän OSMF utveckling finns på den officiella OSMF- [utvecklings sidan](http://osmf.org/resources.html).
 

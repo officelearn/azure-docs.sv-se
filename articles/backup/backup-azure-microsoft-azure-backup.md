@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: bbe3e21840f094fbd3f34d94e7af64ca98d884df
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735879"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247282"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -174,7 +174,7 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 
     ![Azure Backup Server-SQL-kontroll](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    Om ett fel inträffar med en rekommendation om att starta om datorn gör du det och klickar på **kontrol lera igen**. Om det finns några problem med SQL-konfigurationen kan du konfigurera om SQL enligt SQL-rikt linjerna och försöka installera/uppgradera MABS med hjälp av den befintliga SQL-instansen.
+    Om ett fel inträffar med en rekommendation om att starta om datorn gör du det och klickar på **kontrol lera igen**. Om det finns några problem med SQL-konfigurationen konfigurerar du om SQL enligt SQL-rikt linjerna och försöker installera/uppgradera MABS med hjälp av den befintliga SQL-instansen.
 
    **Manuell konfiguration**
 
@@ -186,9 +186,9 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 
     Använd följande värden för SSRS-konfiguration:
     * Tjänst konto: Använd det inbyggda kontot ska vara nätverks tjänst
-    * Webb tjänstens URL: virtuell katalog ska vara ReportServer_ \< SQLInstanceName>
-    * Databas: DatabaseName ska vara ReportServer $ \< SQLInstanceName>
-    * Webb portalens URL: ' virtuell katalog ' ska vara Reports_ \< SQLInstanceName>
+    * Webb tjänstens URL: virtuell katalog ska vara ReportServer_\<SQLInstanceName>
+    * Databas: DatabaseName ska vara ReportServer $\<SQLInstanceName>
+    * Webb portalens URL: ' virtuell katalog ' ska vara Reports_\<SQLInstanceName>
 
     [Läs mer](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) om SSRS-konfiguration.
 
@@ -343,7 +343,7 @@ Använd följande steg för att uppgradera MABS:
 
    > [!NOTE]
    >
-   > Avsluta inte medan SQL-instansen håller på att uppgraderas, avinstallerar SQL repor ting-instansen och ett försök att uppgradera MABS kommer därför att Miss lyckas.
+   > Avsluta inte medan SQL-instansen håller på att uppgraderas, avinstallerar SQL repor ting-instansen och ett försök att uppgradera MABS kommer att Miss lyckas.
 
    > [!IMPORTANT]
    >

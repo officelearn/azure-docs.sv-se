@@ -1,5 +1,5 @@
 ---
-title: 'Quckstart: skapa en Linux-SQL Server VM i Azure'
+title: 'Snabb start: skapa en Linux-SQL Server VM i Azure'
 description: Den här kursen visar hur du skapar virtuell Linux SQL Server 2017-dator i Azure Portal.
 services: virtual-machines-linux
 author: MashaMSFT
@@ -11,12 +11,12 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 34f2189a75db06ceca467dfc4e9b35692def6926
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ac7a836f339e86ce3705d64d04cad143f1043a81
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049682"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259532"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Etablera en virtuell Linux-dator med SQL Server på Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ I den här snabba självstudiekursen använder du Azure Portal till att skapa en
 * [Ändra SA-lösenordet](#password)
 * [Konfigurera för fjärr anslutningar](#remote)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 

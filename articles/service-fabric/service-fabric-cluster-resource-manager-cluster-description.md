@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258777"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259481"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Beskriv ett Service Fabric kluster med hjälp av kluster resurs hanteraren
 Kluster resurs hanterarens funktion i Azure Service Fabric ger flera mekanismer för att beskriva ett kluster:
@@ -83,9 +83,9 @@ Följande diagram visar tre uppgraderings domäner stripe över tre fel domäner
 
 Det finns för-och nack delar med ett stort antal uppgraderings domäner. Flera uppgraderings domäner innebär att varje steg i uppgraderingen är mer detaljerad och påverkar ett mindre antal noder eller tjänster. Färre tjänster måste flyttas i taget, vilket introducerar mindre omsättning i systemet. Detta kan förbättra tillförlitligheten, eftersom mindre av tjänsten påverkas av eventuella problem som införs under uppgraderingen. Flera uppgraderings domäner innebär också att du behöver mindre tillgänglig buffert på andra noder för att hantera effekten av uppgraderingen. 
 
-Om du till exempel har fem uppgraderings domäner hanterar noderna i varje ungefär 20 procent av trafiken. Om du behöver ta bort uppgraderings domänen för en uppgradering måste belastningen vanligt vis gå någonstans. Eftersom du har fyra återstående uppgraderings domäner måste var och en ha plats för ungefär 5 procent av den totala trafiken. Flera uppgraderings domäner innebär att du behöver mindre buffert på noderna i klustret. 
+Om du till exempel har fem uppgraderings domäner hanterar noderna i varje ungefär 20 procent av trafiken. Om du behöver ta bort uppgraderings domänen för en uppgradering måste belastningen vanligt vis gå någonstans. Eftersom du har fyra återstående uppgraderings domäner måste var och en ha plats för ca 25 procent av den totala trafiken. Flera uppgraderings domäner innebär att du behöver mindre buffert på noderna i klustret.
 
-Överväg om du har 10 uppgraderings domäner i stället. I så fall hanterar varje uppgraderings domän bara 10 procent av den totala trafiken. När ett uppgraderings steg passerar genom klustret behöver varje domän ha utrymme för bara cirka 1,1 procent av den totala trafiken. Flera uppgraderings domäner gör det vanligt vis möjligt att köra noderna med högre användning, eftersom du behöver mindre reserverad kapacitet. Samma sak gäller för fel domäner.  
+Överväg om du har 10 uppgraderings domäner i stället. I så fall hanterar varje uppgraderings domän bara 10 procent av den totala trafiken. När ett uppgraderings steg passerar genom klustret behöver varje domän ha plats för endast ca 11 procent av den totala trafiken. Flera uppgraderings domäner gör det vanligt vis möjligt att köra noderna med högre användning, eftersom du behöver mindre reserverad kapacitet. Samma sak gäller för fel domäner.  
 
 Nack delen med många uppgraderings domäner är att uppgraderingar tenderar att ta längre tid. Service Fabric väntar en kort stund efter att en uppgraderings domän har slutförts och utför kontroller innan de börjar uppgradera nästa. Dessa fördröjningar gör det möjligt att identifiera problem som införts vid uppgraderingen innan uppgraderingen fortsätter. Kompromissen är acceptabel eftersom den förhindrar att felaktiga ändringar påverkar för mycket av tjänsten i taget.
 
@@ -363,7 +363,7 @@ För att stödja dessa typer av konfigurationer, innehåller Service Fabric tagg
 ### <a name="built-in-node-properties"></a>Inbyggda Node-egenskaper
 Service Fabric definierar vissa standardnode-egenskaper som kan användas automatiskt så att du inte behöver definiera dem. Standard egenskaperna som definieras på varje nod är **NodeType** och **nodnamn**. 
 
-Du kan till exempel skriva en placerings begränsning som `"(NodeType == NodeType03)"`. **NodeType** är en egenskap som används ofta. Det är användbart eftersom det motsvarar 1:1 med en typ av dator. Varje typ av dator motsvarar en typ av arbets belastning i ett traditionellt program på n-nivå.
+Du kan till exempel skriva en placerings begränsning som `"(NodeType == NodeType03)"` . **NodeType** är en egenskap som används ofta. Det är användbart eftersom det motsvarar 1:1 med en typ av dator. Varje typ av dator motsvarar en typ av arbets belastning i ett traditionellt program på n-nivå.
 
 <center>
 
@@ -447,7 +447,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasSSD == true && SomeProperty >= 4"
 ```
 
-Om alla noder i NodeType01 är giltiga kan du också välja nodtypen med begränsningen `"(NodeType == NodeType01)"`.
+Om alla noder i NodeType01 är giltiga kan du också välja nodtypen med begränsningen `"(NodeType == NodeType01)"` .
 
 En tjänsts placerings begränsningar kan uppdateras dynamiskt under körning. Om du behöver kan du flytta en tjänst runt i klustret, lägga till och ta bort krav och så vidare. Service Fabric säkerställer att tjänsten förblir igång och tillgänglig även när dessa typer av ändringar görs.
 

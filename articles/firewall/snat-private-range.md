@@ -1,28 +1,32 @@
 ---
 title: Azure Firewall SNAT privata IP-adressintervall
-description: Du kan konfigurera IP-adressens privata intervall så att brand väggen inte översätter trafik till dessa IP-adresser.
+description: Du kan konfigurera IP-adressintervall för SNAT.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 06/01/2020
 ms.author: victorh
-ms.openlocfilehash: ed8cef00b7de67458c607373c724a3717f14a7cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28ec61c4aefeacb8014e0a5d48d0259cf7fcf7f3
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064815"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267041"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Azure Firewall SNAT privata IP-adressintervall
 
-Azure-brandväggen är inte SNAT med nätverks regler när mål-IP-adressen är i ett privat IP-adressintervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Program regler tillämpas alltid med en [transparent proxy](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) oavsett mål-IP-adress.
+Azure-brandväggen tillhandahåller automatisk SNAT för all utgående trafik till offentliga IP-adresser. Som standard har Azure-brandväggen inte SNAT med nätverks regler när mål-IP-adressen är i ett privat IP-adressintervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Program regler tillämpas alltid med en [transparent proxy](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) oavsett mål-IP-adress.
+
+Den här logiken fungerar bra när du dirigerar trafik direkt till Internet. Men om du har aktiverat [Tvingad tunnel](forced-tunneling.md)trafik är Internet-baserad trafik SNATed till en av brand väggens privata IP-adresser i AzureFirewallSubnet, vilket döljer källan från den lokala brand väggen.
 
 Om din organisation använder ett offentligt IP-adressintervall för privata nätverk SNATs trafiken till någon av brand väggens privata IP-adresser i AzureFirewallSubnet med Azure-brandväggen. Du kan dock konfigurera Azure-brandväggen så att den **inte** bevarar ditt offentliga IP-adressintervall.
 
-## <a name="configure-snat-private-ip-address-ranges"></a>Konfigurera privata IP-adressintervall för SNAT
+Om du vill konfigurera Azure-brandväggen till att aldrig SNAT, oavsett mål-IP-adress, använder du **0.0.0.0/0** som ditt privata IP-adressintervall. Med den här konfigurationen kan Azure-brandväggen aldrig dirigera trafik direkt till Internet. Om du vill konfigurera brand väggen så att den alltid är SNAT oavsett mål adress använder du **255.255.255.255/32** som ditt privata IP-adressintervall.
 
-Du kan använda Azure PowerShell för att ange ett IP-adressintervall som brand väggen inte är SNAT.
+## <a name="configure-snat-private-ip-address-ranges---azure-powershell"></a>Konfigurera SNAT-privata IP-adressintervall – Azure PowerShell
+
+Du kan använda Azure PowerShell för att ange privata IP-adressintervall för brand väggen.
 
 ### <a name="new-firewall"></a>Ny brand vägg
 
@@ -55,6 +59,20 @@ Du kan lägga till följande i `additionalProperties` avsnittet:
                 },
 ```
 
+## <a name="configure-snat-private-ip-address-ranges---azure-portal"></a>Konfigurera SNAT-privata IP-adressintervall – Azure Portal
+
+Du kan använda Azure Portal för att ange privata IP-adressintervall för brand väggen.
+
+1. Välj din resurs grupp och välj sedan brand väggen.
+2. På sidan **Översikt** , **privata IP-intervall**väljer du standardvärdet **IANA RFC 1918**.
+
+   Sidan **Redigera privata IP-prefix** öppnas:
+
+   :::image type="content" source="media/snat-private-range/private-ip.png" alt-text="Redigera privata IP-prefix":::
+
+1. Som standard konfigureras **IANAPrivateRanges** .
+2. Redigera de privata IP-adressintervall för din miljö och välj sedan **Spara**.
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [distribuerar och konfigurerar en Azure-brandvägg](tutorial-firewall-deploy-portal.md).
+- Lär dig mer om [Tvingad tunnel trafik i Azure-brandväggen](forced-tunneling.md).

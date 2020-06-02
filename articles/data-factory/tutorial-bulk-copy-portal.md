@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/27/2020
-ms.openlocfilehash: fd14945069b2786fa4acb994c37c17d3b434893e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 05/28/2020
+ms.openlocfilehash: f8b72037046d05b39587c2fd57794b4109a85ae3
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118290"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249186"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 
@@ -49,7 +49,7 @@ I det här scenariot har du ett antal tabeller i Azure SQL Database som du vill 
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **Azure Storage konto**. Azure Storage-kontot används för mellanlagring för Blob Storage i masskopieringsåtgärden. 
 * **Azure SQL Database**. Den här databasen innehåller källdata. 
 * **Azure Synapse Analytics (tidigare SQL DW)**. Det här datalagret innehåller de data som kopieras från SQL Database. 
@@ -213,7 +213,8 @@ I den här självstudien skapar du två pipeliner: **IterateAndCopySQLTables** o
 1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Pipeline**.
 
     ![Meny för ny pipeline](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-1. På fliken **Allmänt** anger du **IterateAndCopySQLTables** som namn. 
+ 
+1. I panelen Allmänt under **Egenskaper**anger du **IterateAndCopySQLTables** som **namn**. Komprimera sedan panelen genom att klicka på egenskaps ikonen i det övre högra hörnet.
 
 1. Växla till fliken **Parametrar** och gör följande: 
 

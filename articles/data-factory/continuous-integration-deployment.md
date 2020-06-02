@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 77cba087ec578a478f4de9c8eebec3eb1e8d41b2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 51f583b946d6f5a18325e77cfe12404daab83d22
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022409"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84268045"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -570,7 +570,7 @@ Kom ihåg att lägga till Data Factory skript i CI/CD-pipeline innan och efter d
 
 Om du inte har git konfigurerat kan du komma åt de länkade mallarna via **export arm-mallen** i listan **arm-mall** .
 
-## <a name="hotfix-production-branch"></a>Produktions gren för snabb korrigeringar
+## <a name="hotfix-production-environment"></a>Snabb korrigerings produktions miljö
 
 Om du distribuerar en fabrik till produktion och inser att det finns en bugg som måste åtgärdas direkt, men du inte kan distribuera den aktuella samarbets grenen, kan du behöva distribuera en snabb korrigering. Den här metoden kallas snabb korrigerings teknik eller QFE.
 
@@ -611,7 +611,7 @@ Om du använder git-integrering med din data fabrik och har en CI/CD-pipeline so
 - Enligt design tillåter Data Factory inte körsbär-plockning av incheckningar eller selektiv publicering av resurser. Publiceringar tar med alla ändringar som gjorts i data fabriken.
 
     - Data Factory-entiteter är beroende av varandra. Utlösare är exempelvis beroende av pipeliner och pipeliner beror på data uppsättningar och andra pipeliner. Selektiv publicering av en del av resurser kan leda till oväntade beteenden och fel.
-    - Vid sällsynta tillfällen när du behöver selektiv publicering bör du överväga att använda en snabb korrigering. Mer information finns i avsnittet om [snabb korrigeringar för produktions gren](#hotfix-production-branch).
+    - Vid sällsynta tillfällen när du behöver selektiv publicering bör du överväga att använda en snabb korrigering. Mer information finns i [snabb korrigerings produktions miljö](#hotfix-production-environment).
 
 -   Du kan inte publicera från privata grenar.
 

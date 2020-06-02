@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 58f5d2e641cfe4913d6a06621b663d8a61cd00bb
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800294"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266771"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller för att tänka på när du utvecklar program för molnet. Säkerhets frågor och koncept som du bör tänka på under implementerings-och verifierings faserna i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla ett säkrare program.
@@ -128,7 +128,7 @@ Dynamic App Security Testing (DAST) är en process för att testa ett program i 
 
 DAST skiljer sig från SAST (static App Security testing). SAST-verktyg analyserar käll kod eller kompilerade versioner av kod när koden inte körs för att hitta säkerhets fel.
 
-Utför DAST, helst med hjälp av en säkerhets tekniker (en [utträngande testare](../fundamentals/pen-testing.md) eller sårbarhets bedömare). Om en säker person inte är tillgänglig kan du utföra DAST med en webbproxy-skanner och lite utbildning. Anslut en DAST-skanner tidigt för att se till att du inte introducerar tydliga säkerhets problem i din kod. Se [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) -webbplatsen för en lista över säkerhets skannrar för webb program.
+Utför DAST, helst med hjälp av en säkerhets tekniker (en [utträngande testare](../fundamentals/pen-testing.md) eller sårbarhets bedömare). Om en säker person inte är tillgänglig kan du utföra DAST med en webbproxy-skanner och lite utbildning. Anslut en DAST-skanner tidigt för att se till att du inte introducerar tydliga säkerhets problem i din kod. Se [OWASP](https://owasp.org/www-community/Vulnerability_Scanning_Tools) -webbplatsen för en lista över säkerhets skannrar för webb program.
 
 ### <a name="perform-fuzz-testing"></a>Utför fuzz-testning
 

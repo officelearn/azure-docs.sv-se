@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4ec2f9101f724d0c5c6c5e52bb69fea82513efe5
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 04921cd617a688ebcf31bcec29cf26681914f44b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118026"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247673"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -190,7 +190,7 @@ Nej. Återställning är kostnadsfritt och du debiteras inte för den utgående 
 
 När en ny princip tillämpas följs schemat och kvarhållningstiden för den nya principen.
 
-- Om kvarhållningen utökas markeras befintliga återställningspunkter för att behålla dem enligt den nya principen.
+- Om kvarhållning är utökad markeras befintliga återställnings punkter för att behålla dem enligt den nya principen.
 - Om kvarhållningen minskar markeras de för rensning under nästa rensningsjobb och tas sedan bort.
 
 ## <a name="encryption"></a>Kryptering

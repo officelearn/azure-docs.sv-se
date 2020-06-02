@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: sngun
-ms.openlocfilehash: 2306dbe234e171ac613c33458df1990b767637df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d1080abb35e556e97c34e77fdce4d553c169ee9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128367"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266873"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service Web Apps med en Azure Resource Manager mall
 Den här självstudien visar hur du använder en Azure Resource Manager mall för att distribuera och integrera [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) webbapp och ett exempel webb program.
@@ -36,8 +36,8 @@ Se till att du har en Azure-prenumeration innan du följer anvisningarna i den h
 ## <a name="step-1-download-the-template-files"></a><a id="CreateDB"></a>Steg 1: Ladda ned mallfilerna
 Vi börjar med att hämta mallfilerna som krävs av den här självstudien.
 
-1. Hämta en exempel mall för att [skapa ett Azure Cosmos DB konto, Web Apps och distribuera ett demonstrations program](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) till en lokal mapp (till exempel C:\Azure Cosmos DBTemplates). Den här mallen distribuerar ett Azure Cosmos DB-konto, en App Service webbapp och ett webb program.  Den konfigurerar också automatiskt webb programmet så att det ansluter till Azure Cosmos DB kontot.
-2. Ladda ned [exempel mal len skapa ett Azure Cosmos DB-konto och Web Apps](https://portalcontent.blob.core.windows.net/samples/DocDBWebSite.json) till en lokal mapp (till exempel C:\Azure Cosmos DBTemplates). Den här mallen distribuerar ett Azure Cosmos DB-konto, en App Service webbapp och ändrar platsens program inställningar för att enkelt placera Azure Cosmos DB anslutnings information, men innehåller inte något webb program.  
+1. Hämta en mall för att **skapa ett Azure Cosmos DB-konto, Web Apps och distribuera ett exempel** på en demo-app ( `https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json` ) till en lokal mapp (till exempel C:\Azure Cosmos DBTemplates). Den här mallen distribuerar ett Azure Cosmos DB-konto, en App Service webbapp och ett webb program.  Den konfigurerar också automatiskt webb programmet så att det ansluter till Azure Cosmos DB kontot.
+2. Hämta en mall för att **skapa ett Azure Cosmos DB-konto och Web Apps exempel** ( `https://portalcontent.blob.core.windows.net/samples/DocDBWebSite.json` ) i en lokal mapp (till exempel C:\Azure Cosmos DBTemplates). Den här mallen distribuerar ett Azure Cosmos DB-konto, en App Service webbapp och ändrar platsens program inställningar för att enkelt placera Azure Cosmos DB anslutnings information, men innehåller inte något webb program.  
 
 <a id="Build"></a>
 
@@ -51,12 +51,12 @@ Nu ska vi distribuera din första mall.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com), klicka på ny och Sök efter "malldistribution".
     ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment1.png)
-2. Välj malldistribution objekt och klicka på **skapa** ![skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment2.png)
+2. Välj Malldistribution objekt och klicka på **skapa** ![ skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment2.png)
 3. Klicka på **Redigera mall**, klistra in innehållet i DocDBWebsiteTodo. JSON-mallfilen och klicka på **Spara**.
    ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment3.png)
 4. Klicka på **Redigera parametrar**, ange värden för var och en av de obligatoriska parametrarna och klicka på **OK**.  Parametrarna är följande:
    
-   1. WEBBPLATS namn: anger App Service webbappens namn och används för att skapa den URL som du använder för att få åtkomst till webbappen (till exempel om du anger "mydemodocdbwebapp" och sedan den URL som du använder för att komma `mydemodocdbwebapp.azurewebsites.net`åt webbappen).
+   1. WEBBPLATS namn: anger App Service webbappens namn och används för att skapa den URL som du använder för att få åtkomst till webbappen (till exempel om du anger "mydemodocdbwebapp" och sedan den URL som du använder för att komma åt webbappen `mydemodocdbwebapp.azurewebsites.net` ).
    2. HOSTINGPLANNAME: anger namnet på App Service värd plan som ska skapas.
    3. PLATS: anger den Azure-plats där du vill skapa Azure Cosmos DB-och webb programs resurser.
    4. DATABASEACCOUNTNAME: anger namnet på det Azure Cosmos DB konto som ska skapas.   
@@ -69,7 +69,7 @@ Nu ska vi distribuera din första mall.
    ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment6.png)
 7. När distributionen är klar öppnas fönstret resurs grupp.
    ![Skärm bild av resurs grupps fönstret](./media/create-website/TemplateDeployment7.png)  
-8. Om du vill använda programmet navigerar du till webbappens webb adress (i exemplet ovan är URL: `http://mydemodocdbwebapp.azurewebsites.net`en).  Följande webb program kommer att visas:
+8. Om du vill använda programmet navigerar du till webbappens webb adress (i exemplet ovan är URL: en `http://mydemodocdbwebapp.azurewebsites.net` ).  Följande webb program kommer att visas:
    
    ![Exempel på att göra programmet](./media/create-website/image2.png)
 9. Gå vidare och skapa ett par uppgifter i webbappen och gå sedan tillbaka till rutan resurs grupp i Azure Portal. Klicka på resursen för Azure Cosmos DB konto i listan resurser och klicka sedan på **datautforskaren**.
@@ -88,7 +88,7 @@ Nu ska vi distribuera din andra mall.  Den här mallen är användbar för att v
 
 1. I [Azure-portalen](https://portal.azure.com)klickar du på ny och söker efter "malldistribution".
     ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment1.png)
-2. Välj malldistribution objekt och klicka på **skapa** ![skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment2.png)
+2. Välj Malldistribution objekt och klicka på **skapa** ![ skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment2.png)
 3. Klicka på **Redigera mall**, klistra in innehållet i DocDBWebSite. JSON-mallfilen och klicka på **Spara**.
    ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment3.png)
 4. Klicka på **Redigera parametrar**, ange värden för var och en av de obligatoriska parametrarna och klicka på **OK**.  Parametrarna är följande:
@@ -106,7 +106,7 @@ Nu ska vi distribuera din andra mall.  Den här mallen är användbar för att v
    ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment6.png)
 7. När distributionen är klar öppnas fönstret resurs grupp.
    ![Skärm bild av resurs grupps fönstret](./media/create-website/TemplateDeployment7.png)  
-8. Klicka på resursen för webb program i listan resurser och klicka sedan på bild skärm bild för **program inställningar** ![i resurs gruppen](./media/create-website/TemplateDeployment9.png)  
+8. Klicka på resursen för webb program i listan resurser och klicka sedan **Application settings** på ![ bild skärm bild för program inställningar i resurs gruppen](./media/create-website/TemplateDeployment9.png)  
 9. Observera att det finns program inställningar för Azure Cosmos DB slut punkten och var och en av de Azure Cosmos DB huvud nycklarna.
 
     ![Skärm bild av program inställningar](./media/create-website/TemplateDeployment10.png)  

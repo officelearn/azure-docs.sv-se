@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 910a0d9b70a63fc93aebd47896db7c3493c846b2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a345b5a8a4d6a99b1b3928d61b22dfba0ba2735b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684032"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248846"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Alla behållare som skapats i en databas med ett allokerat data flöde måste sk
 
 Om arbets belastningen på en logisk partition förbrukar mer än det data flöde som har allokerats till en viss logisk partition, är dina åtgärder avgiftsbelagda. När Rate-Limiting sker kan du antingen öka data flödet för hela databasen eller försöka utföra åtgärderna igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
-Behållare i en delad data flödes databas delar data flöde (RU/s) som allokeras till databasen. Du kan ha upp till fyra behållare med minst 400 RU/s på databasen. Med standard (manuellt) allokerat data flöde, kräver varje ny behållare efter de första fyra ytterligare 100 RU/s-minimum. Om du till exempel har en delad data flödes databas med åtta behållare blir lägsta RU/s i databasen 800 RU/s. Med autoskalning av allokerat data flöde kan du ha upp till behållare i en databas med autoskalning Max RU/s 4000 RU/s (skalar mellan 400-4000 RU/s).
+Behållare i en delad data flödes databas delar data flöde (RU/s) som allokeras till databasen. Du kan ha upp till fyra behållare med minst 400 RU/s på databasen. Med standard (manuellt) allokerat data flöde, kräver varje ny behållare efter de första fyra ytterligare 100 RU/s-minimum. Om du till exempel har en delad data flödes databas med åtta behållare blir lägsta RU/s i databasen 800 RU/s. Med autoskalning av allokerat data flöde kan du ha upp till 25 behållare i en databas med autoskalning Max RU/s 4000 RU/s (skalar mellan 400-4000 RU/s).
 
 > [!NOTE]
 > I februari 2020 införde vi en ändring som gör att du kan ha högst 25 behållare i en delad data flödes databas, vilket bättre möjliggör data flödes delning över behållarna. Efter de första 25 behållarna kan du bara lägga till fler behållare i databasen om de är [etablerade med dedikerat data flöde](#set-throughput-on-a-database-and-a-container), som är åtskilda från det delade data flödet i databasen.<br>

@@ -3,12 +3,12 @@ title: Arbeta med hanterings grupper – Azure-styrning
 description: Lär dig att visa, underhålla, uppdatera och ta bort en hierarki för hanterings grupper.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d92e0785e54c0999b8cc0f055b7de355a4c4f5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747477"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259413"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanterings grupper
 
@@ -205,7 +205,7 @@ När du flyttar en hanterings grupp eller en prenumeration till en underordnad t
 Om du utför flytt åtgärden behöver du: 
 
 - Hanterings gruppens Skriv-och roll tilldelning Skriv behörigheter för den underordnade prenumerationen eller hanterings gruppen.
-  - Exempel på inbyggd roll exempel **ägare**
+  - Den inbyggda rollens exempel **ägare**
 - Skriv åtkomst till hanterings grupp för den överordnade mål hanterings gruppen.
   - Exempel på inbyggda roller: **ägare**, **deltagare**, **hanterings grupp deltagare**
 - Skriv åtkomst till hanterings grupp för den befintliga överordnade hanterings gruppen.

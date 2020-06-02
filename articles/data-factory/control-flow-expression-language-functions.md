@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 9870b239ca0501e63df3d800b8e4847cb0f390ac
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 81a83c629a1cdcde77ec43751f32ebfe1dfb3425
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860944"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266856"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Uttryck och funktioner i Azure Data Factory
 
@@ -195,7 +195,7 @@ Dessa funktioner är användbara i villkor, de kan användas för att utvärdera
   
 | Funktion för logisk jämförelse | Uppgift |
 | --------------------------- | ---- |
-| [särskilt](control-flow-expression-language-functions.md#and) | Kontrol lera om alla uttryck är sanna. |
+| [och](control-flow-expression-language-functions.md#and) | Kontrol lera om alla uttryck är sanna. |
 | [lika med](control-flow-expression-language-functions.md#equals) | Kontrol lera om båda värdena är likvärdiga. |
 | [större än](control-flow-expression-language-functions.md#greater) | Kontrol lera om det första värdet är större än det andra värdet. |
 | [större än eller lika med](control-flow-expression-language-functions.md#greaterOrEquals) | Kontrol lera om det första värdet är större än eller lika med det andra värdet. |
@@ -532,26 +532,26 @@ Och returnerar resultatet med det valfria "D"-formatet:`"Tuesday, January 2, 201
 
 ### <a name="and"></a>och
 
-Kontrol lera om alla uttryck är sanna.
-Returnera true när alla uttryck är sanna, eller returnera falskt när minst ett uttryck är falskt.
+Kontrol lera om båda uttrycken är sanna.
+Returnera true när båda uttrycken är sanna eller returnera falskt när minst ett uttryck är falskt.
 
 ```
-and(<expression1>, <expression2>, ...)
+and(<expression1>, <expression2>)
 ```
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*uttryck1*>, <*Uttryck2*>,... | Yes | Boolesk | De uttryck som ska kontrol leras |
+| <*uttryck1*>, <*Uttryck2*> | Yes | Boolesk | De uttryck som ska kontrol leras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
-| sant eller falskt | Boolesk | Returnera true när alla uttryck är sanna. Returnera falskt om minst ett uttryck är falskt. |
+| sant eller falskt | Boolesk | Returnera true när båda uttrycken är sanna. Returnera falskt om minst ett uttryck är falskt. |
 ||||
 
 *Exempel 1*
 
-De här exemplen kontrollerar om de angivna booleska värdena är true:
+De här exemplen kontrollerar om de angivna booleska värdena båda är sanna:
 
 ```
 and(true, true)
@@ -567,7 +567,7 @@ Och returnerar följande resultat:
 
 *Exempel 2*
 
-De här exemplen kontrollerar om de angivna uttrycken är sanna:
+De här exemplen kontrollerar om de angivna uttrycken båda är sanna:
 
 ```
 and(equals(1, 1), equals(2, 2))
@@ -2389,20 +2389,20 @@ Och returnerar följande resultat:
 ### <a name="or"></a>eller
 
 Kontrol lera om minst ett uttryck är sant.
-Returnera true när minst ett uttryck är sant, eller returnera falskt när alla är falskt.
+Returnera true när minst ett uttryck är sant, eller returnera falskt om båda är falskt.
 
 ```
-or(<expression1>, <expression2>, ...)
+or(<expression1>, <expression2>)
 ```
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*uttryck1*>, <*Uttryck2*>,... | Yes | Boolesk | De uttryck som ska kontrol leras |
+| <*uttryck1*>, <*Uttryck2*> | Yes | Boolesk | De uttryck som ska kontrol leras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolesk | Returnera true när minst ett uttryck är sant. Returnera falskt när alla uttryck är falskt. |
+| sant eller falskt | Boolesk | Returnera true när minst ett uttryck är sant. Returnera falskt när båda uttrycken är falska. |
 ||||
 
 *Exempel 1*

@@ -1,29 +1,30 @@
 ---
 title: Använd Java för att fråga en databas
-description: Visar hur du använder Java för att skapa ett program som ansluter till en databas i Azure SQL Database och frågar den med hjälp av T-SQL-uttryck.
+description: Visar hur du använder Java för att skapa ett program som ansluter till en databas i Azure SQL Database eller en hanterad Azure SQL-instans och frågar den med hjälp av T-SQL-uttryck.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.devlang: java
 ms.topic: quickstart
-author: ajlam
-ms.author: andrela
+author: stevestein
+ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 03/25/2019
+ms.date: 05/29/2020
 ms.custom: seo-java-july2019. seo-java-august2019, sqldbrb=2 
-ms.openlocfilehash: 4e5ee26b1cfa686eb501e0c6b6ba7905ea687094
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6be52d2d3472888607bbd6276b4794184bb11273
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189477"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267400"
 ---
-# <a name="quickstart-use-java-to-query-a-database-in-azure-sql-database"></a>Snabb start: Använd Java för att fråga en databas i Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-java-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: Använd Java för att fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-I den här snabb starten använder du Java för att ansluta till en databas i Azure SQL Database och använder T-SQL-uttryck för att fråga efter data.
+I den här snabb starten använder du Java för att ansluta till en databas i Azure SQL Database eller en hanterad Azure SQL-instans och använda T-SQL-uttryck för att fråga efter data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att slutföra den här snabbstarten:
 

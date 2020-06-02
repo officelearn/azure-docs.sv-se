@@ -3,12 +3,12 @@ title: Vanliga frågor och svar – Säkerhetskopiera SAP HANA-databaser på vir
 description: I den här artikeln hittar du svar på vanliga frågor om hur du säkerhetskopierar SAP HANA databaser med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 56f98dddb00eb3ffc87eb27da73066de807a1ee1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 08e0eaf5f744ebb0ada07a944f627cc1ff1ac496
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701010"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248812"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer
 
@@ -86,6 +86,10 @@ Se till att alternativet **Framtvinga överskrivning** är valt vid återställn
 ### <a name="why-do-i-see-the-source-and-target-systems-for-restore-are-incompatible-error"></a>Varför visas fel meddelandet "käll-och mål system för återställning är inkompatibla"?
 
 Läs SAP HANA anmärkning [1642148](https://launchpad.support.sap.com/#/notes/1642148) för att se vilka återställnings typer som stöds för närvarande.
+
+### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-a-rhel-hana-system-or-vice-versa"></a>Kan jag använda en säkerhets kopia av en databas som körs på SLES för att återställa till ett RHEL HANA-system eller vice versa?
+
+Ja, du kan använda strömmande säkerhets kopieringar som har utlösts på en HANA-databas som körs på SLES för att återställa den till ett RHEL HANA-system och vice versa. Det vill säga det går att återställa mellan operativ system med hjälp av strömmande säkerhets kopior. Du måste dock se till att det HANA-system som du vill återställa till, och det HANA-system som används för återställning, båda är kompatibla för återställning enligt SAP. Läs SAP HANA anmärkning [1642148](https://launchpad.support.sap.com/#/notes/1642148) för att se vilka återställnings typer som är kompatibla.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 99549be75e812668c07d9d71062d9d0f8c7b58ec
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 882a94034831b1c710031031918e70bf3581a4a6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217536"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266652"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -87,7 +87,6 @@ Om din ExpressRoute-krets är aktive rad för Microsoft-peering för Azure kan d
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI – tillgängligt via en regional Azure-community, finns [här](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) för hur du kan ta reda på den region där din Power BI-klient finns.
 * Azure Active Directory
-* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azures globala tjänster community)
 * Offentliga Azure-IP-adresser för IaaS (Virtual Machines, Virtual Network gatewayer, belastnings utjämning osv.)  
 * De flesta andra Azure-tjänster stöds också. Kontrol lera direkt med den tjänst som du vill använda för att verifiera stödet.
@@ -96,6 +95,7 @@ Om din ExpressRoute-krets är aktive rad för Microsoft-peering för Azure kan d
 
 * CDN
 * Azure Front Door
+* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Multi-Factor Authentication-Server (bakåtkompatibelt)
 * Traffic Manager
 

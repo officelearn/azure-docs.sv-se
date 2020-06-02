@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90432d3aa0ce9ebdecc7d0314b1352e46db0ac47
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 3a14ffc9f103e58681418eacbb35b72b704f2d61
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234568"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267145"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använd Microsoft Teams på Windows Virtual Desktop
 
@@ -27,13 +27,14 @@ Microsoft Teams på Windows Virtual Desktop stöder chatt och samarbete. Med med
 
 Med medie optimering för Microsoft team, hanterar Windows Skriv bords klienten ljud och video lokalt för team-samtal och-möten. Du kan fortfarande använda Microsoft Teams på virtuella Windows-datorer med andra klienter utan optimerad samtal och möten. Teams chatt-och samarbets funktioner stöds på alla plattformar. Om du vill omdirigera lokala enheter i fjärrsessionen kan du läsa [anpassa Remote Desktop Protocol egenskaper för en adresspool](#customize-remote-desktop-protocol-properties-for-a-host-pool).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan använda Microsoft Teams på Windows Virtual Desktop måste du göra följande saker:
 
 - [Förbered ditt nätverk](/microsoftteams/prepare-network/) för Microsoft-team.
-- Installera [Windows Desktop-klienten](connect-windows-7-and-10.md) på en Windows 10-enhet som uppfyller [maskin varu kraven](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)för Microsoft Teams.
+- Installera [Windows Desktop-klienten](connect-windows-7-and-10.md) på en Windows 10-enhet som uppfyller Microsoft Teams [maskin varu krav för team på en Windows-dator](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Anslut till en virtuell Windows 10-dator med flera sessioner eller Windows 10 Enterprise (VM).
+- Installera Teams Desktop-appen på värden med hjälp av installation per dator. Medie optimering för Microsoft Teams kräver Teams Desktop app-version 1.3.00.4461 eller senare.
 
 ## <a name="install-the-teams-desktop-app"></a>Installera Teams Desktop-appen
 
@@ -59,6 +60,10 @@ Installera [WebSocket-tjänsten](https://query.prod.cms.rt.microsoft.com/cms/api
 Du kan distribuera Skriv bords appen för team med en installation per dator. Så här installerar du Microsoft Teams i din Windows Virtual Desktop-miljö:
 
 1. Ladda ned [Teams MSI-paketet](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) som matchar din miljö. Vi rekommenderar att du använder 64-bitars installations programmet på ett 64-bitars operativ system.
+
+      > [!NOTE]
+      > Medie optimering för Microsoft Teams kräver Teams Desktop app-version 1.3.00.4461 eller senare.
+
 2. Kör det här kommandot för att installera MSI på den virtuella värddatorn.
 
       ```console
@@ -138,7 +143,7 @@ Om du vill kontakta supporten för Microsoft team går du till [Microsoft 365 ad
 
 Genom att anpassa en värd Pools Remote Desktop Protocol egenskaper (RDP), t. ex. för flera skärmar eller för att aktivera mikrofon och omdirigering av ljud, kan du leverera en optimal upplevelse för dina användare utifrån deras behov.
 
-Ange följande RDP-egenskaper för att aktivera omdirigering av mikrofon och kamera:
+Det krävs ingen aktivering av enhets omdirigering när du använder team med medie optimering. Om du använder team utan medie optimering anger du följande RDP-egenskaper för att aktivera omdirigering av mikrofon och kamera:
 
 - `audiocapturemode:i:1`aktiverar ljud fångst från den lokala enheten och redirets ljud program i fjärrsessionen.
 - `audiomode:i:0`spelar upp ljud på den lokala datorn.

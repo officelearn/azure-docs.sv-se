@@ -1,7 +1,7 @@
 ---
 title: Använd Visual Studio Code för att ansluta och fråga
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Lär dig hur du ansluter till Azure SQL Database eller en SQL-hanterad instans i Azure med hjälp av Visual Studio Code. Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor och redigera data.
+description: Lär dig hur du ansluter till Azure SQL Database eller SQL-hanterad instans i Azure med hjälp av Visual Studio Code. Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor och redigera data.
 keywords: ansluta till sql database
 services: sql-database
 ms.service: sql-database
@@ -12,24 +12,24 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: ed7cd7db24e26ea8705628916e31ce95b5c17a6e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: e0554711aa6db436bc0c3076ec468555c47fff39
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189022"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267264"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Snabb start: Använd Visual Studio Code för att ansluta och fråga 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för att skicka frågor till en SQL Server instans, Azure SQL Database, en hanterad Azure SQL-instans och en databas i Azure Synapse Analytics. I den här snabb starten ska du använda Visual Studio Code för att ansluta till Azure SQL Database eller Azure SQL-hanterad instans och sedan köra Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- En databas i Azure SQL Database eller en SQL-hanterad instans. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
+- En databas i Azure SQL Database eller Azure SQL-hanterad instans. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  || SQL Database | SQL-hanterad instans |
+  || Azure SQL Database | Hanterad Azure SQL-instans |
   |:--- |:--- |:---|
   | Skapa| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -107,7 +107,7 @@ Använd Visual Studio Code för att upprätta en anslutning till servern.
 
 4. Följ anvisningarna för att ange anslutningsegenskaper för den nya profilen. När du har angett varje värde så väljer du **Retur** för att fortsätta.
 
-   | Egenskap       | Föreslaget värde | Description |
+   | Egenskap       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Server namn** | Fullständigt kvalificerat servernamn | Ungefär så här: **mynewserver20170313.database.windows.net**. |
    | **Databas namn** | mySampleDatabase | Databasen du ska ansluta till. |

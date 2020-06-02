@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 51567ff07930599b0c13d8a9546ebeca396c4b45
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993549"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266601"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Fel koder för Azure AD-autentisering och-auktorisering
 
@@ -63,7 +63,7 @@ Här är ett exempel på fel svar:
 | Felkod         | Beskrivning        | Klient åtgärd    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Protokoll fel, till exempel en obligatorisk parameter som saknas. | Åtgärda och skicka begäran på nytt.|
-| `invalid_grant`    | En del av autentiserings materialet (auth Code, Refresh token, Access token, PKCE Challenge) var ogiltigt, kunde inte parsas, saknas eller på annat sätt vara användbar | Testa en ny begäran till `/authorize` slut punkten för att få en ny auktoriseringskod.  Överväg att granska och verifiera appens användning av protokollen. |
+| `invalid_grant`    | En del av autentiserings materialet (auth Code, Refresh token, Access token, PKCE Challenge) var ogiltigt, kunde inte parsas, saknas eller på annat sätt oanvändbar | Testa en ny begäran till `/authorize` slut punkten för att få en ny auktoriseringskod.  Överväg att granska och verifiera appens användning av protokollen. |
 | `unauthorized_client` | Den autentiserade klienten har inte behörighet att använda den här typen av auktoriserings beviljande. | Detta inträffar vanligt vis när klient programmet inte är registrerat i Azure AD eller inte har lagts till i användarens Azure AD-klient. Programmet kan uppmana användaren att ange instruktioner för att installera programmet och lägga till det i Azure AD. |
 | `invalid_client` | Klientautentisering misslyckades.  | Klientens autentiseringsuppgifter är inte giltiga. För att åtgärda detta uppdaterar program administratören autentiseringsuppgifterna.   |
 | `unsupported_grant_type` | Auktoriseringsservern stöder inte typen för auktoriserings beviljande. | Ändra beviljad typ i begäran. Den här typen av fel bör bara inträffa under utvecklingen och identifieras under den första testningen. |
@@ -126,8 +126,8 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided-klient identifierings information hittades inte i begäran eller underförstådda av de angivna autentiseringsuppgifterna. Användaren kan kontakta klient organisationens administratör för att hjälpa till att lösa problemet. |
 | AADSTS50061 | SignoutInvalidRequest-begäran om utloggning är ogiltig. |
 | AADSTS50064 | CredentialAuthenticationError-verifiering av autentiseringsuppgifter för användar namn eller lösen ord misslyckades. |
-| AADSTS50068 | SignoutInitiatorNotParticipant-det gick inte att logga in. Appen som initierade signering är inte en deltagare i den aktuella sessionen. |
-| AADSTS50070 | SignoutUnknownSessionIdentifier-det gick inte att logga in. Begäran om utloggning angav en namn identifierare som inte matchar de befintliga sessionerna. |
+| AADSTS50068 | SignoutInitiatorNotParticipant-det gick inte att logga ut. Den app som initierade utloggning är inte en deltagare i den aktuella sessionen. |
+| AADSTS50070 | SignoutUnknownSessionIdentifier-det gick inte att logga ut. En inloggningsbegäran angav en namn identifierare som inte matchar de befintliga sessionerna. |
 | AADSTS50071 | SignoutMessageExpired – utloggnings förfrågan har upphört att gälla. |
 | AADSTS50072 | UserStrongAuthEnrollmentRequiredInterrupt – användaren måste registrera sig för den andra Factor Authentication (interaktiv). |
 | AADSTS50074 | UserStrongAuthClientAuthNRequiredInterrupt – stark autentisering krävs och användaren godkände inte MFA-utmaningen. |
@@ -173,7 +173,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS50187 | DeviceInformationNotProvided-tjänsten kunde inte utföra enhetsautentisering. |
 | AADSTS50196 | LoopDetected-en klient slinga har upptäckts. Kontrol lera appens logik för att säkerställa att cachelagring av token är implementerat och att fel villkoren hanteras korrekt.  Appen har gjort för många av samma begäran i en för kort period, vilket indikerar att den är i ett felaktigt tillstånd eller att abusively begär token. |
 | AADSTS50197 | ConflictingIdentities – det gick inte att hitta användaren. Försök att logga in igen. |
-| AADSTS50199 | CmsiInterrupt – av säkerhets skäl krävs användar bekräftelse för denna begäran.  Eftersom det här är ett "interaction_required"-fel ska klienten utföra interaktiv autentisering.  Detta beror på att en system WebView har använts för att begära en token för ett internt program – användaren måste uppmanas att fråga om detta var faktiskt appen de avsåg att logga in på.|
+| AADSTS50199 | CmsiInterrupt – av säkerhets skäl krävs användar bekräftelse för denna begäran.  Eftersom det här är ett "interaction_required"-fel ska klienten utföra interaktiv autentisering.  Detta beror på att en system WebView har använts för att begära en token för ett internt program – användaren måste uppmanas att fråga om detta var faktiskt appen de avsåg att logga in på. För att undvika den här varningen ska omdirigerings-URI: n vara en del av följande säkra lista: <br />http://<br />https://<br />msauth://(endast iOS)<br />msauthv2://(endast iOS)<br />Chrome-extension://(endast Skriv bords Chrome-webbläsare) |
 | AADSTS51000 | RequiredFeatureNotEnabled – funktionen är inaktive rad. |
 | AADSTS51001 | DomainHintMustbePresent – domän tips måste finnas med lokal säkerhets identifierare eller lokalt UPN. |
 | AADSTS51004 | UserAccountNotInDirectory – användar kontot finns inte i katalogen. |
@@ -314,7 +314,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS700022 | InvalidMultipleResourcesScope-det tillhandahållna värdet för parameter området för indata är inte giltigt eftersom det innehåller fler än en resurs. |
 | AADSTS700023 | InvalidResourcelessScope-det angivna värdet för Indataparametern för indata-parametern är inte giltigt när en åtkomsttoken begärs. |
 | AADSTS7000215 | Ogiltig klient hemlighet har angetts. Utvecklarens fel-appen försöker logga in utan nödvändiga eller korrekta autentiseringsmetoder.|
-| AADSTS7000222| InvalidClientSecretExpiredKeysProvided-de angivna klientens hemliga nycklar har upphört att gälla. Besök Azure Portal om du vill skapa nya nycklar för din app eller Överväg att använda autentiseringsuppgifter för ytterligare säkerhet:https://aka.ms/certCreds |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-de angivna klientens hemliga nycklar har upphört att gälla. Gå till Azure Portal om du vill skapa nya nycklar för appen eller Överväg att använda autentiseringsuppgifter för ytterligare säkerhet:[https://aka.ms/certCreds](https://aka.ms/certCreds) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant-auktoriseringskod är avsedd att användas gentemot andra klienter, vilket avvisas. OAuth2-auktoriseringskod måste lösas in mot samma klient som den förvärvades för (/vanliga eller/{tenant-ID} efter behov) |
 | AADSTS1000000 | UserNotBoundError – bindnings-API: t kräver att Azure AD-användaren också autentiseras med en extern IDP, vilket inte har hänt än. |
 | AADSTS1000002 | BindCompleteInterruptError – bindningen har slutförts, men användaren måste vara informerad. |

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 301e2be0c8b971a0236de6a8b5c8bd5f278c3aee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686754"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267976"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för förebyggande underhålls lösningar
 
@@ -231,7 +231,7 @@ Tekniska specifikationer för utrustning som datum för tillverkning, modell num
 
 De data förberedelse ansträngningar som diskuteras hittills bör leda till att data ordnas enligt nedan. Inlärnings-, test-och verifierings data ska ha det här logiska schemat (det här exemplet visar tiden i antal dagar).
 
-| Till gångs-ID | Tid | \<Funktions kolumner> | Label (Etikett) |
+| Till gångs-ID | Tid | \<Feature Columns> | Etikett |
 | ---- | ---- | --- | --- |
 | A123 |Dag 1 | . . . | . |
 | A123 |Dag 2 | . . . | . |
@@ -427,12 +427,11 @@ Det sista avsnittet i den här hand boken innehåller en lista över PdM, själv
 |--:|:------|-------------|
 | 2 | [Mall för lösningar för förebyggande underhåll i Azure](https://github.com/Azure/AI-PredictiveMaintenance) | En lösnings mall med öppen källkod som demonstrerar Azure ML-modellering och en fullständig Azure-infrastruktur som kan stödja förebyggande underhålls scenarier i samband med IoT-fjärrövervakning. |
 | 3 | [Djupinlärning för förutsägande underhåll](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook med en demonstrations lösning för att använda LSTM-nätverk (Long-Shortest Memory) (en klass av aktuella neurala-nätverk) för förutsägande underhåll, med ett [blogg inlägg i det här exemplet](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
-| 4 | [Modellerings guide för förebyggande underhåll i R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | PdM modellerings guide med skript i R.|
-| 5 | [Förebyggande underhåll i Azure för Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | En av de första PdM-mallarna baserat på Azure ML v 1.0 för underhåll av flyg plan. Den här guiden kommer från det här projektet. |
-| 6 | [Azure AI Toolkit för IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI i IoT Edge med TensorFlow; Toolkit-paket djup inlärnings modeller i Azure IoT Edge-kompatibla Docker-behållare och exponera dessa modeller som REST-API: er.
-| 7 | [Förutsägande underhåll av Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite datorer – förkonfigurerad lösning. PdM-mall för hantering av flyg plan med IoT Suite. [Ett annat dokument och en](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) [genom gång](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) som är relaterad till samma projekt. |
-| 8 | [Mall för förutsägelse underhåll med SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demo av återstående användbart livs cykel scenario baserat på R Services. |
-| 9 | [Modellerings guide för förebyggande underhåll](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Data uppsättnings funktionen för flyg Plans underhåll som utformats med R med [experiment](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) och [data uppsättningar](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) och [Azure Notebook](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) och [experiment](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) i azureml v 1.0|
+| 4 | [Förebyggande underhåll i Azure för Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | En av de första PdM-mallarna baserat på Azure ML v 1.0 för underhåll av flyg plan. Den här guiden kommer från det här projektet. |
+| 5 | [Azure AI Toolkit för IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI i IoT Edge med TensorFlow; Toolkit-paket djup inlärnings modeller i Azure IoT Edge-kompatibla Docker-behållare och exponera dessa modeller som REST-API: er.
+| 6 | [Förutsägande underhåll av Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite datorer – förkonfigurerad lösning. PdM-mall för hantering av flyg plan med IoT Suite. [Ett annat dokument och en](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) [genom gång](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) som är relaterad till samma projekt. |
+| 7 | [Mall för förutsägelse underhåll med SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demo av återstående användbart livs cykel scenario baserat på R Services. |
+| 8 | [Modellerings guide för förebyggande underhåll](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Data uppsättnings funktionen för flyg Plans underhåll som utformats med R med [experiment](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) och [data uppsättningar](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) och Azure Notebook och [experiment](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) i azureml v 1.0|
 
 ## <a name="training-resources-for-predictive-maintenance"></a>Utbildnings resurser för förutsägande underhåll
 

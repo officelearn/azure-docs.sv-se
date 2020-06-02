@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1ee6920d1870b7449f4b77394aaf918947f57ea5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6ebca3df6971d545234f45551ebd008a4ad90c1d
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744314"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266074"
 ---
-# <a name="troubleshoot-runbook-issues"></a>Felsöka Runbook-problem
+# <a name="troubleshoot-runbook-issues"></a>Felsöka runbook-problem
 
  Den här artikeln beskriver Runbook-problem som kan uppstå och hur du kan lösa dem. Allmän information finns i [Run Book Execution i Azure Automation](../automation-runbook-execution.md).
 
@@ -50,7 +50,7 @@ När du får fel meddelanden under Runbook-körningen i Azure Automation kan du 
 
 1. Gör det här steget om Runbook-jobbet eller miljön på Hybrid Runbook Worker inte svarar.
 
-    Om du kör dina runbooks på en Hybrid Runbook Worker i stället för i Azure Automation kan du behöva [Felsöka själva hybrid Worker](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
+    Om du kör dina runbooks på en Hybrid Runbook Worker i stället för i Azure Automation kan du behöva [Felsöka själva hybrid Worker](hybrid-runbook-worker.md).
 
 ## <a name="scenario-runbook-fails-with-a-no-permission-or-forbidden-403-error"></a><a name="runbook-fails-no-permission"></a>Scenario: Runbook Miss lyckas med fel meddelandet No permission eller förbjuden 403
 
@@ -64,7 +64,7 @@ Kör som-konton kanske inte har samma behörigheter för Azure-resurser som det 
 
 ### <a name="resolution"></a>Lösning
 
-Se till att ditt kör som-konto har [åtkomst behörighet till alla resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) som används i skriptet.
+Se till att ditt kör som-konto har [åtkomst behörighet till alla resurser](../../role-based-access-control/role-assignments-portal.md) som används i skriptet.
 
 ## <a name="scenario-sign-in-to-azure-account-failed"></a><a name="sign-in-failed"></a>Scenario: det gick inte att logga in på Azure-kontot
 
@@ -99,7 +99,7 @@ Följ dessa steg för att fastställa vad som är fel:
    Connect-AzAccount –Credential $Cred
    ```
 
-1. Om autentiseringen Miss lyckas lokalt har du inte konfigurerat dina Azure Active Directory (Azure AD)-autentiseringsuppgifterna korrekt. Information om hur du skaffar Azure AD-kontot korrekt finns i blogg inlägget [autentisering till Azure med hjälp av Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/).
+1. Om autentiseringen Miss lyckas lokalt har du inte konfigurerat dina Azure Active Directory (Azure AD)-autentiseringsuppgifterna korrekt. Om du vill få Azure AD-kontot konfigurerat korrekt läser du artikeln [autentisera till Azure med hjälp av Azure Active Directory](../automation-use-azure-ad.md).
 
 1. Om felet verkar vara tillfälligt kan du försöka lägga till logik för återförsök för autentisering för att göra autentiseringen stabilare.
 
@@ -137,7 +137,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Orsak
 
-Det här felet kan inträffa om du inte använder ett Kör som-konto eller om kör som-kontot har upphört att gälla. Mer information finns i [hantera Azure Automation kör som-konton](https://docs.microsoft.com/azure/automation/manage-runas-account).
+Det här felet kan inträffa om du inte använder ett Kör som-konto eller om kör som-kontot har upphört att gälla. Mer information finns i [hantera Azure Automation kör som-konton](../manage-runas-account.md).
 
 Det här felet har två primära orsaker:
 
@@ -274,7 +274,7 @@ Om du har multifaktorautentisering på ditt Azure-konto kan du inte använda en 
 
 ### <a name="resolution"></a>Lösning
 
-Information om hur du använder ett certifikat med klassiska Azure-cmdletar för distributions modeller finns i [skapa och lägga till ett certifikat för att hantera Azure-tjänster](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Information om hur du använder ett huvud namn för tjänsten med Azure Resource Manager cmdlets finns i [skapa tjänstens huvud namn med Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md) och [autentisera ett huvud namn för tjänsten med Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Om du vill använda ett klassiskt kör som-konto med Azures klassiska cmdlets för distributions modell, se [skapa ett klassiskt kör som-konto för att hantera Azure-tjänster](../automation-create-standalone-account.md#create-a-classic-run-as-account). Information om hur du använder ett huvud namn för tjänsten med Azure Resource Manager cmdlets finns i [skapa tjänstens huvud namn med Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md) och [autentisera ett huvud namn för tjänsten med Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="scenario-runbook-fails-with-a-task-was-canceled-error-message"></a><a name="task-was-cancelled"></a>Scenario: Runbook Miss lyckas med fel meddelandet "en uppgift avbröts"
 
@@ -383,7 +383,7 @@ Add-AzAccount : Object reference not set to an instance of an object
 
 ### <a name="cause"></a>Orsak
 
-Det här felet kan inträffa om runbooken inte gör rätt steg innan du anropar `Add-AzAccount` för att lägga till Automation-kontot. Ett exempel på en av de nödvändiga stegen är att logga in med ett Kör som-konto. Information om vilka åtgärder som ska användas i din Runbook finns i [Runbook-körning i Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
+Det här felet kan inträffa om runbooken inte gör rätt steg innan du anropar `Add-AzAccount` för att lägga till Automation-kontot. Ett exempel på en av de nödvändiga stegen är att logga in med ett Kör som-konto. Information om vilka åtgärder som ska användas i din Runbook finns i [Runbook-körning i Azure Automation](../automation-runbook-execution.md).
 
 ## <a name="scenario-object-reference-not-set-to-an-instance-of-an-object"></a><a name="child-runbook-object"></a>Scenario: objekt referensen har inte angetts till en instans av ett objekt
 
@@ -652,16 +652,16 @@ Möjliga orsaker till det här problemet är:
 
 #### <a name="not-using-a-run-as-account"></a>Inte använda ett Kör som-konto
 
-Följ [steg 5 – Lägg till autentisering för att hantera Azure-resurser](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) för att se till att du använder ett Kör som-konto för att få åtkomst till Key Vault.
+Följ [steg 5 – Lägg till autentisering för att hantera Azure-resurser](../automation-first-runbook-textual-powershell.md#add-authentication-to-manage-azure-resources) för att se till att du använder ett Kör som-konto för att få åtkomst till Key Vault.
 
 #### <a name="insufficient-permissions"></a>Otillräcklig behörighet
 
-[Lägg till behörigheter till Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) för att säkerställa att ditt kör som-konto har tillräcklig behörighet för att komma åt Key Vault.
+[Lägg till behörigheter till Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) för att säkerställa att ditt kör som-konto har tillräcklig behörighet för att komma åt Key Vault.
 
 ## <a name="recommended-documents"></a>Rekommenderade dokument
 
 * [Runbook-körning i Azure Automation](../automation-runbook-execution.md)
-* [Starta en Runbook i Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
+* [Starta en Runbook i Azure Automation](../automation-starting-a-runbook.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

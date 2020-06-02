@@ -3,12 +3,12 @@ title: Översikt över Recovery Services-valv
 description: En översikt och jämförelse mellan Recovery Services valv och Azure Backup valv.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: a0dacd82b7cf4258c0147bbaf9dc39ee6fc0fa25
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597966"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248914"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv
 
@@ -20,7 +20,7 @@ I en Azure-prenumeration kan du skapa upp till 500 Recovery Services valv per pr
 
 Om du fortfarande har säkerhets kopierings valv uppgraderas de automatiskt till Recovery Services valv. I november 2017 har alla säkerhets kopierings valv uppgraderats till Recovery Services valv.
 
-Recovery Services-valv baseras på Azure Resource Manager modellen i Azure, medan säkerhets kopierings valv baserades på Azure Service Manager-modellen. När du uppgraderar ett säkerhets kopierings valv till ett Recovery Services-valv förblir säkerhets kopierings data intakta under och efter uppgraderings processen. Recovery Services-valv tillhandahåller funktioner som inte är tillgängliga för säkerhets kopierings valv, till exempel:
+Recovery Services-valv baseras på Azure Resource Managers modellen för Azure, men säkerhets kopierings valv baserades på Azure Service Manager-modellen. När du uppgraderar ett säkerhets kopierings valv till ett Recovery Services-valv förblir säkerhets kopierings data intakta under och efter uppgraderings processen. Recovery Services-valv tillhandahåller funktioner som inte är tillgängliga för säkerhets kopierings valv, till exempel:
 
 - **Förbättrade funktioner för att skydda säkerhets kopierings data**: med Recovery Services-valv tillhandahåller Azure Backup säkerhetsfunktioner för säkerhets kopiering av molnet. Säkerhetsfunktionerna garanterar att du kan skydda dina säkerhets kopior och återställa data på ett säkert sätt, även om produktions-och säkerhets kopierings servrar komprometteras. [Läs mer](backup-azure-security-feature.md)
 

@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 31d326b19c560981531ebf0716b614046b2337b6
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 1b2db92106e0dad79c90188c904b07d7bb1d7212
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217241"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258648"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Lägg till en API till för hands versionen av Azure statisk Web Apps med Azure Functions
 
 Du kan lägga till Server lös API: er i Azures statiska Web Apps via integration med Azure Functions. Den här artikeln visar hur du lägger till och distribuerar ett API till en statisk Azure-Web Apps webbplats.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-konto med en aktiv prenumeration.
   - Om du inte har något konto kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free).
@@ -31,7 +31,7 @@ Du kan lägga till Server lös API: er i Azures statiska Web Apps via integratio
 
 Följande steg visar hur du skapar en ny lagrings plats och klonar filerna till din dator.
 
-1. Navigera till https://github.com/staticwebdev/vanilla-basic/generate för att skapa en ny lagrings plats.
+1. Kontrol lera att du är inloggad på GitHub och navigera till https://github.com/staticwebdev/vanilla-basic/generate för att skapa en ny lagrings plats.
 1. I rutan _databas namn_ anger du **My-vanilj-API**.
 1. Klicka på **skapa lagrings plats från mall**.
 

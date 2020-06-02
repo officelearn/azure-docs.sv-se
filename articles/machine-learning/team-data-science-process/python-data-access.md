@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c5269488b1c449580d56a0c1506c59b89c76ca6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720987"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267990"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhands granskningen av Microsoft Azure Machine Learning python-klientprogrammet kan ge säker åtkomst till dina Azure Machine Learning data uppsättningar från en lokal python-miljö och möjliggör skapande och hantering av data uppsättningar i en arbets yta.
@@ -40,7 +40,7 @@ Det har ett beroende av följande paket:
 * python – dateutil
 * Pandas
 
-Vi rekommenderar att du använder en python-distribution som [Anaconda](http://continuum.io/downloads#all) eller [Canopy](https://store.enthought.com/downloads/), som medföljer python, ipython och de tre paket som anges ovan installerade. Även om IPython inte är absolut nödvändigt är det en bra miljö för att manipulera och visualisera data interaktivt.
+Vi rekommenderar att du använder en python-distribution som [Anaconda](https://www.anaconda.com/) eller [Canopy](https://store.enthought.com/downloads/), som medföljer python, ipython och de tre paket som anges ovan installerade. Även om IPython inte är absolut nödvändigt är det en bra miljö för att manipulera och visualisera data interaktivt.
 
 ### <a name="how-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Så här installerar du Azure Machine Learning python-klient biblioteket
 Installera Azure Machine Learning python-klient biblioteket för att slutföra de aktiviteter som beskrivs i det här avsnittet. Det här biblioteket är tillgängligt från [python-paketets index](https://pypi.python.org/pypi/azureml). Om du vill installera den i python-miljön kör du följande kommando från din lokala python-miljö:
@@ -110,7 +110,7 @@ Följande format stöds (konstanter för dessa format finns i `azureml.DataTypeI
 
 Du kan bestämma formatet genom att hovra över nodens utdata. Den visas tillsammans med nodnamnet i en knapp beskrivning.
 
-Några av modulerna, t. ex. modulen [Split][split] , utdata till ett format `Dataset`med namnet, som inte stöds av python-klient biblioteket.
+Några av modulerna, t. ex. modulen [Split][split] , utdata till ett format med namnet `Dataset` , som inte stöds av python-klient biblioteket.
 
 ![Data uppsättnings format][dataset-format]
 
@@ -141,7 +141,7 @@ Följande steg visar ett exempel som skapar ett experiment, kör det och får å
 
 ## <a name="use-the-machine-learning-python-client-library-to-access-read-create-and-manage-datasets"></a><a name="clientApis"></a>Använd Machine Learning python-klient biblioteket för att få åtkomst till, läsa, skapa och hantera data uppsättningar
 ### <a name="workspace"></a>Arbetsyta
-Arbets ytan är start punkten för python-klient biblioteket. Ange en `Workspace` klass med arbetsyte-ID och autentiseringstoken för att skapa en instans:
+Arbets ytan är start punkten för python-klient biblioteket. Ange `Workspace` en klass med arbetsyte-ID och autentiseringstoken för att skapa en instans:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
@@ -255,7 +255,7 @@ Om du vill uppdatera en befintlig data uppsättning måste du först hämta en r
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Använd `update_from_dataframe` sedan för att serialisera och ersätta innehållet i data uppsättningen på Azure:
+Använd sedan `update_from_dataframe` för att serialisera och ersätta innehållet i data uppsättningen på Azure:
 
     dataset = ws.datasets['existing dataset']
 
@@ -265,7 +265,7 @@ Använd `update_from_dataframe` sedan för att serialisera och ersätta innehål
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Ange ett värde för den valfria `data_type_id` parametern om du vill serialisera data till ett annat format.
+Ange ett värde för den valfria parametern om du vill serialisera data till ett annat format `data_type_id` .
 
     from azureml import DataTypeIds
 
@@ -310,9 +310,9 @@ Alternativt kan du ange ett nytt namn genom att ange ett värde för `name` para
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-`data_type_id`är valfria och standardvärdet för deras tidigare `name` `description` värde. `dataframe` Parametern krävs alltid.
+`data_type_id`Parametrarna och `name` `description` är valfria och standardvärdet för deras tidigare värde. `dataframe`Parametern krävs alltid.
 
-Om dina data redan är serialiserade använder `update_from_raw_data` du i stället `update_from_dataframe`för. Om du bara skickar i `raw_data` stället för `dataframe`fungerar det på ett liknande sätt.
+Om dina data redan är serialiserade använder du `update_from_raw_data` i stället för `update_from_dataframe` . Om du bara skickar i `raw_data` stället för `dataframe` fungerar det på ett liknande sätt.
 
 <!-- Images -->
 [security]:./media/python-data-access/security.png

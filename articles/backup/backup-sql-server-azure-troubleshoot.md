@@ -3,12 +3,12 @@ title: Felsöka SQL Server säkerhets kopiering av databasen
 description: Felsöknings information för att säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer med Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 93e06cc3219d5588c1740220af01950a25fcb52f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a4397f0bfa50990a7ad8080579261ed4587c4958
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017026"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247962"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -123,7 +123,7 @@ Ibland kan slumpmässiga problem inträffa i säkerhets kopierings-och återstä
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| Loggsäkerhetskopian för återställning innehåller massloggade ändringar. De kan inte användas för att stoppa vid en godtycklig tidpunkt enligt SQL-riktlinjerna. | När en databas är i bulk-loggat återställnings läge går det inte att återställa data mellan en bulk-loggad transaktion och nästa logg transaktion. | Välj en annan tidpunkt för återställning. [Läs mer](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| Loggsäkerhetskopian för återställning innehåller massloggade ändringar. Det kan inte användas för att stoppa vid en godtycklig tidpunkt enligt SQL-rikt linjerna. | När en databas är i bulk-loggat återställnings läge går det inte att återställa data mellan en bulk-loggad transaktion och nästa logg transaktion. | Välj en annan tidpunkt för återställning. [Läs mer](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 

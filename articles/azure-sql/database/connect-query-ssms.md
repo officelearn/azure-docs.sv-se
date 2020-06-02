@@ -12,20 +12,20 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/10/2020
-ms.openlocfilehash: bc1e767227f0bdd4ac6b90124c9ccca8f4a0669b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: 5ecf180b71c43d5df25d7c3c948a59482dd06a1c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054379"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267315"
 ---
-# <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database"></a>Snabb start: Använd SSMS för att ansluta till och fråga Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: Använd SSMS för att ansluta till och fråga Azure SQL Database eller Azure SQL-hanterad instans
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 I den här snabb starten får du lära dig hur du använder SQL Server Management Studio (SSMS) för att ansluta till Azure SQL Database eller Azure SQL-hanterad instans och köra vissa frågor.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten krävs följande objekt:
 
@@ -73,7 +73,7 @@ I SSMS ansluter du till servern.
 
 2. Dialogrutan **Anslut till server** visas. Ange följande information:
 
-   | Inställningen      | Föreslaget värde    | Beskrivning |
+   | Inställning      | Föreslaget värde    | Beskrivning |
    | ------------ | ------------------ | ----------- |
    | **Servertyp** | Databasmotor | Obligatoriskt värde. |
    | **Server namn** | Fullständigt kvalificerat servernamn | Något som liknar: **servername.Database.Windows.net**. |
@@ -96,7 +96,7 @@ I SSMS ansluter du till servern.
 
 ## <a name="query-data"></a>Söka i data
 
-Kör den här [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-koden för att fråga efter de 20 viktigaste produkterna efter kategori.
+Kör den här [SELECT](/sql/t-sql/queries/select-transact-sql/) Transact-SQL-koden för att fråga efter de 20 viktigaste produkterna efter kategori.
 
 1. I Object Explorer högerklickar du på **mySampleDatabase**. Välj sedan **Ny fråga**. Ett nytt frågefönster öppnas som är anslutet till din databas.
 
@@ -115,7 +115,7 @@ Kör den här [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transac
 
 ### <a name="insert-data"></a>Infoga data
 
-Kör den här [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-koden för att skapa en ny produkt i tabellen `SalesLT.Product`.
+Kör den här [INSERT](/sql/t-sql/statements/insert-transact-sql/) Transact-SQL-koden för att skapa en ny produkt i tabellen `SalesLT.Product`.
 
 1. Ersätt den tidigare frågan med denna.
 
@@ -155,7 +155,7 @@ Kör den här [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transac
 
 ### <a name="update-data"></a>Uppdatera data
 
-Kör den här [uppdateringen](https://msdn.microsoft.com/library/ms177523.aspx) av Transact-SQL-koden för att ändra din nya produkt.
+Kör den här [uppdateringen](/sql/t-sql/statements/update-transact-sql) av Transact-SQL-koden för att ändra din nya produkt.
 
 1. Ersätt föregående fråga med denna som returnerar den nya posten som skapades tidigare:
 
@@ -169,7 +169,7 @@ Kör den här [uppdateringen](https://msdn.microsoft.com/library/ms177523.aspx) 
 
 ### <a name="delete-data"></a>Ta bort data
 
-Kör den här [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL-koden för att ta bort din nya produkt.
+Kör den här [DELETE](/sql/t-sql/statements/delete-transact-sql/) Transact-SQL-koden för att ta bort din nya produkt.
 
 1. Ersätt den tidigare frågan med denna.
 
@@ -182,7 +182,7 @@ Kör den här [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transac
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om SSMS finns i [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+- Mer information om SSMS finns i [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms/).
 - Information om hur du ansluter och frågar med hjälp av Azure Portal finns i [Ansluta och fråga med Azure Portal SQL-frågeredigeraren](connect-query-portal.md).
 - Mer information om att ansluta och ställa frågor med Visual Studio Code finns i [Ansluta och fråga med Visual Studio Code](connect-query-vscode.md).
 - Mer information om att ansluta och ställa frågor med .NET finns i [Ansluta och fråga med .NET](connect-query-dotnet-visual-studio.md).

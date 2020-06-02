@@ -7,22 +7,23 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 14e80f6348772af77c5a53b1d5e9111c4ae8ba9b
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: d550425cc5ab1bdf539464ad120f1ac4f14d4c6e
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402075"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267196"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
 För att ge åtkomst till program via Kubernetes-tjänster av typen `LoadBalancer` i Azure Kubernetes service (AKS) kan du använda en Azure Load Balancer. En belastningsutjämnare som körs på AKS kan användas som en intern eller extern belastningsutjämnare. En intern belastningsutjämnare gör att en Kubernetes-tjänst endast är tillgänglig för program som körs i samma virtuella nätverk som AKS-klustret. En extern belastningsutjämnare tar emot en eller flera offentliga IP-adresser för ingress och gör en Kubernetes-tjänst tillgänglig externt med hjälp av offentliga IP-adresser.
 
 Azure Load Balancer finns i två SKU: er – *Basic* och *standard*. *Standard* -SKU: n används som standard när du skapar ett AKS-kluster. Med en *standard* -SKU-belastningsutjämnare får du ytterligare funktioner och funktioner, till exempel en större storlek och Tillgänglighetszoner för Server delen. Det är viktigt att du förstår skillnaderna mellan *standard* -och *grundläggande* belastningsutjämnare innan du väljer vilken du vill använda. När du har skapat ett AKS-kluster kan du inte ändra SKU för belastnings utjämning för det klustret. Mer information om *Basic* -och *standard* -SKU: er finns i [jämförelse av Azure Load Balancer SKU][azure-lb-comparison].
+AKS-klustret måste använda standard-SKU: n för att använda flera noder, funktionen stöds inte med Basic SKU-belastningsutjämnare, se [skapa och hantera flera resurspooler för ett kluster i AKS][use-multiple-node-pools].
 
 Den här artikeln förutsätter grundläggande kunskaper om Kubernetes och Azure Load Balancer koncept. Mer information finns i [Kubernetes Core Concepts for Azure Kubernetes service (AKS)][kubernetes-concepts] och [Vad är Azure Load Balancer?][azure-lb].
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -191,7 +192,7 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 I exempel resultatet visas standardvärdet för *AllocatedOutboundPorts* och *IdleTimeoutInMinutes*. Värdet 0 för *AllocatedOutboundPorts* anger antalet utgående portar som använder automatisk tilldelning för antalet utgående portar baserat på storleken på backend-poolen. Om klustret till exempel har 50 eller färre noder allokeras 1024-portar för varje nod.
 
-Överväg att ändra inställningen för *allocatedOutboundPorts* eller *IdleTimeoutInMinutes* om du förväntar dig att du förväntar dig att du ska slösa med sitt ansikte enligt konfigurationen ovan. Varje ytterligare IP-adress aktiverar 64 000 ytterligare portar för tilldelning, men Azure-Standard Load Balancer ökar inte automatiskt portarna per nod när fler IP-adresser läggs till. Du kan ändra dessa värden genom att ställa *in belastnings Utjämnings-utgående-portarna* och *belastnings Utjämnings parametrarna Idle-timeout* . Exempel:
+Överväg att ändra inställningen för *allocatedOutboundPorts* eller *IdleTimeoutInMinutes* om du förväntar dig att du förväntar dig att du ska slösa med sitt ansikte enligt konfigurationen ovan. Varje ytterligare IP-adress aktiverar 64 000 ytterligare portar för tilldelning, men Azure-Standard Load Balancer ökar inte automatiskt portarna per nod när fler IP-adresser läggs till. Du kan ändra dessa värden genom att ställa *in belastnings Utjämnings-utgående-portarna* och *belastnings Utjämnings parametrarna Idle-timeout* . Ett exempel:
 
 ```azurecli-interactive
 az aks update \
@@ -204,7 +205,7 @@ az aks update \
 > [!IMPORTANT]
 > Du måste [Beräkna den kvot som krävs][calculate-required-quota] innan du anpassar *allocatedOutboundPorts* för att undvika problem med anslutning eller skalning. Värdet som du anger för *allocatedOutboundPorts* måste också vara en multipel av 8.
 
-Du kan också använda *belastnings Utjämnings-utgående-portarna* och *belastnings utjämning-parametrarna för Idle-timeout* när du skapar ett kluster, men du måste också ange antingen *belastningsutjämnare-hanterad, utgående-IP-antal*, *belastningsutjämnare-utgående-* IP-adresser eller *Load-Balancer-utgående-IP-prefix* .  Exempel:
+Du kan också använda *belastnings Utjämnings-utgående-portarna* och *belastnings utjämning-parametrarna för Idle-timeout* när du skapar ett kluster, men du måste också ange antingen *belastningsutjämnare-hanterad, utgående-IP-antal*, *belastningsutjämnare-utgående-* IP-adresser eller *Load-Balancer-utgående-IP-prefix* .  Ett exempel:
 
 ```azurecli-interactive
 az aks create \
@@ -297,3 +298,4 @@ Läs mer om Kubernetes Services i [dokumentationen för Kubernetes Services][kub
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [calculate-required-quota]: #required-quota-for-customizing-allocatedoutboundports
+[use-multiple-node-pools]: use-multiple-node-pools.md

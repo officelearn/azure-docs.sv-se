@@ -3,16 +3,16 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f37364f62550a76360ea0dbb35b92f8aac67f22f
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684290"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259158"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policys gäst konfiguration
 
-Utöver att granska och [Reparera](../how-to/remediate-resources.md) Azure-resurser kan Azure policy granska inställningarna i en dator. Verifieringen utförs av gästkonfigurationstillägget och klienten. Tillägget kontrollerar inställningar via klienten, till exempel:
+Azure Policy kan granska inställningarna i en dator. Verifieringen utförs av gästkonfigurationstillägget och klienten. Tillägget kontrollerar inställningar via klienten, till exempel:
 
 - Operativ systemets konfiguration
 - Programkonfiguration eller förekomst
@@ -46,8 +46,8 @@ I följande tabell visas en lista över de lokala verktyg som används för varj
 
 |Operativsystem|Validerings verktyg|Anteckningar|
 |-|-|-|
-|Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chefs INSPEC](https://www.chef.io/inspec/)| Om ruby och python inte finns på datorn installeras de av gäst konfigurations tillägget. |
+|Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Sidan har lästs in till en mapp som endast används av Azure Policy. Är inte i konflikt med Windows PowerShell DSC. PowerShell-kärnan har inte lagts till i System Sök vägen.|
+|Linux|[Chefs INSPEC](https://www.chef.io/inspec/)| Installerar chefs inspecens version 2.2.61 på standard platsen och läggs till i System Sök vägen. Dependenices för INSPEC-paketet inklusive ruby och python installeras också. |
 
 ### <a name="validation-frequency"></a>Validerings frekvens
 
@@ -87,7 +87,7 @@ För att kunna kommunicera med resurs leverantören för gäst konfiguration i A
 
 ## <a name="guest-configuration-definition-requirements"></a>Krav för konfigurations definition för gäst
 
-Varje konfiguration för gransknings körning av gäst kräver två princip definitioner, en **DeployIfNotExists** -definition och en **AuditIfNotExists** -definition.
+Varje konfiguration för gransknings körning av gäst kräver två princip definitioner, en **DeployIfNotExists** -definition och en **AuditIfNotExists** -definition. **DeployIfNotExists** princip definitioner hanterar beroenden för att utföra granskningar på varje dator.
 
 **DeployIfNotExists** princip definition verifierar och korrigerar följande objekt:
 

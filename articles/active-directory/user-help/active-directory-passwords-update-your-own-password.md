@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 9606bf0108186cd73adbdb38aef3ac428da229d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828414"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266125"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Återställa ditt arbets-eller skol lösen ord med hjälp av säkerhets information
 
 Om du har glömt lösen ordet till ditt arbets-eller skol konto, fick du aldrig ett lösen ord från din organisation eller har låsts av ditt konto, kan du använda din säkerhets information och din mobila enhet för att återställa lösen ordet till ditt arbets-eller skol konto. Administratören måste aktivera den här funktionen så att du kan ställa in din information och [återställa ditt eget lösen ord](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
 
-Om du känner till ditt lösen ord, men vill ändra det, kan du läsa avsnittet [ändra lösen ords steg](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) i den här artikeln.
+Om du känner till ditt lösen ord och vill ändra det kan du läsa avsnittet [ändra lösen ords steg](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) i den här artikeln.
 
 >[!Important]
 >Den här artikeln är avsedd för användare som försöker använda återställning av lösen ord för ett bortglömt eller okänt arbets-eller skol konto. Om du är administratör för att få information om hur du aktiverar lösen ords återställning via självbetjäning för dina anställda eller andra användare kan du läsa mer i [Distribuera Azure AD självbetjäning återställning av lösen ord och andra artiklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
@@ -103,7 +103,7 @@ Om du inte kan komma åt ditt Azure Active Directory-konto (Azure AD) kan det be
 
      Om du fortfarande inte kan komma åt ditt konto bör du kontakta din organisations administratör för mer hjälp.
 
-När du har återställt lösen ordet kan du få en bekräftelse via e-post som kommer från ett konto, till exempel "Microsoft på uppdrag av \< *your_organization*>." Om du får ett liknande e-postmeddelande, men du inte nyligen återställt ditt lösen ord, måste du kontakta din organisations administratör omedelbart.
+När du har återställt lösen ordet kan du få en bekräftelse via e-post som kommer från ett konto, till exempel Microsoft på uppdrag av \<*your_organization*> . Om du får ett liknande e-postmeddelande, men du inte nyligen återställt ditt lösen ord, måste du kontakta din organisations administratör omedelbart.
 
 ## <a name="how-to-change-your-password"></a>Så ändrar du ditt lösenord
 
@@ -155,7 +155,7 @@ Om din administratör har aktiverat funktionen kan du se en länk för att **åt
 
 Här följer några vanliga fel och deras lösningar:
 
-|Problem|Description|Lösning|
+|Problem|Beskrivning|Lösning|
 | --- | --- | --- |
 |Jag får ett fel när jag försöker ändra mitt lösen ord. |Ditt lösen ord har ett ord, en fras eller ett mönster som gör ditt lösen ord lätt att gissa.| Försök igen med ett starkare lösen ord.|
 |När jag har angett mitt användar-ID går jag till en sida med texten "kontakta administratören".|Microsoft har fastställt att lösen ordet för ditt användar konto hanteras av administratören i en lokal miljö. Det innebär att du inte kan återställa ditt lösen ord från länken "det går inte att komma åt ditt konto". |Kontakta administratören om du vill ha mer hjälp.|

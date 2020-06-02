@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2e3a08521e503a9f73bdccca3a125c7d2416b534
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 13cafdcd7ac4b7f46bd5f7c3b007372228234ba6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219660"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267808"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatisk säkerhets kopiering v2 för Azure Virtual Machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -32,18 +32,16 @@ Automatisk säkerhets kopiering v2 konfigurerar automatiskt [hanterad säkerhets
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda automatisk säkerhets kopiering v2 granskar du följande krav:
 
 **Operativ system**:
 
-- Windows Server 2012 R2
-- Windows Server 2016
+- Windows Server 2012 R2 eller senare
 
 **SQL Server version/utgåva**:
 
-- SQL Server 2016: Developer, standard eller Enterprise
-- SQL Server 2017: Developer, standard eller Enterprise
+- SQL Server 2016 eller högre: Developer, standard eller Enterprise
 
 > [!IMPORTANT]
 > Automatisk säkerhets kopiering v2 fungerar med SQL Server 2016 eller senare. Om du använder SQL Server 2014 kan du använda automatisk säkerhets kopiering v1 för att säkerhetskopiera dina databaser. Mer information finns i [Automatisk säkerhets kopiering för SQL Server 2014 Azure Virtual Machines (VM)](automated-backup-sql-2014.md).
@@ -62,7 +60,7 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 
 ### <a name="basic-settings"></a>Grundläggande inställningar
 
-| Inställning | Intervall (standard) | Description |
+| Inställning | Intervall (standard) | Beskrivning |
 | --- | --- | --- |
 | **Automatisk säkerhetskopiering** | Aktivera/inaktivera (inaktive rad) | Aktiverar eller inaktiverar automatisk säkerhets kopiering för en virtuell Azure-dator som kör SQL Server 2016/2017 Developer, standard eller Enterprise. |
 | **Kvarhållningsperiod** | 1-30 dagar (30 dagar) | Antalet dagar att behålla säkerhets kopior. |
@@ -72,7 +70,7 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 
 ### <a name="advanced-settings"></a>Avancerade inställningar
 
-| Inställning | Intervall (standard) | Description |
+| Inställning | Intervall (standard) | Beskrivning |
 | --- | --- | --- |
 | **Säkerhets kopior av system databasen** | Aktivera/inaktivera (inaktive rad) | När den här funktionen är aktive rad säkerhets kopie ras även system databaser: Master, MSDB och Model. För MSDB-och modell databaserna kontrollerar du att de är i fullständigt återställnings läge om du vill att logg säkerhets kopior ska vidtas. Logg säkerhets kopior tas aldrig för huvud. Och inga säkerhets kopior tas för TempDB. |
 | **Schema för säkerhets kopiering** | Manuellt/automatiserat (automatiserat) | Som standard bestäms schemat för säkerhets kopiering automatiskt utifrån logg tillväxten. Schema för manuell säkerhets kopiering gör att användaren kan ange tids perioden för säkerhets kopieringar. I det här fallet sker säkerhets kopieringar endast med den angivna frekvensen och under den angivna tids perioden för en given dag. |

@@ -1,6 +1,7 @@
 ---
 title: Använd ruby för att fråga
-description: Det här avsnittet visar hur du använder ruby för att skapa ett program som ansluter till en databas i Azure SQL Database och frågar den med hjälp av Transact-SQL-uttryck.
+description: Det här avsnittet visar hur du använder ruby för att skapa ett program som ansluter till en databas och frågar den med hjälp av Transact-SQL-uttryck.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,24 +11,24 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: d8d5ca8c6d583ec50788ef42632a07310d043f41
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: c297a40a5452938d8e706bf2e0791e4a7d03210c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189064"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267298"
 ---
-# <a name="quickstart-use-ruby-to-query-a-database-in-azure-sql-database"></a>Snabb start: Använd ruby för att fråga en databas i Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-ruby-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: Använd ruby för att fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Den här snabb starten visar hur du använder [ruby](https://www.ruby-lang.org) för att ansluta till en databas i Azure SQL Database och fråga efter data med Transact-SQL-uttryck.
+Den här snabb starten visar hur du använder [ruby](https://www.ruby-lang.org) för att ansluta till en databas och fråga efter data med Transact-SQL-uttryck.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
-- En databas i Azure SQL Database. Du kan använda någon av följande snabb starter för att skapa och konfigurera databasen:
+- En databas. Du kan använda någon av följande snabb starter för att skapa och konfigurera databasen:
 
   || SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
   |:--- |:--- |:---|:---|

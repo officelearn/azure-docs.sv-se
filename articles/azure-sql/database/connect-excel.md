@@ -1,30 +1,30 @@
 ---
 title: Anslut med Excel
-description: Lär dig hur du ansluter Microsoft Excel till en databas i Azure SQL Database. Importera data till Excel för rapportering och dataundersökning.
+description: Lär dig hur du ansluter Microsoft Excel till en databas i Azure SQL Database eller en hanterad Azure SQL-instans. Importera data till Excel för rapportering och dataundersökning.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: joseidz
-ms.author: craigg
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-ms.date: 02/12/2019
-ms.openlocfilehash: 332620699e30facb2fbbfee90e3328b8dcf1e179
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: e0a413847142ee516a06f924dd058578047fb3a8
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195490"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267519"
 ---
-# <a name="connect-excel-to-a-database-in-azure-sql-database-and-create-a-report"></a>Anslut Excel till en databas i Azure SQL Database och skapa en rapport
+# <a name="connect-excel-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance-and-create-a-report"></a>Anslut Excel till en databas i Azure SQL Database eller Azure SQL-hanterad instans och skapa en rapport
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+Du kan ansluta Excel till en databas och sedan importera data och skapa tabeller och diagram baserat på värden i databasen. I de här självstudierna kommer du att ställa in anslutningen mellan Excel och en databastabell, spara filen som lagrar data och anslutningsinformationen för Excel och sedan skapa ett pivotdiagram från databasvärdena.
 
-Du kan ansluta Excel till en databas i Azure SQL Database och sedan importera data och skapa tabeller och diagram baserat på värden i databasen. I de här självstudierna kommer du att ställa in anslutningen mellan Excel och en databastabell, spara filen som lagrar data och anslutningsinformationen för Excel och sedan skapa ett pivotdiagram från databasvärdena.
-
-Du måste skapa en databas i SQL Database innan du börjar. Om du inte har någon kan du läsa [skapa en databas i Azure SQL Database](single-database-create-quickstart.md) och [skapa IP-brandvägg på server nivå](firewall-create-server-level-portal-quickstart.md) för att få en databas med exempel data igång på några få minuter.
+Du måste skapa en databas innan du börjar. Om du inte har någon kan du läsa [skapa en databas i Azure SQL Database](single-database-create-quickstart.md) och [skapa IP-brandvägg på server nivå](firewall-create-server-level-portal-quickstart.md) för att få en databas med exempel data igång på några få minuter.
 
 I den här artikeln ska du importera exempel data till Excel från den artikeln, men du kan följa liknande steg med dina egna data.
 
@@ -101,6 +101,6 @@ Om du vill spara anslutnings informationen permanent kan du skapa en. ODC-fil oc
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [Ansluter till SQL Database med SQL Server Management Studio](connect-query-ssms.md) för avancerade frågor och analys.
+* Lär dig hur du [ansluter och frågar med SQL Server Management Studio](connect-query-ssms.md) för avancerade frågor och analyser.
 * Lär dig mer om fördelarna med [elastiska pooler](elastic-pool-overview.md).
-* Lär dig hur du [skapar en webbapp som ansluter till SQL Database på serverdelen](../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).
+* Lär dig hur du [skapar ett webb program som ansluter till Azure SQL Database på Server](../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md)sidan.

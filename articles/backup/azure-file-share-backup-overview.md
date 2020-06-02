@@ -3,12 +3,12 @@ title: Om säkerhets kopiering av Azure-filresurs
 description: Lär dig hur du säkerhetskopierar Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c79100724b882c0682c86070ee74a8726d6b049f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d4129b3618810d80df7d5289a7a7417d74fd077
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105751"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259037"
 ---
 # <a name="about-azure-file-share-backup"></a>Om säkerhets kopiering av Azure-filresurs
 
@@ -21,6 +21,7 @@ Säkerhets kopiering av Azure-filresurs är en inbyggd, molnbaserad säkerhets k
 * Inbyggda hanterings funktioner: du kan schemalägga säkerhets kopieringar och ange önskad kvarhållningsperiod utan ytterligare överbelastning av data rensning.
 * Omedelbar återställning: Azure-filresurs säkerhets kopiering använder ögonblicks bilder av fil resurser, så du kan bara välja de filer som du vill återställa direkt.
 * Avisering och rapportering: du kan konfigurera aviseringar för säkerhets kopierings-och återställnings problem och använda rapporterings lösningen som tillhandahålls av Azure Backup för att få insikter om säkerhets kopieringar över dina fil resurser.
+* Skydd mot oavsiktlig borttagning av fil resurser: Azure Backup aktiverar funktionen för [mjuk borttagning](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) på en lagrings konto nivå med en kvarhållningsperiod på 14 dagar. Även om en skadlig aktör tar bort fil resursen, bevaras fil resursens innehåll och återställnings punkter (ögonblicks bilder) för en konfigurerbar kvarhållningsperiod, vilket ger lyckad och fullständig återställning av käll innehåll och ögonblicks bilder utan data förlust.
 
 ## <a name="architecture"></a>Arkitektur
 

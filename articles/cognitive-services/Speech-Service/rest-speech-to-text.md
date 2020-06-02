@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: 555ae9e48f538c1100bab8b35ce61742baa88451
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7664ce89c01c543544bc576c5eee3fd288d323d5
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659831"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248523"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -60,7 +60,7 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 
 I den här tabellen listas obligatoriska och valfria sidhuvuden för begäran om tal till text.
 
-|Sidhuvud| Description | Obligatorisk/valfri |
+|Sidhuvud| Beskrivning | Obligatorisk/valfri |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för röst tjänst. | Antingen den här rubriken eller `Authorization` krävs. |
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken eller `Ocp-Apim-Subscription-Key` krävs. |
@@ -115,7 +115,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
 
 >[!NOTE]
->Funktionen för ututtals bedömning är för närvarande bara tillgänglig i `westus` och- `eastasia` regioner. Och den här funktionen är för närvarande bara tillgänglig på `en-US` språket.
+>Funktionen för ututtals bedömning är för närvarande bara tillgänglig i `westus` `eastasia` och `centralindia` regioner. Och den här funktionen är för närvarande bara tillgänglig på `en-US` språket.
 
 ## <a name="sample-request"></a>Exempel förfrågan
 
@@ -141,7 +141,7 @@ Pronunciation-Assessment: eyJSZWZlcm...
 
 HTTP-statuskoden för varje svar visar att de lyckas eller vanliga fel.
 
-| HTTP-statuskod | Description | Möjlig orsak |
+| HTTP-statuskod | Beskrivning | Möjlig orsak |
 |------------------|-------------|-----------------|
 | `100` | Fortsätt | Den första begäran har accepterats. Fortsätt med att skicka resten av data. (Används med segmenterad överföring) |
 | `200` | OK | Begäran lyckades. svars texten är ett JSON-objekt. |
@@ -189,7 +189,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 Resultat tillhandahålls som JSON. `simple`Formatet innehåller dessa fält på den översta nivån.
 
-| Parameter | Description  |
+| Parameter | Beskrivning  |
 |-----------|--------------|
 |`RecognitionStatus`|Status, till exempel `Success` för lyckad igenkänning. Se nästa tabell.|
 |`DisplayText`|Den tolkade texten efter versaler, interpunktion, inverterad text normalisering (konvertering av talade text till kortare former, till exempel 200 för "200" eller "Dr. Smith" för "läkare Smith") och svordomar. Presentera bara på framgång.|
@@ -214,7 +214,7 @@ När du använder `detailed` formatet `DisplayText` anges det som `Display` för
 
 Objektet i `NBest` listan kan innehålla:
 
-| Parameter | Description |
+| Parameter | Beskrivning |
 |-----------|-------------|
 | `Confidence` | Förtroende poängen för posten från 0,0 (ingen exakthet) till 1,0 (full exakthet) |
 | `Lexical` | Den tolkade textens lexikala text: de faktiska orden som identifieras. |

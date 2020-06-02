@@ -1,6 +1,7 @@
 ---
 title: Använd Node. js för att fråga en databas
-description: Hur du använder Node. js för att skapa ett program som ansluter till en databas i Azure SQL Database och frågar den med hjälp av T-SQL-uttryck.
+description: Hur du använder Node. js för att skapa ett program som ansluter till en databas i Azure SQL Database eller en hanterad Azure SQL-instans och frågar den med hjälp av T-SQL-uttryck.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,21 +10,21 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 03/25/2019
+ms.date: 05/29/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2 
-ms.openlocfilehash: b666e053c16e4dcac50505e3d36012f2a8677eb2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6860aa07d7547df6eeebf5d35fa9a921f0f9dada
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189361"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267386"
 ---
-# <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database"></a>Snabb start: Använd Node. js för att fråga en databas i Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: Använd Node. js för att fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-I den här snabb starten använder du Node. js för att ansluta till en databas i Azure SQL Database och använda T-SQL-uttryck för att fråga efter data.
+I den här snabb starten använder du Node. js för att ansluta till en databas och fråga efter data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att slutföra den här snabbstarten:
 

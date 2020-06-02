@@ -9,22 +9,23 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 75c8d52a750567d3b34ad2aea236477ca8c97245
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171420"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248336"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Komma igång med Azure Synapse Analytics
 
-Den här självstudien vägleder dig genom alla grundläggande steg som krävs för att konfigurera och använda Azure Synapse Analytics.
+Det här dokumentet vägleder dig genom alla grundläggande steg som krävs för att konfigurera och använda Azure Synapse Analytics.
 
 ## <a name="prepare-a-storage-account-for-use-with-a-synapse-workspace"></a>Förbereda ett lagrings konto för användning med en Synapse-arbetsyta
 
 * Öppna [Azure Portal](https://portal.azure.com)
 * Skapa ett nytt lagrings konto med följande inställningar:
-    |Flik|Inställningen | Föreslaget värde | Description |
+
+    |Flik|Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|---|
     |Grundläggande inställningar|**Lagrings konto namn**| Du kan ge den namnet.|I det här dokumentet kommer vi att se det som `contosolake` .|
     |Grundläggande inställningar|**Typ av konto**|Måste anges till`StorageV2`||
@@ -32,23 +33,25 @@ Den här självstudien vägleder dig genom alla grundläggande steg som krävs f
     |Avancerat|**Data Lake Storage Gen2**|`Enabled`| Azure Synapse fungerar bara med lagrings konton där den här inställningen är aktive rad.|
 
 1. När lagrings kontot har skapats väljer du **åtkomst kontroll (IAM)** i det vänstra navigerings fältet. Tilldela sedan följande roller eller se till att de redan har tilldelats. 
+
     a. * Tilldela dig själv **ägar** rollen på lagrings kontot b. * Tilldela dig själv rollen som **Storage BLOB data-ägare** på lagrings kontot
+
 1. I det vänstra navigerings fältet väljer du **behållare** och skapar en behållare. Du kan ge den namnet. Godkänn standard **nivån för offentlig åtkomst**. I det här dokumentet kommer vi att anropa behållaren `users` . Välj **Skapa**. 
+
+I följande steg ska du konfigurera din Synapse-arbetsyta att använda det här lagrings kontot som det primära lagrings kontot och behållaren för lagring av arbets ytans data. Arbets ytan kommer att lagra data i Apache Spark tabeller och Spark-programloggar i det här kontot under en mapp med namnet `/synapse/workspacename` .
 
 ## <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
 * Öppna [Azure Portal](https://portal.azure.com) och högst upp Sök efter `Synapse` .
 * I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**
-* Välj **+ Lägg** till för att skapa en ny arbets yta med de här inställningarna
+* Välj **+ Lägg** till för att skapa en arbets yta med de här inställningarna
 
-    |Flik|Inställningen | Föreslaget värde | Description |
+    |Flik|Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|---|
     |Grundläggande inställningar|**Namn på arbetsyta**|Du kan anropa det något.| I det här dokumentet kommer vi att använda`myworkspace`|
     |Grundläggande inställningar|**Region**|Matcha lagrings kontots region|
 
 1. Under **välj Data Lake Storage gen 2**väljer du det konto och den behållare som du skapade tidigare.
-    > [!NOTE]
-    > Vi refererar till det lagrings konto som valts här som "primärt" lagrings konto för Synapse-arbetsytan. Det här kontot används för att lagra data i Apache Spark-tabeller och för loggar som skapas när Spark-pooler skapas eller Spark-program körs.
 
 1. Välj **Granska + skapa**. Välj **Skapa**. Din arbets yta är klar om några minuter.
 
@@ -70,33 +73,24 @@ När din Synapse-arbetsyta har skapats kan du öppna Synapse Studio på två sä
 ## <a name="create-a-sql-pool"></a>Skapa en SQL-pool
 
 1. I Synapse Studio väljer du **hantera > SQL-pooler** på vänster sida.
-
-    > [!NOTE] 
-    > Alla Synapse-arbetsytor levereras med en förskapad pool som kallas **SQL på begäran**.
-
 1. Välj **+ ny** och ange följande inställningar:
 
-    |Inställningen | Föreslaget värde | 
+    |Inställning | Föreslaget värde | 
     |---|---|
     |**SQL-poolnamn**| `SQLDB1`|
     |**Prestanda nivå**|`DW100C`|
 
 1. Välj **Granska + skapa** och välj sedan **skapa**.
-1. SQL-poolen är klar om några minuter.
+1. SQL-poolen är klar om några minuter. När SQL-poolen skapas kommer den att associeras med en SQL-adresspool som också kallas **SQLDB1**.
 
-    > [!NOTE]
-    > En Synapse SQL-pool motsvarar det som används för att kallas "Azure SQL Data Warehouse"
-
-En SQL-pool förbrukar fakturerbara resurser så länge den körs. Så du kan pausa poolen vid behov för att minska kostnaderna.
-
-När SQL-poolen skapas kommer den att associeras med en SQL-adresspool som också kallas **SQLDB1**.
+En SQL-pool förbrukar fakturerbara resurser så länge den är aktiv. Du kan pausa poolen senare för att minska kostnaderna.
 
 ## <a name="create-an-apache-spark-pool"></a>Skapa en Apache Spark pool
 
 1. I Synapse Studio väljer du **hantera > Apache Spark pooler** på vänster sida
 1. Välj **+ ny** och ange följande inställningar:
 
-    |Inställningen | Föreslaget värde | 
+    |Inställning | Föreslaget värde | 
     |---|---|
     |**Namn på Apache Spark bassäng**|`Spark1`
     |**Node-storlek**| `Small`|
@@ -113,7 +107,7 @@ Eftersom de är metadata kan inte Spark-pooler startas eller stoppas.
 När du utför en spark-aktivitet i Synapse anger du en spark-pool som ska användas. Poolen informerar Synapse hur många Spark-resurser som ska användas. Du betalar bara för de resurser som Thar används. När du aktivt slutar använda poolen upphör resurserna automatiskt att fungera och återvinns.
 
 > [!NOTE]
-> Spark-databaser skapas oberoende av Spark-pooler. En arbets yta har alltid en spark DB som kallas **standard** och du kan skapa ytterligare Spark-databaser.
+> Spark-databaser skapas oberoende av Spark-pooler. En arbets yta har alltid en spark-databas som kallas **standard** och du kan skapa ytterligare Spark-databaser.
 
 ## <a name="the-sql-on-demand-pool"></a>SQL on-demand-poolen
 
@@ -136,7 +130,7 @@ Varje arbets yta levereras med en fördefinierad och en pool med namnet **SQL p�
 1. Navigera till **SQLDB1 > tabeller**. Du ser att flera tabeller har lästs in.
 1. Högerklicka på **dbo. Rese** tabell och välj **nytt SQL-skript > markera de 100 översta raderna**
 1. Ett nytt SQL-skript kommer att skapas och köras automatiskt.
-1. Observera att överst i SQL-skriptet **Connect to** anges automatiskt till SQL-poolen med namnet SQLDB1.
+1. Observera att överst i SQL-skriptet **Connect to** anges automatiskt till SQL-poolen som heter `SQLDB1` .
 1. Ersätt texten i SQL-skriptet med den här koden och kör den.
 
     ```sql
@@ -154,7 +148,7 @@ Varje arbets yta levereras med en fördefinierad och en pool med namnet **SQL p�
 
 ## <a name="load-the-nyc-taxi-sample-data-into-the-spark-nyctaxi-database"></a>Läs in NYC taxi-exempelprogrammet i Spark nyctaxi-databasen
 
-Det finns data som är tillgängliga i en tabell i `SQLDB1` . Nu läser vi in det i en spark-databas med namnet ' nyctaxi '.
+Det finns data som är tillgängliga i en tabell i `SQLDB1` . Nu läser vi in det i en spark-databas med namnet `nyctaxi` .
 
 1. I Synapse Studio navigerar du till **utveckla** hubben
 1. Välj **+** och välj **Notebook**
@@ -286,8 +280,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Välj **länkad**
 1. Gå till **lagrings konton > min arbets yta (Primary-contosolake)**
 1. Välj **användare (primär) "**
-1. Du bör se en mapp med namnet ' NYCTaxi '. Inuti bör du se två mappar ' PassengerCountStats. csv ' och ' PassengerCountStats. Parquet '.
-1. Navigera till mappen "PassengerCountStats. Parquet".
+1. Du bör se en mapp som heter `NYCTaxi` . Inuti bör du se två mappar `PassengerCountStats.csv` och `PassengerCountStats.parquet` .
+1. Navigera till `PassengerCountStats.parquet` mappen.
 1. Högerklicka på Parquet-filen i och välj **ny antecknings bok**så skapas en antecknings bok med en cell som detta:
 
     ```py
@@ -328,7 +322,7 @@ Du kan länka en Power BI arbets yta till din Synapse-arbetsyta. På så sätt k
 1. I Synapse Studio navigerar du till **hanterade > länkade tjänster**.
 1. Välj **+ nytt** och välj **Anslut till Power BI** och ange följande fält:
 
-    |Inställningen | Föreslaget värde | 
+    |Inställning | Föreslaget värde | 
     |---|---|
     |**Namn**|`NYCTaxiWorkspace1`|
     |**Namn på arbetsyta**|`NYCTaxiWorkspace1`|

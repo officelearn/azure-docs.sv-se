@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 518c4b83721e80aeaadfbdf5b03cddc62ae5479f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: b72952618b2d024bd2c4b445c3ea673ed523866b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216336"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247945"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure SQL Managed instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -273,11 +273,8 @@ FROM sys.sql_logins
 Därefter kan du ändra angivna inloggnings inställningar genom att köra:
 
 ```sql
-ALTER LOGIN test WITH CHECK_POLICY = ON;
-ALTER LOGIN test WITH CHECK_EXPIRATION = ON;
+ALTER LOGIN <login_name> WITH CHECK_POLICY = OFF;
+ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
-(Ersätt "test" med önskat inloggnings namn)
-
- > [!Note]
- > Standardvärden för CHECK_POLICY och CHECK_EXPIRATION har angetts till av.
+(Ersätt "test" med önskat inloggnings namn och justera princip-och förfallo värden)

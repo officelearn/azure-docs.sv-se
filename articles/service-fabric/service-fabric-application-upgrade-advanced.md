@@ -3,12 +3,12 @@ title: Avsnitt om avancerad program uppgradering
 description: I den här artikeln beskrivs några avancerade ämnen som rör uppgradering av ett Service Fabric-program.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 98d8213cc50f73ef2c053e1fe5574fe33a2f3cb6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414488"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263099"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric program uppgradering: avancerade ämnen
 
@@ -20,18 +20,18 @@ På samma sätt kan tjänst typer tas bort från ett program som en del av en up
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Undvik anslutning vid tillstånds lös planerat drift stopp för tjänsten
 
-För tillstånds lösa instansen av tillstånds lösa instansen, t. ex. program/kluster-uppgradering eller nod-inaktive ring, kan anslutningar släppas på grund av att den exponerade slut punkten tas bort efter att instansen stängs av,
+För tillstånds lösa instansen av tillstånds lösa instansen, till exempel program/kluster-uppgradering eller nod-inaktive ring, kan anslutningar tas bort eftersom den exponerade slut punkten tas bort när instansen stängs av, vilket resulterar i tvingande anslutnings
 
-Undvik detta genom att konfigurera funktionen *RequestDrain* (förhands granskning) genom att lägga till en *instans stängnings tid* i tjänst konfigurationen för att tillåta tömning när begär Anden tas emot från andra tjänster i klustret och använder omvänd proxy eller med hjälp av lösnings-API med meddelande modell för uppdatering av slut punkter. Detta säkerställer att den slut punkt som annonseras av tillstånds lösa instansen tas bort *innan* fördröjningen börjar innan instansen stängs. Den här fördröjningen gör att befintliga begär Anden kan tömmas innan instansen faktiskt slutar fungera. Klienter meddelas om slut punkts ändringen av en callback-funktion vid tidpunkten för start av fördröjningen, så att de kan lösa slut punkten igen och undvika att skicka nya begär anden till instansen som går ur drift.
+Undvik detta genom att konfigurera funktionen *RequestDrain* genom att lägga till en *instans stängnings fördröjning* i tjänst konfigurationen för att tillåta att befintliga begär Anden inifrån klustret töms på exponerade slut punkter. Detta uppnås eftersom den slut punkt som annonseras av den tillstånds lösa instansen tas bort *innan* fördröjningen börjar innan instansen stängs. Den här fördröjningen gör att befintliga begär Anden kan tömmas innan instansen faktiskt slutar fungera. Klienter meddelas om slut punkts ändringen av en callback-funktion vid tidpunkten för start av fördröjningen, så att de kan lösa slut punkten igen och undvika att skicka nya begär anden till instansen som går ur drift. Dessa begär Anden kan härstamma från klienter som använder [omvänd proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) eller använder tjänst slut punktens lösnings-API: er med meddelande modellen ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) för att uppdatera slut punkterna.
 
 ### <a name="service-configuration"></a>Tjänstkonfiguration
 
 Det finns flera sätt att konfigurera fördröjningen på tjänst sidan.
 
- * **När du skapar en ny tjänst**anger du `-InstanceCloseDelayDuration`en:
+ * **När du skapar en ny tjänst**anger du en `-InstanceCloseDelayDuration` :
 
     ```powershell
-    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>
     ```
 
  * **När du definierar tjänsten i avsnittet standarder i applikations manifestet**tilldelar du `InstanceCloseDelayDurationSeconds` egenskapen:
@@ -42,10 +42,37 @@ Det finns flera sätt att konfigurera fördröjningen på tjänst sidan.
           </StatelessService>
     ```
 
- * **När du uppdaterar en befintlig tjänst**anger du `-InstanceCloseDelayDuration`en:
+ * **När du uppdaterar en befintlig tjänst**anger du en `-InstanceCloseDelayDuration` :
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
+
+ * **När du skapar eller uppdaterar en befintlig tjänst via arm-mallen**anger du `InstanceCloseDelayDuration` värdet (lägsta API-version som stöds: 2019-11-01-för hands version):
+
+    ```ARM template to define InstanceCloseDelayDuration of 30seconds
+    {
+      "apiVersion": "2019-11-01-preview",
+      "type": "Microsoft.ServiceFabric/clusters/applications/services",
+      "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
+      "location": "[variables('clusterLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applications/', parameters('applicationName'))]"
+      ],
+      "properties": {
+        "provisioningState": "Default",
+        "serviceKind": "Stateless",
+        "serviceTypeName": "[parameters('serviceTypeName')]",
+        "instanceCount": "-1",
+        "partitionDescription": {
+          "partitionScheme": "Singleton"
+        },
+        "serviceLoadMetrics": [],
+        "servicePlacementPolicies": [],
+        "defaultMoveCost": "",
+        "instanceCloseDelayDuration": "00:00:30.0"
+      }
+    }
     ```
 
 ### <a name="client-configuration"></a>Klientkonfiguration
@@ -55,7 +82,7 @@ Om du vill få ett meddelande när en slut punkt har ändrats bör klienter regi
 
 ### <a name="optional-upgrade-overrides"></a>Valfria uppgraderings åsidosättningar
 
-Förutom att ställa in försenade varaktigheter per tjänst kan du också åsidosätta fördröjningen vid uppgradering av program/kluster med samma`InstanceCloseDelayDurationSec`() alternativ:
+Förutom att ställa in försenade varaktigheter per tjänst kan du också åsidosätta fördröjningen vid uppgradering av program/kluster med samma ( `InstanceCloseDelayDurationSec` ) alternativ:
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
@@ -63,15 +90,17 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-Fördröjnings tiden gäller endast för den anropade uppgraderings instansen och ändrar annars inte enskilda tjänst fördröjnings konfigurationer. Du kan till exempel använda detta för att ange en fördröjning `0` i för att hoppa över förkonfigurerade uppgraderings fördröjningar.
+Den åsidosatta fördröjnings tiden gäller bara för den anropade uppgraderings instansen och ändrar annars inte enskilda tjänst fördröjnings konfigurationer. Du kan till exempel använda detta för att ange en fördröjning `0` i för att hoppa över förkonfigurerade uppgraderings fördröjningar.
 
 > [!NOTE]
-> Inställningen för att tömma begär Anden stöds inte för förfrågningar från Azure Load Balancer. Inställningen går inte att använda om den anropande tjänsten använder klagomål som är baserat på framställnings lösa.
+> * Inställningarna för att tömma begär Anden kan inte hindra Azure Load Balancer från att skicka nya begär anden till slut punkter som tas bort från minnet.
+> * Ett klagomål som bygger på en klagomåls lösning kommer inte att leda till korrekt tömning av begär Anden, eftersom den utlöser en tjänst upplösning efter ett haveri. Som tidigare beskrivits bör detta i stället förbättras för att prenumerera på aviseringar om ändringar av slut punkten med hjälp av [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * Inställningarna gäller inte när uppgraderingen är en effekt som är en När replikerna inte kommer att tas bort under uppgraderingen.
 >
 >
 
 > [!NOTE]
-> Den här funktionen kan konfigureras i befintliga tjänster med Update-ServiceFabricService-cmdlet enligt ovan, när kluster kod versionen är 7.1.XXX eller högre.
+> Den här funktionen kan konfigureras i befintliga tjänster med Update-ServiceFabricService-cmdlet eller ARM-mallen som nämnts ovan, när kluster kod versionen är 7.1.XXX eller högre.
 >
 >
 

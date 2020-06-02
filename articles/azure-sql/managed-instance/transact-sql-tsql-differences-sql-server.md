@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 03/11/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: d3b337a697151f7f9ae1e3a1fb75795068da9e68
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: f6909acc5e4d4f56fb301a225f6dd854ba6f21e4
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204981"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259566"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Skillnader i T-SQL mellan SQL Server & Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -389,7 +389,7 @@ Mer information finns i [FILESTREAM](/sql/relational-databases/blob/filestream-s
 
 Länkade servrar i SQL-hanterade instanser har stöd för ett begränsat antal mål:
 
-- Mål som stöds är SQL-hanterad instans, SQL Database och SQL Server instanser. 
+- Mål som stöds är SQL-hanterad instans, SQL Database, Azure Synapse SQL och SQL Server instanser. 
 - Länkade servrar har inte stöd för distribuerade skrivbara transaktioner (MS DTC).
 - Mål som inte stöds är filer, Analysis Services och andra RDBMS. Försök att använda intern CSV-import från Azure Blob Storage att använda `BULK INSERT` eller `OPENROWSET` som ett alternativ för fil import.
 

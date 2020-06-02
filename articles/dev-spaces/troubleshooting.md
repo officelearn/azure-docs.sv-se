@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 1242aa0e6c8255d778da55b0e574f3d12f61c381
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a6ce0f2a4d45f0a703676c76f429dbe07a4517f4
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872015"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263507"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -97,7 +97,7 @@ Trots att fel meddelandet körs `az aks use-dev-spaces` med en version av Azure 
 
 Du kanske ser det här felet när det inte går att ansluta till ditt AKS-klusters API-server i Azure dev Spaces.
 
-Om åtkomst till din AKS-kluster-API-Server är låst eller om du har [auktoriserade IP-adressintervall för API-Server](../aks/api-server-authorized-ip-ranges.md) för ditt AKS-kluster, måste du också [skapa](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) eller [Uppdatera](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) klustret så att det [tillåter ytterligare intervall baserat på din region](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+Om åtkomst till din AKS-kluster-API-Server är låst eller om du har [auktoriserade IP-adressintervall för API-Server](../aks/api-server-authorized-ip-ranges.md) för ditt AKS-kluster, måste du också [skapa](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) eller [Uppdatera](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) klustret så att det [tillåter ytterligare intervall baserat på din region](configure-networking.md#aks-cluster-network-requirements)
 
 Se till att API-servern är tillgänglig genom att köra kubectl-kommandon. Om API-servern inte är tillgänglig kontaktar du AKS-supporten och försöker igen när API-servern fungerar.
 
@@ -150,7 +150,7 @@ Det här felet uppstår om Helm-klienten inte längre kommunicerar med till-Pod 
 
 Åtgärda problemet genom att starta om agent-noderna i klustret.
 
-### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Fel "release azds- \< Identifier \> - \< spacename \> - \< ServiceName \> misslyckades: tjänsterna ' \< ServiceName \> ' finns redan" eller "pull-åtkomst nekad för \< ServiceName \> , lagrings plats finns inte eller kan kräva Docker inloggning" "
+### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Fel "release azds- \<identifier\> - \<spacename\> - \<servicename\> misslyckades: tjänsterna \<servicename\> " finns redan "eller" pull-åtkomst nekad för \<servicename\> , lagrings plats finns inte eller kan kräva Docker inloggning ""
 
 Felen kan uppstå om du blandar kör direkta Helm-kommandon (till exempel `helm install` , `helm upgrade` eller `helm delete` ) med dev Spaces-kommandon (till exempel `azds up` och `azds down` ) inuti samma dev-utrymme. De inträffar eftersom dev Spaces har sin egen till-instans, som står i konflikt med din egen till-instans som körs i samma dev-utrymme.
 
@@ -272,7 +272,7 @@ Till exempel för att stoppa och inaktivera tjänsten *Windows BranchCache* :
 * Alternativt kan du inaktivera den genom att ställa in *Starttyp* på *inaktive rad*.
 * Klicka på *OK*.
 
-### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Fel "ingen AzureAssignedIdentity hittades för pod: azds/azds-webhook-Deployment- \< ID \> i tilldelat läge"
+### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Fel "ingen AzureAssignedIdentity hittades för pod: azds/azds-webhook-Deployment- \<id\> Assigned State"
 
 När du kör en tjänst med Azure dev Spaces i ett AKS-kluster med [hanterade identiteter](../aks/use-managed-identity.md) och [Pod-hanterade](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) identiteter installerade, kan processen låsa sig efter steget för att *Installera diagrammet* . Om du inspekterar *azds – webhook* i *azds* -namn utrymmet kan du se det här felet.
 
@@ -591,7 +591,7 @@ Om du vill aktivera Azure dev Spaces i ett AKS-kluster där den utgående trafik
 | storage.googleapis.com | HTTP: 443 | Hämta Helm/till-avbildningar|
 | azds – <guid> . <location> . azds.io | HTTPS: 443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE% \. azds\settings.JSON|
 
-### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Fel "Det gick inte att hitta kluster klustret \< \> i prenumerations- \< subscriptionId \> "
+### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Fel "Det gick inte att hitta klustret \<cluster\> i prenumerationen \<subscriptionId\> "
 
 Du kan se det här felet om din kubeconfig-fil är riktad mot ett annat kluster eller en annan prenumeration än du försöker använda med klients IDE-verktyget för Azure dev Spaces. Verktyget Azure dev Spaces på klient sidan replikerar beteendet för *kubectl*, som använder [en eller flera kubeconfig-filer](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) för att välja och kommunicera med klustret.
 

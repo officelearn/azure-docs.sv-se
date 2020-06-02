@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: cb88fb24ceed943d4104da6914959e4b79c35571
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 879834567b6905a070aada3dae2a41a672635c6c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231925"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267247"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Referens guide för avancerad läsare SDK
 
@@ -33,7 +33,7 @@ SDK: n visar funktionerna:
 
 ## <a name="launchasync"></a>launchAsync
 
-Startar den fördjupade läsaren `iframe` i en i ditt webb program.
+Startar den fördjupade läsaren i en `iframe` i ditt webb program.
 
 ```typescript
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
@@ -41,26 +41,26 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="parameters"></a>Parametrar
 
-| Name | Typ | Beskrivning |
+| Name | Typ | Description |
 | ---- | ---- |------------ |
 | `token` | sträng | Azure AD-autentiseringstoken. |
 | `subdomain` | sträng | Den anpassade under domänen för den fördjupade läsar resursen i Azure. |
 | `content` | [Innehåll](#content) | Ett objekt som innehåller det innehåll som ska visas i den fördjupade läsaren. |
 | `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfritt. |
 
-### <a name="returns"></a>Returnerar
+### <a name="returns"></a>Returer
 
-Returnerar en `Promise<LaunchResponse>`, som löses när den fördjupade läsaren läses in. `Promise` Matchar ett [`LaunchResponse`](#launchresponse) -objekt.
+Returnerar en `Promise<LaunchResponse>` , som löses när den fördjupade läsaren läses in. `Promise`Matchar ett- [`LaunchResponse`](#launchresponse) objekt.
 
 ### <a name="exceptions"></a>Undantag
 
-Den returnerade `Promise` filen avvisas [`Error`](#error) med ett objekt om den fördjupade läsaren inte kan läsas in. Mer information finns i [fel koderna](#error-codes).
+Den returnerade filen `Promise` avvisas med ett [`Error`](#error) objekt om den fördjupade läsaren inte kan läsas in. Mer information finns i [fel koderna](#error-codes).
 
 ## <a name="close"></a>stäng
 
 Stänger den fördjupade läsaren.
 
-Ett exempel på användnings fall för den här funktionen är om knappen Avsluta är dold ```hideExitButton: true``` genom inställning i [alternativ](#options). Sedan kan en annan knapp (till exempel ett mobil huvuds bakre pil) anropa den här ```close``` funktionen när den klickas.
+Ett exempel på användnings fall för den här funktionen är om knappen Avsluta är dold genom inställning ```hideExitButton: true``` i [alternativ](#options). Sedan kan en annan knapp (till exempel ett mobil huvuds bakre pil) anropa den här ```close``` funktionen när den klickas.
 
 ```typescript
 close(): void;
@@ -68,7 +68,7 @@ close(): void;
 
 ## <a name="renderbuttons"></a>renderButtons
 
-Den här funktionen formaterar och uppdaterar dokumentets fördjupade läsa knapp element. Om ```options.elements``` har angetts återger den här funktionen knappar i ```options.elements```. Annars kommer knapparna att återges i dokumentets element som har klassen ```immersive-reader-button```.
+Den här funktionen formaterar och uppdaterar dokumentets fördjupade läsa knapp element. Om ```options.elements``` har angetts återger den här funktionen knappar i ```options.elements``` . Annars kommer knapparna att återges i dokumentets element som har klassen ```immersive-reader-button``` .
 
 Den här funktionen anropas automatiskt av SDK: n när fönstret läses in.
 
@@ -111,7 +111,7 @@ Ett enda data segment som skickas till innehållet i den fördjupade läsaren.
 
 ### <a name="launchresponse"></a>LaunchResponse
 
-Innehåller svaret från anropet till `ImmersiveReader.launchAsync`.
+Innehåller svaret från anropet till `ImmersiveReader.launchAsync` .
 
 ```typescript
 {
@@ -190,8 +190,8 @@ Innehåller information om felet.
 
 | Kod | Beskrivning |
 | ---- | ----------- |
-| BadArgument | Det angivna argumentet är ogiltigt. `message` mer information finns i. |
-| Timeout | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
+| BadArgument | Det angivna argumentet är ogiltigt `message` . mer information finns i. |
+| Tidsgräns | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
 | TokenExpired | Angiven token har upphört att gälla. |
 | Begränsas | Anrops frekvens gränsen har överskridits. |
 
@@ -209,8 +209,8 @@ Använd följande attribut för att konfigurera utseendet och utseendet på knap
 
 | Attribut | Beskrivning |
 | --------- | ----------- |
-| `data-button-style` | Anger formatet för knappen. Kan vara `icon`, `text`eller `iconAndText`. Standardvärdet är `icon`. |
-| `data-locale` | Anger språkvarianten. Exempel: `en-US` eller `fr-FR`. Standardvärdet `en`är engelska. |
+| `data-button-style` | Anger formatet för knappen. Kan vara `icon` , `text` eller `iconAndText` . Standardvärdet är `icon` . |
+| `data-locale` | Anger språkvarianten. Exempel: `en-US` eller `fr-FR`. Standardvärdet är engelska `en` . |
 | `data-icon-px-size` | Anger storleken på ikonen i bild punkter. Standardvärdet är 20px. |
 
 ## <a name="browser-support"></a>Stöd för webbläsare
@@ -226,4 +226,4 @@ Använd de senaste versionerna av följande webbläsare för bästa möjliga upp
 ## <a name="next-steps"></a>Nästa steg
 
 * Utforska [SDK för avancerad läsare på GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Snabb start: skapa en webbapp som startar den fördjupade läsaren (C#)](./quickstart.md)
+* [Snabb start: skapa en webbapp som startar den fördjupade läsaren (C#)](./quickstarts/client-libraries.md?pivots=programming-language-csharp)

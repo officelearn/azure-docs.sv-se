@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 06/01/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4ba54736abe335b53a3b8c6733063efcb34ea29a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856821"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259209"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimera kostnader för blobblagring med reserverad kapacitet
 
@@ -35,7 +35,7 @@ Du kan köpa Azure Storage reserverad kapacitet i enheter om 100 TB och 1 PB per
 
 Azure Storage reserverad kapacitet är tillgänglig för en enskild prenumeration eller för flera prenumerationer (delad omfattning). När den är begränsad till en enda prenumeration tillämpas reservations rabatten endast på den valda prenumerationen. När det gäller flera prenumerationer delas reservations rabatten mellan dessa prenumerationer i kundens fakturerings kontext.
 
-När du köper Azure Storage reserverad kapacitet kan du använda din reservation för både Block-Blob och Azure Data Lake Storage Gen2 data. En reservation tillämpas på din användning inom det köpta omfånget och kan inte begränsas till ett visst lagrings konto, behållare eller objekt i prenumerationen. En reservation kan inte delas över flera prenumerationer.
+När du köper Azure Storage reserverad kapacitet kan du använda din reservation för både Block-Blob och Azure Data Lake Storage Gen2 data. En reservation tillämpas på din användning inom det köpta omfånget och kan inte begränsas till ett visst lagrings konto, behållare eller objekt i prenumerationen.
 
 En Azure Storage-reservation täcker bara den mängd data som lagras i en prenumeration eller delad resurs grupp. Avgifter för tidig borttagning, åtgärder, bandbredd och data överföring ingår inte i reservationen. Så snart du köper en reservation debiteras de kapacitets kostnader som matchar reservations-attributen enligt rabatten i stället för enligt priserna för betala per användning. Mer information om Azure-reservationer finns i [Vad är Azure reservations?](/azure/billing/billing-save-compute-costs-reservations).
 
@@ -82,12 +82,12 @@ Följ dessa steg för att köpa reserverad kapacitet:
    |---------|---------|
    |**Omfång**   |  Anger hur många prenumerationer som kan använda den fakturerings förmån som är kopplad till reservationen. Den styr också hur reservationen tillämpas på vissa prenumerationer. <br/><br/> Om du väljer **delad**tillämpas reservations rabatten på Azure Storage kapacitet i en prenumeration i din fakturerings kontext. Fakturerings kontexten baseras på hur du registrerade dig för Azure. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För kunder som betalar per användning inkluderar det delade omfånget alla enskilda prenumerationer med priser enligt principen betala per användning som har skapats av konto administratören.  <br/><br/>  Om du väljer **enskild prenumeration**tillämpas reservations rabatten på Azure Storage kapacitet i den valda prenumerationen. <br/><br/> Om du väljer **enskild resurs grupp**tillämpas reservations rabatten på Azure Storage kapacitet i den valda prenumerationen och den valda resurs gruppen i den prenumerationen. <br/><br/> Du kan ändra reservations omfånget när du har köpt reservationen.  |
    |**Prenumeration**  | Den prenumeration som används för att betala för Azure Storage reservationen. Betalnings metoden för den valda prenumerationen används för att debitera kostnaderna. Prenumerationen måste vara någon av följande typer: <br/><br/>  Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P): för en företags prenumeration dras avgifterna från registreringen av betalnings åtagande belopp eller debiteras som överanvändning. <br/><br/> Individuell prenumeration med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P): för en enskild prenumeration med taxan betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.    |
-   | **Nationella** | Den region där reservationen gäller. |
+   | **Region** | Den region där reservationen gäller. |
    | **Åtkomst nivå** | Åtkomst nivån där reservationen gäller. Alternativen är *frekvent*, *låg frekvent*eller *Arkiv*lag ring. Mer information om åtkomst nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](storage-blob-storage-tiers.md)lag rings nivåer. |
    | **Redundans** | Alternativet redundans för reservationen. Alternativen inkluderar *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS*och *ra-GZRS*. Mer information om redundans alternativ finns [Azure Storage redundans](../common/storage-redundancy.md). |
    | **Fakturerings frekvens** | Anger hur ofta kontot debiteras för reservationen. Alternativen omfattar *varje månad* eller i *förskott*. |
    | **Storlek** | Den region där reservationen gäller. |
-   |**Löp**  | Ett år eller tre år.   |
+   |**Term**  | Ett år eller tre år.   |
 
 1. När du har valt parametrar för din reservation, visar Azure Portal kostnaden. Portalen visar också rabatt procenten för betalning per användning.
 
@@ -129,5 +129,5 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Vad är Azure-reservationer?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Förstå hur reservationsrabatten tillämpas för Azure Storage](../../cost-management-billing/reservations/understand-storage-charges.md)

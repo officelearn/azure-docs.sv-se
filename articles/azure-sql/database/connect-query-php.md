@@ -1,6 +1,7 @@
 ---
 title: Använd PHP för att fråga
-description: Hur du använder PHP för att skapa ett program som ansluter till en databas i Azure SQL Database och frågar den med hjälp av T-SQL-uttryck.
+description: Hur du använder PHP för att skapa ett program som ansluter till en databas i Azure SQL Database eller en hanterad Azure SQL-instans och frågar den med hjälp av T-SQL-uttryck.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,26 +10,26 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 02/12/2019
+ms.date: 05/29/2020
 ms.custom: sqldbrb=2 
-ms.openlocfilehash: 8c6ba33ac522272e36b8cd297ca525ec9f97875f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5443955bd24ed269ebf35f974be8c0497e2bfb60
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189328"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267349"
 ---
 # <a name="quickstart-use-php-to-query-a-database-in-azure-sql-database"></a>Snabb start: använda PHP för att fråga en databas i Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Den här artikeln visar hur du använder [php](https://php.net/manual/en/intro-whatis.php) för att ansluta till en databas i Azure SQL Database. Du kan sedan använda T-SQL-instruktioner för att köra frågor mot data.
+Den här artikeln visar hur du använder [php](https://php.net/manual/en/intro-whatis.php) för att ansluta till en databas i Azure SQL Database eller en hanterad Azure SQL-instans. Du kan sedan använda T-SQL-instruktioner för att köra frågor mot data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att slutföra den här snabbstarten:
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- En databas i Azure SQL Database. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
+- En databas i Azure SQL Database eller Azure SQL-hanterad instans. Du kan använda någon av följande snabb starter för att skapa och konfigurera en databas:
 
   || SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
   |:--- |:--- |:---|:---|

@@ -3,12 +3,12 @@ title: Skydda Azure Functions
 description: Lär dig mer om hur du gör funktions koden igång i Azure säkrare från vanliga attacker.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07d099ae3ce8a544994208436770674e6674e6f0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744053"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259430"
 ---
 # <a name="securing-azure-functions"></a>Skydda Azure Functions
 
@@ -83,7 +83,7 @@ Precis som med alla program och tjänster, kör målet din Function-app med läg
 
 #### <a name="user-management-permissions"></a>Användar hanterings behörigheter
 
-Functions stöder [rollbaserad åtkomst kontroll (RBAC) i Azure](../role-based-access-control/overview.md). RBAC-roller som stöds av Functions är [deltagare](../role-based-access-control/built-in-roles.md#contributor), [ägare](../role-based-access-control/built-in-roles.md#owner)och [läsare](../role-based-access-control/built-in-roles.md#owner). 
+Functions stöder inbyggd [rollbaserad åtkomst kontroll (RBAC) i Azure](../role-based-access-control/overview.md). RBAC-roller som stöds av Functions är [deltagare](../role-based-access-control/built-in-roles.md#contributor), [ägare](../role-based-access-control/built-in-roles.md#owner)och [läsare](../role-based-access-control/built-in-roles.md#owner). 
 
 Behörigheter är effektiva på funktionens app-nivå. Deltagar rollen krävs för att utföra de flesta funktioner på program nivå. Endast ägar rollen kan ta bort en Function-app. 
 

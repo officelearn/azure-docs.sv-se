@@ -390,7 +390,7 @@
           href: voice-assistants.md
     - name: Anpassade kommandon (förhandsversion)
       items:
-        - name: Vad är en app för anpassade kommandon?
+        - name: Vad är anpassade kommandon?
           href: custom-commands.md
         - name: Snabbstarter
           items:
@@ -454,6 +454,18 @@
           href: speech-devices-sdk-kws-guidelines.md
         - name: Anpassad nyckelordsigenkänning
           href: speech-devices-sdk-create-kws.md
+- name: Talarigenkänning
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är talarigenkänning?
+          href: speaker-recognition-overview.md
+    - name: Referens
+      items:
+        - name: 'REST API:er'
+          items:
+            - name: REST-API för taligenkänning
+              href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Värd
   items:
     - name: Dokumentation om värdar

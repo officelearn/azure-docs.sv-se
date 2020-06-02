@@ -46,6 +46,8 @@
           href: test-createuidefinition.md
         - name: Begära just-in-time-åtkomst
           href: request-just-in-time-access.md
+        - name: Använd ett befintligt virtuellt nätverk
+          href: existing-vnet-integration.md
         - name: Uppdatera hanterade resurser
           href: update-managed-resources.md
         - name: Använd portalen och publicera definition av program

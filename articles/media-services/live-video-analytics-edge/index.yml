@@ -1,0 +1,89 @@
+### YamlMime:Landing
+title: Dokumentation om Videoanalys i realtid på IoT Edge
+summary: Lär dig hur du använder Videoanalys i realtid på IoT Edge
+metadata:
+  title: Dokumentation om Videoanalys i realtid på IoT Edge
+  description: Lär dig hur du använder Videoanalys i realtid på IoT Edge
+  services: media-services
+  ms.service: media-services
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: 
+  ms.author: 
+  ms.date: 10/12/2019
+  ms.openlocfilehash: ef82f7ccfabce330c5604a26d74f0491876a1634
+  ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 06/01/2020
+  ms.locfileid: "84259897"
+landingContent:
+- title: Om Videoanalys i realtid på IoT Edge (förhandsversion)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Om Videoanalys i realtid på IoT Edge
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Mediegraf
+      url: media-graph-concept.md
+    - text: Videoinspelning
+      url: video-recording-concept.md
+    - text: Videouppspelning
+      url: video-playback-concept.md
+  - linkListType: learn
+    links:
+    - text: Kontinuerlig videoinspelning
+      url: continuous-video-recording-concept.md
+    - text: Händelsebaserad videoinspelning
+      url: event-based-video-recording-concept.md
+    - text: Analysera livevideor
+      url: analyze-live-video-concept.md
+- title: Scenarier
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Kom igång – Videoanalys i realtid på IoT Edge
+      url: get-started-detect-motion-emit-events-quickstart.md
+    - text: Identifiera rörelse och spela in videoklipp till Azure Media Services
+      url: detect-motion-record-video-clips-media-services-quickstart.md
+    - text: Identifiera rörelse och generera händelser
+      url: detect-motion-emit-events-quickstart.md
+    - text: Identifiera rörelse och spela in video till gränsenheter
+      url: detect-motion-record-video-clips-edge-devices-quickstart.md
+    - text: Kör Videoanalys i realtid med din egen modell
+      url: use-your-model-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Kontinuerlig videoinspelning
+      url: continuous-video-recording-tutorial.md
+    - text: Händelsebaserad videoinspelning
+      url: event-based-video-recording-tutorial.md
+    - text: Spela upp inspelningar från flera dagar
+      url: playback-multi-day-recordings-tutorial.md
+- title: Utveckla
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa anpassad Azure Resource Manager-roll
+      url: create-custom-azure-resource-manager-role-how-to.md
+    - text: Distribuera till en IoT Edge-enhet
+      url: deploy-iot-edge-device.md
+    - text: Övervakning och loggning
+      url: monitoring-logging.md
+    - text: Spela upp en inspelning
+      url: playback-recordings-how-to.md
+    - text: Hantera inspelningsprincip
+      url: manage-recording-policy-how-to.md
+    - text: Felsöka
+      url: troubleshoot-how-to.md
+  - linkListType: reference
+    links:
+    - text: Direkta metoder
+      url: direct-methods.md
+    - text: Konfigurationsschema för modultvilling
+      url: module-twin-configuration-schema.md
+    - text: Kvoter och begränsningar
+      url: quotas-limitations.md

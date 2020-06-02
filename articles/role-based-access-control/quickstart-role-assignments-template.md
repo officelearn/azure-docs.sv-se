@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 56d2647c3da84e9534220e7b237ea24b2b45e8b3
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 4cb25b0398dca05f32f944962e2fc8630ea10870
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854578"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267655"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-azure-resource-manager-template"></a>Snabb start: lägga till en Azure-roll tilldelning med en Azure Resource Manager-mall
 

@@ -2,17 +2,20 @@
 title: Villkorlig distribution med mallar
 description: Beskriver hur du villkorligt distribuerar en resurs i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 001a1a7d6d15fe29b0f3184b75892f4ec75cef27
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/01/2020
+ms.openlocfilehash: effa7fe6ee1393e44a124bc087609da5d4898210
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017502"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259328"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Villkorlig distribution i ARM-mallar
 
 Ibland behöver du eventuellt distribuera en resurs i en Azure Resource Manager-mall (ARM). Använd- `condition` elementet för att ange om resursen har distribuerats. Värdet för det här elementet matchas till true eller false. När värdet är true skapas resursen. När värdet är false skapas inte resursen. Värdet kan bara användas för hela resursen.
+
+> [!NOTE]
+> Villkorlig distribution överlappar inte [underordnade resurser](child-resource-name-type.md). Om du vill villkorligt distribuera en resurs och dess underordnade resurser måste du tillämpa samma villkor för varje resurs typ.
 
 ## <a name="new-or-existing-resource"></a>Ny eller befintlig resurs
 
@@ -81,7 +84,7 @@ Använd funktionen [IF](template-functions-logical.md#if) för att se till att f
 
 Du anger en [resurs som beroende](define-resource-dependency.md) av en villkorlig resurs precis som med andra resurser. När en villkorlig resurs inte distribueras tar Azure Resource Manager automatiskt bort den från de nödvändiga beroendena.
 
-## <a name="condition-with-complete-mode"></a>Villkor med slutfört läge
+## <a name="complete-mode"></a>Fullständigt läge
 
 Om du distribuerar en mall med [slutfört läge](deployment-modes.md) och en resurs inte distribueras eftersom villkoret utvärderas till false beror resultatet på vilken REST API version som du använder för att distribuera mallen. Om du använder en tidigare version än 2019-05-10 **tas inte resursen bort**. Med 2019-05-10 eller senare **tas resursen bort**. De senaste versionerna av Azure PowerShell och Azure CLI tar bort resursen när villkoret är falskt.
 

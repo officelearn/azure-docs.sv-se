@@ -4,18 +4,16 @@ description: Lär dig snabbt att köra ett Batch-jobb med Azure CLI. Skapa och h
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 535c8c34ea7af8e6bc56c3ecfe564de4c1b2bc54
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a4d2e791d810a55b765669c8e909cf448a68fc99
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83694231"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266907"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Snabb start: skapa ett batch-konto med hjälp av Azure Resource Manager mall
 
-Du behöver ett batch-konto för att skapa beräknings resurser (pooler för Compute-noder) och batch-jobb. Du kan länka ett Azure Storage konto med batch-kontot, vilket är användbart för att distribuera program och lagra indata och utdata för de flesta verkliga arbets belastningar.
-
-Den här snabb starten visar hur du använder en Azure Resource Manager mall för att skapa ett batch-konto, inklusive lagring. När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
+Du behöver ett batch-konto för att skapa beräknings resurser (pooler för Compute-noder) och batch-jobb. Du kan länka ett Azure Storage konto med batch-kontot, vilket är användbart för att distribuera program och lagra indata och utdata för de flesta verkliga arbets belastningar. Den här snabb starten visar hur du använder en Azure Resource Manager mall för att skapa ett batch-konto, inklusive lagring. När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,9 +27,9 @@ Du måste ha en aktiv Azure-prenumeration.
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-batchaccount-with-storage).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
 
 Två Azure-resurser definieras i mallen:
 
@@ -48,7 +46,7 @@ Två Azure-resurser definieras i mallen:
 
    ![Resource Manager-mall, skapa batch-konto, distribuera Portal](media/quick-create-template/batch-template.png)
 
-   - **Prenumeration**: Välj en Azure-prenumeration.
+   - **Prenumeration**: välj en Azure-prenumeration.
    - **Resurs grupp**: Välj **Skapa ny**, ange ett unikt namn för resurs gruppen och klicka sedan på **OK**.
    - **Plats**: välj en plats. Välj till exempel **USA, centrala**.
    - **Batch-konto namn**: lämna standardvärdet.

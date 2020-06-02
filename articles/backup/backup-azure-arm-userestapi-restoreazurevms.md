@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig att hantera återställnings åtgä
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4990d815721ddbdde8e6eb6ebf8d6d3b49adc700
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87e3d75d925968b6521324f5b776cf8df1f6af11
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74173372"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247807"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
 
@@ -25,7 +25,7 @@ Tillgängliga återställnings punkter för ett säkerhets kopierings objekt kan
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
 ```
 
-`{containerName}` Och `{protectedItemName}` är som konstruerade [här](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}`är "Azure".
+`{containerName}`Och `{protectedItemName}` är som konstruerade [här](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}`är "Azure".
 
 *Hämta* URI har alla nödvändiga parametrar. Det behövs ingen ytterligare brödtext för begäran
 
@@ -125,7 +125,7 @@ Aktivering av återställnings diskar är en *post* -begäran. Om du vill veta m
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
 ```
 
-`{containerName}` Och `{protectedItemName}` är som konstruerade [här](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}`är "Azure" och `{recoveryPointId}` är `{name}` fältet för den återställnings punkt som anges [ovan](#example-response).
+`{containerName}`Och `{protectedItemName}` är som konstruerade [här](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}`är "Azure" och `{recoveryPointId}` är `{name}` fältet för den återställnings punkt som anges [ovan](#example-response).
 
 ### <a name="create-request-body"></a>Skapa brödtext för begäran
 
@@ -167,7 +167,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Name  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|202 accepterad     |         |     Accepterad    |
+|202 accepterad     |         |     Har godkänts    |
 
 #### <a name="example-responses"></a>Exempel svar
 

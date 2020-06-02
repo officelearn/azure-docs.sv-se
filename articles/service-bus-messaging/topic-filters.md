@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 6e780268d4b8c1a512ce82b1ca10a2f6b7b894b7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbf569e95c59e888b830876f0458b063bd3920da
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125765"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258818"
 ---
 # <a name="topic-filters-and-actions"></a>Ämnesfilter och åtgärder
 
@@ -64,7 +64,7 @@ Routning använder filter för att distribuera meddelanden över ämnes prenumer
 
 
 > [!NOTE]
-> För närvarande kan Azure Portal inte ange filter regler för prenumerationer. Du kan använda någon av de SDK: er som stöds eller Azure Resource Manager mallar för att definiera prenumerations regler. 
+> Eftersom Azure Portal nu stöder Service Bus Explorer-funktioner kan du skapa eller redigera prenumerations filter från portalen. 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande exempel: 

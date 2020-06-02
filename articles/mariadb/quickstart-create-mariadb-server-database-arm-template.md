@@ -7,20 +7,20 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: ff7a22c0006d124f8d89b2f933dd213499dc1771
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 547b268a43cdd4b362d56b34cf9129a8b5efe16e
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997577"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266431"
 ---
-# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Snabb start: Använd en ARM-mall för att skapa en Azure Database for MariaDB-Server
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mariadb-server"></a>Snabb start: Använd en Resource Manager-mall för att skapa en Azure Database for MariaDB-Server
 
 Azure Database for MariaDB är en hanterad tjänst som du använder för att köra, hantera och skala hög tillgängliga MariaDB-databaser i molnet. I den här snabb starten använder du en ARM-mall för att skapa en Azure Database for MariaDB-server i Azure Portal, PowerShell eller Azure CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -44,7 +44,7 @@ Du skapar en Azure Database for MariaDB-server med en definierad uppsättning be
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mariadb-with-vnet/).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/101-managed-mariadb-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
 
@@ -58,7 +58,7 @@ Mallen definierar fem Azure-resurser:
 
 Fler Azure Database for MariaDB mal sampel finns i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Distribuera mallen
+### <a name="deploy-the-template"></a>Distribuera mallen
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

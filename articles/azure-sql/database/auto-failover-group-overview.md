@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
-ms.openlocfilehash: bea815dbf9f0da6c0acda000478203f514b2fb2f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: d32670ba79bd526c8f53438bf348323084f99928
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220385"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258580"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -309,8 +309,8 @@ Vi antar att instans A är den primära instansen, instans B är den befintliga 
 ### <a name="enable-scenarios-dependent-on-objects-from-the-system-databases"></a>Aktivera scenarier som är beroende av objekt från system databaser
 System databaser replikeras inte till den sekundära instansen i en failover-grupp. Om du vill aktivera scenarier som är beroende av objekt från system databaserna på den sekundära instansen, se till att skapa samma objekt på den sekundära. Om du till exempel planerar att använda samma inloggningar på den sekundära instansen, se till att skapa dem med samma SID. 
 ```SQL
--- Sample code to create login on the secondary instance
-CREATE LOGIN foo WITH PASSWORD = 'password', SID = 0x12345
+-- Code to create login on the secondary instance
+CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 ``` 
 
 
@@ -404,7 +404,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| Cmdlet | Description |
+| Cmdlet | Beskrivning |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
 | [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Tar bort en failover-grupp från servern |
@@ -415,7 +415,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| Kommando | Description |
+| Kommando | Beskrivning |
 | --- | --- |
 | [AZ SQL-redundans – grupp skapa](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
 | [AZ SQL-redundans – grupp Delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Tar bort en failover-grupp från servern |
@@ -425,7 +425,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="rest-api"></a>[REST-API](#tab/rest-api)
 
-| API | Description |
+| API | Beskrivning |
 | --- | --- |
 | [Skapa eller uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Skapar eller uppdaterar en failover-grupp |
 | [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Tar bort en failover-grupp från servern |
@@ -442,7 +442,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| Cmdlet | Description |
+| Cmdlet | Beskrivning |
 | --- | --- |
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära instanser|
 | [Set-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Ändrar konfigurationen för en failover-grupp|
@@ -453,7 +453,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| Kommando | Description |
+| Kommando | Beskrivning |
 | --- | --- |
 | [AZ SQL-redundans – grupp skapa](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
 | [AZ SQL-redundans – grupp Delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Tar bort en failover-grupp från servern |
@@ -463,7 +463,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="rest-api"></a>[REST-API](#tab/rest-api)
 
-| API | Description |
+| API | Beskrivning |
 | --- | --- |
 | [Skapa eller uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Skapar eller uppdaterar en konfiguration för redundans gruppen |
 | [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Tar bort en redundans-grupp från instansen |

@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: d36cfc711d7a4c5e5c936550f0a6adb783d4bf3b
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3397fcb14f27e6bc0cc64b048dedde7198d5a06b
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219006"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266091"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Inställningar för Azure SQL-anslutning
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -90,7 +90,7 @@ För närvarande har vi stöd för TLS 1,0, 1,1 och 1,2. Genom att ange en minim
 
 För kunder med program som förlitar sig på äldre versioner av TLS rekommenderar vi att du ställer in den lägsta TLS-versionen enligt kraven för dina program. För kunder som förlitar sig på att program ska ansluta via en okrypterad anslutning rekommenderar vi inte att du anger någon minimal TLS-version. 
 
-Mer information finns i [TLS-överväganden för SQL Database anslutning](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity).
+Mer information finns i [TLS-överväganden för SQL Database anslutning](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
 När du har angett den lägsta TLS-versionen kommer inloggnings försök från klienter som använder en TLS-version som är lägre än den lägsta TLS-versionen av servern att Miss lyckas med följande fel:
 

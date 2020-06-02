@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: cbef0244f30a7cf14f8fea4c6a445cf0de662dc4
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: 46dd7949dde1890035053a7a985f2f1d921e141e
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737903"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266669"
 ---
 # <a name="create-diagnostic-setting-to-collect-resource-logs-and-metrics-in-azure"></a>Skapa en diagnostisk inställning för att samla in resurs loggar och mått i Azure
 
@@ -49,7 +49,7 @@ Plattforms loggar och-mått kan skickas till målen i följande tabell. Följ va
 | [Event Hub](resource-logs-stream-event-hubs.md) | Genom att skicka loggar och mått till Event Hubs kan du strömma data till externa system, till exempel Siem för tredje part och andra Log Analytics-lösningar. |
 | [Azure Storage-konto](resource-logs-collect-storage.md) | Arkivering av loggar och mått till ett Azure Storage-konto är användbart för granskning, statisk analys eller säkerhets kopiering. Jämfört med Azure Monitor loggar och en Log Analytics arbets yta är Azure Storage billigare och loggar kan sparas där på obestämd tid. |
 
-## <a name="create-diagnostic-settings-in-azure-portal"></a>Skapa diagnostikinställningar i Azure Portal
+## <a name="create-diagnostic-settings-in-azure-portal"></a>Skapa diagnostikinställningar i Azure-portalen
 
 Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure Monitor-menyn eller från menyn för resursen.
 
@@ -149,11 +149,11 @@ az monitor diagnostic-settings create  \
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
-### <a name="configure-diagnostic-settings-using-rest-api"></a>Konfigurera diagnostikinställningar med REST API
+## <a name="configure-diagnostic-settings-using-rest-api"></a>Konfigurera diagnostikinställningar med REST API
 
 Se [diagnostikinställningar](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) för att skapa eller uppdatera diagnostikinställningar med hjälp av [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
 
-### <a name="configure-diagnostic-settings-using-resource-manager-template"></a>Konfigurera diagnostikinställningar med Resource Manager-mall
+## <a name="configure-diagnostic-settings-using-resource-manager-template"></a>Konfigurera diagnostikinställningar med Resource Manager-mall
 
 Se [skapa diagnostisk inställning i Azure monitor att använda en Resource Manager-mall](diagnostic-settings-template.md) för att skapa eller uppdatera diagnostikinställningar med en Resource Manager-mall.
 

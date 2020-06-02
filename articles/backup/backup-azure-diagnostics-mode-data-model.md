@@ -3,12 +3,12 @@ title: Azure Monitor loggar data modell
 description: I den här artikeln lär du dig mer om Azure Monitor Log Analytics data modell information för Azure Backup data.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 78d43e4c65f31b47f4b6070f071c932692cee883
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
+ms.openlocfilehash: ba50e10eee61c571249a9b99c7e3b53d74474382
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83707997"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248931"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics data modell för Azure Backup data
 
@@ -35,9 +35,9 @@ Den här tabellen innehåller information om aviserings relaterade fält.
 | AlertStatus_s |Text |Status för aviseringen, till exempel aktiv |
 | AlertOccurrenceDateTime_s |Datum/tid |Datum och tid då aviseringen skapades |
 | AlertSeverity_s |Text |Allvarlighets grad för aviseringen, till exempel kritisk |
-|AlertTimeToResolveInMinutes_s    | Antal        |Åtgången tid för att lösa en avisering. Tomt för aktiva aviseringar.         |
+|AlertTimeToResolveInMinutes_s    | Tal        |Åtgången tid för att lösa en avisering. Tomt för aktiva aviseringar.         |
 |AlertConsolidationStatus_s   |Text         |Identifiera om aviseringen är en konsol IDE rad avisering eller inte         |
-|CountOfAlertsConsolidated_s     |Antal         |Antal aviseringar som konsolideras om det är en konsol IDE rad avisering          |
+|CountOfAlertsConsolidated_s     |Tal         |Antal aviseringar som konsolideras om det är en konsol IDE rad avisering          |
 |AlertRaisedOn_s     |Text         |Typ av entitet som aviseringen utlöses på         |
 |AlertCode_s     |Text         |Kod som unikt identifierar en aviserings typ         |
 |RecommendedAction_s   |Text         |Åtgärd som rekommenderas för att lösa aviseringen         |
@@ -155,8 +155,8 @@ Den här tabellen innehåller information om projektrelaterade fält.
 | JobStartDateTime_s |Datum/tid |Datum och tid då jobbet började köras |
 | BackupStorageDestination_s |Text |Mål för lagring av säkerhets kopior, till exempel moln, disk  |
 | AdHocOrScheduledJob_s |Text | Fält för att ange om jobbet är ad hoc eller schemalagt |
-| JobDurationInSecs_s | Antal |Total jobb varaktighet i sekunder |
-| DataTransferredInMB_s | Antal |Överförda data i MB för det här jobbet|
+| JobDurationInSecs_s | Tal |Total jobb varaktighet i sekunder |
+| DataTransferredInMB_s | Tal |Överförda data i MB för det här jobbet|
 | JobUniqueId_g |Text |Unikt ID för att identifiera jobbet |
 | RecoveryJobDestination_s |Text | Målet för ett återställnings jobb, där data återställs |
 | RecoveryJobRPDateTime_s |DateTime | Datum och tid när återställnings punkten som återställs skapades |
@@ -297,8 +297,8 @@ Den här tabellen innehåller grundläggande Storage-relaterade fält som anslut
 | BackupItemUniqueId_s |Text |Unikt ID som används för att identifiera det säkerhets kopierings objekt som är relaterat till lagrings enheten |
 | BackupManagementServerUniqueId_s |Text |Unikt ID som används för att identifiera säkerhets kopierings hanterings servern som är relaterad till lagrings enheten|
 | VaultUniqueId_s |Text |Unikt ID som används för att identifiera valvet som hör till lagrings enheten|
-| StorageConsumedInMBs_s |Antal|Storlek på lagring som förbrukas av motsvarande säkerhets kopierings objekt i motsvarande lagrings utrymme |
-| StorageAllocatedInMBs_s |Antal |Storleken på det lagrings utrymme som allokerats av motsvarande säkerhets kopierings objekt i motsvarande lagring av typ disk|
+| StorageConsumedInMBs_s |Tal|Storlek på lagring som förbrukas av motsvarande säkerhets kopierings objekt i motsvarande lagrings utrymme |
+| StorageAllocatedInMBs_s |Tal |Storleken på det lagrings utrymme som allokerats av motsvarande säkerhets kopierings objekt i motsvarande lagring av typ disk|
 
 ### <a name="vault"></a>Valv
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 85021af94c3cc88f45b391690d7481d5498c40a9
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478301"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84246891"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka konfigurationsserverfel
 
@@ -43,15 +43,17 @@ Käll datorn registreras med konfigurations servern när du installerar mobilite
     4. När nätverks problem är lösta gör du ett nytt försök med registreringen genom att följa rikt linjerna i [Registrera käll datorn med konfigurations servern](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
 6. Om strängen **post-begäran: (7) – det inte går att ansluta till servern** går du till den i samma loggfil **: (60) – peer-certifikatet kan inte autentiseras med de certifikat som utfärdas**. Det här felet kan inträffa eftersom konfigurations serverns certifikat har upphört att gälla eller om käll datorn inte stöder TLS 1,0 eller senare protokoll. Det kan också inträffa om en brand vägg blockerar TLS-kommunikation mellan käll datorn och konfigurations servern. Om strängen hittas: 
-    1. Lös problemet genom att ansluta till konfigurations serverns IP-adress med hjälp av en webbläsare på käll datorn. Använd URI https:\/ \/<konfigurations serverns IP\>-adress: 443/. Se till att käll datorn kan komma åt konfigurations servern via port 443.
+    1. Lös problemet genom att ansluta till konfigurations serverns IP-adress med hjälp av en webbläsare på käll datorn. Använd URI https: \/ \/<konfigurations SERVERns IP-adress \> : 443/. Se till att käll datorn kan komma åt konfigurations servern via port 443.
     2. Kontrol lera om brand Väggs regler på käll datorn måste läggas till eller tas bort för att käll datorn ska kunna kommunicera med konfigurations servern. På grund av de olika brand Väggs program som kanske används kan vi inte lista alla nödvändiga brand Väggs konfigurationer. Arbeta med nätverks administratörerna för att avblockera eventuella anslutnings problem.
     3. Se till att de mappar som anges i [Site Recovery mapp undantag från antivirus program](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) undantas från antivirus program varan.  
     4. När du har löst problemen, gör om registreringen genom att följa rikt linjerna i [Registrera käll datorn med konfigurations servern](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. Om värdet för plattformen i <INSTALLATION_DIR\>/etc/drscout.conf är skadat på Linux, så Miss lyckas registreringen. Du kan identifiera det här problemet genom att öppna filen/var/log/ua_install. log. Sök efter strängen **som avbryter konfigurationen eftersom VM_PLATFORM värdet är antingen null eller inte VMware/Azure**. Plattformen ska vara inställd på antingen **VMware** eller **Azure**. Om filen drscout. conf är skadad, rekommenderar vi att du [avinstallerar mobilitets agenten](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) och sedan installerar om mobilitets agenten. Om avinstallationen Miss lyckas utför du följande steg: a. Öppna filen Installation_Directory/Uninstall.sh och kommentera ut anropet till funktionen **StopServices** .
+7. Om värdet för plattformen i <INSTALLATION_DIR \> /etc/drscout.conf är skadat på Linux, så Miss lyckas registreringen. Du kan identifiera det här problemet genom att öppna filen/var/log/ua_install. log. Sök efter strängen **som avbryter konfigurationen eftersom VM_PLATFORM värdet är antingen null eller inte VMware/Azure**. Plattformen ska vara inställd på antingen **VMware** eller **Azure**. Om filen drscout. conf är skadad, rekommenderar vi att du [avinstallerar mobilitets agenten](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) och sedan installerar om mobilitets agenten. Om avinstallationen Miss lyckas utför du följande steg: a. Öppna filen Installation_Directory/Uninstall.sh och kommentera ut anropet till funktionen **StopServices** .
     b. Öppna filen Installation_Directory/VX/bin/Uninstall.sh och kommentera ut anropet till funktionen **stop_services** .
     c. Öppna filen Installation_Directory/FX/Uninstall.sh och kommentera ut hela avsnittet som försöker stoppa FX-tjänsten.
     d. [Avinstallera](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) mobilitets agenten. Efter en lyckad avinstallation startar du om systemet och försöker sedan installera om mobilitets agenten.
+
+8. Se till att Multi-Factor Authentication inte är aktiverat för användar kontot. Azure Site Recovery stöder inte Multi-Factor Authentication för användar kontot från och med nu. Registrera konfigurations servern utan Multi-Factor Authentication-aktiverat användar konto.  
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Installations fel: det gick inte att läsa in konton
 
@@ -95,9 +97,9 @@ Kör följande kommando på käll datorn:
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
 ```
 
-Inställningen | Information
+Inställning | Information
 --- | ---
-Användning | UnifiedAgentConfigurator. exe/CSEndPoint <konfigurations serverns\> IP-adress/PassphraseFilePath <lösen ords Sök väg\>
+Användning | UnifiedAgentConfigurator. exe/CSEndPoint < konfigurations serverns IP-adress \> /PassphraseFilePath < lösen ords Sök väg\>
 Agent konfigurations loggar | Finns under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Obligatorisk parameter. Anger konfigurations serverns IP-adress. Använd en giltig IP-adress.
 /PassphraseFilePath |  Obligatorisk. Platsen för lösen frasen. Använd en giltig UNC-eller lokal fil Sök väg.
@@ -110,9 +112,9 @@ Kör följande kommando på käll datorn:
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
   ```
 
-Inställningen | Information
+Inställning | Information
 --- | ---
-Användning | cd-/usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh-i <konfigurations serverns\> IP-adress-P <lösen ords Sök väg\>
+Användning | cd-/usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh-i <konfigurations serverns IP-adress \> -P <lösen ords Sök väg\>
 -i | Obligatorisk parameter. Anger konfigurations serverns IP-adress. Använd en giltig IP-adress.
 -P |  Obligatorisk. Den fullständiga sökvägen till filen där lösen frasen sparas. Använd en giltig mapp.
 
@@ -203,7 +205,7 @@ Detta beror vanligt vis på ett fel med port 443. Använd följande steg för at
 
 Kontrol lera att huvud mål agenten kan skapa en TCP-session för konfigurations serverns IP-adress genom att leta efter en spårning som liknar följande i huvud mål agentens loggar:
 
-TCP \<Ersätt IP med CS-ip här>: \<52739 Ersätt IP med cs-ip här>:443 SYN_SENT 
+TCP \<Replace IP with CS IP here> : 52739 \<Replace IP with CS IP here> : 443 SYN_SENT 
 
 TCP-192.168.1.40:52739 192.168.1.40:443 SYN_SENT//Ersätt IP med CS-IP här
 

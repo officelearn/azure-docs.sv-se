@@ -4,12 +4,12 @@ description: Lär dig hur du hanterar och övervakar säkerhets kopior av Micros
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0afe83edc638cba4cd14cc27b84a98937175fc86
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025109"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248608"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhets kopior av Microsoft Azure Recovery Services (MARS) med hjälp av tjänsten Azure Backup
 
@@ -125,7 +125,7 @@ Det finns två sätt att sluta skydda säkerhets kopior av filer och mappar:
 
     ![Stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Du uppmanas att ange en PIN-kod för säkerhet (personal Identification Number) som du måste generera manuellt. Det gör du genom att först logga in på Azure Portal.
-5. Gå till**Inställningar** > **Properties**för **Recovery Services valv** > .
+5. Gå till inställningar för **Recovery Services valv**  >  **Settings**  >  **Properties**.
 6. Under **säkerhets-PIN**väljer du **generera**. Kopiera den här PIN-koden. PIN-koden är bara giltig i fem minuter.
 7. I hanterings konsolen klistrar du in PIN-koden och väljer sedan **OK**.
 
@@ -156,7 +156,7 @@ Om du har stoppat skyddet och bevarar data och valt att återuppta skyddet kan d
 
 En lösen fras används för att kryptera och dekryptera data vid säkerhets kopiering eller återställning av den lokala eller lokala datorn med hjälp av MARS-agenten till eller från Azure. Om du har förlorat eller glömt lösen frasen kan du återskapa lösen frasen (förutsatt att datorn fortfarande är registrerad i Recovery Services valvet och säkerhets kopian har kon figurer ATS) genom att följa dessa steg:
 
-- Från mars agent-konsolen går du till **Åtgärds fönstret** > **ändra egenskaper** >. Gå sedan till **fliken kryptering**.<br>
+- Från mars agent-konsolen går du till **Åtgärds fönstret**  >  **ändra egenskaper** >. Gå sedan till **fliken kryptering**.<br>
 - Markera kryss rutan **ändra lösen fras** .<br>
 - Ange en ny lösen fras eller klicka på **generera lösen fras**.
 - Klicka på **Bläddra** för att spara den nya lösen frasen.

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: yelevin
-ms.openlocfilehash: 2e1b1a4786670974a40b22d44fc219c6be5d97a3
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 9fa10dd1b278b48eb714affb74af59140c8baa09
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744753"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259345"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Behörigheter i Azure Sentinel
 
-Azure Sentinel använder [rollbaserad Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md)för att tillhandahålla [inbyggda roller](../role-based-access-control/built-in-roles.md) som kan tilldelas till användare, grupper och tjänster i Azure.
+Azure Sentinel använder [rollbaserad Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md)för att tillhandahålla [inbyggda roller](../role-based-access-control/built-in-roles.md)   som kan tilldelas till användare, grupper och tjänster i Azure.
 
 Med RBAC kan du använda och skapa roller i din säkerhets åtgärds grupp för att ge lämplig åtkomst till Azure Sentinel. Baserat på rollerna har du detaljerad kontroll över vilka användare med åtkomst till Azure Sentinel som kan se. Du kan tilldela RBAC-roller i Azure Sentinel-arbetsytan direkt eller till en prenumeration eller resurs grupp som arbets ytan tillhör.
 

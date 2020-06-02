@@ -1,6 +1,7 @@
 ---
-title: Anslut och fråga innehålls referens
-description: En referens till Azure SQL Database snabb starter som visar hur du ansluter till och frågar Azure SQL Database.
+title: Anslut och fråga
+description: Länkar till Azure SQL Database snabb starter som visar hur du ansluter till och frågar Azure SQL Database och Azure SQL-hanterad instans.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,41 +11,41 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 12/18/2018
-ms.openlocfilehash: 12e53e6960cbd55b78c8459ae9db080f32e2ffb6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: ceaff4575713d4bf40bea621cbb08313aad11611
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189641"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267485"
 ---
-# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Snabb starter: Azure SQL Database Anslut och fråga
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database och Azure SQL-hanterad instans Anslut och skicka frågor till artiklar
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Följande dokument innehåller länkar till Azure-exempel som visar hur du ansluter och frågar Azure SQL Database. Det innehåller också några rekommendationer för TLS (Transport Level Security).
+Följande dokument innehåller länkar till Azure-exempel som visar hur du ansluter och frågar Azure SQL Database och Azure SQL-hanterad instans. Vissa relaterade rekommendationer för säkerhet på transport nivå finns i [TLS-överväganden för databas anslutning](#tls-considerations-for-database-connectivity).
 
 ## <a name="quickstarts"></a>Snabbstarter
 
 | |  |
 |---|---|
-|[SQL Server Management Studio](connect-query-ssms.md)|Den här snabb starten visar hur du använder SSMS för att ansluta till en databas i Azure SQL Database och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
-|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Den här snabb starten visar hur du använder Azure Data Studio för att ansluta till en databas i Azure SQL Database och sedan använda Transact-SQL-uttryck (T-SQL) för att skapa den TutorialDB som används i Azure Data Studio själv studie kurser.|
-|[Azure Portal](connect-query-portal.md)|Den här snabb starten visar hur du använder Frågeredigeraren för att ansluta till en databas i Azure SQL Database och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
-|[Visual Studio-koden](connect-query-vscode.md)|Den här snabb starten visar hur du använder Visual Studio Code för att ansluta till en databas i Azure SQL Database och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
-|[.NET med Visual Studio](connect-query-dotnet-visual-studio.md)|Den här snabb starten visar hur du använder .NET Framework för att skapa ett C#-program med Visual Studio för att ansluta till en databas i Azure SQL Database och använda Transact-SQL-uttryck för att fråga data.|
-|[.NET Core](connect-query-dotnet-core.md)|Den här snabb starten visar hur du använder .NET Core på Windows/Linux/macOS för att skapa ett C#-program för att ansluta till en databas i Azure SQL Database och använda Transact-SQL-uttryck för att fråga data.|
-|[Kör](connect-query-go.md)|Den här snabb starten visar hur du använder Go för att ansluta till en databas i Azure SQL Database. Här visas också hur du använder Transact-SQL-uttryck för att köra frågor mot och ändra data.|
-|[Java](connect-query-java.md)|Den här snabb starten visar hur du använder Java för att ansluta till en databas i Azure SQL Database och sedan använder Transact-SQL-uttryck för att fråga data.|
-|[Node.js](connect-query-nodejs.md)|Den här snabb starten visar hur du använder Node. js för att skapa ett program för att ansluta till en databas i Azure SQL Database och använda Transact-SQL-uttryck för att fråga data.|
-|[PHP](connect-query-php.md)|Den här snabb starten visar hur du använder PHP för att skapa ett program för att ansluta till en databas i Azure SQL Database och använda Transact-SQL-uttryck för att fråga data.|
-|[Python](connect-query-python.md)|Den här snabb starten visar hur du använder python för att ansluta till en databas i Azure SQL Database och använder Transact-SQL-uttryck för att fråga data. |
-|[Ruby](connect-query-ruby.md)|Den här snabb starten visar hur du använder ruby för att skapa ett program för att ansluta till en databas i Azure SQL Database och använda Transact-SQL-uttryck för att fråga data.|
+|[SQL Server Management Studio](connect-query-ssms.md)|Den här snabb starten visar hur du använder SSMS för att ansluta till en databas och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Den här snabb starten visar hur du använder Azure Data Studio för att ansluta till en databas och sedan använder Transact-SQL-uttryck (T-SQL) för att skapa de TutorialDB som används i Azure Data Studio självstudier.|
+|[Azure Portal](connect-query-portal.md)|Den här snabb starten visar hur du använder Frågeredigeraren för att ansluta till en databas (endast Azure SQL Database) och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
+|[Visual Studio-koden](connect-query-vscode.md)|Den här snabb starten visar hur du använder Visual Studio Code för att ansluta till en databas och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
+|[.NET med Visual Studio](connect-query-dotnet-visual-studio.md)|Den här snabb starten visar hur du använder .NET Framework för att skapa ett C#-program med Visual Studio för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
+|[.NET Core](connect-query-dotnet-core.md)|Den här snabb starten visar hur du använder .NET Core på Windows/Linux/macOS för att skapa ett C#-program för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
+|[Kör](connect-query-go.md)|Den här snabb starten visar hur du använder Go för att ansluta till en databas. Här visas också hur du använder Transact-SQL-uttryck för att köra frågor mot och ändra data.|
+|[Java](connect-query-java.md)|Den här snabb starten visar hur du använder Java för att ansluta till en databas och sedan använder Transact-SQL-uttryck för att fråga data.|
+|[Node.js](connect-query-nodejs.md)|Den här snabb starten visar hur du använder Node. js för att skapa ett program för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
+|[PHP](connect-query-php.md)|Den här snabb starten visar hur du använder PHP för att skapa ett program för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
+|[Python](connect-query-python.md)|Den här snabb starten visar hur du använder python för att ansluta till en databas och använder Transact-SQL-uttryck för att fråga data. |
+|[Ruby](connect-query-ruby.md)|Den här snabb starten visar hur du använder ruby för att skapa ett program för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
 |[R](connect-query-r.md)|Den här snabb starten visar hur du använder R med Azure SQL Database Machine Learning Services för att skapa ett program för att ansluta till en databas i Azure SQL Database och använda Transact-SQL-uttryck för att fråga data.|
 |||
 
-## <a name="tls-considerations-for-sql-database-connectivity"></a>TLS-överväganden för SQL Database-anslutning
+## <a name="tls-considerations-for-database-connectivity"></a>TLS-överväganden för databas anslutning
 
-Transport Layer Security (TLS) används av alla driv rutiner som Microsoft tillhandahåller eller stöder för att ansluta till en databas i Azure SQL Database. Ingen särskild konfiguration krävs. För alla anslutningar till en SQL Server instans, en databas i Azure SQL Database eller en instans av Azure SQL-hanterad instans, rekommenderar vi att alla program ställer in följande konfigurationer eller deras motsvarigheter:
+Transport Layer Security (TLS) används av alla driv rutiner som Microsoft tillhandahåller eller stöder för att ansluta till databaser i Azure SQL Database eller Azure SQL-hanterad instans. Ingen särskild konfiguration krävs. För alla anslutningar till en SQL Server instans, en databas i Azure SQL Database eller en instans av Azure SQL-hanterad instans, rekommenderar vi att alla program ställer in följande konfigurationer eller deras motsvarigheter:
 
 - **Kryptera = På**
 - **TrustServerCertificate = Av**
@@ -53,23 +54,23 @@ Vissa system använder andra men likvärdiga nyckelord för dessa konfigurations
 
 Vi rekommenderar också att du inaktiverar TLS 1.1 och 1.0 på klienten om du behöver följa datasäkerhetsstandarden PCI-DSS (Payment Card Industry – Data Security Standard).
 
-Drivrutiner som inte kommer från Microsoft kanske inte använder TLS som standard. Detta är viktigt att ha i åtanke vid anslutning till Azure SQL Database. Du kanske inte kan ändra dessa anslutningsinställningar i program med inbäddade drivrutiner. Vi rekommenderar att du kontrollerar säkerheten i sådana drivrutiner och program innan du använder dem i system som hanterar känsliga data.
+Drivrutiner som inte kommer från Microsoft kanske inte använder TLS som standard. Detta kan vara en faktor vid anslutning till Azure SQL Database eller Azure SQL-hanterad instans. Du kanske inte kan ändra dessa anslutningsinställningar i program med inbäddade drivrutiner. Vi rekommenderar att du kontrollerar säkerheten i sådana drivrutiner och program innan du använder dem i system som hanterar känsliga data.
 
 ## <a name="libraries"></a>Bibliotek
 
 Du kan använda olika bibliotek och ramverk för att ansluta till Azure SQL Database eller Azure SQL-hanterad instans. Kolla in våra [inledande självstudier](https://aka.ms/sqldev) om du snabbt vill komma igång med programmeringsspråk som C#, Java, Node.js, PHP och Python. Skapa sedan en app med hjälp av SQL Server i Linux eller Windows, eller Docker i macOS.
 
-I följande tabell ser du vilka anslutningsbibliotek eller *drivrutiner* som klientprogram kan använda i olika språk för att ansluta till och använda SQL Server lokalt eller i molnet. Du kan använda dem i Linux, Windows och Docker när du vill ansluta till Azure SQL Database eller Azure SQL Data Warehouse.
+I följande tabell ser du vilka anslutningsbibliotek eller *drivrutiner* som klientprogram kan använda i olika språk för att ansluta till och använda SQL Server lokalt eller i molnet. Du kan använda dem på Linux, Windows eller Docker och använda dem för att ansluta till Azure SQL Database, Azure SQL-hanterad instans och Azure SQL Data Warehouse.
 
 | Språk | Plattform | Ytterligare resurser | Ladda ned | Kom igång |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET för SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Ladda ned](https://www.microsoft.com/net/download/) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [PHP SQL-drivrutin för SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Ladda ned](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
-| Node.js | Windows, Linux, macOS | [Node.js-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt652093.aspx) | [Installera](https://msdn.microsoft.com/library/mt652094.aspx) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Python SQL-drivrutin](https://msdn.microsoft.com/library/mt652092.aspx) | Installationsval: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [Ruby-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt691981.aspx) | [Installera](https://msdn.microsoft.com/library/mt711041.aspx) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
-| C++ | Windows, Linux, macOS | [Microsoft ODBC-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Ladda ned](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
+| Node.js | Windows, Linux, macOS | [Node.js-drivrutin för SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Installera](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Python SQL-drivrutin](/sql/connect/python/python-driver-for-sql-server/) | Installationsval: <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Ruby-drivrutin för SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/) | [Installera](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| C++ | Windows, Linux, macOS | [Microsoft ODBC-drivrutin för SQL Server](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) | [Ladda ned](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) |  
 
 I följande tabell visas exempel på ramverk för objekt Relations mappning (ORM) och webb ramverk som klient program kan använda med SQL Server, Azure SQL Database, Azure SQL-hanterad instans eller Azure Synapse Analytics. Du kan använda ramverken på Linux, Windows eller Docker.
 
@@ -86,17 +87,17 @@ I följande tabell visas exempel på ramverk för objekt Relations mappning (ORM
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om anslutningsarkitekturen finns i [Azure SQL Database Connectivity Architecture](connectivity-architecture.md) (Anslutningsarkitektur för Azure SQL Database).
-- Hitta [SQL Server driv rutiner](https://msdn.microsoft.com/library/mt654049.aspx) som används för att ansluta från klient program.
-- Anslut till Azure SQL Database:
-  - [Anslut till SQL Database med .NET (C#)](connect-query-dotnet-core.md)
-  - [Ansluta till SQL Database med PHP](connect-query-php.md)
-  - [Ansluta till SQL Database med Node.js](connect-query-nodejs.md)
-  - [Ansluta till SQL Database med Java](connect-query-java.md)
-  - [Anslut till SQL Database med Python](connect-query-python.md)
-  - [Ansluta till SQL Database med Ruby](connect-query-ruby.md)
+- Hitta [SQL Server driv rutiner](/sql/connect/sql-connection-libraries/) som används för att ansluta från klient program.
+- Anslut till Azure SQL Database eller Azure SQL-hanterad instans:
+  - [Anslut och fråga med .NET (C#)](connect-query-dotnet-core.md)
+  - [Anslut och fråga med PHP](connect-query-php.md)
+  - [Anslut och fråga med Node. js](connect-query-nodejs.md)
+  - [Anslut och fråga med Java](connect-query-java.md)
+  - [Anslut och fråga med python](connect-query-python.md)
+  - [Anslut och fråga med ruby](connect-query-ruby.md)
 - Kodexempel för omprövningslogik:
-  - [Anslut elastiskt för att SQL Database med ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-  - [Anslut elastiskt för att SQL Database med PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+  - [Anslut elastiskt med ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+  - [Ansluta elastiskt med PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <!-- Link references. -->
 

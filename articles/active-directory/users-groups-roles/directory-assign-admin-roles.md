@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 451d0709a8b0a1c0993ff879d675eb056e721c36
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b4ed0b011e7b82ce95c002d2af68e577f1d10c84
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116639"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266210"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -458,6 +458,9 @@ Användare med den här rollen har globala behörigheter inom Microsoft SharePoi
 
 > [!NOTE]
 > Den här rollen identifieras som "SharePoint-tjänsteadministratör" i Microsoft Graph API och Azure AD PowerShell. Det är "SharePoint-administratör" i [Azure Portal](https://portal.azure.com).
+
+> [!NOTE]
+> Den här rollen beviljar även begränsade behörigheter till Microsoft Graph API för Microsoft Intune, vilket möjliggör hantering och konfiguration av principer som rör SharePoint-och OneDrive-resurser.
 
 ### <a name="skype-for-business--lync-administrator"></a>[Skype för företag/Lync-administratör](#lync-service-administrator-permissions)
 

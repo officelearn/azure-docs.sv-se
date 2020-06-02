@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395aa82d47f4f84070af557c2c3b741776fb51ba
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 70caf48163483b449fa2cf3576681b5c9c15f4f2
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834415"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259294"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med slack
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar slack med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -40,7 +40,7 @@ För att komma igång behöver du följande objekt:
 * Aktiverings prenumeration med enkel inloggning (SSO) för slack.
 
 > [!NOTE]
-> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
+> Om du behöver integrera med fler än en slack-instans i en klient, kan identifieraren för varje program vara en variabel.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -93,20 +93,24 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     > [!NOTE]
     > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Slack-kundsupporten](https://slack.com/help/contact) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    
+    > [!NOTE]
+    > Värdet för **identifierare (entitets-ID)** kan vara en variabel om du har fler än en slack-instans som du behöver integrera med klienten. Använd mönstret `https://<DOMAIN NAME>.slack.com` . I det här scenariot måste du också koppla till en annan inställning i slacket med samma värde.
 
 1. Slack-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar till dina SAML token-konfiguration av attribut. I följande skärmbild visas listan över standardattribut.
 
     ![image](common/edit-attribute.png)
 
-1. Förutom över, förväntar slack-programmet några fler attribut att skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav. Om användarna inte har en e-postadress mappar du **EmailAddress** till **User. UserPrincipalName**.
+1. Förutom över, förväntar slack-programmet några fler attribut att skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav. Du måste också lägga till `email` attributet. Om användaren inte har en e-postadress mappar du **EmailAddress** till **User. UserPrincipalName** och mappar **e-post** till **User. UserPrincipalName**.
 
     | Name | Källattribut |
     | -----|---------|
     | emailaddress | user.userprincipalname |
+    | e-post | user.userprincipalname |
     | | |
 
-> [!NOTE]
-    > För att kunna konfigurera Service Provider (SP)-konfigurationen måste du klicka på **expandera** bredvid **Avancerade alternativ** på sidan SAML-konfiguration. I rutan **Service Provider Issuer** anger du URL för arbets ytan. Standardvärdet är slack.com. 
+   > [!NOTE]
+   > För att kunna konfigurera Service Provider (SP)-konfigurationen måste du klicka på **expandera** bredvid **Avancerade alternativ** på sidan SAML-konfiguration. I rutan **Service Provider Issuer** anger du URL för arbets ytan. Standardvärdet är slack.com. 
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -166,15 +170,18 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     b.  I textrutan **Identity Provider Issuer** (Utfärdare av identitetsprovider) klistrar du in värdet för **Azure Ad-identifierare**, som du har kopierat från Azure-portalen.
 
-    c.  Öppna den nedladdade certifikatfilen i Anteckningar, kopiera innehållet i den i Urklipp och klistra in den i textrutan **Offentligt certifikat**.
+    c.  Öppna den hämtade certifikat filen i anteckningar, kopiera innehållet i den till Urklipp och klistra sedan in den i text rutan för **offentligt certifikat** .
 
     d. Konfigurera de tre inställningarna ovan efter behov för ditt Slack-team. Mer information om inställningarna finns i **Slacks konfigurationsguide för enkel inloggning** här. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-004.png)
 
-    e. Klicka på **expandera** och ange `https://slack.com` i text rutan för **identitets leverantörs utfärdare** .
+    e. Klicka på **expandera** och ange `https://slack.com` i text rutan **Service Provider Issuer** .
 
     f.  Klicka på **Spara konfiguration**.
+    
+    > [!NOTE]
+    > Om du har mer än en slack-instans som du måste integrera med Azure AD anger `https://<DOMAIN NAME>.slack.com` du till **tjänst leverantörens utfärdare** så att den kan kopplas till inställningen för Azure- **programidentifieraren** .
 
 ### <a name="create-slack-test-user"></a>Skapa Slack-testanvändare
 

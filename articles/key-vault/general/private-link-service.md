@@ -7,12 +7,12 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: aef8c026fad631396e58716e65640f5792ad07c8
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: a8c153094d38d137ce50c6ff4f922b7708bfcb24
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116786"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266839"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrera Key Vault med en privat Azure-länk
 
@@ -22,7 +22,7 @@ En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och 
 
 Mer information finns i [Vad är en privat Azure-länk?](../../private-link/private-link-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill integrera ett nyckel valv med en privat Azure-länk behöver du följande:
 
@@ -104,7 +104,7 @@ az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZU
 ```
 ### <a name="turn-on-key-vault-firewall"></a>Aktivera Key Vault brand vägg
 ```console
-az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION} --default-action deny
+az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --default-action deny
 ```
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 ```console
@@ -146,7 +146,7 @@ Det finns fyra etablerings tillstånd:
 
 | Åtgärd för att tillhandahålla tjänst | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Inga | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avvisad | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |

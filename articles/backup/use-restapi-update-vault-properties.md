@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du uppdaterar valv konfiguratio
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 4c604fe067e73f5f9a17f4b5f810708121cff767
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744568"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248234"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Uppdatera Azure Recovery Services Vault-konfigurationer med REST API
 
@@ -21,7 +21,7 @@ Att ta bort säkerhets kopior av ett skyddat objekt är en viktig åtgärd som m
 
 Men det finns scenarier där den här funktionen inte krävs. Det går inte att ta bort ett Azure Recovery Services-valv om det finns säkerhets kopierings objekt i det, även mjuk borttagning av dem. Detta kan innebära ett problem om valvet måste tas bort omedelbart. Till exempel: distributions åtgärder rensar ofta de skapade resurserna i samma arbets flöde. En distribution kan skapa ett valv, konfigurera säkerhets kopior för ett objekt, göra en test återställning och sedan fortsätta att ta bort säkerhets kopierings objekt och valvet. Om valvet inte kan tas bort kan hela distributionen Miss lyckas. Att inaktivera mjuk borttagning är det enda sättet att garantera omedelbar borttagning.
 
-Kunden måste därför noggrant välja om du vill inaktivera mjuk borttagning för ett visst valv beroende på scenariot. Mer information finns i artikeln om [mjuk borttagning](backup-azure-security-feature-cloud.md).
+Du måste noga välja om du vill inaktivera mjuk borttagning för ett visst valv beroende på scenariot. Mer information finns i artikeln om [mjuk borttagning](backup-azure-security-feature-cloud.md).
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Hämta läget för mjuk borttagning med REST API
 
@@ -33,7 +33,7 @@ Om du vill hämta det aktuella läget för mjuk borttagning för ett valv använ
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-Get URI har `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parametrar. I det här exemplet `{vaultName}` är "testVault" och `{vaultresourceGroupName}` är "testVaultRG". Eftersom alla parametrar som krävs anges i URI: n behöver du inte ha någon separat brödtext i begäran.
+Get URI har `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parametrar. I det här exemplet är `{vaultName}` "testVault" och `{vaultresourceGroupName}` är "testVaultRG". Eftersom alla parametrar som krävs anges i URI: n behöver du inte ha någon separat brödtext i begäran.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
@@ -71,7 +71,7 @@ Om du vill uppdatera det mjuka borttagnings läget för Recovery Services-valvet
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-Korrigerings-URI `{subscriptionId}`: `{vaultName}`n `{vaultresourceGroupName}` har,, parametrar. I det här exemplet `{vaultName}` är "testVault" och `{vaultresourceGroupName}` är "testVaultRG". Om vi ersätter URI: n med värdena ovan kommer URI: n att se ut så här.
+Korrigerings-URI: n har `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parametrar. I det här exemplet är `{vaultName}` "testVault" och `{vaultresourceGroupName}` är "testVaultRG". Om vi ersätter URI: n med värdena ovan kommer URI: n att se ut så här.
 
 ```http
 PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13

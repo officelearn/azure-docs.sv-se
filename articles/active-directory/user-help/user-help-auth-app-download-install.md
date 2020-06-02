@@ -9,24 +9,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 05/31/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 18c34e270f1849ef8d8d692b68567eab7d103b13
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d4053d4979861146705489dc02e628f03f3c4d85
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741375"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266227"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Ladda ned och installera appen Microsoft Authenticator
 
 >[!Important]
->Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar din Azure Active Directory (Azure AD)-miljö i den [administrativa dokumentationen för Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>
+> Om du har problem med att logga in på ditt konto kan du läsa [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) (När du inte kan logga in på ditt Microsoft-konto) om du behöver hjälp.  Du kan också få mer information om vad du kan göra när du får meddelandet ["det Microsoft-konto inte finns"](https://support.microsoft.com/help/13811) när du försöker logga in på Microsoft-konto.
 
-Med Microsoft Authenticator-appen kan du logga in på dina konton om du använder tvåfaktorsverifiering. Med tvåfaktorsverifiering kan du komma åt dina konton säkrare, särskilt när du visar känslig information. Eftersom lösenord kan glömmas, stjälas eller komprometteras är tvåfaktorsverifiering ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in.
-
-Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följande:
+Microsoft Authenticator appen hjälper dig att logga in på dina konton om du använder tvåstegsverifiering. Med hjälp av tvåstegsverifiering kan du använda dina konton på ett säkrare sätt eftersom lösen ord kan glömmas bort, stulits eller komprometteras. Med tvåstegsverifiering används en andra faktor, till exempel din telefon, för att göra det svårare för andra att brytas till ditt konto. Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följande:
 
 - **Tvåstegsverifiering.** Standard verifierings metoden, där en av faktorerna är ditt lösen ord. När du har loggat in med ditt användar namn och lösen ord kan du antingen godkänna ett meddelande eller ange en angiven verifierings kod.
 
@@ -34,13 +34,9 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
 
 - **Kodgenerering.** Som kod generator för andra konton som stöder Authenticator-appar.
 
-> [!Important]
-> Microsoft Authenticator-appen fungerar med ett konto som använder tvåstegsverifiering och som stöder tidsbaserad eng ång slö sen ord (TOTP mobilapp).
->
-> Din organisation kan kräva att du använder en autentiseringsapp för att logga in och komma åt organisationens data och dokument. Även om ditt användarnamn kanske visas i appen är kontot inte konfigurerat så för att fungera som verifieringsmetod förrän du har slutfört registreringsprocessen. Mer information finns i [Lägga till ditt arbets- eller skolkonto](user-help-auth-app-add-work-school-account.md).
-> 
-> [!NOTE]
-> Om du har problem med att logga in på ditt konto kan du läsa [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) (När du inte kan logga in på ditt Microsoft-konto) om du behöver hjälp.  Få mer information om vad du gör när du får meddelandet [”Det Microsoft-kontot finns inte”](https://support.microsoft.com/help/13811) när du försöker logga in på ditt Microsoft-konto.
+Autentiseraren fungerar med alla konton som använder tvåstegsverifiering och har stöd för tidsbaserade TOTP mobilapp-standarder (eng ång slö sen ord).
+
+Din organisation kan kräva att du använder Authenticator-appen för att logga in och komma åt din organisations data och dokument. Även om ditt användar namn visas i appen är kontot inte konfigurerat som en verifierings metod förrän du har slutfört registreringen. Mer information finns i [Lägga till ditt arbets- eller skolkonto](user-help-auth-app-add-work-school-account.md).
 
 ## <a name="download-and-install-the-app"></a>Ladda ned och installera appen
 
@@ -55,7 +51,7 @@ Installera den senaste versionen av Microsoft Authenticator-appen, baserat på o
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har laddat ned och installerat appen måste du lägga till dina olika konton. Mer information finns i:
+När du har laddat ned och installerat appen kan du läsa mer i [Översikt över Authenticator-appen](user-help-auth-app-overview.md) . Fler installations alternativ finns i:
 
 - **Authenticator-app.** Hämta och Använd en Authenticator-app för att få ett meddelande om godkännande eller en slumpmässigt genererad godkännande kod för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner om hur du konfigurerar och använder Microsoft Authenticator-appen finns i [Konfigurera säkerhets information så att en autentiserare används](security-info-setup-auth-app.md).
 

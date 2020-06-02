@@ -1,26 +1,26 @@
 ---
 title: 'Självstudie: läsa in New York Taxidata-data'
-description: Självstudier använder Azure Portal och SQL Server Management Studio för att läsa in New York Taxidata-data från en global Azure-Blob för Synapse SQL.
+description: Självstudier använder Azure Portal och SQL Server Management Studio för att läsa in New York Taxidata-data från en Azure-Blob för Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 02/04/2020
+ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 7f3d4a14f92aa9271f094db5e2315b64b0fe3151
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5f2d1d517db9ab0e4ccfbfff1cef3a5a0de738c9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015003"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267783"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Självstudie: Läs in New York Taxidata-datauppsättningen
 
-I den här självstudien används PolyBase för att läsa in New York Taxidata-data från ett globalt Azure Blob Storage-konto. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) för att:
+I den här självstudien används [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) för att läsa in New York taxidata data uppsättning från ett Azure Blob Storage-konto. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) för att:
 
 > [!div class="checklist"]
 >
@@ -28,10 +28,9 @@ I den här självstudien används PolyBase för att läsa in New York Taxidata-d
 > * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluta till informationslagret med SSMS
 > * Skapa en användare som utsetts för att läsa in data
-> * Skapa externa tabeller för data i Azure blobblagring
-> * Använda CTAS T-SQL-instruktionen för att läsa in data till informationslagret
+> * Skapa tabellerna för exempel data uppsättningen 
+> * Använd instruktionen COPY T-SQL för att läsa in data i informations lagret
 > * Visa dataförloppet vid hämtning
-> * Skapa statistik på nyligen inlästa data
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -57,7 +56,7 @@ Följ de här stegen för att skapa en tom databas.
 
 3. Fyll i formuläret med följande information:
 
-   | Inställningen            | Föreslaget värde       | Beskrivning                                                  |
+   | Inställning            | Föreslaget värde       | Beskrivning                                                  |
    | ------------------ | --------------------- | ------------------------------------------------------------ |
    | *Namn**            | mySampleDataWarehouse | För giltiga databas namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
    | **Prenumeration**   | Din prenumeration     | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
@@ -68,7 +67,7 @@ Följ de här stegen för att skapa en tom databas.
 
 4. Välj **Server** om du vill skapa och konfigurera en ny server för den nya databasen. Fyll i formuläret **Ny server** med följande information:
 
-    | Inställningen                | Föreslaget värde          | Beskrivning                                                  |
+    | Inställning                | Föreslaget värde          | Beskrivning                                                  |
     | ---------------------- | ------------------------ | ------------------------------------------------------------ |
     | **Server namn**        | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
     | **Inloggning för Server administratör** | Valfritt giltigt namn           | För giltiga inloggnings namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
@@ -85,7 +84,7 @@ Följ de här stegen för att skapa en tom databas.
 
     ![konfigurera prestanda](./media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. Välj **Tillämpa**.
+8. Välj **Använd**.
 9. På bladet etablering väljer du en **sortering** för den tomma databasen. I de här självstudierna ska du välja standardvärdet. Mer information om sorteringar finns i [Sorteringar](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 10. Nu när du har fyllt i formuläret väljer du **skapa** för att etablera databasen. Etableringen tar några minuter.
@@ -144,7 +143,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 2. I dialogrutan **Anslut till server** anger du följande information:
 
-    | Inställningen        | Föreslaget värde                            | Beskrivning                                                  |
+    | Inställning        | Föreslaget värde                            | Beskrivning                                                  |
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | Servertyp    | Databasmotor                            | Det här värdet är obligatoriskt                                       |
     | servernamn    | Fullständigt kvalificerat servernamn            | Namnet ska vara något som liknar detta: **mynewserver-20180430.Database.Windows.net**. |
@@ -211,9 +210,9 @@ Första steget mot att läsa in data är att logga in som LoaderRC20.
 
     ![Anslutningen lyckades](./media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
 
-## <a name="create-external-tables-for-the-sample-data"></a>Skapa externa tabeller för exempeldata
+## <a name="create-tables-for-the-sample-data"></a>Skapa tabeller för exempel data
 
-Du är redo att börja läsa in data till ditt nya informationslager. Den här självstudien visar hur du använder externa tabeller för att läsa in New York CAB-data från en Azure Storage-blob. Information om hur du hämtar dina data till Azure Blob Storage eller läser in dem direkt från din källa finns i [Översikt över inläsning](design-elt-data-loading.md).
+Du är redo att börja läsa in data till ditt nya informationslager. Den här delen av självstudien visar hur du använder COPY-instruktionen för att läsa in New York City Cab-datauppsättningen från en Azure Storage-blob. Information om hur du hämtar dina data till Azure Blob Storage eller läser in dem direkt från din källa finns i [Översikt över inläsning](design-elt-data-loading.md).
 
 Kör följande SQL-skript och ange information om de data du vill läsa in. Informationen omfattar var informationen finns, formatet för innehållet i aktuella data och tabelldefinitionen för dessa data.
 
@@ -223,58 +222,10 @@ Kör följande SQL-skript och ange information om de data du vill läsa in. Info
 
 2. Jämför ditt frågefönster med föregående bild.  Kontrollera att ditt nya frågefönster körs som LoaderRC20 och kör frågor på MySampleDataWarehouse-databasen. Använd det här frågefönstret för att utföra alla inläsningssteg.
 
-3. Skapa en huvudnyckel för MySampleDataWarehouse-databasen. Du behöver bara skapa en huvudnyckel en gång per databas.
+7. Kör följande T-SQL-uttryck för att skapa tabellerna:
 
     ```sql
-    CREATE MASTER KEY;
-    ```
-
-4. Kör instruktionen [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att definiera platsen för Azure-blobben. Det är här som dina externa taxi-data finns.  Om du vill köra ett kommando som du har lagt till i frågefönstret markerar du de kommandon som du vill köra och väljer **Kör**.
-
-    ```sql
-    CREATE EXTERNAL DATA SOURCE NYTPublic
-    WITH
-    (
-        TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
-    );
-    ```
-
-5. Kör T-SQL-instruktionen [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att ange formateringsegenskaper och alternativ för filen med externa data. Den här instruktionen anger externa data och lagras som text, där värdena avgränsas med pipe-tecknet (”|”). Den externa filen komprimeras med Gzip.
-
-    ```sql
-    CREATE EXTERNAL FILE FORMAT uncompressedcsv
-    WITH (
-        FORMAT_TYPE = DELIMITEDTEXT,
-        FORMAT_OPTIONS (
-            FIELD_TERMINATOR = ',',
-            STRING_DELIMITER = '',
-            DATE_FORMAT = '',
-            USE_TYPE_DEFAULT = False
-        )
-    );
-    CREATE EXTERNAL FILE FORMAT compressedcsv
-    WITH (
-        FORMAT_TYPE = DELIMITEDTEXT,
-        FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
-            STRING_DELIMITER = '',
-        DATE_FORMAT = '',
-            USE_TYPE_DEFAULT = False
-        ),
-        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
-    );
-    ```
-
-6. Kör instruktionen [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att skapa ett schema för ditt externa filformat. Schemat innehåller ett sätt att ordna de externa tabeller som du ska skapa.
-
-    ```sql
-    CREATE SCHEMA ext;
-    ```
-
-7. Skapa de externa tabellerna. Tabell definitionerna lagras i data lagret, men tabellerna refererar till data som lagras i Azure Blob Storage. Kör följande T-SQL-kommandon för att skapa flera externa tabeller som alla pekar mot den Azure-blob vi definierade tidigare i vår externa datakälla.
-
-    ```sql
-    CREATE EXTERNAL TABLE [ext].[Date]
+    CREATE TABLE [dbo].[Date]
     (
         [DateID] int NOT NULL,
         [Date] datetime NULL,
@@ -311,13 +262,11 @@ Kör följande SQL-skript och ange information om de data du vill läsa in. Info
     )
     WITH
     (
-        LOCATION = 'Date',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     );
-    CREATE EXTERNAL TABLE [ext].[Geography]
+    
+    CREATE TABLE [dbo].[Geography]
     (
         [GeographyID] int NOT NULL,
         [ZipCodeBKey] varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -329,13 +278,11 @@ Kör följande SQL-skript och ange information om de data du vill läsa in. Info
     )
     WITH
     (
-        LOCATION = 'Geography',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     );
-    CREATE EXTERNAL TABLE [ext].[HackneyLicense]
+    
+    CREATE TABLE [dbo].[HackneyLicense]
     (
         [HackneyLicenseID] int NOT NULL,
         [HackneyLicenseBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -343,13 +290,11 @@ Kör följande SQL-skript och ange information om de data du vill läsa in. Info
     )
     WITH
     (
-        LOCATION = 'HackneyLicense',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     );
-    CREATE EXTERNAL TABLE [ext].[Medallion]
+    
+    CREATE TABLE [dbo].[Medallion]
     (
         [MedallionID] int NOT NULL,
         [MedallionBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -357,14 +302,11 @@ Kör följande SQL-skript och ange information om de data du vill läsa in. Info
     )
     WITH
     (
-        LOCATION = 'Medallion',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
-    )
-    ;  
-    CREATE EXTERNAL TABLE [ext].[Time]
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
+    );
+    
+    CREATE TABLE [dbo].[Time]
     (
         [TimeID] int NOT NULL,
         [TimeBKey] varchar(8) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -378,13 +320,11 @@ Kör följande SQL-skript och ange information om de data du vill läsa in. Info
     )
     WITH
     (
-        LOCATION = 'Time',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     );
-    CREATE EXTERNAL TABLE [ext].[Trip]
+    
+    CREATE TABLE [dbo].[Trip]
     (
         [DateID] int NOT NULL,
         [MedallionID] int NOT NULL,
@@ -412,13 +352,11 @@ Kör följande SQL-skript och ange information om de data du vill läsa in. Info
     )
     WITH
     (
-        LOCATION = 'Trip2013',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = compressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     );
-    CREATE EXTERNAL TABLE [ext].[Weather]
+    
+    CREATE TABLE [dbo].[Weather]
     (
         [DateID] int NOT NULL,
         [GeographyID] int NOT NULL,
@@ -427,127 +365,123 @@ Kör följande SQL-skript och ange information om de data du vill läsa in. Info
     )
     WITH
     (
-        LOCATION = 'Weather',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
-    )
-    ;
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
+    );
     ```
-
-8. I Object Explorer ska du expandera mySampleDataWarehouse om du vill se en lista över externa tabeller som du just har skapat.
-
-    ![Visa externa tabeller](./media/load-data-from-azure-blob-storage-using-polybase/view-external-tables.png)
+    
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Läsa in data till informationslagret
 
-I det här avsnittet används de externa tabeller som du nyss definierade för att läsa in exempel data från Azure Storage Blob.  
+I det här avsnittet används [kopierings instruktionen för att läsa in](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) exempel data från Azure Storage blob.  
 
 > [!NOTE]
-> De här självstudierna läser in data direkt till den slutliga tabellen. I en produktionsmiljö använder du vanligtvis CREATE TABLE AS SELECT FÖR att läsa in till en mellanlagringstabell. Du kan utföra alla nödvändiga omvandlingar när data är i mellanlagringstabellen. Du kan använda instruktionen INSERT...SELECT om du vill lägga till data i mellanlagringstabellen i en produktionstabell. Mer information finns i [Infoga data i en produktionstabell](guidance-for-loading-data.md#inserting-data-into-a-production-table).
+> De här självstudierna läser in data direkt till den slutliga tabellen. Du skulle vanligt vis läsa in i en mellanlagrings tabell för dina produktions arbets belastningar. Du kan utföra alla nödvändiga omvandlingar när data är i mellanlagringstabellen. 
 
-Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att läsa in data från Azure Storage Blob till nya tabeller i informationslagret. CTAS skapar en ny tabell baserat på resultatet av en SELECT-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När SELECT-instruktionen väljer från en extern tabell, importeras data till en Relations tabell i data lagret.
-
-1. Kör följande skript för att läsa in data till nya tabeller i informationslagret.
+1. Kör följande instruktioner för att läsa in data:
 
     ```sql
-    CREATE TABLE [dbo].[Date]
+    COPY INTO [dbo].[Date]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Date'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
-    AS SELECT * FROM [ext].[Date]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
-    ;
-    CREATE TABLE [dbo].[Geography]
+    OPTION (LABEL = 'COPY : Load [dbo].[Date] - Taxi dataset');
+    
+    
+    COPY INTO [dbo].[Geography]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Geography'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
-    AS
-    SELECT * FROM [ext].[Geography]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
-    ;
-    CREATE TABLE [dbo].[HackneyLicense]
+    OPTION (LABEL = 'COPY : Load [dbo].[Geography] - Taxi dataset');
+    
+    COPY INTO [dbo].[HackneyLicense]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/HackneyLicense'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
-    AS SELECT * FROM [ext].[HackneyLicense]
-    OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
-    ;
-    CREATE TABLE [dbo].[Medallion]
+    OPTION (LABEL = 'COPY : Load [dbo].[HackneyLicense] - Taxi dataset');
+    
+    COPY INTO [dbo].[Medallion]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Medallion'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
-    AS SELECT * FROM [ext].[Medallion]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
-    ;
-    CREATE TABLE [dbo].[Time]
+    OPTION (LABEL = 'COPY : Load [dbo].[Medallion] - Taxi dataset');
+    
+    COPY INTO [dbo].[Time]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Time'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
-    AS SELECT * FROM [ext].[Time]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
-    ;
-    CREATE TABLE [dbo].[Weather]
+    OPTION (LABEL = 'COPY : Load [dbo].[Time] - Taxi dataset');
+    
+    COPY INTO [dbo].[Weather]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Weather'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = '',
+        ROWTERMINATOR='0X0A'
     )
-    AS SELECT * FROM [ext].[Weather]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
-    ;
-    CREATE TABLE [dbo].[Trip]
+    OPTION (LABEL = 'COPY : Load [dbo].[Weather] - Taxi dataset');
+    
+    COPY INTO [dbo].[Trip]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = '|',
+        FIELDQUOTE = '',
+        ROWTERMINATOR='0X0A',
+        COMPRESSION = 'GZIP'
     )
-    AS SELECT * FROM [ext].[Trip]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Trip]')
-    ;
+    OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
 
 2. Visa data som laddas. Du läser in flera GB data och komprimerar dem till högpresterande grupperade columnstore-index. Kör följande fråga som använder en dynamisk hanteringsvy (DMV) för att visa status för belastningen.
 
     ```sql
-    SELECT
-        r.command,
-        s.request_id,
-        r.status,
-        count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024/1024.0 as gb_processed
-    FROM
-        sys.dm_pdw_exec_requests r
-        INNER JOIN sys.dm_pdw_dms_external_work s
-        ON r.request_id = s.request_id
-    WHERE
-        r.[label] = 'CTAS : Load [dbo].[Date]' OR
-        r.[label] = 'CTAS : Load [dbo].[Geography]' OR
-        r.[label] = 'CTAS : Load [dbo].[HackneyLicense]' OR
-        r.[label] = 'CTAS : Load [dbo].[Medallion]' OR
-        r.[label] = 'CTAS : Load [dbo].[Time]' OR
-        r.[label] = 'CTAS : Load [dbo].[Weather]' OR
-        r.[label] = 'CTAS : Load [dbo].[Trip]'
-    GROUP BY
-        r.command,
-        s.request_id,
-        r.status
-    ORDER BY
-        nbr_files desc,
-        gb_processed desc;
+    SELECT  r.[request_id]                           
+    ,       r.[status]                               
+    ,       r.resource_class                         
+    ,       r.command
+    ,       sum(bytes_processed) AS bytes_processed
+    ,       sum(rows_processed) AS rows_processed
+    FROM    sys.dm_pdw_exec_requests r
+                  JOIN sys.dm_pdw_dms_workers w
+                         ON r.[request_id] = w.request_id
+    WHERE [label] = 'COPY : Load [dbo].[Date] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[Geography] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[HackneyLicense] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[Medallion] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[Time] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[Weather] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[Trip] - Taxi dataset' 
+    and session_id <> session_id() and type = 'WRITER'
+    GROUP BY r.[request_id]                           
+    ,       r.[status]                               
+    ,       r.resource_class                         
+    ,       r.command;
     ```
-
+    
 3. Visa alla systemfrågor.
 
     ```sql
@@ -557,55 +491,6 @@ Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sq
 4. Se hur dina data läses in i ditt informationslager.
 
     ![Visa inlästa tabeller](./media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
-
-## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autentisera med hanterade identiteter att läsa in (valfritt)
-
-Att läsa in med PolyBase och autentisering via hanterade identiteter är den säkraste mekanismen och gör att du kan utnyttja tjänst slut punkter för virtuella nätverk med Azure Storage.
-
-### <a name="prerequisites"></a>Förutsättningar
-
-1. Installera Azure PowerShell med hjälp av den här [guiden](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-2. Om du har ett allmänt v1-eller Blob Storage-konto måste du först uppgradera till General-Purpose v2 med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-3. Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information hittar du i den här [hand boken](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) .
-
-#### <a name="steps"></a>Steg
-
-1. **Registrera servern** med Azure Active Directory (AAD) i PowerShell:
-
-   ```powershell
-   Connect-AzAccount
-   Select-AzSubscription -SubscriptionId your-subscriptionId
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
-   ```
-
-2. Skapa ett **Allmänt-syfte v2-lagrings konto** med hjälp av den här [guiden](../../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-   > [!NOTE]
-   > Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-3. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till din server.
-
-   > [!NOTE]
-   > Endast medlemmar med ägar behörighet kan utföra det här steget. De olika inbyggda rollerna för Azure-resurser finns i den här [guiden](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-  
-**PolyBase-anslutning till Azure Storage kontot:**
-
-1. Skapa din databas begränsade autentiseringsuppgifter med **Identity = hanterad tjänstidentitet**:
-
-   ```SQL
-   CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
-   ```
-
-   > [!NOTE]
-   >
-   > * Du behöver inte ange hemlighet med Azure Storage åtkomst nyckel eftersom den här mekanismen använder [hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) under försättsblad.
-   > * IDENTITETS namnet måste vara **hanterad tjänstidentitet** för PolyBase-anslutningen för att fungera med Azure Storage konto.
-
-2. Skapa den externa data källan som anger databasens begränsade autentiseringsuppgifter med Hanterad tjänstidentitet.
-
-3. Fråga som normal med hjälp av [externa tabeller](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
-
-Se följande [dokumentation](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) om du vill konfigurera tjänst slut punkter för virtuella nätverk för Azure Synapse Analytics.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -630,7 +515,7 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I de här självstudierna lärde du dig att skapa ett informationslager och skapa en användare för att läsa in data. Du skapade externa tabeller för att definiera strukturen för data som lagras i Azure Storage Blob och använde sedan PolyBase-instruktionen CREATE TABLE AS SELECT för att läsa in data till informationslagret.
+I de här självstudierna lärde du dig att skapa ett informationslager och skapa en användare för att läsa in data. Du använde den enkla [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) för att läsa in data i informations lagret.
 
 Du gjorde detta:
 > [!div class="checklist"]
@@ -639,12 +524,17 @@ Du gjorde detta:
 > * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Anslöt till informationslagret med SSMS
 > * Skapade en användare för inläsning av data
-> * Skapade externa tabeller för data i Azure Storage Blob
-> * Använde CTAS T-SQL-instruktionen för att läsa in data till informationslagret
+> * Skapade tabellerna för exempel data
+> * Använde instruktionen COPY T-SQL för att läsa in data i informations lagret
 > * Visade förloppet för data under inläsning
-> * Skapade statistik på nyligen inlästa data
 
-Gå vidare till utvecklings översikten och lär dig hur du migrerar en befintlig databas till Azure Synapse Analytics.
+Gå vidare till utvecklings översikten och lär dig hur du migrerar en befintlig databas till Azure Synapse Analytics:
 
 > [!div class="nextstepaction"]
 > [Design beslut för att migrera en befintlig databas till Azure Synapse Analytics](sql-data-warehouse-overview-develop.md)
+
+Läs följande dokumentation om du vill läsa mer om exempel och referenser:
+
+- [Referens dokumentation för KOPIERINGs instruktion](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [Kopiera exempel för varje autentiseringsmetod](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples)
+- [Kopiera snabb start för en enskild tabell](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql)

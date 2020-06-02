@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea44355795f0685f42de1306e979707f34d8f142
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742758"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84264374"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Metod tips för Azure Maps Search Service
 
-Azure Maps [search service](https://docs.microsoft.com/rest/api/maps/search) innehåller API: er som erbjuder olika funktioner. Sök adressens API kan till exempel hitta punkter av intresse (POI) eller data runt en bestämd plats. 
+Azure Maps [search service](https://docs.microsoft.com/rest/api/maps/search) innehåller API: er som erbjuder olika funktioner som hjälper utvecklare att söka efter adresser, platser, företags listor efter namn eller kategori och annan geografisk information. Exempel: med[fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) kan användare söka efter en adress eller ett intresse punkt (POI).
 
 Den här artikeln förklarar hur du använder ljud metoder när du anropar data från Azure Maps Search Service. Du lär dig följande:
 
-* Bygg frågor för att returnera relevanta matchningar.
-* Begränsa Sök resultaten.
-* Lär dig skillnaderna mellan resultat typer.
-* Läs adress Sök-svars strukturen.
+* Bygg frågor för att returnera relevanta matchningar
+* Begränsa Sök Resultat
+* Lär dig skillnaderna mellan resultat typer
+* Läs adress Sök-svars strukturen
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,7 +33,7 @@ Om du vill ringa till API: erna för Azure Maps tjänsten behöver du ett Azure 
 Information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
 > [!TIP]
-> Om du vill fråga Search Service kan du använda [Postman-appen](https://www.getpostman.com/apps) för att bygga rest-anrop. Eller så kan du använda valfri API-utvecklings miljö som du föredrar.
+> Om du vill fråga Search Service kan du använda [Postman-appen](https://www.getpostman.com/apps) för att bygga REST API-anrop. Eller så kan du använda valfri API-utvecklings miljö som du föredrar.
 
 ## <a name="best-practices-to-geocode-addresses"></a>Metod tips för adresser för att koda
 
@@ -61,7 +61,7 @@ Om du vill göra ett neutralt resultat till det relevanta område för din anvä
 
 #### <a name="fuzzy-search-parameters"></a>Parametrar för fuzzy-sökning
 
-Vi rekommenderar att du använder Azure Maps [Sök i fuzzy API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) när du inte känner till dina användar indata för en Sök fråga. API: n kombinerar POI-sökning och-kodning i en kanonisk *enkel sökning*: 
+Vi rekommenderar att du använder Azure Maps [Sök i fuzzy API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) när du inte känner till dina användar indata för en Sök fråga. Till exempel kan indata från användaren vara en adress eller typ av intresse (POI), som *shopping-mall*. API: n kombinerar POI-sökning och-kodning i en kanonisk *enkel sökning*: 
 
 * `minFuzzyLevel`Parametrarna och `maxFuzzyLevel` hjälper till att returnera relevanta matchningar även när frågeparametrar inte exakt matchar den information som användaren vill. För att maximera prestandan och minska ovanliga resultat ställer du in Sök frågor till standardvärdena `minFuzzyLevel=1` och `maxFuzzyLevel=2` . 
 
@@ -85,7 +85,7 @@ Vi rekommenderar att du använder Azure Maps [Sök i fuzzy API](https://docs.mic
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Omvänd-landskod och filter för en geografisk enhets typ
 
-När du gör en omvänd kod sökning i [omvänt API för Sök adressen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)kan tjänsten returnera polygoner för administrativa områden.Du kan begränsa sökningen till specifika geografi-entitetstyper genom att inkludera `entityType` parametern i dina begär Anden. 
+När du gör en omvänd kod sökning i [omvänt API för Sök adressen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)kan tjänsten returnera polygoner för administrativa områden. Till exempel kanske Yoi vill hämta områdes polygonen för en stad.Du kan begränsa sökningen till specifika geografi-entitetstyper genom att inkludera `entityType` parametern i dina begär Anden. 
 
 Det resulterande svaret innehåller geografi-ID: t och entitetstypen som matchades. Om du anger mer än en entitet returnerar slut punkten den *minsta tillgängliga entiteten*. Du kan använda det returnerade geometri-ID: t för att hämta geografins geometri genom [tjänsten search polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 

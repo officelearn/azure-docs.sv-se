@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 8a704c3891c687edbb7c5aac206f4b6c7766fa8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba5105c6183c88ca7e5641cdacaa5d80ea529bc6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409988"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263898"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Kopiera data från Xero med hjälp av Azure Data Factory
 
@@ -35,7 +35,7 @@ Du kan kopiera data från Xero till alla mottagar data lager som stöds. En list
 
 Mer specifikt stöder denna Xero-anslutning:
 
-- Xero [privat program](https://developer.xero.com/documentation/getting-started/api-application-types) , men inte offentligt program.
+- Xero [privat program](https://developer.xero.com/documentation/getting-started/getting-started-guide) , men inte offentligt program.
 - Alla Xero-tabeller (API-slutpunkter) utom "rapporter". 
 
 Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
@@ -50,15 +50,15 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten Xero:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **Xero** | Ja |
-| värd | Slut punkten för Xero-servern (`api.xero.com`).  | Ja |
-| consumerKey | Den konsument nyckel som är associerad med Xero-programmet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| privateKey | Den privata nyckeln från. pem-filen som skapades för ditt Xero privata program, se [skapa ett offentligt/privat nyckel par](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Observera att **generera PrivateKey. pem med numbits 512** med hjälp `openssl genrsa -out privatekey.pem 512`av; 1024 stöds inte. Ta med all text från. pem-filen, inklusive UNIX-slutpunkter (\n), se exemplet nedan.<br/><br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Nej |
-| useHostVerification | Anger om värd namnet krävs i serverns certifikat för att matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Nej |
-| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | Nej |
+| typ | Egenskapen Type måste anges till: **Xero** | Yes |
+| värd | Slut punkten för Xero-servern ( `api.xero.com` ).  | Yes |
+| consumerKey | Den konsument nyckel som är associerad med Xero-programmet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| privateKey | Den privata nyckeln från. pem-filen som skapades för ditt Xero privata program, se [skapa ett offentligt/privat nyckel par](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Obs! det går inte att **skapa PrivateKey. pem med numbits av 512** med `openssl genrsa -out privatekey.pem 512` ; 1024. Ta med all text från. pem-filen, inklusive UNIX-slutpunkter (\n), se exemplet nedan.<br/><br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | No |
+| useHostVerification | Anger om värd namnet krävs i serverns certifikat för att matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | No |
+| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | No |
 
 **Exempel:**
 
@@ -96,9 +96,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Xero anger du egenskapen type för data uppsättningen till **XeroObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **XeroObject** | Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **XeroObject** | Yes |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
@@ -126,9 +126,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Xero anger du käll typen i kopierings aktiviteten till **XeroSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **XeroSource** | Ja |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **XeroSource** | Yes |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Contacts"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
@@ -165,15 +165,15 @@ Om du vill kopiera data från Xero anger du käll typen i kopierings aktiviteten
 
 Tänk på följande när du anger Xero-frågan:
 
-- Tabeller med komplexa objekt kommer att delas upp i flera tabeller. Bank transaktioner har till exempel en komplex data struktur "rad objekt", så data för bank transaktioner mappas till tabellen `Bank_Transaction` och `Bank_Transaction_Line_Items`, med `Bank_Transaction_ID` som sekundär nyckel, för att länka dem tillsammans.
+- Tabeller med komplexa objekt kommer att delas upp i flera tabeller. Bank transaktioner har till exempel en komplex data struktur "rad objekt", så data för bank transaktioner mappas till tabellen `Bank_Transaction` och `Bank_Transaction_Line_Items` , med `Bank_Transaction_ID` som sekundär nyckel, för att länka dem tillsammans.
 
-- Xero-data är tillgängliga via två scheman: `Minimal` (standard) och `Complete`. Det fullständiga schemat innehåller nödvändiga anrops tabeller som kräver ytterligare data (t. ex. ID-kolumn) innan du gör den önskade frågan.
+- Xero-data är tillgängliga via två scheman: `Minimal` (standard) och `Complete` . Det fullständiga schemat innehåller nödvändiga anrops tabeller som kräver ytterligare data (t. ex. ID-kolumn) innan du gör den önskade frågan.
 
 Följande tabeller har samma information i schemat minimal och fullständig. Om du vill minska antalet API-anrop använder du minimalt schema (standard).
 
 - Bank_Transactions
 - Contact_Groups 
-- Contacts 
+- Kontakter 
 - Contacts_Sales_Tracking_Categories 
 - Contacts_Phones 
 - Contacts_Addresses 

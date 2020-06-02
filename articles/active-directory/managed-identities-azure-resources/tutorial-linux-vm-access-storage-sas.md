@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 670ae329943610ba16411da3782bc1da079c6490
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a173fe36c20e9f13f1b1c1f27efc36821c8264a
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74183197"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266312"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Komma åt Azure Storage via en SAS-autentiseringsuppgift med en systemtilldelad hanterad identitet för virtuell Linux-dator
 
@@ -101,7 +101,7 @@ Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder W
     
     > [!NOTE]
     > I föregående begäran måste värdet för ”resource”-parametern vara en exakt matchning av vad som förväntas av Azure AD. När du använder Azure Resource Manager-resurs-ID:t måste du ta med det avslutande snedstrecket i URI:n.
-    > I följande svar har access_token-elementet kortats ned.
+    > I följande svar har access_token-elementet förkort ATS för det kortfattat.
     
     ```bash
     {"access_token":"eyJ0eXAiOiJ...",

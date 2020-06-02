@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ac42a5451da0347779475e96ce557633a02c59f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 98a2765b7adf31465fa0317cc626157137933af7
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834585"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248353"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: katastrof återställning från Azure till Azure
 
@@ -172,6 +172,10 @@ Den första återställnings punkten som genereras har en fullständig kopia. Ev
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Ökar lagrings kostnaden genom att öka lagrings tiden för återställnings punkter?
 
 Ja, om du ökar kvarhållningsperioden från 24 timmar till 72 timmar kommer Site Recovery att spara återställnings punkterna under ytterligare 48 timmar. Den tillagda tiden debiteras lagrings kostnader. En enda återställnings punkt kan till exempel ha delta ändringar på 10 GB med en kostnad per GB $0,16 per månad. Ytterligare kostnader blir $1,60 × 48 per månad.
+
+### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Kan jag aktivera replikering med program konsekvens i Linux-servrar?
+
+Ja. Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med pre och post-Options används av Azure Site Recovery Mobility-agenten när appen är konsekvent. [Läs mer](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>Konsekvens för flera virtuella datorer
 

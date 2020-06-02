@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 4d4b2f0305e1069ac7873df24d834ab55512aff7
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: ccd729510341a9232764b1c211aa18c197ad5a37
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219721"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248642"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
 
 Azure HDInsight: s kostnads fria funktioner för automatisk skalning kan öka eller minska antalet arbetsnoder i klustret baserat på tidigare angivna villkor. Du anger ett lägsta och högsta antal noder när klustret skapas, upprättar skalnings kriterier med hjälp av ett dags schema eller vissa prestanda mått, och HDInsight-plattformen gör resten.
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 Funktionen för automatisk skalning använder två typer av villkor för att utlösa skalnings händelser: tröskelvärden för olika kluster prestanda värden (kallas *belastningsutjämnad skalning*) och tidsbaserade utlösare (kallas *schema-baserad skalning*). Vid inläsnings skalning ändras antalet noder i klustret, inom ett intervall som du anger, för att säkerställa optimal CPU-användning och minimera löpande kostnad. Schemabaserade skalningar ändrar antalet noder i klustret baserat på åtgärder som du associerar med vissa datum och tider.
 
@@ -210,7 +210,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 Använd lämpliga parametrar i nytto lasten för begäran. JSON-nyttolasten nedan kan användas för att aktivera autoskalning. Använd nytto lasten `{autoscale: null}` för att inaktivera autoskalning.
 
 ```json
-{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 2 } } }
+{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 5 } } }
 ```
 
 Se föregående avsnitt om hur du [aktiverar belastningsutjämnad autoskalning](#load-based-autoscaling) för en fullständig beskrivning av alla nytto Last parametrar.
@@ -225,7 +225,7 @@ Kluster statusen som visas i Azure Portal kan hjälpa dig att övervaka automati
 
 Alla de kluster status meddelanden som du kan se förklaras i listan nedan.
 
-| Klusterstatus | Description |
+| Klusterstatus | Beskrivning |
 |---|---|
 | Körs | Klustret fungerar normalt. Alla tidigare autoskalning-aktiviteter har slutförts. |
 | Uppdatera  | Konfigurationen för automatisk skalning av klustret uppdateras.  |

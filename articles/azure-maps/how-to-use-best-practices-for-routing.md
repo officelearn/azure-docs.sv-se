@@ -1,6 +1,6 @@
 ---
 title: Metod tips för Azure Maps Route Service | Microsoft Azure Maps
-description: Lär dig hur du dirigerar effektivt genom att använda Route Service från Microsoft Azure Maps.
+description: Lär dig hur du dirigerar fordon med hjälp av Route Service från Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 03/11/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85ce29d088b8fbd110988db67776d89346215e5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335405"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266703"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Metod tips för Azure Maps Route service
 
@@ -56,7 +56,7 @@ API: er för väg riktningar returnerar-instruktioner, inklusive res tiden och k
 
 Här är en jämförelse för att visa vissa funktioner i väg riktningarna och mat ris-API: er:
 
-| Azure Maps-API | Maximalt antal frågor i begäran | Undvik områden | Routning av Last bilar och elektriska fordon | waypoints och Traveling Salesman-optimering | Stöd punkter |
+| Azure Maps-API | Maximalt antal frågor i begäran | Undvik områden | Routning av Last bilar och elektriska fordon | Waypoints och Traveling Salesman-optimering | Stöd punkter |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
 | Hämta väg riktningar | 1 | | X | X | |
 | Riktning efter väg | 1 | X | X | X | X |
@@ -67,7 +67,7 @@ Om du vill veta mer om routningsfunktioner för elektriska bilar, se vår själv
 
 ## <a name="request-historic-and-real-time-data"></a>Begär historiska och real tids data
 
-Som standard förutsätter väg tjänsten att rese läget är en bil och sändnings tiden är nu. Den returnerar routning baserat på trafik förhållanden i real tid om inte en begäran om flödes beräkning anger något annat. Fasta trafik begränsningar för tids beroende, t. ex. "left" är inte tillåtna mellan 4:00 PM och 6:00 PM "och kommer att beaktas av routningstjänsten. Väg stängningar, t. ex. roadworks, kommer att övervägas om du inte specifikt begär en väg som ignorerar den aktuella Live-trafiken. Om du vill ignorera den aktuella trafiken `traffic` ställer `false` du in på i din API-begäran.
+Som standard förutsätter väg tjänsten att rese läget är en bil och sändnings tiden är nu. Den returnerar routning baserat på trafik förhållanden i real tid om inte en begäran om flödes beräkning anger något annat. Fasta trafik begränsningar för tids beroende, t. ex. "left" är inte tillåtna mellan 4:00 PM och 6:00 PM "och kommer att beaktas av routningstjänsten. Väg stängningar, t. ex. roadworks, kommer att övervägas om du inte specifikt begär en väg som ignorerar den aktuella Live-trafiken. Om du vill ignorera den aktuella trafiken ställer `traffic` du in på `false` i din API-begäran.
 
 Värdet för **travelTimeInSeconds** för flödes beräkning inkluderar fördröjningen på grund av trafik. Den genereras genom att använda aktuella och historiska res tids data när avgångs tiden är inställd på nu. Om din sändnings tid anges i framtiden, returnerar API: erna förväntade res tider baserat på historiska data.
 
@@ -129,7 +129,7 @@ Svaret innehåller en sammanfattning som visas nedan. På grund av överbelastni
 
 ## <a name="request-route-and-leg-details"></a>Begär Routning och information om ben
 
-Som standard returnerar Route-tjänsten en matris med koordinater. Svaret innehåller koordinaterna som utgör sökvägen till en lista med namnet `points`. Route Response inkluderar även avståndet från början av vägen och den uppskattade tid som förflutit. Dessa värden kan användas för att beräkna den genomsnittliga hastigheten för hela vägen.
+Som standard returnerar Route-tjänsten en matris med koordinater. Svaret innehåller koordinaterna som utgör sökvägen till en lista med namnet `points` . Route Response inkluderar även avståndet från början av vägen och den uppskattade tid som förflutit. Dessa värden kan användas för att beräkna den genomsnittliga hastigheten för hela vägen.
 
 Följande bild visar- `points` elementet.
 
@@ -149,7 +149,7 @@ Expandera `point` elementet om du vill se en lista över koordinater för sökv�
 
 API: er för väg riktningar stöder olika format för instruktioner som kan användas genom att ange parametern **instructionsType** . Använd **instructionsType = Codet**för att formatera instruktioner för enkel dator bearbetning. Använd **instructionsType = taggade** för att visa instruktioner som text för användaren. Dessutom kan instruktioner formateras som text där vissa element i anvisningarna är markerade och instruktionen visas med särskild formatering. Mer information finns i [listan över instruktions typer som stöds](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
-När instruktioner begärs returnerar svaret ett nytt element med namnet `guidance`. `guidance` Elementet innehåller två delar av information: vägbeskrivningar och sammanfattande instruktioner.
+När instruktioner begärs returnerar svaret ett nytt element med namnet `guidance` . `guidance`Elementet innehåller två delar av information: vägbeskrivningar och sammanfattande instruktioner.
 
 <center>
 
@@ -157,7 +157,7 @@ När instruktioner begärs returnerar svaret ett nytt element med namnet `guidan
 
 </center>
 
-- `instructions` Elementet innehåller instruktioner för tur och retur för resan och `instructionGroups` har sammanfattande instruktioner. Varje instruktions Sammanfattning omfattar ett segment av resan som kan omfatta flera vägar. API: erna kan returnera information om avsnitt i en väg. till exempel koordineras intervallet för en trafiks sylt eller den aktuella trafik hastigheten.
+`instructions`-Elementet innehåller instruktioner för tur och retur för resan och `instructionGroups` har sammanfattande instruktioner. Varje instruktions Sammanfattning omfattar ett segment av resan som kan omfatta flera vägar. API: erna kan returnera information om avsnitt i en väg. till exempel koordineras intervallet för en trafiks sylt eller den aktuella trafik hastigheten.
 
 <center>
 
@@ -183,7 +183,7 @@ Exempel förfrågningen nedan frågar en väg för en kommersiell Truck. Trucken
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
-Route API returnerar vägvisningar som hanterar Last bils och det farliga avfallet. Du kan läsa flödes instruktionerna genom att expandera `guidance` -elementet.
+Route API returnerar vägvisningar som hanterar Last bils och det farliga avfallet. Du kan läsa flödes instruktionerna genom att expandera- `guidance` elementet.
 
 <center>
 
@@ -209,11 +209,11 @@ Svaret nedan är för en Last bil som bär ett farligt material i klass 9, vilke
 
 ## <a name="request-traffic-information-along-a-route"></a>Begära trafik information längs en väg
 
-Med Azure Maps väg riktnings-API: er kan utvecklare begära information för varje typ av avsnitt `sectionType` genom att inkludera parametern i begäran. Du kan till exempel begära hastighets information för varje segment för stopp av trafik. I [listan med värden för nyckeln sectionType](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) kan du läsa mer om de olika uppgifterna som du kan begära.
+Med Azure Maps väg riktnings-API: er kan utvecklare begära information för varje typ av avsnitt genom att inkludera `sectionType` parametern i begäran. Du kan till exempel begära hastighets information för varje segment för stopp av trafik. I [listan med värden för nyckeln sectionType](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) kan du läsa mer om de olika uppgifterna som du kan begära.
 
 ### <a name="sample-query"></a>Exempelfråga
 
-Följande fråga anges `sectionType` till `traffic`. Den begär de avsnitt som innehåller trafik information från Seattle till San-Diego.
+Följande fråga anges `sectionType` till `traffic` . Den begär de avsnitt som innehåller trafik information från Seattle till San-Diego.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
@@ -249,7 +249,7 @@ Om du vill optimera den bästa ordningen för att besöka den aktuella waypoints
 
 ### <a name="sample-query"></a>Exempelfråga
 
-Följande fråga begär sökvägen för sex waypoints med `computeBestOrder` parametern inställd på. `false` Det är också standardvärdet för `computeBestOrder` parametern.
+Följande fråga begär sökvägen för sex waypoints med `computeBestOrder` parametern inställd på `false` . Det är också standardvärdet för `computeBestOrder` parametern.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861

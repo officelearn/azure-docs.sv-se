@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 72a76fb513dc6eb008fcf1d1e19ffc33e713cfdc
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714244"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259260"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Snabb start: skapa din första statiska webbapp
 
@@ -31,25 +31,25 @@ Den här artikeln använder GitHub för att göra det enkelt för dig att skapa 
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-- Gå till följande plats för att skapa en ny lagrings plats
+- Kontrol lera att du är inloggad på GitHub och navigera till följande plats för att skapa en ny lagrings plats
   - https://github.com/staticwebdev/angular-basic/generate
 - Namnge din lagrings plats **först statisk-webb-app**
 
 # <a name="react"></a>[Reagera](#tab/react)
 
-- Gå till följande plats för att skapa en ny lagrings plats
+- Kontrol lera att du är inloggad på GitHub och navigera till följande plats för att skapa en ny lagrings plats
   - https://github.com/staticwebdev/react-basic/generate
 - Namnge din lagrings plats **först statisk-webb-app**
 
 # <a name="vue"></a>[Vue](#tab/vue)
 
-- Gå till följande plats för att skapa en ny lagrings plats
+- Kontrol lera att du är inloggad på GitHub och navigera till följande plats för att skapa en ny lagrings plats
   - https://github.com/staticwebdev/vue-basic/generate
 - Namnge din lagrings plats **först statisk-webb-app**
 
 # <a name="no-framework"></a>[Inget ramverk](#tab/vanilla-javascript)
 
-- Gå till följande plats för att skapa en ny lagrings plats
+- Kontrol lera att du är inloggad på GitHub och navigera till följande plats för att skapa en ny lagrings plats
   - https://github.com/staticwebdev/vanilla-basic/generate
 - Namnge din lagrings plats **först statisk-webb-app**
 

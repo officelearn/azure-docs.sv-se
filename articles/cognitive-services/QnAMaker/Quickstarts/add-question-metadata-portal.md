@@ -3,12 +3,12 @@ title: 'Snabb start: Lägg till frågor och svar i QnA Maker Portal'
 description: Den här snabb starten visar hur du lägger till fråge-och svars par med metadata så att användarna kan hitta rätt svar på sina frågor.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: fc40c6a6e0543d4d558da2c8a17c155fbb7cbf1f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: e35f7437f0028fedffea7cbcb6216fb7e1fad1f8
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994671"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266584"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabb start: Lägg till frågor och svar med QnA Maker Portal
 
@@ -27,7 +27,7 @@ När metadata har lagts till i ett QnA-par kan klient programmet:
 * Ta emot alla svar men efter bearbetningen av svaren beroende på metadata för varje svar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför den [tidigare snabb](./create-publish-knowledge-base.md) starten
 
@@ -85,7 +85,7 @@ Genom att lägga till metadata till ett fråge-och svars par kan klient programm
 1. Lägg till metadata-par för samma två metadata-Taggar:
 
     `link_in_answer` : `true`<br>
-    `server`: `qna_maker`
+    `service`: `qna_maker`
 
     Nu har du två frågor med samma metadata-Taggar med olika värden.
 

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 2933eb216b7faed7b28fb53d79fec2f50bc4458d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c26f50d858d316cab0d4533187494e023cea5071
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749419"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266176"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Använd självhanterad leverans för Azure Data Box i Azure Portal
 
@@ -29,7 +29,7 @@ Självhanterad leverans är tillgängligt som ett alternativ när du [beställer
 * Singapore
 * Sydkorea
 
-## <a name="use-self-managed-shipping"></a>Använd självhanterad leverans
+## <a name="use-self-managed-shipping"></a>Använd självhanterad frakt
 
 När du placerar en Data Box-enhet order kan du välja alternativet för självhanterad leverans.
 
@@ -41,7 +41,7 @@ När du placerar en Data Box-enhet order kan du välja alternativet för självh
 3. När du har angett din leverans adress måste du verifiera den och slutföra beställningen.
    ![Självhanterad leverans](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. När enheten har förberetts kan du schemalägga en upphämtning.
+4. När enheten har förberetts och du får ett e-postmeddelande för den kan du schemalägga en hämtning.
 
    I din Azure Data Box ordning går du till **Översikt** och väljer sedan **Schemalägg hämtning**.
 
@@ -57,7 +57,7 @@ När du placerar en Data Box-enhet order kan du välja alternativet för självh
 
    ![Visa din auktoriseringskod](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
-   Anteckna den här **auktoriseringskod**. Enligt säkerhets kraven, vid tidpunkten för schemaläggning och inaktive ring, är det nödvändigt att presentera namnet på den person som skulle anlända för att hämta och släppa.
+   Anteckna den här **auktoriseringskod**. Enligt säkerhets kraven, vid tidpunkten för schemaläggning, är det nödvändigt att presentera namnet på den person som skulle anlända till en hämtning.
 
    Du måste också ange information om vem som ska gå till data centret för hämtning. Du eller kontakt punkten måste ha ett godkänt foto-ID för myndigheter som ska val IDE ras i data centret.
 

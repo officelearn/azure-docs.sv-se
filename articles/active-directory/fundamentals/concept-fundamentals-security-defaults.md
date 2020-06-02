@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 91a9a761b35a945fcd105465ae8dea7cb6623f42
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 62933a0e83a7494bc208068cb418f9ccc29ba637
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643337"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266363"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
@@ -33,7 +33,7 @@ Det kan vara svårt att hantera säkerhet med vanliga identitetsbaserade attacke
  
 Mer information om varför säkerhets inställningar görs tillgängliga finns i blogg inlägget Alex Weinert, och [vi presenterar säkerhets inställningar](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
 
-## <a name="availability"></a>Tillgängligt
+## <a name="availability"></a>Tillgänglighet
 
 Microsoft skapar säkerhets inställningar som är tillgängliga för alla. Målet är att säkerställa att alla organisationer har en grundläggande säkerhets nivå som är aktive rad utan extra kostnad. Du aktiverar säkerhets inställningarna i Azure Portal. Om din klient skapades den 22 oktober 2019 är det möjligt att säkerhets standardvärdena redan har Aktiver ATS i din klient organisation. I ett arbete för att skydda alla våra användare kommer säkerhets inställningarna att distribueras till alla nya klienter som skapats.
 
@@ -65,9 +65,9 @@ När registreringen med Azure Multi-Factor Authentication är färdig krävs fö
 - Exchange-administratör
 - Administratör för villkorlig åtkomst
 - Säkerhetsadministratör
-- Administratör för supportavdelningen eller lösen ords administratör
+- Support administratör
 - Faktureringsadministratör
-- Användar administratör
+- Användaradministratör
 - Administratör för autentisering
 
 ### <a name="protecting-all-users"></a>Skydda alla användare

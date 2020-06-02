@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 82fbc144b9b2dffdddc09900bf6ed9424b445100
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9894bb2c6ead38b2770f572f7f5000c770d555e7
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701454"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267757"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Data omvandlings uttryck i data flöde för mappning
 
@@ -153,9 +153,7 @@ ___
 <code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
 Hämtar alla utdatakolumner för en ström. Du kan skicka ett valfritt Stream-namn som det andra argumentet.   
 * ``columns()``
-* ````
 * ``columns('DeriveStream')``
-* ````
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>

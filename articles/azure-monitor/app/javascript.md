@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 50ce0d57ec7395c69bf65e41b67f0cb005a43cb8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d46b9f9386e8b16d4806e054820cbd82d83ef56b
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854975"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266996"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -80,9 +80,9 @@ Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal
 - **Sessionsinformation**
 
 ### <a name="telemetry-initializers"></a>Telemetri-initierare
-Telemetri initierare används för att ändra innehållet i insamlad telemetri innan det skickas från användarens webbläsare. De kan också användas för att förhindra att vissa telemetri skickas, genom att returnera `false`. Du kan lägga till flera telemetri-initierare i Application Insights-instansen och de körs när du lägger till dem.
+Telemetri initierare används för att ändra innehållet i insamlad telemetri innan det skickas från användarens webbläsare. De kan också användas för att förhindra att vissa telemetri skickas, genom att returnera `false` . Du kan lägga till flera telemetri-initierare i Application Insights-instansen och de körs när du lägger till dem.
 
-Indataargumentet till `addTelemetryInitializer` är ett motanrop som tar ett [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#addTelemetryInitializer) argument och returnerar ett `boolean` eller. `void` Om det `false`returneras, skickas inte objektet telemetri, annars går det vidare till nästa telemetri-initierare, om sådana finns, eller skickas till slut punkten för telemetri-samlingen.
+Indataargumentet till `addTelemetryInitializer` är ett motanrop som tar ett [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#addTelemetryInitializer) argument och returnerar ett `boolean` eller `void` . Om det returneras, `false` skickas inte objektet telemetri, annars går det vidare till nästa telemetri-initierare, om sådana finns, eller skickas till slut punkten för telemetri-samlingen.
 
 Ett exempel på att använda telemetri-initierare:
 ```ts
@@ -97,9 +97,9 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
 ## <a name="configuration"></a>Konfiguration
-De flesta konfigurations fälten får ett namn som är förfalskade som standard. Alla fält är valfria förutom för `instrumentationKey`.
+De flesta konfigurations fälten får ett namn som är förfalskade som standard. Alla fält är valfria förutom för `instrumentationKey` .
 
-| Name | Standardvärde | Beskrivning |
+| Name | Standard | Beskrivning |
 |------|---------|-------------|
 | instrumentationKey | null | **Obligatoriskt**<br>Instrumentation-nyckel som du fick från Azure Portal. |
 | accountId | null | Ett valfritt konto-ID, om din app grupperar användare till konton. Inga blank steg, kommatecken, semikolon, likheter eller lodräta staplar |
@@ -109,7 +109,7 @@ De flesta konfigurations fälten får ett namn som är förfalskade som standard
 | maxBatchInterval | 15 000 | Hur lång tid det tar att gruppera telemetri innan det skickas (millisekunder) |
 | disableExceptionTracking | falskt | Om det här värdet är sant är undantag inte autosamlade. Standardvärdet är false. |
 | disableTelemetry | falskt | Om det här värdet är sant samlas ingen telemetri in eller skickas. Standardvärdet är false. |
-| enableDebug | falskt | Om det här värdet är sant genereras **interna** fel söknings data som ett undantag **i stället** för att loggas, oavsett inställningarna för SDK-loggning. Standardvärdet är false. <br>***Obs:*** Om du aktiverar den här inställningen tas all telemetri bort när ett internt fel inträffar. Detta kan vara användbart för att snabbt identifiera problem med konfigurationen eller användningen av SDK. Om du inte vill förlora telemetri vid fel sökning kan du överväga att använda `consoleLoggingLevel` eller `telemetryLoggingLevel` i stället för `enableDebug`. |
+| enableDebug | falskt | Om det här värdet är sant genereras **interna** fel söknings data som ett undantag **i stället** för att loggas, oavsett inställningarna för SDK-loggning. Standardvärdet är false. <br>***Obs:*** Om du aktiverar den här inställningen tas all telemetri bort när ett internt fel inträffar. Detta kan vara användbart för att snabbt identifiera problem med konfigurationen eller användningen av SDK. Om du inte vill förlora telemetri vid fel sökning kan du överväga att använda `consoleLoggingLevel` eller `telemetryLoggingLevel` i stället för `enableDebug` . |
 | loggingLevelConsole | 0 | Loggar **interna** Application Insights fel i konsolen. <br>0: av, <br>1: endast kritiska fel, <br>2: allt (fel & varningar) |
 | loggingLevelTelemetry | 1 | Skickar **interna** Application Insights fel som telemetri. <br>0: av, <br>1: endast kritiska fel, <br>2: allt (fel & varningar) |
 | diagnosticLogInterval | 10000 | inhemska Avsöknings intervall (i MS) för intern loggnings kön |
@@ -136,14 +136,14 @@ De flesta konfigurations fälten får ett namn som är förfalskade som standard
 | appId | null | AppId används för korrelationen mellan AJAX-beroenden på klient sidan med begär Anden på Server sidan. När Beacon-API är aktiverat kan det inte användas automatiskt, men det kan ställas in manuellt i konfigurationen. Standardvärdet är null |
 | enableCorsCorrelation | falskt | Om värdet är true, kommer SDK att lägga till två huvuden ("Request-ID" och "Request-context") till alla CORS-begäranden för att korrelera utgående AJAX-beroenden med motsvarande begär Anden på Server sidan. Standardvärdet är false |
 | namePrefix | Odefinierad | Ett valfritt värde som ska användas som namn postfix för localStorage och cookie-namn.
-| enableAutoRouteTracking | falskt | Spåra automatiskt väg ändringar i en enskild sida (SPA). Om värdet är true skickar varje väg ändring en ny sid visningar till Application Insights. Ändringar av hash-`example.com/foo#bar`vägar () registreras också som nya sid visningar.
+| enableAutoRouteTracking | falskt | Spåra automatiskt väg ändringar i en enskild sida (SPA). Om värdet är true skickar varje väg ändring en ny sid visningar till Application Insights. Ändringar av hash-vägar ( `example.com/foo#bar` ) registreras också som nya sid visningar.
 | enableRequestHeaderTracking | falskt | Om värdet är true, kommer AJAX-& Hämta begärandehuvuden att spåras, standardvärdet är false.
 | enableResponseHeaderTracking | falskt | Om värdet är true spåras svars rubriker för AJAX-& Hämta. standard är falskt.
-| distributedTracingMode | `DistributedTracingModes.AI` | Ställer in läget för distribuerad spårning. Om AI_AND_W3C läge eller W3C-läge är inställt, genereras W3C trace context-rubriker (traceparent/tracestate) och tas med i alla utgående begär Anden. AI_AND_W3C tillhandahålls för bakåtkompatibilitet med alla äldre Application Insights instrumenterade tjänster.
+| distributedTracingMode | `DistributedTracingModes.AI` | Ställer in läget för distribuerad spårning. Om AI_AND_W3C läge eller W3C-läge är inställt, genereras W3C trace context-rubriker (traceparent/tracestate) och tas med i alla utgående begär Anden. AI_AND_W3C tillhandahålls för bakåtkompatibilitet med alla äldre Application Insights instrumenterade tjänster. Se exemplet [här](https://docs.microsoft.com/azure/azure-monitor/app/correlation#enable-w3c-distributed-tracing-support-for-web-apps).
 
 ## <a name="single-page-applications"></a>Program med en sida
 
-Som standard hanterar **inte** denna SDK tillstånds väg ändringar som inträffar i program med en enda sida. Om du vill aktivera automatisk väg ändrings spårning för ditt program på en sida `enableAutoRouteTracking: true` kan du lägga till i konfigurations konfigurationen.
+Som standard hanterar **inte** denna SDK tillstånds väg ändringar som inträffar i program med en enda sida. Om du vill aktivera automatisk väg ändrings spårning för ditt program på en sida kan du lägga till `enableAutoRouteTracking: true` i konfigurations konfigurationen.
 
 För närvarande erbjuder vi ett separat [reagerar-plugin-program](#react-extensions)som du kan initiera med det här SDK: t. Den utför även spårning av ändringar i flödet, samt att samla in [andra reagera på en speciell telemetri](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
 
@@ -152,7 +152,7 @@ För närvarande erbjuder vi ett separat [reagerar-plugin-program](#react-extens
 
 ## <a name="configuration-autotrackpagevisittime"></a>Konfiguration: autoTrackPageVisitTime
 
-Genom att `autoTrackPageVisitTime: true`ställa in den tid som en användare lägger på varje sida spåras. På varje ny sid visningar skickas varaktigheten som användaren har använt på *föregående* sida som ett [anpassat mått](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) med namnet `PageVisitTime`. Det här anpassade måttet visas i [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) som ett "log-baserat mått".
+Genom att ställa in `autoTrackPageVisitTime: true` den tid som en användare lägger på varje sida spåras. På varje ny sid visningar skickas varaktigheten som användaren har använt på *föregående* sida som ett [anpassat mått](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) med namnet `PageVisitTime` . Det här anpassade måttet visas i [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) som ett "log-baserat mått".
 
 ## <a name="react-extensions"></a>Reagera på tillägg
 
@@ -183,7 +183,7 @@ Välj **webbläsare** och välj sedan **haverier** eller **prestanda**.
 
 ### <a name="analytics"></a>Analytics
 
-Om du vill fråga din telemetri som samlas in av JavaScript SDK väljer du knappen **Visa i loggar (analys)** . Genom att lägga `where` till en `client_Type == "Browser"`-sats i visas endast data från Java Script SDK och all telemetri på Server sidan som samlas in av andra SDK: er.
+Om du vill fråga din telemetri som samlas in av JavaScript SDK väljer du knappen **Visa i loggar (analys)** . Genom att lägga till en `where` -sats i visas `client_Type == "Browser"` endast data från Java Script SDK och all telemetri på Server sidan som samlas in av andra SDK: er.
  
 ```kusto
 // average pageView duration by name
@@ -220,7 +220,7 @@ För en låg upplevelse kan du i stället installera den grundläggande versione
 ```
 npm i --save @microsoft/applicationinsights-web-basic
 ```
-Den här versionen har minimalt antal funktioner och funktioner och förlitar sig på att du ska kunna skapa dem på det sätt som passar dig bäst. Den utför till exempel ingen autoinsamling (ej fångade undantag, AJAX osv.). API: erna för att skicka vissa typer av `trackTrace`telemetri `trackException`, som, osv., ingår inte i den här versionen, så du måste ange ett eget gränssnitt. Den enda API som är tillgänglig är `track`. Ett [exempel](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) finns här.
+Den här versionen har minimalt antal funktioner och funktioner och förlitar sig på att du ska kunna skapa dem på det sätt som passar dig bäst. Den utför till exempel ingen autoinsamling (ej fångade undantag, AJAX osv.). API: erna för att skicka vissa typer av telemetri, som `trackTrace` , `trackException` osv., ingår inte i den här versionen, så du måste ange ett eget gränssnitt. Den enda API som är tillgänglig är `track` . Ett [exempel](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) finns här.
 
 ## <a name="examples"></a>Exempel
 
@@ -231,10 +231,10 @@ Körbara-exempel finns i [Application Insights JavaScript SDK-exempel](https://g
 Bryta ändringar i SDK v2-versionen:
 - Vissa API-anrop, till exempel trackPageView och trackException, har uppdaterats för att möjliggöra bättre API-signaturer. Det finns inte stöd för att köra i Internet Explorer 8 och tidigare versioner av webbläsaren.
 - Telemetri-kuvertet har fält namn och struktur ändringar på grund av data schema uppdateringar.
-- Flyttad `context.operation` till `context.telemetryTrace`. Vissa fält ändrades också (`operation.id` --> `telemetryTrace.traceID`).
-  - Använd `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()`om du vill uppdatera aktuellt sid visningar-ID manuellt (till exempel i Spa-appar).
+- Flyttad `context.operation` till `context.telemetryTrace` . Vissa fält ändrades också ( `operation.id`  -->  `telemetryTrace.traceID` ).
+  - Använd om du vill uppdatera aktuellt sid visningar-ID manuellt (till exempel i SPA-appar) `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()` .
     > [!NOTE]
-    > Om du vill behålla spårnings-ID: t unikt `Util.newId()`, där du `Util.generateW3CId()`tidigare använde, använder du nu. Båda i slut ändan är åtgärds-ID.
+    > Om du vill behålla spårnings-ID: t unikt, där du tidigare använde `Util.newId()` , använder du nu `Util.generateW3CId()` . Båda i slut ändan är åtgärds-ID.
 
 Om du använder den aktuella Application Insights PRODUCTion SDK (1.0.20) och vill se om den nya SDK: n fungerar i körnings miljön uppdaterar du URL: en beroende på ditt aktuella SDK-inläsnings scenario.
 
@@ -243,7 +243,7 @@ Om du använder den aktuella Application Insights PRODUCTion SDK (1.0.20) och vi
    "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
    ```
 
-- NPM-scenario: `downloadAndSetup` anropa för att hämta det fullständiga ApplicationInsights-skriptet från CDN och initiera det med instrumentande nyckel:
+- NPM-scenario: anropa `downloadAndSetup` för att hämta det fullständiga ApplicationInsights-skriptet från CDN och initiera det med instrumentande nyckel:
 
    ```ts
    appInsights.downloadAndSetup({

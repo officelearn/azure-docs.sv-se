@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f79e257eb61cebe000ed9ab831a4da4a5748132
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299064"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267842"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Använd privata slut punkter för Azure Storage
 
@@ -82,8 +82,8 @@ För det illustrerat exemplet ovan blir DNS-resursposterna för lagrings kontot 
 | Name                                                  | Typ  | Värde                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<offentlig slut punkt för lagrings tjänst\>                   |
-| \<offentlig slut punkt för lagrings tjänst\>                   | A     | \<offentlig IP-adress för lagrings tjänst\>                 |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
+| \<storage service public endpoint\>                   | A     | \<storage service public IP address\>                 |
 
 Som tidigare nämnts kan du neka eller kontrol lera åtkomsten för klienter utanför VNet via den offentliga slut punkten med hjälp av lagrings brand väggen.
 
@@ -137,7 +137,7 @@ Den här begränsningen beror på DNS-ändringar som gjorts när konto a2 skapar
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regler för nätverkssäkerhetsgrupper för undernät med privata slutpunkter
 
-För närvarande kan du inte konfigurera regler för [nätverks säkerhets grupper](../../virtual-network/security-overview.md) (NSG) och användardefinierade vägar för privata slut punkter. NSG-regler som tillämpas på det undernät som är värd för den privata slut punkten tillämpas på den privata slut punkten. En begränsad lösning för det här problemet är att implementera åtkomst regler för privata slut punkter på käll under näten, även om den här metoden kan kräva en högre hanterings kostnad.
+För närvarande kan du inte konfigurera regler för [nätverks säkerhets grupper](../../virtual-network/security-overview.md) (NSG) och användardefinierade vägar för privata slut punkter. NSG-regler som tillämpas på det undernät som är värdar för den privata slut punkten tillämpas bara på andra slut punkter (t. ex. nätverkskort) än den privata slut punkten. En begränsad lösning för det här problemet är att implementera åtkomst regler för privata slut punkter på käll under näten, även om den här metoden kan kräva en högre hanterings kostnad.
 
 ## <a name="next-steps"></a>Nästa steg
 

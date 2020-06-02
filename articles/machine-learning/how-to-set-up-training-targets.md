@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 69d4b1d6c67dc63347ec4fb8043427ddf0a42ae1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7fccd60ef0312748287d4103d8754bce944d4df6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702125"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266465"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -138,7 +138,9 @@ Använd Azure-Data Science Virtual Machine (DSVM) som den virtuella Azure-dator 
 1. **Skapa**: skapa en DSVM innan du använder den för att träna din modell. Information om hur du skapar den här resursen finns i [etablera data science Virtual Machine för Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
-    > Azure Machine Learning stöder bara virtuella datorer som kör Ubuntu. När du skapar en virtuell dator eller väljer en befintlig virtuell dator måste du välja en virtuell dator som använder Ubuntu.
+    > Azure Machine Learning stöder bara virtuella datorer som kör **Ubuntu**. När du skapar en virtuell dator eller väljer en befintlig virtuell dator måste du välja en virtuell dator som använder Ubuntu.
+    > 
+    > Azure Machine Learning kräver också att den virtuella datorn har en __offentlig IP-adress__.
 
 1. **Bifoga**: om du vill koppla en befintlig virtuell dator som ett beräknings mål måste du ange resurs-ID, användar namn och lösen ord för den virtuella datorn. Resurs-ID: t för den virtuella datorn kan konstrueras med prenumerations-ID, resurs grupp namn och namn på virtuell dator med följande sträng format:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
 
@@ -182,9 +184,12 @@ Azure HDInsight är en populär plattform för stor data analys. Plattformen ger
 
 1. **Skapa**: skapa HDInsight-klustret innan du använder det för att träna din modell. Information om hur du skapar ett spark på HDInsight-kluster finns i [skapa ett Spark-kluster i HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
 
+    > [!WARNING]
+    > Azure Machine Learning kräver att HDInsight-klustret har en __offentlig IP-adress__.
+
     När du skapar klustret måste du ange ett SSH-användarnamn och-lösen ord. Anteckna dessa värden eftersom du behöver dem för att använda HDInsight som ett beräknings mål.
     
-    När klustret har skapats ansluter du till det med värd namnet \< kluster namn>-SSH.azurehdinsight.net, där kluster \< namn> är det namn som du angav för klustret. 
+    När klustret har skapats ansluter du till det med hostname \<clustername> -SSH.azurehdinsight.net, där \<clustername> är det namn som du har angett för klustret. 
 
 1. **Bifoga**: om du vill ansluta ett HDInsight-kluster som ett beräknings mål måste du ange resurs-ID, användar namn och lösen ord för HDInsight-klustret. Resurs-ID för HDInsight-klustret kan konstrueras med prenumerations-ID, resurs grupp namn och HDInsight-kluster namn med följande sträng format:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: fbf63a8082bbfabd3b5e4a4d62afbe63d18c983c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234503"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263218"
 ---
 # <a name="virtual-network-service-tags"></a>Tjänst taggar för virtuellt nätverk
 <a name="network-service-tags"></a>
@@ -62,7 +62,7 @@ Som standard återspeglar service märken intervallen för hela molnet. Vissa se
 | **AzureDataExplorerManagement** | Hantering av Azure-Datautforskaren. | Inkommande | Inga | Inga |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Utgående | No | Yes |
 | **AzureDevSpaces** | Azure dev-utrymmen. | Utgående | Inga | Inga |
-| **AzureEventGrid** | Azure Event Grid. <br/><br/>*Obs:* Den här taggen täcker Azure Event Grid slut punkter i södra centrala USA, östra USA, östra USA 2, västra USA 2 och endast USA, Central. | Båda | Inga | Inga |
+| **AzureEventGrid** | Azure Event Grid. | Båda | Inga | Inga |
 | **AzureFrontDoor. frontend** <br/> **AzureFrontDoor. backend** <br/> **AzureFrontDoor.FirstParty**  | Azure-front dörr. | Båda | Inga | Inga |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Obs:* Den här taggen har ett beroende av taggarna **AzureActiveDirectory**, **AzureFrontDoor. frontend** och **AzureFrontDoor. FirstParty** . | Utgående | Inga | Inga |
 | **AzureIoTHub** | Azure-IoT Hub. | Utgående | Inga | Inga |

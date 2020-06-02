@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.openlocfilehash: e5fbb14477275ca329243797b75550cfe92077b6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a92c5fde68227bf94342dd380250429675bd084d
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701552"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248863"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Använda krets brytarens instrument panel med Azure våren Cloud
 Våren [Cloud Netflix turbin](https://github.com/Netflix/Turbine) används ofta för att aggregera flera [hystrix](https://github.com/Netflix/Hystrix) -dataströmmar så att strömmar kan övervakas i en enda vy med hjälp av hystrix-instrumentpanelen. Den här självstudien visar hur du använder dem i Azure våren Cloud.
@@ -59,7 +59,7 @@ När alla appar är igång och kan identifieras kan du komma åt `user-service` 
 Verifiera användningen av offentliga slut punkter eller privata test slut punkter.
 
 ### <a name="using-public-endpoints"></a>Använda offentliga slut punkter
-Få åtkomst till hystrix-turbin med sökvägen `https://<SERVICE-NAME>-hystrix-turbine azuremicroservices.io/hystrix` från din webbläsare.  Följande bild visar hystrix-instrumentpanelen som körs i den här appen.
+Få åtkomst till hystrix-turbin med sökvägen `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` från din webbläsare.  Följande bild visar hystrix-instrumentpanelen som körs i den här appen.
 
 ![Hystrix-instrumentpanel](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 

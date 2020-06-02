@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36d580b7659325d4bf5f13889f774ddaa2ab0702
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a7215790a7f052227b08f51dcd7ad5dd337bb4e9
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597130"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259277"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Konfigurera lokal utveckling för för hands versionen av Azure statisk Web Apps
 
@@ -27,9 +27,9 @@ Den här artikeln visar rekommenderade metod tips för lokal utveckling, inklusi
 - Felsöka och köra programmet
 - Metod tips för appens fil-och mappstruktur
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- [Visuell Studio-kod](https://code.visualstudio.com/)
+- [Visual Studio-koden](https://code.visualstudio.com/)
 - [Azure Functions tillägg](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code
 - [Live Server-tillägg](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) för Visual Studio Code
   - Krävs endast om du inte använder ett front-end JavaScript-ramverk eller en statisk webbplats Generators CLI
@@ -64,7 +64,7 @@ Live Server-tillägget för Visual Studio Code tillhandahåller en lokal utveckl
 
 #### <a name="create-a-repository"></a>Skapa en lagrings plats
 
-1. Navigera till [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) och skapa ett nytt GitHub-projekt med namnet **vanilj-API**med hjälp av den här mallen.
+1. Kontrol lera att du är inloggad på GitHub och navigera till [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) och skapa ett nytt GitHub-projekt med namnet **vanilj-API**med hjälp av den här mallen.
 
     :::image type="content" source="media/local-development/vanilla-api.png" alt-text="GitHub nytt lagrings platsen-fönster":::
 

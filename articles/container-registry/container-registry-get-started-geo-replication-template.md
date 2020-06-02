@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: 6e76e2966cd2bcba2606f6b87c99cb34208f8f24
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a4aa7240cb91ef1048626b1578d7ab9e649832c6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234453"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263728"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>Snabb start: skapa ett geo-replikerat behållar register med hjälp av en Resource Manager-mall
 
@@ -23,7 +23,7 @@ Den här snabb starten visar hur du skapar en Azure Container Registry-instans m
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Inga.
 

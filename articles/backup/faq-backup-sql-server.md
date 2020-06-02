@@ -4,12 +4,12 @@ description: Få svar på vanliga frågor om hur du säkerhetskopierar SQL Serve
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247714"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248268"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor om SQL Server databaser som körs på en virtuell Azure-säkerhetskopiering
 
@@ -52,7 +52,7 @@ Standardvärdet för DefaultBackupTasksThreshold är **20**.
  Även om den här metoden hjälper om säkerhets kopierings programmet använder en stor mängd resurser, är SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) ett mer allmänt sätt att ange gränser för mängden processor, fysisk IO och minne som inkommande program begär Anden kan använda.
 
 > [!NOTE]
-> I UX-UX kan du fortfarande gå vidare och schemalägga så många säkerhets kopieringar vid en viss tidpunkt, men de bearbetas i ett glidande fönster på ungefär 5, enligt exemplet ovan.
+> I UX-UX kan du fortfarande gå vidare och schemalägga så många säkerhets kopieringar varje gång, men de bearbetas i ett glidande fönster, t. ex. 5, i enlighet med exemplet ovan.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Kan jag köra en fullständig säkerhetskopia från en sekundär replik?
 

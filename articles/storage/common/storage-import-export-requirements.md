@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ded8aa0587ecb6bb756f3faa07cc816b7d46b561
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255319"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259583"
 ---
 # <a name="azure-importexport-system-requirements"></a>Systemkrav för Azure Import/Export
 
@@ -50,7 +50,7 @@ Mer information om lagrings konton finns i [Översikt över Azure Storage-konton
 Varje jobb kan användas för att överföra data till eller från ett enda lagrings konto. Med andra ord kan ett enda import/export-jobb inte omfatta över flera lagrings konton. Information om hur du skapar ett nytt lagrings konto finns i [så här skapar du ett lagrings konto](storage-account-create.md).
 
 > [!IMPORTANT]
-> Azure import export-tjänsten stöder inte lagrings konton där funktionen för [Virtual Network tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md)har Aktiver ATS. 
+> Azure import export-tjänsten stöder inte lagrings konton där funktionen för [Virtual Network tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md)   har Aktiver ATS. 
 
 ## <a name="supported-storage-types"></a>Lagringstyper som stöds
 
@@ -78,11 +78,13 @@ Följande lista över diskar stöds för användning med import/export-tjänsten
 |HDD     |  2,5 "<br>3,5 "       |SATA II, SATA III         |
 
 Följande disk typer stöds inte:
+
 - USBs.
 - Extern hård disk med inbyggd USB-adapter.
 - Diskar som är i höljet för en extern hård disk.
 
 Ett enda import/export-jobb kan ha:
+
 - Högst 10 hård disk-/SSD.
 - En blandning av hård diskar/SSD i valfri storlek.
 
@@ -90,9 +92,6 @@ Ett stort antal enheter kan spridas över flera jobb och det finns ingen gräns 
 
 När du förbereder hård diskar och kopierar data med hjälp av WAImportExport-verktyget kan du använda externa USB-anpassningar. De flesta USB 3,0-och senare-anpassningarna i rack bör fungera.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera verktyget WAImportExport](storage-import-export-tool-how-to.md)
 * [Överföra data med kommando rads verktyget AzCopy](storage-use-azcopy.md)
-* [Exempel på Azure import-export REST API](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

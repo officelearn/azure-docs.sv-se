@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 41efe4592c65ae3cdd85ce1b212554e50691905a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79014d318da1732d48eeb893aa383e948e1036cd
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78330727"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267111"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Skapa en fördjupad läsar resurs och konfigurera Azure Active Directory autentisering
 
@@ -29,7 +29,7 @@ Skriptet är utformat för att vara flexibelt. Den letar först efter befintliga
 
 ## <a name="set-up-powershell-environment"></a>Konfigurera PowerShell-miljö
 
-1. Börja med att öppna [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Se till att Cloud Shell är inställt på PowerShell i list rutan längst upp till vänster eller `pwsh`genom att skriva.
+1. Börja med att öppna [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Se till att Cloud Shell är inställt på PowerShell i list rutan längst upp till vänster eller genom att skriva `pwsh` .
 
 1. Kopiera och klistra in följande kod avsnitt i gränssnittet.
 
@@ -141,7 +141,7 @@ Skriptet är utformat för att vara flexibelt. Den letar först efter befintliga
     }
     ```
 
-1. Kör funktionen `Create-ImmersiveReaderResource`genom att ange parametrarna efter behov.
+1. Kör funktionen `Create-ImmersiveReaderResource` genom att ange parametrarna efter behov.
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
@@ -162,10 +162,10 @@ Skriptet är utformat för att vara flexibelt. Den letar först efter befintliga
     | SubscriptionName |Namnet på den Azure-prenumeration som ska användas för den fördjupade läsar resursen. Du måste ha en prenumeration för att kunna skapa en resurs. |
     | ResourceName |  Måste vara alfanumeriska och kan innehålla "-", förutsatt att "-" inte är det första eller sista. Längden får inte överskrida 63 tecken.|
     | ResourceSubdomain |En anpassad under domän krävs för den fördjupande läsar resursen. Under domänen används av SDK när tjänsten för avancerad läsare anropas för att starta läsaren. Under domänen måste vara globalt unik. Under domänen måste vara alfanumerisk och kan innehålla "-", förutsatt att "-" inte är det första eller sista. Längden får inte överskrida 63 tecken. Den här parametern är valfri om resursen redan finns. |
-    | ResourceSKU |Alternativ: `S0`. Besök vår [Cognitive Services prissättnings sida](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) om du vill veta mer om de olika tillgängliga SKU: er. Den här parametern är valfri om resursen redan finns. |
-    | ResourceLocation |Alternativ: `eastus`, `eastus2` `southcentralus` `westus` `uksouth` `westeurope`,,,,,,,,,. `westus2` `australiaeast` `southeastasia` `centralindia` `japaneast` `northeurope` Den här parametern är valfri om resursen redan finns. |
+    | ResourceSKU |Alternativ: `S0` . Besök vår [Cognitive Services prissättnings sida](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) om du vill veta mer om de olika tillgängliga SKU: er. Den här parametern är valfri om resursen redan finns. |
+    | ResourceLocation |Alternativ:,,,,,,,,, `eastus` `eastus2` `southcentralus` `westus` `westus2` `australiaeast` `southeastasia` `centralindia` `japaneast` `northeurope` `uksouth` , `westeurope` . Den här parametern är valfri om resursen redan finns. |
     | ResourceGroupName |Resurser skapas i resurs grupper inom prenumerationer. Ange namnet på en befintlig resurs grupp. Om resurs gruppen inte redan finns skapas en ny med det här namnet. |
-    | ResourceGroupLocation |Om din resurs grupp inte finns måste du ange en plats där gruppen ska skapas. Du hittar en lista över platser genom att `az account list-locations`köra. Använd egenskapen *namn* (utan blank steg) för det returnerade resultatet. Den här parametern är valfri om din resurs grupp redan finns. |
+    | ResourceGroupLocation |Om din resurs grupp inte finns måste du ange en plats där gruppen ska skapas. Du hittar en lista över platser genom att köra `az account list-locations` . Använd egenskapen *namn* (utan blank steg) för det returnerade resultatet. Den här parametern är valfri om din resurs grupp redan finns. |
     | AADAppDisplayName |Visnings namnet för Azure Active Directorys programmet. Om det inte går att hitta något befintligt Azure AD-program skapas en ny med det här namnet. Den här parametern är valfri om Azure AD-programmet redan finns. |
     | AADAppIdentifierUri |URI för Azure AD-appen. Om det inte går att hitta en befintlig Azure AD-App skapas en ny med denna URI. Till exempel `https://immersivereaderaad-mycompany`. |
     | AADAppClientSecret |Ett lösen ord som du skapar kommer att användas senare för att autentisera när du hämtar en token för att starta den fördjupade läsaren. Lösen ordet måste innehålla minst 16 tecken, innehålla minst 1 specialtecken och innehålla minst 1 numeriskt tecken. |
@@ -183,7 +183,7 @@ Skriptet är utformat för att vara flexibelt. Den letar först efter befintliga
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visa snabb starten för [Node. js](./quickstart-nodejs.md) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node. js
+* Visa snabb starten för [Node. js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node. js
 * Visa [python-självstudien](./tutorial-python.md) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av python
 * Se snabb [självstudien](./tutorial-ios-picture-immersive-reader.md) för att se vad mer du kan göra med avancerad läsar-SDK med Swift
 * Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)

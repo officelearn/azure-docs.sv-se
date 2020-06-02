@@ -3,12 +3,12 @@ title: Övervaka ett Azure Kubernetes service (AKS)-kluster distribuerat | Micro
 description: Lär dig hur du aktiverar övervakning av ett Azure Kubernetes service-kluster (AKS) med Azure Monitor för behållare som redan har distribuerats i din prenumeration.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 8589ea71b5c7affadc61d5e4543f734a660ab543
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7450f5eb132dab9961de712d8cddb33bd2c521
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275456"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84264219"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Aktivera övervakning av AKS-kluster (Azure Kubernetes service) redan distribuerat
 
@@ -19,7 +19,7 @@ Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats med 
 * Azure CLI
 * Terraform
 * [Från Azure Monitor](#enable-from-azure-monitor-in-the-portal) eller [direkt från AKS-klustret](#enable-directly-from-aks-cluster-in-the-portal) i Azure Portal
-* Med den [tillhandahållna Azure Resource Manager-mallen](#enable-using-an-azure-resource-manager-template) med hjälp av `New-AzResourceGroupDeployment` Azure PowerShell-CMDLET eller med Azure CLI.
+* Med den [tillhandahållna Azure Resource Manager-mallen](#enable-using-an-azure-resource-manager-template) med hjälp av Azure PowerShell-cmdlet `New-AzResourceGroupDeployment` eller med Azure CLI.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -27,7 +27,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Aktivera med hjälp av Azure CLI
 
-Följande steg aktiverar övervakning av ditt AKS-kluster med hjälp av Azure CLI. I det här exemplet behöver du inte per-skapa eller ange en befintlig arbets yta. Med det här kommandot kan du förenkla processen åt dig genom att skapa en standard arbets yta i standard resurs gruppen för AKS-kluster prenumerationen om en sådan inte redan finns i regionen.  Standard arbets ytan som skapats liknar formatet *DefaultWorkspace-\<GUID>\<-region>*.  
+Följande steg aktiverar övervakning av ditt AKS-kluster med hjälp av Azure CLI. I det här exemplet behöver du inte per-skapa eller ange en befintlig arbets yta. Med det här kommandot kan du förenkla processen åt dig genom att skapa en standard arbets yta i standard resurs gruppen för AKS-kluster prenumerationen om en sådan inte redan finns i regionen.  Standard arbets ytan som skapats liknar formatet *DefaultWorkspace- \<GUID> - \<Region> *.  
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
@@ -41,7 +41,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>Integrera med en befintlig arbets yta
 
-Om du hellre vill integrera med en befintlig arbets yta utför du följande steg för att först identifiera det fullständiga resurs-ID: t för din Log Analytics `--workspace-resource-id` arbets yta som krävs för parametern och kör sedan kommandot för att aktivera övervaknings tillägget mot den angivna arbets ytan.  
+Om du hellre vill integrera med en befintlig arbets yta utför du följande steg för att först identifiera det fullständiga resurs-ID: t för din Log Analytics arbets yta som krävs för `--workspace-resource-id` parametern och kör sedan kommandot för att aktivera övervaknings tillägget mot den angivna arbets ytan.  
 
 1. Lista alla prenumerationer som du har åtkomst till med hjälp av följande kommando:
 
@@ -108,9 +108,9 @@ Om du vill aktivera övervakning av ditt AKS-kluster i Azure Portal från Azure 
 
 2. Välj **behållare** i listan.
 
-3. På sidan **Monitor-containers** väljer du **icke-övervakade kluster**.
+3. På sidan **övervaka – behållare** väljer du **oövervakade kluster**.
 
-4. I listan över icke-övervakade kluster letar du reda på behållaren i listan och klickar på **Aktivera**.   
+4. I listan med oövervakade kluster letar du reda på behållaren i listan och klickar på **Aktivera**.
 
 5. På sidan **onboarding to Azure Monitor for containers** , om du har en befintlig Log Analytics arbets yta i samma prenumeration som klustret, väljer du den i list rutan.  
     I listan förväljs standard arbets ytan och platsen som AKS-behållaren distribueras till i prenumerationen.
@@ -167,7 +167,7 @@ Om du inte känner till konceptet att distribuera resurser med hjälp av en mall
 
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, `az --version`kör. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Skapa och köra en mall
 

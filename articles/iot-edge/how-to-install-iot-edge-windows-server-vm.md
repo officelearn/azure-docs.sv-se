@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: philmea
-ms.openlocfilehash: 5f88a21efd04c9dd24fe31e925a3b911b5ec9df2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 380e354beb2f58b958e3c88d9f93ad0bda655971
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77045907"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266482"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Köra Azure IoT Edge på Windows Server Virtual Machines
 
@@ -22,11 +22,11 @@ Azure IoT Edge runtime är vad som förvandlar en enhet till en IoT Edge enhet. 
 
 Mer information om hur IoT Edge runtime fungerar och vilka komponenter som ingår finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
 
-Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime på en virtuell Windows Server 2019-dator med hjälp av [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-erbjudandet. Följ anvisningarna i [installera Azure IoT Edge runtime](how-to-install-iot-edge-windows.md) i Windows för användning med andra versioner.
+Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime på en virtuell Windows Server 2019-dator med hjälp av [Windows Server](https://www.microsoft.com/cloud-platform/windows-server-pricing) Azure Marketplace-erbjudandet. Följ anvisningarna i [installera Azure IoT Edge runtime](how-to-install-iot-edge-windows.md) i Windows för användning med andra versioner.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Distribuera från Azure Marketplace
 
-1. Navigera till [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-erbjudandet eller genom att söka i Windows Server på [Azure Marketplace](https://azuremarketplace.microsoft.com/)
+1. Navigera till [Windows Server](https://www.microsoft.com/cloud-platform/windows-server-pricing) Azure Marketplace-erbjudandet eller genom att söka i Windows Server på [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 2. Välj **Hämta nu**
 3. I **Software plan**letar du upp "Windows Server 2019 Data Center Server Core with Containers" och väljer sedan **Fortsätt** i nästa dialog ruta.
     * Du kan också använda dessa instruktioner för andra versioner av Windows Server med behållare
@@ -87,8 +87,8 @@ Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime 
    az vm create -g IoTEdgeResources -n EdgeVM --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter-Core-with-Containers:latest  --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
-   * Med det här kommandot uppmanas du att ange ett lösen ord, men du `--admin-password` kan lägga till alternativet för att ställa in det enklare i ett skript
-   * Windows Server Core-avbildningen har endast stöd för kommando rad med fjärr skrivbord, så om du vill ha den fullständiga Skriv bords upplevelsen anger `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` du som avbildning
+   * Med det här kommandot uppmanas du att ange ett lösen ord, men du kan lägga till alternativet `--admin-password` för att ställa in det enklare i ett skript
+   * Windows Server Core-avbildningen har endast stöd för kommando rad med fjärr skrivbord, så om du vill ha den fullständiga Skriv bords upplevelsen anger du `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` som avbildning
 
 1. Ange anslutnings strängen för enheten (du kan följa proceduren [Hämta anslutnings strängen med Azure CLI](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) om du inte är bekant med den här processen):
 

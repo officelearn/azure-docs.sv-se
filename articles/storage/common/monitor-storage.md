@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: c8125001b5960a0bf770e8e015ad757a277629ea
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684899"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267621"
 ---
 # <a name="monitor-azure-storage"></a>Övervaka Azure Storage
 
@@ -82,7 +82,7 @@ När du skapar en diagnostisk inställning väljer du den typ av lagring som du 
 
 Du måste också ange de kategorier av åtgärder som du vill samla in loggar för. Kategorierna för Azure Storage visas i den här tabellen.
 
-| Kategori | Description |
+| Kategori | Beskrivning |
 |:---|:---|
 | StorageRead | Läs åtgärder på blobbar. |
 | StorageWrite | Skriv åtgärder på blobbar. |
@@ -337,7 +337,7 @@ Mer information finns i [Kom igång med Log Analytics i Azure Monitor](https://d
 
 Data lagras i dessa tabeller.
 
-| Tabell | Description |
+| Tabell | Beskrivning |
 |:---|:---|
 |StorageBlobLogs | Loggar som beskriver aktivitet i Blob Storage. |
 |StorageFileLogs | Loggar som beskriver aktivitet i fil resurser. |
@@ -396,7 +396,7 @@ Använd de här frågorna för att hjälpa dig att övervaka dina Azure Storage-
     | sort by count_ desc 
     | render piechart
     ```
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Stöder Azure Storage mått för Managed Disks eller ohanterade diskar?**
 
@@ -407,4 +407,3 @@ Nej. Azure Compute stöder mått på diskar. Mer information finns i [per disk m
 - En referens för loggar och mått som skapats av Azure Storage finns i [Azure Storage övervaknings data referens](monitor-storage-reference.md).
 - Mer information om övervakning av Azure-resurser finns i [övervaka Azure-resurser med Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
 - Mer information om hur du migrerar mått finns i [Azure Storage metriska migreringar](./storage-metrics-migration.md).
-

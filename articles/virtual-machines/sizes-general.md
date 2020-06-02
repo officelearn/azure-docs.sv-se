@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: fc263eb6fbe6c6402aaf529229bb7025f070b8d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e597eebda6a730d301eefdbd2d7e6859f5a7cc
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81269677"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248319"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Generella storlekar för virtuella datorer
 
@@ -40,7 +40,8 @@ Generella storlekar för virtuella datorer ger balanserade förhållandet mellan
 
 - [Dv3 och Dsv3-serien](dv3-dsv3-series.md) De virtuella datorerna körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar. Minnet har utökats (från ~ 3,5 GiB/vCPU till 4 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras efter flytta till hyperthreading. Dv3-serien har inte längre hög minnes storlek för virtuella datorer i D/Dv2-serien, de har flyttats till den minnesoptimerade [Ev3 och Esv3-serien](ev3-esv3-series.md).
 
-Exempel på användnings områden i D-serien är program i företags klass, Relations databaser, minnes intern cachelagring och analys.
+- [Ddv4 och Ddsv4-serien](ddv4-ddsv4-series.md) De virtuella datorerna körs på den andra generationen Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake), vilket ger ett bättre värde för de flesta allmänna arbets belastningar. Den har en allt högre klock hastighet på 3,4 GHz och har [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector-tillägg 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
+
 
 ## <a name="other-sizes"></a>Andra storlekar
 

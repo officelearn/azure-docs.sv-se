@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa778aa395d013bd644f69886ea5ebc2399e6f54
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685518"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265258"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Använd ID-Broker (för hands version) för hantering av autentiseringsuppgifter
 
@@ -47,7 +47,7 @@ Med ID Broker-funktionen läggs en extra virtuell dator till i klustret. Den hä
 ![Alternativ för att aktivera ID-Broker](./media/identity-broker/identity-broker-enable.png)
 
 ### <a name="using-azure-resource-manager-templates"></a>Använda Azure Resource Manager-mallar
-Om du lägger till en ny roll `idbrokernode` som heter med följande attribut till din malls beräknings profil skapas klustret med noden ID Broker Enabled:
+Om du lägger till en ny roll `idbrokernode` som heter med följande attribut till din malls beräknings profil skapas klustret med NODEN ID Broker Enabled:
 
 ```json
 .
@@ -100,7 +100,7 @@ SSH-autentisering kräver att hash är tillgängligt i Azure AD DS. Om du bara v
 
 I installationen av ID-Broker kan anpassade appar och klienter som ansluter till gatewayen uppdateras för att först hämta den begärda OAuth-token. Du kan följa stegen i det här [dokumentet](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) för att hämta token med följande information:
 
-*   URI för OAuth-resurs:https://hib.azurehdinsight.net 
+*   URI för OAuth-resurs:`https://hib.azurehdinsight.net` 
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *   Behörighet: (namn: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 

@@ -2,13 +2,13 @@
 title: Mall funktioner – resurser
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta värden för resurser.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 89e8907e4e134b621cd1c55bfcefeebde772df10
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.date: 06/01/2020
+ms.openlocfilehash: a31aadb02ed3fff83ee6dc62a71aa32d0b716629
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167731"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259447"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Resurs funktioner för ARM-mallar
 
@@ -34,7 +34,7 @@ Returnerar resurs-ID för en [tilläggs resurs](../management/extension-resource
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | resourceId |Yes |sträng |Resurs-ID för resursen som tilläggs resursen tillämpas på. |
 | resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
@@ -112,7 +112,7 @@ Syntaxen för den här funktionen varierar beroende på namnet på list åtgärd
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | resourceName eller resourceIdentifier |Yes |sträng |Unikt ID för resursen. |
 | apiVersion |Yes |sträng |API-version för resurs körnings tillstånd. Normalt i formatet **åååå-mm-dd**. |
@@ -361,7 +361,7 @@ Returnerar information om en resurs leverantör och de resurs typer som stöds. 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Yes |sträng |Namn område för providern |
 | resourceType |No |sträng |Typ av resurs inom den angivna namn rymden. |
@@ -436,7 +436,7 @@ Returnerar ett objekt som representerar en resurs körnings tillstånd.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | resourceName eller resourceIdentifier |Yes |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen anger du endast resurs namnet som en parameter. Ange resurs-ID när du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt. |
 | apiVersion |No |sträng |API-version för den angivna resursen. **Den här parametern krävs när resursen inte är etablerad i samma mall.** Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
@@ -537,10 +537,20 @@ För att förenkla skapandet av eventuella resurs-ID använder du `resourceId()`
 
 [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) är [tilläggs resurs typer](../management/extension-resource-types.md) som skapas implicit för vissa resurser. Eftersom den hanterade identiteten inte uttryckligen definieras i mallen måste du referera till den resurs som identiteten tillämpas på. Används `Full` för att hämta alla egenskaper, inklusive den implicit skapade identiteten.
 
-Om du till exempel vill hämta klient-ID: t för en hanterad identitet som används för en skalnings uppsättning för virtuella datorer använder du:
+Mönstret är:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+Om du till exempel vill hämta ägar-ID för en hanterad identitet som tillämpas på en virtuell dator använder du:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2019-03-01', 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+Eller så använder du för att hämta klient-ID för en hanterad identitet som tillämpas på en skalnings uppsättning för virtuella datorer:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```
 
 ### <a name="reference-example"></a>Referens exempel
@@ -749,7 +759,7 @@ Returnerar den unika identifieraren för en resurs. Du använder den här funkti
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
 | resourceGroupName |No |sträng |Standardvärdet är den aktuella resurs gruppen. Ange det här värdet när du behöver hämta en resurs i en annan resurs grupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
@@ -945,7 +955,7 @@ Returnerar den unika identifieraren för en resurs som distribueras på prenumer
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
 | resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
@@ -1027,7 +1037,7 @@ Returnerar den unika identifieraren för en resurs som distribueras på klient n
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
 | resourceName1 |Yes |sträng |Resursens namn. |

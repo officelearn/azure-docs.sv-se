@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 81dbbeda9d0132de63180cc13f6243761e0ba865
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 83207c70b147e4f0d416f47a6b12f9826f49f2db
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171590"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267791"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Skapa en privat slut punkt med hjälp av Azure PowerShell
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. 
@@ -142,7 +142,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
 ``` 
 
 ## <a name="configure-the-private-dns-zone"></a>Konfigurera Privat DNS zon 
-Skapa en privat DNS-zon för SQL Database domän och skapa en kopplings länk med det virtuella nätverket: 
+Skapa en Privat DNS zon för SQL Database domän, skapa en kopplings länk med Virtual Network och skapa en DNS-zon för att koppla den privata slut punkten till Privat DNS zon.
 
 ```azurepowershell
 
@@ -153,19 +153,11 @@ $link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName "myResourceGroup"
   -ZoneName "privatelink.database.windows.net"`
   -Name "mylink" `
   -VirtualNetworkId $virtualNetwork.Id  
- 
-$networkInterface = Get-AzResource -ResourceId $privateEndpoint.NetworkInterfaces[0].Id -ApiVersion "2019-04-01" 
- 
-foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
-foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
-Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
-$recordName = $fqdn.split('.',2)[0] 
-$dnsZone = $fqdn.split('.',2)[1] 
-New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.database.windows.net"  `
--ResourceGroupName "myResourceGroup" -Ttl 600 `
--PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
-} 
-} 
+
+$config = New-AzPrivateDnsZoneConfig -Name "privatelink.database.windows.net" -PrivateDnsZoneId $zone.ResourceId
+
+$privateDnsZoneGroup = New-AzPrivateDnsZoneGroup -ResourceGroupName "myResourceGroup" `
+ -PrivateEndpointName "myPrivateEndpoint" -name "MyZoneGroup" -PrivateDnsZoneConfig $config
 ``` 
   
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
@@ -214,7 +206,7 @@ mstsc /v:<publicIpAddress>
 3. Installera [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
 4. I **Anslut till Server**anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | --- | --- |
     | Servertyp | Databasmotor |
     | servernamn | myserver.database.windows.net |

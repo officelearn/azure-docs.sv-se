@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 74975c050ef77c02e8912ce6cdd9404ac5bba019
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c750912e942d5dadeb97e6675427f1730912704a
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054733"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267587"
 ---
 # <a name="quickstart-restore-a-database-to-an-azure-sql-managed-instance-with-ssms"></a>Snabb start: återställa en databas till en Azure SQL-hanterad instans med SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ I den här snabb starten använder du SQL Server Management Studio (SSMS) för a
 > Mer information om migrering med hjälp av Azure Database Migration Service (DMS) finns i [migrering av SQL-hanterad instans med DMS](../../dms/tutorial-sql-server-to-managed-instance.md).
 > Mer information om olika metoder för migrering finns i [SQL Server migrering till Azure SQL-hanterad instans](migrate-to-instance-from-sql-server.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här snabbstarten:
 
@@ -96,6 +96,7 @@ I SQL Server Management Studio (SSMS) följer du dessa steg för att återställ
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Om du i steg 5 har återställt en databas återställning med meddelande-ID 22003, skapar du en ny säkerhets kopia som innehåller kontroll summor för säkerhets kopior och utför återställningen igen. Se [Aktivera eller inaktivera kontroll summor för säkerhets kopiering under säkerhets kopiering eller återställning](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 - Information om hur du felsöker säkerhetskopiering till en URL finns i avsnittet [Metodtips och felsökning för säkerhetskopiering av SQL-server till en URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
 - En översikt över anslutnings alternativ för appar finns i [ansluta dina program till SQL-hanterad instans](connect-application-instance.md).
 - Om du vill fråga med hjälp av dina favorit verktyg eller språk, se [snabb starter: Azure SQL Database Anslut och fråga](../database/connect-query-content-reference-guide.md).

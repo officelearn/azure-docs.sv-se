@@ -3,12 +3,12 @@ title: Använd PowerShell för att säkerhetskopiera Windows Server till Azure
 description: I den här artikeln lär du dig hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hur du hanterar säkerhets kopiering och återställning.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: bd7a48fa44d33274fe2378d0efdce13eae86aff4
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 696da2c94a439e5efaebbd148f6e05a9e0e15f37
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234656"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247758"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 
@@ -694,7 +694,7 @@ Om du avinstallerar agentens binärfiler från datorn kan det ta några konsekve
 * All princip information tas bort från datorn, men princip informationen fortsätter att lagras i tjänsten.
 * Alla säkerhets kopierings scheman tas bort och inga ytterligare säkerhets kopieringar görs.
 
-Men data som lagras i Azure finns kvar och bevaras enligt inställningarna för bevarande princip. Äldre punkter föråldras automatiskt.
+Data som lagras i Azure förblir dock kvar och bevaras enligt inställningarna för bevarande princip. Äldre punkter föråldras automatiskt.
 
 ## <a name="remote-management"></a>Fjärrhantering
 

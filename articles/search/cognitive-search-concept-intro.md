@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2020
-ms.openlocfilehash: a41dcc9c7ec86f41c64a69ea1aba762b960b2633
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cdff42c6ff0cadb5ce4b3d7fc469d648349d1e88
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283029"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265207"
 ---
 # <a name="getting-started-with-ai-enrichment"></a>Komma igång med AI-anrikning
 
@@ -80,7 +80,7 @@ Internt genererar pipelinen en samling av förrikade dokument. Du kan bestämma 
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Lägg till ett knowledgeStore-element för att spara dina berikare
 
-[Search REST API-version = 2019-05 -06 – för hands version](search-api-preview.md) utökar `knowledgeStore` färdighetsuppsättningar med en definition som tillhandahåller en Azure Storage-anslutning och projektioner som beskriver hur de är lagrade. Detta är förutom ditt index. I en standard-AI-pipeline är berikade dokument övergående, som endast används vid indexering och sedan ignoreras. Med kunskaps lager bevaras de dokument som är omfattande. Mer information finns i [Knowledge Store (för hands version)](knowledge-store-concept-intro.md).
+[Search REST API-version = 2019-05 -06 – för hands version](search-api-preview.md) utökar färdighetsuppsättningar med en `knowledgeStore` definition som tillhandahåller en Azure Storage-anslutning och projektioner som beskriver hur de är lagrade. Detta är förutom ditt index. I en standard-AI-pipeline är berikade dokument övergående, som endast används vid indexering och sedan ignoreras. Med kunskaps lager bevaras de dokument som är omfattande. Mer information finns i [Knowledge Store (för hands version)](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Steg 3: Sök efter index och fråge baserad åtkomst
 
@@ -102,7 +102,7 @@ Index genereras från ett index schema som definierar fält, attribut och andra 
 
 1. Definiera [index schemat](https://docs.microsoft.com/rest/api/searchservice/create-index). *Fält* samlingen innehåller fält från källdata. Du bör också utvärderar ytterligare fält för att innehålla genererade värden för innehåll som skapas under anrikning.
 
-1. Definiera [indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-skillset) som refererar till data källan, färdigheter och indexet.
+1. Definiera [indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer) som refererar till data källan, färdigheter och indexet.
 
 1. I indexeraren lägger du till *outputFieldMappings*. Det här avsnittet mappar utdata från färdigheter (i steg 3) till indata-fälten i index schemat (i steg 4).
 

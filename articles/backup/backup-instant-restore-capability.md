@@ -4,12 +4,12 @@ description: Azure Instant Restore-funktion och vanliga frågor och svar om VM b
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597662"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248285"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
 
@@ -48,7 +48,7 @@ Som standard behålls ögonblicks bilder i två dagar. Den här funktionen till�
 * Det är en vägbeskrivnings uppgradering, när du har uppgraderat till omedelbar återställning, kan du inte gå tillbaka.
 
 >[!NOTE]
->Med den här uppgraderingen av återställnings perioden kommer varaktigheten för ögonblicks bilder av alla kunder (**nya och befintliga båda**) att ställas in på standardvärdet två dagar. Du kan dock ange varaktigheten enligt ditt krav till ett värde mellan 1 och 5 dagar.
+>Med den här uppgraderingen av återställnings perioden kommer varaktigheten för ögonblicks bilder av alla kunder (**nya och befintliga båda**) att ställas in på standardvärdet två dagar. Du kan dock ange varaktigheten enligt ditt krav på ett värde mellan 1 och 5 dagar.
 
 ## <a name="cost-impact"></a>Kostnads påverkan
 
@@ -110,7 +110,7 @@ Den nya modellen tillåter inte borttagning av återställnings punkten (– niv
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Varför är min ögonblicks bild befintlig även efter den angivna kvarhållningsperioden i säkerhets kopierings policyn?
 
-Om återställnings punkten har ögonblicks bilder och det är den senaste tillgängliga RP-filen, behålls den tills tiden det finns en nästa lyckade säkerhets kopiering. Detta är enligt den designade principen "skräp insamling" (GC) idag som bestämmer att minst en senaste RP alltid är tillgänglig om alla säkerhets kopieringar är misslyckade på grund av ett problem på den virtuella datorn. I normala scenarier rensas RPs på högst 24 timmar efter att de gått ut.
+Om återställnings punkten har ögonblicks bilder och det är den senaste tillgängliga RP-filen, behålls den tills tiden det finns en nästa lyckade säkerhets kopiering. Detta sker i enlighet med den utgångna skräp insamlings principen (GC) idag som bestämmer att minst en senaste RP alltid är tillgänglig om alla säkerhets kopieringar sker på grund av ett problem på den virtuella datorn. I normala scenarier rensas RPs på högst 24 timmar efter att de gått ut.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Jag behöver inte omedelbar återställnings funktion. Kan den inaktive ras?
 

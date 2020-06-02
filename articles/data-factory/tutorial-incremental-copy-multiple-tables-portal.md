@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/20/2018
-ms.openlocfilehash: 3c29d7b30541e0d289182d448b5bcbf69d02a3dc
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: ba934d8eeadcd3d3e89d5d9f6115c258206c2d13
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194562"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247265"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 
@@ -67,7 +67,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **SQL Server**. Du använder en SQL Server databas som käll data lager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md). 
 
@@ -388,7 +388,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 
 1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Pipeline**.
 
-1. På fliken **Allmänt** anger du **IncrementalCopyPipeline** som **namn**. 
+1. I panelen Allmänt under **Egenskaper**anger du **IncrementalCopyPipeline** som **namn**. Komprimera sedan panelen genom att klicka på egenskaps ikonen i det övre högra hörnet.  
 
 1. Gör så här på fliken **parametrar** : 
 

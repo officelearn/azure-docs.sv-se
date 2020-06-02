@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: b9dcf35b3ea178894a0387e650b6814c0f920926
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cb47119fdddad70f8b7d5de94f9a2d35efd80d76
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649794"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259311"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurera diagnostikloggar för en Azure-händelsehubb
 
@@ -55,7 +55,7 @@ Diagnostikloggar är inaktiverade som standard. Följ dessa steg om du vill akti
 
 Event Hubs fångar diagnostikloggar för följande kategorier:
 
-| Kategori | Description | 
+| Kategori | Beskrivning | 
 | -------- | ----------- | 
 | Arkiv loggar | Samlar in information om [Event Hubs avbildnings](event-hubs-capture-overview.md) åtgärder, särskilt loggar som rör avbildnings fel. |
 | Drift loggar | Avbilda alla hanterings åtgärder som utförs på Azure Event Hubs-namnrymden. Data åtgärder samlas inte in på grund av den stora mängden data åtgärder som utförs på Azure Event Hubs. |
@@ -247,7 +247,7 @@ Kund hanterad nyckel användar logg JSON innehåller element som anges i följan
 
 ## <a name="next-steps"></a>Nästa steg
 - [Introduktion till Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs API-översikt](event-hubs-api-overview.md)
+- [Event Hubs exempel](sdks.md)
 - Kom igång med händelsehubbar
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)

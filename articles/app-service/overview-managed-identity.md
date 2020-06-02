@@ -3,15 +3,15 @@ title: Hanterade identiteter
 description: Lär dig hur hanterade identiteter fungerar i Azure App Service och Azure Functions, hur du konfigurerar en hanterad identitet och hur du skapar en token för en server dels resurs.
 author: mattchenderson
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 0bb17ab98dc17bbe7623467451acc65a126bcaf1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: d206ff114cd08f2ab3f2068076bf7cadb047a689
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779975"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258474"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -79,7 +79,9 @@ Följande steg vägleder dig genom att skapa en webbapp och tilldela den en iden
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Följande steg vägleder dig genom att skapa en webbapp och tilldela den en identitet med hjälp av Azure PowerShell:
+Följande steg vägleder dig genom att skapa en app och tilldela den en identitet med hjälp av Azure PowerShell. Instruktionerna för att skapa en webbapp och en Function-app skiljer sig åt.
+
+#### <a name="using-azure-powershell-for-a-web-app"></a>Använda Azure PowerShell för en webbapp
 
 1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
 
@@ -87,20 +89,39 @@ Följande steg vägleder dig genom att skapa en webbapp och tilldela den en iden
 
     ```azurepowershell-interactive
     # Create a resource group.
-    New-AzResourceGroup -Name myResourceGroup -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
     # Create an App Service plan in Free tier.
-    New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $resourceGroupName -Tier Free
 
     # Create a web app.
-    New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName $resourceGroupName
     ```
 
 3. Kör `Set-AzWebApp -AssignIdentity` kommandot för att skapa identiteten för det här programmet:
 
     ```azurepowershell-interactive
-    Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName $resourceGroupName 
     ```
+
+#### <a name="using-azure-powershell-for-a-function-app"></a>Använda Azure PowerShell för en Function-app
+
+1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
+
+2. Skapa en Function-app med hjälp av Azure PowerShell. Fler exempel på hur du använder Azure PowerShell med Azure Functions finns i [AZ. Functions Reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account.
+    New-AzStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -SkuName $sku
+
+    # Create a function app with a system-assigned identity.
+    New-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType SystemAssigned
+    ```
+
+Du kan också uppdatera en befintlig Function-app med `Update-AzFunctionApp` i stället.
 
 ### <a name="using-an-azure-resource-manager-template"></a>Använda en Azure Resource Manager mall
 
@@ -176,6 +197,35 @@ Först måste du skapa en användardefinierad identitets resurs.
 6. Sök efter den identitet som du skapade tidigare och markera den. Klicka på **Lägg till**.
 
     ![Hanterad identitet i App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
+
+### <a name="using-azure-powershell"></a>Använda Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Följande steg vägleder dig genom att skapa en app och tilldela den en identitet med hjälp av Azure PowerShell.
+
+> [!NOTE]
+> Den aktuella versionen av Azure PowerShell-cmdletarna för Azure App Service stöder inte användarspecifika identiteter. Anvisningarna nedan är för Azure Functions.
+
+1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
+
+2. Skapa en Function-app med hjälp av Azure PowerShell. Fler exempel på hur du använder Azure PowerShell med Azure Functions finns i [referensen AZ. Functions](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). Skriptet nedan använder också det `New-AzUserAssignedIdentity` som måste installeras separat som per [skapa, lista eller ta bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account.
+    New-AzStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -SkuName $sku
+
+    # Create a user-assigned identity. This requires installation of the "Az.ManagedServiceIdentity" module.
+    $userAssignedIdentity = New-AzUserAssignedIdentity -Name $userAssignedIdentityName -ResourceGroupName $resourceGroupName
+
+    # Create a function app with a user-assigned identity.
+    New-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType UserAssigned -IdentityId $userAssignedIdentity.Id
+    ```
+
+Du kan också uppdatera en befintlig Function-app med `Update-AzFunctionApp` i stället.
 
 ### <a name="using-an-azure-resource-manager-template"></a>Använda en Azure Resource Manager mall
 
@@ -428,7 +478,11 @@ För Java-program och-funktioner är det enklaste sättet att arbeta med en hant
 
 ## <a name="remove-an-identity"></a><a name="remove"></a>Ta bort en identitet
 
-En systemtilldelad identitet kan tas bort genom att inaktivera funktionen med hjälp av portalen, PowerShell eller CLI på samma sätt som den skapades. Användare-tilldelade identiteter kan tas bort individuellt. Om du vill ta bort alla identiteter anger du typen "ingen" i [arm-mallen](#using-an-azure-resource-manager-template):
+En systemtilldelad identitet kan tas bort genom att inaktivera funktionen med hjälp av portalen, PowerShell eller CLI på samma sätt som den skapades. Användare-tilldelade identiteter kan tas bort individuellt. Om du vill ta bort alla identiteter anger du identitets typen till "ingen".
+
+Om du tar bort en tilldelad identitet på det här sättet tas även den bort från Azure AD. Systemtilldelade identiteter tas också automatiskt bort från Azure AD när app-resursen tas bort.
+
+Ta bort alla identiteter i en [arm-mall](#using-an-azure-resource-manager-template):
 
 ```json
 "identity": {
@@ -436,7 +490,12 @@ En systemtilldelad identitet kan tas bort genom att inaktivera funktionen med hj
 }
 ```
 
-Om du tar bort en tilldelad identitet på det här sättet tas även den bort från Azure AD. Systemtilldelade identiteter tas också automatiskt bort från Azure AD när app-resursen tas bort.
+Så här tar du bort alla identiteter i Azure PowerShell (endast Azure Functions):
+
+```azurepowershell-interactive
+# Update an existing function app to have IdentityType "None".
+Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -IdentityType None
+```
 
 > [!NOTE]
 > Det finns också en program inställning som kan ställas in WEBSITE_DISABLE_MSI, som bara inaktiverar den lokala token-tjänsten. Men den lämnar identiteten på plats, och om du fortsätter med verktyg visas den hanterade identiteten som "på" eller "aktive rad". Därför rekommenderas inte användning av den här inställningen.

@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: a2eba958ca2d4a90cb3706839d726fdd0a48ed4f
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: acada42cd50d607925d7c4583820c2590ff76639
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994044"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266567"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker du kan göra på Windows-Data Science Virtual Machine
 
@@ -55,24 +55,24 @@ För R kan du använda en IDE-liknande RStudio som du hittar på Start-menyn ell
 
 För python kan du använda en IDE som Visual Studio Community Edition, som har tillägget Python Tools for Visual Studio (PTVS) förinstallerat. Som standard konfigureras bara python 3,6, rot Conda-miljön på PTVS. Gör så här för att aktivera Anaconda python 2,7:
 
-1. Skapa anpassade miljöer för varje version genom att gå till **verktyg** > **python-verktyg** > **python-miljöer**och sedan välja **+ anpassad** i Visual Studio Community Edition.
+1. Skapa anpassade miljöer för varje version genom att gå till **verktyg**  >  **python-verktyg**  >  **python-miljöer**och sedan välja **+ anpassad** i Visual Studio Community Edition.
 1. Ange en beskrivning och ange sökvägen till miljöprefixet som **c:\anaconda\envs\python2** för anaconda python 2,7.
-1. Välj**Använd** **Automatisk identifiering** > för att spara miljön.
+1. Välj **Använd automatisk identifiering**  >  **Apply** för att spara miljön.
 
 Mer information om hur du skapar python-miljöer finns i [PTVS-dokumentationen](https://aka.ms/ptvsdocs) .
 
-Nu har du ställt in för att skapa ett nytt python-projekt. Gå till **filen** > **nytt** > **projekt** > **python** och välj den typ av python-program som du skapar. Du kan ställa in python-miljön för det aktuella projektet till önskad version (python 2,7 eller 3,6) genom att högerklicka på **python-miljöer** och sedan välja **Lägg till/ta bort python-miljöer**. Du hittar mer information om hur du arbetar med PTVS i [produkt dokumentationen](https://aka.ms/ptvsdocs).
+Nu har du ställt in för att skapa ett nytt python-projekt. Gå till **filen**  >  **nytt**  >  **projekt**  >  **python** och välj den typ av python-program som du skapar. Du kan ställa in python-miljön för det aktuella projektet till önskad version (python 2,7 eller 3,6) genom att högerklicka på **python-miljöer** och sedan välja **Lägg till/ta bort python-miljöer**. Du hittar mer information om hur du arbetar med PTVS i [produkt dokumentationen](https://aka.ms/ptvsdocs).
 
 ## <a name="use-jupyter-notebooks"></a>Jupyter Notebook
 Jupyter Notebook tillhandahåller en webbläsarbaserad IDE för data utforskning och modellering. Du kan använda python 2, python 3 eller R (både öppen källkod och Microsoft R Server) i en Jupyter Notebook.
 
 Om du vill starta Jupyter Notebook väljer du ikonen **Jupyter Notebook** på **Start** -menyn eller på Skriv bordet. I kommando tolken DSVM kan du också köra kommandot ```jupyter notebook``` från den katalog där du har befintliga antecknings böcker eller där du vill skapa nya antecknings böcker.  
 
-När du har startat Jupyter navigerar du `/notebooks` till katalogen till exempel antecknings böcker som förpackas i DSVM. Nu kan du:
+När du har startat Jupyter navigerar du till `/notebooks` katalogen till exempel antecknings böcker som förpackas i DSVM. Nu kan du:
 
 * Välj den bärbara datorn om du vill se koden.
 * Kör varje cell genom att välja SKIFT + RETUR.
-* Kör hela antecknings boken genom att välja **cell** > **körning**.
+* Kör hela antecknings boken genom att välja **cell**  >  **körning**.
 * Skapa en ny antecknings bok genom att välja ikonen Jupyter (övre vänstra hörnet), klicka på knappen **nytt** till höger och sedan välja språket för antecknings boken (även kallat kernels).   
 
 > [!NOTE]
@@ -129,7 +129,7 @@ IrisPredictor(3,2,3,4)
 ```
 
 ### <a name="build-and-operationalize-r-models"></a>Build-och operationalisera R-modeller
-Du kan distribuera R-modeller som bygger på Data Science Virtual Machine eller någon annan stans på Azure Machine Learning på ett sätt som liknar hur det är för python. Här är stegen:
+Du kan distribuera R-modeller som bygger på Data Science Virtual Machine eller någon annan stans på Azure Machine Learning på ett sätt som liknar hur det är för python. Gör så här:
 
 1. Skapa en Settings. JSON-fil för att ange arbetsyte-ID och autentiseringstoken. 
 2. Skriv en omslutning för modellens predict-funktion.
@@ -139,7 +139,7 @@ Använd följande procedur och kodfragment för att konfigurera, bygga, publicer
 
 #### <a name="set-up"></a>Konfigurera
 
-Skapa en Settings. JSON-fil under en ```.azureml``` katalog som kallas för din Hem Katalog. Ange parametrarna från din Azure Machine Learning-arbetsyta.
+Skapa en Settings. JSON-fil under en katalog som kallas för ```.azureml``` din Hem Katalog. Ange parametrarna från din Azure Machine Learning-arbetsyta.
 
 Här är fil strukturen Settings. JSON:
 
@@ -246,7 +246,7 @@ Besök [GitHub-hjälp sidorna](https://help.github.com/) om du vill ha mer infor
 
 DSVM har lästs in med klient verktyg på kommando raden och i det grafiska användar gränssnittet för att komma åt GitHub-lagringsplatsen. Kommando rads verktyget som fungerar med git och GitHub kallas git bash. Visual Studio är installerat på DSVM och har git-tillägg. Du kan hitta ikoner för dessa verktyg på **Start** -menyn och på Skriv bordet.
 
-Om du vill ladda ned kod från en GitHub-lagringsplats ```git clone``` använder du kommandot. Om du till exempel vill hämta data vetenskaps databasen som publicerats av Microsoft i den aktuella katalogen kan du köra följande kommando i git bash:
+Om du vill ladda ned kod från en GitHub-lagringsplats använder du ```git clone``` kommandot. Om du till exempel vill hämta data vetenskaps databasen som publicerats av Microsoft i den aktuella katalogen kan du köra följande kommando i git bash:
 
     git clone https://github.com/Azure/DataScienceVM.git
 
@@ -266,7 +266,7 @@ Azure Blob Storage är en tillförlitlig, ekonomisk moln lagrings tjänst för d
 
    ![Skärm bild av processen för att skapa lagrings konton i Azure Portal](./media/vm-do-ten-things/create-azure-blob.png)
 
-* Bekräfta att kommando rads verktyget AzCopy är förinstallerat: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Katalogen som innehåller AzCopy. exe finns redan i miljövariabeln PATH, så du kan undvika att skriva den fullständiga kommando Sök vägen när du kör det här verktyget. Mer information om AzCopy-verktyget finns i AzCopy- [dokumentationen](../../storage/common/storage-use-azcopy.md).
+* Bekräfta att kommando rads verktyget AzCopy är förinstallerat: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . Katalogen som innehåller AzCopy. exe finns redan i miljövariabeln PATH, så du kan undvika att skriva den fullständiga kommando Sök vägen när du kör det här verktyget. Mer information om AzCopy-verktyget finns i AzCopy- [dokumentationen](../../storage/common/storage-use-azcopy.md).
 * Starta Azure Storage Explorer-verktyget. Du kan ladda ned den från [webb sidan Storage Explorer](https://storageexplorer.com/). 
 
    ![Skärm bild av Azure Storage Explorer åtkomst till ett lagrings konto](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -298,8 +298,8 @@ När du har kört AzCopy-kommandot för att kopiera till en Azure-Blob visas fil
 
 Du kan också ladda upp data från den lokala filen på den virtuella datorn med hjälp av Azure Storage Explorer:
 
-* Om du vill överföra data till en behållare väljer du mål behållaren och klickar på knappen **överför** . ![Skärm bild av knappen upload i Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Välj ellipsen (**...**) till höger om rutan **filer** , Välj en eller flera filer som ska överföras från fil systemet och välj **Ladda upp** för att påbörja överföring av filerna. ![Skärm bild av dialog rutan Ladda upp filer](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Om du vill överföra data till en behållare väljer du mål behållaren och klickar på knappen **överför** . ![ Skärm bild av knappen upload i Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
+* Välj ellipsen (**...**) till höger om rutan **filer** , Välj en eller flera filer som ska överföras från fil systemet och välj **Ladda upp** för att påbörja överföring av filerna. ![ Skärm bild av dialog rutan Ladda upp filer](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-machine-learning-reader-module"></a>Läs data från en Azure-Blob: Machine Learning Reader-modul
 
@@ -457,7 +457,7 @@ Använd följande nödvändiga steg för att komma åt Azure Cosmos DB från DSV
 1. Azure Cosmos DB python SDK har redan installerats på DSVM. Kör ```pip install pydocumentdb --upgrade``` från en kommando tolk för att uppdatera den.
 2. Skapa ett Azure Cosmos DB konto och en databas från [Azure Portal](https://portal.azure.com).
 3. Hämta verktyget Azure Cosmos DB datamigrering från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595) och extrahera till en valfri katalog.
-4. Importera JSON-data (Volcano-data) som lagras i en [offentlig BLOB](https://https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) till Azure Cosmos dB med följande kommando parametrar till migreringsverktyget. (Använd dtui. exe från den katalog där du installerade verktyget för datamigrering av Azure Cosmos DB.) Ange käll-och mål platsen med följande parametrar:
+4. Importera JSON-data (Volcano-data) som lagras i en [offentlig BLOB](https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) till Azure Cosmos dB med följande kommando parametrar till migreringsverktyget. (Använd dtui. exe från den katalog där du installerade verktyget för datamigrering av Azure Cosmos DB.) Ange käll-och mål platsen med följande parametrar:
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
@@ -466,11 +466,11 @@ När du har importerat data kan du gå till Jupyter och öppna antecknings boken
 ## <a name="use-power-bi-reports-and-dashboards"></a>Använda Power BI rapporter och instrument paneler 
 Du kan visualisera Volcano JSON-filen från föregående Azure Cosmos DB exempel i Power BI Desktop för att få visuella insikter om data. Detaljerade anvisningar finns i [Power BI artikeln](../../cosmos-db/powerbi-visualize.md). Här följer de övergripande stegen:
 
-1. Öppna Power BI Desktop och välj **Hämta data**. Ange URL: en: `https://cahandson.blob.core.windows.net/samples/volcano.json`.
+1. Öppna Power BI Desktop och välj **Hämta data**. Ange URL: en: `https://cahandson.blob.core.windows.net/samples/volcano.json` .
 2. Du bör se vilka JSON-poster som importeras som en lista. Konvertera listan till en tabell så Power BI kan arbeta med den.
 4. Expandera kolumnerna genom att välja ikonen Expandera (pil).
 5. Observera att platsen är ett **post** fält. Expandera posten och välj bara koordinaterna. **Koordinaten** är en List kolumn.
-6. Lägg till en ny kolumn för att konvertera List koordinatens kolumn till en kommaavgränsad **LatLong** -kolumn. Sammanfoga de två elementen i koordinatens List fält med hjälp av formeln ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```.
+6. Lägg till en ny kolumn för att konvertera List koordinatens kolumn till en kommaavgränsad **LatLong** -kolumn. Sammanfoga de två elementen i koordinatens List fält med hjälp av formeln ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})``` .
 7. Konvertera kolumnen **höjning** till decimal och välj knapparna **Stäng** och **tillämpa** .
 
 I stället för föregående steg kan du klistra in följande kod. Den skriver ut stegen som används i Avancerad redigerare i Power BI för att skriva data transformationer i ett frågespråk.
@@ -508,7 +508,7 @@ På samma sätt kan behovet av bearbetnings kapacitet för virtuella datorer min
 ## <a name="add-more-tools"></a>Lägg till fler verktyg
 Verktyg som är inbyggda i DSVM kan hantera många vanliga data analys behov. Detta sparar tid eftersom du inte behöver installera och konfigurera dina miljöer en i taget. Det sparar också pengar, eftersom du betalar för endast resurser som du använder.
 
-Du kan använda andra Azure data-och Analytics-tjänster som är profilerade i den här artikeln för att förbättra din analys miljö. I vissa fall kan du behöva ytterligare verktyg, inklusive vissa patentskyddade partner verktyg. Du har fullständig administrativ åtkomst på den virtuella datorn för att installera nya verktyg som du behöver. Du kan också installera ytterligare paket i python och R som inte är förinstallerade. För python kan du använda antingen ```conda``` eller. ```pip``` För r kan du ```install.packages()``` använda i r-konsolen eller använda IDE och välja **paket** > **installera paket**.
+Du kan använda andra Azure data-och Analytics-tjänster som är profilerade i den här artikeln för att förbättra din analys miljö. I vissa fall kan du behöva ytterligare verktyg, inklusive vissa patentskyddade partner verktyg. Du har fullständig administrativ åtkomst på den virtuella datorn för att installera nya verktyg som du behöver. Du kan också installera ytterligare paket i python och R som inte är förinstallerade. För python kan du använda antingen ```conda``` eller ```pip``` . För r kan du använda ```install.packages()``` i r-konsolen eller använda IDE och välja **paket**  >  **installera paket**.
 
 ## <a name="deep-learning"></a>Deep learning
 

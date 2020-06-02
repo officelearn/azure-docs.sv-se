@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 850b06153a25020f36a4c7df1863e5a576495f3b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2e563cd0f9a8a25e57312494f1313f895c3b4628
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744165"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267162"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Skydd mot hot i Azure Security Center
 
@@ -162,11 +162,15 @@ Mer information finns i:
 
 ## <a name="threat-protection-for-azure-storage"></a>Skydd mot hot för Azure Storage<a name="azure-storage"></a>
 
-Avancerat skydd för lagring identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Det här skydds lagret gör att du kan åtgärda hot utan att du behöver vara säkerhets expert, och hjälper dig att hantera dina säkerhets övervaknings system.
+Avancerat skydd för Azure Storage identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Det här skydds lagret gör att du kan åtgärda hot utan att du behöver vara säkerhets expert, och hjälper dig att hantera dina säkerhets övervaknings system. 
 
-Avancerat skydd för Azure Storage är för närvarande endast tillgängligt för [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
+Säkerhets aviseringar utlöses när det finns misstänkta aktiviteter på ditt lagrings konto eller avvikande beteende identifieras. Misstänkta aktiviteter kan omfatta uppladdning av en blob som misstänks innehålla skadlig kod. Avvikande beteende varningar innehåller ändringar i åtkomst mönstret till ett lagrings konto.
 
-Den här tjänsten är tillgänglig i alla offentliga moln och i amerikanska myndigheter, men inga andra suveräna eller Azure Government moln regioner.
+Aviseringarna innehåller information om den incident som utlöste dem, samt rekommendationer om hur du undersöker och åtgärdar hot.
+
+Skydd mot hot för Azure Storage är för närvarande endast tillgängligt för [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
+
+Den här tjänsten är tillgänglig i alla offentliga moln och i amerikanska myndigheter, men inga andra suveräna eller Azure Government moln regioner. 
 
 För pris information, inklusive en kostnads fri 30-dagars utvärderings version, se [sidan Azure Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 

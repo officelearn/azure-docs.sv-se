@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f51f6867d773c906d2df24c7e61ad897a4304f6
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75863850"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258902"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualisera data från Time Series Insights i Power BI
 
@@ -111,8 +111,10 @@ Nu när du har importerat data till Power BI är det dags att bygga en rapport m
     [![Välj rapport visning](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
 1.  Välj önskat visualiserings alternativ i kolumnen **visualiseringar** . Välj till exempel **linje diagram**. Ett tomt linje diagram läggs till på din arbets yta.
- 
-1.  I listan **fält** väljer du **tidsstämpel** och drar den till fältet **axel** för att visa objekt längs X-axeln.
+
+1.  I listan **fält** väljer du **_Timestamp** och drar den till fältet **axel** för att visa objekt längs X-axeln. Se till att växla till **_Timestamp** till som värde för **axeln** (Standardvärdet är **date-hierarkin**).
+
+    [![Välj rapport visning](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
 1.  Återigen, i listan **fält** , väljer du **TimeSeriesId** och drar den till fältet **värden** för att visa objekt utmed Y-axeln.
 

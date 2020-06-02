@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 3c4e5fa4ce960f8113504b52aa0d5055bf1bf85a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e126ee2bd4133281195d4a86c5cb6f1c47bbd6ac
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722719"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266924"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Skapa tekniska till gångar för din virtuella Azure-dator
 
@@ -76,7 +76,7 @@ Välj antingen Windows operativ system eller Linux som bas.
 
 Operativ systemets virtuella hård disk för en Windows-baserad avbildning av virtuella datorer måste baseras på en Azure-godkänd bas avbildning som innehåller Windows Server eller SQL Server. Börja med att skapa en virtuell dator från någon av följande avbildningar från Azure Portal:
 
-* Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 data Center](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Data Center](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
+* Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 data Center](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2012 Data Center](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
 * [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, standard, Web)
 * [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, standard, Web)
 
@@ -182,7 +182,7 @@ Skapa din avbildning med antingen Azure Portal eller Azure PowerShell.
     | Adminlösenord | Administratörs kontots lösen ord för ny virtuell dator |
     | OS-typ | Operativ system för virtuell dator: Windows eller Linux |
     | Prenumerations-ID:t | Identifierare för den valda prenumerationen |
-    | Plats | Distributionens geografiska plats |
+    | Location | Distributionens geografiska plats |
     | Storlek på virtuell dator | [Storlek på virtuell Azure-dator](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), till exempel Standard_A2 |
     | Namn på offentlig IP-adress | Namn på din offentliga IP-adress |
     | Namn på virtuell dator | Namn på den nya virtuella datorn |

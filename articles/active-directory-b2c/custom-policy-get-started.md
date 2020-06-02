@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 32ec55a2ed6e0158a05f81067dc834fdc1e6e765
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cd1bd85e76bdda52e2f3b3b60c705792ca82a6eb
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738259"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247996"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -151,7 +151,7 @@ Bevilja nu behörighet till API-omfånget som du visade tidigare i *IdentityExpe
 1. Välj **bevilja administrativt godkännande för (ditt klient namn)**.
 1. Välj ditt inloggade administratörs konto eller logga in med ett konto i Azure AD B2C-klienten som har tilldelats minst administratörs rollen för *moln program* .
 1. Välj **Godkänn**.
-1. Välj **Uppdatera**och verifiera sedan att "beviljat..." visas under **status** för båda omfattningarna. Det kan ta några minuter innan behörigheterna har spridits.
+1. Välj **Uppdatera**och verifiera sedan att "beviljat..." visas under **status** för omfattningarna-offline_access, openid och user_impersonation. Det kan ta några minuter innan behörigheterna har spridits.
 
 * * *
 

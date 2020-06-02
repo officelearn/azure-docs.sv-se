@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 01/4/2020
 ms.author: metan
-ms.openlocfilehash: 2eab7ab62f6a7a105dab33aa889af9f2be3a3fa3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b9efe70e8658e25d61decffbe44dec776890b17b
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80052388"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267281"
 ---
 # <a name="what-is-immersive-reader"></a>Vad är Avancerad läsare?
 
@@ -55,12 +55,12 @@ Den fördjupade läsaren är utformad för att läsa mer tillgänglig för alla.
 
 ## <a name="how-does-immersive-reader-work"></a>Hur fungerar den fördjupade läsaren?
 
-Den fördjupade läsaren är en fristående webbapp som, när den anropas med avancerad läsares JavaScript SDK, visas ovanpå din befintliga webbapp via en `iframe`. När du anropar API: et för att starta den fördjupade läsaren anger du det innehåll som du vill visa i den fördjupade läsaren. Vår SDK hanterar skapandet och utformningen av `iframe` och kommunikationen med Server dels tjänsten för avancerad läsare, som bearbetar innehållet för delar av tal, text till tal, översättning och så vidare.
+Den fördjupade läsaren är en fristående webbapp som, när den anropas med avancerad läsares JavaScript SDK, visas ovanpå din befintliga webbapp via en `iframe` . När du anropar API: et för att starta den fördjupade läsaren anger du det innehåll som du vill visa i den fördjupade läsaren. Vår SDK hanterar skapandet och utformningen av `iframe` och kommunikationen med Server dels tjänsten för avancerad läsare, som bearbetar innehållet för delar av tal, text till tal, översättning och så vidare.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Kom igång med Avancerad läsare:
 
-* Hoppa till [snabb](./quickstart.md) starten
+* Hoppa till [snabb starterna](./quickstarts/client-libraries.md?pivots=programming-language-csharp)
 * Utforska [SDK för avancerad läsare på GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * Läs [SDK-referensen för avancerad läsare](./reference.md)

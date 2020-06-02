@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 79d29ef228fc27655da30edbeb64abcb01e45d5e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 5edba7f5a7576cac189aa44936f9d8f24f3ffcaf
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84237180"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249015"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Använd Logstash för att ansluta data källor till Azure Sentinel
 
@@ -51,7 +51,7 @@ Plugin-programmet för Azure Sentinel-utdata för Logstash skickar JSON-formater
 - [Läs mer om Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics/create-request).
 - [Läs mer om anpassade loggar](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs).
 
-## <a name="installing-and-configuring-the-azure-sentinel-output-plugin-in-logstash"></a>Installera och konfigurera plugin-programmet för Azure Sentinel-utdata i Logstash
+## <a name="deploying-the-azure-sentinel-output-plugin-in-logstash"></a>Distribuera plugin-programmet för Azure Sentinel-utdata i Logstash
 
 1. **Installation**
 
@@ -112,11 +112,11 @@ Plugin-programmet för Azure Sentinel-utdata för Logstash skickar JSON-formater
 
     1. Klicka på **loggar**på navigerings menyn i Azure Sentinel. Under rubriken **tabeller** expanderar du kategorin **anpassade loggar** . Leta upp och klicka på namnet på den tabell som du har angett (med ett `_CL` suffix) i konfigurationen.
 
-        ![Logstash anpassade loggar](./media/connect-logstash/logstash-custom-logs-menu.png)
+        :::image type="content" source="./media/connect-logstash/logstash-custom-logs-menu.png" alt-text="Logstash anpassade loggar":::
 
     1. Om du vill se poster i tabellen frågar du tabellen med hjälp av tabell namnet som schema.
 
-        ![Logstash anpassade loggar fråga](./media/connect-logstash/logstash-custom-logs-query.png)
+        :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Logstash anpassade loggar fråga":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>Övervaka gransknings loggar för utdata-plugin
 

@@ -9,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 28be6c46f3d914d76ed14dd5d4ac61a4dc5aee68
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 36efd3e90731e7659f023ad99df1eb9cb3c0198f
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194259"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247452"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Självstudie: Migrera SQL Server till en Azure SQL-hanterad instans offline med DMS
 
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 
 I den här artikeln beskrivs en offline-migrering från SQL Server till en SQL-hanterad instans. En online-migrering finns i [migrera SQL Server till en SQL-hanterad instans online med DMS](tutorial-sql-server-managed-instance-online.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -76,6 +76,9 @@ För att slutföra den här kursen behöver du:
 - Anteckna en Windows-användare (och lösenordet) som har fullständig kontrollbehörighet på nätverksresursen som du tidigare har skapat. Azure Database Migration Service personifierar användarens autentiseringsuppgifter för att överföra säkerhetskopieringsfilerna till Azure Storage behållare för återställnings åtgärden.
 - Skapa en blobbcontainer och hämta dess SAS-URI med hjälp av stegen i artikeln om [hantering av Azure Blob Storage-resurser med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container), se till att välja alla behörigheter (Läsa, Skriva, Ta bort, Lista) i principfönstret när du skapar SAS-URI:et. Den här informationen ger Azure Database Migration Service åtkomst till din lagrings konto behållare för överföring av de säkerhetskopierade filer som används för att migrera databaser till SQL-hanterad instans.
 
+    > [!NOTE]
+    > Azure Database Migration Service stöder inte användning av en SAS-token på konto nivå när du konfigurerar inställningarna för lagrings kontot under steget [Konfigurera migrerings inställningar](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance#configure-migration-settings) .
+    
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
 1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
@@ -201,7 +204,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
     |**Nätverksplatsresurs** | Den lokala SMB-nätverks resurs som Azure Database Migration Service kan ta säkerhets kopior av käll databasen till. Tjänstkontot som kör en SQL Server-källinstans måste ha skrivbehörighet på den här nätverksresursen. Ange ett fullständigt domännamn eller IP-adresser för servern i nätverksresursen, till exempel \\\servernamn.domännamn.com\säkerhetskopieringsmapp eller \\\IP-adress\säkerhetskopieringsmapp.|
     |**Användarnamn** | Kontrollera att Windows-användaren har fullständig kontrollbehörighet på nätverksresursen du har angett ovan. Azure Database Migration Service personifierar användarens autentiseringsuppgifter för att överföra säkerhetskopieringsfilerna till Azure Storage behållare för återställnings åtgärden. Om TDE-aktiverade databaser har valts för migrering måste Windows-användaren ovan vara det inbyggda administratörskontot och [User Account Control](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) måste vara inaktiverat för Azure Database Migration Service för att ladda upp och ta bort certifikatfilerna.) |
     |**Lösenord** | Lösenordet för användaren. |
-    |**Inställningar för lagringskonto** | SAS-URI: n som ger Azure Database Migration Service med åtkomst till din lagrings konto behållare som tjänsten laddar upp de säkerhetskopierade filerna och som används för att migrera databaser till SQL-hanterad instans. [Lär dig hur du hämtar SAS-URI för blobbcontainer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
+    |**Inställningar för lagringskonto** | SAS-URI: n som ger Azure Database Migration Service med åtkomst till din lagrings konto behållare som tjänsten laddar upp de säkerhetskopierade filerna och som används för att migrera databaser till SQL-hanterad instans. [Lär dig hur du hämtar SAS-URI för blobbcontainer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Den här SAS-URI: n måste vara för BLOB-behållaren, inte för lagrings kontot.|
     |**TDE-inställningar** | Om du migrerar käll databaserna med transparent datakryptering (TDE) aktive rad måste du ha Skriv behörighet för den SQL-hanterade instansen för målet.  Välj den prenumeration där SQL-hanterad instans har skapats från den nedrullningsbara menyn.  Välj den hanterade **Azure SQL Database-målinstansen** på den nedrullningsbara menyn. |
 
     ![Konfigurera migreringsinställningar](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)

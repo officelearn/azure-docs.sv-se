@@ -4,12 +4,12 @@ description: Lär dig att hantera och övervaka virtuella Azure-säkerhetskopier
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e49d1eed81d15970519299fb6f662c650116d6e
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248156"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248591"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Hantera virtuella Azure-säkerhetskopieringar med Azure Backup tjänsten
 

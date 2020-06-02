@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för utvärdering av virtuella VMware-datorer med Azure Migrate Server-utvärdering.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 0ec7006ce240df8c6e07afffa886e78ca9bc2a4d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 8e0b6f3babcc862e1a78effcdb1a61f430c01646
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849373"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267893"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -21,7 +21,7 @@ För att utvärdera virtuella VMware-datorer skapar du ett Azure Migrate-projekt
 **Support** | **Information**
 --- | ---
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration.<br/><br/> Du kan identifiera och utvärdera upp till 35 000 virtuella VMware-datorer i ett enda [projekt](migrate-support-matrix.md#azure-migrate-projects). Ett projekt kan även innehålla fysiska servrar och virtuella Hyper-V-datorer, upp till utvärderings gränserna för var och en.
-**Identifiering** | Azure Migrates apparaten kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.
+**Identifikation** | Azure Migrates apparaten kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.
 **Beskrivningar** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.
@@ -34,7 +34,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **Support** | **Information**
 --- | ---
 **Datorer som stöds** | Identifiering av appar stöds för närvarande endast för virtuella VMware-datorer.
-**Identifiering** | Identifiering av appar är agenten. Den använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer via WMI och SSH-samtal.
+**Identifikation** | Identifiering av appar är agenten. Den använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer via WMI och SSH-samtal.
 **Stöd för virtuella datorer** | App-Discovery stöds för alla Windows-och Linux-versioner.
 **autentiseringsuppgifter för vCenter** | För identifiering av appar krävs ett vCenter Server konto med skrivskyddad åtkomst, och behörigheter har Aktiver ATS för Virtual Machines > gäst åtgärder.
 **Autentiseringsuppgifter för virtuell dator** | App Discovery stöder för närvarande att en autentiseringsuppgift används för alla Windows-servrar och en autentiseringsuppgift för alla Linux-servrar.<br/><br/> Du skapar ett gäst användar konto för virtuella Windows-datorer och ett vanligt/vanligt användar konto (icke-sudo åtkomst) för alla virtuella Linux-datorer.
@@ -49,7 +49,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 
 **VMware** | **Information**
 --- | ---
-**VMwares virtuella datorer** | Utvärderingen stöds för alla Windows-och Linux-operativsystem.
+**VMwares virtuella datorer** | Alla operativ system kan utvärderas för migrering. 
 **vCenter Server** | Datorer som du vill identifiera och utvärdera måste hanteras av vCenter Server version 5,5, 6,0, 6,5 eller 6,7.
 **Behörigheter (utvärdering)** | vCenter Server skrivskyddat konto.
 **Behörigheter (app-Discovery)** | vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för **virtuella datorer > gäst åtgärder**.
@@ -80,7 +80,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **Support** | **Information**
 --- | ---
 **Datorer som stöds** | Identifiering av appar stöds för närvarande endast för virtuella VMware-datorer.
-**Identifiering** | Identifiering av appar är agenten. Den använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer via WMI och SSH-samtal.
+**Identifikation** | Identifiering av appar är agenten. Den använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer via WMI och SSH-samtal.
 **Stöd för virtuella datorer** | App-Discovery stöds för alla Windows-och Linux-versioner.
 **autentiseringsuppgifter för vCenter** | För identifiering av appar krävs ett vCenter Server konto med skrivskyddad åtkomst, och behörigheter har Aktiver ATS för Virtual Machines > gäst åtgärder.
 **Autentiseringsuppgifter för virtuell dator** | App Discovery stöder för närvarande att en autentiseringsuppgift används för alla Windows-servrar och en autentiseringsuppgift för alla Linux-servrar.<br/><br/> Du skapar ett gäst användar konto för virtuella Windows-datorer och ett vanligt/vanligt användar konto (icke-sudo åtkomst) för alla virtuella Linux-datorer.

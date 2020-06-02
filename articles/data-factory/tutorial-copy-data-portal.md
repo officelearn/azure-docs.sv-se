@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: f5b95e4bc6ee035de0a3e39c0fc27e8387a6e239
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022052"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248625"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Kopiera data från en Azure Blob Storage till en SQL-databas med Azure Data Factory
 
@@ -38,7 +38,7 @@ I den här självstudien får du göra följande:
 > * Utlös pipelinen enligt ett schema.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**. Du kan använda Blob Storage som *källa* för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).
 * **Azure SQL Database**. Du använder databasen som *mottagare* för datalagringen. Om du inte har en Azure SQL-databas, se [skapa en SQL-databas](../azure-sql/database/single-database-create-quickstart.md) för att skapa en.
@@ -114,7 +114,8 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 1. På sidan **Nu sätter vi igång** väljer du **Skapa pipeline**.
 
    ![Skapa pipeline](./media/doc-common-process/get-started-page.png)
-1. I fliken **Allmänt** för pipeline anger du **CopyPipeline** för **Namn** på pipeline.
+
+1. 1. I panelen Allmänt under **Egenskaper**anger du **CopyPipeline** som **namn**. Komprimera sedan panelen genom att klicka på egenskaps ikonen i det övre högra hörnet.
 
 1. I rutan **aktiviteter** , expanderar du kategorin **flytta och transformera** och drar och släpper **Kopiera data** -aktiviteten från verktygs rutan till pipelinens design yta. Ange **CopyFromBlobToSql** som **Namn**.
 

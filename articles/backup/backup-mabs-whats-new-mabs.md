@@ -3,12 +3,12 @@ title: Nyheter i Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server ger dig förbättrade säkerhets kopierings funktioner för att skydda virtuella datorer, filer och mappar, arbets belastningar med mera. Lär dig hur du installerar eller uppgraderar till Azure Backup Server v3.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 358de6f2986036621accde90550e2afcc47f9135
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77582814"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247554"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Nyheter i Microsoft Azure Backup Server
 
@@ -26,7 +26,7 @@ I företag hanteras MABS av ett team av administratörer. Även om det finns rik
 
 ## <a name="custom-size-allocation"></a>Allokering av anpassad storlek
 
-Modern Backup Storage (MB) förbrukar lagringen tunt, som och vid behov. För att göra det, beräknar MABS storleken på de data som säkerhets kopie ras när den har kon figurer ATS för skydd. Men om många filer och mappar säkerhets kopie ras tillsammans, som i fallet med en fil server, kan storleks beräkningen ta lång tid. Med MABS v3 kan du konfigurera MABS för att godkänna volym storleken som standard, i stället för att beräkna storleken på varje fil, vilket sparar tid.
+Modern Backup Storage (MB) förbrukar lagringen tunt, som och vid behov. För att göra det, beräknar MABS storleken på de data som säkerhets kopie ras när den har kon figurer ATS för skydd. Men om många filer och mappar säkerhets kopie ras tillsammans, som i fallet med en fil server, kan storleks beräkningen ta lång tid. Med MABS v3 kan du konfigurera MABS för att godkänna volymens storlek som standard, i stället för att beräkna storleken på varje fil, vilket sparar tid.
 
 ## <a name="optimized-cc-for-rct-vms"></a>Optimerad CC för virtuella RCT-datorer
 

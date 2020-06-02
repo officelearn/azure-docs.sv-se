@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 31958a4d4e3af4f747ab2f9de7b1bc67560e87d7
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747219"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248251"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -22,6 +22,9 @@ Den här självstudien visar hur du säkerhetskopierar SAP HANA databaser som k�
 
 [Här](sap-hana-backup-support-matrix.md#scenario-support) följer alla scenarier som vi för närvarande stöder.
 
+>[!NOTE]
+>[Kom igång](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) med SAP HANA backup Preview för RHEL (7,4, 7,6, 7,7 eller 8,1). Skriv till oss vid ytterligare frågor [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+
 ## <a name="prerequisites"></a>Krav
 
 Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
@@ -34,9 +37,7 @@ Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
 * Kör konfigurations skriptet för SAP HANA säkerhets kopiering (för registrerings skriptet) på den virtuella datorn där HANA är installerat, som rot användare. [Det här skriptet](https://aka.ms/scriptforpermsonhana) hämtar Hana-systemet för säkerhets kopiering. Mer information om skriptet för för registrering finns i avsnittet [Vad skriptet gör för registrering](#what-the-pre-registration-script-does) .
 
 >[!NOTE]
->Azure Backup anpassas inte automatiskt för sommar tids ändringar vid säkerhets kopiering av en SAP HANA databas som körs på en virtuell Azure-dator.
->
->Ändra principen manuellt efter behov.
+>För registrerings skriptet installerar **unixODBC234** för SAP HANA arbets belastningar som körs på RHEL (7,4, 7,6 och 7,7) och **unixODBC** för RHEL 8,1. [Paketet finns i RHEL for SAP HANA (för RHEL 7-Server) uppdaterings tjänster för SAP-lösningar (RPMS) lagrings platsen](https://access.redhat.com/solutions/5094721).  För Azure Marketplace RHEL-avbildningen skulle lagrings platsen vara **rhui-RHEL-SAP-HANA-for-RHEL-7-Server-rhui-E4S-RPMS**.
 
 ## <a name="set-up-network-connectivity"></a>Konfigurera nätverks anslutning
 

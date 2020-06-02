@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/28/2020
 tags: connectors
-ms.openlocfilehash: 1eb017740fb13dbc4f67b11ad8768e48e5b29010
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: a44e0e9f2427fc5fcb44a78fb0a1798b219f9200
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171539"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249169"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
 
@@ -39,7 +39,7 @@ Begär ande utlösare stöder [Azure Active Directory öppen autentisering](../a
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -158,6 +158,14 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
       }
       ```
 
+1. Följ dessa steg om du vill kontrol lera att det inkommande samtalet har en begär ande text som matchar det angivna schemat:
+
+   1. I namn listen för begäran-utlösaren väljer du knappen ovaler (**...**).
+   
+   1. I utlösarens inställningar aktiverar du **schema validering**och väljer sedan **slutförd**.
+   
+      Om det inkommande samtalets begär ande text inte matchar schemat, returnerar utlösaren ett `HTTP 400 Bad Request` fel.
+
 1. Om du vill ange ytterligare egenskaper öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill lägga till.
 
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
@@ -199,7 +207,7 @@ Mer information om utlösarens underliggande JSON-definition och hur du anropar 
 
 Här är mer information om utdata från begär ande utlösare:
 
-| JSON-egenskaps namn | Datatyp | Description |
+| JSON-egenskaps namn | Datatyp | Beskrivning |
 |--------------------|-----------|-------------|
 | `headers` | Objekt | Ett JSON-objekt som beskriver huvudena från begäran |
 | `body` | Objekt | Ett JSON-objekt som beskriver bröd innehållet från begäran |

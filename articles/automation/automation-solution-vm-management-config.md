@@ -3,14 +3,14 @@ title: Konfigurera Azure Automation Starta/stoppa virtuella datorer när de inte
 description: Den här artikeln beskriver hur du konfigurerar Starta/stoppa virtuella datorer när de inte används-funktionen så att den stöder olika användnings fall eller scenarier.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: b2f2939c6b7d07e128688f43e98b2a6b29595e1f
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204397"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266724"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Konfigurera Starta/stoppa virtuella datorer när de inte används
 
@@ -50,7 +50,7 @@ Du kan aktivera antingen åtgärden för en prenumeration och en resurs grupp, e
 
 3. Ställ in värdet för **WHATIF** -parametern på sant.
 
-4. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer (VM1, VM2, VM3).
+4. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer (VM1, VM2, VM3), utan blank steg mellan kommaavgränsade värden.
 
 5. Det här scenariot följer inte `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupnames` variablerna och. I det här scenariot måste du skapa ett eget Automation-schema. Mer information finns i [Schemalägga en Runbook i Azure Automation](shared-resources/schedules.md).
 
@@ -81,7 +81,7 @@ I en miljö som innehåller två eller flera komponenter på flera virtuella dat
 
 4. Ange **WHATIF** till true. 
 
-5. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer.
+5. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer, utan blank steg mellan kommaavgränsade värden.
 
 6. Det här scenariot följer inte `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupnames` variablerna och. I det här scenariot måste du skapa ett eget Automation-schema. Mer information finns i [Schemalägga en Runbook i Azure Automation](shared-resources/schedules.md).
 
@@ -128,7 +128,7 @@ När du kör **AutoStop_CreateAlert_Parent** Runbook verifierar den att mål pre
 
 1. Skapa ett nytt [schema](shared-resources/schedules.md#create-a-schedule) och länka det till **AutoStop_CreateAlert_Parent** Runbook och Lägg till en kommaavgränsad lista över namn på virtuella datorer i `VMList` parametern.
 
-2. Om du vill undanta vissa virtuella datorer från åtgärden för Autostopp kan du lägga till en kommaavgränsad lista med namn på virtuella datorer i `External_ExcludeVMNames` variabeln.
+2. Om du vill undanta vissa virtuella datorer från åtgärden för autostoppa kan du lägga till en kommaavgränsad lista över namn på virtuella datorer (utan blank steg) till `External_ExcludeVMNames` variabeln.
 
 ## <a name="configure-email-notifications"></a>Konfigurera e-postaviseringar
 
@@ -159,13 +159,13 @@ Med funktionen kan du lägga till virtuella datorer som ska vara riktade eller e
 
 Det finns två sätt att se till att en virtuell dator ingår när funktionen körs:
 
-* Varje överordnad [Runbooks](automation-solution-vm-management.md#runbooks) i funktionen har en- `VMList` parameter. Du kan skicka en kommaavgränsad lista över namn på virtuella datorer till den här parametern när du schemalägger lämplig överordnad Runbook för din situation, och de virtuella datorerna kommer att inkluderas när funktionen körs.
+* Varje överordnad [Runbooks](automation-solution-vm-management.md#runbooks) i funktionen har en- `VMList` parameter. Du kan skicka en kommaavgränsad lista över namn på virtuella datorer (utan blank steg) till den här parametern när du schemalägger lämplig överordnad Runbook för din situation, och de virtuella datorerna kommer att inkluderas när funktionen körs.
 
 * Om du vill välja flera virtuella datorer anger du `External_Start_ResourceGroupNames` och `External_Stop_ResourceGroupNames` med namnen på de resurs grupper som innehåller de virtuella datorer som du vill starta eller stoppa. Du kan också ställa in variablerna till värdet för `*` att köra funktionen mot alla resurs grupper i prenumerationen.
 
 ### <a name="exclude-a-vm"></a>Undanta en virtuell dator
 
-Om du vill undanta en virtuell dator från stoppa/starta virtuella datorer vid andra tider kan du lägga till dess namn i `External_ExcludeVMNames` variabeln. Den här variabeln är en kommaavgränsad lista med de virtuella datorer som ska undantas från funktionen. Den här listan är begränsad till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer i den här listan kan virtuella datorer som är inställda på att uteslutas oavsiktligt startas eller stoppas.
+Om du vill undanta en virtuell dator från stoppa/starta virtuella datorer vid andra tider kan du lägga till dess namn i `External_ExcludeVMNames` variabeln. Den här variabeln är en kommaavgränsad lista med vissa virtuella datorer (utan blank steg) som ska undantas från funktionen. Den här listan är begränsad till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer i den här listan kan virtuella datorer som är inställda på att uteslutas oavsiktligt startas eller stoppas.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Ändra scheman för start och avstängning
 

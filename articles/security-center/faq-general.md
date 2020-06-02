@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d5b4986c24a1db61527e6a9ff7be249f189d6248
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106584"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248557"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Vanliga frågor och svar – allmänna frågor om Azure Security Center
 
@@ -40,7 +40,7 @@ Azure Security Center övervakar följande Azure-resurser:
 *  Azure Virtual Networks
 * Containrar
 * Azure SQL-tjänst
-* Azure Storage-konto
+* Azure-lagringskonto
 * Azure-Web Apps (i [App Service-miljön](../app-service/environment/intro.md))
 * Partner lösningar som är integrerade med din Azure-prenumeration, till exempel en brand vägg för webbaserade program på virtuella datorer och på App Service-miljön
 
@@ -59,7 +59,7 @@ Säkerhets principerna som är aktiverade i Azure Security Center säkerhets rek
 
 
 ## <a name="who-can-modify-a-security-policy"></a>Vem kan ändra en säkerhets princip?
-Om du vill ändra en säkerhets princip måste du vara säkerhets administratör eller ägare eller deltagare i den prenumerationen.
+Om du vill ändra en säkerhets princip måste du vara **säkerhets administratör** eller **ägare** till den prenumerationen.
 
 Information om hur du konfigurerar en säkerhets princip finns [i ställa in säkerhets principer i Azure Security Center](tutorial-security-policy.md).
 

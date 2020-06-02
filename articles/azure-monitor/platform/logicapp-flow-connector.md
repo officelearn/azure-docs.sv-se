@@ -7,17 +7,26 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6961b7bd94c9b3fe70365055851c488efa2cbeca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 193aa168cff436512dc2044d0986df508fd6bfa9
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480019"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248744"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Azure Monitor loggar Connector för Logic Apps och Flow
 Med [Azure Logic Apps](/azure/logic-apps/) och [energi spar läge](https://ms.flow.microsoft.com) kan du skapa automatiserade arbets flöden med hundratals åtgärder för olika tjänster. Med anslutnings programmet för Azure Monitor loggar kan du bygga arbets flöden som hämtar data från en Log Analytics arbets yta eller ett Application Insights program i Azure Monitor. I den här artikeln beskrivs de åtgärder som ingår i kopplingen och en genom gång av hur du skapar ett arbets flöde med dessa data.
 
 Du kan till exempel skapa en Logic app för att använda Azure Monitor loggdata i ett e-postmeddelande från Office 365, skapa en bugg i Azure DevOps eller skicka ett slack-meddelande.  Du kan utlösa ett arbets flöde med ett enkelt schema eller från en åtgärd i en ansluten tjänst, till exempel när ett e-postmeddelande eller en tweet tas emot. 
+
+## <a name="connector-limits"></a>Kopplings gränser
+Azure Monitor loggar Connector har följande gränser:
+* Maximal data storlek: 16 MB
+* Maximal svars storlek för fråga 100 MB
+* Max antal poster: 500 000
+* Maximal tids gräns för fråga 110 sekund.
+
+Beroende på storleken på dina data och frågan som du använder, kan det hända att anslutnings programmet når sina gränser och Miss lyckas. Du kan undvika sådana fall när du justerar upprepningen av utlösaren så att den körs oftare och frågar mindre data. Du kan använda frågor som sammanställer dina data för att returnera mindre poster och kolumner.
 
 ## <a name="actions"></a>Åtgärder
 I följande tabell beskrivs de åtgärder som ingår med Azure Monitor loggar Connector. Båda låter dig köra en logg fråga mot en Log Analytics arbets yta eller Application Insights program. Skillnaden är på samma sätt som data returneras.
@@ -26,7 +35,7 @@ I följande tabell beskrivs de åtgärder som ingår med Azure Monitor loggar Co
 > Azure Monitor loggar Connector ersätter [Azure Log Analytics-anslutningen](https://docs.microsoft.com/connectors/azureloganalytics/) och Azure Application Insights- [anslutningsprogrammet](https://docs.microsoft.com/connectors/applicationinsights/). Den här anslutningen ger samma funktioner som de andra och är den bästa metoden för att köra en fråga mot en Log Analytics arbets yta eller ett Application Insights program.
 
 
-| Action | Beskrivning |
+| Åtgärd | Beskrivning |
 |:---|:---|
 | [Kör fråga-och list resultat](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-list-results) | Returnerar varje rad som ett eget objekt. Använd den här åtgärden när du vill arbeta med varje rad separat i resten av arbets flödet. Åtgärden följs vanligt vis av en [för varje aktivitet](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
 | [Kör fråga och visualisera resultat](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returnerar alla rader i resultat uppsättningen som ett enda formaterat objekt. Använd den här åtgärden när du vill använda resultat uppsättningen tillsammans i resten av arbets flödet, till exempel skicka resultatet i ett e-postmeddelande.  |

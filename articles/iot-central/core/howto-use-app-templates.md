@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f50c7e8dcb33fd2ed95829286aaf815926d9fb3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e05256d26da2c061559bcc8e50e9ecce6d8425a0
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80157657"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248217"
 ---
 # <a name="export-your-application"></a>Exportera ditt program
-
-
 
 I den här artikeln beskrivs hur, som en lösnings hanterare, för att exportera ett IoT Central program för att kunna återanvända det.
 
@@ -93,4 +91,4 @@ Om du vill uppdatera program mal len ändrar du mallens namn eller beskrivning p
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder programmallar är det föreslagna nästa steg att lära dig hur du [hanterar IoT Central från Azure Portal](howto-manage-iot-central-from-portal.md)
+Nu när du har lärt dig hur du använder programmallar är det föreslagna nästa steg att lära dig hur du [övervakar den övergripande hälsan hos enheter som är anslutna till ett IoT Central program](howto-monitor-application-health.md)

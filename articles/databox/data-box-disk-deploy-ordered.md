@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e7ab15749ccd4ef2808e9cbb362196e38e3d7f4b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746087"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266533"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Självstudie: Beställ en Azure Data Box Disk
 
@@ -63,11 +63,11 @@ Utför följande steg för att beställa Data Box Disk.
 
     ![Välj Data Box Disk-alternativ](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Prenumeration|Välj den prenumeration för vilken Data Box-tjänsten är aktiverad.<br> Prenumerationen är kopplad till ditt faktureringskonto. |
     |Överföringstyp| Importera till Azure|
-    |Käll land/-region | Välj landet/regionen där dina data finns.|
+    |Källans land/region | Välj landet/regionen där dina data finns.|
     |Azure-målregion|Välj den Azure-region dit du vill överföra data.|
   
 4. Välj **Data Box Disk**. Maximal kapacitet för en enskild beställning på 5 diskar är 35 TB. Du kan skapa flera beställningar om du har större datamängder.
@@ -76,7 +76,7 @@ Utför följande steg för att beställa Data Box Disk.
 
 5. I **Order** (Beställa) anger du **Order details** (Beställningsinformation). Ange eller välj följande information.
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Namn|Välj ett smeknamn så att du kan spåra beställningen.<br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra. |
     |Resursgrupp| Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
@@ -91,7 +91,7 @@ Utför följande steg för att beställa Data Box Disk.
 
     Om du använder Data Box Disk för att skapa hanterade diskar från lokala virtuella hård diskar måste du också ange följande information:
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Resursgrupp     | Skapa en ny resurs grupp om du tänker skapa hanterade diskar från lokala virtuella hård diskar. Använd bara en befintlig resurs grupp om den skapades för Data Box Disk ordning för hanterad disk av Data Box-enhet-tjänsten. <br> Endast en resurs grupp stöds.|
 
@@ -105,7 +105,7 @@ Utför följande steg för att beställa Data Box Disk.
 
 7. På fliken **Shipping address** (Leveransadress) uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Klicka på **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det.
 
-   När beställningen har bearbetats visas ett e-postmeddelande. Mer information om självhanterad leverans finns i [Använd självhanterad leverans](data-box-disk-portal-customer-managed-shipping.md).
+   När beställningen har bearbetats visas ett e-postmeddelande. Om du har valt själv hanterad leverans, se [Använd självhanterad leverans](data-box-disk-portal-customer-managed-shipping.md).
 
     ![Uppge leveransadress](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
 8. Ange e-postadresser i **Notification details** (Information om meddelande). Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.

@@ -3,21 +3,21 @@ title: Associera peer-ASN till en Azure-prenumeration med hjälp av portalen
 titleSuffix: Azure
 description: Associera peer-ASN till en Azure-prenumeration med hjälp av portalen
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 5/18/2020
+ms.author: derekol
+ms.openlocfilehash: 9feefa8801892a668784ed7406f46dba2afd69da
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683958"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266958"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associera peer-ASN till en Azure-prenumeration med hjälp av portalen
 
-Innan du skickar in en peering-begäran bör du först associera ditt ASN med Azure-prenumerationen genom att följa stegen nedan.
+Innan du skickar en peering-begäran bör du först associera ditt ASN med en Azure-prenumeration med hjälp av stegen nedan.
 
 Om du vill kan du slutföra den här guiden med hjälp av [PowerShell](howto-subscription-association-powershell.md).
 
@@ -55,8 +55,7 @@ Registrera dig för peering Resource Provider i prenumerationen genom att följa
     > ![Registreringen är klar](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Skapa PeerAsn
-Som Internet leverantör eller Internet Exchange-Provider kan du skapa en ny PeerAsn-resurs för att associera ett autonomt system nummer (ASN) med en Azure-prenumeration. Du kan koppla flera ASN: er till en prenumeration genom att gå till [sidan associera en PeerASN](https://go.microsoft.com/fwlink/?linkid=2129592) för varje ASN som du behöver associera.
-
+Som Internet leverantör eller Internet Exchange-Provider kan du skapa en ny PeerAsn-resurs för att associera ett autonomt system nummer (ASN) med Azure-prenumeration på [sidan koppla en peer-ASN](https://go.microsoft.com/fwlink/?linkid=2129592) . Du kan koppla flera ASN: er till en prenumeration genom att skapa en **PeerAsn** för varje ASN som du behöver associera.
 
 1. På fliken **associera en peer-ASN** , under fliken **grundläggande** , fyller du i fälten som visas nedan.
 

@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 59c121f09858114cecfaeb45e257315d1ab92935
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 241aad3e9bf78d587c7f31d8046de171bd2638b3
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403430"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84264000"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Java
 
 I den här snabb starten ska du använda Azures ansikts REST API med Java för att identifiera mänskliga ansikten i en bild.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="prerequisites"></a>Krav
 
@@ -248,7 +248,7 @@ Kompilera koden och kör den. Ett lyckat svar visar ansiktsinformation i lättl�
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett enkelt Java-konsolprogram som använder REST-anrop till Azure-Ansikts-API för att identifiera ansikten i en bild och returnera deras attribut. Därefter lär dig hur du gör mer med den här funktionen i en Android-app.
+I den här snabb starten skapade du ett enkelt Java-konsolprogram som använder REST-anrop till Azure-Ansikts-API för att identifiera ansikten i en bild och returnera deras attribut. Utforska sedan referensdokumentationen för Ansikts-API för att lära dig mer om de scenarier som stöds.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Skapa en Android-app för att upptäcka och rama in ansikten](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

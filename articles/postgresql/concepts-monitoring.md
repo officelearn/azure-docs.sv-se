@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 99c8d4e7e5263b8a7caf30833a899976d3cc829b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 935fba3869367bff971e6067b22b05b3a0d9119f
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133709"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266890"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Övervaka och finjustera Azure Database for PostgreSQL-enskild server
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for PostgreSQL innehåller olika övervaknings alternativ för att ge inblick i serverns beteende.
@@ -74,7 +74,7 @@ Med **planerade underhålls aviseringar** kan du få aviseringar om kommande pla
 Detaljerade anvisningar om hur du skapar **tjänstens hälso aviseringar**finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> Meddelanden om planerade underhåll finns för närvarande i för hands version
+> Meddelanden om planerade underhåll är för närvarande tillgängliga i för hands versionen i alla regioner **utom** västra centrala USA
 
 ## <a name="next-steps"></a>Nästa steg
 - Se [hur du ställer in aviseringar](howto-alert-on-metric.md) för vägledning om hur du skapar en avisering på ett mått.

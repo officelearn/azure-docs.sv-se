@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 6da9517f822c9c157d26a1bda8dab2c694b08b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54382e74899d2cbb56ccf424b0f39bd874e31630
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75609986"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259379"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuera ett Azure Service Fabric-kluster över Tillgänglighetszoner
 Tillgänglighetszoner i Azure är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. En tillgänglighets zon är en unik fysisk plats utrustad med oberoende strömförsörjning, kylning och nätverk inom en Azure-region.
@@ -140,6 +140,10 @@ Standard Load Balancer och standard offentlig IP introducerar nya funktioner och
 
 >[!NOTE]
 > Standard mal len refererar till en NSG som tillåter all utgående trafik som standard. Inkommande trafik är begränsad till de portar som krävs för Service Fabric hanterings åtgärder. NSG-reglerna kan ändras för att uppfylla dina krav.
+
+>[!NOTE]
+> Alla Service Fabric kluster som använder en standard-SKU SLB måste se till att varje nodtyp har en regel som tillåter utgående trafik på port 443. Detta är nödvändigt för att slutföra kluster installationen och alla distributioner utan sådan regel kommer att Miss lyckas.
+
 
 ### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>Aktivera zoner på en skalnings uppsättning för virtuella datorer
 Om du vill aktivera en zon måste du ha följande tre värden i den virtuella datorns skalnings uppsättnings resurs i en skalnings uppsättning för virtuella datorer.

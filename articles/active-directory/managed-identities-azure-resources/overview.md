@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 05/20/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 738a5bd76cc15b9356275707aed0d0a695aa6367
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 2cd1b846b77e4b600fc9b7590715a73b0ca8f672
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770932"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266329"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
 
@@ -50,7 +50,7 @@ Det finns två typer av hanterade identiteter:
 - En **systemtilldelad hanterad identitet** aktiveras direkt på en instans av Azure-tjänsten. När identiteten har aktiverats skapar Azure en identitet för instansen i den Azure AD-klientorganisation som är betrodd av prenumerationen för instansen. När identiteten har skapats etableras autentiseringsuppgifterna till instansen. Livs cykeln för en tilldelad identitet är direkt bunden till den Azure-tjänstinstans som den är aktive rad på. Om instansen tas bort rensar Azure automatiskt autentiseringsuppgifterna och identiteten i Azure AD.
 - En **användartilldelad hanterad identitet** skapas som en fristående Azure-resurs. När den skapas skapar Azure en identitet i den Azure AD-klientorganisation som är betrodd av den prenumeration som används. När identiteten har skapats kan den tilldelas till en eller flera tjänstinstanser i Azure. Livs cykeln för en användardefinierad identitet hanteras separat från livs cykeln för de Azure-tjänsteinstanser som den är tilldelad till.
 
-Internt är hanterade identiteter tjänstens huvud namn av en särskild typ, som är låsta för att endast användas med Azure-resurser. När den hanterade identiteten tas bort tas motsvarande tjänst objekt bort automatiskt.
+Internt är hanterade identiteter tjänstens huvud namn av en särskild typ, som endast kan användas med Azure-resurser. När den hanterade identiteten tas bort tas motsvarande tjänst objekt bort automatiskt.
 När en användardefinierad eller systemtilldelad identitet skapas, utfärdar MSRP (Managed Identity Resource Provider) ett certifikat internt till identiteten. 
 
 Din kod kan använda en hanterad identitet för att begära åtkomsttoken för tjänster som stöder Azure AD-autentisering. Azure tar hand om de autentiseringsuppgifter som används av tjänstinstansen. 
@@ -61,10 +61,10 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
 
 |  Egenskap    | Systemtilldelad hanterad identitet | Användartilldelad hanterad identitet |
 |------|----------------------------------|--------------------------------|
-| Skapa |  Skapas som en del av en Azure-resurs (till exempel en virtuell Azure-dator eller Azure App Service) | Skapas som fristående Azure-resurs |
+| Skapa |  Skapas som en del av en Azure-resurs (till exempel en virtuell Azure-dator eller Azure App Service). | Skapas som fristående Azure-resurs. |
 | Livscykel | Delad livs cykel med den Azure-resurs som den hanterade identiteten skapas med. <br/> När den överordnade resursen tas bort, tas även den hanterade identiteten bort. | Oberoende livs cykel. <br/> Måste tas bort explicit. |
-| Dela mellan Azure-resurser | Kan inte delas. <br/> Den kan bara kopplas till en enda Azure-resurs. | Kan delas <br/> Samma användare-tilldelade hanterade identitet kan associeras med fler än en Azure-resurs. |
-| Vanliga användarsituationer | Arbets belastningar som finns i en enda Azure-resurs <br/> Arbets belastningar för vilka du behöver oberoende identiteter. <br/> Till exempel ett program som körs på en enskild virtuell dator | Arbets belastningar som körs på flera resurser och som kan dela en enda identitet. <br/> Arbets belastningar som behöver förautentisering till en säker resurs som en del av ett etablerings flöde. <br/> Arbets belastningar där resurser återvinns ofta, men behörigheter bör vara konsekventa. <br/> Till exempel en arbets belastning där flera virtuella datorer behöver åtkomst till samma resurs |
+| Dela mellan Azure-resurser | Kan inte delas. <br/> Den kan bara kopplas till en enda Azure-resurs. | Kan delas. <br/> Samma användare-tilldelade hanterade identitet kan associeras med fler än en Azure-resurs. |
+| Vanliga användarsituationer | Arbets belastningar som finns i en enda Azure-resurs. <br/> Arbets belastningar för vilka du behöver oberoende identiteter. <br/> Till exempel ett program som körs på en enskild virtuell dator | Arbets belastningar som körs på flera resurser och som kan dela en enda identitet. <br/> Arbets belastningar som behöver förautentisering till en säker resurs som en del av ett etablerings flöde. <br/> Arbets belastningar där resurser återvinns ofta, men behörigheter bör vara konsekventa. <br/> Till exempel en arbets belastning där flera virtuella datorer behöver åtkomst till samma resurs |
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Så här fungerar en systemtilldelad hanterad identitet med en virtuell dator i Azure
 

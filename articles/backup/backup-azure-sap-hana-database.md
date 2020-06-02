@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SAP HANA-databas till Azure med Azure Backup
 description: I den här artikeln lär du dig hur du säkerhetskopierar en SAP HANA-databas till virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4183c1eca6b1149c5c61ed77c0ca1101c86f8f4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 20086516dc37538474a31c7735e9b2d3b1a3d5b2
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745413"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248574"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
 
@@ -25,10 +25,13 @@ I den här artikeln får du lära dig att:
 > * Köra ett säkerhets kopierings jobb på begäran
 
 >[!NOTE]
->**Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar** finns nu i för hands version.<br>
->Registrera dig för för hands versionen genom att skriva till oss påAskAzureBackupTeam@microsoft.com
+>[Kom igång](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) med SAP HANA backup Preview för RHEL (7,4, 7,6, 7,7 eller 8,1). Skriv till oss vid ytterligare frågor [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
-## <a name="prerequisites"></a>Förutsättningar
+>[!NOTE]
+>**Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar** finns nu i för hands version.<br>
+>Registrera dig för för hands versionen genom att skriva till oss på [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+
+## <a name="prerequisites"></a>Krav
 
 Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för för registrering gör](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) i avsnitten för att konfigurera databasen för säkerhets kopiering.
 

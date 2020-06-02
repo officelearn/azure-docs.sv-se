@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 12c1a8c5231e0a6d6674ca55be78a491074a3d3a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7181dd74963a1af05438b16e00e2442478daac03
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053641"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267908"
 ---
 # <a name="tutorial-secure-an-azure-sql-database"></a>Självstudie: skydda en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Mer information finns i artiklarna [Säkerhetsöversikt för Azure SQL Database]
 > [!TIP]
 > Följande Microsoft Learn modul hjälper dig att lära dig kostnads fritt om hur du [skyddar dina Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -219,7 +219,7 @@ För att säkerställa en säker, krypterad anslutning mellan klient programmet 
 - Begära en krypterad anslutning
 - Inte lita på servercertifikatet
 
-Anslutningen upprättas med TLS (Transport Layer Security) och risken för MITM-attacker (man-in-the-middle) minskar. Anslutningssträngar är tillgängliga per databas och har redan konfigurerats för att stödja klientdrivrutiner som ADO.NET, JDBC, ODBC och PHP. Information om TLS och anslutningar finns i avsnittet om [TLS-specifika överväganden](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity).
+Anslutningen upprättas med TLS (Transport Layer Security) och risken för MITM-attacker (man-in-the-middle) minskar. Anslutningssträngar är tillgängliga per databas och har redan konfigurerats för att stödja klientdrivrutiner som ADO.NET, JDBC, ODBC och PHP. Information om TLS och anslutningar finns i avsnittet om [TLS-specifika överväganden](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
 Så här kopierar du en säker anslutningssträng:
 

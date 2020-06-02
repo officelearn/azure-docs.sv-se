@@ -13,12 +13,12 @@ ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: def198a15710d0aff4a943300eedc338a7772e46
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 88dc4bb86459cd0390c4c01deb871aa93e39c6d1
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115803"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266754"
 ---
 # <a name="security-tokens"></a>Säkerhetstoken
 
@@ -77,7 +77,7 @@ Beroende på hur din klient har skapats kan den använda en (eller flera) av de 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flöde för auktoriseringskod](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
 |[Implicit flöde](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[Hybrid OIDC-flöde](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Hybrid OIDC-flöde](v2-protocols-oidc.md#protocol-diagram-access-token-acquisition)| | x  | |          |            x   |
 |[Uppdatera token-inlösen](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | uppdatera token | x | x | x| |
 |[On-Behalf-Of-flöde](v2-oauth2-on-behalf-of-flow.md) | åtkomsttoken| x| x| x| |
 |[Klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) | | | x (endast app-only)| | |

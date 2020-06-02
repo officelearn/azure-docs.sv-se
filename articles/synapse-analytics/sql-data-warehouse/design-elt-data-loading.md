@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e3464c0fc3946e47400f87063ef6f83ceb942abb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: fc5316e2d6509f3e4db9a6cba150efc42c8bc548
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192454"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266380"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Data inläsnings strategier för Synapse SQL-pool
 
@@ -46,15 +46,13 @@ De grundläggande stegen för att implementera ELT är:
 5. Transformera data.
 6. Infoga data i produktionstabeller.
 
-En inläsnings kurs för PolyBase finns i [använda PolyBase för att läsa in data från Azure Blob Storage](load-data-from-azure-blob-storage-using-polybase.md).
-
-Mer information finns i [blogg om inläsnings mönster](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/).
+En inläsnings kurs finns i [läsa in data från Azure Blob Storage](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. extrahera källdata i textfiler
 
-Att hämta data från käll systemet beror på lagrings platsen.  Målet är att flytta data till PolyBase och KOPIAn som stöder avgränsade text-eller CSV-filer.
+Att hämta data från käll systemet beror på lagrings platsen. Målet är att flytta data till avgränsade text-eller CSV-filer som stöds.
 
-### <a name="polybase-and-copy-external-file-formats"></a>PolyBase och kopiera externa fil format
+### <a name="supported-file-formats"></a>Filformat som stöds
 
 Med PolyBase och KOPIERINGs instruktionen kan du läsa in data från UTF-8-och UTF-16-kodade avgränsade text-eller CSV-filer. Förutom avgränsade text-eller CSV-filer läses de in från Hadoop-filformat som ORC och Parquet. PolyBase och KOPIERINGs instruktionen kan också läsa in data från gzip och fästa komprimerade filer.
 
@@ -74,11 +72,11 @@ Verktyg och tjänster som du kan använda för att flytta data till Azure Storag
 
 Du kan behöva förbereda och rensa data i ditt lagrings konto innan du läser in. Data förberedelse kan utföras medan dina data är i källan, när du exporterar data till textfiler, eller när data har Azure Storage.  Det är enklast att arbeta med data så tidigt i processen som möjligt.  
 
-### <a name="define-external-tables"></a>Definiera externa tabeller
+### <a name="define-the-tables"></a>Definiera tabellerna
 
-Om du använder PolyBase måste du definiera externa tabeller i SQL-poolen innan du läser in. Externa tabeller krävs inte av KOPIERINGs instruktionen. PolyBase använder externa tabeller för att definiera och komma åt data i Azure Storage.
+Du måste först definiera de tabeller som du läser in i SQL-poolen när du använder COPY-instruktionen.
 
-En extern tabell liknar en Database-vy. Den externa tabellen innehåller tabellens schema och pekar på data som lagras utanför SQL-poolen.
+Om du använder PolyBase måste du definiera externa tabeller i SQL-poolen innan du läser in. PolyBase använder externa tabeller för att definiera och komma åt data i Azure Storage. En extern tabell liknar en Database-vy. Den externa tabellen innehåller tabellens schema och pekar på data som lagras utanför SQL-poolen.
 
 Definiera externa tabeller innebär att du anger data källan, formatet på textfilerna och tabell definitionerna. Referens artiklar för T-SQL-syntax som du behöver:
 
@@ -86,7 +84,7 @@ Definiera externa tabeller innebär att du anger data källan, formatet på text
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [SKAPA EXTERN TABELL](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-Vid inläsning av Parquet är SQL Data Type-mappningen:
+Använd följande SQL Data Type-mappning vid inläsning av Parquet-filer:
 
 |                         Typ av Parquet                         |   Parquet logiska typ (anteckning)   |  SQL-datatyp   |
 | :----------------------------------------------------------: | :-----------------------------------: | :--------------: |
@@ -126,7 +124,7 @@ Vid inläsning av Parquet är SQL Data Type-mappningen:
 
 
 
-Ett exempel på hur du skapar externa objekt finns i steget [skapa externa tabeller](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) i inläsnings kursen.
+Ett exempel på hur du skapar externa objekt finns i [skapa externa tabeller](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
 
 ### <a name="format-text-files"></a>Formatera textfiler
 
@@ -139,17 +137,16 @@ Formatera textfilerna:
 
 ## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. Läs in data med PolyBase eller kopiera instruktionen
 
-Vi rekommenderar att du läser in data i en mellanlagringsplats. Med mellanlagrings tabeller kan du hantera fel utan att störa produktions tabellerna. Med en mellanlagringsplats får du också möjlighet att använda SQL-poolens MPP för data transformationer innan du infogar data i produktions tabeller.
+Vi rekommenderar att du läser in data i en mellanlagringsplats. Med mellanlagrings tabeller kan du hantera fel utan att störa produktions tabellerna. Med en mellanlagringsplats får du också möjlighet att använda SQL-poolens parallella bearbetnings arkitektur för data transformationer innan du infogar data i produktions tabeller.
 
-Tabellen måste skapas i förväg när den läses in i en mellanlagringsplats med COPY.
+### <a name="options-for-loading"></a>Alternativ för inläsning
 
-### <a name="options-for-loading-with-polybase-and-copy-statement"></a>Alternativ för att läsa in med PolyBase-och COPY-instruktion
+Om du vill läsa in data kan du använda något av följande inläsnings alternativ:
 
-Om du vill läsa in data med PolyBase kan du använda något av följande inläsnings alternativ:
-
-- [PolyBase med T-SQL](load-data-from-azure-blob-storage-using-polybase.md) fungerar bra när dina data finns i Azure Blob storage eller Azure Data Lake Store. Du får störst kontroll över inläsnings processen, men du måste också definiera externa data objekt. De andra metoderna definierar dessa objekt bakom scenerna när du mappar käll tabeller till mål tabeller.  För att dirigera T-SQL-inläsningar kan du använda Azure Data Factory, SSIS eller Azure Functions.
-- [PolyBase med SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) fungerar bra när dina källdata är i SQL Server. SSIS definierar källa till mål tabell mappningar och dirigerar även belastningen. Om du redan har SSIS-paket kan du ändra paketen så att de fungerar med det nya informations lager målet.
+- [Kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) är det rekommenderade inläsnings verktyget, som du kan använda för att sömlöst och flexibelt läsa in data. Instruktionen har många ytterligare inläsnings funktioner som PolyBase inte tillhandahåller. 
+- [PolyBase med T-SQL](load-data-from-azure-blob-storage-using-polybase.md) kräver att du definierar externa data objekt.
 - [PolyBase-och Copy-uttryck med Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) är ett annat Orchestration-verktyg.  Den definierar en pipeline och schemalägger jobb.
+- [PolyBase med SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) fungerar bra när dina källdata är i SQL Server. SSIS definierar källa till mål tabell mappningar och dirigerar även belastningen. Om du redan har SSIS-paket kan du ändra paketen så att de fungerar med det nya informations lager målet.
 - [PolyBase med Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) överför data från en tabell till en Databricks-dataframe och/eller skriver data från en Databricks-dataframe till en tabell med PolyBase.
 
 ### <a name="other-loading-options"></a>Andra inläsnings alternativ

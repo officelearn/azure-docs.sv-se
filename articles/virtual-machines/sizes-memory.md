@@ -15,24 +15,26 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 5a20e9c64b6ef948167333b54b16b34e84dc0e32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab4c95e3525caa42b979b15fa8118e9dd21bb74a
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273587"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248302"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Minnesoptimerade storlekar för virtuella datorer
 
 Minnesoptimerade VM-storlekar erbjuder ett högt förhållande mellan minne och processor som är bra för Relations databas servrar, medel stora och stora cacheminnen och minnes intern analys. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för varje storlek i den här gruppen.
 
-- [Dv2 och DSv2-serien](dv2-dsv2-series-memory.md), som är en uppföljning av den ursprungliga D-serien, har en mer kraftfull processor. Dv2-serien är cirka 35% snabbare än D-serien. Den&reg; körs på Intel xeon&reg; 8171M 2,1 GHz (Skylake) eller Intel&reg; Xeon&reg; E5-2673 v4 2,3 GHz (Broadwell) eller Intel&reg; Xeon&reg; E5-2673 v3 2,4 GHz-processorer (Haswell) och med Intel Turbo Boost-tekniken 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
+- [Dv2 och DSv2-serien](dv2-dsv2-series-memory.md), som är en uppföljning av den ursprungliga D-serien, har en mer kraftfull processor. Dv2-serien är cirka 35% snabbare än D-serien. Den körs på Intel &reg; Xeon &reg; 8171M 2,1 GHz (Skylake) eller Intel &reg; Xeon &reg; e5-2673 v4 2,3 GHz (Broadwell) eller Intel &reg; xeon &reg; E5-2673 v3 2,4 GHz-processorer (Haswell) och med Intel Turbo Boost-tekniken 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
     Dv2 och DSv2-serien är idealiska för program som kräver snabbare virtuella processorer, bättre tillfälliga lagrings prestanda eller har högre minnes krav. De utgör en kraftfull kombination för många program i företagsklass.
 
 - [Eav4 och Easv4-serien](eav4-easv4-series.md) använder AMD: s 2.35 GHz EPYC<sup>TM</sup> 7452-processor i en multi-threadd konfiguration med upp till 256 MB L3-cache, vilket ökar alternativen för att köra de flesta minnesoptimerade arbets belastningar. Eav4-serien och Easv4-serien har samma minnes-och diskkonfigurationer som Ev3 & Esv3-serien.
 
-- [Ev3-och Esv3-serien](ev3-esv3-series.md) Intel&reg; Xeon&reg; 8171M 2,1 GHz (Skylake) eller intel&reg; Xeon&reg; E5-2673 v4 2,3 GHz-processorn (Broadwell) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar och ger Ev3 till justering med de flesta virtuella datorerna i de flesta andra moln. Minnet har utökats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras med flytten till Hyper-Threading. Ev3 är en uppföljning av de virtuella datorerna med hög minnes storlek för D/Dv2-familjer.
+- [Ev3-och Esv3-serien](ev3-esv3-series.md) Intel &reg; Xeon &reg; 8171M 2,1 GHz (Skylake) eller Intel &reg; xeon &reg; E5-2673 v4 2,3 GHz-processorn (Broadwell) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar och ger Ev3 till justering med de flesta virtuella datorerna i de flesta andra moln. Minnet har utökats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras med flytten till Hyper-Threading. Ev3 är en uppföljning av de virtuella datorerna med hög minnes storlek för D/Dv2-familjer.
+
+- [Edv4 och Edsv4-serien](edv4-edsv4-series.md) körs på de andra generationens Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake), idealiska för extremt stora databaser eller andra program som drar nytta av höga vCPU-antal och stora mängder minne. Den har en allt högre klock hastighet på 3,4 GHz och har [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector-tillägg 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
 
 - [M-serien](m-series.md) erbjuder ett högt antal vCPU (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TIB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-räkningar och stora mängder minne.
 

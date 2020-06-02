@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 5845a49dbb003c184b9520f85e6f1be14315081b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 3897ef75be34d4413e06dc5459739baec3afdcec
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118997"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84268001"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Azures säkerhets bas linje för Container Instances
 
@@ -157,7 +157,7 @@ Du kan också använda program säkerhets grupper för att förenkla komplex sä
 
 **Vägledning**: du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resources Manager-mallar, RBAC-kontroller och-principer, i en enda skiss definition. Du kan använda skissen för nya prenumerationer och finjustera kontroll och hantering genom versions hantering. 
 
-* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manag)
+* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 * [Azure Policy exempel för nätverk](https://docs.microsoft.com/azure/governance/policy/samples/#network)
 

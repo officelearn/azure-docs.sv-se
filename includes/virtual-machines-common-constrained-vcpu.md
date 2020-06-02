@@ -2,18 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: virtual-machines
-author: jonbeck7
+author: mimckitt
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/09/2018
-ms.author: azcspmt;jonbeck;cynthn
+ms.author: mimckitt
 ms.custom: include file
-ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 8ee5238fd8043161271eef2c130a8e0a385a0bc0
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67187338"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84268858"
 ---
 Vissa databas arbets belastningar som SQL Server eller Oracle kräver hög minnes-, lagrings-och I/O-bandbredd, men inte ett högt antal kärnor. Många databas arbets belastningar är inte processor intensiva. Azure erbjuder vissa VM-storlekar där du kan begränsa antalet VM-vCPU för att minska kostnaderna för program varu licensiering, samtidigt som du behåller samma minne, lagring och I/O-bandbredd.
 
@@ -45,6 +45,15 @@ De licens avgifter som debiteras för SQL Server eller Oracle är begränsade ti
 | Standard_E32-8s_v3  | 8    | Samma som E32s_v3 |
 | Standard_E64-32s_v3 | 32   | Samma som E64s_v3 |
 | Standard_E64-16s_v3 | 16   | Samma som E64s_v3 |
+| Standard_E4-2ds_v4  | 2    | Samma som E4ds_v4 |
+| Standard_E8-4ds_v4  | 4    | Samma som E8ds_v4 |
+| Standard_E8-2ds_v4  | 2    | Samma som E8ds_v4 |
+| Standard_E16-8ds_v4 | 8    | Samma som E16ds_v4|
+| Standard_E16-4ds_v4 | 4    | Samma som E16ds_v4|
+| Standard_E32-16ds_v4| 16   | Samma som E32ds_v4|
+| Standard_E32-8ds_v4 | 8    | Samma som E32ds_v4|
+| Standard_E64-32ds_v4| 32   | Samma som E64ds_v4|
+| Standard_E64-16ds_v4| 16   | Samma som E64ds_v4|
 | Standard_GS4-8      | 8    | Samma som GS4     |
 | Standard_GS4-4      | 4    | Samma som GS4     |
 | Standard_GS5-16     | 16   | Samma som GS5     |

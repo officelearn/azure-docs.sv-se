@@ -4,12 +4,12 @@ description: Få en översikt över vad du kan göra med mått aviseringar och h
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855037"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248829"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur måttaviseringar fungerar i Azure Monitor
 
@@ -34,7 +34,7 @@ Anta att du har skapat en varnings regel för enkel statisk tröskel enligt föl
 
 När aviserings regeln skapas körs övervakaren var 1: e minut och tittar på mått värden under de senaste 5 minuterna och kontrollerar om genomsnittet för dessa värden överstiger 70. Om villkoret är uppfyllt, är den genomsnittliga procent andelen för de senaste 5 minuterna längre än 70, varnings regeln utlöser ett aktiverat meddelande. Om du har konfigurerat ett e-postmeddelande eller en webhook-åtgärd i den åtgärds grupp som är associerad med varnings regeln får du ett aktiverat meddelande på båda.
 
-När du använder flera villkor i en regel, "ands" villkoren tillsammans.  Det vill säga att aviseringen utlöses när alla villkor i aviseringen utvärderas som sant och löses när ett av villkoren inte längre är sant. Och exempel på den här typen av avisering skulle vara en avisering när "CPU som är högre än 90%" och "Queue length är över 300-objekt". 
+När du använder flera villkor i en regel, "ands" villkoren tillsammans. Det vill säga en varning utlöses när alla villkor i varnings regeln utvärderas som sant och löses när ett av villkoren inte längre är sant. Ett exempel på den här typen av varnings regel är att övervaka en virtuell Azure-dator och en avisering när båda "procent andelen CPU är högre än 90%" och "Queue length är över 300-objekt".
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Varnings regel med dynamisk villkors typ
 
@@ -128,10 +128,10 @@ Den här funktionen stöds för närvarande för plattforms mått (inte anpassad
 
 | Tjänst | Offentlig Azure | Government | Kina |
 |:--------|:--------|:--------|:--------|
-| Virtuella datorer  | **Ja** | Nej | Nej |
-| SQL Server-databaser | **Ja** | **Ja** | Nej |
-| Elastiska SQL Server-pooler | **Ja** | **Ja** | Nej |
-| Data Box Edge-enheter | **Ja** | **Ja** | Nej |
+| Virtuella datorer  | **Ja** | Inga | Inga |
+| SQL Server-databaser | **Ja** | **Ja** | No |
+| Elastiska SQL Server-pooler | **Ja** | **Ja** | No |
+| Data Box Edge-enheter | **Ja** | **Ja** | No |
 
 Du kan ange omfattningen för övervakning av en regel för en enskild måtts avisering på ett av tre sätt. Med virtuella datorer kan du till exempel ange omfånget som:  
 

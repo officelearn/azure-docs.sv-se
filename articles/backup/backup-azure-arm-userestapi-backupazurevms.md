@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du konfigurerar, initiera
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d037339d9ff9a891fcc595a3eff75097204a77ab
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248169"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248693"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
@@ -29,7 +29,7 @@ Först ska valvet kunna identifiera den virtuella Azure-datorn. Detta utlöses m
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-POST-URI: `{subscriptionId}`n `{vaultName}`har `{vaultresourceGroupName}`, `{fabricName}` ,, parametrar. `{fabricName}` Är "Azure". Som enligt vårt exempel `{vaultName}` är "testVault" och `{vaultresourceGroupName}` är "testVaultRG". Eftersom alla parametrar som krävs anges i URI: n behöver du inte ha någon separat brödtext i begäran.
+POST-URI: n har `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` , `{fabricName}` parametrar. `{fabricName}`Är "Azure". Enligt vårt exempel `{vaultName}` är "testVault" och `{vaultresourceGroupName}` är "testVaultRG". Eftersom alla parametrar som krävs anges i URI: n behöver du inte ha någon separat brödtext i begäran.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
@@ -44,7 +44,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |Name  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |204 inget innehåll     |         |  OK utan innehåll som returneras      |
-|202 accepterad     |         |     Accepterad    |
+|202 accepterad     |         |     Har godkänts    |
 
 ##### <a name="example-responses"></a>Exempel svar
 
@@ -149,7 +149,7 @@ X-Powered-By: ASP.NET
 > [!TIP]
 > Antalet värden i *Get* -svaret är begränsat till 200 för en sida. Använd fältet ' nextLink ' för att hämta URL: en för nästa uppsättning svar.
 
-Svaret innehåller en lista över alla oskyddade virtuella Azure-datorer och varje `{value}` innehåller all information som krävs av Azure Recovery Service för att konfigurera säkerhets kopiering. Om du vill konfigurera säkerhets kopiering `{name}` noterar du fältet `{virtualMachineId}` och fältet `{properties}` i avsnittet. Konstruera två variabler från dessa fält värden enligt vad som anges nedan.
+Svaret innehåller en lista över alla oskyddade virtuella Azure-datorer och varje `{value}` innehåller all information som krävs av Azure Recovery Service för att konfigurera säkerhets kopiering. Om du vill konfigurera säkerhets kopiering noterar du `{name}` fältet och `{virtualMachineId}` fältet i `{properties}` avsnittet. Konstruera två variabler från dessa fält värden enligt vad som anges nedan.
 
 - containerName = "iaasvmcontainer;" +`{name}`
 - protectedItemName = "VM;" +`{name}`
@@ -170,7 +170,7 @@ Aktivering av skydd är en asynkron *placerings* åtgärd som skapar ett skyddat
 https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-`{containerName}` Och `{protectedItemName}` är som konstruerade ovan. `{fabricName}` Är "Azure". I vårt exempel översätts detta till:
+`{containerName}`Och `{protectedItemName}` är som konstruerade ovan. `{fabricName}`Är "Azure". I vårt exempel översätts detta till:
 
 ```http
 PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
@@ -200,7 +200,7 @@ Följande begär ande text definierar egenskaper som krävs för att skapa ett s
 }
 ```
 
-`{sourceResourceId}` Är det `{virtualMachineId}` som nämns ovan från [svar på listan över skrivskyddade objekt](#example-responses-1).
+`{sourceResourceId}`Är det `{virtualMachineId}` som nämns ovan från [svar på listan över skrivskyddade objekt](#example-responses-1).
 
 #### <a name="responses"></a>Svar
 
@@ -211,7 +211,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |Name  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
-|202 accepterad     |         |     Accepterad    |
+|202 accepterad     |         |     Har godkänts    |
 
 ##### <a name="example-responses"></a>Exempel svar
 
@@ -272,11 +272,11 @@ När åtgärden har slutförts returneras 200 (OK) med det skyddade objekt inneh
 }
 ```
 
-Detta bekräftar att skyddet har Aktiver ATS för den virtuella datorn och att den första säkerhets kopian utlöses enligt princip schemat.
+Detta bekräftar att skyddet har Aktiver ATS för den virtuella datorn och att den första säkerhets kopieringen kommer att utlösas enligt princip schemat.
 
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Utlös en säkerhets kopiering på begäran för en skyddad virtuell Azure-dator
 
-När en virtuell Azure-dator har kon figurer ATS för säkerhets kopiering sker säkerhets kopieringarna enligt princip schemat. Du kan vänta på den första schemalagda säkerhets kopieringen eller utlösa en säkerhets kopiering på begäran när som helst. Kvarhållning för säkerhets kopiering på begäran är separat från säkerhets kopierings principens kvarhållning och kan anges till en viss datum tid. Om inget anges antas det vara 30 dagar från dagen för utlösaren av säkerhets kopiering på begäran.
+När en virtuell Azure-dator har kon figurer ATS för säkerhets kopiering sker säkerhets kopieringar enligt princip schemat. Du kan vänta på den första schemalagda säkerhets kopieringen eller utlösa en säkerhets kopiering på begäran när som helst. Kvarhållning för säkerhets kopiering på begäran är separat från säkerhets kopierings principens kvarhållning och kan anges till en viss datum tid. Om inget anges antas det vara 30 dagar från dagen för utlösaren av säkerhets kopiering på begäran.
 
 Att utlösa en säkerhets kopiering på begäran är en *post* -åtgärd.
 
@@ -284,7 +284,7 @@ Att utlösa en säkerhets kopiering på begäran är en *post* -åtgärd.
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-`{containerName}` Och `{protectedItemName}` är som konstruerade [ovan](#responses-1). `{fabricName}` Är "Azure". I vårt exempel översätts detta till:
+`{containerName}`Och `{protectedItemName}` är som konstruerade [ovan](#responses-1). `{fabricName}`Är "Azure". I vårt exempel översätts detta till:
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
@@ -321,7 +321,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Name  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|202 accepterad     |         |     Accepterad    |
+|202 accepterad     |         |     Har godkänts    |
 
 #### <a name="example-responses"></a><a name="example-responses-3"></a>Exempel svar
 
@@ -427,7 +427,7 @@ Att stoppa skyddet och ta bort data är en *borttagnings* åtgärd.
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-`{containerName}` Och `{protectedItemName}` är som konstruerade [ovan](#responses-1). `{fabricName}`är "Azure". I vårt exempel översätts detta till:
+`{containerName}`Och `{protectedItemName}` är som konstruerade [ovan](#responses-1). `{fabricName}`är "Azure". I vårt exempel översätts detta till:
 
 ```http
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
@@ -442,7 +442,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |Name  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |204 noåll     |         |  Inget innehåll       |
-|202 accepterad     |         |     Accepterad    |
+|202 accepterad     |         |     Har godkänts    |
 
 > [!IMPORTANT]
 > För att skydda mot oavsiktliga borttagnings scenarier finns det en [funktion för mjuk borttagning](use-restapi-update-vault-properties.md#soft-delete-state) som är tillgänglig för Recovery Services-valvet. Om det mjuka borttagnings läget för valvet är inställt på aktive rad tas inte data bort direkt i borttagnings åtgärden. Den sparas i 14 dagar och rensas sedan permanent. Kunden debiteras inte för lagring under den här perioden på 14 dagar. Om du vill ångra borttagnings åtgärden läser du [avsnittet ångra-ta bort](#undo-the-stop-protection-and-delete-data).

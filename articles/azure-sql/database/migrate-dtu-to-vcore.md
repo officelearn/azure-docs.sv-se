@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 05/28/2020
-ms.openlocfilehash: e9ba6f2e2f6b6e6c4c4738576816e4473b4951a5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4802e9e6fa2fdd918266d3ddc58b783bdb6bb83e
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235837"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258495"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrera Azure SQL Database från den DTU-baserade modellen till den vCore-baserade modellen
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -187,7 +187,7 @@ Du kan skapa en sekundär databas för geo-replikering (endast en geo-sekundär)
 
 Om du skapar en geo-sekundär i den elastiska poolen för en enda primär databas kontrollerar du att `maxVCore` inställningen för poolen matchar den primära databasens beräknings storlek. Om du skapar en geo-Secondary för en primär i en annan elastisk pool, rekommenderar vi att poolerna har samma `maxVCore` Inställningar.
 
-## <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Använd databas kopiering för att konvertera en DTU-baserad databas till en vCore-baserad databas
+## <a name="use-database-copy-to-migrate-from-dtu-to-vcore"></a>Använd databas kopiering för att migrera från DTU till vCore
 
 Du kan kopiera alla databaser med en DTU-baserad beräknings storlek till en databas med en vCore beräknings storlek utan begränsningar eller särskilda sekvenser så länge mål beräknings storleken har stöd för den maximala databas storleken för käll databasen. Databas kopian skapar en ögonblicks bild av data från den tidpunkt då kopieringen startar och synkroniserar inte data mellan källan och målet.
 

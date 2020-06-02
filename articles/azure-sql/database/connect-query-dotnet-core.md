@@ -1,6 +1,7 @@
 ---
-title: Fråga med .NET Core
-description: Det här avsnittet visar hur du använder .NET Core för att skapa ett program som ansluter till en databas i Azure SQL Database och frågar den med hjälp av Transact-SQL-uttryck.
+title: Använd .NET Core för att ansluta och fråga en databas
+description: Det här avsnittet visar hur du använder .NET Core för att skapa ett program som ansluter till en databas i Azure SQL Database eller en Azure SQL-hanterad instans och frågar den med hjälp av Transact-SQL-uttryck.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,28 +11,28 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 07/29/2019
-ms.openlocfilehash: ff90cf7de3bb83a235f866d8035ccb036e021b83
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: 87acf1ab1591dadd5b3ac9c96fa36654bcbb4368
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189586"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267451"
 ---
-# <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database"></a>Snabb start: använda .NET Core (C#) för att fråga en databas i Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: använda .NET Core (C#) för att fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-I den här snabb starten använder du [.net Core](https://www.microsoft.com/net/) och C#-kod för att ansluta till en databas i Azure SQL Database. Sedan kör du en Transact-SQL-instruktion för att fråga efter data.
+I den här snabb starten använder du [.net Core](https://www.microsoft.com/net/) och C#-kod för att ansluta till en databas. Sedan kör du en Transact-SQL-instruktion för att fråga efter data.
 
 > [!TIP]
 > Följande Microsoft Learn modul hjälper dig att lära dig kostnads fritt hur du [utvecklar och konfigurerar ett ASP.NET-program som frågar en databas i Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att slutföra den här snabbstarten:
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- En databas i Azure SQL Database. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
+- En databas. Du kan använda någon av följande snabb starter för att skapa och konfigurera en databas:
 
   || SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
   |:--- |:--- |:---|:---|
@@ -204,6 +205,6 @@ namespace sqltest
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång med .NET Core för Windows/Linux/macOS med hjälp av kommandoraden](/dotnet/core/tutorials/using-with-xplat-cli).
-- Lär dig hur du [ansluter och frågar en databas i Azure SQL Database med hjälp av .NET Framework och Visual Studio](connect-query-dotnet-visual-studio.md).  
-- Lär dig hur du [utformar din första databas i Azure SQL Database genom att använda SSMS](design-first-database-tutorial.md) eller [utforma en databas i Azure SQL Database och ansluta med C# och ADO.net](design-first-database-csharp-tutorial.md).
+- Lär dig hur du [ansluter och frågar Azure SQL Database eller en Azure SQL-hanterad instans med hjälp av .NET Framework och Visual Studio](connect-query-dotnet-visual-studio.md).  
+- Lär dig hur du [utformar din första databas med SSMS](design-first-database-tutorial.md) eller [utformar en databas och ansluter med C# och ADO.net](design-first-database-csharp-tutorial.md).
 - Mer information om .NET finns i [.NET-dokumentationen](https://docs.microsoft.com/dotnet/).

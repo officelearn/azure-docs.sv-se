@@ -410,6 +410,8 @@
               href: id-tokens.md
             - name: Åtkomsttokens
               href: access-tokens.md
+            - name: UserInfo-slutpunkt
+              href: userinfo.md
             - name: Autentiseringsuppgifter för certifikat
               href: active-directory-certificate-credentials.md
         - name: SAML 2.0-protokoll

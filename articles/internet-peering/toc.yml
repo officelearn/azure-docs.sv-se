@@ -56,6 +56,10 @@
           href: howto-legacy-exchange-portal.md
         - name: Azure PowerShell
           href: howto-legacy-exchange-powershell.md
+    - name: Skapa eller ändra en Exchange-peering med routningsserver
+      items:
+        - name: Portalen
+          href: how-to-exchange-route-server-portal.md
 - name: Referens
   items:
     - name: Azure CLI

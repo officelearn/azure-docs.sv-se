@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: 2f2049f710dcdbb210594331fa69e6743f5e431e
-  ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+  ms.openlocfilehash: 5d49173a9c06e35c5af3831e504fc6f55a8dfc50
+  ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/22/2020
-  ms.locfileid: "81869314"
+  ms.lasthandoff: 06/01/2020
+  ms.locfileid: "84259549"
 highlightedContent:
   items:
   - title: Om Azure Media Services v3
@@ -33,15 +33,18 @@ highlightedContent:
   - title: Jämför förinställningar för Media Services v3 och Video Indexer
     itemType: concept
     url: ./video-indexer/compare-video-indexer-with-media-services-presets.md
+  - title: Videoanalys i realtid på IoT Edge (förhandsversion)
+    itemType: overview
+    url: ./live-video-analytics-edge/overview.md
+  - title: Azure Media Player
+    itemType: overview
+    url: https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview
   - title: Om Azure Media Services v2 (äldre)
     itemType: overview
     url: ./previous/media-services-overview.md
   - title: Migrera Media Services v2 till v3
     itemType: concept
     url: ./latest/migrate-from-v2-to-v3.md
-  - title: Azure Media Player
-    itemType: overview
-    url: azure-media-player/azure-media-player-overview.md
 conceptualContent:
   items:
   - title: Utveckla med API för Media Services v3
@@ -110,6 +113,14 @@ conceptualContent:
     - url: media-services-fmp4-live-ingest-overview.md
       itemType: concept
       text: Inmatningsprotokoll för Smooth Streaming
+  - title: Videoanalys i realtid på IoT Edge (förhandsversion)
+    links:
+    - url: ./live-video-analytics-edge/overview.md
+      itemType: overview
+      text: Översikt
+    - url: ./live-video-analytics-edge/use-your-model-quickstart.md
+      itemType: quickstart
+      text: Kör Videoanalys i realtid med din egen modell
 additionalContent:
   sections:
   - items:

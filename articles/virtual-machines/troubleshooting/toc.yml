@@ -11,6 +11,8 @@
       href: virtual-machines-availability-set-supportability.md
 - name: Vägledning för distribution av virtuella datorer
   items:
+    - name: Uppgradera till SLES 15 SP1
+      href: linux-upgrade-suse-15sp1.md
     - name: Nya VM-distributioner
       items:
         - name: Linux

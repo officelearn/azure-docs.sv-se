@@ -1,0 +1,82 @@
+- name: Dokumentation om Videoanalys i realtid på IoT Edge (förhandsversion)
+  href: index.yml
+- name: Växla till dokumentation om Azure Media Services v3
+  href: ../latest/index.yml
+- name: Översikt
+  items:
+    - name: Om Videoanalys i realtid på IoT Edge
+      href: overview.md
+    - name: Terminologi
+      href: terminology.md
+    - name: Nyheter
+      items:
+        - name: Viktig information
+          href: release-notes.md
+- name: Snabbstarter
+  items:
+    - name: Kom igång – Videoanalys i realtid på IoT Edge
+      href: get-started-detect-motion-emit-events-quickstart.md
+    - name: Identifiera rörelse och spela in video till Media Services
+      href: detect-motion-record-video-clips-media-services-quickstart.md
+    - name: Identifiera rörelse och generera händelser
+      href: detect-motion-emit-events-quickstart.md
+    - name: Identifiera rörelse och spela in video på gränsenheter
+      href: detect-motion-record-video-clips-edge-devices-quickstart.md
+    - name: Kör Videoanalys i realtid med din egen modell
+      href: use-your-model-quickstart.md
+- name: Självstudier
+  items:
+    - name: Kontinuerlig videoinspelning
+      href: continuous-video-recording-tutorial.md
+    - name: Händelsebaserad videoinspelning
+      href: event-based-video-recording-tutorial.md
+    - name: Spela upp inspelningar från flera dagar
+      href: playback-multi-day-recordings-tutorial.md
+- name: Exempel
+  items:
+    - name: 'C#-exempel för Videoanalys i realtid på IoT Edge'
+      href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
+- name: Begrepp
+  items:
+    - name: Mediegraf
+      href: media-graph-concept.md
+    - name: Videoinspelning
+      href: video-recording-concept.md
+    - name: Videouppspelning
+      href: video-playback-concept.md
+    - name: Scenarier
+      items:
+        - name: Kontinuerlig videoinspelning
+          href: continuous-video-recording-concept.md
+        - name: Händelsebaserad videoinspelning
+          href: event-based-video-recording-concept.md
+        - name: Videoanalys i realtid utan videoinspelning
+          href: analyze-live-video-concept.md
+- name: Anvisningar
+  items:
+    - name: Skapa anpassad Azure Resource Manager-roll
+      href: create-custom-azure-resource-manager-role-how-to.md
+    - name: Distribuera till en IoT Edge-enhet
+      href: deploy-iot-edge-device.md
+    - name: Övervakning och loggning
+      href: monitoring-logging.md
+    - name: Spela upp en inspelning
+      href: playback-recordings-how-to.md
+    - name: Hantera inspelningsprincip
+      href: manage-recording-policy-how-to.md
+    - name: Analysera livevideo med valfri AI
+      href: analyze-with-ai-your-choice-how-to.md
+    - name: Felsöka
+      href: troubleshoot-how-to.md
+- name: Referens
+  items:
+    - name: Direkta metoder
+      href: direct-methods.md
+    - name: Konfigurationsschema för modultvilling
+      href: module-twin-configuration-schema.md
+    - name: Kvoter och begränsningar
+      href: quotas-limitations.md
+    - name: Vanliga frågor och svar
+      href: faq.md
+    - name: Produktionsberedskap och bästa praxis
+      href: production-readiness.md

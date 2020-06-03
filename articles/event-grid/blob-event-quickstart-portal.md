@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 04/16/2020
+ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ada451b6bb3578a2903e9bd832b98981d7029d1d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3c84bf32f0d7b8b8381747e995f060d7e2dc1c9b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81605609"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310529"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snabb start: dirigera Blob Storage-händelser till webb slut punkt med Azure Portal
 
@@ -71,7 +71,7 @@ Innan du prenumererar på händelserna för Blob Storage-kontot ska vi skapa slu
 4. På sidan **resurs grupp** i listan över resurser väljer du den webbapp som du skapade. Du ser också App Service plan och lagrings kontot i den här listan. 
 
     ![Välj webbplats](./media/blob-event-quickstart-portal/resource-group-resources.png)
-5. På sidan **App Service** för din webbapp väljer du webb adressen för att navigera till webbplatsen. URL: en ska ha följande format: `https://<your-site-name>.azurewebsites.net`.
+5. På sidan **App Service** för din webbapp väljer du webb adressen för att navigera till webbplatsen. URL: en ska ha följande format: `https://<your-site-name>.azurewebsites.net` .
     
     ![Navigera till webbplats](./media/blob-event-quickstart-portal/web-site.png)
 
@@ -86,16 +86,22 @@ Innan du prenumererar på händelserna för Blob Storage-kontot ska vi skapa slu
 Du prenumererar på ett ämne därför att du vill ange för Event Grid vilka händelser du vill följa och vart du vill skicka händelserna.
 
 1. I portalen navigerar du till ditt Azure Storage konto som du skapade tidigare. Välj **alla resurser** på den vänstra menyn och välj ditt lagrings konto. 
-2. På sidan **lagrings konto** väljer du **händelser** på den vänstra menyn.
+2. På sidan **lagrings konto** väljer du **händelser** på den vänstra menyn. 
 1. Välj **Fler alternativ** och **Webhook**. Du skickar händelser till visnings programmet med en webhook för slut punkten. 
 
    ![Välj webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Utför följande steg på sidan **Skapa händelse prenumeration** : 
     1. Ange ett **namn** för händelse prenumerationen.
+    2. Ange ett **namn** för **system-ämnet**. 
+
+       ![Avsnittet Ange namn för händelse prenumeration och system](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
+
+       > [!NOTE]
+       > När du tidigare skapade en prenumeration för en händelse som aktive ras av Azure-källor, skapade Event Grid tjänsten automatiskt ett system avsnitt med ett slumpmässigt genererat namn. Nu kan du ange ett namn för system avsnittet med hjälp av text rutan. Du kan använda den här system ämnes resursen för att identifiera statistik och diagnostikloggar.
     2. Välj **Web Hook** för **slut punkts typ**. 
 
        ![Välj typ av webhook-slutpunkt](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)
-4. För **slut punkt**klickar du på **Välj en slut punkt**och anger URL: en för din webbapp `api/updates` och lägger till på Start sidans URL ( `https://spegridsite.azurewebsites.net/api/updates`t. ex.:) och väljer sedan **Bekräfta markering**.
+4. För **slut punkt**klickar du på **Välj en slut punkt**och anger URL: en för din webbapp och lägger till `api/updates` på Start sidans URL (t. ex `https://spegridsite.azurewebsites.net/api/updates` .:) och väljer sedan **Bekräfta markering**.
 
    ![Bekräfta slut punkts val](./media/blob-event-quickstart-portal/confirm-endpoint-selection.png)
 5. Gå nu till sidan **Skapa händelse prenumeration** och välj **skapa** för att skapa händelse prenumerationen. 

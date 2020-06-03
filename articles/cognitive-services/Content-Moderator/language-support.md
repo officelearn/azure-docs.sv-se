@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 043e61f498417b74831cd49f046f78b02e907964
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73744358"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310316"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Språk stöd för Content Moderator API
 
@@ -30,18 +30,18 @@ ms.locfileid: "73744358"
 | Arabiska (romersk)   | Afrikaans   | Arabiska   | Arabiska |
 | Balinese | Albanska | Kinesiska (förenklad)    | Danska |
 | Bengali | Amhariska | Kinesiska (traditionell)     | Nederländska |
-| Buginese | Arabiska | Tjeckiska                     | Svenska |
+| Buginese | Arabiska | Tjeckiska                     | Engelska |
 | Buhid | Armeniska | Danska                     | Finska |
 | Carian | Assamesiska | Nederländska                     | Franska |
-| Kinesiska (förenklad) | Azerbajdzjanska | Svenska  | Grekiska (modern) |
+| Kinesiska (förenklad) | Azerbajdzjanska | Engelska  | Grekiska (modern) |
 | Kinesiska (traditionell) | Bangla – Bangladesh | Finska  | Italienska |
-| Kyrkslaviska (slaviska) | Bangla – Indien | Franska     | Koreansk |
+| Kyrkslaviska (slaviska) | Bangla – Indien | Franska     | Koreanska |
 | Coptic | Baskiska | Tyska                      | Norska |
 | Tjeckiska |  Vitryska | Grekiska (modern)         | Polska |
 | Dhivehi | Bosniska – kyrilliska | Ungerska      | Portugisiska |
 | Nederländska | Bosniska – latinsk | Italienska             | Rumänska |
 | Engelska (Creole) | Bretonska [icke-GeoPol] | Japanska  | Ryska |
-| Farsi | Bulgariska | Koreansk                        | Slovakiska |
+| Farsi | Bulgariska | Koreanska                        | Slovakiska |
 | Franska | Katalanska | Norska                        | Spanska |
 | Tyska | Central kurdiska | Polska        | Turkiska |
 | Grekiska | Cherokesiska | Portugisiska | |
@@ -52,8 +52,8 @@ ms.locfileid: "73744358"
 | Ungerska | Tjeckiska | Slovakiska | |
 | Italienska | Danska | Spanska | |
 | Japanska | Dari | Svenska | |
-| Koreansk | Nederländska | Turkiska | |
-| Kurdiska (arabiska) | Svenska | | |
+| Koreanska | Nederländska | Turkiska | |
+| Kurdiska (arabiska) | Engelska | | |
 | Kurdiska (latinsk) | Estniska | | |
 | Lepcha | Filipino | | |
 | Limbu | Finska | | |
@@ -83,7 +83,7 @@ ms.locfileid: "73744358"
 | Sylheti | Rwanda | | |
 | Syrisk | Swahili | | |
 | Tagbanwa | Konkani | | |
-| Tai (Nua) | Koreansk | | |
+| Tai (Nua) | Koreanska | | |
 | Tamashek | Kirgiziska | | |
 | Turkiska | Laos | | |
 | Ugaritic | Lettiska | | |

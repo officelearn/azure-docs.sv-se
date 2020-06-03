@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 14706b623c6973c09b499e4fcd905e3eed430898
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 24d5ee132444f19118613f6b1b798fd763e46e3c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599621"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299333"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Gatsby-webbplats till Azures statiska Web Apps för hands version
 
@@ -95,7 +95,7 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 
 1. I _resurs grupp_väljer du **ny**. I _nytt resurs grupp namn_anger du **Gatsby-static-Web-App** och väljer **OK**.
 
-1. Ange sedan ett globalt unikt namn för din app i rutan **namn** . Giltiga tecken är `a-z` , `A-Z` `0-9` och `-` . Det här värdet används som URL-prefix för din statiska webbapp i formatet `https://<YOUR_APP_NAME>.azurestaticapps.net` .
+1. Sedan ett namn för din app i rutan **namn** . Giltiga tecken är `a-z` , `A-Z` `0-9` och `-` .
 
 1. För _region_väljer du en tillgänglig region nära dig.
 

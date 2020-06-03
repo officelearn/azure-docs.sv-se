@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
-ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8da33f5a553b4a671d9d7b9b223f77b301b8440b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75456984"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310282"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Felsöka problem när du använder artefakter på en Azure DevTest Labs virtuell dator
 Att tillämpa artefakter på en virtuell dator kan inte utföras av olika orsaker. Den här artikeln vägleder dig igenom några av metoderna för att identifiera möjliga orsaker.
@@ -57,8 +57,9 @@ Du kan felsöka virtuella datorer som skapats med DevTest Labs och distributions
 
 ## <a name="symptoms-causes-and-potential-resolutions"></a>Symptom, orsaker och potentiella lösningar 
 
-### <a name="artifact-appears-to-hang"></a>Artefakt verkar låsa sig   
-En artefakt visas som låser sig tills en fördefinierad timeout-period går ut och artefakten markeras som **misslyckad**.
+### <a name="artifact-appears-to-stop-responding"></a>Artefakt verkar sluta svara
+
+En artefakt verkar sluta svara tills en fördefinierad tids gräns upphör att gälla och artefakten markeras som **misslyckad**.
 
 När en artefakt verkar låsa sig måste du först avgöra var den fastnar. En artefakt kan blockeras vid något av följande steg under körningen:
 
@@ -66,15 +67,15 @@ När en artefakt verkar låsa sig måste du först avgöra var den fastnar. En a
     - Du kan komma åt aktivitets loggen från navigerings fältet i Labbets virtuella dator sida. När du väljer det kan du se en post för **att antingen tillämpa artefakter på den virtuella datorn** (om åtgärden tillämpa artefakter utlöstes direkt) eller **lägga till eller ändra virtuella datorer** (om åtgärden tillämpa artefakter var en del av processen för att skapa virtuella datorer).
     - Leta efter fel under dessa poster. Ibland märks felet inte i enlighet med detta och du måste undersöka varje post.
     - När du undersöker informationen om varje post ser du till att granska innehållet i JSON-nyttolasten. Du kan se ett fel längst ned i dokumentet.
-- **Vid försök att köra artefakten**. Det kan bero på nätverks-eller lagrings problem. Mer information finns i respektive avsnitt längre fram i den här artikeln. Det kan också inträffa på grund av hur skriptet har skapats. Ett exempel:
-    - Ett PowerShell-skript har **obligatoriska parametrar**, men det går inte att skicka ett värde till det, antingen på grund av att du tillåter att användaren lämnar den tom eller eftersom du inte har ett standardvärde för egenskapen i definitions filen artifactfile. JSON. Skriptet kommer att låsa sig eftersom det väntar på användarindata.
+- **Vid försök att köra artefakten**. Det kan bero på nätverks-eller lagrings problem. Mer information finns i respektive avsnitt längre fram i den här artikeln. Det kan också inträffa på grund av hur skriptet har skapats. Till exempel:
+    - Ett PowerShell-skript har **obligatoriska parametrar**, men det går inte att skicka ett värde till det, antingen på grund av att du tillåter att användaren lämnar den tom eller eftersom du inte har ett standardvärde för egenskapen i definitions filen artifactfile. JSON. Skriptet slutar svara eftersom det väntar på användarindata.
     - Ett PowerShell-skript **kräver indata från användaren** som en del av körningen. Skripten måste skrivas för att fungera tyst utan att användaren behöver vidta några åtgärder.
 - **Det tar lång tid för VM-agenten att bli redo**. När den virtuella datorn startas eller när det anpassade skript tillägget först installeras för att betjäna begäran om att tillämpa artefakter, kan den virtuella datorn behöva uppgradera VM-agenten eller vänta tills VM-agenten initieras. Det kan finnas tjänster där VM-agenten är beroende av att det tar lång tid att initiera. I sådana fall kan du läsa [Översikt över Azure Virtual Machine agent](../virtual-machines/extensions/agent-windows.md) för ytterligare fel sökning.
 
-### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>Så här kontrollerar du om artefakten verkar låsa sig på grund av skriptet
+### <a name="to-verify-if-the-artifact-appears-to-stop-responding-because-of-the-script"></a>Så här kontrollerar du om artefakten verkar sluta svara på grund av skriptet
 
 1. Logga in på den virtuella datorn i fråga.
-2. Kopiera skriptet lokalt på den virtuella datorn eller leta upp det på den virtuella datorn under `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\<version>`. Det är den plats där artefakt skripten laddas ned.
+2. Kopiera skriptet lokalt på den virtuella datorn eller leta upp det på den virtuella datorn under `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\<version>` . Det är den plats där artefakt skripten laddas ned.
 3. Använd en upphöjd kommando tolk och kör skriptet lokalt, vilket ger samma parameter värden som används för att orsaka problemet.
 4. Kontrol lera om skriptet lider av oönskade beteenden. I så fall, begär du en uppdatering av artefakten (om den kommer från den offentliga lagrings platsen). eller gör korrigeringarna själv (om det är från din privata lagrings platsen).
 
@@ -83,7 +84,7 @@ När en artefakt verkar låsa sig måste du först avgöra var den fastnar. En a
 > 
 > Information om hur du skriver dina egna artefakter finns i [AUTHORING.MD](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/AUTHORING.md) -dokument.
 
-### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-vm-agent"></a>Så här kontrollerar du om artefakten verkar låsa på grund av den virtuella dator agenten:
+### <a name="to-verify-if-the-artifact-appears-to-stop-responding-because-of-the-vm-agent"></a>Så här kontrollerar du om artefakten verkar sluta svara på grund av VM-agenten:
 1. Logga in på den virtuella datorn i fråga.
 2. Använd Utforskaren navigera till **C:\WindowsAzure\logs**.
 3. Leta upp och öppna filen **WaAppAgent. log**.
@@ -119,7 +120,7 @@ Ovanstående fel visas i avsnittet **distributions meddelande** på sidan **arte
 ### <a name="to-ensure-communication-to-the-azure-storage-service-isnt-being-blocked"></a>För att säkerställa kommunikation till den Azure Storage tjänsten blockeras inte:
 
 - **Sök efter tillagda nätverks säkerhets grupper (NSG)**. Det kan bero på att en prenumerations princip har lagts till där NSG: er konfigureras automatiskt i alla virtuella nätverk. Det kan också påverka Labbets virtuella standard nätverk, om det används eller något annat virtuellt nätverk som kon figurer ATS i ditt labb, som används för att skapa virtuella datorer.
-- **Kontrol lera standard Labbets lagrings konto** (det vill säga det första lagrings konto som skapades när labbet skapades, vars namn vanligt vis börjar med bokstaven "a" och slutar med ett fyrsiffrigt tal som är en\<labname\>#).
+- **Kontrol lera standard Labbets lagrings konto** (det vill säga det första lagrings konto som skapades när labbet skapades, vars namn vanligt vis börjar med bokstaven "a" och slutar med ett fyrsiffrigt tal som är en siffra \<labname\> ).
     1. Navigera till Labbets resurs grupp.
     2. Leta upp resursen av typen **lagrings konto**, vars namn matchar konventionen.
     3. Navigera till lagrings konto sidan som kallas **brand väggar och virtuella nätverk**.
@@ -137,4 +138,3 @@ Det finns andra mindre frekventa möjliga fel källor. Var noga med att utvärde
 
 ## <a name="next-steps"></a>Nästa steg
 Om ingen av dessa fel har inträffat och du fortfarande inte kan tillämpa artefakter, kan du skicka en support incident till Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
-

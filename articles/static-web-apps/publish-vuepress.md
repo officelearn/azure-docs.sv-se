@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: bd9eaad0c141eda815da159e3c13d6c51f5e6200
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cc1bf52190cb47bc4ffd6efe159ed88cac560e02
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599741"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298012"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en VuePress-webbplats till Azures statiska Web Apps för hands version
 
@@ -120,7 +120,7 @@ Följande steg visar hur du skapar ett nytt statiskt Web Apps-program och distri
 
 1. I _resurs grupp_väljer du **ny**. I _nytt resurs grupp namn_anger du **vuepress-static-app** och väljer **OK**.
 
-1. Ange sedan ett globalt unikt namn för din app i rutan **namn** . Giltiga tecken är `a-z` , `A-Z` `0-9` och `-` . Det här värdet används som URL-prefix för din statiska app i formatet `https://<APP_NAME>.azurestaticapps.net` .
+1. Sedan ett namn för din app i rutan **namn** . Giltiga tecken är `a-z` , `A-Z` `0-9` och `-` .
 
 1. För _region_väljer du en tillgänglig region nära dig.
 

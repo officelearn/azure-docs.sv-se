@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 208a7a677bdf0b76ffed83e679c6f1ff3041d50d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7da5e6fa3c977d309ad028cb446cd411a9d4fbaf
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80239689"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298966"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal
 
@@ -29,7 +29,7 @@ För den här självstudien skapar du tre virtuella nätverk:
 
 ![Brandvägg i ett hybridnätverk](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Deklarera variablerna
@@ -45,7 +45,7 @@ I den här guiden får du lära dig att:
 
 Om du vill använda Azure PowerShell i stället för att slutföra den här proceduren, se [distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med Azure PowerShell](tutorial-hybrid-ps.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett hybrid nätverk använder arkitektur modellen hubb-och-eker för att dirigera trafik mellan Azure virtuella nätverk och lokala nätverk. NAV-och-eker-arkitekturen har följande krav:
 
@@ -67,14 +67,14 @@ Se avsnittet [skapa vägar](#create-the-routes) i den här självstudien för at
 >[!NOTE]
 >Trafiken mellan direkt peerkopplade virtuella nätverk dirigeras direkt även om en UDR pekar på Azure Firewall som standardgateway. För att undernät till undernät-trafik ska kunna skickas till brandväggen i det här scenariot måste en UDR uttryckligen innehålla nätverksprefixet för målundernätverket på båda undernäten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Skapa brandväggens virtuella hubbnätverk
 
 Skapa först den resursgrupp som ska innehålla resurserna för den här självstudien:
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. På sidan Azure Portal start väljer du **resurs grupper** > **Lägg till**.
+2. På sidan Azure Portal start väljer du **resurs grupper**  >  **Lägg till**.
 3. För **resurs grupps namn**skriver du **VB-hybrid-test**.
 4. I fältet **Prenumeration** väljer du din prenumeration.
 5. För **region**väljer du **östra USA**. Alla resurser som du skapar senare måste finnas på samma plats.
@@ -131,18 +131,6 @@ Skapa nu ett andra undernät för gatewayen.
 4. För **adress intervall (CIDR-block)** skriver du **192.168.2.0/24**.
 5. Välj **OK**.
 
-### <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
-
-Detta är den offentliga IP-adress som används för den lokala gatewayen.
-
-1. På Start sidan Azure Portal väljer du **skapa en resurs**.
-2. Skriv den **offentliga IP-adressen** i Sök text rutan och tryck på **RETUR**.
-3. Välj **offentlig IP-adress** och välj sedan **skapa**.
-4. Som namn skriver du **VNet-OnPrem-GW-pip**.
-5. För resurs gruppen skriver du **VB-hybrid-test**.
-6. Välj samma plats som tidigare i fältet **Plats**.
-7. Godkänn de andra standardinställningarna och välj sedan **skapa**.
-
 ## <a name="configure-and-deploy-the-firewall"></a>Konfigurera och distribuera brandväggen
 
 Distribuera nu brand väggen i brand Väggs hubbens virtuella nätverk.
@@ -153,12 +141,12 @@ Distribuera nu brand väggen i brand Väggs hubbens virtuella nätverk.
 
    |Inställning  |Värde  |
    |---------|---------|
-   |Prenumeration     |\<din prenumeration\>|
+   |Prenumeration     |\<your subscription\>|
    |Resursgrupp     |**VB-hybrid-test** |
    |Name     |**AzFW01**|
-   |Plats     |Välj samma plats som tidigare|
+   |Location     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Use existing** (Använd befintlig):<br> **VNet-hubb**|
-   |Offentlig IP-adress     |Skapa nytt: <br>**Namn** - **VB-pip**. |
+   |Offentlig IP-adress     |Skapa nytt: <br>**Namn**  -  **VB-pip**. |
 
 5. Välj **Granska + skapa**.
 6. Granska sammanfattningen och välj sedan **skapa** för att skapa brand väggen.
@@ -402,7 +390,7 @@ Det här är en virtuell dator som du använder för att ansluta via fjärr skri
 2. Under **populär**väljer du **Windows Server 2016 Data Center**.
 3. Ange följande värden för den virtuella datorn:
     - **Resurs grupp** – Välj befintlig och välj sedan **VB-hybrid-test**.
-    - **Virtuellt dator namn** - *VM-OnPrem*.
+    - **Namn på**  -  virtuell dator *VM-OnPrem*.
     - **Region** – samma region som du har använt tidigare.
     - **Användar namn**: *azureuser*.
     - **Lösen ord**: *Azure123456!*.
@@ -422,9 +410,9 @@ Det här är en virtuell dator som du använder för att ansluta via fjärr skri
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Öppna en webbläsare på **VM-Onprem** och gå till http://\<privat IP-adress för VM-spoke-01\>.
+3. Öppna en webbläsare på **VM-OnPrem**och gå till http:// \<VM-spoke-01 private IP\> .
 
-   Du bör se webb sidan **VM-eker-01** : ![VM-eker-01-webbsida](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
+   Du bör se webb sidan **VM-eker-01** : ![ VM-eker-01-webbsida](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
 
 4. Från den virtuella datorn **OnPrem** den virtuella datorn öppnar du ett fjärr skrivbord till **VM-ekrar-01** på den privata IP-adressen.
 

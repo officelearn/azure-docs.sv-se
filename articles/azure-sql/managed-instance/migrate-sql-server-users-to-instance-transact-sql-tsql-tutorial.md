@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
-ms.openlocfilehash: 79a9f59b4fb6f7ae71c1e6866e8c50baa4e7974b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a050e38f037ee0ed2741cfa2e509e21fa9e1151d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193754"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310231"
 ---
 # <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Självstudie: migrera Windows-användare och grupper i en SQL Server instans till en Azure SQL-hanterad instans med hjälp av en T-SQL DDL-syntax
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "84193754"
 
 Den här artikeln tar dig igenom processen för att migrera dina lokala Windows-användare och-grupper i din SQL Server till Azure SQL-hanterad instans med hjälp av T-SQL-syntaxen.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -314,7 +314,7 @@ Kör kommandot ALTER USER för att slutföra migreringsprocessen på SQL-hantera
 
 Testa autentisering till SQL-hanterad instans med användaren som tidigare mappades till Azure AD-inloggningen med hjälp av syntaxen ALTER USER.
 
-1. Logga in på den federerade virtuella datorn med din MI-prenumeration som`aadsqlmi\testUser1`
+1. Logga in på den federerade virtuella datorn med din Azure SQL Managed instance-prenumeration som`aadsqlmi\testUser1`
 1. Använd SQL Server Management Studio (SSMS) och logga in på din SQL-hanterade instans med **Active Directory integrerad** autentisering, ansluta till databasen `migration` .
     1. Du kan också logga in med hjälp av testUser1@aadsqlmi.net autentiseringsuppgifterna med alternativet SSMS **Active Directory – universellt med MFA-support**. I det här fallet kan du dock inte använda mekanismen för enkel inloggning och du måste ange ett lösen ord. Du behöver inte använda en federerad virtuell dator för att logga in på din SQL-hanterade instans.
 1. Som en del av **roll medlemmen kan du välja från** `test` tabellen
@@ -325,8 +325,8 @@ Testa autentisering till SQL-hanterad instans med användaren som tidigare mappa
 
 Testa autentisering till en SQL-hanterad instans med en medlem i en Windows-grupp `migration` . Användaren `aadsqlmi\testGroupUser` måste ha lagts till i gruppen `migration` innan migreringen.
 
-1. Logga in på den federerade virtuella datorn med din MI-prenumeration som`aadsqlmi\testGroupUser`
-1. Anslut till MI-servern och databasen med hjälp av SSMS med **Active Directory integrerad** autentisering`migration`
+1. Logga in på den federerade virtuella datorn med din Azure SQL Managed instance-prenumeration som`aadsqlmi\testGroupUser`
+1. Med hjälp av SSMS med **Active Directory integrerad** autentisering ansluter du till Azure SQL-hanterade instans servern och databasen`migration`
     1. Du kan också logga in med hjälp av testGroupUser@aadsqlmi.net autentiseringsuppgifterna med alternativet SSMS **Active Directory – universellt med MFA-support**. I det här fallet kan du dock inte använda mekanismen för enkel inloggning och du måste ange ett lösen ord. Du behöver inte använda en federerad virtuell dator för att logga in på din SQL-hanterade instans.
 1. Som en del av `db_owner` rollen kan du skapa en ny tabell.
 

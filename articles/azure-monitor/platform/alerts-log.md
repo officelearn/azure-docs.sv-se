@@ -6,94 +6,101 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 96b1bd86576f8cf34428eb60e2d3f476312311c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 85aaefa12f0cef21e3a367700d1a4899a75e8a90
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249430"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298471"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, Visa och hantera logg aviseringar med Azure Monitor
 
 ## <a name="overview"></a>Översikt
-Den här artikeln visar hur du konfigurerar logg aviseringar med hjälp av aviserings gränssnittet i Azure Portal. Definition av en varnings regel finns i tre delar:
-- Mål: specifika Azure-resurser som ska övervakas
-- Kriterier: ett särskilt villkor eller en logisk logik som visas i signal, ska utlösa åtgärd
+Den här artikeln visar hur du skapar och hanterar logg aviseringar med hjälp av aviserings gränssnittet i Azure Portal. Varnings regler definieras av tre komponenter:
+- Mål: en specifika Azure-resurs som ska övervakas
+- Villkor: ett villkor eller en logik som ska utvärderas för sanningen. Om värdet är true utlöses aviseringen.  
 - Åtgärd: ett enskilt samtal som skickas till en mottagare av ett meddelande – e-post, SMS, webhook osv.
 
-Termen **logg aviseringar** som beskriver aviseringar där signalen är en logg fråga i en [Log Analytics arbets yta](../learn/tutorial-viewdata.md) eller [Application Insights](../app/analytics.md). Lär dig mer om funktioner, terminologi och typer från [logg aviseringar – översikt](alerts-unified-log.md).
+Termen **logg avisering** beskriver aviseringar där en logg fråga i [Log Analytics arbets yta](../learn/tutorial-viewdata.md) eller [Application Insights](../app/analytics.md) utvärderas och en avisering utlöses om resultatet är sant. Lär dig mer om funktioner, terminologi och typer från [logg aviseringar – översikt](alerts-unified-log.md).
 
 > [!NOTE]
-> Populära loggdata från [en Log Analytics-arbetsyta](../../azure-monitor/learn/tutorial-viewdata.md) är nu också tillgängligt på mått plattformen i Azure Monitor. Mer information finns i [Metric-aviseringar för loggar](alerts-metric-logs.md)
+> Loggdata från [en Log Analytics arbets yta](../../azure-monitor/learn/tutorial-viewdata.md) kan också dirigeras till Azure Monitor Metrics-databasen. Mått aviseringar har [olika beteende](alerts-metric-overview.md), vilket kan vara mer önskvärt beroende på vilka data du arbetar med.   Information om vad och hur du kan skicka loggar till mått finns i [mått avisering för loggar](alerts-metric-logs.md).
 
-## <a name="managing-log-alerts-from-the-azure-portal"></a>Hantera logg aviseringar från Azure Portal
+## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Skapa en logg varnings regel med Azure Portal
 
-Detaljerad information finns i steg-för-steg-instruktioner för att använda logg aviseringar med hjälp av Azure Portal-gränssnittet.
-
-### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Skapa en logg varnings regel med Azure Portal
-
-1. I [portalen](https://portal.azure.com/)väljer du **övervaka** och under Monitor-avsnittet – väljer du **aviseringar**.
+1. I [portalen](https://portal.azure.com/)väljer du **övervaka**. I avsnittet väljer du **aviseringar**.
 
     ![Övervakning](media/alerts-log/AlertsPreviewMenu.png)
 
-1. Välj knappen **ny varnings regel** om du vill skapa en ny avisering i Azure.
+1. Klicka på **ny aviserings regel**. 
 
     ![Lägg till avisering](media/alerts-log/AlertsPreviewOption.png)
 
-1. Avsnittet Skapa avisering visas med tre delar som består av: *definiera aviserings villkor*, *definiera aviserings information*och *definiera åtgärds grupp*.
+1. Fönstret **skapa avisering** visas. Den innehåller fyra delar: 
+    - Resursen som aviseringen gäller
+    - Villkoret att kontrol lera
+    - Den åtgärd som ska vidtas om villkoret är sant
+    - Information till namn och beskrivning av aviseringen. 
 
     ![Skapa regel](media/alerts-log/AlertsPreviewAdd.png)
 
-1. Definiera aviserings villkoret med hjälp av länken **Välj resurs** och ange målet genom att välja en resurs. Filtrera genom att välja _prenumeration_, _resurs typ_och nödvändig _resurs_.
+1. Definiera aviserings villkoret med hjälp av länken **Välj resurs** och ange målet genom att välja en resurs. Filtrera genom att välja *prenumeration*, *resurs typ*och nödvändig *resurs*. 
 
-   > [!NOTE]
-   > För att skapa en logg avisering – kontrol lera att **logg** signalen är tillgänglig för den valda resursen innan du fortsätter.
-   >  ![Välj resurs](media/alerts-log/Alert-SelectResourceLog.png)
+   ![Välj resurs](media/alerts-log/Alert-SelectResourceLog.png)
 
-1. *Logg aviseringar*: kontrol lera att **resurs typen** är en analys källa som *Log Analytics* eller *Application Insights* och signal typ som **logg**, och klicka sedan på *Slutför*när lämplig **resurs** har valts. Använd sedan knappen **Lägg till kriterier** för att visa en lista över signal alternativ som är tillgängliga för resursen och från den **anpassade logg Sök** funktionen i signal listan för den valda logg övervaknings tjänsten som *Log Analytics* eller *Application Insights*.
+1. Se till att **resurs typen** är en analys källa som *Log Analytics* eller *Application Insights* och signal typ som *logg*. Klicka på **Klar**. Använd sedan knappen **Lägg till kriterier** för att visa en lista över signal alternativ som är tillgängliga för resursen. Sök efter och välj **anpassat logg Sök** alternativ för antingen *Log Analytics* eller *Application Insights*beroende på var data för logg aviseringarna finns.
 
    ![Välj en resurs – anpassad loggs ökning](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
    > 
-   > Aviserings listor kan importera Analytics-fråga som signal typ – **logg (sparad fråga)** som visas i bilden ovan. Det innebär att användarna kan vara perfekta för din fråga i Analytics och sedan spara dem för framtida användning i aviseringar – mer information om hur du använder Spara fråga som är tillgänglig vid [användning av logg frågor i Azure Monitor](../log-query/log-query-overview.md) eller [delad fråga i Application Insights Analytics](../app/app-insights-overview.md).
+   > Aviserings listor kan importera Analytics-fråga som signal typ – **logg (sparad fråga)** som visas i bilden ovan. Så att användarna kan använda en perfekt fråga i analyser och sedan spara dem för framtida användning i aviseringar. Mer information om hur du använder sparade frågor finns i [använda logg fråga i Azure Monitor](../log-query/log-query-overview.md) och [delad fråga i Application Insights Analytics](../app/app-insights-overview.md).
 
-1. *Logg aviseringar*: när det är markerat kan fråga efter avisering anges i fältet **Sök fråga** . om frågesyntaxen är felaktig visas fel i fältet röd. Om frågesyntaxen är korrekt – för referens historiska data för den angivna frågan visas som en graf med alternativ för att justera tidsfönstret från de senaste sex timmarna till förra veckan.
+1. När du har valt skapar du aviserings frågan i fältet **Sök fråga** . Om frågesyntaxen är felaktig visas fältet och fel i rött. 
+
+1. Om frågesyntaxen är korrekt visas historiska data för frågan som en graf med alternativet att ändra tidsfönstret från de senaste sex timmarna till förra veckan.
 
     ![Konfigurera aviserings regel](media/alerts-log/AlertsPreviewAlertLog.png)
 
-   > [!NOTE]
-   > 
-   > Historisk data visualisering kan bara visas om frågeresultatet har tidsinformation. Om frågan resulterar i sammanfattade data eller om vissa kolumn värden är samma, visas ett singulart område.
-   > För mått Mät typ för logg aviseringar som använder Application Insights eller [växlas till ett nytt API](alerts-log-api-switch.md), kan du ange vilken variabel som ska användas för att gruppera data med hjälp av alternativet **samla in** . som illustreras i nedan:
-   > 
-   > ![sammanställt alternativ](media/alerts-log/aggregate-on.png)
+   Den historiska data visualiseringen visas bara om frågeresultaten har tids information. Om frågan resulterar i sammanfattade data eller angivna kolumn värden, visar visningen en enda kurva.
+  
+   För mått mätningar med Application Insights eller [Log Analytics-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)kan du ange vilken variabel som data ska grupperas med hjälp av alternativet **samla in** . som du ser här: 
+  
+   ![sammanställt alternativ](media/alerts-log/aggregate-on.png)
 
-1. *Logg aviseringar*: med visualiseringen på plats kan du välja **aviserings logik** från visade alternativ för villkor, sammansättning och finally-tröskelvärde. Ange slutligen i logiken tiden för att utvärdera för det angivna villkoret med alternativet **period** . Tillsammans med hur ofta aviseringen ska köras genom att välja **frekvens**. **Logg aviseringar** kan baseras på:
+
+
+1. Välj sedan logik villkor för **avisering** , sammansättning och tröskelvärde. 
+
+1. Välj den tids period under vilken du vill utvärdera det angivna villkoret med alternativet **period** . 
+
+1. Välj hur ofta aviseringen ska köras i **frekvens**. 
+
+    **Logg aviseringar** kan baseras på:
     - [Antal poster](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): en avisering skapas om antalet poster som returneras av frågan är antingen större eller mindre än det angivna värdet.
     - [Mått mått](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): en avisering skapas om varje *aggregerat värde* i resultatet överskrider det angivna tröskelvärdet och *grupperas efter* valt värde. Antalet överträdelser av en avisering är antalet gånger som tröskelvärdet har överskridits under den valda tids perioden. Du kan ange de totala överträdelserna för en kombination av överträdelser i resultat uppsättningen eller över flera överträdelser för att kräva att överträdelsen måste inträffa i efterföljande exempel.
 
 
-1. Som det andra steget definierar du ett namn för din avisering i fältet **namn på aviserings regel** tillsammans med en **Beskrivning** av information om varnings-och **allvarlighets** värde från de angivna alternativen. Dessa uppgifter återanvänds i alla e-postmeddelanden, aviseringar eller push-meddelanden som görs av Azure Monitor. Dessutom kan användaren välja att omedelbart aktivera varnings regeln vid skapande genom att på lämpligt sätt växla **Aktivera regel vid skapande** av alternativ.
+1. Klicka på **Klar**. 
 
-    För **logg aviseringar** finns vissa ytterligare funktioner i aviserings information:
+1. Definiera ett namn för din avisering i fältet **namn på varnings regel** tillsammans med en **Beskrivning** av information om aviseringen och **allvarlighets graden** från de angivna alternativen. Dessa uppgifter återanvänds i alla e-postmeddelanden, aviseringar eller push-meddelanden som görs av Azure Monitor. Dessutom kan du välja att omedelbart aktivera aviserings regeln när den skapas genom att klicka på **Aktivera regel när**du har skapat den.
 
-    - **Ignorera aviseringar**: när du aktiverar Undertryckning för varnings regeln inaktive ras åtgärder för regeln under en angiven tids period efter att en ny avisering har skapats. Regeln körs fortfarande och skapar aviserings poster förutsatt att villkoren är uppfyllda. Gör det möjligt att åtgärda problemet utan att köra dubbla åtgärder.
+1. Välj om du vill **Ignorera aviseringar** under en viss tids period.  När du aktiverar under tryckning för varnings regeln inaktive ras åtgärder för regeln under en angiven tids period efter att en ny avisering har skapats. Regeln körs fortfarande och skapar aviserings poster förutsatt att villkoren är uppfyllda. Med den här inställningen kan du åtgärda problemet utan att köra dubbla åtgärder.
 
-        ![Ignorera aviseringar för logg aviseringar](media/alerts-log/AlertsPreviewSuppress.png)
+   ![Ignorera aviseringar för logg aviseringar](media/alerts-log/AlertsPreviewSuppress.png)
 
-        > [!TIP]
-        > Ange ett dolt varnings värde som är större än aviserings frekvensen för att säkerställa att meddelanden stoppas utan överlappande
+    > [!TIP]
+    > Ange ett dolt varnings värde som är större än aviserings frekvensen för att säkerställa att meddelanden stoppas utan överlappande
 
-1. Som det tredje och sista steget anger du om en **Åtgärds grupp** måste utlösas för varnings regeln när aviserings villkoret är uppfyllt. Du kan välja en befintlig åtgärds grupp med avisering eller skapa en ny åtgärds grupp. Enligt vald åtgärds grupp när aviseringen utlöses av Azure kommer att: skicka e-post (e-post), skicka SMS (s), anropa webhook (s), reparera med Azure Runbooks, push to the ITSM Tool osv. Läs mer om [Åtgärds grupper](action-groups.md).
+1. Som det tredje och sista steget anger du om varnings regeln ska utlösa en eller flera **Åtgärds grupper** när aviserings villkoret är uppfyllt. Du kan välja en befintlig åtgärds grupp eller skapa en ny. Med åtgärds grupper kan du skicka utföra ett antal åtgärder, till exempel skicka e-post (e-post), skicka SMS (s), anropa Webhooks (s), åtgärda det med hjälp av Azure Runbooks, push to ITSM-verktyget och mycket annat. Läs mer om [Åtgärds grupper](action-groups.md).
 
     > [!NOTE]
-    > Se begränsningar för [Azure-prenumerationen](../../azure-resource-manager/management/azure-subscription-service-limits.md) för begränsningar i Runbook-nyttolaster som utlöses för logg aviseringar via Azures åtgärds grupper
+    > Se begränsningar för [Azure-prenumerationen](../../azure-resource-manager/management/azure-subscription-service-limits.md) för begränsningar för de åtgärder som kan utföras.  
 
-    För **logg aviseringar** finns det en del ytterligare funktioner som åsidosätter standard åtgärderna:
+    Vissa ytterligare funktioner är tillgängliga för att åsidosätta standard åtgärderna:
 
-    - E-postmeddelande: åsidosätter *e-* postmeddelandets ämne i e- **postmeddelandet**som skickas via åtgärds gruppen. om det finns en eller flera e-poståtgärder i denna åtgärds grupp. Du kan inte ändra bröd texten i e-postmeddelandet och det här fältet är **inte** för e-postadress.
-    - **Inkludera anpassad JSON-nyttolast**: åsidosätter webhook-JSON som används av åtgärds grupper; om det finns en eller flera webhook-åtgärder i den nämnda åtgärds gruppen. Användaren kan ange formatet för JSON som ska användas för alla Webhooks som kon figurer ATS i tillhör ande åtgärds grupp. Mer information om webhook-format finns i [webhook-åtgärd för logg aviseringar](../../azure-monitor/platform/alerts-log-webhook.md). Alternativet Visa webhook har angetts för att kontrol lera formatet med hjälp av JSON-data från exempel.
+    - E-postmeddelande: åsidosätter *e-* **postmeddelandets**ämne i e-postmeddelandet som skickas via åtgärds gruppen. Du kan inte ändra bröd texten i e-postmeddelandet och det här fältet är **inte** för e-postadress.
+    - **Inkludera anpassad JSON-nyttolast**: åsidosätter webhook-JSON som används av åtgärds grupper som antar att åtgärds gruppen innehåller en webhook-typ. Mer information om webhook-format finns i [webhook-åtgärd för logg aviseringar](../../azure-monitor/platform/alerts-log-webhook.md). Alternativet Visa webhook har angetts för att kontrol lera formatet med hjälp av JSON-data från exempel.
 
         ![Åsidosättning av åtgärd för logg aviseringar](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -121,7 +128,7 @@ Användarna kan också slutföra sin Analytics-fråga i [Log Analytics](../log-q
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Hantera logg aviseringar med Azure-resurs mal len
 
-Logg aviseringar i Azure Monitor är kopplade till resurs `Microsoft.Insights/scheduledQueryRules/`typen. Mer information om den här resurs typen finns i [Azure Monitor API-referens för schemalagda Frågeregler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Logg aviseringar för Application Insights eller Log Analytics kan skapas med hjälp av [schemalagda FRÅGEREGLER API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+Logg aviseringar i Azure Monitor är kopplade till resurs typen `Microsoft.Insights/scheduledQueryRules/` . Mer information om den här resurs typen finns i [Azure Monitor API-referens för schemalagda Frågeregler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Logg aviseringar för Application Insights eller Log Analytics kan skapas med hjälp av [schemalagda FRÅGEREGLER API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
 > [!NOTE]
 > Logg aviseringar för Log Analytics kan också hanteras med äldre [Log Analytics aviserings-API](api-alerts.md) och tidigare mallar för [Log Analytics sparade sökningar och aviseringar](../insights/solutions-resources-searches-alerts.md) . Mer information om hur du använder det nya ScheduledQueryRules-API: t som är detaljerat här som standard finns i [Växla till nytt API för Log Analytics aviseringar](alerts-log-api-switch.md).
@@ -305,22 +312,23 @@ Exempel-JSON ovan kan sparas som (t. ex.) sampleScheduledQueryRule. JSON för de
 
 API för Azure Monitor [schemalagda Frågeregler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) är en REST API som är helt kompatibel med Azure Resource Manager REST API. Och PowerShell-cmdletarna som anges nedan är tillgängliga för att utnyttja [API: et för schemalagda Frågeregler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-1. [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : PowerShell-cmdlet för att skapa en ny logg aviserings regel.
-1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : PowerShell-cmdleten för att uppdatera en befintlig logg aviserings regel.
-1. [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger käll parametrar för en logg avisering. Används som inmatad av cmdleten [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) och [set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) .
-1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): PowerShell-cmdlet för att skapa eller uppdatera objekt som anger schema parametrar för en logg avisering. Används som inmatad av cmdleten [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) och [set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) .
-1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger åtgärds parametrar för en logg avisering. Används som inmatad av cmdleten [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) och [set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) .
-1. [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger parametrar för åtgärds grupper för en logg avisering. Används som inmatad av [New-AzScheduledQueryRuleAlertingAction-](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdleten.
-1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell-cmdleten för att skapa eller uppdatera objekt som anger Utlös ande villkors parametrar för logg avisering. Används som inmatad av [New-AzScheduledQueryRuleAlertingAction-](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdleten.
-1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger mått för mått utlösare för måttet för mått [mått typ logg avisering](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Används som inmatad av [New-AzScheduledQueryRuleTriggerCondition-](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdleten.
-1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : PowerShell-cmdleten för att visa en lista över befintliga logg aviserings regler eller en speciell logg aviserings regel
-1. [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : PowerShell-cmdlet för att aktivera eller inaktivera logg aviserings regel
-1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell-cmdlet för att ta bort en befintlig logg aviserings regel
+- [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : PowerShell-cmdlet för att skapa en ny logg aviserings regel.
+- [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : PowerShell-cmdleten för att uppdatera en befintlig logg aviserings regel.
+- [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger käll parametrar för en logg avisering. Används som inmatad av cmdleten [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) och [set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) .
+- [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): PowerShell-cmdlet för att skapa eller uppdatera objekt som anger schema parametrar för en logg avisering. Används som inmatad av cmdleten [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) och [set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) .
+- [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger åtgärds parametrar för en logg avisering. Används som inmatad av cmdleten [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) och [set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) .
+- [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger parametrar för åtgärds grupper för en logg avisering. Används som inmatad av [New-AzScheduledQueryRuleAlertingAction-](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdleten.
+- [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell-cmdleten för att skapa eller uppdatera objekt som anger Utlös ande villkors parametrar för logg avisering. Används som inmatad av [New-AzScheduledQueryRuleAlertingAction-](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdleten.
+- [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger mått för mått utlösare för måttet för mått [mått typ logg avisering](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Används som inmatad av [New-AzScheduledQueryRuleTriggerCondition-](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdleten.
+- [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : PowerShell-cmdleten för att visa en lista över befintliga logg aviserings regler eller en speciell logg aviserings regel
+- [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : PowerShell-cmdlet för att aktivera eller inaktivera logg aviserings regel
+- [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell-cmdlet för att ta bort en befintlig logg aviserings regel
 
 > [!NOTE]
 > ScheduledQueryRules PowerShell-cmdletar kan bara hantera regler som skapats av en cmdlet eller med hjälp av Azure Monitor- [schemalagda Frågeregler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Logg varnings regler som skapats med äldre [Log Analytics aviserings-API](api-alerts.md) och äldre mallar av [Log Analytics sparade sökningar och aviseringar](../insights/solutions-resources-searches-alerts.md) kan hanteras med hjälp av ScheduledQueryRules PowerShell-cmdletar när användaren [växlar API-inställningar för Log Analytics aviseringar](alerts-log-api-switch.md).
 
 Illustrera härnäst är stegen för att skapa en exempel logg aviserings regel med hjälp av scheduledQueryRules PowerShell-cmdletar.
+
 ```powershell
 $source = New-AzScheduledQueryRuleSource -Query 'Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m), _ResourceId' -DataSourceId "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews"
 

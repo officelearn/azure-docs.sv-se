@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067154"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296535"
 ---
 # <a name="azure-files-networking-considerations"></a>Azure Files nätverks överväganden 
 Du kan ansluta till en Azure-filresurs på två sätt:
@@ -51,7 +51,7 @@ Azure Files stöder följande mekanismer för tunnel trafik mellan dina lokala a
 
 - [Azure VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): en VPN-gateway är en speciell typ av virtuell nätverksgateway som används för att skicka krypterad trafik mellan ett virtuellt Azure-nätverk och en annan plats (till exempel lokalt) via Internet. En Azure-VPN Gateway är en Azure-resurs som kan distribueras i en resurs grupp tillsammans med ett lagrings konto eller andra Azure-resurser. VPN-gatewayer exponerar två olika typer av anslutningar:
     - [Punkt-till-plats (P2s) VPN gateway-](../../vpn-gateway/point-to-site-about.md) anslutningar, som är VPN-anslutningar mellan Azure och en enskild klient. Den här lösningen är främst användbar för enheter som inte är en del av organisationens lokala nätverk, t. ex. kunder som vill kunna montera sin Azure-filresurs från hemmet, ett kafé eller ett hotell på resan. Om du vill använda en P2S VPN-anslutning med Azure Files måste en P2S VPN-anslutning konfigureras för varje klient som vill ansluta. För att förenkla distributionen av en P2S VPN-anslutning, se [Konfigurera en punkt-till-plats (P2s) VPN i Windows för användning med Azure Files](storage-files-configure-p2s-vpn-windows.md) och [Konfigurera en punkt-till-plats (P2s) VPN på Linux för användning med Azure Files](storage-files-configure-p2s-vpn-linux.md).
-    - [VPN för plats-till-plats (S2S)](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti), som är VPN-anslutningar mellan Azure och din organisations nätverk. Med en S2S VPN-anslutning kan du konfigurera en VPN-anslutning en gång, för en VPN-server eller en enhet som finns i din organisations nätverk, i stället för att göra för varje klient enhet som behöver åtkomst till Azure-filresursen. Information om hur du fören klar distributionen av en S2S VPN-anslutning finns i [Konfigurera en plats-till-plats (S2S) VPN för användning med Azure Files](storage-files-configure-s2s-vpn.md).
+    - [VPN för plats-till-plats (S2S)](../../vpn-gateway/design.md#s2smulti), som är VPN-anslutningar mellan Azure och din organisations nätverk. Med en S2S VPN-anslutning kan du konfigurera en VPN-anslutning en gång, för en VPN-server eller en enhet som finns i din organisations nätverk, i stället för att göra för varje klient enhet som behöver åtkomst till Azure-filresursen. Information om hur du fören klar distributionen av en S2S VPN-anslutning finns i [Konfigurera en plats-till-plats (S2S) VPN för användning med Azure Files](storage-files-configure-s2s-vpn.md).
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), som gör att du kan skapa en definierad väg mellan Azure och ditt lokala nätverk som inte passerar Internet. Eftersom ExpressRoute tillhandahåller en dedikerad sökväg mellan ditt lokala data Center och Azure, kan ExpressRoute vara användbart när nätverks prestanda är ett övervägande. ExpressRoute är också ett användbart alternativ när din organisations policy eller myndighets krav kräver en deterministisk sökväg till dina resurser i molnet.
 
 Oavsett vilken tunnel metod du använder för att få åtkomst till dina Azure-filresurser behöver du en mekanism för att säkerställa att trafiken till ditt lagrings konto går via tunneln i stället för din vanliga Internet anslutning. Det är tekniskt möjligt att dirigera till den offentliga slut punkten för lagrings kontot, men detta kräver en hård kodning av alla IP-adresser för Azure Storage-kluster i en region, eftersom lagrings konton kan flyttas mellan lagrings kluster när som helst. Detta kräver också konstant uppdatering av IP-adress mappningar eftersom nya kluster läggs till hela tiden.
@@ -71,18 +71,18 @@ Med hjälp av privata slut punkter med Azure Files kan du:
 Information om hur du skapar en privat slut punkt finns i [Konfigurera privata slut punkter för Azure Files](storage-files-networking-endpoints.md).
 
 ### <a name="private-endpoints-and-dns"></a>Privata slut punkter och DNS
-När du skapar en privat slut punkt skapar vi som standard också en (eller uppdaterar en befintlig) privat DNS-zon som motsvarar `privatelink` under domänen. Det krävs inget krav för att skapa en privat DNS-zon för att använda en privat slut punkt för ditt lagrings konto, men det är starkt rekommenderat i allmänhet och uttryckligen krävs när du monterar Azure-filresursen med en Active Directory användarens huvud namn eller åtkomst från det arkivaste API: et.
+När du skapar en privat slut punkt skapar vi som standard också en (eller uppdaterar en befintlig) privat DNS-zon som motsvarar under `privatelink` domänen. Det krävs inget krav för att skapa en privat DNS-zon för att använda en privat slut punkt för ditt lagrings konto, men det är starkt rekommenderat i allmänhet och uttryckligen krävs när du monterar Azure-filresursen med en Active Directory användarens huvud namn eller åtkomst från det arkivaste API: et.
 
 > [!Note]  
-> I den här artikeln används DNS-suffixet för lagrings kontot för `core.windows.net`Azures offentliga regioner. Den här kommentarer gäller också för Azures suveräna moln, till exempel Azure-molnet för amerikanska myndigheter och molnet i molnet, och ersätter bara de nödvändiga suffixen för din miljö. 
+> I den här artikeln används DNS-suffixet för lagrings kontot för Azures offentliga regioner `core.windows.net` . Den här kommentarer gäller också för Azures suveräna moln, till exempel Azure-molnet för amerikanska myndigheter och molnet i molnet, och ersätter bara de nödvändiga suffixen för din miljö. 
 
-I din privata DNS-zon skapar vi en A-post `storageaccount.privatelink.file.core.windows.net` för och en CNAME-post för det reguljära namnet på lagrings kontot, som `storageaccount.file.core.windows.net`följer mönstret. Eftersom din privata Azure-DNS-zon är ansluten till det virtuella nätverket som innehåller den privata slut punkten kan du se DNS-konfigurationen när `Resolve-DnsName` du anropar cmdleten från PowerShell på en virtuell `nslookup` Azure-dator (alternativt i Windows och Linux):
+I din privata DNS-zon skapar vi en A-post för `storageaccount.privatelink.file.core.windows.net` och en CNAME-post för det reguljära namnet på lagrings kontot, som följer mönstret `storageaccount.file.core.windows.net` . Eftersom din privata Azure-DNS-zon är ansluten till det virtuella nätverket som innehåller den privata slut punkten kan du se DNS-konfigurationen när du anropar `Resolve-DnsName` cmdleten från PowerShell på en virtuell Azure-dator (alternativt `nslookup` i Windows och Linux):
 
 ```powershell
 Resolve-DnsName -Name "storageaccount.file.core.windows.net"
 ```
 
-I det här exemplet matchar lagrings `storageaccount.file.core.windows.net` kontot den privata IP-adressen för den privata slut punkten, vilket sker `192.168.0.4`.
+I det här exemplet matchar lagrings kontot den privata `storageaccount.file.core.windows.net` IP-adressen för den privata slut punkten, vilket sker `192.168.0.4` .
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -109,7 +109,7 @@ TimeToExpiration       : 2419200
 DefaultTTL             : 300
 ```
 
-Om du kör samma kommando från en lokal plats ser du att samma lagrings konto namn matchar den offentliga IP-adressen för lagrings kontot i stället. `storageaccount.file.core.windows.net` är en CNAME-post `storageaccount.privatelink.file.core.windows.net`för, vilket i sin tur är en CNAME-post för Azure Storage-kluster som är värd för lagrings kontot:
+Om du kör samma kommando från en lokal plats ser du att samma lagrings konto namn matchar den offentliga IP-adressen för lagrings kontot i stället. `storageaccount.file.core.windows.net`är en CNAME-post för `storageaccount.privatelink.file.core.windows.net` , vilket i sin tur är en CNAME-post för Azure Storage-kluster som är värd för lagrings kontot:
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -128,9 +128,9 @@ IP4Address : 52.239.194.40
 
 Detta återspeglar det faktum att lagrings kontot kan exponera både den offentliga slut punkten och en eller flera privata slut punkter. För att säkerställa att lagrings konto namnet matchas mot den privata IP-adressen för den privata slut punkten måste du ändra konfigurationen på dina lokala DNS-servrar. Detta kan åstadkommas på flera sätt:
 
-- Ändra hosts-filen på klienterna för `storageaccount.file.core.windows.net` att matcha den önskade privata IP-adressen för den privata slut punkten. Detta rekommenderas inte för produktions miljöer eftersom du behöver göra dessa ändringar för varje klient som vill montera dina Azure-filresurser och ändringar av lagrings kontot eller den privata slut punkten hanteras inte automatiskt.
+- Ändra hosts-filen på klienterna för att `storageaccount.file.core.windows.net` matcha den önskade privata IP-adressen för den privata slut punkten. Detta rekommenderas inte för produktions miljöer eftersom du behöver göra dessa ändringar för varje klient som vill montera dina Azure-filresurser och ändringar av lagrings kontot eller den privata slut punkten hanteras inte automatiskt.
 - Skapa en post för `storageaccount.file.core.windows.net` i dina lokala DNS-servrar. Detta har fördelen att klienter i din lokala miljö kan lösa lagrings kontot automatiskt utan att behöva konfigurera varje klient, men den här lösningen är också sårbar för att ändra värd filen eftersom ändringar inte återspeglas. Även om den här lösningen är sårbar kan det vara det bästa valet för vissa miljöer.
-- Vidarebefordra `core.windows.net` zonen från dina lokala DNS-servrar till din Azures privata DNS-zon. Den privata Azure-DNS-värden kan nås via en särskild IP-`168.63.129.16`adress () som endast är tillgänglig i virtuella nätverk som är länkade till Azures privata DNS-zon. För att lösa den här begränsningen kan du köra ytterligare DNS-servrar i det virtuella nätverket `core.windows.net` som kommer att vidarebefordras till Azures privata DNS-zon. För att förenkla den här konfigurationen har vi tillhandahållit PowerShell-cmdletar som automatiskt distribuerar DNS-servrar i det virtuella Azure-nätverket och konfigurerar dem efter behov. Information om hur du konfigurerar DNS-vidarebefordran finns i [Konfigurera DNS med Azure Files](storage-files-networking-dns.md).
+- Vidarebefordra `core.windows.net` zonen från dina lokala DNS-servrar till din Azures privata DNS-zon. Den privata Azure-DNS-värden kan nås via en särskild IP-adress ( `168.63.129.16` ) som endast är tillgänglig i virtuella nätverk som är länkade till Azures privata DNS-zon. För att lösa den här begränsningen kan du köra ytterligare DNS-servrar i det virtuella nätverket som kommer att vidarebefordras `core.windows.net` till Azures privata DNS-zon. För att förenkla den här konfigurationen har vi tillhandahållit PowerShell-cmdletar som automatiskt distribuerar DNS-servrar i det virtuella Azure-nätverket och konfigurerar dem efter behov. Information om hur du konfigurerar DNS-vidarebefordran finns i [Konfigurera DNS med Azure Files](storage-files-networking-dns.md).
 
 ## <a name="storage-account-firewall-settings"></a>Brand Väggs inställningar för lagrings konto
 En brand vägg är en nätverks princip som styr vilka begär Anden som kan få åtkomst till den offentliga slut punkten för ett lagrings konto. Med hjälp av lagrings kontots brand vägg kan du begränsa åtkomsten till lagrings kontots offentliga slut punkt till vissa IP-adresser eller intervall eller till ett virtuellt nätverk. I allmänhet kommer de flesta brand Väggs principer för ett lagrings konto att begränsa nätverks åtkomsten till ett eller flera virtuella nätverk. 

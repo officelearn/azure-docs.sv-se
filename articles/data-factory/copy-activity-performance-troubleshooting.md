@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 13e41f6346f2ce32ed65aefb7d50680d1302ca26
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 694f10b53d02d44d189cbe7cbe492f48ac3b5669
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193717"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299799"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Felsöka prestanda för kopierings aktivitet
 
@@ -40,6 +40,7 @@ Som en referens ger för närvarande prestanda justerings tips förslag på föl
 | Data lager som är speciell   | Läsa in data i **Azure Synpase Analytics (tidigare SQL DW)**: föreslå användning av PolyBase-eller Copy-instruktionen om den inte används. |
 | &nbsp;                | Kopiera data från/till **Azure SQL Database**: när DTU är under hög användning rekommenderar vi att du uppgraderar till en högre nivå. |
 | &nbsp;                | Kopiera data från/till **Azure Cosmos DB**: när ru är under hög användning bör du föreslå att uppgradera till större ru. |
+|                       | Kopiera data från **SAP-tabellen**: vid kopiering av stora mängder data kan du föreslå att utnyttja alternativ för SAP-kopplingens partition för att aktivera parallell belastning och öka Max antalet partitioner. |
 | &nbsp;                | Mata in data från **Amazon RedShift**: föreslå att använda Unload om det inte används. |
 | Data lagrings begränsning | Om ett antal Läs/skriv-åtgärder begränsas av data lagret under kopieringen, föreslår vi kontroll och ökar den tillåtna begär ande frekvensen för data lagret eller minskar den samtidiga arbets belastningen. |
 | Integration runtime  | Om du använder en **egen värd integration Runtime (IR)** och kopierings aktiviteten väntar länge i kön tills IR-resursen är tillgänglig, föreslår vi att skala ut/upp IR. |
@@ -142,7 +143,7 @@ Om kopierings prestandan inte motsvarar förväntad fel sökning av en enskild k
 
   - Kontrol lera den självbetjänings-och minnes användnings trenden i Azure Portal > din Data Factory-> översikts sida. Överväg att [skala upp/ut IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) om processor användningen är hög eller tillgängligt minne är lågt.
 
-  - Använd bästa praxis för anslutnings data inläsning om detta gäller. Ett exempel:
+  - Använd bästa praxis för anslutnings data inläsning om detta gäller. Till exempel:
 
     - När du kopierar data från [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)och [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)) aktiverar du alternativ för datapartitioner för att kopiera data parallellt.
 
@@ -187,7 +188,7 @@ Här är prestanda övervakning och justering av referenser för några av de da
 ## <a name="next-steps"></a>Nästa steg
 Se andra artiklar om kopierings aktiviteter:
 
-- [Översikt över kopieringsaktivitet](copy-activity-overview.md)
+- [Översikt över kopierings aktivitet](copy-activity-overview.md)
 - [Guiden Kopiera aktivitets prestanda och skalbarhet](copy-activity-performance.md)
 - [Kopiera aktivitets prestanda optimerings funktioner](copy-activity-performance-features.md)
 - [Använd Azure Data Factory för att migrera data från data Lake eller data lager till Azure](data-migration-guidance-overview.md)

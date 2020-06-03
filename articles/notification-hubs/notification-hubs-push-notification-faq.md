@@ -17,12 +17,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29ef1ec551169bb84680f343e38949f73724f5ae
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263837"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307392"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: vanliga frågor och svar
 
@@ -56,7 +56,7 @@ För Basic-och Standard Notification Hubs-nivåer kan korrekt konfigurerade prog
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Hur gör jag för att uppgradera eller nedgradera mitt nav eller namn område till en annan nivå?
 
-Gå till **[Azure Portal]** > **Notification Hubs namnrum** eller **Notification Hubs**. Välj den resurs som du vill uppdatera och gå till **pris nivån**. Observera följande krav:
+Gå till **[Azure Portal]**  >  **Notification Hubs namnrum** eller **Notification Hubs**. Välj den resurs som du vill uppdatera och gå till **pris nivån**. Observera följande krav:
 
 * Den uppdaterade pris nivån gäller för *alla* hubbar i namn området som du arbetar med.
 * Om antalet enheter överskrider gränsen för den nivå som du degraderar till, måste du ta bort enheter innan du degraderar.
@@ -79,7 +79,7 @@ Notification Hubs skickar meddelanden till enheter som kör Mobile Apps. Den inn
 
 Mer information om antalet enheter som stöds finns på sidan med [Notification Hubs priser] .
 
-Om du behöver stöd för fler än 10 000 000 registrerade enheter måste du partitionera enheterna över flera hubbar.
+Om du behöver stöd för fler än 10 000 000 registrerade enheter måste du partitionera enheterna över flera namn områden.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Hur många push-meddelanden kan jag skicka ut?
 
@@ -121,7 +121,7 @@ På grund av typen av push-meddelanden (de levereras av en extern, plattformsspe
 
 När en mobilapp registreras med en plattforms utvecklings portal (till exempel Apple eller Google), skickas ett app-ID och säkerhetstoken. Appens Server del innehåller dessa tokens till plattformens PNS så att push-meddelanden kan skickas till enheter. Säkerhetstoken kan vara i form av certifikat (till exempel Apple iOS eller Windows Phone) eller säkerhets nycklar (till exempel Google Android eller Windows). De måste konfigureras i Notification Hub. Konfigurationen utförs vanligt vis på meddelande-Hub-nivån, men den kan också göras på namn områdes nivå i ett scenario med flera innehavare.
 
-#### <a name="namespaces"></a>Namnområden
+#### <a name="namespaces"></a>Namnrymder
 
 Namn områden kan användas för gruppering av distribution. De kan också användas för att representera alla meddelande hubbar för alla klienter i samma app i ett scenario med flera innehavare.
 
@@ -153,7 +153,7 @@ Alla anslutningar, från avsändaren till Azure-Notification Hubs till PNS, anv�
 
 Om du vill skicka känsliga nytto laster rekommenderar vi att du använder ett säkert push-mönster. Avsändaren skickar ett ping-meddelande med en meddelande identifierare till enheten utan den känsliga nytto lasten. När appen på enheten tar emot nytto lasten anropar appen ett säkert API direkt för att hämta information om meddelandet. En guide om hur du implementerar det här mönstret finns på sidan [Notification Hubs säker push-självstudie] .
 
-## <a name="operations"></a>Åtgärder
+## <a name="operations"></a>Operations
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Vilken support tillhandahålls för haveri beredskap?
 

@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 4cb25b0398dca05f32f944962e2fc8630ea10870
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: da25f4bc585da26b9765fd36d65a8b5e0689f725
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267655"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300672"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-azure-resource-manager-template"></a>Snabb start: lägga till en Azure-roll tilldelning med en Azure Resource Manager-mall
 
@@ -25,7 +25,7 @@ ms.locfileid: "84267655"
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill lägga till roll tilldelningar måste du ha:
 
@@ -40,6 +40,10 @@ Om du vill lägga till en roll tilldelning måste du ange tre element: säkerhet
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Mallen har tre parametrar och avsnittet Resources. I avsnittet resurser ser du att det har tre element i en roll tilldelning: säkerhets objekt, roll definition och omfattning. 
 
 :::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
+
+Den resurs som definierats i mallen är:
+
+- [Microsoft. Authorization/roleAssignments](/azure/templates/Microsoft.Authorization/roleAssignments)
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 

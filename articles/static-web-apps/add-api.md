@@ -7,22 +7,22 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 1b2db92106e0dad79c90188c904b07d7bb1d7212
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 1720ea31c8f0b15485df194e62e463671d092b26
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258648"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310860"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Lägg till en API till för hands versionen av Azure statisk Web Apps med Azure Functions
 
 Du kan lägga till Server lös API: er i Azures statiska Web Apps via integration med Azure Functions. Den här artikeln visar hur du lägger till och distribuerar ett API till en statisk Azure-Web Apps webbplats.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-konto med en aktiv prenumeration.
   - Om du inte har något konto kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free).
-- [Visual Studio-koden](https://code.visualstudio.com/)
+- [Visuell Studio-kod](https://code.visualstudio.com/)
 - [Azure Functions tillägg](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code
 - [Live Server Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) -tillägg.
 - [Node. js](https://nodejs.org/download/) för att köra API-appen lokalt
@@ -127,7 +127,7 @@ Sedan kan du ändra `GetMessage` funktionen så att den returnerar ett meddeland
 
 Med ovanstående inställningar är API-slutpunkten:
 
-- Utlöst med en HTTP-begäran görs till funktionen
+- Utlöses när en HTTP-begäran görs till funktionen
 - Tillgänglig för alla begär Anden oavsett autentiserings status
 - Exponeras via _/API/Message_ -vägen
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 89d2105ab080309639c4341072c3f5f36608dfce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 555e4bf9dfa2318796cde124d07867d09adc229d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424771"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310265"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Hantera åtkomst till arbets ytor, data och pipelines
 
@@ -34,42 +34,60 @@ För en produktions distribution till en Azure Synapse-arbetsyta föreslår vi a
 
 1. Skapa säkerhets grupp med namnet`Synapse_WORKSPACENAME_Users`
 2. Skapa säkerhets grupp med namnet`Synapse_WORKSPACENAME_Admins`
-3. Lägg till `Synapse_WORKSPACENAME_Admins` i `ProjectSynapse_WORKSPACENAME_Users`
+3. Lägg till `Synapse_WORKSPACENAME_Admins` i `Synapse_WORKSPACENAME_Users`
+
+> [!NOTE]
+> Lär dig hur du skapar en säkerhets grupp i [den här artikeln](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+>
+> Lär dig hur du lägger till en säkerhets grupp från en annan säkerhets grupp i [den här artikeln](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal).
+>
+> WORKSPACENAME – du bör ersätta den här delen med din faktiska arbets ytans namn.
 
 ### <a name="step-2-prepare-the-default-adls-gen2-account"></a>Steg 2: Förbered standard ADLS Gen2s kontot
 
-När du etablerade arbets ytan var du tvungen att välja ett ADLSGEN2-konto och en behållare för det fil system som ska användas för arbets ytan.
+När du etablerade arbets ytan var du tvungen att välja ett [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) konto och en behållare för det fil system som ska användas för arbets ytan.
 
 1. Öppna [Azure Portal](https://portal.azure.com)
-2. Navigera till ADLSGEN2-kontot
+2. Navigera till Azure Data Lake Storage Gen2 kontot
 3. Navigera till container (FileSystem) som du har valt för Azure Synapse-arbetsytan
 4. Klicka på **Access Control (IAM)**
 5. Tilldela följande roller:
-   1. **Läsar** roll:`Synapse_WORKSPACENAME_Users`
-   2. Roll för **Storage BLOB data-ägare** :`Synapse_WORKSPACENAME_Admins`
-   3. Rollen **Storage BLOB data Contributor** :`Synapse_WORKSPACENAME_Users`
-   4. Roll för **Storage BLOB data-ägare** :`WORKSPACENAME`
-  
+   1. Rollen **läsare** för att:`Synapse_WORKSPACENAME_Users`
+   2. Rollen **Storage BLOB data-ägare** till:`Synapse_WORKSPACENAME_Admins`
+   3. Rollen **Storage BLOB data Contributor** till:`Synapse_WORKSPACENAME_Users`
+   4. Rollen **Storage BLOB data-ägare** till:`WORKSPACENAME`
+
+> [!NOTE]
+> WORKSPACENAME – du bör ersätta den här delen med din faktiska arbets ytans namn.
+
 ### <a name="step-3-configure-the-workspace-admin-list"></a>Steg 3: Konfigurera arbets ytans administratörs lista
 
 1. Gå till [ **webb gränssnittet för Azure Synapse Web**](https://web.azuresynapse.net)
-2. Gå till **Hantera**  > **säkerhets** > **åtkomst kontroll**
+2. Gå till **Hantera**   >  **säkerhets**  >  **åtkomst kontroll**
 3. Klicka på **Lägg till administratör**och välj`Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Steg 4: Konfigurera SQL admin-åtkomst för arbets ytan
 
 1. Gå till [Azure Portal](https://portal.azure.com)
 2. Navigera till din arbets yta
-3. Gå till **Inställningar** > **Active Directory admin**
+3. Gå till **Inställningar**  >  **Active Directory admin**
 4. Klicka på **Ange administratör**
 5. Välj `Synapse_WORKSPACENAME_Admins`
 6. Klicka på **Välj**
 7. Klicka på **Spara**
 
+> [!NOTE]
+> WORKSPACENAME – du bör ersätta den här delen med din faktiska arbets ytans namn.
+
 ### <a name="step-5-add-and-remove-users-and-admins-to-security-groups"></a>Steg 5: lägga till och ta bort användare och administratörer i säkerhets grupper
 
 1. Lägg till användare som behöver administrativ åtkomst till`Synapse_WORKSPACENAME_Admins`
 2. Lägg till alla andra användare i`Synapse_WORKSPACENAME_Users`
+
+> [!NOTE]
+> Lär dig hur du lägger till användare som en medlem i en säkerhets grupp i [den här artikeln](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal)
+> 
+> WORKSPACENAME – du bör ersätta den här delen med din faktiska arbets ytans namn.
 
 ## <a name="access-control-to-data"></a>Access Control till data
 
@@ -82,9 +100,13 @@ När du etablerade arbets ytan var du tvungen att välja ett ADLSGEN2-konto och 
 ## <a name="access-control-to-sql-databases"></a>Åtkomst kontroll till SQL-databaser
 
 > [!TIP]
-> Stegen nedan måste köras för **varje** SQL-databas för att ge användarna åtkomst till alla SQL-databaser.
+> Stegen nedan måste köras för **varje** SQL-databas för att ge användarna åtkomst till alla SQL-databaser, förutom i avsnittet [Server nivå behörighet](#server-level-permission) där du kan tilldela användare en sysadmin-roll.
 
 ### <a name="sql-on-demand"></a>SQL på begäran
+
+I det här avsnittet hittar du exempel på hur du ger användaren behörighet till en viss databas eller fullständiga Server behörigheter.
+
+#### <a name="database-level-permission"></a>Behörighet på databas nivå
 
 Om du vill bevilja åtkomst till en användare till en **enda** SQL-databas på begäran följer du stegen i det här exemplet:
 
@@ -93,7 +115,7 @@ Om du vill bevilja åtkomst till en användare till en **enda** SQL-databas på 
     ```sql
     use master
     go
-    CREATE LOGIN [John.Thomas@microsoft.com] FROM EXTERNAL PROVIDER;
+    CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
     go
     ```
 
@@ -102,7 +124,7 @@ Om du vill bevilja åtkomst till en användare till en **enda** SQL-databas på 
     ```sql
     use yourdb -- Use your DB name
     go
-    CREATE USER john FROM LOGIN [John.Thomas@microsoft.com];
+    CREATE USER alias FROM LOGIN [alias@domain.com];
     ```
 
 3. Lägg till användare till medlemmar i den angivna rollen
@@ -110,8 +132,20 @@ Om du vill bevilja åtkomst till en användare till en **enda** SQL-databas på 
     ```sql
     use yourdb -- Use your DB name
     go
-    alter role db_owner Add member john -- Type USER name from step 2
+    alter role db_owner Add member alias -- Type USER name from step 2
     ```
+
+> [!NOTE]
+> Ersätt alias med alias för den användare som du vill ge åtkomst och domän med den företags domän som du använder.
+
+#### <a name="server-level-permission"></a>Behörighet på server nivå
+
+Om du vill ge fullständig åtkomst till en användare till **alla** SQL på begäran-databaser följer du stegen i det här exemplet:
+
+```sql
+CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+```
 
 ### <a name="sql-pools"></a>SQL-pooler
 
@@ -151,7 +185,7 @@ När du har skapat användarna kontrollerar du att SQL på begäran kan fråga l
 > [!IMPORTANT]
 > För att kunna köra pipelines som innehåller data uppsättningar eller aktiviteter som refererar till en SQL-pool, måste arbets ytans identitet beviljas åtkomst till SQL-poolen direkt.
 
-Kör följande kommandon på varje SQL-pool för att tillåta att arbets ytans hanterade identitet kör pipeliner på SQL-poolens databas:
+Kör följande kommandon på varje SQL-pool för att tillåta att den arbetsytans hanterade identiteten kör pipeliner på SQL-poolens databas:
 
 ```sql
 --Create user in DB
@@ -173,4 +207,4 @@ DROP USER [<workspacename>];
 
 ## <a name="next-steps"></a>Nästa steg
 
-En översikt över åtkomst och kontroll i Synapse SQL finns i [SYNAPSE SQL Access Control](../sql/access-control.md). Mer information om databasens huvud namn finns i [huvud konton](https://msdn.microsoft.com/library/ms181127.aspx). Mer information om databas roller finns i artikeln [databas roller](https://msdn.microsoft.com/library/ms189121.aspx) .
+En översikt över Synapse-hanterad identitet i arbets ytan finns i [hanterad identitet för Azure Synapse-arbetsytan](../security/synapse-workspace-managed-identity.md). Mer information om databasens huvud namn finns i [huvud konton](https://msdn.microsoft.com/library/ms181127.aspx). Mer information om databas roller finns i artikeln [databas roller](https://msdn.microsoft.com/library/ms189121.aspx) .

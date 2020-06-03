@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4b8bcf2b6ed5ab9c1160df49b1a6082aaf02f65
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 8a21f6a58e8dc657d3b60aac33661504363072e2
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830471"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309925"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -119,7 +119,7 @@ En automatiserings funktion lägger till funktioner för Azure Automation, inklu
 För att lägga till funktionen Azure Automation, till exempel Uppdateringshantering, till din arbets yta, kör du följande PowerShell-cmdlet:
 
 ```powershell-interactive
-Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true -DefaultProfile <IAzureContextContainer>
+Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
 ```
 
 ### <a name="step-3---install-the-log-analytics-agent-for-windows"></a>Steg 3 – Installera Log Analytics agent för Windows

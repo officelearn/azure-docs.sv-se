@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 20f8e0bea460c20ed3af0c2844ebc3510bd2d6b6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 9c70f8d728786e8aff8da33f9a39b8c2cfaafdc4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800794"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295634"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -58,6 +58,9 @@ Du kan också spåra användningen till en mer detaljerad nivå genom att regist
 GUID: er måste vara registrerade i Partner Center för att möjliggöra kund användnings behörighet.
 
 När du har lagt till ett GUID i mallen eller i användar agenten och registrerat GUID i Partner Center, spåras framtida distributioner.
+
+> [!NOTE]
+> Om du publicerar ditt [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) erbjudande till Azure Marketplace via partner Center registreras alla nya GUID som används i mallen automatiskt i din partner Center profil när mallen laddas upp.  
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard).
 
@@ -238,15 +241,15 @@ Välj spårad mall i list rutan över partner associerings typ för att visa rap
 
 ## <a name="notify-your-customers"></a>Meddela kunderna
 
-Partner bör informera sina kunder om distributioner som använder sig av kund användnings behörighet. Microsoft rapporterar Azure-användningen som är kopplad till dessa distributioner till partnern. Följande exempel innehåller innehåll som du kan använda för att meddela dina kunder om dessa distributioner. I exemplen ersätter du \< PARTNER> med ditt företags namn. Partner bör se till att meddelandet överensstämmer med sina principer för data sekretess och insamling, inklusive alternativ för kunder som ska undantas från spårning.
+Partner bör informera sina kunder om distributioner som använder sig av kund användnings behörighet. Microsoft rapporterar Azure-användningen som är kopplad till dessa distributioner till partnern. Följande exempel innehåller innehåll som du kan använda för att meddela dina kunder om dessa distributioner. I exemplen ersätter du \<PARTNER> med ditt företags namn. Partner bör se till att meddelandet överensstämmer med sina principer för data sekretess och insamling, inklusive alternativ för kunder som ska undantas från spårning.
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Meddelande för distributioner av Resource Manager-mallar
 
-När du distribuerar den här mallen kan Microsoft identifiera installationen av \< PARTNER> program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter .
+När du distribuerar den här mallen kan Microsoft identifiera installationen av \<PARTNER> program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter .
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Meddelande om SDK-eller API-distributioner
 
-När du distribuerar \< partner>-programvara kan Microsoft identifiera installationen av \< partner> program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter .
+När du distribuerar \<PARTNER> program vara kan Microsoft identifiera installationen av \<PARTNER> program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter .
 
 ## <a name="get-support"></a>Få support
 

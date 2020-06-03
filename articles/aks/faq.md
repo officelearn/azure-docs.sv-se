@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Kubernetes service (AKS)
 description: Hitta svar på några vanliga frågor om Azure Kubernetes service (AKS).
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: 767b5b80aab7d98af92f86bf66cc2ff83242ff92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677783"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300934"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor om Azure Kubernetes Service (AKS)
 
@@ -75,11 +75,13 @@ När du arbetar med resurs gruppen för noden bör du tänka på att du inte kan
 * Ange en annan prenumeration för resurs gruppen för noden.
 * Ändra resurs grupp namnet för noden när klustret har skapats.
 * Ange namn för de hanterade resurserna i resurs gruppen för noden.
-* Ändra eller ta bort taggar för hanterade resurser i resurs gruppen för noden. (Mer information finns i nästa avsnitt.)
+* Ändra eller ta bort Azure-skapade Taggar av hanterade resurser i resurs gruppen för noden. (Mer information finns i nästa avsnitt.)
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Kan jag ändra Taggar och andra egenskaper för AKS-resurserna i nodens resurs grupp?
 
-Om du ändrar eller tar bort Azure-skapade Taggar och andra resurs egenskaper i resurs gruppen resurs kan du få oväntade resultat som skalning och uppgradering av fel. Med AKS kan du skapa och ändra anpassade taggar. Du kanske vill skapa eller ändra anpassade taggar, till exempel för att tilldela en affär senhet eller ett kostnads ställe. Genom att ändra resurserna under resurs gruppen nod i AKS-klustret, bryter du ned service nivå målet (service nivå målet). Mer information finns i [AKS erbjuder ett service nivå avtal?](#does-aks-offer-a-service-level-agreement)
+Om du ändrar eller tar bort Azure-skapade Taggar och andra resurs egenskaper i resurs gruppen resurs kan du få oväntade resultat som skalning och uppgradering av fel. Med AKS kan du skapa och ändra anpassade taggar som skapats av slutanvändare. Du kanske vill skapa eller ändra anpassade taggar, till exempel för att tilldela en affär senhet eller ett kostnads ställe. Detta kan uppnås genom att skapa Azure-principer med ett omfång i den hanterade resurs gruppen.
+
+Att ändra alla **Azure-skapade Taggar** för resurser under nodens resurs grupp i AKS-klustret är dock en åtgärd som inte stöds och som bryter service nivå målet (service nivå mål). Mer information finns i [AKS erbjuder ett service nivå avtal?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Vilka Kubernetes-kontrollanter stöder AKS? Kan åtkomst kontrol Lanterna läggas till eller tas bort?
 

@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
-ms.openlocfilehash: 0ac33a0912d52405cf3d2ae18d5102930a94f3ff
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 06/02/2020
+ms.openlocfilehash: 27de2d3926a1f03cbd9169216e8f68c8ca81f2a5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890878"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298609"
 ---
 # <a name="data-flow-script-dfs"></a>Data flödes skript (DFS)
 
@@ -22,7 +22,7 @@ Data flödes skriptet (DFS) är underliggande metadata, ungefär som ett kodning
 
 ![Skript knapp](media/data-flow/scriptbutton.png "Skript knapp")
 
-`allowSchemaDrift: true,` I en käll omvandling kan du till exempel instruera tjänsten att inkludera alla kolumner från käll data uppsättningen i data flödet även om de inte ingår i schema projektionen.
+`allowSchemaDrift: true,`I en käll omvandling kan du till exempel instruera tjänsten att inkludera alla kolumner från käll data uppsättningen i data flödet även om de inte ingår i schema projektionen.
 
 ## <a name="use-cases"></a>Användningsfall
 DFS skapas automatiskt av användar gränssnittet. Du kan klicka på skript knappen för att visa och anpassa skriptet. Du kan också generera skript utanför ADF-ANVÄNDARGRÄNSSNITTET och sedan skicka det till PowerShell-cmdleten. När du felsöker komplexa data flöden, kan det vara lättare att söka igenom skript koden – bakom i stället för att skanna in UI-diagrammets representation av dina flöden.
@@ -52,7 +52,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-Om vi bestämmer dig för att lägga till en härledd omvandling måste du först skapa en grundläggande omvandlings text, som har ett enkelt uttryck för att lägga till en `upperCaseTitle`ny versal kolumn med namnet:
+Om vi bestämmer dig för att lägga till en härledd omvandling måste du först skapa en grundläggande omvandlings text, som har ett enkelt uttryck för att lägga till en ny versal kolumn med namnet `upperCaseTitle` :
 ```
 derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 ```
@@ -71,7 +71,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-Och nu dirigerar vi om den inkommande strömmen genom att identifiera vilken omvandling vi vill att den nya omvandlingen ska komma efter (i `source1`det här fallet) och kopiera namnet på data strömmen till den nya omvandlingen:
+Och nu dirigerar vi om den inkommande strömmen genom att identifiera vilken omvandling vi vill att den nya omvandlingen ska komma efter (i det här fallet `source1` ) och kopiera namnet på data strömmen till den nya omvandlingen:
 ```
 source(output(
         movieId as string,
@@ -85,7 +85,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-Slutligen identifierar vi den omvandling som vi vill komma efter den här nya omvandlingen och ersätter dess indataströmmen (i det här fallet `sink1`) med namnet på den nya omvandlingen:
+Slutligen identifierar vi den omvandling som vi vill komma efter den här nya omvandlingen och ersätter dess indataströmmen (i det här fallet `sink1` ) med namnet på den nya omvandlingen:
 ```
 source(output(
         movieId as string,
@@ -173,7 +173,7 @@ aggregate(groupBy(movie),
 ```
 
 ### <a name="create-row-hash-fingerprint"></a>Skapa finger avtryck för rad-hash 
-Använd den här koden i ditt data flödes skript för att skapa en ny ```DWhash``` härledd kolumn ```sha1``` som ger en hash av tre kolumner.
+Använd den här koden i ditt data flödes skript för att skapa en ny härledd kolumn ```DWhash``` som ger en ```sha1``` hash av tre kolumner.
 
 ```
 derive(DWhash = sha1(Name,ProductNumber,Color))
@@ -186,12 +186,22 @@ derive(DWhash = sha1(columns()))
 ```
 
 ### <a name="string_agg-equivalent"></a>String_agg motsvarande
-Den här koden fungerar som T-SQL ```string_agg()``` -funktionen och kommer att aggregera sträng värden till en matris. Du kan sedan omvandla matrisen till en sträng som ska användas med SQL-mål.
+Den här koden fungerar som T-SQL- ```string_agg()``` funktionen och kommer att aggregera sträng värden till en matris. Du kan sedan omvandla matrisen till en sträng som ska användas med SQL-mål.
 
 ```
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
 Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+```
+
+### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Antal uppdateringar, upsertar, infogningar, borttagningar
+När du använder en Alter Row-omvandling kanske du vill räkna antalet uppdateringar, upsertar, infogningar, och ta bort resultatet från dina Alter Row-principer. Lägg till en aggregerad omvandling efter din Alter-rad och klistra in det här data flödes skriptet i den sammanställda inventeringen för dessa räknare:
+
+```
+aggregate(updates = countIf(isUpdate(), 1),
+        inserts = countIf(isInsert(), 1),
+        upserts = countIf(isUpsert(), 1),
+        deletes = countIf(isDelete(),1)) ~> RowCount
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 3e4ad74a55504367de18a3dc9f0a7d33c462b329
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 309016821eb13ef6332ba248a11593fec8da9f75
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199848"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267570"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägg till eller ändra administratörer för en Azure-prenumeration
 
@@ -71,7 +71,7 @@ Om du inte vet som är kontoadministratör för en prenumeration, tar du reda p�
 
 * [Vad är rollbaserad åtkomstkontroll (RBAC)?](../../role-based-access-control/overview.md)
 * [Förstå de olika rollerna i Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Anvisningar: Associera eller lägga till en Azure-prenumeration till Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* [Associera eller lägga till en Azure-prenumeration till Azure Active Directory-klienten](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Behörigheter för administratörsrollen i Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten

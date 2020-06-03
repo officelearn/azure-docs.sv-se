@@ -3,16 +3,16 @@ title: Azure EA-avtal och ändringar
 description: I den här artikeln förklaras hur Azure EA-avtal och ändringar påverkar din användning av Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648176"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298150"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA-avtal och ändringar
 
@@ -43,7 +43,7 @@ Registreringar har något av följande statusvärden. Varje värde avgör hur du
 
 **Upphört** – EA-registreringen upphör när den når Enterprise-avtalets slutdatum. EA-kunden avregistreras från den utökade giltigheten och alla tjänster inaktiveras.
 
-Från och med den 1 augusti 2019 godkänns inte nya avanmälningsformulär för Azures kommersiella kunder. I stället försätts alla registreringar i statusen Obegränsad utökad giltighet. Om du vill sluta använda Azure-tjänsterna ska du stänga din prenumeration i [Azure EA-portalen](https://portal.azure.com). Eller så kan din partner skicka en uppsägningsförfrågan till https://www.explore.ms. Kunder med avtal för myndigheter påverkas inte.
+Från och med den 1 augusti 2019 godkänns inte nya avanmälningsformulär för Azures kommersiella kunder. I stället försätts alla registreringar i statusen Obegränsad utökad giltighet. Om du vill sluta använda Azure-tjänsterna stänger du din prenumeration i [Azure-portalen](https://portal.azure.com). Eller så kan din partner skicka en uppsägningsförfrågan till https://www.explore.ms. Kunder med avtal för myndigheter påverkas inte.
 
 **Överförd** – statusen Överförd används för registreringar vars konton och tjänster har överförts till en ny registrering. Registreringar överförs inte automatiskt om ett nytt registreringsnummer genereras vid förnyandet. Det tidigare registreringsnumret måste tas med i kundens förnyelsebegäran om överföringen ska ske automatiskt.
 

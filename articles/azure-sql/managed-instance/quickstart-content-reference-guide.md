@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 105c7ae2b0e7f39c29500634391b4388fa2a4723
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5ed88514650b9931a52e5f155abc34fbf734a3b7
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194954"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310775"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Komma igång med Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,18 +48,18 @@ Som ett alternativ till manuell generering av SQL-hanterad instans kan du använ
 
 ### <a name="migrate-your-databases"></a>Migrera dina databaser
 
-När du har skapat en SQL-hanterad instans och konfigurerat åtkomst kan du börja migrera dina SQL Server-databaser. Det går inte att migrera f du har vissa funktioner som inte stöds i käll databasen som du vill migrera. För att undvika fel och kontrol lera kompatibiliteten kan du använda [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) för att analysera dina databaser på SQL Server och hitta eventuella problem som kan blockera migrering till en SQL-hanterad instans, till exempel förekomst av [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) eller flera loggfiler. Om du löser problemen är dina databaser klara att migreras till SQL-hanterad instans. [Database experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) är ett annat användbart verktyg som kan registrera din arbets belastning på SQL Server och spela upp det på en SQL-hanterad instans så att du kan avgöra om du migrerar till en SQL-hanterad instans.
+När du har skapat en SQL-hanterad instans och konfigurerat åtkomst kan du börja migrera dina SQL Server-databaser. Migreringen kan gå sönder om du har funktioner som inte stöds i käll databasen som du vill migrera. För att undvika fel och kontrol lera kompatibiliteten kan du använda [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) för att analysera dina databaser på SQL Server och hitta eventuella problem som kan blockera migrering till en SQL-hanterad instans, till exempel förekomst av [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) eller flera loggfiler. Om du löser problemen är dina databaser klara att migreras till SQL-hanterad instans. [Database experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) är ett annat användbart verktyg som kan registrera din arbets belastning på SQL Server och spela upp det på en SQL-hanterad instans så att du kan avgöra om du migrerar till en SQL-hanterad instans.
 
-När du är säker på att du kan migrera databasen till en SQL-hanterad instans kan du använda de inbyggda SQL Server återställnings funktionerna för att återställa en databas till en SQL-hanterad instans från en `.bak` fil. Du kan använda den här metoden för att migrera databaser från en SQL Server-databasmotor som installerats lokalt eller en virtuell Azure-dator. En snabb start finns i [återställa från en säkerhets kopia till en SQL-hanterad instans](restore-sample-database-quickstart.md). I den här snabbstarten återställer du från en `.bak`-fil som lagras i Azures bloblagring med hjälp av Transact-SQL-kommandot `RESTORE`.
+När du är säker på att du kan migrera databasen till en SQL-hanterad instans kan du använda de inbyggda SQL Server återställnings funktionerna för att återställa en databas till en SQL-hanterad instans från en `.bak` fil. Du kan använda den här metoden för att migrera databaser från SQL Server databas motor som är installerade lokalt eller Azure Virtual Machines. En snabb start finns i [återställa från en säkerhets kopia till en SQL-hanterad instans](restore-sample-database-quickstart.md). I den här snabbstarten återställer du från en `.bak`-fil som lagras i Azures bloblagring med hjälp av Transact-SQL-kommandot `RESTORE`.
 
 > [!TIP]
 > Mer information om användning av Transact-SQL-kommandot `BACKUP` för att skapa en säkerhetskopia av din databas i Azures bloblagring finns i [SQL Server-säkerhetskopiering till URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
-Med de här snabb starterna kan du snabbt skapa, konfigurera och återställa en säkerhets kopia av databasen till en SQL-hanterad instans. I vissa fall behöver du anpassa eller automatisera distributionen av SQL-hanterade instanser och den nätverks miljö som krävs. De här scenarierna beskrivs nedan.
+Med de här snabb starterna kan du snabbt skapa, konfigurera och återställa en säkerhets kopia av databasen till en SQL-hanterad instans. I vissa fall behöver du anpassa eller automatisera distributionen av SQL-hanterad instans och nödvändig nätverks miljö. De här scenarierna beskrivs nedan.
 
 ## <a name="customize-network-environment"></a>Anpassa nätverksmiljön
 
-Även om VNet/undernät kan konfigureras automatiskt när instansen [skapas med hjälp av Azure Portal](instance-create-quickstart.md), kan det vara klokt att skapa det innan du börjar skapa SQL-hanterade instanser eftersom du kan konfigurera parametrarna för VNet och undernät. Det enklaste sättet att skapa och konfigurera nätverks miljön är att använda mallen för [distribution av Azure-resurser](virtual-network-subnet-create-arm-template.md) som skapar och konfigurerar ditt nätverk och undernät där instansen kommer att placeras. Du behöver bara trycka på knappen för Azure Resource Manager-distribution och fylla i formuläret med parametrar.
+Även om VNet/undernät kan konfigureras automatiskt när instansen [skapas med hjälp av Azure Portal](instance-create-quickstart.md), kan det vara klokt att skapa det innan du börjar skapa instanser i SQL-hanterad instans eftersom du kan konfigurera parametrarna för VNet och undernät. Det enklaste sättet att skapa och konfigurera nätverks miljön är att använda mallen för [distribution av Azure-resurser](virtual-network-subnet-create-arm-template.md) som skapar och konfigurerar ditt nätverk och undernät där instansen kommer att placeras. Du behöver bara trycka på knappen för Azure Resource Manager-distribution och fylla i formuläret med parametrar.
 
 Alternativt kan du använda det här [PowerShell-skriptet](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) för att automatisera skapandet av nätverket.
 

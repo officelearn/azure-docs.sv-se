@@ -6,13 +6,13 @@ ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: fdc90ffaf3cef3c594e7d84e32af9ef78fe08b0d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 05/28/2020
+ms.openlocfilehash: e9438e2e82a6d903b74973fe489b0a67d66c9a72
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849458"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296960"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrera Apache Spark och Apache Hive med Hive Warehouse Connector i Azure HDInsight
 
@@ -93,9 +93,17 @@ Förutom de konfigurationer som anges i föregående avsnitt lägger du till fö
 
     | Konfiguration | Värde |
     |----|----|
-    | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<headnode-FQDN>@<AAD-Domain>` |
+    | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<llap-headnode>@<AAD-Domain>` |
     
-    Ersätt `<headnode-FQDN>` med det fullständigt kvalificerade domän namnet för Head-noden i det interaktiva fråga-klustret. Ersätt `<AAD-DOMAIN>` med namnet på den Azure Active Directory (AAD) som klustret är anslutet till. Använd en versal sträng för `<AAD-DOMAIN>` värdet, annars hittas inte autentiseringsuppgiften. Kontrol lera/etc/krb5.conf för sfär namnen om det behövs.
+    * I en webbläsare navigerar du till `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` där kluster namn är namnet på ditt interaktiva fråga-kluster. Klicka på **HiveServer2 Interactive**. Du ser det fullständigt kvalificerade domän namnet (FQDN) för Head-noden där LLAP körs som visas i skärm bilden. Ersätt `<llap-headnode>` med det här värdet.
+
+        ![Hive lager kopplings huvud nod](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+
+    * Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till ditt interaktiva fråga-kluster. Sök efter `default_realm` parameter i `/etc/krb5.conf` filen. Ersätt `<AAD-DOMAIN>` med det här värdet som en versal sträng, annars hittas inte autentiseringsuppgiften.
+
+        ![Hive-domän för Hive-dist.](./media/apache-hive-warehouse-connector/aad-domain.png)
+
+    * Till exempel `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` .
     
 1. Spara ändringar och starta om komponenter efter behov.
 
@@ -215,7 +223,7 @@ kinit USERNAME
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [INSTANSEN och Apache Spark åtgärder](./apache-hive-warehouse-connector-operations.md)
+* [HWC- och Apache Spark-åtgärder](./apache-hive-warehouse-connector-operations.md)
 * [Använda Interactive Query i HDInsight](./apache-interactive-query-get-started.md)
-* [INSTANSEN-integrering med Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
+* [HWC-integrering med Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
 * [Exempel på interaktion med Hive-anslutningsprogrammet med Zeppelin, livy, Spark-Submit och pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

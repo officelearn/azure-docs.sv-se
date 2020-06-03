@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686939"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307936"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Bygga och distribuera certifikat hanterings tjänsten för OPC Vault
 
@@ -22,7 +22,7 @@ Den här artikeln förklarar hur du distribuerar OPC-valvet för certifikat hant
 > [!NOTE]
 > Mer information finns i GitHub [OPC Vault-lagringsplatsen](https://github.com/Azure/azure-iiot-opc-vault-service).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="install-required-software"></a>Installera nödvändig program vara
 
@@ -51,11 +51,11 @@ Du kan också klona lagrings platsen direkt i Visual Studio 2017.
 Ett PowerShell-skript är ett enkelt sätt att distribuera OPC Vault mikrotjänster och programmet.
 
 1. Öppna ett PowerShell-fönster i lagrings platsen-roten. 
-3. Gå till mappen `cd deploy`distribuera.
+3. Gå till mappen distribuera `cd deploy` .
 3. Välj ett namn för `myResourceGroup` det är osannolikt att orsaka en konflikt med andra distribuerade webb sidor. Se avsnittet "webbplats namn som redan används" längre fram i den här artikeln.
 5. Starta distributionen med `.\deploy.ps1` för interaktiv installation eller ange en fullständig kommando rad:  
 `.\deploy.ps1  -subscriptionName "MySubscriptionName" -resourceGroupLocation "East US" -tenantId "myTenantId" -resourceGroupName "myResourceGroup"`
-7. Om du planerar att utveckla med den här distributionen lägger `-development 1` du till för att aktivera Swagger-användargränssnittet och distribuera fel söknings versioner.
+7. Om du planerar att utveckla med den här distributionen lägger du till `-development 1` för att aktivera Swagger-användargränssnittet och distribuera fel söknings versioner.
 6. Följ instruktionerna i skriptet för att logga in på din prenumeration och ange ytterligare information.
 9. När du har skapat och distribuerat en lyckad åtgärd bör du se följande meddelande:
    ```
@@ -76,13 +76,13 @@ Ett PowerShell-skript är ett enkelt sätt att distribuera OPC Vault mikrotjäns
    > I händelse av problem kan du läsa avsnittet "Felsöka distributions fel" senare i artikeln.
 
 8. Öppna din favorit webbläsare och öppna program sidan:`https://myResourceGroup.azurewebsites.net`
-8. Ge webbappen och OPC-valvet en mikrotjänst några minuter att värma upp efter distributionen. Webb start sidan kanske låser sig vid första användningen, i upp till en minut tills du får de första svaren.
+8. Ge webbappen och OPC-valvet en mikrotjänst några minuter att värma upp efter distributionen. Webb start sidan kan sluta svara vid första användningen, i upp till en minut tills du får de första svaren.
 11. Ta en titt på Swagger-API: et genom att öppna:`https://myResourceGroup-service.azurewebsites.net`
-13. Starta en lokal GDS-server med dotNet genom att `.\myResourceGroup-gds.cmd`starta. Starta `.\myResourceGroup-dockergds.cmd`med Docker.
+13. Starta en lokal GDS-server med dotNet genom att starta `.\myResourceGroup-gds.cmd` . Starta med Docker `.\myResourceGroup-dockergds.cmd` .
 
 Det går att distribuera om en version med exakt samma inställningar. Tänk på att en sådan åtgärd förnyar alla program hemligheter och kan återställa vissa inställningar i program registreringarna i Azure Active Directory (Azure AD).
 
-Det är också möjligt att distribuera om bara webbappens binärfiler. Med-parametern `-onlyBuild 1`distribueras nya zip-paket för tjänsten och appen till webb programmen.
+Det är också möjligt att distribuera om bara webbappens binärfiler. Med-parametern `-onlyBuild 1` distribueras nya zip-paket för tjänsten och appen till webb programmen.
 
 När distributionen är klar kan du börja använda tjänsterna. Se [Hantera certifikat hanterings tjänsten för OPC Vault](howto-opc-vault-manage.md).
 
@@ -94,8 +94,8 @@ Så här gör du:
 2. Gå till resurs gruppen där tjänsten distribuerades.
 3. Välj **Ta bort resursgrupp** och bekräfta.
 4. Efter en kort stund tas alla distribuerade tjänst komponenter bort.
-5. Gå till **Azure Active Directory** > **Appregistreringar**.
-6. Det bör finnas tre registreringar för varje distribuerad resurs grupp. Registreringarna har följande namn: `resourcegroup-client`, `resourcegroup-module`,. `resourcegroup-service` Ta bort varje registrering separat.
+5. Gå till **Azure Active Directory**  >  **Appregistreringar**.
+6. Det bör finnas tre registreringar för varje distribuerad resurs grupp. Registreringarna har följande namn: `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` . Ta bort varje registrering separat.
 
 Nu tas alla distribuerade komponenter bort.
 
@@ -107,7 +107,7 @@ Använd ett kort och enkelt resurs grupp namn. Namnet används också för att n
 
 ### <a name="website-name-already-in-use"></a>Webbplats namnet används redan
 
-Det är möjligt att namnet på webbplatsen redan används. Du måste använda ett annat resurs grupps namn. Värd namnen som används av distributions skriptet är: https:\//ResourceGroupName.azurewebsites.net och https:\//resourgroupname-service.azurewebsites.net.
+Det är möjligt att namnet på webbplatsen redan används. Du måste använda ett annat resurs grupps namn. Värd namnen som används av distributions skriptet är: https: \/ /ResourceGroupName.azurewebsites.net och https: \/ /resourgroupname-service.azurewebsites.net.
 Andra namn på tjänster skapas med kombinationen av korta namn-hashar och är sannolikt inte en konflikt med andra tjänster.
 
 ### <a name="azure-ad-registration"></a>Azure Active Directory-registrering 

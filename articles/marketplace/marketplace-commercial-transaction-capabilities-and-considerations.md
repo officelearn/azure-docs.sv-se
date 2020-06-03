@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6cac7218c8f1fc48734b426c9e041831bf0b1f71
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 8818b06e84f6ffe05398087c4aaeba282adc8b2e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800056"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298218"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transact-funktioner för kommersiella Marketplace
 
@@ -53,7 +53,7 @@ Beroende på vilket transaktions alternativ som används är licens avgifter fö
 - **Kostnads fri** – ingen avgift för program varu licenser.
 - **Bring Your Own License** (BYOL) – alla tillämpliga avgifter för program varu licenser hanteras direkt mellan utgivaren och kunden. Microsoft passerar bara genom användnings avgifter för Azure-infrastruktur. Detta gäller endast för Virtual Machines och Azure-program.
 - **Betala** per användning – licens avgifter för program vara presenteras som en pris taxa per timme, per kärna (vCPU) baserat på den Azure-infrastruktur som används. Detta gäller endast för Virtual Machines och Azure-program.
-- **Prenumerations priser** – licens avgifter för program vara presenteras som en månatlig eller årlig, återkommande avgift faktureras som en fast taxa eller per plats. Detta gäller endast för SaaS-appar och Azure program-hanterade appar.
+- **Prenumerations priser** – licens avgifter för program vara presenteras som en månatlig eller årlig, återkommande avgift faktureras som en fast taxa eller per plats. Detta gäller för SaaS-appar (månatlig eller årlig) och Azure program-hanterade appar (varje månad).
 - **Kostnads fri utvärdering av program vara** – ingen avgift för program varu licenser i 30 eller 90 dagar.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Priser för kostnads fri och BYOL-licens (kostnads fritt)

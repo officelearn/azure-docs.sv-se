@@ -5,14 +5,14 @@ author: ancav
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: b2d2d14f89fa25bba1a19538c758aa0c930b3964
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2aca113e21d759416580c8876ec2092762893da5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018539"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299833"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Anpassade mått i Azure Monitor (förhands granskning)
 
@@ -30,9 +30,9 @@ Anpassade mått kan skickas till Azure Monitor via flera metoder:
 - Installera [InfluxDatain-agenten](collect-custom-metrics-linux-telegraf.md) på din virtuella Azure Linux-dator och skicka mått med hjälp av plugin-programmet för Azure Monitor-utdata.
 - Skicka anpassade mått [direkt till Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
-## <a name="pricing-model-and-rentention"></a>Pris modell och bevarande
+## <a name="pricing-model-and-retention"></a>Pris modell och kvarhållning
 
-På [sidan med Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/) finns information om när faktureringen ska aktive ras för anpassade mått och mått frågor. Det finns vissa pris uppgifter för alla mått, inklusive anpassade mått och mått frågor på den här sidan. Sammanfattnings vis finns det ingen kostnad för att mata in standard mått (plattforms mått) i Azure Monitor statistik lagring, men anpassade mått kommer att ta kostnader när de anger allmän tillgänglighet. Mått för API-frågor kostar.
+På [sidan med Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/) finns information om när faktureringen ska aktive ras för anpassade mått och mått frågor. Det finns vissa pris uppgifter för alla mått, inklusive anpassade mått och mått frågor på den här sidan. Sammanfattnings vis finns det ingen kostnad för att mata in standard mått (plattforms mått) i Azure Monitor statistik lagring, men anpassade mått debiteras kostnader när de anger allmän tillgänglighet. Mått för API-frågor kostar.
 
 Anpassade mått bevaras för [samma tid som plattforms måtten](data-platform-metrics.md#retention-of-metrics). 
 
@@ -78,7 +78,7 @@ Namn områden är ett sätt att kategorisera eller gruppera likartade mått till
 **Namn** är namnet på det mått som rapporteras. Vanligt vis är namnet tillräckligt beskrivande för att hjälpa dig att identifiera vad som mäts. Ett exempel är ett mått som mäter antalet minnes byte som används på en specifik virtuell dator. Det kan ha ett Metric-namn som **minnes byte som används**.
 
 ### <a name="dimension-keys"></a>Dimensions nycklar
-En dimension är ett nyckel-eller värdepar som hjälper dig att beskriva ytterligare egenskaper för det mått som samlas in. Genom att använda ytterligare egenskaper kan du samla in mer information om måttet, vilket ger djupare insikter. Till exempel kan **minnes byte som används** måttet ha en dimensions nyckel kallad **process** som samlar in hur många byte minne varje process på en virtuell dator förbrukar. Genom att använda den här nyckeln kan du filtrera måttet för att se hur mycket minnesbaserade processer som använder eller för att identifiera de fem översta processerna efter minnes användning.
+En dimension är ett nyckel-eller värdepar som hjälper dig att beskriva ytterligare egenskaper för det mått som samlas in. Genom att använda ytterligare egenskaper kan du samla in mer information om måttet, vilket ger djupare insikter. Till exempel kan **minnes byte som används** måttet ha en dimensions nyckel kallad **process** som samlar in hur många byte minne varje process på en virtuell dator förbrukar. Genom att använda den här nyckeln kan du filtrera måttet för att se hur mycket minnesrelaterade processer som använder eller för att identifiera de fem främsta processerna efter minnes användning.
 Mått är valfria, men alla mått kan inte ha några mått. Ett anpassat mått kan ha upp till 10 dimensioner.
 
 ### <a name="dimension-values"></a>Dimensions värden
@@ -196,6 +196,7 @@ Under den offentliga för hands versionen är möjligheten att publicera anpassa
 |USA, centrala      | https: \/ /centralus.Monitoring.Azure.com |
 |Kanada, centrala | https: \/ /canadacentral.Monitoring.Azure.comc
 |USA, östra| https: \/ /eastus.Monitoring.Azure.com/ |
+|USA, östra 2 | https: \/ /eastus2.Monitoring.Azure.com/
 | **Europa** | |
 |Europa, norra    | https: \/ /northeurope.Monitoring.Azure.com/ |
 |Europa, västra     | https: \/ /westeurope.Monitoring.Azure.com/ |

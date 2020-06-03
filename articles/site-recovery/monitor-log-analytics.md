@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131190"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300798"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Övervaka Site Recovery med Azure Monitor-loggar
 
@@ -42,7 +42,7 @@ Vi rekommenderar att du läser igenom [vanliga övervaknings frågor](monitoring
 
 ## <a name="configure-site-recovery-to-send-logs"></a>Konfigurera Site Recovery för att skicka loggar
 
-1. I valvet klickar du på **diagnostiska inställningar** > **Lägg till diagnostisk inställning**.
+1. I valvet klickar du på **diagnostiska inställningar**  >  **Lägg till diagnostisk inställning**.
 
     ![Välj resurs loggning](./media/monitoring-log-analytics/add-diagnostic.png)
 
@@ -252,7 +252,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>Konfigurera aviseringar – exempel
 
-Du kan ställa in Site Recovery aviseringar baserat på Azure Monitor data. [Läs mer](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) om hur du konfigurerar logg aviseringar. 
+Du kan ställa in Site Recovery aviseringar baserat på Azure Monitor data. [Läs mer](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) om hur du konfigurerar logg aviseringar. 
 
 > [!NOTE]
 > Några av exemplen använder **replicationProviderName_s** inställt på **A2A**. Detta ställer in aviseringar för virtuella Azure-datorer som replikeras till en sekundär Azure-region. I de här exemplen kan du ersätta **A2A** med **InMageAzureV2** om du vill ställa in aviseringar för lokala virtuella VMware-datorer eller fysiska servrar som replikeras till Azure.

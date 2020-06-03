@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd1bd85e76bdda52e2f3b3b60c705792ca82a6eb
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: bcc1affb953a737c12ca5bdb70ba7eadee20cd97
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247996"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295532"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "84247996"
 
 [Anpassade principer](custom-policy-overview.md) är konfigurationsfiler som definierar beteendet för din Azure Active Directory B2C (Azure AD B2C)-klient. I den här artikeln skapar du en anpassad princip som stöder registrering av lokalt konto eller inloggning med hjälp av en e-postadress och ett lösen ord. Du förbereder också din miljö för att lägga till identitets leverantörer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte redan har en, [skapar du en Azure AD B2C klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 - [Registrera ditt program](tutorial-register-applications.md) i klient organisationen som du skapade så att den kan kommunicera med Azure AD B2C.
@@ -74,22 +74,9 @@ Du behöver bara registrera dessa två program i Azure AD B2C klient organisatio
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrera IdentityExperienceFramework-programmet
 
-Om du vill registrera ett program i din Azure AD B2C klient kan du använda den **Appregistreringar (äldre)** upplevelsen eller vår nya enhetliga **Appregistreringar (för hands version)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda **Appregistreringar** upplevelsen.
 
-#### <a name="applications"></a>[Program](#tab/applications/)
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. I Azure Portal söker du efter och väljer **Azure Active Directory**.
-1. I menyn **Azure Active Directory** översikt under **hantera**väljer du **Appregistreringar (bakåtkompatibelt)**.
-1. Välj **Ny programregistrering**.
-1. Som **namn**anger du `IdentityExperienceFramework` .
-1. För **program typ**väljer du **webbapp/API**.
-1. För **inloggnings-URL**anger du `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` , där `your-tenant-name` är ditt Azure AD B2C klient domän namn. Alla URL: er ska nu använda [b2clogin.com](b2clogin.md).
-1. Välj **Skapa**. När den har skapats kopierar du program-ID: t och sparar det för att använda det senare.
-
-#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
-
-1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
+1. Välj **Appregistreringar**och välj sedan **ny registrering**.
 1. Som **namn**anger du `IdentityExperienceFramework` .
 1. Under **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**.
 1. Under **omdirigerings-URI**väljer du **webb**och anger sedan `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` , där `your-tenant-name` är ditt Azure AD B2C klient domän namn.
@@ -111,21 +98,7 @@ Sedan exponerar du API: et genom att lägga till ett omfång:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrera ProxyIdentityExperienceFramework-programmet
 
-#### <a name="applications"></a>[Program](#tab/applications/)
-
-1. I **Appregistreringar (bakåtkompatibelt)** väljer du **ny program registrering**.
-1. Som **namn**anger du `ProxyIdentityExperienceFramework` .
-1. Välj **intern**för **program typ**.
-1. För **omdirigerings-URI**anger du `myapp://auth` .
-1. Välj **Skapa**. När den har skapats kopierar du program-ID: t och sparar det för att använda det senare.
-1. Välj **Inställningar**och välj sedan **nödvändiga behörigheter**och välj sedan **Lägg till**.
-1. Välj **Välj ett API**, Sök efter och välj **IdentityExperienceFramework**och klicka sedan på **Välj**.
-1. Markera kryss rutan bredvid Access- **IdentityExperienceFramework**, klicka på **Välj**och sedan på **färdig**.
-1. Välj **bevilja behörigheter**och bekräfta genom att välja **Ja**.
-
-#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
-
-1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
+1. Välj **Appregistreringar**och välj sedan **ny registrering**.
 1. Som **namn**anger du `ProxyIdentityExperienceFramework` .
 1. Under **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**.
 1. Under **omdirigerings-URI**använder du List rutan för att välja **offentlig klient/ursprunglig (mobil & Desktop)**.
@@ -137,7 +110,6 @@ Sedan exponerar du API: et genom att lägga till ett omfång:
 Ange sedan att programmet ska behandlas som en offentlig klient:
 
 1. Under **Hantera**väljer du **autentisering**.
-1. Välj **testa den nya upplevelsen** (om den visas).
 1. Under **Avancerade inställningar**aktiverar du **behandla program som en offentlig klient** (Välj **Ja**). Se till att **"allowPublicClient": true** har angetts i applikations manifestet. 
 1. Välj **Spara**.
 

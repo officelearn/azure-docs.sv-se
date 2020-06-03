@@ -4,16 +4,16 @@ description: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 2f10c7378ae7681b14df6e96b6a6f1adac832d1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34ea9961c257f398ebed3baaf4ed2ee5b6f3547e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80287823"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298711"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Anslut privat till en webbapp med hjälp av Azures privata slut punkt (för hands version)
 
@@ -23,7 +23,7 @@ I den här snabb starten får du lära dig hur du distribuerar en webbapp med pr
 Mer information finns i [använda privata slut punkter för Azure Web App][privatenedpointwebapp].
 
 > [!Note]
->För hands versionen är tillgänglig i regionerna USA, västra och USA, västra 2 för alla PremiumV2 Windows-och Linux-Web Apps. 
+>För hands versionen är tillgänglig i offentliga regioner för PremiumV2 Windows-och Linux-Web Apps och elastiska Premium-funktioner. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -37,7 +37,7 @@ I det här avsnittet ska du skapa det virtuella nätverket och under nätet som 
 
 I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverk** > **virtuellt nätverk** eller söker efter **virtuellt nätverk** i sökrutan.
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **virtuellt nätverk** eller söker efter **virtuellt nätverk** i sökrutan.
 
 1. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken grundläggande:
 
@@ -60,7 +60,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
 ### <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **beräkning** > **virtuell dator**
+1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **beräkning**  >  **virtuell dator**
 
 1. I Skapa en virtuell dator – grunder anger eller väljer du följande information:
 
@@ -89,7 +89,7 @@ I det här avsnittet ska du skapa en privat webbapp med en privat slut punkt til
 
 ### <a name="web-app"></a>Webbapp
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **webb** > **webbapp**
+1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **webb**  >  **Web App** webbapp
 
 1. I skapa webbapp – grunderna anger eller väljer du den här informationen:
 
@@ -102,7 +102,7 @@ I det här avsnittet ska du skapa en privat webbapp med en privat slut punkt til
 
 ### <a name="create-the-private-endpoint"></a>Skapa den privata slut punkten
 
-1. I egenskaperna för webbappen väljer du **Inställningar** > **nätverk** och klickar på **"Konfigurera dina privata slut punkts anslutningar"**
+1. I egenskaperna för webbappen väljer du **Inställningar**  >  **nätverk** och klickar på **"Konfigurera dina privata slut punkts anslutningar"**
 
    > [!div class="mx-imgBorder"]
    >![Webb program nätverk][7]
@@ -120,8 +120,8 @@ I det här avsnittet ska du skapa en privat webbapp med en privat slut punkt til
 1. Granska skapandet av den privata slut punkten
 
    > [!div class="mx-imgBorder"]
-   >![Granska][10]
-   >![den slutliga vyn av den privata slut punkten][11]
+   >![Granska ][10]
+   > ![ den slutliga vyn av den privata slut punkten][11]
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
 

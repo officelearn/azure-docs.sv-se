@@ -8,42 +8,42 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
 ms.date: 04/22/2020
-ms.openlocfilehash: db5cabd82ebfed3b1de7659e4b9450ccee0ff001
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1e0e4018c79c231c69f29b2272420344198af413
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82115303"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310367"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Snabb start: skapa en Azure blockchain service-medlem med en Azure Resource Manager-mall
 
-I den här snabb starten distribuerar du en ny blockchain-medlem och konsortiet i Azure blockchain-tjänsten med hjälp av en Azure Resource Manager-mall.
-
-En Azure blockchain-tjänst medlem är en blockchain-nod i ett privat konsortium blockchain-nätverk. När du konfigurerar en medlem kan du skapa eller ansluta till ett konsortiums nätverk. Du behöver minst en medlem för ett konsortiums nätverk. Antalet blockchain-medlemmar som krävs av deltagarna beror på ditt scenario. Konsortiet deltagare kan ha en eller flera blockchain-medlemmar eller de kan dela medlemmar med andra deltagare. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
+I den här snabb starten distribuerar du en ny blockchain-medlem och konsortiet i Azure blockchain-tjänsten med hjälp av en Azure Resource Manager-mall. En Azure blockchain-tjänst medlem är en blockchain-nod i ett privat konsortium blockchain-nätverk. När du konfigurerar en medlem kan du skapa eller ansluta till ett konsortiums nätverk. Du behöver minst en medlem för ett konsortiums nätverk. Antalet blockchain-medlemmar som krävs av deltagarna beror på ditt scenario. Konsortiet deltagare kan ha en eller flera blockchain-medlemmar eller de kan dela medlemmar med andra deltagare. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Inga.
 
-## <a name="review-the-template"></a>Granska mallen
+## <a name="create-a-blockchain-service-member"></a>Skapa en blockchain-tjänst medlem
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/201-blockchain-asaservice/).
+### <a name="review-the-template"></a>Granska mallen
 
-[!code-json[<Azure Resource Manager template create blockchain member>](~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json)]
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/201-blockchain-asaservice/).
+
+:::code language="json" source="~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json" range="1-84" highlight="52-80":::
 
 Azure-resurser som definierats i mallen:
 
-* [**Microsoft. blockchain/blockchainMembers**](https://docs.microsoft.com/azure/templates/microsoft.blockchain/blockchainmembers)
+* [**Microsoft. blockchain/blockchainMembers**](/azure/templates/microsoft.blockchain/blockchainmembers)
 
-## <a name="deploy-the-template"></a>Distribuera mallen
+### <a name="deploy-the-template"></a>Distribuera mallen
 
 1. Välj följande länk för att logga in på Azure och öppna en mall.
 
-    [![Distribuera till Azure](./media/create-member-template/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
+    [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
 
 1. Ange inställningarna för Azure blockchain service-medlemmen.
 
@@ -51,7 +51,7 @@ Azure-resurser som definierats i mallen:
     --------|------------
     Prenumeration | Välj den Azure-prenumeration som du vill använda för din tjänst. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
     Resursgrupp | Skapa ett nytt resurs grupp namn eller Välj en befintlig från din prenumeration.
-    Plats | Välj en plats där du vill skapa medlemmen. Alla medlemmar i konsortiet måste finnas på samma plats. Tillgängliga platser för distributionen är *westeurope, öster, Sydostasien, westeurope, europanorra, westus2*och *japanöstra*.
+    Location | Välj en plats där du vill skapa medlemmen. Alla medlemmar i konsortiet måste finnas på samma plats. Tillgängliga platser för distributionen är *westeurope, öster, Sydostasien, westeurope, europanorra, westus2*och *japanöstra*.
     Medlemsnamn | Välj ett unikt namn för Azure blockchain service-medlemmen. Blockchain-medlems namnet får bara innehålla gemena bokstäver och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
     Namn på konsortium | Ange ett unikt namn. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
     Medlems lösen ord | Medlems kontots lösen ord används för att kryptera den privata nyckeln för det Ethereum-konto som skapas för din medlem. Du använder medlems kontot och medlems kontots lösen ord för hantering av konsortier.

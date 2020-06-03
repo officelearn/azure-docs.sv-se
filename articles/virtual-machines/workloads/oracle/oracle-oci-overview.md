@@ -11,15 +11,15 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/01/2020
 ms.author: borisb
 ms.custom: ''
-ms.openlocfilehash: 077fd70f0908dcef3af0c1e037fe137d636a4ac4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9fc14a6a8211308ef9f1cd98cd4b831070a99e22
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660559"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299884"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Oracle-programlösningar som integrerar Microsoft Azure och Oracle Cloud Infrastructure
 
@@ -35,10 +35,7 @@ Om du är intresse rad av att distribuera Oracle-lösningar helt och hållet i A
 
 Anslutning mellan moln är en lösning som gör att du kan köra Oracles branschledande program och dina egna anpassade program på Azure Virtual Machines samtidigt som du får fördelarna med värdbaserade databas tjänster i OCI. 
 
-> [!IMPORTANT]
-> Oracle certifierar dessa program för att köras i Azure när du använder Azure/Oracle Cloud Interconnect-lösningen från maj 2020.
-
-Program som du kan köra i en konfiguration mellan moln är:
+Från och med maj 2020 certifieras följande program i en konfiguration mellan moln:
 
 * E-Business Suite
 * JD Edwards-EnterpriseOne

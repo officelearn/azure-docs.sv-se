@@ -5,29 +5,20 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bbbc606497b53a0790d667a63b45101a3c18bbc4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183403"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297503"
 ---
-#### <a name="applications"></a>[Program](#tab/applications/)
-
-1. Välj **program**.
-1. Välj *webapi1* -programmet för att öppna dess **egenskaps** sida.
-1. Välj **Publicerade omfång**. Publicerade omfattningar kan användas för att ge ett klient program vissa behörigheter till webb-API: et.
-1. För **omfattning**, ange `demo.read`och för **Beskrivning**anger `Read access to the web API`du.
-1. För **omfattning**, ange `demo.write`och för **Beskrivning**anger `Write access to the web API`du.
-1. Välj **Spara**.
-
 #### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
 1. Välj **Appregistreringar (för hands version)**.
 1. Välj *webapi1* -programmet för att öppna dess **översikts** sida.
 1. Under **Hantera**väljer du **exponera ett API**.
 1. Välj länken **mängd** bredvid **program-ID-URI**.
-1. Ersätt standardvärdet (ett GUID) med `api`och välj sedan **Spara**. Den fullständiga URI: n visas och ska ha formatet `https://your-tenant-name.onmicrosoft.com/api`. När ditt webb program begär en åtkomsttoken för API: et ska den lägga till denna URI som prefix för varje omfång som du definierar för API: et.
+1. Ersätt standardvärdet (ett GUID) med `api` och välj sedan **Spara**. Den fullständiga URI: n visas och ska ha formatet `https://your-tenant-name.onmicrosoft.com/api` . När ditt webb program begär en åtkomsttoken för API: et ska den lägga till denna URI som prefix för varje omfång som du definierar för API: et.
 1. Under **omfattningar som definieras av detta API**väljer du **Lägg till ett omfång**.
 1. Ange följande värden för att skapa ett omfång som definierar Läs åtkomst till API: et och välj sedan **Lägg till omfång**:
     1. **Omfattnings namn**:`demo.read`
@@ -37,3 +28,12 @@ ms.locfileid: "78183403"
     1. **Omfattnings namn**:`demo.write`
     1. **Visnings namn för administratörs medgivande**:`Write access to demo API`
     1. **Beskrivning av administratörs medgivande**:`Allows write access to the demo API`
+
+#### <a name="applications"></a>[Program](#tab/applications/)
+
+1. Välj **program**.
+1. Välj *webapi1* -programmet för att öppna dess **egenskaps** sida.
+1. Välj **Publicerade omfång**. Publicerade omfattningar kan användas för att ge ett klient program vissa behörigheter till webb-API: et.
+1. För **omfattning**, ange `demo.read` och för **Beskrivning**anger du `Read access to the web API` .
+1. För **omfattning**, ange `demo.write` och för **Beskrivning**anger du `Write access to the web API` .
+1. Välj **Spara**.

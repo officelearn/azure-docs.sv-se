@@ -11,18 +11,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9bf7339e500a006c168311145a9a5d992b07f145
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: dabceb3cc3b7fa2b48ad1b21dfcafb3278c2461d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84231809"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298778"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudie: aktivera autentisering i ett webb program med hjälp av Azure Active Directory B2C
 
 Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att logga in och registrera användare i ett ASP.NET-webbprogram. Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Uppdatera programmet i Azure AD B2C
@@ -42,28 +42,27 @@ I självstudien som du avslutade som en del av förutsättningarna registrerade 
 
 ### <a name="add-a-redirect-uri-reply-url"></a>Lägg till en omdirigerings-URI (svars-URL)
 
-Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (för hands version)** för att uppdatera programmet. [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
+Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
 
-#### <a name="applications"></a>[Program](#tab/applications/)
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-1. Välj **Program** och därefter programmet *webapp1*.
-1. Under **Svars-URL** lägger du till `https://localhost:44316`.
-1. Välj **Spara**.
-1. På sidan Egenskaper registrerar du program-ID för användning i ett senare steg när du konfigurerar webb programmet.
-
-#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Välj **Appregistreringar (för hands version)**, Välj fliken **ägda program** och välj sedan *webapp1* -programmet.
-1. Välj **autentisering**och välj sedan **testa den nya upplevelsen** (om den visas).
+1. Välj **Appregistreringar**, Välj fliken **ägda program** och välj sedan *webapp1* -programmet.
 1. Under **webb**väljer du länken **Lägg till URI** , anger `https://localhost:44316` och väljer sedan **Spara**.
 1. Välj **Översikt**.
 1. Registrera **program-ID (Client)** för användning i ett senare steg när du konfigurerar webb programmet.
+
+#### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
+1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+1. Välj **program (bakåtkompatibelt)** och välj sedan *webapp1* -programmet.
+1. Under **Svars-URL** lägger du till `https://localhost:44316`.
+1. Välj **Spara**.
+1. På sidan Egenskaper registrerar du program-ID för användning i ett senare steg när du konfigurerar webb programmet.
 
 * * *
 

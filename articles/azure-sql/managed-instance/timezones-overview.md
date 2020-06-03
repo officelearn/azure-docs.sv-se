@@ -1,5 +1,5 @@
 ---
-title: Tids zoner för hanterade instanser
+title: Tids zoner för hanterad Azure SQL-instans
 description: Läs mer om tids zonens information om den hanterade Azure SQL-instansen
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 05/25/2020
-ms.openlocfilehash: ef8572f03ddb3df8dae5f823c2d8d6d12f3e1a31
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: df4d91cf6dffaeb9309c5304382b415f7adde8b5
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046819"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309687"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Tids zoner i Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -25,7 +25,7 @@ UTC (Coordinated Universal Time) är den rekommenderade tids zonen för data niv
 T-SQL-funktioner som [getDate ()](/sql/t-sql/functions/getdate-transact-sql) eller CLR-kod studerar tids zonen på instans nivå. SQL Server Agents jobb följer också scheman enligt tids zonen för instansen.
 
   > [!NOTE]
-  > Azure SQL Database stöder inte tids zons inställningar. den följer alltid UTC. Använd [i tids zonen](/sql/t-sql/queries/at-time-zone-transact-sql) i SQL-databaser om du behöver tolka datum-och tidsinformation i en tidszon som inte är UTC-tid.
+  > Azure SQL Database stöder inte tids zons inställningar. den följer alltid UTC. Använd [vid tidszon](/sql/t-sql/queries/at-time-zone-transact-sql) i SQL Database om du behöver tolka datum-och tidsinformation i en tidszon som inte är UTC-tid.
 
 ## <a name="supported-time-zones"></a>Tids zoner som stöds
 

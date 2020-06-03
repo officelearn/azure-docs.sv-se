@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: c4dae18a5040d475c246d244ea7702ccfdf85cd9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538749"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309313"
 ---
 # <a name="language-support-for-immersive-reader"></a>Språk stöd för avancerad läsare
 
@@ -33,16 +33,16 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Katalanska | ca-ES |
 | Kinesiska | zh |
 | Kinesiska (Kina) | zh-CN |
-| Kinesiska (Hongkong) | zh-HK |
-| Kinesiska (Macao) | zh-MO |
+| Kinesiska (Hongkong SAR) | zh-HK |
+| Kinesiska (Macao SAR) | zh-MO |
 | Kinesiska (Singapore) | zh-SG |
 | Kinesiska (Taiwan) | zh-TW |
 | Kinesiska, förenklad | zh-hans |
 | Förenklad kinesiska (Kina) | zh-hans-CN |
 | Förenklad kinesiska (Singapore) | zh-hans-SG |
 | Kinesiska, traditionell | zh-Hant-CN |
-| Traditionell kinesiska (Hongkong) | zh-Hant – HK |
-| Traditionell kinesiska (Macao) | zh-Hant – MO |
+| Traditionell kinesiska (Hongkong SAR) | zh-Hant – HK |
+| Traditionell kinesiska (Macao SAR) | zh-Hant – MO |
 | Traditionell kinesiska (Taiwan) | zh-Hant-TW |
 | Kroatiska | tim |
 | Kroatiska (Kroatien) | hr-HR |
@@ -52,7 +52,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Danska (Danmark) | da-DK |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
-| Svenska | en |
+| Engelska | en |
 | Engelska (Australien) | en – AU |
 | Engelska (Kanada) | en-CA |
 | Engelska (Hongkong SAR) | en – HK |
@@ -85,7 +85,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Italienska (Italien) | it-IT |
 | Japanska | ja |
 | Japanska (Japan) | ja-JP |
-| Koreansk | Ko |
+| Koreanska | Ko |
 | Koreanska (Korea) | ko-KR |
 | Malajiska | millisekund |
 | Malajiska (Malaysia) | ms-MY |
@@ -135,16 +135,16 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Katalanska | ca-ES |
 | Kinesiska | zh |
 | Kinesiska (Kina) | zh-CN |
-| Kinesiska (Hongkong) | zh-HK |
-| Kinesiska (Macao) | zh-MO |
+| Kinesiska (Hongkong SAR) | zh-HK |
+| Kinesiska (Macao SAR) | zh-MO |
 | Kinesiska (Singapore) | zh-SG |
 | Kinesiska (Taiwan) | zh-TW |
 | Kinesiska, förenklad | zh-hans |
 | Förenklad kinesiska (Kina) | zh-hans-CN |
 | Förenklad kinesiska (Singapore) | zh-hans-SG |
 | Kinesiska, traditionell | zh-Hant-CN |
-| Traditionell kinesiska (Hongkong) | zh-Hant – HK |
-| Traditionell kinesiska (Macao) | zh-Hant – MO |
+| Traditionell kinesiska (Hongkong SAR) | zh-Hant – HK |
+| Traditionell kinesiska (Macao SAR) | zh-Hant – MO |
 | Traditionell kinesiska (Taiwan) | zh-Hant-TW |
 | Kroatiska | tim |
 | Kroatiska (Kroatien) | hr-HR |
@@ -154,7 +154,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Danska (Danmark) | da-DK |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
-| Svenska | en |
+| Engelska | en |
 | Engelska (Australien) | en – AU |
 | Engelska (Kanada) | en-CA |
 | Engelska (Hongkong SAR) | en – HK |
@@ -196,7 +196,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Japanska (Japan) | ja-JP |
 | Kannada | 5,0 |
 | Swahili | sv |
-| Koreansk | Ko |
+| Koreanska | Ko |
 | Koreanska (Korea) | ko-KR |
 | Lettiska | LV |
 | Litauiska | långsiktiga |
@@ -267,8 +267,8 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Förenklad kinesiska (Kina) | zh-hans-CN |
 | Förenklad kinesiska (Singapore) | zh-hans-SG |
 | Kinesiska, traditionell | zh-Hant-CN |
-| Traditionell kinesiska (Hongkong) | zh-Hant – HK |
-| Traditionell kinesiska (Macao) | zh-Hant – MO |
+| Traditionell kinesiska (Hongkong SAR) | zh-Hant – HK |
+| Traditionell kinesiska (Macao SAR) | zh-Hant – MO |
 | Traditionell kinesiska (Taiwan) | zh-Hant-TW |
 | Kroatiska | tim |
 | Kroatiska (Kroatien) | hr-HR |
@@ -278,7 +278,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Danska (Danmark) | da-DK |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
-| Svenska | en |
+| Engelska | en |
 | Engelska (Australien) | en – AU |
 | Engelska (Kanada) | en-CA |
 | Engelska (Hongkong SAR) | en – HK |
@@ -315,7 +315,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Japanska | ja |
 | Japanska (Japan) | ja-JP |
 | Kazakiska | kk |
-| Koreansk | Ko |
+| Koreanska | Ko |
 | Koreanska (Korea) | ko-KR |
 | Lettiska | LV |
 | Litauiska | långsiktiga |
@@ -323,7 +323,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Malajiska (Malaysia) | ms-MY |
 | Norska bokmål| Anm |
 | Norska bokmål (Norge) | nb-NO |
-| Norska, Nynorsk | nn |
+| Norska (nynorsk) | nn |
 | Polska | pl |
 | Polska (Polen) | pl-PL |
 | Portugisiska | pt |
@@ -374,7 +374,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Danska (Danmark) | da-DK |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
-| Svenska | en |
+| Engelska | en |
 | Engelska (Australien) | en – AU |
 | Engelska (Kanada) | en-CA |
 | Engelska (Hongkong SAR) | en – HK |
@@ -407,7 +407,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Litauiska | långsiktiga |
 | Norska bokmål| Anm |
 | Norska bokmål (Norge) | nb-NO |
-| Norska, Nynorsk | nn |
+| Norska (nynorsk) | nn |
 | Polska | pl |
 | Polska (Polen) | pl-PL |
 | Portugisiska | pt |
@@ -443,7 +443,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Danska (Danmark) | da-DK |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
-| Svenska | en |
+| Engelska | en |
 | Engelska (Australien) | en – AU |
 | Engelska (Kanada) | en-CA |
 | Engelska (Hongkong SAR) | en – HK |
@@ -466,7 +466,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Italienska (Italien) | it-IT |
 | Japanska | ja |
 | Japanska (Japan) | ja-JP |
-| Koreansk | Ko |
+| Koreanska | Ko |
 | Koreanska (Korea) | ko-KR |
 | Norska bokmål| Anm |
 | Norska bokmål (Norge) | nb-NO |
@@ -493,7 +493,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Danska (Danmark) | da-DK |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
-| Svenska | en |
+| Engelska | en |
 | Engelska (Australien) | en – AU |
 | Engelska (Kanada) | en-CA |
 | Engelska (Hongkong SAR) | en – HK |
@@ -516,11 +516,11 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Italienska (Italien) | it-IT |
 | Japanska | ja |
 | Japanska (Japan) | ja-JP |
-| Koreansk | Ko |
+| Koreanska | Ko |
 | Koreanska (Korea) | ko-KR |
 | Norska bokmål| Anm |
 | Norska bokmål (Norge) | nb-NO |
-| Norska, Nynorsk | nn |
+| Norska (nynorsk) | nn |
 | Polska | pl |
 | Polska (Polen) | pl-PL |
 | Portugisiska | pt |
@@ -538,7 +538,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 
 | Språk | Tagga |
 |----------|-----|
-| Svenska | en |
+| Engelska | en |
 | Engelska (Australien) | en – AU |
 | Engelska (Kanada) | en-CA |
 | Engelska (Hongkong SAR) | en – HK |

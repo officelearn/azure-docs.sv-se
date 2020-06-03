@@ -12,12 +12,12 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ff5d8ecaaeff67e1a97c4afd4ca8119f8ac7c1e1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 68143c4ac3851604996e1f7ba2adce48934e59c5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696956"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295396"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -41,7 +41,7 @@ Sammanfatta de två icke-exklusiva huvud scenarierna med SAML:
 | Mitt program förväntar sig en SAML-kontroll för att slutföra en autentisering. | **Azure AD B2C fungerar som identitets leverantör (IdP)**<br />Azure AD B2C fungerar som en SAML-IdP i programmen. | Den här artikeln. |
 | Mina användare behöver en enkel inloggning med en SAML-kompatibel identitets leverantör som ADFS, Salesforce eller Shibboleth.  | **Azure AD B2C fungerar som tjänst leverantör (SP)**<br />Azure AD B2C fungerar som en tjänst leverantör vid anslutning till SAML Identity Provider. Det är en Federations-proxy mellan ditt program och SAML Identity Provider.  | <ul><li>[Konfigurera inloggning med ADFS som ett SAML-IdP med anpassade principer](identity-provider-adfs2016-custom.md)</li><li>[Konfigurera inloggning med en Salesforce-SAML-Provider med anpassade principer](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför stegen i [Kom igång med anpassade principer i Azure AD B2C](custom-policy-get-started.md). Du behöver den anpassade principen *SocialAndLocalAccounts* från start paketet för anpassad princip som beskrivs i artikeln.
 * Grundläggande förståelse för Security Assertion Markup Language-protokollet (SAML).
@@ -265,12 +265,12 @@ Din anpassade princip och Azure AD B2C klient är nu klara. Skapa sedan en progr
 
 ## <a name="4-setup-application-in-the-azure-ad-b2c-directory"></a>4. installations programmet i katalogen Azure AD B2C
 
-### <a name="41-register-your-application-in-azure-active-directory"></a>4,1 registrera ditt program i Azure Active Directory
+### <a name="41-register-your-application-in-azure-ad-b2c"></a>4,1 registrera ditt program i Azure AD B2C
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
+1. Välj **Appregistreringar**och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *SAMLApp1*.
 1. Under **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**
 1. Under **omdirigerings-URI**väljer du **webb**och anger sedan `https://localhost` . Du ändrar det här värdet senare i program registreringens manifest.

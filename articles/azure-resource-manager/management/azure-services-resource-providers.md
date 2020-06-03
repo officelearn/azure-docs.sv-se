@@ -2,13 +2,13 @@
 title: Resurs leverantörer efter Azure-tjänster
 description: Visar en lista över alla resurs leverantörs namn områden för Azure Resource Manager och Azure-tjänsten för namn området visas.
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: 95846a74f9556fcccb3f583f365679c8ebadecee
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/02/2020
+ms.openlocfilehash: a87d55ceee759d81d0aab823f003b4bb36a66610
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020157"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310333"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resurs leverantörer för Azure-tjänster
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | --------------------------- | ------------- |
 | Microsoft. AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft. addons | grundläggande |
-| Microsoft. ADHybridHealthService | [Azure Active Directory](/azure/active-directory/) |
+| Microsoft. ADHybridHealthService<sup>1</sup> | [Azure Active Directory](/azure/active-directory/) |
 | Microsoft. Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft. AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
@@ -28,15 +28,19 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. AppConfiguration | grundläggande |
 | Microsoft. AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft. attestering | Tjänsten Azure attestering |
-| Microsoft.Authorization | [Azure Resource Manager](../index.yml) |
+| Microsoft. Authorization<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft. Automation | [Automation](../../automation/index.yml) |
+| Microsoft. AutonomousSystems | [Autonoma system](https://www.microsoft.com/ai/autonomous-systems) |
+| Microsoft. AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft. AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
 | Microsoft. AzureData | SQL Server registret |
 | Microsoft. AzureStack | grundläggande |
+| Microsoft. AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft. fakturering | [Kostnadshantering och fakturering](/azure/billing/) |
+| Microsoft. fakturering<sup>1</sup> | [Kostnadshantering och fakturering](/azure/billing/) |
 | Microsoft. Bingkartssökning | [Bing-kartor](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft. blockchain | [Azure Blockchain Service](/azure/blockchain/workbench/) |
+| Microsoft. BlockchainTokens | [Azure Blockchain-token](https://azure.microsoft.com/services/blockchain-tokens/) |
 | Microsoft. skiss | [Azure Blueprint](/azure/governance/blueprints/) |
 | Microsoft. BotService | [Azure Bot Service](/azure/bot-service/) |
 | Microsoft. cache | [Azure Cache for Redis](/azure/azure-cache-for-redis/) |
@@ -48,15 +52,15 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. ClassicInfrastructureMigrate | Klassisk migrering av distributions modell |
 | Microsoft. ClassicNetwork | Klassiskt virtuellt nätverk för distributions modell |
 | Microsoft. ClassicStorage | Klassisk distributions modell lagring |
-| Microsoft. ClassicSubscription | Klassisk distributionsmodell |
+| Microsoft. ClassicSubscription<sup>1</sup> | Klassisk distributionsmodell |
 | Microsoft. CognitiveServices | [Cognitive Services](/azure/cognitive-services/) |
-| Microsoft. Commerce | grundläggande |
+| Microsoft. Commerce<sup>1</sup> | grundläggande |
 | Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
-| Microsoft. förbrukning | [Cost Management](/azure/cost-management/) |
+| Microsoft. förbrukning<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft. ContainerInstance | [Container Instances](/azure/container-instances/) |
 | Microsoft. ContainerRegistry | [Container Registry](/azure/container-registry/) |
 | Microsoft. container service | [Azure Kubernetes Service (AKS)](/azure/aks/) |
-| Microsoft. CostManagement | [Cost Management](/azure/cost-management/) |
+| Microsoft. CostManagement<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft. CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft. CustomerLockbox | Customer Lockbox för Microsoft Azure |
 | Microsoft. CustomProviders | [Anpassade providrar för Azure](../custom-providers/overview.md) |
@@ -68,12 +72,13 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. DataLakeAnalytics | [Data Lake Analytics](/azure/data-lake-analytics/) |
 | Microsoft. DataLakeStore | [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) |
 | Microsoft. data migration | [Azure Database Migration Service](/azure/dms/) |
+| Microsoft. DataProtection | Dataskydd |
 | Microsoft. DataShare | [Azure Data Share](/azure/data-share/) |
 | Microsoft. DBforMariaDB | [Azure-databas för MariaDB](/azure/mariadb/) |
 | Microsoft. DBforMySQL | [Azure Database for MySQL](/azure/mysql/) |
 | Microsoft. DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
-| Microsoft. DesktopVirtualization | [Windows Virtual Desktop](/azure/virtual-desktop/) |
 | Microsoft. DeploymentManager | [Azure Deployment Manager](../templates/deployment-manager-overview.md) |
+| Microsoft. DesktopVirtualization | [Windows Virtual Desktop](/azure/virtual-desktop/) |
 | Microsoft. Devices | [Azure IoT Hub](/azure/iot-hub/)<br />[Azure IoT Hub Device Provisioning-tjänst](/azure/iot-dps/) |
 | Microsoft. DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft. DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
@@ -84,7 +89,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. EnterpriseKnowledgeGraph | Företags kunskaps diagram |
 | Microsoft. EventGrid | [Event Grid](/azure/event-grid/) |
 | Microsoft. EventHub | [Event Hubs](../../event-hubs/index.yml) |
-| Microsoft. features | [Azure Resource Manager](../index.yml) |
+| Microsoft. features<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft. GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft. HanaOnAzure | [SAP HANA på stora Azure-instanser](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft. HardwareSecurityModules | [Dedikerad HSM i Azure](../../dedicated-hsm/index.yml) |
@@ -98,6 +103,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft. nyckel valv | [Key Vault](../../key-vault/index.yml) |
 | Microsoft. Kubernetes | [Azure Kubernetes Service (AKS)](/azure/aks/) |
+| Microsoft. KubernetesConfiguration | [Azure Kubernetes Service (AKS)](/azure/aks/) |
 | Microsoft.Kusto | [Azure-datautforskaren](/azure/data-explorer/) |
 | Microsoft. LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft. Logic | [Logic Apps](../../logic-apps/index.yml) |
@@ -110,56 +116,65 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. Maps | [Azure Maps](../../azure-maps/index.yml) |
 | Microsoft. Marketplace | grundläggande |
 | Microsoft. MarketplaceApps | grundläggande |
-| Microsoft. MarketplaceOrdering | grundläggande |
+| Microsoft. MarketplaceOrdering<sup>1</sup> | grundläggande |
 | Microsoft. Media | [Media Services](../../media-services/index.yml) |
 | Microsoft. Migrate | [Azure Migrate](../../migrate/migrate-overview.md) |
 | Microsoft. MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 | Microsoft. NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
 | Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Lastbalanserare](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtuellt WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
 | Microsoft. NotificationHubs | [Notification Hubs](../../notification-hubs/index.yml) |
+| Microsoft. ObjectStore | Objekt Arkiv |
 | Microsoft. OffAzure | [Azure Migrate](../../migrate/migrate-overview.md) |
 | Microsoft. OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. peering | [Azure Peering Service](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft. Portal | [Azure Portal](/azure/azure-portal/) |
+| Microsoft. Portal<sup>1</sup> | [Azure Portal](/azure/azure-portal/) |
 | Microsoft. PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft. PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
+| Microsoft. PowerPlatform | [Power Platform](/power-platform/) |
+| Microsoft. Quantum | [Azure Quantum](https://azure.microsoft.com/services/quantum/) |
 | Microsoft. RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft. RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
 | Microsoft. Relay | [Azure Relay](../../service-bus-relay/relay-what-is-it.md) |
-| Microsoft. ResourceGraph | [Azure Resource Graph](/azure/governance/resource-graph/) |
-| Microsoft. ResourceHealth | [Azure Service Health](../../service-health/index.yml)|
-| Microsoft. Resources | [Azure Resource Manager](../index.yml) |
+| Microsoft. ResourceGraph<sup>1</sup> | [Azure Resource Graph](/azure/governance/resource-graph/) |
+| Microsoft. ResourceHealth | [Azure Service Health](../../service-health/index.yml) |
+| Microsoft. Resources<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft. SaaS | grundläggande |
 | Microsoft. Scheduler | [Scheduler](/azure/scheduler/) |
 | Microsoft. search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft. Security | [Security Center](../../security-center/index.yml) |
 | Microsoft. SecurityInsights | [Azure Sentinel](/azure/sentinel/) |
-| Microsoft. SerialConsole | [Azures serie konsol för Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft. SerialConsole<sup>1</sup> | [Azures serie konsol för Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft. ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft. ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
+| Microsoft. Services | grundläggande |
 | Microsoft. SignalRService | [Azure SignalR Service](../../azure-signalr/index.yml) |
 | Microsoft. SoftwarePlan | Licens |
 | Microsoft. Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
 | Microsoft.Sql | [Azure SQL Database](../../azure-sql/database/index.yml)<br /> [Hanterad Azure SQL-instans](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft. SqlVirtualMachine | [SQL Server på Azure Virtual Machines](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
 | Microsoft.Storage | [Storage](../../storage/index.yml) |
-| Microsoft. StorageCache | [Azure HPC Cache](/azure/hpc-cache/) |
 | Microsoft. StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft. StorSimple | [StorSimple](/azure/storsimple/) |
 | Microsoft. StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft. Subscription | grundläggande |
-| Microsoft. support | grundläggande |
+| Microsoft. support<sup>1</sup> | grundläggande |
 | Microsoft. Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft. TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
+| Microsoft. token | Token |
 | Microsoft. VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
 | Microsoft. VisualStudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft. VMware | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft. VMwareCloudSimple | [Azure VMware Solution by CloudSimple](/azure/vmware-cloudsimple/) |
+| Microsoft. VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft. Web | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml) |
+| Microsoft. WindowsESU | Utökade säkerhets uppdateringar |
 | Microsoft. WindowsIoT | [Windows 10 IoT Core Services](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
-| Microsoft. WorkloadMonitor | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft. WorkloadMonitor<sup>1</sup> | [Azure Monitor](../../azure-monitor/index.yml) |
+
+<sup>1</sup> aktiverat som standard
 
 ## <a name="next-steps"></a>Nästa steg
 

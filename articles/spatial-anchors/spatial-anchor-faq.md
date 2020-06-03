@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 4bf55daa64319cfd47efd2e38a368d76f3814b4e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004476"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296677"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Vanliga frågor om Azure Spatial Anchors
 
@@ -61,8 +61,8 @@ För att ge transparens visas nedan en bild av miljön och det härledda molnet 
 
 Azure Spatial Anchors följer [villkoren i serviceavtalet för Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9) och [Microsofts sekretesspolicy](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
-![En miljö och dess härledda utlösare för moln](./media/sparse-point-cloud.png)
-*bild 1: en miljö och dess härledda, härledda punkt moln*
+![En miljö och dess härledda utlösare för moln ](./media/sparse-point-cloud.png)
+ *bild 1: en miljö och dess härledda, härledda punkt moln*
 
 **F: finns det något sätt som jag kan skicka diagnostikinformation till Microsoft?**
 
@@ -72,21 +72,21 @@ Azure Spatial Anchors följer [villkoren i serviceavtalet för Azure](https://go
 
 **F: tillhandahåller du ett service avtal?**
 
-**A:** Som standard för Azure-tjänster riktar vi en tillgänglighet som är större än 99,9%. Observera att Azure Spatial Anchors för närvarande är i förhandsversion och att [tilläggsvillkoren för förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) därför gäller.
+**A:** Som standard för Azure-tjänster riktar vi en tillgänglighet som är större än 99,9%. 
 
 **F: kan jag publicera mina appar med hjälp av Azure spatiala ankare till app-butiker? Kan jag använda Azure spatiala ankare för verksamhets kritiska produktions scenarier?**
 
-**A:** Det finns för närvarande en för hands version av Azures ankare för för hands version och vi ber dig att utveckla appar, [ge feedback](https://feedback.azure.com/forums/919252-azure-spatial-anchors) om produkten och planera för dina produktions distributioner.
-
-Datum för allmän tillgänglighet (GA) tillkännages snart.
+**A:** Ja, moln rums ankare är allmänt tillgängliga och har ett standard-SLA för Azure-tjänster. Vi bjuder in dig att utveckla appar för dina produktions distributioner och [dela din feedback](https://feedback.azure.com/forums/919252-azure-spatial-anchors) om produkten med oss.
 
 **F: har du några begränsnings gränser på plats?**
 
-**A**: Ja, vi har begränsningar för begränsning.  Vi förväntar oss inte att du uppnår dem vid typisk utveckling och testning av program. För produktionsdistributioner kan vi ge stöd till våra kunders krav för hög skala. [Kontakta oss](mailto:azuremrs@microsoft.com) om du vill diskutera det. Under den här förhandsversionsfasen har vi ännu inte publicerat vår struktur för nivåer och prissättning, men vi planerar att göra det snart.
+**A**: Ja, vi har begränsningar för begränsning.  Vi förväntar oss inte att du uppnår dem vid typisk utveckling och testning av program. För produktionsdistributioner kan vi ge stöd till våra kunders krav för hög skala. [Kontakta oss](mailto:azuremrs@microsoft.com) om du vill diskutera det. 
 
 **F: i vilka regioner är tillgängliga Azure-ankare tillgängliga?**
 
-**A:** Du kan skapa ett konto för ett Azure-ankare idag i regionen USA, östra 2 2. Det innebär att både beräkning och lagring som driver den här tjänsten finns i den här regionen. Dock finns det inga begränsningar för var klienterna kan finnas. I framtiden kommer att vi utöka regional tillgänglighet för tjänsten till alla primära Azure-regioner.
+**A:** Azures spatialdata är för närvarande tillgängligt i västra USA 2, östra USA, östra USA 2, södra centrala USA, Västeuropa, Nord Europa, Storbritannien, södra och östra Australien. Ytterligare regioner kommer att vara tillgängliga i framtiden.
+
+Det innebär att både beräkning och lagring av den här tjänsten finns i dessa regioner. Dock finns det inga begränsningar för var klienterna kan finnas. 
 
 **F: debiteras du för Azures spatiala ankare? Kommer du någonsin att debiteras?**
 

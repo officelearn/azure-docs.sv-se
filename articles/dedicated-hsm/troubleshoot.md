@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: ad3c9d702384b8a32a9d4f0c8aebe44de4bb526e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fc7d4caecb2ca3d35d7b1b8d0cd5f9ff380d7674
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80337178"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310112"
 ---
 # <a name="troubleshooting"></a>Felsökning
 
@@ -29,11 +29,11 @@ Azure Dedicated HSM-tjänsten har två distinkta facets. För det första är re
 
 ## <a name="hsm-registration"></a>HSM-registrering
 
-Dedikerad HSM är inte tillgängligt för användning eftersom den levererar maskin varu resurser i molnet och är därför en värdefull resurs som behöver skydda sig. Vi använder därför en vit listning-process via e HSMrequest@microsoft.com-post med hjälp av. 
+Dedikerad HSM är inte tillgängligt för användning eftersom den levererar maskin varu resurser i molnet och är därför en värdefull resurs som behöver skydda sig. Vi använder därför en vit listning-process via e-post med hjälp av HSMrequest@microsoft.com . 
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Få åtkomst till dedikerad HSM
 
-Om du tror att dedikerad HSM passar dina nyckel lagrings krav kan du HSMrequest@microsoft.com skicka e-post för att begära åtkomst. Disponera ditt program, de regioner som du vill ha som HSM: er och den volym av HSM: er som du letar efter. Om du arbetar med en Microsoft-representant, till exempel en konto ansvarig eller en moln lösnings arkitekt, kan du till exempel ta med dem i alla förfrågningar.
+Om du tror att dedikerad HSM passar dina nyckel lagrings krav kan du skicka e-post HSMrequest@microsoft.com för att begära åtkomst. Disponera ditt program, de regioner som du vill ha som HSM: er och den volym av HSM: er som du letar efter. Om du arbetar med en Microsoft-representant, till exempel en konto ansvarig eller en moln lösnings arkitekt, kan du till exempel ta med dem i alla förfrågningar.
 
 ## <a name="hsm-provisioning"></a>HSM-etablering
 
@@ -63,10 +63,10 @@ az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/p
 ```
 
 ### <a name="deployment-failure-based-on-quota"></a>Distributions problem baserat på kvot
-Distributioner kan inte utföras om du överskrider 2 HSM: er per Stamp och 4 HSM: er per region. Undvik den här situationen genom att se till att du har tagit bort resurser från tidigare misslyckade distributioner innan du distribuerar igen. Se "Hur gör jag för att se HSM: er" nedan för att kontrol lera resurser. Om du tror att du behöver överskrida den här kvoten, som främst finns där, så kan du HSMrequest@microsoft.com e-posta med information.
+Distributioner kan inte utföras om du överskrider 2 HSM: er per Stamp och 4 HSM: er per region. Undvik den här situationen genom att se till att du har tagit bort resurser från tidigare misslyckade distributioner innan du distribuerar igen. Se "Hur gör jag för att se HSM: er" nedan för att kontrol lera resurser. Om du tror att du behöver överskrida den här kvoten, som främst finns där, så kan du e-posta HSMrequest@microsoft.com med information.
 
 ### <a name="deployment-failure-based-on-capacity"></a>Distributions problem baserat på kapacitet
-När en viss stämpel eller region blir full, är det nästan alla kostnads fria HSM: er, vilket kan leda till distributions problem. Varje stämpel har 11 HSM: er tillgängligt för kunder, vilket innebär 22 per region. Det finns även 3 reserv delar och 1 testen het i varje stämpel. Om du tror att du har nått gränsen och sedan skickar e HSMrequest@microsoft.com -post för information om fyllnads nivån för vissa stämplar.
+När en viss stämpel eller region blir full, är det nästan alla kostnads fria HSM: er, vilket kan leda till distributions problem. Varje stämpel har 11 HSM: er tillgängligt för kunder, vilket innebär 22 per region. Det finns även 3 reserv delar och 1 testen het i varje stämpel. Om du tror att du har nått gränsen och sedan skickar e-post HSMrequest@microsoft.com för information om fyllnads nivån för vissa stämplar.
 
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Hur gör jag för att se HSM: er vid etablering?
 Eftersom dedikerad HSM är en vit listas-tjänst betraktas den som en "dold typ" i Azure Portal. Om du vill se HSM-resurserna måste du markera kryss rutan Visa dolda typer som visas nedan. NIC-resursen följer alltid HSM och är en bra plats för att ta reda på IP-adressen för HSM innan du använder SSH för att ansluta.
@@ -105,7 +105,7 @@ Att ange Felaktiga autentiseringsuppgifter för HSM: er kan ha skadliga konsekve
 | HSM SÅ | 3 |  HSM är nollställt (alla HSM-objekt identiteter och alla partitioner är borta)  |  HSM måste startas om. Innehållet kan återställas från säkerhets kopior. | 
 | Partition så | 10 |  Partitionen är noll. |  Partitionen måste initieras om. Innehållet kan återställas från en säkerhets kopia. |  
 | Granska | 10 | Inkräktar | Olåsta automatiskt efter 10 minuter. |  
-| Kryptografi utanordnare | 10 (kan minskas) | Om HSM-princip 15: Aktivera återställning av PIN-kod för partition är inställt på 1 (aktive rad) är rollen CO och CU utelåst.<br>Om HSM-princip 15: Aktivera så återställning av PIN-kod för partition är inställt på 0 (inaktive rad) är CO-och CU-rollerna permanent utelåsta och partitionens innehåll är inte längre tillgängligt. Det här är standardinställningen. | CO-rollen måste vara olåst och autentiseringsuppgifterna återställs av partitionen så att använder `role resetpw -name co`.<br>Partitionen måste initieras om och nyckel materialet återställs från en säkerhets kopierings enhet. |  
+| Kryptografi utanordnare | 10 (kan minskas) | Om HSM-princip 15: Aktivera återställning av PIN-kod för partition är inställt på 1 (aktive rad) är rollen CO och CU utelåst.<br>Om HSM-princip 15: Aktivera så återställning av PIN-kod för partition är inställt på 0 (inaktive rad) är CO-och CU-rollerna permanent utelåsta och partitionens innehåll är inte längre tillgängligt. Det här är standardinställningen. | CO-rollen måste vara olåst och autentiseringsuppgifterna återställs av partitionen så att använder `role resetpw -name co` .<br>Partitionen måste initieras om och nyckel materialet återställs från en säkerhets kopierings enhet. |  
 
 ## <a name="hsm-configuration"></a>HSM-konfiguration 
 
@@ -120,7 +120,7 @@ Var försiktig när du konfigurerar nätverk i HSM.  HSM har en anslutning via E
 
 ### <a name="hsm-device-reboot"></a>Omstart av HSM-enhet
 
-Vissa konfigurations ändringar kräver att HSM är i ström spar läge eller startas om. Microsoft-testning av HSM i Azure fastställde att det vid vissa tillfällen då omstart kan låsa sig. Indirekt är att en supportbegäran måste skapas i Azure Portal begär hård omstart och det kan ta upp till 48 timmar innan det är en manuell process i ett Azure-datacenter.  Undvik den här situationen genom att se till att du har distribuerat start korrigerings filen som är tillgänglig från Thales direkt. Se [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) i Thales Luna Network HSM 7,2 downloads för en rekommenderad korrigerings fil för omstart av datorn (Obs! Du måste ha registrerat dig i Thales support Portal för att ladda ned).
+Vissa konfigurations ändringar kräver att HSM är i ström spar läge eller startas om. Microsoft-testning av HSM i Azure fastställde att det vid vissa tillfällen då omstart kan sluta svara. Indirekt är att en supportbegäran måste skapas i Azure Portal begär hård omstart och det kan ta upp till 48 timmar innan det är en manuell process i ett Azure-datacenter.  Undvik den här situationen genom att se till att du har distribuerat start korrigerings filen som är tillgänglig från Thales direkt. Se [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) i Thales Luna Network HSM 7,2 downloads för en rekommenderad korrigerings fil för omstart av datorn (Obs! Du måste ha registrerat dig i Thales support Portal för att ladda ned).
 
 ### <a name="ntls-certificates-out-of-sync"></a>NTLS certifikat är inte synkroniserade
 En klient kan förlora anslutningen till en HSM när ett certifikat upphör att gälla eller har skrivits över genom konfigurations uppdateringar. Klient konfigurationen för certifikat utbyte bör tillämpas igen med varje HSM.

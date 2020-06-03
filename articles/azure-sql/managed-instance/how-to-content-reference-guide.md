@@ -77,7 +77,7 @@ I den här artikeln hittar du en innehålls referens till olika guider, skript o
 
 ## <a name="develop-applications"></a>Utveckla program
 
-- [Anslutning](../database/connect-query-content-reference-guide.md#libraries)
+- [Anslutningsmöjligheter](../database/connect-query-content-reference-guide.md#libraries)
 - [Använda Spark-anslutningsappen](../../cosmos-db/spark-connector.md)
 - [Autentisera en app](../database/application-authentication-get-client-id-keys.md)
 - [Använd batching för bättre prestanda](../performance-improve-use-batching.md)

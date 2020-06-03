@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: 7f937c18e2012baa430129ff16200a5e6b215f28
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4c79779d9ce87a2596e5ccd3888e323fd27e0115
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220312"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298082"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure SQL Database med Azure Data Factory
 
@@ -131,7 +131,7 @@ Följ dessa steg om du vill använda en tjänst objekts Azure AD-baserad autenti
 
 1. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) från Azure Portal. Anteckna program namnet och följande värden som definierar den länkade tjänsten:
 
-    - Program-ID:t
+    - Program-ID
     - Program nyckel
     - Klientorganisations-ID
 
@@ -644,7 +644,7 @@ När data kopieras från eller till Azure SQL Database, används följande mappn
 | xml |Xml |
 
 >[!NOTE]
-> För data typer som mappas till en decimal-interimistisk-typ, stöds för närvarande Azure Data Factory precision upp till 28. Om du har data med en precision som är större än 28 bör du överväga att konvertera till en sträng i SQL-frågan.
+> För data typer som mappar till typen decimal, stöder för tillfället kopierings aktiviteten precisionen upp till 28. Om du har data med en precision som är större än 28 bör du överväga att konvertera till en sträng i SQL-frågan.
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
@@ -674,7 +674,7 @@ Mer specifikt:
 
     - Använda **Data Factory hanterad identitets autentisering**: 
 
-        1. Följ samma [förutsättningar](#managed-identity) för att skapa databas användare för den hanterade identiteten och ge rätt roll i databasen.
+        1. Följ samma [krav](#managed-identity) för att skapa databas användare för den hanterade identiteten och ge rätt roll i databasen.
         2. I länkad tjänst anger du ODBC-anslutningssträngen enligt nedan och väljer **Anonym** autentisering som själva anslutnings strängen anger `Authentication=ActiveDirectoryMsi` .
 
         ```

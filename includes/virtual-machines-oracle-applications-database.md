@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 07/10/2019
+ms.date: 06/01/2020
 ms.author: danlep
-ms.openlocfilehash: 8106b1a77f11874b1b13f41bfc9e62ea800afc98
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: b9e275cbdaf264df3d0a40f032693fd93553e520
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68361536"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317805"
 ---
 ### <a name="database-tier"></a>Databas nivå
 
@@ -17,7 +17,7 @@ Databas nivån innehåller databas instanserna för programmet. Databasen kan va
 
 Om du väljer att använda Oracle DB kan databas instansen distribueras på Azure via Oracle DB avbildningar som är tillgängliga på Azure Marketplace. Alternativt kan du använda kopplingen mellan Azure och OCI för att distribuera Oracle DB i en PaaS-modell på OCI.
 
-För Oracle RAC kan du distribuera Oracle RAC på Azure-CloudSimple i IaaS-modellen eller i OCI i PaaS modell. Vi rekommenderar att du använder ett RAC-system med två noder. 
+För Oracle RAC kan du använda OCI i PaaS-modellen. Vi rekommenderar att du använder ett RAC-system med två noder. Det går att distribuera Oracle RAC på Azure-CloudSimple i IaaS-modellen, men det är inte en konfiguration som stöds av Oracle. Se Oracle-program som är [berättigade till godkända moln miljöer](http://www.oracle.com/us/corporate/pricing/authorized-cloud-environments-3493562.pdf).
 
 För Exadata-system använder du slutligen OCI-sammanlänkning och distribuerar Exadata-systemet i OCI. Föregående arkitektur diagram ovan visar ett Exadata-system som distribueras i OCI över två undernät.
 

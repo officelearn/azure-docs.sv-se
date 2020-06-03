@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: egeaney
-ms.openlocfilehash: 0a4a1f49735a30d7ad764e7f031610eabd09763e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995776"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310843"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Translator-kryptering av data i vila
 
@@ -45,7 +45,7 @@ Följ dessa steg om du vill aktivera Kundhanterade nycklar för översättare:
 2. Aktive rad hanterad identitet i Azure Portal och Lägg till din Kundhanterade viktig information.
 3. Skapa en ny arbets yta i en anpassad översättare och associera den här prenumerations informationen.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Aktivera Kundhanterade nycklar
 

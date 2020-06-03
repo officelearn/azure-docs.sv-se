@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 7fe5afbc4984c430cbf393e4e2b44122bdd43983
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ccb1a31761298d9dc4376684380702cf7cbd9a1f
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297132"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310078"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Felsöka problem som rör Azure Data Box Blob Storage
 
@@ -35,8 +35,8 @@ I det här avsnittet beskrivs några av de problem som finns när du använder A
 
 |Felmeddelande  |Rekommenderad åtgärd |
 |---------|---------|
-|AzCopy-kommandot verkar låsa sig en minut innan det här felet visas: <br>Det gick inte att räkna upp katalogens https://... Det gick inte att matcha fjärrnamnet`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts- `C:\Windows\System32\drivers\etc\hosts`filen på:.|
-|AzCopy-kommandot verkar låsa sig en minut innan det här felet visas: <br>Fel vid parsning av käll plats. Den underliggande anslutningen stängdes: det gick inte att upprätta en förtroende relation för den säkra SSL/TLS-kanalen.|Importera TLS/SSL-certifikatet för enheten till systemets certifikat arkiv. Mer information finns i [Hämta certifikatet](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|AzCopy-kommandot slutar svara i minuter innan det här felet visas: <br>Det gick inte att räkna upp katalogens https://... Det gick inte att matcha fjärrnamnet`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på: `C:\Windows\System32\drivers\etc\hosts` .|
+|AzCopy-kommandot slutar svara i minuter innan det här felet visas: <br>Fel vid parsning av käll plats. Den underliggande anslutningen stängdes: det gick inte att upprätta en förtroende relation för den säkra SSL/TLS-kanalen.|Importera TLS/SSL-certifikatet för enheten till systemets certifikat arkiv. Mer information finns i [Hämta certifikatet](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 
 ## <a name="errors-seen-in-azcopy-for-linux"></a>Fel som visas i AzCopy för Linux
@@ -45,8 +45,8 @@ I det här avsnittet beskrivs några av de problem som finns när du använder A
 
 |Felmeddelande  |Rekommenderad åtgärd |
 |---------|---------|
-|AzCopy-kommandot verkar låsa sig i 20 minuter innan det här felet visas: <br>Fel vid parsning av käll `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>`plats. Ingen sådan enhet eller adress|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts- `/etc/hosts`filen på:.|
-|AzCopy-kommandot verkar låsa sig i 20 minuter innan det här felet visas: <br>Fel vid parsning av käll plats... Det gick inte att upprätta SSL-anslutningen.|Importera TLS/SSL-certifikatet för enheten till systemets certifikat arkiv. Mer information finns i [Hämta certifikatet](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|AzCopy-kommandot verkar sluta svara i 20 minuter innan det här felet visas: <br>Fel vid parsning av käll plats `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>` . Ingen sådan enhet eller adress|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på: `/etc/hosts` .|
+|AzCopy-kommandot verkar sluta svara i 20 minuter innan det här felet visas: <br>Fel vid parsning av käll plats... Det gick inte att upprätta SSL-anslutningen.|Importera TLS/SSL-certifikatet för enheten till systemets certifikat arkiv. Mer information finns i [Hämta certifikatet](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 ## <a name="errors-seen-in-azure-storage-library-for-python"></a>Fel som visas i Azure Storage bibliotek för python
 
@@ -55,7 +55,7 @@ I det här avsnittet beskrivs några av de vanligaste problemen vid distribution
 |Felmeddelande  |Rekommenderad åtgärd |
 |---------|---------|
 |Värdet för ett av HTTP-huvudena har fel format. |Den installerade versionen av Microsoft Azure Storages biblioteket för python stöds inte av Data Box-enhet. Se Azure Data Box Blob Storage-krav för versioner som stöds.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Innan du kör python ställer du in REQUESTS_CA_BUNDLE miljövariabeln till sökvägen till den base64-kodade TLS-certifikatarkiven (se hur du [hämtar certifikatet](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Ett exempel:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternativt kan du lägga till certifikatet i systemets certifikat Arkiv och sedan ange miljövariabeln till sökvägen för arkivet. <br> Till exempel på Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Innan du kör python ställer du in REQUESTS_CA_BUNDLE miljövariabeln till sökvägen till den base64-kodade TLS-certifikatarkiven (se hur du [hämtar certifikatet](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Till exempel:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternativt kan du lägga till certifikatet i systemets certifikat Arkiv och sedan ange miljövariabeln till sökvägen för arkivet. <br> Till exempel på Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Vanliga fel

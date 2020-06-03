@@ -4,23 +4,24 @@ description: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 05/25/2020
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 2151b72e647726a075e11bbaea968ccf30cdc78a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 15b3f2e48b78036c02ef86446f2ab920f22f7c76
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196400"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295447"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slut punkter för Azure Web App (för hands version)
 
 > [!Note]
 > I för hands versionen av uppdateringen släpptes funktionen data exfiltrering Protection.
-> Förhands granskningen är tillgänglig i regionerna USA och USA, västra 2, för alla PremiumV2 Windows-och Linux-Web Apps och elastiska Premium-funktioner. 
+>
+> För hands versionen är tillgänglig i alla offentliga regioner för PremiumV2 Windows-och Linux-Web Apps och elastiska Premium-funktioner. 
 
 Du kan använda privat slut punkt för din Azure-webbapp för att tillåta klienter som finns i ditt privata nätverk att säkert komma åt appen via privat länk. Den privata slut punkten använder en IP-adress från ditt Azure VNet-adressutrymme. Nätverks trafik mellan en klient i ditt privata nätverk och webbappen går igenom VNet och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
 

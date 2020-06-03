@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b5990f79891a9cbc0d18c3499691a3d7ef309a73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15623d622a40fa80889a8704e0b7f19d358a052c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678259"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295413"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: Aktivera anpassade attribut i en anpassad profil princip
 
@@ -24,7 +24,7 @@ I artikeln [Lägg till anspråk och anpassa användarindata med hjälp av anpass
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följ stegen i artikeln [Azure Active Directory B2C: kom igång med anpassade principer](custom-policy-get-started.md).
 
@@ -49,7 +49,7 @@ Villkors *tilläggets egenskap*, *anpassade attribut*och *anpassat anspråk* ref
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Välj **Appregistreringar (för hands version)** och välj sedan **alla program**.
+1. Välj **Appregistreringar**och välj sedan **alla program**.
 1. Välj `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` programmet.
 1. Kopiera följande identifierare till Urklipp och spara dem:
     * **Program-ID**. Exempel: `11111111-1111-1111-1111-111111111111`.
@@ -59,9 +59,9 @@ Villkors *tilläggets egenskap*, *anpassade attribut*och *anpassat anspråk* ref
 
 Om du vill aktivera anpassade attribut i principen anger du **program-ID** och program **objekt-ID** i metadata för AAD-common Technical Profile. *AAD – vanlig* teknisk profil finns i bas [Azure Active Directory](active-directory-technical-profile.md) teknisk profil och ger stöd för Azure AD-användar hantering. Andra tekniska profiler för Azure AD inkluderar AAD-common för att utnyttja konfigurationen. Åsidosätt den AAD-vanliga tekniska profilen i tilläggs filen.
 
-1. Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
+1. Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Hitta ClaimsProviders-elementet. Lägg till en ny ClaimsProvider i ClaimsProviders-elementet.
-1. Ersätt `ApplicationObjectId` med det objekt-ID som du tidigare har spelat in. Ersätt `ClientId` sedan med det program-ID som du tidigare spelat in i avsnittet nedan.
+1. Ersätt `ApplicationObjectId` med det objekt-ID som du tidigare har spelat in. Ersätt sedan `ClientId` med det program-ID som du tidigare spelat in i avsnittet nedan.
 
     ```xml
     <ClaimsProvider>
@@ -99,7 +99,7 @@ Du kan skapa de här attributen med hjälp av portalens användar gränssnitt in
 |Name     |Används i |
 |---------|---------|
 |`extension_loyaltyId`  | Anpassad princip|
-|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph-API](manage-user-accounts-graph-api.md)|
+|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|
 
 Följande exempel visar hur du använder anpassade attribut i en Azure AD B2C anpassad definition av princip anspråk.
 

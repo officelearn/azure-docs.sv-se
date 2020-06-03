@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7e5c1c74a3659be855b3f846c16672d0d73b9de4
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67721738"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309704"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Språk-och region stöd för hand SKRIFTS tolkens API
 
@@ -55,7 +55,7 @@ I den här artikeln beskrivs vilka språk som stöds för pennan tecknings-API: 
 | Japanska                                   |     `ja-JP`     |
 | Rwanda                                |     `rw-RW`     |
 | Swahili (Kenya)                          |     `sw-KE`     |
-| Koreansk                                     |     `ko-KR`     |
+| Koreanska                                     |     `ko-KR`     |
 | Luxemburgiska                              |     `lb-LU`     |
 | Malajiska (Brunei Darussalam)                  |     `ms-BN`     |
 | Malajiska (Malaysia)                           |     `ms-MY`     |

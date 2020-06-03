@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 9709cd3b6036b384fd9212a522c191d0695b9bb4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 764600d61704378b1bc0937dd1399260a1266150
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161732"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308634"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Ord lista för Microsoft Identity Platform-utvecklare
 
@@ -115,7 +115,7 @@ En [OpenID Connect][OpenIDConnect-ID-Token] - [säkerhetstoken](#security-token)
 
 Mer information finns i [referens för Microsoft Identity Platform-token][AAD-Tokens-Claims] .
 
-## <a name="microsoft-identity-platform"></a>Microsoft-identitetsplattform
+## <a name="microsoft-identity-platform"></a>Microsoft identitetsplattform
 
 Microsoft Identity-plattformen är en utveckling av identitetstjänsten och utvecklingsplattformen Azure Active Directory (Azure AD). Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter, får tokens för att anropa Microsoft Graph, andra Microsoft API:er eller API:er som utvecklare har byggt. Det är en komplett plattform som består av en autentiseringstjänst, bibliotek, program registrering och konfiguration, fullständig dokumentation om utvecklare, kod exempel och annat innehåll i utvecklare. Microsoft Identity-plattformen stöder branschstandardprotokoll som OAuth 2.0 och OpenID Connect. Mer information finns i [About the Microsoft Identity Platform](about-microsoft-identity-platform.md) .
 
@@ -129,7 +129,7 @@ Mer information finns i [så här loggar du in på valfri Azure AD-användare me
 
 En typ av [klient program](#client-application) som installeras internt på en enhet. Eftersom all kod körs på en enhet betraktas den som en "offentlig" klient på grund av att det inte går att lagra autentiseringsuppgifter privat/konfidentiellt. Mer information finns i [OAuth2-klientens typer och profiler][OAuth2-Client-Types] .
 
-## <a name="permissions"></a>åtkomst
+## <a name="permissions"></a>behörigheter
 
 Ett [klient program](#client-application) får åtkomst till en [resurs Server](#resource-server) genom att deklarera behörighets begär Anden. Det finns två typer:
 
@@ -202,7 +202,7 @@ En instans av en Azure AD-katalog kallas en Azure AD-klient. Den innehåller fle
 * autentisering av användar konton och registrerade program
 * REST-slutpunkter som krävs för att stödja olika protokoll, inklusive OAuth2 och SAML, inklusive slut punkt för [behörighet](#authorization-endpoint), [token-slutpunkt](#token-endpoint) och den "vanliga" slut punkt som används av [program med flera innehavare](#multi-tenant-application).
 
-Azure AD-klienter skapas/associeras med Azure-och Office 365-prenumerationer under registreringen, vilket ger identitets & åtkomst hanterings funktioner för prenumerationen. Azure-prenumerations administratörer kan också skapa ytterligare Azure AD-klienter via Azure Portal. Se [hur du får en Azure Active Directory-klient][AAD-How-To-Tenant] för information om de olika sätt som du kan få åtkomst till en klient. Se [hur Azure-prenumerationer är associerade med Azure Active Directory][AAD-How-Subscriptions-Assoc] för information om relationen mellan prenumerationer och en Azure AD-klient.
+Azure AD-klienter skapas/associeras med Azure-och Office 365-prenumerationer under registreringen, vilket ger identitets & åtkomst hanterings funktioner för prenumerationen. Azure-prenumerations administratörer kan också skapa ytterligare Azure AD-klienter via Azure Portal. Se [hur du får en Azure Active Directory-klient][AAD-How-To-Tenant] för information om de olika sätt som du kan få åtkomst till en klient. Se [associera eller lägga till en Azure-prenumeration till din Azure Active Directory-klient][AAD-How-Subscriptions-Assoc] om du vill ha mer information om relationen mellan prenumerationer och en Azure AD-klient och anvisningar om hur du associerar eller lägger till en prenumeration i en Azure AD-klient.
 
 ## <a name="token-endpoint"></a>token-slutpunkt
 

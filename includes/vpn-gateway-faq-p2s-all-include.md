@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ec684e5e6fa2ef8e9ed30be49f59e8aa7ef3a28b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3c10ca35ee2f085d4ce41e862a895ff17ff63a0
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79117150"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317647"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hur många slutpunkter på VPN-klienter kan jag ha i min punkt-till-plats-konfiguration?
 
 Det beror på Gateway-SKU: n. Mer information om antalet anslutningar som stöds finns i Gateway- [SKU: er](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
 
-### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a><a name="supportedclientos"></a>Vilka klientoperativsystem kan jag använda med punkt-till-plats?
+### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a><a name="supportedclientos"></a>Vilka klient operativ system kan jag använda med punkt-till-plats?
 
 Följande klientoperativsystem stöds:
 
@@ -29,6 +29,7 @@ Följande klientoperativsystem stöds:
 * Windows Server 2012 (endast 64-bitars)
 * Windows Server 2012 R2 (endast 64-bitars)
 * Windows Server 2016 (endast 64-bitars)
+* Windows Server 2019 (endast 64-bitars)
 * Windows 10
 * Mac OS X version 10,11 eller senare
 * Linux (StrongSwan)
@@ -82,7 +83,7 @@ Förbereda Windows 10 eller Server 2016 för IKEv2:
 
 1. Installera uppdateringen.
 
-   | Operativsystemversion | Date | Antal/länk |
+   | OS-version | Datum | Antal/länk |
    |---|---|---|
    | Windows Server 2016<br>Windows 10, version 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, version 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |

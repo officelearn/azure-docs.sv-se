@@ -1,7 +1,7 @@
 ---
 title: Resursbegränsningar
 titleSuffix: Azure SQL Managed Instance
-description: Den här artikeln innehåller en översikt över resurs gränserna för Azure SQL-hanterade instanser.
+description: Den här artikeln innehåller en översikt över resurs gränserna för Azure SQL-hanterad instans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,20 +12,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 27b46a5511313e8ebc31618fe382e7108cdaa160
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b72195c818e418cfca9c88fe666b27b277aa7bda
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118652"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309109"
 ---
-# <a name="overview-azure-sql-managed-instance-resource-limits"></a>Översikt över gränser för Azure SQL-hanterad instans resurs
+# <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Översikt över gränser för resurs gränser för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Den här artikeln innehåller en översikt över de tekniska egenskaperna och resurs gränserna för Azure SQL-hanterad instans och ger information om hur du begär en ökning av dessa gränser.
 
 > [!NOTE]
-> Skillnader i funktioner som stöds och T-SQL-uttryck finns i [funktions skillnader](../database/features-comparison.md) och [stöd för t-SQL-uttryck](transact-sql-tsql-differences-sql-server.md). Generella skillnader mellan tjänst nivåer för SQL Database och SQL-hanterad instans finns i [jämförelse av tjänst nivå](../database/service-tiers-general-purpose-business-critical.md#service-tier-comparison).
+> Skillnader i funktioner som stöds och T-SQL-uttryck finns i [funktions skillnader](../database/features-comparison.md) och [stöd för t-SQL-uttryck](transact-sql-tsql-differences-sql-server.md). Generella skillnader mellan tjänst nivåer för Azure SQL Database och SQL-hanterad instans finns i [jämförelse av tjänst nivå](../database/service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
 ## <a name="hardware-generation-characteristics"></a>Egenskaper för maskin varu skapande
 
@@ -40,12 +40,12 @@ SQL-hanterad instans har egenskaper och resurs gränser som är beroende av den 
 | Högsta reserverade instans lagring |  Generell användning: 8 TB<br/>Affärskritisk: 1 TB | Generell användning: 8 TB<br/> Affärskritisk 1 TB, 2 TB eller 4 TB beroende på antalet kärnor |
 
 > [!IMPORTANT]
-> - Gen4-maskinvaran föråldras och är inte längre tillgänglig för nya distributioner. Alla nya SQL-hanterade instanser måste distribueras på Gen5 maskin vara.
-> - Överväg att [flytta dina SQL-hanterade instanser till generation 5](../database/service-tiers-vcore.md) -maskinvara för att få en större mängd vCore-och lagrings skalbarhet, accelererat nätverk, bästa i/o-prestanda och minimal svars tid.
+> - Gen4-maskinvaran föråldras och är inte längre tillgänglig för nya distributioner. Alla nya instanser av SQL-hanterad instans måste distribueras på Gen5 maskin vara.
+> - Överväg att [Flytta din instans av SQL-hanterad instans till generation 5](../database/service-tiers-vcore.md) -maskin vara för att få en större mängd vCore och skalbarhet för lagring, accelererat nätverk, bästa IO-prestanda och minimal latens.
 
 ### <a name="in-memory-oltp-available-space"></a>Tillgängligt utrymme i minnet för OLTP 
 
-Mängden minnes intern OLTP-rymd i [affärskritisk](../database/service-tier-business-critical.md) tjänst nivå beror på antalet virtuella kärnor och maskin varu generering. I följande tabell listas begränsningar för minne som kan användas för InMemory OLTP-objekt.
+Mängden minnes intern OLTP-rymd i [affärskritisk](../database/service-tier-business-critical.md) tjänst nivå beror på antalet virtuella kärnor och maskin varu generering. I följande tabell visas en lista över minnes gränser som kan användas för minnesbaserade OLTP-objekt.
 
 | Minnes intern OLTP-rymd  | **Gen5** | **Gen4** |
 | --- | --- | --- |
@@ -80,7 +80,7 @@ SQL-hanterad instans har två tjänst nivåer: [generell användning](../databas
 | Logg Skriv data flödes gräns (per instans) | 3 MB/s per vCore<br/>Högst 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[Öka fil storleken för att få bättre IO-prestanda](#file-io-characteristics-in-general-purpose-tier) | Inte begränsat. |
 | IO-latens för lagring (ungefärligt) | 5-10 MS | 1-2 MS |
-| Minnes intern OLTP | Stöds inte | Tillgängligt, [storleken beror på antalet vCore](#in-memory-oltp-available-space) |
+| Minnesintern OLTP | Stöds inte | Tillgängligt, [storleken beror på antalet vCore](#in-memory-oltp-available-space) |
 | Maximalt antal sessioner | 30000 | 30000 |
 | [Skrivskyddade repliker](../database/read-scale-out.md) | 0 | 1 (ingår i priset) |
 | Beräknings isolering | Gen5<br/>– stöds för 80 virtuella kärnor<br/>– stöds inte för andra storlekar<br/><br/>Gen4 stöds inte på grund av inaktuellitet|Gen5<br/>– stöds för 60, 64, 80 virtuella kärnor<br/>– stöds inte för andra storlekar<br/><br/>Gen4 stöds inte på grund av inaktuellitet|
@@ -111,7 +111,7 @@ Det finns också en gräns på instans nivå av det maximala logg skrivnings fl�
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-SQL-hanterade instanser kan bara skapas i [regioner som stöds](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en SQL-hanterad instans i en region som för närvarande inte stöds kan du [skicka en supportbegäran via Azure Portal](../database/quota-increase-request.md).
+SQL-hanterad instans kan bara skapas i [regioner som stöds](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en SQL-hanterad instans i en region som för närvarande inte stöds kan du [skicka en supportbegäran via Azure Portal](../database/quota-increase-request.md).
 
 ## <a name="supported-subscription-types"></a>Prenumerationstyper som stöds
 
@@ -128,11 +128,11 @@ SQL-hanterad instans har för närvarande endast stöd för distribution av föl
 
 Prenumerations typer som stöds kan innehålla ett begränsat antal resurser per region. SQL-hanterad instans har två standard gränser per Azure-region (som kan ökas på begäran genom att skapa en särskild [supportbegäran i Azure Portal](../database/quota-increase-request.md) beroende på typ av prenumerations typ:
 
-- **Under näts gräns**: det maximala antalet UNDERNÄT där SQL-hanterade instanser distribueras i en enda region.
+- **Under näts gräns**: det maximala antalet undernät där instanser av SQL-hanterad instans distribueras i en enda region.
 - **vCore-enhets gräns**: det maximala antalet vCore-enheter som kan distribueras över alla instanser i en enda region. En GP-vCore använder en vCore-enhet och en BC-vCore tar 4 vCore-enheter. Det totala antalet instanser är inte begränsat så länge det ligger inom gränsen för vCore-enheten.
 
 > [!Note]
-> Dessa gränser är standardinställningar och inte tekniska begränsningar. Gränserna kan ökas på begäran genom att en särskild [supportbegäran skapas i Azure Portal](../database/quota-increase-request.md) om du behöver fler SQL-hanterade instanser i den aktuella regionen. Alternativt kan du skapa nya SQL-hanterade instanser i en annan Azure-region utan att skicka support förfrågningar.
+> Dessa gränser är standardinställningar och inte tekniska begränsningar. Gränserna kan ökas på begäran genom att en särskild [supportbegäran skapas i Azure Portal](../database/quota-increase-request.md) om du behöver fler instanser i den aktuella regionen. Alternativt kan du skapa nya instanser av SQL-hanterad instans i en annan Azure-region utan att skicka support förfrågningar.
 
 Följande tabell visar de **regionala standard gränserna** för prenumerations typer som stöds (standard gränser kan utökas med hjälp av en support förfrågan som beskrivs nedan):
 
@@ -146,13 +146,13 @@ Följande tabell visar de **regionala standard gränserna** för prenumerations 
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional och MSDN-plattformar|2|32|
 
-\*Vid planering av distributioner bör du tänka på att Affärskritisk (BC) tjänst nivån kräver fyra (4) gånger mer vCore-kapacitet än Generell användning (GP). Exempel: 1 GP-vCore = 1 vCore-enhet och 1 BC-vCore = 4 vCore-enheter. För att förenkla förbruknings analysen mot standard gränserna, sammanfatta vCore-enheterna över alla undernät i den region där SQL-hanterade instanser distribueras och jämför resultaten med instans enhets gränserna för din prenumerations typ. Gränsen **för antalet vCore-enheter** gäller för varje prenumeration i en region. Det finns ingen gräns per enskilda undernät förutom att summan av alla virtuella kärnor som distribueras över flera undernät måste vara lägre eller lika med **Max antalet vCore-enheter**.
+\*Vid planering av distributioner bör du tänka på att Affärskritisk (BC) tjänst nivån kräver fyra (4) gånger mer vCore-kapacitet än Generell användning (GP). Exempel: 1 GP-vCore = 1 vCore-enhet och 1 BC-vCore = 4 vCore-enheter. För att förenkla förbruknings analysen mot standard gränserna, sammanfatta vCore-enheterna över alla undernät i den region där SQL-hanterad instans distribueras och jämför resultaten med instans enhets gränserna för din prenumerations typ. Gränsen **för antalet vCore-enheter** gäller för varje prenumeration i en region. Det finns ingen gräns per enskilda undernät förutom att summan av alla virtuella kärnor som distribueras över flera undernät måste vara lägre eller lika med **Max antalet vCore-enheter**.
 
 \*\*Större gränser för undernät och vCore är tillgängliga i följande regioner: östra Australien, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2.
 
 ## <a name="request-a-quota-increase"></a>Begär en kvot ökning
 
-Om du behöver fler SQL-hanterade instanser i dina aktuella regioner skickar du en supportbegäran för att utöka kvoten med hjälp av Azure Portal. Mer information finns i [begäran om kvot ökning för Azure SQL Database](../database/quota-increase-request.md).
+Om du behöver fler instanser i dina aktuella regioner skickar du en supportbegäran för att utöka kvoten med hjälp av Azure Portal. Mer information finns i [begäran om kvot ökning för Azure SQL Database](../database/quota-increase-request.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b577b82585ffad0547818b4f19554a2f39cb830c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75498097"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309959"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Felsöka återställning efter fel till lokala enheter från Azure
 
@@ -69,7 +69,7 @@ Gör så här för att lösa problemet:
 
 ### <a name="error-code-78093"></a>Felkod 78093
 
-**Den virtuella datorn körs inte, i ett låst tillstånd eller är inte tillgänglig.**
+**Den virtuella datorn körs inte, svarar inte eller är inte tillgänglig.**
 
 Gör så här för att lösa problemet:
 

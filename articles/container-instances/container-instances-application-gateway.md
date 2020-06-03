@@ -3,12 +3,12 @@ title: Statisk IP-adress för container grupp
 description: Skapa en behållar grupp i ett virtuellt nätverk och Använd en Azure Application Gateway för att exponera en statisk IP-adress för klient delen i en behållares webbapp
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 5c3a14f93af3ecc614dc296f0a4d2815d7a64a66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481797"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299170"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exponera en statisk IP-adress för en behållar grupp
 
@@ -17,7 +17,7 @@ Den här artikeln visar ett sätt att exponera en statisk, offentlig IP-adress f
 I den här artikeln använder du Azure CLI för att skapa resurser för det här scenariot:
 
 * Ett virtuellt Azure-nätverk
-* En behållar grupp distribuerad [i det virtuella nätverket (för hands version)](container-instances-vnet.md) som är värd för en liten webbapp
+* En behållar grupp distribuerat [i det virtuella nätverket som är](container-instances-vnet.md) värd för en liten webbapp
 * En Programgateway med en offentlig IP-adress för klient delen, en lyssnare som är värd för en webbplats på gatewayen och en väg till behållare gruppen för Server delen
 
 Så länge programgatewayen körs och behållar gruppen visar en stabil privat IP-adress i nätverkets delegerade undernät, är behållar gruppen tillgänglig på den här offentliga IP-adressen.
@@ -29,7 +29,7 @@ Så länge programgatewayen körs och behållar gruppen visar en stabil privat I
 
 I ett typiskt fall kanske du redan har ett virtuellt Azure-nätverk. Om du inte har ett kan du skapa en som visas med följande exempel kommandon. Det virtuella nätverket behöver separata undernät för programgatewayen och behållar gruppen.
 
-Skapa en Azure-resurs grupp om du behöver det. Ett exempel:
+Skapa en Azure-resurs grupp om du behöver det. Till exempel:
 
 ```azureci
 az group create --name myResourceGroup --location eastus
@@ -136,7 +136,7 @@ az network public-ip show \
 --output tsv
 ```
 
-Utdata är en offentlig IP-adress som liknar: `52.142.18.133`.
+Utdata är en offentlig IP-adress som liknar: `52.142.18.133` .
 
 Om du vill visa den aktiva webbappen när den har kon figurer ATS navigerar du till gatewayens offentliga IP-adress i webbläsaren. Lyckad åtkomst liknar:
 

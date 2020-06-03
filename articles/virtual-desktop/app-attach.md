@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a222e5a0602a676872eb8119e565f243f2ecc1b4
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c23528fbb60b471a7613f372fe5316a4883ae733
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742941"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310622"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurera MSIX-appbifogning
 
 > [!IMPORTANT]
-> MSIX app Attach är för närvarande i privat för hands version.
+> MSIX app Attach är för närvarande en offentlig för hands version.
 > Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Det här avsnittet beskriver hur du konfigurerar MSIX app Attach i en Windows Virtual Desktop-miljö.
@@ -28,13 +28,14 @@ Det här avsnittet beskriver hur du konfigurerar MSIX app Attach i en Windows Vi
 Innan du börjar måste du konfigurera MSIX app Attach:
 
 - Åtkomst till Windows Insider-portalen för att hämta versionen av Windows 10 med stöd för MSIX-appen bifoga API: er.
-- En fungerande distribution av virtuella Windows-datorer. Mer information finns i [skapa en klient i det virtuella Windows-skrivbordet](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+- En fungerande distribution av virtuella Windows-datorer. Information om hur du distribuerar den virtuella Windows-datorns version 2019 finns i [skapa en klient i Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Information om hur du distribuerar Windows Virtual Desktop fjäder 2020-versionen finns i [skapa en adresspool med Azure Portal](./create-host-pools-azure-marketplace.md).
+
 - MSIX packnings verktyg
 - En nätverks resurs i distributionen av virtuella Windows-datorer där MSIX-paketet ska lagras
 
-## <a name="get-the-os-image"></a>Hämta operativ system avbildningen
+## <a name="get-the-os-image-from-the-technology-adoption-program-tap-portal"></a>Hämta operativ system avbildningen från portalen för teknik antagande program (KNACKNING)
 
-Först måste du hämta den OS-avbildning som du ska använda för MSIX-appen. Hämta operativ system avbildningen:
+Hämta operativ system avbildningen från Windows Insider-portalen:
 
 1. Öppna [Windows Insider-portalen](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) och logga in.
 
@@ -49,6 +50,21 @@ Först måste du hämta den OS-avbildning som du ska använda för MSIX-appen. H
      >För tillfället är engelska det enda språk som har testats med funktionen. Du kan välja andra språk, men de visas kanske inte som de ska.
     
 4. När nedladdnings länken skapas väljer du den **64-bitars hämtningen** och sparar den på den lokala hård disken.
+
+## <a name="get-the-os-image-from-the-azure-portal"></a>Hämta operativ system avbildningen från Azure Portal
+
+Hämta operativ system avbildningen från Azure Portal:
+
+1. Öppna [Azure Portal](https://portal.azure.com) och logga in.
+
+2. Gå till **skapa en virtuell dator**.
+
+3. På fliken **grundläggande** väljer du **Windows 10 Enterprise multi-session, version 2004**.
+      
+4. Följ resten av anvisningarna för att slutföra skapandet av den virtuella datorn.
+
+     >[!NOTE]
+     >Du kan använda den här virtuella datorn för att direkt testa MSIX app Attach. Om du vill veta mer kan du gå vidare till [skapa ett VHD-eller VHDX-paket för MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Annars fortsätter du att läsa det här avsnittet.
 
 ## <a name="prepare-the-vhd-image-for-azure"></a>Förbered VHD-avbildningen för Azure 
 
@@ -77,7 +93,7 @@ sc config wuauserv start=disabled
 När du har inaktiverat automatiska uppdateringar måste du aktivera Hyper-V eftersom du kommer att använda kommandot kast platsen-VHD för att mellanlagra och och demontera-VHD till destage. 
 
 ```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 >[!NOTE]
 >Den här ändringen kräver att du startar om den virtuella datorn.

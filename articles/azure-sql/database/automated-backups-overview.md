@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 7ee69feccb59270d14e86185d0cd6112e5e2ab4a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a99045359d9d6c6a327ef646ba15457c3e4fbbda
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190075"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299816"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -36,8 +36,8 @@ Både SQL Database-och SQL-hanterad instans använder SQL Server teknik för att
 
 Du kan använda de här säkerhetskopiorna för att:
 
-- **Återställ en befintlig databas till en tidpunkt under den senaste** perioden under kvarhållningsperioden med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API. Den här åtgärden skapar en ny databas på samma server som den ursprungliga databasen för databaser med enkel och pool. I en hanterad instans kan den här åtgärden Skapa en kopia av databasen eller samma eller en annan hanterad instans under samma prenumeration.
-- **Återställ en borttagen databas till tiden för borttagning** eller när som helst inom kvarhållningsperioden. Den borttagna databasen kan bara återställas på samma server eller hanterade instans där den ursprungliga databasen skapades.
+- **Återställ en befintlig databas till en tidpunkt under den senaste** perioden under kvarhållningsperioden med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API. Den här åtgärden skapar en ny databas på samma server i samma prenumeration som den ursprungliga databasen för databaser med enkel och pool. I en hanterad instans kan den här åtgärden Skapa en kopia av databasen eller samma eller en annan hanterad instans under samma prenumeration.
+- **Återställ en borttagen databas till tiden för borttagning** eller när som helst inom kvarhållningsperioden. Den borttagna databasen kan bara återställas på samma server eller hanterade instans och i samma prenumeration som den ursprungliga databasen skapades i.
 - **Återställ en databas till en annan geografisk region**. Med geo-återställning kan du återställa från en geografisk katastrof när du inte har åtkomst till servern och databasen. Den skapar en ny databas på alla befintliga servrar, var som helst i världen.
 - **Återställ en databas från en viss långsiktig säkerhets kopia** på en databas eller databas i pooler, om databasen har kon figurer ATS med en långsiktig bevarande princip (brv). Med LTR kan du återställa en gammal version av databasen med hjälp av [Azure Portal](long-term-backup-retention-configure.md#using-azure-portal) eller [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) för att uppfylla en begäran om efterlevnad eller köra en gammal version av programmet. Mer information finns i avsnittet om [långsiktig kvarhållning](long-term-retention-overview.md).
 

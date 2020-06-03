@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183402"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298863"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett Node.js-webb-API från en skrivbordsapp med Azure Active Directory B2C
 
 Den här självstudien visar hur du anropar en Node. js-webb-API som skyddas av Azure Active Directory B2C (Azure AD B2C) från en Windows Presentation Foundation (WPF) Desktop-app, som också skyddas av Azure AD B2C.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Lägga till ett program för webb-API
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Ge behörigheter till webb-API:t
 > * Uppdatera exemplet så att programmet används
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen och kraven i [Självstudier: autentisera användare i en intern Skriv bords klient](tutorial-desktop-app.md).
 
@@ -43,7 +43,7 @@ Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång anvä
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Registrera värdet under **omfattningar** för `demo.read` omfånget som ska användas i ett senare steg när du konfigurerar Skriv bords programmet. Det fullständiga värdet för `https://contosob2c.onmicrosoft.com/api/demo.read`omfattning liknar.
+Registrera värdet under **omfattningar** för `demo.read` omfånget som ska användas i ett senare steg när du konfigurerar Skriv bords programmet. Det fullständiga värdet för omfattning liknar `https://contosob2c.onmicrosoft.com/api/demo.read` .
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
@@ -51,17 +51,11 @@ Om du vill anropa ett skyddat webb-API från ett internt klient program måste d
 
 I den nödvändiga självstudien har du registrerat ett internt klient program med namnet *nativeapp1*. Följande steg konfigurerar den interna program registreringen med de API-omfattningar som du exponerade för *webapi1* i föregående avsnitt. Detta gör det möjligt för Skriv bords programmet att hämta en åtkomsttoken från Azure AD B2C att webb-API: et kan använda för att verifiera och ge begränsad åtkomst till resurser. Du konfigurerar och kör både desktop program och webb-API-kod exempel senare i självstudien.
 
-#### <a name="applications"></a>[Program](#tab/applications/)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
 
-1. Välj **Program** och sedan *nativeapp1*.
-1. Välj **API-åtkomst** och därefter **Lägg till**.
-1. I listrutan **Välj API** väljer du *webapi1*.
-1. I list rutan **Välj omfång** väljer du de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
-1. Välj **OK**.
+#### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
-#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
-
-1. Välj **Appregistreringar (för hands version)** och välj sedan det interna klient program som ska ha åtkomst till API: et. Till exempel *nativeapp1*.
+1. Välj **Appregistreringar**och välj sedan det interna klient program som ska ha åtkomst till API: et. Till exempel *nativeapp1*.
 1. Under **Hantera**, Välj **API-behörigheter**.
 1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
 1. Välj fliken **Mina API: er** .
@@ -72,6 +66,14 @@ I den nödvändiga självstudien har du registrerat ett internt klient program m
 1. Välj ditt inloggade administratörs konto eller logga in med ett konto i Azure AD B2C-klienten som har tilldelats minst administratörs rollen för *moln program* .
 1. Välj **Godkänn**.
 1. Välj **Uppdatera**och verifiera sedan att "beviljat..." visas under **status** för båda omfattningarna. Det kan ta några minuter innan behörigheterna har spridits.
+
+#### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
+
+1. Välj **program (bakåtkompatibelt)** och välj sedan *nativeapp1*.
+1. Välj **API-åtkomst** och därefter **Lägg till**.
+1. I listrutan **Välj API** väljer du *webapi1*.
+1. I list rutan **Välj omfång** väljer du de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
+1. Välj **OK**.
 
 * * *
 
@@ -85,7 +87,7 @@ Nu när webb-API: et är registrerat och du har konfigurerat scope och behörigh
 
 I ett krav för den här artikeln ändrade du ett [WPF Desktop-program](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) för att aktivera inloggning med ett användar flöde i din Azure AD B2C klient. I det här avsnittet uppdaterar du samma program för att referera till webb-API: t som du registrerade tidigare, *webapi1*.
 
-1. Öppna **Active-Directory-B2C-WPF-** lösningen (`active-directory-b2c-wpf.sln`) i Visual Studio.
+1. Öppna **Active-Directory-B2C-WPF-** lösningen ( `active-directory-b2c-wpf.sln` ) i Visual Studio.
 1. Öppna *app.XAML.cs* -filen i **Active-Directory-B2C-WPF-** projektet och leta upp följande variabel definitioner.
     1. Ersätt värdet för `ApiScopes` variabeln med värdet du registrerade tidigare när du definierade **demonstrationen. Läs** omfattning.
     1. Ersätt värdet för `ApiEndpoint` variabeln med den **omdirigerings-URI** som du registrerade tidigare när du registrerade webb-API: t (till exempel *webapi1*) i din klient organisation.
@@ -118,7 +120,7 @@ Exempelwebb-API:et för Node.js använder Passport.js-biblioteket för att aktiv
     var tenantIdGuid = "<your-b2c-tenant>.onmicrosoft.com";
     var policyName = "B2C_1_signupsignin1";
     ```
-1. Eftersom du kör API: et lokalt uppdaterar du sökvägen i vägen för GET-metoden till `/` i stället för demonstrations appens plats för: `/hello`
+1. Eftersom du kör API: et lokalt uppdaterar du sökvägen i vägen för GET-metoden till `/` i stället för demonstrations appens plats för `/hello` :
 
     ```nodejs
     app.get("/",

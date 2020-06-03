@@ -5,14 +5,14 @@ author: mimckitt
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/22/2018
+ms.date: 06/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 7c33f29ab00605f68d41358b79284bf49188fece
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: c888a28607101cdf41fcd9b47cf25a2fc5da6337
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715876"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299527"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 
@@ -52,7 +52,7 @@ Schemalagda händelser levereras till:
 
 - Fristående Virtual Machines.
 - Alla virtuella datorer i en moln tjänst.
-- Alla virtuella datorer i en tillgänglighets uppsättning/tillgänglighets zon. 
+- Alla virtuella datorer i en tillgänglighets uppsättning.
 - Alla virtuella datorer i en placerings grupp för skalnings uppsättningar. 
 
 Därför bör du kontrol lera `Resources` fältet i händelsen för att identifiera vilka virtuella datorer som påverkas.
@@ -60,7 +60,7 @@ Därför bör du kontrol lera `Resources` fältet i händelsen för att identifi
 ### <a name="endpoint-discovery"></a>Slut punkts identifiering
 För virtuella VNET-aktiverade virtuella datorer är Metadata Service tillgängliga från en statisk nonroutable-IP-adress `169.254.169.254` . Den fullständiga slut punkten för den senaste versionen av Schemalagda händelser är: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
 
 Om den virtuella datorn inte har skapats inom en Virtual Network, krävs standard fall för moln tjänster och klassiska virtuella datorer, men ytterligare logik krävs för att identifiera IP-adressen som ska användas. Information om hur du [identifierar värd slut punkten](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)finns i det här exemplet.
 
@@ -69,6 +69,8 @@ Den Schemalagda händelser tjänsten har versions hantering. Versioner är oblig
 
 | Version | Versions typ | Regioner | Viktig information | 
 | - | - | - | - | 
+| 2019-08-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för EventSource |
+| 2019-04-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för händelse Beskrivning |
 | 2019-01-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för den virtuella datorns skalnings uppsättning EventType ' Terminate ' |
 | 2017-11-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för VM-utavlägsning av händelse-Preempt för VM<br> | 
 | 2017-08-01 | Allmän tillgänglighet | Alla | <li> Tog bort anpassningsprefix-understreck från resurs namn för virtuella IaaS-datorer<br><li>Krav för metadata-huvud tillämpas för alla begär Anden | 
@@ -88,7 +90,7 @@ Användarinitierad VM-underhåll via Azure Portal, API, CLI eller PowerShell res
 
 Om du startar om en virtuell dator är en händelse med typen `Reboot` schemalagd. Om du distribuerar om en virtuell dator är en händelse med typen `Redeploy` schemalagd.
 
-## <a name="use-the-api"></a>Använda API
+## <a name="use-the-api"></a>Använda API:et
 
 ### <a name="headers"></a>Sidhuvuden
 När du frågar Metadata Service måste du ange rubriken `Metadata:true` för att se till att begäran inte oavsiktligt omdirigeras. `Metadata:true`Rubriken krävs för alla begär Anden om schemalagda händelser. Om du inte tar med rubriken i begäran resulterar det i en "felaktig begäran"-svar från Metadata Service.
@@ -98,7 +100,7 @@ Du kan fråga efter schemalagda händelser genom att göra följande anrop:
 
 #### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
 ```
 
 Ett svar innehåller en matris med schemalagda händelser. En tom matris innebär att för närvarande inga händelser är schemalagda.
@@ -113,7 +115,9 @@ Om det finns schemalagda händelser innehåller svaret en händelse mat ris.
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
-            "NotBefore": {timeInUTC},              
+            "NotBefore": {timeInUTC},       
+            "Description": {eventDescription},
+            "EventSource" : "Platform" | "User",
         }
     ]
 }
@@ -128,6 +132,8 @@ Om det finns schemalagda händelser innehåller svaret en händelse mat ris.
 | Resurser| Lista över resurser som den här händelsen påverkar. Listan är garanterat att innehålla datorer från högst en [uppdaterings domän](manage-availability.md), men den innehåller kanske inte alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges i `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> `Completed`Det finns aldrig någon eller liknande status. Händelsen returneras inte längre när händelsen är färdig.
 | NotBefore| Tid när den här händelsen kan starta. <br><br> Exempel: <br><ul><li> Mån, 19 Sep 2016 18:29:47 GMT  |
+| Description | Beskrivning av den här händelsen. <br><br> Exempel: <br><ul><li> Underhåll pågår för värd servern. |
+| EventSource | Händelsens initierare. <br><br> Exempel: <br><ul><li> `Platform`: Den här händelsen initieras av platfrom. <li>`User`: Den här händelsen initieras av användaren. |
 
 ### <a name="event-scheduling"></a>Händelse schemaläggning
 Varje händelse schemaläggs en minimi period i framtiden baserat på händelse typen. Den här tiden visas i en händelse `NotBefore` egenskap. 
@@ -197,9 +203,14 @@ def handle_scheduled_events(data):
         eventtype = evt['EventType']
         resourcetype = evt['ResourceType']
         notbefore = evt['NotBefore'].replace(" ", "_")
+    description = evt['Description']
+    eventSource = evt['EventSource']
         if this_host in resources:
             print("+ Scheduled Event. This host " + this_host +
-                " is scheduled for " + eventtype + " not before " + notbefore)
+                " is scheduled for " + eventtype + 
+        " by " + eventSource + 
+        " with description " + description +
+        " not before " + notbefore)
             # Add logic for handling events here
 
 

@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/01/2020
 ms.author: borisb
-ms.openlocfilehash: 649d96a158682752e0d4a31bf7ec73eb7c442f0f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d739f9f5c0e1be80005d5f3c6db5aa94ff6cc85d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660539"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299850"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Översikt över Oracle-program och Azure-lösningar på Azure
 
@@ -29,7 +29,9 @@ Kör Oracle-databaser på Azure-infrastruktur med hjälp av Oracle Database på 
 
 * Oracle Database 12,1, 12,2 och 18,3 Enterprise Edition 
 
-* Oracle Database 12,1, 12,2 och 18,3 Standard Edition 
+* Oracle Database 12,1, 12,2 och 18,3 Standard Edition
+
+* Oracle Database 19,3
 
 Du kan också välja att konfigurera Oracle Database på en icke-Oracle Linux avbildning som är tillgänglig i Azure, basera en lösning på en anpassad avbildning som du skapar från grunden i Azure eller ladda upp en anpassad avbildning från din lokala miljö.
 
@@ -45,7 +47,7 @@ Kör företags program i Azure på Oracle-operativsystem som stöds. Följande a
 
 * 12.1.2 för Oracle WebLogic-Server
 
-* Oracle Linux med den hårda företags kärnan (UEK) 6,8, 6,9, 6,10, 7,3, 7,4, 7,5 och 7,6 
+* Oracle Linux med Enterprise-kernel (UEK) 6,8, 6,9, 6,10, 7,3 till 7,7, 8,0, 8,1. 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Alternativ för hög tillgänglighet och haveri beredskap
 
@@ -72,8 +74,7 @@ Köra Oracle-program i Azure-infrastrukturen, anslutna till backend-databaser i 
 
 Använd terraform-mallar för att konfigurera Azure-infrastrukturen och installera Oracle-program. 
 
-> [!IMPORTANT]
-> Oracle certifierar dessa program för att köras i Azure när du använder Azure/Oracle Cloud Interconnect-lösningen från maj 2020.
+Från maj 2020 är följande Oracle-program certifierade för att köras i Azure när du använder Azure/Oracle Cloud Interconnect-lösningen:
 
 * E-Business Suite
 * JD Edwards-EnterpriseOne

@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: a6ce0f2a4d45f0a703676c76f429dbe07a4517f4
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 51846c8630e4e8c60205f8d92fb7f74f92de3f41
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263507"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309653"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -27,6 +27,14 @@ För Visual Studio ställer du in `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` m
 I CLI kan du skriva ut mer information under kommando körningen med hjälp av `--verbose` växeln. Du kan också bläddra i mer detaljerade loggar i `%TEMP%\Azure Dev Spaces` . I en Mac kan du hitta *Temp* -katalogen genom att köra `echo $TMPDIR` från ett terminalfönster. På en Linux-dator är *Temp* -katalogen vanligt vis `/tmp` . Kontrol lera också att loggning är aktiverat i [konfigurations filen för Azure CLI](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
 Azure dev Spaces fungerar också bäst vid fel sökning av en enskild instans eller pod. `azds.yaml`Filen innehåller en inställning, *replicaCount*, som anger antalet poddar som Kubernetes körs för tjänsten. Om du ändrar *replicaCount* för att konfigurera programmet så att det kör flera poddar för en specifik tjänst, bifogas fel söknings programmet till de första pod, i alfabetisk ordning. Fel söknings programmet ansluts till en annan Pod när den ursprungliga Pod återanvänds, vilket kan resultera i ett oväntat beteende.
+
+## <a name="common-issues-when-using-local-process-with-kubernetes"></a>Vanliga problem när du använder lokal process med Kubernetes
+
+### <a name="fail-to-restore-original-configuration-of-deployment-on-cluster"></a>Det gick inte att återställa den ursprungliga konfigurationen av distributionen på klustret
+
+När du använder den lokala processen med Kubernetes, om den lokala processen med Kubernetes-klienten kraschar eller avslutas plötsligt, kan det hända att den lokala processen med Kubernetes inte återställs till ursprungs läget innan den lokala processen med Kubernetes är ansluten till den.
+
+Du kan åtgärda det här problemet genom att distribuera om tjänsten till klustret.
 
 ## <a name="common-issues-when-enabling-azure-dev-spaces"></a>Vanliga problem när du aktiverar Azure dev Spaces
 
@@ -52,13 +60,13 @@ Du kan återskapa kontroll enheten från CLI eller Visual Studio. Se [team utvec
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Styrenheten kunde inte skapas på grund av kontrollantens namn längd
 
-Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Ett exempel:
+Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Till exempel:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Ett exempel:
+Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Till exempel:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -162,7 +170,7 @@ Anta till exempel att du använder ett Helm-kommando för att köra hela program
 
 Azure dev Spaces kan konfigureras så att de pekar på en viss _Dockerfile_ i ditt projekt. Om det verkar som om Azure dev Spaces inte använder den _Dockerfile_ som du förväntar dig att bygga dina behållare, kan du uttryckligen behöva berätta om Azure dev Spaces som Dockerfile ska använda. 
 
-Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Ett exempel:
+Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Till exempel:
 
 ```yaml
 ...
@@ -209,7 +217,7 @@ install:
 
 Du kanske ser det här felet när det inte går att starta en tjänst kod. Orsaken är ofta i användar kod. Om du vill ha mer diagnostikinformation aktiverar du mer detaljerad loggning när du startar tjänsten.
 
-På kommando raden använder `--verbose` du för att aktivera mer detaljerad loggning. Du kan också ange ett utdataformat med `--output` . Ett exempel:
+På kommando raden använder `--verbose` du för att aktivera mer detaljerad loggning. Du kan också ange ett utdataformat med `--output` . Till exempel:
 
 ```cmd
 azds up --verbose --output json
@@ -259,7 +267,7 @@ Det här felet beror på att Azure dev Spaces för närvarande inte stöder vers
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>Nätverks trafiken vidarebefordras inte till ditt AKS-kluster när du ansluter till utvecklings datorn
 
-När du använder [Azure dev Spaces för att ansluta ditt AKS-kluster till din utvecklings dator](how-to/connect.md)kan du stöta på ett problem där nätverks trafiken inte vidarebefordras mellan din utvecklings dator och ditt AKS-kluster.
+När du använder [Azure dev Spaces för att ansluta ditt AKS-kluster till din utvecklings dator](how-to/local-process-kubernetes-vs-code.md)kan du stöta på ett problem där nätverks trafiken inte vidarebefordras mellan din utvecklings dator och ditt AKS-kluster.
 
 När du ansluter din utvecklings dator till ditt AKS-kluster vidarebefordrar Azure dev-utrymmen nätverks trafiken mellan ditt AKS-kluster och utvecklings datorn genom att ändra din utvecklings dators `hosts` fil. Azure dev Spaces skapar en post i `hosts` med adressen för Kubernetes-tjänsten som du ersätter som ett värdnamn. Den här posten används med vidarebefordran av portar för att dirigera nätverks trafik mellan utvecklings datorn och AKS-klustret. Om en tjänst på utvecklings datorn är i konflikt med den port i Kubernetes-tjänsten som du ersätter kan inte Azure dev-utrymmen vidarebefordra nätverks trafik för Kubernetes-tjänsten. *Windows BranchCache* -tjänsten är till exempel vanligt vis kopplad till *0.0.0.0:80*, vilket innebär att det uppstår en konflikt mellan port 80 och alla lokala IP-adresser.
 
@@ -274,7 +282,7 @@ Till exempel för att stoppa och inaktivera tjänsten *Windows BranchCache* :
 
 ### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Fel "ingen AzureAssignedIdentity hittades för pod: azds/azds-webhook-Deployment- \<id\> Assigned State"
 
-När du kör en tjänst med Azure dev Spaces i ett AKS-kluster med [hanterade identiteter](../aks/use-managed-identity.md) och [Pod-hanterade](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) identiteter installerade, kan processen låsa sig efter steget för att *Installera diagrammet* . Om du inspekterar *azds – webhook* i *azds* -namn utrymmet kan du se det här felet.
+När du kör en tjänst med Azure dev Spaces i ett AKS-kluster med hanterade [identiteter](../aks/use-managed-identity.md) och [Pod-hanterade](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) identiteter installerade, kan processen sluta svara efter steget för *diagram installationen* . Om du inspekterar *azds – webhook* i *azds* -namn utrymmet kan du se det här felet.
 
 Tjänsterna för Azure dev-tjänster körs i klustret och använder klustrets hanterade identitet för att kommunicera med Server dels tjänsterna i Azure dev-tjänsten utanför klustret. När Pod-hanterad identitet installeras konfigureras nätverks regler på klustrets noder för att omdirigera alla anrop för autentiseringsuppgifter för hanterad identitet till en [NMI-DaemonSet () som är installerad på klustret](https://github.com/Azure/aad-pod-identity#node-managed-identity). Den här NMI-DaemonSet identifierar den anropande Pod och ser till att Pod har märkts korrekt för att få åtkomst till den begärda hanterade identiteten. Azure dev Spaces kan inte identifiera om ett kluster har Pod-hanterad identitet installerad och inte kan utföra den nödvändiga konfigurationen för att ge Azure dev Spaces-tjänster åtkomst till klustrets hanterade identitet. Eftersom Azure dev Spaces-tjänsterna inte har kon figurer ATS för åtkomst till klustrets hanterade identitet, tillåter inte NMI-DaemonSet att de får en AAD-token för den hanterade identiteten och kan inte kommunicera med Server dels tjänster för Azure dev Spaces.
 
@@ -320,7 +328,7 @@ Om du vill visa information om den hanterade identiteten kör du följande komma
 az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
 ```
 
-Kommandot ovan matar ut *clientId* och *resourceId* för den hanterade identiteten. Ett exempel:
+Kommandot ovan matar ut *clientId* och *resourceId* för den hanterade identiteten. Till exempel:
 
 ```json
 {
@@ -361,7 +369,7 @@ kubectl apply -f clusteridentity.yaml
 kubectl apply -f clusteridentitybinding.yaml
 ```
 
-När du har distribuerat *AzureIdentity* -och *AzureIdentityBinding* -objekten kan alla arbets belastningar med etiketten *aadpodidbinding: mitt-etikett-Value* komma åt klustrets hanterade identitet. Lägg till den här etiketten och distribuera om alla arbets belastningar som körs i ett dev-utrymme. Ett exempel:
+När du har distribuerat *AzureIdentity* -och *AzureIdentityBinding* -objekten kan alla arbets belastningar med etiketten *aadpodidbinding: mitt-etikett-Value* komma åt klustrets hanterade identitet. Lägg till den här etiketten och distribuera om alla arbets belastningar som körs i ett dev-utrymme. Till exempel:
 
 ```yaml
 apiVersion: apps/v1
@@ -445,7 +453,7 @@ Så här åtgärdar du problemet:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Auktoriseringsfel "Microsoft. DevSpaces/register/Action"
 
-Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Ett exempel:
+Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Till exempel:
 
 ```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -589,7 +597,8 @@ Om du vill aktivera Azure dev Spaces i ett AKS-kluster där den utgående trafik
 | cloudflare.docker.com | HTTPS: 443 | Hämta Linux Alpine och andra Azure dev Spaces-bilder |
 | gcr.io | HTTP: 443 | Hämta Helm/till-avbildningar|
 | storage.googleapis.com | HTTP: 443 | Hämta Helm/till-avbildningar|
-| azds – <guid> . <location> . azds.io | HTTPS: 443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE% \. azds\settings.JSON|
+
+Uppdatera brand väggen eller säkerhets konfigurationen för att tillåta nätverks trafik till och från alla ovanstående FQDN och [infrastruktur tjänster i Azure dev Spaces](../dev-spaces/configure-networking.md#virtual-network-or-subnet-configurations).
 
 ### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Fel "Det gick inte att hitta klustret \<cluster\> i prenumerationen \<subscriptionId\> "
 
@@ -604,7 +613,7 @@ Så här åtgärdar du problemet:
 
 När [du har roterat certifikaten i AKS-klustret](../aks/certificate-rotation.md), kan vissa åtgärder, t `azds space list` . ex. och inte, utföras `azds up` . Du måste också uppdatera certifikaten på Azure dev Spaces-kontrollanten när du har roterat certifikaten i klustret.
 
-Åtgärda problemet genom att se till att *kubeconfig* har de uppdaterade certifikaten med hjälp av `az aks get-credentials` och kör sedan `azds controller refresh-credentials` kommandot. Ett exempel:
+Åtgärda problemet genom att se till att *kubeconfig* har de uppdaterade certifikaten med hjälp av `az aks get-credentials` och kör sedan `azds controller refresh-credentials` kommandot. Till exempel:
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>

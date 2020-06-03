@@ -1,16 +1,16 @@
 ---
 title: Media Graph-koncept – Azure
-description: Med medie diagram kan du definiera var media ska samlas in, hur de ska bearbetas och var resultaten ska levereras. Den här artikeln innehåller en detaljerad beskrivning av media Graph-konceptet.
+description: Med ett medie diagram kan du definiera var mediet ska samlas in, hur det ska bearbetas och var resultatet ska levereras. Den här artikeln innehåller en detaljerad beskrivning av media Graph-konceptet.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: ee055c34fd37d2d1cc5e7d0bb5147c945dcbff94
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.date: 05/01/2020
+ms.openlocfilehash: 02e960e917a059afdb0d688c7429d27d8e8a48eb
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260969"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300815"
 ---
-# <a name="media-graph-concept"></a>Media diagram-koncept
+# <a name="media-graph"></a>Mediegraf
 
 ## <a name="suggested-pre-reading"></a>Föreslagen för läsning
 
@@ -19,10 +19,11 @@ ms.locfileid: "84260969"
 
 ## <a name="overview"></a>Översikt
 
-Med medie diagram kan du definiera var media ska samlas in, hur de ska bearbetas och var resultaten ska levereras. Ett medie diagram består av noder av källa, processor och mottagare. Diagrammet nedan innehåller en grafisk representation av ett medie diagram.   
+Med ett medie diagram kan du definiera var mediet ska samlas in, hur det ska bearbetas och var resultatet ska levereras. Du kan göra detta genom att ansluta komponenter eller noder på önskat sätt. Diagrammet nedan innehåller en grafisk representation av ett medie diagram.  
 
 ![En grafisk representation av ett medie diagram](./media/media-graph/overview.png)
 
+Live video analys på IoT Edge stöder olika typer av källor, processorer och mottagare.
 
 * **Källnoden** möjliggör inhämtning av media i medie diagrammet. Media i den här kontexten kan konceptuellt vara en ljud ström, en video ström, en data ström eller en ström som innehåller ljud, video och/eller data som kombineras tillsammans i en enda ström.
 * **Processor noder** möjliggör bearbetning av media i medie diagrammet.
@@ -30,11 +31,13 @@ Med medie diagram kan du definiera var media ska samlas in, hur de ska bearbetas
 
 ## <a name="media-graph-topologies-and-instances"></a>Media Graph-topologier och instanser 
 
-Med live video analys på IoT Edge kan du hantera medie diagram via två koncept – "Graph Topology" och "Graph instance". Med en Graph-topologi kan du definiera en skiss av en graf, med parametrar som plats hållare för värden. Topologin definierar vilka noder som används i medie diagrammet och hur de är anslutna i medie diagrammet. Värdena för parametrarna kan anges när du skapar graf-instanser som refererar till topologin. På så sätt kan du skapa flera instanser som refererar till samma topologi, men med olika värden för de parametrar som anges i topologin. 
+Med live video analys på IoT Edge kan du hantera medie diagram via två koncept – "Graph Topology" och "Graph instance". Med en Graph-topologi kan du definiera skissen för en graf, med parametrar som plats hållare för värden. Topologin definierar vilka noder som används i medie diagrammet och hur de är anslutna i medie diagrammet. Om du till exempel vill spela in feeden från en kamera behöver du en graf med en källnod som tar emot video och en Sink-nod som skriver videon.
+
+Värdena för parametrarna i topologin anges när du skapar diagram instanser som refererar till topologin. På så sätt kan du skapa flera instanser som refererar till samma topologi, men med olika värden för de parametrar som anges i topologin. I exemplet ovan kan du ha använt parametrar för att representera kamerans IP-adress och namnet på den inspelade videon. Du kan skapa många graf-instanser med topologin – en instans för varje kamera i en byggnad, kanske var och en med den angivna IP-adressen och det angivna namnet.
 
 ## <a name="media-graph-states"></a>Medie diagram status  
 
-Medie diagram kan vara i något av följande tillstånd:
+Ett medie diagram kan vara i något av följande tillstånd:
 
 * Inaktiv – representerar det tillstånd där ett medie diagram är konfigurerat men inte aktivt.
 * Aktivering – tillståndet när ett medie diagram instansieras (det vill säga över gångs tillståndet mellan inaktiv och aktiv).
@@ -56,11 +59,11 @@ Live video analys på IoT Edge stöder följande typer av noder i ett medie diag
 
 #### <a name="rtsp-source"></a>RTSP-källa 
 
-En RTSP-källa möjliggör hämtning av media från en [RTSP](https://tools.ietf.org/html/rfc2326) -Server. RTSP används för att upprätta och kontrol lera medie sessioner mellan en server och en klient. Noden RTSP-källa i medie diagrammet fungerar som en klient och kan upprätta en session med den angivna RTSP-servern. Många enheter, till exempel de flesta [IP-kameror](https://en.wikipedia.org/wiki/IP_camera) har en inbyggd RTSP-server. [ONVIF](https://www.onvif.org/) bestämmer att RTSP ska stödjas i sin definition av [profiler G, S & T-](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) kompatibla enheter. Noden RTSP-källa i medie diagram kräver att du anger en RTSP-URL, tillsammans med autentiseringsuppgifter för att aktivera en autentiserad anslutning.
+Med en RTSP-källmapp kan du mata in media från en [RTSP] ( https://tools.ietf.org/html/rfc2326 Server. Övervaknings-och IP-baserade kameror överför sina data i ett protokoll som kallas RTSP (Real-Time-Streaming-Protocol) som skiljer sig från andra typer av enheter som telefoner och video kameror. Det här protokollet används för att upprätta och kontrol lera medie sessioner mellan en server (kameran) och en klient. Noden RTSP-källa i ett medie diagram fungerar som en klient och kan upprätta en session med en RTSP-server. Många enheter, till exempel de flesta [IP-kameror](https://en.wikipedia.org/wiki/IP_camera) har en inbyggd RTSP-server. [ONVIF](https://www.onvif.org/) bestämmer att RTSP ska stödjas i sin definition av [profiler G, S & T-](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) kompatibla enheter. RTSP-Källnoden kräver att du anger en RTSP-URL, tillsammans med autentiseringsuppgifter för att aktivera en autentiserad anslutning.
 
 #### <a name="iot-hub-message-source"></a>IoT Hub meddelande källa 
 
-Precis som andra [IoT Edge moduler](../../iot-edge/iot-edge-glossary.md#iot-edge-module)kan live video analys i IoT Edge-modulen ta emot meddelanden via [IoT Edge hubben](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). Dessa meddelanden kan skickas från andra moduler eller appar som körs på gräns enheten eller från molnet. Sådana meddelanden kan levereras (dirigeras) till en [namngiven inmatning](../../iot-edge/module-composition.md#sink) i modulen. Med en IoT Hub meddelande källa kan sådana meddelanden dirigeras till en Media Graph-instans. Dessa meddelanden eller signaler kan sedan användas internt i medie diagrammet, vanligt vis för att aktivera signal portar (se [signal grind processor](#signal-gate-processor) nedan). 
+Precis som andra [IoT Edge moduler](../../iot-edge/iot-edge-glossary.md#iot-edge-module)kan live video analys i IoT Edge-modulen ta emot meddelanden via [IoT Edge hubben](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). Dessa meddelanden kan skickas från andra moduler eller appar som körs på gräns enheten eller från molnet. Sådana meddelanden levereras (dirigeras) till en [namngiven inmatning](../../iot-edge/module-composition.md#sink) i modulen. En nod för IoT Hub-meddelande källa tillåter att sådana meddelanden når ett medie diagram. Dessa meddelanden eller signaler kan sedan användas internt i medie diagrammet, vanligt vis för att aktivera signal portar (se [signal grindar](#signal-gate-processor) nedan). 
 
 Du kan till exempel ha en IoT Edge-modul som genererar ett meddelande när en dörr öppnas. Meddelandet från modulen kan dirigeras till IoT Edge Hub, där det kan dirigeras till IoT Hub-meddelande källan för ett medie diagram. I medie grafen kan IoT Hub-meddelande källan skicka händelsen till en signal grind processor, som sedan kan aktivera inspelning av videon från en RTSP-källa till en fil. 
 
@@ -68,42 +71,46 @@ Du kan till exempel ha en IoT Edge-modul som genererar ett meddelande när en d�
 
 #### <a name="motion-detection-processor"></a>Processor för rörelse identifiering 
 
-Med processen för identifiering av rörelser kan du identifiera rörelse i live video. Den undersöker inkommande video och avgör om det finns rörelse i videon. Om rörelsen upptäcks, skickas den på videon till den underordnade noden och en händelse skapas. Rörelse identifierings processor (tillsammans med andra Media diagram-noder) kan användas för att utlösa inspelning av den inkommande videon när en rörelse upptäcks.
+Med noden motion-identifiering kan du identifiera rörelse i live video. Den undersöker inkommande video bild rutor och avgör om det finns rörelse i videon. Om rörelsen upptäcks, skickas den på video bild rutorna till den efterföljande komponenten och en händelse skapas. Noden för identifiering av rörelser (tillsammans med andra noder) kan användas för att utlösa inspelning av den inkommande videon när en rörelse upptäcks.
 
 #### <a name="frame-rate-filter-processor"></a>Filter processor för RAM hastighet  
 
-Med filter processorn för RAM hastighet kan du sampla ramar från den inkommande video strömmen med en angiven bild hastighet. På så sätt kan du minska antalet ramar som skickas till Datastream-noder (till exempel HTTP Extension processor) för vidare bearbetning.
+Med filtret för RAM hastighet filtrera processor kan du sampla ramar från den inkommande video strömmen med en angiven hastighet. På så sätt kan du minska antalet ramar som skickas till nedströms komponenter (till exempel noden HTTP-tilläggsbegäranden) för vidare bearbetning.
 
-#### <a name="http-extension-processor"></a>Processor för HTTP-tillägg 
+#### <a name="http-extension-processor"></a>Processor för HTTP-tillägg
 
-Med HTTP-tillägget kan du koppla ditt eget AI till ett medie diagram. HTTP-tillägget tar som inkodade video bild rutor och vidarebefordrar sådana ramar till en HTTP-slutpunkt. Processorn har möjlighet att autentisera med HTTP-slutpunkten om det behövs. Dessutom har processorn inbyggd avbildnings-Formatter som tillåter skalning och kodning av video ramar innan de vidarebefordras. Skalning har alternativ för bild-höjd-förhållandet som ska bevaras, fyllas i eller sträckas ut medan kodningen innehåller alternativ för olika bild kodning, till exempel JPEG, PNG eller BMP.
+Med noden HTTP-tillägg kan du ansluta din egen IoT Edge-modul till ett medie diagram. Den här noden tar avkodade video ramar som inaktuella inmatade och vidarebefordrar sådana ramar till en HTTP REST-slutpunkt som exponeras av din modul. Den här noden har möjlighet att autentisera med REST-slutpunkten om det behövs. Dessutom har noden en inbyggd avbildnings-Formatter för skalning och kodning av video bild rutor innan de vidarebefordras till REST-slutpunkten. Skalaren har alternativ för bild-höjd-förhållandet som ska bevaras, utfylls eller sträckas ut. Bild kodaren stöder JPEG-, PNG-eller BMP-format.
 
 #### <a name="signal-gate-processor"></a>Signal grind processor  
 
-Med signal grind processorn kan Media vidarebefordras villkorligt från en nod till en annan. Den fungerar även som en buffert som tillåter synkronisering av medier och händelser. Ett exempel på användnings fall är att infoga en signal grind processor mellan en RTSP-källa och en till gångs mottagare och använda utdata från motion detektor-processorn för att utlösa porten. Med ett sådant medie diagram kan du bara utlösa inspelning av media när rörelse upptäcks i den inkommande videon. 
+Med noden signal grind processor kan du skicka ett villkor till media från en nod till en annan. Den fungerar även som en buffert som tillåter synkronisering av medier och händelser. Ett vanligt användnings fall är att infoga en signal grind processor mellan noden RTSP-källa och noden till gångs mottagare och att använda utdata från en nod för motion-detektor för att utlösa porten. I ett sådant medie diagram skulle du bara spela in video när du har identifierat rörelse.
 
 ### <a name="sinks"></a>Mottagare  
 
 #### <a name="asset-sink"></a>Till gångs mottagare  
 
-Med en till gångs mottagare kan ett medie diagram skriva medie data (video och/eller ljud) till en Azure Media Services till gång. Se avsnittet [till gång](terminology.md#asset) för mer information om till gångar och deras roll vid inspelning och uppspelning av media.  
+Med noden till gångs mottagare kan du skriva medie data (video och/eller ljud) till en Azure Media Services till gång. Det kan bara finnas en nod för till gångs mottagare i ett medie diagram. Se avsnittet [till gång](terminology.md#asset) för mer information om till gångar och deras roll vid inspelning och uppspelning av media. Du kan också se artikeln [kontinuerlig video inspelning](continuous-video-recording-concept.md) för information om hur nodens egenskaper används.
 
 #### <a name="file-sink"></a>Fil mottagare  
 
-Filen Sink gör det möjligt för ett medie diagram att skriva medie data (video och/eller ljud) till en plats i det lokala fil systemet på den IoT Edge enheten. Fil mottagaren måste vara underordnad en Signals grind processor. Detta begränsar längden på utdatafilerna till värden som anges i egenskaperna för signal porten processor.
+Med noden fil mottagare kan du skriva medie data (video och/eller ljud) till en plats i det lokala fil systemet på den IoT Edge enheten. Det får bara finnas en filsink-nod i ett medie diagram och den måste ligga bakom en signal grind processor. Detta begränsar varaktigheten för utdatafilerna till värden som anges i egenskaperna för signal porten processor.
 
 #### <a name="iot-hub-message-sink"></a>IoT Hub meddelande mottagare  
 
-Med en IoT Hub meddelande mottagare kan du publicera händelser till IoT Edge Hub. Edge Hub kan sedan dirigera data till andra moduler eller appar på gräns enheten eller till IoT Hub i molnet (per vägar som anges i distributions manifestet). IoT Hub meddelande mottagare kan acceptera händelser från överordnade processorer, till exempel en rörelse identifierings processor, eller från en extern härlednings tjänst via HTTP-tilläggs processor.
+Med noden IoT Hub meddelande mottagare kan du publicera händelser till IoT Edge Hub. IoT Edge Hub kan sedan dirigera data till andra moduler eller appar på gräns enheten eller till IoT Hub i molnet (per vägar som anges i distributions manifestet). Noden IoT Hub meddelande mottagare kan acceptera händelser från överordnade processorer, till exempel en nod för identifiering av rörelser, eller från en extern härlednings tjänst via en HTTP-tilläggsprovider.
+
+## <a name="rules-on-the-use-of-nodes"></a>Regler för användning av noder
+
+Se [kvoter](quotas-limitations.md#limitations-on-graph-topologies-at-preview) för ytterligare regler för hur olika noder kan användas i ett medie diagram.
 
 ## <a name="scenarios"></a>Scenarier
 
-Genom att använda en kombination av noderna källa, processor och mottagare, som definieras ovan, kan du bygga medie diagram för olika scenarier. Några exempel scenarier är följande
+Med en kombination av de källor, processorer och handfat som definierats ovan kan du bygga medie diagram för en rad olika scenarier som omfattar analys av direktsänd video. Exempel scenarier är:
 
-* [Kontinuerlig inspelning av video](continuous-video-recording-concept.md)
-* [Händelse-baserad videoinspelning](event-based-video-recording-concept.md)
-* [Video analys utan videoinspelning](analyze-live-video-concept.md)
+* [Kontinuerlig videoinspelning](continuous-video-recording-concept.md)
+* [Händelsebaserad videoinspelning](event-based-video-recording-concept.md)
+* [Videoanalys i realtid utan videoinspelning](analyze-live-video-concept.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ [snabb starten: kör live video analys med din egen modell](use-your-model-quickstart.md) artikel för att se hur du kan köra rörelse identifiering i en Live-videofeed.
+Information om hur du kan köra rörelse identifiering på en Live-videofeed finns i [snabb start: kör Live Video Analytics med din egen modell](use-your-model-quickstart.md).

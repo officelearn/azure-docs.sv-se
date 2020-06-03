@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: c6f3a912a9b3c9ff65fb9975eaf13b38ee3d9483
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 85376e1861108089cd7918b3b261f05433b59217
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195293"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298046"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Hugo-webbplats till Azures statiska Web Apps för hands version
 
 Den här artikeln visar hur du skapar och distribuerar ett [Hugo](https://gohugo.io/) -webbprogram till [azures statiska Web Apps](overview.md). Det slutliga resultatet är en ny Azure-statisk Web Apps med associerade GitHub-åtgärder som ger dig kontroll över hur appen byggs och publiceras.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -109,7 +109,7 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 
 1. I _resurs grupp_väljer du **ny**. I _nytt resurs grupp namn_anger du **Hugo-static-app** och väljer **OK**.
 
-1. Ange sedan ett globalt unikt namn för din app i rutan **namn** . Giltiga tecken är `a-z` , `A-Z` `0-9` och `-` . Det här värdet används som URL-prefix för din statiska app i formatet `https://<APP_NAME>....` .
+1. Sedan ett namn för din app i rutan **namn** . Giltiga tecken är `a-z` , `A-Z` `0-9` och `-` .
 
 1. För _region_väljer du en tillgänglig region nära dig.
 

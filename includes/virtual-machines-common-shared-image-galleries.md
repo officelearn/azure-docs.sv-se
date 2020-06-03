@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5cb3e6d53f6840b8f4e535976739c188daed18b2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789052"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317696"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
 
@@ -31,7 +31,7 @@ Om du har ett stort antal avbildningar som du behöver underhålla och vill gör
 
 Funktionen för delad bild galleri har flera resurs typer:
 
-| Resurs | Beskrivning|
+| Resurs | Description|
 |----------|------------|
 | **Bild källa** | Det här är en resurs som kan användas för att skapa en **avbildnings version** i ett bild galleri. En avbildnings källa kan vara en befintlig virtuell Azure-dator som är antingen [generaliserad eller specialiserad](#generalized-and-specialized-images), en hanterad avbildning, en ögonblicks bild eller en avbildnings version i ett annat bild galleri. |
 | **Bild galleri** | Precis som Azure Marketplace är ett **avbildnings Galleri** en lagrings plats för att hantera och dela bilder, men du styr vem som har åtkomst. |
@@ -48,11 +48,11 @@ Bild definitioner är en logisk gruppering för versioner av en bild. Bild defin
 
 Det finns tre parametrar för varje avbildnings definition som används i kombinations **utgivare**, **erbjudande** och **SKU**. Dessa används för att hitta en bestämd avbildnings definition. Du kan ha avbildnings versioner som delar en eller två, men inte alla tre värden.  Här är till exempel tre bild definitioner och deras värden:
 
-|Bilddefinition|Utgivare|Erbjudande|Sku|
+|Bilddefinition|Publisher|Erbjudande|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Ekonomi|Serverdel|
-|myImage2|Contoso|Ekonomi|Klientdel|
-|myImage3|Testning|Ekonomi|Klientdel|
+|myImage1|Contoso|Finance|Serverdel|
+|myImage2|Contoso|Finance|Klientdel|
+|myImage3|Testning|Finance|Klientdel|
 
 Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje bild definition måste ha en unik uppsättning av dessa värden.
 
@@ -71,14 +71,14 @@ Följande är andra parametrar som kan ställas in på din avbildnings definitio
 
 ## <a name="generalized-and-specialized-images"></a>Generaliserade och specialiserade avbildningar
 
-Det finns två operativ system tillstånd som stöds av det delade avbildnings galleriet. Vanligt vis kräver avbildningar att den virtuella datorn som användes för att skapa avbildningen har generaliserats innan avbildningen togs. Att generalisera är en process som tar bort dator-och användarspecifik information från den virtuella datorn. För Windows används Sysprep för även. För Linux kan du använda [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` eller `-deprovision+user` parametrar.
+Det finns två operativ system tillstånd som stöds av det delade avbildnings galleriet. Vanligt vis kräver avbildningar att den virtuella datorn som användes för att skapa avbildningen har generaliserats innan avbildningen togs. Att generalisera är en process som tar bort dator-och användarspecifik information från den virtuella datorn. För Windows används Sysprep-verktyget. För Linux kan du använda [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` eller `-deprovision+user` parametrar.
 
-Specialiserade virtuella datorer har inte genomgått någon process för att ta bort datorspecifik information och konton. Virtuella datorer som skapats från specialiserade avbildningar har inte heller `osProfile` någon kopplad till sig. Det innebär att specialiserade avbildningar har vissa begränsningar förutom vissa förmåner.
+Specialiserade virtuella datorer har inte genomgått någon process för att ta bort datorspecifik information och konton. Virtuella datorer som skapats från specialiserade avbildningar har inte heller någon `osProfile` kopplad till sig. Det innebär att specialiserade avbildningar har vissa begränsningar förutom vissa förmåner.
 
 - Virtuella datorer och skalnings uppsättningar som skapats från specialiserade avbildningar kan vara igång snabbare. Eftersom de skapas från en källa som redan har gått igenom den första starten går det snabbare att starta virtuella datorer från de här avbildningarna.
 - Konton som kan användas för att logga in på den virtuella datorn kan också användas på alla virtuella datorer som skapats med hjälp av den specialiserade avbildningen som skapas från den virtuella datorn.
 - Virtuella datorer kommer att ha **dator namnet** på den virtuella dator som avbildningen hämtades från. Du bör ändra dator namnet för att undvika kollisioner.
-- `osProfile` Hur känslig information överförs till den virtuella datorn med hjälp av `secrets`. Detta kan orsaka problem med hjälp av nyckel valv, WinRM och andra funktioner `secrets` som använder `osProfile`i. I vissa fall kan du använda hanterade tjänst identiteter (MSI) för att undvika de här begränsningarna.
+- `osProfile`Hur känslig information överförs till den virtuella datorn med hjälp av `secrets` . Detta kan orsaka problem med hjälp av nyckel valv, WinRM och andra funktioner som använder `secrets` i `osProfile` . I vissa fall kan du använda hanterade tjänst identiteter (MSI) för att undvika de här begränsningarna.
 
 ## <a name="regional-support"></a>Regional support
 
@@ -101,7 +101,7 @@ Käll regionerna visas i tabellen nedan. Alla offentliga regioner kan vara mål 
 
 
 
-## <a name="limits"></a>Begränsningar 
+## <a name="limits"></a>Gränser 
 
 Det finns gränser per prenumeration för att distribuera resurser med hjälp av delade avbildnings gallerier:
 - 100 delade avbildnings gallerier, per prenumeration, per region
@@ -139,14 +139,14 @@ De regioner som en delad avbildnings version replikeras till kan uppdateras efte
 
 ![Bild som visar hur du kan replikera bilder](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Åtkomst
+## <a name="access"></a>Access
 
 När galleriet för delad avbildning, bild definition och avbildnings version är alla resurser kan de delas med de inbyggda inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvud namn och grupper. Du kan även dela åtkomst till personer utanför den klient organisation de skapades i. När en användare har åtkomst till den delade avbildnings versionen kan de distribuera en virtuell dator eller en skalnings uppsättning för virtuella datorer.  Här är en delnings mat ris som hjälper dig att förstå vad användaren får åtkomst till:
 
 | Delat med användare     | Delat bildgalleri | Bilddefinition | Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
 | Delat bildgalleri | Ja                  | Ja          | Ja                  |
-| Bilddefinition     | Inga                   | Ja          | Ja                  |
+| Bilddefinition     | Nej                   | Ja          | Ja                  |
 
 Vi rekommenderar att du delar på Galleri nivå för bästa möjliga upplevelse. Vi rekommenderar inte att du delar enskilda avbildnings versioner. Mer information om RBAC finns i [Hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -162,12 +162,12 @@ Det kostar inget extra att använda tjänsten Shared Image Gallery. Du kommer at
 När du har skapat kan du göra några ändringar i avbildnings Galleri resurserna. Dessa är begränsade till:
  
 Galleri för delad avbildning:
-- Beskrivning
+- Description
 
 Bild definition:
 - Rekommenderad virtuella processorer
 - Rekommenderat minne
-- Beskrivning
+- Description
 - Datum för slut på livs längd
 
 Avbildnings version:
@@ -182,7 +182,7 @@ Följande SDK: er har stöd för att skapa delade avbildnings gallerier:
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node. js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
+- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Kör](https://docs.microsoft.com/azure/go/)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 32117d4bfcf0c0af94eced095b94ab0c1b6f88af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b62f30f428a0aaf5a564e2f2d2ad8d753dff7767
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184371"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298947"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Hantera Azure AD B2C med Microsoft Graph
 
@@ -36,9 +36,11 @@ Det finns två kommunikations lägen som du kan använda när du arbetar med Mic
 
 * **Interaktiv** – lämpligt för körnings aktiviteter genom att använda ett administratörs konto i B2C-klienten för att utföra hanterings uppgifter. För det här läget krävs en administratör för att logga in med sina autentiseringsuppgifter innan du anropar Microsoft Graph-API: et.
 
-* **Automatiserad** – för schemalagda eller kontinuerliga körnings aktiviteter använder den här metoden ett tjänst konto som du konfigurerar med de behörigheter som krävs för att utföra hanterings uppgifter. Du skapar "tjänst konto" i Azure AD B2C genom att registrera ett program som dina program och skript använder för att autentisera med hjälp av dess *program-ID* och OAuth 2,0-klientautentiseringsuppgifter. I det här fallet fungerar programmet som de ska för att anropa Microsoft Graph-API: t, inte administratörs användaren som i den tidigare beskrivna interaktiva metoden.
+* **Automatiserad** – för schemalagda eller kontinuerliga körnings aktiviteter använder den här metoden ett tjänst konto som du konfigurerar med de behörigheter som krävs för att utföra hanterings uppgifter. Du skapar "tjänst konto" i Azure AD B2C genom att registrera ett program som dina program och skript använder för att autentisera med hjälp av dess *program-ID* och **OAuth 2,0** -klientautentiseringsuppgifter. I det här fallet fungerar programmet som de ska för att anropa Microsoft Graph-API: t, inte administratörs användaren som i den tidigare beskrivna interaktiva metoden.
 
 Du aktiverar det **automatiserade** interaktions scenariot genom att skapa en program registrering som visas i följande avsnitt.
+
+Även om OAuth 2,0-klientens autentiseringsuppgifter för tilldelning av klient inte stöds direkt av Azure AD B2C-Autentiseringstjänsten, kan du konfigurera flödet för autentiseringsuppgifter för klienten med hjälp av Azure AD och Microsoft Identity Platform/token-slutpunkten för ett program i din Azure AD B2C-klient. En Azure AD B2C-klient delar vissa funktioner med Azure AD Enterprise-klienter.
 
 ## <a name="register-management-application"></a>Registrera hanterings program
 
@@ -73,9 +75,10 @@ Om programmet eller skriptet måste ta bort användare eller uppdatera sina lös
 1. Välj **Lägg till**. Det kan ta några minuter innan behörigheterna är fullständigt spridda.
 
 ## <a name="next-steps"></a>Nästa steg
+Nu när du har registrerat ditt hanterings program och har beviljat den nödvändiga behörigheten kan dina program och tjänster (till exempel Azure-pipeliner) använda sina autentiseringsuppgifter och behörigheter för att interagera med Microsoft Graph-API: et. 
 
-Nu när du har registrerat ditt hanterings program och har beviljat den nödvändiga behörigheten kan dina program och tjänster (till exempel Azure-pipeliner) använda sina autentiseringsuppgifter och behörigheter för att interagera med Microsoft Graph-API: et.
-
+* [Hämta en åtkomsttoken från Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Använd åtkomsttoken för att anropa Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
 * [B2C-åtgärder som stöds av Microsoft Graph](microsoft-graph-operations.md)
 * [Hantera Azure AD B2C användar konton med Microsoft Graph](manage-user-accounts-graph-api.md)
 * [Hämta gransknings loggar med Azure AD repor ting API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)

@@ -3,12 +3,12 @@ title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c2dc8303b630eb01de5c3ad9e3504dfec5256bc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 223acb523b8a7e4bc14d894c0eb6781d147b8923
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746903"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308888"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -316,7 +316,7 @@ Exempel: utvärderar SQL Server databaser för att avgöra om transparentDataEnc
 
 Den här inställningen är användbar för att testa situationer eller när princip definitionen har parameterstyrda påverkan. Den här flexibiliteten gör det möjligt att inaktivera en enskild tilldelning i stället för att inaktivera alla tilldelningar för principen.
 
-Ett alternativ till den inaktiverade inställningen är * * enforcementMode, som anges i princip tilldelningen.
+Ett alternativ till den inaktiverade inställningen är **enforcementMode**, som anges för princip tilldelningen.
 När **enforcementMode** är _inaktive rad_utvärderas resurserna fortfarande. Loggning, till exempel aktivitets loggar och princip påverkan inträffar inte. Mer information finns i [princip tilldelning – tvingande läge](./assignment-structure.md#enforcement-mode).
 
 
@@ -491,7 +491,7 @@ Med egenskapen för **drifts** egenskaper kan du ändra flera taggar på olika s
 
 Egenskapen **operation** har följande alternativ:
 
-|Åtgärd |Beskrivning |
+|Åtgärd |Description |
 |-|-|
 |addOrReplace |Lägger till den definierade taggen och värdet i resursen, även om taggen redan finns med ett annat värde. |
 |Lägg till |Lägger till den definierade taggen och värdet i resursen. |
@@ -547,7 +547,7 @@ Exempel 2: ta bort `env` taggen och Lägg till `environment` taggen eller ersät
 
 ## <a name="layering-policy-definitions"></a>Skikt princip definitioner
 
-En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan finnas i samma omfång eller i olika omfång. Vart och ett av dessa tilldelningar är också troligt att en annan inverkan har definierats. Villkoret och påverkan för varje princip utvärderas oberoende av varandra. Ett exempel:
+En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan finnas i samma omfång eller i olika omfång. Vart och ett av dessa tilldelningar är också troligt att en annan inverkan har definierats. Villkoret och påverkan för varje princip utvärderas oberoende av varandra. Till exempel:
 
 - Princip 1
   - Begränsar resursens plats till "väst"

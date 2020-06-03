@@ -5,37 +5,37 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
-ms.openlocfilehash: bf8b9370abc58902d9c751505f633dee852210a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 587a4bfed00415499bcca6d6054d4ab25cddf0b8
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184372"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298945"
 ---
-#### <a name="applications"></a>[Program](#tab/applications/)
-
-1. På sidan **registrerad app** -översikt väljer du **Inställningar**.
-1. Under **API-åtkomst**väljer du **nödvändiga behörigheter**.
-1. Välj **Microsoft Graph**.
-1. Under **program behörigheter**markerar du kryss rutan för behörigheten att bevilja ditt hanterings program. Ett exempel:
-    * **Läs alla Gransknings logg data**: Välj den här behörigheten för att läsa katalogens gransknings loggar.
-    * **Läsa och skriva katalog data**: Välj den här behörigheten för användar migrering eller användar hanterings scenarier.
-    * **Läs och skriv organisationens förtroende Ramverks principer**: Välj den här behörigheten för scenarier för kontinuerlig integrering/kontinuerlig leverans (CI/CD). Till exempel anpassad princip distribution med Azure-pipelines.
-1. Välj **Spara**.
-1. Välj **bevilja behörigheter**och välj sedan **Ja**. Det kan ta några minuter innan behörigheterna är fullständigt spridda.
-
 #### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
 1. Under **Hantera**, Välj **API-behörigheter**.
 1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
 1. Välj fliken **Microsoft API: er** och välj sedan **Microsoft Graph**.
 1. Välj **Programbehörigheter**.
-1. Expandera rätt behörighets grupp och markera kryss rutan för behörighet att bevilja ditt hanterings program. Ett exempel:
-    * **AuditLog** > -**AuditLog. Read. all**: för att läsa katalogens gransknings loggar.
-    * **Katalog** > **katalog. readwrite. all**: för användar migrering eller användar hanterings scenarier.
-    * **Princip** > **princip. readwrite. TrustFramework**: för scenarier med kontinuerlig integrering/kontinuerlig leverans (CI/CD). Till exempel anpassad princip distribution med Azure-pipelines.
+1. Expandera rätt behörighets grupp och markera kryss rutan för behörighet att bevilja ditt hanterings program. Till exempel:
+    * **AuditLog**  >  **AuditLog. Read. all**: för att läsa katalogens gransknings loggar.
+    * **Katalog**  >  **Directory. readwrite. all**: för användar migrering eller användar hanterings scenarier.
+    * **Princip**  >  **Princip. readwrite. TrustFramework**: för scenarier med kontinuerlig integrering/kontinuerlig leverans (CI/CD). Till exempel anpassad princip distribution med Azure-pipelines.
 1. Välj **Lägg till behörigheter**. Vänta några minuter innan du fortsätter till nästa steg.
 1. Välj **bevilja administrativt godkännande för (ditt klient namn)**.
 1. Välj ditt inloggade administratörs konto eller logga in med ett konto i Azure AD B2C-klienten som har tilldelats minst administratörs rollen för *moln program* .
-1. Välj **Acceptera**.
+1. Välj **Godkänn**.
 1. Välj **Uppdatera**och verifiera sedan att "beviljat..." visas under **status**. Det kan ta några minuter innan behörigheterna har spridits.
+
+#### <a name="applications"></a>[Program](#tab/applications/)
+
+1. På sidan **registrerad app** -översikt väljer du **Inställningar**.
+1. Under **API-åtkomst**väljer du **nödvändiga behörigheter**.
+1. Välj **Microsoft Graph**.
+1. Under **program behörigheter**markerar du kryss rutan för behörigheten att bevilja ditt hanterings program. Till exempel:
+    * **Läs alla Gransknings logg data**: Välj den här behörigheten för att läsa katalogens gransknings loggar.
+    * **Läsa och skriva katalog data**: Välj den här behörigheten för användar migrering eller användar hanterings scenarier.
+    * **Läs och skriv organisationens förtroende Ramverks principer**: Välj den här behörigheten för scenarier för kontinuerlig integrering/kontinuerlig leverans (CI/CD). Till exempel anpassad princip distribution med Azure-pipelines.
+1. Välj **Spara**.
+1. Välj **bevilja behörigheter**och välj sedan **Ja**. Det kan ta några minuter innan behörigheterna är fullständigt spridda.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85988d74d21c411586a368e12972450116259a45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db53e09957b5907e9b742c264b6a41f51041df1c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334390"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310248"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps mobilitets täckning
 
@@ -24,7 +24,7 @@ Azure Maps har inte samma nivå av information och noggrannhet för alla städer
 Följande tabell innehåller information om disponering för Azure Maps Mobility Service.
 
 
-| Symbol | Betydelse |
+| Symbol | Innebörd |
 |--------|---------|
 | *      |Nästan fullständig täckning för landet/regionen.|
 
@@ -40,7 +40,7 @@ Följande tabell innehåller information om disponering för Azure Maps Mobility
 | Colombia | <p>Barranquilla, Bogotá, Bucaramanga, Cali, Cartagena, Ibagué, Medellín, pastor, Popayán, Santa Marta, Sincelejo, Valledupar</p>|  
 | Costa Rica | San-José|
 | Ecuador | Cuenca, Guayaquil, Manta|
-| Mexiko | Aguascalientes, Mexiko City, Guadalajara, Lion, Merida, Monterrey, Puebla, Querétaro, San Luis Potosi|
+| Mexico | Aguascalientes, Mexiko City, Guadalajara, Lion, Merida, Monterrey, Puebla, Querétaro, San Luis Potosi|
 | Nicaragua | Managua | 
 | Panama | Panama| 
 | Peru | Cusco, Lima |
@@ -56,7 +56,7 @@ Följande tabell innehåller information om disponering för Azure Maps Mobility
 |--------|---------|
 | Australien      | <p>Adelaide, Anna-fjädrar, björk, Brisbane, Bundaberg QLD, bränning, Cairns, Canberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay, Magnet ön, Maryborough-Hervey Bay, Melbourne, New South Wales, Perth, RockHampton, södra östra Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | Kina | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Guangzhou, Shenzhen, Zhengzhou,,,</P>| 
-| Hongkong | Hong Kong SAR *|
+| Folkrepubliken Kinas särskilda administrativa region Hongkong | Hong Kong SAR *|
 | Folkrepubliken Kinas särskilda administrativa region Macao | Macao SAR *|
 | Indien | Ahmedabad, Bengaluru, Delhi, Mumbai, Mysuru, Pune|
 | Indonesien | Bandung, Banyuwangi, Batam, Denpasar, Jakarta, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
@@ -92,7 +92,7 @@ Följande tabell innehåller information om disponering för Azure Maps Mobility
 | Frankrike    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne Surman, Brest, Briançon, Cannes, Châlons-en-Champagne, Chartres, Clermont-Ferrand, Colmar, Dijon, Grenoble, Haguenau, Rochelle, La mans, Le, lins, Lille, Lorient, Lyon, Mac, Marseille & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, Nice, Nimes, Normandy, Nyons, Paris, Poitiers, Föreg. Quimper, Saint-Rennes, Malo, Étienne, Nazaire, Strasbourg, Saintes, Sarrebourg, turer</P> | 
 | + Franska Guyana | Cayenne |
 | + Nya Kaledonien | Nouméa  |
-| Georgien | Tbilisi | 
+| Georgia | Tbilisi | 
 | Tyskland | <p>Berlin, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, USA, Karlsruhe, Mainz, München-München, Rhein-Neckar region, Rhein-Ruhr region, Stuttgart, Titisee-Neustadt, Ulm</P> | 
 | Grekland | <p>Aten, Arta, Amorgos, Chania, Corfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Milos, Mykonos, Patra, Rethimno, Rhodes, solnedgång, Serres, Syros, Tinos, Thessaloniki, Veria, Volos, Xanthi,,,, </P> |
 | Ungern | Budapest, nogradient County, Szeged, Székesfehérvár |

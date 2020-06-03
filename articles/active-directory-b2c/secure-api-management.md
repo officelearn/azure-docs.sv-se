@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ffadca550a3a28b0ab490dd43c3b884602c93df
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8b0362f9bb80af9f98dad032790a9e88651284a1
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638486"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298881"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Skydda ett Azure API Management-API med Azure AD B2C
 
 Lär dig hur du begränsar åtkomsten till ditt Azure API Management-API (APIM) till klienter som har autentiserats med Azure Active Directory B2C (Azure AD B2C). Följ stegen i den här artikeln för att skapa och testa en inkommande princip i APIM som begränsar åtkomsten till de begär Anden som innehåller en giltig Azure AD B2C-utfärdad åtkomsttoken.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande resurser på plats innan du fortsätter med stegen i den här artikeln:
 
@@ -35,23 +35,23 @@ Du behöver följande resurser på plats innan du fortsätter med stegen i den h
 
 När du skyddar ett API i Azure API Management med Azure AD B2C behöver du flera värden för den [inkommande principen](../api-management/api-management-howto-policies.md) som du skapar i APIM. Registrera först program-ID: t för ett program som du tidigare har skapat i Azure AD B2C klient organisationen. Om du använder det program som du skapade i kraven använder du program-ID: t för *webbapp1*.
 
-Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (förhands granskning)** för att hämta program-ID: t. [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
 
-#### <a name="applications"></a>[Program](#tab/applications/)
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Under **Hantera**väljer du **program**.
-1. Registrera värdet i kolumnen **program-ID** för *webapp1* eller något annat program som du har skapat tidigare.
-
-#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Välj **Appregistreringar (för hands version)** och välj sedan fliken **ägda program** .
+1. Välj **Appregistreringar**och välj fliken **ägda program** .
 1. Registrera värdet i kolumnen **program (klient) ID** för *webapp1* eller ett annat program som du har skapat tidigare.
+
+#### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Under **Hantera**väljer du **program (bakåtkompatibelt)**.
+1. Registrera värdet i kolumnen **program-ID** för *webapp1* eller något annat program som du har skapat tidigare.
 
 * * *
 

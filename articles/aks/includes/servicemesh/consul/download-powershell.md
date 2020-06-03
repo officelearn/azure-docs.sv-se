@@ -10,7 +10,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "77594298"
 ---
-I ett PowerShell-baserat gränssnitt i Windows använder `Invoke-WebRequest` du för att ladda ned konsulär Helm-diagrammets version och `Expand-Archive` sedan extrahera med enligt följande:
+I ett PowerShell-baserat gränssnitt i Windows använder `Invoke-WebRequest` du för att ladda ned konsulär Helm-diagrammets version och sedan extrahera med `Expand-Archive` enligt följande:
 
 ```powershell
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions

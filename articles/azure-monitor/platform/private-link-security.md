@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 4ef7e4058c4f9cb458f4036ad4b315f5e85036b1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 95345ba864d498190186e1a366c8551be97c33f5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170723"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299721"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azures privata länk för att på ett säkert sätt ansluta nätverk till Azure Monitor
 
@@ -33,7 +33,7 @@ Med privat länk kan du:
 
 Mer information finns i [viktiga fördelar med privat länk](../../private-link/private-link-overview.md#key-benefits).
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 Azure Monitor privat länk omfång är en grupperings resurs för att ansluta en eller flera privata slut punkter (och därmed de virtuella nätverken de finns i) till en eller flera Azure Monitor resurser. Resurserna omfattar Log Analytics arbets ytor och Application Insights komponenter.
 
@@ -74,11 +74,17 @@ Om dina interna virtuella nätverk till exempel VNet1 och VNet2 ska ansluta till
 
 Börja med att skapa en Azure Monitor privat länk omfångs resurs.
 
-1. Gå till **skapa en resurs** i Azure Portal och sök efter **Azure Monitor privat länk omfång**. 
-2. Klicka på **skapa**. 
-3. Välj en prenumeration och en resurs grupp. 
-4. Ge AMPLS ett namn. Det är bäst att använda ett namn som är tydligt vilket syfte och vilken säkerhets gräns som området ska användas för, så att ingen av misstag kan bryta nätverks säkerhets gränser. Till exempel "AppServerProdTelem". 
+1. Gå till **skapa en resurs** i Azure Portal och sök efter **Azure Monitor privat länk omfång**.
+
+   ![Sök omfång för Azure Monitor privat länk](./media/private-link-security/ampls-find-1c.png)
+
+2. Klicka på **skapa**.
+3. Välj en prenumeration och en resurs grupp.
+4. Ge AMPLS ett namn. Det är bäst att använda ett namn som är tydligt vilket syfte och vilken säkerhets gräns som området ska användas för, så att ingen av misstag kan bryta nätverks säkerhets gränser. Till exempel "AppServerProdTelem".
 5. Klicka på **Granska + skapa**. 
+
+   ![Skapa Azure Monitor privat länk omfång](./media/private-link-security/ampls-create-1d.png)
+
 6. Låt validerings passet ta en titt och klicka sedan på **skapa**.
 
 ## <a name="connect-azure-monitor-resources"></a>Anslut Azure Monitor resurser
@@ -224,3 +230,6 @@ Om du vill tillåta att Log Analytics agent laddar ned lösnings paket lägger d
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Utgående
 |Azure Kina 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Utgående
 
+## <a name="next-steps"></a>Nästa steg
+
+- Lär dig mer om [privat lagring](private-storage.md)

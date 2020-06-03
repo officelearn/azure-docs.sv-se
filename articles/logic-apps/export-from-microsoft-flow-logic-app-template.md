@@ -3,26 +3,28 @@ title: Exportera flöden från Power automatisera till Azure Logic Apps
 description: Migrera flöden från Power automatisera till Azure Logic Apps genom att exportera som Azure Resource Manager mallar
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b30a2ae8d90a193e23229dc6743c7e92ebf83b52
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75428886"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298728"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportera flöden från Power Automate och distribuera till Azure Logic Apps
 
 Om du vill utöka och utöka ditt flödes funktioner kan du migrera flödet från [energi spar läge](https://flow.microsoft.com) till [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Du kan exportera ditt flöde som en Azure Resource Manager mall för en Logic app, distribuera Logic app-mallen till en Azure-resurs grupp och sedan öppna den Logic-appen i Logic App Designer.
 
 > [!NOTE]
-> Alla Power inautomatiserade anslutningar är inte tillgängliga i Azure Logic Apps. Du kan importera flöden som har [motsvarande kopplingar](../connectors/apis-list.md) i Azure Logic Apps. Till exempel är knapp utlösaren, godkännande Connector och meddelande Connector särskilt för automatisk energi förbrukning.
+> Alla Power inautomatiserade anslutningar är inte tillgängliga i Azure Logic Apps. Du kan bara migrera energi automatiserade flöden som har motsvarande kopplingar i Azure Logic Apps. Till exempel är knapp utlösaren, godkännande Connector och meddelande Connector särskilt för automatisk energi förbrukning. För närvarande stöds inte OpenAPI-baserade flöden i energi spar läge för export och distribution som Logic app-mallar.
 >
-> OpenAPI-baserade flöden som exporteras från Power automate stöds för närvarande inte för distribution som Logic app-mallar. 
+> * Om du vill ta reda på vilka PowerPivot-kopplingar som inte har Logic Apps motsvarigheter, se Power automater- [kopplingar](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+>
+> * Om du vill ta reda på vilka Logic Apps kopplingar inte har Energis par motsvarigheter, se [Logic Apps kopplingar](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -30,7 +32,7 @@ Om du vill utöka och utöka ditt flödes funktioner kan du migrera flödet frå
 
 ## <a name="export-a-flow"></a>Exportera ett flöde
 
-1. Logga in för att [Automatisera energi](https://flow.microsoft.com)och välj **mina flöden**. Hitta och välj ditt flöde. Välj ellipser-knappen (**...**) i verktygsfältet. Välj **Exportera** > **Logic Apps mall (. JSON)**.
+1. Logga in för att [Automatisera energi](https://flow.microsoft.com)och välj **mina flöden**. Hitta och välj ditt flöde. Välj ellipser-knappen (**...**) i verktygsfältet. Välj **Exportera**  >  **Logic Apps mall (. JSON)**.
 
    ![Exportera flöde](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
@@ -131,7 +133,7 @@ Om du har konfigurerat Visual Studio med [förutsättningarna](../logic-apps/qui
 
    1. Spara lösningen innan du distribuerar Logic-appen.
 
-1. I Solution Explorer öppnar du projektets snabb meny och väljer **distribuera** > **ny**. Om du uppmanas logga in med ditt Azure-konto ska du göra det.
+1. I Solution Explorer öppnar du projektets snabb meny och väljer **distribuera**  >  **ny**. Om du uppmanas logga in med ditt Azure-konto ska du göra det.
 
 1. När du uppmanas till det bekräftar du Azure-prenumerationen, Azure-resurs gruppen och eventuella andra inställningar som du vill använda för distribution, till exempel en [parameter fil](../azure-resource-manager/templates/parameter-files.md) som ska användas för att skicka parameter värden för en mall och väljer sedan **distribuera**.
 
@@ -141,7 +143,7 @@ Om du har konfigurerat Visual Studio med [förutsättningarna](../logic-apps/qui
 
    ![Redigera distributions parametrar](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster**. Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen. Ett exempel:
+   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster**. Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen. Till exempel:
 
    ![Utdatafönster](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

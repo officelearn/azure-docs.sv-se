@@ -6,8 +6,6 @@
   items:
     - name: Vad är Data Science Virtual Machine (DSVM)?
       href: overview.md
-    - name: Vad är Geo AI Data Science Virtual Machine?
-      href: geo-ai-dsvm-overview.md
     - name: Verktyg som ingår i Data Science Virtual Machine
       href: tools-included.md
 - name: Snabbstarter
@@ -17,8 +15,6 @@
       href: provision-vm.md
     - name: Skapa en Data Science Virtual Machine med Ubuntu
       href: dsvm-ubuntu-intro.md
-    - name: Skapa en Data Science Virtual Machine med Geo AI
-      href: provision-geo-ai-dsvm.md
 - name: Begrepp
   items:
     - name: Ramverk för djupinlärning och AI
@@ -45,8 +41,6 @@
       href: vm-do-ten-things.md
     - name: Så använder du en Data Science Virtual Machine med Linux
       href: linux-dsvm-walkthrough.md
-    - name: Så använder du en Data Science Virtual Machine med Geo AI
-      href: use-geo-ai-dsvm.md
     - name: Skapa en Data Science Virtual Machine-pool som skalas om automatiskt
       href: dsvm-pools.md
     - name: integrera med Active Directory

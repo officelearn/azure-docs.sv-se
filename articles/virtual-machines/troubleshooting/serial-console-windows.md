@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 68089a86b8b832638abd30aa7c36aa1c5bd84225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c555b058e6d0b8c110a3273525b5a8c58baaff61
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410125"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309789"
 ---
 # <a name="azure-serial-console-for-windows"></a>Azures serie konsol för Windows
 
@@ -32,7 +32,7 @@ Dokumentation om Azure-konsolen för Linux finns i [Azures serie konsol för Lin
 > Serie konsolen är allmänt tillgänglig i globala Azure-regioner och i offentlig för hands version i Azure Government. Den är ännu inte tillgänglig i Azure Kina-molnet.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste använda distributions modellen för resurs hantering. Klassiska distributioner stöds inte.
 
@@ -104,13 +104,13 @@ Om du behöver aktivera Windows Start inläsnings meddelanden för att visa i se
 
 1.    Ange `cmd` om du vill skapa en kanal som har en cmd-instans.
 
-1.    Ange `ch -si 1` eller tryck `<esc>+<tab>` på kortkommandon för att växla till den kanal som kör cmd-instansen.
+1.    Ange `ch -si 1` eller tryck på `<esc>+<tab>` kortkommandon för att växla till den kanal som kör cmd-instansen.
 
 1.    Tryck på **RETUR**och ange sedan inloggnings uppgifter med administratörs behörighet.
 
 1.    När du har angett giltiga autentiseringsuppgifter öppnas CMD-instansen.
 
-1.    Starta en PowerShell-instans genom att `PowerShell` ange i cmd-instansen och tryck på **RETUR**.
+1.    Starta en PowerShell-instans genom att ange `PowerShell` i cmd-instansen och tryck på **RETUR**.
 
     ![Öppna PowerShell-instans](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
@@ -124,7 +124,7 @@ Du kan använda serie konsolen för att skicka en NMI till en virtuell Azure-dat
 Information om hur du konfigurerar Windows för att skapa en kraschdumpfil när den får en NMI finns i [så här skapar du en kraschdumpfil med hjälp av en NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ### <a name="use-function-keys-in-serial-console"></a>Använda funktions nycklar i serie konsolen
-Funktions tangenter har Aktiver ATS för användning av serie konsolen i virtuella Windows-datorer. F8 i list rutan för serie konsolen ger dig möjlighet att enkelt ange menyn avancerade Start Inställningar, men serie konsolen är kompatibel med alla andra funktions nycklar. Du kan behöva trycka på **FN** + **F1** (eller F2, F3 osv.) på tangent bordet, beroende på vilken dator du använder för att använda en serie konsol från.
+Funktions tangenter har Aktiver ATS för användning av serie konsolen i virtuella Windows-datorer. F8 i list rutan för serie konsolen ger dig möjlighet att enkelt ange menyn avancerade Start Inställningar, men serie konsolen är kompatibel med alla andra funktions nycklar. Du kan behöva trycka på **FN**  +  **F1** (eller F2, F3 osv.) på tangent bordet, beroende på vilken dator du använder för att använda en serie konsol från.
 
 ### <a name="use-wsl-in-serial-console"></a>Använda WSL i serie konsolen
 Windows-undersystemet för Linux (WSL) har Aktiver ATS för Windows Server 2019 eller senare, så det är också möjligt att aktivera WSL för användning i serie konsolen om du kör Windows Server 2019 eller senare. Det kan vara fördelaktigt för användare som också är bekant med Linux-kommandon. Instruktioner för att aktivera WSL för Windows Server finns i [installations guiden](https://docs.microsoft.com/windows/wsl/install-on-server)för.
@@ -159,11 +159,11 @@ Om en användare är ansluten till serie konsolen och en annan användare kan be
 > [!CAUTION]
 > Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjligheten att genomdriva en utloggning vid från koppling (med SIGHUP eller liknande mekanism) finns fortfarande i översikten. För Windows finns en automatisk timeout som är aktive rad i SAC; för Linux kan du konfigurera inställningen för Terminal-timeout.
 
-## <a name="accessibility"></a>Hjälpmedel
-Hjälpmedel är en viktig fokus för Azures serie konsol. Därför har vi kontrollerat att serie konsolen är tillgänglig för det visuella objektet och hörselskadat, samt personer som kanske inte kan använda musen.
+## <a name="accessibility"></a>Tillgänglighet
+Hjälpmedel är en viktig fokus för Azures serie konsol. I detta fall har vi säkerställt att serie konsolen är tillgänglig för personer med nedsatt syn, eller som är svåra att höra, samt personer som kanske inte kan använda musen.
 
 ### <a name="keyboard-navigation"></a>Tangentbordsnavigering
-Använd **TABB** -tangenten på tangent bordet för att navigera i gränssnittet för den seriella konsolen från Azure Portal. Din plats kommer att vara markerad på skärmen. Tryck på **CTRL**+**F6** på tangent bordet för att lämna fönstret för serie konsolen.
+Använd **TABB** -tangenten på tangent bordet för att navigera i gränssnittet för den seriella konsolen från Azure Portal. Din plats kommer att vara markerad på skärmen. Tryck på **CTRL** + **F6** på tangent bordet för att lämna fönstret för serie konsolen.
 
 ### <a name="use-the-serial-console-with-a-screen-reader"></a>Använda serie konsolen med en skärm läsare
 Serie konsolen har stöd för skärm läsare inbyggd. Om du navigerar runt med en skärm läsare aktive rad kan alternativ texten för den markerade knappen läsas högt av skärm läsaren.
@@ -186,8 +186,8 @@ Problem                             |   Åtgärd
 Om du trycker på **RETUR** efter det att anslutningens banderoll inte leder till att en inloggnings tolk visas. | För mer information, se att [trycka på RETUR gör ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Det här felet kan inträffa om du kör en anpassad virtuell dator, en härdad installation eller start konfiguration som gör att Windows inte kan ansluta till den seriella porten korrekt. Det här felet uppstår också om du kör en virtuell Windows 10-dator, eftersom endast virtuella Windows Server-datorer har kon figurer ATS för att ha EMS aktiverat.
 Endast hälso information visas när du ansluter till en virtuell Windows-dator| Det här felet uppstår om den särskilda administrations konsolen inte har Aktiver ATS för Windows-avbildningen. Se [Aktivera serie konsolen i anpassade eller äldre avbildningar](#enable-the-serial-console-in-custom-or-older-images) för instruktioner om hur du aktiverar SAC manuellt på din virtuella Windows-dator. Mer information finns i [Windows hälso signaler](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 SAC tar inte upp hela det seriella konsol utrymmet i webbläsaren | Detta är ett känt problem med Windows och termin Ale mula torn. Vi spårar det här problemet med båda teamen men för närvarande finns det ingen minskning.
-Det går inte att skriva vid SAC-prompt om kernel-felsökning är aktiverat. | RDP till virtuell dator och `bcdedit /debug {current} off` köra från en upphöjd kommando tolk. Om du inte kan använda RDP kan du i stället koppla OS-disken till en annan virtuell Azure-dator och ändra den när den är `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`ansluten som en datadisk genom att köra och sedan växla tillbaka till disken.
-När du klistrar in i PowerShell i SAC visas ett tredje steg om det ursprungliga innehållet hade ett upprepande. | Om du vill ha en `Remove-Module PSReadLine` lösning kan du köra för att ta bort PSReadLine-modulen från den aktuella sessionen. Denna åtgärd tar inte bort eller avinstallerar modulen.
+Det går inte att skriva vid SAC-prompt om kernel-felsökning är aktiverat. | RDP till virtuell dator och köra `bcdedit /debug {current} off` från en upphöjd kommando tolk. Om du inte kan använda RDP kan du i stället koppla OS-disken till en annan virtuell Azure-dator och ändra den när den är ansluten som en datadisk genom att köra `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off` och sedan växla tillbaka till disken.
+När du klistrar in i PowerShell i SAC visas ett tredje steg om det ursprungliga innehållet hade ett upprepande. | Om du vill ha en lösning kan `Remove-Module PSReadLine` du köra för att ta bort PSReadLine-modulen från den aktuella sessionen. Denna åtgärd tar inte bort eller avinstallerar modulen.
 Vissa tangent bords inmatningar ger konstiga SAC-utdata (till exempel **[A**, **[3 ~**). | [VT100](https://aka.ms/vtsequences) escape-sekvenser stöds inte av SAC-prompten.
 Att klistra in långa strängar fungerar inte. | Serie konsolen begränsar längden på strängar som klistras in i terminalen till 2048 tecken för att förhindra överbelastning av bandbredden för den seriella porten.
 
@@ -195,11 +195,11 @@ Att klistra in långa strängar fungerar inte. | Serie konsolen begränsar läng
 
 **F. Hur gör jag för att skicka feedback?**
 
-A. Ge feedback genom att skapa ett GitHub- https://aka.ms/serialconsolefeedbackproblem på. Alternativt (mindre önskad) kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för. https://feedback.azure.com
+A. Ge feedback genom att skapa ett GitHub-problem på https://aka.ms/serialconsolefeedback . Alternativt (mindre önskad) kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com .
 
 **F. har serie konsolen stöd för kopiera/klistra in?**
 
-A. Ja. Använd **CTRL**+**Shift**+**C** och **CTRL**+**Shift**Shift+**V** för att kopiera och klistra in i terminalen.
+A. Ja. Använd **CTRL** + **Shift** + **C** och **CTRL** + **Shift** + **V** för att kopiera och klistra in i terminalen.
 
 **F. Vem kan aktivera eller inaktivera serie konsolen för min prenumeration?**
 

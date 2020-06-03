@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: d23a59e97ee3fc935a0d0954bc70b547b727fddc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f140aa905916524eca66e764f08b699de26be650
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546602"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300706"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Anslutnings arkitektur i Azure Database for PostgreSQL
 Den här artikeln förklarar Azure Database for PostgreSQL anslutnings arkitektur och hur trafiken dirigeras till din Azure Database for PostgreSQL databas instans från klienter både inom och utanför Azure.
@@ -44,6 +44,7 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure Dat
 | USA, östra | 40.121.158.30, 191.238.6.43  |
 | USA, östra 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | Frankrike, centrala | 40.79.137.0, 40.79.129.1  |
+| Frankrike, södra | 40.79.177.0     |
 | Tyskland, centrala | 51.4.144.100     |
 | Tyskland, norra öst | 51.5.144.179  |
 | Indien, centrala | 104.211.96.159     |

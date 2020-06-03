@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 19fdcc7b590c6ad6873c7808ae26d218bbda7f5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158985"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299952"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportera säkerhetsaviseringar och rekommendationer
 
@@ -28,6 +28,21 @@ Med de här verktygen kan du:
 * Exportera till CSV (en tid)
 
 
+
+
+## <a name="availability"></a>Tillgänglighet
+
+- Versions tillstånd: **allmänt tillgängligt**
+- Nödvändiga roller och behörigheter:
+    - **Läsare** för prenumerationen som innehåller export konfigurationen
+    - **Rollen säkerhets administratör** i resurs gruppen (eller **ägaren**)
+    - Måste också ha Skriv behörighet för mål resursen
+- Moln 
+    - ✔ Kommersiella moln
+    - ✔ US Gov
+    - ✘ Kina gov, andra gov
+
+
 ## <a name="setting-up-a-continuous-export"></a>Konfigurera en löpande export
 
 Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log Analytics arbets yta eller Azure Event Hubs.
@@ -38,7 +53,7 @@ Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log
     
 1. Från List rutan på sidan Inställningar för den prenumerationen väljer du **löpande export**.
 
-    Export alternativ i Azure Security Center [ ![](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) Här ser du export alternativen. Det finns en flik för varje tillgängligt export mål. 
+    [ ![ Exportera alternativ i Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) här visas export alternativen. Det finns en flik för varje tillgängligt export mål. 
 
 1. Välj den datatyp som du vill exportera och välj bland filtren för varje typ (till exempel endast exportera aviseringar med hög allvarlighets grad).
 

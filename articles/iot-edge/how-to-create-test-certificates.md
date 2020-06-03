@@ -4,16 +4,16 @@ description: Skapa test certifikat och lär dig hur du installerar dem på en Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/23/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9540913cd86b74fd51e96aa9d1d1dd34c5d60631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 921a9c5f7136713f278d9c50bf67f02d9742a470
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129798"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309143"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Skapa demonstrations certifikat för att testa IoT Edge enhets funktioner
 
@@ -25,7 +25,7 @@ Dessa certifikat upphör att gälla om 30 dagar och ska inte användas i något 
 
 Du kan skapa certifikat på vilken dator som helst och sedan kopiera dem till din IoT Edge-enhet.
 Det är enklare att använda den primära datorn för att skapa certifikaten istället för att skapa dem på själva IoT Edge enheten.
-Genom att använda den primära datorn kan du konfigurera skripten en gång och sedan upprepa processen för att skapa certifikat för flera enheter.
+Genom att använda den primära datorn kan du konfigurera skripten en gång och sedan använda dem för att skapa certifikat för flera enheter.
 
 Följ de här stegen för att skapa demonstrations certifikat för att testa IoT Edge scenariot:
 
@@ -36,7 +36,7 @@ Följ de här stegen för att skapa demonstrations certifikat för att testa IoT
    * [Skapa IoT Edge enhets certifikat](#create-iot-edge-device-ca-certificates) för certifikat för att testa produktions scenarier eller Gateway-scenarier.
    * [Skapa certifikat för underordnad enhet](#create-downstream-device-certificates) för att testa att autentisera underordnade enheter IoT Hub i ett Gateway-scenario.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En utvecklings dator med git installerat.
 
@@ -69,7 +69,7 @@ Det finns flera sätt att installera OpenSSL, inklusive följande alternativ:
       .\vcpkg install openssl:x64-windows
       ```
 
-   3. Lägg `<vcpkg path>\installed\x64-windows\tools\openssl` till i miljövariabeln PATH så att filen openssl. exe är tillgänglig för anrop.
+   3. Lägg till `<vcpkg path>\installed\x64-windows\tools\openssl` i miljövariabeln PATH så att filen openssl. exe är tillgänglig för anrop.
 
 #### <a name="prepare-scripts-in-powershell"></a>Förbereda skript i PowerShell
 
@@ -84,7 +84,7 @@ I det här avsnittet ska du klona IoT Edge lagrings platsen och köra skripten.
    git clone https://github.com/Azure/iotedge.git
    ```
 
-3. Navigera till den katalog som du vill arbeta med. I den här artikeln kallar vi katalogen * \<WRKDIR>*. Alla certifikat och nycklar kommer att skapas i den här arbets katalogen.
+3. Navigera till den katalog som du vill arbeta med. I den här artikeln kommer vi att anropa den här katalogen *\<WRKDIR>* . Alla certifikat och nycklar kommer att skapas i den här arbets katalogen.
 
 4. Kopiera konfigurations-och skriptfiler från den klonade lagrings platsen till din arbets katalog.
 
@@ -93,7 +93,7 @@ I det här avsnittet ska du klona IoT Edge lagrings platsen och köra skripten.
    copy <path>\iotedge\tools\CACertificates\ca-certs.ps1 .
    ```
 
-   Om du har hämtat lagrings platsen som ett ZIP-namn är `iotedge-master` mappnamnet och resten av sökvägen är samma.
+   Om du har hämtat lagrings platsen som ett ZIP-namn är mappnamnet `iotedge-master` och resten av sökvägen är samma.
 
 5. Aktivera PowerShell för att köra skripten.
 
@@ -125,7 +125,7 @@ Om du vill skapa demo certifikat på en Windows-enhet måste du klona generation
    git clone https://github.com/Azure/iotedge.git
    ```
 
-2. Navigera till den katalog som du vill arbeta med. Vi kommer att referera till den här katalogen i hela artikeln som * \<WRKDIR>*. Alla certifikat och viktiga filer kommer att skapas i den här katalogen.
+2. Navigera till den katalog som du vill arbeta med. Vi kommer att referera till den här katalogen i hela artikeln som *\<WRKDIR>* . Alla certifikat och viktiga filer kommer att skapas i den här katalogen.
   
 3. Kopiera config-och skriptfiler från den klonade IoT Edge lagrings platsen till din arbets katalog.
 
@@ -181,54 +181,6 @@ Innan du fortsätter med stegen i det här avsnittet följer du stegen i avsnitt
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
-## <a name="create-iot-edge-device-ca-certificates"></a>Skapa IoT Edge enhets certifikat för certifikat utfärdare
-
-Varje IoT Edge enhet som kommer till produktion behöver ett CA-certifikatutfärdarcertifikat som refereras från config. yaml-filen.
-Enhetens CA-certifikat ansvarar för att skapa certifikat för moduler som körs på enheten.
-Det är också så att den IoT Edge enheten verifierar identiteten när den ansluter till efterföljande enheter.
-
-Enhetens CA-certifikat finns i avsnittet **certifikat** i filen config. yaml på den IoT Edge enheten.
-
-Innan du fortsätter med stegen i det här avsnittet följer du stegen i avsnitten [Konfigurera skript](#set-up-scripts) och [Skapa certifikat för rot certifikat utfärdare](#create-root-ca-certificate) .
-
-### <a name="windows"></a>Windows
-
-1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
-
-2. Skapa IoT Edge enhetens CA-certifikat och privata nyckel med följande kommando. Ange ett namn för CA-certifikatet, till exempel **MyEdgeDeviceCA**, som används för att namnge utdatafilerna.
-
-   ```powershell
-   New-CACertsEdgeDevice "MyEdgeDeviceCA"
-   ```
-
-   Det här skript kommandot skapar flera certifikat och viktiga filer. Följande certifikat och nyckel par måste kopieras till en IoT Edge-enhet och refereras till i filen config. yaml:
-
-   * `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-   * `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
-
-Gateway-enhetens namn som skickades till dessa skript får inte vara samma som parametern "hostname" i config. yaml eller enhetens ID i IoT Hub.
-Skripten hjälper dig att undvika eventuella problem genom att lägga till en ". ca"-sträng till gateway-enhetens namn för att förhindra att namn krockar om en användare konfigurerar IoT Edge att använda samma namn på båda platserna.
-Det är dock en bra idé att undvika att använda samma namn.
-
-### <a name="linux"></a>Linux
-
-1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
-
-2. Skapa IoT Edge enhetens CA-certifikat och privata nyckel med följande kommando. Ange ett namn för CA-certifikatet, till exempel **MyEdgeDeviceCA**, som används för att namnge utdatafilerna.
-
-   ```bash
-   ./certGen.sh create_edge_device_certificate "MyEdgeDeviceCA"
-   ```
-
-   Det här skript kommandot skapar flera certifikat och viktiga filer. Följande certifikat och nyckel par måste kopieras till en IoT Edge-enhet och refereras till i filen config. yaml:
-
-   * `<WRKDIR>/certs/iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-   * `<WRKDIR>/private/iot-edge-device-MyEdgeDeviceCA.key.pem`
-
-Gateway-enhetens namn som skickades till dessa skript får inte vara samma som parametern "hostname" i config. yaml eller enhetens ID i IoT Hub.
-Skripten hjälper dig att undvika eventuella problem genom att lägga till en ". ca"-sträng till gateway-enhetens namn för att förhindra att namn krockar om en användare konfigurerar IoT Edge att använda samma namn på båda platserna.
-Det är dock en bra idé att undvika att använda samma namn.
-
 ## <a name="create-iot-edge-device-identity-certificates"></a>Skapa IoT Edge enhets identitets certifikat
 
 Enhets identitets certifikat används för att etablera IoT Edge enheter via [Azure-IoT Hub Device Provisioning service (DPS)](../iot-dps/index.yml).
@@ -269,9 +221,58 @@ Skriptet skapar flera certifikat och viktiga filer, inklusive tre som du ska anv
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
+## <a name="create-iot-edge-device-ca-certificates"></a>Skapa IoT Edge enhets certifikat för certifikat utfärdare
+
+Varje IoT Edge enhet som kommer till produktion behöver ett CA-certifikatutfärdarcertifikat som refereras från config. yaml-filen.
+Enhetens CA-certifikat ansvarar för att skapa certifikat för moduler som körs på enheten.
+Det är också nödvändigt för Gateway-scenarier, eftersom enhetens CA-certifikat är så att den IoT Edge enheten verifierar identiteten för underordnade enheter.
+
+Enhetens CA-certifikat finns i avsnittet **certifikat** i filen config. yaml på den IoT Edge enheten.
+
+Innan du fortsätter med stegen i det här avsnittet följer du stegen i avsnitten [Konfigurera skript](#set-up-scripts) och [Skapa certifikat för rot certifikat utfärdare](#create-root-ca-certificate) .
+
+### <a name="windows"></a>Windows
+
+1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
+
+2. Skapa IoT Edge enhetens CA-certifikat och privata nyckel med följande kommando. Ange ett namn för CA-certifikatet.
+
+   ```powershell
+   New-CACertsEdgeDevice "<CA cert name>"
+   ```
+
+   Det här kommandot skapar flera certifikat och viktiga filer. Följande certifikat och nyckel par måste kopieras till en IoT Edge-enhet och refereras till i filen config. yaml:
+
+   * `<WRKDIR>\certs\iot-edge-device-<CA cert name>-full-chain.cert.pem`
+   * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
+
+Namnet som skickas till kommandot **New-CACertsEdgeDevice** får inte vara detsamma som hostname-parametern i config. yaml, eller enhetens ID i IoT Hub.
+Skriptet hjälper dig att undvika eventuella problem genom att lägga till en ". ca"-sträng till certifikat namnet för att förhindra att namn krockar om en användare konfigurerar IoT Edge att använda samma namn på båda platserna.
+Det är dock en bra idé att undvika att använda samma namn.
+
+### <a name="linux"></a>Linux
+
+1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
+
+2. Skapa IoT Edge enhetens CA-certifikat och privata nyckel med följande kommando. Ange ett namn för CA-certifikatet.
+
+   ```bash
+   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ```
+
+   Det här skript kommandot skapar flera certifikat och viktiga filer. Följande certifikat och nyckel par måste kopieras till en IoT Edge-enhet och refereras till i filen config. yaml:
+
+   * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
+   * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
+
+Namnet som skickas till **create_edge_device_certificate** -kommandot får inte vara samma som hostname-parametern i config. yaml eller enhetens ID i IoT Hub.
+Skriptet hjälper dig att undvika eventuella problem genom att lägga till en ". ca"-sträng till certifikat namnet för att förhindra att namn krockar om en användare konfigurerar IoT Edge att använda samma namn på båda platserna.
+Det är dock en bra idé att undvika att använda samma namn.
+
 ## <a name="create-downstream-device-certificates"></a>Skapa certifikat för underordnad enhet
 
-Om du skapar en underordnad IoT-enhet för ett Gateway-scenario kan du generera demo certifikat för X. 509-autentisering.
+Om du konfigurerar en underordnad IoT-enhet för ett Gateway-scenario och vill använda X. 509-autentisering, kan du generera demo certifikat för den underordnade enheten.
+Om du vill använda symmetrisk nyckel autentisering behöver du inte några certifikat för den underordnade enheten.
 Det finns två sätt att autentisera en IoT-enhet med X. 509-certifikat: använda självsignerade certifikat eller använda signerade certifikat från certifikat utfärdare (CA).
 För X. 509-självsignerad autentisering, som ibland kallas tumavtryck-autentisering, måste du skapa nya certifikat som ska placeras på din IoT-enhet.
 Dessa certifikat har ett tumavtryck i dem som du delar med IoT Hub för autentisering.
@@ -292,7 +293,7 @@ Din IoT-enhet behöver också en kopia av sina enhets certifikat så att den kan
 
 1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
 
-2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Ett exempel:
+2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Till exempel:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -322,7 +323,7 @@ Din IoT-enhet behöver också en kopia av sina enhets certifikat så att den kan
 
 1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
 
-2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Ett exempel:
+2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Till exempel:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"
@@ -358,7 +359,7 @@ Certifikaten i det här avsnittet är för stegen i [Konfigurera X. 509-säkerhe
 
 #### <a name="windows"></a>Windows
 
-1. Ladda upp rot certifikat utfärdarens certifikat fil från arbets katalogen `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`, till din IoT-hubb.
+1. Ladda upp rot certifikat utfärdarens certifikat fil från arbets katalogen, `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` till din IoT-hubb.
 
 2. Använd koden som anges i Azure Portal för att kontrol lera att du äger det rot certifikat utfärdarens certifikat.
 
@@ -381,7 +382,7 @@ Certifikaten i det här avsnittet är för stegen i [Konfigurera X. 509-säkerhe
 
 #### <a name="linux"></a>Linux
 
-1. Ladda upp rot certifikat utfärdarens certifikat fil från arbets katalogen `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`, till din IoT-hubb.
+1. Ladda upp rot certifikat utfärdarens certifikat fil från arbets katalogen, `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` till din IoT-hubb.
 
 2. Använd koden som anges i Azure Portal för att kontrol lera att du äger det rot certifikat utfärdarens certifikat.
 

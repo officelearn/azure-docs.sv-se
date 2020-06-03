@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 91e7b1c0be9a38c3d79440f07d944d182980dc10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 038d9ff39f388d1ef7b09b951c09dbe3420858b7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159242"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298235"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Använd Visual Studio och Visual Studio Code för att bygga IoT Plug and Play-enheter
 
@@ -25,9 +25,9 @@ Den här artikeln visar hur du:
 - Använd den genererade koden i enhets projektet.
 - Iterera genom att återskapa Skeleton-koden.
 
-Mer information om att använda VS-koden för att utveckla IoT-enheter [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench)finns i.
+Mer information om att använda VS-koden för att utveckla IoT-enheter finns i [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Installera [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -53,11 +53,11 @@ I VS Code använder du **Ctrl + Shift + P** för att öppna kommando paletten, a
 
 - **Projekt typ**. Kod generatorn genererar också ett CMake-eller Arduino-projekt. För närvarande är de projekt typer som stöds:
 
-    - **Cmake-projekt i Windows**: för ett enhets projekt som använder [cmake](https://cmake.org/) som build-system i Windows. Det här alternativet `CMakeLists.txt` genererar med konfiguration av enhets-SDK i samma mapp som C-koden.
-    - **Cmake-projekt i Linux**: för ett enhets projekt som använder [cmake](https://cmake.org/) som build-system på Linux. Det här alternativet `CMakeLists.txt` genererar med konfiguration av enhets-SDK i samma mapp som C-koden.
+    - **Cmake-projekt i Windows**: för ett enhets projekt som använder [cmake](https://cmake.org/) som build-system i Windows. Det här alternativet genererar `CMakeLists.txt` med konfiguration av enhets-SDK i samma mapp som C-koden.
+    - **Cmake-projekt i Linux**: för ett enhets projekt som använder [cmake](https://cmake.org/) som build-system på Linux. Det här alternativet genererar `CMakeLists.txt` med konfiguration av enhets-SDK i samma mapp som C-koden.
     - **MXChip IoT DevKit-projekt**: för ett enhets projekt som körs på en [MXChip IoT DevKit](https://aka.ms/iot-devkit) -enhet. Det här alternativet genererar ett Arduino-projekt som du kan [använda i vs Code](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) eller i Arduino IDE för att skapa och köra på en IoT DevKit-enhet.
 
-- **Enhets-SDK-typ**. Om du väljer CMake som projekt typ är detta steget för att konfigurera hur genererad kod kommer att innehålla Azure IoT C-enhets `CMakeLists.txt`-SDK i:
+- **Enhets-SDK-typ**. Om du väljer CMake som projekt typ är detta steget för att konfigurera hur genererad kod kommer att innehålla Azure IoT C-enhets-SDK i `CMakeLists.txt` :
 
     - **Via källkod**: den genererade koden förlitar sig på [enhetens SDK-källkod](https://github.com/Azure/azure-iot-sdk-c) för att inkludera i och utveckla tillsammans med den. Detta rekommenderas när du har anpassat käll koden för enhets-SDK: n.
     - **Via Vcpkg**: den genererade koden förlitar sig på [enhetens SDK-Vcpkg](https://github.com/microsoft/vcpkg/tree/master/ports/azure-iot-sdk-c) för att inkludera i och utveckla tillsammans med den. Detta är det rekommenderade sättet för enheter som kör Windows, Linux eller macOS.
@@ -71,7 +71,7 @@ När kodgenerering är klar öppnas ett nytt VS Code-fönster med koden i tillä
 
 1. I VS Code använder du **Ctrl + Shift + P** för att öppna kommando-paletten, skriver och väljer **C/C++: redigera konfigurationer (JSON)** för att öppna **c_cpp_properties. JSON** -filen.
 
-1. Lägg till sökvägen till enhets-SDK: `includePath` n i avsnittet:
+1. Lägg till sökvägen till enhets-SDK: n i `includePath` avsnittet:
 
     ```json
     "includePath": [
@@ -92,14 +92,14 @@ För att bygga enhets koden tillsammans med enhet C SDK-Vcpkg med CMake i en Lin
 
 1. Öppna ett Terminal-program.
 
-1. Installera **gcc**, **git**, `cmake`och alla beroenden med `apt-get` kommandot:
+1. Installera **gcc**, **git**, `cmake` och alla beroenden med `apt-get` kommandot:
 
     ```bash
     sudo apt-get update
     sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
     ```
 
-    Kontrol lera att versionen `cmake` av är över **2.8.12** och att versionen av **gcc** är över **4.4.7**.
+    Kontrol lera att versionen av `cmake` är över **2.8.12** och att versionen av **gcc** är över **4.4.7**.
 
     ```bash
     cmake --version
@@ -127,7 +127,7 @@ För att bygga enhets koden tillsammans med enhet C SDK-Vcpkg med CMake i en Lin
     ./vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
-1. Skapa en `cmake` under katalog i mappen som innehåller den genererade koden stub och navigera till mappen:
+1. Skapa en under `cmake` katalog i mappen som innehåller den genererade koden stub och navigera till mappen:
 
     ```bash
     mkdir cmake
@@ -193,7 +193,7 @@ Följande steg visar hur du skapar enhets koden tillsammans med käll koden för
 
 1. Öppna Terminal-program.
 
-1. Använd [homebrew](https://homebrew.sh) för att installera alla beroenden:
+1. Använd [homebrew](https://brew.sh) för att installera alla beroenden:
 
     ```bash
     brew update
@@ -216,7 +216,7 @@ Följande steg visar hur du skapar enhets koden tillsammans med käll koden för
 
     Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
-1. Skapa en mapp som `cmake` heter under den mapp som innehåller den genererade koden och navigera till mappen.
+1. Skapa en mapp `cmake` som heter under den mapp som innehåller den genererade koden och navigera till mappen.
 
     ```bash
     mkdir cmake
@@ -247,7 +247,7 @@ Kod generatorn kan återskapa koden om du uppdaterar dina DCM-eller gränssnitts
 
 1. Välj **Återskapa kod för {Project Name}**.
 
-1. Kod generatorn använder den tidigare inställningen som du konfigurerade och återskapar koden. Den skriver dock inte över de filer som kan innehålla användar kod som `main.c` och. `{project_name}_impl.c`
+1. Kod generatorn använder den tidigare inställningen som du konfigurerade och återskapar koden. Den skriver dock inte över de filer som kan innehålla användar kod som `main.c` och `{project_name}_impl.c` .
 
 > [!NOTE]
 > Om du uppdaterar URN-ID: t i gränssnitts filen behandlas det som ett nytt gränssnitt. När du återskapar koden genererar kod generatorn kod för gränssnittet, men skriver inte över den ursprungliga `{project_name}_impl.c` filen i filen.

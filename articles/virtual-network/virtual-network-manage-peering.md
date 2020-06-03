@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: ba4acf32e13304c62ec5091670fe0b45ec3cb32c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 452cef0a65dd9c994b5d010676e402013b195ed3
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235253"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300655"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverks-peering
 
@@ -121,7 +121,7 @@ Om du vill att virtuella nätverk ska kommunicera ibland, men inte alltid, i st�
 - De virtuella nätverken kan finnas i samma eller olika prenumerationer. När du använder peer-virtuella nätverk i olika prenumerationer kan båda prenumerationerna associeras med samma eller olika Azure Active Directory-klienten. Om du inte redan har en AD-klient kan du [skapa en](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Stöd för peering mellan virtuella nätverk från prenumerationer som är kopplade till olika Azure Active Directory klienter är inte tillgängligt i portalen. Du kan använda CLI, PowerShell eller mallar.
 - De virtuella nätverk som du peer-koppla måste ha icke-överlappande IP-adressutrymme.
 - Du kan inte lägga till adress intervall i eller ta bort adress intervall från ett virtuellt nätverks adress utrymme när ett virtuellt nätverk är peer-kopplat med ett annat virtuellt nätverk. Om du vill lägga till eller ta bort adress intervall, tar du bort peering, lägger till eller tar bort adress intervallen och återskapar sedan peer-kopplingen. Information om hur du lägger till adress intervall i eller tar bort adress intervall från virtuella nätverk finns i [Hantera virtuella nätverk](manage-virtual-network.md).
-- Du kan distribuera två virtuella nätverk som distribueras via Resource Manager eller ett virtuellt nätverk som distribueras via Resource Manager med ett virtuellt nätverk som distribueras via den klassiska distributions modellen. Du kan inte peer-koppla två virtuella nätverk som skapats via den klassiska distributions modellen. Om du inte är bekant med Azures distributions modeller kan du läsa artikeln [förstå Azures distributions modeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Du kan använda [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) för att ansluta två virtuella nätverk som har skapats via den klassiska distributionsmodellen.
+- Du kan distribuera två virtuella nätverk som distribueras via Resource Manager eller ett virtuellt nätverk som distribueras via Resource Manager med ett virtuellt nätverk som distribueras via den klassiska distributions modellen. Du kan inte peer-koppla två virtuella nätverk som skapats via den klassiska distributions modellen. Om du inte är bekant med Azures distributions modeller kan du läsa artikeln [förstå Azures distributions modeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Du kan använda [VPN Gateway](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) för att ansluta två virtuella nätverk som har skapats via den klassiska distributionsmodellen.
 - Vid peer-koppling av två virtuella nätverk som skapas via Resource Manager måste en peer-koppling konfigureras för varje virtuellt nätverk i peer-kopplingen. Du ser en av följande typer för peering-status: 
   - *Initierad:* När du skapar peer-kopplingen till det andra virtuella nätverket från det första virtuella nätverket *initieras*peering-statusen. 
   - *Ansluten:* När du skapar peer-kopplingen från det andra virtuella nätverket till det första virtuella nätverket är dess peering-status *ansluten*. Om du visar peering-statusen för det första virtuella nätverket ser du att dess status har ändrats från *initierad* till *ansluten*. Det gick inte att upprätta peering förrän peering-statusen för båda de virtuella nätverkets peering är *ansluten*.

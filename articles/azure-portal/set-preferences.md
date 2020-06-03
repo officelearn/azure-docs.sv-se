@@ -9,12 +9,12 @@ ms.date: 12/19/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3f51c356f4476782bb830b2702a8fe87c79235c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310687"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308072"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Ange Azure-portalinställningar
 
@@ -79,7 +79,7 @@ Det tema som du väljer påverkar bakgrunds-och teckensnitts färgerna som visas
 
    ![Skärm bild som visar Azure Portal inställningar med teman markerade](./media/set-preferences/theme.png)
 
-Du kan välja ett tema med hög kontrast i stället. Med inställningarna för hög kontrast blir Azure Portal lättare att läsa för synskadade användare och åsidosätta alla andra tema val. Mer information finns i [Aktivera hög kontrast eller ändra tema](azure-portal-change-theme-high-contrast.md).
+Du kan välja ett tema med hög kontrast i stället. Med inställningarna för hög kontrast blir Azure Portal lättare att läsa för personer som har nedsatt syn och Åsidosätt alla andra tema val. Mer information finns i [Aktivera hög kontrast eller ändra tema](azure-portal-change-theme-high-contrast.md).
 
 ### <a name="enable-or-disable-pop-up-notifications"></a>Aktivera eller inaktivera popup-meddelanden
 

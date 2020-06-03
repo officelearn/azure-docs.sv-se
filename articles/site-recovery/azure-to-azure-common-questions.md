@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 98a2765b7adf31465fa0317cc626157137933af7
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: b4b92b907d9cd6d469163bc7bf457da42e9b673c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248353"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299790"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: katastrof återställning från Azure till Azure
 
@@ -52,6 +52,14 @@ Ja. Site Recovery stöder haveri beredskap för virtuella datorer som har Azure 
 - Site Recovery stöder Azure Disk Encryption version 0,1, som har ett schema som kräver Azure Active Directory (Azure AD). Site Recovery stöder också version 1,1, som inte kräver Azure AD. [Läs mer om tilläggs schemat för Azure Disk Encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
   - För Azure Disk Encryption version 1,1 måste du använda virtuella Windows-datorer med Managed disks.
   - [Läs mer](azure-to-azure-how-to-enable-replication-ade-vms.md) om hur du aktiverar replikering för krypterade virtuella datorer.
+
+### <a name="can-i-select-an-automation-account-from-a-different-resource-group"></a>Kan jag välja ett Automation-konto från en annan resurs grupp?
+
+Detta stöds för närvarande inte via portalen, men du kan välja ett Automation-konto från en annan resurs grupp via PowerShell.
+
+### <a name="after-specifying-an-automation-account-that-is-in-a-different-resource-group-than-the-vault-am-i-permitted-to-delete-the-runbook-if-there-is-no-other-vault-to-specify"></a>När du har angett ett Automation-konto som finns i en annan resurs grupp än valvet, tillåts jag att ta bort runbooken om det inte finns något annat valv att ange?
+
+Den anpassade Runbook som skapats är ett verktyg och det är säkert att ta bort den om den inte längre behövs.
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>Kan jag replikera virtuella datorer till en annan prenumeration?
 

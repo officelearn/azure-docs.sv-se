@@ -5,34 +5,19 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 31d4b65c6cd6a3dfe3cb779022329f338436c69b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11728c62202b15f0052017609ac384e8ef259211
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184373"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298946"
 ---
-Om du vill registrera ett program i din Azure AD B2C klient kan du använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (förhands granskning)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
-
-#### <a name="applications"></a>[Program](#tab/applications/)
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. I Azure Portal söker du efter och väljer **Azure Active Directory**.
-1. Under **Hantera**väljer du **Appregistreringar (bakåtkompatibelt)**.
-1. Välj **Ny programregistrering**.
-1. Ange ett namn på programmet. Till exempel *managementapp1*.
-1. För **program typ**väljer du **webbapp/API**.
-1. Ange en giltig URL i **inloggnings-URL: en**. Till exempel `https://localhost`. Slut punkten behöver inte vara nåbar, men måste vara en giltig URL.
-1. Välj **Skapa**.
-1. Registrera **program-ID: t** som visas på sidan Översikt över **registrerade appar** . Du använder det här värdet i ett senare steg.
-
-#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
-1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
+1. Välj **Appregistreringar**och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *managementapp1*.
 1. Välj **konton endast i den här organisations katalogen**.
 1. Under **behörigheter**avmarkerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörigheter* .

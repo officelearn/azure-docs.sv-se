@@ -7,12 +7,12 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 81818cc5ba2af1f9f0f70f7aa27fe62ed2c90c77
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bfa84a993fafe9240ba765de8d87ea4afb69cbd5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065670"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015955"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Förstå hur reservationsrabatten tillämpas för Azure Cosmos DB
 
@@ -117,7 +117,7 @@ Du kan läsa mer om Azure-reservationer i följande artiklar:
 
 * [Vad är reservationer för Azure](save-compute-costs-reservations.md)  
 * [Betala i förväg för Azure Cosmos DB-resurser med reserverad Azure Cosmos DB-kapacitet](../../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../../sql-database/sql-database-reserved-capacity.md)  
+* [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)  
 * [Hantera reservationer för Azure](manage-reserved-vm-instance.md)  
 * [Förstå reservationsanvändning för din Betala per användning-prenumeration](understand-reserved-instance-usage.md)  
 * [Förstå reservationsanvändning för din Enterprise-registrering](understand-reserved-instance-usage-ea.md)

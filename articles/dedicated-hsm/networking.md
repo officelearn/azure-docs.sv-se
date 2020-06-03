@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70881286"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300740"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM-nätverk
 
@@ -78,7 +78,7 @@ HSM-enheterna har möjlighet att via program bibliotek omdirigera trafik till en
 
 ### <a name="cross-region-ha-using-vpn-gateway"></a>Mellan region HA med VPN-gateway
 
-För globalt distribuerade program eller för regionala failover-scenarier med hög tillgänglighet måste du ansluta virtuella nätverk över flera regioner. Med Azure Dedicated HSM kan hög tillgänglighet uppnås med hjälp av en VPN Gateway som tillhandahåller en säker tunnel mellan de två virtuella nätverken. Mer information om VNet-till-VNet-anslutningar med hjälp av VPN Gateway finns i artikeln med rubriken [Vad är VPN gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
+För globalt distribuerade program eller för regionala failover-scenarier med hög tillgänglighet måste du ansluta virtuella nätverk över flera regioner. Med Azure Dedicated HSM kan hög tillgänglighet uppnås med hjälp av en VPN Gateway som tillhandahåller en säker tunnel mellan de två virtuella nätverken. Mer information om VNet-till-VNet-anslutningar med hjälp av VPN Gateway finns i artikeln med rubriken [Vad är VPN gateway?](../vpn-gateway/design.md#V2V)
 
 > [!NOTE]
 > Global VNet-peering är inte tillgänglig i scenarier mellan olika regioner med dedikerade HSM: er just nu och VPN-gatewayen bör användas i stället. 

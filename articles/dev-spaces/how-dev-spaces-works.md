@@ -1,16 +1,16 @@
 ---
 title: Så här fungerar Azure Dev Spaces
 services: azure-dev-spaces
-ms.date: 03/24/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 description: Beskriver de processer som Power Spaces för Azure dev
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 99b0b3309d115b450bfca94871b6defd885349fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dca9f1246a093471cd9538d010bf78116be1b3c7
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234968"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307375"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Så här fungerar Azure Dev Spaces
 
@@ -22,9 +22,9 @@ Med Azure dev Spaces får du flera sätt att snabbt iterera och felsöka Kuberne
 
 Azure dev Spaces minskar arbetet för att utveckla, testa och iterera ditt Kubernetes-program i samband med ditt AKS-kluster. Den här minskningen av ansträngning gör att utvecklare kan fokusera på affärs logiken i sina program och inte konfigurera deras tjänster för att köras i Kubernetes.
 
-### <a name="connect-your-development-machine-to-aks"></a>Ansluta din utvecklings dator till AKS
+### <a name="local-process-with-kubernetes"></a>Lokal process med Kubernetes
 
-Med Azure dev Spaces kan du ansluta din utvecklings dator till ditt AKS-kluster, så att du kan köra och felsöka kod på din utvecklings dator som om den kördes i klustret. Azure dev Spaces omdirigerar trafik mellan ditt anslutna AKS-kluster genom att köra en POD på klustret som fungerar som en fjärragent för att dirigera om trafiken mellan din utvecklings dator och klustret. Den här trafiken tillåter kod på din utvecklings dator och tjänster som körs i ditt AKS-kluster för att kommunicera som om de befann sig i samma AKS-kluster. Mer information om hur du ansluter din utvecklings dator till AKS finns i [så här ansluter du din utvecklings dator till ditt AKS-kluster][how-it-works-connect].
+Med lokal process med Kubernetes kan du ansluta din utvecklings dator till ditt Kubernetes-kluster, så att du kan köra och felsöka kod på din utvecklings dator som om den kördes i klustret. Azure dev Spaces omdirigerar trafiken mellan det anslutna klustret genom att köra en POD på klustret som fungerar som en fjärragent för att dirigera om trafiken mellan din utvecklings dator och klustret. Med den här trafiken i trafiken kan kod på din utvecklings dator och tjänster som körs i klustret kommunicera som om de var i samma kluster. Mer information om hur du ansluter din utvecklings dator till ett Kubernetes-kluster finns i [så här fungerar lokal process med Kubernetes][how-it-works-local-process-kubernetes].
 
 ### <a name="run-your-code-in-aks"></a>Kör koden i AKS
 
@@ -48,8 +48,8 @@ För att komma igång med att ansluta din lokala utvecklings dator till ditt AKS
 
 För att komma igång med Azure dev Spaces för grupp utveckling, se [team utvecklingen i snabb starten för Azure dev Spaces][quickstart-team] .
 
-[connect]: how-to/connect.md
-[how-it-works-connect]: how-dev-spaces-works-connect.md
+[connect]: how-to/local-process-kubernetes-vs-code.md
+[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

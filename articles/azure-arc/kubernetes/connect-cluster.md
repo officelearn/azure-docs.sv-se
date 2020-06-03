@@ -9,23 +9,23 @@ ms.author: mlearned
 description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
 ms.custom: references_regions
-ms.openlocfilehash: 097301a8704da24918dac70760f0540576975353
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 868964361e6089eb3417b0f2e2681d82d4aa0b75
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191725"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299651"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
 
-Anslut ett Kubernetes-kluster till Azure-bågen. 
+Anslut ett Kubernetes-kluster till Azure-bågen.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Kontrol lera att du har följande krav:
 
 * Ett Kubernetes-kluster som är igång
-* Du behöver åtkomst med kubeconfig och kluster administratörs åtkomst. 
+* Du behöver åtkomst med kubeconfig och kluster administratörs åtkomst.
 * Användaren eller tjänstens huvud namn som används med `az login` och- `az connectedk8s connect` kommandon måste ha behörigheterna Läs och skriv för resurs typen Microsoft. Kubernetes/connectedclusters. Rollen "Azure-båge för Kubernetes onboarding" som har dessa behörigheter kan användas för roll tilldelningar för användaren eller tjänstens huvud namn som används med Azure CLI för onboarding.
 * Senaste versionen av *connectedk8s* och *k8sconfiguration* -tillägg
 
@@ -70,7 +70,8 @@ az provider show -n Microsoft.Kubernetes -o table
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
 
-## <a name="install-azure-cli-extensions"></a>Installera Azure CLI-tillägg
+## <a name="install-azure-cli-and-arc-enabled-kubernetes-extensions"></a>Installera Azure CLI-och Arc-aktiverade Kubernetes-tillägg
+Azure CLI version 2.3 + krävs för att installera Azure Arc-aktiverade Kubernetes CLI-tillägg. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) eller uppdatera till den senaste versionen för att säkerställa att du har Azure CLI version 2.3 +.
 
 Installera `connectedk8s` tillägget, som hjälper dig att ansluta Kubernetes-kluster till Azure:
 
@@ -90,6 +91,9 @@ Kör följande kommandon för att uppdatera tilläggen till de senaste versioner
 az extension update --name connectedk8s
 az extension update --name k8sconfiguration
 ```
+
+## <a name="install-helm"></a>Installera Helm
+Helm 3 krävs för onboarding av klustret med connectedk8s-tillägget. [Installera den senaste versionen av Helm 3](https://helm.sh/docs/intro/install) för att uppfylla det här kravet.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -167,6 +171,8 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
+Du kan också visa den här resursen på [Azure Preview Portal](https://preview.portal.azure.com/). När du har öppnat portalen i webbläsaren navigerar du till resurs gruppen och den Azure Arc-aktiverade Kubernetes-resursen baserat på de resurs namn och resurs grupp namn som användes tidigare i `az connectedk8s connect` kommandot.
+
 Azure Arc-aktiverade Kubernetes distribuerar några operatörer till `azure-arc` namn området. Du kan visa dessa distributioner och poddar här:
 
 ```console
@@ -211,11 +217,18 @@ Azure Arc-aktiverade Kubernetes består av några agenter (operatörer) som kör
 
 Du kan ta bort en `Microsoft.Kubernetes/connectedcluster` resurs med hjälp av Azure CLI eller Azure Portal.
 
-Azure CLI-kommandot `az connectedk8s delete` tar bort `Microsoft.Kubernetes/connectedCluster` resursen i Azure. Azure CLI tar bort alla associerade `sourcecontrolconfiguration` resurser i Azure. Azure CLI använder Helm Uninstall för att ta bort agenterna i klustret.
 
-Azure Portal tar bort `Microsoft.Kubernetes/connectedcluster` resursen i Azure och tar bort alla associerade `sourcecontrolconfiguration` resurser i Azure.
+* **Ta bort med Azure CLI**: följande Azure CLI-kommando kan användas för att initiera borttagning av den Azure Arc-aktiverade Kubernetes-resursen.
+  ```console
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+  ```
+  Detta tar bort `Microsoft.Kubernetes/connectedCluster` resursen och eventuella associerade `sourcecontrolconfiguration` resurser i Azure. Azure CLI använder Helm Uninstall för att ta bort de agenter som körs i klustret också.
 
-Om du vill ta bort agenterna i klustret måste du köra `az connectedk8s delete` eller `helm uninstall azurearcfork8s` .
+* **Borttagning på Azure Portal**: om du tar bort den Azure Arc-aktiverade Kubernetes-resursen på Azure Portal tas `Microsoft.Kubernetes/connectedcluster` resursen och eventuella associerade `sourcecontrolconfiguration` resurser i Azure bort, men de agenter som körs i klustret tas inte bort. Kör följande kommando för att ta bort agenterna som körs i klustret.
+
+  ```console
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+  ```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 2/24/2020
+ms.date: 6/2/2020
 ms.subservice: alerts
-ms.openlocfilehash: 02424d7df24305d6642c364f12e3ed6e8674a01d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9a1980eccb42342ebc5cb739b2c1f5a539e9f18
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80676996"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299374"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en måttvarning med en Resource Manager-mall
 
@@ -21,18 +21,18 @@ ms.locfileid: "80676996"
 Den här artikeln visar hur du kan använda en [Azure Resource Manager mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera [nya mått varningar](../../azure-monitor/platform/alerts-metric-near-real-time.md) i Azure Monitor. Med Resource Manager-mallar kan du konfigurera aviseringar via programmering på ett konsekvent och reproducerbart sätt i alla miljöer. Nya mått aviseringar är för närvarande tillgängliga i [den här uppsättningen resurs typer](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta `Microsoft.OperationalInsights/workspaces`(dvs.) kräver ytterligare steg. Mer information finns i artikeln om [mått avisering för loggar-resurs mal len](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (dvs.) `Microsoft.OperationalInsights/workspaces` kräver ytterligare steg. Mer information finns i artikeln om [mått avisering för loggar-resurs mal len](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 De grundläggande stegen är följande:
 
 1. Använd en av mallarna nedan som en JSON-fil som beskriver hur du skapar aviseringen.
 2. Redigera och använd motsvarande parameter fil som JSON för att anpassa aviseringen.
-3. För- `metricName` parametern, se tillgängliga mått i [Azure Monitor mått som stöds](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+3. För `metricName` -parametern, se tillgängliga mått i [Azure Monitor mått som stöds](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 4. Distribuera mallen med [valfri distributions metod](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Mall för en mått avisering för enkel statisk tröskel
 
-Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du `Microsoft.Insights/metricAlerts` en resurs av typen och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
+Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du en resurs av typen `Microsoft.Insights/metricAlerts` och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
 
 Spara JSON-filen nedan som simplestaticmetricalert. JSON för den här genom gången.
 
@@ -281,7 +281,7 @@ az group deployment create \
 
 ## <a name="template-for-a-simple-dynamic-thresholds-metric-alert"></a>Mall för en mått avisering för enkel dynamisk tröskel
 
-Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du `Microsoft.Insights/metricAlerts` en resurs av typen och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
+Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du en resurs av typen `Microsoft.Insights/metricAlerts` och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
 
 Spara JSON-filen nedan som simpledynamicmetricalert. JSON för den här genom gången.
 
@@ -567,7 +567,7 @@ Nya mått aviseringar stöder aviseringar om flerdimensionella mått samt stöd 
 
 Observera följande begränsningar när du använder dimensioner i en varnings regel som innehåller flera villkor:
 - Du kan bara välja ett värde per dimension i varje kriterium.
-- Du kan inte använda\*"" som ett dimensions värde.
+- Du kan inte använda " \* " som ett dimensions värde.
 - När mått som kon figurer ATS i olika villkor stöder samma dimension måste ett konfigurerat dimensions värde uttryckligen anges på samma sätt för alla dessa mått (i de relevanta kriterierna).
     - I exemplet nedan, eftersom både **transaktionerna** och **SuccessE2ELatency** -mått har en **ApiName** -dimension, och *Criterion1* anger värdet *"GetBlob"* för **ApiName** -dimensionen, måste *criterion2* även ange ett *"GetBlob"* -värde för **ApiName** -dimensionen.
 
@@ -807,7 +807,7 @@ Du kan använda följande mall för att skapa en statisk mått varnings regel f�
 En enda varnings regel kan övervaka flera tids serier i taget, vilket leder till att färre varnings regler hanteras.
 
 I exemplet nedan övervakar varnings regeln dimensions värde kombinationerna för **ResponseType** -och **ApiName** -dimensionerna för **transaktionernas** mått:
-1. **ResponsType** – användningen av jokertecknet "\*" innebär att för varje värde av **ResponseType** -dimensionen, inklusive framtida värden, övervakas en annan tids serie individuellt.
+1. **ResponsType** – användningen av \* jokertecknet "" innebär att för varje värde av **ResponseType** -dimensionen, inklusive framtida värden, övervakas en annan tids serie individuellt.
 2. **ApiName** – en annan tids serie övervakas endast för **GetBlob** -och **PutBlob** -dimensionsvärdena.
 
 Till exempel är några av de tänkbara tids serier som övervakas av den här aviserings regeln:
@@ -3549,7 +3549,6 @@ Spara JSON-filen nedan som availabilityalert. JSON för den här genom gången.
         ],
         "evaluationFrequency": "PT1M",
         "windowSize": "PT5M",
-        "templateType": 0,
         "criteria": {
           "odata.type": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
           "webTestId": "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]",
@@ -3572,7 +3571,7 @@ Du kan ange värden för parametrarna antingen på kommando raden eller via en p
 
 > [!NOTE]
 >
-> `&amp`; är referensen till HTML-entiteten för &. URL-parametrar är fortfarande åtskilda av en enda &, men om du nämner URL: en i HTML måste du koda den. Så om du har några "&" i ditt pingURL-parameter värde måste du kringgå det med "`&amp`;"
+> `&amp`; är referensen till HTML-entiteten för &. URL-parametrar är fortfarande åtskilda av en enda &, men om du nämner URL: en i HTML måste du koda den. Så om du har några "&" i ditt pingURL-parameter värde måste du kringgå det med " `&amp` ;"
 
 Spara JSON-filen nedan som availabilityalert. Parameters. JSON och ändra den efter behov.
 

@@ -3,12 +3,12 @@ title: Azure Resource Manager-mallexempel
 description: Hitta Azure Resource Manager Template-exempel för att distribuera Azure Container Instances i olika konfigurationer
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: a8f3c81c539562a3c56e4822cf6e4df77d04928f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7208e1b4b67879979507cc451d40a188a84373de
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981655"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299765"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Resource Manager mallar för Azure Container Instances
 
@@ -30,7 +30,7 @@ Information om distributions alternativ finns i avsnittet [distribution](#deploy
 | **Nätverk** ||
 | [UDP-exponerad behållare][net-udp] | Distribuerar en Windows-eller Linux-behållare som exponerar en UDP-port. |
 | [Linux-behållare med offentlig IP][net-publicip] | Distribuerar en enda Linux-behållare som kan nås via en offentlig IP-adress. |
-| [Distribuera en behållar grupp med ett virtuellt nätverk (för hands version)][net-vnet] | Distribuerar ett nytt virtuellt nätverk, undernät, nätverks profil och behållar grupp. |
+| [Distribuera en behållar grupp med ett virtuellt nätverk][net-vnet] | Distribuerar ett nytt virtuellt nätverk, undernät, nätverks profil och behållar grupp. |
 | **Azure-resurser** ||
 | [Skapa Azure Storage konto-och fil resurs][az-files] | Använder Azure CLI i en behållar instans för att skapa ett lagrings konto och en Azure Files-resurs.
 

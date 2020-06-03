@@ -13,12 +13,12 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 3e66cd6a05a7c616b22eefffdd9d132aa0f4d36d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: bf53afc0168417bc223a55cd73f9a97b5bb3ac47
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853979"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299986"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara livstider för token i Azure Active Directory (för hands version)
 
@@ -47,7 +47,7 @@ Klienter använder åtkomsttoken för att få åtkomst till en skyddad resurs. E
 
 SAML-token används av många webbaserade SAAS-program och hämtas med hjälp av Azure Active Directorys SAML2-protokollets slut punkt. De används också av program som använder WS-Federation. Standard livstiden för token är 1 timme. Från ett programs perspektiv anges giltighets perioden för token av NotOnOrAfter-värdet för `<conditions …>` elementet i token. När giltighets perioden för token har upphört måste klienten initiera en ny autentiseringsbegäran, som ofta uppfylls utan interaktiv inloggning som ett resultat av sessionstoken för enkel inloggning (SSO).
 
-Värdet för NotOnOrAfter kan ändras med hjälp av `AccessTokenLifetime` parametern i en. `TokenLifetimePolicy` Den ställs in på den livstid som kon figurer ATS i principen om det finns någon, plus en klock skev på fem minuter.
+Värdet för NotOnOrAfter kan ändras med hjälp av `AccessTokenLifetime` parametern i en `TokenLifetimePolicy` . Den ställs in på den livstid som kon figurer ATS i principen om det finns någon, plus en klock skev på fem minuter.
 
 Observera att mottagar bekräftelse NotOnOrAfter som anges i `<SubjectConfirmationData>` elementet inte påverkas av konfigurationen för token livs längd. 
 
@@ -58,11 +58,11 @@ När en klient får åtkomst-token för åtkomst till en skyddad resurs får kli
 Det är viktigt att skilja mellan konfidentiella klienter och offentliga klienter, eftersom detta påverkar hur länge uppdaterade token kan användas. Mer information om olika typer av klienter finns i [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Livs längd för token med konfidentiella klient uppdaterings-token
-Konfidentiella klienter är program som säkert kan lagra ett klient lösen ord (hemligt). De kan bevisa att förfrågningar kommer från det skyddade klient programmet och inte från en skadlig aktör. En webbapp är till exempel en konfidentiell klient eftersom den kan lagra en klient hemlighet på webb servern. Den exponeras inte. Eftersom de här flödena är säkrare, går det inte att ändra standard livstiden för uppdateringstoken som utfärdats `until-revoked`till dessa flöden genom att använda principen och kommer inte att återkallas för frivilliga lösen ords återställning.
+Konfidentiella klienter är program som säkert kan lagra ett klient lösen ord (hemligt). De kan bevisa att förfrågningar kommer från det skyddade klient programmet och inte från en skadlig aktör. En webbapp är till exempel en konfidentiell klient eftersom den kan lagra en klient hemlighet på webb servern. Den exponeras inte. Eftersom de här flödena är säkrare, går det inte att ändra standard livstiden för uppdateringstoken som utfärdats till dessa flöden `until-revoked` genom att använda principen och kommer inte att återkallas för frivilliga lösen ords återställning.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Livs längd för token med offentliga klient uppdaterings-token
 
-Offentliga klienter kan inte lagra ett klient lösen ord på ett säkert sätt (hemligt). En iOS/Android-app kan till exempel inte obfuscate en hemlighet från resurs ägaren, så den betraktas som en offentlig klient. Du kan ange principer för resurser för att förhindra att uppdateringstoken från offentliga klienter som är äldre än en angiven period hämtar ett nytt nyckel par för åtkomst/uppdatering. (Om du vill göra detta använder du egenskapen Refresh token Max inaktive rad (`MaxInactiveTime`).) Du kan också använda principer för att ange en period utanför vilken uppdateringstoken inte längre accepteras. (Om du vill göra detta använder du egenskapen Refresh token max ålder.) Du kan justera livs längden för en uppdateringstoken för att styra när och hur ofta användaren måste ange autentiseringsuppgifter igen, i stället för att tyst autentiseras igen när du använder ett offentligt klient program.
+Offentliga klienter kan inte lagra ett klient lösen ord på ett säkert sätt (hemligt). En iOS/Android-app kan till exempel inte obfuscate en hemlighet från resurs ägaren, så den betraktas som en offentlig klient. Du kan ange principer för resurser för att förhindra att uppdateringstoken från offentliga klienter som är äldre än en angiven period hämtar ett nytt nyckel par för åtkomst/uppdatering. (Om du vill göra detta använder du egenskapen Refresh token Max inaktive rad ( `MaxInactiveTime` ).) Du kan också använda principer för att ange en period utanför vilken uppdateringstoken inte längre accepteras. (Om du vill göra detta använder du egenskapen Refresh token max ålder.) Du kan justera livs längden för en uppdateringstoken för att styra när och hur ofta användaren måste ange autentiseringsuppgifter igen, i stället för att tyst autentiseras igen när du använder ett offentligt klient program.
 
 > [!NOTE]
 > Egenskapen max ålder är den tid som en enskild token kan användas. 
@@ -83,7 +83,7 @@ Du kan använda en princip för att ställa in tiden efter att den första sessi
 En livs längds princip för token är en typ av princip objekt som innehåller livs längds regler för token. Använd egenskaperna för principen för att kontrol lera angivna livstider för token. Om ingen princip har angetts tillämpar systemet standard livstid svärdet.
 
 ### <a name="configurable-token-lifetime-properties"></a>Egenskaper för konfigurerbar token-livstid
-| Egenskap | Princip egenskaps sträng | Nätverk | Standardvärde | Minimum | Maximal |
+| Egenskap | Princip egenskaps sträng | Nätverk | Standard | Minimum | Maximal |
 | --- | --- | --- | --- | --- | --- |
 | Livstid för åtkomsttoken |AccessTokenLifetime<sup>2</sup> |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
 | Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
@@ -96,7 +96,7 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 * <sup>2</sup> För att säkerställa att Microsoft Teams webb klienten fungerar rekommenderar vi att du håller AccessTokenLifetime till mer än 15 minuter för Microsoft Teams.
 
 ### <a name="exceptions"></a>Undantag
-| Egenskap | Nätverk | Standardvärde |
+| Egenskap | Nätverk | Standard |
 | --- | --- | --- |
 | Uppdatera token max ålder (utfärdat för federerade användare som har otillräcklig åter kallelse information<sup>1</sup>) |Uppdatera tokens (utfärdat för federerade användare som har otillräcklig återkallnings information<sup>1</sup>) |12 timmar |
 | Maximal inaktiv tid för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |90 dagar |
@@ -116,7 +116,7 @@ Mer information om relationen mellan program objekt och tjänst huvud objekt fin
 
 Giltighet för token utvärderas vid den tidpunkt då token används. Principen med den högsta prioriteten för det program som används börjar gälla.
 
-Alla tidsintervallen som används här är formaterade enligt C# [TimeSpan](/dotnet/api/system.timespan) -objekt-D. hh: mm: SS.  Så 80 dagar och 30 minuter skulle vara `80.00:30:00`det.  Den inledande D-funktionen kan tas bort om den är noll, så `00:90:00`90 minuter.  
+Alla tidsintervallen som används här är formaterade enligt C# [TimeSpan](/dotnet/api/system.timespan) -objekt-D. hh: mm: SS.  Så 80 dagar och 30 minuter skulle vara det `80.00:30:00` .  Den inledande D-funktionen kan tas bort om den är noll, så 90 minuter `00:90:00` .  
 
 > [!NOTE]
 > Här är ett exempel scenario.
@@ -208,7 +208,7 @@ I exemplen får du lära dig att:
 * Skapa en princip för en intern app som anropar ett webb-API
 * Hantera en avancerad princip
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för appar, tjänstens huvud namn och din övergripande organisation. Om du är nybörjare på Azure AD rekommenderar vi att du lär dig [hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.  
 
 Gör så här för att komma igång:
@@ -545,3 +545,9 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** för programmet. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectID** för principen. | `-PolicyId <ObjectId of Policy>` |
+
+## <a name="license-requirements"></a>Licenskrav
+
+Om du använder den här funktionen krävs en licens för Azure AD Premium P1. Information om rätt licens för dina krav finns i [jämföra allmänt tillgängliga funktioner i de kostnads fria versionerna och Premium-versionerna](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Kunder med [Microsoft 365 Business licenser](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också till gång till funktioner för villkorlig åtkomst.

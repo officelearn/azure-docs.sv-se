@@ -4,19 +4,19 @@ description: I den här översikten introduceras SQL Data Sync för Azure, vilke
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: data sync, sqldbrb=1
+ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 73f0a733d4f32042e5ea3439282f88db0c065433
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: c2c0e6d1d3ffd9ec3091e92530ec5c191f3f7ca6
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188718"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297963"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -69,7 +69,7 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 
 
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 - **Spårar data ändringar:** Datasynkronisering spårar ändringar med hjälp av INSERT-, Update-och Delete-utlösare. Ändringarna registreras i en sido tabell i användar databasen. Observera att BULK INSERT inte utlösa utlösare som standard. Om FIRE_TRIGGERS inte anges körs inga infognings utlösare. Lägg till alternativet FIRE_TRIGGERS så att datasynkronisering kan spåra dessa infogningar. 
 - **Synkroniserar data:** Datasynkronisering är utformad i en nav-och eker-modell. Hubben synkroniseras med varje medlem individuellt. Ändringar från hubben laddas ned till medlemmen och ändringar från medlemmen överförs till hubben.
@@ -149,7 +149,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 
 #### <a name="unsupported-column-types"></a>Kolumn typer som inte stöds
 
-Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Ett exempel:
+Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Till exempel:
 
 - Beräknade kolumner.
 - Systemgenererade kolumner för temporala tabeller.
@@ -169,6 +169,18 @@ Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade ko
 
 > [!NOTE]
 > Det kan finnas upp till 30 slut punkter i en enda Sync-grupp om det bara finns en Sync-grupp. Om det finns fler än en Sync-grupp får det totala antalet slut punkter i alla Sync-grupper inte överstiga 30. Om en databas tillhör flera Sync-grupper räknas den som flera slut punkter, inte en.
+
+### <a name="network-requirements"></a>Nätverkskrav
+
+När Sync-gruppen har upprättats måste data Sync-tjänsten ansluta till Hub-databasen. När du upprättar Sync-gruppen måste Azure SQL-servern ha följande konfiguration i dess `Firewalls and virtual networks` inställningar:
+
+ * *Neka offentlig nätverks åtkomst* måste anges till *av*.
+ * *Tillåt att Azure-tjänster och-resurser får åtkomst till den här servern* måste anges till *Ja*, eller så måste du skapa IP-regler för de [IP-adresser som används av tjänsten Data Sync](network-access-controls-overview.md#data-sync).
+
+När Sync-gruppen har skapats och kon figureras kan du inaktivera dessa inställningar. Sync-agenten ansluter direkt till NAV databasen och du kan använda serverns [IP-regler för brand väggen](firewall-configure.md) eller [privata slut punkter](private-endpoint-overview.md) för att ge agenten åtkomst till nav servern.
+
+> [!NOTE]
+> Om du ändrar inställningarna för Sync-gruppen måste du tillåta att tjänsten Data Sync används för att få åtkomst till servern igen, så att Hub-databasen kan etableras på nytt.
 
 ## <a name="faq-about-sql-data-sync"></a>Vanliga frågor och svar om SQL Data Sync
 

@@ -17,12 +17,12 @@ ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: 0e4354fa7466efcf27f430bbce7edb30bb9a304c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 06be9e7c4ce41ff01494ecef84a800b52db6b82e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72387658"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308140"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Självstudie: skicka push-meddelanden till Xamarin. Android-appar med hjälp av Notification Hubs
 
@@ -40,7 +40,7 @@ I den här självstudien gör du följande:
 > * Skapa en Xamarin.Android-app och anslut den till meddelandehubben
 > * Skicka testmeddelanden från Azure Portal
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * [Visual Studio med Xamarin] på Windows eller [Visual Studio för Mac] på OS X.
@@ -229,7 +229,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     CreateNotificationChannel();
     ```
 
-15. Lägg till en klass `MyFirebaseMessagingService` med namnet på ditt projekt. 
+15. Lägg till en klass med namnet `MyFirebaseMessagingService` på ditt projekt. 
 16. Lägg till följande using-uttryck i `MyFirebaseMessagingService.cs`.
 
     ```csharp
@@ -248,7 +248,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
 
-18. Lägg till följande kod för `MyFirebaseMessagingService.cs` att bearbeta meddelanden som tas emot. 
+18. Lägg till följande kod inuti `MyFirebaseMessagingService` klassen för att bearbeta meddelanden som tas emot. 
 
     ```csharp
         const string TAG = "MyFirebaseMsgService";
@@ -292,7 +292,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
         }
     ```
 
-19. Lägg till följande metoder i MyFirebaseMessagingService-klassen för att ta emot FCM Registration-token och skicka den till Notification Hubs-instansen (hubb). 
+19. Lägg till följande metoder i klassen MyFirebaseMessagingService (höger under den kod som lades till i föregående steg) för att ta emot FCM och skicka den till Notification Hubs-instansen (hubb). 
 
     ```csharp
         public override void OnNewToken(string token)

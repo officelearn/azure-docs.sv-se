@@ -12,17 +12,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 238d9ec814b19499e73533d067202641193aa574
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 379d5e59024174c8f6cfbc185b3514287b7d5031
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046903"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310180"
 ---
-# <a name="restore-an-azure-sql-managed-instance-database-to-a-previous-point-in-time"></a>Återställa en Azure SQL-hanterad instans databas till en tidigare tidpunkt
+# <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Återställa en databas i en Azure SQL-hanterad instans till en tidigare tidpunkt
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Använd tidpunkts återställning (PITR) för att skapa en databas som en kopia av en annan databas från en tidigare tidpunkt. Den här artikeln beskriver hur du utför en tidpunkts återställning av en databas i en Azure SQL-hanterad instans.
+Använd tidpunkts återställning (PITR) för att skapa en databas som en kopia av en annan databas från en tidigare tidpunkt. Den här artikeln beskriver hur du utför en tidpunkts återställning av en databas i Azure SQL Managed instance.
 
 Återställning efter tidpunkt är användbart i återställnings scenarier, t. ex. incidenter orsakade av fel, felaktiga inlästa data eller borttagning av viktiga data. Du kan också använda det bara för testning eller granskning. Säkerhetskopierade filer sparas i 7 till 35 dagar, beroende på dina databas inställningar.
 
@@ -34,19 +34,19 @@ Använd tidpunkts återställning (PITR) för att skapa en databas som en kopia 
 
 ## <a name="limitations"></a>Begränsningar
 
-Tidpunkt för återställning till en SQL-hanterad instans har följande begränsningar:
+Tidpunkts återställning till SQL-hanterad instans har följande begränsningar:
 
-- När du återställer från en SQL-hanterad instans till en annan måste båda instanserna finnas i samma prenumeration och region. Återställning mellan regioner och över prenumerationer stöds inte för närvarande.
-- Det går inte att återställa punkt-till-tid för en hel SQL-hanterad instans. Den här artikeln förklarar bara vad som är möjligt: återställning vid olika tidpunkter av en databas som finns på en SQL-hanterad instans.
+- När du återställer från en instans av SQL-hanterad instans till en annan måste båda instanserna finnas i samma prenumeration och region. Återställning mellan regioner och över prenumerationer stöds inte för närvarande.
+- Det går inte att återställa punkt-till-tid för en hel SQL-hanterad instans. Den här artikeln förklarar bara vad som är möjligt: återställning vid olika tidpunkter av en databas som finns på SQL-hanterad instans.
 
 > [!WARNING]
 > Tänk på lagrings storleken för din SQL-hanterade instans. Beroende på storleken på de data som ska återställas kan du få slut på instans lagring. Om det inte finns tillräckligt med utrymme för återställda data kan du använda en annan metod.
 
-I följande tabell visas scenarier för återställning av tidpunkter för SQL-hanterade instanser:
+I följande tabell visas tidpunkter för återställnings scenarier för SQL-hanterad instans:
 
-|           |Återställa en befintlig databas till samma SQL-hanterade instans| Återställa en befintlig databas till en annan SQL-hanterad instans|Återställ utelämnad databas till samma SQL-hanterade instans|Återställ utelämnad databas till en annan SQL-hanterad instans|
+|           |Återställ befintlig databas till samma instans av SQL-hanterad instans| Återställa en befintlig databas till en annan SQL-hanterad instans|Återställ utelämnad databas till samma SQL-hanterade instans|Återställ utelämnad databas till en annan SQL-hanterad instans|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure Portal**| Ja|Nej |Ja|Nej|
+|**Azure Portal**| Yes|No |Yes|No|
 |**Azure CLI**|Ja |Ja |Nej|Nej|
 |**PowerShell**| Ja|Ja |Ja|Ja|
 

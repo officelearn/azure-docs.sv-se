@@ -5,32 +5,21 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: cea3245176e6c38137d68e3ad4b47477bedc78be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f941f67105227b3973386b015344d5fa787c3485
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529157"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84317409"
 ---
-Om du vill registrera ett program i din Azure AD B2C klient kan du använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (förhands granskning)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
 
-#### <a name="applications"></a>[Program](#tab/applications/)
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Välj **program**och välj sedan **Lägg till**.
-1. Ange ett namn på programmet. Till exempel *ROPC_Auth_app*.
-1. För **Native Client**väljer du **Ja**.
-1. Lämna de andra värdena som de är och välj sedan **skapa**.
-1. Registrera **program-ID** för användning i ett senare steg.
-
-#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
+1. Välj **Appregistreringar**och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *ROPC_Auth_app*.
 1. Lämna de andra värdena som de är och välj sedan **Registrera**.
 1. Registrera **program-ID: t (Client)** för användning i ett senare steg.
@@ -44,3 +33,14 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
     "oauth2AllowImplicitFlow": true,
     ```
 1. Välj **Spara**.
+
+#### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Välj **program (bakåtkompatibelt)** och välj sedan **Lägg till**.
+1. Ange ett namn på programmet. Till exempel *ROPC_Auth_app*.
+1. För **Native Client**väljer du **Ja**.
+1. Lämna de andra värdena som de är och välj sedan **skapa**.
+1. Registrera **program-ID** för användning i ett senare steg.

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: references_regions
-ms.openlocfilehash: 986bb835f319cebf3006d7e1bd31bd7f04a1ae82
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193998"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299561"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA för Azure Kubernetes service (AKS) drift tid
 
@@ -26,18 +26,6 @@ Kunder kan ändå skapa obegränsat antal kostnads fria kluster med ett service 
 ## <a name="sla-terms-and-conditions"></a>Villkor för SLA
 
 SLA för drift tid är en betald funktion och aktive rad per kluster. SLA-priser för drift tid bestäms av antalet diskreta kluster och inte av storleken på de enskilda klustren. Du kan visa [SLA pris information för drift tid](https://azure.microsoft.com/pricing/details/kubernetes-service/) för mer information.
-
-## <a name="region-availability"></a>Tillgänglighet för regioner
-
-SLA för drift tid är tillgängligt i följande regioner:
-
-* Australien, östra
-* Kanada, centrala
-* USA, östra
-* USA, östra 2
-* USA, södra centrala
-* Sydostasien
-* USA, västra 2
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

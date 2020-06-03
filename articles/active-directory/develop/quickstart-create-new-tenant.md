@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 0e2247e94b20846f19c2ed26c96a5dc53972e770
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a45160db09b3f6bf68bda3f25e40a29a1154099d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80883821"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308497"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Snabb start: Konfigurera en klient
 
@@ -58,7 +58,7 @@ Om du inte har en befintlig klient som är kopplad till ditt konto kan du ser et
 
 Om du inte redan har en Azure AD-klient eller vill skapa en ny för utveckling, kan du läsa [snabb](../fundamentals/active-directory-access-create-new-tenant.md) starten eller följa [skapandet av katalogen](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Du måste ange följande information för att skapa den nya klientorganisationen:
 
-- **Organisationens namn**
+- **Organisationsnamn**
 - **Initial domän** – kommer att vara en del av *.onmicrosoft.com. Du kan anpassa domänen mer senare.
 - **Land eller region**
 
@@ -73,4 +73,4 @@ Om du vill börja skapa appar som loggar in sociala och lokala konton måste du 
 
 * [Registrera en app](quickstart-register-app.md) och integrera med Microsoft Identity Platform. 
 * Lär dig [grunderna för autentisering](authentication-scenarios.md).
-* Se [hur Azure-prenumerationer är associerade med Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) för information om relationen mellan prenumerationer och en Azure AD-klient.
+* Se [associera eller lägga till en Azure-prenumeration till din Azure Active Directory-klient](../fundamentals/active-directory-how-subscriptions-associated-directory.md) för information om relationen mellan prenumerationer och en Azure AD-klient.

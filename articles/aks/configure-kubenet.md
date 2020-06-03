@@ -3,14 +3,14 @@ title: Konfigurera Kubernetes-nätverk i Azure Kubernetes service (AKS)
 description: Lär dig hur du konfigurerar Kubernetes-nätverk (Basic) i Azure Kubernetes service (AKS) för att distribuera ett AKS-kluster till ett befintligt virtuellt nätverk och undernät.
 services: container-service
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 060e98f2617da503068911ec1e687241d909dabc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a393e87963eabf2e3cf41148233c0e350dc6e380
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120920"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309676"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -20,7 +20,7 @@ Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod e
 
 Den här artikeln visar hur du använder *Kubernetes* -nätverk för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
 * Skapa inte fler än ett AKS-kluster i samma undernät.
@@ -139,7 +139,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Tilldela nu tjänstens huvud namn för AKS-klustrets *deltagar* behörigheter på det virtuella nätverket med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . Ange ett eget * \< appId->* som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn:
+Tilldela nu tjänstens huvud namn för AKS-klustrets *deltagar* behörigheter på det virtuella nätverket med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . *\<appId>* Skapa tjänstens huvud namn genom att ange det som visas i utdata från föregående kommando:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -147,7 +147,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Skapa ett AKS-kluster i det virtuella nätverket
 
-Nu har du skapat ett virtuellt nätverk och undernät och skapat och tilldelat behörigheter för ett huvud namn för tjänsten för att använda dessa nätverks resurser. Skapa nu ett AKS-kluster i ditt virtuella nätverk och under nätet med kommandot [AZ AKS Create][az-aks-create] . Definiera ditt eget tjänst huvud namn * \<>* och * \< lösen ord>*, som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn.
+Nu har du skapat ett virtuellt nätverk och undernät och skapat och tilldelat behörigheter för ett huvud namn för tjänsten för att använda dessa nätverks resurser. Skapa nu ett AKS-kluster i ditt virtuella nätverk och under nätet med kommandot [AZ AKS Create][az-aks-create] . Definiera ditt eget huvud namn *\<appId>* för tjänsten och *\<password>* se resultatet från föregående kommando för att skapa tjänstens huvud namn.
 
 Följande IP-adressintervall definieras också som en del av klustret Create process:
 
@@ -195,7 +195,22 @@ az aks create \
     --client-secret <password>
 ```
 
-När du skapar ett AKS-kluster skapas en nätverks säkerhets grupp och en routningstabell. Dessa nätverks resurser hanteras av AKS-kontroll planet. Nätverks säkerhets gruppen associeras automatiskt med de virtuella nätverkskorten på noderna. Routningstabellen associeras automatiskt med det virtuella nätverkets undernät. Regler för nätverks säkerhets grupper och routningstabeller uppdateras automatiskt när du skapar och exponerar tjänster.
+När du skapar ett AKS-kluster skapas automatiskt en nätverks säkerhets grupp och en routningstabell. Dessa nätverks resurser hanteras av AKS-kontroll planet. Nätverks säkerhets gruppen associeras automatiskt med de virtuella nätverkskorten på noderna. Routningstabellen associeras automatiskt med det virtuella nätverkets undernät. Regler för nätverks säkerhets grupper och routningstabeller uppdateras automatiskt när du skapar och exponerar tjänster.
+
+## <a name="bring-your-own-subnet-and-route-table-with-kubenet"></a>Ta med ditt eget undernät och routningstabellen med Kubernetes
+
+I Kubernetes måste det finnas en routningstabell i dina kluster under nät (er). AKS stöder att du använder ditt eget befintliga undernät och routningstabellen.
+
+Om det anpassade under nätet inte innehåller någon routningstabell, skapar AKS ett för dig och lägger till regler till den. Om ditt anpassade undernät innehåller en routningstabell när du skapar klustret, bekräftar AKS den befintliga routningstabellen under kluster åtgärder och uppdaterar regler i enlighet med detta för moln leverantörs åtgärder.
+
+Begränsningar:
+
+* Behörigheter måste tilldelas innan klustret skapas, se till att du använder ett huvud namn för tjänsten med Skriv behörighet för ditt anpassade undernät och en anpassad routningstabell.
+* Hanterade identiteter stöds för närvarande inte med anpassade routningstabeller i Kubernetes.
+* En anpassad routningstabell måste vara kopplad till under nätet innan du skapar AKS-klustret. Det går inte att uppdatera väg tabellen och alla routningsregler måste läggas till eller tas bort från den första routningstabellen innan du skapar AKS-klustret.
+* Alla undernät i ett AKS virtuellt nätverk måste använda associeras med samma routningstabell.
+* Varje AKS-kluster måste använda en unik routningstabell. Du kan inte återanvända en routningstabell med flera kluster.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

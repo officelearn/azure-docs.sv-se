@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683311"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310393"
 ---
-# <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
+# <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
 Få svar på vanliga frågor om Microsoft Azure dedikerad HSM.
 
@@ -115,7 +115,7 @@ Ja, om du har lokala Gemalto-SafeNet-HSM: er. Det finns flera metoder. Se Gemalt
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>F: vilka operativ system stöds av dedikerade klient program vara för HSM?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Virtuell: VMware, HyperV, Xen, KVM
+* Virtuell: VMware, Hyper-V, Xen, KVM
 
 ### <a name="q-how-do-i-configure-my-client-application-to-create-a-high-availability-configuration-with-multiple-partitions-from-multiple-hsms"></a>F: Hur gör jag för att konfigurera mitt klient program för att skapa en konfiguration med hög tillgänglighet med flera partitioner från flera HSM: er?
 
@@ -242,7 +242,7 @@ Microsoft har inte möjlighet att ansluta till HSM: er som har tilldelats till k
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>F: Vad händer om jag behöver starta om min HSM?
 
-HSM har ett alternativ för omstart av kommando rad, men vi kommer att starta om problem med att låsa upp problem och därför rekommenderas det att den säkraste omstarten görs för att du ska kunna få en support förfrågan med Microsoft för att enheten ska starta om fysiskt. 
+HSM har ett alternativ för omstart av kommando rad, men vi har problem där omstart slutar att svara, och därför rekommenderas det för den säkraste starten att du höjer en supportbegäran med Microsoft för att enheten ska starta om fysiskt. 
 
 ## <a name="cryptography-and-standards"></a>Kryptografi och standarder
 

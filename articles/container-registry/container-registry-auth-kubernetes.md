@@ -5,13 +5,13 @@ ms.topic: article
 author: karolz-ms
 ms.author: karolz
 ms.reviewer: danlep
-ms.date: 02/10/2020
-ms.openlocfilehash: 0608ca0e0e53acf2f19910a7f1107dacf67d4e61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/28/2020
+ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77154899"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309823"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Hämta bilder från ett Azure Container Registry till ett Kubernetes-kluster
 
@@ -20,7 +20,7 @@ Du kan använda ett Azure Container Registry som en källa för behållar avbild
 > [!TIP]
 > Om du använder den hanterade [Azure Kubernetes-tjänsten](../aks/intro-kubernetes.md)kan du också [integrera ditt kluster](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) med ett Azure Container Registry-mål för avbildnings hämtningar. 
 
-Den här artikeln förutsätter att du redan har skapat ett privat Azure Container Registry. Du måste också ha ett Kubernetes-kluster som kör och är tillgängligt `kubectl` via kommando rads verktyget.
+Den här artikeln förutsätter att du redan har skapat ett privat Azure Container Registry. Du måste också ha ett Kubernetes-kluster som kör och är tillgängligt via `kubectl` kommando rads verktyget.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
@@ -36,14 +36,14 @@ Det här kommandot returnerar ett nytt, giltigt lösen ord för tjänstens huvud
 
 Kubernetes använder en *bild-pull-hemlighet* för att lagra information som behövs för att autentisera till registret. Om du vill skapa pull-hemligheten för ett Azure Container Registry, anger du tjänstens huvud namns-ID, lösen ord och register-URL. 
 
-Skapa en bild av pull-hemlighet med `kubectl` följande kommando:
+Skapa en bild av pull-hemlighet med följande `kubectl` kommando:
 
 ```console
 kubectl create secret docker-registry <secret-name> \
-  --namespace <namespace> \
-  --docker-server=https://<container-registry-name>.azurecr.io \
-  --docker-username=<service-principal-ID> \
-  --docker-password=<service-principal-password>
+    --namespace <namespace> \
+    --docker-server=<container-registry-name>.azurecr.io \
+    --docker-username=<service-principal-ID> \
+    --docker-password=<service-principal-password>
 ```
 där:
 
@@ -51,30 +51,30 @@ där:
 | :--- | :--- |
 | `secret-name` | Namnet på bildens pull-hemlighet, till exempel *ACR-Secret* |
 | `namespace` | Kubernetes namn område för att flytta hemligheten till <br/> Krävs bara om du vill placera hemligheten i ett annat namn område än standard namn området |
-| `container-registry-name` | Namn på ditt Azure Container Registry |
+| `container-registry-name` | Namnet på ditt Azure Container Registry, till exempel för *registret*<br/><br/>`--docker-server`Är det fullständigt kvalificerade namnet på inloggnings servern för registret  |
 | `service-principal-ID` | ID för det tjänst huvud namn som ska användas av Kubernetes för att komma åt registret |
 | `service-principal-password` | Lösen ord för tjänstens huvud namn |
 
 ## <a name="use-the-image-pull-secret"></a>Använd bildens pull-hemlighet
 
-När du har skapat bildens pull-hemlighet kan du använda den för att skapa Kubernetes-poddar och-distributioner. Ange namnet på hemligheten under `imagePullSecrets` i distributions filen. Ett exempel:
+När du har skapat bildens pull-hemlighet kan du använda den för att skapa Kubernetes-poddar och-distributioner. Ange namnet på hemligheten under `imagePullSecrets` i distributions filen. Till exempel:
 
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: your-awesome-app-pod
+  name: my-awesome-app-pod
   namespace: awesomeapps
 spec:
   containers:
     - name: main-app-container
-      image: your-awesome-app:v1
+      image: myregistry.azurecr.io/my-awesome-app:v1
       imagePullPolicy: IfNotPresent
   imagePullSecrets:
     - name: acr-secret
 ```
 
-I föregående exempel `your-awesome-app:v1` är namnet på avbildningen att hämta från Azure Container Registry och `acr-secret` är namnet på den pull-hemlighet som du skapade för att få åtkomst till registret. När du distribuerar Pod hämtar Kubernetes automatiskt avbildningen från registret, om den inte redan finns i klustret.
+I föregående exempel `my-awesome-app:v1` är namnet på avbildningen att hämta från Azure Container Registry och `acr-secret` är namnet på den pull-hemlighet som du skapade för att få åtkomst till registret. När du distribuerar Pod hämtar Kubernetes automatiskt avbildningen från registret, om den inte redan finns i klustret.
 
 
 ## <a name="next-steps"></a>Nästa steg

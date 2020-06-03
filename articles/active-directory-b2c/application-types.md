@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e8328db12bde531c2e27936c09247611ff1a3583
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190151"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295430"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Program typer som kan användas i Active Directory B2C
 
@@ -65,8 +65,8 @@ I ett webb program utför varje körning av en [princip](user-flow-overview.md) 
 2. Webb programmet omdirigerar användaren till Azure AD B2C som anger vilken princip som ska köras.
 3. Användaren har slutfört principen.
 4. Azure AD B2C returnerar `id_token` webbläsaren.
-5. `id_token` Skickas till omdirigerings-URI: n.
-6. `id_token` Är verifierad och en sessions-cookie har angetts.
+5. `id_token`Skickas till omdirigerings-URI: n.
+6. `id_token`Är verifierad och en sessions-cookie har angetts.
 7. En säker sida returneras till användaren.
 
 Valideringen av `id_token` med hjälp av en offentlig signeringsnyckel som fås från Azure AD är tillräckligt för att verifiera användarens identitet. Den här processen anger även en cookie för session som kan användas för att identifiera användaren på efterföljande sid begär Anden.
@@ -95,9 +95,9 @@ Ett webb-API kan ta emot token från många typer av klienter, inklusive webb pr
 2. Azure AD B2C returnerar en (OpenID Connect) `id_token` och en auktoriseringskod till webbläsaren.
 3. Webbläsaren skickar `id_token` och auktoriseringskod till omdirigerings-URI: n.
 4. Webb servern verifierar `id_token` och anger en sessions-cookie.
-5. Webb servern frågar Azure AD B2C efter en `access_token` genom att tillhandahålla auktoriseringskod, PROGRAMKLIENT-ID och klientautentiseringsuppgifter.
-6. `access_token` Och `refresh_token` returneras till webb servern.
-7. Webb-API: et anropas `access_token` med i ett Authorization-huvud.
+5. Webb servern frågar Azure AD B2C efter en `access_token` genom att tillhandahålla auktoriseringskod, programklient-ID och klientautentiseringsuppgifter.
+6. `access_token`Och `refresh_token` returneras till webb servern.
+7. Webb-API: et anropas med `access_token` i ett Authorization-huvud.
 8. Webb-API: et verifierar token.
 9. Säkra data returneras till webb programmet.
 
@@ -109,7 +109,7 @@ Mer information om hur du skyddar ett webb-API med hjälp av Azure AD B2C finns 
 
 Program som är installerade på enheter, till exempel mobil-och skriv bords program, behöver ofta åtkomst till backend-tjänster eller webb-API: er för användarnas räkning. Du kan lägga till anpassade identitets hanterings upplevelser i dina egna program och på ett säkert sätt anropa backend-tjänster genom att använda Azure AD B2C och [OAuth 2,0-Authorization Code Flow](authorization-code-flow.md).
 
-I det här flödet kör programmet [principer](user-flow-overview.md) och tar emot ett `authorization_code` från Azure AD när användaren har slutfört principen. `authorization_code` Representerar programmets behörighet att anropa backend-tjänster för den användare som för tillfället är inloggad. Programmet kan sedan byta ut `authorization_code` i bakgrunden för en `access_token` och en. `refresh_token`  Programmet kan använda `access_token` för att autentisera till ett Server dels webb-API i HTTP-begäranden. Den kan också använda `refresh_token` för att hämta en ny `access_token` när en äldre upphör att gälla.
+I det här flödet kör programmet [principer](user-flow-overview.md) och tar emot ett `authorization_code` från Azure AD när användaren har slutfört principen. `authorization_code`Representerar programmets behörighet att anropa backend-tjänster för den användare som för tillfället är inloggad. Programmet kan sedan byta ut `authorization_code` i bakgrunden för en `access_token` och en `refresh_token` .  Programmet kan använda `access_token` för att autentisera till ett Server dels webb-API i HTTP-begäranden. Den kan också använda `refresh_token` för att hämta en ny `access_token` när en äldre upphör att gälla.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
@@ -119,9 +119,11 @@ I det här flödet kör programmet [principer](user-flow-overview.md) och tar em
 
 Program som innehåller tids krävande processer eller som fungerar utan förekomst av en användare måste också ha ett sätt att komma åt skyddade resurser, till exempel webb-API: er. Dessa program kan autentisera och hämta token genom att använda programmets identitet (i stället för en användares delegerade identitet) och genom att använda flödet OAuth 2,0-klientautentiseringsuppgifter. Flödet för klientens autentiseringsuppgifter är inte detsamma som on-Flow-Flow och on-Flow-Flow bör inte användas för autentisering från server till server.
 
-Även om flödet för klientautentiseringsuppgifter inte stöds av Azure AD B2C, kan du ställa in flöde för autentiseringsuppgifter för klient med hjälp av Azure AD. En Azure AD B2C-klient delar vissa funktioner med Azure AD Enterprise-klienter.  Klientens Credential-flöde stöds med hjälp av Azure AD-funktionerna i Azure AD B2C-klienten.
+Även om OAuth 2,0-klientens autentiseringsuppgifter för tilldelning av klient inte stöds direkt av Azure AD B2C-Autentiseringstjänsten, kan du konfigurera flödet för autentiseringsuppgifter för klienten med hjälp av Azure AD och Microsoft Identity Platform/token-slutpunkten för ett program i din Azure AD B2C-klient. En Azure AD B2C-klient delar vissa funktioner med Azure AD Enterprise-klienter.
 
 Information om hur du konfigurerar inloggnings flödet för klienten finns i [Azure Active Directory v 2.0 och OAuth 2,0-klientens autentiseringsuppgifter Flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). En lyckad autentisering resulterar i att en token formateras så att den kan användas av Azure AD enligt beskrivningen i [referens för Azure AD-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+
+Anvisningar om hur du registrerar ett hanterings program finns i [hantera Azure AD B2C med Microsoft Graph](microsoft-graph-get-started.md).
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Webb-API-länkar (On-Behalf-Of-flöde)
 

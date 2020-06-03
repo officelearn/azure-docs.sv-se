@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du skapar Recovery Services val
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 6ac1c7e887f80767d6ff1819476e91cb4b06bf1b
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: f1f1a66bd6e0fbd28be59b0211a1ac17f030022e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744947"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298626"
 ---
 # <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
@@ -90,9 +90,6 @@ För den här processen finns det prissättnings effekter som på lagrings nivå
 >- Granska [support matrisen](backup-support-matrix.md#cross-region-restore) för en lista över hanterade typer och regioner som stöds.
 >- Funktionen för återställning av kors region (CRR) har nu förvisats i alla offentliga Azure-regioner.
 >- CRR är ett alternativ för att välja en valv nivå för alla GRS-valv (inaktiverat som standard).
->- Använd följande kommando för att publicera din prenumeration för den här funktionen:<br>
->  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`
->- Om du är inloggad på den här funktionen under en offentlig begränsad för hands version innehåller e-postmeddelandet om godkännande av pris information.
 >- Efter väljer kan det ta upp till 48 timmar innan säkerhets kopierings objekten är tillgängliga i sekundära regioner.
 >- För närvarande stöds inte CRR för säkerhets kopierings hanterings typ-ARM Azure VM (den klassiska virtuella Azure-datorn stöds inte).  När ytterligare hanterings typer har stöd för CRR, registreras de **automatiskt** .
 

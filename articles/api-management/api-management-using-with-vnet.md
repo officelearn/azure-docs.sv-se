@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 016a907e3e660ca6da9dc637b2c9c844b7077b84
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: f7a036a382ac3b16093529a67abe9ef78b897274
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193969"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300102"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -266,7 +266,7 @@ IP-adresserna delas av **Azure-miljön**. När tillåtna IP-adresser för inkomm
 | Azure Government| USDoD, öst| 52.181.32.192|
 
 ## <a name="related-content"></a><a name="related-content"> </a>Relaterat innehåll
-* [Ansluta en Virtual Network till Server delen med VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
+* [Ansluta en Virtual Network till Server delen med VPN-gateway](../vpn-gateway/design.md#s2smulti)
 * [Ansluta en Virtual Network från olika distributions modeller](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Så här använder du API-kontrollen för att spåra anrop i Azure API Management](api-management-howto-api-inspector.md)
 * [Vanliga frågor och svar om Virtual Network](../virtual-network/virtual-networks-faq.md)

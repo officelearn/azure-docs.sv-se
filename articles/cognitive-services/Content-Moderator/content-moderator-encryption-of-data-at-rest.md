@@ -9,25 +9,25 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: b41d822791f61fce274f628b87c478c3a986f4c3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 38fc21ee45db25f015a6b8b534b0d922efa636f2
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372165"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310554"
 ---
 # <a name="content-moderator-encryption-of-data-at-rest"></a>Content Moderator kryptering av data i vila
 
 Content Moderator krypterar dina data automatiskt när de sparas i molnet, vilket hjälper till att uppfylla organisationens säkerhets-och efterlevnads mål.
 
-[!INCLUDE [cognitive-services-about-encryption](../../../includes/cognitive-services-about-encryption.md)]
+[!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
 > Kundhanterade nycklar är bara tillgängliga på pris nivån E0. Om du vill begära möjlighet att använda Kundhanterade nycklar, fyller du i och skickar det [Content moderator kundens hanterade nyckel fråge formulär](https://aka.ms/cogsvc-cmk). Det tar cirka 3-5 arbets dagar att höra om status för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda CMK med Content Moderator tjänsten måste du skapa en ny Content Moderator resurs och välja E0 som pris nivå. När din Content Moderator-resurs med pris nivån E0 har skapats kan du använda Azure Key Vault för att konfigurera din hanterade identitet.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 
 ## <a name="enable-data-encryption-for-your-content-moderator-team"></a>Aktivera data kryptering för Content Moderator-teamet
 
@@ -36,8 +36,9 @@ Om du vill aktivera data kryptering för Content Moderator granska teamet går d
 > [!NOTE]
 > Du måste ange ett _resurs-ID_ med Content moderator pris nivå för E0.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-* [Formulär för Content Moderator kundhanterad nyckel](https://aka.ms/cogsvc-cmk)
-* [Läs mer om Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* En fullständig lista över tjänster som stöder CMK finns i [kund hanterade nycklar för Cognitive Services](../encryption/cognitive-services-encryption-keys-portal.md)
+* [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [Formulär för Cognitive Services kundhanterad nyckel](https://aka.ms/cogsvc-cmk)
+

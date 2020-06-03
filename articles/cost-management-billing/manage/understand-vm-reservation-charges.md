@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: ca54d5a0d196cbc39256668f21e19bdf9162dfbf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a9d9a5661e8a094b7d92a9dd83db3cdcd76b8b65
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202798"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018390"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Så tillämpas rabatten för Azure-reservation på virtuella datorer
 
@@ -102,7 +102,7 @@ Du kan läsa mer om Azure-reservationer i följande artiklar:
 
 - [Vad är Azure-reservationer?](../reservations/save-compute-costs-reservations.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../../sql-database/sql-database-reserved-capacity.md)
+- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
 - [Hantera reservationer för Azure](../reservations/manage-reserved-vm-instance.md)
 - [Förstå reservationsanvändning för din Betala per användning-prenumeration](../reservations/understand-reserved-instance-usage.md)
 - [Förstå reservationsanvändning för din Enterprise-registrering](../reservations/understand-reserved-instance-usage-ea.md)

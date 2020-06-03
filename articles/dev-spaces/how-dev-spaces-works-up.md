@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Beskriver processerna för att köra din kod i Azure Kubernetes service med Azure dev Spaces
 keywords: azds. yaml, Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 6851c04ac0b72db1bd13c991875c16b0beadc573
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02b928009b1f82e2b6a193a41376265f8bfb9ea7
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241366"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307477"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Hur du kör din kod med Azure dev Spaces fungerar
 
@@ -20,19 +20,19 @@ I den här artikeln beskrivs vad som händer om du kör koden i AKS med dev Spac
 
 ## <a name="run-your-code"></a>Kör din kod
 
-Om du vill köra din kod i ett dev-utrymme `up` utfärdar du kommandot i samma katalog som `azds.yaml` filen:
+Om du vill köra din kod i ett dev-utrymme utfärdar du `up` kommandot i samma katalog som `azds.yaml` filen:
 
 ```cmd
 azds up
 ```
 
-`up` Kommandot laddar upp dina programkällfiler och andra artefakter som behövs för att skapa och köra ditt projekt i dev-området. Därifrån i ditt dev Space:
+`up`Kommandot laddar upp dina programkällfiler och andra artefakter som behövs för att skapa och köra ditt projekt i dev-området. Därifrån i ditt dev Space:
 
 1. Skapar Kubernetes-objekt för att distribuera programmet.
 1. Skapar behållaren för ditt program.
 1. Distribuerar ditt program till dev-utrymmet.
 1. Skapar ett offentligt tillgängligt DNS-namn för program slut punkten om det är konfigurerat.
-1. Använder *Port-Forward* för att ge åtkomst till program slut punkten http://localhostmed hjälp av.
+1. Använder *Port-Forward* för att ge åtkomst till program slut punkten med hjälp av http://localhost .
 1. Vidarebefordrar STDOUT och stderr till verktyg på klient sidan.
 
 
@@ -40,14 +40,14 @@ azds up
 
 När du startar en tjänst i ett dev-utrymme fungerar klient sidans verktyg och kontrollant i samordning för att synkronisera källfilerna, skapa din behållare och Kubernetes-objekt och köra ditt program.
 
-På en mer detaljerad nivå är det vad som händer när du kör `azds up`:
+På en mer detaljerad nivå är det vad som händer när du kör `azds up` :
 
 1. [Filerna synkroniseras][sync-section] från användarens dator till en Azure File Storage som är unik för ANVÄNDAREns AKS-kluster. Käll koden, Helm-diagrammet och konfigurationsfilerna laddas upp.
 1. Kontrollanten skapar en begäran om att starta en ny session. Den här begäran innehåller flera egenskaper, inklusive ett unikt ID, utrymmes namn, sökväg till käll koden och en fel söknings flagga.
 1. Kontrollanten ersätter plats hållaren *$ (tag)* i Helm-diagrammet med det unika sessions-ID: t och installerar Helm-diagrammet för din tjänst. Genom att lägga till en referens till det unika sessions-ID: t i Helm-diagrammet kan behållaren som distribueras till AKS-klustret för den här specifika sessionen kopplas tillbaka till sessionen och den tillhör ande informationen.
 1. Under installationen av Helm-diagrammet lägger Kubernetes webhook-åtkomstkontroll till ytterligare behållare till programmets Pod för instrumentering och åtkomst till projektets käll kod. Devspaces-proxy-och devspaces-proxy-init-behållare läggs till för att tillhandahålla HTTP-spårning och utrymmes dirigering. Devspaces-build-behållaren läggs till för att ge Pod åtkomst till Docker-instansen och projekt käll koden för att skapa din program behållare.
 1. När programmets Pod startas, används devspaces-build-behållaren och devspaces-proxy-init-behållaren för att bygga program behållaren. Program behållaren och devspaces-behållare startas sedan.
-1. När program behållaren har startat använder klient sidan funktionen Kubernetes *-Port-Forward* för att ge http-åtkomst till ditt program http://localhost. Den här port vidarebefordringen ansluter din utvecklings dator till tjänsten i ditt utvecklings utrymme.
+1. När program behållaren har startat använder klient sidan funktionen Kubernetes *-Port-Forward* för att ge http-åtkomst till ditt program http://localhost . Den här port vidarebefordringen ansluter din utvecklings dator till tjänsten i ditt utvecklings utrymme.
 1. När alla behållare i pod har startat körs tjänsten. I det här läget börjar funktionen på klient sidan att strömma HTTP-spåren, STDOUT och stderr. Den här informationen visas i klient sidans funktioner för utvecklaren.
 
 ## <a name="updating-a-running-service"></a>Uppdatera en aktiv tjänst
@@ -76,7 +76,7 @@ Uppdateringar av projektfiler som Dockerfiles, CSPROJ-filer eller någon del av 
 
 Första gången ett program startas i ett utvecklings utrymme laddas alla källfiler för programmet upp. När programmet körs och senare startar om, laddas bara de ändrade filerna upp. Två filer används för att samordna processen: en fil på klient sidan och en fil på styrenhets sidan.
 
-Filen på klient sidan lagras i en tillfällig katalog och namnges baserat på en hash för projekt katalogen som du kör i dev Spaces. I Windows skulle du till exempel ha en fil som *Users\USERNAME\AppData\Local\Temp\1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef.synclog* för ditt projekt. På Linux lagras filen på klient sidan i *katalogen/tmp* -katalogen. Du kan hitta katalogen på macOS genom att `echo $TMPDIR` köra kommandot.
+Filen på klient sidan lagras i en tillfällig katalog och namnges baserat på en hash för projekt katalogen som du kör i dev Spaces. I Windows skulle du till exempel ha en fil som *Users\USERNAME\AppData\Local\Temp\1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef.synclog* för ditt projekt. På Linux lagras filen på klient sidan i *katalogen/tmp* -katalogen. Du kan hitta katalogen på macOS genom att köra `echo $TMPDIR` kommandot.
 
 Den här filen är i JSON-format och innehåller:
 
@@ -120,9 +120,9 @@ install:
 ...
 ```
 
-Som standard kommer `prep` kommandot att generera Helm-diagrammet. Den anger också egenskapen *install. Chart* till katalogen i Helm-diagrammet. Om du vill använda ett Helm-diagram på en annan plats kan du uppdatera den här egenskapen för att använda den platsen.
+Som standard `prep` kommer kommandot att generera Helm-diagrammet. Den anger också egenskapen *install. Chart* till katalogen i Helm-diagrammet. Om du vill använda ett Helm-diagram på en annan plats kan du uppdatera den här egenskapen för att använda den platsen.
 
-När du installerar Helm-diagram ger Azure dev Spaces ett sätt att åsidosätta värden i Helm-diagrammet. Standardvärdena för Helm-diagrammet finns i `charts/APP_NAME/values.yaml`.
+När du installerar Helm-diagram ger Azure dev Spaces ett sätt att åsidosätta värden i Helm-diagrammet. Standardvärdena för Helm-diagrammet finns i `charts/APP_NAME/values.yaml` .
 
 Med hjälp av egenskapen *install. Values* kan du ange en eller flera filer som definierar värden som du vill ska ersättas i Helm-diagrammet. Om du till exempel vill ha ett värdnamn eller en databas konfiguration specifikt när du kör programmet i ett dev-utrymme kan du använda den här funktionen för åsidosättning. Du kan också lägga till en *?* i slutet av något av fil namnen för att ange det som valfritt.
 
@@ -130,11 +130,11 @@ Med egenskapen *install. Set* kan du konfigurera ett eller flera värden som du 
 
 I exemplet ovan anger egenskapen *install. Set. replicaCount* kontrollanten hur många instanser av programmet som ska köras i ditt dev-utrymme. Beroende på ditt scenario kan du öka det här värdet, men det påverkar hur du kopplar en fel sökare till programmets pod. Mer information finns i [fel söknings artikeln][troubleshooting].
 
-I det genererade Helm-diagrammet är behållar avbildningen inställd på *{{. Values. image. databas}}: {{. Values. image. tag}}*. `azds.yaml` Filen definierar *install. Set. image. tag* -egenskapen som *$ (tag)* som standard som används som värde för *{{. Values. image. tag}}*. Genom att ställa in egenskapen *install. Set. image. tag* på det här sättet tillåter den att behållar avbildningen för programmet taggas på ett tydligt sätt när du kör Azure dev Spaces. I det här fallet är avbildningen Taggad som * \<värde från avbildningen. databas>: $ (tag)*. Du måste använda variabeln *$ (tag)* som värdet för metoden *install. Set. image. tag* för att dev Spaces ska kunna identifiera och hitta behållaren i AKS-klustret.
+I det genererade Helm-diagrammet är behållar avbildningen inställd på *{{. Values. image. databas}}: {{. Values. image. tag}}*. `azds.yaml`Filen definierar *install. Set. image. tag* -egenskapen som *$ (tag)* som standard som används som värde för *{{. Values. image. tag}}*. Genom att ställa in egenskapen *install. Set. image. tag* på det här sättet tillåter den att behållar avbildningen för programmet taggas på ett tydligt sätt när du kör Azure dev Spaces. I det här fallet är avbildningen Taggad som * \<value from image.repository> : $ (tag)*. Du måste använda variabeln *$ (tag)* som värdet för metoden *install. Set. image. tag* för att dev Spaces ska kunna identifiera och hitta behållaren i AKS-klustret.
 
 I ovanstående exempel `azds.yaml` definierar *install. Set. ingress. hosts*. Egenskapen *install. Set. ingress. hosts* anger ett värdnamn för offentliga slut punkter. Den här egenskapen använder också *$ (spacePrefix)*, *$ (rootSpacePrefix)* och *$ (hostSuffix)*, som är värden som tillhandahålls av kontrollanten.
 
-*$ (SpacePrefix)* är namnet på den underordnade dev-ytan, som tar formen av *SPACENAME. s*. *$ (RootSpacePrefix)* är namnet på det överordnade utrymmet. Om *azureuser* till exempel är ett underordnat utrymme som *standard*är värdet för *$ (rootSpacePrefix)* *standard* och värdet för *$ (spacePrefix)* är *azureuser. s*. Om utrymmet inte är ett underordnat utrymme är *$ (spacePrefix)* tomt. Om *standard* utrymmet till exempel inte har något överordnat utrymme är värdet för *$ (rootSpacePrefix)* *standard* och värdet för *$ (spacePrefix)* är tomt. *$ (HostSuffix)* är ett DNS-suffix som pekar på ingångs styrenheten för Azure dev Spaces som körs i ditt AKS-kluster. Det här DNS-suffixet motsvarar en DNS-post med jokertecken, till exempel * \*. RANDOM_VALUE. EUs. azds. io*, som skapades när Azure dev Spaces-styrenheten lades till i ditt AKS-kluster.
+*$ (SpacePrefix)* är namnet på den underordnade dev-ytan, som tar formen av *SPACENAME. s*. *$ (RootSpacePrefix)* är namnet på det överordnade utrymmet. Om *azureuser* till exempel är ett underordnat utrymme som *standard*är värdet för *$ (rootSpacePrefix)* *standard* och värdet för *$ (spacePrefix)* är *azureuser. s*. Om utrymmet inte är ett underordnat utrymme är *$ (spacePrefix)* tomt. Om *standard* utrymmet till exempel inte har något överordnat utrymme är värdet för *$ (rootSpacePrefix)* *standard* och värdet för *$ (spacePrefix)* är tomt. *$ (HostSuffix)* är ett DNS-suffix som pekar på ingångs styrenheten för Azure dev Spaces som körs i ditt AKS-kluster. Det här DNS-suffixet motsvarar en DNS-post med jokertecken, till exempel * \* . RANDOM_VALUE. EUs. azds. io*, som skapades när Azure dev Spaces-styrenheten lades till i ditt AKS-kluster.
 
 I ovanstående `azds.yaml` fil kan du också uppdatera *install. Set. ingress. hosts* om du vill ändra värd namnet för ditt program. Om du till exempel vill förenkla värd namnet för ditt program från *$ (spacePrefix) $ (rootSpacePrefix) webfrontend $ (hostSuffix)* till *$ (spacePrefix) $ (rootSpacePrefix) Web $ (hostSuffix)*.
 
@@ -188,7 +188,7 @@ Egenskapen *Configurations. utvecklar. container. ITER. buildCommands* anger hur
 
 *Konfigurationerna. utvecklar. container. ITER. processesToKill* listar de processer som ska avbrytas för att stoppa programmet. Du kanske vill uppdatera den här egenskapen om du vill ändra omstarts beteendet för ditt program under utveckling. Om du till exempel har uppdaterat *konfigurationerna. utvecklar. container. ITER. buildCommands* eller *Configurations. utvecklar. container. Command* för att ändra hur programmet byggs eller startas kan du behöva ändra vilka processer som har stoppats.
 
-När du förbereder din kod med `azds prep` hjälp av kommandot har du möjlighet att lägga till `--enable-ingress` flaggan. Om du `--enable-ingress` lägger till flaggan skapas en offentligt tillgänglig URL för ditt program. Om du utelämnar den här flaggan är programmet endast tillgängligt i klustret eller med hjälp av localhost-tunneln. När du har kört `azds prep` kommandot kan du ändra inställningen genom att ändra egenskapen *ingress. enabled* i `charts/APPNAME/values.yaml`:
+När du förbereder din kod med hjälp av `azds prep` kommandot har du möjlighet att lägga till `--enable-ingress` flaggan. Om du lägger till `--enable-ingress` flaggan skapas en offentligt tillgänglig URL för ditt program. Om du utelämnar den här flaggan är programmet endast tillgängligt i klustret eller med hjälp av localhost-tunneln. När du har kört `azds prep` kommandot kan du ändra inställningen genom att ändra egenskapen *ingress. enabled* i `charts/APPNAME/values.yaml` :
 
 ```yaml
 ingress:
@@ -199,7 +199,7 @@ ingress:
 
 Om du vill veta mer om nätverk och hur förfrågningar dirigeras i Azure dev-utrymmen ser du [hur routning fungerar med Azure dev Spaces][how-it-works-routing].
 
-Om du vill veta mer om hur du använder Azure dev Spaces för att snabbt iterera och utveckla, se [hur du ansluter din utvecklings dator till ditt utvecklings utrymme][how-it-works-connect] och [hur fjärrfelsökning av din kod med Azure dev Spaces fungerar][how-it-works-remote-debugging].
+Om du vill veta mer om hur du använder Azure dev Spaces för att snabbt kunna hitta och utveckla, se [hur lokal process med Kubernetes fungerar][how-it-works-local-process-kubernetes] och [hur fjärrfelsökning av din kod med Azure dev Spaces fungerar][how-it-works-remote-debugging].
 
 För att komma igång med att använda Azure dev Spaces för att köra projektet, se följande snabb starter:
 
@@ -212,7 +212,7 @@ För att komma igång med att använda Azure dev Spaces för att köra projektet
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-connect]: how-dev-spaces-works-connect.md
+[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

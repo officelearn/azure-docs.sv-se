@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/20/2020
-ms.openlocfilehash: 037edb8af6e04a2ff65977a92a66482c9f4f880f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 8bff8cf1111675446c1c9fb2e5dde8b19e2ef5c1
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845106"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310894"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -80,7 +80,7 @@ Proceduren stöds för närvarande inte i användar gränssnittet och etablering
 > [!IMPORTANT]
 > Alla API-förfrågningar måste innehålla en token Authorization-token i begär ande huvudet.
 
-Ett exempel:
+Till exempel:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -196,8 +196,8 @@ Den här resursen används som en mellanliggande identitets anslutning mellan di
 Du måste ange *kapacitets reservations* nivå (SKU) när du skapar en *kluster* resurs. *Kapacitets reservations* nivån kan ligga inom intervallet 1 000 till 2 000 GB per dag och du kan uppdatera den i steg om 100 senare. Om du behöver kapacitets reservations nivå över 2 000 GB per dag kan du kontakta oss på LAIngestionRate@microsoft.com . [Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
 
 Egenskapen *billingType* bestämmer fakturerings behörigheten för *kluster* resursen och dess data:
-- *kluster* (standard)--faktureringen tillskrivs till den prenumeration som är värd för *kluster* resursen
-- *arbets ytor* – faktureringen hänförs till prenumerationerna som är värdar för dina arbets ytor proportionellt
+- *Kluster* (standard)--kapacitets reservationens kostnader för klustret är attribut till *kluster* resursen.
+- *Arbets ytor* – kapacitets reservationens kostnader för klustret anges i proportion till arbets ytorna i klustret, där *kluster* resursen faktureras viss användning om den totala inmatade data för dagen är under kapacitets reservationen. Se [Log Analytics dedikerade kluster](manage-cost-storage.md#log-analytics-dedicated-clusters) för att lära dig mer om kluster pris modellen. 
 
 > [!NOTE]
 > När du har skapat en *kluster* resurs kan du uppdatera den med *SKU*, *keyVaultProperties* eller *billingType* med hjälp av patch rest-begäran.

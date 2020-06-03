@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: 573bd0797e63fc512e59b0e0882c718e4569111c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e6a8fddc61e05bc2e354d77c9e56c55e354a45b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262901"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309840"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Att se till att du har åtkomst till GRUB och SysRq kan spara mycket tid
 
@@ -76,7 +76,7 @@ Att se till att du har åtkomst till Azures serie konsol och GRUB innebär att e
 
 - Disk växling – kan automatiseras med hjälp av något av följande:
 
-   - [Skript för återställning av energi gränssnitt](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
+   - [PowerShell-återställnings skript](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
    - [bash-återställnings skript](https://github.com/sribs/azure-support-scripts)
 
 - Äldre metod
@@ -98,7 +98,7 @@ I den här artikeln granskar vi olika Linux-distributioner och dokument konfigur
 SysRq-nyckeln är aktive rad på vissa nyare Linux-distributioner som standard, även om andra inte kan konfigureras för att acceptera värden för vissa SysRq-funktioner.
 På äldre distributioner kan det vara inaktiverat helt.
 
-SysRq-funktionen är användbar för att starta om en kraschad eller låst virtuell dator direkt från Azures serie konsol, vilket också är användbart för att få åtkomst till GRUB-menyn. Alternativt kan du också starta om en virtuell dator från ett annat Portal fönster eller ssh-session för att Visa GRUB-menyn.
+SysRq-funktionen är användbar för att starta om en kraschad eller icke-svarande virtuell dator direkt från Azures serie konsol, vilket också är användbart för att få åtkomst till GRUB-menyn. Alternativt kan du också starta om en virtuell dator från ett annat Portal fönster eller ssh-session, så att du kan släppa den aktuella konsol anslutningen, vilket innebär att GRUB tids gränser som används för att Visa GRUB-
 Den virtuella datorn måste vara konfigurerad för att godkänna värdet 1 för kernel-parametern, som aktiverar alla funktioner i SysRq eller 128, vilket tillåter omstart/avstängnings läge
 
 
@@ -123,7 +123,7 @@ Med hjälp av kommandot Azure Portal åtgärder-> Kör kommando > RunShellScript
 
 `sysctl -w kernel.sysrq=1 ; echo kernel.sysrq = 1 >> /etc/sysctl.conf`
 
-Som du ser här ![: Aktivera sysrq2](./media/virtual-machines-serial-console/enabling-sysrq-2.png)
+Som du ser här: ![ Aktivera sysrq2](./media/virtual-machines-serial-console/enabling-sysrq-2.png)
 
 När du är klar kan du försöka komma åt **SysRq** och se att en omstart är möjlig.
 
@@ -173,7 +173,7 @@ GRUB_TIMEOUT_STYLE=countdown
 ```
 
 
-## <a name="ubuntu-1204"></a>Ubuntu 12\.04
+## <a name="ubuntu-1204"></a>Ubuntu 12 \. 04
 
 Ubuntu 12,04 ger åtkomst till serie konsolen men ger inte möjlighet att interagera. En **inloggning:** prompten visas inte
 
@@ -236,7 +236,7 @@ Om alla går bra ser du dessa ytterligare alternativ, som kan hjälpa dig att ut
 
 ## <a name="red-hat-grub-configuration"></a>Konfiguration av Red Hat-GRUB
 
-## <a name="red-hat-74-grub-configuration"></a>Konfiguration av Red\.hat\+ 7 4-grub
+## <a name="red-hat-74-grub-configuration"></a>Konfiguration av Red Hat 7 \. 4- \+ grub
 Standard konfigurationen för/etc/default/grub i dessa versioner är korrekt konfigurerad
 
 ```
@@ -256,7 +256,7 @@ Aktivera SysRq-nyckeln
 sysctl -w kernel.sysrq=1;echo kernel.sysrq = 1 >> /etc/sysctl.conf;sysctl -a | grep -i sysrq
 ```
 
-## <a name="red-hat-72-and-73-grub-configuration"></a>Konfiguration av Red\.hat 7 2\.och 7 3 grub
+## <a name="red-hat-72-and-73-grub-configuration"></a>Konfiguration av Red Hat 7 \. 2 och 7 \. 3 grub
 Filen som ska ändras är/etc/default/grub – en standard konfiguration ser ut som i det här exemplet:
 
 ```
@@ -320,8 +320,8 @@ Du kan också konfigurera GRUB och SysRq med hjälp av en enda rad, antingen i g
 `cp /etc/default/grub /etc/default/grub.bak; sed -i 's/GRUB_TIMEOUT=1/GRUB_TIMEOUT=5/g' /etc/default/grub; sed -i 's/GRUB_TERMINAL_OUTPUT="console"/GRUB_TERMINAL="serial console"/g' /etc/default/grub; echo "GRUB_SERIAL_COMMAND=\"serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1\"" >> /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg;sysctl -w kernel.sysrq=1;echo kernel.sysrq = 1 /etc/sysctl.conf;sysctl -a | grep -i sysrq`
 
 
-## <a name="red-hat-6x-grub-configuration"></a>Konfiguration av Red\.hat 6 x-grub
-Filen som ska ändras är/boot/grub/grub.conf. `timeout` Värdet avgör hur lång grub som visas för.
+## <a name="red-hat-6x-grub-configuration"></a>Konfiguration av Red Hat 6 \. x-grub
+Filen som ska ändras är/boot/grub/grub.conf. `timeout`Värdet avgör hur lång grub som visas för.
 
 ```
 #boot=/dev/vda

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 60761f7641d8cf87121992fce9050aea0f0b434b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac4df0b63d48e590bfdfc49f1c8b5607b4651cd5
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80333574"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310197"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps väder täckning
 
@@ -23,7 +23,7 @@ Azure Maps har inte samma nivå av information och exakthet för alla länder oc
 
 Följande tabell innehåller information om vilken typ av väder information som du kan begära från varje land/region.
 
-| Symbol | Betydelse |
+| Symbol | Innebörd |
 |--------|---------|
 |*       |Täcker väder utmed väg, aktuella villkor, Tim prognos, kvartals dags prognos och dagliga prognos-API: er |
 
@@ -67,7 +67,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Honduras                                 | ✓ |   |  ✓| 
 | Jamaica                                  | ✓ |   |  ✓| 
 | Martinique                               | ✓ |   |  ✓| 
-| Mexiko                                   | ✓ |   |  ✓| 
+| Mexico                                   | ✓ |   |  ✓| 
 | Montserrat                               | ✓ |   |  ✓| 
 | Nicaragua                                | ✓ |   |  ✓| 
 | Panama                                   | ✓ |   |  ✓| 
@@ -86,7 +86,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Surinam                                 | ✓ |   |  ✓| 
 | Trinidad och Tobago                      | ✓ |   |  ✓| 
 | Turks- och Caicosöarna                 | ✓ |   |  ✓| 
-| Amerikanska öar                    | ✓ |   |  ✓| 
+| USA:s yttre öar                    | ✓ |   |  ✓| 
 | Amerikanska jungfru öarna                      | ✓ |   |  ✓| 
 | USA                            | ✓ | ✓ |  ✓| 
 | Uruguay                                  | ✓ |   |  ✓| 
@@ -107,7 +107,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Burundi                     | ✓               |                              |        ✓| 
 | Kamerun                    | ✓               |                              |        ✓| 
 | Cabo Verde                  | ✓               |                              |        ✓| 
-| Centralafrikanska republiken    | ✓               |                              |        ✓| 
+| Centralafrikanska Republiken    | ✓               |                              |        ✓| 
 | Tchad                        | ✓               |                              |        ✓| 
 | Komorerna                     | ✓               |                              |        ✓| 
 | Kongo (DR)                 | ✓               |                              |        ✓|
@@ -166,7 +166,6 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Tunisien                     | ✓               |                              |        ✓| 
 | Uganda                      | ✓               |                              |        ✓| 
 | Förenade Arabemiraten        | ✓               |                              |        ✓| 
-| Västsahara              | ✓               |                              |        ✓| 
 | Jemen                       | ✓               |                              |        ✓| 
 | Zambia                      | ✓               |                              |        ✓| 
 | Zimbabwe                    | ✓               |                              |        ✓| 
@@ -192,11 +191,11 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Franska Polynesien                  | ✓ |   |  ✓| 
 | Guam                              | ✓ |   |  ✓| 
 | Heard-och McDonaldöarna | ✓ |   |  ✓| 
-| Hongkong                     | ✓ |   |  ✓| 
+| Folkrepubliken Kinas särskilda administrativa region Hongkong                     | ✓ |   |  ✓| 
 | Indien                             | ✓ |   |  ✓| 
 | Indonesien                         | ✓ |   |  ✓| 
 | Japan                             | ✓ | ✓ |  ✓| 
-| Kazakhstan                        | ✓ |   |  ✓| 
+| Kazakstan                        | ✓ |   |  ✓| 
 | Kiribati                          | ✓ |   |  ✓| 
 | Korea                             | ✓ | ✓ |  ✓| 
 | Kirgizistan                        | ✓ |   |  ✓| 
@@ -260,7 +259,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Färöarna          | ✓ |   |  ✓| 
 | Finland                | ✓ | ✓ |  ✓| 
 | Frankrike                 | ✓ | ✓ |  ✓| 
-| Georgien                | ✓ |   |  ✓| 
+| Georgia                | ✓ |   |  ✓| 
 | Tyskland                | ✓ | ✓ |  ✓| 
 | Gibraltar              | ✓ | ✓ |  ✓| 
 | Grekland                 | ✓ |   |  ✓| 

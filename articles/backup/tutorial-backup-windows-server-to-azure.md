@@ -4,12 +4,12 @@ description: Den här självstudiekursen förklarar hur du säkerhetskopierar lo
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
-ms.openlocfilehash: d29983bec7dbe379bfb2898e0f068a02b01ae726
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 560a4907fc812aae027ad9e1a1c262fc994c0da9
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238750"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295549"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Säkerhetskopiera Windows Server till Azure
 
@@ -23,7 +23,7 @@ Du kan använda Azure Backup för att skydda Windows Server från skador, attack
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på <https://portal.azure.com.>
+Logga in på Azure Portal på <https://portal.azure.com>.
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 

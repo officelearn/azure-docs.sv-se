@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 385814677a868c0e631bd13bad3308609b174ed3
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: d8bca97cfaa3aff3cb3ca5a5eb9019f96576626e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800104"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309024"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN täckning per tunnelbane linje 
 > [!div class="op_single_selector"]
@@ -44,10 +44,9 @@ Den här artikeln innehåller en lista över aktuella Metros som innehåller POP
 | Afrika | Kap stadens, Sydafrika<br />Johannesburg, Sydafrika<br />Lagos, Nigeria<br />Nairobi, Kenya | Johannesburg, Sydafrika | Sydafrika |
 | Mellanöstern | Dubai, Förenade Arabemiraten<br />Tfn Aviv, Israel<br />Istanbul, Turkiet | Muskat, Oman<br />Fujirah, Förenade Arabemiraten | Qatar<br />Förenade Arabemiraten |
 | Indien | Chennai, Indien<br />Hyderabad, Indien<br />Mumbai, Indien<br />New Delhi, Indien | Bengaluru (Bangalore), Indien<br />Chennai, Indien<br />Mumbai, Indien<br />New Delhi, Indien<br /> | Indien |
-| Asien | Hongkong<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Jakarta, Indonesien<br />Manilla, Filippinerna<br />Singapore<br />Busan, Sydkorea<br />Söul, Sydkorea<br />Taipei,, Taiwan<br />Bangkok, Thailand<br />Saigon, Vietnam | Hongkong<br />Batam, Indonesien<br />Jakarta, Indonesien<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Söul, Sydkorea<br />Kaohsiung, Taiwan<br />Taipei,, Taiwan | Hongkong<br />Indonesien<br />Israel<br />Japan<br />Macao<br />Malaysia<br />Filippinerna<br />Singapore<br />Sydkorea<br />Taiwan<br />Thailand<br />Turkiet<br />Vietnam |
+| Asien | Hongkong<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Jakarta, Indonesien<br />Manilla, Filippinerna<br />Singapore<br />Busan, Sydkorea<br />Söul, Sydkorea<br />Taipei,, Taiwan<br />Bangkok, Thailand<br />Hô Chi Minh City, Vietnam | Hongkong<br />Batam, Indonesien<br />Jakarta, Indonesien<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Söul, Sydkorea<br />Kaohsiung, Taiwan<br />Taipei,, Taiwan | Hongkong<br />Indonesien<br />Israel<br />Japan<br />Macao<br />Malaysia<br />Filippinerna<br />Singapore<br />Sydkorea<br />Taiwan<br />Thailand<br />Turkiet<br />Vietnam |
 | Australien och nya Zeeland | Brisbane, Australien<br />Melbourne, Australien<br />Perth, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Melbourne, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Australien<br />Nya Zeeland |
 
 
 ## <a name="next-steps"></a>Nästa steg
 * För att få de senaste IP-adresserna för vit listning, se [API för Azure CDN Edge-noder](https://docs.microsoft.com/rest/api/cdn/edgenodes).
-

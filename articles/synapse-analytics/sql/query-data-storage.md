@@ -67,7 +67,7 @@ Demonstrations data innehåller följande data uppsättningar:
 - Books-JSON
   - JSON-format
 
-| Mappsökväg                                                  | Beskrivning                                                  |
+| Mappsökväg                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | SKV                                                        | Överordnad mapp för data i CSV-format                         |
 | /csv/population/<br />/csv/population-unix/<br />/csv/population-unix-hdr/<br />/csv/population-unix-hdr-escape<br />/csv/population-unix-hdr-quoted | Mappar med populations data filer i olika CSV-format. |

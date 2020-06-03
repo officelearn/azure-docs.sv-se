@@ -111,7 +111,7 @@ Dessa krav gäller när dina Logi Kap par körs på en Premium-nivå (inte i [in
    
    1. I rutan för att **lägga till en ny hanterad koppling** i rutan **SAP-paket** klistrar du in URL: en för zip-filen som innehåller SAP-sammansättningarna. *Se till att du inkluderar SAS-token.*
 
-   1. När du är klar väljer du **Skapa**.
+   1. När du är färdig väljer du **Skapa**.
 
    Mer information finns i [Lägg till ISE-anslutningar](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment).
 
@@ -411,7 +411,7 @@ Här är ett exempel som visar hur du extraherar enskilda IDocs från ett paket 
 
 1. Innan du börjar måste du ha en Logic-app med en SAP-utlösare. Om du inte redan har den här Logic-appen följer du de föregående stegen i det här avsnittet för att [Konfigurera en Logic app med en SAP-utlösare](#receive-from-sap).
 
-   Ett exempel:
+   Till exempel:
 
    ![Lägg till SAP-utlösare i Logic app](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 

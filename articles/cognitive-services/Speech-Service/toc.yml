@@ -24,7 +24,7 @@
           href: batch-transcription.md
         - name: Grunderna om taligenkänning
           href: speech-to-text-basics.md
-    - name: Snabbstart
+    - name: Snabbstarter
       items:
         - name: Identifiera tal med en mikrofonindata
           href: quickstarts/speech-to-text-from-microphone.md
@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Identifiera tal som lagras i bloblagring
           href: quickstarts/from-blob.md
+        - name: Testa en modell med hjälp av ljudfiler i Speech Studio
+          href: quickstarts/speech-studio-test-model.md
     - name: Anvisningar
       items:
         - name: Välj taligenkänningsläge
@@ -466,7 +468,7 @@
           items:
             - name: REST-API för taligenkänning
               href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
-- name: Värd
+- name: Hosting
   items:
     - name: Dokumentation om värdar
       href: index-hosting.yml

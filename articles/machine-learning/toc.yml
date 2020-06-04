@@ -70,7 +70,8 @@
       items:
         - name: Träna och distribuera med CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Skapa arbetsytor med Resource Manager-mallar
+        - name: Skapa arbetsytor med ARM-mall
+          displayName: Resource Manager
           href: tutorial-resource-manager-workspace.md
     - name: Visual Studio-koden
       items:

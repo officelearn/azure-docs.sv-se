@@ -1188,6 +1188,8 @@
             - name: Inställningar för användardefinierad väg
               href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
               maintainContext: true
+            - name: IP-adresser för MySQL
+              href: mysql-ip-address.md
     - name: Felsökning
       items:
         - name: Vanliga frågor

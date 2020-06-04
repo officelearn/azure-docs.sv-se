@@ -123,6 +123,8 @@
               href: backup-azure-linux-app-consistent.md
         - name: Återställ
           items:
+            - name: Återställning av virtuell Azure-dator
+              href: about-azure-vm-restore.md
             - name: Återställa virtuella Azure-datorer i portalen
               href: backup-azure-arm-restore-vms.md
             - name: Återställa filer från säkerhetskopierade virtuella Azure-datorer

@@ -1,6 +1,6 @@
 ---
 title: Kundhanterad transparent data kryptering (TDE)
-description: Bring Your Own Key (BYOK) stöd för transparent datakryptering (TDE) med Azure Key Vault för SQL Database och Azure Synapse. TDE med BYOK-översikt, fördelar, hur det fungerar, överväganden och rekommendationer.
+description: Bring Your Own Key (BYOK) stöd för transparent datakryptering (TDE) med Azure Key Vault för SQL Database och Azure Synapse Analytics. TDE med BYOK-översikt, fördelar, hur det fungerar, överväganden och rekommendationer.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4677a16f1c3bd4a0d04e5ada5cee98e3e0f8e094
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 51187a81865d9efa098e2c25cccdead01ed6dc74
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048737"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321316"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL transparent datakryptering med kundhanterad nyckel
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -25,7 +25,7 @@ Azure SQL [Transparent datakryptering (TDE)](/sql/relational-databases/security/
 
 I det här scenariot är den nyckel som används för kryptering av databas krypterings nyckeln (DEK), som kallas TDE-skydd, en kundhanterad asymmetrisk nyckel som lagras i ett kundägda och Kundhanterade [Azure Key Vault (AKV)](../../key-vault/general/secure-your-key-vault.md), ett molnbaserad hanterings system för externa nycklar. Key Vault har hög tillgänglighet och skalbart säkert lagrings utrymme för kryptografiska RSA-nycklar, eventuellt backas upp av FIPS 140-2 nivå 2-validerade maskinvarubaserade säkerhetsmoduler (HSM: er). Den tillåter inte direkt åtkomst till en lagrad nyckel, men tillhandahåller tjänster för kryptering/dekryptering med hjälp av nyckeln till auktoriserade entiteter. Nyckeln kan genereras av nyckel valvet, importeras eller [överföras till nyckel valvet från en lokal HSM-enhet](../../key-vault/keys/hsm-protected-keys.md).
 
-För Azure SQL Database och Azure-Synapse anges TDE-skyddet på server nivå och ärvs av alla krypterade databaser som är kopplade till den servern. För Azure SQL-hanterad instans anges TDE-skydd på instans nivå och ärvs av alla krypterade databaser på den instansen. Termen *Server* refererar både till en server i SQL Database-och Azure-Synapse och till en hanterad instans i SQL-hanterad instans i det här dokumentet, om inget annat anges.
+För Azure SQL Database och Azure Synapse Analytics anges TDE-skyddet på server nivå och ärvs av alla krypterade databaser som är kopplade till den servern. För Azure SQL-hanterad instans anges TDE-skydd på instans nivå och ärvs av alla krypterade databaser på den instansen. Termen *Server* refererar både till en server i SQL Database-och Azure-Synapse och till en hanterad instans i SQL-hanterad instans i det här dokumentet, om inget annat anges.
 
 > [!IMPORTANT]
 > För de som använder tjänstehanterade TDE som vill börja använda Kundhanterade TDE-data förblir data krypterade under växlings processen och det finns ingen nedtid eller Omkryptering av databasfilerna. Om du växlar från en tjänst-hanterad nyckel till en kundhanterad nyckel krävs bara Omkryptering av DEK, vilket är en snabb och online-åtgärd.
@@ -50,7 +50,7 @@ Kundhanterade TDE ger kunden följande fördelar:
 
 ![Installation och funktion av Kundhanterade TDE](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-roles.PNG)
 
-För att servern ska kunna använda TDE-skyddskomponenten som lagras i AKV för kryptering av DEK måste nyckel valv administratören ge följande åtkomst behörighet till servern med hjälp av sin unika AAD-identitet:
+För att servern ska kunna använda TDE-skyddskomponenten som lagras i AKV för kryptering av DEK måste nyckel valv administratören ge följande åtkomst behörighet till servern med hjälp av dess unika Azure Active Directory (Azure AD)-identitet:
 
 - **Hämta** för att hämta den offentliga delen och egenskaperna för nyckeln i Key Vault
 
@@ -76,7 +76,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 
 - Funktionen för [mjuk borttagning](../../key-vault/general/overview-soft-delete.md) måste vara aktive rad i nyckel valvet för att det ska gå att ta bort data förlust, oavsiktlig nyckel (eller Key Vault). Mjuka, borttagna resurser behålls i 90 dagar, såvida de inte återställs eller rensas av kunden under tiden. Åtgärder för att *återställa* och *Rensa* har sina egna behörigheter som är kopplade till en åtkomst princip för nyckel valv. Funktionen mjuk borttagning är inaktive rad som standard och kan aktive ras via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) eller [CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Den kan inte aktive ras via Azure Portal.  
 
-- Bevilja servern eller hanterad instans åtkomst till nyckel valvet (get, wrapKey, unwrapKey) med sin Azure Active Directory identitet. När du använder Azure Portal skapas Azure AD-identiteten automatiskt. När du använder PowerShell eller CLI måste Azure AD-identiteten skapas och slutföras måste verifieras. Se [Konfigurera TDE med BYOK](transparent-data-encryption-byok-configure.md) och [Konfigurera TDE med BYOK för hanterad instans](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) för detaljerade steg-för-steg-instruktioner när du använder PowerShell.
+- Bevilja servern eller hanterad instans åtkomst till nyckel valvet (get, wrapKey, unwrapKey) med sin Azure Active Directory identitet. När du använder Azure Portal skapas Azure AD-identiteten automatiskt. När du använder PowerShell eller CLI måste Azure AD-identiteten skapas och slutföras måste verifieras. Se [Konfigurera TDE med BYOK](transparent-data-encryption-byok-configure.md) och [Konfigurera TDE med BYOK för SQL-hanterad instans](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) för detaljerade steg-för-steg-instruktioner när du använder PowerShell.
 
 - När du använder en brand vägg med AKV måste du aktivera alternativet *Tillåt att betrodda Microsoft-tjänster kringgår brand väggen*.
 
@@ -133,13 +133,13 @@ När åtkomst till nyckeln har återställts krävs ytterligare tid och steg, vi
 
 Det kan hända att någon med tillräckliga åtkomst rättigheter till Key Vault oavsiktligt inaktiverar Server åtkomst till nyckeln av:
 
-- återkallar nyckel valvets *Get*-, *wrapKey*-, *unwrapKey* -behörigheter från servern
+- återkalla nyckel valvets *Get*-, *wrapKey*-, *unwrapKey* -behörigheter från servern
 
 - tar bort nyckeln
 
 - tar bort nyckel valvet
 
-- ändra brand Väggs regler för nyckel valvet
+- ändra nyckel valvets brand Väggs regler
 
 - tar bort den hanterade identiteten för servern i Azure Active Directory
 
@@ -164,9 +164,9 @@ För att återställa en säkerhets kopia krypterad med ett TDE-skydd från Key 
 
 Om nyckeln som behövs för att återställa en säkerhets kopia inte längre är tillgänglig för mål servern, returneras följande fel meddelande på återställnings försöket: mål servern `<Servername>` har inte åtkomst till alla AKV-URI: er som skapats mellan \<Timestamp #1> och \<Timestamp #2> . Försök igen när du har återställt alla AKV-URI: er. "
 
-För att minimera den, kör cmdleten [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) för mål servern eller [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) för mål hanterad instans för att returnera listan över tillgängliga nycklar och identifiera de som saknas. Se till att mål servern för återställningen har åtkomst till alla nycklar som behövs för att säkerställa att alla säkerhets kopior kan återställas. Dessa nycklar behöver inte markeras som TDE-skydd.
+För att minimera den, kör cmdleten [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) för mål servern eller [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) för den hanterade mål instansen för att returnera listan över tillgängliga nycklar och identifiera de som saknas. Se till att mål servern för återställningen har åtkomst till alla nycklar som behövs för att säkerställa att alla säkerhets kopior kan återställas. Dessa nycklar behöver inte markeras som TDE-skydd.
 
-Mer information om säkerhets kopierings återställning för SQL Database finns [i återställa en databas i SQL Database](recovery-using-backups.md). Mer information om säkerhets kopierings återställning för SQL-poolen finns i [återställa en SQL-pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). För SQL Server interna säkerhets kopiering/återställning med SQL-hanterad instans, se [snabb start: återställa en databas till en SQL-hanterad instans](../managed-instance/restore-sample-database-quickstart.md)
+Mer information om säkerhets kopierings återställning för SQL Database finns [i återställa en databas i SQL Database](recovery-using-backups.md). Mer information om säkerhets kopierings återställning för SQL-poolen finns i [återställa en SQL-pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). För SQL Server interna säkerhets kopiering/återställning med SQL-hanterad instans, se [snabb start: återställa en databas till SQL-hanterad instans](../managed-instance/restore-sample-database-quickstart.md)
 
 Ytterligare överväganden för loggfiler: säkerhetskopierade loggfiler förblir krypterade med det ursprungliga TDE-skyddet, även om det roterats och databasen nu använder ett nytt TDE-skydd.  Vid återställnings tiden krävs båda nycklarna för att återställa databasen.  Om logg filen använder ett TDE-skydd som lagras i Azure Key Vault, krävs den här nyckeln vid återställnings tiden, även om databasen har ändrats för att använda tjänstehanterade TDE under tiden.
 
@@ -174,9 +174,9 @@ Ytterligare överväganden för loggfiler: säkerhetskopierade loggfiler förbli
 
 Även om det inte finns någon konfigurerad GEO-redundans för Server, rekommenderar vi starkt att du konfigurerar servern att använda två olika nyckel valv i två olika regioner med samma nyckel material. Du kan åstadkomma detta genom att skapa ett TDE-skydd med hjälp av primär nyckel valvet som finns i samma region som servern och klona nyckeln till ett nyckel valv i en annan Azure-region, så att servern har åtkomst till ett andra nyckel valv om det uppstår ett avbrott i primär nyckel valvet när databasen är igång.
 
-Använd cmdleten backup-AzKeyVaultKey för att hämta nyckeln i krypterat format från primär nyckel valvet och sedan använda cmdleten Restore-AzKeyVaultKey och ange ett nyckel valv i den andra regionen för att klona nyckeln. Du kan också använda Azure Portal för att säkerhetskopiera och återställa nyckeln. Nyckeln i det sekundära nyckel valvet i se annan region bör inte markeras som TDE-skydd och det är inte ens tillåtet.
+Använd cmdleten backup-AzKeyVaultKey för att hämta nyckeln i krypterat format från primär nyckel valvet och sedan använda cmdleten Restore-AzKeyVaultKey och ange ett nyckel valv i den andra regionen för att klona nyckeln. Du kan också använda Azure Portal för att säkerhetskopiera och återställa nyckeln. Nyckeln i det sekundära nyckel valvet i den andra regionen ska inte markeras som TDE-skydd och det är inte ens tillåtet.
 
- Om det uppstår ett avbrott som påverkar primär nyckel valvet kommer systemet automatiskt att växla till den andra länkade nyckeln med samma tumavtryck i det sekundära nyckel valvet, om det finns. Observera att växeln inte sker om TDE-skyddskomponenten inte kan nås på grund av återkallade åtkomst rättigheter, eller att nyckel-eller nyckel valvet har tagits bort, eftersom det kan indikera att kunden avsiktligt ville begränsa servern från att komma åt nyckeln.
+Om det uppstår ett avbrott som påverkar primär nyckel valvet kommer systemet automatiskt att växla till den andra länkade nyckeln med samma tumavtryck i det sekundära nyckel valvet, om det finns. Observera att växeln inte sker om TDE-skyddskomponenten inte kan nås på grund av återkallade åtkomst rättigheter, eller att nyckel-eller nyckel valvet har tagits bort, eftersom det kan indikera att kunden avsiktligt ville begränsa servern från att komma åt nyckeln.
 
 ![En-server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 
@@ -194,7 +194,7 @@ För att undvika problem vid etablering eller under geo-replikering på grund av
 
 ![Redundansväxla grupper och geo-Dr](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
-Om du vill testa en redundansväxling följer du stegen i [Översikt över aktiv geo-replikering](active-geo-replication-overview.md). Det bör göras regelbundet för att bekräfta att åtkomst behörigheterna för SQL till båda nyckel valvena har behållits.
+Om du vill testa en redundansväxling följer du stegen i [Översikt över aktiv geo-replikering](active-geo-replication-overview.md). Testning av redundans bör göras regelbundet för att verifiera att SQL Database har bevarat åtkomst behörighet till båda nyckel valven.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -204,4 +204,4 @@ Du kanske också vill kontrol lera följande PowerShell-exempel skript för vanl
 
 - [Ta bort ett transparent datakryptering (TDE) skydd för SQL Database med hjälp av PowerShell](transparent-data-encryption-byok-remove-tde-protector.md)
 
-- [Hantera transparent datakryptering i en hanterad instans med din egen nyckel med hjälp av PowerShell](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+- [Hantera transparent datakryptering i SQL-hanterad instans med din egen nyckel med hjälp av PowerShell](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)

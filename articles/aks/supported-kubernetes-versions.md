@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 77d64391888957a1697a5823a1485413686682d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f396ba6ec1ecc6bd111e048ce34e3546c7364dc
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77593452"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345061"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -95,10 +95,10 @@ New Supported Version List
 * För nya **mindre** versioner av Kubernetes
   * Alla användare meddelas offentligt om den nya versionen och vilken version som ska tas bort.
   * När en ny uppdaterings version släpps tas den äldsta korrigerings versionen bort samtidigt.
-  * Kunder har **30 dagar** från det offentliga meddelande datumet för att uppgradera till en lägre versions version som stöds.
+  * Support för Azure ger kunderna **30 dagar** från det offentliga meddelande datumet för uppgradering till en lägre versions version som stöds. När 30 dagar har passerat måste du uppdatera den lägre versionen för att fortsätta få support.
 * För nya **korrigerings** versioner av Kubernetes
   * Alla användare meddelas om den nya korrigerings versionen som släpps och uppgraderas till den senaste korrigerings versionen.
-  * Användare har **30 dagar** på sig att uppgradera till en nyare, korrigerings version som stöds innan den äldsta tas bort.
+  * Support för Azure ger kunderna **30 dagar** på sig att uppgradera till en korrigerings version som stöds, efter borttagning av en äldre uppdaterings version. När 30 dagar har passerat måste du uppdatera korrigerings versionen för att fortsätta få support.
 
 AKS definierar en "utgiven version" som de allmänt tillgängliga versionerna, aktiverade i alla service nivå mål/kvalitet för tjänste mått och är tillgängliga i alla regioner. AKS kan också ha stöd för för hands versioner som uttryckligen märks och omfattas av för hands versions villkor.
 
@@ -134,7 +134,7 @@ Om du vill ta reda på vilka versioner som för närvarande är tillgängliga f�
 az aks get-versions --location eastus --output table
 ```
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor och svar
 
 **Vad händer när en kund uppgraderar ett Kubernetes-kluster med en lägre version som inte stöds?**
 
@@ -155,7 +155,7 @@ För mindre versioner som inte stöds av AKS, måste skala in eller ut fortsätt
 
 **Kan en kund stanna kvar på en Kubernetes-version för alltid?**
 
-Ja. Men om klustret inte finns i en av de versioner som stöds av AKS, ligger klustret utanför AKS-support-principerna. Azure uppgraderar inte automatiskt klustret eller så tas det bort.
+Om ett kluster har stöd för fler än 3 lägre versioner och har befunnits medföra säkerhets risker, kontaktar Azure dig för att proaktivt uppgradera klustret. Om du inte vidtar ytterligare åtgärder förbehåller Azure rätten att tvinga uppgraderingen av klustret åt dig.
 
 **Vilken version kontrollerar kontroll planet om Node-poolen inte finns i någon av de AKS-versioner som stöds?**
 

@@ -1,6 +1,6 @@
 ---
-title: Private Link
-description: Översikt över funktionen för privat slut punkt
+title: Azure Private Link
+description: Översikt över privat slut punkts funktion.
 author: rohitnayakmsft
 ms.author: rohitna
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
@@ -9,36 +9,36 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: e1093e57757d780bf5393b6cb1bb45a706b18b11
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: cd2f88d78a967b46c1983e7eb96328c14d90a81a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219869"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344007"
 ---
-# <a name="private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Privat länk för Azure SQL Database och Azure Synapse Analytics
+# <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure privat länk för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en **privat slut punkt**. En lista över PaaS-tjänster som stöder funktionen för privat länk finns på [dokumentations sidan för privat länk](../../private-link/index.yml) . En privat slut punkt är en privat IP-adress inom ett särskilt [VNet](../../virtual-network/virtual-networks-overview.md) och undernät.
 
 > [!IMPORTANT]
-> Den här artikeln gäller både Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse). För enkelhetens skull refererar termen "databas" till båda databaserna i Azure SQL Database och Azure Synapse Analytics. På samma sätt refererar alla referenser till "Server" till den [logiska SQL-Server](logical-servers.md) som är värd för Azure SQL Database och Azure Synapse Analytics. Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser**.
+> Den här artikeln gäller både Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse). För enkelhetens skull refererar termen "databas" till båda databaserna i Azure SQL Database och Azure Synapse Analytics. På samma sätt refererar alla referenser till "Server" till den [logiska SQL-Server](logical-servers.md) som är värd för Azure SQL Database och Azure Synapse Analytics. Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser**.
 
 ## <a name="data-exfiltration-prevention"></a>Data exfiltrering skydd
 
 Data exfiltrering i Azure SQL Database är när en behörig användare, till exempel en databas administratör, kan extrahera data från ett system och flytta den till en annan plats eller ett system utanför organisationen. Användaren kan till exempel flytta data till ett lagrings konto som ägs av en tredje part.
 
-Överväg ett scenario med en användare som kör SQL Server Management Studio (SSMS) i en virtuell Azure-dator som ansluter till en SQL Database. Den här SQL Database är i data centret västra USA. Exemplet nedan visar hur du begränsar åtkomsten med offentliga slut punkter på SQL Database med hjälp av nätverks åtkomst kontroller.
+Tänk dig ett scenario med en användare som kör SQL Server Management Studio (SSMS) i en virtuell Azure-dator som ansluter till en databas i SQL Database. Den här databasen är i data centret västra USA. Exemplet nedan visar hur du begränsar åtkomsten med offentliga slut punkter på SQL Database med hjälp av nätverks åtkomst kontroller.
 
 1. Inaktivera all Azure Service-trafik för att SQL Database via den offentliga slut punkten genom att ställa in Tillåt att Azure-tjänster **stängs**av. Se till att inga IP-adresser är tillåtna i brand Väggs reglerna för Server och databas nivå. Mer information finns i [Azure SQL Database och Azure Synapse Analytics Network Access Controls](network-access-controls-overview.md).
-1. Tillåt endast trafik till SQL Database med den virtuella datorns privata IP-adress. Mer information finns i artikeln om [service Endpoint](vnet-service-endpoint-rule-overview.md) och [VNet brand Väggs regler](firewall-configure.md).
+1. Tillåt endast trafik till databasen i SQL Database att använda den virtuella datorns privata IP-adress. Mer information finns i artiklarna om [tjänstens slut punkt](vnet-service-endpoint-rule-overview.md) och [brand Väggs regler för virtuella nätverk](firewall-configure.md).
 1. På den virtuella Azure-datorn begränsar du omfattningen av utgående anslutning genom att använda [nätverks säkerhets grupper (NSG: er)](../../virtual-network/manage-network-security-group.md) och service märken enligt följande
     - Ange en NSG-regel för att tillåta trafik för service tag = SQL. Västra USA – endast tillåta anslutning till SQL Database i västra USA
     - Ange en NSG-regel (med en **högre prioritet**) om du vill neka trafik för service tag = SQL-neka anslutningar till SQL Database i alla regioner
 
-I slutet av den här installationen kan den virtuella Azure-datorn bara ansluta till SQL-databaser i regionen USA, västra. Anslutningen är dock inte begränsad till en enda SQL Database. Den virtuella datorn kan fortfarande ansluta till alla SQL-databaser i regionen Västra USA, inklusive de databaser som inte ingår i prenumerationen. Vi har minskat omfattningen av data exfiltrering i scenariot ovan till en speciell region, men vi har inte eliminerat det helt.
+I slutet av den här installationen kan den virtuella Azure-datorn bara ansluta till en databas i SQL Database i regionen USA, västra. Anslutningen är dock inte begränsad till en enda databas i SQL Database. Den virtuella datorn kan fortfarande ansluta till en databas i regionen USA, västra, inklusive de databaser som inte ingår i prenumerationen. Vi har minskat omfattningen av data exfiltrering i scenariot ovan till en speciell region, men vi har inte eliminerat det helt.
 
-Med privat länk kan kunder nu konfigurera nätverks åtkomst kontroller som NSG: er för att begränsa åtkomsten till den privata slut punkten. Enskilda Azure PaaS-resurser mappas sedan till specifika privata slut punkter. En skadlig Insider kan bara komma åt den mappade PaaS-resursen (till exempel en SQL Database) och ingen annan resurs. 
+Med privat länk kan kunder nu konfigurera nätverks åtkomst kontroller som NSG: er för att begränsa åtkomsten till den privata slut punkten. Enskilda Azure PaaS-resurser mappas sedan till specifika privata slut punkter. En skadlig Insider kan bara komma åt den mappade PaaS-resursen (till exempel en databas i SQL Database) och ingen annan resurs. 
 
 ## <a name="on-premises-connectivity-over-private-peering"></a>Lokal anslutning via privat peering
 
@@ -49,15 +49,15 @@ Med privat länk kan kunder aktivera åtkomst till lokala slut punkter via [Expr
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Så här konfigurerar du en privat länk för Azure SQL Database 
 
 ### <a name="creation-process"></a>Skapande process
-Privata slut punkter kan skapas med hjälp av portalen, PowerShell eller Azure CLI:
-- [Portal](../../private-link/create-private-endpoint-portal.md)
+Privata slut punkter kan skapas med hjälp av Azure Portal, PowerShell eller Azure CLI:
+- [Portalen](../../private-link/create-private-endpoint-portal.md)
 - [PowerShell](../../private-link/create-private-endpoint-powershell.md)
 - [CLI](../../private-link/create-private-endpoint-cli.md)
 
 ### <a name="approval-process"></a>Godkännande process
 När nätverks administratören skapar den privata slut punkten (PE) kan SQL-administratören hantera den privata slut punkts anslutningen (PEC) för att SQL Database.
 
-1. Gå till SQL Server-resursen i Azure Portal enligt stegen som visas i skärm bilden nedan
+1. Navigera till Server resursen i Azure Portal enligt stegen som visas i skärm bilden nedan
 
     - (1) Välj de privata slut punkts anslutningarna i det vänstra fönstret
     - (2) visar en lista över alla anslutningar för privata slut punkter (PECs)
@@ -74,11 +74,11 @@ När nätverks administratören skapar den privata slut punkten (PE) kan SQL-adm
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Använd fall av privat länk för Azure SQL Database 
 
-Klienter kan ansluta till den privata slut punkten från samma VNet, peer-kopplat VNet i samma region eller via VNet-till-VNet-anslutning mellan regioner. Dessutom kan klienter ansluta lokalt med ExpressRoute, privat peering eller VPN-tunnlar. Nedan visas ett förenklat diagram som visar vanliga användnings fall.
+Klienter kan ansluta till den privata slut punkten från samma virtuella nätverk, peer-kopplat virtuella nätverk i samma region eller via virtuellt nätverk till virtuell nätverks anslutning mellan regioner. Dessutom kan klienter ansluta lokalt med ExpressRoute, privat peering eller VPN-tunnlar. Nedan visas ett förenklat diagram som visar vanliga användnings fall.
 
  ![Diagram över anslutnings alternativ][1]
 
-## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network-vnet"></a>Testa anslutningen till SQL Database från en virtuell Azure-dator i samma Virtual Network (VNet)
+## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network"></a>Testa anslutningen till SQL Database från en virtuell Azure-dator i samma virtuella nätverk
 
 I det här scenariot förutsätter vi att du har skapat en virtuell Azure-dator (VM) som kör Windows Server 2016. 
 
@@ -93,7 +93,7 @@ I det här scenariot förutsätter vi att du har skapat en virtuell Azure-dator 
 
 [Telnet-klienten](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) är en Windows-funktion som kan användas för att testa anslutningen. Beroende på vilken version av Windows OS du har kan du behöva aktivera den här funktionen explicit. 
 
-Öppna ett kommando tolks fönster när du har installerat telnet. Kör Telnet-kommandot och ange IP-adressen och den privata slut punkten för SQL Database.
+Öppna ett kommando tolks fönster när du har installerat telnet. Kör Telnet-kommandot och ange IP-adressen och den privata slut punkten för databasen i SQL Database.
 
 ```
 >telnet 10.1.1.5 1433
@@ -159,17 +159,17 @@ where session_id=@@SPID
 Anslutningar till privat slut punkt stöder bara **proxy** som [anslutnings princip](connectivity-architecture.md#connection-policy)
 
 
-## <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Ansluta från en virtuell Azure-dator i peer-Virtual Network (VNet) 
+## <a name="connecting-from-an-azure-vm-in-peered-virtual-network"></a>Ansluta från en virtuell Azure-dator i peer-Virtual Network 
 
-Konfigurera [VNet-peering](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) för att upprätta anslutning till SQL Database från en virtuell Azure-dator i ett peer-kopplat VNet.
+Konfigurera [peering för virtuella nätverk](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) för att upprätta anslutning till SQL Database från en virtuell Azure-dator i ett peer-kopplat virtuellt nätverk.
 
-## <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>Ansluta från en virtuell Azure-dator i VNet-till-VNet-miljö
+## <a name="connecting-from-an-azure-vm-in-virtual-network-to-virtual-network-environment"></a>Ansluta från en virtuell Azure-dator i virtuellt nätverk till en virtuell nätverks miljö
 
-Konfigurera [VPN gateway-anslutning mellan virtuella](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) nätverk för att upprätta anslutning till en SQL Database från en virtuell Azure-dator i en annan region eller prenumeration.
+Konfigurera [virtuellt nätverk till virtuellt nätverk VPN gateway-anslutning](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) för att upprätta en anslutning till en databas i SQL Database från en virtuell Azure-dator i en annan region eller prenumeration.
 
 ## <a name="connecting-from-an-on-premises-environment-over-vpn"></a>Ansluta från en lokal miljö via VPN
 
-Om du vill upprätta en anslutning från en lokal miljö till SQL Database väljer du och implementerar något av alternativen:
+Om du vill upprätta en anslutning från en lokal miljö till databasen i SQL Database väljer du och implementerar något av alternativen:
 - [Punkt-till-plats-anslutning](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Plats-till-plats-anslutning via VPN](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - [ExpressRoute-krets](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -177,7 +177,7 @@ Om du vill upprätta en anslutning från en lokal miljö till SQL Database välj
 
 ## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase"></a>Ansluta från Azure Synapse Analytics till Azure Storage med PolyBase
 
-PolyBase används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät via privata slut punkter, tjänst slut punkter eller IP-baserade brand väggar, kommer anslutningen från PolyBase till kontot att avbrytas. Om du vill aktivera både polybases import-och export scenarier med Azure Synapse Analytics ansluter du till Azure Storage som skyddas av ett VNet, följer du stegen som beskrivs [här](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+PolyBase används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning virtuella nätverks under nät via privata slut punkter, tjänst slut punkter eller IP-baserade brand väggar, kommer anslutningen från PolyBase till kontot att avbrytas. Om du vill aktivera både polybases import-och export scenarier med Azure Synapse Analytics ansluter du till Azure Storage som är skyddade till ett virtuellt nätverk följer du stegen som beskrivs [här](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ## <a name="next-steps"></a>Nästa steg
 

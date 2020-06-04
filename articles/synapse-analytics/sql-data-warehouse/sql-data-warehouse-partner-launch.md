@@ -11,12 +11,12 @@ ms.date: 05/18/2020
 ms.author: procha
 ms.reviewer: mabasile
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e7d370c49d4571b7b46d0d5db121955afd62fd45
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e4af27d841beb21b364b499231a422112eb3ad78
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664454"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324138"
 ---
 # <a name="azure-synapse-analytics-launch-partners"></a>Azure Synapse Analytics-lanserings partners
 
@@ -40,9 +40,8 @@ Azure Synapse Analytics-partner levereras med djup integrerings & verktyg för a
 | ![Qlik](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) |**Qlik Sense Enterprise**<br>Identifiera insikts identifiering med data visualiserings appen som alla kan använda. Med Qlik Sense kan alla i organisationen enkelt skapa flexibla, interaktiva visualiseringar och fatta meningsfulla beslut. |[Produkt sida](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/qlik.qlik-sense) |
 | ![SqlDBM](./media/sql-data-warehouse-partner-data-management/sqldbm-logo.png) |**SqlDBM**<br>SqlDBM är ett molnbaserad verktyg för data modellering som ger dig ett enkelt och bekvämt sätt att utveckla databasen var som helst i valfri webbläsare. Allt samtidigt som de nödvändiga databas reglerna och objekten, till exempel databas nycklar, scheman, index, kolumn begränsningar och relationer. |[Produkt sida](http://sqldbm.com/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sqldbm1583438206845.sqldbm-data-modeling-tool?tab=Overview)<br>|
 | ![Talend](./media/sql-data-warehouse-partner-data-integration/talend_logo.png) |**Talend-moln**<br>Talend Cloud är en plattform för data integrering i företag för att ansluta, komma åt och transformera data i molnet eller lokalt. Det är en integrations plattform som en tjänst (iPaaS) som ger bred anslutning, inbyggd data kvalitet och inbyggt stöd för de senaste Big data-och moln teknikerna. |[Produkt sida](https://www.talend.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/talend.talendremoteengine?source=datamarket&tab=Overview) |
-| ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>Använd search för att få detaljerade insikter från miljarder rader med data, eller låt AI få insikter från frågor som du kanske inte har trodde att fråga. ThoughtSpot hjälper businesspeople att hitta insikter dolda i sina företags data på några sekunder. Använd Sök för att analysera dina data och få automatiska insikter när du behöver dem.|[Produkt sida](https://www.thoughtspot.com)<br>|
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Om du vill veta mer om våra andra partners kan du läsa [Business Intelligence-partner](sql-data-warehouse-partner-business-intelligence.md), [data integrerings partner](sql-data-warehouse-partner-data-integration.md)och [datahantering partner](sql-data-warehouse-partner-data-management.md).
 
  

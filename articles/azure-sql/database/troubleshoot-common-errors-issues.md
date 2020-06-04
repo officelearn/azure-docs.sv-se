@@ -1,6 +1,6 @@
 ---
 title: Felsök vanliga anslutningsproblem till Azure SQL Database
-description: Innehåller steg för att felsöka Azure SQL Database anslutnings problem och lösa andra Azure SQL Database-eller SQL-hanterade instans specifika problem
+description: Innehåller steg för att felsöka Azure SQL Database anslutnings problem och lösa andra Azure SQL Database-eller Azure SQL-hanterade instans specifika problem
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
@@ -9,17 +9,17 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 0420138ac7366916e8b83cf40abcab1a376017bd
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: e22f962c69091e783b8f6ab55905a02025213f5e
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116796"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321401"
 ---
-# <a name="troubleshooting-connectivity-issues-and-other-errors-with-sql-database-and-sql-managed-instance"></a>Fel sökning av anslutnings problem och andra fel med SQL Database-och SQL-hanterad instans
+# <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Fel sökning av anslutnings problem och andra fel med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Du får fel meddelanden när det inte går att ansluta till Azure SQL Database eller SQL-hanterad instans. Dessa anslutnings problem kan orsakas av omkonfiguration, brand Väggs inställningar, tids gräns för anslutning, felaktig inloggnings information eller fel vid användning av metod tips och design rikt linjer under [programmets design](develop-overview.md) process. Om max gränsen på vissa Azure SQL Database-eller SQL-hanterade instans resurser nås, kan du inte längre ansluta.
+Du får fel meddelanden när det inte går att ansluta till Azure SQL Database eller Azure SQL-hanterad instans. Dessa anslutnings problem kan orsakas av omkonfiguration, brand Väggs inställningar, tids gräns för anslutning, felaktig inloggnings information eller fel vid användning av metod tips och design rikt linjer under [programmets design](develop-overview.md) process. Om max gränsen på vissa Azure SQL Database-eller SQL-hanterade instans resurser nås, kan du inte längre ansluta.
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Tillfälliga fel fel meddelanden (40197, 40613 och andra)
 
@@ -27,10 +27,10 @@ Azure-infrastrukturen har kapacitet att dynamiskt omkonfigurera servrar vid öka
 
 ### <a name="list-of-transient-fault-error-codes"></a>Lista över felkoder för tillfälliga fel
 
-| Felkod | Allvarlighetsgrad | Beskrivning |
+| Felkod | Allvarlighetsgrad | Description |
 | ---:| ---:|:--- |
 | 4060 |16 |Det går inte att öppna databasen%. &#x2a;LS som begärdes av inloggningen. Inloggningen misslyckades. Mer information finns i [fel 4000 till 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
-| 40197 |17 |Tjänsten har påträffat ett fel när din begäran bearbetades. Försök igen. Felkod% d.<br/><br/>Du får det här felet när tjänsten är avstängd på grund av program varu-eller maskin varu uppgraderingar, maskin varu fel eller andra problem med redundansväxling. Felkoden (% d) som bäddats in i meddelandet om fel 40197] ger ytterligare information om vilken typ av fel eller redundans som har inträffat. Några exempel på fel koderna är inbäddade i meddelandet om fel 40197 är 40020, 40143, 40166 och 40540.<br/><br/>Om du återansluter automatiskt ansluts du till en felfri kopia av databasen. Ditt program måste fånga fel 40197, logga den inbäddade felkoden (% d) i meddelandet för fel sökning och försöka ansluta till SQL Database tills resurserna är tillgängliga och anslutningen upprättas igen. Mer information finns i [tillfälliga fel](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
+| 40197 |17 |Tjänsten har påträffat ett fel när din begäran bearbetades. Försök igen. Felkod% d.<br/><br/>Du får det här felet när tjänsten är avstängd på grund av program varu-eller maskin varu uppgraderingar, maskin varu fel eller andra problem med redundansväxling. Felkoden (% d) i meddelandet om fel 40197 ger ytterligare information om vilken typ av fel eller redundans som har inträffat. Några exempel på fel koderna är inbäddade i meddelandet om fel 40197 är 40020, 40143, 40166 och 40540.<br/><br/>Om du återansluter automatiskt ansluts du till en felfri kopia av databasen. Ditt program måste fånga fel 40197, logga den inbäddade felkoden (% d) i meddelandet för fel sökning och försöka ansluta till SQL Database tills resurserna är tillgängliga och anslutningen upprättas igen. Mer information finns i [tillfälliga fel](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |Tjänsten är upptagen för närvarande. Gör om begäran efter 10 sekunder. Incident-ID:% ls. Kod:% d. Mer information finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md).|
 | 40613 |17 |Databasen%. &#x2a;ls på servern%. &#x2a;LS är inte tillgänglig för tillfället. Försök att ansluta igen senare. Om problemet kvarstår kan du kontakta kund support och tillhandahålla sessions-ID: t%. &#x2a;ls.<br/><br/> Det här felet kan inträffa om det redan finns en befintlig DAC-anslutning (Dedicated Administrator Connection) som är etablerad i databasen. Mer information finns i [tillfälliga fel](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 49918 |16 |Det går inte att behandla begäran. Det finns inte tillräckligt med resurser för att bearbeta begäran.<br/><br/>Tjänsten är upptagen för närvarande. Försök att utföra begäran senare. Mer information finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). |
@@ -295,7 +295,7 @@ En djupgående fel söknings procedur finns i finns [min fråga som körs i moln
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabell över ytterligare fel meddelanden för resurs styrning
 
-| Felkod | Allvarlighetsgrad | Beskrivning |
+| Felkod | Allvarlighetsgrad | Description |
 | ---:| ---:|:--- |
 | 10928 |20 |Resurs-ID:% d. % S-gränsen för databasen är% d och har nåtts. Mer information finns i [SQL Database resurs gränser för databaser med enkel och pool](resource-limits-logical-server.md).<br/><br/>Resurs-ID: t anger den resurs som har nått gränsen. Resurs-ID = 1 för arbets trådar. För sessioner är resurs-ID = 2.<br/><br/>Mer information om det här felet och hur du löser det finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). |
 | 10929 |20 |Resurs-ID:% d. % S minsta garanti är% d, max gränsen är% d och den aktuella användningen för databasen är% d. Servern är dock för närvarande upptagen för att stödja begär Anden som är större än% d för den här databasen. Resurs-ID: t anger den resurs som har nått gränsen. Resurs-ID = 1 för arbets trådar. För sessioner är resurs-ID = 2. Mer information finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). <br/>Annars kan du försöka igen senare. |
@@ -310,11 +310,11 @@ En djupgående fel söknings procedur finns i finns [min fråga som körs i moln
 
 Följande fel är relaterade till att skapa och använda elastiska pooler:
 
-| Felkod | Allvarlighetsgrad | Beskrivning | Korrigerande åtgärd |
+| Felkod | Allvarlighetsgrad | Description | Korrigerande åtgärd |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Den elastiska poolen har nått sin lagrings gräns. Lagrings användningen för den elastiska poolen får inte överskrida (% d) MB. Försök att skriva data till en databas när lagrings gränsen för den elastiska poolen har nåtts. Information om resurs gränser finns i: <br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md). <br/> |Överväg att öka DTU: er och/eller lägga till lagring till den elastiska poolen om det är möjligt för att öka lagrings gränsen, minska lagrings utrymmet som används av enskilda databaser i den elastiska poolen eller ta bort databaser från den elastiska poolen. För skalning av elastiska pooler, se [skala elastiska pool resurser](elastic-pool-scale.md).|
 | 10929 | 16 |% S minsta garanti är% d, max gränsen är% d och den aktuella användningen för databasen är% d. Servern är dock för närvarande upptagen för att stödja begär Anden som är större än% d för den här databasen. Information om resurs gränser finns i: <br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md). <br/> Annars kan du försöka igen senare. DTU/vCore min per databas; Max per databas för DTU/vCore. Det totala antalet samtidiga arbetare (begär Anden) över alla databaser i den elastiska poolen försökte överskrida poolens gräns. |Överväg att öka DTU: er-eller virtuella kärnor för den elastiska poolen om det är möjligt för att öka arbets gränsen, eller ta bort databaser från den elastiska poolen. |
-| 40844 | 16 |Databasen% ls på servern% LS är en% LS Edition-databas i en elastisk pool och kan inte ha en kontinuerlig kopierings relation.  |Saknas |
+| 40844 | 16 |Databasen% ls på servern% LS är en% LS Edition-databas i en elastisk pool och kan inte ha en kontinuerlig kopierings relation.  |Ej tillämpligt |
 | 40857 | 16 |Det gick inte att hitta någon elastisk pool för servern:% ls, namn på elastisk pool:% ls. Den angivna elastiska poolen finns inte på den angivna servern. | Ange ett giltigt namn på elastisk pool. |
 | 40858 | 16 |Den elastiska poolen% LS finns redan på servern:% ls. Den angivna elastiska poolen finns redan på den angivna servern. | Ange ett nytt namn på elastisk pool. |
 | 40859 | 16 |Den elastiska poolen stöder inte tjänst nivån% ls. Den angivna tjänst nivån stöds inte för etablering av elastisk pool. |Ange rätt utgåva eller lämna tjänst nivån tom för att använda standard tjänst nivån. |
@@ -390,4 +390,4 @@ Mer information om hur du aktiverar loggning finns i [Aktivera diagnostikloggnin
 ## <a name="next-steps"></a>Nästa steg
 
 - [Arkitektur för Azure SQL Database anslutning](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)
-- [Kontroll av nätverks åtkomst för Azure SQL Database och informations lager](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)
+- [Azure SQL Database och Azure Synapse Analytics Network Access Controls](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)

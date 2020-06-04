@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: c2556cb1dcf59cdb8ae5014b7dd95fa2c431dc93
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1d384bf4919589675dd6947fcb083585ebaf7e18
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050424"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344602"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Översikt över program utveckling – SQL Database & SQL-hanterad instans 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -53,7 +53,7 @@ Mer information om hur du förbereder för planerade underhålls händelser på 
 - På den dator som är värd för ditt klientprogram, ska du se till att brandväggen tillåter utgående TCP-kommunikation på port 1433.  Mer information: [Konfigurera en Azure SQL Database brand vägg](firewall-configure.md).
 - Om klient programmet ansluter till SQL Database medan klienten körs på en virtuell dator i Azure måste du öppna vissa port intervall på den virtuella datorn. Mer information: [portar utöver 1433 för ADO.NET 4,5 och SQL Database](adonet-v12-develop-direct-route-ports.md).
 - Klient anslutningar till Azure SQL Database ibland kringgå proxyn och interagera direkt med databasen. Andra portar än 1433 blir viktiga. Mer information [Azure SQL Database anslutnings arkitektur](connectivity-architecture.md) och [portar utöver 1433 för ADO.NET 4,5 och SQL Database](adonet-v12-develop-direct-route-ports.md).
-- Nätverks konfiguration för en SQL-hanterad instans finns i [nätverks konfiguration för SQL-hanterade instanser](../managed-instance/how-to-content-reference-guide.md#network-configuration).
+- För nätverks konfiguration för en instans av SQL-hanterad instans, se [nätverks konfiguration för SQL-hanterad instans](../managed-instance/how-to-content-reference-guide.md#network-configuration).
 
 ## <a name="next-steps"></a>Nästa steg
 

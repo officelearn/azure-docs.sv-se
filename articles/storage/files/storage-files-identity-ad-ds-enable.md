@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/02/2020
 ms.author: rogarana
-ms.openlocfilehash: 5592a3c53a57e9cd96468bfca187e02faef28b05
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 4423067fde70728a5449485434cc40c5c3d3ee8f
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268508"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324104"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Del ett: Aktivera AD DS-autentisering för dina Azure-filresurser 
 
@@ -89,7 +89,18 @@ Först måste du kontrol lera status för din miljö. Mer specifikt måste du ko
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Skapa en identitet som representerar lagrings kontot i din AD manuellt
 
-Skapa en ny Kerberos-nyckel för ditt lagrings konto med hjälp av om du vill skapa det här kontot manuellt `New-AzStorageAccountKey -KeyName kerb1` . Använd sedan Kerberos-nyckeln som lösen ord för ditt konto. Den här nyckeln används bara under installationen och kan inte användas för alla kontroll-eller data Plans åtgärder mot lagrings kontot. När du har den nyckeln skapar du antingen en tjänst eller ett dator konto under din ORGANISATIONSENHET. Använd följande specifikation (kom ihåg att ersätta exempel texten med ditt lagrings konto namn):
+Skapa en ny Kerberos-nyckel för ditt lagrings konto för att skapa det här kontot manuellt. Använd sedan Kerberos-nyckeln som lösen ord för ditt konto med PowerShell-cmdletarna nedan. Den här nyckeln används bara under installationen och kan inte användas för alla kontroll-eller data Plans åtgärder mot lagrings kontot. 
+
+```PowerShell
+# Create the Kerberos key on the storage account and get the Kerb1 key as the password for the AD identity to represent the storage account
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName kerb1
+Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -ListKerbKey | where-object{$_.Keyname -contains "kerb1"}
+```
+
+När du har den nyckeln skapar du antingen en tjänst eller ett dator konto under din ORGANISATIONSENHET. Använd följande specifikation (kom ihåg att ersätta exempel texten med ditt lagrings konto namn):
 
 SPN: "CIFS/ditt-Storage-Account-name-här. File. Core. Windows. net" Password: Kerberos Key för ditt lagrings konto.
 

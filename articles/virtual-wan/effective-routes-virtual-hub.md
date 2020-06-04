@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 06/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1173da81736661048d1e4e12d9919bc2aadf73ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f0785f8ce2528d0c17a8aca520212df931bf394
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73515855"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343378"
 ---
 # <a name="view-effective-routes-of-a-virtual-hub"></a>Visa effektiva vägar för en virtuell hubb
 
@@ -42,14 +42,14 @@ Använd rullnings listen längst ned i tabellen om du vill visa "AS-sökväg".
 
 | **Protokollprefixet** |  **Nexthop-typ** | **Nästa hopp** |  **Flödes ursprung** |**SOM sökväg** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.20.1.0/24|VPN |10.1.0.6, 10.1.0.7| /Subscriptions/`<sub>`/ResourceGroups/`<rg>`-/providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW| 20000|
-|10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/Subscriptions/`<sub>`/ResourceGroups/`<rg>`-/providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-GW|21000|
-|10.23.1.0/24| VPN |10.1.0.6, 10.1.0.7|/Subscriptions/`<sub>`/ResourceGroups/`<rg>`-/providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW|23000|
+| 10.20.1.0/24|VPN |10.1.0.6, 10.1.0.7| /Subscriptions/ `<sub>` /resourceGroups/- `<rg>` /providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW| 20000|
+|10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/Subscriptions/ `<sub>` /resourceGroups/- `<rg>` /providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-GW|21000|
+|10.23.1.0/24| VPN |10.1.0.6, 10.1.0.7|/Subscriptions/ `<sub>` /resourceGroups/- `<rg>` /providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW|23000|
 |10.4.0.0/16|Virtual Network anslutning| På länk |  |  |
-|10.5.0.0/16| IP-adress| 10.4.0.6|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
-|0.0.0.0/0| IP-adress| `<Azure Firewall IP>` |/Subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
-|10.22.1.0/16| Fjärrhubb|10.8.0.6, 10.8.0.7|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualhubs/westhub_| 4848-22000 |
-|10.9.0.0/16| Fjärrhubb|  På länk |/Subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualhubs/westhub_1| |
+|10.5.0.0/16| IP-adress| 10.4.0.6|/Subscriptions/ `<sub>` /ResourceGroups/ `<rg>` /providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
+|0.0.0.0/0| IP-adress| `<Azure Firewall IP>` |/Subscriptions/ `<sub>` /ResourceGroups/ `<rg>` /providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
+|10.22.1.0/16| Fjärrhubb|10.8.0.6, 10.8.0.7|/Subscriptions/ `<sub>` /ResourceGroups/ `<rg>` /providers/Microsoft.Network/virtualhubs/westhub_| 4848-22000 |
+|10.9.0.0/16| Fjärrhubb|  På länk |/Subscriptions/ `<sub>` /ResourceGroups/ `<rg>` /providers/Microsoft.Network/virtualhubs/westhub_1| |
 
 >[!NOTE]
 > Om de östra USA-och Västeuropa-hubbarna inte kommunicerar med varandra i topologin för topologin, finns inte den väg som lästes (10.9.0.0/16). Hubbar annonserar bara nätverk som är direkt anslutna till dem.
@@ -59,7 +59,7 @@ Använd rullnings listen längst ned i tabellen om du vill visa "AS-sökväg".
 
 ### <a name="about-the-hub-route-table"></a><a name="abouthubroute"></a>Om Hub Route-tabellen
 
-Du kan skapa en virtuell nav väg och tillämpa den på väg tabellen för virtuella hubbar. Du kan använda flera vägar i routningstabellen för den virtuella hubben. På så sätt kan du ange en väg för ett virtuellt mål nätverk via en IP-adress (vanligt vis den virtuella nätverks enheten (NVA) i ett eker VNet). Mer information om NVA finns i [dirigera trafik från en virtuell hubb till en NVA](virtual-wan-route-table-portal.md).
+Du kan skapa en virtuell nav väg och tillämpa den på väg tabellen för virtuella hubbar. Du kan använda flera vägar i routningstabellen för den virtuella hubben. På så sätt kan du ange en väg för ett virtuellt mål nätverk via en IP-adress (vanligt vis den virtuella nätverks enheten (NVA) i ett eker VNet). Mer information om NVA finns i [dirigera trafik från en virtuell hubb till en NVA](virtual-wan-route-table-portal.md). Observera att dessa vägar inte visas i tabellen över effektiva vägar. Tabellen över effektiva vägar innehåller bara prefixen för lokala och fjärranslutna hubbar plus anslutna Virtual Network adress utrymme och vägar som har lärts via BGP.
 
 ### <a name="about-default-route-00000"></a><a name="aboutdefaultroute"></a>Om standard väg (0.0.0.0/0)
 

@@ -3,12 +3,12 @@ title: Ogiltiga mal linne fel
 description: Beskriver hur du löser ogiltiga fel i mallar när du distribuerar Azure Resource Manager-mallar.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2902a6d82c32192bb241697825a31d759d5c7b75
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832529"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324070"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Åtgärda fel med en ogiltig mall
 
@@ -29,7 +29,7 @@ Fel meddelandet beror på typen av fel.
 
 Det här felet kan bero på flera olika typer av fel. De omfattar vanligt vis en syntax eller ett strukturellt fel i mallen.
 
-<a id="syntax-error" />
+<a id="syntax-error"></a>
 
 ## <a name="solution-1---syntax-error"></a>Lösning 1 – syntaxfel
 
@@ -50,7 +50,7 @@ Om du inte anger motsvarande syntax genererar mallen ett värde som skiljer sig 
 
 När du får den här typen av fel granskar du syntaxen för uttrycket noggrant. Överväg att använda en JSON-redigerare som [Visual Studio](create-visual-studio-deployment-project.md) eller [Visual Studio Code](use-vs-code-to-create-template.md), som kan varna dig om syntaxfel.
 
-<a id="incorrect-segment-lengths" />
+<a id="incorrect-segment-lengths"></a>
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Lösning 2 – Felaktiga segment längder
 
@@ -111,7 +111,7 @@ Det kan vara svårt att hämta segmenten med hjälp av resurs hanterarens typer 
 }
 ```
 
-<a id="parameter-not-valid" />
+<a id="parameter-not-valid"></a>
 
 ## <a name="solution-3---parameter-is-not-valid"></a>Lösning 3-parametern är inte giltig
 
@@ -126,13 +126,13 @@ part of the allowed values
 
 Kontrol lera de tillåtna värdena i mallen och ange en under distribution. Mer information om tillåtna parameter värden finns i [avsnittet parametrar i Azure Resource Manager mallar](template-syntax.md#parameters).
 
-<a id="too-many-resource-groups" />
+<a id="too-many-resource-groups"></a>
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Lösning 4-för många mål resurs grupper
 
 Du kan se det här felet i tidigare distributioner eftersom du var begränsad till fem mål resurs grupper i en enda distribution. I maj 2020 ökade gränsen till 800 resurs grupper. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-resource-group-deployment.md).
 
-<a id="circular-dependency" />
+<a id="circular-dependency"></a>
 
 ## <a name="solution-5---circular-dependency-detected"></a>Lösning 5 – cirkulärt beroende har identifierats
 

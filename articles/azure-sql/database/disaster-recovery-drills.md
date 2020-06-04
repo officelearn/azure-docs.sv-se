@@ -11,14 +11,14 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: b2ba1d07983021e376a950fba789db0b51c11d4b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e32f2bf6f353e32fe96cd3c8b109d698cd3d40ef
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050431"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344585"
 ---
-# <a name="performing-disaster-recovery-drill"></a>Utför katastrof återställnings granskning
+# <a name="performing-disaster-recovery-drills"></a>Utföra granskningar av haveri beredskap
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Vi rekommenderar att validering av program beredskap för arbets flöde för återställning utförs med jämna mellanrum. Att kontrol lera programmets beteende och konsekvenserna av data förlust och/eller störningar i redundansväxlingen är en bra tekniker. Det är också ett krav för de flesta bransch standarder som en del av certifieringen för affärs kontinuitet.

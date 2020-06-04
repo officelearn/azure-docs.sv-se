@@ -7,20 +7,20 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 547b268a43cdd4b362d56b34cf9129a8b5efe16e
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 78b38f5059d50d56158e31c65299e5f747c8c073
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266431"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323611"
 ---
-# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mariadb-server"></a>Snabb start: Använd en Resource Manager-mall för att skapa en Azure Database for MariaDB-Server
+# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Snabb start: Använd en ARM-mall för att skapa en Azure Database for MariaDB-Server
 
 Azure Database for MariaDB är en hanterad tjänst som du använder för att köra, hantera och skala hög tillgängliga MariaDB-databaser i molnet. I den här snabb starten använder du en ARM-mall för att skapa en Azure Database for MariaDB-server i Azure Portal, PowerShell eller Azure CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

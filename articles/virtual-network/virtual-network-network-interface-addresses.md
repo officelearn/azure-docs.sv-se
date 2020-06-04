@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 8ff958b7bab7be3124452c1206baf64d0f8ccb7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3dd62d63216d7694f91c9024e4ee57272070a69c
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82142507"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321656"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett Azure-nätverksgränssnitt
 
@@ -36,7 +36,7 @@ Om du behöver skapa, ändra eller ta bort ett nätverks gränssnitt läser du a
 Utför följande åtgärder innan du slutför stegen i något avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto kan du registrera dig för ett [kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
-- Om du använder portalen öppnar https://portal.azure.comdu och loggar in med ditt Azure-konto.
+- Om du använder portalen öppnar du https://portal.azure.com och loggar in med ditt Azure-konto.
 - Om du använder PowerShell-kommandon för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. I den här självstudien krävs Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - Om du använder kommando rads kommandon i Azure för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. I den här självstudien krävs Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 
@@ -52,12 +52,12 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
 4. Under **IP-konfigurationer**väljer du **+ Lägg till**.
 5. Ange följande och välj sedan **OK**:
 
-   |Inställningen|Obligatoriskt?|Information|
+   |Inställning|Obligatoriskt?|Information|
    |---|---|---|
    |Name|Ja|Måste vara unikt för nätverks gränssnittet|
    |Typ|Ja|Eftersom du lägger till en IP-konfiguration i ett befintligt nätverks gränssnitt, och varje nätverks gränssnitt måste ha en [primär](#primary) IP-konfiguration, är ditt enda alternativ **sekundärt**.|
    |Tilldelnings metod för privat IP-adress|Ja|[**Dynamisk**](#dynamic): Azure tilldelar nästa tillgängliga adress för under nätets adress intervall som nätverks gränssnittet har distribuerats i. [**Statisk**](#static): du tilldelar en oanvänd adress för under nätets adress intervall som nätverks gränssnittet har distribuerats i.|
-   |Offentlig IP-adress|Nej|**Inaktive rad:** Ingen offentlig IP-adressresurs är för närvarande kopplad till IP-konfigurationen. **Aktive rad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Information om hur du skapar en offentlig IP-adress finns i artikeln [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) .|
+   |Offentlig IP-adress|Inga|**Inaktive rad:** Ingen offentlig IP-adressresurs är för närvarande kopplad till IP-konfigurationen. **Aktive rad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Information om hur du skapar en offentlig IP-adress finns i artikeln [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) .|
 6. Lägg till sekundära privata IP-adresser manuellt i operativ systemet för den virtuella datorn genom att följa anvisningarna i artikeln [tilldela flera IP-adresser till operativ systemen för virtuella datorer](virtual-network-multiple-ip-addresses-portal.md#os-config) . Se [privata](#private) IP-adresser för särskilda överväganden innan du manuellt lägger till IP-adresser i ett operativ system för virtuella datorer. Lägg inte till några offentliga IP-adresser i operativ systemet för den virtuella datorn.
 
 **Kommandon**
@@ -169,7 +169,7 @@ Offentliga och privata IP-adresser tilldelas med någon av följande tilldelning
 Dynamiska privata IPv4-och IPv6-adresser (valfritt) tilldelas som standard.
 
 - **Endast offentligt**: Azure tilldelar adressen från ett intervall som är unikt för varje Azure-region. Information om vilka intervall som tilldelas varje region finns i [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Adressen kan ändras när en virtuell dator stoppas (frigörs) och sedan startas igen. Du kan inte tilldela en offentlig IPv6-adress till en IP-konfiguration med hjälp av en tilldelnings metod.
-- **Endast privat**: Azure reserverar de fyra första adresserna i varje under näts adress intervall och tilldelar inte adresserna. Azure tilldelar nästa tillgängliga adress till en resurs från adressintervallet i undernätet. Om till exempel undernätets adressintervall är 10.0.0.0/16, och adresserna 10.0.0.0.4-10.0.0.14 redan har tilldelats (.0-.3 är reserverade) tilldelar Azure 10.0.0.15 till resursen. Dynamisk är standardinställningen för allokering. När de har tilldelats släpps endast dynamiska IP-adresser om ett nätverksgränssnitt har tagits bort, tilldelats ett annat undernät inom samma virtuella nätverk eller om allokeringsmetoden ändras till statisk och en annan IP-adress anges. Som standard tilldelar Azure den tidigare dynamiskt tilldelade adressen som statisk adress när du ändrar allokeringsmetod från dynamisk till statisk. 
+- **Endast privat**: Azure reserverar de fyra första adresserna i varje under näts adress intervall och tilldelar inte adresserna. Azure tilldelar nästa tillgängliga adress till en resurs från adressintervallet i undernätet. Om under nätets adress intervall till exempel är 10.0.0.0/16, och adresserna 10.0.0.4-10.0.0.14 redan har tilldelats (. 0-.3 är reserverade) tilldelar Azure 10.0.0.15 till resursen. Dynamisk är standardinställningen för allokering. När de har tilldelats släpps endast dynamiska IP-adresser om ett nätverksgränssnitt har tagits bort, tilldelats ett annat undernät inom samma virtuella nätverk eller om allokeringsmetoden ändras till statisk och en annan IP-adress anges. Som standard tilldelar Azure den tidigare dynamiskt tilldelade adressen som statisk adress när du ändrar allokeringsmetod från dynamisk till statisk. 
 
 ### <a name="static"></a>Statisk
 
@@ -195,7 +195,7 @@ Du kan tilldela noll eller en privat [IPv6](#ipv6) -adress till en sekundär IP-
 
 Du kan inte tilldela en offentlig IPv6-adress till en primär eller sekundär IP-konfiguration.
 
-## <a name="skus"></a>SKU: er
+## <a name="skus"></a>SKU:er
 
 En offentlig IP-adress skapas med Basic-eller standard-SKU: n. Mer information om skillnader i SKU finns i [hantera offentliga IP-adresser](virtual-network-public-ip-address.md).
 

@@ -11,19 +11,16 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c488b2ad6fcb5228de0e89bd036e299632c5dd4
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475441"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337418"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
->[!IMPORTANT]
-> Azure Machine Learning övervaknings-SDK kommer snart att dras tillbaka. SDK är fortfarande lämpligt för utvecklare som för närvarande använder SDK: n för att övervaka data drift i modeller. Men för nya kunder rekommenderar vi att du använder den förenklade [data övervakningen med Application Insights](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights).
 
 Den här artikeln visar hur du samlar in indata från Azure Machine Learning. Det visar också hur du distribuerar indata till ett AKS-kluster (Azure Kubernetes service) och lagrar utdata i Azure Blob Storage.
 
@@ -56,11 +53,11 @@ Sökvägen till utdata i bloben följer den här syntaxen:
 ```
 
 >[!NOTE]
-> I versioner av Azure Machine Learning SDK för python tidigare än version 0.1.0 A16 heter `designation` `identifier`argumentet. Om du har utvecklat din kod med en tidigare version måste du uppdatera den.
+> I versioner av Azure Machine Learning SDK för python tidigare än version 0.1.0 A16 `designation` heter argumentet `identifier` . Om du har utvecklat din kod med en tidigare version måste du uppdatera den.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://aka.ms/AMLFree) konto innan du börjar.
+- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 
 - En AzureMachine Learning-arbetsyta, en lokal katalog som innehåller dina skript och Azure Machine Learning SDK för python måste vara installerad. Information om hur du installerar dem finns i [så här konfigurerar du en utvecklings miljö](how-to-configure-environment.md).
 
@@ -84,7 +81,7 @@ Om du vill aktivera data insamling måste du:
    from azureml.monitoring import ModelDataCollector
    ```
 
-1. Deklarera dina variabler för data insamling i `init` din funktion:
+1. Deklarera dina variabler för data insamling i din `init` funktion:
 
     ```python
     global inputs_dc, prediction_dc
@@ -125,7 +122,7 @@ Om du redan har en tjänst med beroenden som är installerade i miljö filen och
 
 1. Öppna din arbets yta.
 
-1. Välj **distributioner** > **Välj tjänst** > **Redigera**.
+1. Välj **distributioner**  >  **Välj tjänst**  >  **Redigera**.
 
    ![Redigera tjänsten](././media/how-to-enable-data-collection/EditService.PNG)
 
@@ -143,7 +140,7 @@ Du kan när som helst sluta samla in data. Använd python-kod eller Azure Machin
 
 1. Öppna din arbets yta.
 
-1. Välj **distributioner** > **Välj tjänst** > **Redigera**.
+1. Välj **distributioner**  >  **Välj tjänst**  >  **Redigera**.
 
    [![Välj alternativet Redigera](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
@@ -189,7 +186,7 @@ Du kan välja ett verktyg för att analysera data som samlas in i blob-lagringen
 
     [![Power BI BLOB-installation](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
-1. Lägg till ditt lagrings konto namn och ange din lagrings nyckel. Du kan hitta den här informationen genom att välja **Inställningar** > **åtkomst nycklar** i blobben.
+1. Lägg till ditt lagrings konto namn och ange din lagrings nyckel. Du kan hitta den här informationen genom att välja **Inställningar**  >  **åtkomst nycklar** i blobben.
 
 1. Välj **modellen data** behållare och välj **Redigera**.
 
@@ -199,7 +196,7 @@ Du kan välja ett verktyg för att analysera data som samlas in i blob-lagringen
 
 1. Ange din modell Sök väg i filtret. Om du bara vill titta på filer från ett speciellt år eller månad expanderar du bara filter Sök vägen. Använd till exempel följande filter Sök väg om du vill visa enbart mars data:
 
-   /modeldata/\<subscriptionId>/\<resourcegroupname>/\<workspacename>/\<webservicename>/\<modelname>/\<modelversion>/\<utnämning>/\<Year>/3
+   /modeldata/ \<subscriptionid> / \<resourcegroupname> / \<workspacename> / \<webservicename> / \<modelname> / \<modelversion> / \<designation> / \<year> /3
 
 1. Filtrera data som är relevanta för dig baserat på **namn** värden. Om du har lagrat förutsägelser och indata måste du skapa en fråga för var och en.
 
@@ -227,7 +224,7 @@ Du kan välja ett verktyg för att analysera data som samlas in i blob-lagringen
 
     [![Välja alternativet Databricks upload data](./media/how-to-enable-data-collection/dbupload.png)](././media/how-to-enable-data-collection/dbupload.png#lightbox)
 
-1. Välj **Skapa ny tabell** och välj **andra data källor** > **Azure Blob Storage** > **skapa en tabell i antecknings boken**.
+1. Välj **Skapa ny tabell** och välj **andra data källor**  >  **Azure Blob Storage**  >  **skapa en tabell i antecknings boken**.
 
     [![Skapa Databricks tabell](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 

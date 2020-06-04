@@ -13,17 +13,17 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6cf6fac84abd1d996c77aae7240c0322c5ec53fb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8d04099bc4b384c4b8554a77bafd5d669f0d0e76
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049073"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344245"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Hantera SQL Server virtuella datorer i Azure med hjälp av Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-I [Azure Portal](https://portal.azure.com)är resursen för **virtuella SQL-datorer** en oberoende hanterings tjänst. Du kan använda den för att visa alla dina SQL Server virtuella datorer samtidigt och ändra inställningarna som är reserverade för SQL Server: 
+I [Azure Portal](https://portal.azure.com)är resursen **SQL Virtual Machines** (VM) en oberoende hanterings tjänst. Du kan använda den för att visa alla dina SQL Server virtuella datorer samtidigt och ändra inställningarna som är reserverade för SQL Server: 
 
 ![Resurs för virtuella SQL-datorer](./media/manage-sql-vm-portal/sql-vm-manage.png)
 

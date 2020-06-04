@@ -4,15 +4,15 @@ description: Konfigurera en Azure-hanterad disk med delade diskar (för hands ve
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0dc7cf6e3f72ff9fa7ef5d7cbd85c1fb93f76f9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fdbe71ab1b4104fed9ecc7d6cd2cb637da860f6
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146774"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337365"
 ---
 # <a name="enable-shared-disk"></a>Aktivera delad disk
 

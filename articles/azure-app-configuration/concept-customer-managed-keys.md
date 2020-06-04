@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d312346accc4fb6781744343911158bb538c0ccf
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457441"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324087"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Använd Kundhanterade nycklar för att kryptera dina konfigurations data för appar
 Azure App konfiguration [krypterar känslig information i vila](../security/fundamentals/encryption-atrest.md). Användningen av Kundhanterade nycklar ger förbättrat data skydd genom att låta dig hantera dina krypterings nycklar.  När hanterad nyckel kryptering används krypteras all känslig information i appens konfiguration med en Azure Key Vault nyckel för användare som anges.  Detta ger möjlighet att rotera krypterings nyckeln på begäran.  Det ger också möjlighet att återkalla Azure App konfigurationens åtkomst till känslig information genom att återkalla appens konfigurations instans åtkomst till nyckeln.
@@ -36,7 +36,7 @@ Följande komponenter krävs för att kunna aktivera kundhanterad nyckel funktio
 
 När dessa resurser har kon figurer ATS fortsätter två steg att tillåta Azure App konfiguration att använda Key Vault nyckel:
 1. Tilldela en hanterad identitet till Azure App konfigurations instans
-2. Bevilja identiteten `GET`, `WRAP`och `UNWRAP` behörigheterna i mål Key Vaults åtkomst princip.
+2. Bevilja identiteten `GET` , `WRAP` och `UNWRAP` behörigheterna i mål Key Vaults åtkomst princip.
 
 ## <a name="enable-customer-managed-key-encryption-for-your-azure-app-configuration-instance"></a>Aktivera kundhanterad nyckel kryptering för Azure App konfigurations instans
 För att du ska kunna starta måste du ha en korrekt konfigurerad Azure App konfigurations instans. Om du inte har en instans av en app-konfiguration som är tillgänglig, följer du någon av följande snabb starter för att konfigurera en:
@@ -55,19 +55,19 @@ För att du ska kunna starta måste du ha en korrekt konfigurerad Azure App konf
     az keyvault create --name contoso-vault --resource-group contoso-resource-group
     ```
     
-1. Aktivera mjuk borttagning och tömning av skydd för Key Vault. Ersätt namnen på de Key Vault (`contoso-vault`) och resurs gruppen (`contoso-resource-group`) som skapades i steg 1.
+1. Aktivera mjuk borttagning och tömning av skydd för Key Vault. Ersätt namnen på de Key Vault ( `contoso-vault` ) och resurs gruppen ( `contoso-resource-group` ) som skapades i steg 1.
 
     ```azurecli
     az keyvault update --name contoso-vault --resource-group contoso-resource-group --enable-purge-protection --enable-soft-delete
     ```
     
-1. Skapa en Key Vault nyckel. Ange ett unikt `key-name` namn för den här nyckeln och ersätt namnen på de Key Vault (`contoso-vault`) som skapades i steg 1. Ange om du föredrar `RSA` eller `RSA-HSM` kryptering.
+1. Skapa en Key Vault nyckel. Ange ett unikt `key-name` namn för den här nyckeln och ersätt namnen på de Key Vault ( `contoso-vault` ) som skapades i steg 1. Ange om du föredrar `RSA` eller `RSA-HSM` kryptering.
 
     ```azurecli
     az keyvault key create --name key-name --kty {RSA or RSA-HSM} --vault-name contoso-vault
     ```
     
-    Utdata från det här kommandot visar nyckel-ID ("barn") för den genererade nyckeln.  Anteckna nyckel-ID: t som du kan använda senare i den här övningen.  Nyckel-ID: t har formatet `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}`:.  Nyckel-ID: t har tre viktiga komponenter:
+    Utdata från det här kommandot visar nyckel-ID ("barn") för den genererade nyckeln.  Anteckna nyckel-ID: t som du kan använda senare i den här övningen.  Nyckel-ID: t har formatet: `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}` .  Nyckel-ID: t har tre viktiga komponenter:
     1. Key Vault-URI: https://{My Key Vault}. valv. Azure. net
     1. Key Vault nyckel namn: {Key Name}
     1. Key Vault nyckel version: {Key version}
@@ -75,7 +75,7 @@ För att du ska kunna starta måste du ha en korrekt konfigurerad Azure App konf
 1. Skapa en systemtilldelad hanterad identitet med Azure CLI och ersätt namnet på din app Configuration-instans och resurs grupp som användes i föregående steg. Den hanterade identiteten kommer att användas för att få åtkomst till den hanterade nyckeln. Vi använder `contoso-app-config` för att illustrera namnet på en app Configuration-instans:
     
     ```azurecli
-    az appconfig identity assign --na1. me contoso-app-config --group contoso-resource-group --identities [system]
+    az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
     
     Utdata från det här kommandot omfattar huvud-ID: t ("principalId") och klient-ID ("tenandId") för den tilldelade identiteten.  Detta kommer att användas för att ge identitets åtkomst till den hanterade nyckeln.
@@ -89,13 +89,13 @@ För att du ska kunna starta måste du ha en korrekt konfigurerad Azure App konf
     }
     ```
 
-1. Den hanterade identiteten för Azure App konfigurations instansen behöver åtkomst till nyckeln för att utföra nyckel verifiering, kryptering och dekryptering. Den speciella uppsättning åtgärder som den behöver åtkomst till innehåller: `GET`, `WRAP`och `UNWRAP` för nycklar.  Att bevilja åtkomst kräver ägar-ID: t för den hanterade identiteten för appens konfigurations instans. Det här värdet hämtades i föregående steg. Den visas nedan som `contoso-principalId`. Bevilja behörighet till den hanterade nyckeln med hjälp av kommando raden:
+1. Den hanterade identiteten för Azure App konfigurations instansen behöver åtkomst till nyckeln för att utföra nyckel verifiering, kryptering och dekryptering. Den speciella uppsättning åtgärder som den behöver åtkomst till innehåller: `GET` , `WRAP` och `UNWRAP` för nycklar.  Att bevilja åtkomst kräver ägar-ID: t för den hanterade identiteten för appens konfigurations instans. Det här värdet hämtades i föregående steg. Den visas nedan som `contoso-principalId` . Bevilja behörighet till den hanterade nyckeln med hjälp av kommando raden:
 
     ```azurecli
     az keyvault set-policy -n contoso-vault --object-id contoso-principalId --key-permissions get wrapKey unwrapKey
     ```
 
-1. När Azure App konfigurations instansen har åtkomst till den hanterade nyckeln kan vi aktivera kundhanterad nyckel funktion i tjänsten med hjälp av Azure CLI. Återkalla följande egenskaper som registrerats när du skapade nyckeln: `key name` `key vault URI`.
+1. När Azure App konfigurations instansen har åtkomst till den hanterade nyckeln kan vi aktivera kundhanterad nyckel funktion i tjänsten med hjälp av Azure CLI. Återkalla följande egenskaper som registrerats när du skapade nyckeln: `key name` `key vault URI` .
 
     ```azurecli
     az appconfig update -g contoso-resource-group -n contoso-app-config --encryption-key-name key-name --encryption-key-version key-version --encryption-key-vault key-vault-Uri
@@ -103,5 +103,5 @@ För att du ska kunna starta måste du ha en korrekt konfigurerad Azure App konf
 
 Din Azure App konfigurations instans har nu kon figurer ATS för att använda en kundhanterad nyckel som lagras i Azure Key Vault.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 I den här artikeln konfigurerade du Azure App konfigurations instansen så att den använder en kundhanterad nyckel för kryptering.  Lär dig hur du [integrerar din tjänst med Azure Managed Identities](howto-integrate-azure-managed-service-identity.md).

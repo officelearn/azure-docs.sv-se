@@ -2,13 +2,13 @@
 title: Välj ett alternativ för VMware-migrering med Azure Migrate Server-migrering | Microsoft Docs
 description: Innehåller en översikt över alternativ för att migrera virtuella VMware-datorer till Azure med Azure Migrate Server-migrering
 ms.topic: conceptual
-ms.date: 07/09/2019
-ms.openlocfilehash: 52e7103ea3ebcd83369a866cc3f75b0bf0e889a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/03/2020
+ms.openlocfilehash: 196b80f600d9895e9fcb6471bfb5df5fb5bbe8d1
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76028715"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324512"
 ---
 # <a name="select-a-vmware-migration-option"></a>Välj ett alternativ för VMware-migrering
 
@@ -27,7 +27,7 @@ Använd de här valda jämförelserna för att bestämma vilken metod som ska an
 **Inställning** | **Utan agent** | **Agent-baserad**
 --- | --- | ---
 **Azure-behörigheter** | Du måste ha behörighet att skapa ett Azure Migrate-projekt och för att registrera Azure AD-appar som skapats när du distribuerar Azure Migrate-enheten. | Du behöver deltagar behörighet för Azure-prenumerationen. 
-**Samtidig replikering** | Högst 100 virtuella datorer kan replikeras samtidigt från en vCenter Server.<br/> Om du har fler än 50 virtuella datorer för migrering skapar du flera batchar för virtuella datorer.<br/> Att replikera mer i taget påverkar prestanda. | Ej tillämpligt
+**Samtidig replikering** | Högst 100 virtuella datorer kan replikeras samtidigt från en vCenter Server.<br/> Om du har fler än 50 virtuella datorer för migrering skapar du flera batchar för virtuella datorer.<br/> Att replikera mer i taget påverkar prestanda. | NA
 **Distribution av utrustning** | [Azure Migrate](migrate-appliance.md) -installationen distribueras lokalt. | [Azure Migrate Replication](migrate-replication-appliance.md) har distribuerats lokalt.
 **Site Recovery kompatibilitet** | Överensstämmelse. | Du kan inte replikera med Azure Migrate Server-migrering om du har konfigurerat replikering för en dator med Site Recovery.
 **Mål disk** | Hanterade diskar | Hanterade diskar
@@ -40,17 +40,17 @@ Använd de här valda jämförelserna för att bestämma vilken metod som ska an
 
 När du har granskat begränsningarna kan du med hjälp av de steg som ingår i distributionen av varje lösning hjälpa dig att avgöra vilket alternativ du ska välja.
 
-**Aktivitet** | **Information** |**Utan agent** | **Agent-baserad**
+**Uppgift** | **Information** |**Utan agent** | **Agent-baserad**
 --- | --- | --- | ---
-**Utvärdering** | Utvärdera servrar innan migreringen.  Utvärderingen är valfri. Vi rekommenderar att du bedömer datorer innan du migrerar dem, men du behöver inte. <br/><br/> Vid utvärdering ställer Azure Migrate in en förenklad installation för att identifiera och utvärdera virtuella datorer. | Om du kör en agent utan migrering efter utvärdering används samma Azure Migrate-installation för utvärdering för att migrera utan agent.  |  Om du kör en agent-baserad migrering efter utvärdering används inte installationen för utvärdering vid migrering utan agent. Du kan lämna enheten på plats eller ta bort den om du inte vill göra ytterligare identifiering och bedömning.
-**Förbereda VMware-servrar och virtuella datorer för migrering** | Konfigurera ett antal inställningar på VMware-servrar och virtuella datorer. | Krävs | Krävs
-**Lägg till Migreringsverktyg för Server** | Lägg till verktyget för migrering av Azure Migrate server i Azure Migrate projektet. | Krävs | Krävs
-**Distribuera Azure Migrate-enheten** | Konfigurera en förenklad installation på en virtuell VMware-dator för identifiering och utvärdering av virtuella datorer. | Krävs | Krävs inte.
-**Installera mobilitets tjänsten på virtuella datorer** | Installera mobilitets tjänsten på varje virtuell dator som du vill replikera | Krävs inte | Krävs
-**Distribuera replikerings enheten för Azure Migrate Server-migrering** | Konfigurera en installation på en virtuell VMware-dator för att identifiera virtuella datorer och brygga mellan mobilitets tjänsten som körs på virtuella datorer och migrering av Azure Migrate Server | Krävs inte | Krävs
-**Replikera virtuella datorer**. Aktivera VM-replikering. | Konfigurera replikeringsinställningar och välj virtuella datorer som ska replikeras | Krävs | Krävs
-**Kör en testmigrering** | Kör en testmigrering för att se till att allt fungerar som förväntat. | Krävs | Krävs
-**Kör en fullständig migrering** | Migrera de virtuella datorerna. | Krävs | Krävs
+**Beskrivningar** | Utvärdera servrar innan migreringen.  Utvärderingen är valfri. Vi rekommenderar att du bedömer datorer innan du migrerar dem, men du behöver inte. <br/><br/> Vid utvärdering ställer Azure Migrate in en förenklad installation för att identifiera och utvärdera virtuella datorer. | Om du kör en agent utan migrering efter utvärdering används samma Azure Migrate-installation för utvärdering för att migrera utan agent.  |  Om du kör en agent-baserad migrering efter utvärdering, används inte installationen för utvärdering vid agent-baserad migrering. Du kan lämna enheten på plats eller ta bort den om du inte vill göra ytterligare identifiering och bedömning.
+**Förbereda VMware-servrar och virtuella datorer för migrering** | Konfigurera ett antal inställningar på VMware-servrar och virtuella datorer. | Obligatorisk | Obligatorisk
+**Lägg till Migreringsverktyg för Server** | Lägg till verktyget för migrering av Azure Migrate server i Azure Migrate projektet. | Obligatorisk | Obligatorisk
+**Distribuera Azure Migrate-enheten** | Konfigurera en förenklad installation på en virtuell VMware-dator för identifiering och utvärdering av virtuella datorer. | Obligatorisk | Krävs inte.
+**Installera mobilitets tjänsten på virtuella datorer** | Installera mobilitets tjänsten på varje virtuell dator som du vill replikera | Krävs inte | Obligatorisk
+**Distribuera replikerings enheten för Azure Migrate Server-migrering** | Konfigurera en installation på en virtuell VMware-dator för att identifiera virtuella datorer och brygga mellan mobilitets tjänsten som körs på virtuella datorer och migrering av Azure Migrate Server | Krävs inte | Obligatorisk
+**Replikera virtuella datorer**. Aktivera VM-replikering. | Konfigurera replikeringsinställningar och välj virtuella datorer som ska replikeras | Obligatorisk | Obligatorisk
+**Kör en testmigrering** | Kör en testmigrering för att se till att allt fungerar som förväntat. | Obligatorisk | Obligatorisk
+**Kör en fullständig migrering** | Migrera de virtuella datorerna. | Obligatorisk | Obligatorisk
 
 
 

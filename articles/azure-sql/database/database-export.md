@@ -1,7 +1,7 @@
 ---
-title: Exportera en Azure SQL Database en BACPAC-fil (Azure Portal)
-titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Exportera en Azure SQL-databas till en BACPAC-fil med hjälp av Azure Portal
+title: Exportera en Azure SQL Database till en BACPAC-fil (Azure Portal)
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
+description: Exportera en Azure SQL-databas till en BACPAC-fil med hjälp av Azure Portal.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,14 +11,14 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: efd5e33f5ed8ecffa84dd0e9dc356d5ec3b1f69d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 22dd4286b77fd93ca595d48706cf5760808428a9
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188855"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322982"
 ---
-# <a name="export-to-a-bacpac-file---azure-sql-database--sql-managed-instance"></a>Exportera till en BACPAC-fil – Azure SQL Database & SQL-hanterad instans
+# <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportera till en BACPAC-fil – Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 
@@ -39,9 +39,9 @@ När du behöver exportera en databas för arkivering eller för att flytta till
 > [!NOTE]
 > BACPACs är inte avsedda att användas för säkerhets kopierings-och återställnings åtgärder. Azure skapar automatiskt säkerhets kopior för varje användar databas. Mer information finns i [Översikt över verksamhets kontinuitet](business-continuity-high-availability-disaster-recover-hadr-overview.md) och [SQL Database säkerhets kopieringar](automated-backups-overview.md).
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="the-azure-portal"></a>Azure Portal
 
-Att exportera en BACPAC av en databas från en [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) med hjälp av Azure Portal stöds inte för närvarande. Använd SQL Server Management Studio eller SQLPackage i stället.
+Det finns för närvarande inte stöd för att exportera en BACPAC av en databas från en [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) med hjälp av Azure Portal. Använd SQL Server Management Studio eller SQLPackage i stället.
 
 > [!NOTE]
 > Datorer som bearbetar import/export-begäranden som skickas via Azure Portal eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data-Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan kräva disk utrymme upp till 3 gånger databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Därför kan vissa begär Anden Miss lyckas med felet `There is not enough space on the disk` . I det här fallet är lösningen att köra sqlpackage. exe på en dator med tillräckligt lokalt disk utrymme. Vi rekommenderar att du använder [SqlPackage](#sqlpackage-utility) för att importera/exportera databaser som är större än 150 GB för att undvika det här problemet.
@@ -62,7 +62,7 @@ Att exportera en BACPAC av en databas från en [Azure SQL-hanterad instans](../m
 
 ## <a name="sqlpackage-utility"></a>SQLPackage-verktyg
 
-Information om hur du exporterar en SQL-databas med hjälp av kommando rads verktyget [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) finns i [Exportera parametrar och egenskaper](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). SQLPackage-verktyget levereras med de senaste versionerna av [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) och [SQL Server Data Tools för Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), eller så kan du ladda ned den senaste versionen av [SQLPackage](https://www.microsoft.com/download/details.aspx?id=53876) direkt från Microsoft Download Center.
+Om du vill exportera en databas i SQL Database med hjälp av kommando rads verktyget [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) , se [Exportera parametrar och egenskaper](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). SQLPackage-verktyget levereras med de senaste versionerna av [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) och [SQL Server Data Tools för Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), eller så kan du ladda ned den senaste versionen av [SQLPackage](https://www.microsoft.com/download/details.aspx?id=53876) direkt från Microsoft Download Center.
 
 Vi rekommenderar att du använder SQLPackage-verktyget för skalning och prestanda i de flesta produktions miljöer. En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
 
@@ -74,7 +74,7 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.d
 
 ## <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 
-De senaste versionerna av SQL Server Management Studio innehåller en guide för att exportera en Azure SQL Database-eller SQL-hanterad instans databas till en BACPAC-fil. Se [Exportera ett data skikts program](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
+De senaste versionerna av SQL Server Management Studio innehåller en guide för att exportera en databas i Azure SQL Database eller en SQL-hanterad instans databas till en BACPAC-fil. Se [Exportera ett data skikts program](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -106,10 +106,10 @@ $exportStatus
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta mer om långsiktig kvarhållning av säkerhets kopior av en enskild databas och databaser i pooler som ett alternativ till att exportera en databas för arkivering, se [långsiktig kvarhållning av säkerhets kopior](long-term-retention-overview.md). Du kan använda SQL Agent-jobb för att schemalägga säkerhets kopieringar av [kopierade databaser](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) som ett alternativ till långsiktig kvarhållning av säkerhets kopior.
+- Om du vill veta mer om långsiktig kvarhållning av säkerhets kopior av en enskild databas och databaser i pooler som ett alternativ till att exportera en databas för Arkiv lag ring, se [långsiktig kvarhållning av säkerhets kopior](long-term-retention-overview.md). Du kan använda SQL Agent-jobb för att schemalägga säkerhets kopieringar av [kopierade databaser](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) som ett alternativ till långsiktig kvarhållning av säkerhets kopior.
 - En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
 - Mer information om hur du importerar en BACPAC till en SQL Server-databas finns i [Importera en BACPAC till en SQL Server-databas](https://msdn.microsoft.com/library/hh710052.aspx).
 - Information om hur du exporterar en BACPAC från en SQL Server-databas finns i [Exportera ett data skikts program](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
-- Information om hur du migrerar en databas med hjälp av tjänsten datamigrering finns i [migrera SQL Server till Azure SQL Database offline med DMS](../../dms/tutorial-sql-server-to-azure-sql.md).
+- Information om hur du migrerar en databas med hjälp av tjänsten data migration finns i [Migrera från SQL Server till Azure SQL Database offline med DMS](../../dms/tutorial-sql-server-to-azure-sql.md).
 - Om du exporterar från SQL Server som en inledning för migrering till Azure SQL Database, se [Migrera en SQL Server databas till Azure SQL Database](migrate-to-database-from-sql-server.md).
 - Information om hur du hanterar och delar lagrings nycklar och signaturer för delad åtkomst på ett säkert sätt finns i [Azure Storage Security guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

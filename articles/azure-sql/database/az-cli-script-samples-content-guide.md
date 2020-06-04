@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 1006b8719a1141bd38792bdbbe116d0c477071dd
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a17b5d80817637f1038996b034f926ee74cf54e9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190049"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344670"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Azure CLI-exempel för Azure SQL Database-och SQL-hanterad instans 
  
@@ -57,7 +57,7 @@ Följande tabell innehåller länkar till exempel på Azure CLI-skript för att 
 | [Importera en databas från en BACPAC-fil](../../sql-database/scripts/sql-database-import-from-bacpac-cli.md)| Importerar en databas till SQL Database från en BACPAC-fil. |
 |||
 
-Läs mer om [Azure CLI-API: et för en databas](single-database-manage.md#azure-cli).
+Läs mer om [Azure CLI-API: et för en databas](single-database-manage.md#the-azure-cli).
 
 # <a name="azure-sql-managed-instance"></a>[Hanterad Azure SQL-instans](#tab/managed-instance)
 

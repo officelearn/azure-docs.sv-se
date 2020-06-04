@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/18/2020
-ms.openlocfilehash: a90a2def874c7f081f83a34aea956083eb72879a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/02/2020
+ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686503"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322098"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Välj omvandling i data flöde för mappning
 
@@ -39,7 +39,10 @@ Fasta mappningar kan användas för att mappa en under kolumn i en hierarkisk ko
 
 ## <a name="rule-based-mapping"></a>Regel baserad mappning
 
-Om du vill mappa många kolumner samtidigt eller skicka efterföljande kolumner, använder du regelbaserade mappningar för att definiera dina mappningar med hjälp av kolumn mönster. Matchning baserat på `name`kolumnerna `type`, `stream`, och `position` . Du kan ha en kombination av fasta och regelbaserade mappningar. Som standard är alla projektioner med fler än 50 kolumner som standard en regelbaserade mappning som matchar i varje kolumn och som utvärderar det angivna namnet. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
+
+Om du vill mappa många kolumner samtidigt eller skicka efterföljande kolumner, använder du regelbaserade mappningar för att definiera dina mappningar med hjälp av kolumn mönster. Matchning baserat på `name` `type` kolumnerna,, `stream` och `position` . Du kan ha en kombination av fasta och regelbaserade mappningar. Som standard är alla projektioner med fler än 50 kolumner som standard en regelbaserade mappning som matchar i varje kolumn och som utvärderar det angivna namnet. 
 
 Om du vill lägga till en regelbaserade mappning klickar du på **Lägg till mappning** och väljer **regel baserad mappning**.
 
@@ -49,7 +52,7 @@ Varje regelbaserade mappning kräver två indata: det villkor som ska matchas me
 
 ![regel baserad mappning](media/data-flow/rule-based-mapping.png "Regel baserad mappning")
 
-Använd `$$` syntax för att referera till Indataporten för en matchad kolumn. Använd bilden ovan som ett exempel, säg att en användare vill matcha i alla sträng kolumner vars namn är kortare än sex tecken. Om en inkommande kolumn har namngetts `test`, kommer `$$ + '_short'` uttrycket att byta namn `test_short`på kolumnen. Om det är den enda mappning som finns, kommer alla kolumner som inte uppfyller villkoret att tas bort från de data som returneras.
+Använd `$$` syntax för att referera till Indataporten för en matchad kolumn. Använd bilden ovan som ett exempel, säg att en användare vill matcha i alla sträng kolumner vars namn är kortare än sex tecken. Om en inkommande kolumn har namngetts `test` , `$$ + '_short'` kommer uttrycket att byta namn på kolumnen `test_short` . Om det är den enda mappning som finns, kommer alla kolumner som inte uppfyller villkoret att tas bort från de data som returneras.
 
 Mönster matchar både inkompatibla och definierade kolumner. Om du vill se vilka definierade kolumner som mappas av en regel klickar du på glasögon-ikonen bredvid regeln. Verifiera dina utdata med data förhands granskning.
 
@@ -61,7 +64,7 @@ Om du klickar på ikonen för nedåtriktadt läge kan du ange ett regex-mappning
 
 Ovanstående exempel matchar i regex-mönster `(r)` eller kolumn namn som innehåller gemener r. På samma sätt som med standard regelbaserade mappningar ändras alla matchade kolumner av villkoret till höger med `$$` syntax.
 
-Om du har flera regex-matchningar i ditt kolumn namn kan du referera till de olika `$n` matchningar som använder WHERE ' n ' som matchar. Till exempel refererar "$2" till den andra matchningen inom ett kolumn namn.
+Om du har flera regex-matchningar i ditt kolumn namn kan du referera till de olika matchningar som använder `$n` WHERE ' n ' som matchar. Till exempel refererar "$2" till den andra matchningen inom ett kolumn namn.
 
 ### <a name="rule-based-hierarchies"></a>Regelbaserade hierarkier
 
@@ -69,11 +72,11 @@ Om din definierade projektion har en hierarki kan du använda regelbaserade mapp
 
 ![regel baserad mappning](media/data-flow/rule-based-hierarchy.png "Regel baserad mappning")
 
-Ovanstående exempel matchar på alla under kolumner i komplex kolumn `a`. `a`innehåller två under kolumner `b` och. `c` Utdata-schemat kommer att innehålla två `b` kolumner `c` och som villkoret ' name as ' `$$`.
+Ovanstående exempel matchar på alla under kolumner i komplex kolumn `a` . `a`innehåller två under kolumner `b` och `c` . Utdata-schemat kommer att innehålla två kolumner `b` och `c` som villkoret ' name as ' `$$` .
 
 ### <a name="parameterization"></a>Parameterisering
 
-Du kan Parameterisera kolumn namn med hjälp av regelbaserade mappningar. Använd nyckelordet ```name``` för att matcha inkommande kolumn namn mot en parameter. Om du till exempel har en data flödes parameter ```mycolumn```kan du skapa en regel som matchar alla kolumn namn som är lika med ```mycolumn```. Du kan byta namn på den matchade kolumnen till en hårdkodad sträng, till exempel Business Key, och referera till den explicit. I det här exemplet är ```name == $mycolumn``` matchnings villkoret och namn villkoret ' Business Key '. 
+Du kan Parameterisera kolumn namn med hjälp av regelbaserade mappningar. Använd nyckelordet ```name``` för att matcha inkommande kolumn namn mot en parameter. Om du till exempel har en data flödes parameter ```mycolumn``` kan du skapa en regel som matchar alla kolumn namn som är lika med ```mycolumn``` . Du kan byta namn på den matchade kolumnen till en hårdkodad sträng, till exempel Business Key, och referera till den explicit. I det här exemplet är matchnings villkoret ```name == $mycolumn``` och namn villkoret ' Business Key '. 
 
 ## <a name="auto-mapping"></a>Automatisk mappning
 

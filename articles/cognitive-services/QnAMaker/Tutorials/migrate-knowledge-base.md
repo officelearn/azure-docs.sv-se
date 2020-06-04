@@ -1,14 +1,14 @@
 ---
 title: Migrera kunskaps baser – QnA Maker
 description: För att migrera en kunskaps bas måste du exportera från en kunskaps bas och sedan importera till en annan.
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 13e5e79bf4eaf6ec59e41b3e12aa1bb23f2c1578
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e2d6c1795b816d3b7ac046ea4055402b9107e20b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80258098"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343096"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrera en kunskaps bas med export-import
 
@@ -20,7 +20,7 @@ Migrering är en process där du skapar en ny kunskaps bas från en befintlig ku
 
 För att migrera en kunskaps bas måste du exportera från en befintlig kunskaps bas och sedan importera till en annan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * Konfigurera en ny [QNA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md)

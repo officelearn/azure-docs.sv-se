@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 2008dd5e1e583a99756f62bc25f27e8f9832646e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9b92454abcb985a21952389f9f618c1f58d45182
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045608"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344789"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Felsök prestanda problem med Azure SQL Database och Azure SQL-hanterade instanser med Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -90,7 +90,7 @@ I Diagnostic-loggen visas antalet frågor vars körning har ökat och frågans h
 
 Du kan överväga att distribuera arbets belastningarna mer jämnt till databasen. Överväg att optimera frågan som påverkar prestandan genom att lägga till index. Du kan också distribuera arbets belastningen mellan flera databaser. Om dessa lösningar inte är möjliga bör du överväga att öka pris nivån för databas prenumerationen för att öka mängden tillgängliga resurser.
 
-## <a name="memory-pressure"></a>Minnestryck
+## <a name="memory-pressure"></a>Minnesbelastning
 
 ### <a name="what-is-happening"></a>Vad händer
 
@@ -283,7 +283,7 @@ Konfigurations ändringar i databasen kan ställas in för varje enskild databas
 
 ### <a name="troubleshooting"></a>Felsökning
 
-I diagnostik-loggen visas de konfigurations ändringar som gjorts nyligen och som gjorde att prestanda försämringen jämförs med föregående sju dagars arbets belastnings beteende. Du kan återställa konfigurations ändringarna till föregående värden. Du kan också justera värde efter värde tills den önskade prestanda nivån har uppnåtts. Du kan kopiera konfigurations värden för databas omfattning från en liknande databas med tillfredsställande prestanda. Om du inte kan felsöka prestanda återgår du till standardvärdena och försöker finjustera från den här bas linjen.
+I diagnostik-loggen visas de konfigurations ändringar som gjorts nyligen och som gjorde att prestanda försämringen jämförs med föregående sju dagars arbets belastnings beteende. Du kan återställa konfigurations ändringarna till föregående värden. Du kan också justera värde efter värde tills den önskade prestanda nivån har uppnåtts. Du kan kopiera konfigurations värden för databas omfattning från en liknande databas med tillfredsställande prestanda. Om du inte kan felsöka prestandan återställer du standardvärdena och försöker finjustera från den här bas linjen.
 
 Mer information om hur du optimerar en databas-och T-SQL-syntax vid ändring av konfigurationen finns i [Alter Database-scoped Configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

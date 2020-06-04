@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d64ecb32c783dcee08164856aa90a43d004894a8
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 1aceb9d2fb1d9b5890bc0859d432bc1c5e7e4db4
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570296"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84339847"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge"></a>Använd Azure Portal för att hantera resurser på Azure Stack Edge
 
@@ -152,7 +152,7 @@ Utför följande steg på Azure-portalen om du vill ta bort en resurs.
 
    ![Välja resurs](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
-2. Klicka på **ta bort**.
+2. Klicka på **Ta bort**.
 
    ![Klicka på Ta bort](media/azure-stack-edge-manage-shares/delete-share-2.png)
 

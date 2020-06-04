@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: ee4bd24264be9e7730d4dc99af4e61b05a7692bc
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 716d40a0b86ec3385f236a3d81f651d24a36845a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594142"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342126"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Vanliga frågor och svar om Azures front dörr
 
@@ -46,7 +46,7 @@ De viktiga scenarier som bör använda Application Gateway bakom front dörren �
 
 - Front dörren kan bara utföra Path-baserad belastnings utjämning på global nivå, men om en vill belastningsutjämna trafik ytterligare i det virtuella nätverket (VNET) bör de använda Application Gateway.
 - Eftersom front dörren inte fungerar på en VM/container-nivå, så det går inte att tömma anslutningen. Application Gateway gör det dock möjligt att tömma anslutningarna. 
-- Med en Application Gateway bakom AFD kan du uppnå 100% TLS/SSL-avlastning och endast dirigera HTTP-begäranden inom sitt virtuella nätverk (VNET).
+- Med en Application Gateway bakom en front dörr kan du få 100% TLS/SSL-avlastning och endast dirigera HTTP-begäranden inom sitt virtuella nätverk (VNET).
 - Främre dörren och Application Gateway både tillhörighet mellan sessioner. Även om front dörren kan dirigera efterföljande trafik från en användarsession till samma kluster eller Server del i en specifik region, kan Application Gateway dirigera tilldela trafiken till samma server i klustret.  
 
 ### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Kan vi Distribuera Azure Load Balancer bakom en front dörr?
@@ -93,12 +93,12 @@ Om du vill låsa ditt program för att endast acceptera trafik från din specifi
  
     - Mer information finns i avsnittet om *AzureFrontDoor. backend* i [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) för IP-adressintervall för IPv4-backend-IP-adresser eller också kan du använda service tag- *AzureFrontDoor. backend* i dina [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
     - Klient delens IP-utrymme för **IPv6** -Server delen, som omfattas av tjänst tag gen, visas inte i JSON-filen för Azure IP-intervall. Om du letar efter explicit IPv6-adressintervall är den för närvarande begränsad till`2a01:111:2050::/44`
-    - Azures [grundläggande infrastruktur tjänster](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) via virtualiserade värd-IP- `168.63.129.16` adresser: och`169.254.169.254`
+    - Azures [grundläggande infrastruktur tjänster](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) via virtualiserade värd-IP-adresser: `168.63.129.16` och`169.254.169.254`
 
     > [!WARNING]
     > Front dörrens IP-utrymme kan ändras senare, men vi kommer att se till att vi har integrerat med [Azure IP-intervall och service Taggar](https://www.microsoft.com/download/details.aspx?id=56519)innan det inträffar. Vi rekommenderar att du prenumererar på [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) för ändringar eller uppdateringar.
 
--    Utför en GET-åtgärd på din front dörr med API- `2020-01-01` versionen eller högre. Leta efter `frontdoorID` fält i API-anropet. Filtrera på det inkommande huvudet "**X-Azure-FDID**" som skickas av front dörren till Server delen med värdet som fältet `frontdoorID`. 
+-    Utför en GET-åtgärd på din front dörr med API-versionen `2020-01-01` eller högre. Leta efter fält i API-anropet `frontdoorID` . Filtrera på det inkommande huvudet "**X-Azure-FDID**" som skickas av front dörren till Server delen med värdet som fältet `frontdoorID` . 
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Kan anycast-IP-förändring under hela front dörren?
 
@@ -213,7 +213,7 @@ Nej, självsignerade certifikat stöds inte på frontend-dörren och begränsnin
 
 Om du har lyckade HTTPS-anslutningar till din server del om det finns hälso avsökningar eller begär Anden om vidarebefordran kan det finnas två orsaker till varför HTTPS-trafik kan Miss lyckas:
 
-1. **Certifikatets ämnes namn matchar inte**: för HTTPS-anslutningar förväntar sig front dörren att Server delen visar certifikat från en giltig certifikat utfärdare med ämnes namn som matchar backend-värdnamnet. Exempel: om ditt Server dels namn är inställt `myapp-centralus.contosonews.net` på och det certifikat som din server dels visar under TLS-handskakningen varken har `myapp-centralus.contosonews.net` eller `*myapp-centralus*.contosonews.net` i ämnes namnet, kommer front dörren att neka anslutningen och resultera i ett fel. 
+1. **Certifikatets ämnes namn matchar inte**: för HTTPS-anslutningar förväntar sig front dörren att Server delen visar certifikat från en giltig certifikat utfärdare med ämnes namn som matchar backend-värdnamnet. Exempel: om ditt Server dels namn är inställt på `myapp-centralus.contosonews.net` och det certifikat som din server dels visar under TLS-handskakningen varken har `myapp-centralus.contosonews.net` eller `*myapp-centralus*.contosonews.net` i ämnes namnet, kommer front dörren att neka anslutningen och resultera i ett fel. 
     1. **Lösning**: även om det inte rekommenderas från en efterlevnadsprincip kan du lösa det här felet genom att inaktivera kontroll av certifikatets ämnes namn för din front dörr. Detta finns under Inställningar i Azure Portal och under BackendPoolsSettings i API: et.
 2. **Server dels värd certifikat från ogiltig certifikat utfärdare**: endast certifikat från [giltiga certifikat utfärdare](/azure/frontdoor/front-door-troubleshoot-allowed-ca) kan användas på Server delen med frontend. Certifikat från interna certifikat utfärdare eller självsignerade certifikat är inte tillåtna.
 

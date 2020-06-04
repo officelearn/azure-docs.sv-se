@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: f7c182fc8cd0c9ec74a35396e3cd042ce86d8ee4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ebaddbcacbc20097b2ec5606244650ea2916edfe
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051978"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324546"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Hantera fil utrymme för databaser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -146,7 +146,7 @@ ORDER BY end_time DESC
 Frågeresultatet för att bestämma hur mycket utrymme som allokeras för varje databas i poolen kan läggas till tillsammans för att fastställa det totala utrymmet som allokerats för den elastiska poolen. Allokerat utrymme för elastisk pool får inte överskrida den maximala storleken för elastisk pool.  
 
 > [!IMPORTANT]
-> PowerShell-modulen Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020. Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
 
 PowerShell-skriptet kräver SQL Server PowerShell-modul – se [Ladda ned PowerShell-modulen](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) för att installera.
 

@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: b352458b768c997f295596a7cbd5e8c02f843a9f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 01b0eae7d2e5d1078c0761838081a2379a724a97
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569802"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342994"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge"></a>Aktivera beräknings nätverk på Azure Stack Edge
 
@@ -27,7 +27,7 @@ Utför följande steg för att konfigurera nätverket:
 
 I den här självstudien använder du en modul för webserver-app för att demonstrera scenariot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar behöver du:
 
@@ -62,7 +62,7 @@ Utför följande steg för att lägga till en modul för webserver-app på din A
 3. På bladet **IoT Edge anpassade moduler** :
 
     1. Ange ett **namn** för den webserver-app som du vill distribuera.
-    2. Ange en **bild-URI** för din modul-avbildning. En modul som matchar det tillhandahållna namnet och taggarna hämtas. I det här fallet `nginx:stable` hämtar en stabil nginx-avbildning (Taggad som stabil) från den offentliga [Docker-lagringsplatsen](https://hub.docker.com/_/nginx/).
+    2. Ange en **bild-URI** för din modul-avbildning. En modul som matchar det tillhandahållna namnet och taggarna hämtas. I det här fallet `nginx:stable` hämtar en stabil nginx-avbildning (Taggad som stabil) från den [offentliga Docker-lagringsplatsen](https://hub.docker.com/_/nginx/).
     3. I **behållaren skapa alternativ**klistrar du in följande exempel kod:  
 
         ```

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 5/4/2020
-ms.openlocfilehash: 6b738fc96a51893d8c0a0e75c5551007da60bdd2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e3615286150723308f861456bfe2bbb0cff81707
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793201"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321673"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Skrivskyddad replik i Azure Database for MariaDB
 
@@ -86,7 +86,7 @@ Ange lösen ordet för användar kontot vid prompten.
 
 Azure Database for MariaDB anger måttet för **replikeringsfördröjning i sekunder** i Azure Monitor. Måttet är endast tillgängligt för repliker.
 
-Måttet beräknas med hjälp av `seconds_behind_master` måttet som är tillgängligt `SHOW SLAVE STATUS` i MariaDB-kommandot.
+Måttet beräknas med hjälp av `seconds_behind_master` måttet som är tillgängligt i MariaDB- `SHOW SLAVE STATUS` kommandot.
 
 Ange en avisering för att meddela dig när fördröjningen för replikering når ett värde som inte är acceptabelt för din arbets belastning.
 
@@ -107,6 +107,9 @@ Lär dig hur du [stoppar replikering till en replik](howto-read-replicas-portal.
 ### <a name="pricing-tiers"></a>Prisnivåer
 
 Läs repliker är för närvarande endast tillgängliga i Generell användning och minnesoptimerade pris nivåer.
+
+> [!NOTE]
+> Kostnaden för att köra replik servern baseras på den region där replik servern körs.
 
 ### <a name="master-server-restart"></a>Omstart av Master Server
 
@@ -145,11 +148,11 @@ Följande Server parametrar är låsta på både huvud-och replik servern:
 - [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
-[`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) Parametern är låst på replik servrarna.
+[`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler)Parametern är låst på replik servrarna.
 
 Om du vill uppdatera en av parametrarna ovan på huvud servern, tar du bort replik servrar, uppdaterar parametervärdet i huvud servern och återskapar repliker.
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 
 - Det finns inte stöd för att skapa en replik av en replik.
 - InMemory-tabeller kan orsaka att repliker blir osynkroniserade. Detta är en begränsning av MariaDB-replikerings teknik.

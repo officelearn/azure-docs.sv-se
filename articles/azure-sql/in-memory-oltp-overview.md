@@ -1,5 +1,5 @@
 ---
-title: Minnes intern teknik
+title: InMemory-teknik
 description: Minnes intern teknik förbättrar prestandan för transaktionella och analys arbets belastningar i Azure SQL Database och Azure SQL-hanterad instans.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: c9b25912e1386520d61412a8ba05f6b02224fbe6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 10f4a0012076deef0757743f206f937ab43dc8b8
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046896"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345299"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optimera prestanda genom att använda minnes intern teknik i Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -74,7 +74,7 @@ Mer information om minnes intern SQL Server finns i:
 - [Guide för columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview)
 - Hybrid transaktions-/analys bearbetning (HTAP), även kallat [drift analys i real tid](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
 
-## <a name="in-memory-oltp"></a>Minnes intern OLTP
+## <a name="in-memory-oltp"></a>Minnesintern OLTP
 
 Minnes intern OLTP-teknik ger mycket snabba data åtkomst åtgärder genom att behålla alla data i minnet. Den använder också specialiserade index, ursprunglig kompilering av frågor och låsning – kostnads fri data åtkomst för att förbättra prestandan hos OLTP-arbetsbelastningen. Det finns två sätt att organisera dina InMemory OLTP-data:
 
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Data storlek och lagrings hölje för minnes intern OLTP
 
-Minnes intern OLTP innehåller minnesoptimerade tabeller som används för att lagra användar data. De här tabellerna krävs för att få plats i minnet. Eftersom du hanterar minne direkt i SQL Databases tjänsten har vi konceptet med en kvot för användar data. Den här idén kallas för *minnes intern OLTP-lagring*.
+Minnes intern OLTP innehåller minnesoptimerade tabeller som används för att lagra användar data. De här tabellerna krävs för att få plats i minnet. Eftersom du hanterar minne direkt i SQL Database har vi begreppet en kvot för användar data. Den här idén kallas för *minnes intern OLTP-lagring*.
 
 Varje pris nivå för en enskild databas som stöds och varje pris nivå för elastisk pool innehåller en viss mängd minnes intern OLTP-lagring.
 
@@ -183,7 +183,7 @@ Det kanske inte är möjligt *att nedgradera enkla databaser till Basic eller st
 Om du har ett **grupperat** columnstore-index blir hela tabellen otillgänglig efter nedgradering. Vi rekommenderar därför att du tar bort alla *klustrade* columnstore-index innan du nedgradera databasen till en nivå eller nivå som inte stöds.
 
 > [!Note]
-> Den hanterade instansen stöder ColumnStore-index på alla nivåer.
+> SQL-hanterad instans stöder ColumnStore-index på alla nivåer.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
@@ -192,7 +192,7 @@ Om du har ett **grupperat** columnstore-index blir hela tabellen otillgänglig e
 - [Snabb start 1: minnes intern OLTP-teknik för snabbare T-SQL-prestanda](https://msdn.microsoft.com/library/mt694156.aspx)
 - [Använda minnes intern OLTP i ett befintligt Azure SQL-program](in-memory-oltp-configure.md)
 - [Övervaka minnes intern OLTP-lagring](in-memory-oltp-monitor-space.md) för minnes intern OLTP
-- [Testa minnes funktioner](in-memory-sample.md)
+- [Testa funktioner i minnet](in-memory-sample.md)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -212,6 +212,6 @@ Om du har ett **grupperat** columnstore-index blir hela tabellen otillgänglig e
 
 ### <a name="tools"></a>Verktyg
 
-- [Azure Portal](https://portal.azure.com/)
+- [Azure-portalen](https://portal.azure.com/)
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 - [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

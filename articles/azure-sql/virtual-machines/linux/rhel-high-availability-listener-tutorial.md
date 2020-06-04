@@ -1,5 +1,5 @@
 ---
-title: Konfigurera tillgänglighets grupps lyssnare för SQL Server på virtuella RHEL-datorer i Azure-Virtuella Linux-datorer | Microsoft Docs
+title: Konfigurera en lyssnare för tillgänglighets grupper för SQL Server virtuella datorer i Azure – Linux Virtual Machines | Microsoft Docs
 description: Lär dig mer om att konfigurera en tillgänglighets grupps lyssnare i SQL Server på virtuella RHEL-datorer i Azure
 ms.service: virtual-machines-linux
 ms.subservice: ''
@@ -8,22 +8,22 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: edd9b83de0feff3b9ef12c67cdca19501eaa63a2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053923"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343775"
 ---
-# <a name="tutorial-configure-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera tillgänglighets grupps lyssnare för SQL Server på virtuella RHEL-datorer i Azure
+# <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera en tillgänglighets grupps lyssnare för SQL Server på virtuella RHEL-datorer i Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
 > Den självstudien som presenteras är i **offentlig för hands version**. 
 >
-> Vi använder SQL Server 2017 med RHEL 7,6 i den här självstudien, men det går att använda SQL Server 2019 i RHEL 7 eller RHEL 8 för att konfigurera HA. De kommandon som används för att konfigurera tillgänglighets grupp resurser har ändrats i RHEL 8, och du vill titta på artikeln, [skapa tillgänglighets grupp resurs](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) och RHEL 8-resurser för mer information om rätt kommandon.
+> Vi använder SQL Server 2017 med RHEL 7,6 i den här självstudien, men det går att använda SQL Server 2019 i RHEL 7 eller RHEL 8 för att konfigurera hög tillgänglighet. Kommandona för att konfigurera tillgänglighets grupp resurser har ändrats i RHEL 8, och du vill titta på artikeln [skapa tillgänglighets grupps resurs](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) och RHEL 8-resurser för mer information om rätt kommandon.
 
-I den här självstudien får du lära dig hur du skapar en lyssnare för en tillgänglighets grupp för dina SQL-servrar på virtuella RHEL-datorer i Azure. Du lär dig att göra följande:
+I den här självstudien får du lära dig hur du skapar en tillgänglighets grupps lyssnare för dina SQL-servrar på virtuella RHEL-datorer (VM: ar) i Azure. Du lär dig att göra följande:
 
 > [!div class="checklist"]
 > - Skapa en belastningsutjämnare i Azure Portal
@@ -37,7 +37,7 @@ I den här självstudien får du lära dig hur du skapar en lyssnare för en til
 
 ## <a name="prerequisite"></a>Förutsättning
 
-Slutförd [ **självstudie: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure**](rhel-high-availability-stonith-tutorial.md)
+Slutförd [självstudie: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure](rhel-high-availability-stonith-tutorial.md)
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Skapa belastningsutjämnaren i Azure Portal
 
@@ -55,11 +55,11 @@ Följande instruktioner tar dig igenom steg 1 till 4 från guiden för att [skap
 
 5. I dialog rutan **skapa belastnings utjämning** konfigurerar du belastningsutjämnaren enligt följande:
 
-   | Inställningen | Värde |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
    | **Typ** |**Intern** |
-   | **Virtuellt nätverk** |Standard-VNet som skapades ska ha namnet **VM1VNET**. |
+   | **Virtuellt nätverk** |Det virtuella standard nätverket som skapades ska ha namnet **VM1VNET**. |
    | **Delnät** |Välj det undernät som de SQL Server instanserna finns i. Standardvärdet ska vara **VM1Subnet**.|
    | **Tilldelning av IP-adress** |**Statisk** |
    | **Privat IP-adress** |Använd `virtualip` IP-adressen som skapades i klustret. |
@@ -96,7 +96,7 @@ Avsökningen definierar hur Azure verifierar vilken av de SQL Server instanser s
 
 3. Konfigurera avsökningen på bladet **Lägg till sökning** . Använd följande värden för att konfigurera avsökningen:
 
-   | Inställningen | Värde |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar avsökningen. Till exempel **SQLAlwaysOnEndPointProbe**. |
    | **Protokoll** |**TCP** |
@@ -125,9 +125,9 @@ Reglerna för belastnings utjämning anger hur belastningsutjämnaren dirigerar 
 
 3. Konfigurera belastnings Utjämnings regeln på bladet **Lägg till belastnings Utjämnings regler** . Använd följande inställningar: 
 
-   | Inställningen | Värde |
+   | Inställning | Värde |
    | --- | --- |
-   | **Namn** |Ett text namn som representerar belastnings Utjämnings reglerna. Till exempel **SQLAlwaysOnEndPointListener**. |
+   | **Namn** |Ett text namn som representerar reglerna för belastnings utjämning. Till exempel **SQLAlwaysOnEndPointListener**. |
    | **Protokoll** |**TCP** |
    | **Lastning** |*1433* |
    | **Backend-port** |*1433*. det här värdet ignoreras eftersom den här regeln använder **flytande IP (direkt Server retur)**. |
@@ -220,9 +220,9 @@ I det här läget har resurs gruppen en belastningsutjämnare som ansluter till 
 
 ## <a name="test-the-listener-and-a-failover"></a>Testa lyssnaren och redundansväxlingen
 
-### <a name="test-logging-into-sql-server-using-the-availability-group-listener"></a>Testa loggning i SQL Server med tillgänglighets gruppens lyssnare
+### <a name="test-logging-in-to-sql-server-using-the-availability-group-listener"></a>Testa inloggning till SQL Server med hjälp av tillgänglighets gruppens lyssnare
 
-1. Använd SQLCMD för att logga in på den primära noden för SQL Server med hjälp av tillgänglighets gruppens lyssnar namn:
+1. Använd SQLCMD för att logga in på den primära noden i SQL Server att använda tillgänglighets gruppens lyssnar namn:
 
     - Använd en inloggning som tidigare har skapats och Ersätt `<YourPassword>` med rätt lösen ord. I exemplet nedan används den `sa` inloggning som skapades med SQL Server.
 
@@ -238,11 +238,11 @@ I det här läget har resurs gruppen en belastningsutjämnare som ansluter till 
 
     Din utdata bör visa den aktuella primära noden. Detta bör vara `VM1` om du aldrig har testat en redundansväxling.
 
-    Avsluta SQL-sessionen genom att skriva `exit` kommandot.
+    Avsluta SQL Server-sessionen genom att skriva `exit` kommandot.
 
 ### <a name="test-a-failover"></a>Testa en redundansväxling
 
-1. Kör följande kommando för att manuellt redundansväxla den primära repliken till `<VM2>` eller till en annan replik. Ersätt `<VM2>` med värdet för Server namnet.
+1. Kör följande kommando för att redundansväxla den primära repliken manuellt till `<VM2>` eller till en annan replik. Ersätt `<VM2>` med värdet för Server namnet.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
@@ -280,7 +280,7 @@ I det här läget har resurs gruppen en belastningsutjämnare som ansluter till 
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>
-    ```
+     ```
 
 1. Kontrol lera den server som du är ansluten till. Kör följande kommando i SQLCMD:
 
@@ -295,4 +295,4 @@ I det här läget har resurs gruppen en belastningsutjämnare som ansluter till 
 Mer information om belastnings utjämning i Azure finns i:
 
 > [!div class="nextstepaction"]
-> [Konfigurera en belastningsutjämnare för en tillgänglighets grupp på Azure SQL Server virtuella datorer](../windows/availability-group-load-balancer-portal-configure.md)
+> [Konfigurera en belastnings utjämning för en tillgänglighets grupp på SQL Server på virtuella Azure-datorer](../windows/availability-group-load-balancer-portal-configure.md)

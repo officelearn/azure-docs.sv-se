@@ -2,13 +2,13 @@
 title: Stöd för fysisk server utvärdering i Azure Migrate
 description: Läs mer om stöd för fysisk server-utvärdering med Azure Migrate Server-utvärdering
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: 2a6149da95501b106a57466ad923c0480f52e065
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/03/2020
+ms.openlocfilehash: 058a438d722454368f3275216c92d0a2692b359c
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267922"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324325"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Support mat ris för fysisk server-utvärdering 
 
@@ -54,7 +54,7 @@ I följande tabell sammanfattas port kraven för utvärdering.
 **Enhet** | **Anslutning**
 --- | ---
 **Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för att fjärrans luta till appen för enhets hantering med URL: en:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Utgående anslutningar på portarna 443 (HTTPS) för att skicka identifierings-och prestanda-metadata till Azure Migrate.
-**Fysiska servrar** | **Windows:** Inkommande anslutningar på WinRM-portar 5985 (HTTP) och 5986 (HTTPS) för att hämta konfigurations-och prestanda-metadata från Windows-servrar. <br/><br/> **Linux:**  Inkommande anslutningar på port 22 (UDP) för att hämta konfigurations-och prestanda-metadata från Linux-servrar. |
+**Fysiska servrar** | **Windows:** Inkommande anslutningar på WinRM-portar 5985 (HTTP) och 5986 (HTTPS) för att hämta konfigurations-och prestanda-metadata från Windows-servrar. <br/><br/> **Linux:**  Inkommande anslutningar på port 22 (TCP) för att hämta konfigurations-och prestanda-metadata från Linux-servrar. |
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Krav för agent-baserade beroende analyser
 

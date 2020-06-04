@@ -3,12 +3,12 @@ title: Referens för Java-utvecklare för Azure Functions
 description: Lär dig hur du utvecklar funktioner med Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 6ce886fd0ca47d728a115427b354442fd259e714
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b3404920dda9225b289d82013d29c35a1297ec32
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648228"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340342"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
@@ -30,7 +30,7 @@ För att göra det enklare att skapa Java-funktioner finns det maven verktyg och
 
 Följande utvecklings miljöer har Azure Functions verktyg som du kan använda för att skapa Java-funktions projekt: 
 
-+ [Visuell Studio-kod](https://code.visualstudio.com/docs/java/java-azurefunctions)
++ [Visual Studio-koden](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [Eclipse](functions-create-maven-eclipse.md)
 + [IntelliJ](functions-create-maven-intellij.md)
 
@@ -162,7 +162,7 @@ Du kan ange ytterligare argument i en app-inställning med namnet `JAVA_OPTS` . 
 > [!IMPORTANT]  
 > I förbruknings planen måste du också lägga till inställningen WEBSITE_USE_PLACEHOLDER med värdet 0 för att anpassningen ska fungera. Den här inställningen ökar kall start tider för Java functions.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 I [Azure Portal](https://portal.azure.com)använder du [fliken program inställningar](functions-how-to-use-azure-function-app-settings.md#settings) för att lägga till `JAVA_OPTS` inställningen.
 
@@ -391,7 +391,7 @@ I föregående exempel `queryValue` är bindningen till frågesträngparametern 
 
 ## <a name="execution-context"></a>Körningskontext
 
-`ExecutionContext`, som definieras i `azure-functions-java-library` , innehåller hjälp metoder för att kommunicera med Functions-körningen.
+`ExecutionContext`, som definieras i `azure-functions-java-library` , innehåller hjälp metoder för att kommunicera med Functions-körningen. Mer information finns i [referens artikeln för ExecutionContext](/java/api/com.microsoft.azure.functions.executioncontext).
 
 ### <a name="logger"></a>Loggar
 

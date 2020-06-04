@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: c4043702bd27bb9a37fca70475ef254bbd1f7372
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 98431e7a451aa54dfdee2126d4ce94b8b0b0fb84
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561329"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84339220"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Hantera åtkomst, energi och anslutnings läge för din Azure Data Box Gateway
 
@@ -22,6 +22,7 @@ Den här artikeln beskriver hur du hanterar åtkomst, ström och anslutnings lä
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
+>
 > * Hantera enhets åtkomst
 > * Hantera anslutnings läge
 > * Hantera energi
@@ -65,7 +66,7 @@ När du genererar aktiverings nyckeln för Azure Stack Edge-enheten, eller utfö
 -  Skapa en resurs med ett associerat lagrings konto.
 -  Skapa en användare som har åtkomst till resurserna på enheten.
 
-Du bör ha `User` åtkomst till Active Directory klient organisation som du behöver kunna `Read all directory objects`. Du kan inte vara gäst användare eftersom de inte har behörighet till `Read all directory objects`. Om du är gäst, kommer de åtgärder som att skapa en aktiverings nyckel att skapa en resurs på din Azure Stack Edge-enhet, vilket innebär att en användare inte kan skapa en användare.
+Du bör ha `User` åtkomst till Active Directory klient organisation som du behöver kunna `Read all directory objects` . Du kan inte vara gäst användare eftersom de inte har behörighet till `Read all directory objects` . Om du är gäst, kommer de åtgärder som att skapa en aktiverings nyckel att skapa en resurs på din Azure Stack Edge-enhet, vilket innebär att en användare inte kan skapa en användare.
 
 Mer information om hur du ger åtkomst till användare till Microsoft Graph API finns i [referens för Microsoft Graph behörigheter](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -79,7 +80,7 @@ Du behöver inte bevilja åtkomst behörigheter till prenumerations nivån för 
 
 Innan du försöker skapa en resurs måste du kontrol lera att resurs leverantören är registrerad i prenumerationen. Om resurs leverantören inte är registrerad måste du kontrol lera att användaren som skapar den nya resursen har tillräckligt med behörighet för att registrera den nödvändiga resurs leverantören på prenumerations nivån. Om du inte har gjort det kan du se följande fel:
 
-*Prenumerations \<prenumerationens namn> har inte behörighet att registrera resurs leverantör (er): Microsoft. DataBoxEdge.*
+*Prenumerationen \<Subscription name> har inte behörighet att registrera resurs leverantör (er): Microsoft. DataBoxEdge.*
 
 
 Om du vill hämta en lista över registrerade resurs leverantörer i den aktuella prenumerationen kör du följande kommando:
@@ -88,7 +89,7 @@ Om du vill hämta en lista över registrerade resurs leverantörer i den aktuell
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-För Azure Stack Edge- `Microsoft.DataBoxEdge` enhet ska registreras. För att `Microsoft.DataBoxEdge`registrera dig bör prenumerations administratören köra följande kommando:
+För Azure Stack Edge-enhet `Microsoft.DataBoxEdge` ska registreras. För att registrera dig `Microsoft.DataBoxEdge` bör prenumerations administratören köra följande kommando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

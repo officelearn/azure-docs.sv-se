@@ -4,20 +4,26 @@ description: Beskriver Azure HPC cache, en lösning för fil åtkomst Accelerato
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 04/15/2020
+ms.date: 05/29/2020
 ms.author: v-erkel
-ms.openlocfilehash: 02013abe7050f7f193b6aeb1a441e70f46a5df48
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3cbde9564e17dc67d2b41f138efb4d8622d84abd
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82106465"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343598"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Vad är Azure HPC Cache?
 
 Azure HPC cache ger åtkomst till dina data för HPC-uppgifter (data behandling med höga prestanda). Genom att cachelagra filer i Azure ger Azure HPC-cache skalbarhet för molnbaserad data behandling till ditt befintliga arbets flöde. Den här tjänsten kan användas även för arbets flöden där dina data lagras i WAN-länkar, t. ex. i din lokala NAS-miljö (Data Center Network-Attached Storage).
 
 Azure HPC-cache är enkelt att starta och övervaka från Azure Portal. Befintlig NFS-lagring eller nya BLOB-behållare kan bli en del av dess sammanlagda namnrymd, vilket gör klient åtkomsten enkel även om du ändrar Server dels lagrings målet.
+
+## <a name="overview-video"></a>Översiktsvideo
+
+[![video miniatyr: översikt över Azure HPC-cache – Klicka för att besöka video Sidan](media/video1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
+
+Klicka på bilden ovan om du vill se en [kort översikt över Azure HPC-cache](https://azure.microsoft.com/resources/videos/hpc-cache-overview/).
 
 ## <a name="use-cases"></a>Användningsfall
 

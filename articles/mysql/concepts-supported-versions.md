@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 197b3100190711a51cfe125fe1214a59c18e1491
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/3/2020
+ms.openlocfilehash: 4d5b858e2384ffc7dd531444aaff17ca3739b408
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536980"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337707"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Azure Database for MySQL Server versioner som stöds
 
@@ -26,15 +26,15 @@ Azure Database for MySQL stöder för närvarande följande versioner:
 
 ## <a name="mysql-version-56"></a>MySQL version 5,6
 
-Fel korrigerings version: 5.6.45
+Fel korrigerings version: 5.6.47
 
-Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
+Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
 
 ## <a name="mysql-version-57"></a>MySQL version 5,7
 
-Fel korrigerings version: 5.7.27
+Fel korrigerings version: 5.7.29
 
-Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
+Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
 
 ## <a name="mysql-version-80"></a>MySQL version 8,0
 

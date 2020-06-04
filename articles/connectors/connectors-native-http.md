@@ -5,47 +5,26 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 9ed3d960b3f5653ea8706b39559c9d5a71c45a6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33075173385a6e36829199c5bda854c78a4424fc
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81867640"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84325124"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Anropa tjänst slut punkter via HTTP eller HTTPS från Azure Logic Apps
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http-utlösaren eller åtgärden kan du skapa automatiserade uppgifter och arbets flöden som skickar begär anden till tjänstens slut punkter via http eller https. Du kan till exempel övervaka tjänst slut punkten för din webbplats genom att kontrol lera slut punkten enligt ett angivet schema. När den angivna händelsen inträffar i slut punkten, till exempel om din webbplats går nedåt, utlöser händelsen din Logic app-arbetsflöde och kör åtgärderna i det arbets flödet. Om du vill ta emot och svara på inkommande HTTPS-anrop i stället använder du den inbyggda [begär ande utlösaren eller svars åtgärden](../connectors/connectors-native-reqres.md).
 
-> [!NOTE]
-> Baserat på mål slut punktens kapacitet stöder HTTP-anslutaren Transport Layer Security (TLS 1,0), 1,1 och 1,2. Logic Apps förhandlar med slut punkten genom att använda den högsta version som stöds. Om slut punkten till exempel stöder 1,2 använder anslutnings tjänsten 1,2 först. Annars använder anslutnings tjänsten den näst högsta version som stöds.
->
-> HTTP-anslutningen har inte stöd för mellanliggande TLS/SSL-certifikat för autentisering.
+* Om du vill kontrol lera eller *polla* en slut punkt i ett återkommande schema [lägger du till http-utlösaren](#http-trigger) som det första steget i arbets flödet. Varje gången som utlösaren kontrollerar slut punkten anropar utlösaren eller skickar en *begäran* till slut punkten. Svaret på slut punkten avgör om din Logic Apps-arbetsflöde körs. Utlösaren skickar allt innehåll från slut punktens svar till åtgärder i din Logic app.
 
-Om du vill kontrol lera eller *polla* en slut punkt i ett återkommande schema [lägger du till http-utlösaren](#http-trigger) som det första steget i arbets flödet. Varje gången som utlösaren kontrollerar slut punkten anropar utlösaren eller skickar en *begäran* till slut punkten. Svaret på slut punkten avgör om din Logic Apps-arbetsflöde körs. Utlösaren skickar allt innehåll från slut punktens svar till åtgärder i din Logic app.
-
-[Lägg till HTTP-åtgärden](#http-action)om du vill anropa en slut punkt från någon annan plats i arbets flödet. Svaret på slut punkten avgör hur arbets flödets återstående åtgärder ska köras.
-
-> [!IMPORTANT]
-> Om en HTTP-utlösare eller åtgärd inkluderar dessa huvuden, tar Logic Apps bort huvudena från det genererade begär ande meddelandet utan att visa någon varning eller ett fel:
->
-> * `Accept-*`
-> * `Allow`
-> * `Content-*`med dessa undantag: `Content-Disposition`, `Content-Encoding`och`Content-Type`
-> * `Cookie`
-> * `Expires`
-> * `Host`
-> * `Last-Modified`
-> * `Origin`
-> * `Set-Cookie`
-> * `Transfer-Encoding`
->
-> Även om Logic Apps inte hindrar dig från att spara Logi Kap par som använder en HTTP-utlösare eller en åtgärd med dessa huvuden, Logic Apps ignorerar dessa huvuden.
+* [Lägg till HTTP-åtgärden](#http-action)om du vill anropa en slut punkt från någon annan plats i arbets flödet. Svaret på slut punkten avgör hur arbets flödets återstående åtgärder ska köras.
 
 Den här artikeln visar hur du lägger till en HTTP-utlösare eller åtgärd i din Logic app-arbetsflöde.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -54,6 +33,41 @@ Den här artikeln visar hur du lägger till en HTTP-utlösare eller åtgärd i d
 * Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
 * Den Logic-app från vilken du vill anropa mål slut punkten. Börja med HTTP-utlösaren genom att [skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda HTTP-åtgärden startar du din Logic-app med valfri utlösare som du vill använda. I det här exemplet används HTTP-utlösaren som det första steget.
+
+<a name="tls-support"></a>
+
+## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+
+Baserat på mål slut punktens kapacitet, stöder utgående anrop Transport Layer Security (TLS), som tidigare Secure Sockets Layer (SSL), version 1,0, 1,1 och 1,2. Logic Apps förhandlar med slut punkten genom att använda den högsta version som stöds.
+
+Om slut punkten till exempel stöder 1,2 använder HTTP-anslutaren 1,2 först. Annars använder anslutnings tjänsten den näst högsta version som stöds.
+
+<a name="self-signed"></a>
+
+## <a name="self-signed-certificates"></a>Självsignerade certifikat
+
+* För logi Kap par i den globala Azure-miljön för flera klienter tillåter HTTP-anslutaren inte självsignerade TLS/SSL-certifikat. Om din Logic app gör ett HTTP-anrop till en server och visar ett certifikat för TLS/SSL, kan HTTP-anropet Miss lyckas med ett `TrustFailure` fel.
+
+* För logi Kap par i en [integration service Environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)tillåts http-anslutningen självsignerade certifikat för TLS/SSL-handskakning. Du måste dock först [Aktivera stöd för självsignerade certifikat](../logic-apps/create-integration-service-environment-rest-api.md#request-body) för en befintlig ISE eller ny ISE med hjälp av Logic Apps REST API och installera det offentliga certifikatet på `TrustedRoot` platsen.
+
+## <a name="known-issues"></a>Kända problem
+
+### <a name="omitted-http-headers"></a>Utelämnade HTTP-huvuden
+
+Om en HTTP-utlösare eller åtgärd inkluderar dessa huvuden, tar Logic Apps bort huvudena från det genererade begär ande meddelandet utan att visa någon varning eller ett fel:
+
+* `Accept-*`
+* `Allow`
+* `Content-*`med dessa undantag: `Content-Disposition` , `Content-Encoding` och`Content-Type`
+* `Cookie`
+* `Expires`
+* `Host`
+* `Last-Modified`
+* `Origin`
+* `Set-Cookie`
+* `Transfer-Encoding`
+
+Även om Logic Apps inte hindrar dig från att spara Logi Kap par som använder en HTTP-utlösare eller en åtgärd med dessa huvuden, Logic Apps ignorerar dessa huvuden.
 
 <a name="http-trigger"></a>
 
@@ -96,7 +110,7 @@ Den här inbyggda åtgärden gör ett HTTP-anrop till den angivna URL: en för e
 
 1. Under steget där du vill lägga till HTTP-åtgärden väljer du **nytt steg**.
 
-   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger `http` du som filter. Välj **http-** åtgärd i listan **åtgärder** .
 
@@ -119,7 +133,7 @@ Den här inbyggda åtgärden gör ett HTTP-anrop till den angivna URL: en för e
 
 ## <a name="content-with-multipartform-data-type"></a>Innehåll med multipart/form-datatyp
 
-Om du vill hantera innehåll `multipart/form-data` som har en typ i HTTP-begäranden kan du lägga till ett JSON `$content-type` - `$multipart` objekt som innehåller attributen och för HTTP-begärans text med det här formatet.
+Om du vill hantera innehåll som har en `multipart/form-data` typ i HTTP-begäranden kan du lägga till ett JSON-objekt som innehåller `$content-type` `$multipart` attributen och för HTTP-begärans text med det här formatet.
 
 ```json
 "body": {
@@ -135,7 +149,7 @@ Om du vill hantera innehåll `multipart/form-data` som har en typ i HTTP-begära
 }
 ```
 
-Anta till exempel att du har en logisk app som skickar en HTTP POST-begäran för en Excel-fil till en webbplats genom att använda webbplatsens API, `multipart/form-data` som stöder typen. Så här kan den här åtgärden se ut:
+Anta till exempel att du har en logisk app som skickar en HTTP POST-begäran för en Excel-fil till en webbplats genom att använda webbplatsens API, som stöder `multipart/form-data` typen. Så här kan den här åtgärden se ut:
 
 ![Multiform-data för multipart](./media/connectors-native-http/http-action-multipart.png)
 
@@ -174,17 +188,17 @@ Mer information om utlösare och åtgärds parametrar finns i följande avsnitt:
 
 Här är mer information om utdata från en HTTP-utlösare eller åtgärd som returnerar denna information:
 
-| Egenskapsnamn | Typ | Beskrivning |
+| Egenskapsnamn | Typ | Description |
 |---------------|------|-------------|
 | sidhuvud | objekt | Huvudena från begäran |
 | body | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
 | statuskod | int | Status koden från begäran |
 |||
 
-| Statuskod | Beskrivning |
+| Statuskod | Description |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Accepterad |
+| 202 | Har godkänts |
 | 400 | Felaktig begäran |
 | 401 | Behörighet saknas |
 | 403 | Förbjudet |

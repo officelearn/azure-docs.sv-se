@@ -3,14 +3,14 @@ title: Starta en Azure Automation Runbook från en webhook
 description: Den här artikeln beskriver hur du använder en webhook för att starta en Runbook i Azure Automation från ett HTTP-anrop.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2578e15a60b2021d9e599018043c4834d0c07d34
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 78ce1e46b7ea2cc82a0c478b0c81abbf701f68a9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830505"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342977"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Starta ett Runbook-flöde från en webhook
 
@@ -20,6 +20,8 @@ Med en webhook kan en extern tjänst starta en viss Runbook i Azure Automation v
 > Det finns inte stöd för att använda en webhook för att starta en python-Runbook.
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
+
+Information om klient krav för TLS 1,2 med Webhooks finns i [TLS 1,2 Enforcement för Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## <a name="webhook-properties"></a>Webhook-egenskaper
 
@@ -101,7 +103,8 @@ Använd följande procedur för att skapa en ny webhook som är länkad till en 
    ![Webhook-URL](media/automation-webhooks/copy-webhook-url.png)
 
 1. Klicka på **parametrar** för att ange värden för Runbook-parametrarna. Om runbooken har obligatoriska parametrar kan du inte skapa webhooken om du inte anger värden.
-1. Skapa webhooken genom att klicka på **Skapa**.
+
+2. Skapa webhooken genom att klicka på **Skapa**.
 
 ## <a name="use-a-webhook"></a>Använda en webhook
 

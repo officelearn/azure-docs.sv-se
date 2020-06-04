@@ -8,6 +8,7 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to create a NAT gateway by using an Azure Resource Manager template so that I can provide outbound connectivity for my virtual machines.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 3850f3f22e730e46f6d278b6cef0e17d357b126d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5e0d62885598aea6f1656d0cdcef5f0c3406e7dd
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81618054"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84341039"
 ---
 # <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Snabb start: skapa en NAT-gateway – Resource Manager-mall
 
@@ -28,14 +29,14 @@ Kom igång med Virtual Network NAT genom att använda en Azure Resource Manager-
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-nat-gateway-and-supporting-resources"></a>Skapa en NAT-gateway och stöd resurser
 
 Den här mallen har kon figurer ATS för att skapa en 
 
 * Virtuellt nätverk 
-* NAT-gateway-resurs
+* NAT-gatewayresurs
 * Ubuntu virtuell dator
 
 Den virtuella Ubuntu-datorn distribueras till ett undernät som är associerat med NAT gateway-resursen.
@@ -100,7 +101,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-**Azure Portal**
+**Azure-portalen**
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
@@ -135,7 +136,7 @@ När de inte längre behövs kan du använda kommandot [Remove-AzResourceGroup](
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
-**Azure Portal**
+**Azure-portalen**
 
 Ta bort resurs gruppen, NAT-gatewayen och alla relaterade resurser när de inte längre behövs. Välj den resurs grupp **myResourceGroupNAT** som innehåller NAT-gatewayen och välj sedan **ta bort**.
 
@@ -143,7 +144,7 @@ Ta bort resurs gruppen, NAT-gatewayen och alla relaterade resurser när de inte 
 
 I den här snabb starten skapade du en:
 
-* NAT-gateway-resurs
+* NAT-gatewayresurs
 * Virtuellt nätverk
 * Ubuntu virtuell dator
 

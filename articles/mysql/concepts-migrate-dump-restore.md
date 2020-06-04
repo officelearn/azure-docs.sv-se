@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: 158dd5e1f69340e233a0c2392d3f19fd5cf562ea
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: bc3411a926e71c88f0b4e4f84fcdf083b519f46a
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845554"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323560"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera MySQL-databasen till Azure Database för MySQL med säkerhetskopiering och återställning
 I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i Azure Database for MySQL
@@ -98,7 +98,8 @@ Följande Server parametrar och konfiguration måste ändras för att förbereda
 - slow_query_log – inställt på att stänga av den långsamma frågans logg. Detta eliminerar överbelastningen som orsakas av långsam loggning av frågor vid data inläsning.
 - query_store_capture_mode – Ställ in båda på ingen för att inaktivera Frågearkivet. Detta eliminerar överbelastningen som orsakas av provtagnings aktiviteter från Query Store.
 - innodb_buffer_pool_size – skala upp servern till 32 vCore-minnesoptimerade SKU från pris nivån i portalen under migreringen för att öka innodb_buffer_pool_size. Innodb_buffer_pool_size kan bara ökas genom att skala upp beräkning för Azure Database for MySQL server.
-- innodb_write_io_threads & innodb_write_io_threads-ändra till 16 från Server parametrarna i Azure Portal för att förbättra migreringens hastighet.
+- innodb_io_capacity & innodb_io_capacity_max – ändra till 9000 från Server parametrarna i Azure Portal för att förbättra i/o-användningen för att optimera migreringens hastighet.
+- innodb_write_io_threads & innodb_write_io_threads-ändra till 4 från Server parametrarna i Azure Portal för att förbättra migreringens hastighet.
 - Skala upp lagrings nivå – IOPs för Azure Database for MySQL server ökar progressivt med ökningen på lagrings nivå. För snabbare belastningar kanske du vill öka lagrings nivån för att öka den IOPs som är etablerad. Kom ihåg att lagringen bara kan skalas upp, inte.
 
 När migreringen är klar kan du återgå till att återställa Server parametrarna och konfigurationen för beräknings nivån till dess tidigare värden. 

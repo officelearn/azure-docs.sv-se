@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat med ett skript
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat med ett skript
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c4d85909bbfa623b5ad8590e973250474d9d95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20dbe4ba3b1b4858cb7022bb72129ee419ea2540
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676300"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331992"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurera en installation med ett skript
 
@@ -20,7 +20,7 @@ Du kan distribuera-installationen för VMware-och Hyper-V-datorer med hjälp av 
 - Om du vill konfigurera en installation för fysiska servrar kan du bara använda ett skript. Följ [den här artikeln](how-to-set-up-appliance-physical.md).
 - Följ [den här artikeln](deploy-appliance-script-government.md)om du vill konfigurera en installation i ett Azure Government moln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skriptet konfigurerar Azure Migrate-installationen på en befintlig fysisk eller virtuell dator.
 
@@ -34,8 +34,8 @@ Om du vill konfigurera en installation för VMware laddar du ned en zippad fil f
 
 ### <a name="download-the-script"></a>Hämta skriptet
 
-1.  I **mål** > **servrar** > för migrering**Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2.  I **identifiera datorer** > **är dina datorer virtualiserade?** väljer du **Ja, med VMware vSphere hypervisor**.
+1.  I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
+2.  I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med VMware vSphere hypervisor**.
 3.  Klicka på **Ladda ned**för att ladda ned den zippade filen. 
 
 
@@ -47,12 +47,11 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 2. Kör följande kommando för att generera hashen för den zippade filen
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-3. Verifiera det genererade hash-värdet. För den senaste versionen av produkten:
+3. Kontrol lera den senaste versionen och skriptet för det offentliga Azure-molnet:
 
-    **Integritetsalgoritm** | **Hash-värde**
-    --- | ---
-    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    **Integritetsalgoritm** | **Ladda ned** | **SHA256**
+    --- | --- | ---
+    VMware (10,9 GB) | [Senaste version](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
 
 
 
@@ -89,8 +88,8 @@ Om du vill konfigurera enheten för Hyper-V laddar du ned en zippad fil från Az
 
 ### <a name="download-the-script"></a>Hämta skriptet
 
-1.  I **mål** > **servrar** > för migrering**Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2.  I **identifiera datorer** > **är dina datorer virtualiserade?** väljer du **Ja, med Hyper-V**.
+1.  I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
+2.  I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med Hyper-V**.
 3.  Klicka på **Ladda ned**för att ladda ned den zippade filen. 
 
 
@@ -103,12 +102,11 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 
-3. Verifiera de genererade hash-värdena. För den senaste versionen av produkten:
+3. Kontrol lera den senaste versionen och skriptet för det offentliga Azure-molnet:
 
-    **Integritetsalgoritm** | **Hash-värde**
-    --- | ---
-    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    **Scenario** | **Ladda ned** | **SHA256**
+    --- | --- | ---
+    Hyper-V (8,93 MB) | [Senaste version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 
 ### <a name="run-the-script"></a>Kör skriptet
 

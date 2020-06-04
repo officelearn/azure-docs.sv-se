@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: 93e18a95e30c21a44f9ca7df92925323930a9ce8
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 87cb5714a1f4b362e2f73879d93f5739f0fc20cf
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122432"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324291"
 ---
 # <a name="featurization-with-automated-machine-learning"></a>Funktionalisering med automatisk maskin inlärning
 
@@ -42,7 +42,7 @@ För experiment som kon figurer ATS med SDK kan du aktivera/inaktivera inställn
 
 I följande tabell visas de accepterade inställningarna för `featurization` i [klassen AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-|Funktionalisering-konfiguration | Beskrivning|
+|Funktionalisering-konfiguration | Description|
 ------------- | ------------- |
 |**`"featurization": 'auto'`**| Anger att [data guardrails och funktionalisering-steg](#featurization) utförs automatiskt när en del av förbearbetningen. **Standardinställning**.|
 |**`"featurization": 'off'`**| Anger att funktionalisering-steg inte ska utföras automatiskt.|
@@ -57,7 +57,7 @@ I följande tabell sammanfattas de tekniker som automatiskt tillämpas på dina 
 > [!NOTE]
 > Om du planerar att exportera dina Auto ML-skapade modeller till en [ONNX-modell](concept-onnx.md), stöds bara de funktionalisering-alternativ som anges med * i ONNX-formatet. Lär dig mer om [att konvertera modeller till ONNX](concept-automated-ml.md#use-with-onnx). 
 
-|Funktionalisering- &nbsp; steg| Beskrivning |
+|Funktionalisering- &nbsp; steg| Description |
 | ------------- | ------------- |
 |**Släpp hög kardinalitet eller inga varians funktioner*** |Ta bort dessa från inlärnings-och validerings uppsättningar, inklusive funktioner med alla värden som saknas, samma värde för alla rader eller med hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
 |**Imputerade värden som saknas*** |För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det mest frekventa värdet.|
@@ -99,7 +99,7 @@ I följande tabell beskrivs de data guardrails som stöds för närvarande och d
 Guardrail|Status|Villkor &nbsp; för &nbsp; utlösare
 ---|---|---
 **Funktions värden saknas Imputation** |*Parametrarna* <br><br><br> *Klar*| Inga funktions värden som saknas hittades i dina tränings data. Läs mer om det [saknade värdet Imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Funktions värden som saknas upptäcktes i dina tränings data och tillräknades.
-**Funktions hantering med hög kardinalitet** |*Parametrarna* <br><br><br> *Klar*| Dina indata analyserades och inga funktioner för hög kardinalitet upptäcktes. Lär dig mer om [funktions identifiering med hög kardinalitet.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Funktioner för hög kardinalitet upptäcktes i dina indata och hanterades.
+**Funktions hantering med hög kardinalitet** |*Parametrarna* <br><br><br> *Klar*| Dina indata analyserades och inga funktioner för hög kardinalitet upptäcktes. Lär dig mer om [funktions identifiering med hög kardinalitet.](#automatic-featurization) <br><br> Funktioner för hög kardinalitet upptäcktes i dina indata och hanterades.
 **Verifiering av delad hantering** |*Klar*| Validerings konfigurationen har ställts in på Auto och tränings data innehöll **färre än 20 000 rader**. <br> Varje iteration av den tränade modellen verifierades genom kors validering. Läs mer om [verifierings data.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> Validerings konfigurationen har ställts in på Auto och tränings data innehöll **mer än 20 000 rader**. <br> Indata har delats in i en tränings data uppsättning och en validerings data uppsättning för att verifiera modellen.
 **Identifiering av klass balansering** |*Parametrarna* <br><br><br><br><br> *Aviserad* | Dina indata analyserades och alla klasser är balanserade i dina tränings data. En data mängd betraktas som balanserade om varje klass har god representation i data uppsättningen, mätt enligt antal och samplings förhållandet. <br><br><br> Obalanserade klasser upptäcktes i dina indata. Åtgärda problem med balanseringen om du vill åtgärda modell kompensation. Läs mer om [obalanserade data.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
 **Identifiering av minnes problem** |*Parametrarna* <br><br><br><br> *Klar* |<br> Det valda {horisont-, fördröjnings-, rullande Window}-värdet har analyser ATS och inga potentiella minnes problem har identifierats. Lär dig mer om [Prognosticering-konfigurationer](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) för tids serier. <br><br><br>De valda värdena för {Horisont, fördröjning, rullande fönster} analyserades och kan orsaka att experimentet får slut på minne. Inställningarna för fördröjningen eller rullande fönster har inaktiverats.

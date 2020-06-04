@@ -1,7 +1,7 @@
 ---
 title: Hantera efter migrering
 titleSuffix: Azure SQL Database
-description: Lär dig hur du hanterar en databas i en databas efter migrering till Azure SQL Database.
+description: Lär dig hur du hanterar dina databaser med en och flera databaser efter migrering till Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,17 +12,17 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: e36e11e4150c977b72b445e5bda7dce410c77925
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 17c0e02aa091d1271967b5a238f71123cc7aeede
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193931"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322677"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Ny DBA i molnet – Hantera Azure SQL Database efter migrering
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Att flytta från den traditionella självhanterade, självkontrollerade miljön till en PaaS-miljö kan vara lite förbelastad i första hand. Som en app-utvecklare eller en DBA vill du känna till kärn funktionerna i plattformen som hjälper dig att hålla ditt program tillgängligt, utföra, säkert och flexibelt – alltid. Den här artikeln syftar på att göra exakt det. Artikeln kortfattat organiserar resurser och ger dig en vägledning om hur du bäst använder viktiga funktioner i SQL Database med enkla databaser och grupperade databaser för att hantera och hålla ditt program effektivt och uppnå optimala resultat i molnet. Typisk mål grupp för den här artikeln är de som:
+Att flytta från den traditionella självhanterade, självkontrollerade miljön till en PaaS-miljö kan vara lite förbelastad i första hand. Som en app-utvecklare eller en DBA vill du känna till kärn funktionerna i plattformen som hjälper dig att hålla ditt program tillgängligt, utföra, säkert och flexibelt – alltid. Den här artikeln syftar på att göra exakt det. Artikeln kortfattat organiserar resurser och ger dig en vägledning om hur du bäst använder viktiga funktioner i Azure SQL Database med enkla databaser och grupperade databaser för att hantera och hålla ditt program effektivt och uppnå optimala resultat i molnet. Typisk mål grupp för den här artikeln är de som:
 
 - Utvärderar migrering av sina program till Azure SQL Database – att du ska använda dem.
 - Håller på att migrera sina program – ett pågående migrerings scenario.
@@ -30,7 +30,7 @@ Att flytta från den traditionella självhanterade, självkontrollerade miljön 
 
 I den här artikeln beskrivs några av kärn egenskaperna för Azure SQL Database som en plattform som du lätt kan använda när du arbetar med enkla databaser och databaser i pooler i elastiska pooler. De är följande:
 
-- Övervaka databasen med hjälp av Azure Portal
+- Övervaka databaser med Azure-portalen
 - Affärskontinuitet och haveriberedskap (BCDR)
 - Säkerhet och efterlevnad
 - Övervakning och underhåll av intelligent databas
@@ -90,7 +90,7 @@ Mer information om haveri beredskap finns i: [Azure SQL Database disaster recove
 
 SQL Database tar säkerhet och sekretess mycket allvarligt. Säkerhet i SQL Database är tillgängligt på databas nivå och på plattforms nivå och är bäst att förstå när du kategoriseras i flera lager. På varje lager får du kontroll över och ger optimal säkerhet för ditt program. Lagren är:
 
-- Identitets & autentisering ([SQL-autentisering och Azure Active Directory [AAD]-autentisering](logins-create-manage.md)).
+- Identitets & autentisering ([SQL-autentisering och Azure Active Directory [Azure AD]-autentisering](logins-create-manage.md)).
 - Övervaknings aktivitet ([granskning](../../azure-sql/database/auditing-overview.md) och [hot identifiering](threat-detection-configure.md)).
 - Skydda faktiska data ([Transparent datakryptering [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) och [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Kontrol lera åtkomsten till känsliga och privilegierade data ([säkerhet på radnivå](/sql/relational-databases/security/row-level-security) och [dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking)).
@@ -104,13 +104,13 @@ Det finns två autentiseringsmetoder som erbjuds i SQL Database:
 - [Azure Active Directory autentisering](authentication-aad-overview.md)
 - [SQL-autentisering](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-Den traditionella Windows-autentiseringen stöds inte. Azure Active Directory (AD) är en centraliserad tjänst för identitets-och åtkomst hantering. Med det här kan du enkelt tillhandahålla enkel inloggning (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna delas mellan alla Azure-tjänster för enklare autentisering. AAD stöder [MFA (Multi Factor Authentication)](authentication-mfa-ssms-overview.md) och med [några få klick](../../active-directory/hybrid/how-to-connect-install-express.md) AAD kan integreras med Windows Server Active Directory. SQL-autentisering fungerar på samma sätt som du har använt den tidigare. Du anger ett användar namn/lösen ord och du kan autentisera användare till valfri databas på en specifik server. Detta gör det också möjligt SQL Database och SQL Data Warehouse att erbjuda Multi-Factor Authentication-och gäst användar konton i en Azure AD-domän. Om du redan har ett Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
+Den traditionella Windows-autentiseringen stöds inte. Azure Active Directory (Azure AD) är en centraliserad tjänst för identitets-och åtkomst hantering. Med det här kan du enkelt tillhandahålla enkel inloggning (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna delas mellan alla Azure-tjänster för enklare autentisering. Azure AD har stöd för [azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) och med [några klick](../../active-directory/hybrid/how-to-connect-install-express.md) kan Azure AD integreras med Windows Server Active Directory. SQL-autentisering fungerar på samma sätt som du har använt den tidigare. Du anger ett användar namn/lösen ord och du kan autentisera användare till valfri databas på en specifik server. Detta gör det också möjligt SQL Database och SQL Data Warehouse att erbjuda Multi-Factor Authentication-och gäst användar konton i en Azure AD-domän. Om du redan har ett Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
 
 |**Om du...**|**SQL Database/SQL Data Warehouse**|
 |---|---|
-|Föredra att inte använda Azure Active Directory (AD) i Azure|Använd [SQL-autentisering](security-overview.md)|
+|Föredra att inte använda Azure Active Directory (Azure AD) i Azure|Använd [SQL-autentisering](security-overview.md)|
 |Använda AD på SQL Server lokalt|[Federera AD med Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md)och Använd Azure AD-autentisering. Med det här alternativet kan du använda enkel inloggning.|
-|Kräver Multi-Factor Authentication (MFA)|Kräv MFA som en princip via [Microsoft villkorlig åtkomst](conditional-access-configure.md)och Använd [Azure AD Universal Authentication med MFA-stöd](authentication-mfa-ssms-overview.md).|
+|Du måste framtvinga Multi-Factor Authentication|Kräv Multi-Factor Authentication som en princip via [Microsoft villkorlig åtkomst](conditional-access-configure.md)och Använd [Azure AD Universal-autentisering med Multi-Factor Authentication stöd](authentication-mfa-ssms-overview.md).|
 |Ha gäst konton från Microsoft-konton (live.com, outlook.com) eller andra domäner (gmail.com)|Använd [Azure AD Universal Authentication](authentication-mfa-ssms-overview.md) i SQL Database/Data Warehouse, som utnyttjar [Azure AD B2B-samarbete](../../active-directory/b2b/what-is-b2b.md).|
 |Är inloggad i Windows med dina autentiseringsuppgifter för Azure AD från en federerad domän|Använd [Azure AD-integrerad autentisering](authentication-aad-configure.md).|
 |Är inloggade i Windows med autentiseringsuppgifter från en domän som inte är federerad med Azure|Använd [Azure AD-integrerad autentisering](authentication-aad-configure.md).|
@@ -170,7 +170,7 @@ För att skydda känsliga data i flygning och i vila tillhandahåller SQL Databa
 |**Kännetecken **|**Alltid krypterad**|**Transparent datakryptering**|
 |---|---|---|
 |**Krypterings omfång**|Slut punkt till slut punkt|Vilande data|
-|**Servern kan komma åt känsliga data**|No|Ja, eftersom krypteringen är för vilande data|
+|**Servern kan komma åt känsliga data**|Inga|Ja, eftersom krypteringen är för vilande data|
 |**Tillåtna T-SQL-åtgärder**|Likhets jämförelse|Alla ytor i T-SQL är tillgängligt|
 |**App-ändringar krävs för att använda funktionen**|Minimal|Mycket minimal|
 |**Krypterings precision**|Kolumn nivå|databasnivå|
@@ -211,13 +211,13 @@ Följande diagram visar nyckel Arkiv alternativen för kolumn huvud nycklar i Al
 
 ### <a name="how-can-i-optimize-and-secure-the-traffic-between-my-organization-and-sql-database"></a>Hur kan jag optimera och skydda trafiken mellan min organisation och SQL Database
 
-Nätverks trafiken mellan din organisation och SQL Database skulle i allmänhet dirigeras via det offentliga nätverket. Men om du väljer att optimera den här sökvägen och göra den säkrare kan du titta på Express Route. Med Express Route kan du i princip utöka företagets nätverk till Azure-plattformen via en privat anslutning. På så sätt går du inte över det offentliga Internet. Du får också högre säkerhets-, Tillförlitlighets-och Dirigerings optimering som översätter mindre nätverks fördröjningar och snabbare hastigheter än vad som normalt skulle uppstå via det offentliga Internet. Om du planerar att överföra en betydande del av data mellan din organisation och Azure kan du använda Express Route för att ge kostnads besparingar. Du kan välja mellan tre olika anslutnings modeller för anslutningen från din organisation till Azure:
+Nätverks trafiken mellan din organisation och SQL Database skulle i allmänhet dirigeras via det offentliga nätverket. Men om du väljer att optimera den här sökvägen och göra den säkrare, kan du titta på Azure ExpressRoute. ExpressRoute låter dig i princip utöka företagets nätverk till Azure-plattformen via en privat anslutning. På så sätt går du inte över det offentliga Internet. Du får också högre säkerhets-, Tillförlitlighets-och Dirigerings optimering som översätter mindre nätverks fördröjningar och snabbare hastigheter än vad som normalt skulle uppstå via det offentliga Internet. Om du planerar att överföra ett betydande data segment mellan din organisation och Azure kan du använda ExpressRoute för att ge kostnads besparingar. Du kan välja mellan tre olika anslutnings modeller för anslutningen från din organisation till Azure:
 
 - [Cloud Exchange Co-location](../../expressroute/expressroute-connectivity-models.md#CloudExchange)
 - [Alla-till-alla](../../expressroute/expressroute-connectivity-models.md#IPVPN)
 - [Punkt-till-punkt](../../expressroute/expressroute-connectivity-models.md#Ethernet)
 
-Med Express Route kan du också överföra upp till 2 x bandbredds gränsen som du köper utan extra kostnad. Det är också möjligt att konfigurera anslutning mellan regioner med hjälp av Express Route. Om du vill se en lista över ER-anslutnings leverantörer, se: [Express Route partners och peering-platser](../../expressroute/expressroute-locations.md). I följande artiklar beskrivs Express Route i detalj:
+Med ExpressRoute kan du också överföra upp till 2 x bandbredden som du köper utan extra kostnad. Det är också möjligt att konfigurera anslutning mellan regioner med ExpressRoute. En lista över ExpressRoute-anslutnings leverantörer finns i: [ExpressRoute-partner och peering-platser](../../expressroute/expressroute-locations.md). I följande artiklar beskrivs Express Route i detalj:
 
 - [Introduktion till Express Route](../../expressroute/expressroute-introduction.md)
 - [Förutsättningar](../../expressroute/expressroute-prerequisites.md)
@@ -237,7 +237,7 @@ När du har migrerat databasen till SQL Database ska du övervaka databasen (til
 
 ### <a name="performance-monitoring-and-optimization"></a>Prestanda övervakning och optimering
 
-Med frågornas prestanda insikter kan du få skräddarsydda rekommendationer för din databas belastning så att dina program kan fortsätta att köras på en optimal nivå – alltid. Du kan också ställa in det så att dessa rekommendationer tillämpas automatiskt och du inte behöver bry dig om underhålls aktiviteter. Med Index Advisor kan du automatiskt implementera index rekommendationer baserat på din arbets belastning – detta kallas automatisk justering. Rekommendationerna utvecklas när din program arbets belastning ändras för att ge dig de mest relevanta förslagen. Du får också möjlighet att manuellt granska dessa rekommendationer och tillämpa dem på egen hand.  
+Med frågornas prestanda insikter kan du få skräddarsydda rekommendationer för din databas belastning så att dina program kan fortsätta att köras på en optimal nivå – alltid. Du kan också ställa in det så att dessa rekommendationer tillämpas automatiskt och du inte behöver bry dig om underhålls aktiviteter. Med SQL Database Advisor kan du automatiskt implementera index rekommendationer baserat på din arbets belastning – detta kallas automatisk justering. Rekommendationerna utvecklas när din program arbets belastning ändras för att ge dig de mest relevanta förslagen. Du får också möjlighet att manuellt granska dessa rekommendationer och tillämpa dem på egen hand.  
 
 ### <a name="security-optimization"></a>Säkerhets optimering
 
@@ -259,7 +259,7 @@ Du kan också visa den här analysen i avsnittet "Advisor":
 
 I SQL Database kan du utnyttja intelligenta insikter på plattformen för att övervaka prestanda och justera dem på motsvarande sätt. Du kan övervaka prestanda-och resursutnyttjande i SQL Database med följande metoder:
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 Azure Portal visar en Databass användning genom att välja databasen och klicka på diagrammet i fönstret Översikt. Du kan ändra diagrammet för att visa flera mått, inklusive processor procent, DTU-procent, data-IO-procent, sessioner procent och databas storlek i procent.
 
@@ -269,7 +269,7 @@ Azure Portal visar en Databass användning genom att välja databasen och klicka
 
 I det här diagrammet kan du också konfigurera aviseringar per resurs. Med de här aviseringarna kan du svara på resurs villkor med ett e-postmeddelande, skriva till en HTTPS/HTTP-slutpunkt eller utföra en åtgärd. Mer information finns i [skapa aviseringar](alerts-insights-configure-portal.md).
 
-#### <a name="dynamic-management-views"></a>Dynamiska hanteringsvyer
+#### <a name="dynamic-management-views"></a>Vyer för dynamisk hantering
 
 Du kan ställa frågor till vyn [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamisk hantering för att returnera historiken för resurs förbruknings statistik från den senaste timmen och vyn [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system katalog för att returnera historik för de senaste 14 dagarna.
 
@@ -281,7 +281,7 @@ Med [query Performance Insight](query-performance-insight-use.md) kan du Visa en
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL-analys (för hands version) i Azure Monitor loggar
 
-Med [Azure Monitor loggar](../../azure-monitor/insights/azure-sql.md) kan du samla in och visualisera viktiga Azure SQL Database prestanda mått, stöd för upp till 150 000 SQL-databaser och 5 000 ELASTISKa SQL-pooler per arbets yta. Du kan använda den för att övervaka och ta emot meddelanden. Du kan övervaka SQL Database och Elastic pool-mått över flera Azure-prenumerationer och elastiska pooler och kan användas för att identifiera problem på varje skikt i en programs tack.
+Med [Azure Monitor loggar](../../azure-monitor/insights/azure-sql.md) kan du samla in och visualisera viktiga Azure SQL Database prestanda mått, stöd för upp till 150 000 databaser och 5 000 ELASTISKa SQL-pooler per arbets yta. Du kan använda den för att övervaka och ta emot meddelanden. Du kan övervaka SQL Database och Elastic pool-mått över flera Azure-prenumerationer och elastiska pooler och kan användas för att identifiera problem på varje skikt i en programs tack.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Jag är märker prestanda problem: Hur skiljer sig SQL Database fel söknings metoden från SQL Server
 

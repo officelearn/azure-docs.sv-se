@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e17eee8de789b813e5aab726207233e8607ec97f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: f7134d0e8087d17e78a13c958298006e321bd192
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200314"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84346191"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Stöds anpassade IPsec/IKE-principer på alla Azure VPN Gateway-SKU: er?
 Anpassad IPsec/IKE-princip stöds på alla Azure SKU: er förutom Basic SKU.
@@ -104,7 +104,7 @@ Ja. En VNet-till-VNet-tunnel består av två anslutningsresurser i Azure, en fö
 Nej. IPSec-/ princip fungerar bara på S2S VPN- och VNet-till-VNet-anslutningar via Azure VPN-gatewayer.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Hur gör jag för att skapa anslutningar med IKEv1-eller IKEv2-protokoll typ?
-IKEv1-anslutningar kan skapas på alla Routningsbaserad VPN-typer SKU: er, förutom den äldre SKU: n. Du kan ange en typ av anslutnings protokoll för IKEv1 eller IKEv2 när du skapar anslutningar. Om du inte anger någon typ av anslutnings protokoll används IKEv2 som standard alternativ i förekommande fall. Mer information finns i PowerShell- [cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) -dokumentationen. För SKU-typer och IKEv1/IKEv2-stöd, se [ansluta gatewayar till principbaserade VPN-enheter](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+IKEv1-anslutningar kan skapas på alla Routningsbaserad VPN-typer SKU: er, förutom Basic SKU, standard SKU och andra [äldre SKU: er](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku). Du kan ange en typ av anslutnings protokoll för IKEv1 eller IKEv2 när du skapar anslutningar. Om du inte anger någon typ av anslutnings protokoll används IKEv2 som standard alternativ i förekommande fall. Mer information finns i PowerShell- [cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) -dokumentationen. För SKU-typer och IKEv1/IKEv2-stöd, se [ansluta gatewayar till principbaserade VPN-enheter](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Tillåts överföring mellan IKEv1-och IKEv2-anslutningar?
 Ja. Överföring mellan IKEv1-och IKEv2-anslutningar stöds.

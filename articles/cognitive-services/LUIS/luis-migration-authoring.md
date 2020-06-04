@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: 679073715588a4a81e69e3e7ba2d18341b1bab4b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b480dca46e544caabdf3be62b57b38652ee973ae
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096630"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337996"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrera till en Azure-resurs redigerings nyckel
 
@@ -61,12 +61,12 @@ Du kan försena migreringsprocessen genom att avbryta fönstret. Du uppmanas reg
 
 ### <a name="before-you-migrate"></a>Innan du migrerar
 
-* **Krävs**måste du ha en Azure- [prenumeration](https://azure.microsoft.com/free/). En del av prenumerations processen kräver fakturerings information. Du kan dock använda den kostnads fria (`F0`) pris nivån när du använder Luis.
+* **Krävs**måste du ha en Azure- [prenumeration](https://azure.microsoft.com/free/). En del av prenumerations processen kräver fakturerings information. Du kan dock använda den kostnads fria ( `F0` ) pris nivån när du använder Luis.
 * **Du kan också**säkerhetskopiera apparna från Luis-portalens lista med appar genom att exportera varje app eller använda export- [API: et](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).
 * **Du kan också**Spara varje apps collaborator's-lista. Den här e-postlistan tillhandahålls som en del av migreringsprocessen.
 
 
-**Redigering av din Luis-app är kostnads fri**, vilket `F0` anges av nivån. Läs [mer om pris nivåer](luis-limits.md#key-limits).
+**Redigering av din Luis-app är kostnads fri**, vilket anges av `F0` nivån. Läs [mer om pris nivåer](luis-limits.md#key-limits).
 
 Om du inte har någon Azure-prenumeration kan du [Registrera dig](https://azure.microsoft.com/free/).
 

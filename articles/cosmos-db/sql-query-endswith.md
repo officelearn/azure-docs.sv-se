@@ -4,19 +4,19 @@ description: Lär dig mer om funktionen ENDSWITH SQL system i Azure Cosmos DB at
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 0cd927af50eca04aa8162d9d8f292077d9e4165c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 3d37786c7364b07228d1d8d6540e7b6d8a174eb5
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844972"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322694"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
 
- Returnerar ett booleskt värde som anger om det första sträng uttrycket slutar med det andra.  
+Returnerar ett booleskt värde som anger om det första sträng uttrycket slutar med det andra.  
   
 ## <a name="syntax"></a>Syntax
   
@@ -75,6 +75,8 @@ RU-förbrukningen för EndsWith ökar när egenskapens kardinalitet i systemfunk
 ```
 
 Den första frågan kommer förmodligen att använda mer ru: er än den andra frågan eftersom stadens kardinalitet är högre än landet.
+
+Om egenskaps storleken i EndsWith är större än 1 KB för vissa dokument måste du läsa in dessa dokument med frågespråket. I det här fallet kan inte frågespråket helt utvärdera EndsWith med ett index. Avgiften för EndsWith är hög om du har ett stort antal dokument med egenskaps storlekar som är större än 1 KB.
 
 ## <a name="next-steps"></a>Nästa steg
 

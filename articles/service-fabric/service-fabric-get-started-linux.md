@@ -3,12 +3,12 @@ title: Konfigurera utvecklings miljön i Linux
 description: Installera runtime och SDK, och skapa ett lokalt utvecklingskluster i Linux. När den här installationen är klar kan du börja bygga program.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 000d615d779ed14eb1698cf297075480a07c71ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 38ea94e14a182671b3540a87c3bf90e861479fe5
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193419"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338472"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -25,11 +25,11 @@ Stegen i den här artikeln förutsätter att du installerar internt på Linux el
 Det stöds inte att installera Service Fabric runtime och SDK på Windows-undersystem för Linux. Du kan hantera Service Fabric-entiteter som finns någon annanstans i molnet eller i den lokala infrastrukturen med kommandoradsgränssnittet (CLI) för Azure Service Fabric, som stöds. Information om hur du installerar kommandoradsgränssnittet finns i [Konfigurera Service Fabric CLI](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande operativsystemversioner stöds för utveckling:
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+* Ubuntu 16,04 ( `Xenial Xerus` ), 18,04 ( `Bionic Beaver` )
 
     Kontrollera att `apt-transport-https`-paketet har installerats.
          
@@ -60,46 +60,41 @@ Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsv
 ### <a name="ubuntu"></a>Ubuntu
 
 1. Öppna en terminal.
-2. Lägga till Service Fabric-repon i listan med källor.
+
+2. Lägg till `dotnet`-repon i listan med källor.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
-    ```
-
-3. Lägg till `dotnet`-repon i listan med källor.
-
-    ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-4. Lägg till den nya Gnu Privacy Guard-nyckeln (GnuPG eller GPG) i APT-nyckelringen.
+3. Lägg till den nya Gnu Privacy Guard-nyckeln (GnuPG eller GPG) i APT-nyckelringen.
 
     ```bash
     curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
-5. Lägg till den officiella Docker GPG-nyckeln i din APT-nyckelring.
+4. Lägg till den officiella Docker GPG-nyckeln i din APT-nyckelring.
 
     ```bash
     sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Ställ in Docker-databasen.
+5. Ställ in Docker-databasen.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Lägg till Azul JDK-nyckeln i APT-nyckelringen och konfigurera dess lagrings plats.
+6. Lägg till Azul JDK-nyckeln i APT-nyckelringen och konfigurera dess lagrings plats.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. Uppdatera paketlistor baserat på nyligen tillagda lagringsplatser.
+7. Uppdatera paketlistor baserat på nyligen tillagda lagringsplatser.
 
     ```bash
     sudo apt-get update
@@ -179,7 +174,7 @@ Starta ett lokalt kluster när installationen är klar.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Öppna en webbläsare och gå till **Service Fabric Explorer** (`http://localhost:19080/Explorer`). När klustret startas visas Service Fabric Explorer-instrumentpanelen. Konfigurationen av klustret kan ta flera minuter. Om din webbläsare inte kan öppna URL:en, eller om Service Fabric Explorer inte visar att systemet är klart, väntar du några minuter och försöker sedan igen.
+2. Öppna en webbläsare och gå till **Service Fabric Explorer** ( `http://localhost:19080/Explorer` ). När klustret startas visas Service Fabric Explorer-instrumentpanelen. Konfigurationen av klustret kan ta flera minuter. Om din webbläsare inte kan öppna URL:en, eller om Service Fabric Explorer inte visar att systemet är klart, väntar du några minuter och försöker sedan igen.
 
     ![Service Fabric Explorer på Linux][sfx-linux]
 
@@ -261,11 +256,11 @@ Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE fö
 > 
 > I Ubuntu rekommenderar vi att du installerar direkt från Eclipses webbplats i stället för att använda ett installationspaket (`apt` eller `apt-get`). På så sätt kan du vara säker på att du får den senaste versionen av Eclipse. Du kan installera Eclipse IDE för Java-utvecklare eller för Java EE-utvecklare.
 
-1. I Eclipse kontrollerar du att Eclipse Neon eller senare och Buildship version 2.2.1 eller senare är installerade. Kontrol lera de installerade komponenternas versioner genom att välja **Hjälp** > **om** > **installations information**för Sol förmörkelse. Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update].
+1. I Eclipse kontrollerar du att Eclipse Neon eller senare och Buildship version 2.2.1 eller senare är installerade. Kontrol lera de installerade komponenternas versioner genom att välja **Hjälp**  >  **om**  >  **installations information**för Sol förmörkelse. Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update].
 
-2. Installera Service Fabric plugin-programmet genom att välja **Hjälp** > **installera ny program vara**.
+2. Installera Service Fabric plugin-programmet genom att välja **Hjälp**  >  **installera ny program vara**.
 
-3. I rutan **arbeta med** anger du **https:\//dl.Microsoft.com/Eclipse**.
+3. I rutan **arbeta med** anger du **https: \/ /dl.Microsoft.com/Eclipse**.
 
 4. Välj **Lägg till**.
 
@@ -275,7 +270,7 @@ Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE fö
 
 6. Utför följande installationssteg. Acceptera sedan licensavtalet.
 
-Om du redan har Service Fabric Eclipse-plugin-programmet installerat kontrollerar du att du har den senaste versionen. Kontrol lera genom att välja **Hjälp** > **om** > **installations information**för Sol förmörkelse. Sök sedan efter Service Fabric i listan över installerade plugin-program. Välj **Uppdatera** om det finns en nyare version.
+Om du redan har Service Fabric Eclipse-plugin-programmet installerat kontrollerar du att du har den senaste versionen. Kontrol lera genom att välja **Hjälp**  >  **om**  >  **installations information**för Sol förmörkelse. Sök sedan efter Service Fabric i listan över installerade plugin-program. Välj **Uppdatera** om det finns en nyare version.
 
 Mer information finns i [Service Fabric-plugin-program för utveckling av Java-program i Eclipse](service-fabric-get-started-eclipse.md).
 

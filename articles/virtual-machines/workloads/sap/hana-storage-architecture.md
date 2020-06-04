@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/20/2020
+ms.date: 06/01/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a12c454906d6c6ff702b7f635a91361bbe3994c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d790bf20da8cc0d10c8fa47d750014de4f3d285
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77616894"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331737"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Lagrings arkitektur för SAP HANA (stora instanser)
 
@@ -36,8 +36,6 @@ Se följande tabell vad gäller lagrings tilldelning. Tabellen visar den grova k
 | S192 | 4 608 GB | 1 024 GB | 1 536 GB | 1 024 GB |
 | S192m | 11 520 GB | 1 536 GB | 1 792 GB | 1 536 GB |
 | S192xm |  11 520 GB |  1 536 GB |  1 792 GB |  1 536 GB |
-| S224 |  4 224 GB |  512 GB |  1 024 GB |  512 GB |
-| S224m |  8 448 GB |  512 GB |  1 024 GB |  512 GB |
 | S384 | 11 520 GB | 1 536 GB | 1 792 GB | 1 536 GB |
 | S384m | 12 000 GB | 2 050 GB | 2 050 GB | 2 040 GB |
 | S384xm | 16 000 GB | 2 050 GB | 2 050 GB | 2 040 GB |
@@ -47,6 +45,35 @@ Se följande tabell vad gäller lagrings tilldelning. Tabellen visar den grova k
 | S768m | 28 000 GB | 3 100 GB | 2 050 GB | 3 100 GB |
 | S768xm | 40 960 GB | 6 144 GB | 4 096 GB | 6 144 GB |
 | S960m | 36 000 GB | 4 100 GB | 2 050 GB | 4 100 GB |
+
+Nyare SKU: er av HANA-stora instanser levereras med diskkonfigurationer som ser ut så här:
+
+| HANA stor instans-SKU | Hana/data | Hana/logg | Hana/delad | Hana/logbackups |
+| --- | --- | --- | --- | --- |
+| S224 | 4 224 GB | 512 GB | 1 024 GB | 512 GB |
+| S224oo | 6 336 GB | 512 GB | 1 024 GB | 512 GB |
+| S224m | 8 448 GB | 512 GB | 1 024 GB | 512 GB |
+| S224om | 8 448 GB | 512 GB | 1 024 GB | 512 GB |
+| S224ooo | 10 560 GB | 512 GB | 1 024 GB | 512 GB |
+| S224oom | 12 672 GB | 512 GB | 1 024 GB | 512 GB |
+| S448 | 8 448 GB | 512 GB | 1 024 GB | 512 GB |
+| S448oo | 12 672 GB | 512 GB | 1 024 GB | 512 GB |
+| S448m | 16 896 GB | 512 GB | 1 024 GB | 512 GB |
+| S448om | 16 896 GB | 512 GB | 1 024 GB | 512 GB |
+| S448ooo | 21 120 GB | 512 GB | 1 024 GB | 512 GB |
+| S448oom | 25 344 GB | 512 GB | 1 024 GB | 512 GB |
+| S672 | 12 672 GB | 512 GB | 1 024 GB | 512 GB |
+| S672oo | 19 008 GB | 512 GB | 1 024 GB | 512 GB |
+| S672m | 25 344 GB | 512 GB | 1 024 GB | 512 GB |
+| S672om | 25 344 GB | 512 GB | 1 024 GB | 512 GB |
+| S672ooo | 31 680 GB | 512 GB | 1 024 GB | 512 GB |
+| S672oom | 38 016 GB | 512 GB | 1 024 GB | 512 GB |
+| S896 | 16 896 GB | 512 GB | 1 024 GB | 512 GB |
+| S896oo | 25 344 GB | 512 GB | 1 024 GB | 512 GB |
+| S896m | 33 792 GB | 512 GB | 1 024 GB | 512 GB |
+| S896om | 33 792 GB | 512 GB | 1 024 GB | 512 GB |
+| S896ooo | 42 240 GB | 512 GB | 1 024 GB | 512 GB |
+| S896oom | 50 688 GB | 512 GB | 1 024 GB | 512 GB |
 
 
 Faktiska distribuerade volymer kan variera beroende på distribution och det verktyg som används för att visa volym storlekarna.
@@ -96,7 +123,7 @@ Den lagring som används för HANA stor instans använder transparent kryptering
 Med typ I-klassen för SKU: er lagras volymen som start-LUN på, krypteras. I revision 3 HANA stora instans stämplar använder du typ II-klassen för SKU: er av HANA stor instans, måste du kryptera omstarts-LUN med OS-metoder. I revision 4 HANA stora instans stämplar, använder Type II-enheter volymen. start-LUN lagras och krypteras även i vila som standard. 
 
 ## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Nödvändiga inställningar för större HANA-instanser på HANA stora instanser
-Lagringen som används i HANA stora instanser har en begränsning för fil storlek. [Storleks begränsningen är 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per fil. Till skillnad från fil storleks begränsningar i EXT3-filsystemen är HANA inte medveten om den lagrings begränsning som tillämpas av lagrings utrymmet för stora instanser av HANA. Det innebär att HANA inte automatiskt skapar en ny datafil när fil storleks gränsen på 16TB nås. När HANA försöker växa till filen bortom 16 TB rapporterar HANA fel och index servern kommer att krascha i slutet.
+Lagringen som används i HANA stora instanser har en begränsning för fil storlek. [Storleks begränsningen är 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per fil. Till skillnad från fil storleks begränsningar i EXT3-filsystemen är HANA inte medveten om den lagrings begränsning som tillämpas av lagrings utrymmet för stora instanser av HANA. Det innebär att HANA inte automatiskt skapar en ny datafil när fil storleks gränsen på 16 TB nås. När HANA försöker växa till filen bortom 16 TB rapporterar HANA fel och index servern kommer att krascha i slutet.
 
 > [!IMPORTANT]
 > För att förhindra att HANA försöker öka datafilerna utöver 16 TB fil storleks gränsen på HANA stor instans lagring, måste du ange följande parametrar i global. ini konfigurations fil för HANA

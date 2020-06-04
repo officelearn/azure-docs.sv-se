@@ -10,19 +10,19 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 08/05/2019
-ms.openlocfilehash: e5af2a0b88ba46dd1c4751a8aeee4c118ca1b8ae
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2f4e9841a44252829fae283a12ba804219204022
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049717"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321554"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>Konfigurera Avancerat skydd för Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [Avancerat skydd](threat-detection-overview.md) för Azure SQL Database identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. Avancerat skydd kan identifiera **potentiell SQL-inmatning**, **komma åt från ovanliga platser eller data Center**, **komma åt från ett välkänt huvud konto eller potentiellt skadligt program och orsaka**SQL-autentiseringsuppgifter i **brutet** läge. mer information finns i [varningarna om avancerade hot skydd](threat-detection-overview.md#alerts).
 
-Du kan få meddelanden om identifierade hot via [e-postmeddelanden](threat-detection-overview.md#explore-detection-of-a-suspicious-event) eller [Azure Portal](threat-detection-overview.md#explore-alerts-in-azure-portal)
+Du kan få meddelanden om identifierade hot via [e-postmeddelanden](threat-detection-overview.md#explore-detection-of-a-suspicious-event) eller [Azure Portal](threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
 [Avancerat skydd](threat-detection-overview.md) är en del av det [avancerade data säkerhets](advanced-data-security.md) erbjudandet, som är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via den centrala SQL Advanced Data Security-portalen.
 

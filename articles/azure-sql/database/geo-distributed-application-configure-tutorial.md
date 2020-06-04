@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 415f76fc7c8b52a79bc864e61e1f85759e3f5d1f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 523fd3103585865a969f6463b3dc41fe362b9130
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043382"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324733"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Självstudie: implementera en geo-distribuerad databas (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,8 +42,8 @@ Kontrol lera att du har installerat följande objekt för att slutföra självst
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - En enda databas i Azure SQL Database. För att skapa en användning,
-  - [Portal](single-database-create-quickstart.md)
-  - [CLI](az-cli-script-samples-content-guide.md)
+  - [Azure Portal](single-database-create-quickstart.md)
+  - [Azure CLI](az-cli-script-samples-content-guide.md)
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
@@ -92,7 +92,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!IMPORTANT]
 > Kör `az login` för att logga in på Azure.
@@ -344,7 +344,7 @@ Så här testar du en redundansväxling:
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Du kan kontrol lera rollen för haveri återställnings servern under testet med följande kommando:
 
@@ -370,7 +370,7 @@ Så här testar du en redundansväxling:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien konfigurerade du en Azure SQL Database och ett program för redundansväxling till en fjärrregion och testade ett schema för redundans. Du har lärt dig att:
+I den här självstudien konfigurerade du en databas i Azure SQL Database och ett program för redundansväxling till en fjärrregion och testade en schema för redundans. Du har lärt dig att:
 
 > [!div class="checklist"]
 >
@@ -378,7 +378,7 @@ I den här självstudien konfigurerade du en Azure SQL Database och ett program 
 > - Köra ett Java-program för att fråga en databas i SQL Database
 > - Redundanstest
 
-Gå vidare till nästa självstudie om hur du lägger till en Azure SQL-hanterad instans i en failover-grupp:
+Gå vidare till nästa självstudie om hur du lägger till en instans av en Azure SQL-hanterad instans i en failover-grupp:
 
 > [!div class="nextstepaction"]
-> [Lägga till en Azure SQL-hanterad instans i en failover-grupp](../managed-instance/failover-group-add-instance-tutorial.md)
+> [Lägga till en instans av en hanterad Azure SQL-instans i en grupp för redundans](../managed-instance/failover-group-add-instance-tutorial.md)

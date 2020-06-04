@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c3ee0f335741c171c3a7ee1df3eea6dea9c4b728
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6066cd4f347ef05e6fcdb67bb1223ffbc0cae46b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176166"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84341020"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -37,6 +37,17 @@ Om du vill konfigurera proxyinställningarna för AzCopy anger du `https_proxy` 
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
 För närvarande stöder AzCopy inte proxyservrar som kräver autentisering med NTLM eller Kerberos.
+
+### <a name="bypassing-a-proxy"></a>Kringgå en proxy ###
+
+Om du kör AzCopy på Windows och vill att den inte ska använda _någon_ proxy alls (i stället för att automatiskt identifiera inställningarna) använder du dessa kommandon. Med de här inställningarna kommer AzCopy inte att leta upp eller försöka använda någon proxy.
+
+| Operativsystem | Miljö | Kommandon  |
+|--------|-----------|----------|
+| **Windows** | Kommando tolk (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
+| **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
+
+På andra operativ system lämnar du bara HTTPS_PROXY Variable unset om du inte vill använda någon proxy.
 
 ## <a name="optimize-performance"></a>Optimera prestanda
 
@@ -68,7 +79,7 @@ Det här kommandot kör prestanda mätning genom att överföra test data till e
 
 Detaljerade referens dokument finns i [AzCopy bänk](storage-ref-azcopy-bench.md).
 
-Om du vill visa detaljerad hjälp guide för det här `azcopy bench -h` kommandot skriver du och trycker sedan på RETUR-tangenten.
+Om du vill visa detaljerad hjälp guide för det här kommandot skriver du `azcopy bench -h` och trycker sedan på RETUR-tangenten.
 
 ### <a name="optimize-throughput"></a>Optimera data flödet
 
@@ -80,7 +91,7 @@ azcopy jobs resume <job-id> --cap-mbps 10
 
 Data flödet kan minska vid överföring av små filer. Du kan öka data flödet genom att ställa in `AZCOPY_CONCURRENCY_VALUE` miljövariabeln. Den här variabeln anger antalet samtidiga begär Anden som kan utföras.  
 
-Om datorn har färre än 5 processorer anges värdet för den här variabeln till `32`. Annars är standardvärdet lika med 16 multiplicerat med antalet processorer. Det maximala standardvärdet för den här `3000`variabeln är, men du kan manuellt ange det här värdet högre eller lägre. 
+Om datorn har färre än 5 processorer anges värdet för den här variabeln till `32` . Annars är standardvärdet lika med 16 multiplicerat med antalet processorer. Det maximala standardvärdet för den här variabeln är `3000` , men du kan manuellt ange det här värdet högre eller lägre. 
 
 | Operativsystem | Kommando  |
 |--------|-----------|
@@ -90,11 +101,11 @@ Om datorn har färre än 5 processorer anges värdet för den här variabeln til
 
 Använd `azcopy env` för att kontrol lera det aktuella värdet för den här variabeln. Om värdet är tomt kan du läsa vilket värde som används genom att titta i början av en AzCopy logg fil. Det valda värdet, och orsaken till det valdes, rapporteras där.
 
-Innan du anger den här variabeln rekommenderar vi att du kör ett benchmark-test. Test processen för benchmark rapporterar det rekommenderade samtidiga värdet. Om ditt nätverks villkor och dina nytto laster varierar kan du ange den här variabeln `AUTO` till ordet i stället för ett visst tal. Detta gör att AzCopy alltid kör samma automatiska justerings process som används i benchmark-tester.
+Innan du anger den här variabeln rekommenderar vi att du kör ett benchmark-test. Test processen för benchmark rapporterar det rekommenderade samtidiga värdet. Om ditt nätverks villkor och dina nytto laster varierar kan du ange den här variabeln till ordet `AUTO` i stället för ett visst tal. Detta gör att AzCopy alltid kör samma automatiska justerings process som används i benchmark-tester.
 
 ### <a name="optimize-memory-use"></a>Optimera minnes användning
 
-`AZCOPY_BUFFER_GB` Ange miljövariabeln för att ange den maximala mängden system minne som du vill att AzCopy ska använda när du laddar ned och laddar upp filer.
+Ange `AZCOPY_BUFFER_GB` miljövariabeln för att ange den maximala mängden system minne som du vill att AzCopy ska använda när du laddar ned och laddar upp filer.
 Express detta värde i gigabyte (GB).
 
 | Operativsystem | Kommando  |
@@ -107,19 +118,19 @@ Express detta värde i gigabyte (GB).
 
 [Sync](storage-ref-azcopy-sync.md) -kommandot identifierar alla filer vid målet och jämför sedan fil namn och senast ändrade tidsstämplar innan synkroniseringen startades. Om du har ett stort antal filer kan du förbättra prestandan genom att ta bort klient bearbetningen. 
 
-För att åstadkomma detta använder du i stället [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot och anger `--overwrite` flaggan till `ifSourceNewer`. AzCopy kommer att jämföra filer när de kopieras utan att utföra några startgenomsökningar och jämförelser. Detta ger en prestanda gräns i fall där det finns ett stort antal filer att jämföra.
+För att åstadkomma detta använder du i stället [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot och anger `--overwrite` flaggan till `ifSourceNewer` . AzCopy kommer att jämföra filer när de kopieras utan att utföra några startgenomsökningar och jämförelser. Detta ger en prestanda gräns i fall där det finns ett stort antal filer att jämföra.
 
-[AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot tar inte bort filer från målet, så om du vill ta bort filer på målet när de inte längre finns på källan använder du kommandot [AzCopy Sync](storage-ref-azcopy-sync.md) med `--delete-destination` flaggan inställd på värdet `true` eller. `prompt` 
+[AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot tar inte bort filer från målet, så om du vill ta bort filer på målet när de inte längre finns på källan använder du kommandot [AzCopy Sync](storage-ref-azcopy-sync.md) med `--delete-destination` flaggan inställd på värdet `true` eller `prompt` . 
 
 ## <a name="troubleshoot-issues"></a>Felsöka problem
 
 AzCopy skapar logg-och plan-filer för varje jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. 
 
-Loggarna innehåller status för felen (`UPLOADFAILED`, `COPYFAILED`, och `DOWNLOADFAILED`), den fullständiga sökvägen och orsaken till problemet.
+Loggarna innehåller status för felen ( `UPLOADFAILED` , `COPYFAILED` , och `DOWNLOADFAILED` ), den fullständiga sökvägen och orsaken till problemet.
 
-Som standard finns logg-och plan-filerna i katalogen på `%USERPROFILE%\.azcopy` Windows eller `$HOME$\.azcopy` i en katalog på Mac och Linux, men du kan ändra platsen om du vill.
+Som standard finns logg-och plan-filerna i `%USERPROFILE%\.azcopy` katalogen på Windows eller i en `$HOME$\.azcopy` katalog på Mac och Linux, men du kan ändra platsen om du vill.
 
-Det relevanta felet är inte nödvändigt vis det första fel som visas i filen. För fel som nätverks fel, timeout-fel och Server upptaget, kommer AzCopy att försöka igen till 20 gånger, och normalt lyckas processen igen.  Det första fel du ser kan vara något ofarligt som har gjorts om.  Så i stället för att titta på det första felet i filen söker du efter de fel som finns `UPLOADFAILED`nära `COPYFAILED`, eller `DOWNLOADFAILED`. 
+Det relevanta felet är inte nödvändigt vis det första fel som visas i filen. För fel som nätverks fel, timeout-fel och Server upptaget, kommer AzCopy att försöka igen till 20 gånger, och normalt lyckas processen igen.  Det första fel du ser kan vara något ofarligt som har gjorts om.  Så i stället för att titta på det första felet i filen söker du efter de fel som finns nära `UPLOADFAILED` , `COPYFAILED` eller `DOWNLOADFAILED` . 
 
 > [!IMPORTANT]
 > När du skickar en begäran till Microsoft Support (eller fel sökning av problemet som berör tredje part) delar du den avvisade versionen av kommandot som du vill köra. Detta säkerställer att SAS inte delas av misstag med vem. Du kan hitta den avvisade versionen i början av logg filen.
@@ -202,14 +213,14 @@ Använd `azcopy env` för att kontrol lera det aktuella värdet för den här va
 
 ## <a name="change-the-default-log-level"></a>Ändra standard logg nivån
 
-Som standard är logg nivån för AzCopy inställd på `INFO`. Om du vill minska loggens utförlighet för att spara disk utrymme skriver du över den här inställningen med hjälp av ``--log-level`` alternativet. 
+Som standard är logg nivån för AzCopy inställd på `INFO` . Om du vill minska loggens utförlighet för att spara disk utrymme skriver du över den här inställningen med hjälp av ``--log-level`` alternativet. 
 
-Tillgängliga logg nivåer är: `NONE`, `DEBUG`, `INFO` `WARNING` `ERROR` `PANIC`,,, och `FATAL`.
+Tillgängliga logg nivåer är: `NONE` ,,,,, `DEBUG` `INFO` `WARNING` `ERROR` `PANIC` och `FATAL` .
 
 ## <a name="remove-plan-and-log-files"></a>Ta bort plan-och loggfiler
 
-Om du vill ta bort alla plan-och loggfiler från den lokala datorn för att spara disk utrymme, `azcopy jobs clean` använder du kommandot.
+Om du vill ta bort alla plan-och loggfiler från den lokala datorn för att spara disk utrymme, använder du `azcopy jobs clean` kommandot.
 
-Om du vill ta bort plan-och loggfilerna som är associerade med `azcopy jobs rm <job-id>`endast ett jobb använder du. Ersätt `<job-id>` plats hållaren i det här exemplet med jobb-ID: t för jobbet.
+Om du vill ta bort plan-och loggfilerna som är associerade med endast ett jobb använder du `azcopy jobs rm <job-id>` . Ersätt `<job-id>` plats hållaren i det här exemplet med jobb-ID: t för jobbet.
 
 

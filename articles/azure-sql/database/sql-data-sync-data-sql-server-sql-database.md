@@ -11,15 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: c2c0e6d1d3ffd9ec3091e92530ec5c191f3f7ca6
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 94479bda00e2ea7fa7cf2d0b7cd8001a070a5703
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297963"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343276"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 SQL Data Sync är en tjänst som bygger på Azure SQL Database som låter dig synkronisera data som du väljer i båda riktningarna i flera databaser, både lokalt och i molnet. 
 
@@ -149,7 +148,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 
 #### <a name="unsupported-column-types"></a>Kolumn typer som inte stöds
 
-Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Till exempel:
+Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Ett exempel:
 
 - Beräknade kolumner.
 - Systemgenererade kolumner för temporala tabeller.
@@ -200,16 +199,16 @@ Ja. Du måste ha ett SQL Database-konto för att vara värd för Hub-databasen.
 
 Inte direkt. Du kan synkronisera mellan SQL Server-databaser indirekt, genom att skapa en Hubbs databas i Azure och sedan lägga till de lokala databaserna i gruppen Sync.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Kan jag använda Data Sync för att synkronisera mellan SQL-databaser som tillhör olika prenumerationer
+### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-subscriptions"></a>Kan jag använda datasynkronisering för att synkronisera mellan databaser i SQL Database som tillhör olika prenumerationer
 
-Ja. Du kan synkronisera mellan SQL-databaser som tillhör resurs grupper som ägs av olika prenumerationer.
+Ja. Du kan synkronisera mellan databaser som tillhör resurs grupper som ägs av olika prenumerationer.
 
 - Om prenumerationerna tillhör samma klient organisation och du har behörighet till alla prenumerationer kan du konfigurera Sync-gruppen i Azure Portal.
 - Annars måste du använda PowerShell för att lägga till de synkroniserade medlemmar som tillhör olika prenumerationer.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Kan jag använda datasynkronisering för att synkronisera mellan SQL-databaser som tillhör olika moln (t. ex. Azures offentliga moln och Azure Kina 21Vianet)
+### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Kan jag använda datasynkronisering för att synkronisera mellan databaser i SQL Database som tillhör olika moln (t. ex. Azures offentliga moln och Azure Kina 21Vianet)
 
-Ja. Du kan synkronisera mellan SQL-databaser som tillhör olika moln, du måste använda PowerShell för att lägga till de synkroniserade medlemmar som hör till de olika prenumerationerna.
+Ja. Du kan synkronisera mellan databaser som tillhör olika moln. Du måste använda PowerShell för att lägga till de Sync-medlemmar som tillhör olika prenumerationer.
 
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Kan jag använda datasynkronisering för att dirigera data från min produktions databas till en tom databas och sedan synkronisera dem
 
@@ -217,7 +216,7 @@ Ja. Skapa schemat manuellt i den nya databasen genom att skriva skript från ori
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Bör jag använda SQL Data Sync för att säkerhetskopiera och återställa mina databaser
 
-Vi rekommenderar inte att du använder SQL Data Sync för att skapa en säkerhets kopia av dina data. Du kan inte säkerhetskopiera och återställa till en viss tidpunkt eftersom SQL Data Sync-synkronisering inte är versions hantering. Dessutom säkerhetskopierar SQL Data Sync inte andra SQL-objekt, t. ex. lagrade procedurer, och utför inte motsvarigheten till en återställnings åtgärd snabbt.
+Vi rekommenderar inte att du använder SQL Data Sync för att skapa en säkerhets kopia av dina data. Du kan inte säkerhetskopiera och återställa till en viss tidpunkt eftersom SQL Data Sync-synkronisering inte är versions hantering. Dessutom kan SQL Data Sync inte säkerhetskopiera andra SQL-objekt, t. ex. lagrade procedurer, och gör inte lika med en återställnings åtgärd snabbt.
 
 En rekommenderad säkerhets kopierings teknik finns i [Kopiera en Azure SQL-databas](database-copy.md).
 
@@ -259,3 +258,4 @@ Mer information om Azure SQL Database finns i följande artiklar:
 
 - [Översikt över SQL Database](sql-database-paas-overview.md)
 - [Livscykelhantering för databas](https://msdn.microsoft.com/library/jj907294.aspx)
+ 

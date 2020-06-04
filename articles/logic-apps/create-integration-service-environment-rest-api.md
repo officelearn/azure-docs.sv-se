@@ -3,15 +3,15 @@ title: Skapa integrerings tjänst miljöer (ISEs) med Logic Apps REST API
 description: Skapa en integrerings tjänst miljö (ISE) med hjälp av Logic Apps REST API så att du kan komma åt Azure Virtual Networks (virtuella nätverk) från Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: 0670331d2338b4b6419ffbff1452b5fbac91029f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/29/2020
+ms.openlocfilehash: 7b163c65c0bf781a068abcd6434d75149a1de20b
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478826"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324767"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Skapa en integrerings tjänst miljö (ISE) med hjälp av Logic Apps REST API
 
@@ -22,7 +22,7 @@ Du kan också skapa en ISE med hjälp av [exemplet Azure Resource Manager snabb 
 > [!IMPORTANT]
 > Logi Kap par, inbyggda utlösare, inbyggda åtgärder och anslutningar som körs i din ISE använder en pris plan som skiljer sig från den förbruknings bara pris planen. Information om hur priser och fakturering fungerar för ISEs finns i [pris modellen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pris nivåer finns i [Logic Apps prissättning](../logic-apps/logic-apps-pricing.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Samma krav [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) och [krav för att ge åtkomst till din ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) som när du skapar en ISE i Azure Portal
 
@@ -50,13 +50,15 @@ Distributionen tar vanligt vis inom två timmar att slutföra. Ibland kan distri
 
 I begär ande huvudet inkluderar du följande egenskaper:
 
-* `Content-type`: Ange det här egenskap svärdet `application/json`till.
+* `Content-type`: Ange det här egenskap svärdet till `application/json` .
 
 * `Authorization`: Ange det här egenskap svärdet till Bearer-token för den kund som har åtkomst till den Azure-prenumeration eller resurs grupp som du vill använda.
 
-### <a name="request-body-syntax"></a>Syntax för begär ande text
+<a name="request-body"></a>
 
-Här är syntaxen för begär ande texten, som beskriver de egenskaper som ska användas när du skapar din ISE:
+## <a name="request-body"></a>Begärandetext
+
+Här är syntaxen för begär ande texten, som beskriver de egenskaper som ska användas när du skapar din ISE. Om du vill skapa en ISE som tillåter att du använder ett självsignerat certifikat som är installerat på `TrustedRoot` platsen inkluderar du `certificates` objektet i definitions `properties` området för ISE. För en befintlig ISE kan du bara skicka en PATCH-begäran för `certificates` objektet. Mer information om hur du använder självsignerade certifikat finns även i [http Connector-självsignerade certifikat](../connectors/connectors-native-http.md#self-signed).
 
 ```json
 {
@@ -88,6 +90,13 @@ Här är syntaxen för begär ande texten, som beskriver de egenskaper som ska a
                "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-4}",
             }
          ]
+      },
+      // Include `certificates` object to enable self-signed certificate support
+      "certificates": {
+         "testCertificate": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         }
       }
    }
 }
@@ -127,7 +136,12 @@ Den här exempel texten visar exempel värden:
                "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-4",
             }
          ]
-      }
+      },
+      "certificates": {
+         "testCertificate": {
+            "publicCertificate": "LS0tLS1CRUdJTiBDRV...",
+            "kind": "TrustedRoot"
+         }
    }
 }
 ```

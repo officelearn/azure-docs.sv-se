@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 08904b3a5a1053d64e3b54582189da5d82f62dee
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 133ca6503a2e0fa9ff19fa55cf126b9556b741e0
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051929"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344058"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights att använda AI för att övervaka och felsöka databas prestanda (för hands version)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -75,8 +75,8 @@ Intelligent Insights alternativ som är tillgängliga är:
 | :----------------------------- | ----- | ----- |
 | **Konfigurera intelligent Insights** -konfigurera intelligent Insights analys för dina databaser. | Ja | Ja |
 | **Strömma insikter till Azure SQL-analys** – strömma insikter till Azure SQL-analys. | Ja | Ja |
-| **Strömma insikter till Event Hub** – Stream Insights för att Event Hubs för ytterligare anpassade integreringar. | Ja | Ja |
-| **Strömma insikter till Azure Storage** strömmarnas insikter för att Azure Storage för ytterligare analys och långsiktig arkivering. | Ja | Ja |
+| **Strömma insikter till Azure Event Hubs** -Stream Insights för att Event Hubs för ytterligare anpassade integreringar. | Ja | Ja |
+| **Strömma insikter till Azure Storage** Stream Insights för att Azure Storage för ytterligare analys och långsiktig arkivering. | Ja | Ja |
 
 ## <a name="configure-the-export-of-the-intelligent-insights-log"></a>Konfigurera exporten av Intelligent Insights loggen
 
@@ -86,7 +86,7 @@ Utdata från Intelligent Insights kan strömmas till en av flera mål för analy
 - Utdata som strömmas till Azure Event Hubs kan användas för utveckling av anpassade övervaknings-och aviserings scenarier
 - Utdata som strömmas till Azure Storage kan användas för utveckling av anpassade program, t. ex. anpassade rapporter, långsiktig dataarkivering och så vidare.
 
-Integrering av Azure SQL-analys, Azure Event Hub, Azure Storage eller produkter från tredje part utförs genom att först aktivera Intelligent Insights loggning ("SQLInsights"-loggen) på bladet diagnostikinställningar i en databas och sedan konfigurera Intelligent Insights loggdata som ska strömmas till någon av dessa destinationer.
+Integrering av Azure SQL-analys, Azure Event Hubs, Azure Storage eller produkter från tredje part för konsumtion utförs genom att först aktivera Intelligent Insights loggning ("SQLInsights"-loggen) på bladet diagnostikinställningar i en databas och sedan konfigurera Intelligent Insights loggdata så att de strömmas till någon av dessa destinationer.
 
 Mer information om hur du aktiverar Intelligent Insights loggning och konfigurerar mått-och resurs logg data som ska strömmas till en konsumerande produkt finns i [statistik och diagnostisk loggning](metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
@@ -104,7 +104,7 @@ I följande exempel visas en Intelligent Insights som visas via Azure SQL-analys
 
 ### <a name="set-up-with-event-hubs"></a>Konfigurera med Event Hubs
 
-Om du vill använda Intelligent Insights med Event Hubs konfigurerar du Intelligent Insights loggdata som ska strömmas till Event Hubs, se [statistik och diagnostisk loggning](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) och och [strömma Azure-diagnostikloggar till Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+Om du vill använda Intelligent Insights med Event Hubs konfigurerar du Intelligent Insights loggdata som ska strömmas till Event Hubs, se [mått och diagnostik](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) loggar och [strömma Azure-diagnostikloggar till Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 Om du vill använda Event Hubs för att konfigurera anpassad övervakning och aviseringar, se [vad du kan göra med mått och diagnostikloggar i Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
@@ -114,7 +114,7 @@ Om du vill använda Intelligent Insights med lagring konfigurerar du Intelligent
 
 ### <a name="custom-integrations-of-intelligent-insights-log"></a>Anpassad integrering av Intelligent Insights logg
 
-Om du vill använda Intelligent Insights med verktyg från tredje part, eller om du vill ha anpassad utveckling och övervakning, kan du läsa mer i [använda loggen för att logga in i intelligent Insights Database](intelligent-insights-use-diagnostics-log.md)
+Om du vill använda Intelligent Insights med verktyg från tredje part, eller om du vill ha en anpassad utveckling och övervakning, kan du läsa mer i [använda loggen för att använda intelligent Insights Database](intelligent-insights-use-diagnostics-log.md)
 
 ## <a name="detection-metrics"></a>Identifierings mått
 
@@ -133,7 +133,7 @@ Alla mät värden beaktas tillsammans i olika relationer via en vetenskapligt h�
 
 - Information om prestanda problem har identifierats.
 - En rotor Saks analys av problemet upptäcktes.
-- Rekommendationer för hur du kan förbättra prestandan hos den övervakade SQL-databasen, där det är möjligt.
+- Rekommendationer för hur du kan förbättra prestandan hos den övervakade databasen, där det är möjligt.
 
 ## <a name="query-duration"></a>Frågans varaktighet
 

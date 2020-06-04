@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 06/02/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: f7a036a382ac3b16093529a67abe9ef78b897274
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 970c20edd3a24594f22ff7e72cd4275118193845
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300102"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323798"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -120,14 +120,13 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 | */445                      | Utgående           | TCP                | VIRTUAL_NETWORK/lagring             | Beroende av Azure-filresurs för [git](api-management-configuration-repository-git.md)                      | Externt & internt  |
 | */1886                     | Utgående           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Krävs för att publicera hälso status till Resource Health          | Externt & internt  |
 | */443                     | Utgående           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publicera diagnostikloggar [och mått](api-management-howto-use-azure-monitor.md)                       | Externt & internt  |
-| */25                       | Utgående           | TCP                | VIRTUAL_NETWORK/INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externt & internt  |
-| */587                      | Utgående           | TCP                | VIRTUAL_NETWORK/INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externt & internt  |
-| */25028                    | Utgående           | TCP                | VIRTUAL_NETWORK/INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externt & internt  |
-| */6381-6383              | Inkommande & utgående | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Åtkomst till Redis-tjänsten för principer för [hastighets begränsning](api-management-access-restriction-policies.md#LimitCallRateByKey) mellan datorer         | Externt & internt  |
+| */25, 587, 25028                       | Utgående           | TCP                | VIRTUAL_NETWORK/INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externt & internt  |
+| */6381-6383              | Inkommande & utgående | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Åtkomst till Redis-tjänsten för [cache](api-management-caching-policies.md) -principer mellan datorer         | Externt & internt  |
+| */4290              | Inkommande & utgående | UDP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Synkronisering av räknare för principer för [hastighets begränsning](api-management-access-restriction-policies.md#LimitCallRateByKey) mellan datorer         | Externt & internt  |
 | * / *                        | Inkommande            | TCP                | AZURE_LOAD_BALANCER/VIRTUAL_NETWORK | Azure-infrastruktur Load Balancer                          | Externt & internt  |
 
 >[!IMPORTANT]
-> Portarna för vilka *syftet* är **Bold** krävs för att API Management tjänsten ska kunna distribueras korrekt. Om du blockerar de andra portarna kan du dock orsaka försämring i möjligheten att använda och övervaka den aktiva tjänsten.
+> Portarna för vilka *syftet* är **Bold** krävs för att API Management tjänsten ska kunna distribueras korrekt. Om du blockerar de andra portarna kan du dock orsaka **försämring** i möjligheten att använda och **övervaka den aktiva tjänsten och tillhandahålla det dedikerade service avtalet**.
 
 + **TLS-funktioner**: om du vill aktivera skapande och verifiering av TLS/SSL-certifikat kedja måste API Management tjänsten ha utgående nätverks anslutning till ocsp.msocsp.com, mscrl.microsoft.com och CRL.Microsoft.com. Beroendet krävs inte, om något certifikat som du överför till API Management innehåller hela kedjan till CA-roten.
 

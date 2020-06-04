@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 7181dd74963a1af05438b16e00e2442478daac03
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267908"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323934"
 ---
-# <a name="tutorial-secure-an-azure-sql-database"></a>Självstudie: skydda en Azure SQL Database
+# <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Självstudie: skydda en databas i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 I den här guiden får du lära du dig hur man:
@@ -25,7 +25,7 @@ I den här guiden får du lära du dig hur man:
 > [!div class="checklist"]
 >
 > - Skapa brandväggsregler på servernivå och databasnivå
-> - Konfigurera en administratör för Azure Active Directory (AD Azure)
+> - Konfigurera en Azure Active Directory (Azure AD)-administratör
 > - Hantera användaråtkomst med SQL-autentisering, Azure AD-autentisering och säkra anslutningssträngar
 > - Aktivera säkerhetsfunktioner som avancerad datasäkerhet, granskning, datamaskering och kryptering
 
@@ -42,21 +42,21 @@ Azure SQL Database skyddar data genom att göra det möjligt för dig att:
 Mer information finns i artiklarna [Säkerhetsöversikt för Azure SQL Database](/azure/sql-database/sql-database-security-index) och [Funktioner](security-overview.md).
 
 > [!TIP]
-> Följande Microsoft Learn modul hjälper dig att lära dig kostnads fritt om hur du [skyddar dina Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> Följande Microsoft Learn modul hjälper dig att lära dig kostnads fritt om hur du [skyddar databasen i Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - En [Server](logical-servers.md) och en enkel databas
-  - Skapa dem med [Azure-portalen](single-database-create-quickstart.md), [CLI](az-cli-script-samples-content-guide.md), eller [PowerShell](powershell-script-content-guide.md)
+  - Skapa dem med [Azure Portal](single-database-create-quickstart.md), [CLI](az-cli-script-samples-content-guide.md)eller [PowerShell](powershell-script-content-guide.md)
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Om du vill utföra stegen med den här självstudien loggar du in på [Azure-portalen](https://portal.azure.com/)
+För alla steg i självstudien loggar du in på [Azure Portal](https://portal.azure.com/)
 
 ## <a name="create-firewall-rules"></a>Skapa brandväggsregler
 
@@ -73,7 +73,7 @@ Regler för IP-brandvägg på server nivå gäller för alla databaser på samma
 
 Konfigurera en brandväggsregel på servernivå:
 
-1. I Azure-portalen väljer du **SQL-databaser** på den vänstra menyn och klickar på databasen på sidan **SQL-databaser**.
+1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
     ![brandväggsregler för server](./media/secure-database-tutorial/server-name.png)
 
@@ -94,7 +94,7 @@ Nu kan du ansluta till valfri databas på servern med IP-adressen eller IP-adres
 
 Brandväggsregler på databasnivå gäller endast för enskilda databaser. Databasen behåller dessa regler under en redundansväxling av servern. Brandväggsregler på databasnivå kan bara konfigureras med instruktioner för Transact-SQL (T-SQL), och bara efter att du har konfigurerat en brandväggsregel på servernivå.
 
-Så här konfigurerar du en brandväggsregel på databasnivå:
+Konfigurera en brand Väggs regel på databas nivå:
 
 1. Anslut till databasen med exempelvis [SQL Server Management Studio](connect-query-ssms.md).
 
@@ -119,7 +119,7 @@ Kontrollera att du använder den lämpliga hanterade domänen med Azure Active D
 
 Så här anger du Azure AD-administratör:
 
-1. I Azure Portal väljer du **Active Directory admin**på **SQL Server** -sidan. Välj sedan **Ange administratör**.
+1. I Azure Portal på **SQL Server** -sidan väljer du **Active Directory admin**. Välj sedan **Ange administratör**.
 
     ![Välj active directory](./media/secure-database-tutorial/admin-settings.png)  
 
@@ -223,7 +223,7 @@ Anslutningen upprättas med TLS (Transport Layer Security) och risken för MITM-
 
 Så här kopierar du en säker anslutningssträng:
 
-1. I Azure-portalen väljer du **SQL-databaser** på den vänstra menyn och klickar på databasen på sidan **SQL-databaser**.
+1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
 1. På databasens **översiktssida** klickar du på **Visa databasanslutningssträngar**.
 
@@ -244,7 +244,7 @@ Funktionen för avancerad datasäkerhet identifierar potentiella hot när de int
 
 Så här aktiverar du avancerad datasäkerhet:
 
-1. I Azure-portalen väljer du **SQL-databaser** på den vänstra menyn och klickar på databasen på sidan **SQL-databaser**.
+1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
 1. På **översiktssidan** väljer du **Servernamn**. Sidan Server öppnas.
 
@@ -270,7 +270,7 @@ Gransknings funktionen spårar databas händelser och skriver händelser till en
 
 Så här aktiverar du granskning:
 
-1. I Azure-portalen väljer du **SQL-databaser** på den vänstra menyn och klickar på databasen på sidan **SQL-databaser**.
+1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
 1. I avsnittet **Säkerhet** väljer du **Granskning**.
 
@@ -309,7 +309,7 @@ Funktionen för datamaskning kommer automatiskt att dölja känsliga data i data
 
 Så här aktiverar du datamaskning:
 
-1. I Azure-portalen väljer du **SQL-databaser** på den vänstra menyn och klickar på databasen på sidan **SQL-databaser**.
+1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
 1. I avsnittet **Säkerhet** väljer du **Dynamisk datamaskning**.
 
@@ -327,7 +327,7 @@ Krypteringsfunktionen krypterar automatiskt dina vilande data och kräver inga �
 
 Så här aktiverar eller kontrollerar du kryptering:
 
-1. I Azure-portalen väljer du **SQL-databaser** på den vänstra menyn och klickar på databasen på sidan **SQL-databaser**.
+1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
 1. I avsnittet **Säkerhet** väljer du **Transparent datakryptering**.
 

@@ -3,12 +3,12 @@ title: Utvärdera fysiska servrar för migrering till Azure med Azure Migrate Se
 description: Beskriver hur du bedömer lokala fysiska servrar för migrering till Azure med hjälp av Azure Migrate Server bedömning.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: b36cba18bd154cd5d14e16a9f8bf85cda6bf87a8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5cbd1b85bdb9017a96dc863b83223c31c716cf77
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535442"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331805"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Utvärdera fysiska servrar med Azure Migrate: Server utvärdering
 
@@ -16,7 +16,7 @@ Den här artikeln visar hur du kan utvärdera lokala fysiska servrar med hjälp 
 
 [Azure Migrate](migrate-services-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV).
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I den här guiden får du lära dig att:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Konfigurera en Azure Migrate-apparat som körs lokalt för att utvärdera fysiska servrar.
@@ -27,10 +27,10 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 > [!NOTE]
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktions artiklar.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Slutför](tutorial-prepare-physical.md) den första självstudien i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
@@ -61,7 +61,7 @@ Konfigurera ett nytt Azure Migrate-projekt enligt följande.
 
 
 7. Klicka på **Nästa**.
-8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering** > **Nästa**.
+8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering**  >  **Nästa**.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-physical/assessment-tool.png)
 
@@ -86,8 +86,8 @@ Azure Migrate: Server utvärderingen kör en förenklad installation.
 
 Ladda ned den zippade filen för enheten.
 
-1. I **mål** > **servrar** > för migrering**Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2. I **identifiera datorer** > **är dina datorer virtualiserade?**, klicka på **inte virtualiserad/annan**.
+1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
+2. I **identifiera datorer**  >  **är dina datorer virtualiserade?**, klicka på **inte virtualiserad/annan**.
 3. Klicka på **Ladda ned** för att ladda ned den zippade filen.
 
     ![Hämta installations program](./media/tutorial-assess-physical/download-appliance.png)
@@ -102,20 +102,18 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning för offentligt moln:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
     - Exempel på användning av myndighets moln:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verifiera hash-värden:
- 
-    - För det offentliga molnet (för den senaste versionen av produkten):
+3.  Kontrol lera de senaste versions-och hash-värdena för produkten:
+    - För det offentliga molnet:
 
-        **Integritetsalgoritm** | **Hash-värde**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+        **Scenario** | **Hämta*** | **Hash-värde**
+        --- | --- | ---
+        Fysisk (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
-    - För Azure-myndigheter (för den senaste versionen av produkten):
+    - För Azure Government:
 
-        **Integritetsalgoritm** | **Hash-värde**
-          --- | ---
-          MD5 | f81c155fc4a1409901caea948713913f
+        **Scenario** | **Hämta*** | **Hash-värde**
+        --- | --- | ---
+        Fysisk (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Kör installations skriptet för Azure Migrate
 
@@ -158,7 +156,7 @@ Konfigurera enheten för första gången.
 2. I webbappen > **Konfigurera krav**gör du följande:
     - **Licens**: Godkänn licens villkoren och Läs informationen från tredje part.
     - **Anslutning**: appen kontrollerar att servern är ansluten till Internet. Om servern använder en proxyserver:
-        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller. http://ProxyFQDN
+        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller http://ProxyFQDN .
         - Ange autentiseringsuppgifter om proxyn kräver autentisering.
         - Endast HTTP-proxy stöds.
     - **Tidssynkronisering**: tiden har verifierats. Tiden för installationen bör vara synkroniserad med Internet tid för att Server identifieringen ska fungera korrekt.
@@ -196,13 +194,13 @@ Detta startar identifieringen. Det tar cirka 1,5 minuter per server för metadat
 Efter identifieringen kan du kontrol lera att servrarna visas i Azure Portal.
 
 1. Öppna instrument panelen för Azure Migrate.
-2. På sidan **Azure Migrate-servrar** > **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
+2. På sidan **Azure Migrate-servrar**  >  **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
 
 ## <a name="set-up-an-assessment"></a>Konfigurera en utvärdering
 
 Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
 
-**Utvärdering** | **Information** | **Data**
+**Beskrivningar** | **Information** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)**: baserat på IOPS och data flödet för lokala diskar.
 **Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad VM-storlek**: baserat på den lokala server storleken<br/><br> **Rekommenderad disktyp**: baserat på den inställning för lagrings typ som du väljer för utvärderingen.
@@ -228,7 +226,7 @@ Kör en utvärdering på följande sätt:
 
     ![Skapa en utvärdering](./media/tutorial-assess-physical/assessment-create.png)
 
-6. När utvärderingen har skapats kan du Visa den på **servrar** > **Azure Migrate:** > **utvärderingar**av Server bedömning.
+6. När utvärderingen har skapats kan du Visa den på **servrar**  >  **Azure Migrate:**  >  **utvärderingar**av Server bedömning.
 7. Klicka på **Exportera utvärdering** för att ladda ned den som en Excel-fil.
 
 
@@ -243,7 +241,7 @@ En utvärdering beskriver:
 
 ### <a name="view-an-assessment"></a>Visa en utvärdering
 
-1. I **mål** >  **Server**för migrering klickar du på **utvärderingar** i **Azure Migrate: Server bedömning**.
+1. I **mål**  >   **Server**för migrering klickar du på **utvärderingar** i **Azure Migrate: Server bedömning**.
 2. I **bedömningar**klickar du på en utvärdering för att öppna den.
 
     ![Utvärderings Sammanfattning](./media/tutorial-assess-physical/assessment-summary.png)

@@ -1,7 +1,7 @@
 ---
 title: Aktivera SQL-TDE med Azure Key Vault
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Lär dig hur du konfigurerar en Azure SQL Database och Azure Synapse Analytics för att börja använda transparent datakryptering (TDE) för kryptering vid vila med hjälp av PowerShell eller CLI.
+description: Lär dig hur du konfigurerar en Azure SQL Database och Azure Synapse Analytics för att börja använda transparent datakryptering (TDE) för kryptering i vila med PowerShell eller Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,17 +12,17 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 7a71d4f2d724584509f25c7ae458ed6ab1b415af
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 136bea5ffa33210362e4785f8f3003f5cd5cc8fa
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051180"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321418"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera transparent datakryptering med kundhanterad nyckel från Azure Key Vault
+# <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och Azure CLI: Aktivera transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault för transparent datakryptering (TDE) i Azure SQL Database eller Azure Synapse Analytics (tidigare SQL DW). Om du vill veta mer om TDE med stöd för Azure Key Vault integration-Bring Your Own Key (BYOK) går du till [TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-overview.md).
+Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault för transparent datakryptering (TDE) i Azure SQL Database eller Azure Synapse Analytics (tidigare SQL Data Warehouse). Om du vill veta mer om TDE med stöd för Azure Key Vault integration-Bring Your Own Key (BYOK) går du till [TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-overview.md).
 
 ## <a name="prerequisites-for-powershell"></a>Krav för PowerShell
 
@@ -47,9 +47,9 @@ Mer information om Key Vault finns i [PowerShell-instruktioner från Key Vault](
 > [!IMPORTANT]
 > PowerShell-modulen för Azure Resource Manager (RM) stöds fortfarande, men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
 
-## <a name="assign-an-azure-ad-identity-to-your-server"></a>Tilldela en Azure AD-identitet till servern
+## <a name="assign-an-azure-active-directory-azure-ad-identity-to-your-server"></a>Tilldela en Azure Active Directory-identitet (Azure AD) till servern
 
-Om du har en befintlig [Server](logical-servers.md)kan du använda följande för att lägga till en Azure AD-identitet på servern:
+Om du har en befintlig [Server](logical-servers.md)kan du använda följande för att lägga till en Azure Active Directory (Azure AD)-identitet på servern:
 
    ```powershell
    $server = Set-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> -AssignIdentity
@@ -121,9 +121,9 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName>  
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill installera den nödvändiga kommando rads gränssnittet version 2,0 eller senare och ansluta till din Azure-prenumeration, se [Installera och konfigurera Azures plattforms oberoende kommando rads gränssnitt 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du vill installera den version av Azure CLI som krävs (version 2,0 eller senare) och ansluta till din Azure-prenumeration, se [Installera och konfigurera Azures plattforms oberoende kommando rads gränssnitt 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Mer information om Key Vault finns i [hantera Key Vault med cli 2,0](../../key-vault/general/manage-with-cli2.md) och [hur du använder Key Vault mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md).
 
@@ -207,7 +207,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
    Remove-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 - Allmänna databas inställningar finns i [AZ SQL](/cli/azure/sql).
 
@@ -229,7 +229,7 @@ Kontrol lera följande om ett problem inträffar:
    Get-AzSubscription -SubscriptionId <SubscriptionId>
    ```
 
-   # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+   # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
    ```powershell
    az account show - s <SubscriptionId>

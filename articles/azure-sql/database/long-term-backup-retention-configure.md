@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 6ae38bb81ad0b229d6bb5a9e2f626d17810d7b01
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 57b0c6286cbf40d1694d1f7fda08bc9b02641658
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048345"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324274"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhets kopior
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 I Azure SQL Database kan du konfigurera en databas med en [långsiktig säkerhets kopierings](long-term-retention-overview.md) princip (brv) för att automatiskt behålla databas säkerhets kopiorna i separata Azure Blob Storage-behållare i upp till 10 år. Du kan sedan återställa en databas med hjälp av de här säkerhets kopiorna med hjälp av Azure Portal eller PowerShell. Du kan också konfigurera långsiktig kvarhållning för en [Azure SQL-hanterad instans](../managed-instance/long-term-backup-retention-configure.md) , men den finns för närvarande i begränsad för hands version.
 
-## <a name="using-azure-portal"></a>Använda Azure Portal
+## <a name="using-the-azure-portal"></a>Använda Azure Portal
 
 I följande avsnitt visar vi hur du använder Azure Portal för att konfigurera långsiktig kvarhållning, Visa säkerhets kopior i långsiktig kvarhållning och återställa säkerhets kopian från långsiktig kvarhållning.
 
@@ -32,7 +32,7 @@ I följande avsnitt visar vi hur du använder Azure Portal för att konfigurera 
 
 Du kan konfigurera SQL Database att [behålla automatiserade säkerhets kopieringar](long-term-retention-overview.md) under en längre tid än kvarhållningsperioden för din tjänst nivå.
 
-1. I Azure Portal väljer du din SQL-Server och klickar sedan på **hantera säkerhets kopieringar**. På fliken **Konfigurera principer** markerar du kryss rutan för den databas där du vill ange eller ändra bevarande principer för långsiktig säkerhets kopiering. Om kryss rutan bredvid databasen inte är markerad gäller inte ändringarna för principen för den databasen.  
+1. I Azure Portal väljer du SQL Server instansen och klickar sedan på **hantera säkerhets kopior**. På fliken **Konfigurera principer** markerar du kryss rutan för den databas där du vill ange eller ändra bevarande principer för långsiktig säkerhets kopiering. Om kryss rutan bredvid databasen inte är markerad gäller inte ändringarna för principen för den databasen.  
 
    ![hantera säkerhets kopierings länk](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -61,7 +61,7 @@ Visa säkerhets kopiorna som bevaras för en speciell databas med en LTR-princip
 
    ![återställ](./media/long-term-backup-retention-configure/ltr-restore.png)
 
-1. Klicka på **OK** för att återställa databasen från säkerhets kopian i Azure SQL Storage till den nya databasen.
+1. Klicka på **OK** för att återställa databasen från säkerhets kopian i Azure Storage till den nya databasen.
 
 1. Klicka på meddelandeikonen i verktygsfältet för att visa återställningsjobbets status.
 
@@ -79,7 +79,7 @@ Visa säkerhets kopiorna som bevaras för en speciell databas med en LTR-princip
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
-Följande avsnitt visar hur du använder PowerShell för att konfigurera långsiktig kvarhållning av säkerhets kopior, Visa säkerhets kopior i Azure SQL-lagring och återställa från en säkerhets kopia i Azure SQL Storage.
+Följande avsnitt visar hur du använder PowerShell för att konfigurera långsiktig kvarhållning av säkerhets kopior, Visa säkerhets kopior i Azure Storage och återställa från en säkerhets kopia i Azure Storage.
 
 ### <a name="rbac-roles-to-manage-long-term-retention"></a>RBAC-roller för att hantera långsiktig kvarhållning
 

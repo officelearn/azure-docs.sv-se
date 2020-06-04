@@ -8,17 +8,18 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to test a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: b3e10b3abbe5c9815e51ce67786882dbd294df3f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b1ca26a63c910861d333f707d13946c5e046f599
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79202252"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84341022"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Självstudie: skapa en NAT-gateway med Azure CLI och testa NAT-tjänsten
 
@@ -390,13 +391,13 @@ Nu är du redo att testa NAT-tjänsten.
 
 När du har loggat in på den virtuella käll datorn kan du använda **sväng** och **Hej** för att generera begär anden till målets IP-adress.
 
-Använd sväng för att hämta filen 100-KByte.  Ersätt ** \<IP-Address-destination>** i exemplet nedan med mål-IP-adressen som du tidigare har kopierat.  Parametern **--output** anger att den hämtade filen kommer att tas bort.
+Använd sväng för att hämta filen 100-KByte.  Ersätt **\<ip-address-destination>** i exemplet nedan med mål-IP-adressen som du har kopierat tidigare.  Parametern **--output** anger att den hämtade filen kommer att tas bort.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-Du kan också skapa en serie förfrågningar med hjälp av **Hej**. Ersätt igen IP ** \<-Address-destination>** med mål-IP-adressen som du tidigare har kopierat.
+Du kan också skapa en serie förfrågningar med hjälp av **Hej**. Ersätt igen **\<ip-address-destination>** med mål-IP-adressen som du tidigare har kopierat.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k

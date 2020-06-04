@@ -6,14 +6,14 @@ ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
-ms.date: 02/27/2020
+ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: f524a1e1db426b9b9dafb2fb95d77538a34b04ec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 273305894e05b397d0f48acd7a483a9fdfc247ef
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81605470"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324052"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Snabb start: skapa en Azure Cosmos DB och en behållare med Azure Resource Manager mall
 
@@ -21,9 +21,9 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure-prenumeration eller ett kostnads fritt Azure Cosmos DB utvärderings konto
 
@@ -35,9 +35,9 @@ En Azure-prenumeration eller ett kostnads fritt Azure Cosmos DB utvärderings ko
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-cosmosdb-create/).
+Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 Tre Azure-resurser definieras i mallen:
 
@@ -53,7 +53,7 @@ Du hittar fler Azure Cosmos DB mal sampel i [galleriet snabb starts mal len](htt
 
 1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar ett Azure Cosmos-konto, en databas och en behållare.
 
-   [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json)
+   [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 2. Välj eller ange följande värden.
 
@@ -61,13 +61,16 @@ Du hittar fler Azure Cosmos DB mal sampel i [galleriet snabb starts mal len](htt
 
     Om den inte anges använder du standardvärdena för att skapa Azure Cosmos-resurser.
 
-    * **Prenumeration**: Välj en Azure-prenumeration.
+    * **Prenumeration**: välj en Azure-prenumeration.
     * **Resurs grupp**: Välj **Skapa ny**, ange ett unikt namn för resurs gruppen och klicka sedan på **OK**.
     * **Plats**: välj en plats.  Välj till exempel **USA, centrala**.
     * **Konto namn**: Ange ett namn för Azure Cosmos-kontot. Det måste vara globalt unikt.
     * **Plats**: Ange en plats där du vill skapa ditt Azure Cosmos-konto. Azure Cosmos-kontot kan finnas på samma plats som resurs gruppen.
     * **Primär region**: det primära replik området för Azure Cosmos-kontot.
     * **Sekundär region**: det sekundära replik området för Azure Cosmos-kontot.
+    * **Standard konsekvens nivå**: standard konsekvens nivån för Azure Cosmos-kontot.
+    * **Högsta föråldrade prefix**: högsta antal inaktuella begär Anden. Krävs för BoundedStaleness.
+    * **Max intervall i sekunder**: maximal fördröjning. Krävs för BoundedStaleness.
     * **Databas namn**: namnet på Azure Cosmos-databasen.
     * **Behållar namn**: namnet på Azure Cosmos-behållaren.
     * **Data flöde**: data flödet för behållaren, minsta data flöde svärdet är 400 ru/s.
@@ -77,7 +80,7 @@ Du hittar fler Azure Cosmos DB mal sampel i [galleriet snabb starts mal len](htt
 
    ![Resource Manager-mall, Cosmos DB integrering, distribuera Portal meddelande](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
-Azure Portal används för att distribuera mallen. Förutom Azure Portal kan du också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md).
+Azure-portalen används för att distribuera mallen. Förutom Azure Portal kan du också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 

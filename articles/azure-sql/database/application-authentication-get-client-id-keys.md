@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 6a0a4c0885552d7f8697a1f13b8750e084d8770a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5aba4c690f91b515424eb866d387652ca9f40e7e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041726"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344619"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-azure-sql-database-from-code"></a>Hämta de värden som krävs för att autentisera ett program för att få åtkomst till Azure SQL Database från kod
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Om du vill skapa och hantera SQL Database från kod måste du registrera din app i Azure Active Directory-domänen (AAD) i prenumerationen där dina Azure-resurser har skapats.
+Om du vill skapa och hantera Azure SQL Database från kod måste du registrera din app i Azure Active Directory (Azure AD)-domänen i prenumerationen där dina Azure-resurser har skapats.
 
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Skapa ett huvud namn för tjänsten för att få åtkomst till resurser från ett program
 

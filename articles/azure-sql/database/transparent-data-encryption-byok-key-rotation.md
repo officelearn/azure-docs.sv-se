@@ -1,7 +1,7 @@
 ---
 title: Rotera TDE-skydd (PowerShell & Azure CLI)
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Lär dig hur du roterar transparent datakryptering (TDE)-skydd för en server i Azure som används av Azure SQL Database och Azure Synapse Analytics med PowerShell och Azure CLI.
+description: Lär dig hur du roterar transparent datakryptering (TDE) skydd för en server i Azure som används av Azure SQL Database och Azure Synapse Analytics med PowerShell och Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 36706372f4b49150aad5511e3d8c6c23f5be12ec
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b2729975db154fbaf4569afc5aa9b5eaab358146
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051173"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321364"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Rotera transparent datakryptering-skyddet (TDE)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -35,7 +35,7 @@ I den här guiden beskrivs två alternativ för att rotera TDE-skyddskomponenten
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Den här instruktions guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skydd för Azure SQL Database eller Azure Synapse. Se [Transparent datakryptering med BYOK-stöd](transparent-data-encryption-byok-overview.md).
+- Den här instruktions guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skydd för Azure SQL Database-eller Azure Synapse-analys. Se [Transparent datakryptering med BYOK-stöd](transparent-data-encryption-byok-overview.md).
 - Du måste ha Azure PowerShell installerat och igång.
 - [Rekommenderas men valfritt] Skapa nyckel materialet för TDE-skyddet i en HSM-modul (Hardware Security Module) eller lokal nyckel lagring först och importera nyckel materialet till Azure Key Vault. Följ [instruktionerna för att använda en maskin varu säkerhetsmodul (HSM) och Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) om du vill veta mer.
 
@@ -46,7 +46,7 @@ Instruktioner för installation av Az-modulen finns i [Installera Azure PowerShe
 > [!IMPORTANT]
 > PowerShell-modulen för Azure Resource Manager (RM) stöds fortfarande, men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Information om installation finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -75,7 +75,7 @@ Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault -KeyId <ke
    -ServerName <logicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Använd [nyckeln AZ Key Vault Create](/cli/azure/keyvault/key#az-keyvault-key-create), [AZ SQL Server Key Create](/cli/azure/sql/server/key#az-sql-server-key-create)och [AZ SQL Server TDE-Key set](/cli/azure/sql/server/tde-key#az-sql-server-tde-key-set) .
 
@@ -110,7 +110,7 @@ az sql server tde-key set --server-key-type AzureKeyVault --kid <keyVaultKeyId> 
        -ServerName <logicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 I följande exempel används [AZ SQL Server TDE-Key set](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector).
 
@@ -130,6 +130,6 @@ I följande exempel används [AZ SQL Server TDE-Key set](/powershell/module/az.s
 
 ## <a name="next-steps"></a>Nästa steg
 
-- I händelse av en säkerhets risk lär du dig hur du tar bort ett potentiellt komprometterat TDE-skydd: [ta bort en potentiellt komprometterad nyckel](transparent-data-encryption-byok-remove-tde-protector.md)
+- I händelse av en säkerhets risk lär du dig hur du tar bort ett potentiellt komprometterat TDE-skydd: [ta bort en potentiellt komprometterad nyckel](transparent-data-encryption-byok-remove-tde-protector.md).
 
-- Kom igång med Azure Key Vault integration och Bring Your Own Key stöd för TDE: [Aktivera TDE med din egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-configure.md)
+- Kom igång med Azure Key Vault integration och Bring Your Own Key stöd för TDE: [Aktivera TDE med din egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-configure.md).

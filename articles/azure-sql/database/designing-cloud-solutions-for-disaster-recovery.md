@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: e2414873db06ada4d0a260e007998ef2ba2f2cf9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6a8770cfaf5acedcf3549d92f1365948acda8bc7
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050501"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344653"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Designa globalt tillgängliga tjänster med hjälp av Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ Följande diagram visar den här konfigurationen före ett avbrott:
 
 ![Scenario 1. Konfiguration före avbrottet.](./media/designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
 
-Efter ett avbrott i den primära regionen identifierar SQL Database att den primära databasen inte är tillgänglig och utlöser redundansväxling till den sekundära regionen baserat på parametrarna i den automatiska redundansväxlingen (1). Beroende på ditt service avtal för program kan du konfigurera en Respitperiod som styr tiden mellan identifieringen av avbrottet och redundansväxlingen. Det är möjligt att Traffic Manager initierar slut punkts redundansväxlingen innan redundans-gruppen utlöser redundansväxlingen av databasen. I så fall kan inte webb programmet återansluta direkt till-databasen. Men åter anslutningar kommer att lyckas automatiskt så snart databasen har slutförts. När den felande regionen återställs och online igen återansluter den gamla primära servern automatiskt som en ny sekundär. Diagrammet nedan visar konfigurationen efter redundansväxlingen.
+Efter ett avbrott i den primära regionen identifierar SQL Database att den primära databasen inte är tillgänglig och utlöser redundansväxling till den sekundära regionen baserat på parametrarna i den automatiska redundansväxlingen (1). Beroende på ditt service avtal för program kan du konfigurera en Respitperiod som styr tiden mellan identifieringen av avbrottet och redundansväxlingen. Det är möjligt att Azure Traffic Manager initierar slut punkts redundansväxlingen innan gruppen för växling vid fel utlöser redundansväxlingen av databasen. I så fall kan inte webb programmet återansluta direkt till-databasen. Men åter anslutningar kommer att lyckas automatiskt så snart databasen har slutförts. När den felande regionen återställs och online igen återansluter den gamla primära servern automatiskt som en ny sekundär. Diagrammet nedan visar konfigurationen efter redundansväxlingen.
 
 > [!NOTE]
 > Alla transaktioner som har utförts efter redundansväxlingen förloras under åter anslutningen. När redundansväxlingen är klar kan programmet i region B kunna återansluta och starta om bearbetningen av användar förfrågningarna. Både webb programmet och den primära databasen finns nu i region B och är samplacerade.
@@ -111,9 +111,9 @@ I det här scenariot har programmet följande egenskaper:
 * Skriv åtkomst till data bör stödjas i samma geografi för merparten av användarna
 * Läs fördröjning är avgörande för slut användar upplevelsen
 
-För att uppfylla dessa krav måste du garantera att användar enheten **alltid** ansluter till programmet som distribueras i samma geografi för de skrivskyddade åtgärderna, till exempel att bläddra bland data, analyser osv. OLTP-åtgärderna bearbetas i samma geografi som det **mesta av tiden**. Till exempel under dagen då OLTP-åtgärder bearbetas i samma geografi, men under de tids perioder som de kunde bearbetas i en annan geografi. Om aktiviteten för slutanvändare huvudsakligen sker under arbets tiden kan du garantera optimala prestanda för de flesta av användarna. Följande diagram visar den här topologin.
+För att uppfylla dessa krav måste du garantera att användar enheten **alltid** ansluter till programmet som distribueras i samma geografi för de skrivskyddade åtgärderna, till exempel att bläddra bland data, analyser osv. OLTP-åtgärderna bearbetas i samma geografi som det **mesta av tiden**. Till exempel under dagen då OLTP-åtgärder bearbetas i samma geografi, men under de tids perioder som de kunde bearbetas i en annan geografi. Om slut användar aktiviteten oftast sker under arbets tiden kan du garantera optimala prestanda för de flesta av användarna. Följande diagram visar den här topologin.
 
-Programmets resurser bör distribueras i varje geografiskt område där du har avsevärd användning efter frågan. Om ditt program till exempel används aktivt i USA, måste Europeiska unionen och Asien, sydöstra programmet distribueras till alla dessa geografiska områden. Den primära databasen ska växlas dynamiskt från en geografi till nästa i slutet av arbets tiden. Den här metoden kallas "Följ solen". OLTP-arbetsbelastningen ansluter alltid till databasen via Read-Write Listener ** &lt; redundans-Group-name &gt; . Database.Windows.net** (1). Den skrivskyddade arbets belastningen ansluter till den lokala databasen direkt med databaserna Server slut punkts ** &lt; server-name &gt; . Database.Windows.net** (2). Traffic Manager konfigureras med [routningsmetod för prestanda](../../traffic-manager/traffic-manager-configure-performance-routing-method.md). Det säkerställer att slutanvändarens enhet är ansluten till webb tjänsten i den närmaste regionen. Traffic Manager konfigureras med slut punkts övervakning aktiverat för varje slut punkt för webb tjänst (3).
+Programmets resurser bör distribueras i varje geografiskt område där du har avsevärd användning efter frågan. Om ditt program till exempel används aktivt i USA, måste Europeiska unionen och Asien, sydöstra programmet distribueras till alla dessa geografiska områden. Den primära databasen ska växlas dynamiskt från en geografi till nästa i slutet av arbets tiden. Den här metoden kallas "Följ solen". OLTP-arbetsbelastningen ansluter alltid till databasen via Read-Write Listener ** &lt; redundans-Group-name &gt; . Database.Windows.net** (1). Den skrivskyddade arbets belastningen ansluter till den lokala databasen direkt med databaserna Server slut punkts ** &lt; server-name &gt; . Database.Windows.net** (2). Traffic Manager konfigureras med [routningsmetod för prestanda](../../traffic-manager/traffic-manager-configure-performance-routing-method.md). Det garanterar att slutanvändarens enhet är ansluten till webb tjänsten i den närmaste regionen. Traffic Manager konfigureras med slut punkts övervakning aktiverat för varje slut punkt för webb tjänst (3).
 
 > [!NOTE]
 > Konfigurationen av redundanskonfiguration definierar vilken region som används för redundans. Eftersom den nya primären finns i en annan geografi, resulterar redundansväxlingen i längre latens för både OLTP-och skrivskyddade arbets belastningar tills den berörda regionen är online igen.
@@ -131,7 +131,7 @@ Följande diagram illustrerar den nya konfigurationen efter den planerade redund
 
 ![Scenario 3. Över gång från primär till Nord Europa.](./media/designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-Om ett avbrott inträffar i Nord Europa initieras den automatiska databas växlings filen av gruppen redundans, vilket effektivt leder till att programmet flyttas till nästa region före schemat (1).  I så fall är östra USA den enda återstående sekundära regionen tills norra Europa är online igen. De återstående två regionerna betjänar kunderna i alla tre geografiska områden genom att växla roller. Azure Logic Apps måste justeras i enlighet med detta. Eftersom de återstående regionerna får ytterligare användar trafik från Europa, påverkas programmets prestanda inte bara av ytterligare latens, utan också med ett ökat antal slut användar anslutningar. När avbrottet har begränsats i Nord Europa synkroniseras den sekundära databasen omedelbart med den aktuella primära databasen. Följande diagram illustrerar ett avbrott i Nord Europa:
+Om ett avbrott inträffar i Nord Europa initieras den automatiska databas växlings filen av gruppen redundans, vilket effektivt leder till att programmet flyttas till nästa region före schemat (1).  I så fall är östra USA den enda återstående sekundära regionen tills norra Europa är online igen. De återstående två regionerna betjänar kunderna i alla tre geografiska områden genom att växla roller. Azure Logic Apps måste justeras i enlighet med detta. Eftersom de återstående regionerna får ytterligare användar trafik från Europa påverkas programmets prestanda inte bara av ytterligare svars tid, utan också med ett ökat antal slut användar anslutningar. När avbrottet har begränsats i Nord Europa synkroniseras den sekundära databasen omedelbart med den aktuella primära databasen. Följande diagram illustrerar ett avbrott i Nord Europa:
 
 ![Scenario 3. Avbrott i Nord Europa.](./media/designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 

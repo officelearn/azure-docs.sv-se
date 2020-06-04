@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4118ef8de6d9289b67dd76c710fc11758768262
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587200"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331852"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Självstudie: undersöka incidenter med Azure Sentinel
 
@@ -39,7 +39,7 @@ Den här artikeln beskriver:
 
 En incident kan innehålla flera aviseringar. Det är en agg regering av alla relevanta bevis för en speciell undersökning. En incident skapas baserat på analys regler som du skapade på sidan **analys** . Egenskaperna som rör aviseringarna, till exempel allvarlighets grad och status, anges på incident nivå. När du har informerat Azure Sentinel vet vilka typer av hot du letar efter och hur du hittar dem kan du övervaka identifierade hot genom att undersöka incidenter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings fälten när du konfigurerade din analys regel. Undersöknings diagrammet kräver att den ursprungliga incidenten innehåller entiteter.
 
 ## <a name="how-to-investigate-incidents"></a>Så här undersöker du incidenter
@@ -97,7 +97,7 @@ Så här använder du undersöknings diagrammet:
 
     ![Visa relaterade aviseringar](media/tutorial-investigate-cases/related-alerts.png)
 
-1. För varje utforsknings fråga kan du välja alternativet för att öppna de råa händelse resultaten och frågan som används i Log Analytics, genom att välja **händelser\>**.
+1. För varje utforsknings fråga kan du välja alternativet för att öppna de råa händelse resultaten och frågan som används i Log Analytics, genom att välja **händelser \> **.
 
 1. För att förstå incidenten ger grafen en parallell tids linje.
 
@@ -107,7 +107,21 @@ Så här använder du undersöknings diagrammet:
 
     ![Använd tids linjen i kartan för att undersöka aviseringar](media/tutorial-investigate-cases/use-timeline.png)
 
+## <a name="closing-an-incident"></a>Stänga en incident
 
+När du har löst en viss incident (till exempel när undersökningen har nått slutet) bör du ställa in incidentens status på **stängd**. När du gör det blir du ombedd att klassificera incidenten genom att ange orsaken till att du stänger den. Det här steget är obligatoriskt. Klicka på **Välj klassificering** och välj något av följande i list rutan:
+
+- Sann positiv – misstänkt aktivitet
+- Oskadlig positiv, misstänkt men förväntad
+- Falsk positiv – felaktig aviserings logik
+- Falsk positiv-felaktiga data
+- Obestämd
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{Alt-text}":::
+
+När du har valt rätt klassificering lägger du till en beskrivande text i fältet **kommentar** . Detta är användbart i händelse av att du behöver referera till den här incidenten igen. Klicka på **Använd** när du är klar så stängs incidenten.
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{Alt-text}":::
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du lärt dig hur du kommer igång med att undersöka incidenter med hjälp av Azure Sentinel. Fortsätt till självstudien för att [svara på hot med automatiserade spel böcker](tutorial-respond-threats-playbook.md).

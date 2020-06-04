@@ -11,21 +11,21 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0db72e30fbced17665c112ad56510d7c2ca23d12
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c51863cd95deff5e460707b004206f6fde54cac4
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639630"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337758"
 ---
-# <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Aktivera Azure-Multi-Factor Authentication per användare för att säkra inloggnings händelser
+# <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Aktivera Azure MFA per användare för att skydda inloggningshändelser
 
 Det finns två sätt att skydda användar inloggnings händelser genom att kräva Multi-Factor Authentication i Azure AD. Det första och bästa alternativet är att konfigurera en princip för villkorlig åtkomst som kräver multifaktorautentisering under vissa förhållanden. Det andra alternativet är att aktivera varje användare för Azure Multi-Factor Authentication. När användare Aktiver ATS individuellt utför de Multi-Factor Authentication varje gång de loggar in (med vissa undantag, till exempel när de loggar in från betrodda IP-adresser eller när funktionen _sparade enheter_ aktive RAS).
 
 > [!NOTE]
-> Den rekommenderade metoden är att aktivera Azure Multi-Factor Authentication att använda principer för villkorlig åtkomst. Att ändra användar tillstånd rekommenderas inte längre om dina licenser inte innehåller villkorlig åtkomst eftersom det krävs att användarna utför MFA varje gång de loggar in.
+> Den rekommenderade metoden är att aktivera Azure Multi-Factor Authentication att använda principer för villkorlig åtkomst. Att ändra användar tillstånd rekommenderas inte längre om dina licenser inte innehåller villkorlig åtkomst eftersom det krävs att användarna utför MFA varje gång de loggar in. Information om hur du kommer igång med villkorlig åtkomst finns i [Självstudier: skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
-> Information om hur du kommer igång med villkorlig åtkomst finns i [Självstudier: skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> För kostnads fria Azure AD-klienter utan villkorlig åtkomst kan du [använda säkerhets inställningar för att skydda användare](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="azure-multi-factor-authentication-user-states"></a>Användar tillstånd för Azure-Multi-Factor Authentication
 

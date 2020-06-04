@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 08cc91bc9aa8187dc18f70cc4fbcc363521b8e29
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 9d34bd1750b798407b493dcde01b04118d66a2d5
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569074"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84339849"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge"></a>Hantera beräkning på Azure Stack Edge
 
@@ -54,7 +54,7 @@ Utför följande steg i Azure Portal för att skapa en utlösare.
 
     - **Schemalagd utlösare** – ange start datum/-tid och upprepnings intervall i timmar, minuter eller sekunder. Ange också namnet på ett ämne. I ett avsnitt får du flexibiliteten att dirigera utlösaren till en modul som distribuerats på enheten.
 
-        Ett exempel på en väg sträng `"route3": "FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint("modules/modulename/inputs/input1")"`är:.
+        Ett exempel på en väg sträng är: `"route3": "FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint("modules/modulename/inputs/input1")"` .
 
         ![Lägga till NFS-resurs](media/azure-stack-edge-manage-compute/add-scheduled-trigger.png)
 

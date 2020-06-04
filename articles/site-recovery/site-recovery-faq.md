@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs populära allmänna frågor om Azure S
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 2e6cbac9896fc2bc6b3d4d95a28a25d8177bd7a5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: b16301bb092395ac71a5bfd6f53f392ab708b10c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193565"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345180"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Allmänna frågor om Azure Site Recovery
 
@@ -226,6 +226,9 @@ Ja. Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skr
 ```
 
 5. Lägg till kommandona Freeze och unfrysa indata/utdata i för-och efter-steg för de program som kräver program konsekvens. Du kan välja att lägga till ett annat skript som anger de och anropar det från "customscript.sh" med för-och efter-alternativ.
+
+>[!Note]
+>Site Recovery agent-versionen ska vara 9,24 eller högre för att stödja anpassade skript.
 
 ## <a name="failover"></a>Redundans
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Hur får jag åtkomst till virtuella Azure-datorer efter redundansväxlingen om jag växlar över till Azure?

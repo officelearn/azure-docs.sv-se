@@ -1,5 +1,5 @@
 ---
-title: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure-Virtuella Linux-datorer | Microsoft Docs
+title: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure – Linux virtuella datorer | Microsoft Docs
 description: Lär dig mer om att konfigurera hög tillgänglighet i en RHEL-kluster miljö och konfigurera STONITH
 ms.service: virtual-machines-linux
 ms.subservice: ''
@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 02/27/2020
-ms.openlocfilehash: 445ab97e2e980cdcafe333fa05a340c0e5fef24b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d323d89b13a89a8dd9f2dac6292a01215bf6068a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053689"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343803"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -21,12 +21,12 @@ ms.locfileid: "84053689"
 > [!NOTE]
 > Den självstudien som presenteras är i **offentlig för hands version**. 
 >
-> Vi använder SQL Server 2017 med RHEL 7,6 i den här självstudien, men det går att använda SQL Server 2019 i RHEL 7 eller RHEL 8 för att konfigurera HA. De kommandon som används för att konfigurera tillgänglighets grupp resurser har ändrats i RHEL 8, och du vill titta på artikeln, [skapa tillgänglighets grupp resurs](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) och RHEL 8-resurser för mer information om rätt kommandon.
+> Vi använder SQL Server 2017 med RHEL 7,6 i den här självstudien, men det går att använda SQL Server 2019 i RHEL 7 eller RHEL 8 för att konfigurera hög tillgänglighet. Kommandona för att konfigurera tillgänglighets grupp resurser har ändrats i RHEL 8, och du vill titta på artikeln [skapa tillgänglighets grupps resurs](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) och RHEL 8-resurser för mer information om rätt kommandon.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
-> - Skapa en ny resurs grupp, tillgänglighets uppsättning och Azure Virtuella Linux-datorer (VM)
+> - Skapa en ny resurs grupp, tillgänglighets uppsättning och virtuella Linux-datorer (VM)
 > - Aktivera hög tillgänglighet (HA)
 > - Skapa ett pacemaker-kluster
 > - Konfigurera en inhägnad-agent genom att skapa en STONITH-enhet
@@ -35,7 +35,7 @@ I den här guiden får du lära dig att:
 > - Konfigurera resurs för tillgänglighets grupp (AG) i pacemaker-klustret
 > - Testa en redundansväxling och staket-agenten
 
-I den här självstudien används Azure kommando rads gränssnitt (CLI) för att distribuera resurser i Azure.
+I den här självstudien används Azure CLI för att distribuera resurser i Azure.
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -53,7 +53,7 @@ Använd följande kommando för att skapa en resurs grupp `<resourceGroupName>` 
 az group create --name <resourceGroupName> --location eastus2
 ```
 
-## <a name="create-an-availability-set"></a>Skapa en tillgänglighets uppsättning
+## <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
 
 Nästa steg är att skapa en tillgänglighets uppsättning. Kör följande kommando i Azure Cloud Shell och Ersätt `<resourceGroupName>` med namnet på din resurs grupp. Välj ett namn för `<availabilitySetName>` .
 
@@ -95,7 +95,7 @@ Du bör få följande resultat när kommandot har slutförts:
 >
 > Använd en RHEL HA-avbildning när du skapar den virtuella Azure-datorn för att undvika att "dubbelt faktureras". Avbildningar som erbjuds som RHEL-HA-avbildningar är också PAYG-avbildningar med HA lagrings platsen pre-aktiverad.
 
-1. Hämta en lista över virtuella dator avbildningar som erbjuder RHEL med HA:
+1. Hämta en lista över avbildningar av virtuella datorer som erbjuder RHEL med HA:
 
     ```azurecli-interactive
     az vm image list --all --offer "RHEL-HA"
@@ -472,7 +472,7 @@ sudo firewall-cmd --reload
 
 ## <a name="install-sql-server-and-mssql-tools"></a>Installera SQL Server och MSSQL-tools
  
-Använd avsnittet nedan för att installera SQL Server och MSSQL-verktyg på de virtuella datorerna. Utför var och en av dessa åtgärder på alla noder. Mer information finns i [installera SQL Server en Red Hat-dator](/sql/linux/quickstart-install-connect-red-hat).
+Använd avsnittet nedan för att installera SQL Server och MSSQL-verktyg på de virtuella datorerna. Utför var och en av dessa åtgärder på alla noder. Mer information finns i [installera SQL Server på en Red Hat-dator](/sql/linux/quickstart-install-connect-red-hat).
 
 ### <a name="installing-sql-server-on-the-vms"></a>Installera SQL Server på de virtuella datorerna
 
@@ -531,13 +531,13 @@ Du bör se följande utdata:
            └─11640 /opt/mssql/bin/sqlservr
 ```
 
-## <a name="configure-sql-server-always-on-availability-group"></a>Konfigurera SQL Server Always on-tillgänglighetsgrupper
+## <a name="configure-an-availability-group"></a>Konfigurera en tillgänglighets grupp
 
-Använd följande steg för att konfigurera SQL Server Always on-tillgänglighetsgrupper för dina virtuella datorer. Mer information finns i [konfigurera SQL Server Always on-tillgänglighetsgrupper för hög tillgänglighet på Linux](/sql/linux/sql-server-linux-availability-group-configure-ha)
+Använd följande steg för att konfigurera en SQL Server Always on-tillgänglighetsgrupper för dina virtuella datorer. Mer information finns i [konfigurera SQL Server Always on-tillgänglighetsgrupper för hög tillgänglighet i Linux](/sql/linux/sql-server-linux-availability-group-configure-ha)
 
-### <a name="enable-alwayson-availability-groups-and-restart-mssql-server"></a>Aktivera AlwaysOn-tillgänglighetsgrupper och starta om MSSQL-Server
+### <a name="enable-always-on-availability-groups-and-restart-mssql-server"></a>Aktivera Always on-tillgänglighetsgrupper och starta om MSSQL-Server
 
-Aktivera AlwaysOn-tillgänglighetsgrupper på varje nod som är värd för en SQL Server instans. Starta sedan om MSSQL-Server. Kör följande skript:
+Aktivera Always on-tillgänglighetsgrupper på varje nod som är värd för en SQL Server instans. Starta sedan om MSSQL-Server. Kör följande skript:
 
 ```
 sudo /opt/mssql/bin/mssql-conf set hadr.hadrenabled 1
@@ -548,7 +548,7 @@ sudo systemctl restart mssql-server
 
 Vi stöder för närvarande inte AD-autentisering till AG-slutpunkten. Därför måste vi använda ett certifikat för AG-slutpunktens kryptering.
 
-1. Anslut till **alla noder** med SQL Server Management Studio (SSMS) eller SQL cmd. Kör följande kommandon för att aktivera AlwaysOn_health-session och skapa en huvud nyckel:
+1. Anslut till **alla noder** med SQL Server Management Studio (SSMS) eller SQL cmd. Kör följande kommandon för att aktivera en AlwaysOn_health-session och skapa en huvud nyckel:
 
     > [!IMPORTANT]
     > Om du ansluter till en fjärran sluten SQL Server-instans måste port 1433 vara öppen i brand väggen. Du måste också tillåta inkommande anslutningar till port 1433 i din NSG för varje virtuell dator. Mer information finns i [skapa en säkerhets regel](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) för att skapa en inkommande säkerhets regel.
@@ -566,19 +566,19 @@ Vi stöder för närvarande inte AD-autentisering till AG-slutpunkten. Därför 
 1. Anslut till den primära repliken med SSMS eller SQL CMD. De kommandon som visas nedan skapar ett certifikat till `/var/opt/mssql/data/dbm_certificate.cer` och en privat nyckel på `var/opt/mssql/data/dbm_certificate.pvk` den primära SQL Server repliken:
 
     - Ersätt `<Private_Key_Password>` med ditt eget lösen ord.
-
-```sql
-CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
-GO
-
-BACKUP CERTIFICATE dbm_certificate
-   TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
-   WITH PRIVATE KEY (
-           FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
-           ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
-       );
-GO
-```
+    
+    ```sql
+    CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
+    GO
+    
+    BACKUP CERTIFICATE dbm_certificate
+       TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
+       WITH PRIVATE KEY (
+               FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
+               ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
+           );
+    GO
+    ```
 
 Avsluta SQL CMD-sessionen genom att köra `exit` kommandot och återgå tillbaka till SSH-sessionen.
  
@@ -631,7 +631,7 @@ Avsluta SQL CMD-sessionen genom att köra `exit` kommandot och återgå tillbaka
 
 ### <a name="create-the-database-mirroring-endpoints-on-all-replicas"></a>Skapa slut punkter för databas spegling på alla repliker
 
-Kör följande skript på alla SQL-instanser med SQL CMD eller SSMS:
+Kör följande skript på alla SQL Server-instanser med SQL CMD eller SSMS:
 
 ```sql
 CREATE ENDPOINT [Hadr_endpoint]
@@ -687,7 +687,7 @@ GO
 
 ### <a name="create-a-sql-server-login-for-pacemaker"></a>Skapa en SQL Server inloggning för pacemaker
 
-Skapa en SQL-inloggning för pacemaker på alla SQL-servrar. Följande Transact-SQL skapar en inloggning.
+På alla SQL Server-instanser skapar du en SQL Server inloggning för pacemaker. Följande Transact-SQL skapar en inloggning.
 
 - Ersätt `<password>` med ditt eget komplexa lösen ord.
 
@@ -702,7 +702,7 @@ ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
 GO
 ```
 
-På alla SQL-servrar sparar du de autentiseringsuppgifter som används för SQL Server inloggningen. 
+På alla SQL Server-instanser sparar du de autentiseringsuppgifter som används för SQL Server inloggningen. 
 
 1. Skapa filen:
 
@@ -745,7 +745,7 @@ På alla SQL-servrar sparar du de autentiseringsuppgifter som används för SQL 
     GO
     ```
 
-1. Kör följande Transact-SQL-skript på den primära repliken och varje sekundär repliker:
+1. Kör följande Transact-SQL-skript på den primära repliken och varje sekundär replik:
 
     ```sql
     GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO pacemakerLogin;
@@ -790,7 +790,7 @@ GO
 SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.dm_hadr_database_replica_states;
 ```
 
-Om `synchronization_state_desc` listan är synkroniserad `db1` innebär det att replikerna är synkroniserade. Sekundärerna visas `db1` i den primära repliken.
+Om `synchronization_state_desc` listorna har synkroniserats `db1` innebär det att replikerna är synkroniserade. Sekundärerna visas `db1` i den primära repliken.
 
 ## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Skapa tillgänglighets grupps resurser i pacemaker-klustret
 
@@ -917,7 +917,7 @@ Daemon Status:
 
 För att säkerställa att konfigurationen har lyckats kommer vi att testa en redundansväxling. Mer information finns i [Always on redundans för tillgänglighets grupp på Linux](/sql/linux/sql-server-linux-availability-group-failover-ha).
 
-1. Kör följande kommando för att manuellt redundansväxla den primära repliken till `<VM2>` . Ersätt `<VM2>` med värdet för Server namnet.
+1. Kör följande kommando för att redundansväxla den primära repliken manuellt till `<VM2>` . Ersätt `<VM2>` med värdet för Server namnet.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
@@ -985,7 +985,7 @@ Mer information om hur du testar en stängsel-enhet finns i följande [Red Hat](
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du måste skapa och konfigurera en belastningsutjämnare för att kunna använda en lyssnare för tillgänglighets grupper för dina SQL-servrar.
+Du måste skapa och konfigurera en belastningsutjämnare för att kunna använda en lyssnare för tillgänglighets grupper för dina SQL Server-instanser.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Konfigurera tillgänglighets grupps lyssnare för SQL Server på virtuella RHEL-datorer i Azure](rhel-high-availability-listener-tutorial.md)
+> [Självstudie: Konfigurera en tillgänglighets grupps lyssnare för SQL Server på virtuella RHEL-datorer i Azure](rhel-high-availability-listener-tutorial.md)

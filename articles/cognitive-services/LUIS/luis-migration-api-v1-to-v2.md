@@ -8,18 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2f67bf0951ef8928297c71e8fc9f924cf05c63f4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5880aac01e0611565afb825a61b682197baf5d6
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68932692"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344755"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 till v2 migration guide för LUIS-appar
-[Slut punkten](https://aka.ms/v1-endpoint-api-docs) för version 1 och [redigerings](https://aka.ms/v1-authoring-api-docs) -API: er är inaktuella. Använd den här guiden för att lära dig hur du migrerar till version 2 [Endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigerar](https://go.microsoft.com/fwlink/?linkid=2092087) API: er. 
+[Slut punkten](https://aka.ms/v1-endpoint-api-docs) för version 1 och [redigerings](https://aka.ms/v1-authoring-api-docs) -API: er är inaktuella. Använd den här guiden för att lära dig hur du migrerar till version 2 [Endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigerar](https://go.microsoft.com/fwlink/?linkid=2092087) API: er.
 
 ## <a name="new-azure-regions"></a>Nya Azure-regioner
 LUIS har nya [regioner](https://aka.ms/LUIS-regions) som finns för Luis-API: er. LUIS tillhandahåller en annan portal för region grupper. Programmet måste ha skapats i samma region som du förväntar dig att fråga. Program migrerar inte automatiskt regioner. Du exporterar appen från en region och importerar sedan till en annan för att den ska vara tillgänglig i en ny region.
@@ -112,7 +112,7 @@ API: erna för prenumerationens slut punkts nyckel är inaktuella och returnerar
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azures [slut punkts nycklar](luis-how-to-azure-subscription.md) genereras i Azure Portal. Du tilldelar nyckeln till en LUIS-app på **[publicerings](luis-how-to-azure-subscription.md)** sidan. Du behöver inte känna till det faktiska nyckelvärdet. LUIS använder prenumerations namnet för att utföra tilldelningen. 
+Azures [slut punkts nycklar](luis-how-to-azure-subscription.md) genereras i Azure Portal. Du tilldelar nyckeln till en LUIS-app på **[publicerings](luis-how-to-azure-subscription.md)** sidan. Du behöver inte känna till det faktiska nyckelvärdet. LUIS använder prenumerations namnet för att utföra tilldelningen.
 
 ## <a name="new-versioning-route"></a>Ny versions väg
 V2-modellen finns nu i en [version](luis-how-to-manage-versions.md). Ett versions namn är 10 tecken i vägen. Standard versionen är "0,1".
@@ -153,22 +153,22 @@ Fördefinierade [domäner](luis-how-to-use-prebuilt-domains.md) ger en fördefin
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
 ## <a name="importing-1x-app-into-2x"></a>Importerar en app med 1. x till 2. x
-Den exporterade 1. x-appens JSON har vissa områden som du måste ändra innan du importerar till [LUIS][LUIS] 2,0. 
+Den exporterade 1. x-appens JSON har vissa områden som du måste ändra innan du importerar till [LUIS][LUIS] 2,0.
 
-### <a name="prebuilt-entities"></a>Fördefinierade entiteter 
-De [förinställda entiteterna](luis-prebuilt-entities.md) har ändrats. Kontrol lera att du använder de v2 färdiga entiteterna. Detta inkluderar användning av [datetimeV2](luis-reference-prebuilt-datetimev2.md), i stället för DateTime. 
+### <a name="prebuilt-entities"></a>Fördefinierade entiteter
+De [förinställda entiteterna](luis-prebuilt-entities.md) har ändrats. Kontrol lera att du använder de v2 färdiga entiteterna. Detta inkluderar användning av [datetimeV2](luis-reference-prebuilt-datetimev2.md), i stället för DateTime.
 
 ### <a name="actions"></a>Åtgärder
-Egenskapen åtgärder är inte längre giltig. Det ska vara tomt 
+Egenskapen åtgärder är inte längre giltig. Det ska vara tomt
 
 ### <a name="labeled-utterances"></a>Märkta yttranden
-V1 tillåtna märkta yttranden för att inkludera blank steg i början eller slutet av ordet eller frasen. Blank stegen har tagits bort. 
+V1 tillåtna märkta yttranden för att inkludera blank steg i början eller slutet av ordet eller frasen. Blank stegen har tagits bort.
 
 ## <a name="common-reasons-for-http-response-status-codes"></a>Vanliga orsaker till status koder för HTTP-svar
 Se [Luis API-svars koder](luis-reference-response-codes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd API-dokumentationen v2 för att uppdatera befintliga REST-anrop till LUIS- [slutpunkt](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigerings](https://go.microsoft.com/fwlink/?linkid=2092087) -API: er. 
+Använd API-dokumentationen v2 för att uppdatera befintliga REST-anrop till LUIS- [slutpunkt](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigerings](https://go.microsoft.com/fwlink/?linkid=2092087) -API: er.
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

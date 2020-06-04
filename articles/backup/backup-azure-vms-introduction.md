@@ -3,12 +3,12 @@ title: Om Säkerhetskopiering av virtuella Azure-datorer
 description: I den här artikeln lär du dig hur tjänsten Azure Backup säkerhetskopierar virtuella Azure-datorer och hur du följer bästa praxis.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f4b36f57362607a13c09896cd7109596aba0a852
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79415972"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322917"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>En översikt över säkerhets kopiering av virtuella Azure-datorer
 
@@ -89,7 +89,7 @@ I följande tabell förklaras de olika typerna av ögonblicks bilds konsekvens:
 **Disk** | Säkerhets kopiering av virtuella dator diskar är parallell. Om till exempel en virtuell dator har fyra diskar, försöker säkerhets kopierings tjänsten säkerhetskopiera alla fyra diskarna parallellt. Backup är stegvis (endast ändrade data).
 **Schemaläggning** |  Du kan minska säkerhets kopierings trafiken genom att säkerhetskopiera olika virtuella datorer vid olika tidpunkter på dagen och se till att tiderna inte överlappar varandra. När du säkerhetskopierar virtuella datorer samtidigt orsakar det att trafiken fastnar.
 **Förbereder säkerhets kopiering** | Tänk på den tid som krävs för att förbereda säkerhets kopieringen. Förberedelse tiden omfattar att installera eller uppdatera säkerhets kopierings tillägget och utlösa en ögonblicks bild enligt schemat för säkerhets kopieringen.
-**Data överföring** | Ta reda på hur lång tid det tar för Azure Backup att identifiera de stegvisa ändringarna från den tidigare säkerhets kopian.<br/><br/> I en stegvis säkerhets kopia bestämmer Azure Backup ändringarna genom att beräkna blockets kontroll summa. Om ett block ändras är det markerat för överföring till valvet. Tjänsten analyserar de identifierade blocken för att försöka ytterligare minimera mängden data som ska överföras. När du har utvärderat alla ändrade block överför Azure Backup ändringarna till valvet.<br/><br/> Det kan finnas en fördröjning mellan att ta ögonblicks bilden och kopiera den till valvet.<br/><br/> Vid hög belastnings tider kan det ta upp till åtta timmar innan säkerhets kopieringarna bearbetas. Säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för den dagliga säkerhets kopieringen.
+**Dataöverföring** | Ta reda på hur lång tid det tar för Azure Backup att identifiera de stegvisa ändringarna från den tidigare säkerhets kopian.<br/><br/> I en stegvis säkerhets kopia bestämmer Azure Backup ändringarna genom att beräkna blockets kontroll summa. Om ett block ändras är det markerat för överföring till valvet. Tjänsten analyserar de identifierade blocken för att försöka ytterligare minimera mängden data som ska överföras. När du har utvärderat alla ändrade block överför Azure Backup ändringarna till valvet.<br/><br/> Det kan finnas en fördröjning mellan att ta ögonblicks bilden och kopiera den till valvet. Vid hög belastnings tider kan det ta upp till åtta timmar innan ögonblicks bilderna överförs till valvet. Säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för den dagliga säkerhets kopieringen.
 **Den första säkerhetskopieringen** | Även om den totala säkerhets kopierings tiden för stegvisa säkerhets kopieringar är mindre än 24 timmar, kan det hända att det inte är fallet för den första säkerhets kopieringen. Tiden som krävs för den första säkerhets kopieringen beror på storleken på data och när säkerhets kopieringen bearbetas.
 **Återställ kö** | Azure Backup bearbetar återställnings jobb från flera lagrings konton samtidigt och placerar återställnings begär anden i en kö.
 **Återställ kopia** | Under återställnings processen kopieras data från valvet till lagrings kontot.<br/><br/> Den totala återställnings tiden beror på i/O-åtgärder per sekund (IOPS) och data flödet för lagrings kontot.<br/><br/> Om du vill minska kopierings tiden väljer du ett lagrings konto som inte har lästs in med andra program skrivningar och läsningar.
@@ -103,7 +103,7 @@ Dessa vanliga scenarier kan påverka den totala säkerhets kopierings tiden:
 - **Disk omsättning:** Om skyddade diskar som genomgår en stegvis säkerhets kopiering har en daglig omsättning på över 200 GB, kan säkerhets kopieringen ta lång tid (mer än åtta timmar) att slutföra.
 - **Säkerhets kopierings versioner:** Den senaste versionen av backup (kallas snabb återställnings version) använder en mer optimerad process än jämförelse av kontroll summa för att identifiera ändringar. Men om du använder omedelbar återställning och har tagit bort en ögonblicks bild av säkerhets kopia växlar säkerhets kopian till jämförelse av kontroll summa. I det här fallet kommer säkerhets kopieringen att överskrida 24 timmar (eller misslyckande).
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Rekommenderade metoder
 
 När du konfigurerar VM-säkerhetskopieringar föreslår vi följande metoder:
 

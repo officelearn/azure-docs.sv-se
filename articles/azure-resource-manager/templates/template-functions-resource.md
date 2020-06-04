@@ -3,12 +3,12 @@ title: Mall funktioner – resurser
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta värden för resurser.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: a31aadb02ed3fff83ee6dc62a71aa32d0b716629
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 15b1610dfcacb37bce2e265b4e16f675e944b9db
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259447"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331516"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Resurs funktioner för ARM-mallar
 
@@ -34,12 +34,12 @@ Returnerar resurs-ID för en [tilläggs resurs](../management/extension-resource
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| resourceId |Yes |sträng |Resurs-ID för resursen som tilläggs resursen tillämpas på. |
-| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Yes |sträng |Resursens namn. |
-| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceId |Ja |sträng |Resurs-ID för resursen som tilläggs resursen tillämpas på. |
+| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Ja |sträng |Resursens namn. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -101,8 +101,8 @@ I följande exempel returneras resurs-ID för ett resurs grupp lås.
 }
 ```
 
-<a id="listkeys" />
-<a id="list" />
+<a id="listkeys"></a>
+<a id="list"></a>
 
 ## <a name="list"></a>lista
 
@@ -112,11 +112,11 @@ Syntaxen för den här funktionen varierar beroende på namnet på list åtgärd
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName eller resourceIdentifier |Yes |sträng |Unikt ID för resursen. |
-| apiVersion |Yes |sträng |API-version för resurs körnings tillstånd. Normalt i formatet **åååå-mm-dd**. |
-| functionValues |No |objekt | Ett objekt som har värden för funktionen. Ange bara det här objektet för funktioner som stöder mottagning av ett objekt med parameter värden, t. ex. **listAccountSas** på ett lagrings konto. Ett exempel på att skicka funktions värden visas i den här artikeln. |
+| resourceName eller resourceIdentifier |Ja |sträng |Unikt ID för resursen. |
+| apiVersion |Ja |sträng |API-version för resurs körnings tillstånd. Normalt i formatet **åååå-mm-dd**. |
+| functionValues |Inga |objekt | Ett objekt som har värden för funktionen. Ange bara det här objektet för funktioner som stöder mottagning av ett objekt med parameter värden, t. ex. **listAccountSas** på ett lagrings konto. Ett exempel på att skicka funktions värden visas i den här artikeln. |
 
 ### <a name="valid-uses"></a>Giltig användning
 
@@ -361,10 +361,10 @@ Returnerar information om en resurs leverantör och de resurs typer som stöds. 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Yes |sträng |Namn område för providern |
-| resourceType |No |sträng |Typ av resurs inom den angivna namn rymden. |
+| providerNamespace |Ja |sträng |Namn område för providern |
+| resourceType |Inga |sträng |Typ av resurs inom den angivna namn rymden. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -436,11 +436,11 @@ Returnerar ett objekt som representerar en resurs körnings tillstånd.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName eller resourceIdentifier |Yes |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen anger du endast resurs namnet som en parameter. Ange resurs-ID när du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt. |
-| apiVersion |No |sträng |API-version för den angivna resursen. **Den här parametern krävs när resursen inte är etablerad i samma mall.** Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
-| Fullständig |No |sträng |Värde som anger om det fullständiga resurs objekt ska returneras. Om du inte anger `'Full'` returneras bara resursens egenskaps objekt. Det fullständiga objektet innehåller värden, till exempel resurs-ID och plats. |
+| resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen anger du endast resurs namnet som en parameter. Ange resurs-ID när du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt. |
+| apiVersion |Inga |sträng |API-version för den angivna resursen. **Den här parametern krävs när resursen inte är etablerad i samma mall.** Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
+| Fullständig |Inga |sträng |Värde som anger om det fullständiga resurs objekt ska returneras. Om du inte anger `'Full'` returneras bara resursens egenskaps objekt. Det fullständiga objektet innehåller värden, till exempel resurs-ID och plats. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -759,13 +759,13 @@ Returnerar den unika identifieraren för en resurs. Du använder den här funkti
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |No |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
-| resourceGroupName |No |sträng |Standardvärdet är den aktuella resurs gruppen. Ange det här värdet när du behöver hämta en resurs i en annan resurs grupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
-| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Yes |sträng |Resursens namn. |
-| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
+| subscriptionId |Inga |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
+| resourceGroupName |Inga |sträng |Standardvärdet är den aktuella resurs gruppen. Ange det här värdet när du behöver hämta en resurs i en annan resurs grupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
+| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Ja |sträng |Resursens namn. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -955,12 +955,12 @@ Returnerar den unika identifieraren för en resurs som distribueras på prenumer
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |No |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
-| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Yes |sträng |Resursens namn. |
-| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
+| subscriptionId |Inga |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
+| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Ja |sträng |Resursens namn. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -1037,11 +1037,11 @@ Returnerar den unika identifieraren för en resurs som distribueras på klient n
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Yes |sträng |Resursens namn. |
-| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Ja |sträng |Resursens namn. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 

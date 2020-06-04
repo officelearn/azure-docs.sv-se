@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 405705bee3ada2d2c43e9a243724d823a5e28602
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4c0ae83a0ed3a7f9fc550af2d64d5fcd1f42c998
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188703"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324685"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Självstudie: Konfigurera SQL Data Sync mellan databaser i Azure SQL Database och SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ PowerShell-exempel på hur du konfigurerar SQL Data Sync finns i [så här synkr
 
 ## <a name="create-sync-group"></a>Skapa sync-grupp
 
-1. Gå till [Azure Portal](https://portal.azure.com) för att hitta din SQL-databas. Sök efter och välj **SQL-databaser**.
+1. Gå till [Azure Portal](https://portal.azure.com) för att hitta din databas i SQL Database. Sök efter och välj **SQL-databaser**.
 
     ![Sök efter SQL-databaser Microsoft Azure-portalen](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
 
@@ -75,9 +75,9 @@ I avsnittet **Hubbs databas** anger du befintliga autentiseringsuppgifter för d
 
 ![Steg 2 inställningar](./media/sql-data-sync-sql-server-configure/steptwo.png)
 
-### <a name="to-add-an-azure-sql-database"></a>Lägga till en Azure SQL Database
+### <a name="to-add-a-database-in-azure-sql-database"></a>Lägga till en databas i Azure SQL Database
 
-I avsnittet **medlems databas** lägger du till en Azure SQL Database till Sync-gruppen genom att välja **lägg till en Azure SQL Database**. Sidan **konfigurera Azure SQL Database** öppnas.
+I avsnittet **medlems databas** lägger du till en databas i Azure SQL Database till Sync-gruppen genom att välja **lägg till en Azure SQL Database**. Sidan **konfigurera Azure SQL Database** öppnas.
 
   ![Steg 2 – Konfigurera databas](./media/sql-data-sync-sql-server-configure/steptwo-configure.png)
 
@@ -88,7 +88,7 @@ I avsnittet **medlems databas** lägger du till en Azure SQL Database till Sync-
   | **Synkronisera medlems namn** | Ange ett namn för den nya synkroniserings medlemmen. Namnet skiljer sig från själva databas namnet. |
   | **Prenumeration** | Välj den associerade Azure-prenumerationen för fakturerings syfte. |
   | **Azure SQL-server** | Välj den befintliga servern. |
-  | **Azure SQL Database** | Välj den befintliga SQL-databasen. |
+  | **Azure SQL Database** | Välj den befintliga databasen i SQL Database. |
   | **Anvisningar för synkronisering** | Välj **dubbelriktad synkronisering**, **till hubben**eller **från hubben**. |
   | **Användar namn** och **lösen ord** | Ange de befintliga autentiseringsuppgifterna för servern där medlems databasen finns. Ange inte *nya* autentiseringsuppgifter i det här avsnittet. |
 
@@ -110,7 +110,7 @@ I avsnittet **medlems databas** lägger du till en SQL Server databas i Sync-gru
 
    Om du väljer **skapa en ny agent**gör du följande:
 
-   1. Ladda ned agenten för data synkronisering från den angivna länken och installera den på den dator där SQL Server finns. Du kan också hämta agenten direkt från [SQL Azure Data Sync-agenten](https://www.microsoft.com/download/details.aspx?id=27693).
+   1. Ladda ned agenten för data synkronisering från den angivna länken och installera den på den dator där SQL Server finns. Du kan också hämta agenten direkt från [Azure SQL Data Sync-agenten](https://www.microsoft.com/download/details.aspx?id=27693).
 
       > [!IMPORTANT]
       > Du måste öppna utgående TCP-port 1433 i brand väggen så att klient agenten kan kommunicera med servern.
@@ -167,11 +167,11 @@ När de nya medlemmarna i Sync-gruppen har skapats och distribuerats, är **Konf
 
 1. Välj **Spara**.
 
-1. Som standard synkroniseras inte databaser förrän schemalagda eller manuellt körs. Om du vill köra en manuell synkronisering går du till din SQL-databas i Azure Portal, väljer **synkronisera till andra databaser**och väljer Sync-gruppen. Sidan **datasynkronisering** öppnas. Välj **Synkronisera**.
+1. Som standard synkroniseras inte databaser förrän schemalagda eller manuellt körs. Om du vill köra en manuell synkronisering går du till databasen i SQL Database i Azure Portal väljer du **synkronisera till andra databaser**och väljer sedan Sync-gruppen. Sidan **datasynkronisering** öppnas. Välj **Synkronisera**.
 
     ![Manuell synkronisering](./media/sql-data-sync-sql-server-configure/datasync-sync.png)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor och svar
 
 **Hur ofta kan datasynkronisering synkronisera mina data?**
 

@@ -5,25 +5,26 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: b452362744d7fbf655ea043127a15f5173d04e4c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 675ee8b19a870221488ade2f578199f4f53599b9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562465"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338999"
 ---
-# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Felsöka problem med din Azure Data Box Gateway 
+# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Felsöka problem med din Azure Data Box Gateway
 
-Den här artikeln beskriver hur du felsöker problem i din Azure Data Box Gateway. I den här artikeln kan du se hur du:
+Den här artikeln beskriver hur du felsöker problem i din Azure Data Box Gateway.
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
+>
 > * Kör diagnostik
 > * Hämta supportpaket
 > * Använd loggar för att felsöka
-
 
 ## <a name="run-diagnostics"></a>Kör diagnostik
 

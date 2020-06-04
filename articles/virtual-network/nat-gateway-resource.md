@@ -7,6 +7,7 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
+ms.subservice: nat
 Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
 ms.devlang: na
 ms.topic: overview
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 6bb53539c105cda99c842b6b0fa236f0e18a85ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 640a1795c5f2223563f6615c97a3f450a8c6fc7d
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82182488"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84341141"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Utforma virtuella nätverk med NAT-gateway-resurser
 
@@ -236,7 +237,7 @@ Varje NAT-gateway har stöd för 64 000 anslutningar per tilldelad utgående IP-
 
 Med käll Network Address Translation (SNAT) skrivs källan för ett flöde om till härstamma från en annan IP-adress.  Resurser för NAT-gateway använder en variant av SNAT som vanligt vis kallas port adress översättning (PAT). PAT skriver om käll-och käll porten. Med SNAT finns det ingen fast relation mellan antalet privata adresser och deras översatta offentliga adresser.  
 
-### <a name="fundamentals"></a>Grunderna
+### <a name="fundamentals"></a>Grunder
 
 Nu ska vi titta på ett exempel på fyra flöden för att förklara det grundläggande konceptet.  NAT-gatewayen använder offentlig IP-adressresurs 65.52.0.2.
 
@@ -337,11 +338,11 @@ Vi vill veta hur vi kan förbättra tjänsten. Saknas en funktion? Gör ditt är
 * Självstudie för att verifiera NAT-gateway
   - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
   - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
-  - [Portalen](tutorial-create-validate-nat-gateway-portal.md)
+  - [Portal](tutorial-create-validate-nat-gateway-portal.md)
 * Snabb start för distribution av en NAT-gateway-resurs
   - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
   - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
-  - [Portalen](./quickstart-create-nat-gateway-portal.md)
+  - [Portal](./quickstart-create-nat-gateway-portal.md)
   - [Mall](./quickstart-create-nat-gateway-template.md)
 * Lär dig mer om resurs-API för NAT-gateway
   - [REST-API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)

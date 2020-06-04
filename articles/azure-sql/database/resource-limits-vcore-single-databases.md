@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/29/2020
-ms.openlocfilehash: 47879ab55a91904cdc41d9a486d77d55ed27f706
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a916d6b181acfc8b32b243ee14ed35aa8565a76e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235694"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343350"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Resurs gränser för enskilda databaser med vCore inköps modell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Den här artikeln innehåller detaljerade resurs gränser för enskilda database
 
 För inköps modell gränser för DTU för enskilda databaser på en server, se [Översikt över resurs gränser på en server](resource-limits-logical-server.md).
 
-Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enskild databas med hjälp av [Azure Portal](single-database-manage.md#azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), [Azure CLI](single-database-manage.md#azure-cli)eller [REST API](single-database-manage.md#rest-api).
+Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enskild databas med hjälp av [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), [Azure CLI](single-database-manage.md#the-azure-cli)eller [REST API](single-database-manage.md#rest-api).
 
 > [!IMPORTANT]
 > Information om skalning och överväganden finns i [skala en enskild databas](single-database-scale.md).
@@ -320,7 +320,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Beräknings generation|Fsv2-serien|
 |Virtuella kärnor|72|
 |Minne (GB)|136,2|
-|Columnstore-stöd|Yes|
+|Columnstore-stöd|Ja|
 |Minnes intern OLTP-lagring (GB)|Ej tillämpligt|
 |Maximal data storlek (GB)|4096|
 |Största logg storlek (GB)|1024|
@@ -459,7 +459,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Beräknings generation|M-serien|
 |Virtuella kärnor|128|
 |Minne (GB)|3767,1|
-|Columnstore-stöd|Yes|
+|Columnstore-stöd|Ja|
 |Minnes intern OLTP-lagring (GB)|1768|
 |Maximal data storlek (GB)|4096|
 |Största logg storlek (GB)|2048|
@@ -472,8 +472,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Maximalt antal samtidiga inloggningar|12 800|
 |Maximalt antal samtidiga sessioner|30000|
 |Antal repliker|4|
-|Multi-AZ|Yes|
-|Lässkalning|Yes|
+|Multi-AZ|Ja|
+|Lässkalning|Ja|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|
 
 \*Det maximala värdet för IO-storlekar mellan 8 KB och 64 KB. Faktisk IOPS är arbets belastnings beroende. Mer information finns i [data IO-styrning](resource-limits-logical-server.md#resource-governance).

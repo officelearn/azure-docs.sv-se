@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1ea47dbc743c980b0509a3da42da13d294bc64fc
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f8b31b97752a39724a4b1b7073c2d4282bc54763
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300129"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344857"
 ---
 # <a name="create-an-azure-files-file-share-with-a-domain-controller"></a>Skapa en Azure Files fil resurs med en domänkontrollant
 
@@ -43,7 +43,7 @@ Så här konfigurerar du ett lagrings konto:
     - Ange ett unikt namn för lagringskontot.
     - För **plats**rekommenderar vi att du väljer samma plats som Windows-adresspoolen för virtuella skriv bord.
     - För **Prestanda** väljer du **Standard**. (Beroende på dina IOPS-krav. Mer information finns i [lagrings alternativ för FSLogix profil behållare i Windows Virtual Desktop](store-fslogix-profile.md).)
-    - För **Kontotyp**väljer du **StorageV2**.
+    - För **Kontotyp**väljer du **StorageV2** eller **FileStorage**.
     - För **replikering**väljer du **lokalt REDUNDANT lagring (LRS)**.
 
 5. När du är klar väljer du **Granska + skapa**och väljer sedan **skapa**.
@@ -64,15 +64,15 @@ Så här skapar du en filresurs:
 
 4. Välj **Skapa**.
 
-## <a name="enable-azure-active-directory-authentication"></a>Aktivera Azure Active Directory autentisering
+## <a name="enable-active-directory-authentication"></a>Aktivera Active Directory autentisering
 
-Därefter måste du aktivera autentisering med Azure Active Directory (AD). Om du vill aktivera den här principen måste du följa det här avsnittets instruktioner på en dator som redan är domänansluten. Aktivera autentisering genom att följa dessa anvisningar på den virtuella datorn som kör domänkontrollanten:
+Därefter måste du aktivera autentisering med Active Directory (AD). Om du vill aktivera den här principen måste du följa det här avsnittets instruktioner på en dator som redan är domänansluten. Aktivera autentisering genom att följa dessa anvisningar på den virtuella datorn som kör domänkontrollanten:
 
 1. Remote Desktop Protocol till den domänanslutna virtuella datorn.
 
 2. Följ anvisningarna i [Aktivera Azure AD DS-autentisering för Azure-filresurser](../storage/files/storage-files-identity-ad-ds-enable.md) för att installera AzFilesHybrid-modulen och aktivera autentisering.
 
-3.  Öppna Azure Portal, öppna ditt lagrings konto, Välj **konfiguration**och bekräfta **Azure Active Directory (AD)** är inställt på **aktive rad**.
+3.  Öppna Azure Portal, öppna ditt lagrings konto, Välj **konfiguration**och bekräfta **Active Directory (AD)** är inställt på **aktive rad**.
 
      ![En skärm bild av konfigurations sidan med Azure Active Directory (AD) aktive rad.](media/active-directory-enabled.png)
 
@@ -178,7 +178,7 @@ Så här konfigurerar du NTFS-behörigheter:
      - Ersätt <monterade enhets brev> med bokstaven för den enhet som du använde för att mappa enheten.
      - Ersätt <användar-e-> med UPN för den användare eller Active Directory grupp som innehåller de användare som behöver åtkomst till resursen.
 
-     Till exempel:
+     Ett exempel:
 
      ```powershell
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)

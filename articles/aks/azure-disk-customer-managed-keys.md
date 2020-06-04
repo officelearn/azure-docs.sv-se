@@ -4,12 +4,12 @@ description: Ta med dina egna nycklar (BYOK) för att kryptera AKS OS-och data d
 services: container-service
 ms.topic: article
 ms.date: 01/12/2020
-ms.openlocfilehash: ac6c4d2c4b3f309e2098ff6a6513aab8a3f8ea5f
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: c16bdb613c60a8eef3efd1be8d7ab1a78e002f98
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141542"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84325107"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Ta med dina egna nycklar (BYOK) med Azure-diskar i Azure Kubernetes service (AKS)
 
@@ -110,9 +110,8 @@ az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset
 
 När nya noder läggs till i klustret som skapats ovan används den Kundhanterade nyckeln som angavs under skapandet för att kryptera operativ system disken.
 
-## <a name="encrypt-your-aks-cluster-data-disk"></a>Kryptera din AKS-kluster data disk
-
-Du kan också kryptera AKS data diskar med dina egna nycklar.
+## <a name="encrypt-your-aks-cluster-data-diskoptional"></a>Kryptera din AKS-kluster data disk (valfritt)
+Krypterings nyckeln för operativ system disken används för att kryptera data disken om nyckeln inte tillhandahålls för datadisk från v-1.17.2 och du kan också kryptera AKS-datadiskarna med dina andra nycklar.
 
 > [!IMPORTANT]
 > Se till att du har rätt AKS-autentiseringsuppgifter. Tjänstens huvud namn måste ha deltagar åtkomst till den resurs grupp där diskencryptionset har distribuerats. Annars får du ett fel meddelande som anger att tjänstens huvud namn inte har behörighet.
@@ -166,11 +165,9 @@ kubectl apply -f byok-azure-disk.yaml
 ## <a name="limitations"></a>Begränsningar
 
 * BYOK är för närvarande endast tillgängligt i GA och för hands versionen i vissa [Azure-regioner][supported-regions]
-* Disk kryptering för operativ system som stöds med Kubernetes version 1,17 och senare   
+* Data disk kryptering som stöds med Kubernetes version 1,17 och senare   
 * Endast tillgängligt i regioner där BYOK stöds
 * Kryptering med Kundhanterade nycklar för närvarande endast för nya AKS-kluster, går det inte att uppgradera befintliga kluster
-* AKS-kluster som använder Virtual Machine Scale Sets krävs, inget stöd för tillgänglighets uppsättningar för virtuella datorer
-
 
 ## <a name="next-steps"></a>Nästa steg
 

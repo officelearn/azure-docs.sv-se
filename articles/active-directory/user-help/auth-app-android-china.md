@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/20/2020
 ms.author: curtand
-ms.openlocfilehash: 6d6d32a7a340ef4b07138d5ec12c561e958cf739
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739506"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323033"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator för Android i det offentliga molnet i Kina
 
@@ -44,18 +44,18 @@ Om en användare tidigare har hanterat för att konfigurera telefonin loggning e
 
 ## <a name="multi-factor-authentication-workaround"></a>Multi-Factor Authentication-lösning
 
-I stället för att använda push-meddelanden för Multi-Factor Authentication kan användarna konfigurera sina MFA för att ta emot verifierings koder på deras enheter som de kan använda för att verifiera sin identitet. Dessa verifierings koder är giltiga i 30 sekunder och använder dem, administratörerna måste göra det möjligt för en klient att utföra verifiering med tidsbaserad eng ång slö sen ord (TOTP mobilapp) verifierings koder.
+I stället för att använda push-meddelanden för Multi-Factor Authentication kan användarna [Konfigurera sin Authenticator-app för att ta emot verifierings koder](multi-factor-authentication-setup-auth-app.md#set-up-the-microsoft-authenticator-app-to-use-verification-codes) på deras enheter som de kan använda för MFA för att verifiera sin identitet. Dessa verifierings koder är giltiga i 30 sekunder och använder dem, administratörerna måste göra det möjligt för en klient att utföra verifiering med tidsbaserad eng ång slö sen ord (TOTP mobilapp) verifierings koder.
 
 ## <a name="availability"></a>Tillgänglighet
 
 Microsoft Authenticator funktion | Tillgänglighet i Kina
 ------------------------------- | ---------------------
-MFA-registrering med push-meddelanden | Nej
-Redan befintligt MFA-konto verifierar identitet med push-meddelanden | Nej
+MFA-registrering med push-meddelanden | Inga
+Redan befintligt MFA-konto verifierar identitet med push-meddelanden | Inga
 Befintligt MFA-konto som utför manuell kontroll av meddelanden | Ja
 MFA-registrering/-autentisering med TOTP mobilapp/verifierings koder | Ja
-Registrering av telefonin loggning | Nej
-Befintlig telefonin loggning med push-meddelanden | Nej
+Registrering av telefonin loggning | Inga
+Befintlig telefonin loggning med push-meddelanden | Inga
 Befintlig telefonin loggning genom att utföra manuell kontroll av autentiseringsbegäranden | Ja
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,5 +1,5 @@
 ---
-title: Flytta virtuell dator till en annan region (Azure Site Recovery)
+title: Flytta en virtuell dator till en annan region (Azure Site Recovery)
 description: Lär dig hur du kan migrera din SQL Server virtuella dator från en region till en annan i Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,24 +15,24 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bca7237b38c1164d14ccf796e18980ba326090ac
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4211909a577adf7c16a99610654907ce58908fdf
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042752"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337775"
 ---
-# <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Flytta SQL Server VM till en annan region inom Azure med Azure Site Recovery Services
+# <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Flytta en SQL Server VM till en annan region inom Azure med Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Den här artikeln lär dig hur du använder Azure Site Recovery för att migrera din SQL Server virtuella dator från en region till en annan i Azure. 
 
 Att flytta en SQL Server VM till en annan region kräver att göra följande:
-1. [**Förbereder**](#prepare-to-move): bekräfta att både käll-SQL Server VM och mål regionen är tillräckligt förberedda för flytten. 
-1. [**Konfigurera**](#configure-azure-site-recovery-vault): om du flyttar din SQL Server VM krävs det att det är ett replikerat objekt i Azure Site Recovery valvet. Du måste lägga till din SQL Server VM i Azure Site Recovery-valvet. 
-1. [**Testning**](#test-move-process): migreringen av SQL Server VM kräver att den inte skickas över från käll regionen till den replikerade mål regionen. För att säkerställa att flyttnings processen lyckas måste du först testa att SQL Server VM kan redundansväxla till mål regionen. Detta hjälper dig att exponera eventuella problem och undvika dem när du utför den faktiska flytten. 
-1. [**Flytta**](#move-the-sql-server-vm): när redundanstestning har skickats och du vet att du är säker på att du vill migrera din SQL Server VM, kan du utföra flyttningen av den virtuella datorn till mål regionen. 
-1. [**Rensar**](#clean-up-source-resources): om du vill undvika fakturerings avgifter tar du bort SQL Server VM från valvet och eventuella onödiga resurser som finns kvar i resurs gruppen. 
+1. [Förbereder](#prepare-to-move): bekräfta att både käll-SQL Server VM och mål regionen är tillräckligt förberedda för flytten. 
+1. [Konfigurera](#configure-azure-site-recovery-vault): om du flyttar din SQL Server VM krävs det att det är ett replikerat objekt i Azure Site Recovery valvet. Du måste lägga till din SQL Server VM i Azure Site Recovery-valvet. 
+1. [Testning](#test-move-process): migreringen av SQL Server VM kräver att den inte skickas över från käll regionen till den replikerade mål regionen. För att säkerställa att flytt processen lyckas måste du först testa att SQL Server VM kan redundansväxla till mål regionen. Detta hjälper dig att exponera eventuella problem och undvika dem när du utför den faktiska flytten. 
+1. [Flytta](#move-the-sql-server-vm): när redundanstestning har skickats och du vet att du är säker på att du vill migrera din SQL Server VM, kan du utföra flyttningen av den virtuella datorn till mål regionen. 
+1. [Rensar](#clean-up-source-resources): om du vill undvika fakturerings avgifter tar du bort SQL Server VM från valvet och eventuella onödiga resurser som finns kvar i resurs gruppen. 
 
 ## <a name="verify-prerequisites"></a>Verifiera kraven 
 
@@ -51,7 +51,7 @@ Förbered både käll SQL Server VM och mål region för flytten.
 ### <a name="prepare-the-source-sql-server-vm"></a>Förbered käll SQL Server VM
 
 - Se till att alla de senaste rot certifikaten finns på SQL Server VM som du vill flytta. Om de senaste rot certifikaten inte finns där, kommer säkerhets begränsningar att förhindra att data kopieras till mål regionen. 
-- För virtuella Windows-datorer installerar du alla de senaste Windows-uppdateringarna på den virtuella datorn så att alla betrodda rot certifikat finns på datorn. I en frånkopplad miljö följer du standard processen för Windows UPdate och certifikat uppdatering för din organisation. 
+- För virtuella Windows-datorer installerar du alla de senaste Windows-uppdateringarna på den virtuella datorn så att alla betrodda rot certifikat finns på datorn. I en frånkopplad miljö följer du standard processen för Windows Update-och certifikat uppdatering för din organisation. 
 - För virtuella Linux-datorer följer du rikt linjerna från Linux-distributören för att få de senaste betrodda rot certifikaten och listan över återkallade certifikat på den virtuella datorn. 
 - Kontrol lera att du inte använder en autentiseringsprovider för att kontrol lera nätverks anslutningen för de virtuella datorer som du vill flytta. 
 - Om den virtuella datorn som du försöker flytta inte har åtkomst till Internet, eller om den använder en brand Väggs-proxy för att kontrol lera utgående åtkomst, kontrollerar du kraven. 
@@ -74,7 +74,7 @@ Förbered både käll SQL Server VM och mål region för flytten.
 
 Följande steg visar hur du använder Azure Site Recovery för att kopiera data till mål regionen. Skapa Recovery Services-valvet i någon annan region än käll regionen. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 1. Välj att **skapa en resurs** i det övre vänstra hörnet i navigerings fönstret. 
 1. Välj **den & hanterings verktyg** och välj sedan **säkerhets kopiering och Site Recovery**. 
 1. På fliken **grundläggande** , under **projekt information**, skapar du antingen en ny resurs grupp i mål regionen eller väljer en befintlig resurs grupp i mål regionen. 
@@ -127,12 +127,12 @@ Följande steg visar hur du flyttar SQL Server VM från käll regionen till mål
    ![Initiera redundans](./media/move-sql-vm-different-region/initiate-failover.png)
 
 1. Välj den **senaste programkonsekventa** återställnings punkten under **återställnings punkten**. 
-1. Markera kryss rutan bredvid **Stäng av datorn innan du påbörjar redundansväxlingen**. Site Recovery försöker stänga av den virtuella käll datorn innan redundansväxlingen utlöses. Redundansväxlingen fortsätter även om avstängningen Miss lyckas. 
+1. Markera kryss rutan bredvid Stäng av **datorn innan du påbörjar redundansväxlingen**. Site Recovery försöker stänga av den virtuella käll datorn innan redundansväxlingen utlöses. Redundansväxlingen fortsätter även om avstängningen Miss lyckas. 
 1. Välj **OK** för att starta redundansväxlingen.
 1. Du kan övervaka redundansväxlingen från sidan **Site Recovery jobb** som du visade när du övervakade redundansväxlingen i föregående avsnitt. 
 1. När jobbet har slutförts kontrollerar du att SQL Server VM visas i mål regionen som förväntat. 
 1. Navigera tillbaka till valvet, Välj **replikerade objekt**, välj SQL Server VM och välj sedan **genomför** för att slutföra flyttnings processen till mål regionen. Vänta tills commit-jobbet har slutförts. 
-1. Registrera SQL Server VM med resurs leverantören för SQL-VM för att möjliggöra hanterbarheten för **virtuella SQL-datorer** i Azure Portal och funktioner som är kopplade till resurs leverantören. Mer information finns i [registrera SQL Server VM med en SQL VM-resurs leverantör](sql-vm-resource-provider-register.md). 
+1. Registrera SQL Server VM med resurs leverantören för SQL-VM för att möjliggöra hanterbarheten för **virtuella SQL-datorer** i Azure Portal och funktioner som är kopplade till resurs leverantören. Mer information finns i [registrera SQL Server VM med providern för SQL VM-resurs](sql-vm-resource-provider-register.md). 
 
   > [!WARNING]
   > SQL Server data konsekvens garanteras endast med programkonsekventa ögonblicks bilder. Den **senaste bearbetade** ögonblicks bilden kan inte användas för SQL Server redundans som ögonblicks bilder av krascha ögonblicks bilder kan inte garantera SQL Server data konsekvens. 

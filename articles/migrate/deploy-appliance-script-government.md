@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat i Azure Government
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat i Azure Government
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: fd97161ffa075a6165ea963ef80bfabf8904576e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7a2e90b718c50cb86fdca9911e7535d434e7afa
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726740"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84332009"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Konfigurera en installation i Azure Government 
 
@@ -19,7 +19,7 @@ Följ den här artikeln för att distribuera en [Azure Migrate-apparat](deploy-a
 > Alternativet för att distribuera en installation med hjälp av en mall (för virtuella VMware-datorer och virtuella Hyper-V-datorer) stöds inte i Azure Government.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skriptet konfigurerar Azure Migrate-installationen på en befintlig fysisk eller virtuell dator.
 
@@ -33,8 +33,8 @@ Om du vill konfigurera en installation för VMware laddar du ned en zippad fil f
 
 ### <a name="download-the-script"></a>Hämta skriptet
 
-1.  I **mål** > **servrar** > för migrering**Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2.  I **identifiera datorer** > **är dina datorer virtualiserade?** väljer du **Ja, med VMware vSphere hypervisor**.
+1.  I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
+2.  I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med VMware vSphere hypervisor**.
 3.  Klicka på **Ladda ned**för att ladda ned den zippade filen. 
 
 
@@ -47,12 +47,12 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip MD5```
 
-3. Verifiera de genererade hash-värdena. För den senaste versionen av produkten:
+3. Kontrol lera den senaste versionen av produkten och hash-värdet:
 
-    **Integritetsalgoritm** | **Hash-värde**
-    --- | ---
-    MD5 | 6316bcc8bc932204295bfe33f4be3949
-          
+    **Integritetsalgoritm** | **Ladda ned** | **SHA256**
+    --- | --- | ---
+    VMware (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="run-the-script"></a>Kör skriptet
 
@@ -85,8 +85,8 @@ Om du vill konfigurera enheten för Hyper-V laddar du ned en zippad fil från Az
 
 ### <a name="download-the-script"></a>Hämta skriptet
 
-1.  I **mål** > **servrar** > för migrering**Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2.  I **identifiera datorer** > **är dina datorer virtualiserade?** väljer du **Ja, med Hyper-V**.
+1.  I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
+2.  I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med Hyper-V**.
 3.  Klicka på **Ladda ned**för att ladda ned den zippade filen. 
 
 
@@ -99,11 +99,12 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
 
-3. Verifiera de genererade hash-värdena. För den senaste versionen av produkten:
+3. Kontrol lera den senaste versionen av produkten och hash-värdet:
 
-    **Integritetsalgoritm** | **Hash-värde**
-    --- | ---
-    MD5 | 717f8b9185f565006b5aff0215ecadac
+    **Scenario** | **Ladda ned** | **SHA256**
+    --- | --- | ---
+    Hyper-V (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
           
 
 ### <a name="run-the-script"></a>Kör skriptet
@@ -137,8 +138,8 @@ Om du vill konfigurera en installation för VMware laddar du ned en zippad fil f
 
 ### <a name="download-the-script"></a>Hämta skriptet
 
-1.  I **mål** > **servrar** > för migrering**Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2.  I **identifiera datorer** > **är dina datorer virtualiserade?**, Välj **inte virtualiserad/övrigt**.
+1.  I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
+2.  I **identifiera datorer**  >  **är dina datorer virtualiserade?**, Välj **inte virtualiserad/övrigt**.
 3.  Klicka på **Ladda ned**för att ladda ned den zippade filen. 
 
 
@@ -151,11 +152,11 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5```
 
-3. Verifiera de genererade hash-värdena. För den senaste versionen av produkten:
+3. Kontrol lera den senaste versionen av produkten och hash-värdet:
 
-    **Integritetsalgoritm** | **Hash-värde**
-    --- | ---
-    MD5 | f81c155fc4a1409901caea948713913f
+    **Scenario** | **Hämta*** | **Hash-värde**
+    --- | --- | ---
+    Fysisk (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
           
 
 ### <a name="run-the-script"></a>Kör skriptet

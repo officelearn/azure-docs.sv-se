@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 06/02/2020
 ms.author: juliako
-ms.openlocfilehash: d78390aac51ea6fa70e1285b15dcc7ade74434ee
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 5bd4c9aa3fde9e3fa596ce5a18b892edfab60af5
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124592"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84325073"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
@@ -29,6 +29,20 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 * Kända problem
 * Felkorrigeringar
 * Föråldrade funktioner
+
+## <a name="may-2020"></a>Maj 2020
+
+### <a name="video-indexer-deployed-in-the-east-us"></a>Video Indexer distribuerat i USA, östra
+
+Nu kan du skapa ett Video Indexer betalt konto i regionen USA, östra.
+ 
+### <a name="video-indexer-url"></a>Video Indexer-URL
+
+Video Indexer regionala slut punkter var alla enhetliga för att endast starta med www. Inget åtgärds objekt krävs.
+
+Från och med nu når du www.videoindexer.ai om det är för att bädda in widgetar eller logga in på Video Indexer webb program.
+
+Även wus.videoindexer.ai skulle omdirigeras till www. Mer information finns i [bädda in video Indexer widgetar i dina appar](video-indexer-embed-widgets.md).
 
 ## <a name="april-2020"></a>April 2020
 

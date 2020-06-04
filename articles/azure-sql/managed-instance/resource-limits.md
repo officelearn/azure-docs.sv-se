@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: b72195c818e418cfca9c88fe666b27b277aa7bda
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8007966482ba5f046a918ddfc02025e06fadc8d6
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309109"
+ms.locfileid: "84324189"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Översikt över gränser för resurs gränser för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,6 +82,7 @@ SQL-hanterad instans har två tjänst nivåer: [generell användning](../databas
 | IO-latens för lagring (ungefärligt) | 5-10 MS | 1-2 MS |
 | Minnesintern OLTP | Stöds inte | Tillgängligt, [storleken beror på antalet vCore](#in-memory-oltp-available-space) |
 | Maximalt antal sessioner | 30000 | 30000 |
+| Maximalt antal samtidiga arbetare (begär Anden) | Gen4:210 * antal virtuella kärnor + 800<br>Gen5:105 * antal virtuella kärnor + 800 | Gen4:210 * vCore antal + 800<br>Gen5:105 * vCore antal + 800 |
 | [Skrivskyddade repliker](../database/read-scale-out.md) | 0 | 1 (ingår i priset) |
 | Beräknings isolering | Gen5<br/>– stöds för 80 virtuella kärnor<br/>– stöds inte för andra storlekar<br/><br/>Gen4 stöds inte på grund av inaktuellitet|Gen5<br/>– stöds för 60, 64, 80 virtuella kärnor<br/>– stöds inte för andra storlekar<br/><br/>Gen4 stöds inte på grund av inaktuellitet|
 
@@ -126,6 +127,9 @@ SQL-hanterad instans har för närvarande endast stöd för distribution av föl
 
 ## <a name="regional-resource-limitations"></a>Begränsningar för regionala resurser
 
+> [!Note]
+> Den senaste informationen om regions tillgänglighet för prenumerationer får du först kontrol lera [officiella COVID-19-blogg inlägg](https://aka.ms/sqlcapacity).
+
 Prenumerations typer som stöds kan innehålla ett begränsat antal resurser per region. SQL-hanterad instans har två standard gränser per Azure-region (som kan ökas på begäran genom att skapa en särskild [supportbegäran i Azure Portal](../database/quota-increase-request.md) beroende på typ av prenumerations typ:
 
 - **Under näts gräns**: det maximala antalet undernät där instanser av SQL-hanterad instans distribueras i en enda region.
@@ -149,6 +153,9 @@ Följande tabell visar de **regionala standard gränserna** för prenumerations 
 \*Vid planering av distributioner bör du tänka på att Affärskritisk (BC) tjänst nivån kräver fyra (4) gånger mer vCore-kapacitet än Generell användning (GP). Exempel: 1 GP-vCore = 1 vCore-enhet och 1 BC-vCore = 4 vCore-enheter. För att förenkla förbruknings analysen mot standard gränserna, sammanfatta vCore-enheterna över alla undernät i den region där SQL-hanterad instans distribueras och jämför resultaten med instans enhets gränserna för din prenumerations typ. Gränsen **för antalet vCore-enheter** gäller för varje prenumeration i en region. Det finns ingen gräns per enskilda undernät förutom att summan av alla virtuella kärnor som distribueras över flera undernät måste vara lägre eller lika med **Max antalet vCore-enheter**.
 
 \*\*Större gränser för undernät och vCore är tillgängliga i följande regioner: östra Australien, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2.
+
+> [!IMPORTANT]
+> Om gränsen för vCore och under nätet är 0, innebär det att den regionala gränsen för din prenumerations typ inte har angetts. Du kan också använda kvoten för att öka begäran om att få åtkomst till prenumerationen i en bestämd region enligt samma procedur – som anger nödvändiga vCore-och under näts värden.
 
 ## <a name="request-a-quota-increase"></a>Begär en kvot ökning
 

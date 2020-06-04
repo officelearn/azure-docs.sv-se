@@ -13,15 +13,15 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 49b669627507af0e3e7386f31e344082cc4686df
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: d7ce3a19ddb5f14e53a8821cf070500f8e3eb061
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219312"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338449"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrera flera virtuella SQL-datorer i Azure med providern för SQL VM-resurs
-[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)][!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Den här artikeln beskriver hur du registrerar SQL Server virtuella datorer i bulk i Azure med den virtuella SQL-adressresursen med hjälp av `Register-SqlVMs` PowerShell-cmdleten.
 
@@ -35,7 +35,7 @@ Mer information om resurs leverantören finns i [SQL VM Resource Provider](sql-v
 
 Du behöver följande för att kunna registrera SQL Server VM med resurs leverantören: 
 
-- En [Azure-prenumeration](https://azure.microsoft.com/free/) som har [registrerats med resurs leverantören](sql-vm-resource-provider-register.md#register-subscription-with-rp) och innehåller oregistrerade SQL Server virtuella datorer. 
+- En [Azure-prenumeration](https://azure.microsoft.com/free/) som har [registrerats med resurs leverantören](sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) och innehåller oregistrerade SQL Server virtuella datorer. 
 - De klientautentiseringsuppgifter som används för att registrera de virtuella datorerna finns i någon av följande RBAC-roller: **virtuell dator**, **deltagare**eller **ägare**. 
 - Den senaste versionen av [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Den senaste versionen av [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
@@ -78,7 +78,7 @@ Register-SqlVMs -SubscriptionList SubscriptionId1,SubscriptionId2
 Exempel på utdata: 
 
 ```
-Number of Subscriptions registration failed for 
+Number of subscriptions registration failed for 
 because you do not have access or credentials are wrong: 1
 Total VMs Found: 10
 VMs Already registered: 1
@@ -155,7 +155,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="register-specific-vms-in-single-resource-group"></a>Registrera vissa virtuella datorer i en enda resurs grupp
+## <a name="register-specific-vms-in-a-single-resource-group"></a>Registrera vissa virtuella datorer i en enda resurs grupp
 
 Använd följande cmdlet för att registrera vissa SQL Server virtuella datorer i en enda resurs grupp:
 

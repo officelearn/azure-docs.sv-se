@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 5/13/2020
-ms.openlocfilehash: fd552e3236732fd37b2fc5d23dd234f0a87f0f27
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3d3eee7dc57a2438ccf726851025c700824a5e3a
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049941"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322081"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Server lös är en beräknings nivå för enskilda Azure SQL-databaser som autom
 
 ## <a name="serverless-compute-tier"></a>Serverlös beräkningsnivå
 
-Server lösa beräknings nivåer för enskilda Azure SQL-databaser är parameterstyrda av ett intervall för beräkning av automatisk skalning och en fördröjning för automatisk paus.  Konfigurationen av dessa parametrar formar databasens prestanda upplevelse och beräknings kostnader.
+Server lösa beräknings nivåer för enskilda databaser i Azure SQL Database är parameterstyrda av ett intervall för beräkning av automatisk skalning och en fördröjning för automatisk paus. Konfigurationen av dessa parametrar formar databasens prestanda upplevelse och beräknings kostnader.
 
 ![utan server fakturering](./media/serverless-tier-overview/serverless-billing.png)
 
@@ -183,11 +183,11 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
    |Pausa fördröjning|Minst: 60 minuter (1 timme)<br>Max: 10080 minuter (7 dagar)<br>Steg: 10 minuter<br>Inaktivera autopausen:-1|60 minuter|
 
 
-### <a name="create-new-database-in-serverless-compute-tier"></a>Skapa ny databas i Server lös beräknings nivå 
+### <a name="create-a-new-database-in-the-serverless-compute-tier"></a>Skapa en ny databas i Server lös beräknings nivån
 
 I följande exempel skapas en ny databas i Server lös beräknings nivån.
 
-#### <a name="use-azure-portal"></a>Använda Azure-portalen
+#### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
 Se [snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal](single-database-create-quickstart.md).
 
@@ -199,7 +199,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
-#### <a name="use-azure-cli"></a>Använda Azure CLI
+#### <a name="use-the-azure-cli"></a>Använda Azure CLI
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
@@ -218,7 +218,7 @@ CREATE DATABASE testdb
 
 Mer information finns i [skapa databas](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
 
-### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Flytta databasen från etablerade beräknings nivåer till Server lös beräknings nivå
+### <a name="move-a-database-from-the-provisioned-compute-tier-into-the-serverless-compute-tier"></a>Flytta en databas från den allokerade beräknings nivån till Server lös beräknings nivån
 
 Följande exempel flyttar en databas från den allokerade beräknings nivån till Server lös beräknings nivån.
 
@@ -231,7 +231,7 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-#### <a name="use-azure-cli"></a>Använda Azure CLI
+#### <a name="use-the-azure-cli"></a>Använda Azure CLI
 
 ```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
@@ -250,7 +250,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 Mer information finns i [Alter Database](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
-### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Flytta databasen från Server lös beräknings nivån till en allokerad beräknings nivå
+### <a name="move-a-database-from-the-serverless-compute-tier-into-the-provisioned-compute-tier"></a>Flytta en databas från Server lös beräknings nivån till den allokerade beräknings nivån
 
 En server lös databas kan flyttas till en allokerad beräknings nivå på samma sätt som en allokerad beräknings databas flyttas till en server lös beräknings nivå.
 
@@ -260,7 +260,7 @@ En server lös databas kan flyttas till en allokerad beräknings nivå på samma
 
 Att ändra den maximala eller lägsta virtuella kärnor och den autopausade fördröjningen utförs med hjälp av kommandot [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) i PowerShell med `MaxVcore` `MinVcore` `AutoPauseDelayInMinutes` argumenten, och.
 
-### <a name="use-azure-cli"></a>Använda Azure CLI
+### <a name="use-the-azure-cli"></a>Använda Azure CLI
 
 Att ändra den maximala eller lägsta virtuella kärnor och den autopausade fördröjningen utförs med kommandot [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) i Azure CLI med `capacity` `min-capacity` `auto-pause-delay` argumenten, och.
 
@@ -307,7 +307,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername 
   | Select -ExpandProperty "Status"
 ```
 
-#### <a name="use-azure-cli"></a>Använda Azure CLI
+#### <a name="use-the-azure-cli"></a>Använda Azure CLI
 
 ```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json

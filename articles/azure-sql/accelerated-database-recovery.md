@@ -1,7 +1,7 @@
 ---
 title: Accelererad återställning av databaser
 titleSuffix: Azure SQL
-description: Accelererad databas återställning ger snabb och konsekvent återställning av databaser, återställning av momentan transaktion och aggressiv logg trunkering för databaser i Azure SQL Service-portföljen.
+description: Accelererad databas återställning ger snabb och konsekvent databas återställning, återföring av momentan transaktion och aggressiv logg trunkering för databaser i Azure SQL-portföljen.
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=4
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 05/19/2020
-ms.openlocfilehash: c0243ecea778a02238b205f1659d796165f7b316
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a6d95bbcb0873086a799dcf216beab4a6b0d33de
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044362"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344704"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Accelererad databas återställning i Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-**Accelererad databas återställning (ADR)** är en funktion för SQL Database-motor som avsevärt förbättrar databasens tillgänglighet, särskilt i närvaro av tids krävande transaktioner genom att omkonstruera återställnings processen för SQL Database Engine. ADR är för närvarande tillgänglig för Azure SQL Database, Azure SQL-hanterad instans, SQL Server på virtuella Azure-datorer och databaser i Azure Synapse (för närvarande i för hands version). De främsta fördelarna med ADR är:
+**Accelererad databas återställning (ADR)** är en SQL Server databas motor funktion som avsevärt förbättrar databasens tillgänglighet, särskilt i närvaro av tids krävande transaktioner genom SQL Server att omkonstruera återställnings processen för databas motorn. ADR är för närvarande tillgänglig för Azure SQL Database, Azure SQL-hanterad instans, SQL Server på Azure VM och databaser i Azure Synapse Analytics (för närvarande i för hands version). De främsta fördelarna med ADR är:
 
 - **Snabb och konsekvent databas återställning**
 
@@ -53,15 +53,15 @@ Databas återställning följer [Aries](https://people.eecs.berkeley.edu/~brewer
 
   För varje transaktion som var aktiv vid tidpunkten för kraschen, passerar loggen bakåt, ångrar de åtgärder som den här transaktionen utförde.
 
-Baserat på den här designen är den tid det tar för SQL Database-motorn att återställas från en oväntad omstart (ungefär) som är proportionell mot storleken på den längsta aktiva transaktionen i systemet vid tidpunkten för kraschen. Återställning kräver en återställning av alla ofullständiga transaktioner. Den tids period som krävs är proportionell mot det arbete som transaktionen utförts och den tid som den har varit aktiv. Därför kan återställnings processen ta lång tid i närvaron av långvariga transaktioner (till exempel stora Mass infognings åtgärder eller index Bygg åtgärder mot en stor tabell).
+Baserat på den här designen är den tid det tar för SQL Server databas motorn att återställas från en oväntad omstart (ungefär) som är proportionell mot storleken på den längsta aktiva transaktionen i systemet vid tidpunkten för kraschen. Återställning kräver en återställning av alla ofullständiga transaktioner. Den tids period som krävs är proportionell mot det arbete som transaktionen utförts och den tid som den har varit aktiv. Därför kan återställnings processen ta lång tid i närvaron av långvariga transaktioner (till exempel stora Mass infognings åtgärder eller index Bygg åtgärder mot en stor tabell).
 
 Även om du avbryter/återställer en stor transaktion som baseras på den här designen kan det ta lång tid att använda samma åtgärd för att ångra återställning enligt beskrivningen ovan.
 
-Dessutom kan SQL Database-motorn inte trunkera transaktions loggen när det finns tids krävande transaktioner eftersom deras motsvarande logg poster behövs för återställnings-och återställnings processerna. Som ett resultat av den här designen av SQL Database-motorn, har vissa kunder använt för att möta problemet att storleken på transaktions loggen växer mycket stor och använder enorma mängder disk utrymme.
+Dessutom kan SQL Server Database-motorn inte trunkera transaktions loggen när det finns tids krävande transaktioner eftersom deras motsvarande logg poster behövs för återställnings-och återställnings processerna. Till följd av den här designen av SQL Server-databasmotorn har vissa kunder haft problem att storleken på transaktions loggen växer mycket stor och använder enorma mängder disk utrymme.
 
 ## <a name="the-accelerated-database-recovery-process"></a>Återställnings processen för påskyndad databas
 
-I ADR åtgärdas ovanstående problem genom att processen för återställning av SQL Database-motorn helt omkonstrueras för att:
+I ADR åtgärdas ovanstående problem genom att återställnings processen för SQL Server databas motorn helt omkonstrueras för att:
 
 - Gör det konstant tid/omedelbar genom att undvika att behöva söka igenom loggen från/till början av den äldsta aktiva transaktionen. Med hjälp av ADR bearbetas transaktions loggen bara från den senaste lyckade kontroll punkten (eller äldsta Felaktiga sid nummer för Page log). Därför påverkas inte återställnings tiden av tids krävande transaktioner.
 - Minimera det begärda transaktions logg utrymmet eftersom det inte längre behövs att bearbeta loggen för hela transaktionen. Därför kan transaktions loggen trunkeras aggressivt när kontroll punkter och säkerhets kopieringar sker.
@@ -97,7 +97,7 @@ De fyra viktiga komponenterna i ADR är:
 
 - **Beständiga versions lager (PVS)**
 
-  Det sparade versions lagret är en ny mekanism för SQL Database Engine för att bevara de rad versioner som genererats i själva databasen i stället för i det traditionella `tempdb` versions lagret. PVS möjliggör resurs isolering samt bättre tillgänglighet för läsbara sekundär servrar.
+  Det sparade versions lagret är en ny mekanism för SQL Server-databasmotor för att bevara de rad versioner som genererats i själva databasen i stället för i det traditionella `tempdb` versions lagret. PVS möjliggör resurs isolering samt bättre tillgänglighet för läsbara sekundär servrar.
 
 - **Logisk återställning**
 

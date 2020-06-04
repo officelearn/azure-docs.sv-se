@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 0b0ece8adf58d894d9ccafbbc97dea9fba2b3c5d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 01e1c63a4cfea367a0f721ac33986abade8b5b35
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046798"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343837"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Använda batching för att förbättra Azure SQL Database och prestanda för Azure SQL-hanterad instans program
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Batching-åtgärder för att Azure SQL Database och Azure SQL-hanterad instans förbättrar avsevärt prestanda och skalbarhet för dina program. För att förstå fördelarna täcker den första delen av den här artikeln några exempel test resultat som jämför sekventiella och batch-begäranden till en databas i Azure SQL Database eller Azure SQL-hanterad instans. Resten av artikeln visar tekniker, scenarier och överväganden som hjälper dig att använda batching i dina Azure-program.
 
-## <a name="why-is-batching-important-for-azure-sql-database-and-azure-sql-managed-instance"></a>Varför är batching viktigt för Azure SQL Database och Azure SQL-hanterad instans
+## <a name="why-is-batching-important-for-azure-sql-database-and-azure-sql-managed-instance"></a>Varför är batching viktig för Azure SQL Database och Azure SQL-hanterad instans?
 
 Batching-anrop till en fjärrtjänst är en välkänd strategi för att öka prestanda och skalbarhet. Det finns fasta bearbetnings kostnader för alla interaktioner med en fjärrtjänst, till exempel serialisering, nätverks överföring och deserialisering. Genom att paketera flera separata transaktioner i en enda batch minimeras dessa kostnader.
 
@@ -331,7 +331,7 @@ I våra tester var det vanligt vis ingen fördel med att dela upp stora partier 
 > [!NOTE]
 > Resultaten är inte benchmarks. Se [information om tidtagnings resultat i den här artikeln](#note-about-timing-results-in-this-article).
 
-Du ser att den bästa prestandan för 1000 rader är att skicka alla samtidigt. I andra tester (visas inte här) fanns det en liten prestanda vinst för att bryta en 10000-rad batch i två batchar med 5000. Men tabell schemat för de här testerna är relativt enkelt, så du bör utföra tester på dina speciella data-och batchstorleken för att verifiera dessa resultat.
+Du ser att den bästa prestandan för 1000 rader är att skicka alla samtidigt. I andra tester (visas inte här) fanns det en liten prestanda vinst för att bryta en 10000-rad-batch i två batchar med 5000. Men tabell schemat för de här testerna är relativt enkelt, så du bör utföra tester på dina speciella data-och batchstorleken för att verifiera dessa resultat.
 
 En annan faktor är att om den totala batchen blir för stor kan Azure SQL Database eller Azure SQL-hanterad instans begränsa och neka för att genomföra batchen. Testa ditt speciella scenario för att avgöra om det finns en idealisk batchstorlek för bästa möjliga resultat. Gör batchstorleken konfigurerbar vid körning för att möjliggöra snabba justeringar baserat på prestanda eller fel.
 

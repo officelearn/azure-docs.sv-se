@@ -4,19 +4,19 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av virtuella
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: ea6290eae187ed4ead39f7307a84a54a23c19c29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22fd5bc87494eb2fc162828363e7ca70afe1bbf0
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81641639"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322173"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbered för utvärdering och migrering av virtuella Hyper-V-datorer till Azure
 
 Den här artikeln beskriver hur du förbereder för utvärdering av lokala virtuella Hyper-V-datorer med [Azure Migrate: Server utvärdering](migrate-services-overview.md#azure-migrate-server-assessment-tool)och migrering av virtuella Hyper-v-datorer med [Azure Migrate: Server-migrering](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
-Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella Hyper-V-datorer till Azure. I den här guiden får du lära dig att:
+Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella Hyper-V-datorer till Azure. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Förbered Azure. Konfigurera behörigheter för ditt Azure-konto och resurser för att arbeta med Azure Migrate.
@@ -29,7 +29,7 @@ Den här självstudien är den första i en serie som visar hur du kan utvärder
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktionen för Hyper-V-utvärdering och migrering.
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
 ## <a name="prepare-azure"></a>Förbereda Azure
@@ -73,7 +73,7 @@ Du kan tilldela behörigheter för Azure Migrate för att skapa Azure AD-appen u
 
 Klient organisationen/den globala administratören kan bevilja behörigheter enligt följande:
 
-1. I Azure AD bör klient organisationen/den globala administratören navigera till **Azure Active Directory** > **användares** > **användar inställningar**.
+1. I Azure AD bör klient organisationen/den globala administratören navigera till **Azure Active Directory**  >  **användares**  >  **användar inställningar**.
 2. Administratören bör ange **Appregistreringar** till **Ja**.
 
     ![Azure AD-behörigheter](./media/tutorial-prepare-hyper-v/aad.png)
@@ -126,11 +126,10 @@ Kör skriptet på följande sätt:
     ```
     Exempel på användning:
     ```
-    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
-    SHA256
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
 
-4.    När du har verifierat skript integriteten kör du skriptet på varje Hyper-V-värd med följande PowerShell-kommando:
+4. När du har verifierat skript integriteten kör du skriptet på varje Hyper-V-värd med följande PowerShell-kommando:
     ```
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```

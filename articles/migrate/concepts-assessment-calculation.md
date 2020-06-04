@@ -3,12 +3,12 @@ title: Utvärderingar i Azure Migrate Server-utvärdering
 description: Lär dig mer om utvärderingar i Azure Migrate Server bedömning
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: bfae3f23dd16b0d1a09b49f56efbca88a7bea08f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: ee6b13edd12109b7f748abeaf13a5e8f3ded2a8e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171012"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343956"
 ---
 # <a name="assessments-in-azure-migrate-server-assessment"></a>Utvärderingar i Azure Migrate: Server utvärdering
 
@@ -110,7 +110,7 @@ Egenskap | Information
 **Målplats** | Den plats som du vill migrera till. Server utvärderingen stöder för närvarande följande Azure-regioner:<br/><br/> Östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala Indien, centrala USA, Kina, östra, Kina, norra, Asien, östra, östra USA, östra USA 2, centrala Tyskland, Tyskland nordöstra, Östra Japan, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Storbritannien, västra US gov, Arizona , Västra centrala USA, Västeuropa, västra Indien, västra USA och västra USA 2.
 **Mål lagrings disk (i storlek)** | Den typ av disk som ska användas för lagring i Azure. <br/><br/> Ange mål lagrings disken som Premium-hanterad, Standard SSD-hanterad eller Standard HDD-hanterad.
 **Mål lagrings disk (prestanda baserad storlek)** | Anger typen av mål lagrings disk som automatisk, Premium-hanterad, Standard HDD-hanterad eller Standard SSD-hanterad.<br/><br/> **Automatisk**: disk rekommendationen baseras på diskens prestanda data, vilket innebär IOPS och data flöde.<br/><br/>**Premium eller standard**: utvärderingen rekommenderar en disk-SKU i den valda lagrings typen.<br/><br/> Överväg att använda Premium-hanterade diskar om du vill ha ett service nivå avtal (SLA) för en enskild instans på en virtuell dator med 99,9%. Den här användningen säkerställer att alla diskar i utvärderingen rekommenderas som Premium-hanterade diskar.<br/><br/> Azure Migrate stöder endast hanterade diskar för migrerings bedömning.
-**Azure Reserved VM Instances** | Anger [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) så att kostnads uppskattningar i utvärderingen tar dem i beaktande.<br/><br/> Om reserverade instanser är markerade lämnar du standardinställningarna i rabatt (%) och egenskaper för VM-drift tid.<br/><br/> Azure Migrate stöder för närvarande endast Azure Reserved VM Instances för erbjudanden med betala per användning.
+**Azure Reserved VM Instances** | Anger [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) så att kostnads uppskattningar i utvärderingen tar dem i beaktande.<br/><br/> När du väljer reserverade instanser, rabatten (%) och egenskaperna för den virtuella datorns drift tid är inte tillämpliga.<br/><br/> Azure Migrate stöder för närvarande endast Azure Reserved VM Instances för erbjudanden med betala per användning.
 **Storleks villkor** | Används för att hitta rätt storlek den virtuella Azure-datorn.<br/><br/> Använd som-är storleks ändring eller prestanda-baserad storlek.
 **Prestandahistorik** | Används med prestanda-baserad storlek. Prestanda historik anger den varaktighet som används när prestanda data utvärderas.
 **Percentilutnyttjande** | Används med prestanda-baserad storlek. Percentils användning anger percentilvärdet för det prestanda exempel som används för att ha behörighet.
@@ -154,7 +154,8 @@ Egenskap | Information | Status för Azure-beredskap
 Tillsammans med att granska VM-egenskaperna tittar Server utvärderingen på gäst operativ systemet på en dator för att avgöra om den kan köras på Azure.
 
 > [!NOTE]
-> För att hantera gäst analys för virtuella VMware-datorer använder Server utvärderingen det operativ system som har angetts för den virtuella datorn i vCenter Server. För virtuella Linux-datorer som körs på VMware identifierar Server utvärderingen inte kernel-versionen av gäst operativ systemet.
+> För att hantera gäst analys för virtuella VMware-datorer använder Server utvärderingen det operativ system som har angetts för den virtuella datorn i vCenter Server. VCenter Server tillhandahåller dock inte kernel-versionen för operativ system för virtuella Linux-datorer. För att identifiera versionen måste du konfigurera [program identifiering](https://docs.microsoft.com/azure/migrate/how-to-discover-applications). Sedan identifierar installations programmet versions information med de autentiseringsuppgifter som du anger när du konfigurerar app-Discovery.
+
 
 Server utvärderingen använder följande logik för att identifiera Azure-beredskap baserat på operativ systemet:
 
@@ -199,7 +200,8 @@ Om du använder prestandabaserade storleks ändringar gör Server utvärderingen
 
 Vid lagrings storlek försöker Azure Migrate mappa varje disk som är ansluten till datorn till en Azure-disk. Storleks ändringar fungerar på följande sätt:
 
-1. Server utvärderingen lägger till Läs-och skriv-IOPS för en disk för att få total IOPS som krävs. På samma sätt lägger den till Skriv-och Skriv data flödes värden för att hämta det totala data flödet för varje disk.
+1. Server utvärderingen lägger till Läs-och skriv-IOPS för en disk för att få total IOPS som krävs. På samma sätt lägger den till Skriv-och Skriv data flödes värden för att hämta det totala data flödet för varje disk. Om det gäller importbaserade utvärderingar kan du välja att tillhandahålla total IOPS, totalt genomflöde och totalt antal. av diskar i den importerade filen utan att ange enskilda disk inställningar. Om du gör detta hoppas den enskilda disk storleken över och de angivna data används direkt för att beräkna storlek och välja en lämplig VM-SKU.
+
 1. Om du har angett lagrings typen som automatisk, baseras den valda typen på effektiva IOPS-och data flödes värden. Server utvärderingen avgör om disken ska mappas till en Standard HDD-, Standard SSD-eller Premium-disk i Azure. Om lagrings typen har angetts till någon av dessa disk typer försöker server utvärderingen hitta en disk-SKU i den valda lagrings typen.
 1. Diskarna är markerade enligt följande:
     - Om Server utvärderingen inte kan hitta en disk med nödvändiga IOPS och data flöde markerar den datorn som olämplig för Azure.

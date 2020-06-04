@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: c9b69b751067ba36daad614b84367aee882d17b1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051950"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324408"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL-storskalig prestanda vid fel sökning av diagnostik
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Varje Azure SQL Database Service nivå har gränser för logg skapande hastighet
 
 Följande vänte typer (i [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) beskriver orsakerna till varför logg frekvensen kan begränsas på den primära beräknings repliken:
 
-|Wait-typ    |Beskrivning                         |
+|Wait-typ    |Description                         |
 |-------------          |------------------------------------|
 |RBIO_RG_STORAGE        | Inträffar när en storskalig databas för att skapa en primär Compute-datornod begränsas på grund av en fördröjd logg användning på sidans Server (er).         |
 |RBIO_RG_DESTAGE        | Inträffar när en hastighet för databas skapande av en storskalig databas begränsas på grund av en fördröjd logg användning av den långsiktiga logg lagringen.         |
@@ -41,7 +41,7 @@ Beräknings replikerna cachelagrar inte en fullständig kopia av databasen lokal
 
 När en läsning utfärdas för en beräknings replik, och om data inte finns i bufferten eller lokalt RBPEX cache, utfärdas ett getPage-funktions anrop (pageId, LSN) och sidan hämtas från motsvarande sid Server. Läsningar från sid servrar är fjärrläsningar och är därför långsammare än att läsa från den lokala RBPEX. Vid fel sökning av IO-relaterade prestanda problem måste vi kunna se hur många IOs som gjorts via relativt långsamma fjärrside Server-läsningar.
 
-Flera DMV: er och utökade händelser har kolumner och fält som anger antalet fjärrläsningar från en sid Server, som kan jämföras med det totala antalet läsningar. Query Store fångar även fjärrläsningar som en del av statistik för frågans körnings tid.
+Flera dynamiska vyer (DMV: er) och utökade händelser har kolumner och fält som anger antalet fjärrläsningar från en sid Server, som kan jämföras med det totala antalet läsningar. Query Store fångar även fjärrläsningar som en del av statistik för frågans körnings tid.
 
 - Kolumner för att rapportera sid Server läsningar är tillgängliga i DMV: er och katalogvyer, till exempel:
 
@@ -79,10 +79,10 @@ Förhållandet mellan läsningar som gjorts på RBPEX till sammanställda läsni
 
 ### <a name="data-reads"></a>Data läsningar
 
-- När läsningar utfärdas av SQL Database-motorn på en beräknings replik, kan de hanteras antingen av den lokala RBPEX-cachen eller via fjärrservrar, eller genom en kombination av de två om du läser flera sidor.
+- När läsningar utfärdas av SQL Server-databasmotorn på en beräknings replik, kan de hanteras antingen av den lokala RBPEX-cachen eller via fjärrservrar, eller genom en kombination av de två om du läser flera sidor.
 - När beräknings repliken läser vissa sidor från en viss fil, till exempel file_id 1, om dessa data bara finns i den lokala RBPEX-cachen, är all i/o för detta Läs konto mot file_id 0 (RBPEX). Om en del av dessa data finns i den lokala RBPEX-cachen och en del finns på en fjärrserver, redovisas i/o till file_id 0 för den del som hanteras från RBPEX och den del som hanteras från fjärrservern redovisas mot file_id 1.
 - Om en beräknings replik begär en sida vid en viss [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) från en sida Server, och om sidan Server inte har fångats upp till den begärda LSN, väntar läsningen på beräknings repliken tills sidan servern har hämtats innan sidan returneras till beräknings repliken. För all läsning från en sid server på Compute-repliken visas PAGEIOLATCH_ * wait-typ om den väntar på detta i/o. I den här vänte tiden inkluderar den här vänte tiden både tiden för att fånga upp den begärda sidan på sidan till den LSN som krävs, och hur lång tid det tar att överföra sidan från sidan server till beräknings repliken.
-- Stora läsningar som till exempel Read-Ahead görs ofta med ["punkt-samla in" läsningar](/sql/relational-databases/reading-pages/). Detta tillåter läsning av upp till 4 MB sidor i taget, och betraktas som en enskild läsning i SQL Database-motorn. Men när data läses i RBPEX redovisas dessa läsningar som flera enskilda 8 KB-läsningar, eftersom buffert-och RBPEX alltid använder 8 KB-sidor. Resultatet är att antalet Läs-IOs som ses mot RBPEX kan vara större än det faktiska antalet IOs som utförs av motorn.
+- Stora läsningar som till exempel Read-Ahead görs ofta med ["punkt-samla in" läsningar](/sql/relational-databases/reading-pages/). Detta tillåter läsning av upp till 4 MB sidor i taget, och betraktas som en enda läsning i SQL Server databas motorn. Men när data läses i RBPEX redovisas dessa läsningar som flera enskilda 8 KB-läsningar, eftersom buffert-och RBPEX alltid använder 8 KB-sidor. Resultatet är att antalet Läs-IOs som ses mot RBPEX kan vara större än det faktiska antalet IOs som utförs av motorn.
 
 ### <a name="data-writes"></a>Data skrivningar
 
@@ -97,9 +97,9 @@ Förhållandet mellan läsningar som gjorts på RBPEX till sammanställda läsni
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>Data-i/o i statistik över resursutnyttjande
 
-I en icke-storskalig databas rapporteras kombinerade Läs-och skriv-IOPS mot datafiler, i förhållande till antalet [resurs styrnings](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) data IOPS, i [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vyer i `avg_data_io_percent` kolumnen. Samma värde rapporteras i portalen som _data IO-procent_.
+I en icke-storskalig databas rapporteras kombinerade Läs-och skriv-IOPS mot datafiler, i förhållande till antalet [resurs styrnings](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) data IOPS, i [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vyer i `avg_data_io_percent` kolumnen. Samma värde rapporteras i procent av Azure Portal som _data-IO_.
 
-I en storskalig databas rapporterar den här kolumnen om data-IOPS-användning i förhållande till gränsen för lokal lagring på beräknings replik, särskilt i/o mot RBPEX och `tempdb` . Ett värde på 100% i den här kolumnen visar att resurs styrning begränsar lokal lagrings-IOPS. Om detta korreleras med ett prestanda problem kan du justera arbets belastningen för att generera mindre IO eller öka databas tjänst målet för att öka resurs styrningens _maximala IOPS_ - [gräns](resource-limits-vcore-single-databases.md). För resurs styrning av RBPEX-läsningar och skrivningar räknar systemet enskilda 8 KB-IOs i stället för större IOs som kan utfärdas av SQL Database-motorn.
+I en storskalig databas rapporterar den här kolumnen om data-IOPS-användning i förhållande till gränsen för lokal lagring på beräknings replik, särskilt i/o mot RBPEX och `tempdb` . Ett värde på 100% i den här kolumnen visar att resurs styrning begränsar lokal lagrings-IOPS. Om detta korreleras med ett prestanda problem kan du justera arbets belastningen för att generera mindre IO eller öka databas tjänst målet för att öka resurs styrningens _maximala IOPS_ - [gräns](resource-limits-vcore-single-databases.md). För resurs styrning av RBPEX-läsningar och skrivningar räknar systemet enskilda 8 KB-IOs i stället för större IOs som kan utfärdas av den SQL Server databas motorn.
 
 Data-i/o mot fjärrservrar har inte rapporter ATS i vyer för resursanvändning eller i portalen, men rapporteras i [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF, som tidigare nämnts.
 

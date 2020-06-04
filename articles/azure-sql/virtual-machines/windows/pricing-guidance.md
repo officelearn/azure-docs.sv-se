@@ -15,20 +15,20 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9b9e98b4e1f5c286acb9089893f169f2c52b855c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fc14d79edda1fb8e0083dffa68d23f46630ba2f6
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047274"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342603"
 ---
-# <a name="pricing-guidance-for-azure-sql-server-vms"></a>Prisvägledning för virtuella Azure SQL Server-datorer
+# <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Pris vägledning för SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Den här artikeln innehåller pris vägledning för [SQL Server virtuella datorer](sql-server-on-azure-vm-iaas-what-is-overview.md) i Azure. Det finns flera alternativ som påverkar kostnaden och det är viktigt att välja rätt bild som balanserar kostnader med affärs krav.
+Den här artikeln innehåller pris vägledning för [SQL Server på Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Det finns flera alternativ som påverkar kostnaden och det är viktigt att välja rätt bild som balanserar kostnader med affärs krav.
 
 > [!TIP]
-> Om du bara behöver ta reda på en kostnads uppskattning för en speciell kombination av SQL Servers version och storlek på virtuell dator, kan du gå till sidan med priser för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) eller [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Välj din plattform och SQL Server utgåva från listan **operativ system/program vara** .
+> Om du bara behöver ta reda på en kostnads uppskattning för en speciell kombination av SQL Servers version och storlek på virtuell dator (VM), kan du läsa sidan med priser för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) eller [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Välj din plattform och SQL Server utgåva från listan **operativ system/program vara** .
 >
 > ![Användar gränssnitt på prissättnings sida för virtuell dator](./media/pricing-guidance/virtual-machines-pricing-ui.png)
 >
@@ -42,7 +42,7 @@ Om du vill köra en förenklad arbets belastning i produktion (<4 kärnor <1 GB 
 
 För dessa arbets belastningar för utveckling/testning och lightweight-produktion kan du också spara pengar genom att välja en mindre VM-storlek som matchar dessa arbets belastningar. DS1v2 kan vara ett bra val i vissa situationer.
 
-Om du vill skapa en SQL Server 2017 virtuell Azure-dator med någon av dessa avbildningar, se följande länkar:
+Information om hur du skapar en virtuell Azure-dator som kör SQL Server 2017 med någon av dessa avbildningar finns i följande länkar:
 
 | Plattform | Fritt licensierade bilder |
 |---|---|
@@ -55,9 +55,9 @@ Om du vill skapa en SQL Server 2017 virtuell Azure-dator med någon av dessa avb
 
 Om du har en icke-lättviktig produktions arbets belastning använder du någon av följande SQL Server-versioner:
 
-| SQL Servers utgåva | Arbetsbelastning |
+| SQL Server-utgåva | Arbetsbelastning |
 |-----|-----|
-| Webben | Små webbplatser |
+| Webb | Små webbplatser |
 | Standard | Små till medel stora arbets belastningar |
 | Enterprise | Stora eller verksamhets kritiska arbets belastningar|
 
@@ -65,7 +65,7 @@ Du har två alternativ att betala för SQL Server-licensiering för dessa versio
 
 ## <a name="pay-per-usage"></a>Betala per användning
 
-Om du **betalar SQL Server licens per användning** (även kallat **betala**per användning) innebär det att kostnaden för den virtuella Azure-datorn per sekund omfattar kostnaden för SQL Server licensen. Du kan se prissättningen för de olika SQL Server-versionerna (Web, standard, Enterprise) på pris sidan för Azure VM för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) eller [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
+Om du **betalar SQL Server licens per användning** (även kallat **betala**per användning) innebär det att kostnaden för den virtuella Azure-datorn per sekund omfattar kostnaden för SQL Server licensen. Du kan se prissättningen för de olika SQL Server-versionerna (Web, standard, Enterprise) på sidan med priser för Azure Virtual Machines för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) eller [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
 Kostnaden är samma för alla versioner av SQL Server (2012 SP3 till 2017). Licens kostnaden per sekund beror på antalet VM-virtuella processorer.
 
@@ -75,7 +75,7 @@ Att betala SQL Server licensiering per användning rekommenderas för:
 
 - **Arbets belastningar med okänd livs längd eller skalning**. Till exempel en app som kanske inte krävs under några månader, eller som kan kräva mer eller mindre beräknings kraft, beroende på efter frågan.
 
-Om du vill skapa en SQL Server 2017 virtuell Azure-dator med någon av dessa avbildningar enligt principen betala per användning, se följande länkar:
+Om du vill skapa en virtuell Azure-dator som kör SQL Server 2017 med någon av dessa avbildningar enligt principen betala per användning, se följande länkar:
 
 | Plattform | Licensierade bilder |
 |---|---|
@@ -85,14 +85,14 @@ Om du vill skapa en SQL Server 2017 virtuell Azure-dator med någon av dessa avb
 | Ubuntu | [SQL Server 2017 Web Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[SQL Server 2017 standard Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
 
 > [!IMPORTANT]
-> När du skapar en SQL Server virtuell dator i portalen visas en uppskattad kostnad i fönstret **Välj en storlek** . Det är viktigt att Observera att denna uppskattning bara är beräknings kostnaderna för att köra den virtuella datorn tillsammans med eventuella OS-licensierings kostnader (Windows eller Linux-operativsystem från tredje part).
+> När du skapar en SQL Server virtuell dator i Azure Portal, visar fönstret **Välj en storlek** en uppskattad kostnad. Det är viktigt att Observera att denna uppskattning bara är beräknings kostnaderna för att köra den virtuella datorn tillsammans med eventuella OS-licensierings kostnader (Windows eller Linux-operativsystem från tredje part).
 >
 > ![Välj bladet VM-storlek](./media/pricing-guidance/sql-vm-choose-size-pricing-estimate.png)
 >
 >Det omfattar inte ytterligare SQL Server licensierings kostnader för versionerna Web, standard och Enterprise. För att få den mest exakta pris beräkningen väljer du operativ systemet och SQL Server Edition på sidan med priser för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) eller [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 > [!NOTE]
-> Nu kan du ändra licensierings modellen från betala per användning för att ta med din egen licens (BYOL) och tillbaka. Mer information finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+> Nu kan du ändra licensierings modellen från betala per användning för att ta med din egen licens (BYOL) och tillbaka. Mer information finns i [så här ändrar du licensierings modellen för en SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 ## <a name="bring-your-own-license-byol"></a><a id="byol"></a>Bring your own license (BYOL)
 
@@ -102,9 +102,9 @@ Om du vill skapa en SQL Server 2017 virtuell Azure-dator med någon av dessa avb
 > BYOL-avbildningar kräver en Enterprise-avtal med Software Assurance. De är inte tillgängliga som en del av Azure Cloud Solution Partner (CSP) för tillfället. CSP-kunder kan ta med sin egen licens genom att distribuera en avbildning med betala per användning och sedan aktivera [Azure Hybrid-förmån](licensing-model-azure-hybrid-benefit-ahb-change.md).
 
 > [!NOTE]
-> BYOL-avbildningarna är för närvarande endast tillgängliga för virtuella Windows-datorer. Du kan dock installera SQL Server manuellt på en virtuell Linux-dator. Se rikt linjerna i [vanliga frågor och svar om Linux SQL VM](../linux/frequently-asked-questions-faq.md).
+> BYOL-avbildningarna är för närvarande endast tillgängliga för virtuella Windows-datorer. Du kan dock installera SQL Server manuellt på en virtuell Linux-dator. Se rikt linjerna i [SQL Server på vanliga frågor och svar om Linux-datorer](../linux/frequently-asked-questions-faq.md).
 
-Att ta med din egen SQL-licens via Licensmobilitet rekommenderas för:
+Att ta med din egen SQL Server-licens via Licensmobilitet rekommenderas för:
 
 - **Kontinuerliga arbets belastningar**. Till exempel en app som behöver stödja affärs åtgärder dygnet runt.
 
@@ -112,12 +112,12 @@ Att ta med din egen SQL-licens via Licensmobilitet rekommenderas för:
 
 Om du vill använda BYOL med en SQL Server VM måste du ha en licens för SQL Server Standard eller företags-och [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), vilket är ett obligatoriskt alternativ genom vissa volym licensierings program och ett valfritt köp med andra. Den pris nivå som tillhandahålls via volym licensierings program varierar beroende på typ av avtal och kvantitet och eller åtagande att SQL Server. Men som en tumregel, har en egen licens för kontinuerliga produktions arbets belastningar följande fördelar:
 
-| BYOL-förmån | Beskrivning |
+| BYOL-förmån | Description |
 |-----|-----|
 | **Kostnadsbesparingar** | [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) erbjuder upp till 55% besparingar. Mer information finns i [switch Licensing Model](licensing-model-azure-hybrid-benefit-ahb-change.md) |
 | **Fri passiv sekundär replik** | En annan fördel med att använda din egen licens är den [kostnads fria licensieringen för en passiv sekundär replik](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server för hög tillgänglighet. Detta klipper på hälften av licens kostnaden för en hög tillgänglig SQL Server distribution (till exempel med Always on Availability groups). Rättigheterna för att köra passiv sekundär tillhandahålls via server förmånen för redundans. |
 
-Om du vill skapa en SQL Server 2017 virtuell Azure-dator med någon av dessa skrivskyddade licens avbildningar, se de virtuella datorerna som har åtgärd ATS med {BYOL}:
+Om du vill skapa en virtuell Azure-dator som kör SQL Server 2017 med någon av de här framgångs licens avbildningarna, se de virtuella datorerna som har åtgärd ATS med {BYOL}:
 
 - [SQL Server 2017 Enterprise Azure VM](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016)
 - [SQL Server 2017 standard Azure VM](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016)
@@ -126,7 +126,7 @@ Om du vill skapa en SQL Server 2017 virtuell Azure-dator med någon av dessa skr
 > Meddela oss inom 10 dagar hur många SQL Server licenser du använder i Azure. Länkarna till föregående bilder innehåller instruktioner om hur du gör detta.
 
 > [!NOTE]
-> Nu kan du ändra licensierings modellen från betala per användning för att ta med din egen licens (BYOL) och tillbaka. Mer information finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+> Nu kan du ändra licensierings modellen från betala per användning för att ta med din egen licens (BYOL) och tillbaka. Mer information finns i [så här ändrar du licensierings modellen för en SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 
 
@@ -140,7 +140,7 @@ Licens kostnaden för SQL Server är direkt relaterad till antalet virtuella pro
 
 Det finns nya maskin storlekar som fungerar bra med vissa typer av SQL Server arbets belastningar. De här datorernas storlekar behåller höga nivåer av minne, lagring och I/O-bandbredd, men de har lägre virtualiserat antal kärnor. Tänk till exempel följande exempel:
 
-| Storlek på virtuell dator | Virtuella processorer | Minne | Maximalt antal diskar | Max-I/O-genomflöde | Kostnader för SQL-licensiering | Totalkostnad (Compute + Licensing) |
+| Storlek på virtuell dator | Virtuella processorer | Minne | Maximalt antal diskar | Maximalt I/O-dataflöde | SQL Server licensierings kostnader | Totalkostnad (Compute + Licensing) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51 200 IOPS eller 768 MB/s | | |
 | **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51 200 IOPS eller 768 MB/s | 75 % lägre | 57 % lägre |
@@ -156,7 +156,7 @@ Om du använder en arbets belastning som inte körs kontinuerligt bör du överv
 
 Om du till exempel bara försöker använda SQL Server på en virtuell Azure-dator vill du inte betala avgifter genom att oavsiktligt lämna det som körs i veckor. En lösning är att använda [funktionen för automatisk avstängning](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
-![Automatisk avstängning av SQL VM](./media/pricing-guidance/sql-vm-auto-shutdown.png)
+![SQL Server VM automatisk avstängning](./media/pricing-guidance/sql-vm-auto-shutdown.png)
 
 Automatisk avstängning är en del av en större uppsättning liknande funktioner som tillhandahålls av [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab).
 
@@ -167,9 +167,9 @@ För andra arbets flöden bör du överväga att automatiskt stänga av och star
 
 ## <a name="next-steps"></a>Nästa steg
 
-Allmän pris vägledning för Azure finns i [förhindra oväntade kostnader med fakturering och kostnads hantering i Azure](../../../cost-management-billing/manage/getting-started.md). De senaste Virtual Machines priserna, inklusive SQL Server, finns på prissättnings sidan för Azure VM Azure för virtuella [Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) och [virtuella Linux-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Allmän pris vägledning för Azure finns i [förhindra oväntade kostnader med fakturering och kostnads hantering i Azure](../../../cost-management-billing/manage/getting-started.md). De senaste priserna för Azure Virtual Machines, inklusive SQL Server, finns på prissättnings sidan för Azure Virtual Machines för virtuella [Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) och [virtuella Linux-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-En översikt över SQL Server som körs på Azure Virtual Machines finns i följande artiklar:
+En översikt över SQL Server på Azure Virtual Machines finns i följande artiklar:
 
 - [Översikt över SQL Server på virtuella Windows-datorer](sql-server-on-azure-vm-iaas-what-is-overview.md)
 - [Översikt över SQL Server på Linux virtuella datorer](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)

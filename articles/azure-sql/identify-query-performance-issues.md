@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: edf22c7f1086c1d13717adaff514c42aab3a4cfd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b33d8db9d43b151cb0405ea24e0bea87e21cbdc9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046924"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345350"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Identifierings bara typer av flask halsar i frågor i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -153,11 +153,11 @@ Långsam fråga-prestanda som inte är relaterade till icke-optimala fråge plan
 - Identifiera resurs gränser med hjälp av [intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Identifiera resurs problem med [DMV: er](database/monitoring-with-dmvs.md):
 
-  - [Sys. dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV returnerar CPU, I/O och minnes användning för en SQL-databas. Det finns en rad för varje 15-sekunders intervall, även om det inte finns någon aktivitet i databasen. Historiska data bevaras i en timme.
+  - [Sys. dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV returnerar CPU, I/O och minnes användning för databasen. Det finns en rad för varje 15-sekunders intervall, även om det inte finns någon aktivitet i databasen. Historiska data bevaras i en timme.
   - [Sys. resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV returnerar CPU-användning och lagrings data för Azure SQL Database. Data samlas in och sammanställs i fem minuters intervall.
   - [Många enskilda frågor som sammantaget förbrukar hög CPU](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
-Om du identifierar problemet som otillräcklig resurs, kan du uppgradera resurser för att öka kapaciteten för din SQL-databas för att absorbera processor kraven. Mer information finns i [skala enkla databas resurser i Azure SQL Database](database/single-database-scale.md) och [skala elastiska pool resurser i Azure SQL Database](database/elastic-pool-scale.md). Information om hur du skalar en hanterad instans finns i [resurs gränser på tjänst nivå](managed-instance/resource-limits.md#service-tier-characteristics)
+Om du identifierar problemet som otillräcklig resurs kan du uppgradera resurserna för att öka kapaciteten för din databas för att öka processor kraven. Mer information finns i [skala enkla databas resurser i Azure SQL Database](database/single-database-scale.md) och [skala elastiska pool resurser i Azure SQL Database](database/elastic-pool-scale.md). Information om hur du skalar en hanterad instans finns i [resurs gränser på tjänst nivå](managed-instance/resource-limits.md#service-tier-characteristics)
 
 ## <a name="performance-problems-caused-by-increased-workload-volume"></a>Prestanda problem som orsakas av ökad arbets belastnings volym
 

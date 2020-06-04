@@ -8,20 +8,16 @@ ms.custom: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 795891f56985504a3584089d7377f753605ba4dd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: d6f70e00bc33430cba13895b6d0c9a0aac5ef246
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263048"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338693"
 ---
-# <a name="edv4-and-edsv4-series"></a>Edv4 och Edsv4-serien
+# <a name="edv4-and-edsv4-series"></a>Edv4- och Edsv4-serien
 
 Edv4 och Edsv4-serien körs på Intel &reg; Xeon &reg; PLATINa 8272CL-processorer (Cascade Lake) i en Hyper-threadd konfiguration och är idealiska för olika minnes intensiva företags program och funktioner upp till 504 GIB av RAM-minne, [Intel &reg; Turbo Boost Technology 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Dessa nya VM-storlekar kommer att ha 50% större lokal lagring, samt bättre IOPS för lokala diskar för både läsning och skrivning jämfört med [Ev3-/Esv3-](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) storlekarna med [Gen2-VM](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) : ar
-
-
-> [!IMPORTANT]
-> Om du distribuerar en ny virtuell dator med hjälp av Edv4 eller Edsv4-serien och tänker använda en Linux-avbildning måste du använda antingen RHEL 8. x, CentOS 8. x eller Oracle 7. x eller senare. Om du väljer RHEL 7. x, CentOS 7. x eller Orcale 6. x, kommer det att vara ett kernel-panik-fel. Microsoft distribuerar aktivt en åtgärd. Endast RHEL, CentOS och Oracle påverkas.
 
 ## <a name="edv4-series"></a>Edv4-serien
 

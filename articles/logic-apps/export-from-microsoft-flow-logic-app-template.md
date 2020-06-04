@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: b30a2ae8d90a193e23229dc6743c7e92ebf83b52
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/03/2020
+ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298728"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324868"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportera flöden från Power Automate och distribuera till Azure Logic Apps
 
@@ -30,13 +30,13 @@ Om du vill utöka och utöka ditt flödes funktioner kan du migrera flödet frå
 
 * Flödet som du vill exportera från Energis par
 
-## <a name="export-a-flow"></a>Exportera ett flöde
+## <a name="export-your-flow"></a>Exportera ditt flöde
 
-1. Logga in för att [Automatisera energi](https://flow.microsoft.com)och välj **mina flöden**. Hitta och välj ditt flöde. Välj ellipser-knappen (**...**) i verktygsfältet. Välj **Exportera**  >  **Logic Apps mall (. JSON)**.
+1. Logga in för att [Automatisera energi](https://flow.microsoft.com)och välj **mina flöden**. Hitta och välj ditt flöde. I verktygsfältet väljer du knappen med tre punkter (**...**) > **Exportera**  >  **Logic Apps mall (. JSON)**.
 
-   ![Exportera flöde](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
+   ![Exportera flöde från energi automatisering](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
-1. Spara din mall på den plats som du vill ha.
+1. Spara mallen. JSON-fil på den plats som du vill använda.
 
 Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.com/blog/grow-up-to-logic-apps/).
 
@@ -44,42 +44,51 @@ Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.
 
 1. Logga in [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
-1. Välj **Skapa en resurs** på Azure-huvudmenyn. Skriv "mall distribution" i sökrutan. Välj **malldistribution (distribuera med anpassade mallar)** och välj sedan **skapa**.
+1. Skriv i rutan Sök på Azures start sida `custom template` . Välj **distribuera en anpassad mall**  >  **skapa**i resultaten.
 
-   ![Välj "Malldistribution"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
+   ![Sök efter och välj "Malldistribution"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
 
 1. Under **Anpassad distribution**väljer du **Bygg en egen mall i redigeraren**.
 
    ![Välj "Bygg din egen mall i redigeraren"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
-1. I verktygsfältet **Redigera mall** väljer du **Läs in fil**. Leta upp och välj den JSON-mall som du exporterade från Power automatisering och välj **Öppna**.
+1. I verktygsfältet **Redigera mall** väljer du **Läs in fil**.
 
    ![Välj Läs in fil](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
 
+1. Bläddra till den plats där du sparade JSON-mallfilen som du exporterade från Energis par automatisering. Välj mallfilen > **Öppna**.
+
 1. När redigeraren visar JSON, parametrar och resurser i mallen väljer du **Spara**.
-  
+
    ![Spara mallen](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
 
-1. Ange nu följande indataparametrar för mallen:
+1. Ange nu mer information som din Logic app.
 
-   * Azure-prenumeration som ska användas för fakturering
-   * Azure-resursgrupp
-   * Plats för Azure-resurs gruppen
-   * Namn på Logic app-resursen
-   * Plats för Logic app-resursen, om den skiljer sig från Azures resurs grupp
-   * Namnet på alla tidigare skapade anslutningar som Logic-appen kan återanvända
+   1. Välj eller ange värden för indataparametrar för din mall.
 
-      Om du skapar din första Logic-app skapas alla anslutningar som nya, så att du kan acceptera standard namnen. Annars kan du ange namnen på tidigare skapade anslutningar, som du kan använda i flera Logic Apps.
+      | Egenskap | Beskrivning |
+      |----------|-------------|
+      | **Prenumeration** | Azure-prenumerationen som ska användas för fakturering |
+      | **Resursgrupp** | Den Azure-resurs grupp som ska användas för din Logic app. Du kan använda en befintlig grupp eller skapa en ny grupp. |
+      | **Position** | Den Azure-region som ska användas om du skapar en ny resurs grupp |
+      | **Namn på Logic app** | Namnet som ska användas för din Logic app-resurs |
+      | **Plats för Logic app** | Den Azure-region där du vill skapa en Logic app-resurs, om den skiljer sig från Azures resurs grupp |
+      | <*anslutnings namn*> | Ett eller flera namn för alla tidigare skapade anslutningar som Logic-appen kan återanvända <p><p>**Obs**: om den här Logic-appen är din första skapas alla anslutningar som nya, så att du kan acceptera standard namnen. Annars kan du ange namnen på tidigare skapade anslutningar, som du kan använda i flera Logic Apps. |
+      |||
 
-   När du har angett den här informationen för mallen granskar du och godkänner villkoren för Azure Marketplace för att skapa nödvändiga Azure-resurser och fakturerar din Azure-prenumeration därefter. Välj sedan **köp**.
-  
-   ![Ange indataparametrar för mall](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
+      Ett exempel:
 
-   Azure distribuerar din mall som en Logic app till den angivna resurs gruppen. Alla Logi Kap par som du migrerar från energi spar läge distribueras i inaktiverat tillstånd.
+      ![Ange indataparametrar för mall](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
-1. Innan du aktiverar din Logic app måste du godkänna alla nya anslutningar genom att följa dessa steg:
+   1. När du är klar kan du läsa igenom **villkoren** för att skapa nödvändiga Azure-resurser och fakturera din Azure-prenumeration enligt detta.
 
-   1. Öppna den Logic-app som du skapade. På menyn Logic Apps väljer du **Logic App Designer**.
+   1. När du är klar väljer du **Jag accepterar villkoren som anges ovan**  >  **köpet**.
+
+      Azure distribuerar din mall som en Logic app till den angivna resurs gruppen.
+
+1. Alla Logi Kap par som du migrerar från energi spar läge distribueras i inaktiverat tillstånd. Innan du aktiverar din Logi Kap par måste du godkänna alla nya anslutningar genom att följa dessa steg:
+
+   1. Öppna den Logic-app som du skapade i Azure Portal. På menyn Logic Apps väljer du **Logic App Designer**.
 
       Varje anslutning som kräver auktorisering visar en varnings ikon:
 
@@ -91,7 +100,9 @@ Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.
 
    1. Logga in på varje tjänst eller ange de autentiseringsuppgifter som krävs för att auktorisera anslutningen.
 
-1. Spara din logikapp. När du är redo att aktivera din Logi Kap par väljer du **Översikt**på menyn Logic Apps och väljer sedan **Aktivera**.
+   1. När du har uppdaterat anslutningarna väljer du **Spara**i verktygsfältet designer.
+
+1. När du är redo att aktivera din Logi Kap par väljer du **Översikt**på menyn Logic Apps och väljer sedan **Aktivera**.
 
    ![Aktivera Logic app](./media/export-from-microsoft-flow-logic-app-template/enable-logic-app.png)
 
@@ -99,15 +110,17 @@ Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.
 
 ## <a name="deploy-template-by-using-visual-studio"></a>Distribuera mall med hjälp av Visual Studio
 
-Om du har konfigurerat Visual Studio med [förutsättningarna](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) för att skapa Logi Kap par kan du distribuera den exporterade mallen från Visual Studio till Azure Logic Apps.
+Om du har konfigurerat Visual Studio med [förutsättningarna](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) för att skapa Logi Kap par kan du distribuera den exporterade mallen till Azure Logic Apps med hjälp av Visual Studio.
 
-1. I Visual Studio öppnar du mallfilen som du exporterade från Energis par automatisering.
+1. I Visual Studio bläddrar du till och öppnar. JSON-filen för den Logic app-mall som du exporterade från energi automatisering.
 
-1. I Visual Studio skapar du ett Azure Resource Group-projekt och väljer **Logic app** -mallen genom att följa stegen i [snabb start: skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md), till exempel:
+1. I Visual Studio skapar du ett **Azure-resurs grupps** projekt som använder **Logic app** -mallen genom att följa stegen i [snabb start: skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+   I det här exemplet skapas en Visual Studio-lösning med namnet "ImportedLogicApp".
 
    ![Skapa ett projekt för en Azure-resursgrupp](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
-1. Öppna filen **LogicApp. JSON** från Solution Explorer, om filen inte redan är öppen.
+1. När lösningen har skapats öppnar du filen **LogicApp. JSON** i Solution Explorer, om filen inte redan är öppen.
 
 1. Kopiera innehållet från den exporterade mallen och skriv över innehållet i filen **LogicApp. JSON** .
 
@@ -143,7 +156,7 @@ Om du har konfigurerat Visual Studio med [förutsättningarna](../logic-apps/qui
 
    ![Redigera distributions parametrar](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster**. Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen. Till exempel:
+   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster**. Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen. Ett exempel:
 
    ![Utdatafönster](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: dda2812b5e2cc79d53658d568ba0845d593f41d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23355abdced3a4073cf90ccf60c14af088a4e564
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605380"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324173"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Bygg uttryck i data flöde för mappning
 
@@ -76,16 +76,12 @@ Några exempel på String-interpolation:
 
 Lägg till kommentarer till dina uttryck med hjälp av enradig syntax med en rad och flera rader.
 
-![Syntax för enkel rad och flerradig kommentar](media/data-flow/comments.png "Kommentarer")
-
 Följande exempel är giltiga kommentarer:
 
 * ```/* This is my comment */```
 
 * ```/* This is a```
 *   ```multi-line comment */```
-   
-* ```// This is a single line comment```
 
 Om du lägger till en kommentar överst i uttrycket, visas den i text rutan omvandling för att dokumentera dina omvandlings uttryck.
 
@@ -93,7 +89,7 @@ Om du lägger till en kommentar överst i uttrycket, visas den i text rutan omva
 
 ## <a name="regular-expressions"></a>Reguljära uttryck
 
-Många uttrycks språk funktioner använder syntaxen för reguljära uttryck. När du använder reguljära uttrycks funktioner försöker uttrycks verktyget tolka\\ett omvänt snedstreck () som en Escape-teckensekvens. När du använder omvända snedstreck i det reguljära uttrycket, omger du hela regexen i baktick (\`) eller använder ett dubbelt omvänt snedstreck.
+Många uttrycks språk funktioner använder syntaxen för reguljära uttryck. När du använder reguljära uttrycks funktioner försöker uttrycks verktyget tolka ett omvänt snedstreck ( \\ ) som en Escape-teckensekvens. När du använder omvända snedstreck i det reguljära uttrycket, omger du hela regexen i baktick ( \` ) eller använder ett dubbelt omvänt snedstreck.
 
 Ett exempel som använder baktick:
 
@@ -124,11 +120,11 @@ Med uttrycks funktioner som returnerar matriser använder du hakparenteser ([]) 
 
 ## <a name="convert-to-dates-or-timestamps"></a>Konvertera till datum eller tidsstämplar
 
-Om du vill inkludera sträng litteraler i dina Tidsstämpelns utdata kan ```toString()```du figursätta konverteringen i.
+Om du vill inkludera sträng litteraler i dina Tidsstämpelns utdata kan du figursätta konverteringen i ```toString()``` .
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Använd `toTimestamp(<number of milliseconds>)`för att konvertera millisekunder från epok till datum eller tidsstämpel. Om tiden kommer i sekunder multiplicerar du med 1 000.
+Använd för att konvertera millisekunder från epok till datum eller tidsstämpel `toTimestamp(<number of milliseconds>)` . Om tiden kommer i sekunder multiplicerar du med 1 000.
 
 ```toTimestamp(1574127407*1000l)```
 

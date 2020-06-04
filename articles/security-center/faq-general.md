@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: d5b4986c24a1db61527e6a9ff7be249f189d6248
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 3db9dc260cb8546109870834f364c62305aa3fbb
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248557"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324529"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Vanliga frågor och svar – allmänna frågor om Azure Security Center
 
@@ -37,14 +37,8 @@ Azure Security Center övervakar följande Azure-resurser:
 
 * Virtuella datorer (VM) (inklusive [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Skalningsuppsättningar för virtuella datorer
-*  Azure Virtual Networks
-* Containrar
-* Azure SQL-tjänst
-* Azure-lagringskonto
-* Azure-Web Apps (i [App Service-miljön](../app-service/environment/intro.md))
 * Partner lösningar som är integrerade med din Azure-prenumeration, till exempel en brand vägg för webbaserade program på virtuella datorer och på App Service-miljön
-
-Dessutom kan icke-Azure-datorer (inklusive lokala) också övervakas av Azure Security Center. Både [Windows-datorer](./quick-onboard-windows-computer.md) och [Linux-datorer](./quick-onboard-linux-computer.md) stöds.
+* [De många Azure PaaS-tjänster som visas i produkt översikten](features-paas.md)
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Hur kan jag se det aktuella säkerhets läget för mina Azure-resurser?

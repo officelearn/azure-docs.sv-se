@@ -8,18 +8,19 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 1ff13d8ef0ca4c6cf499c3245d3ef14370283075
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 38cd4e9e7abdfe2d1548a8388a3f160cf3da1f1a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80066387"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84341243"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Snabb start: skapa en NAT-gateway med hjälp av Azure Portal
 
@@ -39,12 +40,12 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resurs grupp-namn>**  | myResourceGroupNAT |
-| **\<virtuell-nätverks namn>** | myVNet          |
-| **\<region namn>**          | USA, östra 2      |
-| **\<IPv4-adress utrymme>**   | 192.168.0.0 \ 16          |
-| **\<under näts namn>**          | mySubnet        |
-| **\<undernät-adress – intervall>** | 192.168.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | USA, östra 2      |
+| **\<IPv4-address-space>**   | 192.168.0.0 \ 16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 192.168.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -52,16 +53,16 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 Nu ska vi skapa en virtuell dator för att använda NAT-tjänsten. Den här virtuella datorn har en offentlig IP-adress som kan användas som en offentlig IP-adress på instans nivå för att få åtkomst till den virtuella datorn. NAT-tjänsten är en flödes riktning som är medveten om och kommer att ersätta standard målet för Internet i ditt undernät. Den virtuella datorns offentliga IP-adress används inte för utgående anslutningar.
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **Compute** > **Ubuntu Server 18,04 LTS**eller söker efter **Ubuntu Server 18,04 LTS** i Marketplace-sökningen.
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **Compute**  >  **Ubuntu Server 18,04 LTS**eller söker efter **Ubuntu Server 18,04 LTS** i Marketplace-sökningen.
 
 2. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
-   - **Prenumerations** > **resurs grupp**: Välj **myResourceGroupNAT**.
-   - **Instans information** > **namn på virtuell dator**: Skriv **myVM**.
-   - **Instans information** > **region** > Välj **USA, östra 2**.
-   - **Autentiseringstyp för administratörs konto** > **Authentication type**: Välj **lösen ord**.
+   - **Prenumeration**  >  **Resurs grupp**: Välj **myResourceGroupNAT**.
+   - **Instans information**  >  **Namn på virtuell dator**: Skriv **myVM**.
+   - **Instans information**  >  **Region** > väljer **USA, östra 2**.
+   - **Administratörs konto**  >  **Autentiseringstyp**: Välj **lösen ord**.
    - **Administratörs konto** > ange **användar namn**, **lösen ord**och **Bekräfta lösen ords** information.
-   - **Inkommande port regler** > **offentliga inkommande portar**: Välj **Tillåt valda portar**.
-   - **Regler** > för inkommande**portar Välj inkommande portar**: Välj **SSH (22)**
+   - Regler för inkommande **portar**  >  **Offentliga inkommande portar**: Välj **Tillåt valda portar**.
+   - Regler för inkommande **portar**  >  **Välj inkommande portar**: Välj **SSH (22)**
    - Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
 
 3. På fliken **nätverk** ser du till att följande är markerat:
@@ -88,7 +89,7 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
 
 ### <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **nätverkets** > **offentliga IP-adress**eller söker efter **offentlig IP-adress** i Marketplace-sökningen.
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **nätverkets**  >  **offentliga IP-adress**eller söker efter **offentlig IP-adress** i Marketplace-sökningen.
 
 2. I **skapa offentlig IP-adress**anger eller väljer du den här informationen:
 
@@ -99,19 +100,19 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
     | Name | Ange **myPublicIP**. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **myResourceGroupNAT**. |
-    | Plats | Välj **USA, östra 2**.|
+    | Location | Välj **USA, östra 2**.|
 
 3. Lämna resten av standardinställningarna och välj **Skapa**.
 
 ### <a name="create-a-public-ip-prefix"></a>Skapa ett offentligt IP-prefix
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **nätverk** > **offentlig IP-prefix**eller söker efter **offentliga IP-prefix** i Marketplace-sökningen. 
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **nätverk**  >  **offentlig IP-prefix**eller söker efter **offentliga IP-prefix** i Marketplace-sökningen. 
 
 2. I **skapa ett offentligt IP-prefix**skriver eller väljer du följande värden på fliken **grundläggande** :
-   - **Prenumerations** > **resurs grupp**: Välj **myResourceGroupNAT**>
-   - **Instans informations** > **namn**: Skriv **myPublicIPprefix**.
-   - **Instans informations** > **region**: Välj **USA, östra 2**.
-   - **Instans information** > **prefixlängd**: Välj **/31 (2 adresser)**
+   - **Prenumeration**  >  **Resurs grupp**: Välj **myResourceGroupNAT**>
+   - **Instans information**  >  **Namn**: Skriv **myPublicIPprefix**.
+   - **Instans information**  >  **Region**: Välj **USA, östra 2**.
+   - **Instans information**  >  **Prefixlängd**: Välj **/31 (2 adresser)**
 
 3. Lämna resten av standardinställningarna och välj **Granska + skapa**.
 
@@ -120,13 +121,13 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
 
 ### <a name="create-a-nat-gateway-resource"></a>Skapa en NAT-gateway-resurs
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **nätverk** > **NAT gateway**eller söker efter **NAT-gateway** i Marketplace-sökningen.
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **nätverk**  >  **NAT gateway**eller söker efter **NAT-gateway** i Marketplace-sökningen.
 
 2. I **skapa Network Address Translation-Gateway (NAT)** skriver eller väljer du följande värden på fliken **grundläggande** :
-   - **Prenumerations** > **resurs grupp**: Välj **myResourceGroupNAT**.
-   - **Instans information** > **NAT-gatewayens namn**: Skriv **myNATgateway**.
-   - **Instans informations** > **region**: Välj **USA, östra 2**.
-   - **Instans information** > **inaktiv timeout (minuter)**: typ **10**.
+   - **Prenumeration**  >  **Resurs grupp**: Välj **myResourceGroupNAT**.
+   - **Instans information**  >  **Namn på NAT-gateway**: Skriv **myNATgateway**.
+   - **Instans information**  >  **Region**: Välj **USA, östra 2**.
+   - **Instans information**  >  **Tids gräns för inaktivitet (minuter)**: Skriv **10**.
    - Välj fliken **offentlig IP-adress** eller Välj **Nästa: offentlig IP**.
 
 3. På fliken **offentlig IP-adress** skriver eller väljer du följande värden:
@@ -135,7 +136,7 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
    - Välj fliken **undernät** eller Välj **Nästa: undernät**.
 
 4. På fliken **undernät** skriver eller väljer du följande värden:
-   - **Virtual Network**: Välj **myResourceGroupNAT** > **myVnet**.
+   - **Virtual Network**: Välj **myResourceGroupNAT**  >  **myVnet**.
    - **Under näts namn**: Markera kryss rutan bredvid **undernät**.
 
 5. Välj **Granska + skapa**.

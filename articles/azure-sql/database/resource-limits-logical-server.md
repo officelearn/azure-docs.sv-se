@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: f39faae6f9bda9efb814be8cdcbdac3ae80497ba
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c3f843de6eaa621ecdd04c5a3418dc0d620f841e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051005"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343395"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Resurs gränser för Azure SQL Database-och Azure Synapse Analytics-servrar
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Den här artikeln innehåller en översikt över resurs gränserna för den logiska servern som används av Azure SQL Database och Azure Synapse Analytics. Den innehåller information om vad som händer när dessa resurs gränser nåtts eller överskrids och beskriver de resurs styrnings mekanismer som används för att genomdriva dessa gränser.
+Den här artikeln innehåller en översikt över resurs gränserna för den logiska servern som används av Azure SQL Database och Azure Synapse Analytics. Den innehåller information om vad som händer när dessa resurs gränser nåtts eller överskrids och beskriver de resurs styrnings metoder som används för att genomdriva dessa gränser.
 
 > [!NOTE]
 > För Azure SQL-hanterade instans gränser, se [SQL Database resurs gränser för hanterade instanser](../managed-instance/resource-limits.md).
@@ -94,9 +94,9 @@ En mer detaljerad analys av den senaste resurs förbrukningen för användar arb
 
 I samband med prestanda övervakning och fel sökning är det viktigt att överväga både **användar-CPU-förbrukning** ( `avg_cpu_percent` , `cpu_percent` ) och **Total CPU-förbrukning** för användar arbets belastningar och interna processer ( `avg_instance_cpu_percent` , `sqlserver_process_core_percent` ).
 
-**Användningen av användar-CPU** beräknas som en procent andel av användarnas arbets belastnings gränser i varje tjänst mål. **Användarens CPU-användning** vid 100% indikerar att användarens arbets belastning har nått gränsen för tjänst målet. Men när den **totala CPU-förbrukningen** når 70-100% intervall, är det möjligt att se utökningar av användar arbets belastnings data och frågor som ökar, även om rapporterad **användar-CPU-förbrukning** fortfarande är betydligt lägre än 100%. Detta är mer troligt när du använder mindre tjänst mål med en måttlig allokering av beräknings resurser, men relativt intensiv användar arbets belastningar, till exempel i [kompakta elastiska pooler](elastic-pool-resource-management.md). Detta kan också inträffa med mindre tjänst mål när interna processer tillfälligt kräver ytterligare resurser, till exempel när du skapar en ny replik av databasen.
+**Användningen av användar-CPU** beräknas som en procent andel av användarnas arbets belastnings gränser i varje tjänst mål. **Användarens CPU-användning** vid 100% indikerar att användarens arbets belastning har nått gränsen för tjänst målet. Men när den **totala CPU-förbrukningen** når 70-100% intervall, är det möjligt att se utökning av användarens arbets belastnings-och svars fördröjning, även om rapporterad **användar-CPU-förbrukning** fortfarande är betydligt lägre än 100%. Detta är mer troligt när du använder mindre tjänst mål med en måttlig allokering av beräknings resurser, men relativt intensiv användar arbets belastningar, till exempel i [kompakta elastiska pooler](elastic-pool-resource-management.md). Detta kan också inträffa med mindre tjänst mål när interna processer tillfälligt kräver ytterligare resurser, till exempel när du skapar en ny replik av databasen.
 
-När den **totala CPU-förbrukningen** är hög, är alternativ för minskning detsamma som tidigare nämnts och innehåller tjänst måls ökning och/eller optimering av användar arbets belastning.
+När den **totala CPU-förbrukningen** är hög är alternativ för minskning detsamma som tidigare nämnts och omfattar ökning av tjänst mål och/eller användar arbets belastnings optimering.
 
 ## <a name="resource-governance"></a>Resursstyrning
 
@@ -114,13 +114,13 @@ För enskilda databaser tillämpas gränser för arbets belastnings grupper på 
 
 Om en fråga till exempel genererar 1000 IOPS utan någon IO-resurs styrning, men den högsta IOPS-gränsen för arbets belastnings gruppen är inställd på 900 IOPS, kan inte frågan generera mer än 900 IOPS. Men om max antalet IOPS för resurspoolen är inställt på 1500 IOPS och total i/o från alla arbets belastnings grupper som är associerade med resurspoolen överskrider 1500 IOPS, kan i/o för samma fråga minskas under arbets gruppens gräns på 900 IOPS.
 
-Värdena för IOPS och data flöde som returnerades av [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) -vyn fungerar som gränser/versaler, inte som garantier. Vidare garanterar resurs styrning inte någon bestämd lagrings fördröjning. Den bästa tillgängliga svars tiden, IOPS och data flödet för en specifik användar arbets belastning är beroende inte bara av gränser för i/o-resursens styrning, utan även på den kombination av IO-storlek som används och på funktionerna i det underliggande lagrings utrymmet. SQL använder IOs som varierar i storlek mellan 512 KB och 4 MB. I syfte att framtvinga IOPS-gränser redovisas varje IO oavsett storlek, med undantag för databaser med datafiler i Azure Storage. I så fall redovisas IOs som är större än 256 KB som flera 256 KB IOs, för att justera med Azure Storage i/o-redovisning.
+Värdena för IOPS och data flöde som returnerades av [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) -vyn fungerar som gränser/versaler, inte som garantier. Dessutom garanterar resurs styrningen inte någon speciell lagrings fördröjning. Den bästa tillgängliga svars tiden, IOPS och data flödet för en specifik användar arbets belastning är beroende inte bara av gränser för i/o-resursens styrning, utan även på den kombination av IO-storlek som används och på funktionerna i det underliggande lagrings utrymmet. SQL Database använder IOs som varierar i storlek mellan 512 KB och 4 MB. I syfte att framtvinga IOPS-gränser redovisas varje IO oavsett storlek, med undantag för databaser med datafiler i Azure Storage. I så fall redovisas IOs som är större än 256 KB som flera 256-KB-IOs för att justera med Azure Storage IO-redovisning.
 
 För Basic-, standard-och Generell användning-databaser, som använder datafiler i Azure Storage, `primary_group_max_io` kan det hända att värdet inte kan nås om en databas inte har tillräckligt med datafiler för att ackumulera antalet IOPS, eller om data inte fördelas jämnt över filer, eller om prestanda nivån för underliggande blobbar begränsar IOPS/data flödet under resurs styrnings gränsen. På samma sätt `primary_max_log_rate` kan det hända att värdet inte kan nås av en arbets belastning på grund av IOPS-gränsen för den underliggande Azure Storage-blobben, med en liten logg-iOS som genererats av frekvent transaktions genomförande.
 
 Resurs användnings värden som `avg_data_io_percent` och `avg_log_write_percent` , som rapporteras i vyerna [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)och [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) beräknas som procent andelar av maximala resurs styrnings gränser. När andra faktorer än resurs styrningen begränsar IOPS/data flödet, är det möjligt att se att utökningar av IOPS/genom strömning och fördröjning ökar när arbets belastningen ökar, även om rapporterat resursutnyttjande är lägre än 100%.
 
-Om du vill se läsa och skriva IOPS, data flöde och svars tid per databas fil använder du funktionen [sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Den här funktionen innebär att alla i/o-databaser överförs till databasen, inklusive Background IO som inte redovisas mot `avg_data_io_percent` , men som använder IOPS och data flödet för den underliggande lagringen och kan påverka den observerade lagrings fördröjningen. Funktionen hämtar också ytterligare svars tid som kan införas av i/o-resursens styrning för läsningar och skrivningar, i `io_stall_queued_read_ms` `io_stall_queued_write_ms` respektive kolumner.
+Om du vill se läsa och skriva IOPS, data flöde och svars tid per databas fil använder du funktionen [sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Den här funktionen delar alla IO: t i databasen, inklusive Background IO som inte redovisas mot `avg_data_io_percent` , men använder IOPS och data flödet för den underliggande lagringen och kan påverka den observerade lagrings fördröjningen. Funktionen hämtar också ytterligare svars tid som kan införas av i/o-resursens styrning för läsningar och skrivningar, i `io_stall_queued_read_ms` `io_stall_queued_write_ms` respektive kolumner.
 
 ### <a name="transaction-log-rate-governance"></a>Hastighets styrning för transaktions logg
 
@@ -131,7 +131,7 @@ Styrning av transaktions logg hastighet är en process i Azure SQL Database som 
 
 Logg taxan ställs in så att de kan uppnås och hanteras i flera olika scenarier, medan det övergripande systemet kan underhålla sin funktionalitet med minimerad påverkan på användar belastningen. Styrning av logg hastighet säkerställer att säkerhets kopior av transaktions loggar stannar inom publicerings service avtal.  Denna styrning förhindrar också en alltför lång efter släpning på sekundära repliker.
 
-När logg poster skapas utvärderas och utvärderas varje åtgärd för om den ska fördröjas för att upprätthålla den högsta önskade logg frekvensen (MB/s per sekund). Fördröjningarna läggs inte till när logg posterna töms på lagringen, i takt med att logg takts styrningen används vid själva genereringen av logg hastighet.
+När logg poster skapas utvärderas och utvärderas varje åtgärd för om den ska fördröjas för att upprätthålla den högsta önskade logg frekvensen (MB/s per sekund). Fördröjningarna läggs inte till när logg posterna töms på lagringen, i takt med att logg takts styrningen används under själva genereringen av logg hastighet.
 
 De faktiska taxan för logg skapande som påförs vid körning kan också påverkas av feedback-mekanismer, vilket tillfälligt minskar de tillåtna logg priserna så att systemet kan stabiliseras. Hantering av logg fil utrymme, Undvik att köra i slut på logg utrymmes villkor och replikering av tillgänglighets grupper kan tillfälligt minska de totala system gränserna.
 
@@ -158,3 +158,4 @@ När du påträffar en logg hastighets gräns som hindrar önskad skalbarhet, b�
 - Information om allmänna Azure-gränser finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Information om DTU: er och eDTU: er finns i [DTU: er och eDTU: er](purchasing-models.md#dtu-based-purchasing-model).
 - Information om tempdb-storleks gränser finns [i tempdb i Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+ 

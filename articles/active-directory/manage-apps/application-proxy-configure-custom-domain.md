@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda84a68921500e8ba40aa6d04bfb5939f79a1ef
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dd3958022a5947a04b8bca4db4bee3ad059c7e17
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736491"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331958"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Konfigurera anpassade domäner med Azure AD-programproxy
 
@@ -138,7 +138,7 @@ Vi rekommenderar inte att du använder en privat rot certifikat utfärdare efter
 
 All certifikat hantering sker via enskilda program sidor. Gå till programmets **Application Proxy** -sida för att komma åt fältet **certifikat** .
 
-Du kan använda samma certifikat för flera program. Om ett uppladdat certifikat fungerar med ett annat program, kommer det att tillämpas automatiskt. Du uppmanas inte att ladda upp den igen när du lägger till eller konfigurerar appen. 
+När ett certifikat har överförts till ett program kommer det också att appliceras automatiskt på **nya** appar som kon figurer ATS som använder samma certifikat. Du måste ladda upp certifikatet för befintliga appar i din klient organisation igen.
 
 När ett certifikat går ut får du en varning om att ladda upp ett annat certifikat. Om certifikatet har återkallats kan användarna se en säkerhets varning vid åtkomst till appen. Om du vill uppdatera certifikatet för en app går du till sidan **Application Proxy** för appen, väljer **certifikat**och laddar upp ett nytt certifikat. Om det gamla certifikatet inte används av andra appar tas det bort automatiskt. 
 

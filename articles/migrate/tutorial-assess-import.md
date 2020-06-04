@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 519520538c16b1bde18f0810344864d37090accf
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82114572"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342654"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Utvärdera servrar med hjälp av importerade data
 
@@ -32,7 +32,7 @@ Tänk på följande punkter:
 - Du kan ladda upp Server information till Server utvärdering flera gånger med hjälp av CSV.
 - Att samla in programinformation är användbart när du ska utvärdera din lokala miljö för migrering. Server utvärderingen utför dock för närvarande inte utvärdering på program nivå eller tar program i beaktande när en utvärdering skapas.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Fyll i en CSV-fil med Server information.
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 > [!NOTE]
 > Självstudier visar dig den enklaste distributions vägen för ett scenario, så att du snabbt kan konfigurera ett koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktions guiderna.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 ## <a name="set-azure-permissions-for-azure-migrate"></a>Ange Azure-behörigheter för Azure Migrate
 
@@ -68,13 +68,13 @@ Så här konfigurerar du ett nytt Azure Migrate-projekt:
 5. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.
 6. I **projekt information**anger du projekt namnet och geografin som du vill skapa projektet i. Mer information:
 
-    - Granska de geografiska områden som stöds för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [offentliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
+    - Granska de geografiska områden som stöds för [offentliga moln](migrate-support-matrix.md#supported-geographies-public-cloud) och [myndighetsmoln](migrate-support-matrix.md#supported-geographies-azure-government).
     - Du kan välja vilken målregion du vill när du kör en migrering.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-import/migrate-project.png)
 
 7. Välj **Nästa**.
-8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering** > **Nästa**.
+8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering**  >  **Nästa**.
 
     ![Skapa en Azure Migrate-utvärdering](./media/tutorial-assess-import/assessment-tool.png)
 
@@ -88,7 +88,7 @@ Hämta CSV-mallen och Lägg till Server information till den.
 
 ### <a name="download-the-template"></a>Ladda ned mallen
 
-1. I **mål** > **servrar** > för migrering**Azure Migrate: Server utvärdering**väljer du **identifiera**.
+1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**väljer du **identifiera**.
 2. I **identifiera datorer**väljer du **Importera med hjälp av CSV**.
 3. Välj **Ladda ned** för att ladda ned CSV-mallen. Alternativt kan du [Ladda ned den direkt](https://go.microsoft.com/fwlink/?linkid=2109031).
 
@@ -106,27 +106,28 @@ I följande tabell sammanfattas fil fälten som ska fyllas i:
 **Fältnamn** | **Erforderlig** | **Information**
 --- | --- | ---
 **Server namn** | Ja | Vi rekommenderar att du anger det fullständigt kvalificerade domän namnet (FQDN).
-**IP-adress** | Nej | Server adress.
+**IP-adress** | Inga | Server adress.
 **Kärnor** | Ja | Antal processor kärnor som har allokerats till servern.
-**Minnesoptimerade** | Ja | Totalt RAM-minne, i MB, allokeras till servern.
+**Minne** | Ja | Totalt RAM-minne, i MB, allokeras till servern.
 **OS-namn** | Ja | Serveroperativ system. <br/> Operativ system namn som matchar eller innehåller namnen [i listan känns](#supported-operating-system-names) igen av utvärderingen.
-**OS-version** | Nej | Serverns operativ system version.
-**Antal diskar** | Nej | Behövs inte om enskilda disk uppgifter anges.
-**Disk 1-storlek**  | Nej | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
-**Disk 1, Läs OPS** | Nej | Disk läsnings åtgärder per sekund.
-**Disk 1 Skriv OPS** | Nej | Disk skrivnings åtgärder per sekund.
-**Disk 1 Läs data flöde** | Nej | Data läses från disken per sekund, i MB per sekund.
-**Disk 1 Skriv data flöde** | Nej | Data som skrivs till disk per sekund, i MB per sekund.
-**Procent andel CPU-användning** | Nej | Procent andel CPU som används.
-**Procent andel minnes användning** | Nej | Procent andelen RAM-minne som används.
-**Totalt antal diskar Read OPS** | Nej | Disk läsnings åtgärder per sekund.
-**Skriv Ops totalt antal diskar** | Nej | Disk-Skriv åtgärder per sekund.
-**Totalt antal diskar läsnings data flöde** | Nej | Data läses från disken, i MB per sekund.
-**Totalt antal diskar Skriv data flöde** | Nej | Data som skrivs till disk, i MB per sekund.
-**Nätverk i data flöde** | Nej | Data som tagits emot av servern, i MB per sekund.
-**Nätverks utflöde** | Nej | Data som överförs av servern, i MB per sekund.
-**Typ av inbyggd program vara** | Nej | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
-**MAC-adress**| Nej | Serverns MAC-adress.
+**OS-version** | Inga | Serverns operativ system version.
+**OS-arkitektur** | Inga | Serverns OS-arkitektur <br/> Giltiga värden är: x64, x86, amd64, 32-bitars eller 64-bit
+**Antal diskar** | Inga | Behövs inte om enskilda disk uppgifter anges.
+**Disk 1-storlek**  | Inga | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
+**Disk 1, Läs OPS** | Inga | Disk läsnings åtgärder per sekund.
+**Disk 1 Skriv OPS** | Inga | Disk skrivnings åtgärder per sekund.
+**Disk 1 Läs data flöde** | Inga | Data läses från disken per sekund, i MB per sekund.
+**Disk 1 Skriv data flöde** | Inga | Data som skrivs till disk per sekund, i MB per sekund.
+**Procent andel CPU-användning** | Inga | Procent andel CPU som används.
+**Procent andel minnes användning** | Inga | Procent andelen RAM-minne som används.
+**Totalt antal diskar Read OPS** | Inga | Disk läsnings åtgärder per sekund.
+**Skriv Ops totalt antal diskar** | Inga | Disk-Skriv åtgärder per sekund.
+**Totalt antal diskar läsnings data flöde** | Inga | Data läses från disken, i MB per sekund.
+**Totalt antal diskar Skriv data flöde** | Inga | Data som skrivs till disk, i MB per sekund.
+**Nätverk i data flöde** | Inga | Data som tagits emot av servern, i MB per sekund.
+**Nätverks utflöde** | Inga | Data som överförs av servern, i MB per sekund.
+**Typ av inbyggd program vara** | Inga | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
+**MAC-adress**| Inga | Serverns MAC-adress.
 
 
 ### <a name="add-operating-systems"></a>Lägg till operativ system
@@ -171,7 +172,7 @@ Du kan uppdatera informationen för en server genom att importera data för serv
 Så här kontrollerar du att servrarna visas i Azure Portal efter identifiering:
 
 1. Öppna instrument panelen för Azure Migrate.
-2. På sidan **Azure Migrate-servrar** > **Azure Migrate: Server utvärdering** väljer du den ikon som visar antalet för **identifierade servrar**.
+2. På sidan **Azure Migrate-servrar**  >  **Azure Migrate: Server utvärdering** väljer du den ikon som visar antalet för **identifierade servrar**.
 3. Välj fliken **Importera baserad** .
 
 ## <a name="set-up-and-run-an-assessment"></a>Konfigurera och kör en utvärdering
@@ -192,7 +193,7 @@ Så här kör du en utvärdering:
 
 3. I **utvärdera servrar**anger du ett namn för utvärderingen.
 4. I **identifierings källa**väljer **du datorer som har lagts till via import till Azure Migrate**.
-5. Klicka på **Visa alla** för att granska utvärderings egenskaperna.
+5. Välj **Visa alla** för att granska utvärderingsegenskaperna.
 
     ![Bedömnings egenskaper](./media/tutorial-assess-physical/view-all.png)
 
@@ -202,7 +203,7 @@ Så här kör du en utvärdering:
 
     ![Skapa en utvärdering](./media/tutorial-assess-physical/assessment-create.png)
 
-9. När utvärderingen har skapats kan du Visa den på **servrar** > **Azure Migrate:** > **utvärderingar**av Server bedömning.
+9. När utvärderingen har skapats kan du Visa den på **servrar**  >  **Azure Migrate:**  >  **utvärderingar**av Server bedömning.
 10. Välj **export-utvärdering** för att ladda ned den som en Microsoft Excel-fil.
 
 ## <a name="review-an-assessment"></a>Granska en utvärdering
@@ -215,7 +216,7 @@ En utvärdering beskriver:
 
 ### <a name="view-an-assessment"></a>Visa en utvärdering
 
-1. I **mål** > **servrar**för migrering väljer du **utvärderingar** i **Azure Migrate: Server utvärdering**.
+1. I **mål**  >  **servrar**för migrering väljer du **utvärderingar** i **Azure Migrate: Server utvärdering**.
 2. I **utvärderingar**väljer du en utvärdering för att öppna den.
 
     ![Utvärderings Sammanfattning](./media/tutorial-assess-physical/assessment-summary.png)

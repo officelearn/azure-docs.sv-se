@@ -10,40 +10,39 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/14/2020
+ms.date: 6/2/2020
 ms.author: yohaddad
-ms.openlocfilehash: 9ea1caff5a0aba99bcd0d21b97650d075b830d2a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 89344c38c719a06d8241ec34136a75c96de9f901
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656390"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322880"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
 
 ## <a name="may-2020-guest-os"></a>Maj 2020 gäst operativ system
->[!NOTE]
->Gäst operativ systemet i april distribueras för närvarande till virtuella datorer i moln tjänsten som är konfigurerade för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringsfiler ingår i april gäst operativ system. Den här listan kan ändras. "
+
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05   |  [4556798]  |  Internet Explorer   |  2,98, 3,85, 4,78  |  12 maj 2020  |
-|  Rel 20-05   |  [4556813]  |  Senaste kumulativa uppdateringen (LCU)   |  5,43  |  12 maj 2020  |
-|  Rel 20-05   |  [4551853]  |  Senaste kumulativa uppdateringen (LCU)   |  6,19  |  12 maj 2020  |
-|  Rel 20-05   |  [4552940]  |  Månatlig sammanställning   |  2,98  |  12 maj 2020  |
-|  Rel 20-05   |  [4556836]  |  Månatlig sammanställning   |  2,98  |  12 maj 2020  |
-|  Rel 20-05   |  [4555449]  |  Uppdatering av underhålls stack   |  2,98  |  12 maj 2020  |
-|  Rel 20-05   |  [4552920]  |  Månatlig sammanställning   |  2,98  |  12 maj 2020  |
-|  Rel 20-05   |  [4552979]  |  Månatlig sammanställning   |  3,85  |  12 maj 2020  |
-|  Rel 20-05   |  [4556840]  |  Månatlig sammanställning   |  3,85  |  12 maj 2020  |
-|  Rel 20-05   |  [4552947]  |  Månatlig sammanställning   |  3,85  |  12 maj 2020  |
-|  Rel 20-05   |  [4552982]  |  Månatlig sammanställning   |  3,85  |  12 maj 2020  |
-|  Rel 20-05   |  [4552946]  |  Månatlig sammanställning   |  4,78  |  12 maj 2020  |
-|  Rel 20-05   |  [4556846]  |  Månatlig sammanställning   |  4,78  |  12 maj 2020  |
-|  Rel 20-05   |  [4550994]  |  Uppdatering av underhålls stack   |  5,43  |  14 apr, 2020  |
-|  Rel 20-05   |  [4552924]  |  Månatlig sammanställning   |  6,19  |  12 maj 2020  |
-|  Rel 20-05   |  [4549947]  |  Uppdatering av underhålls stack   |  6,19  |  14 apr, 2020  |
+|  Rel 20-05   |  [4556798]  |  Internet Explorer   |  [2,98], [3,85], [4,78]  |  12 maj 2020  |
+|  Rel 20-05   |  [4556813]  |  Senaste kumulativa uppdateringen (LCU)   |  [5,43]  |  12 maj 2020  |
+|  Rel 20-05   |  [4551853]  |  Senaste kumulativa uppdateringen (LCU)   |  [6,19]  |  12 maj 2020  |
+|  Rel 20-05   |  [4552940]  |  Månatlig sammanställning   |  [2,98]  |  12 maj 2020  |
+|  Rel 20-05   |  [4556836]  |  Månatlig sammanställning   |  [2,98]  |  12 maj 2020  |
+|  Rel 20-05   |  [4555449]  |  Uppdatering av underhålls stack   |  [2,98]  |  12 maj 2020  |
+|  Rel 20-05   |  [4552920]  |  Månatlig sammanställning   |  [2,98]  |  12 maj 2020  |
+|  Rel 20-05   |  [4552979]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
+|  Rel 20-05   |  [4556840]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
+|  Rel 20-05   |  [4552947]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
+|  Rel 20-05   |  [4552982]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
+|  Rel 20-05   |  [4552946]  |  Månatlig sammanställning   |  [4,78]  |  12 maj 2020  |
+|  Rel 20-05   |  [4556846]  |  Månatlig sammanställning   |  [4,78]  |  12 maj 2020  |
+|  Rel 20-05   |  [4550994]  |  Uppdatering av underhålls stack   |  [5,43]  |  14 apr, 2020  |
+|  Rel 20-05   |  [4552924]  |  Månatlig sammanställning   |  [6,19]  |  12 maj 2020  |
+|  Rel 20-05   |  [4549947]  |  Uppdatering av underhålls stack   |  [6,19]  |  14 apr, 2020  |
 
 
 [4556798]: https://support.microsoft.com/kb/4556798
@@ -62,7 +61,11 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 [4550994]: https://support.microsoft.com/kb/4550994
 [4552924]: https://support.microsoft.com/kb/4552924
 [4549947]: https://support.microsoft.com/kb/4549947
-
+[2,98]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,85]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,43]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,19]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 ## <a name="april-2020-guest-os"></a>Gäst operativ system april 2020
 

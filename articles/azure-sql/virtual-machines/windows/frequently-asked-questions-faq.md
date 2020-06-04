@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 278f3a5109e638530a55f4b2a77cd6d28aa7ca54
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 92313b3fabfdbdce2cb2f3b84026a6b681cc2063
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047953"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344242"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor och svar om SQL Server som körs på virtuella Windows-datorer i Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "84047953"
 > * [Windows](frequently-asked-questions-faq.md)
 > * [Linux](../linux/frequently-asked-questions-faq.md)
 
-Den här artikeln innehåller svar på några av de vanligaste frågorna om att köra [SQL Server på virtuella Windows-datorer i Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+Den här artikeln innehåller svar på några av de vanligaste frågorna om att köra [SQL Server på virtuella Windows-datorer (VM) i Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -51,15 +51,15 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
    Ja, med hjälp av PowerShell. Mer information om hur du distribuerar SQL Server virtuella datorer med hjälp av PowerShell finns i [så här etablerar du SQL Server virtuella datorer med Azure PowerShell](create-sql-vm-powershell.md).
    
-1. **Är det möjligt att skapa en generaliserad Azure SQL Server Marketplace-avbildning av min SQL Server VM och använda den för att distribuera virtuella datorer?**
+1. **Är det möjligt att skapa en generaliserad Azure Marketplace SQL Server avbildning av mina SQL Server VM och använda den för att distribuera virtuella datorer?**
 
    Ja, men du måste [registrera varje SQL Server VM med SQL Server VM Resource Provider](sql-vm-resource-provider-register.md) för att kunna hantera dina SQL Server VM i portalen, samt använda funktioner som automatisk uppdatering och automatisk säkerhets kopiering. När du registrerar dig hos resurs leverantören måste du också ange licens typen för varje SQL Server VM.
 
 1. **Hur gör jag för att generalisera SQL Server på den virtuella Azure-datorn och Använd den för att distribuera nya virtuella datorer?**
 
-   Du kan distribuera en virtuell Windows Server-dator (utan SQL Server installerad) och använda [SQL Sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) -processen för att generalisera SQL Server på virtuell Azure-dator (Windows) med installations mediet för SQL Server. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) kan hämta installationsmedia från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Marketplace SQL Server VM avbildning som har önskad utgåva.
+   Du kan distribuera en virtuell Windows Server-dator (utan SQL Server installerad) och använda [SQL Sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) -processen för att generalisera SQL Server på virtuell Azure-dator (Windows) med installations mediet för SQL Server. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) kan hämta sina installations medier från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har önskad utgåva.
 
-   Du kan också använda ett av SQL Server bilder som är form på Azure Marketplace för att generalisera SQL Server på Azure VM. Observera att du måste ta bort följande register nyckel i käll avbildningen innan du skapar en egen avbildning. Om du inte gör det kan det leda till att bloating i installations programmet för SQL Server installationen och/eller SQL IaaS-tillägget är i felaktigt tillstånd.
+   Du kan också använda en av SQL Server-avbildningarna från Azure Marketplace för att generalisera SQL Server på virtuell Azure-dator. Observera att du måste ta bort följande register nyckel i käll avbildningen innan du skapar en egen avbildning. Om du inte gör det kan det leda till att bloating i installations programmet för SQL Server installationen och/eller SQL IaaS-tillägget är i felaktigt tillstånd.
 
    Sökväg till register nyckel:  
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
@@ -73,7 +73,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Är det möjligt att konfigurera konfigurationer som inte visas i galleriet för virtuella datorer (till exempel Windows 2008 R2 + SQL Server 2012)?**
 
-   Nej. För Galleri avbildningar för virtuella datorer som innehåller SQL Server måste du välja en av de angivna avbildningarna antingen via Azure Portal eller via [PowerShell](create-sql-vm-powershell.md). Du kan dock distribuera en virtuell Windows-dator och själv installera SQL Server till den. Du måste sedan [Registrera din SQL Server VM med SQL Server VM Resource Provider](sql-vm-resource-provider-register.md) för att kunna hantera dina SQL Server VM i portalen, samt använda funktioner som automatisk uppdatering och automatisk säkerhets kopiering. 
+   Nej. För Galleri avbildningar för virtuella datorer som innehåller SQL Server måste du välja en av de angivna avbildningarna antingen via Azure Portal eller via [PowerShell](create-sql-vm-powershell.md). Du kan dock distribuera en virtuell Windows-dator och själv installera SQL Server till den. Du måste sedan [registrera SQL Server VM med SQL Server VM Resource Provider](sql-vm-resource-provider-register.md) för att kunna hantera dina SQL Server VM i Azure Portal, samt använda funktioner som automatisk uppdatering och automatisk säkerhets kopiering. 
 
 
 ## <a name="creation"></a>Skapa
@@ -90,7 +90,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Hur kan jag installera min licensierade version av SQL Server på en virtuell Azure-dator?**
 
-   Det finns tre sätt att göra detta på. Om du är en kund med Enterprise Agreement (EA) kan du etablera en av de [avbildningar för virtuella datorer som har stöd för licenser](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL), som även kallas för att ta din egen licens (BYOL). Om du har [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default)kan du aktivera [Azure Hybrid-förmån](licensing-model-azure-hybrid-benefit-ahb-change.md) på en befintlig PAYG-avbildning (betala per användning). Ett annat alternativ är att kopiera SQL Server-installationsmedia till en virtuell Windows Server-dator och installera SQL Server på den virtuella datorn. Se till att registrera SQL Server VM med [resurs leverantören](sql-vm-resource-provider-register.md) för funktioner som till exempel portal hantering, automatisk säkerhets kopiering och automatisk uppdatering. 
+   Det finns tre sätt att göra detta på. Om du är en Enterprise-avtal (EA)-kund kan du etablera en av de [virtuella dator avbildningar som har stöd för licenser](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL), som även kallas för att ta din egen licens (BYOL). Om du har [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default)kan du aktivera [Azure Hybrid-förmån](licensing-model-azure-hybrid-benefit-ahb-change.md) på en befintlig PAYG-avbildning (betala per användning). Ett annat alternativ är att kopiera SQL Server-installationsmedia till en virtuell Windows Server-dator och installera SQL Server på den virtuella datorn. Se till att registrera SQL Server VM med [resurs leverantören](sql-vm-resource-provider-register.md) för funktioner som till exempel portal hantering, automatisk säkerhets kopiering och automatisk uppdatering. 
 
 1. **Kan jag ändra en virtuell till att använda min egen SQL Server-licens om den skapades från en av galleriavbildningarna med betala per användning?**
 
@@ -100,9 +100,9 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
    Nej. Att [ändra licensierings modellen](licensing-model-azure-hybrid-benefit-ahb-change.md) kräver ingen stillestånds tid för SQL Server eftersom ändringen börjar gälla omedelbart och inte kräver omstart av den virtuella datorn. Men för att registrera SQL Server VM med SQL Server VM Resource Provider, är [SQL IaaS-tillägget](sql-server-iaas-agent-extension-automate-management.md) en förutsättning och installation av SQL IaaS-tillägget i _full_ läge startar om SQL Server tjänsten. Om SQL IaaS-tillägget behöver installeras kan du antingen installera det i _Lightweight_ -läge för begränsade funktioner eller installera det i _fullständigt_ läge under en underhålls period. SQL IaaS-tillägget som installeras i _Lightweight_ -läge kan uppgraderas till _fullständigt_ läge när som helst, men kräver en omstart av SQL Servers tjänsten. 
    
-1. **Är det möjligt att byta licensieringsmodell på en SQL Server VM distribuerad med hjälp av den klassiska modellen?**
+1. **Är det möjligt att växla licensierings modeller på en SQL Server VM som distribueras med den klassiska modellen?**
 
-   Nej. Det finns inte stöd för att ändra licensieringsmodell på en klassisk virtuell dator. Du kan migrera den virtuella datorn till Azure Resource Manager-modellen och registrera dig hos SQL Server VM-resursprovidern. När den virtuella datorn har registrerats hos SQL Server VM-resursprovidern blir ändringar av licensieringsmodellen tillgängliga på den virtuella datorn.
+   Nej. Ändring av licensierings modeller stöds inte på en klassisk virtuell dator. Du kan migrera den virtuella datorn till Azure Resource Manager-modellen och registrera dig hos SQL Server VM-resursprovidern. När den virtuella datorn har registrerats hos SQL Server VM-resursprovidern blir ändringar av licensieringsmodellen tillgängliga på den virtuella datorn.
 
 1. **Kan jag använda Azure Portal för att hantera flera instanser på samma virtuella dator?**
 
@@ -133,7 +133,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Vilka prenumerationer har stöd för haveriberedskapsförmånen (DR)?**
 
-   Omfattande program som erbjuder Software Assurance-likvärdiga prenumerationsrättigheter som en fast förmån har stöd för DR-förmånen. Det här omfattar, men är inte begränsat till, Open Value (OV), Open Value Subscription (OVS), Enterprise-avtal (EA), Enterprise Subscription Agreement (EAS) och Server and Cloud Enrollment (SCE). Mer information hittar du i [produkt villkoren](https://www.microsoft.com/licensing/product-licensing/products) och pratar med licens kontakterna eller konto chefen. 
+   Omfattande program som erbjuder Software Assurance-likvärdiga prenumerationsrättigheter som en fast förmån har stöd för DR-förmånen. Det här omfattar, men är inte begränsat till, öppning svärdet (OV), Open Value-prenumerationen (OVS), Enterprise-avtal (EA), Enterprise-avtal-prenumeration (EAS) och server-och moln registrering (SCE). Mer information hittar du i [produkt villkoren](https://www.microsoft.com/licensing/product-licensing/products) och pratar med licens kontakterna eller konto chefen. 
 
    
  ## <a name="resource-provider"></a>Resursprovider
@@ -189,7 +189,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Var kan jag få installationsmedia för att ändra utgåva eller version av SQL Server?**
 
-   Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) kan hämta installationsmedia från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installationsmedia från en SQL Server VM-avbildning på Marketplace som har önskad version.
+   Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) kan hämta sina installations medier från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har önskad utgåva.
    
 1. **Hur tillämpas uppdateringar och servicepack på en SQL Server VM?**
 
@@ -201,7 +201,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Hur kan jag få kostnadsfria utökade säkerhetsuppdateringar för mina SQL Server 2008- och SQL Server 2008 R2-instanser vars support har nått slutet?**
 
-   Du kan få [kostnadsfria utökade säkerhetsuppdateringar](sql-server-2008-extend-end-of-support.md) genom att flytta din SQL Server som den är till en virtuell Azure SQL-dator. Mer information finns i avsnittet om [alternativ när supporten upphör](/sql/sql-server/end-of-support/sql-server-end-of-life-overview). 
+   Du kan få [kostnads fria utökade säkerhets uppdateringar](sql-server-2008-extend-end-of-support.md) genom att flytta din SQL Server som-är till en virtuell Azure-dator. Mer information finns i avsnittet om [alternativ när supporten upphör](/sql/sql-server/end-of-support/sql-server-end-of-life-overview). 
   
    
 
@@ -209,14 +209,14 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Stöds SQL Server FCI (failover Cluster instances) på virtuella Azure-datorer?**
 
-   Ja. Du kan installera en instans av ett redundanskluster med hjälp av antingen [Premium fil resurser (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) eller [Storage Spaces Direct (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) för underlag rings systemet. Premium-filresurser ger IOPS och data flödes kapacitet som uppfyller behoven hos många arbets belastningar. För i/o-intensiva arbets belastningar kan du överväga att använda lagrings dirigering baserat på hanterade Premium eller Ultra disks. Du kan också använda klustring eller lagrings lösningar från tredje part enligt beskrivningen i [hög tillgänglighet och haveri beredskap för SQL Server i Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
+   Ja. Du kan installera en instans av ett redundanskluster med hjälp av antingen [Premium fil resurser (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) eller [Storage Spaces Direct (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) för underlag rings systemet. Premium-filresurser ger IOPS och data flödes kapacitet som uppfyller behoven hos många arbets belastningar. För i/o-intensiva arbets belastningar kan du överväga att använda lagrings dirigering baserat på hanterade Premium eller Ultra disks. Du kan också använda klustring eller lagrings lösningar från tredje part enligt beskrivningen i [hög tillgänglighet och haveri beredskap för SQL Server på Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
    > För närvarande stöds inte det _fullständiga_ [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md) för SQL Server FCI på Azure. Vi rekommenderar att du avinstallerar det _fullständiga_ tillägget från virtuella datorer som ingår i FCI och installerar tillägget i _Lightweight_ -läge i stället. Det här tillägget har stöd för funktioner, till exempel automatisk säkerhets kopiering och uppdatering och vissa Portal funktioner för SQL Server. Dessa funktioner fungerar inte för SQL Server virtuella datorer när den _fullständiga_ agenten har avinstallerats.
 
 1. **Vad är skillnaden mellan SQL Server virtuella datorer och tjänsten SQL Database?**
 
-   Att köra SQL Server på en virtuell Azure-dator är inte detsamma som att köra SQL Server i ett fjärranslutet Data Center. [SQL Database](../../database/sql-database-paas-overview.md) erbjuder däremot databas som en tjänst. Med SQL Database har du inte till gång till de datorer som är värdar för dina databaser. En fullständig jämförelse finns i [Välj ett moln SQL Server alternativ: Azure SQL (PaaS) Database eller SQL Server på virtuella Azure-datorer (IaaS)](../../azure-sql-iaas-vs-paas-what-is-overview.md).
+   Att köra SQL Server på en virtuell Azure-dator är inte detsamma som att köra SQL Server i ett fjärranslutet Data Center. [Azure SQL Database](../../database/sql-database-paas-overview.md) erbjuder däremot databas som en tjänst. Med SQL Database har du inte till gång till de datorer som är värdar för dina databaser. En fullständig jämförelse finns i [Välj ett moln SQL Server alternativ: Azure SQL (PaaS) Database eller SQL Server på virtuella Azure-datorer (IaaS)](../../azure-sql-iaas-vs-paas-what-is-overview.md).
 
 1. **Hur gör jag för att installera SQL Data Tools på min virtuella Azure-dator?**
 
@@ -230,16 +230,16 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 **Virtuella Windows-datorer**:
 
-* [Översikt över SQL Server på en virtuell Windows-dator](sql-server-on-azure-vm-iaas-what-is-overview.md).
-* [Etablera en SQL Server virtuell Windows-dator](create-sql-vm-portal.md)
+* [Översikt över SQL Server på en virtuell Windows-dator](sql-server-on-azure-vm-iaas-what-is-overview.md)
+* [Etablera SQL Server på en virtuell Windows-dator](create-sql-vm-portal.md)
 * [Migrera en databas till SQL Server på en virtuell Azure-dator](migrate-to-vm-from-sql-server.md)
-* [Hög tillgänglighet och haveri beredskap för SQL Server i Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md)
-* [Prestandametodtips för SQL Server i Azure Virtual Machines](performance-guidelines-best-practices.md)
-* [Program mönster och utvecklings strategier för SQL Server i Azure Virtual Machines](application-patterns-development-strategies.md)
+* [Hög tillgänglighet och haveri beredskap för SQL Server på Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md)
+* [Metod tips för prestanda för SQL Server på Azure Virtual Machines](performance-guidelines-best-practices.md)
+* [Program mönster och utvecklings strategier för SQL Server på Azure Virtual Machines](application-patterns-development-strategies.md)
 
 **Virtuella Linux-datorer**:
 
 * [Översikt över SQL Server på en virtuell Linux-dator](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
-* [Etablera en virtuell SQL Server Linux-dator](../linux/sql-vm-create-portal-quickstart.md)
+* [Etablera SQL Server på en virtuell Linux-dator](../linux/sql-vm-create-portal-quickstart.md)
 * [Vanliga frågor och svar (Linux)](../linux/frequently-asked-questions-faq.md)
 * [SQL Server på Linux dokumentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

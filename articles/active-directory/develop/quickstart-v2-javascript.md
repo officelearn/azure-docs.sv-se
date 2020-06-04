@@ -12,21 +12,21 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 91a4d10269975152cc62f3f5dc33238a8f6f2e11
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890508"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322829"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA
 
 I den här snabb starten använder du ett kod exempel för att lära dig hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton. En JavaScript-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en Azure-prenumeration kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Node. js](https://nodejs.org/en/download/)
+* [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (för att redigera projektfiler)
 
 
@@ -58,12 +58,12 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > 1. Välj **Registrera**. På sidan **Översikt över** appar noterar du **programmets (klient) ID-** värde för senare användning.
 > 1. Den här snabbstarten kräver att [flödet för implicit beviljande](v2-oauth2-implicit-grant-flow.md) aktiveras. I det vänstra fönstret i det registrerade programmet väljer du **autentisering**.
 > 1. Under **plattforms konfiguration**väljer du **Lägg till en plattform**. En panel öppnas till vänster. Där väljer du region för **webb program** .
-> 1. Fortfarande till vänster anger du **omdirigerings-URI** - `http://localhost:3000/`värdet till. Välj sedan **åtkomsttoken** och **ID-token**.
+> 1. Fortfarande till vänster anger du **omdirigerings-URI** -värdet till `http://localhost:3000/` . Välj sedan **åtkomsttoken** och **ID-token**.
 > 1. Välj **Konfigurera**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
-> Om du vill att kod exemplet i den här snabb starten ska fungera måste du `redirectUri` lägga `http://localhost:3000/` till en as-och enable **implicit-beviljande**.
+> Om du vill att kod exemplet i den här snabb starten ska fungera måste du lägga till en `redirectUri` as- `http://localhost:3000/` och enable **implicit-beviljande**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör ändringarna åt mig]()
 >
@@ -84,7 +84,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera din JavaScript-app
 >
-> I mappen *JavaScriptSPA* redigerar du *authConfig. js* `clientID`och anger `authority` värdena och `redirectUri` i. `msalConfig`
+> I mappen *JavaScriptSPA* redigerar du *authConfig. js*och anger `clientID` `authority` `redirectUri` värdena och i `msalConfig` .
 >
 > ```javascript
 >
@@ -92,7 +92,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >  const msalConfig = {
 >    auth: {
 >      clientId: "Enter_the_Application_Id_Here",
->      authority: "Enter_the_Cloud_Instance_Id_Here_OR_Enter_the_Tenant_Info_Here",
+>      authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >      redirectUri: "Enter_the_Redirect_Uri_Here",
 >    },
 >    cache: {
@@ -110,9 +110,9 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > [!div renderon="docs"]
 >
 > Där:
-> - Enter_the_Application_Id_Here>är **program-ID: t (Client)** för det program som du har registrerat. * \<*
-> - Enter_the_Cloud_Instance_Id_Here>är instansen av Azure-molnet. * \<* För det största eller globala Azure-molnet anger *https://login.microsoftonline.com*du bara. För **nationella** moln (till exempel Kina), se [nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
-> - Enter_the_Tenant_info_here>har angetts till något av följande alternativ: * \<*
+> - *\<Enter_the_Application_Id_Here>* är **program-ID: t (Client)** för det program som du har registrerat.
+> - *\<Enter_the_Cloud_Instance_Id_Here>* är instansen av Azure-molnet. För det största eller globala Azure-molnet anger du bara *https://login.microsoftonline.com* . För **nationella** moln (till exempel Kina), se [nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+> - *\<Enter_the_Tenant_info_here>* är inställt på något av följande alternativ:
 >    - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).
 >    - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**.
 >    - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med **konsumenter**.
@@ -126,12 +126,12 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 
 > [!div renderon="docs"]
 >
-> Sedan, fortfarande i samma mapp, redigerar du *graphConfig. js* -filen för att `graphMeEndpoint` ange `graphMeEndpoint` och för `apiConfig` objektet.
+> Sedan, fortfarande i samma mapp, redigerar du *graphConfig. js* -filen för att ange `graphMeEndpoint` och `graphMeEndpoint` för `apiConfig` objektet.
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
 >   const graphConfig = {
->     graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
->     graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+>     graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+>     graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
 >   };
 >
 >   // Add here scopes for access token to be used at MS Graph API endpoints.
@@ -144,7 +144,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > [!div renderon="docs"]
 >
 > Där:
-> - Enter_the_Graph_Endpoint_Here>är slut punkten som API-anrop görs mot. * \<* För huvud-eller global Microsoft Graph API-tjänsten anger `https://graph.microsoft.com`du bara. Mer information finns i [nationell moln distribution](https://docs.microsoft.com/graph/deployments)
+> - *\<Enter_the_Graph_Endpoint_Here>* är slut punkten som API-anrop görs mot. För huvud-eller global Microsoft Graph API-tjänsten anger du bara `https://graph.microsoft.com` . Mer information finns i [nationell moln distribution](https://docs.microsoft.com/graph/deployments)
 >
 > #### <a name="step-4-run-the-project"></a>Steg 4: kör projektet
 
@@ -155,7 +155,7 @@ Kör projektet med en webb server med hjälp av [Node. js](https://nodejs.org/en
     npm install
     npm start
     ```
-1. Öppna en webbläsare och gå till `http://localhost:3000/`.
+1. Öppna en webbläsare och gå till `http://localhost:3000/` .
 
 1. Välj **Logga** in för att starta inloggningen och anropa Microsoft Graph API.
 
@@ -207,8 +207,8 @@ const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |Var  |  |
 > |---------|---------|
 > |`clientId`     | Program-ID för programmet som är registrerat i Azure Portal.|
-> |`authority`    | Valfritt Auktoritets-URL: en som stöder konto typer, enligt beskrivningen ovan i avsnittet konfiguration. Standard auktoriteten är `https://login.microsoftonline.com/common`. |
-> |`redirectUri`     | Program registreringens konfigurerade svars-/redirectUri. I det här fallet `http://localhost:3000/`. |
+> |`authority`    | Valfritt Auktoritets-URL: en som stöder konto typer, enligt beskrivningen ovan i avsnittet konfiguration. Standard auktoriteten är `https://login.microsoftonline.com/common` . |
+> |`redirectUri`     | Program registreringens konfigurerade svars-/redirectUri. I det här fallet `http://localhost:3000/` . |
 > |`cacheLocation`  | Valfritt Anger webb läsar lagring för auth-tillstånd. Standardvärdet är sessionStorage.   |
 > |`storeAuthStateInCookie`  | Valfritt Biblioteket som lagrar det tillstånd för autentiseringsbegäran som krävs för verifiering av autentiserings flöden i webbläsarens cookies. Den här cookien är inställd för IE-och Edge-webbläsare för att minimera vissa [kända problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
@@ -234,14 +234,14 @@ myMSALObj.loginPopup(loginRequest)
 
 > |Var  |  |
 > |---------|---------|
-> | `scopes`   | Valfritt Innehåller omfattningar som begärs för användar medgivande vid inloggnings tillfället. Till exempel `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (det `api://<Application ID>/access_as_user`vill säga). |
+> | `scopes`   | Valfritt Innehåller omfattningar som begärs för användar medgivande vid inloggnings tillfället. Till exempel `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (det vill säga `api://<Application ID>/access_as_user` ). |
 
 > [!TIP]
 > Du kanske vill använda `loginRedirect` metoden för att omdirigera den aktuella sidan till inloggnings sidan i stället för ett popup-fönster.
 
 ### <a name="request-tokens"></a>Begära token
 
-MSAL använder tre metoder för att hämta tokens: `acquireTokenRedirect`, `acquireTokenPopup`, och`acquireTokenSilent`
+MSAL använder tre metoder för att hämta tokens: `acquireTokenRedirect` , `acquireTokenPopup` , och`acquireTokenSilent`
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
@@ -264,16 +264,16 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 > |Var  |  |
 > |---------|---------|
-> | `scopes`   | Innehåller omfång som begärs att returneras i åtkomsttoken för API. Till exempel `[ "mail.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (det `api://<Application ID>/access_as_user`vill säga).|
+> | `scopes`   | Innehåller omfång som begärs att returneras i åtkomsttoken för API. Till exempel `[ "mail.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (det vill säga `api://<Application ID>/access_as_user` ).|
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
+Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Ett exempel:
 * Användare kan behöva ange sina autentiseringsuppgifter på grund av att deras lösen ord har upphört att gälla.
 * Ditt program begär åtkomst till ytterligare resurs omfattningar som användaren behöver godkänna.
 * Tvåfaktorautentisering krävs.
 
-Det vanligaste rekommenderade mönstret för de flesta program är att `acquireTokenSilent` anropa först, sedan fånga undantagen och sedan anropa `acquireTokenPopup` (eller `acquireTokenRedirect`) för att starta en interaktiv begäran.
+Det vanligaste rekommenderade mönstret för de flesta program är att anropa `acquireTokenSilent` först, sedan fånga undantagen och sedan anropa `acquireTokenPopup` (eller `acquireTokenRedirect` ) för att starta en interaktiv begäran.
 
 Anropar `acquireTokenPopup` resultaten i ett popup-fönster för att logga in. (Eller `acquireTokenRedirect` leder till omdirigering av användare till Microsoft Identity Platform-slutpunkten.) I det fönstret måste användarna interagera genom att bekräfta sina autentiseringsuppgifter, ge det tillstånd till den begärda resursen eller utföra tvåfaktorautentisering.
 
@@ -293,7 +293,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 ```
 
 > [!NOTE]
-> I den här snabb `loginRedirect` starten `acquireTokenRedirect` används metoderna och med Microsoft Internet Explorer, på grund av ett [känt problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) som rör hanteringen av popup-fönster i Internet Explorer.
+> I den här snabb starten används `loginRedirect` `acquireTokenRedirect` metoderna och med Microsoft Internet Explorer, på grund av ett [känt problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) som rör hanteringen av popup-fönster i Internet Explorer.
 
 ## <a name="next-steps"></a>Nästa steg
 

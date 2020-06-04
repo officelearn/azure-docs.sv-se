@@ -5,14 +5,14 @@ services: iot-hub
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 11/21/2019
+ms.date: 06/02/2020
 ms.author: robinsh
-ms.openlocfilehash: 0b1870af6316713590eec59aee2af94ce34b7e1a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 5a0b9b2752a2ad8b7d2e03a40af11407b97391bc
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722566"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322046"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Självstudie: skicka e-postaviseringar om Azure IoT Hub händelser med Event Grid och Logic Apps
 
@@ -20,7 +20,7 @@ Med Azure Event Grid kan du reagera på händelser i IoT Hub genom att utlösa �
 
 Den här artikeln beskriver en exempel konfiguration som använder IoT Hub och Event Grid. I slutet har du konfigurerat en Azure Logic app som skickar ett e-postmeddelande varje gång en enhet läggs till i IoT Hub. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En aktiv Azure-prenumeration. Om du inte har någon prenumeration kan du [skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -175,19 +175,26 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
 
 4. Skapa händelseprenumerationen med följande värden: 
 
-   * **Information om händelse prenumeration**: Ange ett beskrivande namn och välj **Event Grid schema**.
+    1. I avsnittet **information om händelse prenumerationer** utför du följande uppgifter:
+        1. Ange ett **namn** för händelse prenumerationen. 
+        2. Välj **Event Grid schema** för **händelse schema**. 
+   2. I avsnittet **avsnitts information** utför du följande uppgifter:
+       1. Bekräfta att **ämnes typen** har angetts till **IoT Hub**. 
+       2. Bekräfta att namnet på IoT Hub har angetts som värde för fältet för **käll resurs** . 
+       3. Ange ett namn på **system avsnittet** som ska skapas åt dig. 
+   3. Utför följande uppgifter i avsnittet **händelse typer** : 
+        1. Avmarkera alla val förutom enhet som har **skapats**för **att filtrera efter händelse typer**.
 
-   * **Händelse typer**: Avmarkera alla val förutom **enheten som skapats**i **filtrera till händelse typer**.
+           ![händelse typer för prenumeration](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+   4. I avsnittet **information om slut punkts information** , utför följande uppgifter: 
+       1. Välj **typ av slut punkt** som **Web Hook**.
+       2. Klicka på **Välj en slut punkt**, klistra in den URL som du kopierade från din Logic app och bekräfta valet.
 
-       ![händelse typer för prenumeration](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+         ![webbadress till vald slutpunkt](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-   * **Slut punkts information**: Välj slut punkts typ som **Web Hook** och välj *Välj en slut punkt* och klistra in den URL som du kopierade från din Logic app och bekräfta valet.
+         När du är klar bör fönstret se ut som i följande exempel: 
 
-     ![webbadress till vald slutpunkt](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
-
-   När du är klar bör fönstret se ut som i följande exempel: 
-
-    ![Exempelformulär för händelseprenumeration](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+        ![Exempelformulär för händelseprenumeration](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
 5. Du kan spara händelseprenumerationen här och få meddelanden för alla enheter som har skapats i IoT-hubben. I den här självstudien ska vi dock använda de valfria fälten för att filtrera efter specifika enheter. Välj **filter** överst i fönstret.
 

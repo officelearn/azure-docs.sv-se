@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 03/18/2020
-ms.openlocfilehash: 361ba17532d27a7020be1b6874993da999f48604
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/3/2020
+ms.openlocfilehash: a6d340543289fa07370e053681599348a86940cf
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527715"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343412"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>Azure Database for MariaDB Server versioner som stöds
 
@@ -20,21 +20,21 @@ Azure Database for MariaDB har utvecklats från [MariaDB-servern](https://downlo
 MariaDB använder namngivnings schemat X. Y. Z. X är huvud versionen, Y är den lägre versionen och Z är korrigerings versionen.
 
 > [!NOTE]
-> I tjänsten används en gateway för att omdirigera anslutningarna till serverinstanser. När anslutningen har upprättats visar MySQL-klienten den version av MariaDB som angetts i gatewayen, inte den faktiska versionen som körs på MariaDB-serverinstansen. Använd `SELECT VERSION();` kommandot för att fastställa versionen av MariaDB Server-instansen.
+> I tjänsten används en gateway för att omdirigera anslutningarna till serverinstanser. När anslutningen har upprättats visar MySQL-klienten den version av MariaDB som angetts i gatewayen, inte den faktiska versionen som körs på MariaDB-serverinstansen. Använd kommandot för att fastställa versionen av MariaDB Server-instansen `SELECT VERSION();` .
 
 Azure Database for MariaDB stöder för närvarande följande version:
 
 ## <a name="mariadb-version-102"></a>MariaDB-version 10,2
 
-Korrigerings version: 10.2.25
+Korrigerings version: 10.2.31
 
-Läs mer om förbättringar och korrigeringar i den här versionen i [MariaDB-dokumentationen](https://mariadb.com/kb/en/library/mariadb-10225-release-notes/) .
+Läs mer om förbättringar och korrigeringar i den här versionen i [MariaDB-dokumentationen](https://mariadb.com/kb/en/mariadb-10231-release-notes/) .
 
 ## <a name="mariadb-version-103"></a>MariaDB-version 10,3
 
-Korrigerings version: 10.3.16
+Korrigerings version: 10.3.22
 
-Läs mer om förbättringar och korrigeringar i den här versionen i [MariaDB-dokumentationen](https://mariadb.com/kb/en/library/mariadb-10316-release-notes/) .
+Läs mer om förbättringar och korrigeringar i den här versionen i [MariaDB-dokumentationen](https://mariadb.com/kb/en/mariadb-10322-release-notes/) .
 
 ## <a name="managing-updates-and-upgrades"></a>Hantera uppdateringar och uppgraderingar
 Tjänsten hanterar automatiskt uppgraderingar för uppdaterings uppdateringar. Till exempel 10.2.21 till 10.2.23.  

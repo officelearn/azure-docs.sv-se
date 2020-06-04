@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 206d63e05b68cbcec65b0d06e11da48065251ea0
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 7c12beaf30651a6cb1048a75b0f7cb353b45173a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569997"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84339900"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Utveckla en C# IoT Edge-modul för att flytta filer på Azure Stack kant
 
@@ -24,6 +24,7 @@ Du kan använda Azure IoT Edge moduler med Azure Stack Edge för att transformer
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
+>
 > * Skapa ett behållar register för att lagra och hantera dina moduler (Docker-avbildningar).
 > * Skapa en IoT Edge-modul som ska distribueras på Azure Stack Edge-enheten. 
 
@@ -40,7 +41,7 @@ Din Azure Stack Edge-enhet kan distribuera och köra IoT Edge moduler. Edge-modu
 
 När filen finns i moln resursen överförs den automatiskt till ditt Azure Storage-konto.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att du har:
 
@@ -107,7 +108,7 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
 
     5. Ange det behållar register som du skapade i föregående avsnitt som avbildnings lagrings plats för din första modul. Ersätt **localhost:5000** med det serverinloggningsvärde som du kopierade.
 
-        Den slutliga strängen ser ut `<Login server name>/<Module name>`som. I det här exemplet är strängen: `mycontreg2.azurecr.io/filecopymodule`.
+        Den slutliga strängen ser ut som `<Login server name>/<Module name>` . I det här exemplet är strängen: `mycontreg2.azurecr.io/filecopymodule` .
 
         ![Skapa ny lösning 3](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-3.png)
 
@@ -272,7 +273,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i FileC
 
     *Program. CS (77, 44): varning CS1998: den här asynkrona metoden saknar await-operatorer och kommer att köras synkront. Överväg att använda operatorn "await" för att vänta på icke-blockerande API-anrop, eller "vänta aktivitet. Run (...)" för att göra CPU-kopplat arbete på en bakgrunds tråd.*
 
-4. Den fullständiga adressen med tagg för containeravbildningen finns i den integrerade VS Code-terminalen. Bild adressen skapas utifrån information som finns i filen module. JSON med formatet `<repository>:<version>-<platform>`. I den här artikeln bör den se ut `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
+4. Den fullständiga adressen med tagg för containeravbildningen finns i den integrerade VS Code-terminalen. Bild adressen skapas utifrån information som finns i filen module. JSON med formatet `<repository>:<version>-<platform>` . I den här artikeln bör den se ut `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64` .
 
 ## <a name="next-steps"></a>Nästa steg
 

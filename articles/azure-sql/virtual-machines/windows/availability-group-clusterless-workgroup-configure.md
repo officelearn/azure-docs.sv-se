@@ -1,6 +1,6 @@
 ---
 title: Konfigurera en domän oberoende arbets grupps tillgänglighets grupp
-description: Lär dig hur du konfigurerar en Active Directory-domän oberoende arbets grupps tillgänglighets grupp på en SQL Server virtuell dator i Azure.
+description: Lär dig hur du konfigurerar en Active Directory domän oberoende arbets grupps tillgänglighets grupp på en SQL Server virtuell dator i Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 36c4a141acf38d83ff925bafaa75c294847a7d74
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 0d3e7e7de6d8f044355a43eb870420ad121ed61f
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049332"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343701"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurera en tillgänglighets grupp för arbets gruppen 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,13 +46,13 @@ För referens används följande parametrar i den här artikeln, men kan ändras
 | **Arbets grupps namn** | AGWorkgroup | 
 | &nbsp; | &nbsp; |
 
-## <a name="set-dns-suffix"></a>Ange DNS-suffix 
+## <a name="set-a-dns-suffix"></a>Ange ett DNS-suffix 
 
 I det här steget konfigurerar du DNS-suffixet för båda servrarna. Till exempel `ag.wgcluster.example.com`. På så sätt kan du använda namnet på det objekt som du vill ansluta till som en fullständigt kvalificerad adress i nätverket, till exempel `AGNode1.ag.wgcluster.example.com` . 
 
 Följ dessa steg om du vill konfigurera DNS-suffixet:
 
-1. RDP till din första nod och öppna Serverhanteraren. 
+1. RDP in till din första nod och öppna Serverhanteraren. 
 1. Välj **lokal server** och välj sedan namnet på den virtuella datorn under **dator namn**. 
 1. Välj **ändra..** . under **för att byta namn på den här datorn.**.. 
 1. Ändra namnet på arbets grupps namnet så att det är något meningsfullt, till exempel `AGWORKGROUP` : 
@@ -71,13 +71,13 @@ Följ dessa steg om du vill konfigurera DNS-suffixet:
 1. Starta om servern när du uppmanas att göra det. 
 1. Upprepa de här stegen på alla andra noder som ska användas för tillgänglighets gruppen. 
 
-## <a name="edit-host-file"></a>Redigera värd fil
+## <a name="edit-a-host-file"></a>Redigera en värd fil
 
 Eftersom det inte finns någon Active Directory finns det inget sätt att autentisera Windows-anslutningar. Tilldela till exempel förtroende genom att redigera värd filen med en text redigerare. 
 
 Följ dessa steg om du vill redigera värd filen:
 
-1. RDP till den virtuella datorn. 
+1. RDP in på den virtuella datorn. 
 1. Använd **Utforskaren** för att gå till `c:\windows\system32\drivers\etc` . 
 1. Högerklicka på **hosts** -filen och öppna filen med **anteckningar** (eller någon annan text redigerare).
 1. I slutet av filen lägger du till en post för varje nod, tillgänglighets gruppen och lyssnaren i form av `IP Address, DNS Suffix #comment` t. ex.: 
@@ -132,11 +132,11 @@ När klustret har skapats tilldelar du en statisk kluster-IP-adress. Det gör du
 
 I det här steget konfigurerar du ett moln resurs vittne. Om du inte är bekant med stegen går du till [självstudien för redundanskluster](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-a-cloud-witness). 
 
-## <a name="enable-availability-group-feature"></a>Aktivera tillgänglighets grupp funktion 
+## <a name="enable-the-availability-group-feature"></a>Aktivera funktionen tillgänglighets grupp 
 
 I det här steget aktiverar du funktionen tillgänglighets grupp. Om du inte är bekant med stegen går du till [självstudien för tillgänglighets gruppen](availability-group-manually-configure-tutorial.md#enable-availability-groups). 
 
-## <a name="create-keys-and-certificate"></a>Skapa nycklar och certifikat
+## <a name="create-keys-and-certificates"></a>Skapa nycklar och certifikat
 
 I det här steget skapar du certifikat som en SQL-inloggning använder på den krypterade slut punkten. Skapa en mapp på varje nod för att lagra säkerhets kopior av certifikatet, till exempel `c:\certs` . 
 
@@ -277,19 +277,19 @@ GO
 
 Om det finns andra noder i klustret upprepar du de här stegen också, och ändrar respektive certifikat och användar namn. 
 
-## <a name="configure-availability-group"></a>Konfigurera tillgänglighets grupp
+## <a name="configure-an-availability-group"></a>Konfigurera en tillgänglighets grupp
 
 I det här steget konfigurerar du din tillgänglighets grupp och lägger till dina databaser i den. Skapa inte en lyssnare just nu. Om du inte är bekant med stegen går du till [självstudien för tillgänglighets gruppen](availability-group-manually-configure-tutorial.md#create-the-availability-group). Se till att initiera en redundansväxling och återställning efter fel för att kontrol lera att allt fungerar som det ska. 
 
    > [!NOTE]
    > Om det uppstår ett fel under synkroniseringsprocessen kan du behöva ge `NT AUTHORITY\SYSTEM` sysadmin-behörighet att skapa kluster resurser på den första noden, till exempel `AGNode1` tillfälligt. 
 
-## <a name="configure-load-balancer"></a>Konfigurera belastningsutjämnare
+## <a name="configure-a-load-balancer"></a>Konfigurera en belastningsutjämnare
 
-I det sista steget konfigurerar du belastningsutjämnaren med hjälp av antingen [Azure Portal](availability-group-load-balancer-portal-configure.md) eller [PowerShell](availability-group-listener-powershell-configure.md)
+I det sista steget konfigurerar du belastningsutjämnaren med hjälp av antingen [Azure Portal](availability-group-load-balancer-portal-configure.md) eller [PowerShell](availability-group-listener-powershell-configure.md).
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Du kan också använda [AZ SQL CLI](availability-group-az-cli-configure.md) för att konfigurera en tillgänglighets grupp. 
 

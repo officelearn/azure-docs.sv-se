@@ -4,14 +4,14 @@ description: Hantera och uppdatera Azure HPC-cache med hjälp av Azure Portal
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 1/29/2020
-ms.author: rohogue
-ms.openlocfilehash: 57d6a2024cd6fd979426ca5de5e261f110f6156f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/01/2020
+ms.author: v-erkel
+ms.openlocfilehash: 34f29eda703cb019cca3e9ca293e31288c6e151b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537958"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343683"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Hantera din cache från Azure Portal
 
@@ -30,6 +30,10 @@ Knapparna överst på sidan kan hjälpa dig att hantera cachen:
 * [**Ta bort**](#delete-the-cache) – förstör cachen permanent
 
 Läs mer om de här alternativen nedan.
+
+Klicka på bilden nedan om du vill se en [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) som visar hanterings uppgifter för cache.
+
+[![video miniatyr: Azure HPC-cache: hantera (Klicka om du vill besöka video sidan)](media/video5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
 
 ## <a name="stop-the-cache"></a>Stoppa cachen
 

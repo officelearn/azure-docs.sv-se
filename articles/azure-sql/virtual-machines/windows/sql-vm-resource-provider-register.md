@@ -14,14 +14,14 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: af2d23104f07991fc9833951bb4e2395d39be9b3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 768b71aae66a73cea4ef50a00db5a35f1f6588d4
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051152"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342363"
 ---
-# <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en virtuell dator med SQL Server i Azure med SQL VM-resursprovidern
+# <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en SQL Server VM i Azure med providern för SQL VM-resurs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Den här artikeln beskriver hur du registrerar SQL Server virtuell dator (VM) i Azure med providern för SQL VM-resurs. När du registrerar med resurs leverantören skapas den **virtuella SQL-datorns** _resurs_ i din prenumeration, som är en separat resurs från den virtuella dator resursen. När du avregistrerar SQL Server VM från resurs leverantören tas den **virtuella SQL-datorn** bort _, men den faktiska virtuella datorn tas_ inte bort. 
@@ -51,7 +51,7 @@ Genom att distribuera en SQL Server VM Azure Marketplace-avbildning via Azure Po
 
    ---
 
-Om du vill använda en SQL VM-adressresurs måste du först [Registrera din prenumeration med resurs leverantören](#register-subscription-with-rp), vilket ger resurs leverantören möjlighet att skapa resurser i den aktuella prenumerationen.
+Om du vill använda en SQL VM-adressresurs måste du först [Registrera din prenumeration med resurs leverantören](#register-a-subscription-with-the-resource-provider), vilket ger resurs leverantören möjlighet att skapa resurser i den aktuella prenumerationen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -83,11 +83,11 @@ Du kan visa det aktuella läget för SQL Server IaaS-agenten med hjälp av Power
   $sqlvm.SqlManagementType
   ```
 
-## <a name="register-subscription-with-rp"></a>Registrera prenumeration med RP
+## <a name="register-a-subscription-with-the-resource-provider"></a>Registrera en prenumeration med resurs leverantören
 
 Om du vill registrera din SQL Server VM med resurs leverantören för SQL-VM måste du först registrera din prenumeration med resurs leverantören. Detta ger den virtuella SQL-adressresursen möjlighet att skapa resurser i din prenumeration.  Du kan göra detta med hjälp av Azure Portal, Azure CLI eller PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1. Öppna Azure Portal och gå till **alla tjänster**. 
 1. Gå till **prenumerationer** och välj en prenumeration på intresse.  
@@ -95,14 +95,14 @@ Om du vill registrera din SQL Server VM med resurs leverantören för SQL-VM må
 1. Ange **SQL** i filtret för att ta fram SQL-relaterade resurs leverantörer. 
 1. Välj **Registrera**, **Registrera**om eller **avregistrera** för **Microsoft. SqlVirtualMachine** -providern, beroende på vilken åtgärd du önskar. 
 
-![Ändra providern](./media/sql-vm-resource-provider-register/select-resource-provider-sql.png)
+   ![Ändra providern](./media/sql-vm-resource-provider-register/select-resource-provider-sql.png)
 
 
 ### <a name="command-line"></a>Kommandorad
 
 Registrera din SQL VM-adressresurs i Azure-prenumerationen med hjälp av Azure CLI eller PowerShell. 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
 ```azurecli-interactive
 # Register the SQL VM resource provider to your subscription 
@@ -118,7 +118,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ---
 
-## <a name="register-sql-vm-with-rp"></a>Registrera SQL VM med RP 
+## <a name="register-with-the-resource-provider"></a>Registrera med resursprovidern 
 
 ### <a name="lightweight-management-mode"></a>Läge för förenklad hantering
 
@@ -128,9 +128,9 @@ Ange SQL Server licens typ som antingen betala `PAYG` per användning () för at
 
 Kluster instanser för växling vid fel och distributioner med flera instanser kan bara registreras med resurs leverantören för SQL-VM i Lightweight-läge. 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
-Registrera SQL Server VM i lättviktigt läge med Azure CLI: 
+Registrera en SQL Server VM i lättviktigt läge med Azure CLI: 
 
   ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
@@ -140,7 +140,7 @@ Registrera SQL Server VM i lättviktigt läge med Azure CLI:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Registrera SQL Server VM i Lightweight-läge med PowerShell:  
+Registrera en SQL Server VM i Lightweight-läge med PowerShell:  
 
 
   ```powershell-interactive
@@ -179,9 +179,9 @@ Ange antingen `AHUB` , `PAYG` eller `DR` som **sqlLicenseType**, och `SQL2008-WS
 För att registrera SQL Server 2008 eller 2008 R2 på Windows Server 2008-instansen använder du följande Azure CLI-eller PowerShell-kodfragment: 
 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
-Registrera din SQL Server 2008 VM i noagent-läge med Azure CLI: 
+Registrera din virtuella SQL Server 2008-dator i noagent-läge med Azure CLI: 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
@@ -190,7 +190,7 @@ Registrera din SQL Server 2008 VM i noagent-läge med Azure CLI:
  ```
  
  
-Registrera din SQL Server 2008 R2-VM i noagent-läge med Azure CLI: 
+Registrera din virtuella SQL Server 2008 R2-dator i noagent-läge med Azure CLI: 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
@@ -200,7 +200,7 @@ Registrera din SQL Server 2008 R2-VM i noagent-läge med Azure CLI:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Registrera SQL Server 2008 VM i noagent-läge med PowerShell: 
+Registrera din virtuella SQL Server 2008-dator i noagent-läge med PowerShell: 
 
 
   ```powershell-interactive
@@ -211,7 +211,7 @@ Registrera SQL Server 2008 VM i noagent-läge med PowerShell:
     -LicenseType PAYG -SqlManagementType NoAgent -Sku Standard -Offer SQL2008-WS2008
   ```
   
-  Registrera SQL Server 2008 R2 VM i noagent-läge med PowerShell: 
+  Registrera din virtuella SQL Server 2008 R2-dator i noagent-läge med PowerShell: 
 
 
   ```powershell-interactive
@@ -226,7 +226,7 @@ Registrera SQL Server 2008 VM i noagent-läge med PowerShell:
 
 ## <a name="upgrade-to-full-management-mode"></a>Uppgradera till fullständigt hanterings läge 
 
-SQL Server virtuella datorer som har tillägget *Lightweight* IaaS installerat kan uppgradera läget till _full_ med Azure Portal, Azure CLI eller PowerShell. SQL Server virtuella datorer i _Noagent_ -läge kan uppgraderas till _full_ efter att operativ systemet har uppgraderats till Windows 2008 R2 och senare. Det går inte att nedgradera – om du vill göra det måste du [avregistrera](#unregister-vm-from-rp) SQL Server VM från providern för SQL VM-resursen. Om du gör det tas den **virtuella SQL-datorns** _resurs_bort, men den faktiska virtuella datorn tas inte bort. 
+SQL Server virtuella datorer som har tillägget *Lightweight* IaaS installerat kan uppgradera läget till _full_ med Azure Portal, Azure CLI eller PowerShell. SQL Server virtuella datorer i _Noagent_ -läge kan uppgraderas till _full_ efter att operativ systemet har uppgraderats till Windows 2008 R2 och senare. Det går inte att nedgradera – om du vill göra det måste du [avregistrera](#unregister-from-the-resource-provider) SQL Server VM från providern för SQL VM-resursen. Om du gör det tas den **virtuella SQL-datorns** _resurs_bort, men den faktiska virtuella datorn tas inte bort. 
 
 Du kan visa det aktuella läget för SQL Server IaaS-agenten med hjälp av PowerShell: 
 
@@ -239,11 +239,11 @@ Du kan visa det aktuella läget för SQL Server IaaS-agenten med hjälp av Power
 Så här uppgraderar du agentens läge till fullständigt: 
 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Gå till resursen för [virtuella SQL-datorer](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) . 
-1. Välj din SQL Server virtuella dator och välj **Översikt**. 
+1. Välj din SQL Server VM och välj **Översikt**. 
 1. För SQL Server virtuella datorer med noagent-eller Lightweight IaaS-läge väljer du de **enda licens typ-och versions uppdateringar som är tillgängliga med meddelandet SQL IaaS-tillägg** .
 
    ![Val för att ändra läget från portalen](./media/sql-vm-resource-provider-register/change-sql-iaas-mode-portal.png)
@@ -254,7 +254,7 @@ Så här uppgraderar du agentens läge till fullständigt:
 
 ### <a name="command-line"></a>Kommandorad
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
 Kör följande kodfragment i Azure CLI:
 
@@ -280,20 +280,20 @@ Kör följande PowerShell-kodfragment:
 ## <a name="verify-registration-status"></a>Verifiera registrerings status
 Du kan kontrol lera om din SQL Server VM redan har registrerats med resurs leverantören för SQL-VM med hjälp av Azure Portal, Azure CLI eller PowerShell. 
 
-### <a name="azure-portal"></a>Azure Portal 
+### <a name="azure-portal"></a>Azure-portalen 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 1. Gå till dina [SQL Server virtuella datorer](manage-sql-vm-portal.md).
 1. Välj din SQL Server VM i listan. Om din SQL Server VM inte visas här, har den antagligen inte registrerats med den virtuella SQL-resurs leverantören. 
 1. Visa värdet under **status**. Om **statusen** är **klar**har SQL Server VM registrerats med den virtuella SQL-adressresursen. 
 
-![Verifiera status med SQL RP-registrering](./media/sql-vm-resource-provider-register/verify-registration-status.png)
+   ![Verifiera status med SQL RP-registrering](./media/sql-vm-resource-provider-register/verify-registration-status.png)
 
 ### <a name="command-line"></a>Kommandorad
 
 Verifiera aktuell SQL Server VM registrerings status med hjälp av antingen Azure CLI eller PowerShell. `ProvisioningState`visar `Succeeded` om registreringen lyckades. 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
 
   ```azurecli-interactive
@@ -311,18 +311,18 @@ Verifiera aktuell SQL Server VM registrerings status med hjälp av antingen Azur
 Ett fel indikerar att SQL Server VM inte har registrerats hos resurs leverantören. 
 
 
-## <a name="unregister-vm-from-rp"></a>Avregistrera VM från RP
+## <a name="unregister-from-the-resource-provider"></a>Avregistrera från resurs leverantören
 
 Ta bort den virtuella SQL-datorns *resurs* med hjälp av Azure Portal eller Azure CLI om du vill avregistrera din SQL Server VM med den virtuella SQL-providern. Om du tar bort den virtuella SQL-datorns *resurs* tas inte SQL Server VM bort. Använd dock försiktighet och följ stegen noggrant, eftersom det är möjligt att oavsiktligt ta bort den virtuella datorn när du försöker ta bort *resursen*. 
 
 Att avregistrera den virtuella SQL-datorn med den virtuella SQL-adressresursen är nödvändig för att nedgradera hanterings läget från full. 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Följ dessa steg om du vill avregistrera SQL Server VM med resurs leverantören med hjälp av Azure Portal:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Navigera till SQL Server VM resursen. 
+1. Navigera till den virtuella SQL-resursen. 
   
    ![Resurs för virtuella SQL-datorer](./media/sql-vm-resource-provider-register/sql-vm-manage.png)
 
@@ -337,12 +337,12 @@ Följ dessa steg om du vill avregistrera SQL Server VM med resurs leverantören 
    >[!WARNING]
    > Om du inte avmarkerar kryss rutan bredvid namnet på den virtuella datorn tas den virtuella datorn *bort* helt. Avmarkera kryss rutan för att avregistrera SQL Server VM från resurs leverantören, men *Ta inte bort den faktiska virtuella datorn*. 
 
-1. Välj **ta bort** för att bekräfta borttagningen av den virtuella SQL-datorns *resurs*, inte den SQL Server virtuella datorn. 
+1. Välj **ta bort** för att bekräfta borttagningen av den virtuella SQL-datorns *resurs*, inte SQL Server VM. 
 
 ### <a name="command-line"></a>Kommandorad
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Om du vill avregistrera din SQL Server virtuella dator från resurs leverantören med Azure CLI använder du kommandot [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) . Detta tar bort den SQL Server virtuella dator *resursen* men tar inte bort den virtuella datorn. 
+Om du vill avregistrera SQL Server VM från resurs leverantören med Azure CLI använder du kommandot [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) . Detta tar bort den SQL Server VM *resursen* men tar inte bort den virtuella datorn. 
 
 
 ```azurecli-interactive
@@ -353,7 +353,7 @@ az sql vm delete
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Om du vill avregistrera din SQL Server virtuella dator från resurs leverantören med Azure CLI använder du kommandot [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm). Detta tar bort den SQL Server virtuella dator *resursen* men tar inte bort den virtuella datorn. 
+Om du vill avregistrera SQL Server VM från resurs leverantören med Azure CLI använder du kommandot [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm). Detta tar bort den SQL Server VM *resursen* men tar inte bort den virtuella datorn. 
 
 ```powershell-interactive
 Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
@@ -402,7 +402,7 @@ Nej. Vid registrering med den virtuella SQL-adressresursen skapas endast en ny m
 
 SQL Server IaaS-tillägget krävs bara för att aktivera fullständig hanterbarhet. Om du uppgraderar hanterbarhets läget från Lightweight till full installeras SQL Server IaaS-tillägget och startas om SQL Server.
 
-**Kommer att registreras med SQL Server VM Resource Provider starta om SQL Server på den virtuella datorn?**
+**Kommer registreringen med den virtuella SQL-adressresursen att starta om SQL Server på den virtuella datorn?**
 
 Det beror på vilket läge som anges under registreringen. Om läget för enkel eller utan agent anges, kommer SQL Server-tjänsten inte att starta om. Men om du anger hanterings läget som full eller låter hanterings läget vara tomt installeras SQL IaaS-tillägget i fullständigt hanterings läge, vilket leder till att SQL Server tjänsten startas om. 
 
@@ -428,7 +428,7 @@ Ja. Uppgradering av hanterbarhets läget från Lightweight till full stöds via 
 
 Nej. Det finns inte stöd för att nedgradera SQL Server IaaS-tilläggets hanterbarhets läge. Läget för hanterbarhets kan inte nedgraderas från fullständigt läge till läget för förenklad eller No-agent, och det kan inte nedgraderas från läget Lightweight till No-agent. 
 
-Om du vill ändra hanterbarhets läget från fullständig hanterbarhet [avregistrerar](#unregister-vm-from-rp) du den SQL Server virtuella datorn från SQL Server Resource provider genom att släppa SQL Server *resursen* och omregistrera SQL Server VM med den virtuella SQL-adressresursen i ett annat hanterings läge.
+Om du vill ändra hanterbarhets läget från fullständig hanterbarhet [avregistrerar](#unregister-from-the-resource-provider) du SQL Server VM från providern för SQL VM-resurs genom att släppa SQL Server *resursen* och omregistrera SQL Server VM med RESURSPOOLEN för den virtuella SQL-datorn i ett annat hanterings läge.
 
 **Kan jag registrera med resurs leverantören för SQL-VM från Azure Portal?**
 

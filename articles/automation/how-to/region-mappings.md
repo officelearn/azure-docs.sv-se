@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/23/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: d594d5a9dd263817023d2b5987c03aa50828191c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1ccf87bfd387182af269670abf1d86833854834d
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191865"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331635"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regioner som stöder länkade Log Analytics-arbetsytor
 
@@ -37,6 +37,7 @@ Följande tabell visar de mappningar som stöds:
 |AustraliaSoutheast|AustraliaSoutheast|
 |Sydostasien|Sydostasien|
 |Kanada|Kanada|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |Japanöstra|Japanöstra|
 |**Europa**||
 |UKSouth|UKSouth|
@@ -47,6 +48,8 @@ Följande tabell visar de mappningar som stöds:
 <sup>1</sup> -mappning av öster för Log Analytics arbets ytor till Automation-konton är inte en exakt mappning mellan regioner och regioner, men är rätt mappning.
 
 <sup>2</sup> på grund av kapacitets begränsningar är regionen inte tillgänglig när du skapar nya resurser. Detta inkluderar Automation-konton och Log Analytics arbets ytor. Befintliga länkade resurser i regionen bör dock fortsätta att fungera.
+
+<sup>3</sup> i Azure Kina stöds endast uppdateringshantering och andra funktioner som ändringsspårning och inventering är inte tillgängliga för tillfället. 
 
 ## <a name="unlink-a-workspace"></a>Ta bort länk till en arbets yta
 

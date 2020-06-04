@@ -2,13 +2,13 @@
 title: Samla in & analysera resurs loggar
 description: Registrera och analysera resurs logg händelser för Azure Container Registry, till exempel autentisering, avbildnings-push och image pull.
 ms.topic: article
-ms.date: 01/03/2020
-ms.openlocfilehash: 00f9468721126bd166051df47cec1596356e9b54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/01/2020
+ms.openlocfilehash: b41b1001a669fe42721471bc196e7628eabff983
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409651"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343191"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Azure Container Registry loggar för diagnostisk utvärdering och granskning
 
@@ -24,12 +24,14 @@ Att samla in resurs logg data med Azure Monitor kan medföra ytterligare kostnad
 
 Följande händelser på lagrings nivå för bilder och andra artefakter är för närvarande loggade:
 
-* **Push-händelser**
-* **Hämta händelser**
-* **Avtagga-händelser**
-* **Ta bort händelser** (inklusive databas borttagnings händelser)
+* **Push**
+* **Listruta**
+* **Avtagga**
+* **Ta bort** (inklusive databas borttagnings händelser)
+* **Rensa tagg** och **Rensa manifest**
 
-Händelser på lagrings nivå som inte är loggade: Rensa händelser.
+> [!NOTE]
+> Rensnings händelser loggas bara om en [princip](container-registry-retention-policy.md) för register lagring har kon figurer ATS.
 
 ## <a name="registry-resource-logs"></a>Register resurs loggar
 
@@ -37,7 +39,7 @@ Resurs loggar innehåller information som genereras av Azure-resurser som beskri
 
 * **ContainerRegistryLoginEvents** – händelser och status för klientautentisering, inklusive inkommande identitet och IP-adress
 * **ContainerRegistryRepositoryEvents** – åtgärder som push och pull för avbildningar och andra artefakter i register databaser
-* **AzureMetrics** - [container Registry-mått](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) som aggregerade push-och pull-antal.
+* **AzureMetrics**  -  [Container Registry-mått](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) som aggregerade push-och pull-antal.
 
 För åtgärder innehåller loggdata följande:
   * Status för lyckades eller misslyckades
@@ -83,16 +85,58 @@ En själv studie kurs om hur du använder Log Analytics i Azure Portal finns i [
 
 Mer information om logg frågor finns i [Översikt över logg frågor i Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-### <a name="additional-query-examples"></a>Exempel på ytterligare frågor
+## <a name="query-examples"></a>Exempelfrågor
 
-#### <a name="100-most-recent-registry-events"></a>100 senaste register händelser
+### <a name="error-events-from-the-last-hour"></a>Fel händelser från den senaste timmen
+
+```Kusto
+union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+| where TimeGenerated > ago(1h)
+| where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+    or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+```
+
+### <a name="100-most-recent-registry-events"></a>100 senaste register händelser
 
 ```Kusto
 ContainerRegistryRepositoryEvents
 | union ContainerRegistryLoginEvents
 | top 100 by TimeGenerated
-| project TimeGenerated, LoginServer , OperationName , Identity , Repository , DurationMs , Region , ResultType
+| project TimeGenerated, LoginServer, OperationName, Identity, Repository, DurationMs, Region , ResultType
 ```
+
+### <a name="identity-of-user-or-object-that-deleted-repository"></a>Identitet för användaren eller objektet som tog bort databasen
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Delete"
+| project LoginServer, OperationName, Repository, Identity, CallerIpAddress
+```
+
+### <a name="identity-of-user-or-object-that-deleted-tag"></a>Identitet för användaren eller objektet som tog bort taggen
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Untag"
+| project LoginServer, OperationName, Repository, Tag, Identity, CallerIpAddress
+```
+
+### <a name="reposity-level-operation-failures"></a>Åtgärds problem på Reposity nivå
+
+```kusto
+ContainerRegistryRepositoryEvents 
+| where ResultDescription contains "40"
+| project TimeGenerated, OperationName, Repository, Tag, ResultDescription
+```
+
+### <a name="registry-authentication-failures"></a>Autentiseringsfel för registret
+
+```kusto
+ContainerRegistryLoginEvents 
+| where ResultDescription != "200"
+| project TimeGenerated, Identity, CallerIpAddress, ResultDescription
+```
+
 
 ## <a name="additional-log-destinations"></a>Ytterligare logg destinationer
 

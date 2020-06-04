@@ -4,18 +4,34 @@ description: Krav för att använda Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.author: rohogue
-ms.openlocfilehash: 4508ef7583760a7ef7503f8a6f37202af2684d81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/01/2020
+ms.author: v-erkel
+ms.openlocfilehash: d8f345b12d635f0ab683929fc67d5d789bfea8d9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106516"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343648"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Krav för Azure HPC-cache
 
 Innan du använder Azure Portal för att skapa en ny Azure HPC-cache kontrollerar du att din miljö uppfyller dessa krav.
+
+## <a name="video-overviews"></a>Video översikter
+
+Titta på dessa videor för en snabb översikt över systemets komponenter och vad de behöver för att arbeta tillsammans.
+
+(Klicka på video bilden eller länken för att titta.)
+
+* [Så här fungerar det](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/) – förklarar hur Azure HPC-cache interagerar med lagring och klienter
+
+  [![video miniatyr bild: Azure HPC-cache: hur det fungerar (Klicka för att besöka video sidan)](media/video2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
+
+* [Krav – beskriver](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/) kraven för NAS-lagring, Azure Blob Storage, nätverks åtkomst och klient åtkomst
+
+  [![video miniatyr bild: Azure HPC-cache: förutsättningar (Klicka för att besöka video sidan)](media/video3-prereqs.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
+
+Läs resten av den här artikeln för vissa rekommendationer.
 
 ## <a name="azure-subscription"></a>Azure-prenumeration
 
@@ -130,13 +146,13 @@ Mer information finns i [Felsöka problem med NAS-konfiguration och NFS-lagring]
 * **Katalog åtkomst:** Aktivera `showmount` kommandot på lagrings systemet. Azure HPC cache använder det här kommandot för att kontrol lera att din lagrings mål konfiguration pekar på en giltig export, och också för att se till att flera monteringar inte har åtkomst till samma under kataloger (en risk för fil kollision).
 
   > [!NOTE]
-  > Om ditt NFS Storage-System använder NetApp ONTAP 9,2-operativ system ska **du inte `showmount`aktivera **. [Kontakta Microsofts tjänst och support](hpc-cache-support-ticket.md) om du behöver hjälp.
+  > Om ditt NFS Storage-System använder NetApp ONTAP 9,2-operativ system ska **du inte `showmount` Aktivera **. [Kontakta Microsofts tjänst och support](hpc-cache-support-ticket.md) om du behöver hjälp.
 
   Läs mer om åtkomst till katalog listor i [fel söknings artikeln](troubleshoot-nas.md#enable-export-listing)för NFS-lagrings målet.
 
 * **Rot åtkomst** (Läs/skriv): cachen ansluter till backend-systemet som användar-ID 0. Kontrol lera inställningarna på ditt lagrings system:
   
-  * Aktivera `no_root_squash`. Med det här alternativet ser du till att fjärranslutna rot användare kan komma åt filer som ägs av roten.
+  * Aktivera `no_root_squash` . Med det här alternativet ser du till att fjärranslutna rot användare kan komma åt filer som ägs av roten.
 
   * Kontrol lera export principerna för att se till att de inte innehåller begränsningar för rot åtkomst från cachens undernät.
 

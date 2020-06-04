@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/4/2020
+ms.date: 6/3/2020
 ms.author: yohaddad
-ms.openlocfilehash: 19a442126fe2f090851236eb41cb6995df857c77
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 2d4e6054b1e5626b42bb662ac57fc0323d190aa8
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791552"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343973"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst operativ system versioner och SDK-kompatibilitet mat ris
 Innehåller uppdaterad information om de senaste Azure Guest OS-versionerna för Cloud Services. Den här informationen hjälper dig att planera uppgraderings vägen innan ett gäst operativ system är inaktiverat. Om du konfigurerar dina roller så att de använder *automatiska* uppdateringar av gäst operativ system enligt beskrivningen i [Azures uppdaterings inställningar för gäst operativ system][Azure Guest OS Update Settings]är det inte viktigt att du läser den här sidan.
@@ -41,6 +41,9 @@ Innehåller uppdaterad information om de senaste Azure Guest OS-versionerna för
 Är du osäker på hur du uppdaterar ditt gäst operativ system? Kolla [här][cloud updates] .
 
 ## <a name="news-updates"></a>Diskussions grupps uppdateringar
+
+###### <a name="june-2-2020"></a>**2 juni 2020**
+Gäst operativ systemet har släppts. 
 
 ###### <a name="may-4-2020"></a>**4 maj 2020**
 Gäst operativ systemet i april har släppts. 
@@ -128,8 +131,9 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+|  WA – GÄST-OS-6.19 _202005-02  |  2 juni 2020  |  Publicera 6,21  |  
 |  WA – GÄST-OS-6.18 _202004-01  |  4 maj 2020  |  Publicera 6,20  |  
-|  WA – GÄST-OS-6.17 _202003-01  |  2 april 2020  |  Publicera 6,19  |  
+|~~WA – GÄST-OS-6.17 _202003-01~~|  2 april 2020  |  2 juni 2020  |  
 |~~WA – GÄST-OS-6.16 _202002-01~~|  5 mars 2020  |  4 maj 2020  |  
 |~~WA – GÄST-OS-6.15 _202001-01~~|  24 januari 2020  |  2 april 2020  |  
 |~~WA – GÄST-OS-6.14 _201912-01~~| 8 januari 2020 | 5 mars 2020 |  
@@ -159,8 +163,9 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+|  WA – GÄST-OS-5.43 _202005-02  |  2 juni 2020  |  Publicera 5,45  |  
 |  WA – GÄST-OS-5.42 _202004-01  |  4 maj 2020  |  Publicera 5,44  |  
-|  WA – GÄST-OS-5.41 _202003-01  |  2 april 2020  |  Publicera 5,43  |  
+|~~WA – GÄST-OS-5.41 _202003-01~~|  2 april 2020  |  2 juni 2020  |  
 |~~WA – GÄST-OS-5.40 _202002-01~~|  5 mars 2020  |  4 maj 2020  |  
 |~~WA – GÄST-OS-5.39 _202001-01~~|  24 januari 2020  |  2 april 2020  |  
 |~~WA – GÄST-OS-5.38 _201912-01~~| 8 januari 2020 | 5 mars 2020 |  
@@ -187,8 +192,9 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+|  WA – GÄST-OS-4.78 _202005-02  |  2 juni 2020  |  Publicera 4,80  |  
 |  WA – GÄST-OS-4.77 _202004-01  |  4 maj 2020  |  Publicera 4,79  |  
-|  WA – GÄST-OS-4.76 _202003-01  |  2 april 2020  |  Publicera 4,78  |  
+|~~WA – GÄST-OS-4.76 _202003-01~~|  2 april 2020  |  2 juni 2020  |  
 |~~WA – GÄST-OS-4.75 _202002-01~~|  5 mars 2020  |  4 maj 2020  |  
 |~~WA – GÄST-OS-4.74 _202001-01~~|  24 januari 2020  |  2 april 2020  |  
 |~~WA – GÄST-OS-4.73 _201912-01~~| 8 januari 2020 | 5 mars 2020 |  
@@ -215,8 +221,9 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+|  WA – GÄST-OS-3.85 _202005-02  |  2 juni 2020  |  Publicera 3,87  |  
 |  WA – GÄST-OS-3.84 _202004-01  |  4 maj 2020  |  Publicera 3,86  |  
-|  WA – GÄST-OS-3.83 _202003-01  |  2 april 2020  |  Publicera 3,85  |  
+|~~WA – GÄST-OS-3.83 _202003-01~~|  2 april 2020  |  2 juni 2020  |  
 |~~WA – GÄST-OS-3.82 _202002-01~~|  5 mars 2020  |  4 maj 2020  |  
 |~~WA – GÄST-OS-3.81 _202001-01~~|  24 januari 2020  |  2 april 2020  |  
 |~~WA – GÄST-OS-3.80 _201912-01~~| 8 januari 2020 | 5 mars 2020 |  
@@ -243,8 +250,9 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+|  WA – GÄST-OS-2.98 _202005-02  |  2 juni 2020  |  Publicera 2,100  |  
 |  WA – GÄST-OS-2.97 _202004-01  |  4 maj 2020  |  Publicera 2,99  |  
-|  WA – GÄST-OS-2.96 _202003-01  |  2 april 2020  |  Publicera 2,98  |  
+|~~WA – GÄST-OS-2.96 _202003-01~~|  2 april 2020  |  2 juni 2020  |  
 |~~WA – GÄST-OS-2.95 _202002-01~~|  5 mars 2020  |  4 maj 2020  |  
 |~~WA – GÄST-OS-2.94 _202001-01~~|  24 januari 2020  |  2 april 2020  |  
 |~~WA – GÄST-OS-2.93 _201912-01~~| 8 januari 2020 | 5 mars 2020 |  

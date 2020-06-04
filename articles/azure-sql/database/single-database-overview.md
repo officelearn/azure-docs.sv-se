@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: f6b705da74fc939cab5f72e6335278207b98dc1a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8f92fe8e4a4ebbc2d970bf28e415859249b9f67c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041766"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343327"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Vad är en enskild databas i Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Resurs typen enskild databas skapar en databas i Azure SQL Database med en egen uppsättning resurser och hanteras via en [Server](logical-servers.md). Med en enda databas är varje databas isolerad från varandra och portabel, var och en med sin egen tjänst nivå inom den [DTU-baserade inköps modellen](service-tiers-dtu.md) eller [vCore inköps modell](service-tiers-vcore.md) och en garanterad beräknings storlek.
+Resurs typen enskild databas skapar en databas i Azure SQL Database med en egen uppsättning resurser och hanteras via en [Server](logical-servers.md). Med en enda databas är varje databas isolerad och portabel. Var och en har sin egen tjänst nivå inom den [DTU-baserade inköps modellen](service-tiers-dtu.md) eller [vCore-baserade inköps modellen](service-tiers-vcore.md) och en garanterad beräknings storlek.
 
 > [!IMPORTANT]
 > En enskild databas är en resurs typ för Azure SQL Database. Den andra är [elastiska pooler](elastic-pool-overview.md).
@@ -46,7 +46,7 @@ Enskilda databaser och elastiska pooler ger många tillgänglighets egenskaper. 
 
 De flesta Transact-SQL-funktioner som program använder stöds fullt ut i både Microsoft SQL Server och Azure SQL Database. Till exempel fungerar kärn SQL-komponenter, till exempel data typer, operatorer, strängar, aritmetiska, logiska och markör funktioner, på samma sätt i SQL Server och SQL Database. Det finns dock några skillnad i T-SQL i DDL (Data Definition Language) och DML-element (Data Manipulation Language) som resulterar i T-SQL-uttryck och frågor som bara delvis stöds (som vi diskuterar senare i den här artikeln).
 
-Dessutom finns det vissa funktioner och syntax som inte stöds eftersom Azure SQL Database har utformats för att isolera funktioner från beroenden i huvud databasen och operativ systemet. Därför är de flesta server nivå aktiviteter olämpliga för SQL Database. T-SQL-uttryck och alternativ är inte tillgängliga om de konfigurerar alternativ på server nivå, operativ system komponenter eller ange fil system konfiguration. När sådana funktioner krävs är ett lämpligt alternativ ofta tillgängligt på något annat sätt från SQL Database eller från en annan Azure-funktion eller-tjänst.
+Dessutom finns det vissa funktioner och syntax som inte stöds eftersom Azure SQL Database har utformats för att isolera funktioner från beroenden i huvud databasen och operativ systemet. Därför är de flesta server nivå aktiviteter olämpliga för SQL Database. T-SQL-uttryck och alternativ är inte tillgängliga om de konfigurerar alternativ på server nivå, konfigurerar operativ system komponenter eller anger konfiguration av fil system. När sådana funktioner krävs är ett lämpligt alternativ ofta tillgängligt på något annat sätt från SQL Database eller från en annan Azure-funktion eller-tjänst.
 
 Mer information finns i [lösa skillnader i Transact-SQL under migrering till SQL Database](transact-sql-tsql-differences-sql-server.md).
 
@@ -55,7 +55,7 @@ Mer information finns i [lösa skillnader i Transact-SQL under migrering till SQ
 SQL Database innehåller en uppsättning inbyggda funktioner för [säkerhet och efterlevnad](security-overview.md) som hjälper ditt program att uppfylla olika krav på säkerhet och efterlevnad.
 
 > [!IMPORTANT]
-> Azure SQL Database har certifierats mot ett antal efterlevnads standarder. Mer information finns i [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den mest aktuella listan med SQL Database certifierings certifieringar.
+> Azure SQL Database har certifierats mot ett antal efterlevnads standarder. Mer information finns i [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), där du hittar den mest aktuella listan med SQL Database certifierings certifieringar.
 
 ## <a name="next-steps"></a>Nästa steg
 

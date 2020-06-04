@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 75c25454451b733870f8a674b292cd131454f4d2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f3f4d49b42fa4b978db93fd3fee08e3f9017667e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045888"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342867"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera en SQL Server-redundanskluster på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +56,7 @@ Med betala per användning-licens debiteras du för alla noder i FCI, inklusive 
 
 Om du har Enterprise-avtal med Software Assurance kan du använda en kostnads fri passiv FCI-nod för varje aktiv nod. Om du vill dra nytta av den här förmånen i Azure använder du BYOL VM-avbildningar och använder samma licens på både aktiva och passiva noder i FCI. Mer information finns i [Enterprise-avtal](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
-Information om hur du jämför "betala per användning" och BYOL-licensiering för SQL Server på Azure Virtual Machines finns i [Kom igång med virtuella SQL](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms)-datorer.
+Information om hur du jämför "betala per användning" och BYOL-licensiering för SQL Server på Azure Virtual Machines finns i [Kom igång med virtuella SQL](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms)-datorer.
 
 Fullständig information om licens SQL Server finns i [prissättning](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -88,7 +88,7 @@ Du bör också ha en allmän förståelse för dessa tekniker:
 
 Innan du slutför stegen i den här artikeln bör du redan ha:
 
-- En Microsoft Azure prenumeration.
+- En Microsoft Azure-prenumeration.
 - En Windows-domän på Azure Virtual Machines.
 - Ett konto som har behörighet att skapa objekt både på virtuella Azure-datorer och i Active Directory.
 - Ett virtuellt Azure-nätverk och undernät med tillräckligt med IP-adressutrymme för dessa komponenter:

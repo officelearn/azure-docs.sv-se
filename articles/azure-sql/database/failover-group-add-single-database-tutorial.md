@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: lägga till en databas i en failover-grupp'
-description: Lägg till en Azure SQL Database i en grupp för automatisk redundans med hjälp av Azure Portal, PowerShell eller Azure CLI.
+description: Lägg till en databas i Azure SQL Database till en grupp för automatisk redundans med hjälp av Azure Portal, PowerShell eller Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 78904feac106fbd1b612dfd494a2e8a280b40b25
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4df537e8cce51cc7358784fc72ef8ae077614df7
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051488"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344568"
 ---
-# <a name="tutorial-add-an-azure-sql-database-to-an-auto-failover-group"></a>Självstudie: lägga till en Azure SQL Database i en grupp för automatisk redundans
+# <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Självstudie: lägga till en Azure SQL Database i en grupp för automatisk redundans
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-En [redundanskonfiguration](auto-failover-group-overview.md) är ett deklarativ abstraktions lager som gör att du kan gruppera flera geo-replikerade databaser. Lär dig hur du konfigurerar en failover-grupp för en Azure SQL Database och redundanstest med antingen Azure Portal, PowerShell eller Azure CLI.  I den här självstudien får du lära dig hur man:
+En [redundanskonfiguration](auto-failover-group-overview.md) är ett deklarativ abstraktions lager som gör att du kan gruppera flera geo-replikerade databaser. Lär dig hur du konfigurerar en failover-grupp för en Azure SQL Database och redundanstest med antingen Azure Portal, PowerShell eller Azure CLI.  I den här självstudien får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -31,7 +31,7 @@ En [redundanskonfiguration](auto-failover-group-overview.md) är ett deklarativ 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portalen](#tab/azure-portal)
 
 För att kunna följa den här självstudien måste du ha:
 
@@ -44,7 +44,7 @@ Kontrol lera att du har följande objekt för att slutföra självstudien:
 - En Azure-prenumeration. [Skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) om du inte redan har ett.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Kontrol lera att du har följande objekt för att slutföra självstudien:
 
@@ -61,7 +61,7 @@ Kontrol lera att du har följande objekt för att slutföra självstudien:
 
 I det här steget ska du skapa en [redundans grupp](auto-failover-group-overview.md) mellan en befintlig server och en ny server i en annan region. Lägg sedan till exempel databasen i gruppen för växling vid fel.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portalen](#tab/azure-portal)
 
 Skapa din grupp för redundans och Lägg till din databas i den med hjälp av Azure Portal.
 
@@ -82,7 +82,7 @@ Skapa din grupp för redundans och Lägg till din databas i den med hjälp av Az
       - **Server namn**: Ange ett unikt namn på den sekundära servern, till exempel `mysqlsecondary` .
       - **Inloggning för Server administratör**: typ`azureuser`
       - **Lösen ord**: Ange ett komplext lösen ord som uppfyller lösen ords kraven.
-      - **Plats**: Välj en plats i list rutan, till exempel `East US` . Den här platsen kan inte vara samma plats som den primära servern.
+      - **Plats**: Välj en plats i list rutan, till exempel `East US` . Den här platsen kan inte vara samma plats som din primära server.
 
      > [!NOTE]
      > Inställningarna för Server inloggning och brand vägg måste matcha den primära servern.
@@ -172,7 +172,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Hämtar en eller flera databaser i Azure SQL Database. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Lägger till en eller flera databaser i en failover-grupp i Azure SQL Database. |
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Skapa din grupp för redundans och Lägg till din databas i den med hjälp av Azure CLI.
 
@@ -207,7 +207,7 @@ Den här delen av självstudien använder följande Azure CLI-cmdletar:
 
 I det här steget kommer du inte att kunna redundansväxla gruppen till den sekundära servern och sedan växla tillbaka med Azure Portal.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portalen](#tab/azure-portal)
 
 Testa redundans med Azure Portal.
 
@@ -222,12 +222,12 @@ Testa redundans med Azure Portal.
    ![Välj gruppen redundans från portalen](./media/failover-group-add-single-database-tutorial/select-failover-group.png)
 
 1. Granska vilken server som är primär och vilken server som är sekundär.
-1. Välj **redundans** från åtgärds fönstret för att Redundansväxla din redundanskonfiguration som innehåller exempel databasen.
+1. Välj **redundans** från åtgärds fönstret för att växla över redundansväxlingen som innehåller exempel databasen.
 1. Välj **Ja** i varningen som meddelar dig att TDS-sessioner kommer att kopplas bort.
 
-   ![Redundansväxla din failover-grupp som innehåller din SQL-databas](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
+   ![Redundansväxla din redundanskonfiguration som innehåller din databas i SQL Database](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
 
-1. Granska den server som nu är primär och vilken server som är sekundär. Om redundans har slutförts ska de två servrarna ha växlade roller.
+1. Granska den server som nu är primär och vilken server som är sekundär. Om redundansväxlingen lyckades måste de två servrarna ha växlade roller.
 1. Välj **redundans** igen för att återställa servrarna till deras ursprungliga roller.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -291,7 +291,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Azure SQL Database redundans grupper. |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Kör en redundansväxling av en Azure SQL Database redundans grupp. |
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Testa redundans med Azure CLI.
 
@@ -331,7 +331,7 @@ Den här delen av självstudien använder följande Azure CLI-cmdletar:
 
 Rensa resurser genom att ta bort resurs gruppen.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portalen](#tab/azure-portal)
 
 Ta bort resurs gruppen med hjälp av Azure Portal.
 
@@ -359,7 +359,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp |
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Ta bort resurs gruppen med hjälp av Azure CLI.
 
@@ -419,7 +419,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [AZ SQL-redundans – grupp uppsättning – primär](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Ange den primära gruppen för redundans genom att redundansväxla alla databaser från den aktuella primära servern. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portalen](#tab/azure-portal)
 
 Det finns inga tillgängliga skript för Azure Portal.
 
@@ -429,7 +429,7 @@ Du kan hitta andra Azure SQL Database skript här: [Azure PowerShell](powershell
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lade du till en Azure SQL Database till en failover-grupp och testade redundans. Du har lärt dig att:
+I den här självstudien har du lagt till en databas i Azure SQL Database till en failover-grupp och testat redundansväxlingen. Du har lärt dig att:
 
 > [!div class="checklist"]
 >

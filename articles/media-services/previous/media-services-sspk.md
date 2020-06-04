@@ -1,6 +1,6 @@
 ---
-title: Licens för&reg; Microsoft Smooth Streaming client porting kit
-description: Läs om hur du licensierar Microsoft&reg; Smooth Streaming client porting kit.
+title: Licens för Microsoft &reg; Smooth Streaming client porting kit
+description: Läs om hur du licensierar Microsoft &reg; Smooth Streaming client porting kit.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 423597da44a74afb60e69c4e32cbd6353f81e726
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686899"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344041"
 ---
-# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licens för&reg; Microsoft Smooth Streaming client porting kit 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licens för Microsoft &reg; Smooth Streaming client porting kit 
 ## <a name="overview"></a>Översikt
 Microsoft Smooth Streaming client Solution Kit (**SSPK** för kort) är en Smooth Streaming klient implementering som är optimerad för att hjälpa inbäddade enhets tillverkare, kablar och mobila operatörer, leverantörer av innehålls tjänster, driv rutiner, oberoende program varu leverantörer (ISV: er) och lösnings leverantörer att skapa produkter och tjänster för att strömma anpassningsbart innehåll i Smooth Streaming-format. SSPK är en enhets-och plattforms oberoende implementering av Smooth Streaming-klienten som kan Portas av licensen till alla enheter och plattformar. 
 
@@ -29,7 +29,7 @@ Nedan följer en övergripande arkitektur och en IIS Smooth Streaming porting Ki
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Beskrivning
+## <a name="description"></a>Description
 SSPK är licensierad för villkor som erbjuder utmärkt affärs värde. SSPK-licensen ger branschen:
 
 * Smooth Streaming porting kit-källa i C++ 
@@ -71,11 +71,11 @@ Slut produkten för den Smooth Streaming klienten erbjuds enligt en royalty mode
 * Ingen royalty för de första 10 000 enhets implementeringarna varje år 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Licens procedur och SSPK-åtkomst
-E [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) -post för alla licensierings frågor.
+E-post [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) för alla licensierings frågor.
 
 SSPK-distributions portalen är tillgänglig för registrerade interimistiska licenser.
 
-Tillfälliga och slutgiltiga SSPK-licenser kan skicka tekniska frågor till [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
+Tillfälliga och slutgiltiga SSPK-licenser kan skicka tekniska frågor till [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com) .
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Licenser för interimistisk produkt avtal för Microsoft Smooth Streaming-klient
 
@@ -144,6 +144,7 @@ Tillfälliga och slutgiltiga SSPK-licenser kan skicka tekniska frågor till [smo
 * Shenzhen Chuangwei – RGB Electronics Co., Ltd.
 * Shenzhene Electronic Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
+* Shenzhen KTC Technology Co., Ltd. 
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * SKARDIN-industriella Corp.

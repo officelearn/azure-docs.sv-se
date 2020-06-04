@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffee01488ecf658ce02a20a41252aca19288667c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 127f05298483dcf155000c2eda8f590fc069a1e9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263366"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337673"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Begränsningar i Azure AD B2B-samarbete
 Azure Active Directory (Azure AD) B2B-samarbete omfattas för närvarande av begränsningarna som beskrivs i den här artikeln.
@@ -34,12 +34,12 @@ Azure AD B2B omfattas av Azure AD-tjänstens katalog gränser. Mer information o
 [Nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) är fysiskt isolerade instanser av Azure. B2B-samarbete stöds inte över nationella moln gränser. Om din Azure-klient till exempel finns i det offentliga, globala molnet kan du inte bjuda in en användare vars konto finns i ett nationellt moln. Om du vill samar beta med användaren ber du en annan e-postadress eller skapa ett medlems användar konto för dem i din katalog.
 
 ## <a name="azure-us-government-clouds"></a>Azure-myndigheter för amerikanska myndigheter
-I Azure-molnet för amerikanska myndigheter stöds för närvarande inte B2B-samarbete mellan klienter som båda är i Azures offentliga moln för amerikanska myndigheter och som båda stöder B2B-samarbete. Om du bjuder in en användare i en klient som inte är en del av Azure-molnet för amerikanska myndigheter eller som ännu inte stöder B2B-samarbete, Miss lyckas inbjudan eller också kan användaren inte lösa in inbjudan. Mer information om andra begränsningar finns i [Azure Active Directory Premium P1-och P2-variationer](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+I Azure-molnet för amerikanska myndigheter stöds B2B-samarbete mellan klienter som är både i Azure-molnet för amerikanska myndigheter och som båda stöder B2B-samarbete. Azure amerikanska myndigheter som stöder B2B-samarbete kan även samar beta med sociala användare med hjälp av Microsoft eller Google-konton. Om du bjuder in en användare utanför dessa grupper (till exempel om användaren finns i en klient som inte är en del av Azures regerings moln eller ännu inte stöder B2B-samarbete) Miss lyckas inbjudan eller också kan användaren inte lösa in inbjudan. Mer information om andra begränsningar finns i [Azure Active Directory Premium P1-och P2-variationer](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
 
 ### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Hur kan jag se om B2B-samarbete är tillgängligt i min Azure-klient för amerikanska myndigheter?
 Gör så här om du vill ta reda på om din Azure-klient för amerikanska myndigheter stöder B2B-samarbete:
 
-1. I en webbläsare går du till följande URL och ersätter klient namnet för * &lt;tenantname&gt;*:
+1. I en webbläsare går du till följande URL och ersätter klient namnet för * &lt; tenantname &gt; *:
 
    `https://login.microsoftonline.com/<tenantname>/v2.0/.well-known/openid-configuration`
 
@@ -54,4 +54,3 @@ Se följande artiklar om Azure AD B2B-samarbete:
 
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
 - [Delegera B2B-samarbets inbjudningar](delegate-invitations.md)
-

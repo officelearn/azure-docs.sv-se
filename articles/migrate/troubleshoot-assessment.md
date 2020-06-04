@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 205b52201edb849abab02809b58ff9dc77a32a29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 18158c867ba7a3307585eab0f950d15a6a12aa7c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80127666"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342637"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
@@ -50,13 +50,16 @@ Det gick inte att fastställa lämplighet för ett eller flera nätverkskort på
 
 ## <a name="linux-vms-are-conditionally-ready"></a>Virtuella Linux-datorer är "villkorligt redo"
 
-Server utvärderingen markerar virtuella Linux-datorer som "villkorligt redo" på grund av ett känt avstånd i Server utvärderingen.
+När det gäller VMware-och Hyper-V-datorer markerar Server utvärderingen virtuella Linux-datorer som "villkorligt redo" på grund av ett känt mellanrum i Server utvärderingen. 
 
 - Luckan förhindrar att den lägre versionen av Linux OS som är installerad på lokala virtuella datorer identifieras.
-- För RHEL 6,10 identifieras till exempel bara RHEL 6 som operativ system version för för närvarande.
+- För RHEL 6,10 identifieras till exempel bara RHEL 6 som operativ system version för för närvarande. Detta beror på att vCenter Server ar Hyper-V-värden inte tillhandahåller kernel-versionen för virtuella Linux-operativsystem.
 -  Eftersom Azure bara godkänner vissa versioner av Linux är de virtuella Linux-datorerna för närvarande markerade som villkorligt klara i Server utvärderingen.
 - Du kan avgöra om Linux-operativsystemet som körs på den lokala virtuella datorn har godkänts i Azure genom att granska [Azure Linux-supporten](https://aka.ms/migrate/selfhost/azureendorseddistros).
 -  När du har verifierat den godkända distributionen kan du ignorera den här varningen.
+
+Denna lucka kan åtgärdas genom att aktivera [program identifiering](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) på de virtuella VMware-datorerna. Server utvärderingen använder det operativ system som identifierats från den virtuella datorn med autentiseringsuppgifterna för gäst. Detta operativ system data identifierar rätt operativ Systems information när det gäller virtuella Windows-och Linux-datorer.
+
 
 ## <a name="azure-skus-bigger-than-on-premises"></a>Azure-SKU: er större än lokalt
 
@@ -102,6 +105,8 @@ Azure Migrate Server utvärderingen betraktar för närvarande endast operativ S
 
 Server Assessment samlar kontinuerligt in prestandadata för lokala datorer och använder dem för att rekommendera VM-SKU:n och disk-SKU:n i Azure. [Lär dig hur](concepts-assessment-calculation.md#calculate-sizing-performance-based) prestandabaserade data samlas in.
 
+## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combintion-of-reserved-instances-vm-uptime-and-discount-"></a>Varför visar min utvärdering en varning om att den har skapats med en ogiltig combintion av reserverade instanser, VM-drift tid och rabatt (%)?
+När du väljer reserverade instanser, rabatten (%) och egenskaperna för den virtuella datorns drift tid är inte tillämpliga. När utvärderingen skapades med en ogiltig kombination av dessa egenskaper inaktive ras knapparna redigera och beräkna om. Skapa en ny utvärdering. [Läs mer](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## <a name="dependency-visualization-in-azure-government"></a>Beroende visualisering i Azure Government
 
@@ -113,7 +118,7 @@ När du har installerat beroende visualiserings agenter på lokala virtuella dat
 
 För virtuella Windows-datorer:
 1. Starta MMA på kontroll panelen.
-2. I >  **egenskaperna för Microsoft Monitoring Agent****Azure Log Analytics (OMS)** kontrollerar du att arbets ytans **status** är grön.
+2. I **egenskaperna för Microsoft Monitoring Agent**  >  **Azure Log Analytics (OMS)** kontrollerar du att arbets ytans **status** är grön.
 3. Om statusen inte är grön kan du försöka ta bort arbets ytan och lägga till den igen till MMA.
 
     ![Status för MMA](./media/troubleshoot-assessment/mma-properties.png)
@@ -165,6 +170,15 @@ Samla in nätverks trafik loggar enligt följande:
    - I Chrome högerklickar du på valfri plats i konsol loggen. Välj **Spara som**, för att exportera och zippa loggen.
    - I Microsoft Edge eller Internet Explorer högerklickar du på felen och väljer **Kopiera alla**.
 7. Stäng Utvecklarverktyg.
+
+
+## <a name="where-is-the-operating-system-data-in-my-assessment-discovered-from"></a>Var har operativ Systems data i min utvärdering upptäckts från?
+
+- För virtuella VMware-datorer är det som standard operativ Systems data som tillhandahålls av vCenter. 
+   - Om program identifiering har Aktiver ATS för virtuella VMware Linux-datorer hämtas informationen om operativ systemet från den virtuella gäst datorn. Om du vill kontrol lera vilken information om operativ systemet som visas i utvärderingen går du till vyn identifierade servrar och pekar på värdet i kolumnen "operativ system". I texten som öppnas kan du se om de OS-data som du ser samlas in från vCenter-servern eller från den virtuella gäst datorn med hjälp av autentiseringsuppgifter för den virtuella datorn. 
+   - För virtuella Windows-datorer hämtas informationen om operativ systemet alltid från vCenter Server.
+- För virtuella Hyper-V-datorer samlas operativ Systems data in från Hyper-V-värden
+- För fysiska servrar hämtas den från-servern.
 
 ## <a name="next-steps"></a>Nästa steg
 

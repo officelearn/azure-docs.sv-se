@@ -2,21 +2,21 @@
 title: Utvärdera virtuella Hyper-V-datorer för migrering till Azure med Azure Migrate | Microsoft Docs
 description: Beskriver hur du bedömer lokala virtuella Hyper-V-datorer för migrering till Azure med hjälp av Azure Migrate Server bedömning.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2c4233df6566f3187c8366188b0eb960189b43c5
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535459"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331771"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella Hyper-V-datorer med Azure Migrate Server-utvärdering
 
 Den här artikeln visar hur du kan utvärdera lokala virtuella Hyper-V-datorer med hjälp av verktyget [Azure Migrate: Server bedömning](migrate-services-overview.md#azure-migrate-server-assessment-tool) .
 
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella Hyper-V-datorer till Azure. I den här guiden får du lära dig att:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella Hyper-V-datorer till Azure. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
@@ -28,10 +28,10 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 > [!NOTE]
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktions artiklar.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Slutför](tutorial-prepare-hyper-v.md) den första självstudien i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
@@ -57,7 +57,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-hyper-v/migrate-project.png)
 
 7. Klicka på **Nästa**.
-8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering** > **Nästa**.
+8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering**  >  **Nästa**.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-hyper-v/assessment-tool.png)
 
@@ -79,8 +79,8 @@ När du har skapat enheten kontrollerar du att den kan ansluta till Azure Migrat
 
 Hämta den zippade VHD-mallen för enheten.
 
-1. I **mål** > **servrar** > för migrering**Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2. I **identifiera datorer** > **är dina datorer virtualiserade?**, klicka på **Ja, med Hyper-V**.
+1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
+2. I **identifiera datorer**  >  **är dina datorer virtualiserade?**, klicka på **Ja, med Hyper-V**.
 3. Klicka på **Ladda ned** för att ladda ned VHD-filen.
 
     ![Hämta virtuell dator](./media/tutorial-assess-hyper-v/download-appliance-hyperv.png)
@@ -96,12 +96,20 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Exempel på användning: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  För version 2.19.07.30 ska den genererade hashen matcha de här inställningarna.
+3.  Kontrol lera de senaste installations versionerna och har värden:
 
-  **Integritetsalgoritm** | **Hash-värde**
-  --- | ---
-  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
-  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+    - För det offentliga Azure-molnet:
+
+        **Scenario** | **Ladda ned** | **SHA256**
+        --- | --- | ---
+        Hyper-V (8,93 MB) | [Senaste version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+
+    - För Azure Government:
+
+        **Situationen*** | **Ladda ned** | **SHA256**
+        --- | --- | ---
+        Hyper-V (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
 
 ### <a name="create-the-appliance-vm"></a>Skapa VM-enheten
 
@@ -117,9 +125,9 @@ Importera den hämtade filen och skapa den virtuella datorn.
     ![Distribuera virtuell hård disk](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
 2. I guiden Importera virtuell dator > **innan du börjar klickar du**på **Nästa**.
-3. I **hitta mapp**väljer du mappen **Virtual Machines** . Klicka sedan på **Nästa**.
+3. I **hitta mapp**väljer du mappen **Virtual Machines** . Klicka på **Nästa**.
 1. I **Välj virtuell dator**klickar du på **Nästa**.
-2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)**. Klicka sedan på **Nästa**.
+2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)**. Klicka på **Nästa**.
 3. I **Välj mål**låter du standardvärdet vara kvar. Klicka på **Nästa**.
 4. Lämna standardinställningen i **Storage Folders**. Klicka på **Nästa**.
 5. I **Välj nätverk**anger du den virtuella växel som den virtuella datorn ska använda. Växeln behöver Internet anslutning för att skicka data till Azure. [Lär dig mer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) om att skapa en virtuell växel.
@@ -146,7 +154,7 @@ Konfigurera enheten för första gången.
 1. I webbappen > **Konfigurera krav**gör du följande:
     - **Licens**: Godkänn licens villkoren och Läs informationen från tredje part.
     - **Anslutning**: appen kontrollerar att den virtuella datorn har Internet åtkomst. Om den virtuella datorn använder en proxyserver:
-      - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller. http://ProxyFQDN
+      - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller http://ProxyFQDN .
       - Ange autentiseringsuppgifter om proxyn kräver autentisering.
       - Endast HTTP-proxy stöds.
     - **Tidssynkronisering**: tiden har verifierats. Tiden för installationen bör vara synkroniserad med Internet-tid för att VM-identifieringen ska fungera korrekt.
@@ -187,7 +195,7 @@ Exempel: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contos
 
 Du kan också göra detta i redigerare för lokalt grupprincipobjekt på enheten:
 
-1. I**dator konfiguration**för **lokal dator princip** > klickar du på **administrativa mallar** > **System** > **delegering av systemautentiseringsuppgifter**.
+1. I dator konfiguration för **lokal dator princip**  >  **Computer Configuration**klickar du på **administrativa mallar**  >  **System**  >  **delegering av systemautentiseringsuppgifter**.
 2. Dubbelklicka på **Tillåt att delegera nya autentiseringsuppgifter**och välj **aktive rad**.
 3. I **alternativ**klickar du på **Visa**och lägger till varje Hyper-V-värd som du vill identifiera i listan med **WSMan/** som prefix.
 4. I **delegering av autentiseringsuppgifter**dubbelklickar du sedan på **Tillåt att delegera nya AUTENTISERINGSUPPGIFTER med endast NTLM-** serverautentisering. Lägg återigen till varje Hyper-V-värd som du vill identifiera i listan, med **WSMan/** som prefix.
@@ -212,13 +220,13 @@ Detta startar identifieringen. Det tar cirka 1,5 minuter per värd för metadata
 När identifieringen är klar kan du kontrol lera att de virtuella datorerna visas i portalen.
 
 1. Öppna instrument panelen för Azure Migrate.
-2. På sidan **Azure Migrate-servrar** > **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
+2. På sidan **Azure Migrate-servrar**  >  **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
 
 ## <a name="set-up-an-assessment"></a>Konfigurera en utvärdering
 
 Det finns två typer av utvärderingar som du kan köra med hjälp av Azure Migrate Server bedömning.
 
-**Utvärdering** | **Information** | **Data**
+**Beskrivningar** | **Information** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)**: baserat på IOPS och data flödet för lokala diskar.
 **Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad VM-storlek**: baserat på den lokala virtuella dator storleken<br/><br> **Rekommenderad disktyp**: baserat på den inställning för lagrings typ som du väljer för utvärderingen.
@@ -230,7 +238,7 @@ Det finns två typer av utvärderingar som du kan köra med hjälp av Azure Migr
 Kör en utvärdering på följande sätt:
 
 1. Gå igenom [metod tipsen](best-practices-assessment.md) för att skapa utvärderingar.
-2. I **servrar** > **Azure Migrate: Server utvärdering**klickar du på **utvärdera**.
+2. I **servrar**  >  **Azure Migrate: Server utvärdering**klickar du på **utvärdera**.
 
     ![Utvärdera](./media/tutorial-assess-hyper-v/assess.png)
 
@@ -245,7 +253,7 @@ Kör en utvärdering på följande sätt:
 
     ![Skapa en utvärdering](./media/tutorial-assess-hyper-v/assessment-create.png)
 
-6. När utvärderingen har skapats kan du Visa den i **servrar** > **Azure Migrate: Server bedömning**.
+6. När utvärderingen har skapats kan du Visa den i **servrar**  >  **Azure Migrate: Server bedömning**.
 7. Klicka på **Exportera utvärdering** för att ladda ned den som en Excel-fil.
 
 
@@ -260,7 +268,7 @@ En utvärdering beskriver:
 
 ### <a name="view-an-assessment"></a>Visa en utvärdering
 
-1. I **mål** >  **servrar** > för migrering**Azure Migrate: Server utvärdering**, klicka på **utvärderingar**.
+1. I **mål**  >   **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **utvärderingar**.
 2. I **bedömningar**klickar du på en utvärdering för att öppna den.
 
     ![Utvärderings Sammanfattning](./media/tutorial-assess-hyper-v/assessment-summary.png)

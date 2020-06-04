@@ -4,12 +4,12 @@ description: Lär dig mer om säkerhets scenarier för ett Azure Service Fabric-
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71a5891bf26cbd79ba5cfeff8324e225b3febd73
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461590"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324019"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kluster säkerhets scenarier
 
@@ -33,7 +33,7 @@ Kluster som körs på Azure och fristående kluster som körs på Windows kan b�
 
 Service Fabric använder de X. 509-Server certifikat som du anger som en del av konfigurationen för Node-typ när du skapar ett kluster. I slutet av den här artikeln kan du se en kort översikt över vad dessa certifikat är och hur du kan hämta eller skapa dem.
 
-Konfigurera certifikat säkerhet när du skapar klustret, antingen i Azure Portal, genom att använda en Azure Resource Manager mall eller med en fristående JSON-mall. Service Fabric SDK: s standard beteende är att distribuera och installera certifikatet med den sista i det framtida certifikatet som upphör att gälla. det klassiska beteendet tillåter definition av primära och sekundära certifikat, för att tillåta manuella initierade förnyelser och rekommenderas inte för användning över de nya funktionerna. De primära certifikat som ska användas har det sista datumet som upphör att gälla, bör skilja sig från administratörs klienten och de skrivskyddade klient certifikaten som du anger för [säkerhet från klient till nod](#client-to-node-security).
+Konfigurera certifikat säkerhet när du skapar klustret, antingen i Azure Portal, genom att använda en Azure Resource Manager mall eller med en fristående JSON-mall. Service Fabric SDK: s standard beteende är att distribuera och installera certifikatet med den sista i det framtida förfallo datumet. det klassiska beteendet tillåter definition av primära och sekundära certifikat, för att tillåta manuella initierade förnyelser och rekommenderas inte för användning över de nya funktionerna. De primära certifikat som ska användas har det sista datumet som upphör att gälla, bör skilja sig från administratörs klienten och de skrivskyddade klient certifikaten som du anger för [säkerhet från klient till nod](#client-to-node-security).
 
 Information om hur du konfigurerar certifikat säkerhet i ett kluster för Azure finns i [Konfigurera ett kluster med hjälp av en Azure Resource Manager mall](service-fabric-cluster-creation-via-arm.md).
 
@@ -113,7 +113,7 @@ Certifikatet måste uppfylla följande krav:
 
 Några andra saker att tänka på:
 
-* **Ämnes** fältet kan ha flera värden. Varje värde föregås av en initiering som anger värde typen. Normalt är initieringen **CN** (för *eget namn*). till exempel **CN = www\.contoso.com**.
+* **Ämnes** fältet kan ha flera värden. Varje värde föregås av en initiering som anger värde typen. Normalt är initieringen **CN** (för *eget namn*). till exempel **CN = www \. contoso.com**.
 * **Ämnes** fältet kan vara tomt.
 * Om fältet **Alternativt namn på certifikat mottagare** är ifyllt, måste det ha både det egna namnet på certifikatet och en post per San. Dessa anges som **DNS-namn** värden. Information om hur du skapar certifikat som har San finns i [så här lägger du till ett alternativt namn för certifikat mottagare i ett säkert LDAP-certifikat](https://support.microsoft.com/kb/931351).
 * Värdet för fältet **avsett syfte** för certifikatet bör innehålla ett lämpligt värde, till exempel **serverautentisering** eller **klientautentisering**.

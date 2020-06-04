@@ -2,36 +2,44 @@
 title: Hantera ett Azure Kubernetes service-kluster med webb instrument panelen
 description: Lär dig hur du använder det inbyggda Kubernetes-webbgränssnittets instrument panel för att hantera ett Azure Kubernetes service-kluster (AKS)
 services: container-service
+author: mlearned
 ms.topic: article
-ms.date: 10/08/2018
-ms.openlocfilehash: 15fcf765be0a754575713eebcdaa7d68e1c299b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/03/2020
+ms.author: mlearned
+ms.openlocfilehash: 40de6f4084630839a0161891ff80f7e4cabc1db7
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77595356"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345127"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Få åtkomst till Kubernetes-webbinstrumentpanelen i Azure Kubernetes service (AKS)
 
 Kubernetes innehåller en webb instrument panel som kan användas för grundläggande hanterings åtgärder. På den här instrument panelen kan du visa grundläggande hälso status och mått för dina program, skapa och distribuera tjänster och redigera befintliga program. Den här artikeln visar hur du kommer åt Kubernetes-instrumentpanelen med hjälp av Azure CLI och vägleder dig genom några grundläggande instrument panels åtgärder.
 
-Mer information om instrument panelen för Kubernetes finns i [webb gränssnitts instrument panelen för Kubernetes][kubernetes-dashboard].
+Mer information om instrument panelen för Kubernetes finns i [webb gränssnitts instrument panelen för Kubernetes][kubernetes-dashboard]. AKS använder version 2,0 och senare av instrument panelen för öppen källkod.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-De steg som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster `kubectl` och har upprättat en anslutning till klustret. Om du behöver skapa ett AKS-kluster kan du läsa [snabb][aks-quickstart]starten för AKS.
+De steg som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en `kubectl` anslutning till klustret. Om du behöver skapa ett AKS-kluster kan du läsa [snabb][aks-quickstart]starten för AKS.
 
-Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du måste också ha Azure CLI-versionen 2.6.0 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 ## <a name="start-the-kubernetes-dashboard"></a>Starta Kubernetes-instrumentpanelen
 
-Starta Kubernetes-instrumentpanelen med kommandot [AZ AKS Browse][az-aks-browse] . I följande exempel öppnas instrument panelen för klustret med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*:
+> [!WARNING]
+> **Det inbyggda instrument panels tillägget är inställt på utfasning.** Kubernetes-instrumentpanelen är för närvarande aktive rad som standard för alla kluster som kör en Kubernetes-version som är mindre än 1,18.
+> Instrument panels tillägget är inaktiverat som standard för alla nya kluster som skapats på Kubernetes 1,18 eller senare. Från och med Kubernetes 1,19-tillgänglighet i för hands versionen kommer AKS inte längre att stödja installationen av det hanterade Kube. Befintliga kluster med tillägget som redan är installerade påverkas inte. Användarna fortsätter att kunna installera instrument panelen med öppen källkod manuellt som användar installerad program vara.
+
+Om du vill starta Kubernetes-instrumentpanelen på ett kluster använder du kommandot [AZ AKS Browse][az-aks-browse] . Det här kommandot kräver installation av Kube på klustret, vilket ingår som standard i kluster som kör en version som är äldre än Kubernetes 1,18.
+
+I följande exempel öppnas instrument panelen för klustret med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*:
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Det här kommandot skapar en proxy mellan utvecklings systemet och Kubernetes-API: et och öppnar en webbläsare till Kubernetes-instrumentpanelen. Om en webbläsare inte öppnas på Kubernetes-instrumentpanelen kopierar du och klistrar in URL-adressen som anges i Azure CLI `http://127.0.0.1:8001`, vanligt vis.
+Det här kommandot skapar en proxy mellan utvecklings systemet och Kubernetes-API: et och öppnar en webbläsare till Kubernetes-instrumentpanelen. Om en webbläsare inte öppnas på Kubernetes-instrumentpanelen kopierar du och klistrar in URL-adressen som anges i Azure CLI, vanligt vis `http://127.0.0.1:8001` .
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -62,22 +70,47 @@ You have the following options to sign in to your cluster's dashboard:
 > For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 
 After you choose a method to sign in, the Kubernetes dashboard is displayed. If you chose to use *token* or *skip*, the Kubernetes dashboard will use the permissions of the currently logged in user to access the cluster.
--->
 
 > [!IMPORTANT]
-> Om ditt AKS-kluster använder RBAC måste du skapa en *ClusterRoleBinding* innan du kan få åtkomst till instrument panelen korrekt. Som standard distribueras instrument panelen Kubernetes med minimal Läs behörighet och visar RBAC-åtkomst fel. Kubernetes-instrumentpanelen stöder för närvarande inte användarens autentiseringsuppgifter för att fastställa åtkomst nivån, i stället använder den roller som har tilldelats tjänst kontot. En kluster administratör kan välja att bevilja ytterligare åtkomst till *Kubernetes-instrument panelens* tjänst konto, men det kan vara en Vector för eskalering av privilegier. Du kan också integrera Azure Active Directory-autentisering för att ge en mer detaljerad åtkomst nivå.
+> If your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. The Kubernetes dashboard does not currently support user-provided credentials to determine the level of access, rather it uses the roles granted to the service account. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
 > 
-> Om du vill skapa en bindning använder du kommandot [kubectl Create clusterrolebinding][kubectl-create-clusterrolebinding] . I följande exempel visas hur du skapar en exempel bindning, men den här exempel bindningen tillämpar inte några ytterligare autentiserings komponenter och kan leda till osäker användning. Kubernetes-instrumentpanelen är öppen för alla som har åtkomst till URL: en. Exponera inte Kubernetes-instrumentpanelen offentligt.
+> To create a binding, use the [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] command. The following example shows how to create a sample binding, however, this sample binding does not apply any additional authentication components and may lead to insecure use. The Kubernetes dashboard is open to anyone with access to the URL. Do not expose the Kubernetes dashboard publicly.
 >
 > ```console
 > kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 > ```
 > 
-> Mer information om hur du använder olika autentiseringsmetoder finns i Kubernetes-instrumentpanelen wiki på [åtkomst kontroller][dashboard-authentication].
+> For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
+-->
+
+## <a name="login-to-the-dashboard"></a>Logga in på instrument panelen
+
+> [!IMPORTANT]
+> Från och med [v-1.10.1 av Kubernetes-instrumentpanelen](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) kan tjänst kontot "Kubernetes-Dashboard" inte längre användas för att hämta resurser på grund av en [säkerhets korrigering i den versionen](https://github.com/kubernetes/dashboard/pull/3400). Det innebär att förfrågningar utan auth-information returnerar ett 401-otillåtet fel. En Bearer-token som hämtats från ett tjänst konto kan fortfarande användas som i det här [Kubernetes-Instrumentpanels exemplet](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), men detta påverkar inloggnings flödet för instrument panels tillägget jämfört med äldre versioner.
+
+Den första skärmen som visas kräver en kubeconfig eller token. Båda alternativen kräver resurs behörigheter för att visa dessa resurser på instrument panelen.
+
+![inloggnings skärm](./media/kubernetes-dashboard/login.png)
+
+**Använd en kubeconfig**
+1. Ange admin-kubeconfig med`az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
+1. Välj `Kubeconfig` och klicka `Choose kubeconfig file` för att öppna fil väljaren
+1. Välj din kubeconfig-fil (standard $HOME/.Kube/config)
+1. Klicka på `Sign In`
+
+**Använd en token**
+1. Kör `kubectl config view`
+1. Kopiera önskad token som är kopplad till kontot för klustret
+1. Klistra in i alternativet token vid inloggning
+1. Klicka på `Sign In`
+
+När åtgärden är klar visas en sida som liknar den nedan.
 
 ![Sidan översikt på Kubernetes-webbinstrumentpanelen](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ## <a name="create-an-application"></a>Skapa ett program
+
+Följande steg kräver behörighet för många resurser. Vi rekommenderar att du använder ett administratörs konto när du testar dessa funktioner.
 
 För att se hur Kubernetes-instrumentpanelen kan minska komplexiteten med hanterings uppgifter ska vi skapa ett program. Du kan skapa ett program från Kubernetes-instrumentpanelen genom att tillhandahålla text indata, en YAML-fil eller en grafisk guide.
 

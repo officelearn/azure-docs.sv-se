@@ -11,14 +11,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/14/2020
-ms.openlocfilehash: 6f7c90791025f14e743a83693503fe235792c603
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e5fd842e47c606c8f41aafe72253c1c4a1e885f3
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051957"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324410"
 ---
-# <a name="configure--manage-content-reference---azure-sql-database"></a>Konfigurera & hantera innehålls referens – Azure SQL Database
+# <a name="configure-and-manage-content-reference---azure-sql-database"></a>Konfigurera och hantera innehålls referens – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 I den här artikeln hittar du en innehålls referens för olika guider, skript och förklaringar som kan hjälpa dig att hantera och konfigurera din Azure SQL Database. 
@@ -35,10 +35,10 @@ I den här artikeln hittar du en innehålls referens för olika guider, skript o
 
 ## <a name="configure-features"></a>Konfigurera funktioner
 
-- [Konfigurera Azure AD-autentisering](authentication-aad-configure.md)
+- [Konfigurera Azure Active Directory-autentisering (Azure AD)](authentication-aad-configure.md)
 - [Konfigurera villkorlig åtkomst](conditional-access-configure.md)
-- [Flerfaktorautentisering för AAD](authentication-mfa-ssms-overview.md)
-- [Konfigurera multifaktorautentisering](authentication-mfa-ssms-configure.md)
+- [Multi-Factor Azure AD auth](authentication-mfa-ssms-overview.md)
+- [Konfigurera Multi-Factor Authentication](authentication-mfa-ssms-configure.md)
 - [Konfigurera temporal bevarandeprincip](temporal-tables-retention-policy.md)
 - [Konfigurera TDE med BYOK](transparent-data-encryption-byok-configure.md)
 - [Rotera TDE BYOK-nycklar](transparent-data-encryption-byok-key-rotation.md)
@@ -111,7 +111,7 @@ I den här artikeln hittar du en innehålls referens för olika guider, skript o
 
 ## <a name="develop-applications"></a>Utveckla program
 
-- [Anslutning](connect-query-content-reference-guide.md#libraries)
+- [Anslutningsmöjligheter](connect-query-content-reference-guide.md#libraries)
 - [Använda Spark-anslutningsappen](spark-connector.md)
 - [Autentisera app](application-authentication-get-client-id-keys.md)
 - [Använd batching för bättre prestanda](../performance-improve-use-batching.md)
@@ -128,11 +128,12 @@ I den här artikeln hittar du en innehålls referens för olika guider, skript o
 - [Utforma för elastiska pooler](disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 - [Utforma för appuppgraderingar](manage-application-rolling-upgrade.md)
 
-### <a name="design-multi-tenant-saas-applications"></a>Designa SaaS-program för flera innehavare
+### <a name="design-multi-tenant-software-as-a-service-saas-applications"></a>Designa SaaS-program (program vara som en tjänst) för flera innehavare
 
 - [SaaS-designmönster](saas-tenancy-app-design-patterns.md)
 - [SaaS-videoindexerare](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Säkerhet för SaaS-app](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [instruktions guider för SQL-hanterad instans](../managed-instance/how-to-content-reference-guide.md)
+
+- Lär dig mer om [instruktions guider för Azure SQL-hanterad instans](../managed-instance/how-to-content-reference-guide.md)

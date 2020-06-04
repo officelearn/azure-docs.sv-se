@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6645b50a6cd2d2145f9510ca2e2de0ee702fc3ad
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9b78b696b42431c744c30c91a730fdc7ec8c1032
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054697"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324614"
 ---
 # <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Snabb start: skapa och kör enkla R-skript i Azure SQL Database Machine Learning Services (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ I det här exemplet används den lagrade proceduren [sp_execute_external_script]
 
 Om du vill köra ett R-skript skickar du det som ett argument till den systemlagrade proceduren [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
-I följande steg ska du köra det här exemplet R-skriptet i SQL-databasen:
+I följande steg ska du köra det här exemplet R-skriptet i databasen:
 
 ```r
 a <- 1
@@ -51,9 +51,9 @@ d <- a*b
 print(c(c, d))
 ```
 
-1. Öppna **SQL Server Management Studio** och anslut till din SQL-databas.
+1. Öppna **SQL Server Management Studio** och Anslut till din databas.
 
-   Om du behöver hjälp med att ansluta, se [snabb start: använda SQL Server Management Studio för att ansluta och skicka frågor till en Azure SQL-databas](connect-query-ssms.md).
+   Om du behöver hjälp med att ansluta, se [snabb start: använda SQL Server Management Studio för att ansluta och fråga en databas i Azure SQL Database](connect-query-ssms.md).
 
 1. Skicka det fullständiga R-skriptet till den [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) lagrade proceduren.
 
@@ -70,7 +70,7 @@ print(c(c, d))
     '
     ```
 
-   Om det uppstår några fel kan det bero på att den offentliga förhandsversionen av Machine Learning Services (med R) inte har aktiverats för din SQL-databas. Se [krav](#prerequisites) ovan.
+   Om du får fel kan det bero på att den offentliga för hands versionen av Machine Learning Services (med R) inte är aktive rad för din databas. Se [krav](#prerequisites) ovan.
 
    > [!NOTE]
    > Om du är administratör kan du köra extern kod automatiskt. Du kan bevilja behörighet till andra användare med hjälp av kommandot:
@@ -196,7 +196,7 @@ Nu ska vi använda standardvariablerna för indata och utdata för [sp_execute_e
 
 ## <a name="check-r-version"></a>Kontrollera R-version
 
-Om du vill se vilken version av R som är installerad i SQL-databasen kör du följande skript.
+Om du vill se vilken version av R som är installerad i databasen kör du följande skript.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -229,7 +229,7 @@ nickname       Someone to Lean On
 
 ## <a name="list-r-packages"></a>Lista R-paket
 
-Microsoft tillhandahåller ett antal R-paket som är förinstallerade med Machine Learning Services i SQL-databasen.
+Microsoft tillhandahåller ett antal R-paket som redan har förinstallerats med Machine Learning Services i din databas.
 
 Om du vill se en lista över vilka R-paket som är installerade, inklusive version, beroenden, licens och sökväg till biblioteks Sök vägar, kör du följande skript.
 

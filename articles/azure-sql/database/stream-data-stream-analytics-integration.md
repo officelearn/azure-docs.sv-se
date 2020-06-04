@@ -1,5 +1,5 @@
 ---
-title: Strömma data med Stream Analytics integration (för hands version)
+title: Strömma data med Azure Stream Analytics integration (för hands version)
 description: Använd Azure Stream Analytics-integrering för att strömma data till Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,16 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: ea129902e5ab30a5d7f7a70c3606d4aa73cd84a5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 90d3507a8867ad3556891f6001f0e15ebda8c4f4
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044656"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345367"
 ---
-# <a name="stream-data-into-azure-sql-database-using-stream-analytics-integration-preview"></a>Strömma data till Azure SQL Database med Stream Analytics integration (för hands version)
-[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+# <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Strömma data till Azure SQL Database med Azure Stream Analytics integration (för hands version)
 
-Användarna kan nu mata in, bearbeta, Visa och analysera real tids strömnings data i en tabell direkt från en SQL-databas i Azure Portal med hjälp av [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). Den här upplevelsen möjliggör en mängd olika scenarier, till exempel ansluten bil, fjärrövervakning, bedrägeri identifiering och många fler. I Azure Portal kan du välja en händelse källa (Event Hub/IoT Hub), Visa inkommande real tids händelser och välja en tabell för att lagra händelser. Du kan också skriva Stream Analytics frågor om språk frågor i portalen för att transformera inkommande händelser och lagra dem i den valda tabellen. Den nya start punkten är förutom de skapande-och konfigurations upplevelser som redan finns i Stream Analytics. Den här upplevelsen börjar från databasens kontext, så att du snabbt kan skapa ett Stream Analytics jobb och navigera sömlöst mellan Azure SQL Database och Stream Analytics upplevelser.
+Användarna kan nu mata in, bearbeta, Visa och analysera real tids strömnings data i en tabell direkt från en databas i Azure SQL Database. De gör det i Azure Portal som använder [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). Den här upplevelsen möjliggör en mängd olika scenarier, till exempel ansluten bil, fjärrövervakning, bedrägeri identifiering och många fler. I Azure Portal kan du välja en händelse källa (Event Hub/IoT Hub), Visa inkommande real tids händelser och välja en tabell för att lagra händelser. Du kan också skriva Azure Stream Analytics frågor om språk frågor i portalen för att transformera inkommande händelser och lagra dem i den valda tabellen. Den nya start punkten är förutom de skapande-och konfigurations upplevelser som redan finns i Stream Analytics. Den här upplevelsen börjar från databasens kontext, så att du snabbt kan skapa ett Stream Analytics jobb och navigera sömlöst mellan databasen i Azure SQL Database och Stream Analytics upplevelser.
 
 ![Stream Analytics flöde](./media/stream-data-stream-analytics-integration/stream-analytics-flow.png)
 
@@ -32,7 +31,7 @@ Användarna kan nu mata in, bearbeta, Visa och analysera real tids strömnings d
 - Enklare att använda med förhands gransknings data: Förhandsgranska inkommande data från händelse källan (Händelsehubben/IoT Hub) i kontexten för den valda tabellen
 
 > [!IMPORTANT]
-> Ett Azure Stream Analytics jobb kan skriva ut till Azure SQL Database, Azure SQL-hanterad instans eller Azure-Synapse (tidigare Azure SQL Data Warehouse). Mer information finns i [utdata](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> Ett Azure Stream Analytics jobb kan skriva ut till Azure SQL Database, Azure SQL-hanterad instans eller Azure Synapse Analytics (tidigare Azure SQL Data Warehouse). Mer information finns i [utdata](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -49,7 +48,7 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)
 
-3. Om du vill börja mata in dina strömmande data i den här SQL-databasen, väljer du **skapa** och ger ditt strömnings jobb ett namn och väljer sedan **Nästa: indata**.
+3. Om du vill börja mata in dina strömmande data i den här databasen väljer du **skapa** och ger ditt strömnings jobb ett namn och väljer sedan **Nästa: indata**.
 
     ![Skapa Stream Analytics jobb](./media/stream-data-stream-analytics-integration/create-job.png)
 
@@ -76,7 +75,7 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
 6. En frågenod öppnas med följande information:
 
-   - Din **indata** (källa för indata-händelser) som du ska mata in data från  
+   - Din **indata** (källa för indata-händelser) från vilken du matar in data  
    - Din **utmatning** (utdataparameter) som kommer att lagra transformerade data
    - Exempel på [SAQL-fråga](../../stream-analytics/stream-analytics-stream-analytics-query-patterns.md) med SELECT-instruktion.
    - **Förhands granskning av indata**: visar ögonblicks bilder av senaste inkommande data från källan för indata.
@@ -101,14 +100,14 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
       - Skapa nytt: om du har valt det här alternativet i steg 5, ser du inte schemat ännu förrän du startar direkt uppspelnings jobbet. När du skapar en ny tabell väljer du lämpligt tabell index. Mer information om tabell indexering finns i [klustrade och inklustrade index som beskrivs](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described/).
       - Använd befintlig: om du har valt det här alternativet i steg 5 visas schemat för den valda tabellen.
 
-7. När du är färdig med redigeringen & du testa frågan, väljer du **Spara fråga**. Välj **start Stream Analytics jobb** för att börja mata in transformerade data i SQL-tabellen. När du har slutfört följande fält **startar** du jobbet.
+7. När du är klar med redigeringen & du testar frågan väljer du **Spara fråga**. Välj **start Stream Analytics jobb** för att börja mata in transformerade data i SQL-tabellen. När du har slutfört följande fält **startar** du jobbet.
    - **Start tid för utdata**: Detta definierar tiden för jobbets första utdata.  
      - Nu: jobbet kommer att startas nu och bearbeta nya inkommande data.
      - Anpassad: jobbet kommer att startas nu men kommer att bearbeta data från en viss tidpunkt (som kan vara i det förflutna eller framtiden). Mer information finns i [så här startar du ett Azure Stream Analytics jobb](../../stream-analytics/start-job.md).
    - **Enheter för strömning**: Azure Stream Analytics priss ätts efter antalet enheter för strömning som krävs för att bearbeta data till tjänsten. Mer information finns i [Azure Stream Analytics prissättning](https://azure.microsoft.com/pricing/details/stream-analytics/).
    - **Fel hantering av utgående data**:  
      - Försök igen: när ett fel inträffar skriver Azure Stream Analytics försök att skriva händelsen oändligt tills skrivningen lyckas. Det finns ingen tids gräns för återförsök. Till sist blockeras alla efterföljande händelser från bearbetningen av händelsen som försöker igen. Det här alternativet är standard principen för fel hantering av utdata.
-     - Drop: Azure Stream Analytics ignorerar eventuella utdata-händelser som resulterar i ett data konverterings fel. Utelämnade händelser kan inte återställas för bearbetning vid ett senare tillfälle. Alla tillfälliga fel (t. ex. nätverks fel) görs nya försök oavsett princip konfigurationen för hantering av utdata.
+     - Drop: Azure Stream Analytics ignorerar eventuella utdata-händelser som resulterar i ett data konverterings fel. De ignorerade händelserna kan inte återställas senare. Alla tillfälliga fel (t. ex. nätverks fel) görs nya försök oavsett princip konfigurationen för hantering av utdata.
    - **SQL Database inställningar för utdata**: ett alternativ för att ärva partitionerings schema i föregående fråga-steg för att aktivera helt parallell topologi med flera skrivare till tabellen. Mer information finns i [Azure Stream Analytics utdata till Azure SQL Database](../../stream-analytics/stream-analytics-sql-output-perf.md).
    - **Max antal batchar**: den rekommenderade övre gränsen för antalet poster som skickas med varje Mass infognings transaktion.  
     Mer information om fel hantering av utdata finns [i principer för utgående fel i Azure Stream Analytics](../../stream-analytics/stream-analytics-output-error-policy.md).  
@@ -119,7 +118,7 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
    - **Starta/stoppa jobbet**: om jobbet körs kan du avbryta jobbet. Om jobbet har stoppats kan du starta jobbet.
    - **Redigera jobb**: du kan redigera frågan. Om du vill göra fler ändringar i jobbet kan du lägga till fler indata/utdata och sedan öppna jobbet i Stream Analytics. Redigerings alternativet inaktive ras när jobbet körs.
    - **Förhandsgranska utdata tabell**: du kan förhandsgranska tabellen i SQL-Frågeredigeraren.
-   - **Öppna i Stream Analytics**: öppna jobbet i Stream Analytics-tjänsten om du vill visa övervakning, felsöka information om jobbet.
+   - **Öppna i Stream Analytics**: öppna jobbet i Stream Analytics om du vill visa övervakning, felsöka information om jobbet.
 
      ![Stream Analytics-jobb](./media/stream-data-stream-analytics-integration/jobs.png)
 
@@ -127,3 +126,4 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
 - [Dokumentation om Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)
 - [Azure Stream Analytics-lösningsmönster](../../stream-analytics/stream-analytics-solution-patterns.md)
+ 

@@ -1,7 +1,7 @@
 ---
 title: Transparent datakryptering
-titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse
-description: En översikt över transparent data kryptering för Azure SQL Database, Azure SQL-hanterad instans och Azure-Synapse. Dokumentet täcker fördelarna och alternativen för konfiguration, som innehåller tjänst hanterad transparent data kryptering och Bring Your Own Key.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
+description: En översikt över transparent data kryptering för Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics. Dokumentet täcker fördelarna och alternativen för konfiguration, som innehåller tjänst hanterad transparent data kryptering och Bring Your Own Key.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,24 +12,24 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 04/10/2020
-ms.openlocfilehash: 05bd4b83a6387eefb243ed8058c3fe833615cfb4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4ea4ad98fcea022a22196e359e24f56cb3d0f4d8
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188281"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321384"
 ---
-# <a name="transparent-data-encryption-for-sql-database-sql-managed-instance--azure-synapse"></a>Transparent data kryptering för SQL Database, SQL-hanterad instans & Azure Synapse
+# <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Transparent data kryptering för SQL Database, SQL-hanterad instans och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-[Transparent data kryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) hjälper till att skydda Azure SQL Database, Azure SQL-hanterad instans och Synapse SQL i Azure Synapse Analytics mot hotet om skadlig offline-aktivitet genom att kryptera data i vila. TDE utför realtidskryptering och realtidsdekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler i vila, utan att några ändringar krävs i programmet. Som standard är TDE aktiverat för alla nyligen distribuerade databaser och måste aktive ras manuellt för äldre databaser av Azure SQL Database, Azure SQL-hanterad instans eller Azure-Synapse.
+[Transparent data kryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) hjälper till att skydda Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse-analys mot hot från skadlig offline-aktivitet genom att kryptera data i vila. TDE utför realtidskryptering och realtidsdekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler i vila, utan att några ändringar krävs i programmet. Som standard är TDE aktiverat för alla nyligen distribuerade databaser och måste aktive ras manuellt för äldre databaser av Azure SQL Database, Azure SQL-hanterad instans eller Azure Synapse Analytics.
 
 TDE utför I/O-kryptering i real tid och dekryptering av data på sidnivå. Varje sida dekrypteras när de läses in i minnet och krypteras sedan innan de skrivs tillbaka till disken. TDE krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel som kallas databas krypterings nyckel (DEK). Vid databas start dekrypteras den krypterade DEK och används sedan för dekryptering och Omkryptering av databasfilerna i processen för SQL Server databas motor. DEK skyddas av TDE-skyddet. TDE-skydd är antingen ett tjänstehanterat certifikat (hanterad transparent data kryptering) eller en asymmetrisk nyckel som lagras i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (kundhanterad transparent data kryptering).
 
 För Azure SQL Database och Azure-Synapse anges TDE-skyddet på [Server](logical-servers.md) nivå och ärvs av alla databaser som är kopplade till den servern. För Azure SQL-hanterad instans (BYOK-funktionen i för hands versionen) ställs TDE-skyddet in på instans nivån och det ärvs av alla krypterade databaser på den instansen. Termen *Server* avser både server och instans i det här dokumentet, om inget annat anges.
 
 > [!IMPORTANT]
-> Alla nyligen skapade databaser i SQL Database och Azure-Synapse krypteras som standard med hjälp av tjänstehanterad transparent data kryptering. Befintliga SQL-databaser som skapats före maj 2017 och SQL-databaser som skapats via återställning, geo-replikering och databas kopiering är inte krypterade som standard. Befintliga hanterade instans databaser som skapats före februari 2019 krypteras inte som standard. Hanterade instans databaser som skapats via återställning ärver krypterings status från källan.
+> Alla nyligen skapade databaser i SQL Database och Azure-Synapse krypteras som standard med hjälp av tjänstehanterad transparent data kryptering. Befintliga SQL-databaser som skapats före maj 2017 och SQL-databaser som skapats via återställning, geo-replikering och databas kopiering är inte krypterade som standard. Befintliga SQL-hanterade instans databaser som skapats före februari 2019 krypteras inte som standard. SQL-hanterade instans databaser som skapats via återställning ärver krypterings status från källan.
 
 > [!NOTE]
 > TDE kan inte användas för att kryptera **Master** -databasen i SQL Database.  **Huvud** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användar databaserna.
@@ -67,11 +67,11 @@ När du exporterar en TDE databas krypteras inte det exporterade innehållet i d
 
 Om filen BACPAC till exempel exporteras från en SQL Server instans, krypteras inte det importerade innehållet i den nya databasen automatiskt. På samma sätt, om BACPAC-filen importeras till en SQL Server instans, krypteras inte den nya databasen automatiskt.
 
-Det enda undantaget är när du exporterar till och från en SQL Database. TDE har Aktiver ATS i den nya databasen, men BACPAC-filen är fortfarande inte krypterad.
+Det enda undantaget är när du exporterar en databas till och från SQL Database. TDE har Aktiver ATS för den nya databasen, men BACPAC-filen är fortfarande inte krypterad.
 
 ## <a name="manage-transparent-data-encryption"></a>Hantera transparent data kryptering
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 Hantera TDE i Azure Portal.
 

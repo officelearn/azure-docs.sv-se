@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: eb5e15f5387628fea293c767202ece77b14f656c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 81061f9f20e325d6f392c76c5e2801527abc9e2b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113333"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345010"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory 
 
@@ -30,6 +30,8 @@ Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Da
 - **SSIS paketkörning**: Internt köra SQL Server Integration Services-paket (SSIS) i en hanterad Azure-beräkningsmiljö.
 
 I Data Factory definierar en aktivitet åtgärden som ska utföras. En länkad tjänst definierar ett datalager som mål eller en beräkningstjänst. Integration Runtime utgör bryggan mellan aktiviteten och länkade tjänster.  Det refereras av den länkade tjänsten eller aktiviteten och tillhandahåller den beräknings miljö där aktiviteten antingen körs eller skickas från. På så sätt kan aktiviteten utföras i regionen som är den närmaste möjliga till måldatalagret eller beräkningstjänsten på det bästa sättet samtidigt som den uppfyller säkerhets- och efterlevnadsbehoven.
+
+Integrerings körningar kan skapas i Azure Data Factory UX via [hanterings hubben](author-management-hub.md) och eventuella aktiviteter, data uppsättningar eller data flöden som refererar till dem.
 
 ## <a name="integration-runtime-types"></a>Integration Runtime
 

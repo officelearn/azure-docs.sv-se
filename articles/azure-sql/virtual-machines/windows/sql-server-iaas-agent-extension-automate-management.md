@@ -17,12 +17,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 08b9076ae81c8c8c071b03167d0242c1d933e619
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3b06252291f687e5304c36fb581c34c0b5eb50b7
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047232"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342467"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatisera hanterings uppgifter på virtuella Azure-datorer med hjälp av tillägget SQL Server IaaS-agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,7 +42,7 @@ För att visa den klassiska versionen av den här artikeln, se [SQL Server IaaS 
 ## <a name="supported-services"></a>Tjänster som stöds
 Tillägget SQL Server IaaS-Agent stöder följande administrations aktiviteter:
 
-| Administrations funktion | Beskrivning |
+| Administrations funktion | Description |
 | --- | --- |
 | **SQL Server automatisk säkerhets kopiering** |Automatisera schemaläggning av säkerhets kopieringar för alla databaser antingen för standard instansen eller en [korrekt installerad](frequently-asked-questions-faq.md#administration) namngiven instans av SQL Server på den virtuella datorn. Mer information finns i [Automatisk säkerhets kopiering för SQL Server i Azure Virtual Machines (Resource Manager)](automated-backup-sql-2014.md). |
 | **SQL Server automatisk uppdatering** |Konfigurerar en underhålls period då viktiga Windows-uppdateringar av din virtuella dator kan ske, så att du kan undvika uppdateringar under hög belastnings tider för din arbets belastning. Mer information finns i [automatiserad uppdatering för SQL Server i Azure Virtual Machines (Resource Manager)](automated-patching.md). |
@@ -82,7 +82,7 @@ Här följer kraven för att använda SQL Server IaaS agent Extension på den vi
 
 
 ##  <a name="installation"></a>Installation
-Tillägget SQL Server IaaS installeras när du registrerar din SQL Server VM med [providern för SQL VM-resurs](sql-vm-resource-provider-register.md). Om det behövs kan du installera SQL Server IaaS-agenten manuellt med hjälp av PowerShell-kommandot nedan: 
+Tillägget SQL Server IaaS installeras när du registrerar SQL Server VM med [SQL Server VM-resurs leverantören](sql-vm-resource-provider-register.md). Om det behövs kan du installera SQL Server IaaS-agenten manuellt med hjälp av PowerShell-kommandot nedan: 
 
   ```powershell-interactive
     Set-AzVMSqlServerExtension -VMName "sql2017" `

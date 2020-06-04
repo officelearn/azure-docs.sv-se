@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: e9eebc9e977c6065f08b996f5ab3f3e46bc1a134
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871410"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344279"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Konfigurera ytterligare inställningar för Azure HPC cache
 
@@ -22,6 +22,9 @@ Den här artikeln beskriver också hur du använder ögonblicks bild funktionen 
 Om du vill se inställningarna öppnar du cachens **konfigurations** sida i Azure Portal.
 
 ![skärm bild av konfigurations sidan i Azure Portal](media/configuration.png)
+
+> [!TIP]
+> I [Hantera Azure HPC cache-videon](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) visas konfigurations sidan och dess inställningar.
 
 ## <a name="adjust-mtu-value"></a>Justera MTU-värde
 <!-- linked from troubleshoot-nas article -->
@@ -48,7 +51,7 @@ När rot-squash har Aktiver ATS mappas rot användare från en klient automatisk
 
 Om rot-squash är inaktive rad skickas en begäran från klientens rot användare (UID 0) till ett Server dels-NFS-lagrings system som rot. Den här konfigurationen kan tillåta olämplig fil åtkomst.
 
-Genom att ange rot-squash i cacheminnet kan du kompensera ``no_root_squash`` för den nödvändiga inställningen på NAS-system som används som lagrings mål. (Läs mer om [NFS-mål krav för lagring](hpc-cache-prereqs.md#nfs-storage-requirements).) Det kan också förbättra säkerheten när den används med Azure Blob Storage-mål.
+Genom att ange rot-squash i cacheminnet kan du kompensera för den nödvändiga ``no_root_squash`` inställningen på NAS-system som används som lagrings mål. (Läs mer om [NFS-mål krav för lagring](hpc-cache-prereqs.md#nfs-storage-requirements).) Det kan också förbättra säkerheten när den används med Azure Blob Storage-mål.
 
 Standardinställningen är **Ja**. (Cacheminnen som skapats före april 2020 kan ha standardvärdet **Nej**.)
 
@@ -73,4 +76,4 @@ Azure HPC-cache lagrar dagliga, veckovis och månatliga ögonblicks bilder tills
 * upp till 8 veckors ögonblicks bilder
 * upp till tre månatliga ögonblicks bilder
 
-Få åtkomst till ögonblicks bilderna `.snapshot` från katalogen i Blob Storage-målets namnrymd.
+Få åtkomst till ögonblicks bilderna från `.snapshot` katalogen i Blob Storage-målets namnrymd.

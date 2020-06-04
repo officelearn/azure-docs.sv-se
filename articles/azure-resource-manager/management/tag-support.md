@@ -3,12 +3,12 @@ title: Tagga stöd för resurser
 description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehåller information om alla Azure-tjänster.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 6c035f4f9ce6b7c842caeab3b705394417d15ba0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8acf2f9087646a76617368a6b61eb5097796c72c
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609297"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331924"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](tag-resources.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten. Du kan visa kostnader efter taggar i [Cost Management kostnads analys](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) och Azure- [faktura och användnings data per dag](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -277,7 +277,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | elevateAccess | Inga | Inga |
 > | findOrphanRoleAssignments | Inga | Inga |
 > | hålls | Inga | Inga |
-> | åtkomst | Inga | Inga |
+> | behörigheter | Inga | Inga |
 > | policyAssignments | Inga | Inga |
 > | policyDefinitions | Inga | Inga |
 > | policySetDefinitions | Inga | Inga |
@@ -693,7 +693,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Prognoser | Inga | Inga |
 > | samtliga | Inga | Inga |
 > | Marknads platser | Inga | Inga |
-> | Prisdokument | Inga | Inga |
+> | Pricesheets | Inga | Inga |
 > | läkemedle | Inga | Inga |
 > | ReservationDetails | Inga | Inga |
 > | ReservationRecommendations | Inga | Inga |
@@ -1558,7 +1558,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | vpnSites | Ja | Ja |
 > | webApplicationFirewallPolicies | Ja | Ja |
 
-<a id="frontdoor" />
+<a id="frontdoor"></a>
 
 > [!NOTE]
 > För Azures frontend-tjänst kan du använda taggar när du skapar resursen, men att uppdatera eller lägga till taggar stöds inte för närvarande.
@@ -1971,7 +1971,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | servrar/tdeCertificates | Inga | Inga |
 > | virtualClusters | Inga | Inga |
 
-<a id="sqlnote" />
+<a id="sqlnote"></a>
 
 > [!NOTE]
 > Huvud databasen stöder inte taggar, men andra databaser, inklusive Azure SQL Data Warehouse-databaser, stöder taggar. Azure SQL Data Warehouse-databaser måste vara i aktiv (inte pausad) status.

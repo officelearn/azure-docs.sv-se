@@ -4,12 +4,12 @@ description: Kom igång med Linux-appar på Azure App Service genom att distribu
 ms.topic: quickstart
 ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
-ms.openlocfilehash: 5b055c3ed93d5f093295b52c7a28a73e242bfe75
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 023bd8a3d53665a797848c6a9053ccd26f6015ce
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690885"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344738"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
@@ -17,14 +17,14 @@ I den här snabb starten distribuerar du en python-webbapp till [app service på
 
 Om du föredrar att distribuera appar via en IDE, se [distribuera python-appar till App Service från Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3,7</a> (python 3,6 stöds också)
 - <a href="https://git-scm.com/downloads" target="_blank">Git</a>
 - <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> -2.0.80 eller högre. Kör `az --version` för att kontrollera vilken version du har.
 
-## <a name="download-the-sample"></a>Hämta exemplet
+## <a name="download-the-sample"></a>Ladda ned exemplet
 
 Kör följande kommando i ett terminalfönster för att klona exempel programmet till din lokala dator. 
 
@@ -76,11 +76,11 @@ flask run
 
 ---
 
-Öppna en webbläsare och gå till exempel appen på `http://localhost:5000/`. Appen visar meddelandet **Hello World!**.
+Öppna en webbläsare och gå till exempel appen på `http://localhost:5000/` . Appen visar meddelandet **Hello World!**.
 
 ![Kör en exempel-python-app lokalt](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
-Tryck på **CTRL**+**C** i terminalfönstret för att avsluta webb servern.
+Tryck på **CTRL** + **C** i terminalfönstret för att avsluta webb servern.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -94,25 +94,20 @@ az login
 
 ## <a name="deploy-the-sample"></a>Distribuera exemplet
 
-- [`az webapp up`](/cli/azure/webapp#az-webapp-up) Kommandot skapar webbappen på App service och distribuerar koden.
+[`az webapp up`](/cli/azure/webapp#az-webapp-up)-Kommandot skapar webbappen på App service och distribuerar koden.
 
-Kör följande `az webapp up` kommando i mappen *python-dok-Hello-World* som innehåller exempel koden. Ersätt `<app-name>` med ett globalt unikt namn på appen (*giltiga tecken `a-z`är `0-9`, och `-` *).
+Kör följande kommando i mappen *python-dok-Hello-World* som innehåller exempel koden `az webapp up` . Ersätt `<app-name>` med ett globalt unikt namn på appen (*giltiga tecken är `a-z` , `0-9` och `-` *).
 
 
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
-> [!CAUTION]
-> Om du använder **Azure-CLI version 2.5.0** finns det en regression i `az webapp up` där vissa scenarier Miss kan uppstå om `-l <location-name>` parametern inte ingår. Det här problemet [spåras här](https://github.com/Azure/azure-cli/issues/13257).  
-> 
->Du kan kontrol lera vilken version av Azure-CLI som du använder med `az --version` kommandot.
->
 
-`--sku F1` Argumentet skapar webb programmet på den kostnads fria pris nivån. Du kan utelämna det här argumentet om du vill använda en Premium-nivå i stället, vilket innebär en timkostnad.
+`--sku F1`Argumentet skapar webb programmet på den kostnads fria pris nivån. Du kan utelämna det här argumentet om du vill använda en Premium-nivå i stället, vilket innebär en timkostnad.
 
 Du kan också inkludera argumentet `-l <location-name>` där `<location_name>` är en Azure-region, till exempel **Central**, **asienöstra**, **westeurope**, **koreasödra**, **centrala**, **Kanada**och så vidare. Du kan hämta en lista över tillåtna regioner för ditt Azure-konto genom att köra [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) kommandot.
 
-Det `az webapp up` kan ta några minuter att köra kommandot. När du kör visas information som liknar följande exempel, där `<app-name>` är det namn du angav tidigare:
+Det `az webapp up` kan ta några minuter att köra kommandot. När du kör visas information som liknar följande exempel, där är `<app-name>` det namn du angav tidigare:
 
 <pre>
 Creating Resource group 'appsvc_rg_Linux_centralus' ...
@@ -144,7 +139,7 @@ You can launch the app at http://&lt;app-name&gt;.azurewebsites.net
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
 
-Bläddra till det distribuerade programmet i webbläsaren på webb adressen `http://<app-name>.azurewebsites.net`.
+Bläddra till det distribuerade programmet i webbläsaren på webb adressen `http://<app-name>.azurewebsites.net` .
 
 Python-exempel koden kör en Linux-behållare i App Service med hjälp av en inbyggd avbildning.
 
@@ -154,7 +149,7 @@ Python-exempel koden kör en Linux-behållare i App Service med hjälp av en inb
 
 ## <a name="redeploy-updates"></a>Distribuera om uppdateringar
 
-Öppna *Application.py* i din favorit kod redigerare och uppdatera `hello` funktionen enligt följande. Den här ändringen lägger `print` till en instruktion för att generera logga utdata som du arbetar med i nästa avsnitt. 
+Öppna *Application.py* i din favorit kod redigerare och uppdatera `hello` funktionen enligt följande. Den här ändringen lägger till en `print` instruktion för att generera logga utdata som du arbetar med i nästa avsnitt. 
 
 ```python
 def hello():
@@ -181,7 +176,7 @@ När distributionen är klar växlar du tillbaka till webbläsarfönstret öppna
 
 ## <a name="stream-logs"></a>Strömningsloggar
 
-Du kan komma åt konsol loggarna som genereras inifrån appen och den behållare där den körs. Loggar innehåller alla utdata som genereras `print` med hjälp av instruktioner.
+Du kan komma åt konsol loggarna som genereras inifrån appen och den behållare där den körs. Loggar innehåller alla utdata som genereras med hjälp av `print` instruktioner.
 
 Kör följande kommando för att strömma loggar:
 
@@ -196,9 +191,9 @@ Uppdatera appen i webbläsaren för att generera konsol loggar som ska innehåll
 2020-04-03T22:54:04.236497641Z 172.16.0.1 - - [03/Apr/2020:22:54:04 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.83 Safari/537.36 Edg/81.0.416.41"
 </pre>
 
-Du kan också granska loggfilerna från webbläsaren på `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+Du kan också granska loggfilerna från webbläsaren på `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
 
-Om du vill stoppa logg strömningen när som `Ctrl` + `C`helst skriver du.
+Om du vill stoppa logg strömningen när som helst skriver du `Ctrl` + `C` .
 
 ## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 

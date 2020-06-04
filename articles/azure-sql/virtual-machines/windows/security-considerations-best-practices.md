@@ -1,5 +1,5 @@
 ---
-title: Säkerhets överväganden för SQL Server i Azure | Microsoft Docs
+title: Säkerhets aspekter | Microsoft Docs
 description: Det här avsnittet innehåller allmänna rikt linjer för att skydda SQL Server som körs i en virtuell Azure-dator.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f04620430571a1f86d601eac2b1b662c77499a76
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a9c3588d75bbad3ed7feb2d8a53c0a698286861a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047267"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342569"
 ---
-# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Säkerhetsöverväganden för SQL Server på Azure Virtual Machines
+# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Säkerhets överväganden för SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Det här avsnittet innehåller allmänna rikt linjer för säkerhet som hjälper till att etablera säker åtkomst till SQL Server instanser på en virtuell Azure-dator (VM).
@@ -31,7 +31,7 @@ Azure följer flera bransch regler och standarder som gör att du kan skapa en k
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="control-access-to-the-sql-vm"></a>Kontrol lera åtkomst till den virtuella SQL-datorn
+## <a name="control-access-to-the-sql-virtual-machine"></a>Kontrol lera åtkomst till den virtuella SQL-datorn
 
 När du skapar en SQL Server virtuell dator bör du fundera över hur du noga kontrollerar vem som har åtkomst till datorn och SQL Server. I allmänhet bör du göra följande:
 
@@ -46,7 +46,7 @@ När du skapar en SQL Server virtuell dator med en galleri bild kan du med alter
 
 ![SQL Server anslutning](./media/security-considerations-best-practices/sql-vm-connectivity-option.png)
 
-För bästa säkerhet väljer du det mest restriktiva alternativet för ditt scenario. Om du till exempel kör ett program som har åtkomst till SQL Server på samma virtuella dator är **lokalt** det säkraste alternativet. Om du kör ett Azure-program som kräver åtkomst till SQL Server, skyddas **privat** kommunikation enbart till SQL Server inom den angivna [Azure-Virtual Network](../../../virtual-network/virtual-networks-overview.md). Om du behöver **offentlig** (Internet) åtkomst till SQL Server VM ska du kontrol lera att du följer andra metod tips i det här avsnittet för att minska risken för angrepp.
+För bästa säkerhet väljer du det mest restriktiva alternativet för ditt scenario. Om du till exempel kör ett program som har åtkomst till SQL Server på samma virtuella dator är **lokalt** det säkraste alternativet. Om du kör ett Azure-program som kräver åtkomst till SQL Server, skyddas **privat** kommunikation enbart till SQL Server inom det angivna [virtuella Azure-nätverket](../../../virtual-network/virtual-networks-overview.md). Om du behöver **offentlig** (Internet) åtkomst till SQL Server VM ska du kontrol lera att du följer andra metod tips i det här avsnittet för att minska risken för angrepp.
 
 De valda alternativen i portalen använder inkommande säkerhets regler i den virtuella datorns [nätverks säkerhets grupp](../../../active-directory/identity-protection/security-overview.md) (NSG) för att tillåta eller neka nätverks trafik till den virtuella datorn. Du kan ändra eller skapa nya regler för inkommande NSG för att tillåta trafik till SQL Server porten (standard 1433). Du kan också ange vissa IP-adresser som tillåts att kommunicera via den här porten.
 
@@ -54,13 +54,13 @@ De valda alternativen i portalen använder inkommande säkerhets regler i den vi
 
 Förutom NSG-regler för att begränsa nätverks trafiken kan du också använda Windows-brandväggen på den virtuella datorn.
 
-Om du använder slut punkter med den klassiska distributions modellen tar du bort alla slut punkter på den virtuella datorn om du inte använder dem. Instruktioner för hur du använder ACL: er med slut punkter finns i [Hantera ACL för en slut punkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Detta är inte nödvändigt för virtuella datorer som använder Resource Manager.
+Om du använder slut punkter med den klassiska distributions modellen tar du bort alla slut punkter på den virtuella datorn om du inte använder dem. Instruktioner för hur du använder ACL: er med slut punkter finns i [Hantera ACL för en slut punkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Detta är inte nödvändigt för virtuella datorer som använder Azure Resource Manager.
 
 Till sist kan du aktivera krypterade anslutningar för instansen av SQL Server databas motorn på din virtuella Azure-dator. Konfigurera SQL Server-instansen med ett signerat certifikat. Mer information finns i [Aktivera krypterade anslutningar till databas motorn](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) och [syntaxen för anslutnings strängen](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## <a name="encryption"></a>Kryptering
 
-Hanterade diskar erbjuder kryptering på Server sidan och Azure Disk Encryption. [Kryptering på Server sidan](/azure/virtual-machines/windows/disk-encryption) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) använder antingen BITLOCKER eller dm-crypt-teknik och integreras med Azure Key Vault för att kryptera både operativ system-och data diskar. 
+Managed disks erbjuder kryptering på Server sidan och Azure Disk Encryption. [Kryptering på Server sidan](/azure/virtual-machines/windows/disk-encryption) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) använder antingen BITLOCKER eller dm-crypt-teknik och integreras med Azure Key Vault för att kryptera både operativ system-och data diskar. 
 
 ## <a name="use-a-non-default-port"></a>Använd en port som inte är standard
 
@@ -107,9 +107,9 @@ Mer information om lokala säkerhets metoder finns i [säkerhets överväganden 
 Mer information om säkerhet för virtuella datorer finns i [säkerhets översikten för virtuella datorer](/azure/security/fundamentals/virtual-machines-overview).
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
-Om du också är intresse rad av bästa praxis kring prestanda, se [metod tips för prestanda för SQL Server i Azure Virtual Machines](performance-guidelines-best-practices.md).
+Om du också är intresse rad av bästa praxis kring prestanda, se [metod tips för prestanda för SQL Server på Azure Virtual Machines](performance-guidelines-best-practices.md).
 
 Andra avsnitt om att köra SQL Server i virtuella Azure-datorer finns [SQL Server på azure Virtual Machines-översikt](sql-server-on-azure-vm-iaas-what-is-overview.md). Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](frequently-asked-questions-faq.md).
 

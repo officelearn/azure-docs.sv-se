@@ -4,12 +4,12 @@ description: Lär dig mer om att hantera certifikat i ett Service Fabric kluster
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: ecdeb5c9e30c176e2f3525f8efeb861d9210b202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196249"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324750"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Certifikat hantering i Service Fabric kluster
 
@@ -82,7 +82,8 @@ Det här avsnittet beskrivs i detalj i Key Vault- [dokumentationen](../key-vault
     - När utfärdaren (certifikat utfärdaren) svarar med det signerade certifikatet, slås resultatet samman i valvet och certifikatet är tillgängligt för följande åtgärder:
       - under {vaultUri}/certificates/{Name}: certifikatet inklusive offentlig nyckel och metadata
       - under {vaultUri}/Keys/{Name}: certifikatets privata nyckel, som är tillgänglig för kryptografiska åtgärder (wrap/unwrap, sign/verify)
-      - under {vaultUri}/Secrets/{Name}: certifikatet inkluderar den privata nyckeln som är tillgänglig för nedladdning som en oskyddad PFX-eller PEM-fil återkalla ett valv certifikat, i själva verket en kronologisk linje med certifikat instanser, som delar en princip. Certifikat versioner skapas enligt principens livs längd och förnyelse attribut. Vi rekommenderar starkt att valv certifikat inte delar ämnen eller domäner/DNS-namn; Det kan vara störande i ett kluster för att etablera certifikat instanser från olika valv certifikat, med identiska ämnen men väsentligen olika andra attribut, till exempel utfärdare, nyckel användning osv.
+      - under {vaultUri}/Secrets/{Name}: certifikatet inkluderar den privata nyckeln som är tillgänglig för nedladdning som en oskyddad PFX-eller PEM-fil  
+    Kom ihåg att ett valv certifikat är i själva verket en kronologisk linje med certifikat instanser som delar en princip. Certifikat versioner skapas enligt principens livs längd och förnyelse attribut. Vi rekommenderar starkt att valv certifikat inte delar ämnen eller domäner/DNS-namn; Det kan vara störande i ett kluster för att etablera certifikat instanser från olika valv certifikat, med identiska ämnen men väsentligen olika andra attribut, till exempel utfärdare, nyckel användning osv.
 
 I det här läget finns ett certifikat i valvet som är redo för användning. Vidare till:
 
@@ -414,7 +415,7 @@ Nu kan du köra de uppdateringar som nämns ovan i en enda distribution. för si
 Det här avsnittet är en Catch-allt för att förklara de steg som beskrivs ovan, samt för att dra uppmärksamheten till viktiga aspekter.
 
 #### <a name="certificate-provisioning-explained"></a>Certifikat etablering, förklarad
-KVVM-tillägget, som en etablerings agent, körs kontinuerligt enligt en fördefinierad frekvens. Om det inte går att hämta ett observerat certifikat fortsätter det att fortsätta till nästa rad, och sedan i vilo läge tills nästa cykel. SFVM-tillägget, som klustrets start agent, kommer att kräva de deklarerade certifikaten innan klustret kan formas. Detta innebär i sin tur att SFVM-tillägget endast kan köras efter att det lyckats att hämta kluster certifikaten, som anges här av- ```json "provisionAfterExtensions" : [ "KVVMExtension" ]"``` satsen och med ```json "requireInitialSync": true``` inställningen för KeyVaultVM-tillägget. Detta anger det KVVM-tillägg som körs i den första körningen (efter distributionen eller omstart) måste det gå igenom de observerade certifikaten tills alla har laddats ned. Om den här parametern anges till falskt, tillsammans med ett fel vid hämtningen av kluster certifikaten, uppstår ett fel i kluster distributionen. Omvänt, vilket kräver en inledande synkronisering med en felaktig/ogiltig lista över observerade certifikat, skulle resultera i ett fel i KVVM-tillägget och så så, så, ett fel vid distributionen av klustret.  
+KVVM-tillägget, som en etablerings agent, körs kontinuerligt enligt en fördefinierad frekvens. Om det inte går att hämta ett observerat certifikat fortsätter det att fortsätta till nästa rad, och sedan i vilo läge tills nästa cykel. SFVM-tillägget, som klustrets start agent, kommer att kräva de deklarerade certifikaten innan klustret kan formas. Detta innebär i sin tur att SFVM-tillägget endast kan köras efter att det lyckats att hämta kluster certifikaten, som anges här av- ```json "provisionAfterExtensions" : [ "KVVMExtension" ]"``` satsen och med inställningen för KeyVaultVM-tillägget ```json "requireInitialSync": true``` . Detta anger det KVVM-tillägg som körs i den första körningen (efter distributionen eller omstart) måste det gå igenom de observerade certifikaten tills alla har laddats ned. Om den här parametern anges till falskt, tillsammans med ett fel vid hämtningen av kluster certifikaten, uppstår ett fel i kluster distributionen. Omvänt, vilket kräver en inledande synkronisering med en felaktig/ogiltig lista över observerade certifikat, skulle resultera i ett fel i KVVM-tillägget och så så, så, ett fel vid distributionen av klustret.  
 
 #### <a name="certificate-linking-explained"></a>Certifikat länkning, förklarad
 Du kanske har märkt flaggan "linkOnRenewal" för KVVM-tillägget och det faktum att det är inställt på false. Vi riktar in dig på djupet beteende som styrs av den här flaggan och dess konsekvenser för ett klusters drift. Observera att det här beteendet är speciellt för Windows.
@@ -441,7 +442,7 @@ I båda fallen Miss lyckas transporten och klustret kan gå nedåt. symptomen va
 
 För att undvika sådana incidenter rekommenderar vi att:
   - Blanda inte San-nätverk för olika valv certifikat; varje valv certifikat bör ha ett distinkt syfte och deras ämne och SAN bör avspegla att med särskildhet
-  - ta med det unika ämnes namnet i SAN-listan (som, bokstavligen, "CN<subject common name>=")  
+  - ta med det unika ämnes namnet i SAN-listan (som, bokstavligen, "CN = <subject common name> ")  
   - Om du inte är säker inaktiverar du länkar vid förnyelse för certifikat som har skapats med tillägget KVVM 
 
 #### <a name="why-use-a-user-assigned-managed-identity-what-are-the-implications-of-using-it"></a>Varför ska jag använda en användare som tilldelats en hanterad identitet? Vad är konsekvenserna av att använda den?

@@ -2,14 +2,14 @@
 title: Kvoter och begränsningar för tjänsten
 description: Lär dig mer om standard Azure Batch kvoter, gränser och begränsningar samt hur du begär kvot ökningar
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3168c6fc60b2552129e9a11fbf6e8e24d9b37b14
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 45eefd10f7227509e7db8730e5e7192bd5833721
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84229838"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323899"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -83,41 +83,41 @@ Följ dessa steg om du vill begära en kvot ökning för batch-kontot eller din 
 1. Välj **nya grundläggande support förfrågningar**  >  **Basics**.
 1. I **grunderna**:
    
-    a. **Typ**  >  av problem **Begränsningar för tjänster och prenumerationer (kvoter)**
+    1. **Typ**  >  av problem **Begränsningar för tjänster och prenumerationer (kvoter)**
    
-    b. Välj din prenumeration.
+    1. Välj din prenumeration.
    
-    c. **Typ**  >  av kvot **Batch**
+    1. **Typ**  >  av kvot **Batch**
       
-    Välj **Nästa**.
+       Välj **Nästa**.
     
 1. I **Information**:
       
-    a. I **Ange information**anger du plats, kvot typ och batch-konto.
+    1. I **Ange information**anger du plats, kvot typ och batch-konto.
     
-    ![Ökning av batch-kvot][quota_increase]
+       ![Ökning av batch-kvot][quota_increase]
 
-    Kvot typer är:
+       Kvot typer är:
 
-    * **Per batch-konto**  
-        Värden som är specifikt för ett enda batch-konto, inklusive dedikerade och låg prioritets kärnor samt antal jobb och pooler.
+       * **Per batch-konto**  
+         Värden som är specifikt för ett enda batch-konto, inklusive dedikerade och låg prioritets kärnor samt antal jobb och pooler.
         
-    * **Per region**  
-        Värden som gäller för alla batch-konton i en region och innehåller antalet batch-konton per region per prenumeration.
+       * **Per region**  
+         Värden som gäller för alla batch-konton i en region och innehåller antalet batch-konton per region per prenumeration.
 
-    Kvoten med låg prioritet är ett enda värde i alla VM-serier. Om du behöver begränsade SKU: er måste du välja **låg prioritets kärnor** och inkludera VM-familjer som ska begäras.
+       Kvoten med låg prioritet är ett enda värde i alla VM-serier. Om du behöver begränsade SKU: er måste du välja **låg prioritets kärnor** och inkludera VM-familjer som ska begäras.
 
-    b. Välj en **allvarlighets grad** för ditt [företags påverkan][support_sev].
+    1. Välj en **allvarlighets grad** för ditt [företags påverkan][support_sev].
 
-    Välj **Nästa**.
+       Välj **Nästa**.
 
 1. I **kontakt information**:
    
-    a. Välj en **önskad kontakt metod**.
+    1. Välj en **önskad kontakt metod**.
    
-    b. Verifiera och ange nödvändig kontakt information.
+    1. Verifiera och ange nödvändig kontakt information.
    
-    Välj **skapa** för att skicka in support förfrågan.
+       Välj **skapa** för att skicka in support förfrågan.
 
 När du har skickat in ditt support ärende kontaktar Azure-supporten. Kvot begär Anden kan slutföras inom några minuter eller upp till två arbets dagar.
 

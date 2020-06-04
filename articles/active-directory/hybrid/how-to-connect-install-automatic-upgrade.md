@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 06/01/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05de8bf6a6e4ab79e63d6634ddb1b79fae6045f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 232a1b714802ce9531a9932bc2af4c6b6f35dffd
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680212"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324223"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatisk uppgradering
 Den här funktionen introducerades med build- [1.1.105.0 (lanserades februari 2016)](reference-connect-version-history.md#111050).  Funktionen uppdaterades i [build-1.1.561](reference-connect-version-history.md#115610) och stöder nu ytterligare scenarier som tidigare inte stöds.
@@ -89,18 +89,11 @@ Här är en lista över de vanligaste meddelanden som du hittar. Ingen lista vis
 | UpgradeAbortedSyncExeInUse |[Synchronization Service Manager-användargränssnittet](how-to-connect-sync-service-manager-ui.md) är öppet på servern. |
 | UpgradeAbortedSyncOrConfigurationInProgress |Installations guiden körs eller också har synkroniseringen schemalagts utanför Scheduler. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | Du har valt ADFS som inloggnings metod. |
 | UpgradeNotSupportedCustomizedSyncRules |Du har lagt till dina egna anpassade regler i konfigurationen. |
-| UpgradeNotSupportedDeviceWritebackEnabled |Du har aktiverat funktionen [tillbakaskrivning av enhet](how-to-connect-device-writeback.md) . |
-| UpgradeNotSupportedGroupWritebackEnabled |Du har aktiverat funktionen för tillbakaskrivning av grupp. |
 | UpgradeNotSupportedInvalidPersistedState |Installationen är inte en snabb inställning eller en DirSync-uppgradering. |
-| UpgradeNotSupportedMetaverseSizeExceeeded |Du har fler än 100 000 objekt i metaversum. |
-| UpgradeNotSupportedMultiForestSetup |Du ansluter till fler än en skog. Express installation ansluter bara till en skog. |
 | UpgradeNotSupportedNonLocalDbInstall |Du använder inte en SQL Server Express LocalDB-databas. |
-| UpgradeNotSupportedNonMsolAccount |[AD DS-anslutningsprogrammet](reference-connect-accounts-permissions.md#ad-ds-connector-account) är inte längre standard MSOL_s kontot. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | När du konfigurerar AAD Connect väljer du *Konfigurera inte* när du väljer inloggnings metod. |
-| UpgradeNotSupportedStagingModeEnabled |Servern är inställt på att vara i [mellanlagrings läge](how-to-connect-sync-staging-server.md). |
-| UpgradeNotSupportedUserWritebackEnabled |Du har aktiverat funktionen för [tillbakaskrivning av användare](how-to-connect-preview.md#user-writeback) . |
+|UpgradeNotSupportedLocalDbSizeExceeded|Den lokala databas storleken är större än eller lika med 8 GB|
+|UpgradeNotSupportedAADHealthUploadDisabled|Hälso data överföringar har inaktiverats från portalen|
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

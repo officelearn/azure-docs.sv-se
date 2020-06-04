@@ -11,20 +11,20 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
-ms.openlocfilehash: 0e9b8f7bc4129c07145130f198b738839b0c7b55
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c48bc2602da70e20e2fb86d54697d42d70775846
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047862"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324680"
 ---
-# <a name="create-alerts-for-azure-sql-database-and-azure-synapse-using-azure-portal"></a>Skapa aviseringar för Azure SQL Database och Azure-Synapse med Azure Portal
+# <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Skapa aviseringar för Azure SQL Database och Azure Synapse Analytics med hjälp av Azure Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln visar hur du konfigurerar aviseringar för databaser i Azure SQL Database och Azure-Synapse (tidigare Azure SQL Data Warehouse) med hjälp av Azure Portal. Aviseringar kan skicka ett e-postmeddelande till dig eller anropa en webbhook när något mått (till exempel databas storlek eller CPU-användning) når tröskelvärdet. Den här artikeln innehåller också metod tips för att ställa in aviserings perioder.
+Den här artikeln visar hur du konfigurerar aviseringar för databaser i Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) med hjälp av Azure Portal. Aviseringar kan skicka ett e-postmeddelande till dig eller anropa en webbhook när något mått (till exempel databas storlek eller CPU-användning) når tröskelvärdet. Den här artikeln innehåller också metod tips för att ställa in aviserings perioder.
 
 > [!NOTE]
 > Instruktioner för Azure SQL-hanterade instanser finns i [skapa aviseringar för Azure SQL-hanterad instans](../managed-instance/alerts-create.md).
@@ -44,7 +44,7 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av
 
 * [Azure Portal](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
-* [kommando rads gränssnitt (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
+* [Ett kommando rads gränssnitt (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
 * [REST-API:et för Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Skapa en varnings regel för ett mått med Azure Portal
@@ -60,7 +60,7 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av
 4. I avsnittet **villkor** klickar du på **Lägg till**.
   ![Definiera villkor](./media/alerts-insights-configure-portal/create-rule.png)
 5. På sidan **Konfigurera signal logik** väljer du en signal.
-  ![Välj signal ](./media/alerts-insights-configure-portal/select-signal.png) .
+  ![Välj signal](./media/alerts-insights-configure-portal/select-signal.png)
 6. När du har valt en signal, till exempel **processor procent**, visas sidan **Konfigurera signal logik** .
   ![Konfigurera signallogiken](./media/alerts-insights-configure-portal/configure-signal-logic.png)
 7. På den här sidan konfigurerar du den tröskel typ, operatör, sammansättnings typ, tröskel värde, sammansättnings precision och utvärderings frekvens. Klicka sedan på **färdig**.

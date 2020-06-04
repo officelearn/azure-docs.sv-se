@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 1/8/2019
-ms.openlocfilehash: 684116f92544e61a892b3653f8539f9f8f03e0c9
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b8d47d1036473af1b367cc0266aae3ea1bceeada
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584094"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343939"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Skapa användare i Azure Database for PostgreSQL-storskalig (citus)
 
@@ -28,23 +28,23 @@ PostgreSQL-motorn använder [roller](https://www.postgresql.org/docs/current/sql
 * `postgres`
 * `citus`
 
-Eftersom den här storleken är en hanterad PaaS-tjänst kan endast Microsoft logga in `postgres` med superanvändar rollen. För begränsad administrativ åtkomst tillhandahåller skalnings `citus` rollen.
+Eftersom den här storleken är en hanterad PaaS-tjänst kan endast Microsoft logga in med `postgres` superanvändar rollen. För begränsad administrativ åtkomst tillhandahåller skalnings `citus` rollen.
 
 Behörigheter för `citus` rollen:
 
 * Läs alla modellvariabler, även variabler som normalt sett endast visas för superanvändare.
-* Läs alla PG\_stat\_ \* -vyer och Använd olika statistik relaterade tillägg – även vyer eller tillägg som vanligt vis endast visas för superanvändare.
+* Läs alla PG \_ stat \_ \* -vyer och Använd olika statistik relaterade tillägg – även vyer eller tillägg som vanligt vis endast visas för superanvändare.
 * Kör övervaknings funktioner som kan få åtkomst till resurs lås i tabeller, eventuellt en längre tid.
-* [Skapa postgresql-tillägg](concepts-hyperscale-extensions.md) (eftersom rollen är medlem i `azure_pg_admin`).
+* [Skapa postgresql-tillägg](concepts-hyperscale-extensions.md) (eftersom rollen är medlem i `azure_pg_admin` ).
 
-I `citus` synnerhet har rollen vissa begränsningar:
+I synnerhet `citus` har rollen vissa begränsningar:
 
 * Det går inte att skapa roller
 * Det går inte att skapa databaser
 
 ## <a name="how-to-create-additional-user-roles"></a>Så här skapar du ytterligare användar roller
 
-Som nämnts saknar `citus` administratörs kontot behörighet att skapa ytterligare användare. Använd Azure Portal-gränssnittet om du vill lägga till en användare.
+Som nämnts `citus` saknar administratörs kontot behörighet att skapa ytterligare användare. Använd Azure Portal-gränssnittet om du vill lägga till en användare.
 
 1. Gå till sidan **roller** för din skalnings Server grupp och klicka på **+ Lägg till**:
 
@@ -60,22 +60,17 @@ Användaren kommer att skapas på noden koordinator i Server gruppen och spridas
 
 Nya användar roller används ofta för att ge åtkomst till databasen med begränsade privilegier. Om du vill ändra användar behörigheter använder du standard PostgreSQL-kommandon med ett verktyg som PgAdmin eller psql. (Se [ansluta med psql](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql) i snabb starten av citus ().)
 
-För att till exempel tillåta `db_user` läsning `mytable`ger du behörigheten:
+För att till exempel tillåta `db_user` läsning `mytable` ger du behörigheten:
 
 ```sql
 GRANT SELECT ON mytable TO db_user;
 ```
 
-Citus (storskalig) sprider GRANT-uttryck med en tabell genom hela klustret och tillämpar dem på alla arbetsnoder. Detta gäller dock för hela systemet (till exempel för alla tabeller i ett schema) måste köras på alla date-noder.  Använd `run_command_on_workers()` hjälp funktionen:
+Citus (storskalig) sprider GRANT-uttryck med en tabell genom hela klustret och tillämpar dem på alla arbetsnoder. Den sprider också bidrag som är hela systemet (t. ex. för alla tabeller i ett schema):
 
 ```sql
--- applies to the coordinator node
+-- applies to the coordinator node and propagates to workers
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
-
--- make it apply to workers as well
-SELECT run_command_on_workers(
-  'GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;'
-);
 ```
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Ta bort en användar roll eller ändra deras lösen ord
@@ -84,7 +79,7 @@ Om du vill uppdatera en användare går du till sidan **roller** för din skalni
 
    ![Redigera en roll](media/howto-hyperscale-create-users/edit-role.png)
 
-`citus` Rollen är privilegie rad och kan inte tas bort.
+`citus`Rollen är privilegie rad och kan inte tas bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

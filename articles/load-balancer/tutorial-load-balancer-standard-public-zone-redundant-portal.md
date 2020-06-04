@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9a490550bf6652186c80268d4a99bff931897fcd
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78251883"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344194"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
 
@@ -39,7 +39,7 @@ Mer information om hur du använder tillgänglighetszoner med standardlastbalans
 
 Om du vill kan du slutföra den här självstudien med [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -49,7 +49,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en ny offentlig IP-adress medan du skapar lastbalanseraren konfigureras den automatiskt som en standard-SKU-version och blir också automatiskt zonredundant.
 
-1. Klicka på **skapa en resurs** > **nätverk** > **Load Balancer**på den övre vänstra sidan av skärmen.
+1. Klicka på **skapa en resurs**  >  **nätverk**  >  **Load Balancer**på den övre vänstra sidan av skärmen.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
     | Inställning                 | Värde                                              |
@@ -75,12 +75,12 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resurs grupp-namn>**  | myResourceGroupLBAZ (Välj en befintlig resurs grupp) |
-| **\<virtuell-nätverks namn>** | myVNet          |
-| **\<region namn>**          | Europa, västra      |
-| **\<IPv4-adress utrymme>**   | 10.0.0.0 \ 16          |
-| **\<under näts namn>**          | myBackendSubnet        |
-| **\<undernät-adress – intervall>** | 10.0.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroupLBAZ (Välj en befintlig resurs grupp) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa, västra      |
+| **\<IPv4-address-space>**   | 10.0.0.0 \ 16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -127,7 +127,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
 
 Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region som kan fungera som serverdelsservrar för lastbalanseraren.
 
-1. Klicka på **skapa en resurs** > **Compute** > **Windows Server 2016 Data Center** på den övre vänstra sidan av skärmen och ange följande värden för den virtuella datorn:
+1. Klicka på **skapa en resurs**  >  **Compute**  >  **Windows Server 2016 Data Center** på den övre vänstra sidan av skärmen och ange följande värden för den virtuella datorn:
     - *myVM1* – för den virtuella datorns namn.        
     - *azureuser* – för administratörens användarnamn.    
     - *myResourceGroupLBAZ* – för **Resursgrupp**väljer du **Använd befintlig**, och väljer sedan *myResourceGroupLBAZ*.
@@ -140,9 +140,6 @@ Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region s
     - *myNetworkSecurityGroup* – namnet på nätverkssäkerhetsgruppen (brandvägg).
 5. Inaktivera startdiagnostikinställningar genom att klicka på **Inaktiverad**.
 6. Klicka på **OK**, granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
-  
-   ![Skapa en virtuell dator](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
-
 7. Skapa en andra virtuell dator med namnet *VM2* i Zon 2 och en tredje virtuell dator i Zon 3, och med *myVnet* som virtuellt nätverk, *myBackendSubnet* som undernät och **myNetworkSecurityGroup* som nätverkssäkerhetsgrupp med steg 1–6.
 
 ### <a name="install-iis-on-vms"></a>Installera IIS på virtuella datorer
@@ -150,7 +147,7 @@ Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region s
 1. Klicka på **Alla resurser** på den vänstra menyn och klicka sedan i resurslistan på **myVM1** som finns i resursgruppen *myResourceGroupLBAZ*.
 2. Klicka på **Anslut** på sidan **Översikt** och anslut RDP till den virtuella datorn.
 3. Logga in på den virtuella datorn med användarnamnet *azureuser*.
-4. Gå till **Windows administrations verktyg**>**Windows PowerShell**på server Skriv bordet.
+4. Gå till **Windows administrations verktyg** > **Windows PowerShell**på server Skriv bordet.
 5. I PowerShell-fönstret kör du följande kommandon för att installera IIS.servern, ta bort standardfilen iisstart.htm och lägga till en ny iisstart.htm-fil som visar namnet på den virtuella datorn:
    ```azurepowershell-interactive
     

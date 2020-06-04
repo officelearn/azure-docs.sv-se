@@ -1,20 +1,45 @@
 ---
-title: Hantera Azure Automation-data
-description: Den här artikeln innehåller begrepp för data hantering i Azure Automation, inklusive data kvarhållning och säkerhets kopiering.
+title: Azure Automation data säkerhet
+description: Den här artikeln hjälper dig att lära dig hur Azure Automation skyddar din integritet och skyddar dina data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/23/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: de60ef31a39a698f9a797a5836546f9b75b67594
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2dbaebac2228c11aef5fb33af4588f75ea15677a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835214"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343062"
 ---
 # <a name="management-of-azure-automation-data"></a>Hantera Azure Automation-data
 
-Den här artikeln innehåller flera ämnen för att hantera data i en Azure Automations miljö.
+Den här artikeln innehåller flera ämnen som förklarar hur data skyddas och skyddas i en Azure Automations miljö.
+
+## <a name="tls-12-enforcement-for-azure-automation"></a>TLS 1,2-tillämpning för Azure Automation
+
+För att säkerställa säkerheten för data som överförs till Azure Automation rekommenderar vi starkt att du konfigurerar användningen av Transport Layer Security (TLS) 1,2. Följande är en lista över metoder eller klienter som kommunicerar via HTTPS till Automation-tjänsten:
+
+* Webhook-anrop
+
+* Hybrid Runbook Worker, som innehåller datorer som hanteras av Uppdateringshantering och Ändringsspårning och inventering.
+
+* DSC-noder
+
+Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte**. Från och med september 2020 börjar vi verkställa TLS 1,2 och senare versioner av krypterings protokollet.
+
+Vi rekommenderar att du inte uttryckligen anger att agenten ska använda TLS 1,2 om det inte är absolut nödvändigt, eftersom det kan bryta säkerhets funktioner på plattforms nivå som gör att du automatiskt kan identifiera och dra nytta av nyare säkra protokoll när de blir tillgängliga, t. ex. TLS 1,3.
+
+Information om stöd för TLS 1,2 med Log Analytics-agenten för Windows och Linux, vilket är ett beroende för Hybrid Runbook Worker-rollen finns i [Log Analytics agent översikt – TLS 1,2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol). 
+
+### <a name="platform-specific-guidance"></a>Plattformsspecifik vägledning
+
+|Plattform/språk | Support | Mer information |
+| --- | --- | --- |
+|Linux | Linux-distributioner tenderar att förlita sig på [openssl](https://www.openssl.org) för TLS 1,2-stöd.  | Kontrol lera [openssl-ändringsloggen](https://www.openssl.org/news/changelog.html) för att bekräfta att din version av OpenSSL stöds.|
+| Windows 8,0-10 | Stöds och är aktiverat som standard. | För att bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012-2016 | Stöds och är aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men är inte aktiverat som standard. | På sidan [Transport Layer Security (TLS) register inställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
 
 ## <a name="data-retention"></a>Datakvarhållning
 
@@ -22,7 +47,7 @@ När du tar bort en resurs i Azure Automation sparas den i ett antal dagar för 
 
 I följande tabell sammanfattas bevarande principen för olika resurser.
 
-| Data | Policy |
+| Data | Princip |
 |:--- |:--- |
 | Konton |Ett konto tas bort permanent 30 dagar efter att användaren tagit bort det. |
 | Tillgångar |En till gång tas bort permanent 30 dagar efter att användaren tagit bort den, eller 30 dagar efter att en användare har tagit bort ett konto som innehåller till gången. |
@@ -53,16 +78,16 @@ Du kan inte exportera Azure Automation till gångar: certifikat, anslutningar, a
 
 Du kan inte hämta värdena för krypterade variabler eller lösen ords fält för autentiseringsuppgifter med hjälp av cmdletar. Om du inte känner till dessa värden kan du hämta dem i en Runbook. Information om hur du hämtar variabel värden finns [i variabel till gångar i Azure Automation](shared-resources/variables.md). Om du vill veta mer om hur du hämtar autentiseringsuppgifter, se [inloggnings till gångar i Azure Automation](shared-resources/credentials.md).
 
- ### <a name="dsc-configurations"></a>DSC-konfigurationer
+### <a name="dsc-configurations"></a>DSC-konfigurationer
 
 Du kan exportera DSC-konfigurationerna till skriptfiler med antingen Azure Portal eller cmdleten [export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
 ) i Windows PowerShell. Du kan importera och använda dessa konfigurationer i ett annat Automation-konto.
 
 ## <a name="geo-replication-in-azure-automation"></a>Geo-replikering i Azure Automation
 
-Geo-replikering är standard i Azure Automation-konton. Du väljer en primär region när du konfigurerar ditt konto. Den interna Automation-tjänsten för geo-replikering tilldelar kontot automatiskt en sekundär region. Tjänsten säkerhetskopierar sedan kontinuerligt konto data från den primära regionen till den sekundära regionen. Den fullständiga listan med primära och sekundära regioner finns i [verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+Geo-replikering är standard i Azure Automation-konton. Du väljer en primär region när du konfigurerar ditt konto. Den interna Automation-tjänsten för geo-replikering tilldelar kontot automatiskt en sekundär region. Tjänsten säkerhetskopierar sedan kontinuerligt konto data från den primära regionen till den sekundära regionen. Den fullständiga listan med primära och sekundära regioner finns i [verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner](../best-practices-availability-paired-regions.md).
 
-Säkerhets kopian som skapats av tjänsten Automation geo-Replication är en fullständig kopia av Automation-tillgångar, konfigurationer och liknande. Den här säkerhets kopian kan användas om den primära regionen slutar fungera och förlorar data. Om det osannoliks att data för en primär region förloras försöker Microsoft återställa det. Om företaget inte kan återställa primära data använder den automatisk redundans och informerar dig om situationen genom din Azure-prenumeration. 
+Säkerhets kopian som skapats av tjänsten Automation geo-Replication är en fullständig kopia av Automation-tillgångar, konfigurationer och liknande. Den här säkerhets kopian kan användas om den primära regionen slutar fungera och förlorar data. Om det osannoliks att data för en primär region förloras försöker Microsoft återställa det. Om företaget inte kan återställa primära data använder den automatisk redundans och informerar dig om situationen genom din Azure-prenumeration.
 
 Tjänsten Automation geo-Replication är inte tillgänglig direkt för externa kunder om det uppstår ett regionalt haveri. Om du vill underhålla automatiserings konfiguration och Runbooks under regionala haverier:
 
@@ -77,4 +102,5 @@ Tjänsten Automation geo-Replication är inte tillgänglig direkt för externa k
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om säkra till gångar i Azure Automation finns i [kryptering av säkra till gångar i Azure Automation](automation-secure-asset-encryption.md).
-* Mer information om geo-replikering finns i [skapa och använda aktiv geo-replikering](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication).
+
+* Mer information om geo-replikering finns i [skapa och använda aktiv geo-replikering](../sql-database/sql-database-active-geo-replication.md).

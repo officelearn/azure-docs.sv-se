@@ -1,6 +1,6 @@
 ---
-title: Använd Spark Connector med Microsoft Azure SQL och SQL Server
-description: Lär dig hur du använder Spark-anslutningen med Microsoft Azure SQL och SQL Server
+title: Använd Spark-anslutaren med Microsoft Azure SQL och SQL Server
+description: Lär dig hur du använder Spark-anslutningen med Azure SQL Database, Azure SQL-hanterad instans och SQL Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,19 +11,19 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: b2e042f2c3a7c6e1528ff96fb4fb96f392274855
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: eb48773b2816ac801ea1ddc6752a86b13ca7dd1d
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041229"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343310"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Påskynda real tids analys i real tid med Spark-anslutaren 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Spark-anslutningsprogrammet möjliggör Azure SQL Database, Azure SQL-hanterad instans och SQL Server databaser som fungerar som indata-datakälla eller utgående data mottagare för Spark-jobb. Det gör att du kan använda transaktions data i real tid i stor data analys och bevara resultat för adhoc-frågor eller rapporter. Jämfört med den inbyggda JDBC-anslutningen ger den här anslutningen möjlighet att massredigera data i Microsoft Azure SQL och SQL Server-databaser. Det kan avsevärt rad-till-rad-infogning med 10X för att 20x snabbare prestanda. Spark-anslutaren stöder AAD-autentisering för att ansluta till Azure SQL-databaser. Det gör att du på ett säkert sätt kan ansluta till din Azure SQL-databas från Azure Databricks med ditt AAD-konto. Den innehåller liknande gränssnitt med den inbyggda JDBC-anslutningen. Det är enkelt att migrera dina befintliga Spark-jobb till att använda den här nya anslutningen.
+Spark-anslutaren aktiverar databaser i Azure SQL Database, Azure SQL-hanterad instans och SQL Server att fungera som indata-eller utgående data för Spark-jobb. Det gör att du kan använda transaktions data i real tid i stor data analys och bevara resultat för ad hoc-frågor eller rapporter. Jämfört med den inbyggda JDBC-anslutningen ger den här anslutningen möjlighet att lägga till data i databasen. Det kan avsevärt från rad till rad med 10X för att 20x snabbare prestanda. Spark-anslutaren stöder Azure Active Directory (Azure AD)-autentisering för att ansluta till Azure SQL Database och Azure SQL-hanterad instans, så att du kan ansluta databasen från Azure Databricks med ditt Azure AD-konto. Den innehåller liknande gränssnitt med den inbyggda JDBC-anslutningen. Det är enkelt att migrera dina befintliga Spark-jobb till att använda den här nya anslutningen.
 
-## <a name="download-and-build-spark-connector"></a>Hämta och utveckla Spark-anslutning
+## <a name="download-and-build-a-spark-connector"></a>Hämta och bygg en spark-anslutning
 
 Kom igång genom att hämta Spark-anslutaren från [Azure-SQLDB-Spark-lagringsplatsen](https://github.com/Azure/azure-sqldb-spark) på GitHub.
 
@@ -38,13 +38,13 @@ Kom igång genom att hämta Spark-anslutaren från [Azure-SQLDB-Spark-lagringspl
 | Azure SQL Database                    | Stöds                |
 | Hanterad Azure SQL-instans            | Stöds                |
 
-Spark-anslutaren använder Microsoft JDBC-drivrutinen för SQL Server för att flytta data mellan Spark-arbetsnoder och SQL-databaser:
+Spark-anslutaren använder Microsoft JDBC-drivrutinen för SQL Server för att flytta data mellan Spark-arbetsnoder och databaser:
 
 Data flödet är följande:
 
-1. Spark-huvudnoden ansluter till en Azure SQL-eller SQL Server-databas och läser in data från en speciell tabell eller med en speciell SQL-fråga
+1. Spark-huvudnoden ansluter till databaser i SQL Database eller SQL Server och läser in data från en speciell tabell eller använder en speciell SQL-fråga.
 2. Spark-huvudnoden distribuerar data till arbetsnoder för omvandling.
-3. Worker-noden ansluter till en Azure SQL-eller SQL Server-databas och skriver data till databasen. Användaren kan välja att använda rad-för-rad-infogning eller Mass infogning.
+3. Worker-noden ansluter till databaser som ansluter till SQL Database och SQL Server och skriver data till databasen. Användaren kan välja att använda rad-för-rad-infogning eller Mass infogning.
 
 Följande diagram illustrerar data flödet.
 
@@ -60,7 +60,7 @@ För närvarande använder kopplings projektet Maven. Om du vill skapa kopplinge
 
 ## <a name="connect-and-read-data-using-the-spark-connector"></a>Anslut och läsa data med Spark-anslutaren
 
-Du kan ansluta till en Azure SQL-eller SQL Server databas från ett Spark-jobb, läsa eller skriva data. Du kan också köra en DML-eller DDL-fråga i databasen i Azure SQL och SQL Server.
+Du kan ansluta till databaser i SQL Database och SQL Server från ett Spark-jobb för att läsa eller skriva data. Du kan också köra en DML-eller DDL-fråga i databaser i SQL Database och SQL Server.
 
 ### <a name="read-data-from-azure-sql-and-sql-server"></a>Läs data från Azure SQL och SQL Server
 
@@ -143,9 +143,9 @@ val config = Config(Map(
 sqlContext.sqlDBQuery(config)
 ```
 
-## <a name="connect-from-spark-to-azure-sql-using-aad-authentication"></a>Ansluta från Spark till Azure SQL med AAD-autentisering
+## <a name="connect-from-spark-using-azure-ad-authentication"></a>Ansluta från Spark med Azure AD-autentisering
 
-Du kan ansluta till Azure SQL med Azure Active Directory-autentisering (AAD). Använd AAD-autentisering för att centralt hantera identiteter för databas användare och som ett alternativ till att SQL Server autentisering.
+Du kan ansluta till Azure SQL Database-och SQL-hanterad instans med Azure AD-autentisering. Använd Azure AD-autentisering för att centralt hantera identiteter för databas användare och som ett alternativ till att SQL Server autentisering.
 
 ### <a name="connecting-using-activedirectorypassword-authentication-mode"></a>Ansluta med ActiveDirectoryPassword-autentiseringsläge
 
@@ -170,13 +170,13 @@ val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
-### <a name="connecting-using-access-token"></a>Ansluter med åtkomsttoken
+### <a name="connecting-using-an-access-token"></a>Ansluta med hjälp av en åtkomsttoken
 
 #### <a name="setup-requirement"></a>Krav för installation
 
 Om du använder det åtkomst-token-baserade autentiseringsläget måste du ladda ned [Azure-ActiveDirectory-Library-for-Java](https://github.com/AzureAD/azure-activedirectory-library-for-java) och dess beroenden och inkludera dem i Java-build-sökvägen.
 
-Se [använda Azure Active Directory autentisering för autentisering](authentication-aad-overview.md) för att lära dig hur du får åtkomsttoken till din databas i Azure SQL Database eller Azure SQL-hanterad instans.
+Se [använda Azure Active Directory autentisering för autentisering](authentication-aad-overview.md) för att lära dig hur du hämtar en åtkomsttoken till databasen i Azure SQL Database eller Azure SQL-hanterad instans.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -194,9 +194,9 @@ val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
-## <a name="write-data-to-azure-sql-and-sql-server-using-bulk-insert"></a>Skriva data till Azure SQL och SQL Server med Mass infogning
+## <a name="write-data-using-bulk-insert"></a>Skriv data med Mass infogning
 
-Den traditionella JDBC-anslutningen skriver data till Azure SQL och SQL Server att använda rad-för-rad-infogning. Du kan använda Spark Connector för att skriva data till Azure SQL och SQL Server att använda Mass infogning. Det förbättrar markant skriv prestanda vid inläsning av stora data uppsättningar eller inläsning av data i tabeller där ett kolumn lagrings index används.
+Den traditionella JDBC-anslutningen skriver data i databasen med hjälp av rad-för-rad-infogning. Du kan använda Spark-anslutningen för att skriva data till Azure SQL och SQL Server att använda Mass infogning. Det förbättrar markant skriv prestanda vid inläsning av stora data uppsättningar eller inläsning av data i tabeller där ett kolumn lagrings index används.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.bulkcopy.BulkCopyMetadata

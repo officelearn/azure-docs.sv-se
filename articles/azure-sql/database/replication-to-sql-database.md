@@ -1,6 +1,6 @@
 ---
-title: SQL Server replikering till Azure SQL Database
-description: Du kan konfigurera en Azure SQL Database som push-prenumerant i en enkelriktad transaktionell eller ögonblicks bilds replikeringstopologi.
+title: Azure SQL Server replikering till Azure SQL Database
+description: Du kan konfigurera en databas i Azure SQL Database som push-prenumerant i en enkelriktad transaktionell eller ögonblicks bilds replikeringstopologi.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: ec0aebc10d47b3e9945e63e818240da7bf2451e4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192955"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324155"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replikering till Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,13 +29,13 @@ Du kan konfigurera en Azure SQL Database som push-prenumerant i en enkelriktad t
 ## <a name="supported-configurations"></a>Konfigurationer som stöds
   
 - Azure SQL Database kan bara användas som push-prenumerant för en SQL Server utgivare och distributör.  
-- SQL Server som fungerar som utgivare och/eller distributör kan vara en instans av [SQL Server som körs lokalt](https://www.microsoft.com/sql-server/sql-server-downloads), en [hanterad Azure SQL-instans](../managed-instance/instance-create-quickstart.md)eller en instans av [SQL Server som körs på en virtuell Azure-dator i molnet](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
-- Distributions databasen och-replik agenterna kan inte placeras i en Azure SQL Database.  
+- SQL Server-instansen som fungerar som utgivare och/eller distributör kan vara en instans av [SQL Server som körs lokalt](https://www.microsoft.com/sql-server/sql-server-downloads), en [hanterad Azure SQL-instans](../managed-instance/instance-create-quickstart.md)eller en instans av [SQL Server som körs på en virtuell Azure-dator i molnet](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
+- Distributions databasen och-replik agenterna kan inte placeras i en databas i Azure SQL Database.  
 - [Ögonblicks bilder](/sql/relational-databases/replication/snapshot-replication) och [enkelriktad transaktionell](/sql/relational-databases/replication/transactional/transactional-replication) replikering stöds. Peer-to-peer-transaktionell replikering och Sammanslagningsreplikering stöds inte.
 
 ### <a name="versions"></a>Versioner  
 
-För att kunna replikera till en Azure SQL Database måste SQL Server utgivare och distributörer använda (minst) en av följande versioner: 
+För att kunna replikera till en databas i Azure SQL Database måste SQL Server utgivare och distributörer använda (minst) en av följande versioner:
 
 Det finns stöd för att publicera till en Azure SQL Database från en SQL Server-databas i följande versioner av SQL Server:
 
@@ -54,11 +54,11 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
 
 | Replikering | Azure SQL Database | Hanterad Azure SQL-instans |
 | :----| :------------- | :--------------- |
-| [**Standard transaktion**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Yes | 
-| [**Ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Yes|
+| [**Standard transaktion**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Ja | 
+| [**Ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Ja|
 | [**Sammanfoga replikering**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Inga | Inga|
 | [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Inga | Inga|
-| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Ja|
+| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Inga | Ja|
 | [**Uppdaterings bara prenumerationer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Inga | Inga|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -116,7 +116,6 @@ Följande alternativ stöds inte för Azure SQL Database prenumerationer:
 - Konvertera hierarchyid till MAX data typer  
 - Konvertera spatialdata till MAX data typer  
 - Kopiera utökade egenskaper  
-- Kopiera behörigheter  
 
 ### <a name="limitations-to-be-determined"></a>Begränsningar som ska fastställas
 

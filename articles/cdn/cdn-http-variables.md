@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 57a3bab06e4c0a1e4fd8df5d0794a89904a88954
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747651"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340682"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabler för Azure CDN-regel motor
 HTTP-variabler tillhandahåller de metoder genom vilka du kan hämta metadata för HTTP-begäran och svar. Dessa metadata kan sedan användas för att dynamiskt ändra en begäran eller ett svar. Användningen av HTTP-variabler är begränsad till följande regel motor funktioner:
 
-- [Cache-omarbetning av nyckel](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
-- [Ändra huvudet för klientbegäran](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
-- [Ändra huvudet för klient svaret](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
-- [URL-omdirigering](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
-- [URL-omskrivning](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
+- [Cache-omarbetning av nyckel](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm)
+- [Ändra huvudet för klientbegäran](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Request-Header.htm)
+- [Ändra huvudet för klient svaret](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Response-Header.htm)
+- [URL-omdirigering](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm)
+- [URL-omskrivning](https://docs.vdms.com/cdn/Content/HRE/F/URL-Rewrite.htm)
 
 ## <a name="definitions"></a>Definitioner
 I följande tabell beskrivs de HTTP-variabler som stöds. Ett tomt värde returneras när GEO-metadata (till exempel post nummer) inte är tillgängliga för en viss begäran.
 
 
-| Name | Variabel | Beskrivning | Exempelvärde |
+| Name | Variabel | Description | Exempelvärde |
 | ---- | -------- | ----------- | ------------ |
 | ASN (beställare) | % {geo_asnum} | Anger beställarens AS-nummer. <br /><br />**Föråldrad:** % {virt_dst_asnum}. <br />Den här variabeln har ersatts av% {geo_asnum}. Även om en regel som använder den här inaktuella variabeln fortsätter att fungera, bör du uppdatera den så att den använder den nya variabeln. | AS15133 |
 | Ort (beställare) | % {geo_city} | Anger beställarens ort. | Los Angeles |
@@ -69,7 +69,7 @@ I följande tabell beskrivs de HTTP-variabler som stöds. Ett tomt värde return
 I följande tabell beskrivs rätt syntax för att ange en HTTP-variabel.
 
 
-| Syntax | Exempel | Beskrivning |
+| Syntax | Exempel | Description |
 | ------ | -------- | ---------- |
 | % { &lt; HTTPVariable &gt; } | % {Host} | Använd den här syntaxen för att hämta hela värdet som motsvarar det angivna &lt; HTTPVariable &gt; . |
 | % { &lt; HTTPVariableDelimiter &gt; } | % {Host,} | Använd den här syntaxen för att ställa in Skift läget för hela värdet som motsvarar det angivna &lt; HTTPVariableDelimiter &gt; . |
@@ -92,7 +92,7 @@ En avgränsare kan anges efter en HTTP-variabel för att uppnå någon av följa
 
 Avgränsarna beskrivs i följande tabell.
 
-| Avgränsare | Beskrivning |
+| Avgränsare | Description |
 | --------- | ----------- |
 | := | Anger att ett standardvärde tilldelas variabeln när den är antingen: <br />-Saknas <br />-Ange som NULL. |
 | :+ | Anger att ett standardvärde ska tilldelas variabeln när ett värde har tilldelats till den. |
@@ -125,7 +125,7 @@ Ett standardvärde kan tilldelas till ett sidhuvud när det uppfyller något av 
 
 I följande tabell beskrivs hur du definierar ett standardvärde.
 
-| Villkor | Syntax | Exempel | Beskrivning |
+| Villkor | Syntax | Exempel | Description |
 | --------- | ------ | --------| ----------- |
 | Ange ett huvud värde för ett standardvärde när det uppfyller något av följande villkor: <br /><br />– Rubrik saknas <br /><br />– Huvud värde är inställt på NULL.| % {Variable: = värde} | % {http_referrer: = ospecificerad} | Referent-rubriken anges bara till *ospecificerad* när den antingen saknas eller har angetts till null. Ingen åtgärd sker om den har angetts. |
 | Ange ett huvud värde för ett standardvärde när det saknas. | % {Variable = värde} | % {http_referrer = ospecificerad} | Referent-rubriken anges bara till *ospecificerad* när den saknas. Ingen åtgärd sker om den har angetts. |

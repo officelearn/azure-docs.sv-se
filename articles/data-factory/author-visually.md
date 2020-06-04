@@ -10,12 +10,12 @@ ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
 ms.date: 05/15/2020
-ms.openlocfilehash: 79b89c6a6a7598dd3fbdfc5030fd59fe1aab6625
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832795"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343129"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 
@@ -42,6 +42,12 @@ För resurser på högsta nivå, till exempel pipelines, data uppsättningar och
 ![Redigera arbets yta](media/author-visually/properties-pane.png)
 
 Fönstret Egenskaper öppnas bara som standard när en resurs skapas. Om du vill redigera det klickar du på ikonen egenskaper som finns i det övre högra hörnet på arbets ytan.
+
+## <a name="management-hub"></a>Hanterings hubb
+
+Hanterings hubben, som nås via fliken *Hantera* i Azure Data Factory UX, är en portal som är värd för globala hanterings åtgärder för din data fabrik. Här kan du hantera dina anslutningar till data lager och externa beräkningar, käll kontroll konfiguration och utlösnings inställningar. Mer information finns i [hanterings hubbens](author-management-hub.md)funktioner.
+
+![Hantera länkade tjänster](media/author-management-hub/management-hub-linked-services.png)
 
 ## <a name="expressions-and-functions"></a>Uttryck och funktioner
 

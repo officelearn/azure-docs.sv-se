@@ -1081,20 +1081,6 @@
               href: platform/view-designer-parts.md
             - name: Filter
               href: platform/view-designer-filters.md
-        - name: Anpassade lösningar
-          items:
-            - name: Utforma och skapa
-              href: insights/solutions-creating.md
-            - name: Lösningsfil
-              href: insights/solutions-solution-file.md
-            - name: Automation-resurser
-              href: insights/solutions-resources-automation.md
-            - name: Loggsökningar och aviseringar
-              href: insights/solutions-resources-searches-alerts.md
-            - name: Vyer
-              href: insights/solutions-resources-views.md
-            - name: Bästa praxis
-              href: insights/solutions-best-practices.md
     - name: Arbetsböcker
       items:
         - name: Översikt

@@ -7,21 +7,21 @@ manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/23/2020
 ms.author: diberry
-ms.openlocfilehash: 0c52771573c1df6a7a0efefbf950e88e1f1728f7
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 55153cc7fc125c97a5b73084f83dd320240ca256
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800630"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342125"
 ---
 # <a name="whats-new-in-personalizer"></a>Nyheter i Personanpassaren
 
 Läs om vad som är nytt i tjänsten. Dessa objekt kan innehålla viktig information, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
-## <a name="release-notes"></a>Viktig information
+## <a name="release-notes"></a>Versionsanmärkningar
 
 ### <a name="may-2020---build-conference"></a>2020 maj-build-konferens
 

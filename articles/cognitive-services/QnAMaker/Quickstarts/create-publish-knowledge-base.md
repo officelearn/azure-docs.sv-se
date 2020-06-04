@@ -1,20 +1,20 @@
 ---
 title: 'Snabb start: skapa, träna och publicera kunskaps bas – QnA Maker'
 description: Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på hur du skapar en QnA Maker kunskaps bas från en enkel webb sida med vanliga frågor och svar för att besvara frågor QnA Maker.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a35cbdea2d40e4b0df0ce0f0b36f1b6bf60dd42e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 12f46e9a72f0a3b027fe67e5b8bf27c940685cfe
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871401"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340597"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
 Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på hur du skapar en QnA Maker kunskaps bas från en enkel webb sida med vanliga frågor och svar för att besvara frågor QnA Maker.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -35,12 +35,12 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 1. I **steg 3**väljer du din Active Directory, prenumeration, tjänst (resurs) och språket för alla kunskaps baser som skapats i tjänsten.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Skärm bild av att välja en QnA Maker tjänst kunskaps bas":::
-    
+
 1. I **steg 3**namnger du kunskaps basen **mitt exempel på QNA KB**.
 
 1. I **steg 4**konfigurerar du inställningarna med följande tabell:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |--|--|
     |**Aktivera extrahering av flera adresser från URL: er, PDF-eller docx-filer.**|Markerad|
     |**Standard svars text**| `Quickstart - default answer not found.`|

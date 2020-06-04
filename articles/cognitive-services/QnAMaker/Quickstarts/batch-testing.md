@@ -1,20 +1,20 @@
 ---
 title: 'Snabb start: testa kunskaps bas med batch-frågor'
 description: Använd batch-testverktyget QnA Maker för att testa kunskaps baserna i din QnA Maker-resurs för förväntade svar, förtroende poäng och frågor om flera inaktivitet.
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 9845b7c7cc19550c450a1eb00ec02731ef2d9d44
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 01c767a6fbea5061f644052234f7462857dd342b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873663"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337741"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Snabb start: testa kunskaps bas med batch-frågor och förväntade svar
 
 Använd batch-testverktyget QnA Maker för att testa kunskaps baserna i din QnA Maker-resurs för förväntade svar, förtroende poäng och frågor om flera inaktivitet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Skapa antingen en QNA Maker tjänst](create-publish-knowledge-base.md) eller Använd en befintlig tjänst som använder det engelska språket.
@@ -37,7 +37,7 @@ Använd batch-testverktyget QnA Maker för att testa kunskaps baserna i din QnA 
 
 1. I **steg 4**konfigurerar du inställningarna med följande tabell:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |--|--|
     |**Aktivera extrahering av flera adresser från URL: er, PDF-eller docx-filer.**|Markerad|
     |**Standard svars text**| `Batch test - default answer not found.`|

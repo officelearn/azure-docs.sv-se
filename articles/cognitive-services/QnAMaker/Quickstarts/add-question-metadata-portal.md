@@ -3,16 +3,16 @@ title: 'Snabb start: Lägg till frågor och svar i QnA Maker Portal'
 description: Den här snabb starten visar hur du lägger till fråge-och svars par med metadata så att användarna kan hitta rätt svar på sina frågor.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e35f7437f0028fedffea7cbcb6216fb7e1fad1f8
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266584"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331397"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabb start: Lägg till frågor och svar med QnA Maker Portal
 
-När en kunskaps bas har skapats kan du lägga till fråge-och svars-par (QnA) med metadata för att filtrera svaret. Frågorna i följande tabell är om begränsningar för Azure-tjänster, men var och en måste göra med en annan Azure-tjänst.
+När en kunskaps bas har skapats kan du lägga till fråge-och svars-par (QnA) med metadata för att filtrera svaret. Frågorna i följande tabell är om begränsningar för Azure-tjänster, men var och en måste göra med en annan Azure Search-tjänst.
 
 <a name="qna-table"></a>
 
@@ -27,7 +27,7 @@ När metadata har lagts till i ett QnA-par kan klient programmet:
 * Ta emot alla svar men efter bearbetningen av svaren beroende på metadata för varje svar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför den [tidigare snabb](./create-publish-knowledge-base.md) starten
 

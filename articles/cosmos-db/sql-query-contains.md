@@ -4,19 +4,19 @@ description: Lär dig mer om hur funktionen CONTAINS SQL system i Azure Cosmos D
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a08fe47122d7e9ddd1c9038bb5f15ebbb0be30fa
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 4877272fc2db521977a4111317118380399d27c5
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848982"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322711"
 ---
 # <a name="contains-azure-cosmos-db"></a>INNEHÅLLER (Azure Cosmos DB)
 
- Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra.  
+Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra.  
   
 ## <a name="syntax"></a>Syntax
   
@@ -75,6 +75,8 @@ Användning av RU-förbrukningen i innehåller ökar eftersom egenskapens kardin
 ```
 
 Den första frågan kommer förmodligen att använda mer ru: er än den andra frågan eftersom stadens kardinalitet är högre än landet.
+
+Om egenskaps storleken i innehåller är större än 1 KB för vissa dokument måste du läsa in dessa dokument med frågespråket. I detta fall går det inte att göra en fullständig utvärdering av frågespråket som innehåller med ett index. Avgiften för RU för innehåller är hög om du har ett stort antal dokument med egenskaps storlekar på mer än 1 KB.
 
 ## <a name="next-steps"></a>Nästa steg
 

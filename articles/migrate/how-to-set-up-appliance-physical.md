@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en Azure Migrate-apparat för fysisk s
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: ddc70ee9430d3a767ce01191824c150a4dbd5e6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d9cc071ad5d81a09a14b12fe2acdf564c2ea6c8
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538281"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331788"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurera en installation för fysiska servrar
 
@@ -35,8 +35,8 @@ Så här konfigurerar du den apparat som du:
 
 Ladda ned den zippade filen för enheten.
 
-1. I **mål** > **servrar** > för migrering**Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2. I **identifiera datorer** > **är dina datorer virtualiserade?**, klicka på **inte virtualiserad/annan**.
+1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
+2. I **identifiera datorer**  >  **är dina datorer virtualiserade?**, klicka på **inte virtualiserad/annan**.
 3. Klicka på **Ladda ned** för att ladda ned den zippade filen.
 
     ![Hämta virtuell dator](./media/tutorial-assess-physical/download-appliance.png)
@@ -51,20 +51,19 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning för offentligt moln:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
     - Exempel på användning av myndighets moln:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verifiera hash-värden:
+3.  Kontrol lera den senaste versionen av installationen och hash-värden:
  
-    - För det offentliga molnet (för den senaste versionen av produkten):
+    - För det offentliga molnet:
 
-        **Integritetsalgoritm** | **Hash-värde**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+        **Scenario** | **Hämta*** | **Hash-värde**
+        --- | --- | ---
+        Fysisk (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
-    - För Azure-myndigheter (för den senaste versionen av produkten):
+    - För Azure Government:
 
-        **Integritetsalgoritm** | **Hash-värde**
-          --- | ---
-          MD5 | f81c155fc4a1409901caea948713913f
+        **Scenario** | **Hämta*** | **Hash-värde**
+        --- | --- | ---
+        Fysisk (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
 
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Kör installations skriptet för Azure Migrate
@@ -108,7 +107,7 @@ Konfigurera enheten för första gången.
 2. I webbappen > **Konfigurera krav**gör du följande:
     - **Licens**: Godkänn licens villkoren och Läs informationen från tredje part.
     - **Anslutning**: appen kontrollerar att den virtuella datorn har Internet åtkomst. Om den virtuella datorn använder en proxyserver:
-        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller. http://ProxyFQDN
+        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller http://ProxyFQDN .
         - Ange autentiseringsuppgifter om proxyn kräver autentisering.
         - Endast HTTP-proxy stöds.
     - **Tidssynkronisering**: tiden har verifierats. Tiden för installationen bör vara synkroniserad med Internet-tid för att VM-identifieringen ska fungera korrekt.
@@ -146,7 +145,7 @@ Detta startar identifieringen. Det tar ungefär 15 minuter för metadata för id
 När identifieringen är klar kan du kontrol lera att servrarna visas i portalen.
 
 1. Öppna instrument panelen för Azure Migrate.
-2. På sidan **Azure Migrate-servrar** > **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
+2. På sidan **Azure Migrate-servrar**  >  **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
 
 
 ## <a name="next-steps"></a>Nästa steg

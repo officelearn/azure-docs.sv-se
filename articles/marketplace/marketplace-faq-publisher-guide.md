@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 1eae45eea35a118be51dc1e2f95055238212560d
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 79ca7381c1d06d897202320632b55f91e4a50d91
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800661"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340478"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads platser
 
@@ -274,9 +274,12 @@ Kunderna faktureras vanligt vis per månad för alla inköp i föregående faktu
 
 ### <a name="how-often-will-i-receive-payouts-for-sales-through-the-commercial-marketplace"></a>Hur ofta får jag inbetalningar för försäljning via den kommersiella marknads platsen?
 
-Utbetalningar sker varje månad. Samlingar som bearbetas under den föregående månaden betalas ut samtidigt och försäljningen måste ha ett minsta kombinerat värde på $50,00.
+Utbetalningar sker varje månad. Mer information om betalnings scheman hittar du genom att söka efter dina kommande utbetalningar i Partner Center och hur vi hanterar kund icke-betalningar, se [information om utbetalnings princip](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payout-policy-details).
 
-Kredit korts prenumerationer och inköp faktureras per månad och fakturor mot ett kund avtal från Microsoft eller Enterprise-avtal kan vara mindre frekventa. Från den tid som kunder faktureras ger vi dem 30 dagar att betala. När vi har fått betalningen, tar kredit korts transaktionerna till en 30-dagars depositions-period.
+- För transaktioner där kunden använde en Enterprise-avtal utfärdas utbetalningar i nästa utbetalnings cykel 30 dagar efter kund faktura. 
+- För transaktioner där kunden använde ett kredit kort, finns det en ytterligare 30-dagars depositions-period när vi har fått betalning för att säkerställa att kapital är klart och det inte finns några åter betalningar eller misstänkta bedrägerier.
+
+Utbetalningar utfärdas bara när försäljning har uppnått ett minsta kombinerat värde på $50,00.
 
 Mer information finns i avsnittet om [betalnings trösklar, metoder och tids ramar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payment-thresholds-methods-timeframes).
 

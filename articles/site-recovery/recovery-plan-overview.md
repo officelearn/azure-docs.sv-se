@@ -3,12 +3,12 @@ title: Om återställnings planer i Azure Site Recovery
 description: Lär dig mer om återställnings planer i Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d191781cacc37242dd1be31d6cb87ef196e5e7a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257776"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343922"
 ---
 # <a name="about-recovery-plans"></a>Om återställningsplaner
 
@@ -17,7 +17,7 @@ Den här artikeln innehåller en översikt över återställnings planer i [Azur
 En återställnings plan samlar in datorer i återställnings grupper i syfte att redundansväxla. Med en återställnings plan kan du definiera en systematisk återställnings process genom att skapa små oberoende enheter som du kan redundansväxla. En enhet representerar vanligt vis en app i din miljö.
 
 - En återställnings plan definierar hur datorer växlar över och i vilken ordning de startar efter redundansväxlingen.
-- Återställnings planer används för redundans till Azure, men kan inte användas för återställning efter fel från Azure.
+- Återställnings planer kan användas för både redundans till och återställning efter fel från Azure.
 - Upp till 100 skyddade instanser kan läggas till i en återställnings plan.
 - Du kan anpassa en plan genom att lägga till order, instruktioner och uppgifter till den.
 - När en plan har definierats kan du köra en redundansväxling på den.

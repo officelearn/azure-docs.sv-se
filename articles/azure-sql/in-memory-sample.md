@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: aa26b0c6e30413366e06673a0890b21434fc842b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047344"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345282"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -47,7 +47,7 @@ För en mer förenklad, men mer visuellt tilltalande prestanda demonstration fö
 
 ### <a name="installation-steps"></a>Installationssteg
 
-1. I [Azure Portal](https://portal.azure.com/)skapar du en Premium-eller affärskritisk-databas på en server. Ange **källan** till AdventureWorksLT-exempel databasen. Detaljerade anvisningar finns i [skapa din första Azure SQL-databas](database/single-database-create-quickstart.md).
+1. I [Azure Portal](https://portal.azure.com/)skapar du en Premium-eller affärskritisk-databas på en server. Ange **källan** till AdventureWorksLT-exempel databasen. Detaljerade anvisningar finns [i skapa din första databas i Azure SQL Database](database/single-database-create-quickstart.md).
 
 2. Anslut till databasen med SQL Server Management Studio [(SSMS. exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -365,7 +365,7 @@ I en databas med P2-pris nivån kan du förväntar dig nio gånger prestanda vin
 
 #### <a name="tools"></a>Verktyg
 
-- [Azure Portal](https://portal.azure.com/)
+- [Azure-portalen](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

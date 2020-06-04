@@ -1,6 +1,6 @@
 ---
 title: Lagrings konfiguration för SQL Server virtuella datorer | Microsoft Docs
-description: I det här avsnittet beskrivs hur Azure konfigurerar lagring för SQL Server virtuella datorer under etableringen (Resource Manager distributions modell). Det förklarar också hur du kan konfigurera lagring för befintliga SQL Server virtuella datorer.
+description: I det här avsnittet beskrivs hur Azure konfigurerar lagring för SQL Server virtuella datorer under etablering (Azure Resource Manager distributions modell). Det förklarar också hur du kan konfigurera lagring för befintliga SQL Server virtuella datorer.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: f5f71f342152a1f7d524053f1a2f82937784dbd1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e84c58ba1b3037f770f4809d48356d5ec3f9a138
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044271"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342407"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagringskonfiguration för SQL Server VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-När du konfigurerar en SQL Server avbildning av virtuella datorer i Azure kan portalen automatisera lagrings konfigurationen. Detta innefattar att koppla lagring till den virtuella datorn, göra lagringen tillgänglig för SQL Server och konfigurera den för att optimera för dina särskilda prestanda krav.
+När du konfigurerar en SQL Server virtuell dator avbildning (VM) i Azure, kan Azure Portal automatisera lagrings konfigurationen. Detta innefattar att koppla lagring till den virtuella datorn, göra lagringen tillgänglig för SQL Server och konfigurera den för att optimera för dina särskilda prestanda krav.
 
 I det här avsnittet beskrivs hur Azure konfigurerar lagring för dina SQL Server virtuella datorer både under etablering och för befintliga virtuella datorer. Den här konfigurationen baseras på [metod tips för prestanda](performance-guidelines-best-practices.md) för virtuella Azure-datorer som kör SQL Server.
 
@@ -41,7 +41,7 @@ Om du vill använda de automatiserade konfigurations inställningarna för lagri
 
 I följande avsnitt beskrivs hur du konfigurerar lagring för nya SQL Server virtuella datorer.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 När du konfigurerar en virtuell Azure-dator med hjälp av en SQL Server Galleri avbildning väljer du **ändra konfiguration** på fliken **SQL Server inställningar** för att öppna konfigurations sidan Prestandaoptimerad lagring. Du kan antingen lämna värdena som standard eller ändra vilken typ av disk konfiguration som passar dina behov bäst utifrån din arbets belastning. 
 
@@ -76,7 +76,7 @@ Baserat på dina val utför Azure följande konfigurations åtgärder för lagri
 
 Mer information om hur Azure konfigurerar lagrings inställningar finns i [avsnittet lagrings konfiguration](#storage-configuration). En fullständig genom gång av hur du skapar en SQL Server VM i Azure Portal finns i [vägledningen för etablering](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
-### <a name="resource-manage-templates"></a>Resurs hanterings mallar
+### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
 Om du använder följande Resource Manager-mallar bifogas två Premium-datadiskar som standard, utan konfiguration av lagringspool. Du kan dock anpassa dessa mallar om du vill ändra antalet Premium-datadiskar som är anslutna till den virtuella datorn.
 
@@ -113,7 +113,7 @@ Du kan ändra disk inställningarna för de enheter som konfigurerades under SQL
 
 ## <a name="storage-configuration"></a>Storage-konfiguration
 
-Det här avsnittet innehåller en referens för de lagrings konfigurations ändringar som Azure utför automatiskt vid etablering eller konfiguration av SQL VM i Azure Portal.
+Det här avsnittet innehåller en referens för de lagrings konfigurations ändringar som Azure utför automatiskt under SQL Server VM etablering eller konfiguration i Azure Portal.
 
 * Azure konfigurerar en lagringspool från det lagrings utrymme som valts från den virtuella datorn. Nästa avsnitt av det här avsnittet innehåller information om konfigurationen av lagringspoolen.
 * Automatisk lagrings konfiguration använder alltid [Premium SSD](../../../virtual-machines/windows/disks-types.md) P30-datadiskar. Det finns därför en 1:1-mappning mellan det valda antalet terabyte och antalet data diskar som är anslutna till den virtuella datorn.
@@ -124,7 +124,7 @@ Information om priser finns på sidan för [lagrings priser](https://azure.micro
 
 Azure använder följande inställningar för att skapa lagringspoolen på SQL Server virtuella datorer.
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | --- | --- |
 | Rand storlek |256 KB (data lager hantering); 64 KB (transaktion) |
 | Disk storlekar |1 TB varje |
@@ -141,14 +141,14 @@ Azure använder följande inställningar för att skapa lagringspoolen på SQL S
 
 I följande tabell beskrivs de tre tillgängliga alternativen för arbets belastnings typer och deras motsvarande optimeringar:
 
-| Arbets belastnings typ | Beskrivning | Optimeringar |
+| Arbets belastnings typ | Description | Optimeringar |
 | --- | --- | --- |
-| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Inga |
+| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Ingen |
 | **Transaktionell bearbetning** |Optimerar lagringen för traditionella databas OLTP-arbetsbelastningar |Spårnings flagga 1117<br/>Spårnings flagga 1118 |
 | **Data lager hantering** |Optimerar lagringen för analys-och rapporterings arbets belastningar |Spårnings flagga 610<br/>Spårnings flagga 1117 |
 
 > [!NOTE]
-> Du kan bara ange arbets belastnings typen när du etablerar en virtuell SQL-dator genom att välja den i steget lagrings konfiguration.
+> Du kan bara ange arbets belastnings typen när du etablerar en SQL Server virtuell dator genom att välja den i steget lagrings konfiguration.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,13 +4,13 @@ description: 'Den här snabb starten visar hur du kommer igång med QnA Maker RE
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
-ms.openlocfilehash: ecc3fb144fb4b4e27182567925199f841b1c4357
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: how-to
+ms.openlocfilehash: b42bc3be0d425a84da8bb545ebb29e261a6b0780
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78851678"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342739"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Snabb start: QnA Maker REST API: er för Node. js
 
@@ -25,11 +25,11 @@ Använd QnA Maker REST API: er för Node. js för att:
 * Hämta en kunskaps bas
 * Hämta status för en åtgärd
 
-[Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Node. js-exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  [Node. js-exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [Node. js](https://nodejs.org).
@@ -41,7 +41,7 @@ Använd QnA Maker REST API: er för Node. js för att:
 
 Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för QnA Maker med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn.
 
-När du har hämtat en nyckel från resursen [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för resursen, med `QNAMAKER_RESOURCE_KEY` namnet `QNAMAKER_AUTHORING_ENDPOINT`och. Använd de nyckel-och slut punkts värden som finns på resursens **snabb start** sida i Azure Portal.
+När du har hämtat en nyckel från resursen [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för resursen, med `QNAMAKER_RESOURCE_KEY` namnet `QNAMAKER_AUTHORING_ENDPOINT` och. Använd de nyckel-och slut punkts värden som finns på resursens **snabb start** sida i Azure Portal.
 
 ### <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
@@ -51,7 +51,7 @@ I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny 
 mkdir myapp && cd myapp
 ```
 
-Kör `npm init -y` kommandot för att skapa en Node `package.json` -fil.
+Kör `npm init -y` kommandot för att skapa en Node- `package.json` fil.
 
 ```console
 npm init -y
@@ -76,7 +76,7 @@ Dessa kodfragment visar hur du gör följande med QnA Maker REST-API: er för No
 
 ## <a name="add-the-dependencies"></a>Lägg till beroenden
 
-Skapa en fil med `rest-apis.js` namnet och Lägg till följande _kräver_ -instruktion för att göra HTTP-förfrågningar.
+Skapa en fil med namnet `rest-apis.js` och Lägg till följande _kräver_ -instruktion för att göra HTTP-förfrågningar.
 
 ```javascript
 const request = require("requestretry");
@@ -89,7 +89,7 @@ Skapa variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat milj
 Ange följande miljö värden:
 
 * `QNAMAKER_RESOURCE_KEY`– **Nyckeln** är en 32 tecken sträng och är tillgänglig i Azure Portal på den QNA Maker resursen på sidan **snabb start** . Detta är inte samma som för förutsägelse slut punkts nyckel.
-* `QNAMAKER_AUTHORING_ENDPOINT`– Din redigerings slut punkt, i formatet `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, innehåller ditt **resurs namn**. Detta är inte samma URL som används för att fråga efter förutsägelse slut punkten.
+* `QNAMAKER_AUTHORING_ENDPOINT`– Din redigerings slut punkt, i formatet `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` , innehåller ditt **resurs namn**. Detta är inte samma URL som används för att fråga efter förutsägelse slut punkten.
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]
 
@@ -136,7 +136,7 @@ Använd [REST API för att ta bort en kunskaps bas](https://docs.microsoft.com/r
 
 ## <a name="get-status-of-an-operation"></a>Hämta status för en åtgärd
 
-Tids krävande processer, till exempel skapande processen, returnerar ett åtgärds-ID som måste kontrol leras med ett separat REST API-anrop. Den här funktionen tar bröd texten i Create-svaret. Den viktiga nyckeln är `operationState`, som avgör om du behöver fortsätta avsökningen.
+Tids krävande processer, till exempel skapande processen, returnerar ett åtgärds-ID som måste kontrol leras med ett separat REST API-anrop. Den här funktionen tar bröd texten i Create-svaret. Den viktiga nyckeln är `operationState` , som avgör om du behöver fortsätta avsökningen.
 
 Använd [REST API för att övervaka åtgärder i en kunskaps bas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails).
 
@@ -144,7 +144,7 @@ Använd [REST API för att övervaka åtgärder i en kunskaps bas](https://docs.
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=operationDetails)]
 
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Kör programmet med `node rest-apis.js` kommandot från program katalogen.
 
@@ -156,7 +156,7 @@ node rest-apis.js
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg

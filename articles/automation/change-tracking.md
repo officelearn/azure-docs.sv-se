@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Ändringsspårning och inventering
 description: I den här artikeln beskrivs funktionen Ändringsspårning och inventering, som hjälper dig att identifiera program-och Microsoft-tjänsteändringar i din miljö.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/28/2019
+ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a1c5d5371663f3520e76060c9c2a8df0a18449c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cef323fd5b73b1befec5261e56357751ac72adae
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117530"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342926"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Översikt över Ändringsspårning och inventering
 
@@ -52,7 +52,9 @@ Följande problem har uppstått för Ändringsspårning och inventering:
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-Ändringsspårning och inventering stöds på alla operativ system som uppfyller Log Analytics agent krav. De officiella versionerna av operativ systemet är Windows Server 2008 SP1 eller senare och Windows 7 SP1 eller senare. Funktionen stöds också på ett antal Linux-operativsystem. Information om operativ system som stöder Log Analytics finns i [Översikt över Log Analytics-agenten](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
+Ändringsspårning och inventering stöds på alla operativ system som uppfyller Log Analytics agent krav. De officiella versionerna av operativ systemet är Windows Server 2008 SP1 eller senare och Windows 7 SP1 eller senare. Funktionen stöds också på ett antal Linux-operativsystem. Information om operativ system som stöder Log Analytics finns i [Översikt över Log Analytics-agenten](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+
+Information om klient kraven för TLS 1,2 finns i [TLS 1,2 Enforcement för Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## <a name="network-requirements"></a>Nätverkskrav
 
@@ -77,7 +79,7 @@ Du kan klicka på en ändring eller händelse om du vill visa information om den
 
 * Händelser
 * Daemons
-* Files
+* Filer
 * Register
 * Programvara
 * Microsoft-tjänster
@@ -182,7 +184,7 @@ För att optimera prestanda spårar Log Analytics-agenten bara ändringar. Om du
 
 En viktig funktion i Ändringsspårning och inventering är aviseringar om ändringar i konfigurations läget för din hybrid miljö. Många användbara åtgärder är tillgängliga för att utlösa svar på aviseringar, till exempel åtgärder på Azure Functions, Automation-runbooks, Webhooks och liknande. Aviseringar om ändringar i **c:\Windows\System32\drivers\etc\hosts** -filen för en dator är en lämplig applikation av aviseringar för ändringsspårning-och inventerings data. Det finns många fler scenarier för aviseringar, inklusive de fråge scenarier som definierats i nästa tabell. 
 
-|Söka i data  |Beskrivning  |
+|Söka i data  |Description  |
 |---------|---------|
 |ConfigurationChange <br>&#124; där ConfigChangeType = = "Files" och FileSystemPath innehåller "c: \\ Windows \\ system32- \\ drivrutiner \\ "|Användbart för att spåra ändringar i systemkritiska filer.|
 |ConfigurationChange <br>&#124; där FieldsChanged innehåller "FileContentChecksum" och FileSystemPath = = "c: \\ Windows \\ system32- \\ drivrutiner \\ osv \\ "|Användbart för att spåra ändringar i nyckel konfigurationsfiler.|

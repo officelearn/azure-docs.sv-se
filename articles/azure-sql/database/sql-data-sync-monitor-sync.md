@@ -1,6 +1,6 @@
 ---
 title: Övervaka SQL Data Sync med Azure Monitor loggar
-description: Lär dig hur du övervakar SQL Data Sync med hjälp av Azure Monitor loggar
+description: Lär dig hur du övervakar SQL Data Sync med hjälp av Azure Monitor loggar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,15 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: b7c801d75d778deccae645e0945fba557dbc6782
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 307e501743d01b94cfca3692cc09c05cc90ed3ce
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188802"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343242"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Övervaka SQL Data Sync med Azure Monitor loggar 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Om du vill kontrol lera SQL Data Sync aktivitets logg och identifiera fel och varningar måste du tidigare kontrol lera SQL Data Sync manuellt i Azure Portal eller använda PowerShell eller REST API. Följ stegen i den här artikeln för att konfigurera en anpassad lösning som förbättrar övervaknings upplevelsen för data synkronisering. Du kan anpassa den här lösningen så att den passar ditt scenario.
 

@@ -12,23 +12,23 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: cfd0aa6cf62c4f70365ecc06ad75efdda9563470
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 5cc5adf54b522f9209b386fa1fbb457ef6a3e8ff
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310826"
+ms.locfileid: "84322353"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Konfigurera Avancerat skydd i Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 [Avancerat skydd](../database/threat-detection-overview.md) för en [Azure SQL-hanterad instans](sql-managed-instance-paas-overview.md) identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. Avancerat skydd kan identifiera **potentiell SQL-inmatning**, **komma åt från ovanliga platser eller data Center**, **komma åt från ett välkänt huvud konto eller potentiellt skadligt program och orsaka**SQL-autentiseringsuppgifter i **brutet** läge. mer information finns i [varningarna om avancerade hot skydd](../database/threat-detection-overview.md#alerts).
 
-Du kan få meddelanden om identifierade hot via [e-postmeddelanden](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) eller [Azure Portal](../database/threat-detection-overview.md#explore-alerts-in-azure-portal)
+Du kan få meddelanden om identifierade hot via [e-postmeddelanden](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) eller [Azure Portal](../database/threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
 [Avancerat skydd](../database/threat-detection-overview.md) är en del av det [avancerade data säkerhets](../database/advanced-data-security.md) erbjudandet, som är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Advanced Threat Protection kan nås och hanteras via den centrala SQL ADS-portalen.
 
-##  <a name="azure-portal"></a>Azure Portal
+##  <a name="azure-portal"></a>Azure-portalen
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 2. Gå till konfigurations sidan för instansen av SQL-hanterad instans som du vill skydda. På sidan **Inställningar** väljer du **Avancerad data säkerhet**.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 05/19/2020
-ms.openlocfilehash: 6597a8d5f1f8f4aa34ba9f59d4e08b5dc6d66728
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f8ddc3ef56aefc6ea613af19d91cd0122435efd7
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682460"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344211"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -29,7 +29,7 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 
 + Använd en [Systemhanterad identitet (för hands version)](search-howto-managed-identities-data-sources.md) för att konfigurera en anslutning till en Azure-datakälla för indexering. Gäller för [indexerare](search-indexer-overview.md) som inhämtar innehåll från Azure-datakällor som Azure SQL Database, Azure Cosmos DB och Azure Storage.
 
-+ Ändra grunden för hur Sök Resultat beräknas, från per-Shard till alla-Shards med hjälp av [parametern scoringStatistics = global fråga](index-similarity-and-scoring.md#scoring-statistics).
++ Ändra grunden för hur Sök Resultat beräknas, från per-Shard till alla-Shards, med parametrarna [scoringStatistics = global](index-similarity-and-scoring.md#scoring-statistics) och SessionID.
 
 ### <a name="march-2020"></a>Mars 2020
 

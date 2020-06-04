@@ -4,13 +4,13 @@ description: Den här C# REST-baserade snabb starten publicerar din kunskaps bas
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
-ms.openlocfilehash: 0a2f64795d82928e33a10c7e9d162f2333cdf7bf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: how-to
+ms.openlocfilehash: 7eaa8d7f7d86e215ea2e9906075c27dd2916dcd5
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78851711"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342756"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med C#
 
@@ -19,11 +19,11 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
-* QnA Maker kunskaps bas-ID (KB) hittades i URL: `kbid` en i frågesträngparametern som visas nedan.
+* QnA Maker kunskaps bas-ID (KB) hittades i URL: en i frågesträngparametern `kbid` som visas nedan.
 
     ![QnA Maker-kunskapsbas-ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
@@ -35,7 +35,7 @@ Den här snabbstarten anropar API:er för QnA Maker:
 ## <a name="create-knowledge-base-project"></a>Skapa kunskapsbasprojekt
 
 1. Öppna Visual Studio 2019 Community Edition.
-1. Skapa ett nytt **konsol program (.net Core)-** projekt och ge projektet `QnaMakerQuickstart`ett namn. Godkänn standardinställningarna för de återstående inställningarna.
+1. Skapa ett nytt **konsol program (.net Core)-** projekt och ge projektet ett namn `QnaMakerQuickstart` . Godkänn standardinställningarna för de återstående inställningarna.
 
 ## <a name="add-required-dependencies"></a>Lägga till nödvändiga beroenden
 

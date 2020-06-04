@@ -1,6 +1,6 @@
 ---
 title: Översikt över vCore inköps modell
-titleSuffix: Azure SQL Database & SQL Managed Instance
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Med vCore inköps modell kan du skala beräknings-och lagrings resurser oberoende av varandra, matcha lokala prestanda och optimera priset för Azure SQL Database och Azure SQL-hanterad instans.
 services: sql-database
 ms.service: sql-database
@@ -10,28 +10,28 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 1a6546ad587fa308ab5559d04814191c503ecdc3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1f7d0d411ffbff6aad7d134711a0190251f68aa8
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044096"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324444"
 ---
-# <a name="vcore-model-overview---azure-sql-database--sql-managed-instance"></a>Översikt över vCore-modellen – Azure SQL Database & SQL-hanterad instans 
+# <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Översikt över vCore-modellen – Azure SQL Database och Azure SQL-hanterad instans 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 VCore-modellen (Virtual Core) som används av Azure SQL Database och Azure SQL-hanterad instans ger flera fördelar:
 
-- Högre beräknings-, minnes-, i/o-och lagrings gränser.
+- Högre beräknings-, minnes-, I/O-och lagrings gränser.
 - Kontroll över maskin varu genereringen för att bättre matcha beräknings-och minnes kraven för arbets belastningen.
 - Pris rabatter för [Azure Hybrid-förmån (AHB)](../azure-hybrid-benefit.md) och [reserverad instans (RI)](reserved-capacity-overview.md).
 - Bättre genomskinlighet i maskin varu informationen som gör beräkningen; underlättar planeringen av migreringar från lokala distributioner.
 
 ## <a name="service-tiers"></a>Tjänstnivåer
 
-Tjänst nivå alternativ i vCore-modellen omfattar Generell användning, Affärskritisk och storskalig. Tjänste nivån definierar vanligt vis lagrings arkitektur, utrymmes-och IO-gränser och affärs kontinuitets alternativ som rör tillgänglighet och haveri beredskap.
+Tjänst nivå alternativ i vCore-modellen omfattar Generell användning, Affärskritisk och storskalig. Tjänste nivån definierar vanligt vis lagrings arkitektur, utrymmes-och I/O-gränser och affärs kontinuitets alternativ relaterade till tillgänglighet och haveri beredskap.
 
-||**Generellt syfte**|**Verksamhets kritisk**|**Hyperskala**|
+||**Generell användning**|**Affärskritisk**|**Hyperskala**|
 |---|---|---|---|
 |Bäst för|De flesta företags arbets belastningar. Erbjuder budget orienterade, balanserade och skalbara beräknings-och lagrings alternativ. |Erbjuder affärs program den högsta återhämtningen till problem genom att använda flera isolerade repliker och ger den högsta I/O-prestandan per databas replik.|De flesta företags arbets belastningar med mycket skalbara lagrings-och Läs skalnings krav.  Ger högre återhämtning till problem genom att tillåta konfiguration av mer än en isolerad databas replik. |
 |Storage|Använder Fjärrlagring.<br/>**SQL Database etablerings beräkning**:<br/>5 GB – 4 TB<br/>**Server lös beräkning**:<br/>5 GB-3 TB<br/>**SQL-hanterad instans**: 32 GB-8 TB |Använder lokal SSD-lagring.<br/>**SQL Database etablerings beräkning**:<br/>5 GB – 4 TB<br/>**SQL-hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
@@ -46,7 +46,7 @@ Tjänst nivå alternativ i vCore-modellen omfattar Generell användning, Affärs
 
 Information om hur du väljer en tjänst nivå för din specifika arbets belastning finns i följande artiklar:
 
-- [När du ska välja tjänst nivå för generell användning](service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [När du ska välja Generell användning tjänst nivå](service-tier-general-purpose.md#when-to-choose-this-service-tier)
 - [När du ska välja Affärskritisk tjänst nivå](service-tier-business-critical.md#when-to-choose-this-service-tier)
 - [När du ska välja den storskaliga tjänst nivån](service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
@@ -112,7 +112,7 @@ Mer information om resurs gränser finns i [resurs gränser för enskilda databa
 
 ### <a name="selecting-a-hardware-generation"></a>Välja en maskin varu generation
 
-I Azure Portal kan du välja maskin varu skapande för en SQL Database eller pool vid tidpunkten för skapandet eller ändra maskin varu generationen för en befintlig SQL-databas eller-pool.
+I Azure Portal kan du välja att skapa maskin vara för en databas eller pool i SQL Database vid tidpunkten för skapandet, eller så kan du ändra maskin varu generationen för en befintlig SQL-databas eller-pool.
 
 **Så här väljer du en maskin varu generering när du skapar en SQL Database eller pool**
 
@@ -147,7 +147,7 @@ På fliken **grundläggande** väljer du länken **Konfigurera databas** i avsni
   
 **Ändra maskin varu generationen för en befintlig SQL-hanterad instans**
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 På sidan SQL-hanterad instans väljer du **pris nivå** länk placerad under avsnittet Inställningar
 
@@ -165,7 +165,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 
 Mer information finns i [set-AzSqlInstance-](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) kommandot.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Använd följande CLI-kommando:
 
@@ -228,7 +228,7 @@ För att komma igång, se:
 
 Pris information finns på sidan med [Azure SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-Mer information om de specifika beräknings-och lagrings storlekar som är tillgängliga i nivån generell användning och affärs kritiska tjänster finns i: 
+Mer information om de specifika beräknings-och lagrings storlekar som är tillgängliga i nivån generell användning och affärs kritiska tjänster finns i:
 
 - [vCore resurs gränser för Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [vCore resurs gränser för Azure SQL Database i pooler](resource-limits-vcore-elastic-pools.md).

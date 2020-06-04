@@ -1,5 +1,5 @@
 ---
-title: Använda Multi-Factor AAD-autentisering
+title: Använda Multi-Factor Azure Active Directory-autentisering
 description: Azure SQL Database, Azure SQL-hanterad instans och stöd anslutningar för Azure Synapse Analytics från SQL Server Management Studio (SSMS) med Active Directory Universal Authentication.
 services: sql-database
 ms.service: sql-database
@@ -13,14 +13,14 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 04/23/2020
 tags: azure-synapse
-ms.openlocfilehash: 574999686c38ce4ce1e6d40b3148b70e3602fe00
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 607644a67fad966be25915e55a1bec83d70a1fe0
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041891"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344823"
 ---
-# <a name="using-multi-factor-aad-authentication"></a>Använda Multi-Factor AAD-autentisering
+# <a name="using-multi-factor-azure-active-directory-authentication"></a>Använda Multi-Factor Azure Active Directory-autentisering
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL Database, Azure Managed instance och Azure Synapse Analytics stöder anslutningar från SQL Server Management Studio (SSMS) med *Azure Active Directory-Universal med MFA-* autentisering. I den här artikeln beskrivs skillnaderna mellan olika autentiseringsalternativ och de begränsningar som är associerade med att använda Universal Authentication.
@@ -46,7 +46,7 @@ Den interaktiva metoden som också stöder Azure Multi-Factor Authentication (MF
 
 Azures MFA bidrar till att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål om en enkel inloggningsprocess. Den ger stark autentisering med en rad enkla verifierings alternativ (telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande för mobilapp), så att användarna kan välja den metod de föredrar. Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering.
 
-En beskrivning av Multi-Factor Authentication finns i [Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
+En beskrivning av Azure Multi-Factor Authentication finns i [Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
 Konfigurations steg finns i [konfigurera Azure SQL Database Multi-Factor Authentication för SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD-domän namn eller klient-ID-parameter
@@ -80,7 +80,7 @@ Azure AD-användare som stöds för Azure AD B2B-scenarier som gäst användare 
 - [Konfigurera och hantera Azure Active Directory autentisering med SQL Database eller Azure Synapse](authentication-aad-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage. exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
-- [Importera en BACPAC-fil till en ny Azure SQL-databas](database-import.md)  
-- [Exportera en Azure SQL-databas till en BACPAC-fil](database-export.md)  
+- [Importera en BACPAC-fil till en ny databas](database-import.md)  
+- [Exportera en databas till en BACPAC-fil](database-export.md)  
 - C# interface [IUniversalAuthProvider-gränssnitt](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
 - När du använder **Active Directory-universell med MFA-** autentisering, är ADAL-spårning tillgängligt från och med [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Av som standard kan du aktivera ADAL-spårning genom att använda menyn **verktyg**, **alternativ** , under Azure- **tjänster**, **Azure Cloud**, **ADAL fönstret utmatning spårnings nivå**, och sedan aktivera **utdata** i menyn **Visa** . Spårningarna är tillgängliga i fönstret utdata när du väljer **Azure Active Directory alternativ**.  

@@ -1,6 +1,6 @@
 ---
 title: Skapa & hantera servrar och enskilda databaser
-description: Lär dig mer om att skapa och hantera servrar och enkla databaser i Azure SQL Database med hjälp av Azure Portal, PowerShell, AZ CLI, Transact-SQL (T-SQL) och REST-API.
+description: Lär dig mer om att skapa och hantera servrar och enkla databaser i Azure SQL Database med hjälp av Azure Portal, PowerShell, Azure CLI, Transact-SQL (T-SQL) och REST-API.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,19 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 301d881e2065234bbd1a38e39eb1806d23c6809a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 0f348ea67583d10dae2ebc548a48b7e74b66a958
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041208"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343361"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Skapa och hantera servrar och enkla databaser i Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Du kan skapa och hantera servrar och enkla databaser i Azure SQL Database med hjälp av Azure Portal, PowerShell, Azure CLI, REST API och Transact-SQL.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="the-azure-portal"></a>Azure Portal
 
 Du kan skapa resurs gruppen för Azure SQL Database i förväg eller när du skapar själva servern.
 
@@ -35,7 +34,7 @@ Om du vill skapa en server med hjälp av [Azure Portal](https://portal.azure.com
 
 ### <a name="create-a-blank-or-sample-database"></a>Skapa en tom databas eller en exempel databas
 
-Om du vill skapa en enskild Azure SQL Database med hjälp av [Azure Portal](https://portal.azure.com)väljer du Azure SQL Database resursen på Azure Marketplace. Du kan skapa resurs gruppen och servern i förväg eller samtidigt som du skapar själva databasen. Du kan skapa en tom databas eller skapa en exempel databas baserad på Adventure Works LT.
+Om du vill skapa en enskild Azure SQL Database med hjälp av [Azure Portal](https://portal.azure.com)väljer du Azure SQL Database resurs på Azure Marketplace. Du kan skapa en resurs grupp och en server i förväg eller samtidigt som du skapar själva databasen. Du kan skapa en tom databas eller skapa en exempel databas baserad på Adventure Works LT.
 
   ![skapa databas-1](./media/single-database-manage/create-database-1.png)
 
@@ -64,9 +63,9 @@ Om du vill hantera en befintlig databas går du till sidan **SQL-databaser** och
 Använd följande PowerShell-cmdletar om du vill skapa och hantera servrar, enkla databaser och-brand väggar på server nivå med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> Exempel skript för PowerShell finns i [använda PowerShell för att skapa en enkel Azure SQL-databas och konfigurera en brand Väggs regel på server nivå](scripts/create-and-configure-database-powershell.md) och [övervaka och skala en SQL-databas med hjälp av PowerShell](scripts/monitor-and-scale-database-powershell.md).
+> För PowerShell-exempel skript, se [Använd PowerShell för att skapa en databas i SQL Database och konfigurera en brand Väggs regel på server nivå](scripts/create-and-configure-database-powershell.md) och [övervaka och skala en databas i SQL Database med PowerShell](scripts/monitor-and-scale-database-powershell.md).
 
-| Cmdlet | Beskrivning |
+| Cmdlet | Description |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Skapar en databas |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|Hämtar en eller flera databaser|
@@ -83,15 +82,15 @@ Använd följande PowerShell-cmdletar om du vill skapa och hantera servrar, enkl
 |[Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule)|Tar bort en brand Väggs regel från en server.|
 | New-AzSqlServerVirtualNetworkRule | Skapar en [*regel för virtuella nätverk*](vnet-service-endpoint-rule-overview.md), baserat på ett undernät som är en Virtual Network tjänst slut punkt. |
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="the-azure-cli"></a>Azure CLI
 
 Använd följande [Azure CLI](/cli/azure/sql/db) -kommandon om du vill skapa och hantera servrar, databaser och brand väggar med [Azure CLI](/cli/azure). Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](elastic-pool-overview.md).
 
 > [!TIP]
-> En snabb start för Azure CLI finns i [skapa en enda Azure SQL Database med hjälp av Azure CLI](az-cli-script-samples-content-guide.md). Exempel skript för Azure CLI finns i [använda CLI för att skapa en enda Azure SQL Database och konfigurera en SQL Database brand Väggs regel](scripts/create-and-configure-database-cli.md) och [använda CLI för att övervaka och skala en enda Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
+> En snabb start för Azure CLI finns i [skapa en enda Azure SQL Database med hjälp av Azure CLI](az-cli-script-samples-content-guide.md). För Azure CLI-exempel skript, se [Använd CLI för att skapa en databas i Azure SQL Database och konfigurera en SQL Database brand Väggs regel](scripts/create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en databas i Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
 >
 
-| Cmdlet | Beskrivning |
+| Cmdlet | Description |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Skapar en databas|
 |[AZ SQL DB-lista](/cli/azure/sql/db#az-sql-db-list)|Visar alla databaser och informations lager på en server, eller alla databaser i en elastisk pool|
@@ -122,28 +121,28 @@ Om du vill skapa och hantera servrar, databaser och brand väggar med Transact-S
 > [!IMPORTANT]
 > Du kan inte skapa eller ta bort en server med hjälp av Transact-SQL.
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 |[SKAPA DATABAS](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Skapar en ny enkel databas. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
 | [ÄNDRA DATABAS](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Ändrar en databas eller elastisk pool. |
 |[SLÄPP DATABAS](/sql/t-sql/statements/drop-database-transact-sql)|Tar bort en databas.|
-|[sys. database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar utgåvan (tjänst nivå), tjänst mål (pris nivå) och namn på elastisk pool, om sådana finns, för Azure SQL Database eller en Azure Synapse SQL-pool. Om du är inloggad på huvud databasen på en server i SQL Database, returnerar information om alla databaser. Du måste vara ansluten till huvud databasen för Azure-Synapse.|
-|[sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returnerar CPU, IO och minnes användning för en Azure SQL Database. Det finns en rad för var 15: e sekund, även om det inte finns någon aktivitet i databasen.|
-|[sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Returnerar CPU-användning och lagrings data för en Azure SQL Database. Data samlas in och sammanställs inom fem minuters intervall.|
+|[sys. database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar utgåvan (tjänst nivån), tjänst målet (pris nivån) och ett elastiskt poolnamn, om det finns Azure SQL Database eller en Azure Synapse Analytics SQL-pool. Om du är inloggad på huvud databasen på en server i SQL Database, returnerar information om alla databaser. För Azure Synapse Analytics måste du vara ansluten till huvud databasen.|
+|[sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returnerar CPU-, IO-och minnes förbrukning för en databas i Azure SQL Database. Det finns en rad för var 15: e sekund, även om det inte finns någon aktivitet i databasen.|
+|[sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Returnerar CPU-användning och lagrings data för en databas i Azure SQL Database. Data samlas in och sammanställs inom fem minuters intervall.|
 |[sys. database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Innehåller statistik för SQL Database anslutnings händelser som ger en översikt över lyckade och misslyckade databas anslutningar. |
 |[sys. event_log](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Returnerar lyckade Azure SQL Database anslutningar, anslutnings problem och död lägen. Du kan använda den här informationen för att spåra eller felsöka din databas aktivitet med SQL Database.|
 |[sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database)|Skapar eller uppdaterar brand Väggs inställningarna på server nivå för servern. Den här lagrade proceduren är bara tillgänglig i huvud databasen för inloggning på server nivå. Det går bara att skapa en brand Väggs regel på server nivå med hjälp av Transact-SQL när den första brand Väggs regeln på server nivå har skapats av en användare med Azure-nivå behörigheter|
-|[sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|Returnerar information om de brand Väggs inställningar på server nivå som är associerade med din Azure SQL Database.|
+|[sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|Returnerar information om de brand Väggs inställningar på server nivå som är kopplade till databasen i Azure SQL Database.|
 |[sp_delete_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|Tar bort brand Väggs inställningar på server nivå från servern. Den här lagrade proceduren är bara tillgänglig i huvud databasen för inloggning på server nivå.|
-|[sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Skapar eller uppdaterar brand Väggs regler på databas nivå för din Azure SQL Database. Regler för databas brand vägg kan konfigureras för huvud databasen och för användar databaser på SQL Database. Regler för databas brand väggar är användbara när inneslutna databas användare används. |
-|[sys.database_firewall_rules](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Returnerar information om de brand Väggs inställningar på databas nivå som är associerade med din Azure SQL Database. |
+|[sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Skapar eller uppdaterar brand Väggs reglerna på databas nivå för din databas i Azure SQL Database. Regler för databas brand vägg kan konfigureras för huvud databasen och för användar databaser på SQL Database. Regler för databas brand väggar är användbara när inneslutna databas användare används. |
+|[sys.database_firewall_rules](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Returnerar information om de brand Väggs inställningar på databas nivå som är kopplade till databasen i Azure SQL Database. |
 |[sp_delete_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Tar bort brand Väggs inställningen på databas nivå från en databas. |
 
 ## <a name="rest-api"></a>REST-API
 
 Använd dessa REST API begär Anden för att skapa och hantera servrar, databaser och brand väggar.
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 |[Servrar-skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Skapar eller uppdaterar en ny server.|
 |[Servrar-ta bort](https://docs.microsoft.com/rest/api/sql/servers/delete)|Tar bort en SQL-Server.|
@@ -166,3 +165,4 @@ Använd dessa REST API begär Anden för att skapa och hantera servrar, database
 
 - Information om hur du migrerar en SQL Server-databas till Azure finns i [migrera till Azure SQL Database](migrate-to-database-from-sql-server.md).
 - Information om vilka funktioner som stöds finns i avsnittet [Funktioner](features-comparison.md).
+ 

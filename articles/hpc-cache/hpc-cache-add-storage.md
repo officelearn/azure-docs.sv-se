@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: dde29d02f3dbf10ca068d6b3f1ef6c326c206370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d08526334a9891788df63b156cdf65f55c587ca
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195051"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344942"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -22,6 +22,10 @@ Du kan definiera upp till tio olika lagrings mål för ett cacheminne. Cachen vi
 Kom ihåg att lagrings exporten måste vara tillgänglig från cachens virtuella nätverk. För lokal maskin varu lagring kan du behöva konfigurera en DNS-server som kan matcha värdnamn för NFS-lagrings åtkomst. Läs mer i [DNS-åtkomst](hpc-cache-prereqs.md#dns-access).
 
 Lägg till lagrings mål när du har skapat din cache. Proceduren skiljer sig något beroende på om du lägger till Azure Blob Storage eller en NFS-export. Information om var och en finns nedan.
+
+Klicka på bilden nedan om du vill titta på en [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) av hur du skapar en cache och lägger till ett lagrings mål.
+
+[![video miniatyr: Azure HPC cache: Setup (Klicka för att besöka video sidan)](media/video4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="open-the-storage-targets-page"></a>Öppna sidan Storage-mål
 
@@ -70,7 +74,7 @@ Steg för att lägga till RBAC-roller:
 
 1. Öppna sidan **åtkomst kontroll (IAM)** för lagrings kontot. (Länken på sidan **Lägg till lagrings mål** öppnar automatiskt den här sidan för det valda kontot.)
 
-1. **+** Klicka på överst på sidan och välj **Lägg till en roll tilldelning**.
+1. Klicka på **+** överst på sidan och välj **Lägg till en roll tilldelning**.
 
 1. Välj rollen "lagrings konto deltagare" i listan.
 
@@ -157,7 +161,7 @@ I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
 
 När du har skapat lagrings mål bör du överväga något av följande:
 
-* [Montera Azure HPC-cachen](hpc-cache-mount.md)
+* [Montera Azure HPC Cache](hpc-cache-mount.md)
 * [Flytta data till Azure Blob Storage](hpc-cache-ingest.md)
 
 Om du behöver uppdatera inställningarna kan du [Redigera ett lagrings mål](hpc-cache-edit-storage.md).

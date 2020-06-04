@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6dee5d6e1bb2802114d7bba14a57b91dbab09e19
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 37cc50a31f2f31c0cb7fc49102328f2072c6570a
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054793"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324597"
 ---
 # <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Snabb start: skapa och träna en förutsägelse modell i R med Azure SQL Database Machine Learning Services (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,9 +53,9 @@ Kraven i en linjär modell är enkla:
 
 I följande steg ska du ställa in tränings data, skapa en Regressions modell, träna den med tränings data och sedan Spara modellen i en SQL-tabell.
 
-1. Öppna **SQL Server Management Studio** och anslut till din SQL-databas.
+1. Öppna **SQL Server Management Studio** och Anslut till din databas.
 
-   Om du behöver hjälp med att ansluta, se [snabb start: använda SQL Server Management Studio för att ansluta och skicka frågor till en Azure SQL-databas](connect-query-ssms.md).
+   Om du behöver hjälp med att ansluta, se [snabb start: använda SQL Server Management Studio för att ansluta och fråga en databas i Azure SQL Database](connect-query-ssms.md).
 
 1. Skapa **CarSpeed** -tabellen för att spara tränings data.
 

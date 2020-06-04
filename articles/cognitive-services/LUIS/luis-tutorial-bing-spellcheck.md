@@ -8,26 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: a1e43cfc55611c432652055db2ac8411d835608b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 98f35d0b3f37a7bb181f83b83a48ef113e02f1e2
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80396820"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344143"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Korrigera felstavade ord med Stavningskontroll i Bing
 
-Du kan integrera din LUIS-app med [API för stavningskontroll i Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) för att korrigera felstavade ord i yttranden innan Luis förutsäger poängen och entiteterna i uttryck. 
+Du kan integrera din LUIS-app med [API för stavningskontroll i Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) för att korrigera felstavade ord i yttranden innan Luis förutsäger poängen och entiteterna i uttryck.
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
 
 ## <a name="create-first-key-for-bing-spell-check-v7"></a>Skapa första nyckeln för Stavningskontroll i Bing v7
 
-Din [första API för stavningskontroll i Bing v7-nyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) är kostnads fri. 
+Din [första API för stavningskontroll i Bing v7-nyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) är kostnads fri.
 
 ![Skapa en kostnads fri nyckel](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
@@ -36,7 +36,7 @@ Din [första API för stavningskontroll i Bing v7-nyckeln](https://azure.microso
 ## <a name="create-endpoint-key"></a>Skapa slut punkts nyckel
 Om den kostnads fria nyckeln har upphört att gälla skapar du en slut punkts nyckel.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Välj **skapa en resurs** i det övre vänstra hörnet.
 
@@ -44,9 +44,9 @@ Om den kostnads fria nyckeln har upphört att gälla skapar du en slut punkts ny
 
     ![Sök efter API för stavningskontroll i Bing v7](./media/luis-tutorial-bing-spellcheck/portal-search.png)
 
-4. Välj tjänsten. 
+4. Välj tjänsten.
 
-5. En informations panel visas till höger som innehåller information, inklusive juridiskt meddelande. Välj **skapa** för att starta processen för att skapa prenumerationer. 
+5. En informations panel visas till höger som innehåller information, inklusive juridiskt meddelande. Välj **skapa** för att starta processen för att skapa prenumerationer.
 
 6. I nästa panel anger du dina tjänst inställningar. Vänta tills processen har skapats.
 
@@ -54,13 +54,13 @@ Om den kostnads fria nyckeln har upphört att gälla skapar du en slut punkts ny
 
 7. Välj **alla resurser** under rubriken **Favoriter** i navigerings sidan till vänster.
 
-8. Välj den nya tjänsten. Dess typ är **Cognitive Services** och platsen är **Global**. 
+8. Välj den nya tjänsten. Dess typ är **Cognitive Services** och platsen är **Global**.
 
 9. I huvud panelen väljer du **nycklar** för att se dina nya nycklar.
 
     ![Ta nycklar](./media/luis-tutorial-bing-spellcheck/grab-keys.png)
 
-10. Kopiera den första nyckeln. Du behöver bara en av de två nycklarna. 
+10. Kopiera den första nyckeln. Du behöver bara en av de två nycklarna.
 
 <!--
 ## Using the key in LUIS test panel
@@ -74,13 +74,13 @@ Slut punkts-URL: en har flera värden som måste skickas på rätt sätt. Den AP
 `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=true&bing-spell-check-subscription-key={bingKey}&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Skicka felstavade uttryck till LUIS
-1. I en webbläsare kopierar du föregående sträng och `region`ersätter, `appId`, `luisKey`, och `bingKey` med dina egna värden. Se till att använda slut punkts regionen, om det skiljer sig från publicerings [regionen](luis-reference-regions.md).
+1. I en webbläsare kopierar du föregående sträng och ersätter `region` ,, `appId` `luisKey` , och `bingKey` med dina egna värden. Se till att använda slut punkts regionen, om det skiljer sig från publicerings [regionen](luis-reference-regions.md).
 
-2. Lägg till en felstavad uttryck, till exempel "hur långt är mountainn?". I engelska `mountain`är det med en `n`korrekt stavning. 
+2. Lägg till en felstavad uttryck, till exempel "hur långt är mountainn?". I engelska `mountain` är det med en `n` korrekt stavning.
 
 3. Välj RETUR för att skicka frågan till LUIS.
 
-4. LUIS svarar med ett JSON-resultat för `How far is the mountain?`. Om API för stavningskontroll i Bing v7 identifierar ett stavfel innehåller `query` fältet i Luis-APPENs JSON-svar den ursprungliga frågan och `alteredQuery` fältet innehåller den korrigerade frågan som skickats till Luis.
+4. LUIS svarar med ett JSON-resultat för `How far is the mountain?` . Om API för stavningskontroll i Bing v7 identifierar ett stavfel `query` innehåller fältet i Luis-appens JSON-svar den ursprungliga frågan och `alteredQuery` fältet innehåller den korrigerade frågan som skickats till Luis.
 
 ```json
 {
@@ -96,15 +96,15 @@ Slut punkts-URL: en har flera värden som måste skickas på rätt sätt. Den AP
 
 ## <a name="ignore-spelling-mistakes"></a>Ignorera stavfel
 
-Om du inte vill använda tjänsten API för stavningskontroll i Bing v7 måste du lägga till korrekt och felaktig stavning. 
+Om du inte vill använda tjänsten API för stavningskontroll i Bing v7 måste du lägga till korrekt och felaktig stavning.
 
 Två lösningar:
 
 * Label-exempel yttranden som har alla olika stavningar så att LUIS kan lära sig korrekt stavning och skrivfel. Det här alternativet kräver mer märknings arbete än att använda en stavnings kontroll.
-* Skapa en fras lista med alla varianter av ordet. Med den här lösningen behöver du inte märka ord variationerna i exemplet yttranden. 
+* Skapa en fras lista med alla varianter av ordet. Med den här lösningen behöver du inte märka ord variationerna i exemplet yttranden.
 
 ## <a name="publishing-page"></a>Publicerings sida
-Kryss rutan **Aktivera Bing-stavnings kontroll har Aktiver** ATS på sidan [publicering](luis-how-to-publish-app.md) . Detta är en bekvämlighet att skapa nyckeln och förstå hur slut punktens URL ändras. Du måste fortfarande använda rätt slut punkts parametrar för att stavningen ska kunna korrigeras för varje uttryck. 
+Kryss rutan **Aktivera Bing-stavnings kontroll har Aktiver** ATS på sidan [publicering](luis-how-to-publish-app.md) . Detta är en bekvämlighet att skapa nyckeln och förstå hur slut punktens URL ändras. Du måste fortfarande använda rätt slut punkts parametrar för att stavningen ska kunna korrigeras för varje uttryck.
 
 > [!div class="nextstepaction"]
 > [Läs mer om exempel yttranden](luis-how-to-add-example-utterances.md)

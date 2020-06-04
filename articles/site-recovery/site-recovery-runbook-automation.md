@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 123ef7de338bfe872948db60c68c0c5743f5cda1
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257490"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345146"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägga till Azure Automation Runbook-rutiner i återställningsplaner
 
@@ -56,6 +56,9 @@ När ett skript körs injiceras en kontext för återställnings planen till run
 | CloudServiceName |Namnet på Azure-molnet som den virtuella datorn skapades under. |
 | RoleName |Namnet på den virtuella Azure-datorn. |
 | RecoveryPointId|Tidsstämpeln för VM-återställningen. |
+
+>[!Note]
+>Värdet för variabeln "FailoverDirection" blir "PrimaryToSecondary" vid växling vid fel och "SecondaryToPrimary" i händelse av återställning efter fel.
 
 I följande exempel visas en Sammanhangs variabel:
 
@@ -117,7 +120,7 @@ Aman- [Sharma finns ett](http://harvestingclouds.com) användbart exempel på et
 
     ![Klicka på knappen anpassa](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Klicka på ellipserna (...) bredvid **grupp 1: starta** > **Lägg till post-åtgärd**.
+2. Klicka på ellipserna (...) bredvid **grupp 1: starta**  >  **Lägg till post-åtgärd**.
 3. I **Infoga åtgärd**kontrollerar du att **skript** är markerat och anger ett namn för skriptet (**Hello World**).
 4. Ange ett Automation-konto och välj en Runbook. Klicka på **OK**om du vill spara skriptet. Skriptet läggs till i **grupp 1: post-steg**.
 

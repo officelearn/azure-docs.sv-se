@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 384b66020b3d18064ea1cd9f162911878caa598d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fe899eebb0139dffabef96da32ab1641c983f726
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017553"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338415"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatisera hanterings uppgifter på Azure Virtual Machines med SQL Server Agent-tillägget (klassisk)
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ SQL Server IaaS agent Extension (Sqliaasagent är) körs på virtuella Azure-dat
 ## <a name="supported-services"></a>Tjänster som stöds
 Tillägget SQL Server IaaS-Agent stöder följande administrations aktiviteter:
 
-| Administrations funktion | Beskrivning |
+| Administrations funktion | Description |
 | --- | --- |
 | **Automatisk SQL-säkerhetskopiering** |Automatisera schemaläggning av säkerhets kopieringar för alla databaser för standard instansen av SQL Server i den virtuella datorn. Mer information finns i [Automatisk säkerhets kopiering för SQL Server i Azure Virtual Machines (klassisk)](../classic/sql-automated-backup.md). |
 | **Automatisk SQL-uppdatering** |Konfigurerar en underhålls period då viktiga Windows-uppdateringar av din virtuella dator kan ske, så att du kan undvika uppdateringar under hög belastnings tider för din arbets belastning. Mer information finns i [Automatisk uppdatering för SQL Server i Azure Virtual Machines (klassisk)](../classic/sql-automated-patching.md). |
@@ -82,7 +82,7 @@ Om du uppdaterar till den senaste versionen av SQL IaaS agent Extension måste d
 > Klassiska virtuella datorer har inte möjlighet att installera och konfigurera SQL IaaS agent-tillägget via portalen.
 
 > [!NOTE]
-> Tillägget SQL Server IaaS-agent stöds bara på [SQL Server VM Galleri avbildningar](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms) (betala per användning eller ta med egen licens). Det finns inte stöd för att installera SQL Server manuellt på en virtuell Windows Server-dator med operativ system eller om du distribuerar en anpassad SQL Server VM VHD. I dessa fall kan det vara möjligt att installera och hantera tillägget manuellt med hjälp av PowerShell, men det rekommenderas starkt att istället installera en SQL Server VM Galleri avbildning och sedan anpassa den.
+> Tillägget SQL Server IaaS-agent stöds bara på [SQL Server VM Galleri avbildningar](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) (betala per användning eller ta med egen licens). Det finns inte stöd för att installera SQL Server manuellt på en virtuell Windows Server-dator med operativ system eller om du distribuerar en anpassad SQL Server VM VHD. I dessa fall kan det vara möjligt att installera och hantera tillägget manuellt med hjälp av PowerShell, men det rekommenderas starkt att istället installera en SQL Server VM Galleri avbildning och sedan anpassa den.
 
 ## <a name="status"></a>Status
 Ett sätt att kontrol lera att tillägget är installerat är att Visa agent status i Azure-portalen. Välj en virtuell dator som visas på bladet virtuell dator och klicka sedan på **tillägg**. Du bör se **sqliaasagent är** -tillägget som visas.

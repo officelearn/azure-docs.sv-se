@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62ed33b8344d0d5a79cd956274c5f7ddd62a714a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6d96737e276dce69b7f3867ab16727119a38d4b1
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047246"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342451"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Utöka stödet för SQL Server 2008 och SQL Server 2008 R2 med Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,7 +61,7 @@ SQL Server kräver programkonsekventa Azure Site Recovery ögonblicks bilder fö
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-[Database migration service](/azure/dms/dms-overview) är ett alternativ för kunder om de migreras från lokala datorer till en virtuell Azure-dator genom att uppgradera SQL Server till 2012-versionen eller senare.
+[Azure Database migration service](/azure/dms/dms-overview) är ett alternativ för kunder om de migreras från lokala datorer till en virtuell Azure-dator genom att uppgradera SQL Server till 2012-versionen eller senare.
 
 ## <a name="disaster-recovery"></a>Haveriberedskap
 
@@ -74,7 +74,7 @@ Katastrof återställnings lösningar för EOS SQL Server på en virtuell Azure-
 ## <a name="security-patching"></a>Säkerhets korrigering
 Utökade säkerhets uppdateringar för SQL Server virtuella datorer levereras via Microsoft Update kanaler när SQL Server VM har registrerats med [resurs leverantören](sql-vm-resource-provider-register.md)för SQL-VM. Korrigeringsfiler kan hämtas manuellt eller automatiskt.
 
-*Automatisk uppdatering* är aktiverat som standard. Med inställningen Automatisk uppdatering kan Azure korrigera SQL Server och operativsystemet automatiskt. Du kan ange en dag i veckan, tiden och varaktigheten för ett underhålls fönster om SQL Server IaaS-tillägget har installerats. Azure utför uppdateringar under den här underhållsperioden. Den virtuella datorns lokala tid används för underhållsperiodens schema.  Mer information finns i [automatiserad uppdatering för SQL Server på Azure Virtual Machines](automated-patching.md).
+*Automatisk uppdatering* är aktiverat som standard. Med inställningen Automatisk uppdatering kan Azure korrigera SQL Server och operativsystemet automatiskt. Du kan ange en dag i veckan, tiden och varaktigheten för ett underhålls fönster om SQL Server IaaS-tillägget har installerats. Azure utför uppdateringar under den här underhållsperioden. Den virtuella datorns lokala tid används för underhållsperiodens schema. Mer information finns i [automatiserad uppdatering för SQL Server på Azure Virtual Machines](automated-patching.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,25 +11,28 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: c5862ee90a12240e7293647fae6af4f18f30c164
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0fb9e0ced0cc7cacdd2247bd208e4354fffe82c8
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680397"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344925"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera & öka kvoter för resurser med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Den här artikeln innehåller [Azure Machine Learning](overview-what-is-azure-ml.md) användare med information om förkonfigurerade gränser för Azure-resurser för din prenumeration. Här finns också anvisningar om hur du begär kvot förbättringar för varje typ av resurs. Dessa gränser är placerade för att förhindra budget överskridningar på grund av bedrägerier och för att uppfylla Azures kapacitets begränsningar.
+I den här artikeln får du lära dig om förkonfigurerade gränser för Azure-resurser för din [Azure Machine Learning](overview-what-is-azure-ml.md) prenumeration och vilka kvoter du kan hantera. Dessa gränser är placerade för att förhindra budget överskridningar på grund av bedrägerier och för att uppfylla Azures kapacitets begränsningar. 
 
 Precis som med andra Azure-tjänster finns det gränser för vissa resurser som är kopplade till Azure Machine Learning. Dessa gränser sträcker sig från ett tak på antalet [arbets ytor](concept-workspace.md) till gränser för den faktiska underliggande beräkning som används för modell träning eller härledning/bedömning. 
 
 När du utformar och skalar Azure Machine Learning resurser för produktions arbets belastningar bör du tänka på dessa gränser. Om klustret till exempel inte når mål antalet noder kan du ha nått gränsen för Azure Machine Learning beräknings kärnor för din prenumeration. Om du vill höja gränsen eller kvoten över standard gränsen kan du öppna en kund support förfrågan online utan kostnad. Gränserna kan inte höjas över det maximala gräns värde som visas i följande tabeller på grund av begränsningar i Azure-kapaciteten. Om det inte finns någon Max gräns kolumn har inte resursen några justerbara gränser.
 
+
+Tillsammans med hanterings kvoter kan du också lära dig hur du [planerar & hantera kostnader för Azure Machine Learning](concept-plan-manage-cost.md).
+
 ## <a name="special-considerations"></a>Särskilda överväganden
 
-+ En kvot är en kredit gräns, inte en kapacitets garanti. Kontakta Azure-supporten om du har storskaliga kapacitets behov.
++ En kvot är en kredit gräns, inte en kapacitets garanti. Kontakta Azure-supporten om du har storskaliga kapacitets behov. Du kan också [öka dina kvoter](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
 + Din kvot delas mellan alla tjänster i dina prenumerationer, inklusive Azure Machine Learning. Det enda undantaget är Azure Machine Learning Compute som har en separat kvot från bas beräknings kvoten. Se till att beräkna kvot användningen för alla tjänster när du utvärderar dina kapacitets behov.
 

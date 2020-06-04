@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 51f583b946d6f5a18325e77cfe12404daab83d22
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 74f89629c783a444633fe276d99dc75d6c7fc8d8
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268045"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331975"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -98,7 +98,7 @@ Följande är en guide för att konfigurera en Azure pipelines-lansering som aut
 
     ![Vyn fas](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Skapa en ny uppgift. Sök efter **Azure Resource Group-distribution**och välj sedan **Lägg till**.
+    b.  Skapa en ny uppgift. Sök efter **distribution av arm-mall**och välj sedan **Lägg till**.
 
     c.  I distributions aktiviteten väljer du prenumeration, resurs grupp och plats för mål data fabriken. Ange autentiseringsuppgifter om det behövs.
 
@@ -108,7 +108,7 @@ Följande är en guide för att konfigurera en Azure pipelines-lansering som aut
 
     f.  Välj **...** bredvid rutan **mallparametrar** för att välja parameter filen. Leta efter filen `ARMTemplateParametersForFactory.json` i <FactoryName> mappen i adf_publish grenen.
 
-    g.  Välj **...** bredvid rutan **Åsidosätt mallparametrar** och ange önskade parameter värden för mål data fabriken. För autentiseringsuppgifter som kommer från Azure Key Vault anger du hemlighetens namn mellan dubbla citat tecken. Om t. ex. hemlighetens namn är cred1 anger du **"$ (cred1)"** för det här värdet.
+    ex.  Välj **...** bredvid rutan **Åsidosätt mallparametrar** och ange önskade parameter värden för mål data fabriken. För autentiseringsuppgifter som kommer från Azure Key Vault anger du hemlighetens namn mellan dubbla citat tecken. Om t. ex. hemlighetens namn är cred1 anger du **"$ (cred1)"** för det här värdet.
 
     h. Välj **stegvis** för **distributions läget**.
 

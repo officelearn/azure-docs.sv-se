@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
-ms.openlocfilehash: 52aae3bdd2fe82eea6cbd500723192c88c293a1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260504"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343028"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>X-EC-felsöka HTTP-huvuden för Azure CDN-regel motor
-Rubriken för felsöknings- `X-EC-Debug`cachens begär ande innehåller ytterligare information om den cachelagrade princip som tillämpas på den begärda till gången. Dessa huvuden är speciella för **Azure CDN Premium från Verizon** -produkter.
+Rubriken för felsöknings-cachens begär ande `X-EC-Debug` innehåller ytterligare information om den cachelagrade princip som tillämpas på den begärda till gången. Dessa huvuden är speciella för **Azure CDN Premium från Verizon** -produkter.
 
 ## <a name="usage"></a>Användning
-Svaret som skickas från POP-servrarna till en användare inkluderar endast `X-EC-Debug` huvudet när följande villkor uppfylls:
+Svaret som skickas från POP-servrarna till en användare inkluderar `X-EC-Debug` endast huvudet när följande villkor uppfylls:
 
-- Funktionen för att [Felsöka cache-svarshuvuden](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) har Aktiver ATS i regel motorn för den angivna begäran.
+- Funktionen för att [Felsöka cache-svarshuvuden](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) har Aktiver ATS i regel motorn för den angivna begäran.
 - Den angivna begäran definierar den uppsättning av svars rubriker för debug-cachen som ska ingå i svaret.
 
 ## <a name="requesting-debug-cache-information"></a>Begär information om felsöknings-cache
 Använd följande direktiv i den angivna begäran för att definiera den felsöknings-cache-information som ska ingå i svaret:
 
-Begärandehuvud | Beskrivning |
+Begärandehuvud | Description |
 ---------------|-------------|
 X-EG-debug: x-EC-cache | [Status kod för cache](#cache-status-code-information)
 X-EG-debug: x-EC-cache-Remote | [Status kod för cache](#cache-status-code-information)
@@ -54,7 +54,7 @@ Felsök cache-svarshuvuden kan begäras genom att inkludera följande rubrik och
 ## <a name="cache-status-code-information"></a>Information om cache status kod
 Svars huvudet för X-EG-debug kan identifiera en server och hur den hanterar svaret genom följande direktiv:
 
-Huvud | Beskrivning
+Sidhuvud | Description
 -------|------------
 X-EG-debug: x-EC-cache | Den här rubriken rapporteras när innehållet dirigeras via CDN. Den identifierar den POP-server som uppfyllde begäran.
 X-EG-debug: x-EC-cache-Remote | Den här rubriken rapporteras endast när det begärda innehållet cachelagrades på en ursprungs skärms Server eller en och gateway-server.
@@ -91,13 +91,13 @@ Följande exempel rubriker tillhandahåller information om cache status kod för
 - `X-EC-Debug: x-ec-cache-remote: TCP_HIT from ECD (dca/EF00)`
 
 ## <a name="cacheable-response-header"></a>Svars huvud för cacheminne
-`X-EC-Debug: x-ec-check-cacheable` Svars huvudet visar om det begärda innehållet kan ha cachelagrats.
+`X-EC-Debug: x-ec-check-cacheable`Svars huvudet visar om det begärda innehållet kan ha cachelagrats.
 
 Det här svars huvudet indikerar inte om cachelagringen ägde rum. I stället anger det om begäran har kvalificerats för cachelagring.
 
 ### <a name="response-header-format"></a>Format för svars huvud
 
-`X-EC-Debug` Svars huvudets rapportering om en begäran kan ha cachelagrats är i följande format:
+`X-EC-Debug`Svars huvudets rapportering om en begäran kan ha cachelagrats är i följande format:
 
 `X-EC-Debug: x-ec-check-cacheable: <cacheable status>`
 
@@ -116,17 +116,17 @@ Följande exempel svars huvud visar om det begärda innehållet kan cachelagras:
 `X-EC-Debug: x-ec-check-cacheable: YES`
 
 ## <a name="cache-key-response-header"></a>Cache-Key Response-huvud
-`X-EC-Debug: x-ec-cache-key` Svars huvudet visar den fysiska cache-nyckel som är kopplad till det begärda innehållet. En fysisk cache-nyckel består av en sökväg som identifierar en till gång för cachelagring. Med andra ord kontrollerar servrarna om det finns en cachelagrad version av en till gång enligt dess sökväg som definieras av dess cache-Key.
+`X-EC-Debug: x-ec-cache-key`Svars huvudet visar den fysiska cache-nyckel som är kopplad till det begärda innehållet. En fysisk cache-nyckel består av en sökväg som identifierar en till gång för cachelagring. Med andra ord kontrollerar servrarna om det finns en cachelagrad version av en till gång enligt dess sökväg som definieras av dess cache-Key.
 
 Den här fysiska cachen-nyckeln börjar med ett dubbelt snedstreck (//) följt av protokollet som används för att begära innehållet (HTTP eller HTTPS). Det här protokollet följs av den relativa sökvägen till den begärda till gången, som börjar med innehålls åtkomst punkten (till exempel _/000001/_).
 
 Som standard är HTTP-plattformarna konfigurerade att använda *standardcache*, vilket innebär att frågesträngarna ignoreras av mekanismen för cachelagring. Den här typen av konfiguration förhindrar cache-nyckeln från att inkludera frågesträngs data.
 
-Om en frågesträng registreras i cache-nyckeln, konverteras den till dess hash-motsvarighet och infogas sedan mellan namnet på den begärda till gången och dess fil namns tillägg (till exempel&lt;till gångens hash-värde&gt;. html).
+Om en frågesträng registreras i cache-nyckeln, konverteras den till dess hash-motsvarighet och infogas sedan mellan namnet på den begärda till gången och dess fil namns tillägg (till exempel till gångens &lt; hash-värde &gt; . html).
 
 ### <a name="response-header-format"></a>Format för svars huvud
 
-`X-EC-Debug` Svars huvudet rapporterar information om fysiska cache-nycklar i följande format:
+`X-EC-Debug`Svars huvudet rapporterar information om fysiska cache-nycklar i följande format:
 
 `X-EC-Debug: x-ec-cache-key: CacheKey`
 
@@ -137,11 +137,11 @@ Följande exempel svars huvud visar den fysiska cache-nyckeln för det begärda 
 `X-EC-Debug: x-ec-cache-key: //http/800001/origin/images/foo.jpg`
 
 ## <a name="cache-state-response-header"></a>Svars rubrik för cachelagring
-`X-EC-Debug: x-ec-cache-state` Svars huvudet visar cache-statusen för det begärda innehållet vid den tidpunkt då begäran gjordes.
+`X-EC-Debug: x-ec-cache-state`Svars huvudet visar cache-statusen för det begärda innehållet vid den tidpunkt då begäran gjordes.
 
 ### <a name="response-header-format"></a>Format för svars huvud
 
-`X-EC-Debug` Svars huvud rapporterar cachelagring av statusinformation i följande format:
+`X-EC-Debug`Svars huvud rapporterar cachelagring av statusinformation i följande format:
 
 `X-EC-Debug: x-ec-cache-state: max-age=MASeconds (MATimePeriod); cache-ts=UnixTime (ddd, dd MMM yyyy HH:mm:ss GMT); cache-age=CASeconds (CATimePeriod); remaining-ttl=RTSeconds (RTTimePeriod); expires-delta=ExpiresSeconds`
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: e5af5c6b30c6f03930a61200a11bfa0bd2f72093
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: fcb1e5f45bc4f8d234952e338052a18d4b03ee0f
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196453"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344687"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid-förmån-Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ I den etablerade beräknings nivån för den vCore-baserade inköps modellen kan
 
 ## <a name="choose-a-license-model"></a>Välj en licens modell
 
-Med Azure Hybrid-förmån kan du välja att bara betala för den underliggande Azure-infrastrukturen genom att använda din befintliga SQL Server-licens för själva SQL Database-motorn (bas beräknings pris) eller så kan du betala för både den underliggande infrastrukturen och SQL Server licens (licens pris).
+Med Azure Hybrid-förmån kan du välja att bara betala för den underliggande Azure-infrastrukturen genom att använda din befintliga SQL Server-licens för själva SQL Server-databasmotorn (bas beräknings pris), eller så kan du betala för både den underliggande infrastrukturen och SQL Server licens (licens pris ingår).
 
 Du kan välja eller ändra licensierings modellen med hjälp av Azure Portal eller genom att använda någon av följande API: er:
 
@@ -77,7 +77,7 @@ Vi erbjuder License Mobility-förmåner för att SQL Server kunder med Software 
 Azure Hybrid-förmån för SQL Server skiljer sig från licens mobilitet i två viktiga områden:
 
 - Det ger ekonomiska fördelar för att flytta hög virtualiserade arbets belastningar till Azure. SQL Server Enterprise Edition-kunder kan få fyra kärnor i Azure i Generell användning SKU för varje kärna som de äger lokalt för mycket virtualiserade program. License Mobility tillåter inte några särskilda kostnads besparingar för att flytta virtualiserade arbets belastningar till molnet.
-- Det tillhandahåller ett PaaS-mål på Azure (SQL Database Hanterad instans) som är mycket kompatibel med SQL Server.
+- Det tillhandahåller ett PaaS-mål på Azure (SQL-hanterad instans) som är mycket kompatibel med SQL Server.
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Vilka är de speciella rättigheterna för Azure Hybrid-förmån för SQL Server?
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 53ae3217e77a9301cbe0d3d63ce0712a0b9b7f1e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 799f38cff1c10da1b0d280121a7a5ab4a380152d
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171624"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331431"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -46,7 +46,13 @@ Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL 
 |**Själv studie kurs om webbapp**|[Utveckling av webb program med Azure Cosmos DB](sql-api-java-application.md)|
 |**Lägsta körnings tid som stöds**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 
-## <a name="release-notes"></a>Viktig information
+## <a name="release-notes"></a>Versionsanmärkningar
+
+### <a name="251"></a><a name="2.5.1"></a>2.5.1
+* Korrigerar Master partition cache-problem på documentCollection-fråga.
+
+### <a name="250"></a><a name="2.5.0"></a>2.5.0
+* Stöd har lagts till för den anpassade konfigurationen för 449-försök.
 
 ### <a name="247"></a><a name="2.4.7"></a>2.4.7
 * Åtgärdar timeout-problem för anslutningspoolen.
@@ -268,6 +274,8 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 
 | Version | Lanserings datum | Datum för indragning |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |Juli 03 2020 |--- |
+| [2.5.0](#2.5.0) |12 maj 2020 |--- |
 | [2.4.7](#2.4.7) |Feb 20, 2020 |--- |
 | [2.4.6](#2.4.6) |24 Jan 2020 |--- |
 | [2.4.5](#2.4.5) |Den 10 november 2019 |--- |
@@ -322,7 +330,7 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 | 0.9.1 till och – för-leasing |19 december 2014 |29 februari 2016 |
 | 0.9.0 – för-leasing |10 december 2014 |29 februari 2016 |
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor och svar
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

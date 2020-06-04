@@ -2,14 +2,14 @@
 title: Använda redigerings-och körnings nycklar – LUIS
 description: Första gången du använder Language Understanding (LUIS) behöver du inte skapa någon redigerings nyckel. När du tänker publicera appen måste du använda din runtime-slutpunkt för att skapa och tilldela appen körnings nyckel.
 services: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d9235b6ef1c7cddbfbbd36f8382439d781af6d5f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c566e8fe56d19856f5a577e472929b7610497d7c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101033"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344466"
 ---
 # <a name="create-luis-resources"></a>Skapa LUIS-resurser
 
@@ -51,7 +51,7 @@ När du är redo att publicera din förutsägelse slut punkt [skapar](#create-lu
 
 Använd [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att skapa varje resurs individuellt.
 
-Resurs `kind`:
+Resurs `kind` :
 
 * Redigerings`LUIS.Authoring`
 * Förutsägelse`LUIS`
@@ -64,13 +64,13 @@ Resurs `kind`:
 
     Då öppnas en webbläsare så att du kan välja rätt konto och tillhandahålla autentisering.
 
-1. Skapa en **Luis Authoring-resurs**, av `LUIS.Authoring`typen, `my-luis-authoring-resource` med namnet i den _befintliga_ resurs `my-resource-group` gruppen med `westus` namnet för regionen.
+1. Skapa en **Luis Authoring-resurs**, av typen `LUIS.Authoring` , med namnet `my-luis-authoring-resource` i den _befintliga_ resurs gruppen med namnet `my-resource-group` för `westus` regionen.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Skapa en **resurs**av typen `LUIS`Luis förutsägelse-slutpunkt med namnet `my-luis-prediction-resource` i den _befintliga_ resurs gruppen med `my-resource-group` namnet för `westus` regionen. Ändra `F0` till `S0`om du vill ha ett högre data flöde än den kostnads fria nivån. Läs mer om [pris nivåer och data flöde](luis-limits.md#key-limits).
+1. Skapa en **resurs av typen Luis förutsägelse-slutpunkt**med `LUIS` namnet `my-luis-prediction-resource` i den _befintliga_ resurs gruppen med namnet `my-resource-group` för `westus` regionen. Ändra till om du vill ha ett högre data flöde än den kostnads fria nivån `F0` `S0` . Läs mer om [pris nivåer och data flöde](luis-limits.md#key-limits).
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
@@ -111,9 +111,9 @@ I automatiserings syfte, till exempel en CI/CD-pipeline, kanske du vill automati
 
     Detta POST-API kräver följande inställningar:
 
-    |Huvud|Värde|
+    |Sidhuvud|Värde|
     |--|--|
-    |`Authorization`|Värdet för `Authorization` är `Bearer {token}`. Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
+    |`Authorization`|Värdet för `Authorization` är `Bearer {token}` . Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
     |`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
 
     Detta API returnerar en matris med JSON-objekt för dina LUIS-prenumerationer, inklusive prenumerations-ID, resurs grupp och resurs namn, returnerat som konto namn. Hitta det objekt i matrisen som är den LUIS-resurs som ska tilldelas LUIS-appen.
@@ -124,11 +124,11 @@ I automatiserings syfte, till exempel en CI/CD-pipeline, kanske du vill automati
 
     |Typ|Inställning|Värde|
     |--|--|--|
-    |Huvud|`Authorization`|Värdet för `Authorization` är `Bearer {token}`. Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
-    |Huvud|`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
-    |Huvud|`Content-type`|`application/json`|
+    |Sidhuvud|`Authorization`|Värdet för `Authorization` är `Bearer {token}` . Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
+    |Sidhuvud|`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
+    |Sidhuvud|`Content-type`|`application/json`|
     |Mängden|`appid`|LUIS-app-ID.
-    |Innehåll||{"AzureSubscriptionId": "ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "ResourceGroup-2",<br>"AccountName": "Luis-USWest-S0-2"}|
+    |Brödtext||{"AzureSubscriptionId": "ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "ResourceGroup-2",<br>"AccountName": "Luis-USWest-S0-2"}|
 
     När det här API: et lyckas returneras statusen 201-skapat.
 

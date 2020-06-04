@@ -69,6 +69,8 @@
       items:
         - name: Startdiagnostik
           href: boot-diagnostics.md
+        - name: Startfel – Diskläsningsfel inträffade
+          href: boot-error-disk-read-error-occurred.md
         - name: BitLocker-fel
           href: troubleshoot-bitlocker-boot-error.md
         - name: Fel som visar en blå kraschskärm

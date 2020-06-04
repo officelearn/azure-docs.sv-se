@@ -14,7 +14,7 @@
   items:
     - name: Skapa ditt första åtkomstpaket
       href: entitlement-management-access-package-first.md
-- name: Koncept
+- name: Begrepp
   expanded: true
   items:
     - name: Berättigandehantering
@@ -31,7 +31,7 @@
           href: manage-user-access-with-access-reviews.md
         - name: Hantera användare som undantagits från villkorsstyrd åtkomst
           href: conditional-access-exclusion.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Berättigandehantering
@@ -120,3 +120,10 @@
               href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
             - name: Slutför en åtkomstgranskning
               href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+- name: Referens
+  expanded: true
+  items:
+    - name: Åtkomstgranskningar – Graph API
+      href: 'https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta'
+    - name: Berättigandehantering – Graph API
+      href: 'https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta'

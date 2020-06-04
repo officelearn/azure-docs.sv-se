@@ -464,6 +464,8 @@
               href: platform/alerts-metric-logs.md
             - name: Använda Resource Manager-mallen
               href: platform/alerts-metric-create-templates.md
+            - name: Felsöka måttaviseringar
+              href: platform/alerts-troubleshoot-metric.md
         - name: Logga aviseringsregler
           items:
             - name: Konfigurera aviseringar för analysfråga
@@ -992,10 +994,10 @@
           href: insights/redis-cache-insights-overview.md
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
-        - name: Key Vault
-          href: insights/key-vaults-insights-overview.md
         - name: Nätverk
           href: insights/network-insights-overview.md
+        - name: Key Vault
+          href: insights/key-vault-insights-overview.md
         - name: Storage
           displayname: 'storage, monitor, insights, storage accounts, azure storage'
           href: insights/storage-insights-overview.md
@@ -1096,6 +1098,7 @@
     - name: Arbetsböcker
       items:
         - name: Översikt
+          displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Visualiseringar
           href: platform/workbooks-visualizations.md

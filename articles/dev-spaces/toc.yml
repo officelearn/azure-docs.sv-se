@@ -73,8 +73,8 @@
               href: how-dev-spaces-works-routing.md
             - name: Fjärrfelsökning
               href: how-dev-spaces-works-remote-debugging.md
-            - name: Ansluta din utvecklingsdator till AKS
-              href: how-dev-spaces-works-connect.md
+            - name: Lokal process med Kubernetes
+              href: how-dev-spaces-works-local-process-kubernetes.md
         - name: Så här fungerar VS Code med Dev Spaces
           href: how-vs-code-works-with-dev-spaces.md
         - name: Nätverkskonfiguration i olika nätverkstopologier
@@ -111,8 +111,10 @@
           href: how-to/ingress-https-traefik.md
         - name: Använda NGINX för anpassade inkommande data och HTTPS
           href: how-to/ingress-https-nginx.md
-        - name: Ansluta din utvecklingsdator till ett AKS-kluster (förhandsversion)
-          href: how-to/connect.md
+        - name: Använda lokal process med Kubernetes med Visual Studio Code (förhandsversion)
+          href: how-to/local-process-kubernetes-vs-code.md
+        - name: Använda lokal process med Kubernetes med Visual Studio (förhandsversion)
+          href: how-to/local-process-kubernetes-visual-studio.md
     - name: Felsökning
       href: troubleshooting.md
     - name: VANLIGA FRÅGOR OCH SVAR

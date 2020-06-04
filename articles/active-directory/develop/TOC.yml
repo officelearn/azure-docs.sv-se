@@ -548,6 +548,9 @@
               href: msal-js-pass-custom-state-authentication-request.md
             - name: Beteende vid fråga
               href: msal-js-prompt-behavior.md
+            - name: Migrera SPA från implicit till auth-kodflöde
+              href: migrate-spa-implicit-to-auth-code.md
+              displayName: 'authorization, single-page app, 2.0'
         - name: MSAL för iOS och macOS
           items:
             - name: MSAL för skillnader mellan iOS och macOS

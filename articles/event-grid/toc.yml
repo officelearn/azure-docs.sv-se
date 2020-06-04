@@ -194,6 +194,8 @@
           href: metrics.md
 - name: Anvisningar
   items:
+    - name: 'Skapa, visa och hantera systemämnen'
+      href: create-view-manage-system-topics.md
     - name: Skicka till anpassat ämne
       href: post-to-custom-topic.md
     - name: Prenumerera på Auth0-händelser

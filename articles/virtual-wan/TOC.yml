@@ -48,8 +48,6 @@
       href: upgrade-virtual-wan.md
     - name: Konfigurera anpassad IPsec-princip
       href: virtual-wan-custom-ipsec-portal.md
-    - name: Installera Azure Firewall i en hubb
-      href: howto-firewall.md
     - name: ExpressRoute
       items:
         - name: Skapa en ExpressRoute-anslutning
@@ -60,6 +58,8 @@
       items:
         - name: Skapa en plats-till-plats-anslutning
           href: virtual-wan-site-to-site-portal.md
+        - name: Flera ISP-länkar – val av Azure-sökväg
+          href: path-selection-multiple-links.md
     - name: Användar-VPN (punkt-till-plats)
       items:
         - name: Skapa en VPN-anslutning för användare
@@ -86,8 +86,6 @@
           href: openvpn-azure-ad-client.md
         - name: Konfigurera Azure AD-autentisering för flera program
           href: openvpn-azure-ad-tenant-multi-app.md
-        - name: Installera Azure Firewall i en hubb
-          href: howto-firewall.md
     - name: Routning
       items:
         - name: Dirigera trafik från en virtuell hubb till en NVA
@@ -98,12 +96,14 @@
               href: virtual-wan-route-table.md
         - name: Visa effektiva vägar för virtuell hubb
           href: effective-routes-virtual-hub.md
-        - name: Flera ISP-länkar – val av Azure-sökväg
-          href: path-selection-multiple-links.md
     - name: Säkerhet
       items:
         - name: Installera Azure Firewall i en hubb
           href: howto-firewall.md
+    - name: Övervakning
+      items:
+        - name: Loggar och mått
+          href: logs-metrics.md
 - name: Referens
   items:
     - name: Azure PowerShell

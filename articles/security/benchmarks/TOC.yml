@@ -41,6 +41,8 @@
       href: ../../backup/security-baseline.md
     - name: Säkerhetsbaslinje för Batch
       href: ../../batch/security-baseline.md
+    - name: Säkerhetsbaslinje för Container Instances
+      href: ../../container-instances/security-baseline.md
     - name: Säkerhetsbaslinje för Container Registry
       href: ../../container-registry/security-baseline.md
     - name: Säkerhetsbaslinje för Cosmos DB

@@ -19,7 +19,7 @@
       href: signalr-quickstart-azure-functions-java.md
     - name: Azure Functions – Python
       href: signalr-quickstart-azure-functions-python.md
-    - name: REST API
+    - name: REST-API
       href: signalr-quickstart-rest-api.md
 - name: Självstudier
   items:
@@ -35,7 +35,7 @@
       href: 'https://github.com/aspnet/AzureSignalR-samples'
     - name: Azure CLI
       href: signalr-reference-cli.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Azure SignalR Service – internt
       href: signalr-concept-internals.md
@@ -61,7 +61,7 @@
       href: signalr-concept-authenticate-oauth.md
     - name: Händelsehantering
       href: signalr-concept-event-grid-integration.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Skala
       items:
@@ -73,6 +73,12 @@
       items:
         - name: Rotering av åtkomstnyckel
           href: signalr-howto-key-rotation.md
+        - name: Använda Azure-tjänsttaggar
+          href: howto-service-tags.md
+        - name: Använda Azure privata slutpunkter
+          href: howto-private-endpoints.md
+        - name: Hantera nätverksåtkomstkontroll
+          href: howto-network-access-control.md
     - name: Integrera
       items:
         - name: Bindningar för Azure Functions
@@ -83,7 +89,7 @@
   items:
     - name: Azure CLI
       href: signalr-reference-cli.md
-    - name: REST API
+    - name: REST-API
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
     - name: ASP.NET Core SignalR
       href: 'https://docs.microsoft.com/aspnet/core/signalr'
@@ -105,7 +111,7 @@
       href: signalr-resource-faq.md
     - name: Nivågränser för SignalR Service-prenumerationer
       href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: Videoklipp
       href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'

@@ -24,6 +24,8 @@
           href: work-remotely-support.md
         - name: NVA-konfigurationer och distansarbete
           href: nva-work-remotely-support.md
+    - name: Om VPN Gateway-design
+      href: design.md
     - name: Om VPN Gateway-inställningar
       href: vpn-gateway-about-vpn-gateway-settings.md
     - name: Om VPN-enheter

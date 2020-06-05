@@ -82,6 +82,8 @@
           href: specify-marketplace-images.md
         - name: Ange supportinformation (ägare av labbkonto)
           href: lab-account-owner-support-information.md
+        - name: Kostnadshantering för labb
+          href: cost-management-guide.md
     - name: Skapa och konfigurera klassrumslabb (lärare)
       items:
         - name: Skapa och hantera klassrumslabb

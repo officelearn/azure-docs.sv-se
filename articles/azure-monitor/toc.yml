@@ -230,7 +230,7 @@
                     - name: Versionshistorik
                       href: platform/diagnostics-extension-versions.md
                     - name: JSON Lines-format för resursloggar
-                      href: platform/diagnostic-logs-append-blobs.md
+                      href: platform/resource-logs-append-blobs.md
                     - name: Felsökning
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
@@ -1173,8 +1173,10 @@
           href: platform/alerts-metric-near-real-time.md
     - name: Plattformsloggar
       items:
+        - name: Resursloggtyper och -kategorier som stöds
+          href: platform/resource-logs-categories.md
         - name: Scheman för resursloggar
-          href: platform/diagnostic-logs-schema.md
+          href: platform/resource-logs-schema.md
         - name: Aktivitetsloggschema
           href: platform/activity-log-schema.md
     - name: Scheman för diagnostiska tillägg

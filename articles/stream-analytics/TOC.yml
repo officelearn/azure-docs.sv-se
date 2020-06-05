@@ -114,6 +114,8 @@
   items:
     - name: Hantera
       items:
+        - name: Autoskala jobb
+          href: stream-analytics-autoscale.md
         - name: Uppdatera autentiseringsuppgifter
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Konfigurera principer för händelseordning
@@ -611,6 +613,8 @@
       href: /rest/api/streamanalytics
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.streamanalytics/allversions
+    - name: Azure CLI
+      href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: Resurser
   items:
     - name: Förhandsversioner av Stream Analytics

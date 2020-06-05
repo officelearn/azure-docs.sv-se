@@ -235,6 +235,10 @@
               href: howto-migrate-using-export-and-import.md
             - name: Minimal stilleståndstid vid migrering
               href: howto-migrate-online.md
+        - name: Anslut program
+          items:
+            - name: Konfigurera TLS
+              href: howto-tls-configurations.md
         - name: Konfigurera serverparametrar
           items:
             - name: Azure Portal

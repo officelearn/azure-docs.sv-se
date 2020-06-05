@@ -466,7 +466,7 @@
       items:
         - name: 'REST API:er'
           items:
-            - name: REST-API för taligenkänning
+            - name: REST-API för talarigenkänning
               href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Hosting
   items:

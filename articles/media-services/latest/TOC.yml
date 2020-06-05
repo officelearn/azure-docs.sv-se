@@ -99,7 +99,7 @@
       items:
         - name: Översikt
           href: live-streaming-overview.md
-        - name: Livehändelser och liveresultat
+        - name: Livehändelser och liveutdata
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
         - name: Testade lokala livekodare
@@ -154,7 +154,7 @@
               href: fairplay-license-overview.md
         - name: Principer för direktuppspelning
           href: streaming-policy-concept.md
-        - name: Viktiga innehållsprinciper
+        - name: Principer för innehållsnycklar
           href: content-key-policy-concept.md
     - name: Övervakning
       items:
@@ -376,6 +376,10 @@
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.media/allversions
+    - name: Scheman för standardkodare
+      items:
+        - name: Utgående metadata
+          href: output-metadata-schema.md
 - name: Resurser
   items:
     - name: Azure Media Services-community

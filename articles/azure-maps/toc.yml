@@ -177,6 +177,14 @@
               href: map-get-information-from-coordinate.md
             - name: Visa anvisningar från A till B
               href: map-route.md
+        - name: Modul för inomhuskartor
+          items:
+            - name: Modul för inomhuskartor
+              href: how-to-use-indoor-module.md
+            - name: Dynamisk formatering för inomhuskartor
+              href: indoor-map-dynamic-styling.md
+            - name: Visualiserare för ritningsfel
+              href: drawing-error-visualizer.md
         - name: Rumslig IO-modul
           items:
             - name: Använd den rumsliga IO-modulen
@@ -211,14 +219,6 @@
           href: how-to-add-tile-layer-android-map.md
         - name: Visa trafikdata
           href: how-to-show-traffic-android.md
-    - name: Utveckla med skapare av inomhuskartor
-      items:
-        - name: Modul för inomhuskartor
-          href: how-to-use-indoor-module.md
-        - name: Dynamisk formatering för inomhuskartor
-          href: indoor-map-dynamic-styling.md
-        - name: Visualiserare för ritningsfel
-          href: drawing-error-visualizer.md
     - name: Ge datafeedback
       href: how-to-use-feedback-tool.md
 - name: Referens

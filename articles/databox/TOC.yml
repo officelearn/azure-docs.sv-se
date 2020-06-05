@@ -195,6 +195,10 @@
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: Från HDFS-lagring
                   href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+    - name: Referens
+      items:
+        - name: Azure CLI
+          href: /cli/azure/ext/databox/databox
     - name: Resurser
       items:
         - name: Data Box-produkt

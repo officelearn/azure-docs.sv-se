@@ -190,6 +190,8 @@
           href: howto-connection-string.md
         - name: Konfigurera SSL
           href: howto-configure-ssl.md
+        - name: Konfigurera TLS
+          href: howto-tls-configurations.md
         - name: Webbappar
           href: howto-connect-webapp.md
         - name: Ansluta med omdirigering

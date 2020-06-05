@@ -3,17 +3,17 @@ title: Självstudie – Skapa och hantera Azure-budgetar
 description: Den här självstudien hjälper dig att planera och ta hänsyn till kostnaderna för de Azure-tjänster som du använder.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/22/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: e8afa19b6d79ce915ca41f7b0e6b4a203d7daa1b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: ef165f63ff1f9e45bb3586192146d822e334dc54
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101764"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142443"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera Azure-budgetar
 
@@ -115,6 +115,15 @@ När du har skapat en budget visas den i kostnadsanalysen. Att visa din budget i
 
 I föregående exempel skapade du en budget för en prenumeration. Du kan också skapa en budget för en resursgrupp. Om du vill skapa en budget för en resursgrupp går du till **Kostnadshantering + fakturering** &gt; **Prenumerationer** &gt; väljer en prenumeration > **Resursgrupper** > väljer en resursgrupp > **Budgetar** > och därefter **Lägg till** en budget.
 
+### <a name="create-a-budget-for-combined-azure-and-aws-costs"></a>Skapa en budget för kombinerade Azure- och AWS-kostnader
+
+Du kan gruppera dina kostnader för Azure och AWS tillsammans genom att tilldela en hanteringsgrupp till din anslutning tillsammans med dess konsoliderade och länkade konton. Tilldela dina Azure-prenumerationer till samma hanteringsgrupp. Skapa sedan en budget för de kombinerade kostnaderna.
+
+1. I Cost Management väljer du **Budgetar**.
+1. Välj **Lägg till**.
+1. Välj **Change scope** (Ändra omfång) och välj sedan hanteringsgruppen.
+1. Fortsätt att skapa budgeten tills den är klar.
+
 ## <a name="costs-in-budget-evaluations"></a>Kostnader i budgetutvärderingar
 
 Utvärderingar av budgetkostnader inkluderar nu reserverad instans och inköpsdata. Om avgifterna gäller för dig kan du få aviseringar när avgifterna ingår i utvärderingarna. Vi rekommenderar att du loggar in på [Azure-portalen](https://portal.azure.com) för att kontrollera att budgettrösklarna är korrekt konfigurerade för att kunna redovisa nya kostnader. Dina debiterade Azure-avgifter ändras inte. Budgetarna utvärderas nu mot en mer fullständig uppsättning kostnader. Om avgifterna inte gäller för dig är ditt budgetbeteende oförändrat.
@@ -125,7 +134,6 @@ Lägg till följande filter i budgeten om du vill filtrera nya kostnader så att
 - Kostnadstyp: Användning
 
 Utvärderingar av budgetkostnader baseras på faktiska kostnader. De omfattar inte amortering. Mer information om vilka filtreringsalternativ som är tillgängliga i budgetarna finns [Förstå alternativ för gruppering och filtrering](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
-
 
 ## <a name="trigger-an-action-group"></a>Utlös en åtgärdsgrupp
 

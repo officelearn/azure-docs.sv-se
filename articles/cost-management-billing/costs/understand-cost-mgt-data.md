@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 5fce5c8de3b2224ef471b0b3eec5ff29a869a9f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 10bd2e4722751b290263fc0599890ca92cd743c9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844530"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995657"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -75,7 +75,12 @@ Följande erbjudanden stöds inte ännu:
 | **Supportavtal** | Azure Government Pro-Direct Support | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Supportavtal** | Azure Government Developer Support  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-## <a name="determine-your-offer-type"></a>Fastställ din erbjudandetyp
+### <a name="free-trial-to-pay-as-you-go-upgrade"></a>Uppgradering från kostnadsfri utvärderingsversion till Betala per användning
+
+Information om tillgängligheten av tjänster på kostnadsfri nivå efter uppgradering till Betala per användning från en kostnadsfri utvärderingsversion finns i [avsnittet med vanliga frågor och svar](https://azure.microsoft.com/free/free-account-faq/).
+
+### <a name="determine-your-offer-type"></a>Fastställ din erbjudandetyp
+
 Om du inte ser data för en prenumeration och vill ta reda på om din prenumeration omfattas av de erbjudanden som stöds kan du kontrollera om din prenumeration stöds. För att kontrollera att en Azure-prenumeration stöds loggar du in på [Azure-portalen](https://portal.azure.com). Välj sedan **Alla tjänster** i det vänstra menyfönstret. I listan över tjänster väljer du **Prenumerationer**. I listmenyn för prenumerationer väljer du den prenumeration som du vill kontrollera. Din prenumeration visas på fliken Översikt, och du kan se **Erbjudande** och **Erbjudande-ID**. I följande bild visas ett exempel.
 
 ![Exempel på fliken Prenumerationsöversikt som visar Erbjudande och Erbjudande-ID](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -106,7 +111,7 @@ Azure Cost Management tar emot taggar som en del av varje användningspost som s
 - Resurstaggar stöds bara för resurser som har distribuerats till resursgrupper.
 - Vissa distribuerade resurser kanske inte stöder taggar eller så kanske de inte innehåller taggar i användningsdata – se [Stöd för taggar för Azure-resurser](../../azure-resource-manager/tag-support.md).
 - Resurstaggar ingår bara i användningsdata under tiden taggen används – taggar används inte för historiska data.
-- Resurstaggar är endast tillgängliga i Cost Management efter att data har uppdaterats – se [Uppdateringsfrekvensen för användningsdata varierar](#usage-data-update-frequency-varies).
+- Resurstaggar är endast tillgängliga i Cost Management efter att data har uppdaterats – se [Uppdateringar av kostnader och användningsdata och kvarhållning](#cost-and-usage-data-updates-and-retention).
 - Resurstaggar är bara tillgängliga i Cost Management när resursen är aktiv/körs och skapar användningsposter (t. ex. inte när en virtuell dator frigörs).
 - För hantering av taggar krävs deltagaråtkomst till varje resurs.
 - För hantering av taggprinciper krävs antingen ägar- eller principdeltagaråtkomst till en hanteringsgrupp, prenumeration eller resursgrupp.
@@ -114,7 +119,7 @@ Azure Cost Management tar emot taggar som en del av varje användningspost som s
 Överväg följande om du inte kan se en specifik tagg i Cost Management:
 
 - Användes taggen direkt för resursen?
-- Användes taggen för mer än 24 timmar sedan? Se [Uppdateringsfrekvensen för användningsdata varierar](#usage-data-update-frequency-varies)
+- Användes taggen för mer än 24 timmar sedan? Se [Uppdateringar av kostnader och användningsdata och kvarhållning](#cost-and-usage-data-updates-and-retention)
 - Stöder resurstypen taggar? Följande resurstyper stöder inte taggar i användningsdata från den 1 december 2019. En fullständig lista över vad som stöds finns i [Stöd för taggar för Azure-resurser](../../azure-resource-manager/tag-support.md).
     - Azure Active Directory B2C-kataloger
     - Azure Firewall-brandväggar
@@ -134,24 +139,22 @@ Här följer några tips för att arbeta med taggar:
 - Använd Tags-API:t med Query eller UsageDetails om du vill hämta alla kostnader baserat på de aktuella taggarna.
 
 
-## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Uppgradering från kostnadsfri utvärderingsversion till Betala per användning
+## <a name="cost-and-usage-data-updates-and-retention"></a>Uppdateringar av kostnader och användningsdata och kvarhållning
 
-Information om tillgängligheten av tjänster på kostnadsfri nivå efter uppgradering till Betala per användning från en kostnadsfri utvärderingsversion finns i [avsnittet med vanliga frågor och svar](https://azure.microsoft.com/free/free-account-faq/).
+Kostnads- och användningsdata finns vanligtvis i Kostnadshantering + fakturering i Azure-portalen och [stödjande API:er](../index.yml) inom 8–24 timmar. Tänk på följande när du granskar kostnader:
 
-## <a name="rated-usage-data-refresh-schedule"></a>Schema för datauppdatering för klassificerad användning
-
-Kostnads- och användningsdata finns i Kostnadshantering + fakturering i Azure-portalen och [stödjande API:er](../index.yml). Tänk på följande när du granskar kostnader:
-
+- Varje Azure-tjänst (till exempel Storage, Compute och SQL) utvärderar användning vid olika intervall – du kan se data för vissa tjänster tidigare än andra.
 - Uppskattade avgifter för den aktuella faktureringsperioden uppdateras sex gånger per dag.
 - Uppskattade avgifter för den aktuella faktureringsperioden kan ändras när du förbrukar mer användning.
 - Varje uppdatering är kumulativ och innehåller alla radobjekt och all information från föregående uppdatering.
 - Azure slutför, eller _stänger_, den aktuella faktureringsperioden upp till 72 timmar (tre kalenderdagar) efter faktureringsperiodens slut.
 
-I följande exempel visas hur faktureringsperioder kan sluta.
+I följande exempel visas hur faktureringsperioder kan sluta:
 
-Enterprise-avtalsprenumerationer (EA) – om faktureringsmånaden upphör den 31 mars uppdateras de uppskattade avgifterna upp till 72 timmar senare. I det här exemplet blir det senast midnatt (UTC) 4 april.
+* Enterprise-avtalsprenumerationer (EA) – om faktureringsmånaden upphör den 31 mars uppdateras de uppskattade avgifterna upp till 72 timmar senare. I det här exemplet blir det senast midnatt (UTC) 4 april.
+* Betala per användning-prenumerationer – om faktureringsmånaden upphör den 15 maj kan de uppskattade avgifterna uppdateras upp till 72 timmar senare. I det här exemplet blir det senast midnatt (UTC) 19 maj.
 
-Betala per användning-prenumerationer – om faktureringsmånaden upphör den 15 maj kan de uppskattade avgifterna uppdateras upp till 72 timmar senare. I det här exemplet blir det senast midnatt (UTC) 19 maj.
+När kostnader och användningsdata blir tillgängliga i Kostnadshantering + fakturering hålls de kvar i minst sju år.
 
 ### <a name="rerated-data"></a>Omklassificerade data
 
@@ -166,16 +169,6 @@ Kostnaderna som visas i Cost Management avrundas. Kostnaderna som returneras av 
   - Kostnad 2: 0,004 USD
   -    Den aggregerade kostnaden blir: 0,004 + 0,004 = 0,008. Kostnaden som visas är 0,01.
 - Fråge-API – kostnader visas med åtta decimaler och ingen avrundning görs.
-
-
-## <a name="usage-data-update-frequency-varies"></a>Uppdateringsfrekvensen för användningsdata varierar
-
-Tillgängligheten för dina uppkomna användningsdata i Cost Management beror på några faktorer, däribland:
-
-- Hur ofta Azure-tjänster (till exempel Storage, Compute, CDN och SQL) genererar användning.
-- Den tid det tar att bearbeta användningsdata via pipelines för klassificeringsmotor och kostnadshantering.
-
-Vissa tjänster genererar användning oftare än andra. Därför kan du se data i Cost Management för vissa tjänster tidigare än andra tjänster som genererar data mindre ofta. Vanligtvis tar det 8–24 timmar innan tjänstanvändning visas i Cost Management. Tänk på att data för en öppen månad uppdateras när du förbrukar mer användning eftersom uppdateringarna är kumulativa.
 
 ## <a name="historical-data-might-not-match-invoice"></a>Historiska data överensstämmer kanske inte med fakturan
 

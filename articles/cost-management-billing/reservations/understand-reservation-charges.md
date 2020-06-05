@@ -7,16 +7,18 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f0b093950b7f8fbbfbb0ca8ceb48cb0aa6341e10
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 46236355ca569c28ed9418f9c341a1510c1335b1
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200290"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114069"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Så tillämpas en reservationsrabatt på Azure SQL-databaser
 
 När du har köpt en reserverad Azure SQL Database-kapacitet tillämpas reservationsrabatten automatiskt på SQL-databaser som matchar reservationens attribut och kvantitet. En reservation omfattar beräkningskostnaderna för din SQL Database. Du debiteras för programvara, lagring och nätverk enligt de vanliga priserna. Du kan täcka licenskostnaderna för SQL-databaser med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
+
+Observera att reservationsrabatter inte gäller för Azure SQL Database utan server.
 
 Information om reserverade VM-instanser finns i artikeln om [hur rabatt för Azure Reserved VM Instances fungerar](../manage/understand-vm-reservation-charges.md).
 
@@ -52,7 +54,7 @@ Du kan läsa mer om Azure-reservationer i följande artiklar:
 
 - [Vad är Azure-reservationer?](save-compute-costs-reservations.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../../sql-database/sql-database-reserved-capacity.md)
+- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
 - [Hantera Azure Reservations](manage-reserved-vm-instance.md)
 - [Förstå reservationsanvändning för din Betala per användning-prenumeration](understand-reserved-instance-usage.md)
 - [Förstå reservationsanvändning för din Enterprise-registrering](understand-reserved-instance-usage-ea.md)

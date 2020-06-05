@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d1425407b9d451a8c35e736c38b8fac059a7c9d8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8dea0da44ebfb35165daa7096296dada55e78e99
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204893"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997136"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -246,7 +246,7 @@ När egenskapen **PartnerEarnedCreditApplied** har värdet _Sant_, har den tillh
 
 När egenskapen **PartnerEarnedCreditApplied** är _Falskt_, har den tillhörande kostnaden inte uppnått nödvändigt berättigande för krediten. Eller så är den köpta tjänsten inte berättigad till partnerintjänad kredit.
 
-Det tar normalt 8–24 timmar innan tjänstanvändningsdata visas i Cost Management. Mer information finns i [Uppdateringsfrekvensen för användningsdata varierar](understand-cost-mgt-data.md#usage-data-update-frequency-varies). PEC-krediter visas inom 48 timmar från tiden för åtkomst i Azure Cost Management.
+Det tar normalt 8–24 timmar innan tjänstanvändningsdata visas i Cost Management. Mer information finns i [Uppdateringar av kostnader och användningsdata och kvarhållning](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). PEC-krediter visas inom 48 timmar från tiden för åtkomst i Azure Cost Management.
 
 
 Du kan också gruppera och filtrera efter egenskapen **PartnerEarnedCreditApplied** med hjälp av alternativet **Gruppera efter**. Använd alternativen för att undersöka kostnader som har respektive inte har PEC.

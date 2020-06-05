@@ -3,17 +3,17 @@ title: Optimera din molninvestering med Azure Cost Management
 description: Den här artikeln hjälper dig att få ut det mesta möjliga av dina molninvesteringar, minska kostnaderna och utvärdera var pengarna spenderas.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/04/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 759c69544c083e95cbd5198eecf9f7bb0e882aa8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f328f17b1d64bc9b8f0be35321aecaba0cb85fa6
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791620"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142426"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Så här optimerar du din molninvestering med Azure Cost Management
 
@@ -131,14 +131,39 @@ Mer information finns på sidan om [Azure Migrate](https://docs.microsoft.com/az
 
 Håll dig informerad om hur din organisations kostnader utvecklas över tid. Använd följande tekniker för att korrekt förstå och hantera utgifter.
 
-### <a name="organize-and-tag-your-resources"></a>Organisera och tagga resurser
+### <a name="organize-resources-to-maximize-cost-insights-and-accountability"></a>Organisera resurser för att maximera kostnadsinsikter och ansvar
 
-Organisera resurser utifrån kostnad. När du skapar prenumerationer och resursgrupper bör du tänka på de team som ansvarar för tillhörande kostnader. Kontrollera att din rapportering tar hänsyn till organisationen. Prenumerationer och resursgrupper tillhandahåller lämpliga kategorier för att organisera och tillskriva utgifter i organisationen. Taggar är ett bra sätt att tillskriva kostnader. Du kan använda taggar som ett filter. Och du kan använda dem för att gruppera när du analyserar data och undersöker kostnader. Kunder med Enterprise-avtal kan även skapa avdelningar och placera prenumerationer under dem. Kostnadsbaserad organisering i Azure hjälper till att hålla relevanta personer i din organisation ansvariga för att minska respektive teams utgifter.
+En välplanerad organisationsstruktur för fakturerings- och resurshierarkier i Azure hjälper dig att få en god förståelse och kontroll över kostnaderna när du skapar din molninfrastruktur. Titta på videon [Setting up entity hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) (Ange hierarkier för entitet) för att få en bättre förståelse för de organisatoriska verktyg som är tillgängliga och hur du utnyttjar dem. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
-Titta på videon om [hur du granskar taggningsprinciper med Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) och lär dig mer om de verktyg som du kan använda för att kräva skalbar resurstaggning inom organisationen. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
+
+När du utvärderar och skapar en hierarki som uppfyller dina behov kan du ställa följande frågor.
+
+*Vilken faktureringshierarki är tillgänglig för mig och vilka olika omfång jag kan använda?*
+
+Identifiera faktureringsavtalet för din organisation genom att fastställa din Azure-erbjudandetyp. De tillgängliga omfången för varje Azure-faktureringsavtal dokumenteras i [Förstå och arbeta med omfång](understand-work-scopes.md).
+
+*Hur ska jag organisera mina prenumerationer och resursgrupper om jag har flera team?*
+
+Det vanligt att skapa en prenumeration eller en resursgrupp för varje team. De kan hjälpa dig att särskilja kostnader och hålla teamen ansvarig. Kostnaderna är dock kopplade till prenumerationen eller resursgruppen.
+
+Om du redan har grupper med flera prenumerationer bör du överväga att gruppera prenumerationerna i hantering grupper för att analysera kostnaderna tillsammans. Hanteringsgrupper, prenumerationer och resursgrupper ingår i Azure RBAC-hierarkin. Använd dem tillsammans för åtkomstkontroll i dina team.
+
+Resurser kan sträcka sig över flera omfång, särskilt när de delas av flera team eller arbetsbelastningar. Överväg att identifiera resurser med taggar. Taggar beskrivs närmare i nästa avsnitt.
+
+*Har jag utvecklings- och produktionsmiljöer?*
+
+Överväg att skapa Dev/Test-prenumerationer för dina utvecklingsmiljöer för att dra nytta av minskad prissättning. Om arbetsbelastningarna omfattar flera team eller Azure-omfång bör du överväga att använda taggar för att identifiera dem.
+
+### <a name="tag-shared-resources"></a>Tagga delade resurser
+
+Taggar är ett effektivt sätt att förstå kostnader som sträcker sig över flera team och Azure-omfång. Du kan till exempel ha en resurs som en e-postserver som många team använder. Du kan ange en delad resurs, t. ex. e-postservern, i en prenumeration som är dedikerad till delade resurser eller lägga till den i en befintlig prenumeration. Om du har placerat den i en befintlig prenumeration kanske prenumerationens ägare inte vill att kostnaden ska påföras till sitt team varje månad. I det här exemplet kan du använda en tagg för att identifiera resursen som delad.
+
+På samma sätt kan du också ha webbappar eller miljöer, till exempel test- eller produktionsmiljöer, som använder resurser över flera prenumerationer som ägs av olika team. För att bättre förstå den totala kostnaden för arbetsbelastningarna kan du tagga de resurser som de använder. När taggar tillämpas på rätt sätt kan du använda dem som ett filter i kostnadsanalysen för att bättre förstå trender.
+
+När du har planerat resurstaggning kan du konfigurera en Azure-princip för att tvinga fram taggning av resurser. Titta på videon om [hur du granskar taggningsprinciper med Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) och lär dig mer om de verktyg som du kan använda för att kräva skalbar resurstaggning. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
-
 
 ### <a name="use-cost-analysis"></a>Använda kostnadsanalys
 

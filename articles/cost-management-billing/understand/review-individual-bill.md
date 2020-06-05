@@ -6,20 +6,22 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/13/2020
+ms.date: 05/28/2020
 ms.author: banders
-ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199134"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194148"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Självstudier: Granska din enskilda Azure-faktura
 
 Den här artikeln hjälper dig att förstå och granska din Azure-faktura. För varje faktureringsperiod får du normalt en faktura via e-post. Fakturan är en representation av din Azure-räkning. Samma kostnadsinformation på fakturan är tillgänglig i Azure-portalen. I den här självstudien jämför du fakturan med filen med detaljerad daglig användning samt med kostnadsanalys i Azure-portalen.
 
 Den här självstudien gäller endast för Azure-kunder som har en enskild prenumeration. Vanliga enskilda prenumerationer är sådana som har Betala per användning-priser och har köpts direkt från Azure-webbplatsen.
+
+Om du behöver hjälp med att förstå oväntade kostnader kan du läsa [Analysera oväntade avgifter](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). Om du behöver avbryta din Azure-prenumeration läser du [Avbryta din Azure-prenumeration](../manage/cancel-azure-subscription.md).
 
 I den här guiden får du lära dig att:
 
@@ -47,7 +49,7 @@ Det första steget för att jämföra användning och kostnader är att ladda ne
 
 I Azure-portalen skriver du *prenumerationer* i sökrutan och klickar sedan på [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-![Gå till prenumerationer](./media/review-individual-bill/navigate-subscriptions.png)
+[![Gå till prenumerationer](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Klicka på prenumerationen i listan över prenumerationer.
 
@@ -147,7 +149,7 @@ Till exempel kan en enskild virtuell dator (VM) som skapats i Azure ha följande
 
 När den virtuella datorn skapas börjar varje mätare att skicka användningsposter. Den här användningen och priset för mätaren spåras i Azure-mätarsystemet.
 
-Du kan se de mätare som användes för att beräkna din faktura i CSV-filen för användning.
+Du kan se de mätare som användes för att beräkna din faktura i CSV-filen för användning, som i de tidigare exemplen.
 
 ## <a name="pay-your-bill"></a><a name="payment"></a>Betala din faktura
 

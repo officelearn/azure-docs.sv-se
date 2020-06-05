@@ -3,17 +3,17 @@ title: Självstudie – Skapa och hantera exporterade data från Azure Cost Mana
 description: Den här artikeln visar hur du kan skapa en hantera exporterade Azure Cost Management-data så att du kan använda dem i externa system.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 05/27/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f0a1515816fe7a9e1d79f69655e6bf21725a0b5d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 90334d29ed2f649854863f9ad86f03811728a945
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877957"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142337"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Självstudier: Skapa och hantera exporterade data
 
@@ -49,17 +49,15 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-daily-export"></a>Skapa en daglig export
 
-Om du vill skapa eller visa en dataexport, eller om du vill schemalägga en export, öppnar du önskat omfång i Azure-portalen och väljer **Kostnadsanalys** i menyn. Du kan till exempel gå till **Prenumerationer**, välja en prenumeration i listan och sedan välja **Kostnadsanalys** i menyn. Överst på sidan Kostnadsanalys väljer du **Exportera** och väljer sedan ett exportalternativ. Välj till exempel **Schemalägg export**.  
+Om du vill skapa eller visa en dataexport, eller om du vill schemalägga en export, öppnar du önskat omfång i Azure-portalen och väljer **Kostnadsanalys** i menyn. Du kan till exempel gå till **Prenumerationer**, välja en prenumeration i listan och sedan välja **Kostnadsanalys** i menyn. Överst på sidan Kostnadsanalys väljer du **Inställningar** och sedan **Exporter** och väljer därefter ett exportalternativ.
 
 > [!NOTE]
 > - Utöver prenumerationer kan du skapa exporter för resursgrupper, konton, avdelningar och registreringar. Mer information om omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
 >- När du är inloggad som partner i faktureringskontots omfång eller i en kunds klientorganisation kan du exportera data till ett Azure Storage-konto som är länkat till ditt partnerlagringskonto. Du måste dock ha en aktiv prenumeration i din CSP-klientorganisation.
->
-
 
 Välj **Lägg till**, skriv ett namn för exporten och välj sedan alternativet **Daily export of month-to-date costs** (Daglig export av kostnader hittills under månaden). Välj **Nästa**.
 
-![Nytt exempel som visar exporttyp](./media/tutorial-export-acm-data/basics_exports.png)
+[![Nytt exempel som visar exporttyp](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
 
 Ange prenumerationen för ditt Azure Storage-konto och välj sedan ditt lagringskonto.  Ange den lagringscontainer och den katalogsökväg som du vill att exportfilen ska gå till. Välj **Nästa**.
 
@@ -83,10 +81,19 @@ Det finns två typer av exportalternativ:
 **Anpassad** – Gör att du kan schemalägga vecko- och månadsexporter med alternativ för ”hittills den här veckan” och ”hittills den här månaden”. *Den första exporten körs direkt.*
 
 Om du har en prenumeration av typen Betala per användning, MDSN eller Visual Studio är det inte säkert att faktureringsperioden justeras till kalendermånaden. För dessa typer av prenumerationer och resursgrupper kan du skapa en export som är justerad till din fakturaperiod eller till kalendermånader. Om du vill skapa en export som är justerad till din fakturamånad går du till **Anpassad** och väljer **Billing-period-to-date** (Faktureringsperiod hittills).  Om du vill skapa en export som är justerad till kalendermånaden väljer du **Month-to-date** (Hittills under månaden).
->
->
 
 ![Ny export – Fliken Grundläggande inställningar visar ett anpassat alternativ för ”hittills den här veckan” för varje vecka](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+
+#### <a name="create-an-export-for-multiple-subscriptions"></a>Skapa en export för flera prenumerationer
+
+Om du har ett Enterprise-avtal kan du använda en hanteringsgrupp för att aggregera information om prenumerationskostnader i en enda container. Sedan kan du exportera kostnadshanteringsdata för hanteringsgruppen.
+
+Export av hanteringsgrupper av andra prenumerationstyper stöds inte.
+
+1. Skapa en hanteringsgrupp och tilldela prenumerationer till den.
+1. I Exporter väljer du **Omfång**.
+1. Välj **Select this management group** (Välj den här hanteringsgruppen).
+1. Skapa en export i omfånget för att hämta kostnadshanteringsdata för prenumerationerna i hanteringsgruppen.
 
 ## <a name="verify-that-data-is-collected"></a>Kontrollera att data samlas in
 
@@ -104,6 +111,18 @@ Filen öppnas med det program eller den app som är inställt på att öppna CSV
 
 ![Exempel på exporterade CSV-data som visas i Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
+### <a name="download-an-exported-csv-data-file"></a>Ladda ned en exporterad CSV-datafil
+
+Du kan också ladda ned den exporterade CSV-filen i Azure-portalen. Följande steg beskriver hur du hittar den från kostnadsanalys.
+
+1. I kostnadsanalys väljer du **Inställningar** och sedan **Exporter**.
+1. I listan över exporter väljer du lagringskontot för en export.
+1. I ditt lagringskonto väljer du **Containers**.
+1. Välj containern i listan över containrar.
+1. Navigera genom katalogerna och lagringsblobar till det datum du vill ha.
+1. Välj CSV-filen och välj sedan **Ladda ned**.
+
+[![Exempel på exportnedladdning](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
 
 ## <a name="access-exported-data-from-other-systems"></a>Komma åt exporterade data från andra system
 

@@ -7,20 +7,18 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 05/28/2020
 ms.author: banders
-ms.openlocfilehash: 16534343a831f0802a60a9214f567742153360e0
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 4e77b167f00e2cfa3838439143c6074bd4122976
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479010"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191251"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visa och ladda ned din faktura för Microsoft Azure
 
 Du kan ladda ned din faktura i [Azure-portalen](https://portal.azure.com/) eller få den skickad via e-post. Om du är Azure-kund med ett Enterprise-avtal (EA-kund) kan du inte ladda ned organisationens faktura. Fakturorna skickas i stället till den person som tar emot fakturor för registreringen.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="when-invoices-are-generated"></a>När fakturor genereras
 
@@ -46,7 +44,7 @@ John skapar till exempel *Azure pren 01* den 5 mars och *Azure pren 02* den 10 m
 
 Om du betalar för Azure med kreditkort och du köper en reservation, genererar Azure en omedelbar faktura. Men när du debiteras med en faktura debiteras du för reservationen på nästa månads faktura.
 
-**Supportavtal för Azure** – en faktura genereras varje månad för prenumerationen på supportavtalet. Den första fakturan genereras på inköpsdagen eller upp till två dagar senare. Efterföljande fakturorna för supportavtalet skapas vanligtvis den dag i månaden då kontot skapades, men det kan vara upp till två dagar senare.
+**Supportavtal för Azure** – en faktura genereras varje månad för prenumerationen på supportavtalet. Den första fakturan genereras på inköpsdagen eller upp till två dagar senare. Senare fakturor för supportavtalet skapas vanligtvis den dag i månaden då kontot skapades, men det kan vara upp till två dagar senare.
 
 ## <a name="download-your-mosp-azure-subscription-invoice"></a>Ladda ned din faktura för MOSP Azure-prenumeration
 
@@ -58,7 +56,7 @@ Du måste ha rollen som kontoadministratör för en prenumeration om du ska kunn
 1. Välj **Fakturor** i faktureringsavsnittet.  
     ![Skärmbild som visar en användare som väljer alternativet Fakturor för en prenumeration](./media/download-azure-invoice/select-subscription-invoice.png)
 1. Välj **Ladda ned** för att ladda ned en PDF-version av fakturan och välj sedan **Ladda ned** under fakturaavsnittet.  
-    [![Skärmbild som visar faktureringsperioder, nedladdningsalternativet och de totala avgifterna för varje faktureringsperiod](./media/download-azure-invoice/download-invoice-subscription.png)](./media/download-azure-invoice/download-invoice-subscription-zoomed.png#lightbox)
+    ![Skärmbild som visar faktureringsperioder, nedladdningsalternativet och de totala avgifterna för varje faktureringsperiod](./media/download-azure-invoice/downloadinvoice-subscription.png)
 1. Du kan även ladda ned en daglig uppdelning av förbrukade kvantiteter och avgifter genom att välja **Ladda ned** i avsnittet med användningsinformation. Det kan ta några minuter att förbereda CSV-filen.  
     ![Skärmbild som visar Ladda ned faktura och förbrukningssidan](./media/download-azure-invoice/usage-and-invoice-subscription.png)
 
@@ -66,39 +64,33 @@ Mer information om din faktura finns i [Förstå fakturan för Microsoft Azure](
 
 ## <a name="download-your-mosp-support-plan-invoice"></a>Ladda ned fakturan för MOSP supportavtal
 
-En faktura genereras bara för en prenumeration på ett supportavtal som tillhör ett MOSP-faktureringskonto. [Kontrollera åtkomsten till ett MOSP-konto](../manage/view-all-accounts.md#check-the-type-of-your-account). 
+En faktura genereras bara för en prenumeration på ett supportavtal som tillhör ett MOSP-faktureringskonto. [Kontrollera åtkomsten till ett MOSP-konto](../manage/view-all-accounts.md#check-the-type-of-your-account).
 
 Du måste ha rollen som kontoadministratör i prenumerationen för supportavtalet om du ska kunna hämta fakturan.
 
-1.  Logga in på [Azure-portalen](https://portal.azure.com).
-1.  Sök efter **Kostnadshantering + fakturering**.  
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Sök efter **Kostnadshantering + fakturering**.  
     ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/download-azure-invoice/search-cmb.png)
-1.  Välj **Fakturor** till vänster.
-1.  Välj prenumerationen för supportavtalet och välj sedan **Ladda ned**.  
+1. Välj **Fakturor** till vänster.
+1. Välj prenumerationen för supportavtalet och välj sedan **Ladda ned**.  
     [![Skärmbild som visar en lista över faktureringsprofiler](./media/download-azure-invoice/cmb-invoices.png)](./media/download-azure-invoice/cmb-invoices-zoomed-in.png#lightbox)
-1.  Välj **Ladda ned** för att ladda ned en PDF-version av fakturan.  
+1. Välj **Ladda ned** för att ladda ned en PDF-version av fakturan.  
     ![Skärmbild som visar faktureringsperioder, nedladdningsalternativet och de totala avgifterna för varje faktureringsperiod](./media/download-azure-invoice/download-invoice-support-plan.png)
 
-## <a name="allow-others-to-download-an-mosp-subscription-invoice"></a>Tillåt andra att ladda ned en faktura för MOSP-prenumerationen
-
-PDF-versionen av fakturan innehåller personlig information om kontoadministratören, så kontoadministratören för den här prenumerationen måste ge andra användare behörighet att ladda ned fakturan. När behörigheten har beviljats kan följande personer och användare med lämpliga roller ladda ned prenumerationsfakturor:
-
-- Användare
-- Grupper
-- Tjänstens huvudnamn med en ägare
-- Deltagare
-- Läsare
-- Administratör för användaråtkomst
-- Faktureringsläsare
-- Medadministratör
-- Tjänstadministratör
+## <a name="allow-others-to-download-the-your-subscription-invoice"></a>Tillåt att andra laddar ned din faktura för prenumerationen
 
 Så här laddar du ned en faktura:
 
 1.  Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör för prenumerationen.
-1.  Sök efter **Kostnadshantering + fakturering**.  
-1.  Välj **Fakturor** till vänster.
-1.  Välj din Azure-prenumeration och välj sedan **Åtkomst till faktura**.  
+
+2.  Sök efter **Kostnadshantering + fakturering**.
+
+    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/download-azure-invoice/search-cmb.png)
+
+3.  Välj **Fakturor** till vänster.
+
+4.  Välj din Azure-prenumeration och klicka sedan på **Tillåt andra att ladda ned fakturan**.
+
     [![Skärmbild som visar val av åtkomst till faktura](./media/download-azure-invoice/cmb-select-access-to-invoice.png)](./media/download-azure-invoice/cmb-select-access-to-invoice-zoomed-in.png#lightbox)
 1.  Välj **På** och sedan **Spara** överst på sidan.  
     ![Skärmbild som visar val av På för åtkomst till faktura](./media/download-azure-invoice/cmb-access-to-invoice.png)
@@ -108,16 +100,16 @@ Så här laddar du ned en faktura:
 Du måste ha rollen som kontoadministratör för en prenumeration eller ett supportavtal för att välja att ta emot fakturan via e-post. E-postfakturor är endast tillgängliga för prenumerationer och supportavtal, inte för reservationer eller Azure Marketplace-köp. När du har valt till alternativet kan du lägga till ytterligare mottagare som också får fakturan via e-post.
 
 1.  Logga in på [Azure-portalen](https://portal.azure.com).
-1.  Sök efter **Kostnadshantering + fakturering**.  
-1.  Välj **Fakturor** till vänster.
-1.  Välj din Azure-prenumeration eller supportavtalsprenumeration och välj sedan **E-postfaktura**.  
+2.  Sök efter **Kostnadshantering + fakturering**.  
+3.  Välj **Fakturor** till vänster.
+4.  Välj din Azure-prenumeration eller supportavtalsprenumeration och välj sedan **Receive invoice by email** (Ta emot faktura via e-post).  
     [![Skärmbild som visar en lista över faktureringsprofiler](./media/download-azure-invoice/cmb-email-invoice.png)](./media/download-azure-invoice/cmb-email-invoice-zoomed-in.png#lightbox)
-1. Välj **Anmäl** och godkänn villkoren.  
-    ![Skärmbild som visar steg 2 i anmälningsflödet](./media/download-azure-invoice/invoice-article-step02.png)
-1. Fakturan skickas till önskad e-postadress för kommunikation. Du kan uppdatera e-postadressen i [kontaktinformation för ditt faktureringskonto](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/Properties).  
-    ![Skärmbild som visar steg 3 i anmälningsflödet](./media/download-azure-invoice/invoice-article-step03-verify-email.png)
+5. Klicka på **Faktura via e-post** och godkänn villkoren.  
+    ![Skärmbild som visar steg 2 i anmälningsflödet](./media/download-azure-invoice/invoicearticlestep02.png)
+6. Fakturan skickas till önskad e-postadress för kommunikation. Välj **Uppdatera profil** för att uppdatera e-postmeddelandet.  
+    ![Skärmbild som visar steg 3 i anmälningsflödet](./media/download-azure-invoice/invoicearticlestep03-verifyemail.png)
 
-## <a name="share-your-mosp-invoices-with-others-by-email"></a>Dela dina MOSP-fakturor med andra via e-post
+## <a name="share-subscription-and-support-plan-invoices"></a>Dela fakturor för prenumeration och supportavtal
 
 Du kanske vill dela fakturorna för prenumerationen och supportavtalet varje månad med ditt redovisningsteam eller skicka dem till någon av dina andra e-postadresser.
 
@@ -140,13 +132,22 @@ I början av månaden skapas en månadsfaktura för varje faktureringsprofil på
 Du måste ha rollen som ägare, deltagare, läsare eller fakturaansvarig för faktureringsprofilen för att kunna ladda ned fakturor från Azure-portalen. Användare med en roll som ägare, deltagare eller läsare för ett faktureringskonto kan ladda ned fakturor för alla faktureringsprofiler i kontot.
 
 1.  Logga in på [Azure-portalen](https://portal.azure.com).
-1.  Sök efter **Kostnadshantering + fakturering**.  
-1. Välj **Fakturor** till vänster.
-    [![Skärmbild som visar sidan fakturor för ett MCA-faktureringskonto](./media/download-azure-invoice/mca-billing-profile-invoices.png)](./media/download-azure-invoice/mca-billing-profile-invoices-zoomed.png#lightbox)
-1. Välj den faktura du vill ladda ned i fakturatabellen.
-1. Välj **Ladda ned en PDF-faktura** högst upp på sidan.  
-    ![Skärmbild som visar nedladdning av faktura-PDF](./media/download-azure-invoice/mca-billing-profile-download-invoice.png)
-1. Du kan även ladda ned en CSV-fil som innehåller en daglig uppdelning av förbrukade kvantiteter och beräknade avgifter genom att välja **Hämta Azure-användning**. Det kan ta några minuter att förbereda CSV-filen.
+
+2.  Sök efter **Kostnadshantering + fakturering**.
+
+    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/download-azure-invoice/search-cmb.png)
+
+3. Välj **Fakturor** till vänster.
+
+    [![Skärmbild som visar sidan fakturor för ett MCA-faktureringskonto](./media/download-azure-invoice/mca-billingprofile-invoices.png)](./media/download-azure-invoice/mca-billingprofile-invoices-zoomed-in.png#lightbox)
+
+4. Välj den faktura du vill ladda ned i fakturatabellen.
+
+5. Klicka på knappen **Ladda ned en PDF-faktura** högst upp på sidan.
+
+    [![Skärmbild som visar nedladdning av faktura-PDF](./media/download-azure-invoice/mca-billingprofile-download-invoice.png)](./media/download-azure-invoice/mca-billingprofile-download-invoice-zoomed-in.png#lightbox)
+
+6. Du kan även ladda ned en daglig uppdelning av förbrukade kvantiteter och beräknade avgifter genom att klicka på **Hämta Azure-användning**. Det kan ta några minuter att förbereda csv-filen.
 
 ## <a name="get-your-billing-profiles-invoice-in-email"></a>Få fakturan för din faktureringsprofils via e-post
 
@@ -160,7 +161,15 @@ Du måste ha en roll som ägare eller deltagare för faktureringsprofilen eller 
     ![Skärmbild som visar sidan fakturor för ett MCA-faktureringskonto](./media/download-azure-invoice/mca-billing-profile-email-invoice.png)
 1.  Välj **Uppdatera**.
 
-## <a name="give-others-access-to-mca-or-mpa-invoices"></a>Ge andra åtkomst till MCA- eller MPA-fakturor
+2.  Sök efter **Kostnadshantering + fakturering**.
+
+    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/download-azure-invoice/search-cmb.png)
+
+3.  Välj **Fakturor** på vänster sida och välj sedan **E-postfaktura** överst på sidan.
+
+    [![Skärmbild som visar sidan fakturor för ett MCA-faktureringskonto](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice-zoomed-in.png)
+
+4.  Om du har flera faktureringsprofiler väljer du en fakturerings profil och sedan **Välj**.
 
 Du kan ge andra åtkomst att visa, ladda ned och betala fakturor genom att tilldela dem rollen som fakturaansvarig för en MCA- eller MPA faktureringsprofil. Om du har anmält dig för att få din faktura via e-post får dessa användare också fakturorna via e-post.
 
@@ -173,15 +182,68 @@ Du kan ge andra åtkomst att visa, ladda ned och betala fakturor genom att tilld
 1. I listrutan Roll väljer du **Fakturaansvarig**. Ange e-postadressen för den användare som ska få åtkomst. Välj **Spara** för att tilldela rollen.  
    ![Skärmbild som visar tillägg av en användare som fakturaansvarig](./media/download-azure-invoice/mca-added-invoice-manager.png)
 
-## <a name="why-you-might-not-see-an-invoice"></a><a name="noinvoice"></a> Orsaker till att du kanske inte ser en faktura
+1. Sök efter **Kostnadshantering + fakturering**.
+
+   ![Skärmbild som visar en sökning efter prenumerationer i portalen](./media/download-azure-invoice/search-cmb.png)
+
+1. Välj **Faktureringsprofiler** till vänster. I listan med faktureringsprofiler väljer du en faktureringsprofil som du vill tilldela en roll som fakturaansvarig för.
+
+   ![Skärmbild som visar en lista över faktureringsprofiler](./media/download-azure-invoice/mca-select-profile-zoomed-in.png)
+
+1. Välj **Åtkomstkontroll (IAM)** på vänster sida och välj sedan **Lägg till** överst på sidan.
+
+   [![Skärmbild som visar sidan för åtkomstkontroll](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png)
+
+1. I listrutan Roll väljer du **Fakturaansvarig**. Ange e-postadressen för den användare som ska få åtkomst. Välj **Spara** för att tilldela rollen.
+
+   [![Skärmbild som visar tillägg av en användare som fakturaansvarig](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
+   
+   
+##  <a name="why-you-might-not-see-an-invoice"></a>Orsaker till att du kanske inte ser en faktura
+
+<a name="noinvoice"></a>
 
 Det kan finnas flera orsaker till att den inte visas:
 
-- Det är mindre än 30 dagar sedan du började prenumerera på Azure. 
-- Azure fakturerar dig några dagar efter faktureringsperiodens slut. Därför kan det hända att det inte har genererats någon faktura ännu.
-- Du har inte behörighet att visa fakturor.
-    Du måste ha ett MCA- eller MPA-faktureringskonto, du måste ha rollen ägare, deltagare, läsare eller fakturaansvarig för en faktureringsprofil eller rollen ägare, deltagare eller läsare för faktureringskontot för att kunna visa fakturor. För andra prenumerationer ser du kanske inte fakturorna om du inte är kontoadministratör. Läs mer om att få åtkomst till faktureringsinformation på sidan om att [hantera åtkomst till Azure-fakturering med hjälp av roller](../manage/manage-billing-access.md).
-- Om du har ett MOSP-faktureringskonto och har registrerat dig för ett kostnadsfritt Azure-konto eller en prenumeration med ett månatligt kreditbelopp får du bara en faktura när du överskrider det månatliga kreditbeloppet. Om du har ett faktureringskonto för ett MCA eller ett MPA får du alltid en faktura.
+- Fakturan är inte klar än
+    
+    - Det är mindre än 30 dagar sedan du började prenumerera på Azure. 
+
+    - Azure fakturerar dig några dagar efter faktureringsperiodens slut. Därför kan det hända att det inte har genererats någon faktura ännu.
+
+- Du har inte behörighet att visa fakturor. 
+    
+    - Du måste ha ett MCA- eller MPA-faktureringskonto, du måste ha rollen ägare, deltagare, läsare eller fakturaansvarig för en faktureringsprofil eller rollen ägare, deltagare eller läsare för faktureringskontot för att kunna visa fakturor. 
+    
+    - För andra faktureringskonton ser du kanske inte fakturorna om du inte är kontoadministratör.
+
+- Ditt konto har inte stöd för en faktura.
+
+    - Om du har ett faktureringskonto för Microsoft Online Services Program (MOSP) och har registrerat dig för ett kostnadsfritt Azure-konto eller en prenumeration med ett månatligt kreditbelopp får du bara en faktura när du överskrider det månatliga kreditbeloppet.
+
+    - Om du har ett faktureringskonto för ett Microsoft-kundavtal (MCA) eller Microsoft-partneravtal (MPA) får du alltid en faktura.
+
+- Du har åtkomst till fakturan via ett av dina andra konton.
+
+    - Den här situationen inträffar vanligtvis när du klickar på en länk i e-postmeddelandet, där du uppmanas att visa din faktura i portalen. Om du klickar på länken visas ett felmeddelande – `We can't display your invoices. Please try again`. Kontrollera att du är inloggad med den e-postadress som har behörighet att visa fakturorna.
+
+- Du har åtkomst till fakturan via en annan identitet. 
+
+    - Vissa kunder har två identiteter med samma e-postadress, ett arbetskonto och ett Microsoft-konto. Normalt har endast en av identiteterna behörighet att visa fakturor. Om de loggar in med identiteten som inte har behörighet ser de inte fakturorna. Kontrollera att du använder rätt identitet för att logga in.
+
+- Du har loggat in på en felaktig Azure Active Directory-klient (AAD). 
+
+    - Ditt faktureringskonto är associerat med en AAD-klient. Om du är inloggad på en felaktig klient ser du inte fakturan för prenumerationer på ditt faktureringskonto. Kontrollera att du har loggat in på rätt ADD-klient (Azure Active Directory). Om du inte har loggat in på rätt klient använder du följande för att byta klient i Azure-portalen:
+
+        1. Välj din e-postadress överst till höger på sidan.
+
+        2. Välj **Växla katalog**.
+
+           ![Skärmbild som visar val för att växla katalog i portalen](./media/download-azure-invoice/select-switch-directory.png)
+
+        3. Välj en katalog i avsnittet **Alla kataloger**.
+
+           ![Skärmbild som visar val av katalog i portalen](./media/download-azure-invoice/select-directory.png)
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
@@ -200,5 +262,3 @@ Om du har ett MCA kan du läsa mer här:
 - [Förstå avgifterna på fakturan för din faktureringsprofil](review-customer-agreement-bill.md)
 - [Förstå termerna på fakturan för din faktureringsprofil](mca-understand-your-invoice.md)
 - [Förstå filen med användning och avgifter för Azure för din faktureringsprofil](mca-understand-your-usage.md)
-
-

@@ -3,20 +3,69 @@ title: Vanlig användning av kostnadsanalyser i Azure Cost Management
 description: I den här artikeln beskrivs hur du hämtar resultat från vanliga kostnadsanalyser i Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/10/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 2e0e222e636f694328835e20fda97deca1d9986a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 130d313c1ca549f3a4e6f1ec1bbac2a16a753709
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261520"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142539"
 ---
 # <a name="common-cost-analysis-uses"></a>Vanlig användning av kostnadsanalyser
 
 Azure Cost Management-användare vill ofta ha svar på samma frågor som många andra. Den här artikeln visar hur du hämtar resultat från vanliga kostnadsanalyser i Cost Management.
+
+## <a name="view-forecasted-costs"></a>Visa prognostiserade kostnader
+
+Prognostiserade kostnader visas i kostnadsanalysområden för vyerna för område och staplad kolumn. Prognosen baseras på din historiska resursanvändning. Ändringar i resursanvändningen påverkar prognostiserade kostnader.
+
+Gå till kostnadsanalysen för ditt omfång i Azure-portalen. Ett exempel: **Cost Management och fakturering** > **Cost Management** > **Kostnadsanalys**.
+
+I standardvyn innehåller det översta diagrammet de faktiska/amorterade kostnaderna och prognostiserade kostnadsavsnitt. Den färgade delen av diagrammet visar dina faktiska/amorterade kostnader. Den skuggade delen visar prognostiserade kostnader.
+
+[![Prognostiserad kostnad](./media/cost-analysis-common-uses/enrollment-forecast.png)](./media/cost-analysis-common-uses/enrollment-forecast.png#lightbox)
+
+## <a name="view-forecasted-costs-grouped-by-service"></a>Visa prognostiserade kostnader grupperade efter tjänst
+
+Standardvärdet visar inte en tjänst med prognostiserade kostnader för en tjänst, så du måste lägga till ett urval att gruppera efter.
+
+Gå till kostnadsanalysen för ditt omfång i Azure-portalen. Ett exempel: **Cost Management och fakturering** > **Cost Management** > **Kostnadsanalys**.
+
+Välj **Gruppera efter** > **Tjänstnamn**.
+
+I vyn visas dina kostnader grupperade för varje tjänst. Den prognostiserade kostnaden beräknas inte för varje tjänst. Den projiceras för dina **totala** tjänster.
+
+[![Grupperad prognostiserad kostnad](./media/cost-analysis-common-uses/forecast-group-by-service.png)](./media/cost-analysis-common-uses/forecast-group-by-service.png#lightbox)
+
+## <a name="view-forecasted-costs-for-a-service"></a>Visa prognostiserade kostnader för en tjänst
+
+Du kan visa prognostiserade kostnader som är begränsade till en enda tjänst. Du kanske till exempel vill se prognostiserade kostnader för just de virtuella datorerna.
+
+1. Gå till kostnadsanalysen för ditt omfång i Azure-portalen. Ett exempel: **Cost Management och fakturering** > **Cost Management** > **Kostnadsanalys**.
+1. Välj **Lägg till filter** och sedan **Tjänstnamn**.
+1. Välj en tjänst i listan **Välj**. Välj till exempel **virtuella datorer**.
+
+Granska den faktiska kostnaden för ditt val och den prognostiserade kostnaden.
+
+Du kan lägga till fler anpassningar i vyn.
+
+1. Lägg till ett andra filter för **mätare** och välj ett värde att filtrera efter en enskild typ av mätare under det valda tjänstnamnet.
+1. Gruppera efter **resurs** för att se de resurser som kostnaderna gäller. Den prognostiserade kostnaden beräknas inte för varje tjänst. Den projiceras för dina **totala** resurser.
+
+[![Prognostiserade kostnader för en tjänst](./media/cost-analysis-common-uses/forecast-by-service.png)](./media/cost-analysis-common-uses/forecast-by-service.png#lightbox)
+
+## <a name="view-your-azure-and-aws-costs-together"></a>Visa dina kostnader för Azure och AWS tillsammans  
+
+Om du vill visa kostnader för Azure och AWS tillsammans använder du omfång för hanteringsgrupper i Azure.
+
+1. Skapa en hanteringsgrupp eller välj en befintlig.
+1. Tilldela befintliga Azure-prenumerationer som du behöver till hanteringsgruppen.
+1. Tilldela *samma* hanteringsgrupp till det länkade kontot för anslutningsappen.
+1. Gå till Kostnadsanalys och välj **Ackumulerade kostnader**.
+1. Välj **Grupper efter** - **Leverantör**.
 
 ## <a name="view-cost-breakdown-by-azure-service"></a>Visa kostnadsuppdelning efter Azure-tjänst
 
@@ -37,7 +86,6 @@ Gå till kostnadsanalysen för omfattningen som är associerad med fakturan som 
 När du granskar fakturainformationen kan du identifiera eventuella tjänster som har oväntade kostnader och avgöra vilka resurser som är direkt kopplade till resursen i kostnadsanalysen. Om du till exempel vill analysera avgifterna för tjänsten Virtual Machines går du till vyn **Ackumulerade kostnader**. Sedan ställer du in kornigheten på **Daglig** och filtrerar avgifterna efter **Tjänstnamn: Virtual Machines** samt grupperar avgifterna efter **Resurs**.
 
 [![Exempel som visar ackumulerade kostnader för virtuella datorer](./media/cost-analysis-common-uses/virtual-machines.png)](./media/cost-analysis-common-uses/virtual-machines.png#lightbox)
-
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Visa kostnadsuppdelning efter Azure-resurs
 

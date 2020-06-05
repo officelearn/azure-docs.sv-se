@@ -5,17 +5,17 @@ description: Lär dig hur du kör TensorFlow-tränings skript i skala med hjälp
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2bbd81f3858aa78b9e0e2d610c0fdb0a67816c8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 679e44a8949f283c0e01c47ca3e602ae6fc0eacf
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78228314"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433793"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Bygg en TensorFlow djup inlärnings modell i skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Kör den här koden i någon av följande miljöer:
 
     - [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
     - [Skapa en konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
-    - [Hämta exempel skript filen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` och`utils.py`
+    - [Hämta exempel skript filen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` särskilt`utils.py`
      
     Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) av den här guiden på sidan med GitHub-exempel. Antecknings boken innehåller utökade avsnitt som täcker intelligenta parametrar, modell distribution och Notebook-widgetar.
 
@@ -67,9 +67,9 @@ from azureml.train.dnn import TensorFlow
 
 ### <a name="initialize-a-workspace"></a>Initiera en arbets yta
 
-[Azure Machine Learning-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) ett objekt.
+[Azure Machine Learning-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa ett [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) objekt.
 
-Skapa ett objekt för arbets ytan `config.json` från filen som skapats i [avsnittet krav](#prerequisites).
+Skapa ett objekt för arbets ytan från `config.json` filen som skapats i [avsnittet krav](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
@@ -88,7 +88,7 @@ exp = Experiment(workspace=ws, name='tf-mnist')
 
 ### <a name="create-a-file-dataset"></a>Skapa en fil data uppsättning
 
-Ett `FileDataset` objekt refererar till en eller flera filer i data lagret för din arbets yta eller offentliga URL: er. Filerna kan vara i valfritt format, och klassen ger dig möjlighet att ladda ned eller montera filerna i din beräkning. Genom att skapa `FileDataset`en skapar du en referens till data käll platsen. Om du har tillämpat eventuella omvandlingar till data uppsättningen lagras de även i data uppsättningen. Data behålls på den befintliga platsen, så ingen extra lagrings kostnad uppstår. Mer information finns i [instruktions](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) guiden `Dataset` för.
+Ett `FileDataset` objekt refererar till en eller flera filer i data lagret för din arbets yta eller offentliga URL: er. Filerna kan vara i valfritt format, och klassen ger dig möjlighet att ladda ned eller montera filerna i din beräkning. Genom att skapa en `FileDataset` skapar du en referens till data käll platsen. Om du har tillämpat eventuella omvandlingar till data uppsättningen lagras de även i data uppsättningen. Data behålls på den befintliga platsen, så ingen extra lagrings kostnad uppstår. Mer information finns i [instruktions](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) guiden `Dataset` för.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -142,7 +142,7 @@ Mer information om beräknings mål finns i artikeln [Vad är en Compute Target]
 
 TensorFlow-uppskattningen implementeras via den generiska [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen, som kan användas för att stödja eventuella ramverk. Mer information om tränings modeller med hjälp av den generiska uppskattningen finns i [träna modeller med Azure Machine Learning med hjälp av uppskattning](how-to-train-ml-models.md)
 
-Om ditt utbildnings skript behöver ytterligare pip-eller Conda-paket för att kunna köras, kan du ha paketen installerade på den resulterande Docker-avbildningen genom att `pip_packages` skicka namnen via argumenten och `conda_packages` .
+Om ditt utbildnings skript behöver ytterligare pip-eller Conda-paket för att kunna köras, kan du ha paketen installerade på den resulterande Docker-avbildningen genom att skicka namnen via `pip_packages` `conda_packages` argumenten och.
 
 ```python
 script_params = {
@@ -187,7 +187,7 @@ När körningen körs går den igenom följande steg:
 
 ## <a name="register-or-download-a-model"></a>Registrera eller ladda ned en modell
 
-När du har tränat modellen kan du registrera den på din arbets yta. Med modell registreringen kan du lagra och version av dina modeller i din arbets yta för att förenkla [modell hantering och distribution](concept-model-management-and-deployment.md). Genom att ange parametrarna `model_framework`, `model_framework_version`, och `resource_configuration`, blir modell distribution utan kod tillgängligt. På så sätt kan du distribuera din modell direkt som en webb tjänst från den registrerade modellen, och `ResourceConfiguration` objektet definierar beräknings resursen för webb tjänsten.
+När du har tränat modellen kan du registrera den på din arbets yta. Med modell registreringen kan du lagra och version av dina modeller i din arbets yta för att förenkla [modell hantering och distribution](concept-model-management-and-deployment.md). Genom att ange parametrarna `model_framework` , `model_framework_version` , och `resource_configuration` , blir modell distribution utan kod tillgängligt. På så sätt kan du distribuera din modell direkt som en webb tjänst från den registrerade modellen, och `ResourceConfiguration` objektet definierar beräknings resursen för webb tjänsten.
 
 ```Python
 from azureml.core import Model
@@ -200,7 +200,7 @@ model = run.register_model(model_name='tf-dnn-mnist',
                            resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
 
-Du kan också hämta en lokal kopia av modellen med hjälp av objektet kör. I övnings skriptet `mnist-tf.py`behåller ett TensorFlow-sparfunktionen modellen till en lokal mapp (lokal till beräknings målet). Du kan använda kör-objektet för att ladda ned en kopia.
+Du kan också hämta en lokal kopia av modellen med hjälp av objektet kör. I övnings skriptet `mnist-tf.py` behåller ett TensorFlow-sparfunktionen modellen till en lokal mapp (lokal till beräknings målet). Du kan använda kör-objektet för att ladda ned en kopia.
 
 ```Python
 # Create a model folder in the current directory
@@ -215,7 +215,7 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Distribuerad träning
 
-[`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) Uppskattningen stöder också distribuerad utbildning mellan processor-och GPU-kluster. Du kan enkelt köra distribuerade TensorFlow-jobb och Azure Machine Learning hanterar dirigeringen åt dig.
+[`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)Uppskattningen stöder också distribuerad utbildning mellan processor-och GPU-kluster. Du kan enkelt köra distribuerade TensorFlow-jobb och Azure Machine Learning hanterar dirigeringen åt dig.
 
 Azure Machine Learning stöder två metoder för distribuerad utbildning i TensorFlow:
 
@@ -226,7 +226,7 @@ Azure Machine Learning stöder två metoder för distribuerad utbildning i Tenso
 
 [Horovod](https://github.com/uber/horovod) är ett ramverk med öppen källkod för distribuerad utbildning som utvecklas av Uber. Den erbjuder en enkel väg till distribuerade GPU TensorFlow-jobb.
 
-Om du vill använda Horovod anger [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) du ett objekt `distributed_training` för parametern i TensorFlow-konstruktorn. Den här parametern säkerställer att Horovod-biblioteket installeras för användning i ditt utbildnings skript.
+Om du vill använda Horovod anger du ett [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) objekt för `distributed_training` parametern i TensorFlow-konstruktorn. Den här parametern säkerställer att Horovod-biblioteket installeras för användning i ditt utbildnings skript.
 
 ```Python
 from azureml.core.runconfig import MpiConfiguration
@@ -249,7 +249,7 @@ estimator= TensorFlow(source_directory=project_folder,
 
 Du kan också köra [inbyggda distribuerade TensorFlow](https://www.tensorflow.org/deploy/distributed)som använder parameter Server modellen. I den här metoden tränar du över ett kluster av parameter servrar och arbetare. Arbets tagarna beräknar Övertoningarna under träningen, medan parameter servrarna sammanställer övertoningar.
 
-Om du vill använda parameter Server metoden anger du [`TensorflowConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) ett objekt för `distributed_training` parametern i TensorFlow-konstruktorn.
+Om du vill använda parameter Server metoden anger du ett [`TensorflowConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) objekt för `distributed_training` parametern i TensorFlow-konstruktorn.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -274,9 +274,9 @@ run = exp.submit(tf_est)
 
 #### <a name="define-cluster-specifications-in-tf_config"></a>Definiera kluster specifikationer i TF_CONFIG
 
-Du behöver också nätverks adresser och portar för klustret för [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), så Azure Machine Learning ställer `TF_CONFIG` in miljövariabeln åt dig.
+Du behöver också nätverks adresser och portar för klustret för [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec) , så Azure Machine Learning ställer in `TF_CONFIG` miljövariabeln åt dig.
 
-`TF_CONFIG` Miljö variabeln är en JSON-sträng. Här är ett exempel på variabeln för en parameter Server:
+`TF_CONFIG`Miljö variabeln är en JSON-sträng. Här är ett exempel på variabeln för en parameter Server:
 
 ```JSON
 TF_CONFIG='{
@@ -311,7 +311,7 @@ Den modell som du precis har registrerat kan distribueras exakt på samma sätt 
 
 ## <a name="preview-no-code-model-deployment"></a>Förhandsgranskningsvyn Distribution utan kod modell
 
-I stället för den traditionella distributions vägen kan du också använda funktionen utan kod distribution (för hands version) för Tensorflow. Genom att registrera din modell enligt vad som visas `model_framework`ovan `model_framework_version`med parametrarna `resource_configuration` ,, och kan du bara använda `deploy()` den statiska funktionen för att distribuera modellen.
+I stället för den traditionella distributions vägen kan du också använda funktionen utan kod distribution (för hands version) för Tensorflow. Genom att registrera din modell enligt vad som visas ovan med `model_framework` `model_framework_version` parametrarna,, och `resource_configuration` kan du bara använda den `deploy()` statiska funktionen för att distribuera modellen.
 
 ```python
 service = Model.deploy(ws, "tensorflow-web-service", [model])

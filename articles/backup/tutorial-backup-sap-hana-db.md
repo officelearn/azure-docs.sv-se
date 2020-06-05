@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31958a4d4e3af4f747ab2f9de7b1bc67560e87d7
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 52ffc6bf83ff2a2dcc22fd7c5ad8ab1480f9ce50
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248251"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417301"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -31,7 +31,7 @@ Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
 
 * Tillåt anslutning från den virtuella datorn till Internet, så att den kan komma åt Azure, enligt beskrivningen i avsnittet [Konfigurera nätverks anslutning](#set-up-network-connectivity) nedan.
 * En nyckel ska finnas i **hdbuserstore** som uppfyller följande kriterier:
-  * Det ska finnas i standard **hdbuserstore**
+  * Den måste finnas i standard **hdbuserstore**. Standardvärdet är det `<sid>adm` konto som SAP HANA är installerat under.
   * För MDC ska nyckeln peka mot SQL-porten för **namnserver**. Om det är SDC ska det peka på SQL-porten för **INDEXSERVER**
   * Den bör ha autentiseringsuppgifter för att lägga till och ta bort användare
 * Kör konfigurations skriptet för SAP HANA säkerhets kopiering (för registrerings skriptet) på den virtuella datorn där HANA är installerat, som rot användare. [Det här skriptet](https://aka.ms/scriptforpermsonhana) hämtar Hana-systemet för säkerhets kopiering. Mer information om skriptet för för registrering finns i avsnittet [Vad skriptet gör för registrering](#what-the-pre-registration-script-does) .
@@ -100,7 +100,7 @@ Använda en HTTP-proxy | Detaljerad kontroll i proxyn över lagrings-URL: er til
 
 Att köra skriptet för för registrering utför följande funktioner:
 
-* Den installerar eller uppdaterar alla nödvändiga paket som krävs av Azure Backup agenten på din distribution.
+* Baserat på din Linux-distribution installerar eller uppdaterar skriptet alla nödvändiga paket som krävs av Azure Backup agenten.
 * Den utför utgående nätverks anslutnings kontroller med Azure Backup servrar och beroende tjänster som Azure Active Directory och Azure Storage.
 * Den loggar in i HANA-systemet med hjälp av användar nyckeln som anges som en del av [förutsättningarna](#prerequisites). Användar nyckeln används för att skapa en säkerhets kopierings användare (AZUREWLBACKUPHANAUSER) i HANA-systemet och användar nyckeln kan tas bort när skriptet för för registrering har körts.
 * AZUREWLBACKUPHANAUSER har tilldelats följande obligatoriska roller och behörigheter:

@@ -5,16 +5,16 @@ description: Felsöka Azure Machine Learning pipelines i python. Lär dig vanlig
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 4f0eb6aa92dd8999baed6868a159c86d5e7bd0c8
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: bf6a8dd0bfc4ffb9f6b6fa0c9b1d864c4298755a
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594665"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433430"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka pipelines för maskininlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -78,11 +78,11 @@ Följande tabell innehåller vanliga problem under utveckling av pipeline, med m
 
 | Problem | Möjlig lösning |
 |--|--|
-| Det gick inte att skicka `PipelineData` data till katalogen | Se till att du har skapat en katalog i skriptet som motsvarar var din pipeline förväntar dig utdata från steget. I de flesta fall definierar ett indataargument utdata-katalogen och du skapar katalogen explicit. Använd `os.makedirs(args.output_dir, exist_ok=True)` för att skapa utdatakatalogen. Se [självstudien](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) för ett bedömnings skript exempel som visar det här design mönstret. |
+| Det gick inte att skicka data till `PipelineData` katalogen | Se till att du har skapat en katalog i skriptet som motsvarar var din pipeline förväntar dig utdata från steget. I de flesta fall definierar ett indataargument utdata-katalogen och du skapar katalogen explicit. Använd `os.makedirs(args.output_dir, exist_ok=True)` för att skapa utdatakatalogen. Se [självstudien](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) för ett bedömnings skript exempel som visar det här design mönstret. |
 | Beroende buggar | Om du har utvecklat och testat skript lokalt men hittar beroende problem när du kör på en fjärrberäkning i pipelinen bör du se till att dina beräknings miljö beroenden och versioner matchar din test miljö. (Se [miljö utveckling, cachelagring och åter användning](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
 | Tvetydiga fel med beräknings mål | Att ta bort och återskapa beräknings mål kan lösa vissa problem med beräknings mål. |
-| Pipeline återanvändar inte steg | Steg åter användning är aktiverat som standard, men se till att du inte har inaktiverat det i ett steg i pipeline. Om åter användning är inaktive rad kommer `allow_reuse` parametern i steget att ställas in på. `False` |
-| Pipelinen körs inte nödvändigt vis | För att se till att stegen bara körs igen när deras underliggande data eller skript ändras, kan du koppla ihop dina kataloger för varje steg. Om du använder samma käll katalog för flera steg kan du få onödig omkörning. Använd `source_directory` parametern i ett pipeline-steg-objekt för att peka på den isolerade katalogen för det steget och se till att du inte `source_directory` använder samma sökväg för flera steg. |
+| Pipeline återanvändar inte steg | Steg åter användning är aktiverat som standard, men se till att du inte har inaktiverat det i ett steg i pipeline. Om åter användning är inaktive rad `allow_reuse` kommer parametern i steget att ställas in på `False` . |
+| Pipelinen körs inte nödvändigt vis | För att se till att stegen bara körs igen när deras underliggande data eller skript ändras, kan du koppla ihop dina kataloger för varje steg. Om du använder samma käll katalog för flera steg kan du få onödig omkörning. Använd `source_directory` parametern i ett pipeline-steg-objekt för att peka på den isolerade katalogen för det steget och se till att du inte använder samma `source_directory` sökväg för flera steg. |
 
 ### <a name="logging-options-and-behavior"></a>Loggnings alternativ och beteende
 
@@ -185,7 +185,7 @@ Dina steg i ML-pipeline kör Python-skript. Dessa skript ändras för att utför
 
 3. I utvecklings miljön övervakar du de loggar som skapats av inlärnings processen för att hitta IP-adressen där skriptet körs.
 
-4. Du anger VS-kod för IP-adressen för att ansluta fel sökaren till med `launch.json` hjälp av en fil.
+4. Du anger VS-kod för IP-adressen för att ansluta fel sökaren till med hjälp av en `launch.json` fil.
 
 5. Du kopplar fel söknings programmet och interaktivt steg genom skriptet.
 
@@ -218,7 +218,7 @@ Om du vill aktivera fel sökning gör du följande ändringar i python-skripten 
     run = Run.get_context()
     ```
 
-1. Lägg till `if` en instruktion som startar PTVSD och väntar på att ett fel söknings program ska bifogas. Om ingen fel sökare bifogas före tids gränsen fortsätter skriptet som normalt.
+1. Lägg till en `if` instruktion som startar PTVSD och väntar på att ett fel söknings program ska bifogas. Om ingen fel sökare bifogas före tids gränsen fortsätter skriptet som normalt.
 
     ```python
     if args.remote_debug:
@@ -287,7 +287,7 @@ if not (args.output_train is None):
 
 ### <a name="configure-ml-pipeline"></a>Konfigurera ML-pipeline
 
-Om du vill tillhandahålla python-paket som krävs för att starta PTVSD och hämta körnings kontexten skapar `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`du en miljö och anger. Ändra SDK-versionen så att den matchar den som du använder. Följande kodfragment visar hur du skapar en miljö:
+Om du vill tillhandahålla python-paket som krävs för att starta PTVSD och hämta körnings kontexten skapar du en miljö och anger `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']` . Ändra SDK-versionen så att den matchar den som du använder. Följande kodfragment visar hur du skapar en miljö:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.
@@ -312,7 +312,7 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
                                                                            pip_packages=['ptvsd', 'azureml-sdk==1.0.83'])
 ```
 
-I avsnittet [Konfigurera Python-skript](#configure-python-scripts) , lades två nya argument till i skripten som används av dina steg i ml-pipeline. Följande kodfragment visar hur du använder dessa argument för att aktivera fel sökning för komponenten och ange en tids gräns. Den visar också hur du använder miljön som skapats tidigare genom att `runconfig=run_config`ställa in:
+I avsnittet [Konfigurera Python-skript](#configure-python-scripts) , lades två nya argument till i skripten som används av dina steg i ml-pipeline. Följande kodfragment visar hur du använder dessa argument för att aktivera fel sökning för komponenten och ange en tids gräns. Den visar också hur du använder miljön som skapats tidigare genom att ställa in `runconfig=run_config` :
 
 ```python
 # Use RunConfig from a pipeline step
@@ -351,7 +351,7 @@ Spara `ip_address` värdet. Den används i nästa avsnitt.
 
     1. Från VS Code väljer du __Felsök__ -menyn och väljer sedan __Öppna konfigurationer__. En fil med namnet __Launch. JSON__ öppnas.
 
-    1. I filen __Launch. JSON__ letar du reda på raden som innehåller `"configurations": [`och infogar följande text efter den. Ändra `"host": "10.3.0.5"` posten till den IP-adress som returnerades i loggarna från föregående avsnitt. Ändra `"localRoot": "${workspaceFolder}/code/step"` posten till en lokal katalog som innehåller en kopia av skriptet som felsöks:
+    1. I filen __Launch. JSON__ letar du reda på raden som innehåller `"configurations": [` och infogar följande text efter den. Ändra `"host": "10.3.0.5"` posten till den IP-adress som returnerades i loggarna från föregående avsnitt. Ändra `"localRoot": "${workspaceFolder}/code/step"` posten till en lokal katalog som innehåller en kopia av skriptet som felsöks:
 
         ```json
         {
@@ -374,7 +374,7 @@ Spara `ip_address` värdet. Den används i nästa avsnitt.
         > Om det redan finns andra poster i avsnittet konfigurationer lägger du till ett kommatecken (,) efter den kod som du har infogat.
 
         > [!TIP]
-        > Det bästa sättet är att hålla resurserna för skript i separata kataloger, vilket är orsaken `localRoot` till exempel värdes referensen. `/code/step1`
+        > Det bästa sättet är att hålla resurserna för skript i separata kataloger, vilket är orsaken `localRoot` till exempel värdes referensen `/code/step1` .
         >
         > Om du felsöker flera skript i olika kataloger skapar du ett separat konfigurations avsnitt för varje skript.
 
@@ -389,7 +389,7 @@ Spara `ip_address` värdet. Den används i nästa avsnitt.
     Vid det här tillfället ansluter VS Code till PTVSD på Compute-noden och stoppas vid den Bryt punkt som du har angett tidigare. Nu kan du gå igenom koden när den körs, Visa variabler osv.
 
     > [!NOTE]
-    > Om loggen visar att en `Debugger attached = False`uppgift visas har tids gränsen gått ut och skriptet fortsatte utan fel sökning. Skicka pipelinen igen och Anslut fel söknings programmet efter `Timeout for debug connection` meddelandet och innan tids gränsen upphör att gälla.
+    > Om loggen visar att en uppgift visas `Debugger attached = False` har tids gränsen gått ut och skriptet fortsatte utan fel sökning. Skicka pipelinen igen och Anslut fel söknings programmet efter `Timeout for debug connection` meddelandet och innan tids gränsen upphör att gälla.
 
 ## <a name="next-steps"></a>Nästa steg
 

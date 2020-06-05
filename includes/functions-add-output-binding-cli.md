@@ -32,33 +32,33 @@ Du deklarerar dessa bindningar i *Function. JSON* -filen i mappen function. I de
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript, programming-language-powershell, programming-language-typescript"  
-Varje bindning har minst en typ, en riktning och ett namn. I exemplet ovan är den första bindningen av typen `httpTrigger` med riktningen. `in` I `in` riktningen `name` anger du namnet på en indataparameter som skickas till funktionen när den anropas av utlösaren.  
+Varje bindning har minst en typ, en riktning och ett namn. I exemplet ovan är den första bindningen av typen `httpTrigger` med riktningen `in` . I `in` riktningen anger du `name` namnet på en indataparameter som skickas till funktionen när den anropas av utlösaren.  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-Den andra bindningen i samlingen heter `res`. Den `http` här bindningen är en utgående`out`bindning () som används för att skriva http-svaret. 
+Den andra bindningen i samlingen heter `res` . Den här `http` bindningen är en utgående bindning ( `out` ) som används för att skriva http-svaret. 
 
-Om du vill skriva till en Azure Storage kö från den här funktionen `out` lägger du till `queue` en bindning av `msg`typen med namnet, som du ser i koden nedan:
+Om du vill skriva till en Azure Storage kö från den här funktionen lägger du till en `out` bindning av typen `queue` med namnet `msg` , som du ser i koden nedan:
 
 :::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-python"  
-Den andra bindningen i samlingen är av typen `http` med riktningen `out`, i så fall är den särskilda `name` av `$return` anger att den här bindningen använder funktionens retur värde istället för att ange en indataparameter.
+Den andra bindningen i samlingen är av typen `http` med riktningen `out` , i så fall är den särskilda `name` av `$return` anger att den här bindningen använder funktionens retur värde istället för att ange en indataparameter.
 
-Om du vill skriva till en Azure Storage kö från den här funktionen `out` lägger du till `queue` en bindning av `msg`typen med namnet, som du ser i koden nedan:
+Om du vill skriva till en Azure Storage kö från den här funktionen lägger du till en `out` bindning av typen `queue` med namnet `msg` , som du ser i koden nedan:
 
 :::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-powershell"  
-Den andra bindningen i samlingen heter `res`. Den `http` här bindningen är en utgående`out`bindning () som används för att skriva http-svaret. 
+Den andra bindningen i samlingen heter `res` . Den här `http` bindningen är en utgående bindning ( `out` ) som används för att skriva http-svaret. 
 
-Om du vill skriva till en Azure Storage kö från den här funktionen `out` lägger du till `queue` en bindning av `msg`typen med namnet, som du ser i koden nedan:
+Om du vill skriva till en Azure Storage kö från den här funktionen lägger du till en `out` bindning av typen `queue` med namnet `msg` , som du ser i koden nedan:
 
 :::code language="json" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-I det här fallet `msg` anges funktionen som ett argument för utdata. För en `queue` typ måste du också ange namnet på kön i `queueName` och ange *namnet* på Azure Storage anslutning (från *Local. Settings. JSON*) i `connection`. 
+I det här fallet `msg` anges funktionen som ett argument för utdata. För en `queue` typ måste du också ange namnet på kön i `queueName` och ange *namnet* på Azure Storage anslutning (från *Local. Settings. JSON*) i `connection` . 
 ::: zone-end  

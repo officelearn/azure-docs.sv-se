@@ -5,18 +5,18 @@ description: Lär dig hur du bäst version av data uppsättningar och hur versio
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.custom: ''
-ms.openlocfilehash: 5bd4436fc63fb570f052606ab557dbcf243cf5e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f05f778278f6ee33ff53ab47d416446444063d8
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476868"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434431"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Version och spårning av data uppsättningar i experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +52,7 @@ Genom att registrera en data uppsättning kan du version, åter användning och 
 
 ### <a name="register-a-dataset-version"></a>Registrera en data uppsättnings version
 
-Följande kod registrerar en ny version av `titanic_ds` data uppsättningen genom att ange `create_new_version` parametern till. `True` Om det inte finns någon `titanic_ds` befintlig data uppsättning registrerad i arbets ytan skapar koden en ny data uppsättning med namnet `titanic_ds` och anger dess version till 1.
+Följande kod registrerar en ny version av `titanic_ds` data uppsättningen genom `create_new_version` att ange parametern till `True` . Om det inte finns någon befintlig `titanic_ds` data uppsättning registrerad i arbets ytan skapar koden en ny data uppsättning med namnet `titanic_ds` och anger dess version till 1.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -156,7 +156,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## <a name="track-datasets-in-experiments"></a>Spåra data uppsättningar i experiment
 
-För varje Machine Learning experiment kan du enkelt spåra data uppsättningarna som används som indata via experiment `Run` -objektet.
+För varje Machine Learning experiment kan du enkelt spåra data uppsättningarna som används som indata via experiment- `Run` objektet.
 
 I följande kod används [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) metoden för att spåra vilka indata-datauppsättningar som användes när experimentet kördes:
 
@@ -169,9 +169,9 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Du kan också hitta `input_datasets` från experiment med hjälp https://ml.azure.com/av. 
+Du kan också hitta `input_datasets` från experiment med hjälp av https://ml.azure.com/ . 
 
-Följande bild visar var du hittar indata-datauppsättningen för ett experiment på Azure Machine Learning Studio. I det här exemplet går du till fönstret **experiment** och öppnar fliken **Egenskaper** för en speciell körning av experimentet `keras-mnist`.
+Följande bild visar var du hittar indata-datauppsättningen för ett experiment på Azure Machine Learning Studio. I det här exemplet går du till fönstret **experiment** och öppnar fliken **Egenskaper** för en speciell körning av experimentet `keras-mnist` .
 
 ![Indata-datauppsättningar](./media/how-to-version-track-datasets/input-datasets.png)
 
@@ -183,7 +183,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Efter registreringen kan du se en lista över modeller som registrerats med data uppsättningen med hjälp av python eller https://ml.azure.com/gå till.
+Efter registreringen kan du se en lista över modeller som registrerats med data uppsättningen med hjälp av python eller gå till https://ml.azure.com/ .
 
 Följande vy är från fönstret **data uppsättningar** under **till gångar**. Välj data uppsättningen och välj sedan fliken **modeller** för en lista med de modeller som är registrerade med data uppsättningen. 
 

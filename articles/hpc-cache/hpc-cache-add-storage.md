@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9d08526334a9891788df63b156cdf65f55c587ca
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 442c9897c5f02e9ed9cbcda96b6a540b9201f428
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344942"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434116"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -25,7 +25,7 @@ Lägg till lagrings mål när du har skapat din cache. Proceduren skiljer sig n�
 
 Klicka på bilden nedan om du vill titta på en [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) av hur du skapar en cache och lägger till ett lagrings mål.
 
-[![video miniatyr: Azure HPC cache: Setup (Klicka för att besöka video sidan)](media/video4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+[![video miniatyr: Azure HPC cache: Setup (Klicka för att besöka video sidan)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="open-the-storage-targets-page"></a>Öppna sidan Storage-mål
 
@@ -153,9 +153,9 @@ I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
 
 | Användnings modell | Cacheläge | Verifiering på Server Sidan | Maximal Skriv åtgärds fördröjning |
 | ---- | ---- | ---- | ---- |
-| Läs tung, sällan skrivna skrivningar | Läsa | Aldrig | Ingen |
-| Större än 15% skrivningar | Läsa/skriva | Aldrig | 1 timme |
-| Klienterna kringgår cachen | Läsa | 30 sekunder | Ingen |
+| Läs tung, sällan skrivna skrivningar | Läs | Aldrig | Inga |
+| Större än 15% skrivningar | Läsa/skriva | Aldrig | 1 timme |
+| Klienterna kringgår cachen | Läs | 30 sekunder | Inga |
 
 ## <a name="next-steps"></a>Nästa steg
 

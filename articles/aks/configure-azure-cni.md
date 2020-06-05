@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar Azure CNI (avancerat) nätverk i Azure
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 592376c1ff1686429d71496099f55c5009e07f20
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120937"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84416859"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurera Azure CNI Networking i Azure Kubernetes service (AKS)
 
@@ -63,7 +63,7 @@ Det maximala antalet poddar per nod i ett AKS-kluster är 250. *Standardvärdet*
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Ja (upp till 250) |
 | Resource Manager-mall | 110 | 30 | Ja (upp till 250) |
-| Portalen | 110 | 30 | Inga |
+| Portalen | 110 | 30 | Nej |
 
 ### <a name="configure-maximum---new-clusters"></a>Konfigurera högsta – nya kluster
 
@@ -151,7 +151,7 @@ Följande frågor och svar gäller nätverks konfigurationen för **Azure cni** 
 
 * *Kan jag distribuera virtuella datorer i mitt kluster under nät?*
 
-  Nej. Det går inte att distribuera virtuella datorer i det undernät som används av ditt Kubernetes-kluster. Virtuella datorer kan distribueras i samma virtuella nätverk, men i ett annat undernät.
+  Ja.
 
 * *Kan jag konfigurera principer per POD nätverk?*
 

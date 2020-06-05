@@ -9,15 +9,15 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9613b74b727d27bd47a05fadc1398bf898f667a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bbe4cfe2cce70735e765601e46cb62cd3939c693
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835739"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433094"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Övervaka körningar och mått för Azure ML-experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Förbättra skapande processen för modeller genom att spåra experiment och öv
 
 Du kan lägga till följande mått i en körning medan du tränar ett experiment. Om du vill visa en mer detaljerad lista över vad som kan spåras i en körning, se [referens dokumentationen för körnings klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Typ| Python-funktionen | Anteckningar|
+|Typ| Python-funktionen | Obs!|
 |----|:----|:----|
 |Skalära värden |Funktioner<br>`run.log(name, value, description='')`<br><br>Exempel:<br>Kör. log ("noggrannhet", 0,95) |Logga ett numeriskt värde eller sträng värde för körningen med det tilldelade namnet. Att logga ett mått på en körning gör att måttet lagras i körnings posten i experimentet.  Du kan logga samma mått flera gånger i en körning, och resultatet betraktas som en Vector för det måttet.|
 |Listor|Funktioner<br>`run.log_list(name, value, description='')`<br><br>Exempel:<br>Kör. log_list ("noggrannhet", [0,6, 0,7, 0,87]) | Logga en lista med värden som ska köras med det aktuella namnet.|

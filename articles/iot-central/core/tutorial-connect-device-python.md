@@ -7,12 +7,12 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ba619cc4e86b997f4e11536e6ea7b9ed906f41e4
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81758181"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417692"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (python)
 
@@ -22,7 +22,7 @@ ms.locfileid: "81758181"
 
 Den här självstudien visar hur du, som enhets utvecklare, ansluter ett python-klientprogram till ditt Azure IoT Central-program. Python-programmet simulerar beteendet för en miljö sensor enhet. Du kan använda ett exempel på _enhets kapacitets modell_ för att skapa en _enhets mal len_ i IoT Central. Du lägger till vyer i enhets mal len för att låta en operatör interagera med en enhet.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Importera en enhets kapacitets modell för att skapa en enhets mall.
@@ -56,7 +56,7 @@ Följande steg visar hur du skapar ett python-klientprogram som ansluter till de
 
 1. Skapa en fil med namnet **environmental_sensor. py** i `environmental-sensor` mappen.
 
-1. Lägg till följande `import` -instruktioner i början av filen **environmental_sensor. py** :
+1. Lägg till följande- `import` instruktioner i början av filen **environmental_sensor. py** :
 
     ```python
     import asyncio
@@ -90,7 +90,7 @@ Följande steg visar hur du skapar ett python-klientprogram som ansluter till de
     asyncio.run(main())
     ```
 
-    Uppdatera plats hållarna `{your Scope ID}`, `{your Device ID}`och `{your Primary Key}` med de värden som du antecknade tidigare. I ett verkligt program bör du inte hårdkoda den här informationen i programmet.
+    Uppdatera plats hållarna `{your Scope ID}` , `{your Device ID}` och `{your Primary Key}` med de värden som du antecknade tidigare. I ett verkligt program bör du inte hårdkoda den här informationen i programmet.
 
     Alla följande funktions definitioner och kod kapslas i `main` funktionen.
 
@@ -143,7 +143,7 @@ Följande steg visar hur du skapar ett python-klientprogram som ansluter till de
           await asyncio.sleep(delay)
     ```
 
-    Namnen på telemetri-objekten (`temp` och `humid`) måste matcha namnen som används i enhets mal len.
+    Namnen på telemetri-objekten ( `temp` och `humid` ) måste matcha namnen som används i enhets mal len.
 
 1. Lägg till följande funktioner i `main` funktionen för att hantera kommandon som anropas från ditt IoT Central-program:
 
@@ -199,7 +199,7 @@ Följande steg visar hur du skapar ett python-klientprogram som ansluter till de
           await commands[method_request.name](method_request)
     ```
 
-    Namnen på kommandona`blink`(, `turnon`, `turnoff`och `rundiagnostics`) måste matcha namnen som används i enhets mal len.
+    Namnen på kommandona ( `blink` , `turnon` , `turnoff` och `rundiagnostics` ) måste matcha namnen som används i enhets mal len.
 
     För närvarande använder IoT Central inte det svars schema som definierats i enhetens kapacitets modell. För ett synkront kommando kan svars nytto lasten vara vilken giltig JSON som helst. För ett asynkront kommando ska enheten returnera ett 202-svar omedelbart följt av den rapporterande egenskaps uppdateringen när arbetet är klart. Formatet för den rapporterade egenskaps uppdateringen är:
 
@@ -243,7 +243,7 @@ Följande steg visar hur du skapar ett python-klientprogram som ansluter till de
 
     När operatorn ställer in en skrivbar egenskap i IoT Central-programmet använder programmet en enhet med dubbla önskade egenskaper för att skicka värdet till enheten. Enheten svarar sedan med en enhets dubbla rapporterad egenskap. När IoT Central tar emot det rapporterade egenskap svärdet uppdateras egenskaps läget med statusen **synkroniserad**.
 
-    Namnen på egenskaperna (`name` och `brightness`) måste matcha namnen som används i enhets mal len.
+    Namnen på egenskaperna ( `name` och `brightness` ) måste matcha namnen som används i enhets mal len.
 
 1. Lägg till följande funktioner i- `main` funktionen för att kontrol lera programmet:
 
@@ -307,8 +307,9 @@ Du kan se hur enheten svarar på kommandon och egenskaps uppdateringar:
 
 Som en enhets utvecklare nu har du lärt dig grunderna för hur du skapar en enhet med hjälp av Node. js, men vissa föreslagna nästa steg är att:
 
-- Lär dig hur du ansluter en riktig enhet till IoT Central i [ansluta en MXChip IoT DevKit-enhet till Azure IoT Central Application](./howto-connect-devkit.md) instruktion-artikeln.
-- Läs [bli ansluten till Azure IoT Central](./concepts-get-connected.md) om du vill veta mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhets anslutningar.
+* Lär dig hur du ansluter en riktig enhet till IoT Central i [ansluta en MXChip IoT DevKit-enhet till Azure IoT Central Application](./howto-connect-devkit.md) instruktion-artikeln.
+* Läs [Vad är enhets mallar?](./concepts-device-templates.md) om du vill lära dig mer om rollen hets mallar när du implementerar din enhets kod.
+* Läs [bli ansluten till Azure IoT Central](./concepts-get-connected.md) om du vill veta mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhets anslutningar.
 
 Om du föredrar att fortsätta med en uppsättning IoT Central själv studie kurser och lära dig mer om hur du skapar en IoT Central lösning, se:
 

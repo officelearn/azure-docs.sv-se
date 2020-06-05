@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 4b10a4c98abd6bec4074bf35764a9cbb85d5b157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/03/2020
+ms.openlocfilehash: 2c57ddd88046044cccd13b0ade23144cd5649455
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605974"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433313"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
 
@@ -23,6 +23,22 @@ ms.locfileid: "81605974"
 När du har transformerat dina data kan du sinka data till en mål data uppsättning. Varje data flöde kräver minst en Sink-omvandling, men du kan skriva till så många handfat som behövs för att slutföra ditt omvandlings flöde. Om du vill skriva till ytterligare mottagare skapar du nya strömmar via nya grenar och villkorliga delningar.
 
 Varje Sink-omvandling är associerad med exakt en Data Factory data uppsättning. Data uppsättningen definierar formen och platsen för de data som du vill skriva till.
+
+## <a name="inline-datasets"></a>Infogade data uppsättningar
+
+När du skapar en Sink-omvandling väljer du om mottagar informationen definieras i ett DataSet-objekt eller i omvandling av mottagare. De flesta format är bara tillgängliga i den ena eller den andra. Referera till lämpligt kopplings dokument för att lära dig hur du använder en speciell anslutning.
+
+När ett format stöds för både infogade och i ett data uppsättnings objekt, finns det fördelar med båda. Data uppsättnings objekt är återanvändbara entiteter som kan utnyttjas i andra data flöden och aktiviteter som kopiering. Dessa är särskilt användbara när du använder ett strikt schema. Data uppsättningar är inte baserade i Spark och ibland kan du behöva åsidosätta vissa inställningar eller schema projektion i Sink-omvandlingen.
+
+Infogade data uppsättningar rekommenderas när du använder flexibla scheman, ett-off-Sink-instanser eller parameterstyrda mottagare. Om din mottagare är mycket parametriserad kan du inte skapa ett "dummy"-objekt i data uppsättningar i rad. Infogade data uppsättningar baseras i Spark och deras egenskaper är inbyggda i data flödet.
+
+Om du vill använda en infogad data uppsättning väljer du önskat format i typ väljaren för **mottagare** . I stället för att välja en data uppsättning för mottagare väljer du den länkade tjänst som du vill ansluta till.
+
+![Infogad data uppsättning](media/data-flow/inline-selector.png "Infogad data uppsättning")
+
+### <a name="supported-inline-dataset-formats"></a>Infogade data uppsättnings format som stöds
+
+För närvarande är den enda tillgängliga uppsättningen med data uppsättnings format den [gemensamma data modellen](format-common-data-model.md#sink-properties) läst från [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md).
 
 ## <a name="supported-sink-connectors-in-mapping-data-flow"></a>Mottagar kopplingar som stöds i mappnings data flödet
 
@@ -37,7 +53,7 @@ För närvarande kan följande data uppsättningar användas i en Sink-omvandlin
 
 Inställningar som är aktuella för dessa anslutningar finns på fliken **Inställningar** . information om de här inställningarna finns i anslutnings dokumentationen. 
 
-Azure Data Factory har åtkomst till över [90 inbyggda anslutningar](connector-overview.md). Om du vill skriva data till de andra källorna från ditt data flöde kan du använda kopierings aktiviteten för att läsa in data från ett av de mellanliggande mellanliggande områdena när ditt data flöde har slutförts.
+Azure Data Factory har åtkomst till över [90 inbyggda anslutningsprogram](connector-overview.md). Om du vill skriva data till de andra kopplingarna från ditt data flöde använder du kopierings aktiviteten för att läsa in data från ett av de mellanliggande mellanliggande områdena när ditt data flöde har slutförts.
 
 ## <a name="sink-settings"></a>Mottagar inställningar
 

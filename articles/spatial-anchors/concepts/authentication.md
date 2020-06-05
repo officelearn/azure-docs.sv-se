@@ -1,19 +1,19 @@
 ---
 title: Autentisering och auktorisering
 description: Lär dig mer om de olika sätt som en app eller tjänst kan autentisera till Azure spatiala ankare och de kontroll nivåer som du måste använda för att få åtkomst till Azure spatiala ankare.
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
-ms.author: pmorgan
+ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8a64c8cabe91bb7bbfb533b38a32f58a82fd3351
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653370"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434382"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure spatiala ankare
 
@@ -39,7 +39,6 @@ Azure AD-autentiseringstoken kan hämtas på två sätt:
 Det enklaste sättet att komma igång är att använda konto nycklar för åtkomst till ditt Azure-konto med spatialdata. Du hittar dina konto nycklar på Azure Portal. Gå till ditt konto och välj fliken "nycklar".
 
 ![En översikt över autentisering till Azure spatial ankare](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
-
 
 Två nycklar görs tillgängliga, som båda är giltiga för åtkomst till kontot för spatiala ankare. Vi rekommenderar att du regelbundet uppdaterar den nyckel som du använder för att få åtkomst till kontot. att ha två separata giltiga nycklar möjliggör sådana uppdateringar utan drift avbrott. du behöver bara uppdatera den primära nyckeln och den sekundära nyckeln.
 

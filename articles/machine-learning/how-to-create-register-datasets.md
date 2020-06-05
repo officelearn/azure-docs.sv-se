@@ -5,18 +5,18 @@ description: Lär dig hur du skapar Azure Machine Learning data uppsättningar f
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 23984bdbcfc649c2bfe04a08787bc10149a1ed91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4035570ec00e7a9c3e606e583acf50db7fab79b6
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231903"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433535"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Skapa Azure Machine Learning data uppsättningar
 
@@ -50,7 +50,7 @@ När du skapar en data uppsättning granskar du beräknings bearbetnings kraften
 
 Huvud faktorn är hur stor data uppsättningen är i minnet, d.v.s. som en dataframe. Vi rekommenderar att din beräknings storlek och bearbetnings kraft innehåller 2x storleken på RAM-minne. Så om din dataframe är 10 GB, vill du ha ett beräknings mål med 20 + GB RAM-minne för att säkerställa att dataframe kan passa i minnet och bearbetas. Om dina data är komprimerade kan de utökas ytterligare. 20 GB relativt sparse-data som lagras i ett komprimerat Parquet-format kan expanderas till ~ 800 GB i minnet. Eftersom Parquet-filer lagrar data i ett kolumn format, om du bara behöver hälften av kolumnerna, behöver du bara läsa in ~ 400 GB i minnet.
  
-Om du använder Pandas finns det ingen anledning att ha fler än 1 vCPU eftersom det är allt som kommer att användas. Du kan enkelt parallellisera till många virtuella processorer på en enda Azure Machine Learning beräknings instans/nod via MODIR och dask/Ray och skala ut till ett stort kluster om det behövs, genom att helt `import pandas as pd` enkelt `import modin.pandas as pd`ändra till. 
+Om du använder Pandas finns det ingen anledning att ha fler än 1 vCPU eftersom det är allt som kommer att användas. Du kan enkelt parallellisera till många virtuella processorer på en enda Azure Machine Learning beräknings instans/nod via MODIR och dask/Ray och skala ut till ett stort kluster om det behövs, genom att helt enkelt ändra `import pandas as pd` till `import modin.pandas as pd` . 
  
 Om du inte kan få tillräckligt med data för data kan du välja mellan två alternativ: Använd ett ramverk som Spark eller dask för att utföra bearbetningen av data "slut på minne", d.v.s. dataframe läses in i RAM-partitionen efter partition och bearbetning, med det slutliga resultatet som samlas in i slutet. Om detta är för långsamt kan Spark-eller dask göra att du kan skala ut till ett kluster som fortfarande kan användas interaktivt. 
 
@@ -64,7 +64,7 @@ Det finns två typer av data uppsättningar, baserat på hur användarna använd
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 
-Genom att skapa en data uppsättning skapar du en referens till data käll platsen, tillsammans med en kopia av dess metadata. Eftersom data behålls på den befintliga platsen debiteras du ingen extra lagrings kostnad. Du kan skapa både `TabularDataset` och `FileDataset` data uppsättningar med hjälp av python SDK eller Azure Machine Learning Studio på https://ml.azure.com.
+Genom att skapa en datamängd skapar du en referens till datakällans plats, tillsammans med en kopia av dess metadata. Eftersom data blir kvar på den befintliga platsen debiteras du ingen extra lagringskostnad. Du kan skapa både `TabularDataset` och `FileDataset` data uppsättningar med hjälp av python SDK eller Azure Machine Learning Studio på https://ml.azure.com .
 
 För att data ska kunna nås av Azure Machine Learning måste data uppsättningar skapas från sökvägar i [Azure-datalager](how-to-access-data.md) eller offentliga webb adresser. 
 
@@ -72,7 +72,7 @@ För att data ska kunna nås av Azure Machine Learning måste data uppsättninga
 
 Skapa data uppsättningar från ett [Azure-datalager](how-to-access-data.md) med hjälp av python SDK:
 
-1. Kontrol lera att du `contributor` har `owner` eller åtkomst till registrerade Azure-datalager.
+1. Kontrol lera att du har `contributor` eller `owner` åtkomst till registrerade Azure-datalager.
 
 2. Skapa data uppsättningen genom att referera till sökvägar i data lagret.
 
@@ -81,9 +81,9 @@ Skapa data uppsättningar från ett [Azure-datalager](how-to-access-data.md) med
 
 #### <a name="create-a-tabulardataset"></a>Skapa en TabularDataset
 
-Använd- [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-) metoden i- `TabularDatasetFactory` klassen för att läsa filer i CSV-eller TSV-format och för att skapa en oregistrerad TabularDataset. Om du läser från flera filer aggregeras resultaten i en tabell representation. 
+Använd [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-) -metoden i- `TabularDatasetFactory` klassen för att läsa filer i CSV-eller TSV-format och för att skapa en oregistrerad TabularDataset. Om du läser från flera filer aggregeras resultaten i en tabell representation. 
 
-Följande kod hämtar arbets ytans befintliga arbets yta och önskat data lager efter namn. Och skickar sedan data lagret och fil platserna till `path` parametern för att skapa en ny TabularDataset. `weather_ds`
+Följande kod hämtar arbets ytans befintliga arbets yta och önskat data lager efter namn. Och skickar sedan data lagret och fil platserna till `path` parametern för att skapa en ny TabularDataset `weather_ds` .
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -107,7 +107,7 @@ weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 Som standard härleds kolumn data typer automatiskt när du skapar en TabularDataset. Om de härledda typerna inte matchar dina förväntningar kan du ange kolumn typer med hjälp av följande kod. Parametern `infer_column_type` kan bara användas för data uppsättningar som skapats från avgränsade filer. Du kan också [läsa mer om vilka data typer som stöds](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
 
 > [!IMPORTANT] 
-> Om lagrings utrymmet ligger bakom ett virtuellt nätverk eller en brand vägg stöds endast skapande av en data uppsättning via SDK. Om du vill skapa din data uppsättning måste du ta med `validate=False` parametrarna `infer_column_types=False` och i `from_delimited_files()` din metod. Detta kringgår den första verifierings kontrollen och garanterar att du kan skapa din data uppsättning från dessa säkra filer. 
+> Om lagrings utrymmet ligger bakom ett virtuellt nätverk eller en brand vägg stöds endast skapande av en data uppsättning via SDK. Om du vill skapa din data uppsättning måste du ta med parametrarna `validate=False` och `infer_column_types=False` i din `from_delimited_files()` metod. Detta kringgår den första verifierings kontrollen och garanterar att du kan skapa din data uppsättning från dessa säkra filer. 
 
 ```Python
 from azureml.core import Dataset
@@ -165,7 +165,7 @@ sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'
 
 I TabularDatasets kan du ange en tidstämpel från en kolumn i data eller från där Sök vägs data lagras för att aktivera en tids serie egenskap. Den här specifikationen möjliggör enkel och effektiv filtrering med tiden.
 
-Använd [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metoden i`TabularDataset` klassen för att ange tidsstämpel-kolumnen och aktivera filtrering efter tid. Mer information finns i [tabell Time Series-relaterad API-demo med NOAA väderleks data](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
+Använd [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metoden i `TabularDataset` klassen för att ange tidsstämpel-kolumnen och aktivera filtrering efter tid. Mer information finns i [tabell Time Series-relaterad API-demo med NOAA väderleks data](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
 ```Python
 # create a TabularDataset with time series trait
@@ -200,12 +200,12 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
 #### <a name="on-the-web"></a>På webben 
-Följande steg och animering visar hur du skapar en data uppsättning i Azure Machine Learning Studio https://ml.azure.com.
+Följande steg och animering visar hur du skapar en data uppsättning i Azure Machine Learning Studio https://ml.azure.com .
 
 ![Skapa en data uppsättning med användar gränssnittet](./media/how-to-create-register-datasets/create-dataset-ui.gif)
 
 Så här skapar du en data uppsättning i Studio:
-1. Logga in på https://ml.azure.com.
+1. Logga in på https://ml.azure.com .
 1. Välj **data uppsättningar** i avsnittet **till gångar** i det vänstra fönstret. 
 1. Välj **skapa data uppsättning** för att välja källa för din data uppsättning. Källan kan vara lokala filer, ett data lager eller offentliga URL: er.
 1. Välj **tabell** eller **fil** för data uppsättnings typ.
@@ -233,9 +233,9 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ### <a name="use-the-sdk"></a>Använd SDK: n
 
-Om du vill skapa data uppsättningar med Azure Open data uppsättningar från SDK kontrollerar du att du har installerat paketet med `pip install azureml-opendatasets`. Varje diskret data uppsättning representeras av sin egen klass i SDK och vissa klasser är tillgängliga som antingen en `TabularDataset`, `FileDataset`eller båda. En fullständig lista över klasser finns i [referens dokumentationen](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) .
+Om du vill skapa data uppsättningar med Azure Open data uppsättningar från SDK kontrollerar du att du har installerat paketet med `pip install azureml-opendatasets` . Varje diskret data uppsättning representeras av sin egen klass i SDK och vissa klasser är tillgängliga som antingen en `TabularDataset` , `FileDataset` eller båda. En fullständig lista över klasser finns i [referens dokumentationen](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) .
 
-Du kan hämta vissa klasser som antingen en `TabularDataset` eller `FileDataset`, vilket gör att du kan manipulera och/eller ladda ned filerna direkt. Andra klasser kan **bara** hämta en data uppsättning med hjälp av `get_tabular_dataset()` en `get_file_dataset()` eller-funktion. I följande kod exempel visas några exempel på dessa typer av klasser.
+Du kan hämta vissa klasser som antingen en `TabularDataset` eller `FileDataset` , vilket gör att du kan manipulera och/eller ladda ned filerna direkt. Andra klasser kan **bara** hämta en data uppsättning med hjälp av en `get_tabular_dataset()` eller- `get_file_dataset()` funktion. I följande kod exempel visas några exempel på dessa typer av klasser.
 
 ```python
 from azureml.opendatasets import MNIST
@@ -286,7 +286,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## <a name="access-datasets-in-your-script"></a>Få åtkomst till data uppsättningar i skriptet
 
-Registrerade data uppsättningar kan nås både lokalt och via fjärr anslutning på beräknings kluster som Azure Machine Learning Compute. Använd följande kod för att komma åt din arbets yta och registrerad data uppsättning efter namn för att få åtkomst till din registrerade data uppsättning över experiment. Som standard returnerar [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) metoden i `Dataset` klassen den senaste versionen av data uppsättningen som är registrerad på arbets ytan.
+Registrerade data uppsättningar kan nås både lokalt och via fjärr anslutning på beräknings kluster som Azure Machine Learning Compute. Använd följande kod för att komma åt din arbets yta och registrerad data uppsättning efter namn för att få åtkomst till din registrerade data uppsättning över experiment. Som standard [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) returnerar metoden i `Dataset` klassen den senaste versionen av data uppsättningen som är registrerad på arbets ytan.
 
 ```Python
 %%writefile $script_folder/train.py

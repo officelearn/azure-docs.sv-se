@@ -5,18 +5,18 @@ description: Lär dig hur du distribuerar en webb tjänst med en modell som kör
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8569f4751c54d7b37aa15737a9b3f7f394c7e26e
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: ac246c5135f9c00368ccce2ca79627322f504976
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983592"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433901"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Vad är FPGA (Field-programmerbara grind mat ris) och hur du distribuerar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -96,7 +96,7 @@ Du kan distribuera en modell som en webb tjänst på FPGAs med [Azure Machine Le
     ```
 
     > [!TIP]
-    > De andra möjliga platserna är ``southeastasia``, ``westeurope``och ``westus2``.
+    > De andra möjliga platserna är ``southeastasia`` , ``westeurope`` och ``westus2`` .
 
     Kommandot returnerar text som liknar följande:
 
@@ -108,7 +108,7 @@ Du kan distribuera en modell som en webb tjänst på FPGAs med [Azure Machine Le
 
     Se till att du har minst 6 virtuella processorer under __CurrentValue__.
 
-    Om du inte har någon kvot skickar du en förfrågan till [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
+    Om du inte har någon kvot skickar du en förfrågan till [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI) .
 
 - En Azure Machine Learning-arbetsyta och Azure Machine Learning SDK för python är installerat. Mer information finns i [skapa en arbets yta](how-to-manage-workspace.md).
  
@@ -344,7 +344,7 @@ aks_service.wait_for_deployment(show_output=True)
 #### <a name="test-the-cloud-service"></a>Testa moln tjänsten
 Docker-avbildningen stöder gRPC och TensorFlow-ANROPet "predict".  Använd exempel klienten för att anropa Docker-avbildningen för att hämta förutsägelser från modellen.  Exempel på klient kod är tillgänglig:
 - [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
-- [C #](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
+- [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
 
 Om du vill använda TensorFlow-servar kan du [Hämta en exempel klient](https://www.tensorflow.org/serving/setup).
 

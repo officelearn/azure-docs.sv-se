@@ -3,14 +3,14 @@ title: Malldistribution vad-om (för hands version)
 description: Ta reda på vilka ändringar som sker i resurserna innan du distribuerar en Azure Resource Manager-mall.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/04/2020
 ms.author: tomfitz
-ms.openlocfilehash: 31ef0f26043c416ff902fe792bae064c63f15b20
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 62f46d158bea9507246fda7f24750c3743a5e1f1
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218297"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424252"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM-mall för att distribuera konsekvens åtgärder (för hands version)
 
@@ -19,19 +19,23 @@ Innan du distribuerar en Azure Resource Manager-mall (ARM) kan du förhandsgrans
 > [!NOTE]
 > Konsekvens åtgärden är för närvarande en för hands version. Som en för hands version kan resultatet ibland visa att en resurs kommer att ändras när ingen ändring sker. Vi arbetar för att minska problemen, men vi behöver din hjälp. Rapportera de här problemen vid [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
-Du kan använda åtgärden vad händer om med Azure PowerShell, Azure CLI eller REST API åtgärder.
+Du kan använda åtgärden vad händer om med Azure PowerShell, Azure CLI eller REST API åtgärder. Vad-om stöds för distributioner av resurs grupper och prenumerations nivåer.
 
-## <a name="install-powershell-module"></a>Installera PowerShell-modul
+## <a name="install-azure-powershell-module"></a>Installera Azure PowerShell modul
 
-Om du vill använda konsekvens i PowerShell måste du installera en för hands version av modulen AZ. Resources från PowerShell-galleriet. Men innan du installerar modulen måste du kontrol lera att du har PowerShell Core (6. x eller 7. x). Om du har PowerShell 5. x eller tidigare [uppdaterar du din version av PowerShell](/powershell/scripting/install/installing-powershell). Du kan inte installera Preview-modulen på PowerShell 5. x eller tidigare.
+Om du vill använda konsekvens i PowerShell måste du ha version **4,2 eller senare av AZ-modulen**.
 
-### <a name="install-preview-version"></a>Installera för hands version
+Men innan du installerar modulen måste du kontrol lera att du har PowerShell Core (6. x eller 7. x). Om du har PowerShell 5. x eller tidigare [uppdaterar du din version av PowerShell](/powershell/scripting/install/installing-powershell). Du kan inte installera den modul som krävs på PowerShell 5. x eller tidigare.
 
-Om du vill installera Preview-modulen använder du:
+### <a name="install-latest-version"></a>Installera den senaste versionen
+
+Använd följande för att installera modulen:
 
 ```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+Install-Module -Name Az -Force
 ```
+
+Mer information om hur du installerar moduler finns i [installera Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="uninstall-alpha-version"></a>Avinstallera alfa version
 
@@ -101,7 +105,7 @@ Resource changes: 1 to modify.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Om du vill förhandsgranska ändringar innan du distribuerar en mall lägger du till `-Whatif` parametern switch i distributions kommandot.
+Om du vill förhandsgranska ändringar innan du distribuerar en mall använder du [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) eller [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Lägg till `-Whatif` switch-parametern i distributions kommandot.
 
 * `New-AzResourceGroupDeployment -Whatif`för resurs grupps distributioner
 * `New-AzSubscriptionDeployment -Whatif`och `New-AzDeployment -Whatif` för distributioner på prenumerations nivå
@@ -111,19 +115,19 @@ Du kan använda `-Confirm` switch-parametern för att förhandsgranska ändringa
 * `New-AzResourceGroupDeployment -Confirm`för resurs grupps distributioner
 * `New-AzSubscriptionDeployment -Confirm`och `New-AzDeployment -Confirm` för distributioner på prenumerations nivå
 
-Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera manuellt. Om du vill hämta ett objekt som du kan använda för att kontrol lera ändringar använder du:
+Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera manuellt. Använd [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) eller [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult)för att hämta ett objekt som du kan använda program mässigt för att kontrol lera ändringar.
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult`för resurs grupps distributioner
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult`eller `$results = Get-AzDeploymentWhatIfResult` för distributioner på prenumerations nivå
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill förhandsgranska ändringar innan du distribuerar en mall använder `what-if` du med kommandot distribution.
+Om du vill förhandsgranska ändringar innan du distribuerar en mall använder du [AZ distributions grupp vad-IF](/cli/azure/deployment/group#az-deployment-group-what-if) -eller [AZ-distributionen sub-IF](/cli/azure/deployment/sub#az-deployment-sub-what-if).
 
 * `az deployment group what-if`för resurs grupps distributioner
 * `az deployment sub what-if`för distributioner på prenumerations nivå
 
-Du kan använda `--confirm-with-what-if` växeln (eller dess kort form `-c` ) för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen.
+Du kan använda `--confirm-with-what-if` växeln (eller dess kort form `-c` ) för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen. Lägg till den här växeln i [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create) eller [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create).
 
 * `az deployment group create --confirm-with-what-if`eller `-c` för resurs grupps distributioner
 * `az deployment sub create --confirm-with-what-if`eller `-c` för distributioner på prenumerations nivå

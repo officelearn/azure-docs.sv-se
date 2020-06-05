@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 59dc64c952aab6b37e6a779ab1e7e85b9a8ab4b7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4fccf7b786de91c8bcce0b2073e0519ef6c1f2ab
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018828"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424418"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -171,6 +171,56 @@ En annan orsak till instabila hologram (wobbling, tänjning, Darr eller hopp) ka
 Ett annat värde att titta på är `ARRServiceStats.LatencyPoseToReceiveAvg` . Det bör ständigt vara under 100 MS. Om du ser högre värden betyder det att du är ansluten till ett Data Center som är för långt bort.
 
 En lista över eventuella begränsningar finns i [rikt linjerna för nätverks anslutning](../reference/network-requirements.md#guidelines-for-network-connectivity).
+
+## <a name="z-fighting"></a>Z-bekämpning
+
+När ARR erbjuder [funktioner](../overview/features/z-fighting-mitigation.md)för att minska och bekämpa, kan z-migrering fortfarande visas i scenen. Den här guiden syftar till att felsöka de återstående problemen.
+
+### <a name="recommended-steps"></a>Rekommenderade åtgärder
+
+Använd följande arbets flöde för att minimera z-bekämpning:
+
+1. Testa scenen med standardinställningarna för ARR (z-bekämpning)
+
+1. Inaktivera minskning av z-bekämpning via dess [API](../overview/features/z-fighting-mitigation.md) 
+
+1. Ändra kameran nära och långt planet till ett närmare intervall
+
+1. Felsöka scenen via nästa avsnitt
+
+### <a name="investigating-remaining-z-fighting"></a>Undersöka återstående z-bekämpning
+
+Om ovanstående steg har använts och den återstående z-kampen är oacceptabelt, måste den underliggande orsaken till z-kampen undersökas. Som det anges i [funktions sidan för z-bekämpning](../overview/features/z-fighting-mitigation.md), finns det två huvudsakliga orsaker till z-bekämpning: djup precisions förlust i slutet av djup intervallet och ytor som överlappar varandra när de är samplaniga. Djup precisions förlust är en matematisk period och kan bara begränsas genom att följa steg 3 ovan. Samplanerar ytor indikerar ett fel i en käll till gång och är bättre åtgärdade i data källan.
+
+ARR har en funktion för att avgöra om en yta kan z-bekämpa: [schack rutigt markering](../overview/features/z-fighting-mitigation.md). Du kan också bestämma visuellt vad som orsakar z-bekämpning. Följande första animering visar ett exempel på djup precisions förlust på avståndet, och den andra visar ett exempel på en nästan disponerad yta:
+
+![djup-precision-z-bekämpning](./media/depth-precision-z-fighting.gif)  ![samplanering – z-bekämpning](./media/coplanar-z-fighting.gif)
+
+Jämför dessa exempel med din z-skydd och ta reda på orsaken eller om du vill kan du följa det här steg för steg-arbets flödet:
+
+1. Placera kameran ovanför de z-bekämpnings ytor som du vill se direkt på ytan.
+1. Flytta kameran långsamt bort från ytorna.
+1. Om z-bekämpningen är synlig hela tiden, är ytorna perfekt omplanerade. 
+1. Om z-kampen är synligt för det mesta av tiden, är ytorna nästan omplanerade.
+1. Om z-kampen bara är synlig från långt bort är orsaken till att det inte finns någon djup precision.
+
+Samplanering-ytor kan ha flera olika orsaker:
+
+* Ett objekt duplicerades av export programmet på grund av ett fel eller olika arbets flödes metoder.
+
+    Kontrol lera de här problemen med respektive program-och program support.
+
+* Ytorna dupliceras och vänds så att de visas dubbels idiga i åter givningar som använder sig av en frontend-yta eller en bakgrunds Cull.
+
+    Import via [modell konverteringen](../how-tos/conversion/model-conversion.md) bestämmer modellens primära sidedness. Double-sidedness antas som standard. Ytan kommer att återges som en tunn vägg med fysiskt korrekt ljus från båda sidor. En-sidedness kan underskrivas av flaggor i käll till gången eller tvingas uttryckligen under [modell konverteringen](../how-tos/conversion/model-conversion.md). Men även om du vill kan du ange [läget för enkel sida](../overview/features/single-sided-rendering.md) till "normal".
+
+* Objekt överlappar varandra i käll resurserna.
+
+     Objekt som omvandlats på ett sätt som innebär att vissa av deras ytor överlappar varandra skapar även z-bekämpning. Att omvandla delar av scen trädet i den importerade scenen i ARR kan också skapa det här problemet.
+
+* Ytor är purposefully som skapats för att röra sig, t. ex. decals eller text på väggar.
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

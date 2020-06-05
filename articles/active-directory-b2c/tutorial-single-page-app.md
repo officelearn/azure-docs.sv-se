@@ -34,7 +34,7 @@ I den här självstudien är den första i en serie i två delar:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här självstudien:
 
@@ -118,7 +118,7 @@ Nu när du har hämtat exemplet uppdaterar du koden med ditt Azure AD B2C klient
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Ett exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Exempel:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp

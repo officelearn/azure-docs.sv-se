@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 06/04/2020
 ms.author: memildin
-ms.openlocfilehash: 6e61571400930d4a781d6d67647bd662a7f2d350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4ecc7f0e11712fa3d664d1227eacb39409bd184
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106227"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418219"
 ---
 # <a name="permissions-in-azure-security-center"></a>Behörigheter i Azure Security Center
 
@@ -35,13 +35,12 @@ Förutom dessa roller finns två specifika roller i Security Center:
 > [!NOTE]
 > Säkerhets rollerna, säkerhets läsaren och säkerhets administratören har endast åtkomst i Security Center. Säkerhets rollerna har inte åtkomst till andra tjänst områden i Azure, till exempel lagring, webb & mobil eller Sakernas Internet.
 >
->
 
 ## <a name="roles-and-allowed-actions"></a>Roller och tillåtna åtgärder
 
 I följande tabell visas roller och tillåtna åtgärder i Security Center.
 
-| Roll | Redigera säkerhets princip | Tillämpa säkerhets rekommendationer för en resurs</br> (inklusive snabb korrigering!) | Ignorera aviseringar och rekommendationer | Visa aviseringar och rekommendationer |
+| Roll | Redigera säkerhets princip | Tillämpa säkerhets rekommendationer för en resurs</br> (inklusive snabb korrigering!) | Ignorera aviseringar | Visa aviseringar och rekommendationer |
 |:--- |:---:|:---:|:---:|:---:|
 | Prenumerations ägare | ✔ | ✔ | ✔ | ✔ |
 | Prenumerations deltagare | -- | ✔ | ✔ | ✔ |

@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: e55e6d4eb4f52b8a4b64db89691cf087a30ecb73
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3e88db734ecabb38363087d98b97f9eb4ec181ec
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612324"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434659"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserad maskininlärning i molnet
 
@@ -34,7 +34,7 @@ Fler funktioner är tillgängliga när du använder ett fjärrberäknings mål. 
 
 I självstudien "[träna en klassificerings modell med automatisk maskin inlärning](tutorial-auto-train-models.md)" lär du dig hur du använder en lokal dator för att träna en modell med automatiserad ml. Arbets flödet när utbildning lokalt även gäller för fjärranslutna mål. För att kunna träna via fjärr anslutning skapar du först ett fjärrberäknings mål som AmlCompute. Sedan konfigurerar du fjär resursen och skickar koden dit.
 
-Den här artikeln visar de extra steg som krävs för att köra ett automatiserat ML-experiment på ett fjärran slutet AmlCompute-mål. Objektet arbets yta, `ws`från självstudien används i hela koden här.
+Den här artikeln visar de extra steg som krävs för att köra ett automatiserat ML-experiment på ett fjärran slutet AmlCompute-mål. Objektet arbets yta, `ws` från självstudien används i hela koden här.
 
 ```python
 ws = Workspace.from_config()
@@ -42,7 +42,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Skapa resurs
 
-Skapa [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) målet på din arbets yta (`ws`) om det inte redan finns.
+Skapa [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) målet på din arbets yta ( `ws` ) om det inte redan finns.
 
 **Tids uppskattning**: skapandet av AmlCompute-målet tar cirka 5 minuter.
 
@@ -85,11 +85,11 @@ Du kan nu använda `compute_target` objektet som fjärrberäknings mål.
 
 Kluster namns begränsningarna är:
 + Måste vara kortare än 64 tecken.
-+ Det får inte finnas något av följande tecken `\` : ~! @ # $% ^ & * () = + _ [] {} \\ \\ |; : \' \\",  < > /?. `
++ Det får inte finnas något av följande tecken: `\` ~! @ # $% ^ & * () = + _ [] {} \\ \\ |;: \' \\ ",  < > /?. `
 
 ## <a name="access-data-using-tabulardataset-function"></a>Åtkomst till data med funktionen TabularDataset
 
-Definierat training_data som [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) och etiketten, som skickas till automatiserad ml i [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). `TabularDataset` Metoden `from_delimited_files`anger `infer_column_types` som standard True, vilket kommer att härleda kolumn typen automatiskt. 
+Definierat training_data som [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) och etiketten, som skickas till automatiserad ml i [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) . `TabularDataset`Metoden `from_delimited_files` anger som standard `infer_column_types` true, vilket kommer att härleda kolumn typen automatiskt. 
 
 Om du vill ange kolumn typerna manuellt kan du ange `set_column_types` argumentet för att manuellt ange typ för varje kolumn. I följande kod exempel kommer data från sklearn-paketet.
 
@@ -125,7 +125,7 @@ training_data = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/di
 ```
 
 ## <a name="configure-experiment"></a>Konfigurera experiment
-Ange inställningarna för `AutoMLConfig`.  (Se en [fullständig lista över parametrar](how-to-configure-auto-train.md#configure-experiment) och deras möjliga värden.)
+Ange inställningarna för `AutoMLConfig` .  (Se en [fullständig lista över parametrar](how-to-configure-auto-train.md#configure-experiment) och deras möjliga värden.)
 
 ```python
 from azureml.train.automl import AutoMLConfig

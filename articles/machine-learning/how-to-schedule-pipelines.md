@@ -5,16 +5,16 @@ description: Schemalägg Azure Machine Learning pipelines med hjälp av Azure Ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: 8e1e718fa4e6660d72203ac98bb6d427cdba2059
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec2f6d51387bd6054ffc39835c46071108cb0de3
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024565"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434231"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Schemalägg maskin inlärnings pipeliner med Azure Machine Learning SDK för python
 
@@ -54,9 +54,9 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 ## <a name="create-a-schedule"></a>Skapa ett schema
 
-Om du vill köra en pipeline regelbundet skapar du ett schema. En `Schedule` kopplar en pipeline, ett experiment och en utlösare. Utlösaren kan antingen vara`ScheduleRecurrence` en som beskriver vänte tiden mellan körningar eller en lagrings Sök väg som anger en katalog som ska bevaka ändringar. I båda fallen behöver du pipeline-identifieraren och namnet på experimentet som schemat ska skapas i.
+Om du vill köra en pipeline regelbundet skapar du ett schema. En `Schedule` kopplar en pipeline, ett experiment och en utlösare. Utlösaren kan antingen vara en `ScheduleRecurrence` som beskriver vänte tiden mellan körningar eller en lagrings Sök väg som anger en katalog som ska bevaka ändringar. I båda fallen behöver du pipeline-identifieraren och namnet på experimentet som schemat ska skapas i.
 
-Importera `Schedule` och `ScheduleRecurrence` klasser överst i python-filen:
+Importera och klasser överst i python-filen `Schedule` `ScheduleRecurrence` :
 
 ```python
 
@@ -65,7 +65,7 @@ from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
 
 ### <a name="create-a-time-based-schedule"></a>Skapa ett tidsbaserat schema
 
-`ScheduleRecurrence` Konstruktorn har ett obligatoriskt `frequency` argument som måste vara en av följande strängar: "minut", "Hour", "Day", "Week" eller "Month". Det kräver också ett heltals `interval` argument som anger hur många `frequency` av enheterna som ska förflyta mellan schema startar. Valfria argument ger dig mer information om start tider, enligt beskrivningen i [SCHEDULERECURRENCE SDK-dokument](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
+`ScheduleRecurrence`Konstruktorn har ett obligatoriskt `frequency` argument som måste vara en av följande strängar: "minut", "Hour", "Day", "Week" eller "Month". Det kräver också ett heltals `interval` argument som anger hur många av `frequency` enheterna som ska förflyta mellan schema startar. Valfria argument ger dig mer information om start tider, enligt beskrivningen i [SCHEDULERECURRENCE SDK-dokument](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
 
 Skapa en `Schedule` som börjar köras var 15: e minut:
 
@@ -82,7 +82,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 Pipelines som utlöses av fil ändringar kan vara mer effektiva än tidsbaserade scheman. Du kanske till exempel vill utföra ett förbehandlings steg när en fil ändras eller när en ny fil läggs till i en data katalog. Du kan övervaka ändringar i ett data lager eller ändringar i en angiven katalog i data lagret. Om du övervakar en angiven katalog kommer ändringar i under kataloger i den katalogen _inte_ att utlösa någon körning.
 
-Om du vill skapa en fil som `Schedule`är aktive rad måste `datastore` du ange parametern i anropet till [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Om du vill övervaka en mapp anger `path_on_datastore` du argumentet.
+Om du vill skapa en fil som `Schedule` är aktive rad måste du ange `datastore` parametern i anropet till [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Om du vill övervaka en mapp anger du `path_on_datastore` argumentet.
 
 Med `polling_interval` argumentet kan du ange, i minuter, den frekvens som data lagret är markerat för ändringar.
 
@@ -97,7 +97,7 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 
 ### <a name="optional-arguments-when-creating-a-schedule"></a>Valfria argument när du skapar ett schema
 
-Förutom argumenten som beskrivits tidigare kan du ange `status` argumentet till `"Disabled"` för att skapa ett inaktivt schema. `continue_on_step_failure` Slutligen kan du skicka ett booleskt värde som åsidosätter förloppets standard funktions sätt.
+Förutom argumenten som beskrivits tidigare kan du ange `status` argumentet till `"Disabled"` för att skapa ett inaktivt schema. Slutligen kan `continue_on_step_failure` du skicka ett booleskt värde som åsidosätter förloppets standard funktions sätt.
 
 ### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Använda Azure Logic Apps för mer komplexa arbets flöden
 
@@ -128,7 +128,7 @@ for s in ss:
     print(s)
 ```
 
-När du har angett att `schedule_id` du vill inaktivera kör du:
+När du har angett `schedule_id` att du vill inaktivera kör du:
 
 ```python
 def stop_by_schedule_id(ws, schedule_id):

@@ -5,17 +5,17 @@ description: Lär dig hur du får förklaringar för hur din Machine Learning-mo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: 39d2bf0e527d43e2a5fb9437720f249e54b4dff3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e0d8cb42e0dc1e161de56ca2b56eee0ce62ec25f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983643"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430716"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Använd tolknings paketet för att förklara ML-modeller & förutsägelser i python
 
@@ -71,8 +71,8 @@ I följande exempel visas hur du använder tolknings paketet på din personliga 
    * Om du vill initiera ett förklarings objekt skickar du din modell och några tränings data till förklaringens konstruktor.
    * Om du vill göra dina förklaringar och visualiseringar mer informativa kan du välja att skicka in funktions namn och utgångs klass namn om du gör klassificering.
 
-   Följande kod block visar hur du instansierar ett förklarings objekt med `TabularExplainer`, `MimicExplainer`och `PFIExplainer` lokalt.
-   * `TabularExplainer`anropar en av de tre SHAP-förklaringarna`TreeExplainer`under `DeepExplainer`(, `KernelExplainer`eller).
+   Följande kod block visar hur du instansierar ett förklarings objekt med `TabularExplainer` , `MimicExplainer` och `PFIExplainer` lokalt.
+   * `TabularExplainer`anropar en av de tre SHAP-förklaringarna under ( `TreeExplainer` , `DeepExplainer` eller `KernelExplainer` ).
    * `TabularExplainer`väljer automatiskt den lämpligaste för ditt användnings fall, men du kan anropa var och en av de tre underliggande förklaringarna direkt.
 
     ```python
@@ -159,11 +159,11 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
 
 ### <a name="raw-feature-transformations"></a>Transformeringar av RAW-funktioner
 
-Du kan välja att få förklaringar vad gäller RAW, ej transformerade funktioner i stället för de som har funktioner. För det här alternativet skickar du din funktions omvandlings pipeline till förklaringen i `train_explain.py`. Annars innehåller förklaringen förklaringar vad gäller de tekniker som finns.
+Du kan välja att få förklaringar vad gäller RAW, ej transformerade funktioner i stället för de som har funktioner. För det här alternativet skickar du din funktions omvandlings pipeline till förklaringen i `train_explain.py` . Annars innehåller förklaringen förklaringar vad gäller de tekniker som finns.
 
 Formatet på omvandlingar som stöds är detsamma som det beskrivs i [sklearn-Pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). I allmänhet stöds alla omvandlingar så länge de arbetar på en enda kolumn så att de är tydliga.
 
-Få en förklaring till RAW-funktioner med hjälp `sklearn.compose.ColumnTransformer` av en eller med en lista över monterade transformatorer. I följande exempel används `sklearn.compose.ColumnTransformer`.
+Få en förklaring till RAW-funktioner med hjälp av en `sklearn.compose.ColumnTransformer` eller med en lista över monterade transformatorer. I följande exempel används `sklearn.compose.ColumnTransformer` .
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -243,7 +243,7 @@ I följande exempel visas hur du kan använda- `ExplanationClient` klassen för 
     pip install azureml-interpret
     pip install azureml-contrib-interpret
     ```
-1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. Till exempel `train_explain.py`.
+1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. Exempelvis `train_explain.py`.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -379,7 +379,7 @@ Följ någon av dessa sökvägar för att få åtkomst till instrument panelen f
 
 Du kan distribuera förklaringen tillsammans med den ursprungliga modellen och använda den vid en fördröjning för att tillhandahålla de enskilda funktions prioritets värdena (lokal förklaring) för nya nya Datapoint-enheter. Vi erbjuder även välklarade bedömnings förklaringar för att förbättra tolknings prestanda vid en fördröjning. Processen för att distribuera en undervisad resultat förklaring liknar att distribuera en modell och innehåller följande steg:
 
-1. Skapa ett förklarings objekt. Du kan till exempel använda `TabularExplainer`:
+1. Skapa ett förklarings objekt. Du kan till exempel använda `TabularExplainer` :
 
    ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -564,7 +564,7 @@ Du kan distribuera förklaringen tillsammans med den ursprungliga modellen och a
 
 1. Rensa.
 
-   Använd `service.delete()`om du vill ta bort en distribuerad webb tjänst.
+   Använd om du vill ta bort en distribuerad webb tjänst `service.delete()` .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 56e5ad21f94521565b4df193b2450a1c994b66f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b03bf543226da12e5cfca5228b879a533942d384
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79503041"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424371"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Aktivera kapslad virtualisering på en virtuell mall i Azure Lab Services att använda ett skript
 
 Kapslad virtualisering gör att du kan skapa en miljö med flera virtuella datorer i en labbs mall för virtuella datorer. Genom att publicera mallen får du varje användare i labbet med en virtuell dator som är konfigurerad med flera virtuella datorer i den.  Mer information om kapslad virtualisering och Azure Lab Services finns i [Aktivera kapslad virtualisering på en mall virtuell dator i Azure Lab Services](how-to-enable-nested-virtualization-template-vm.md).
 
-Stegen i den här artikeln fokuserar på att konfigurera kapslad virtualisering för Windows Server 2016 eller Windows Server 2019. Du kommer att använda ett skript för att konfigurera en mall för datorer med Hyper-V.  Följande steg beskriver hur du använder [Hyper-V-skript i labb tjänster](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
+Stegen i den här artikeln fokuserar på att konfigurera kapslad virtualisering för Windows Server 2016, Windows Server 2019 eller Windows 10. Du kommer att använda ett skript för att konfigurera en mall för datorer med Hyper-V.  Följande steg beskriver hur du använder [Hyper-V-skript i labb tjänster](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
 
 >[!IMPORTANT]
 >Välj **stor (kapslad virtualisering)** eller **medium (kapslad virtualisering)** för den virtuella dator storleken när du skapar labbet.  Kapslad virtualisering kommer inte att fungera på annat sätt.  
@@ -35,20 +35,20 @@ Stegen i den här artikeln fokuserar på att konfigurera kapslad virtualisering 
     1. Öppna Internet Explorer.
     1. Välj kugg hjuls ikonen och välj **Internet alternativ**.  
     1. När dialog rutan **Internet alternativ** visas väljer du **säkerhet**, Välj **Betrodda platser**, klicka på **platser** .
-    1. När dialog rutan **Betrodda platser** visas, Lägg `https://github.com` till i listan betrodda webbplatser och välj **Stäng**.
+    1. När dialog rutan **Betrodda platser** visas, Lägg till `https://github.com` i listan betrodda webbplatser och välj **Stäng**.
 
         ![Betrodda platser](../media/how-to-enable-nested-virtualization-template-vm-using-script/trusted-sites-dialog.png)
 1. Hämta git-databasfilerna som beskrivs i följande steg.
-    1. Gå till [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/).
+    1. Gå till [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) .
     1. Klicka på knappen **klona eller hämta** .
     1. Klicka på **Hämta zip**.
     1. Extrahera ZIP-filen
 
     >[!TIP]
-    >Du kan också klona git-lagringsplatsen på [https://github.com/Azure/azure-devtestlab.git](https://github.com/Azure/azure-devtestlab.git).
+    >Du kan också klona git-lagringsplatsen på [https://github.com/Azure/azure-devtestlab.git](https://github.com/Azure/azure-devtestlab.git) .
 
 1. Starta **PowerShell** i **Administratörs** läge.
-1. I PowerShell-fönstret navigerar du till mappen med det nedladdade skriptet. Om du navigerar från den översta mappen i databasfilerna finns skriptet på `azure-devtestlab\samples\ClassroomLabs\Scripts\HyperV\`.
+1. I PowerShell-fönstret navigerar du till mappen med det nedladdade skriptet. Om du navigerar från den översta mappen i databasfilerna finns skriptet på `azure-devtestlab\samples\ClassroomLabs\Scripts\HyperV\` .
 1. Du kanske måste ändra körnings principen för att kunna köra skriptet. Kör följande kommando:
 
     ```powershell

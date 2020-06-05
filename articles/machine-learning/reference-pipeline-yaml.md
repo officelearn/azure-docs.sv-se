@@ -5,17 +5,17 @@ description: Lär dig hur du definierar en Machine Learning-pipeline med hjälp 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: 0bf5a722c611f4d1c5446eb739fdd95b7edbc934
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 3d5f73eedba64d0d8475826c61b84aab09372716
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170536"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430945"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definiera pipeliner för Machine Learning i YAML
 
@@ -25,23 +25,23 @@ I följande tabell visas vad som inte stöds för närvarande när du definierar
 
 | Steg typ | Stöds? |
 | ----- | :-----: |
-| PythonScriptStep | Yes |
-| ParallelRunStep | Yes |
-| AdlaStep | Yes |
-| AzureBatchStep | Yes |
-| DatabricksStep | Yes |
-| DataTransferStep | Yes |
-| AutoMLStep | No |
-| HyperDriveStep | No |
-| ModuleStep | Yes |
-| MPIStep | No |
-| EstimatorStep | No |
+| PythonScriptStep | Ja |
+| ParallelRunStep | Ja |
+| AdlaStep | Ja |
+| AzureBatchStep | Ja |
+| DatabricksStep | Ja |
+| DataTransferStep | Ja |
+| AutoMLStep | Nej |
+| HyperDriveStep | Nej |
+| ModuleStep | Ja |
+| MPIStep | Nej |
+| EstimatorStep | Nej |
 
 ## <a name="pipeline-definition"></a>Pipeline-definition
 
 En pipeline-definition använder följande nycklar som motsvarar [pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py) -klassen:
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `name` | En beskrivning av pipelinen. |
 | `parameters` | Parameter (er) till pipelinen. |
@@ -53,7 +53,7 @@ En pipeline-definition använder följande nycklar som motsvarar [pipelines](htt
 
 I `parameters` avsnittet används följande nycklar som motsvarar klassen [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py) :
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ---- | ---- |
 | `type` | Värde typen för parametern. Giltiga typer är `string` ,,, `int` `float` `bool` eller `datapath` . |
 | `default` | Standardvärdet. |
@@ -81,7 +81,7 @@ pipeline:
 
 I `data_references` avsnittet används följande nycklar, som motsvarar [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py):
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `datastore` | Data lagret som ska refereras. |
 | `path_on_datastore` | Den relativa sökvägen i lagrings utrymmet för data referensen. |
@@ -105,7 +105,7 @@ pipeline:
 
 Stegen definierar en beräknings miljö, tillsammans med de filer som ska köras i miljön. Använd nyckeln för att definiera typen av steg `type` :
 
-| Steg typ | Description |
+| Steg typ | Beskrivning |
 | ----- | ----- |
 | `AdlaStep` | Kör ett U-SQL-skript med Azure Data Lake Analytics. Motsvarar klassen [AdlaStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py) . |
 | `AzureBatchStep` | Kör jobb med Azure Batch. Motsvarar klassen [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py) . |
@@ -116,7 +116,7 @@ Stegen definierar en beräknings miljö, tillsammans med de filer som ska köras
 
 ### <a name="adla-step"></a>ADLA-steg
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `script_name` | Namnet på U-SQL-skriptet (relativt till `source_directory` ). |
 | `compute_target` | Det Azure Data Lake beräknings mål som ska användas för det här steget. |
@@ -167,7 +167,7 @@ pipeline:
 
 ### <a name="azure-batch-step"></a>Azure Batch steg
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `compute_target` | Det Azure Batch beräknings mål som ska användas för det här steget. |
 | `inputs` | Indata kan vara [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -221,7 +221,7 @@ pipeline:
 
 ### <a name="databricks-step"></a>Databricks-steg
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `compute_target` | Det Azure Databricks beräknings mål som ska användas för det här steget. |
 | `inputs` | Indata kan vara [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -275,7 +275,7 @@ pipeline:
 
 ### <a name="data-transfer-step"></a>Data överförings steg
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `compute_target` | Det Azure Data Factory beräknings mål som ska användas för det här steget. |
 | `source_data_reference` | Inmatnings anslutning som fungerar som källa för data överförings åtgärder. De värden som stöds är [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -319,7 +319,7 @@ pipeline:
 
 ### <a name="python-script-step"></a>Python-skript steg
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `inputs` | Indata kan vara [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
 | `outputs` | Utdata kan vara antingen [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) eller [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
@@ -366,7 +366,7 @@ pipeline:
 
 ### <a name="parallel-run-step"></a>Parallellt körnings steg
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `inputs` | Indata kan vara [dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)eller [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
 | `outputs` | Utdata kan vara antingen [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) eller [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
@@ -418,7 +418,7 @@ pipeline:
 
 ### <a name="pipeline-with-multiple-steps"></a>Pipeline med flera steg 
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `steps` | Sekvens av en eller flera PipelineStep-definitioner. Observera att `destination` nycklarna i ett steg `outputs` blir `source` nycklar till `inputs` Nästa steg.| 
 
@@ -479,7 +479,7 @@ pipeline:
 
 När du definierar schemat för en pipeline kan det vara antingen data lager utlösta eller återkommande baserat på ett tidsintervall. Följande är de nycklar som används för att definiera ett schema:
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `description` | En beskrivning av schemat. |
 | `recurrence` | Innehåller inställningar för upprepning, om schemat är återkommande. |
@@ -510,7 +510,7 @@ Schedule:
 
 När du definierar ett **återkommande schema**, använder du följande nycklar under `recurrence` :
 
-| YAML-nyckel | Description |
+| YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `frequency` | Hur ofta schemat ska upprepas. Giltiga värden är `"Minute"` ,,, `"Hour"` `"Day"` `"Week"` eller `"Month"` . |
 | `interval` | Hur ofta schemat utlöses. Heltal svärdet är antalet tidsenheter som ska vänta tills schemat utlöses igen. |

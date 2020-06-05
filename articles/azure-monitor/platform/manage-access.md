@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 1e86317999a34e4ab4cb94f93fb788e3e7314cea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0106be09ac4c45ada712b333311aedf0402f785
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193062"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432815"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till logg data och arbets ytor i Azure Monitor
 
@@ -104,7 +104,7 @@ Varje arbets yta kan ha flera associerade konton, och varje konto kan ha åtkoms
 
 Följande aktiviteter kräver även Azure-behörigheter:
 
-|Åtgärd |Azure-behörigheter krävs |Anteckningar |
+|Åtgärd |Azure-behörigheter krävs |Obs! |
 |-------|-------------------------|------|
 | Lägga till och ta bort övervaknings lösningar | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
 | Ändra prisnivån | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -168,7 +168,7 @@ Rollen Log Analytics Contributor innehåller följande Azure-åtgärder:
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Visa lagringskontonyckeln. Krävs för att ställa in Log Analytics för läsning av loggar från Azure-lagringskonton |
 | `Microsoft.Insights/alertRules/*` | Lägga till, uppdatera och ta bort aviseringsregler |
 | `Microsoft.Insights/diagnosticSettings/*` | Lägga till, uppdatera och ta bort diagnostikinställningar på Azure-resurser |
-| `Microsoft.OperationalInsights/*` | Lägg till, uppdatera och ta bort konfiguration för Log Analytics arbets ytor. För att redigera avancerade inställningar för arbets ytan `Microsoft.OperationalInsights/workspaces/write`, användar behov. |
+| `Microsoft.OperationalInsights/*` | Lägg till, uppdatera och ta bort konfiguration för Log Analytics arbets ytor. För att redigera avancerade inställningar för arbets ytan, användar behov `Microsoft.OperationalInsights/workspaces/write` . |
 | `Microsoft.OperationsManagement/*` | Lägga till och ta bort hanteringslösningar |
 | `Microsoft.Resources/deployments/*` | Skapa och ta bort distributioner. Krävs för att lägga till och ta bort lösningar, arbetsytor och Automation-konton |
 | `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Skapa och ta bort distributioner. Krävs för att lägga till och ta bort lösningar, arbetsytor och Automation-konton |
@@ -192,7 +192,7 @@ När användarna frågar efter loggar från en arbets yta med resurs kontext åt
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exempel:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Möjlighet att visa alla logg data för resursen.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Möjlighet att konfigurera diagnostikinställningar för att tillåta konfiguration av loggar för den här resursen. |
 
-`/read`behörighet beviljas vanligt vis från en roll som innehåller _ \*/Read eller_ _\*_ behörigheter som de inbyggda rollerna [läsare](../../role-based-access-control/built-in-roles.md#reader) och [deltagare](../../role-based-access-control/built-in-roles.md#contributor) . Anpassade roller som innehåller särskilda åtgärder eller dedikerade inbyggda roller kanske inte innehåller den här behörigheten.
+`/read`behörighet beviljas vanligt vis från en roll som innehåller _ \* /Read eller_ _\*_ behörigheter som de inbyggda rollerna [läsare](../../role-based-access-control/built-in-roles.md#reader) och [deltagare](../../role-based-access-control/built-in-roles.md#contributor) . Anpassade roller som innehåller särskilda åtgärder eller dedikerade inbyggda roller kanske inte innehåller den här behörigheten.
 
 Se [definiera åtkomst kontroll per tabell](#table-level-rbac) nedan om du vill skapa en annan åtkomst kontroll för olika tabeller.
 
@@ -208,17 +208,17 @@ Se [definiera åtkomst kontroll per tabell](#table-level-rbac) nedan om du vill 
 
     * Konfigurera arbets ytans åtkomst kontrol läge för att **använda arbets ytan eller resurs behörigheter**
 
-    * Ge användare följande behörigheter på arbets ytan: `Microsoft.OperationalInsights/workspaces/read` och. `Microsoft.OperationalInsights/workspaces/sharedKeys/action` Med dessa behörigheter kan användarna inte utföra några frågor på arbets ytans nivå. De kan bara räkna upp arbets ytan och använda den som mål för diagnostikinställningar eller agent konfiguration.
+    * Ge användare följande behörigheter på arbets ytan: `Microsoft.OperationalInsights/workspaces/read` och `Microsoft.OperationalInsights/workspaces/sharedKeys/action` . Med dessa behörigheter kan användarna inte utföra några frågor på arbets ytans nivå. De kan bara räkna upp arbets ytan och använda den som mål för diagnostikinställningar eller agent konfiguration.
 
-    * Ge användarna följande behörigheter för sina resurser: `Microsoft.Insights/logs/*/read` och. `Microsoft.Insights/diagnosticSettings/write` Om de redan har tilldelats rollen [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#contributor) , tilldelats rollen läsare eller beviljade `*/read` behörigheter för den här resursen, räcker det.
+    * Ge användarna följande behörigheter för sina resurser: `Microsoft.Insights/logs/*/read` och `Microsoft.Insights/diagnosticSettings/write` . Om de redan har tilldelats rollen [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#contributor) , tilldelats rollen läsare eller beviljade `*/read` behörigheter för den här resursen, räcker det.
 
 3. Om du vill ge en användare åtkomst till loggdata från sina resurser utan att kunna läsa säkerhets händelser och skicka data, gör du följande:
 
     * Konfigurera arbets ytans åtkomst kontrol läge för att **använda arbets ytan eller resurs behörigheter**
 
-    * Ge användarna följande behörigheter för sina resurser: `Microsoft.Insights/logs/*/read`.
+    * Ge användarna följande behörigheter för sina resurser: `Microsoft.Insights/logs/*/read` .
 
-    * Lägg till följande ej åtgärd för att hindra användare från att läsa SecurityEvent- `Microsoft.Insights/logs/SecurityEvent/read`typen:. Den andra åtgärden skall vara i samma anpassade roll som den åtgärd som tillhandahåller Läs behörighet (`Microsoft.Insights/logs/*/read`). Om användaren har tilldelat Läs åtgärden från en annan roll som är tilldelad till den här resursen eller till prenumerationen eller resurs gruppen kan de läsa alla typer av loggar. Detta gäller även om de ärver `*/read`, det finns till exempel med rollen läsare eller deltagare.
+    * Lägg till följande ej åtgärd för att hindra användare från att läsa SecurityEvent-typen: `Microsoft.Insights/logs/SecurityEvent/read` . Den andra åtgärden skall vara i samma anpassade roll som den åtgärd som tillhandahåller Läs behörighet ( `Microsoft.Insights/logs/*/read` ). Om användaren har tilldelat Läs åtgärden från en annan roll som är tilldelad till den här resursen eller till prenumerationen eller resurs gruppen kan de läsa alla typer av loggar. Detta gäller även om de ärver `*/read` , det finns till exempel med rollen läsare eller deltagare.
 
 4. Om du vill ge en användare åtkomst till loggdata från sina resurser och läsa alla Azure AD-inloggningar och läsa Uppdateringshantering lösnings logg data från arbets ytan gör du följande:
 
@@ -235,7 +235,7 @@ Se [definiera åtkomst kontroll per tabell](#table-level-rbac) nedan om du vill 
         * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`– krävs för att kunna använda Uppdateringshantering lösning
         * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`– krävs för att kunna använda Uppdateringshantering lösning
 
-    * Ge användarna följande behörigheter till resurserna: `*/read`, tilldelade till rollen läsare eller. `Microsoft.Insights/logs/*/read` 
+    * Ge användarna följande behörigheter till resurserna: `*/read` , tilldelade till rollen läsare eller `Microsoft.Insights/logs/*/read` . 
 
 ## <a name="table-level-rbac"></a>RBAC för tabell nivå
 
@@ -286,11 +286,11 @@ En annan metod för att hantera åtkomst till anpassade loggar är att tilldela 
 
 Ibland kommer anpassade loggar från källor som inte är direkt kopplade till en speciell resurs. I det här fallet skapar du en resurs grupp för att bara hantera åtkomst till dessa loggar. Resurs gruppen kostar ingen kostnad, men ger dig ett giltigt resurs-ID för att kontrol lera åtkomsten till de anpassade loggarna. Om en speciell brand vägg exempelvis skickar anpassade loggar, skapar du en resurs grupp med namnet "MyFireWallLogs" och ser till att API-begärandena innehåller resurs-ID: t "MyFireWallLogs". Logg posterna för brand väggen är sedan tillgängliga enbart för användare som har beviljats åtkomst till antingen MyFireWallLogs eller med fullständig åtkomst till arbets ytan.          
 
-### <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Att tänka på
 
-* Om en användare beviljas global Läs behörighet med standard läsare eller deltagar roller som innehåller _ \*/Read_ -åtgärden, åsidosätter den åtkomst kontrollen per tabell och ger dem åtkomst till alla loggdata.
+* Om en användare beviljas global Läs behörighet med standard läsare eller deltagar roller som innehåller _ \* /Read_ -åtgärden, åsidosätter den åtkomst kontrollen per tabell och ger dem åtkomst till alla loggdata.
 * Om en användare beviljas åtkomst per tabell men inga andra behörigheter, skulle de kunna komma åt loggdata från API: et, men inte från Azure Portal. Om du vill ge åtkomst från Azure Portal använder du Log Analytics Reader som bas roll.
-* Administratörer av prenumerationen kommer att ha åtkomst till alla data typer, oavsett andra behörighets inställningar.
+* Administratörer och ägare av prenumerationen kommer att ha åtkomst till alla data typer oavsett andra behörighets inställningar.
 * Arbets ytans ägare behandlas som alla andra användare för åtkomst kontroll per tabell.
 * Vi rekommenderar att du tilldelar roller till säkerhets grupper i stället för enskilda användare för att minska antalet tilldelningar. Detta hjälper dig också att använda befintliga grupp hanterings verktyg för att konfigurera och verifiera åtkomst.
 

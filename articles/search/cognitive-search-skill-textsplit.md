@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3f80169808b1e6420f04b786d2bb06bde9c96231
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: 558f7ef250c99d85cb957162b6d098e586bc0fc4
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73479668"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433255"
 ---
 # <a name="text-split-cognitive-skill"></a>Text delning kognitiv kunskap
 
@@ -32,8 +32,8 @@ Parametrar är skiftlägeskänsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | textSplitMode      | Antingen "Pages" eller "meningar" | 
-| maximumPageLength | Om textSplitMode är inställt på "Pages", refererar detta till den maximala sid längden `String.Length`som mäts av. Minimivärdet är 100.  Om textSplitMode är inställt på "Pages" försöker algoritmen dela upp texten i segment som har flest "maximumPageLength" i storlek. I det här fallet gör algoritmen det bästa sättet att dela upp meningen på en mening, så storleken på segmentet kan vara något lägre än "maximumPageLength". | 
-| defaultLanguageCode   | valfritt En av följande språk koder: `da, de, en, es, fi, fr, it, ko, pt`. Standardvärdet är engelska (en). Några saker att tänka på:<ul><li>Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.</li><li>Om språket inte finns i den föregående listan, delar den delade kompetensen texten vid tecken gränser.</li><li>Att tillhandahålla en språkkod är användbart för att undvika att klippa ut ett ord på en halv till ett språk som inte är blank steg, till exempel kinesiska, japanska och koreanska.</li><li>Om du inte känner till språket (dvs. om du behöver dela upp texten för indatamängden i [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), är standardvärdet engelska (en) tillräckligt. </li></ul>  |
+| maximumPageLength | Om textSplitMode är inställt på "Pages", refererar detta till den maximala sid längden som mäts av `String.Length` . Minimivärdet är 300.  Om textSplitMode är inställt på "Pages" försöker algoritmen dela upp texten i segment som har flest "maximumPageLength" i storlek. I det här fallet gör algoritmen det bästa sättet att dela upp meningen på en mening, så storleken på segmentet kan vara något lägre än "maximumPageLength". | 
+| defaultLanguageCode   | valfritt En av följande språk koder: `da, de, en, es, fi, fr, it, ko, pt` . Standardvärdet är engelska (en). Några saker att tänka på:<ul><li>Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.</li><li>Om språket inte finns i den föregående listan, delar den delade kompetensen texten vid tecken gränser.</li><li>Att tillhandahålla en språkkod är användbart för att undvika att klippa ut ett ord på en halv till ett språk som inte är blank steg, till exempel kinesiska, japanska och koreanska.</li><li>Om du inte känner till språket (dvs. om du behöver dela upp texten för indatamängden i [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), är standardvärdet engelska (en) tillräckligt. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar

@@ -8,24 +8,24 @@ ms.author: trbye
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: f997aef59e91bed325b84af855a84f43cd639d83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 321d5c3944f3c4340da593f977919ebc6a47752e
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77122849"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431301"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Använda Azure AD-identitet med din Machine Learning-webbtjänst i Azure Kubernetes-tjänsten
 
-I den här instruktionen får du lära dig hur du tilldelar en Azure Active Directory identitet (AAD) till din distribuerade maskin inlärnings modell i Azure Kubernetes-tjänsten. [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) Project ger program åtkomst till moln resurser på ett säkert sätt med AAD genom att använda en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) och Kubernetes-primitiver. Detta gör att webb tjänsten kan komma åt dina Azure-resurser på ett säkert sätt utan att behöva bädda in autentiseringsuppgifter eller hantera `score.py` tokens direkt inuti skriptet. I den här artikeln beskrivs stegen för att skapa och installera en Azure-identitet i Azure Kubernetes service-klustret och tilldela identiteten till den distribuerade webb tjänsten.
+I den här instruktionen får du lära dig hur du tilldelar en Azure Active Directory identitet (AAD) till din distribuerade maskin inlärnings modell i Azure Kubernetes-tjänsten. [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) Project ger program åtkomst till moln resurser på ett säkert sätt med AAD genom att använda en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) och Kubernetes-primitiver. Detta gör att webb tjänsten kan komma åt dina Azure-resurser på ett säkert sätt utan att behöva bädda in autentiseringsuppgifter eller hantera tokens direkt inuti `score.py` skriptet. I den här artikeln beskrivs stegen för att skapa och installera en Azure-identitet i Azure Kubernetes service-klustret och tilldela identiteten till den distribuerade webb tjänsten.
 
 ## <a name="prerequisites"></a>Krav
 
 - [Azure CLI-tillägget för Machine Learning-tjänsten](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
 
-- Åtkomst till ditt AKS-kluster med `kubectl` hjälp av kommandot. Mer information finns i [ansluta till klustret](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
+- Åtkomst till ditt AKS-kluster med hjälp av `kubectl` kommandot. Mer information finns i [ansluta till klustret](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
 
 - En Azure Machine Learning-webbtjänst som distribueras till ditt AKS-kluster.
 
@@ -94,7 +94,7 @@ spec:
   Selector: <label value to match>
 ```
 
-Redigera distributionen för att lägga till etiketten för Azure Identity Selector. Gå till följande avsnitt under `/spec/template/metadata/labels`. Du bör se värden som `isazuremlapp: “true”`. Lägg till etiketten AAD-Pod-Identity som visas nedan.
+Redigera distributionen för att lägga till etiketten för Azure Identity Selector. Gå till följande avsnitt under `/spec/template/metadata/labels` . Du bör se värden som `isazuremlapp: “true”` . Lägg till etiketten AAD-Pod-Identity som visas nedan.
 
 ```azurecli-interactive
     kubectl edit deployment/<name of deployment> -n azureml-<name of workspace>
@@ -129,7 +129,7 @@ När poddar är igång kommer webb tjänsterna för den här distributionen nu a
 
 ## <a name="use-azure-identity-with-your-machine-learning-web-service"></a>Använd Azure Identity med din Machine Learning-webbtjänst
 
-Distribuera en modell till ditt AKS-kluster. `score.py` Skriptet kan innehålla åtgärder som pekar på de Azure-resurser som din Azure-identitet har åtkomst till. Kontrol lera att du har installerat de klient biblioteks beroenden som krävs för resursen som du försöker få åtkomst till. Nedan visas några exempel på hur du kan använda din Azure-identitet för att få åtkomst till olika Azure-resurser från din tjänst.
+Distribuera en modell till ditt AKS-kluster. `score.py`Skriptet kan innehålla åtgärder som pekar på de Azure-resurser som din Azure-identitet har åtkomst till. Kontrol lera att du har installerat de klient biblioteks beroenden som krävs för resursen som du försöker få åtkomst till. Nedan visas några exempel på hur du kan använda din Azure-identitet för att få åtkomst till olika Azure-resurser från din tjänst.
 
 ### <a name="access-key-vault-from-your-web-service"></a>Åtkomst Key Vault från din webb tjänst
 

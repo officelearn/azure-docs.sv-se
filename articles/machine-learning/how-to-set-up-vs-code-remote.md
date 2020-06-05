@@ -5,16 +5,16 @@ description: Konfigurera VS Code Remote för att interaktivt felsöka din kod me
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77169745"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433132"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Felsöka interaktivt på en Azure Machine Learning beräknings instans med VS Code Remote
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du konfigurerar Visual Studio Code-fj�
 
 + [Visual Studio Code-fjärrkontroll](https://code.visualstudio.com/docs/remote/remote-overview) Med utveckling kan du använda en behållare, fjärrdator eller Windows-undersystemet för Linux (WSL) som en komplett utvecklings miljö. 
 
-## <a name="prerequisite"></a>Krav  
+## <a name="prerequisite"></a>Förutsättning  
 
 På Windows-plattformar måste du [installera en OpenSSH-kompatibel SSH-klient](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) om en sådan inte redan finns. 
 
@@ -34,7 +34,7 @@ På Windows-plattformar måste du [installera en OpenSSH-kompatibel SSH-klient](
 
 ## <a name="get-ip-and-ssh-port"></a>Hämta IP-och SSH-port 
 
-1. Gå till Azure Machine Learning Studio på https://ml.azure.com/.
+1. Gå till Azure Machine Learning Studio på https://ml.azure.com/ .
 
 2. Välj din [arbets yta](concept-workspace.md).
 1. Klicka på fliken **beräknings instanser** .
@@ -86,7 +86,7 @@ Host azmlci1
 
 Här finns information om fälten: 
 
-|Field|Beskrivning|
+|Fält|Beskrivning|
 |----|---------|
 |Värd|Använd den stenografiska du gillar för beräknings instansen |
 |Värdnamn|Detta är beräknings instansens IP-adress |
@@ -94,7 +94,7 @@ Här finns information om fälten:
 |Användare|Detta måste vara `azureuser` |
 |IdentityFile|Ska peka på filen där du sparade den privata nyckeln |
 
-Nu bör du kunna använda SSH till din beräknings instans med hjälp av den kort skrift som du använde `ssh azmlci1`ovan. 
+Nu bör du kunna använda SSH till din beräknings instans med hjälp av den kort skrift som du använde ovan `ssh azmlci1` . 
 
 ## <a name="connect-vs-code-to-the-instance"></a>Ansluta VS-kod till instansen 
 

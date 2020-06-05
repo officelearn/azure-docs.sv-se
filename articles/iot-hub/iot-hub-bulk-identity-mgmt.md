@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 2a0394e6e7c17e0a4954bbdddb1d5b2811959746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46eb1fe7543cbc65545eaca46e38f09466406701
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371587"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417947"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Massimportera och massexportera IoT Hub-enhetsidentiteter
 
@@ -27,8 +27,6 @@ Import-och export åtgärder sker i samband med *jobb* som gör att du kan köra
 Klassen **RegistryManager** innehåller metoderna **ExportDevicesAsync** och **ImportDevicesAsync** som använder **jobb** ramverket. Med dessa metoder kan du exportera, importera och synkronisera hela identitet registret för IoT Hub.
 
 I det här avsnittet beskrivs hur du använder **RegistryManager** -klassen och- **jobb** systemet för att utföra Mass import och export av enheter till och från en IoT Hubs identitets register. Du kan också använda Azure-IoT Hub Device Provisioning Service för att möjliggöra Zero Touch-etablering, just-in-Time-etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i dokumentationen för [etablerings tjänsten](/azure/iot-dps).
-
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## <a name="what-are-jobs"></a>Vad är jobb?
 
@@ -259,7 +257,7 @@ Du kan använda metoden **ImportDevicesAsync** för att utföra följande Mass �
 
 Du kan utföra valfri kombination av föregående åtgärder inom ett enda **ImportDevicesAsync** -anrop. Du kan till exempel registrera nya enheter och ta bort eller uppdatera befintliga enheter på samma tidpunkt. När det används tillsammans med **ExportDevicesAsync** -metoden kan du fullständigt migrera alla enheter från en IoT-hubb till en annan.
 
-Om import filen innehåller dubbla metadata skriver denna metadata över de befintliga dubbla metadata. Om import filen inte innehåller dubbla metadata uppdateras bara `lastUpdateTime` metadata med den aktuella tiden.
+Om import filen innehåller dubbla metadata skriver denna metadata över de befintliga dubbla metadata. Om import filen inte innehåller dubbla metadata `lastUpdateTime` uppdateras bara metadata med den aktuella tiden.
 
 Använd den valfria egenskapen **importMode** i importens serialiserings data för varje enhet för att styra import processen per enhet. Egenskapen **importMode** har följande alternativ:
 

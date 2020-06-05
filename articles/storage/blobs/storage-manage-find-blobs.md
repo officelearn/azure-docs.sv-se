@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 3e5507069a3e1eeadfaf4c3eeee288b2651e88a1
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 083b130d1bb02ccc922c834c09a0d16fab004ae9
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996048"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433572"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Hantera och hitta data på Azure Blob Storage med BLOB-index (förhands granskning)
 
@@ -208,7 +208,7 @@ Anropare som använder en [AAD-identitet](../common/storage-auth-aad.md) kan bev
 
 |   BLOB-åtgärder   |  RBAC-åtgärd   |
 |---------------------|----------------|
-| Hitta blobbar efter Taggar  | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/filter |
+| Hitta blobbar efter Taggar  | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/filter/åtgärd |
 | Ange BLOB-Taggar         | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Taggar/skrivning | 
 | Hämta BLOB-Taggar         | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Taggar/läsa |
 
@@ -239,7 +239,7 @@ I följande tabell sammanfattas skillnaderna mellan metadata och blob-index Tagg
 
 |              |   Metadata   |   BLOB index-Taggar  |
 |--------------|--------------|--------------------|
-| **Begränsningar**         | Ingen numerisk gräns; totalt 8 KB; Skift läges okänslig | 10 Taggar per BLOB Max; 768 byte per tagg; Skift läges känslig |
+| **Gränser**         | Ingen numerisk gräns; totalt 8 KB; Skift läges okänslig | 10 Taggar per BLOB Max; 768 byte per tagg; Skift läges känslig |
 | **Uppdateringar**      | Tillåts inte på Arkiv nivå. SetBlobMetadata ersätter alla befintliga metadata. SetBlobMetadata ändrar blobens senaste ändrings tid | Tillåts för alla åtkomst nivåer. SetBlobTags ersätter alla befintliga taggar; SetBlobTags ändrar inte blobens senaste ändrings tid |
 | **Storage**        | Lagrad med BLOB-data |  Under resurs till BLOB-data | 
 | **Indexerar & frågor** | Ej tillämpligt, ursprungligt; måste använda en separat tjänst, till exempel Azure Search | Ja, inbyggd indexering och frågor om funktioner som är inbyggda i Blob Storage |

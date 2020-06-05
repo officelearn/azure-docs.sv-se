@@ -5,17 +5,17 @@ description: Den här artikeln lär dig hur du använder Azure Machine Learning 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c6442a5c4af5b9804456f0b4b9e78c8999249f25
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78398340"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433395"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -135,11 +135,11 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Den här filen heter `score.py`. Mer information om Entry-skript finns i [hur och var du ska distribuera](how-to-deploy-and-where.md).
+Den här filen heter `score.py` . Mer information om Entry-skript finns i [hur och var du ska distribuera](how-to-deploy-and-where.md).
 
 ## <a name="define-the-conda-environment"></a>Definiera Conda-miljön
 
-Miljö filen Conda anger beroenden för tjänsten. Den innehåller beroenden som krävs av både modellen och Entry-skriptet. Observera att du måste ange azureml-defaults med version >= 1.0.45 som ett pip-beroende, eftersom det innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande YAML definieras miljön för en Tensorflow-modell. Den anger `tensorflow-gpu`, som använder den GPU som används i den här distributionen:
+Miljö filen Conda anger beroenden för tjänsten. Den innehåller beroenden som krävs av både modellen och Entry-skriptet. Observera att du måste ange azureml-defaults med version >= 1.0.45 som ett pip-beroende, eftersom det innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande YAML definieras miljön för en Tensorflow-modell. Den anger `tensorflow-gpu` , som använder den GPU som används i den här distributionen:
 
 ```yaml
 name: project_environment
@@ -157,7 +157,7 @@ channels:
 - conda-forge
 ```
 
-I det här exemplet sparas filen som `myenv.yml`.
+I det här exemplet sparas filen som `myenv.yml` .
 
 ## <a name="define-the-deployment-configuration"></a>Definiera distributions konfigurationen
 
@@ -214,7 +214,7 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Om `InferenceConfig` objektet har `enable_gpu=True`, måste `deployment_target` parametern referera till ett kluster som tillhandahåller en GPU. Annars Miss kommer distributionen.
+> Om `InferenceConfig` objektet har `enable_gpu=True` , `deployment_target` måste parametern referera till ett kluster som tillhandahåller en GPU. Annars Miss kommer distributionen.
 
 Mer information finns i referens dokumentationen för- [modellen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 

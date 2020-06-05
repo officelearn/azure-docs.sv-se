@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: 87cb5714a1f4b362e2f73879d93f5739f0fc20cf
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c81e0a71b23e865ca2938f5fbf3c73cdb5c3aeb1
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324291"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434305"
 ---
 # <a name="featurization-with-automated-machine-learning"></a>Funktionalisering med automatisk maskin inlärning
 
@@ -42,7 +42,7 @@ För experiment som kon figurer ATS med SDK kan du aktivera/inaktivera inställn
 
 I följande tabell visas de accepterade inställningarna för `featurization` i [klassen AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-|Funktionalisering-konfiguration | Description|
+|Funktionalisering-konfiguration | Beskrivning|
 ------------- | ------------- |
 |**`"featurization": 'auto'`**| Anger att [data guardrails och funktionalisering-steg](#featurization) utförs automatiskt när en del av förbearbetningen. **Standardinställning**.|
 |**`"featurization": 'off'`**| Anger att funktionalisering-steg inte ska utföras automatiskt.|
@@ -57,7 +57,7 @@ I följande tabell sammanfattas de tekniker som automatiskt tillämpas på dina 
 > [!NOTE]
 > Om du planerar att exportera dina Auto ML-skapade modeller till en [ONNX-modell](concept-onnx.md), stöds bara de funktionalisering-alternativ som anges med * i ONNX-formatet. Lär dig mer om [att konvertera modeller till ONNX](concept-automated-ml.md#use-with-onnx). 
 
-|Funktionalisering- &nbsp; steg| Description |
+|Funktionalisering- &nbsp; steg| Beskrivning |
 | ------------- | ------------- |
 |**Släpp hög kardinalitet eller inga varians funktioner*** |Ta bort dessa från inlärnings-och validerings uppsättningar, inklusive funktioner med alla värden som saknas, samma värde för alla rader eller med hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
 |**Imputerade värden som saknas*** |För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det mest frekventa värdet.|

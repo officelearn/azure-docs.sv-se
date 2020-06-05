@@ -5,17 +5,17 @@ description: Övervaka webb tjänster som distribueras med Azure Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
 ms.date: 03/12/2020
-ms.openlocfilehash: 464ec1fcf0986dc04bd92bbe9e31b5675e5822d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 925b562189d713dd4cb1e72aa8b8fae28fcde0a5
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136201"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433227"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Övervaka och samla in data från ML webb tjänst slut punkter
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Förutom att samla in en slut punkts utdata och svar kan du övervaka:
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
+* Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
 
 * En Azure Machine Learning arbets yta, en lokal katalog som innehåller dina skript och Azure Machine Learning SDK för python installerat. Information om hur du får dessa krav finns i så här [konfigurerar du en utvecklings miljö](how-to-configure-environment.md)
 
@@ -46,7 +46,7 @@ Förutom att samla in en slut punkts utdata och svar kan du övervaka:
 >[!Important]
 > Azure Application Insights loggar bara nytto laster på upp till 64 kB. Om den här gränsen nås loggas bara de senaste utflödena av modellen. 
 
-Metadata och svar på tjänsten – som motsvarar metadata för webb tjänsten och modellens förutsägelser – loggas i Azure Application Insights-spår under meddelandet `"model_data_collection"`. Du kan fråga Azure Application insikter direkt för att komma åt dessa data eller konfigurera en [kontinuerlig export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) till ett lagrings konto för längre kvarhållning eller ytterligare bearbetning. Modell data kan sedan användas i Azure Machine Learning för att konfigurera etiketter, omskolning, bedömning, data analys eller annan användning. 
+Metadata och svar på tjänsten – som motsvarar metadata för webb tjänsten och modellens förutsägelser – loggas i Azure Application Insights-spår under meddelandet `"model_data_collection"` . Du kan fråga Azure Application insikter direkt för att komma åt dessa data eller konfigurera en [kontinuerlig export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) till ett lagrings konto för längre kvarhållning eller ytterligare bearbetning. Modell data kan sedan användas i Azure Machine Learning för att konfigurera etiketter, omskolning, bedömning, data analys eller annan användning. 
 
 <a name="python"></a>
 
@@ -138,7 +138,7 @@ Mer information om hur du använder Azure Application Insights finns i [Applicat
 >[!Important]
 > Azure Application Insights stöder endast export till Blob Storage. Ytterligare begränsningar för den här export funktionen visas i [Exportera telemetri från App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-Du kan använda Azure Application insightss [löpande export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) för att skicka meddelanden till ett lagrings konto som stöds, där en längre kvarhållning kan ställas in. `"model_data_collection"` Meddelandena lagras i JSON-format och kan enkelt tolkas för att extrahera modell data. 
+Du kan använda Azure Application insightss [löpande export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) för att skicka meddelanden till ett lagrings konto som stöds, där en längre kvarhållning kan ställas in. `"model_data_collection"`Meddelandena lagras i JSON-format och kan enkelt tolkas för att extrahera modell data. 
 
 Azure Data Factory, Azure ML-pipeliner eller andra data bearbetnings verktyg kan användas för att transformera data vid behov. När du har transformerat data kan du registrera den med Azure Machine Learning arbets ytan som en data uppsättning. Det gör du i så [här skapar och registrerar du data uppsättningar](how-to-create-register-datasets.md).
 

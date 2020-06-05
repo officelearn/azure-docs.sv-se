@@ -5,18 +5,18 @@ description: Lär dig hur du anropar en webb tjänst slut punkt som genererades 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb957169f542fdf6dc01e1024e3daab57eabd894
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383394"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433561"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använda en Azure Machine Learning modell som distribueras som en webb tjänst
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,8 +41,8 @@ Det allmänna arbets flödet för att skapa en klient som använder en Machine L
 
 [Azureml. Core. WebService-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klassen innehåller den information du behöver för att skapa en-klient. Följande `Webservice` egenskaper är användbara när du skapar ett klient program:
 
-* `auth_enabled`– Om autentisering av nycklar är aktiverat `True`,; Annars, `False`.
-* `token_auth_enabled`– Om token-autentisering är `True`aktiverat,; Annars, `False`.
+* `auth_enabled`– Om Key Authentication har Aktiver ATS, `True` annars, `False` .
+* `token_auth_enabled`– Om token-autentisering är aktiverat, `True` annars, `False` .
 * `scoring_uri`– REST API-adressen.
 * `swagger_uri`– Adressen till OpenAPI-specifikationen. Denna URI är tillgänglig om du har aktiverat automatiskt skapande av schema. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -65,7 +65,7 @@ Det finns tre sätt att hämta den här informationen för distribuerade webb tj
     print(services[0].swagger_uri)
     ```
 
-* Om du känner till namnet på den distribuerade tjänsten kan du skapa en ny instans av `Webservice`och ange arbets ytan och tjänstens namn som parametrar. Det nya objektet innehåller information om den distribuerade tjänsten.
+* Om du känner till namnet på den distribuerade tjänsten kan du skapa en ny instans av `Webservice` och ange arbets ytan och tjänstens namn som parametrar. Det nya objektet innehåller information om den distribuerade tjänsten.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -88,10 +88,10 @@ Azure Machine Learning ger dig möjlighet att styra åtkomsten till dina webb tj
 
 |Autentiseringsmetod|ACI|AKS|
 |---|---|---|
-|Nyckel|Inaktiverat som standard| Aktiverat som standard|
+|Tangent|Inaktiverat som standard| Aktiverat som standard|
 |Token| Inte tillgängligt| Inaktiverat som standard |
 
-När du skickar en begäran till en tjänst som skyddas med en nyckel eller token ska du använda __Authorization__ -huvudet för att skicka nyckeln eller token. Nyckeln eller token måste formateras som `Bearer <key-or-token>`, där `<key-or-token>` är nyckel-eller token-värdet.
+När du skickar en begäran till en tjänst som skyddas med en nyckel eller token ska du använda __Authorization__ -huvudet för att skicka nyckeln eller token. Nyckeln eller token måste formateras som `Bearer <key-or-token>` , där `<key-or-token>` är nyckel-eller token-värdet.
 
 #### <a name="authentication-with-keys"></a>Autentisering med nycklar
 
@@ -100,7 +100,7 @@ När du aktiverar autentisering för en distribution skapar du automatiskt nyckl
 * Autentisering aktive ras som standard när du distribuerar till Azure Kubernetes-tjänsten.
 * Autentisering inaktive ras som standard när du distribuerar till Azure Container Instances.
 
-Om du vill kontrol lera autentiseringen använder du `auth_enabled` parametern när du skapar eller uppdaterar en distribution.
+Om du vill kontrol lera autentiseringen använder `auth_enabled` du parametern när du skapar eller uppdaterar en distribution.
 
 Om autentisering är aktive rad kan du använda `get_keys` metoden för att hämta en primär och sekundär autentiseringsnyckel:
 
@@ -110,7 +110,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Om du behöver återskapa en nyckel använder [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)du.
+> Om du behöver återskapa en nyckel använder du [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) .
 
 #### <a name="authentication-with-tokens"></a>Autentisering med token
 
@@ -119,9 +119,9 @@ När du aktiverar token-autentisering för en webb tjänst måste en användare 
 * Token-autentisering inaktive ras som standard när du distribuerar till Azure Kubernetes-tjänsten.
 * Token-autentisering stöds inte när du distribuerar till Azure Container Instances.
 
-Om du vill kontrol lera token `token_auth_enabled` -autentisering använder du parametern när du skapar eller uppdaterar en distribution.
+Om du vill kontrol lera token-autentisering använder `token_auth_enabled` du parametern när du skapar eller uppdaterar en distribution.
 
-Om token-autentisering har Aktiver ATS kan `get_token` du använda metoden för att hämta en Bearer-token och förfallo tiden för token:
+Om token-autentisering har Aktiver ATS kan du använda `get_token` metoden för att hämta en Bearer-token och förfallo tiden för token:
 
 ```python
 token, refresh_by = service.get_token()
@@ -129,7 +129,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Du måste begära en ny token efter det att token `refresh_by` har uppnåtts. 
+> Du måste begära en ny token efter det att token har `refresh_by` uppnåtts. 
 
 ## <a name="request-data"></a>Begär data
 

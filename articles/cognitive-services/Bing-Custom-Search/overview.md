@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 010f2960693a06a50cd15ac3bac2fe35b6c0985f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448726"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434570"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Vad är API:et för anpassad Bing-sökning?
 
@@ -29,7 +29,7 @@ Med API:et för anpassad Bing-sökning kan du skapa skräddarsydda reklamfria s�
 |[Anpassade funktioner för bildsökning](get-images-from-instance.md)     | Gör så att dina användare kan söka efter bilder från domäner och webbplatser som anges i din anpassade sökinstans.        |        
 |[Anpassade funktioner för videosökning](get-videos-from-instance.md)     | Gör så att dina användare kan söka efter videofilmer från domäner och webbplatser som anges i din anpassade sökinstans.        |    
 |[Dela din anpassade sökinstans](share-your-custom-search.md)     | Samarbeta för att redigera och testa sökinstansen genom att dela den med teammedlemmarna.        | 
-|[Konfigurera ett användargränssnitt för dina program och webbplatser](hosted-ui.md)     | Samarbeta för att redigera och testa sökinstansen genom att dela den med teammedlemmarna.        | 
+|[Konfigurera ett användargränssnitt för dina program och webbplatser](hosted-ui.md)     | Innehåller ett värdbaserad gränssnitt som du enkelt kan integrera med dina webb sidor och webb program som ett JavaScript-kodfragment.        | 
 ## <a name="workflow"></a>Arbetsflöde
 
 Du kan skapa en anpassad sökinstans genom att använda [portalen för Anpassad Bing-sökning](https://customsearch.ai). Med portalen kan du skapa en anpassad sökinstans som anger vilka domäner, webbplatser och webbsidor där Bing ska söka, tillsammans med sådana du inte vill att Bing ska söka. Du kan också använda portalen till följande: förhandsgranska sökfunktionerna, justera sökrangordningen som API:et tillhandahåller och, om du vill, konfigurera ett sökbart användargränssnitt som ska återges på webbplatser och i appar.

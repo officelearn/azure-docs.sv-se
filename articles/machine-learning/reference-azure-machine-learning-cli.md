@@ -4,18 +4,18 @@ description: Lär dig hur du installerar och använder Azure Machine Learning CL
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: d401522ffc45e2e7ea20de70a59ed967dd7623ab
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d4eb0ec0d3c3becc4fddd5923cd040f3957732bc
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659790"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434058"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installera & Använd CLI-tillägget för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -329,7 +329,7 @@ Om du använde `az ml environment scaffold` kommandot genererar det en mallfil `
 
 Följande tabell innehåller information om varje översta fält i JSON-filen, dess typ och en beskrivning. Om en objekt typ är länkad till en klass från python SDK finns det en lös 1:1-matchning mellan varje JSON-fält och namnet på den offentliga variabeln i python-klassen. I vissa fall kan fältet mappas till ett konstruktor-argument i stället för en klass variabel. Till exempel `environmentVariables` mappas fältet till `environment_variables` variabeln i- [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) klassen.
 
-| JSON-fält | Typ | Description |
+| JSON-fält | Typ | Beskrivning |
 |---|---|---|
 | `name` | `string` | Miljöns namn. Starta inte namn med **Microsoft** eller **azureml**. |
 | `version` | `string` | Version av miljön. |

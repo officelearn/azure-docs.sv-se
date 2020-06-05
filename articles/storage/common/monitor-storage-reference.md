@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 481406b02d7d864dd16ac42918ae1aa2dea0b145
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 31c285b8130e7df549ae9f3bb7f1e30cd8a0546c
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195230"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432667"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Azure Storage övervaknings data referens
 
@@ -32,11 +32,15 @@ Azure Storage tillhandahåller följande kapacitets mått i Azure Monitor.
 
 #### <a name="account-level"></a>Konto nivå
 
+I den här tabellen visas [mått på konto nivå](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts).
+
 | Metric | Beskrivning |
 | ------------------- | ----------------- |
 | UsedCapacity | Mängden lagrings utrymme som används av lagrings kontot. För standardlagringskonton är det summan av den kapacitet som används av blobar, filer och köer. För Premium-lagringskonton och Blob Storage-konton är det samma sak som BlobCapacity. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
 
 #### <a name="blob-storage"></a>Blob Storage
+
+Den här tabellen visar [Blob Storage-mått](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
 
 | Metric | Beskrivning |
 | ------------------- | ----------------- |
@@ -47,6 +51,8 @@ Azure Storage tillhandahåller följande kapacitets mått i Azure Monitor.
 
 #### <a name="table-storage"></a>Table Storage
 
+I den här tabellen visas [mått för tabell lagring](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
+
 | Metric | Beskrivning |
 | ------------------- | ----------------- |
 | TableCapacity | Mängden tabell lagring som används av lagrings kontot. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
@@ -55,6 +61,8 @@ Azure Storage tillhandahåller följande kapacitets mått i Azure Monitor.
 
 #### <a name="queue-storage"></a>Queue Storage
 
+Den här tabellen visar [lagrings mått för kö](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+
 | Metric | Beskrivning |
 | ------------------- | ----------------- |
 | QueueCapacity | Mängden Queue Storage som används av lagrings kontot. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
@@ -62,6 +70,8 @@ Azure Storage tillhandahåller följande kapacitets mått i Azure Monitor.
 | QueueMessageCount | Antalet meddelanden som inte har förfallit i lagrings kontot. <br/><br/>Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
 
 #### <a name="file-storage"></a>File Storage
+
+I den här tabellen visas [fil lagrings mått](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
 
 | Metric | Beskrivning |
 | ------------------- | ----------------- |
@@ -90,13 +100,13 @@ Azure Storage tillhandahåller följande transaktions mått i Azure Monitor.
 
 Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 
-| Dimensions namn | Description |
+| Dimensions namn | Beskrivning |
 | ------------------- | ----------------- |
 | **BlobType** | Typ av BLOB för BLOB-mått. De värden som stöds är **BlockBlob**, **PageBlob**och **Azure Data Lake Storage**. Lägg till BLOB ingår i BlockBlob. |
 | **BlobTier** | Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Läs mer i [Azure Storage BLOB-nivå](../blobs/storage-blob-storage-tiers.md). De värden som stöds är: <br/> <li>Frekvent **: frekvent**nivå</li> <li>Låg **frekvent: låg**frekvent nivå</li> <li>**Arkiv**: Arkiv lag ring</li> <li>**Premium**: Premium-nivån för Block-Blob</li> <li>**P4/P6/P10/p15/P20/P30/P40/P50/P60**: nivå typer för Premium Page-BLOB</li> <li>**Standard**: nivå typ för standard sid-BLOB</li> <li>Inte i **nivå**: nivå typ för generell användning v1 lagrings konto</li> |
 | **Typ av typ** | Transaktion från primärt eller sekundärt kluster. De tillgängliga värdena är **primär** och **sekundär**. Den gäller för läsning av Geo-redundant lagring med Läs behörighet (RA-GRS) vid läsning av objekt från en sekundär klient. |
 | **ResponseType** | Typ av transaktions svar. Tillgängliga värden är: <br/><br/> <li>**ServerOtherError**: alla andra fel på Server sidan förutom de som beskrivs </li> <li>**ServerBusyError**: autentiserad begäran som returnerade en HTTP 503-status kod. </li> <li>**ServerTimeoutError**: en timeout-autentiserad begäran som returnerade en status kod för HTTP 500. Tidsgränsen överskreds på grund av ett serverfel. </li> <li>**AuthorizationError**: autentiserad begäran som misslyckades på grund av obehörig åtkomst till data eller ett auktoriseringsfel. </li> <li>**NetworkError**: autentiserad begäran som misslyckades på grund av nätverks fel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li><li>**ClientAccountBandwidthThrottlingError**: begäran begränsas på bandbredden för att överskrida [skalbarhets gränserna för lagrings kontot](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: begäran begränsas enligt begär ande frekvens för överskridning av [skalbarhets gränser för lagrings kontot](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: andra begränsnings fel på klient sidan. ClientAccountBandwidthThrottlingError och ClientAccountRequestThrottlingError är undantagna.</li> <li>**ClientTimeoutError**: en timeout-autentiserad begäran som returnerade en status kod för HTTP 500. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError. </li> <li>**ClientOtherError**: alla andra fel på klient sidan, förutom de som beskrivs. </li> <li>**Lyckades**: lyckad begäran</li> <li> **SuccessWithThrottling**: lyckad begäran när en SMB-klient får en begränsning i de första försöken (erna) men lyckas efter återförsök.</li> |
-| **ApiName** | Åtgärdens namn. Ett exempel: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> För alla åtgärds namn, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **ApiName** | Åtgärdens namn. Exempel: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> För alla åtgärds namn, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | **Autentisering** | Autentiseringstyp som används i transaktioner. Tillgängliga värden är: <br/> <li>**AccountKey**: transaktionen autentiseras med lagrings konto nyckeln.</li> <li>**SAS**: transaktionen autentiseras med signaturer för delad åtkomst.</li> <li>**OAuth**: transaktionen autentiseras med OAuth-åtkomsttoken.</li> <li>**Anonym**: transaktionen begärs anonymt. Den omfattar inte preflight-begäranden.</li> <li>**AnonymousPreflight**: transaktionen är en preflight-begäran.</li> |
 
 För mått som stöder dimensioner måste du ange dimension svärdet för att se motsvarande mått värden. Om du till exempel tittar på **transaktions** värde för lyckade svar måste du filtrera **ResponseType** -dimensionen med **lyckat resultat**. Eller om du tittar på **BlobCount** -värdet för Block-Blob måste du filtrera **BlobType** -dimensionen med **BlockBlob**.

@@ -5,17 +5,17 @@ description: Lär dig hur du använder en anpassad Docker-bas avbildning när du
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/16/2020
-ms.openlocfilehash: a237beb72e35a236e353c58db520a8d611fdfdcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d8edef2606a8689f4e9853d2b3aff7fac80bdc7
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618005"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433959"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -69,7 +69,7 @@ Informationen i det här avsnittet förutsätter att du använder en Azure Conta
 
     Information om hur du använder tjänstens huvud namn med Azure Container Registry finns [Azure Container Registry autentisering med tjänstens huvud namn](/azure/container-registry/container-registry-auth-service-principal).
 
-* Azure Container Registry-och avbildnings information: Ange avbildnings namnet för alla som behöver använda det. En bild som heter `myimage`, lagrad i ett register med namnet `myregistry`, refereras till som `myregistry.azurecr.io/myimage` när du använder avbildningen för modell distribution
+* Azure Container Registry-och avbildnings information: Ange avbildnings namnet för alla som behöver använda det. En bild `myimage` som heter, lagrad i ett register med namnet `myregistry` , refereras till som `myregistry.azurecr.io/myimage` när du använder avbildningen för modell distribution
 
 * Avbildnings krav: Azure Machine Learning endast stöder Docker-avbildningar som tillhandahåller följande program vara:
 
@@ -112,13 +112,13 @@ Om du redan har tränat eller distribuerat modeller med hjälp av Azure Machine 
     /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ContainerRegistry/registries/<registry_name>
     ```
 
-    `<registry_name>` Värdet är namnet på Azure Container Registry för din arbets yta.
+    `<registry_name>`Värdet är namnet på Azure Container Registry för din arbets yta.
 
 ### <a name="build-a-custom-base-image"></a>Bygg en anpassad bas avbildning
 
 Stegen i det här avsnittet beskriver hur du skapar en anpassad Docker-avbildning i din Azure Container Registry.
 
-1. Skapa en ny textfil med namnet `Dockerfile`och Använd följande text som innehåll:
+1. Skapa en ny textfil med namnet `Dockerfile` och Använd följande text som innehåll:
 
     ```text
     FROM ubuntu:16.04
@@ -158,7 +158,7 @@ Stegen i det här avsnittet beskriver hur du skapar en anpassad Docker-avbildnin
     ```
 
     > [!TIP]
-    > I det här exemplet används en- `:v1` tagg för avbildningen. Om ingen tagg anges används en-tagg `:latest` .
+    > I det här exemplet används en-tagg för `:v1` avbildningen. Om ingen tagg anges används en-tagg `:latest` .
 
     Under skapande processen strömmas information tillbaka till kommando raden. Om versionen lyckas visas ett meddelande som liknar följande text:
 
@@ -174,14 +174,14 @@ Mer information om hur du överför befintliga avbildningar till en Azure Contai
 
 Om du vill använda en anpassad avbildning behöver du följande information:
 
-* __Avbildningens namn__. Till exempel är `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` sökvägen till en grundläggande Docker-avbildning från Microsoft.
+* __Avbildningens namn__. Till exempel `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` är sökvägen till en grundläggande Docker-avbildning från Microsoft.
 
     > [!IMPORTANT]
-    > För anpassade avbildningar som du har skapat, se till att ta med alla Taggar som användes med avbildningen. Om din bild till exempel skapades med en speciell tagg, till exempel `:v1`. Om du inte använde en speciell tagg när du skapade avbildningen `:latest` användes en-tagg.
+    > För anpassade avbildningar som du har skapat, se till att ta med alla Taggar som användes med avbildningen. Om din bild till exempel skapades med en speciell tagg, till exempel `:v1` . Om du inte använde en speciell tagg när du skapade avbildningen användes en-tagg `:latest` .
 
 * Om avbildningen finns i ett __privat lager__behöver du följande information:
 
-    * Register __adressen__. Till exempel `myregistry.azureecr.io`.
+    * Register __adressen__. Exempelvis `myregistry.azureecr.io`.
     * Ett __användar namn__ och __lösen ord__ för tjänstens huvud namn som har Läs behörighet till registret.
 
     Om du inte har den här informationen kan du prata med administratören för den Azure Container Registry som innehåller din avbildning.
@@ -196,8 +196,8 @@ Microsoft tillhandahåller flera Docker-avbildningar på en offentligt tillgäng
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Innehåller ONNX runtime för CPU inferencing |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Innehåller ONNX Runtime och CUDA för GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Innehåller ONNX Runtime och TensorRT för GPU |
-| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Innehåller ONNX Runtime och Open för utformning<sup> </sup> av Intel vision Accelerator baserat på Movidius<sup>TM</sup> MyriadX VPUs |
-| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Innehåller ONNX Runtime och Open för Intel<sup> </sup> Movidius<sup>TM</sup> USB-käppar |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Innehåller ONNX Runtime och Open för utformning av Intel <sup></sup> vision Accelerator baserat på Movidius<sup>TM</sup> MyriadX VPUs |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Innehåller ONNX Runtime och Open för Intel <sup></sup> Movidius<sup>TM</sup> USB-käppar |
 
 Mer information om ONNX för körnings bas avbildningar finns i [avsnittet ONNX runtime Dockerfile](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) i GitHub lagrings platsen.
 
@@ -207,7 +207,7 @@ Mer information om ONNX för körnings bas avbildningar finns i [avsnittet ONNX 
 Mer information finns i [Azure Machine Learning behållare](https://github.com/Azure/AzureML-Containers).
 
 > [!TIP]
->__Om din modell tränas på Azure Machine Learning Compute__, med __version 1.0.22 eller senare__ av Azure Machine Learning SDK, skapas en avbildning under utbildningen. Använd `run.properties["AzureML.DerivedImageName"]`om du vill identifiera namnet på den här avbildningen. Följande exempel visar hur du använder den här avbildningen:
+>__Om din modell tränas på Azure Machine Learning Compute__, med __version 1.0.22 eller senare__ av Azure Machine Learning SDK, skapas en avbildning under utbildningen. Använd om du vill identifiera namnet på den här avbildningen `run.properties["AzureML.DerivedImageName"]` . Följande exempel visar hur du använder den här avbildningen:
 >
 > ```python
 > # Use an image built during training with SDK 1.0.22 or greater
@@ -230,7 +230,7 @@ myenv.docker.enabled = True
 myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
 ```
 
-Om du vill använda en avbildning från ett __privat behållar register__ som inte finns i din arbets `docker.base_image_registry` yta, måste du använda för att ange adressen till lagrings platsen och ett användar namn och lösen ord:
+Om du vill använda en avbildning från ett __privat behållar register__ som inte finns i din arbets yta, måste du använda `docker.base_image_registry` för att ange adressen till lagrings platsen och ett användar namn och lösen ord:
 
 ```python
 # Set the container registry information
@@ -325,7 +325,7 @@ Innan du distribuerar en modell med hjälp av Machine Learning CLI skapar du en 
 }
 ```
 
-Den här filen används med `az ml model deploy` kommandot. `--ic` Parametern används för att ange konfigurations filen för konfigurations filen.
+Den här filen används med `az ml model deploy` kommandot. `--ic`Parametern används för att ange konfigurations filen för konfigurations filen.
 
 ```azurecli
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget

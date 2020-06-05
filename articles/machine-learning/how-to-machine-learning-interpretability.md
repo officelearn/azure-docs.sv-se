@@ -5,17 +5,17 @@ description: Lär dig hur du förklarar varför din modell gör förutsägelser 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/02/2020
-ms.openlocfilehash: f4210352a9d8cd3cd9cb9afda7d9a4798d96f44b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: dd9620b690b031567a85cfd1dfc2dcbc76fb6835
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982895"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430492"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Modell tolkning i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -84,7 +84,7 @@ Lär dig mer om tolknings tekniker som stöds, maskin inlärnings modeller som s
 
 
 
-Förutom de tolknings tekniker som beskrivs ovan har vi stöd för en annan SHAP-baserad förklaring `TabularExplainer`, som kallas. Beroende på modellen använder en av `TabularExplainer` de SHAP-förklaringar som stöds:
+Förutom de tolknings tekniker som beskrivs ovan har vi stöd för en annan SHAP-baserad förklaring, som kallas `TabularExplainer` . Beroende på modellen `TabularExplainer` använder en av de SHAP-förklaringar som stöds:
 
 * TreeExplainer för alla trädbaserade modeller
 * DeepExplainer för DNN-modeller
@@ -103,17 +103,17 @@ Följande diagram visar den aktuella strukturen för förklaringar som stöds.
 
 ## <a name="supported-machine-learning-models"></a>Maskin inlärnings modeller som stöds
 
-`azureml.interpret` Paketet för SDK har stöd för modeller som har tränats med följande data uppsättnings format:
+`azureml.interpret`Paketet för SDK har stöd för modeller som har tränats med följande data uppsättnings format:
 - `numpy.array`
 - `pandas.DataFrame`
 - `iml.datatypes.DenseData`
 - `scipy.sparse.csr_matrix`
 
-Förklarings funktionerna accepterar både modeller och pipeliner som inmatade. Om en modell anges måste modellen implementera förutsägelse funktionen `predict` eller `predict_proba` som följer Scikit-konventionen. Om din modell inte stöder detta kan du omsluta din modell i en funktion som genererar samma resultat som `predict` eller `predict_proba` i Scikit och använder den omslutnings funktionen med den valda förklaringen. Om en pipeline anges förutsätter förklarings funktionen att det pågående pipeline-skriptet returnerar en förutsägelse. Med den här metoden `azureml.interpret` kan du använda modeller som har tränats via PyTorch, TensorFlow och keras djup inlärnings modeller samt klassiska maskin inlärnings modeller.
+Förklarings funktionerna accepterar både modeller och pipeliner som inmatade. Om en modell anges måste modellen implementera förutsägelse funktionen `predict` eller som följer Scikit- `predict_proba` konventionen. Om din modell inte stöder detta kan du omsluta din modell i en funktion som genererar samma resultat som `predict` eller `predict_proba` i Scikit och använder den omslutnings funktionen med den valda förklaringen. Om en pipeline anges förutsätter förklarings funktionen att det pågående pipeline-skriptet returnerar en förutsägelse. Med den här metoden `azureml.interpret` kan du använda modeller som har tränats via PyTorch, TensorFlow och keras djup inlärnings modeller samt klassiska maskin inlärnings modeller.
 
 ## <a name="local-and-remote-compute-target"></a>Lokalt och fjärrstyrt beräknings mål
 
-`azureml.interpret` Paketet är utformat för att fungera med både lokala och fjärranslutna beräknings mål. Om kör lokalt kontaktar inte SDK-funktionerna några Azure-tjänster. 
+`azureml.interpret`Paketet är utformat för att fungera med både lokala och fjärranslutna beräknings mål. Om kör lokalt kontaktar inte SDK-funktionerna några Azure-tjänster. 
 
 Du kan köra förklaringen via fjärr anslutning på Azure Machine Learning beräkna och logga förklarings informationen i Azure Machine Learning körnings historik tjänsten. När den här informationen har loggats finns rapporter och visualiseringar från förklaringen enkelt i Azure Machine Learning Studio för användar analys.
 

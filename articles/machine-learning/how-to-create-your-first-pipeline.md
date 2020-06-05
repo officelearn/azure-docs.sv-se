@@ -5,18 +5,18 @@ description: Skapa och kör en pipeline för maskin inlärning med Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 006a2f5775fc053feda1efd568660f29c81fe599
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: aa5b4c0e78872b7705af385974b9564aaeb25e67
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872208"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433519"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 
@@ -32,7 +32,7 @@ De ML-pipeliner som du skapar visas för medlemmarna i din Azure Machine Learnin
 
 ML pipelines använder fjärrberäknings mål för beräkning och lagring av mellanliggande och slutliga data som är kopplade till den pipelinen. De kan läsa och skriva data till och från [Azure Storage](https://docs.microsoft.com/azure/storage/) platser som stöds.
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -90,9 +90,9 @@ En pipeline består av ett eller flera steg. Ett steg är en enhets körning på
 
 Mer information om hur du ansluter din pipeline till dina data finns i artikeln [så här får du åtkomst till data](how-to-access-data.md) och [hur du registrerar data uppsättningar](how-to-create-register-datasets.md). 
 
-### <a name="configure-data-using-dataset-and-pipelinedata-objects"></a>Konfigurera data med `Dataset` hjälp `PipelineData` av och-objekt
+### <a name="configure-data-using-dataset-and-pipelinedata-objects"></a>Konfigurera data med hjälp av `Dataset` och- `PipelineData` objekt
 
-Du har precis skapat en data källa som kan refereras till i en pipeline som indata till ett steg. Det bästa sättet att tillhandahålla data till en pipeline är ett [data uppsättnings](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) objekt. `Dataset` Objektet pekar på data som finns i eller kan nås från ett data lager eller en webb-URL. `Dataset` Klassen är abstrakt, så du kommer att skapa en instans av antingen en `FileDataset` (som refererar till en eller flera filer) eller `TabularDataset` en som skapats av från en eller flera filer med avgränsade kolumner med data.
+Du har precis skapat en data källa som kan refereras till i en pipeline som indata till ett steg. Det bästa sättet att tillhandahålla data till en pipeline är ett [data uppsättnings](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) objekt. `Dataset`Objektet pekar på data som finns i eller kan nås från ett data lager eller en webb-URL. `Dataset`Klassen är abstrakt, så du kommer att skapa en instans av antingen en `FileDataset` (som refererar till en eller flera filer) eller en `TabularDataset` som skapats av från en eller flera filer med avgränsade kolumner med data.
 
 `Dataset`objekt stöder versions-, diff-och sammanfattnings statistik. `Dataset`s är Lazy utvärderas (t. ex. python-generatorer) och är effektiva att delmängds dem genom att dela eller filtrera. 
 
@@ -287,7 +287,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-Åter användning av tidigare resultat`allow_reuse`() är nyckel när du använder pipelines i en samarbets miljö eftersom det tar onödigt smidigt att ta bort onödig omgång. Åter användning är standard beteendet när script_name, indata och parametrarna för ett steg är desamma. När utdata från steget återanvänds skickas inte jobbet till data bearbetningen, i stället för att resultaten från föregående körning är omedelbart tillgängliga för nästa stegs körning. Om `allow_reuse` är inställt på falskt skapas alltid en ny körning för det här steget under pipeline-körningen. 
+Åter användning av tidigare resultat ( `allow_reuse` ) är nyckel när du använder pipelines i en samarbets miljö eftersom det tar onödigt smidigt att ta bort onödig omgång. Åter användning är standard beteendet när script_name, indata och parametrarna för ett steg är desamma. När utdata från steget återanvänds skickas inte jobbet till data bearbetningen, i stället för att resultaten från föregående körning är omedelbart tillgängliga för nästa stegs körning. Om `allow_reuse` är inställt på falskt skapas alltid en ny körning för det här steget under pipeline-körningen. 
 
 När du har definierat stegen skapar du pipelinen med hjälp av några eller samtliga av dessa steg.
 
@@ -386,7 +386,7 @@ När du kör en pipeline första gången Azure Machine Learning:
 * Hämtar ögonblicks bilden av projektet till beräknings målet från blob-lagringen som är kopplad till arbets ytan.
 * Skapar en Docker-avbildning som motsvarar varje steg i pipelinen.
 * Laddar ned Docker-avbildningen för varje steg till beräknings målet från behållar registret.
-* Konfigurerar åtkomst till `Dataset` och `PipelineData` objekt. Som `as_mount()` åtkomst läge används säkring för att tillhandahålla virtuell åtkomst. Om Mount inte stöds eller om användaren har angett åtkomst som `as_download()`, kopieras data istället till beräknings målet.
+* Konfigurerar åtkomst till `Dataset` och `PipelineData` objekt. Som `as_mount()` åtkomst läge används säkring för att tillhandahålla virtuell åtkomst. Om Mount inte stöds eller om användaren har angett åtkomst som `as_download()` , kopieras data istället till beräknings målet.
 * Kör steget i beräknings målet som anges i steg definitionen. 
 * Skapar artefakter, till exempel loggar, STDOUT och stderr, mått och utdata som anges i steget. Dessa artefakter överförs och behålls i användarens standard data lager.
 
@@ -425,7 +425,7 @@ Du kan publicera en pipeline för att köra den med olika indata senare. För RE
      default_value=10)
    ```
 
-2. Lägg till `PipelineParameter` det här objektet som en parameter till något av stegen i pipelinen enligt följande:
+2. Lägg till det här `PipelineParameter` objektet som en parameter till något av stegen i pipelinen enligt följande:
 
    ```python
    compareStep = PythonScriptStep(
@@ -527,7 +527,7 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-Du kan aktivera den igen med `p.enable()`. Mer information finns i klass referens för [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) .
+Du kan aktivera den igen med `p.enable()` . Mer information finns i klass referens för [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) .
 
 ## <a name="caching--reuse"></a>Cachelagring & återanvända  
 
@@ -535,7 +535,7 @@ För att optimera och anpassa beteendet för dina pipeliner kan du göra några 
 + **Inaktivera standard åter användning av steget Kör utdata** genom att ställa in `allow_reuse=False` under [steg definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Åter användning är nyckel när du använder pipelines i en samarbets miljö eftersom du tar bort onödiga körningar ger flexibilitet. Du kan dock välja att inte använda.
 + **Framtvinga generering av utdata för alla steg i en körning** med`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Som standard `allow_reuse` har steg Aktiver ATS och den `source_directory` som anges i steg definitionen hashas. Om skriptet för ett specifikt steg däremot är detsamma (`script_name`, indata och parametrar) och inget annat i` source_directory` har ändrats, så kommer utdata från föregående steg att återanvändas, jobbet skickas inte till beräkningen och resultaten från föregående körning är omedelbart tillgängliga för nästa steg i stället.
+Som standard har `allow_reuse` steg Aktiver ATS och den som `source_directory` anges i steg definitionen hashas. Om skriptet för ett specifikt steg däremot är detsamma ( `script_name` , indata och parametrar) och inget annat i har ändrats, så kommer ` source_directory` utdata från föregående steg att återanvändas, jobbet skickas inte till beräkningen och resultaten från föregående körning är omedelbart tillgängliga för nästa steg i stället.
 
 ```python
 step = PythonScriptStep(name="Hello World",

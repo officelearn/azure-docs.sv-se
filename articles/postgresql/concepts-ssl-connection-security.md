@@ -1,17 +1,17 @@
 ---
-title: TLS – Azure Database for PostgreSQL-enskild server
+title: SSL/TLS – Azure Database for PostgreSQL-enskild server
 description: Instruktioner och information om hur du konfigurerar TLS-anslutning för Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: d0482e5205b97b5c57c41e0ba98fb9ca819e5d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/02/2020
+ms.openlocfilehash: 9422337d30d06f0bb333e4d25ba1e54bd789ffec
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82141747"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418168"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Konfigurera TLS-anslutning i Azure Database for PostgreSQL-enskild server
 
@@ -51,11 +51,11 @@ Vissa program ramverk som använder PostgreSQL för sina databas tjänster aktiv
 
 ## <a name="applications-that-require-certificate-verification-for-tls-connectivity"></a>Program som kräver certifikat verifiering för TLS-anslutning
 
-I vissa fall kräver program en lokal certifikat fil som genereras från en betrodd certifikat utfärdare (. cer) för att ansluta på ett säkert sätt. Certifikatet för att ansluta till en Azure Database for PostgreSQL-Server finns på https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Ladda ned certifikat filen och spara den på önskad plats.
+I vissa fall kräver program en lokal certifikat fil som genereras från en betrodd certifikat utfärdare (. cer) för att ansluta på ett säkert sätt. Certifikatet för att ansluta till en Azure Database for PostgreSQL-Server finns på https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . Ladda ned certifikat filen och spara den på önskad plats.
 
 ### <a name="connect-using-psql"></a>Anslut med psql
 
-I följande exempel visas hur du ansluter till PostgreSQL-servern med hjälp av kommando rads verktyget psql. Använd inställningen `sslmode=verify-full` för anslutnings strängen för att framtvinga verifiering av TLS/SSL-certifikat. Överför sökvägen till den lokala certifikat filen till `sslrootcert` -parametern.
+I följande exempel visas hur du ansluter till PostgreSQL-servern med hjälp av kommando rads verktyget psql. Använd `sslmode=verify-full` inställningen för anslutnings strängen för att framtvinga verifiering av TLS/SSL-certifikat. Överför sökvägen till den lokala certifikat filen till- `sslrootcert` parametern.
 
 Följande kommando är ett exempel på anslutnings strängen psql:
 
@@ -66,6 +66,33 @@ psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoser
 > [!TIP]
 > Bekräfta att värdet som skickas till `sslrootcert` matchar fil Sök vägen för det certifikat som du har sparat.
 
+## <a name="tls-enforcement-in-azure-database-for-postgresql-single-server"></a>TLS-tvång i Azure Database for PostgreSQL enskild server
+
+Azure Database for PostgreSQL-enskild server stöder kryptering för klienter som ansluter till din databas server med hjälp av Transport Layer Security (TLS). TLS är ett bransch standard protokoll som garanterar säkra nätverks anslutningar mellan din databas server och klient program, så att du kan följa kraven för efterlevnad.
+
+### <a name="tls-settings"></a>TLS-inställningar
+
+Azure Database for PostgreSQL enskild server ger möjlighet att genomdriva TLS-versionen för klient anslutningarna. Om du vill framtvinga TLS-versionen använder du inställningen **minsta TLS-version** . Följande värden är tillåtna för den här alternativ inställningen:
+
+|  Minsta TLS-inställning             | Klientens TLS-version stöds                |
+|:---------------------------------|-------------------------------------:|
+| TLSEnforcementDisabled (standard) | Ingen TLS krävs                      |
+| TLS1_0                           | TLS 1,0, TLS 1,1, TLS 1,2 och högre |
+| TLS1_1                           | TLS 1,1, TLS 1,2 och högre          |
+| TLS1_2                           | TLS version 1,2 och högre           |
+
+
+Om du till exempel anger den här lägsta TLS-inställningen version till TLS 1,0 betyder det att servern tillåter anslutningar från klienter som använder TLS 1,0, 1,1 och 1.2 +. Du kan också ställa in detta på 1,2 innebär att du bara tillåter anslutningar från klienter som använder TLS 1.2 + och alla anslutningar med TLS 1,0 och TLS 1,1 kommer att avvisas.
+
+> [!Note] 
+> Azure Database for PostgreSQL standardvärdet för TLS inaktive ras för alla nya servrar.
+>
+> För närvarande är de TLS-versioner som stöds av Azure Database for PostgreSQL TLS 1,0, 1,1 och 1,2. När du har tvingat fram en speciell lägsta TLS-version kan du inte ändra den till inaktive rad.
+
+Information om hur du anger TLS-inställningen för Azure Database for PostgreSQL enskild server finns i [Konfigurera TLS-inställningen](howto-tls-configurations.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
 Granska olika program anslutnings alternativ i [anslutnings bibliotek för Azure Database for PostgreSQL](concepts-connection-libraries.md).
+
+- Lär dig hur du [konfigurerar TLS](howto-tls-configurations.md)

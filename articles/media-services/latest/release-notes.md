@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: e072bcb0edc741b7843f470f14c3c37153338efb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0833215449c92a1710dcaf4f2fe13ce9a16685ba
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647635"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434055"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -35,6 +35,14 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 > Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 Mer information finns i [vägledning för migrering för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="june-2020"></a>2020 juni
+
+### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Video analys i real tid för IoT Edge för hands version
+
+För hands versionen av video analys på IoT Edge gick att publicera. Mer information finns i [versions anteckningar](../live-video-analytics-edge/release-notes.md).
+
+Live video analys på IoT Edge är en expansion till medie tjänst familjen. Det gör att du kan analysera direktsänd video med AI-modeller som du väljer på dina egna gräns enheter och eventuellt fånga och spela in videon. Nu kan du skapa appar med video analys i real tid utan att bekymra dig om komplexiteten med att bygga och driva en live video-pipeline.
 
 ## <a name="may-2020"></a>Maj 2020
 

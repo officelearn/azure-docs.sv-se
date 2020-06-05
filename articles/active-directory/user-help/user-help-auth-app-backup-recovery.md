@@ -8,15 +8,15 @@ ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/25/2020
+ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f78ef7ddf48612728c0409b0f904c0964e2272b5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b13de16b2080d28d3b779921456cfb20d99f0af9
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741594"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84416035"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Säkerhetskopiera och återställa autentiseringsuppgifter för kontot med hjälp av Microsoft Authenticator-appen
 
@@ -73,54 +73,36 @@ Du kan återställa dina kontoautentiseringsuppgifter från ditt moln konto, men
 
 När du har slutfört återställningen kan du märka att dina personliga Microsoft-konto verifierings koder i Microsoft Authenticator-appen skiljer sig mellan dina gamla och nya telefoner. Koderna är olika eftersom varje enhet har sina egna unika autentiseringsuppgifter, men båda är giltiga och fungerar samtidigt som du loggar in med den associerade telefonen.
 
-## <a name="recover-additional-accounts-requiring-more-verification"></a>Återställa ytterligare konton som kräver mer verifiering
+## <a name="recover-accounts-requiring-more-verification"></a>Återställa konton som kräver mer verifiering
 
 Om du använder push-meddelanden med dina personliga eller arbets-eller skol konton får du en avisering på skärmen som säger att du måste ange ytterligare verifiering innan du kan återställa din information. Eftersom push-meddelanden kräver användning av autentiseringsuppgifter som är knutna till din enhet och aldrig skickas via nätverket, måste du bevisa din identitet innan autentiseringsuppgiften skapas på enheten.
 
 För personliga Microsoft-konton kan du bevisa din identitet genom att ange ditt lösen ord tillsammans med ett alternativt e-postadress eller telefonnummer. För arbets-eller skol konton måste du skanna en QR-kod som du fått av din konto leverantör.
 
-### <a name="to-provide-additional-verification-for-personal-accounts"></a>För att tillhandahålla ytterligare verifiering för personliga konton
+### <a name="to-provide-more-verification-for-personal-accounts"></a>För att ge mer verifiering för personliga konton
 
-1. På skärmen **konton** i Microsoft Authenticator-appen väljer du det konto som du vill återställa. På en Android-enhet väljer du pilen bredvid det konto som du vill återställa.
+1. På skärmen **konton** i Microsoft Authenticator-appen trycker du på det konto som du vill återställa för att öppna hela skärm visningen av kontot.
 
-    ![Microsoft Authenticator app, som visar tillgängliga konton med tillhör ande nedrullningsbara pilar](./media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png)
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="Microsoft Authenticator app, som visar panelerna tillgängliga konton" border="true":::
 
-    På en iOS-enhet trycker du på det konto som du vill återställa för att öppna vyn hel skärms läge för kontot.
+1. Tryck på panelen för det konto som du återställer och tryck sedan på alternativet för att logga in för att återställa. Ange ditt lösen ord och bekräfta din e-postadress eller ditt telefonnummer som ytterligare verifiering.
 
-    ![Microsoft Authenticator app, som visar tillgängliga konton med tillhör ande nedrullningsbara pilar](./media/user-help-auth-app-backup-recovery/ios-select-account-to-recover.png)
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Autentiseraren visar ett eng ång slö sen ord som en verifierings kod" border="true":::
 
-2. Logga in för att återställa kontot. På en Android-enhet väljer **du logga in för att återställa**.
+### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>För att ge mer verifiering för arbets-eller skol konton
 
-    ![Microsoft Authenticator app för att ange din inloggnings information på Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
+1. På skärmen **konton** i Microsoft Authenticator-appen trycker du på det konto som du vill återställa för att öppna hela skärm visningen av kontot.
 
-    På en iOS-enhet trycker du på den konto panel som du vill återställa och trycker sedan på alternativet för att logga in och återställa. Skriv sedan ditt lösen ord och bekräfta din e-postadress eller ditt telefonnummer som ytterligare verifiering. telefonbokskonto.
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Microsoft Authenticator app, som visar panelerna tillgängliga konton" border="true":::
 
-    ![Microsoft Authenticator app för att ange din inloggnings information på iOS](./media/user-help-auth-app-backup-recovery/ios-sign-in-to-recover.png)
+1. I hel skärms läge trycker du på alternativet för att skanna en QR-kod för att helt återställa.
 
-### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>För att ge ytterligare verifiering för arbets-eller skol konton
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Autentiseraren visar ett eng ång slö sen ord som en verifierings kod" border="true":::
 
-1. Logga in för att återställa kontot. På en Android-enhet väljer **du logga in för att återställa**.
-
-    ![Microsoft Authenticator app återställa ett arbets-eller skol konto på Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-additional-accts.png)
-
-    På en iOS-enhet trycker du på det konto som du vill återställa för att öppna hela skärm visningen av kontot.
-
-    ![Microsoft Authenticator app återställer ett arbets-eller skol konto på iOS](./media/user-help-auth-app-backup-recovery/ios-recover-work-or-school-account.png)
-
-2. Du kan använda en QR-kod för att återställa ett konto. Välj **Skanna QR-kod för att återställa**och skanna QR-koden.
-
-    I Android:
-
-    ![Microsoft Authenticator app på Android, så att du kan skanna din QR-kod](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
-
-    På iOS:
-
-    ![Microsoft Authenticator app på iOS, så att du kan skanna din QR-kod](./media/user-help-auth-app-backup-recovery/ios-scan-qr-code.png)
-
-    >[!NOTE]
-    >Mer information om QR-koder och hur du hämtar ett finns i [Kom igång med Microsoft Authenticator-appen](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) eller [Konfigurera säkerhets information för att använda en Authenticator-app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), baserat på om din administratör har aktiverat säkerhets information.
-    >
-    >Om det här är första gången du konfigurerar Microsoft Authenticator-appen kan du få en fråga om du vill tillåta att appen får åtkomst till kameran (iOS) eller tillåter att appen tar bilder och spelar in video (Android). Du måste välja **Tillåt** så att Authenticator-appen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera Authenticator-appen, men du måste lägga till kod informationen manuellt. Information om hur du lägger till koden manuellt finns i se [lägga till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
+>[!NOTE]
+>Mer information om QR-koder och hur du hämtar ett finns i [Kom igång med Microsoft Authenticator-appen](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) eller [Konfigurera säkerhets information för att använda en Authenticator-app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), baserat på om din administratör har aktiverat säkerhets information.
+>
+>Om det här är första gången du konfigurerar Microsoft Authenticator-appen kan du få en fråga om du vill tillåta att appen får åtkomst till kameran (iOS) eller tillåter att appen tar bilder och spelar in video (Android). Du måste välja **Tillåt** så att Authenticator-appen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera Authenticator-appen, men du måste lägga till kod informationen manuellt. Information om hur du lägger till koden manuellt finns i se [lägga till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
 
 ## <a name="troubleshoot-backup-and-recovery-problems"></a>Felsök problem med säkerhets kopiering och återställning
 
@@ -136,7 +118,7 @@ Det finns några skäl till varför säkerhets kopieringen kanske inte är tillg
 
 - **Befintliga Microsoft Authenticator-konton**: om du redan har konfigurerat konton i Microsoft Authenticator-appen kommer appen inte att kunna återställa dina säkerhetskopierade konton. Förhindra återställning hjälper till att se till att konto informationen inte skrivs över med den inaktuella informationen. I så fall måste du ta bort eventuell befintlig konto information från de befintliga konton som kon figurer ATS i din Authenticator-app innan du kan återställa säkerhets kopian.
 
-- **Säkerhets kopieringen är inaktuell**: om säkerhets kopierings informationen är inaktuell kan du uppmanas att uppdatera informationen genom att logga in på ditt Microsoft Recovery-konto igen. Ditt återställnings konto är det personliga Microsoft-konto som du ursprungligen använde för att lagra säkerhets kopian. Om det krävs en inloggning visas en röd prick på menyn eller åtgärds fältet, eller så visas ett utrops tecken där du uppmanas att logga in för att slutföra återställningen från säkerhets kopieringen. När du har valt ikonen uppmanas du att logga in igen för att uppdatera din information.
+- **Säkerhets kopieringen är inaktuell**: om säkerhets kopierings informationen är inaktuell kan du uppmanas att uppdatera informationen genom att logga in på ditt Microsoft Recovery-konto igen. Ditt återställnings konto är det personliga Microsoft-konto som du ursprungligen använde för att lagra säkerhets kopian. Om det krävs en inloggning visas en röd prick på menyn eller åtgärds fältet, eller så visas ett utrops tecken där du uppmanas att logga in för att slutföra återställningen från säkerhets kopieringen. När du har valt lämplig ikon uppmanas du att logga in igen för att uppdatera din information.
 
 ## <a name="next-steps"></a>Nästa steg
 

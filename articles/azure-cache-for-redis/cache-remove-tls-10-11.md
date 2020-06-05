@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: b7b3556896f2d8bb8fea7ffc4543356e248df60d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 69df5a65df99a7497099e71e9f41701458370c87
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848829"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84423929"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Ta bort TLS 1,0 och 1,1 från användning med Azure cache för Redis
 
@@ -31,16 +31,18 @@ Den här artikeln innehåller allmänna råd om hur du identifierar beroenden f�
 
 Datumen när ändringarna börjar gälla:
 
-| Molnet                | Start datum för fas 1 | Start datum för fas 2      |
-|----------------------|--------------------|-------------------------|
-| Azure (global)       |  13 januari 2020  | 11 maj 2020            |
-| Azure Government     |  13 mars 2020    | 11 maj 2020            |
-| Azure Tyskland        |  13 mars 2020    | 11 maj 2020            |
-| Azure Kina 21Vianet |  13 mars 2020    | 11 maj 2020            |
+| Molnet                | Start datum för fas 1 | Start datum för fas 2         |
+|----------------------|--------------------|----------------------------|
+| Azure (global)       |  13 januari 2020  | Uppskjuten på grund av COVID 19  |
+| Azure Government     |  13 mars 2020    | Uppskjuten på grund av COVID 19  |
+| Azure Tyskland        |  13 mars 2020    | Uppskjuten på grund av COVID 19  |
+| Azure Kina 21Vianet |  13 mars 2020    | Uppskjuten på grund av COVID 19  |
+
+Obs! nytt datum för fas 2 har ännu inte fastställts
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Kontrol lera om programmet redan är kompatibelt
 
-Det enklaste sättet att ta reda på om ditt program fungerar med TLS 1,2 är att ange det **lägsta TLS** -värdet till TLS 1,2 på ett test-eller mellanlagrings-cache som används. Inställningen för **minsta TLS-version** finns i de [avancerade inställningarna](cache-configure.md#advanced-settings) för din cache-instans i Azure Portal. Om programmet fortsätter att fungera som förväntat efter den här ändringen är det antagligen kompatibelt. Du kan behöva konfigurera vissa redis-klient bibliotek som används av ditt program specifikt för att aktivera TLS 1,2, så att de kan ansluta till Azure cache för Redis över detta säkerhets protokoll.
+Det enklaste sättet att ta reda på om ditt program fungerar med TLS 1,2 är att ange det **lägsta TLS** -värdet till TLS 1,2 på ett test-eller mellanlagrings-cache och sedan köra tester. Inställningen för **minsta TLS-version** finns i de [avancerade inställningarna](cache-configure.md#advanced-settings) för din cache-instans i Azure Portal.  Om programmet fortsätter att fungera som förväntat efter den här ändringen är det antagligen kompatibelt. Du kan behöva konfigurera Redis-klient biblioteket som används av ditt program för att aktivera TLS 1,2 för att kunna ansluta till Azure cache för Redis.
 
 ## <a name="configure-your-application-to-use-tls-12"></a>Konfigurera ditt program så att det använder TLS 1,2
 
@@ -57,9 +59,9 @@ Redis .NET-klienter använder den tidigaste TLS-versionen som standard på .NET 
 
 Redis .NET Core-klienter är standardvärdet för standard TLS-versionen för OS som är beroende av själva operativ systemet. 
 
-Operativ systemets TLS-version kan variera beroende på när operativ systemet släpptes och om några andra korrigeringar har ändrat standard-TLS-versionen. Även om det inte finns någon fullständig information om det här, för Windows-operativsystem hittar du mer information [här](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12). 
+Beroende på operativ system version och eventuella korrigeringar som har tillämpats kan den effektiva standard-TLS-versionen variera. Även om det finns en informations källa om detta, finns [här](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) en artikel för Windows. 
 
-Men om du använder ett gammalt operativ system eller bara vill vara säker på att vi rekommenderar att du konfigurerar den önskade TLS-versionen manuellt via klienten.
+Men om du använder ett gammalt operativ system eller bara vill vara säker, rekommenderar vi att du konfigurerar den önskade TLS-versionen manuellt via klienten.
 
 
 ### <a name="java"></a>Java

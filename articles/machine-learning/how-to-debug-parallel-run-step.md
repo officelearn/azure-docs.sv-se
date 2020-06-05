@@ -5,17 +5,17 @@ description: Felsöka och Felsök ParallelRunStep i Machine Learning-pipeliner i
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.reviewer: trbye, jmartens, larryfr, vaidyas
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 01/15/2020
-ms.openlocfilehash: c4e2777f59bab8d7d874019004bff2e30395ab1d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 7f05133f15f1df39a61c34b43f18828ee494b735
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723484"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433449"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Felsök och felsöka ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

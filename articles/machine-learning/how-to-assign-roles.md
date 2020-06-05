@@ -5,18 +5,18 @@ description: Lär dig hur du kommer åt en Azure Machine Learning-arbetsyta med 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
 ms.date: 03/06/2020
 ms.custom: seodec18
-ms.openlocfilehash: 127a0a2b7f7573db91df9347169e90de3e14c4c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9763cc0d93e6731bb42bcc55f9d8bf9463e2b0dd
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270100"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434676"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ Om du är ägare till en arbets yta kan du lägga till och ta bort roller för a
 - [Azure Portal användar gränssnitt](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-- [REST API](/azure/role-based-access-control/role-assignments-rest)
+- [REST-API](/azure/role-based-access-control/role-assignments-rest)
 - [Azure Resource Manager-mallar](/azure/role-based-access-control/role-assignments-template)
 
 Om du har installerat [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md)kan du också använda ett CLI-kommando för att tilldela roller till användare.
@@ -53,7 +53,7 @@ Om du har installerat [Azure Machine Learning CLI](reference-azure-machine-learn
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-`user` Fältet är e-postadressen till en befintlig användare i instansen av Azure Active Directory där arbets ytans överordnade prenumeration finns. Här är ett exempel på hur du använder det här kommandot:
+`user`Fältet är e-postadressen till en befintlig användare i instansen av Azure Active Directory där arbets ytans överordnade prenumeration finns. Här är ett exempel på hur du använder det här kommandot:
 
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
@@ -102,7 +102,7 @@ Använd följande Azure CLI-kommando för att distribuera den här anpassade rol
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Efter distributionen blir den här rollen tillgänglig på den angivna arbets ytan. Nu kan du lägga till och tilldela den här rollen i Azure Portal. Du kan också tilldela rollen till en användare med hjälp av `az ml workspace share` CLI-kommandot:
+Efter distributionen blir den här rollen tillgänglig på den angivna arbets ytan. Nu kan du lägga till och tilldela den här rollen i Azure Portal. Du kan också tilldela rollen till en användare med hjälp av CLI- `az ml workspace share` kommandot:
 
 ```azurecli-interactive
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
@@ -118,7 +118,7 @@ Mer information om de åtgärder (åtgärder) som kan användas med anpassade ro
 
 ### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>F. Vilka är de behörigheter som krävs för att utföra olika åtgärder i Azure Machine Learnings tjänsten?
 
-Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och de behörigheter som krävs för att utföra dem med minsta möjliga omfattning. Exempel: om en aktivitet kan utföras med ett område för arbets ytor (kolumn 4), kommer alla högre omfång med den behörigheten också att fungera automatiskt. Alla sökvägar i den här tabellen är **relativa sökvägar** till `Microsoft.MachineLearningServices/`.
+Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och de behörigheter som krävs för att utföra dem med minsta möjliga omfattning. Exempel: om en aktivitet kan utföras med ett område för arbets ytor (kolumn 4), kommer alla högre omfång med den behörigheten också att fungera automatiskt. Alla sökvägar i den här tabellen är **relativa sökvägar** till `Microsoft.MachineLearningServices/` .
 
 | Aktivitet | Omfång på prenumerations nivå | Omfång på resurs grupps nivå | Omfång på arbets ytans nivå |
 |---|---|---|---|
@@ -159,7 +159,7 @@ Observera att du måste ha behörighet för hela omfattningen av din nya roll de
 > Roll uppdateringar kan ta 15 minuter till en timme att tillämpa på alla roll tilldelningar i det omfånget.
 ### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>F. Kan jag definiera en roll som förhindrar uppdatering av arbets ytans version? 
 
-Ja, du kan definiera en roll som förhindrar uppdatering av arbets ytans version. Eftersom uppdatering av arbets ytan är ett KORRIGERINGs anrop för objektet arbets yta gör du detta genom att lägga till följande åtgärd `"NotActions"` i matrisen i din JSON-definition: 
+Ja, du kan definiera en roll som förhindrar uppdatering av arbets ytans version. Eftersom uppdatering av arbets ytan är ett KORRIGERINGs anrop för objektet arbets yta gör du detta genom att lägga till följande åtgärd i `"NotActions"` matrisen i din JSON-definition: 
 
 `"Microsoft.MachineLearningServices/workspaces/write"`
 

@@ -8,18 +8,19 @@ manager: twooley
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
-ms.openlocfilehash: 946926a8a805ec3c53ea3c57dc3eded2462f7673
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04e936fe4a6d514b000b08ddf11b52d0e524d98e
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461556"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417879"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Konfigurera en privat IP-adress för en virtuell dator med hjälp av Azure Portal
 
@@ -29,7 +30,7 @@ ms.locfileid: "81461556"
 
 Följande exempel steg förväntar sig en enkel miljö som redan har skapats. Om du vill köra stegen som de visas i det här dokumentet måste du först [skapa ett virtuellt nätverk](quick-create-portal.md#create-a-virtual-network). I steg 3 använder du dock dessa värden i stället:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 | ------- | ----- |
 | Namn | *TestVNet* |
 | Adressutrymme | *192.168.0.0/16* |
@@ -45,10 +46,10 @@ Följ dessa steg om du vill skapa en virtuell dator med namnet *DNS01* i *klient
 1. Från [Azure Portal](https://portal.azure.com) -menyn väljer du **skapa en resurs**.
 
     ![Skapa en resurs Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-resource.png)
-2. Välj den virtuella **Compute** > -**datorn**.
+2. Välj den virtuella **Compute**-  >  **datorn**.
 
     ![Skapa virtuell dator, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/compute-virtual-machine.png)
-3. I **grunderna**anger du värden för objekt enligt beskrivningen i följande tabell. Välj sedan **Nästa&nbsp;:&nbsp;diskar** och **Nästa&nbsp;&nbsp;: nätverk**.
+3. I **grunderna**anger du värden för objekt enligt beskrivningen i följande tabell. Välj sedan **Nästa &nbsp; : &nbsp; diskar** och **Nästa &nbsp; : &nbsp; nätverk**.
 
     | Objekt | Värde |
     | --- | --- |
@@ -71,7 +72,7 @@ Följ dessa steg om du vill skapa en virtuell dator med namnet *DNS01* i *klient
     | **Delnät** | **Delen** |
 
     ![Fliken nätverk, skapa en virtuell dator, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-networking.png)
-5. Under **hantering**, under **diagnostik lagrings konto**, väljer du **vnetstorage**. Om lagrings kontot inte visas i listan väljer du **Skapa nytt**, anger ett **namn** på *vnetstorage*och väljer **OK**. Välj slutligen **Granska&nbsp;+&nbsp;skapa**.
+5. Under **hantering**, under **diagnostik lagrings konto**, väljer du **vnetstorage**. Om lagrings kontot inte visas i listan väljer du **Skapa nytt**, anger ett **namn** på *vnetstorage*och väljer **OK**. Välj slutligen **Granska &nbsp; + &nbsp; skapa**.
 
     ![Fliken hantering, skapa en virtuell dator, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-management.png)
 6. Granska översikts informationen i **Granska och skapa**och välj sedan **skapa**.

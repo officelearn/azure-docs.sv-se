@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/24/2020
 ms.author: tomfitz
-ms.openlocfilehash: c883383d3c870689bb95f808f6f60c5185c165c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33a63280f6973d2c5e29db29f7a6f3fc68c57c77
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334767"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424775"
 ---
 | Resurs | Gräns |
 | --- | --- |
@@ -22,7 +22,7 @@ ms.locfileid: "80334767"
 | Etikett nyckel längd |512 |
 | Tagg värde längd |256 |
 
-<sup>1</sup> Om du når gränsen på 800-distributioner per resurs grupp tar du bort distributioner från den historik som inte längre behövs. Om du tar bort en post från distributions historiken påverkas inte de distribuerade resurserna. Mer information finns i [lösa fel när antalet distributioner överstiger 800](../articles/azure-resource-manager/templates/deployment-quota-exceeded.md).
+<sup>1</sup> Från och med juni 2020 tas distributioner automatiskt bort från historiken när du närmar dig gränsen. Om du tar bort en post från distributions historiken påverkas inte de distribuerade resurserna. Mer information finns i [automatiska borttagningar från distributions historiken](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
 
 #### <a name="template-limits"></a>Mall gränser
 

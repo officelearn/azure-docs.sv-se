@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: de6953b6648613595bc9975b17941b3a453a6d60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 635ea81f37e72cdee80fbae928745e49b103820e
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185985"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433039"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Metod tips för att skapa utvärderingar
 
@@ -83,7 +83,18 @@ Om du lägger till eller tar bort datorer från en grupp efter att du har skapat
 
 ### <a name="outdated-assessments"></a>Inaktuella bedömningar
 
-Om det finns lokala ändringar av virtuella datorer som finns i en grupp som har bedömts, markeras utvärderingen som **föråldrad**. Om du vill visa ändringarna kör du utvärderingen igen.
+Om det finns lokala ändringar av virtuella datorer som finns i en grupp som har bedömts, markeras utvärderingen som **föråldrad**. En utvärdering kan markeras som "inaktuell" på grund av en eller flera ändringar i nedanstående egenskaper:
+
+- Antal processor kärnor
+- Allokerat minne
+- Start typ eller inbyggd program vara
+- Operativ systemets namn, version och arkitektur
+- Antal diskar
+- Antal nätverkskort
+- Ändring av disk storlek (GB allokerat)
+- Uppdatera till NIC-egenskaper. Exempel: Mac-adress ändringar, IP-adress tillägg osv.
+
+Kör utvärderingen igen (**Beräkna om**) för att återspegla ändringarna.
 
 ### <a name="low-confidence-rating"></a>Bedömning av låg exakthet
 

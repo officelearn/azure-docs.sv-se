@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6339b86166aff008bf17b5096d42629daf6e3401
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996082"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434284"
 ---
 # <a name="language-and-region-support-for-translator"></a>Språk-och region stöd för översättare
 
@@ -74,10 +74,11 @@ Translator har stöd för följande språk för text till text översättning. N
 |Iriska | `ga`| Neurala
 |Italienska|    `it`    |    Neurala|
 |Japanska|    `ja`    |    Neurala|
-|Kannada|`kn`| Neurala
+|Kannada|`kn`| Neurala|
+|Kazakiska |`kk`| Neurala|
 |Swahili|    `sw`    |    Statistikuppgifter|
-|Klingon|    `tlh`    |    Statistikuppgifter|
-|Klingon (plqaD)|    `tlh-Qaak`    |    Statistikuppgifter|
+|Klingon|    `tlh-Latn`    |    Statistikuppgifter|
+|Klingon (plqaD)|    `tlh-Piqd`    |    Statistikuppgifter|
 |Koreanska    |`ko`    |    Neurala|
 |Lettiska|    `lv`    |    Neurala|
 |Litauiska|    `lt`    |    Neurala|
@@ -130,20 +131,20 @@ Metoden translittererad stöder följande språk. I "till/från", "<-->" anger a
 | Kinesiska (förenklad) | `zh-Hans` | Kinesiska, förenklad`Hans`| <--> | Kinesiska, traditionell`Hant`|
 | Kinesiska (traditionell) | `zh-Hant` | Kinesiska, traditionell`Hant`| <--> | Latin`Latn` |
 | Kinesiska (traditionell) | `zh-Hant` | Kinesiska, traditionell`Hant`| <--> | Kinesiska, förenklad`Hans` |
-| Gujarati | `gu`  | Gujarati`Gujr` | --> | Latin`Latn` |
+| Gujarati | `gu`  | Gujarati`Gujr` | <--> | Latin`Latn` |
 | Hebreiska | `he` | Hebreiska`Hebr` | <--> | Latin`Latn` |
 | Hindi | `hi` | Devanagari`Deva` | <--> | Latin`Latn` |
 | Japanska | `ja` | Japanska`Jpan` | <--> | Latin`Latn` |
-| Kannada | `kn` | Kannada`Knda` | --> | Latin`Latn` |
-| Malayalam | `ml` | Malayalam`Mlym` | --> | Latin`Latn` |
-| Marathi | `mr` | Devanagari`Deva` | --> | Latin`Latn` |
+| Kannada | `kn` | Kannada`Knda` | <--> | Latin`Latn` |
+| Malayalam | `ml` | Malayalam`Mlym` | <--> | Latin`Latn` |
+| Marathi | `mr` | Devanagari`Deva` | <--> | Latin`Latn` |
 | Odia | `or` | Odia`Orya` | <--> | Latin`Latn` |
 | Punjabi | `pa` | Gurmukhi`Guru`  | <--> | Latin`Latn`  |
 | Serbiska (kyrillisk) | `sr-Cyrl` | Kyrillisk`Cyrl`  | --> | Latin`Latn` |
 | Serbiska (latinsk) (Serbien) | `sr-Latn` | Latin`Latn` | --> | Kyrillisk`Cyrl`|
-| Tamilska | `ta` | Tamilska`Taml` | --> | Latin`Latn` |
-| Telugu | `te` | Telugu`Telu` | --> | Latin`Latn` |
-| Thailändska | `th` | Thai`Thai` | --> | Latin`Latn` |
+| Tamilska | `ta` | Tamilska`Taml` | <--> | Latin`Latn` |
+| Telugu | `te` | Telugu`Telu` | <--> | Latin`Latn` |
+| Thailändska | `th` | Thai`Thai` | <--> | Latin`Latn` |
 
 ## <a name="dictionary"></a>Ordlista
 
@@ -177,7 +178,7 @@ Ord listan har stöd för följande språk till eller från engelska med hjälp 
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
 | Swahili      | `sw`          |
-| Klingon      | `tlh`          |
+| Klingon      | `tlh-Latn`          |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |

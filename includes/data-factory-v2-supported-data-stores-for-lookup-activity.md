@@ -1,5 +1,5 @@
 ---
-title: ta med fil
+title: inkludera fil
 description: anslutningar som stöds för lookup-aktivitet
 services: data-factory
 author: linda33wj
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: d583c25afc5c328ef64a8c931e4209f0d88a14a9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 35997f57b0a66b4f7853ea117519273fd7b6f726
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84124397"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84436162"
 ---
 | Kategori | Datalager |
 |:--- |:--- |
@@ -51,6 +51,7 @@ ms.locfileid: "84124397"
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
 | &nbsp; |[SAP-tabell](../articles/data-factory/connector-sap-table.md) |
+| &nbsp; |[Snowflake](../articles/data-factory/connector-snowflake.md) |
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |
@@ -80,8 +81,8 @@ ms.locfileid: "84124397"
 | &nbsp; |[Marketo (förhandsversion)](../articles/data-factory/connector-marketo.md) |
 | &nbsp; |[Oracle Eloqua (förhandsversion)](../articles/data-factory/connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys (förhandsversion)](../articles/data-factory/connector-oracle-responsys.md) |
-| &nbsp; |[Oracle service Cloud (för hands version)](../articles/data-factory/connector-oracle-service-cloud.md) |
-| &nbsp; |[PayPal (för hands version)](../articles/data-factory/connector-paypal.md) |
+| &nbsp; |[Oracle Service Cloud (förhandsversion)](../articles/data-factory/connector-oracle-service-cloud.md) |
+| &nbsp; |[PayPal (förhandsversion)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks (förhandsversion)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce-service-cloud.md) |
@@ -92,7 +93,7 @@ ms.locfileid: "84124397"
 | &nbsp; |[Shopify (förhandsversion)](../articles/data-factory/connector-shopify.md) |
 | &nbsp; |[SharePoint Online-lista](../articles/data-factory/connector-sharepoint-online-list.md) |
 | &nbsp; |[Square (förhandsversion)](../articles/data-factory/connector-square.md) |
-| &nbsp; |[Webbtabell (HTML-tabell)](../articles/data-factory/connector-web-table.md) 
+| &nbsp; |[Webb tabell (HTML-tabell)](../articles/data-factory/connector-web-table.md) 
 | &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |
 | &nbsp; |[Zoho (förhandsversion)](../articles/data-factory/connector-zoho.md) |
 

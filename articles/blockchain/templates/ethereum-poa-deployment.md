@@ -1,15 +1,15 @@
 ---
 title: Distribuera Ethereum proof-of-Authority – Solution Template på Azure
 description: Använd Ethereum-lösningen för att distribuera och konfigurera ett Ethereum-nätverk med flera medlemmar i Azure
-ms.date: 12/18/2019
+ms.date: 06/04/2020
 ms.topic: article
-ms.reviewer: coborn
-ms.openlocfilehash: 7e9af5c501b58f6828360ee280440ea85698bf16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: ravastra
+ms.openlocfilehash: 2be87dec252aa927c6b1acfc6cb1aa23bf7d2620
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75387677"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434355"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuera Ethereum proof-of-Authority – Solution Template på Azure
 
@@ -76,21 +76,21 @@ I nästa avsnitt visas hur du konfigurerar den första medlemmens storlek i nät
 
 I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** i det övre vänstra hörnet.
 
-Välj **blockchain** > **Ethereum proof-of-Authority Consortium (för hands version)**.
+Välj **blockchain**  >  **Ethereum proof-of-Authority Consortium (för hands version)**.
 
-### <a name="basics"></a>Grundläggande inställningar
+### <a name="basics"></a>Grunderna
 
 Under **grunderna**anger du värden för standard parametrar för alla distributioner.
 
-![Grundläggande inställningar](./media/ethereum-poa-deployment/basic-blade.png)
+![Grunderna](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parameter | Beskrivning | Exempelvärde
 ----------|-------------|--------------
 Skapa ett nytt nätverk eller Anslut till ett befintligt nätverk | Du kan skapa ett nytt konsortiums nätverk eller ansluta till ett befintligt konsortiums nätverk. För att kunna ansluta till ett befintligt nätverk krävs ytterligare parametrar. | Skapa ny
 E-postadress | Du får ett e-postmeddelande när distributionen är klar med information om distributionen. | En giltig e-postadress
 Användar namn för virtuell dator | Administratörs användar namn för varje distribuerad virtuell dator | 1-64 alfanumeriska tecken
-Autentiseringstyp | Metoden för att autentisera till den virtuella datorn. | lösenord
-lösenord | Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras. Alla virtuella datorer har till början samma lösen ord. Du kan ändra lösen ordet efter etableringen. | 12-72 tecken 
+Autentiseringstyp | Metoden för att autentisera till den virtuella datorn. | lösenordsinställning
+lösenordsinställning | Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras. Alla virtuella datorer har till början samma lösen ord. Du kan ändra lösen ordet efter etableringen. | 12-72 tecken 
 Prenumeration | Den prenumeration som används för att distribuera konsortiets nätverk |
 Resursgrupp| Den resurs grupp som används för att distribuera konsortial nätverket. | myResourceGroup
 Location | Azure-regionen för resurs gruppen. | USA, västra 2
@@ -163,8 +163,8 @@ Parameter | Beskrivning | Exempelvärde
 Övervakning | Alternativ för att aktivera övervakning | Aktivera
 Ansluta till befintliga Azure Monitor loggar | Alternativ för att skapa en ny Azure Monitor loggar instans eller ansluta till en befintlig instans | Skapa ny
 Location | Den region där den nya instansen distribueras | USA, östra
-Befintligt logganalys-arbetsyte-ID (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Arbetsyte-ID för den befintliga Azure Monitor loggar instansen||Ej tillämpligt
-Befintlig Log Analytics primär nyckel (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Den primära nyckel som används för att ansluta till den befintliga Azure Monitor loggar instansen||Ej tillämpligt
+Befintligt logganalys-arbetsyte-ID (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Arbetsyte-ID för den befintliga Azure Monitor loggar instansen||NA
+Befintlig Log Analytics primär nyckel (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Den primära nyckel som används för att ansluta till den befintliga Azure Monitor loggar instansen||NA
 
 Välj **OK**.
 
@@ -327,7 +327,7 @@ Av säkerhets skäl nekas åtkomst till SSH-porten av en säkerhets regel för n
 
 1. Välj **Spara**. Det kan ta några minuter att göra ändringar.
 
-Du kan fjärrans luta till de virtuella datorerna för validator-noder via SSH med ditt tillhandahållna administratörs användar namn och lösen ord/SSH-nyckel. SSH-kommandot för att komma åt den första validator-noden visas i mallens distributions data. Ett exempel:
+Du kan fjärrans luta till de virtuella datorerna för validator-noder via SSH med ditt tillhandahållna administratörs användar namn och lösen ord/SSH-nyckel. SSH-kommandot för att komma åt den första validator-noden visas i mallens distributions data. Exempel:
 
 ``` bash
 ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
@@ -335,7 +335,7 @@ ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
 
 Öka port numret med ett om du vill gå till ytterligare Transaction Nodes.
 
-Om du har distribuerat till fler än en region ändrar du kommandot till belastnings utjämningens DNS-namn eller IP-adress i den regionen. Om du vill hitta DNS-namn eller IP-adress för de andra regionerna hittar du resursen med namngivnings konventionen ** \* \* \* \* \*– lbpip\# -REG** och visar dess egenskaper för DNS-namn och IP-adress.
+Om du har distribuerat till fler än en region ändrar du kommandot till belastnings utjämningens DNS-namn eller IP-adress i den regionen. Om du vill hitta DNS-namn eller IP-adress för de andra regionerna hittar du resursen med namngivnings konventionen ** \* \* \* \* \* – lbpip \# -REG** och visar dess egenskaper för DNS-namn och IP-adress.
 
 ## <a name="azure-traffic-manager-load-balancing"></a>Belastnings utjämning i Azure Traffic Manager
 
@@ -558,7 +558,7 @@ I följande exempel skapar du ett enkelt Smart kontrakt. Du använder Truffle f�
 #### <a name="prerequisites"></a>Krav
 
 * Installera [python-2.7.15](https://www.python.org/downloads/release/python-2715/). Python krävs för Truffle och web3. Välj alternativet Installera för att inkludera python i sökvägen.
-* Installera Truffle v- `npm install -g truffle@v5.0.5`5.0.5. Truffle kräver att flera verktyg installeras, inklusive [Node. js](https://nodejs.org), [git](https://git-scm.com/). Mer information finns i [Truffle-dokumentationen](https://github.com/trufflesuite/truffle).
+* Installera Truffle v-5.0.5 `npm install -g truffle@v5.0.5` . Truffle kräver att flera verktyg installeras, inklusive [Node. js](https://nodejs.org), [git](https://git-scm.com/). Mer information finns i [Truffle-dokumentationen](https://github.com/trufflesuite/truffle).
 
 ### <a name="create-truffle-project"></a>Skapa Truffle-projekt
 
@@ -567,7 +567,7 @@ Innan du kan kompilera och distribuera ett smart kontrakt måste du skapa ett Tr
 1. Öppna en kommando tolk eller ett gränssnitt.
 1. Skapa en mapp med namnet `HelloWorld`.
 1. Ändra katalogen till den nya `HelloWorld` mappen.
-1. Initiera ett nytt Truffle-projekt med hjälp `truffle init`av kommandot.
+1. Initiera ett nytt Truffle-projekt med hjälp av kommandot `truffle init` .
 
     ![Skapa ett nytt Truffle-projekt](./media/ethereum-poa-deployment/create-truffle-project.png)
 
@@ -623,7 +623,7 @@ Truffle-projekt innehåller en konfigurations fil för blockchain-nätverks ansl
     };
     ```
 
-1. Eftersom vi använder Truffle HD-providern för plån boks tjänster installerar du modulen i projektet med hjälp `npm install truffle-hdwallet-provider --save`av kommandot.
+1. Eftersom vi använder Truffle HD-providern för plån boks tjänster installerar du modulen i projektet med hjälp av kommandot `npm install truffle-hdwallet-provider --save` .
 
 Truffle använder migrations skript för att distribuera smarta kontrakt till ett blockchain-nätverk. Du behöver ett migreringsarkiv för att distribuera ditt nya smarta kontrakt.
 
@@ -647,7 +647,7 @@ Truffle använder migrations skript för att distribuera smarta kontrakt till et
 
 Nu när ditt smarta kontrakt har distribuerats kan du skicka en transaktion för att anropa en funktion.
 
-1. Skapa en ny fil med namnet `sendtransaction.js`i Truffle-projekt katalogen.
+1. Skapa en ny fil med namnet i Truffle-projekt katalogen `sendtransaction.js` .
 1. Lägg till följande innehåll i **sendtransaction. js**.
 
     ``` javascript
@@ -718,6 +718,20 @@ Transaktions data flödet är mycket beroende av typerna av transaktioner och n�
 ### <a name="how-do-i-subscribe-to-smart-contract-events"></a>Hur gör jag för att prenumerera på smarta kontrakt händelser?
 
 Ethereum proof-of-Authority stöder nu webb-Sockets.  Kontrol lera dina distributions utdata för att hitta webbsocket-URL: en och porten.
+
+## <a name="support-and-feedback"></a>Support och feedback
+
+För Azure blockchain News går du till [Azure blockchain-bloggen](https://azure.microsoft.com/blog/topics/blockchain/) för att hålla dig uppdaterad om blockchain service-erbjudanden och information från Azures teknik team för blockchain.
+
+För att ge feedback på produkter eller för att begära nya funktioner, post eller rösta för en idé via [Azure feedback-forumet för blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Community-support
+
+Engagera med Microsoft-tekniker och Azure blockchain community-experter.
+
+* [Microsoft Q&en fråge sida för Azure blockchain-tjänsten](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Teknisk support för blockchain-mallar är begränsad till distributions problem.
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Nästa steg
 

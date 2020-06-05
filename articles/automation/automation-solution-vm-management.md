@@ -3,20 +3,23 @@ title: Översikt över Azure Automation Starta/stoppa virtuella datorer när de 
 description: I den här artikeln beskrivs Starta/stoppa virtuella datorer när de inte används funktionen som startar eller stoppar virtuella datorer enligt ett schema och övervakar dem proaktivt från Azure Monitor loggar.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7c0cc2b4996c1002aae0656234c356c805923811
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205134"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424082"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Översikt över Starta/stoppa virtuella datorer när de inte används
 
 Starta/stoppa virtuella datorer när de inte används funktionen startar eller stoppar aktiverade virtuella Azure-datorer. Den startar eller stoppar datorer enligt användardefinierade scheman, ger insikter via Azure Monitor loggar och skickar valfria e-postmeddelanden med hjälp av [Åtgärds grupper](../azure-monitor/platform/action-groups.md). Funktionen kan aktive ras på både Azure Resource Manager och klassiska virtuella datorer för de flesta scenarier. 
 
-Den här funktionen använder cmdleten [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) för att starta virtuella datorer. Den använder [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) för att stoppa virtuella datorer.
+Den här funktionen använder cmdleten [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) för att starta virtuella datorer. Den använder [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) för att stoppa virtuella datorer.
+
+> [!NOTE]
+> Medan Runbooks har uppdaterats för att använda de nya cmdletarna för Azure AZ-modulen använder de AzureRM-prefixet.
 
 > [!NOTE]
 > Starta/stoppa virtuella datorer när de inte används har uppdaterats till att stödja de senaste versionerna av de Azure-moduler som är tillgängliga. Den uppdaterade versionen av den här funktionen, som är tillgänglig i Marketplace, stöder inte AzureRM-moduler eftersom vi har migrerat från AzureRM till AZ-moduler.
@@ -32,7 +35,7 @@ Följande är begränsningar med den aktuella funktionen:
 - Den hanterar virtuella datorer i vilken region som helst, men kan bara användas i samma prenumeration som ditt Azure Automation-konto.
 - Den är tillgänglig i Azure och Azure Government för alla regioner som stöder en Log Analytics arbets yta, ett Azure Automation-konto och aviseringar. Azure Government regioner stöder för närvarande inte e-postfunktioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Runbooks för funktionen starta/stoppa virtuella datorer under låg tid fungerar med ett [Kör som-konto i Azure](automation-create-runas-account.md). Kör som-kontot är den föredragna autentiseringsmetoden eftersom den använder certifikatautentisering i stället för ett lösen ord som kan gå ut eller ändras ofta.
 
@@ -73,7 +76,7 @@ Om du vill aktivera virtuella datorer för Starta/stoppa virtuella datorer när 
 
 Du kan aktivera virtuella datorer för Starta/stoppa virtuella datorer när de inte används-funktionen med ett nytt Automation-konto och Log Analytics arbets yta. I det här fallet behöver du de behörigheter som definierats i föregående avsnitt samt de behörigheter som definierats i det här avsnittet. Du behöver också följande roller:
 
-- Administratör för prenumerationen. Den här rollen krävs för att skapa det klassiska kör som-kontot om du ska hantera klassiska virtuella datorer. [Klassiska kör som-konton](automation-create-standalone-account.md#create-a-classic-run-as-account) skapas inte längre som standard.
+- Medadministratör för prenumerationen. Den här rollen krävs för att skapa det klassiska kör som-kontot om du ska hantera klassiska virtuella datorer. [Klassiska kör som-konton](automation-create-standalone-account.md#create-a-classic-run-as-account) skapas inte längre som standard.
 - Medlemskap i rollen [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) Application Developer. Mer information om hur du konfigurerar kör som-konton finns i [behörighet att konfigurera kör som-konton](manage-runas-account.md#permissions).
 - Deltagare i prenumerationen eller följande behörigheter.
 
@@ -90,7 +93,7 @@ Du kan aktivera virtuella datorer för Starta/stoppa virtuella datorer när de i
 
 ## <a name="components"></a>Komponenter
 
-Funktionen Starta/stoppa virtuella datorer när de inte används innehåller förkonfigurerade Runbooks, scheman och integrering med Azure Monitor loggar. Du kan använda dessa element för att skräddarsy Start och avstängning av dina virtuella datorer så att de passar dina affärs behov.
+I den Starta/stoppa virtuella datorer när de inte används funktionen ingår förkonfigurerade Runbooks, scheman och integrering med Azure Monitor loggar. Du kan använda dessa element för att skräddarsy Start och avstängning av dina virtuella datorer så att de passar dina affärs behov.
 
 ### <a name="runbooks"></a>Runbooks
 
@@ -101,11 +104,11 @@ I följande tabell visas de Runbooks som funktionen distribuerar till ditt Autom
 
 Alla överordnade Runbooks inkluderar `WhatIf` parametern. När värdet är true, stöder parametern information om det exakta beteende som Runbook tar när den körs utan parametern och kontrollerar att rätt virtuella datorer är riktade. En Runbook utför bara sina definierade åtgärder när `WhatIf` parametern har angetts till false.
 
-|Runbook | Parametrar | Description|
+|Runbook | Parametrar | Beskrivning|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Anropas från den överordnade runbooken. Denna Runbook skapar aviseringar per resurs för det automatiska stopp scenariot.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true eller false  | Skapar eller uppdaterar Azures aviserings regler på virtuella datorer i mål prenumerationen eller resurs grupperna. <br> `VMList`är en kommaavgränsad lista över virtuella datorer (utan blank steg), till exempel `vm1,vm2,vm3` .<br> `WhatIf`aktiverar validering av Runbook-logik utan att köra.|
-|AutoStop_Disable | Ingen | Inaktiverar automatiska stopp-aviseringar och standard schema.|
+|AutoStop_Disable | Inga | Inaktiverar automatiska stopp-aviseringar och standard schema.|
 |AutoStop_VM_Child | WebHookData | Anropas från den överordnade runbooken. Aviserings regler anropar denna Runbook för att stoppa en klassisk virtuell dator.|
 |AutoStop_VM_Child_ARM | WebHookData |Anropas från den överordnade runbooken. Aviserings regler anropar denna Runbook för att stoppa en virtuell dator.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> Åtgärd: starta eller stoppa<br> VMList  | Utför åtgärden starta eller stoppa i den klassiska VM-gruppen genom att Cloud Services. |
@@ -121,7 +124,7 @@ I följande tabell visas variablerna som skapas i ditt Automation-konto. Ändra 
 > [!NOTE]
 > Begränsningar i VM-namn och resurs grupp är i stort sett resultatet av varierande storlek. Se [variabel till gångar i Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
 
-|Variabel | Description|
+|Variabel | Beskrivning|
 |---------|------------|
 |External_AutoStop_Condition | Den villkorliga operator som krävs för att konfigurera villkoret innan en avisering utlöses. Godkända värden är `GreaterThan` , `GreaterThanOrEqual` , `LessThan` och `LessThanOrEqual` .|
 |External_AutoStop_Description | Aviseringen för att stoppa den virtuella datorn om PROCESSORns procents ATS överstiger tröskelvärdet.|
@@ -132,7 +135,7 @@ I följande tabell visas variablerna som skapas i ditt Automation-konto. Ändra 
 |External_AutoStop_TimeAggregationOperator | Tids mängds operatorn som används för den valda fönster storleken för att utvärdera villkoret. Godkända värden är `Average` ,,, `Minimum` `Maximum` `Total` och `Last` .|
 |External_AutoStop_TimeWindow | Storleken på fönstret där Azure analyserar valda mått för att utlösa en avisering. Den här parametern accepterar inmatade i TimeSpan-format. Möjliga värden är mellan 5 och 6 timmar.|
 |External_EnableClassicVMs| Värde som anger om de klassiska virtuella datorerna är mål för funktionen. Standardvärdet är true. Ställ in den här variabeln på falskt för Azure Cloud Solution Provider (CSP)-prenumerationer. Klassiska virtuella datorer kräver ett [klassiskt kör som-konto](automation-create-standalone-account.md#create-a-classic-run-as-account).|
-|External_ExcludeVMNames | Kommaavgränsad lista över VM-namn som ska undantas, begränsade till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer i listan kan virtuella datorer som är inställda på att undantas oavsiktligt startas eller stoppas.|
+|External_ExcludeVMNames | Kommaavgränsad lista över VM-namn som ska undantas, begränsade till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer i listan kan virtuella datorer som anges som undantag oavsiktligt startas eller stoppas.|
 |External_Start_ResourceGroupNames | Kommaavgränsad lista över en eller flera resurs grupper som är avsedda för start åtgärder.|
 |External_Stop_ResourceGroupNames | Kommaavgränsad lista över en eller flera resurs grupper som är avsedda för stopp åtgärder.|
 |External_WaitTimeForVMRetrySeconds |Vänte tiden i sekunder för de åtgärder som ska utföras på de virtuella datorerna för **SequencedStartStop_Parent** Runbook. Med den här variabeln kan runbooken vänta på underordnade åtgärder under ett angivet antal sekunder innan nästa åtgärd fortsätter. Maximal vänte tid är 10800 eller tre timmar. Standardvärdet är 2100 sekunder.|
@@ -153,7 +156,7 @@ I följande tabell visas alla standard scheman som skapats i ditt Automation-kon
 
 Aktivera inte alla scheman, eftersom detta kan skapa överlappande schema åtgärder. Det är bäst att bestämma vilka optimeringar du vill göra och ändra dem på lämpligt sätt. I exempel scenarierna i översikts avsnittet finns ytterligare förklaring.
 
-|Schema namn | Frekvens | Description|
+|Schema namn | Frekvens | Beskrivning|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Var 8:e timme | Kör **AutoStop_CreateAlert_Parent** Runbook var 8: e timme, vilket i sin tur stoppar de VM-baserade värdena i `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variablerna, och. Alternativt kan du ange en kommaavgränsad lista över virtuella datorer med hjälp av- `VMList` parametern.|
 |Scheduled_StopVM | Användardefinierad, daglig | Kör **ScheduledStopStart_Parent** Runbook med en parameter på `Stop` varje dag vid den angivna tiden.Stoppar automatiskt alla virtuella datorer som uppfyller reglerna som definierats av variabel till gångar.Aktivera det **schemalagda schemat för schemalagda StartVM**.|

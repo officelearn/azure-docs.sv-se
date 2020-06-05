@@ -1,21 +1,21 @@
 ---
-title: Distribuera modeller till beräknings instanser
+title: HDeploy-modeller till beräknings instanser
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du distribuerar dina Azure Machine Learning modeller som en webb tjänst med hjälp av beräknings instanser.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 09164580b8bdb249fc12d14e827ad799d51cab34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 07afeba8ab481da6a23862dee187c8c72df19f3b
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756593"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84429578"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuera en modell för att Azure Machine Learning beräknings instanser
 
@@ -39,17 +39,17 @@ En exempel-anteckningsbok som visar lokala distributioner ingår i din beräknin
 
 1. Välj dina Azure Machine Learning beräknings instanser från [Azure Machine Learning Studio](https://ml.azure.com).
 
-1. `samples-*` Öppna under katalogen och öppna `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`sedan. Kör antecknings boken när den är öppen.
+1. Öppna under `samples-*` katalogen och öppna sedan `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb` . Kör antecknings boken när den är öppen.
 
     ![Skärm bild av den lokala tjänsten som körs på antecknings boken](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. Antecknings boken visar den URL och port som tjänsten körs på. Till exempel `https://localhost:6789`. Du kan också köra cellen som innehåller `print('Local service port: {}'.format(local_service.port))` för att Visa porten.
+1. Antecknings boken visar den URL och port som tjänsten körs på. Exempelvis `https://localhost:6789`. Du kan också köra cellen som innehåller `print('Local service port: {}'.format(local_service.port))` för att Visa porten.
 
     ![Skärm bild av den aktiva porten för den lokala tjänsten](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 
-1. Använd `https://localhost:<local_service.port>` URL: en för att testa tjänsten från en beräknings instans. Om du vill testa från en fjärran sluten klient hämtar du den offentliga URL: en för tjänsten som körs på beräknings instansen. Den offentliga URL: en kan fastställas med hjälp av följande formel. 
-    * VM för virtuell `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`dator:. 
-    * Beräknings instans: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
+1. Använd URL: en för att testa tjänsten från en beräknings instans `https://localhost:<local_service.port>` . Om du vill testa från en fjärran sluten klient hämtar du den offentliga URL: en för tjänsten som körs på beräknings instansen. Den offentliga URL: en kan fastställas med hjälp av följande formel. 
+    * VM för virtuell dator: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score` . 
+    * Beräknings instans: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
     Exempel: 
     * VM för virtuell dator:`https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 

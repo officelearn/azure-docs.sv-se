@@ -3,12 +3,12 @@ title: Utveckla Azure Functions med Visual Studio Code
 description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av Azure Functions-tillägget för Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 2d33b7dddf29d37d174bdb7734e9048bc1658840
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39e62f78f9f0cf1550a01201f753782566aa7c80
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277172"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424167"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med Visual Studio Code
 
@@ -96,11 +96,15 @@ Dessa filer skapas, beroende på ditt språk:
 
 * [HttpExample.cs klass biblioteks fil](functions-dotnet-class-library.md#functions-class-library-project) som implementerar funktionen.
 
+Nu kan du lägga till indata och utgående bindningar i din funktion genom att [lägga till en parameter i en C#-klass biblioteks funktion](#add-input-and-output-bindings).
+
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 * En Package. JSON-fil i rotmappen.
 
 * En HttpExample-mapp som innehåller [definitions filen function. JSON](functions-reference-node.md#folder-structure) och [filen index. js](functions-reference-node.md#exporting-a-function), en Node. js-fil som innehåller funktions koden.
+
+Nu kan du lägga till indata och utdata-bindningar i din funktion genom att [ändra function. JSON-filen](#add-input-and-output-bindings).
 
 <!-- # [PowerShell](#tab/powershell)
 
@@ -113,8 +117,6 @@ Dessa filer skapas, beroende på ditt språk:
 * An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
      -->
 ---
-
-Nu kan du lägga till indata och utdata-bindningar i din funktion genom att [ändra function. JSON-filen](#add-a-function-to-your-project) eller genom [att lägga till en parameter i en C#-klass biblioteks funktion](#add-a-function-to-your-project).
 
 Du kan också [lägga till en ny funktion i projektet](#add-a-function-to-your-project).
 
@@ -156,23 +158,23 @@ En ny mapp skapas i projektet. Mappen innehåller en ny function. JSON-fil och d
 
 Du kan utöka din funktion genom att lägga till indata och utgående bindningar. Processen för att lägga till bindningar beror på ditt projekts språk. Mer information om bindningar finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
-Följande exempel ansluter till en lagrings kö med `outqueue`namnet, där anslutnings strängen för lagrings kontot anges i `MyStorageConnection` program inställningen i Local. Settings. JSON.
+Följande exempel ansluter till en lagrings kö med namnet `outqueue` , där anslutnings strängen för lagrings kontot anges i `MyStorageConnection` program inställningen i Local. Settings. JSON.
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
-Uppdatera funktions metoden för att lägga till följande parameter i `Run` Metod definitionen:
+Uppdatera funktions metoden för att lägga till följande parameter i `Run` metod definitionen:
 
 ```cs
 [Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
 ```
 
-Den här koden kräver att du lägger till `using` följande instruktion:
+Den här koden kräver att du lägger till följande `using` instruktion:
 
 ```cs
 using Microsoft.Azure.WebJobs.Extensions.Storage;
 ```
 
-`msg` Parametern är en `ICollector<T>` typ som representerar en samling meddelanden som skrivs till en utgående bindning när funktionen slutförs. Du lägger till ett eller flera meddelanden i samlingen. Dessa meddelanden skickas till kön när funktionen har slutförts.
+`msg`Parametern är en `ICollector<T>` typ som representerar en samling meddelanden som skrivs till en utgående bindning när funktionen slutförs. Du lägger till ett eller flera meddelanden i samlingen. Dessa meddelanden skickas till kön när funktionen har slutförts.
 
 Mer information finns i dokumentationen för [kö Storage utgående bindning](functions-bindings-storage-queue-output.md) .
 
@@ -190,7 +192,7 @@ I följande exempel uppmanas du att definiera en ny bindning för lagring av utd
 | **Välj bindning med riktning** | `Azure Queue Storage` | Bindningen är en Azure Storage Queue-bindning. |
 | **Namnet som används för att identifiera den här bindningen i din kod** | `msg` | Namn som identifierar den bindnings parameter som refereras till i din kod. |
 | **Kön som meddelandet ska skickas till** | `outqueue` | Namnet på kön som bindningen skriver till. När *queueName* inte finns skapar bindningen den när den används första gången. |
-| **Välj inställning från "Local. Settings. JSON"** | `MyStorageConnection` | Namnet på en program inställning som innehåller anslutnings strängen för lagrings kontot. `AzureWebJobsStorage` Inställningen innehåller anslutnings strängen för det lagrings konto som du skapade med Function-appen. |
+| **Välj inställning från "Local. Settings. JSON"** | `MyStorageConnection` | Namnet på en program inställning som innehåller anslutnings strängen för lagrings kontot. `AzureWebJobsStorage`Inställningen innehåller anslutnings strängen för det lagrings konto som du skapade med Function-appen. |
 
 I det här exemplet läggs följande bindning till i `bindings` matrisen i din function. JSON-fil:
 
@@ -206,7 +208,7 @@ I det här exemplet läggs följande bindning till i `bindings` matrisen i din f
 
 Du kan också lägga till samma bindnings definition direkt i function. JSON.
 
-I funktions koden nås `msg` bindningen från `context`, som i det här exemplet:
+I funktions koden `msg` nås bindningen från `context` , som i det här exemplet:
 
 ```javascript
 context.bindings.msg = "Name passed to the function: " req.query.name;
@@ -254,7 +256,7 @@ Följande steg publicerar projektet till en ny function-app som skapats med avan
     | Välj ett operativ system | Windows | Function-appen körs i Windows. |
     | Välj en värd plan | Förbrukningsplan | En server lös [förbruknings Plans värd](functions-scale.md#consumption-plan) används. |
     | Välj en körnings miljö för den nya appen | Ditt projekt språk | Körningen måste matcha projektet som du publicerar. |
-    | Välj en resurs grupp för nya resurser | Skapa ny resurs grupp | Vid nästa prompt skriver du ett resurs grupp namn, till exempel `myResourceGroup`och väljer sedan Retur. Du kan också välja en befintlig resurs grupp. |
+    | Välj en resurs grupp för nya resurser | Skapa ny resurs grupp | Vid nästa prompt skriver du ett resurs grupp namn, till exempel `myResourceGroup` och väljer sedan Retur. Du kan också välja en befintlig resurs grupp. |
     | Välj ett lagrings konto | Skapa ett nytt lagringskonto | Vid nästa prompt skriver du ett globalt unikt namn för det nya lagrings kontot som används av din Function-app och väljer sedan Retur. Lagrings konto namn måste innehålla mellan 3 och 24 tecken och får bara innehålla siffror och gemena bokstäver. Du kan också välja ett befintligt konto. |
     | Välj en plats för nya resurser | regionen | Välj en plats i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner har åtkomst till. |
 
@@ -299,7 +301,7 @@ För att köra ett Functions-projekt lokalt måste du uppfylla följande ytterli
 
     | Språk | Krav |
     | -------- | --------- |
-    | **C #** | [C#-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI-verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C#** | [C#-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI-verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Fel sökare för Java-tillägg](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 eller senare](https://maven.apache.org/) |
     | **JavaScript** | [Node. js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Python-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python-3.6.8](https://www.python.org/downloads/) rekommenderas|
@@ -314,7 +316,7 @@ I det här avsnittet används [Azure Storage tillägget för Visual Studio Code]
 
 Så här anger du anslutnings strängen för lagrings kontot:
 
-1. Öppna **Cloud Explorer**i Visual Studio, expandera **lagrings konto** > **ditt lagrings konto**och välj sedan **Egenskaper** och kopiera värdet för **primär anslutnings sträng** .
+1. Öppna **Cloud Explorer**i Visual Studio, expandera **lagrings konto**  >  **ditt lagrings konto**och välj sedan **Egenskaper** och kopiera värdet för **primär anslutnings sträng** .
 
 2. Öppna filen Local. Settings. json i projektet och ange värdet för **AzureWebJobsStorage** -nyckeln till den anslutnings sträng som du kopierade.
 
@@ -324,7 +326,7 @@ Mer information finns i [filen med lokala inställningar](#local-settings-file).
 
 ### <a name="debugging-functions-locally"></a>Felsöka funktioner lokalt  
 
-Om du vill felsöka funktionerna väljer du F5. Om du inte redan har hämtat [Core Tools][Azure Functions Core tools]uppmanas du att göra det. När Core Tools är installerat och körs visas utdata i terminalen. Detta är detsamma som att `func host start` köra kommandot Core tools från terminalen, men med ytterligare build-uppgifter och en bifogad fel sökare.  
+Om du vill felsöka funktionerna väljer du F5. Om du inte redan har hämtat [Core Tools][Azure Functions Core tools]uppmanas du att göra det. När Core Tools är installerat och körs visas utdata i terminalen. Detta är detsamma som att köra `func host start` kommandot Core tools från terminalen, men med ytterligare build-uppgifter och en bifogad fel sökare.  
 
 När projektet körs kan du utlösa funktioner på samma sätt som när projektet distribueras till Azure. När projektet körs i fel söknings läge, trycks Bryt punkter i Visual Studio Code, som förväntat.
 
@@ -397,13 +399,13 @@ Vi rekommenderar att du övervakar körningen av dina funktioner genom att integ
 
 Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 
-## <a name="c-script-projects"></a>C\# skript projekt
+## <a name="c-script-projects"></a>C \# skript projekt
 
 Som standard skapas alla C#-projekt som [c#-kompilerade klass biblioteks projekt](functions-dotnet-class-library.md). Om du föredrar att arbeta med C#-skript projekt i stället måste du välja C#-skript som standard språk i inställningarna för Azure Functions-tillägg:
 
-1. Välj > **Inställningar**för **fil** > **Inställningar.**
+1. Välj inställningar för **fil**  >  **Inställningar**  >  **Settings**.
 
-1. Gå till**tillägg** > för **användar inställningar** > **Azure Functions**.
+1. Gå till tillägg för **användar inställningar**  >  **Extensions**  >  **Azure Functions**.
 
 1. Välj **C #-skript** från **Azure Function: projekt språk**.
 
@@ -428,13 +430,13 @@ Azure Functions-tillägget ger ett användbart grafiskt gränssnitt i avsnittet 
 | **Koppla från lagrings platsen**  | Tar bort den [kontinuerliga distributions](functions-continuous-deployment.md) anslutningen mellan en Function-app i Azure och en lagrings plats för käll kontroll. |
 | **Hämta Fjärrinställningar** | Hämtar inställningar från den valda Function-appen i Azure till din lokala. Settings. JSON-fil. Om den lokala filen är krypterad, dekrypteras, uppdateras och krypteras igen. Om det finns inställningar som innehåller motstridiga värden på de två platserna, uppmanas du att välja hur du vill fortsätta. Se till att spara ändringarna i din lokala. Settings. JSON-fil innan du kör det här kommandot. |
 | **Redigera inställningar** | Ändrar värdet för en befintlig funktion i appens inställning i Azure. Det här kommandot påverkar inte inställningarna i din lokala. Settings. JSON-fil.  |
-| **Krypterings inställningar** | Krypterar enskilda objekt i `Values` matrisen i de [lokala inställningarna](#local-settings-file). I den här filen `IsEncrypted` är även inställt på `true`, som anger att den lokala körnings miljön ska dekryptera inställningarna innan de används. Kryptera lokala inställningar för att minska risken för att värdefull information avslöjas. I Azure lagras program inställningarna alltid som krypterade. |
+| **Krypterings inställningar** | Krypterar enskilda objekt i `Values` matrisen i de [lokala inställningarna](#local-settings-file). I den här filen `IsEncrypted` är även inställt på `true` , som anger att den lokala körnings miljön ska dekryptera inställningarna innan de används. Kryptera lokala inställningar för att minska risken för att värdefull information avslöjas. I Azure lagras program inställningarna alltid som krypterade. |
 | **Kör funktionen nu** | Startar en [timer-utlöst funktion](functions-bindings-timer.md) manuellt i Azure. Det här kommandot används för testning. Mer information om hur du utlöser icke-HTTP-funktioner i Azure finns i [köra en icke-http-utlöst funktion manuellt](functions-manually-run-non-http.md). |
 | **Initiera projekt för användning med VS Code** | Lägger till de nödvändiga Project-projektfilerna i Visual Studio-kod i ett befintligt Functions-projekt. Använd det här kommandot för att arbeta med ett projekt som du har skapat med hjälp av kärn verktyg. |
 | **Installera eller uppdatera Azure Functions Core Tools** | Installerar eller uppdaterar [Azure Functions Core tools], som används för att köra funktioner lokalt. |
 | **Omdistribuera**  | Gör att du kan distribuera projektfiler från en ansluten git-lagringsplats till en speciell distribution i Azure. [Publicera om projektet](#republish-project-files)om du vill publicera om lokala uppdateringar från Visual Studio Code. |
 | **Byt namn på Inställningar** | Ändrar nyckel namnet för en befintlig funktion i appens inställning i Azure. Det här kommandot påverkar inte inställningarna i din lokala. Settings. JSON-fil. När du har bytt namn på inställningarna i Azure bör du [Hämta ändringarna till det lokala projektet](#download-settings-from-azure). |
-| **Börja** | Startar om Function-appen i Azure. Om du distribuerar uppdateringar startas Function-appen också om. |
+| **Starta om** | Startar om Function-appen i Azure. Om du distribuerar uppdateringar startas Function-appen också om. |
 | **Ange AzureWebJobsStorage**| Anger värdet för `AzureWebJobsStorage` program inställningen. Den här inställningen krävs av Azure Functions. Den ställs in när en Function-app skapas i Azure. |
 | **Start** | Startar en stoppad Function-app i Azure. |
 | **Starta strömmande loggar** | Startar strömmande loggar för Function-appen i Azure. Använd strömmande loggar vid fjärrfelsökning i Azure om du behöver se loggnings information i nära real tid. Mer information finns i [strömmande loggar](#streaming-logs). |

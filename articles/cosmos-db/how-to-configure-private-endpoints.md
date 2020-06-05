@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar en privat Azure-länk för att få åt
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 06/04/2020
 ms.author: thweiss
-ms.openlocfilehash: c5b82e8cdea49f8dd761844ff5492df0ad109943
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b05fa32529372a89ff441b953f001dc2ab1b5606
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116669"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431648"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
 
@@ -398,7 +398,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Ett exempel:
+I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Exempel:
 
 * Ett Gremlin-API-konto kan nås från både Gremlin-och SQL-API-konton.
 * Ett Tabell-API konto kan nås från både tabell-och SQL-API-konton.
@@ -628,6 +628,10 @@ Följande situationer och resultat är möjliga när du använder en privat län
 
 Som det beskrivs i föregående avsnitt, och om vissa brand Väggs regler har angetts, gör ett Azure Cosmos-konto tillgängligt via enbart privata slut punkter genom att lägga till en privat slut punkt. Det innebär att Azure Cosmos-kontot kan nås från offentlig trafik när det har skapats och innan en privat slut punkt läggs till. För att säkerställa att åtkomsten till det offentliga nätverket är inaktive rad även innan du skapar privata slut punkter, kan du ställa in `publicNetworkAccess` flaggan på `Disabled` när kontot skapas. Se [denna Azure Resource Manager mall](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) för ett exempel som visar hur du använder den här flaggan.
 
+## <a name="port-range-when-using-direct-mode"></a>Port intervall när Direct-läge används
+
+När du använder en privat länk med ett Azure Cosmos-konto via en anslutning i direkt läge, måste du se till att hela intervallet TCP-portarna (0-65535) är öppen.
+
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Uppdatera en privat slut punkt när du lägger till eller tar bort en region
 
 Om du lägger till eller tar bort regioner i ett Azure Cosmos-konto måste du lägga till eller ta bort DNS-poster för det kontot. När regionerna har lagts till eller tagits bort kan du uppdatera under nätets privata DNS-zon så att den återspeglar de tillagda eller borttagna DNS-posterna och deras motsvarande privata IP-adresser.
@@ -642,7 +646,7 @@ Du kan använda samma steg när du tar bort en region. När du har tagit bort re
 
 Följande begränsningar gäller när du använder en privat länk med ett Azure Cosmos-konto:
 
-* När du använder en privat länk med ett Azure Cosmos-konto med hjälp av en anslutning via direkt läge, kan du bara använda TCP-protokollet. HTTP-protokollet stöds inte för närvarande.
+* När du använder en privat länk med ett Azure Cosmos-konto via en anslutning via direkt läge, kan du bara använda TCP-protokollet. HTTP-protokollet stöds inte för närvarande.
 
 * När du använder Azure Cosmos DB s API för MongoDB-konton stöds en privat slut punkt för konton på Server version 3,6 (det vill säga konton som använder slut punkten i formatet `*.mongo.cosmos.azure.com` ). Privat länk stöds inte för konton på Server version 3,2 (det vill säga konton som använder slut punkten i formatet `*.documents.azure.com` ). Om du vill använda en privat länk bör du migrera gamla konton till den nya versionen.
 

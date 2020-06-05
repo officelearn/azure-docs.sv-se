@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.openlocfilehash: 44472eb697a4d191d4ed99b7879654fcca61383b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e2cc1e20c20c17742f2bea56f4e87e8678e4cc03
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655204"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434007"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub åtgärder arbets flöden för för hands versionen av Azure static Web Apps
 
@@ -105,7 +105,7 @@ I den statiska Web Apps arbets flödes filen finns det två tillgängliga jobb.
 | Name  | Beskrivning |
 |---------|---------|
 |`build_and_deploy_job` | Körs när du utför push-överföring eller öppnar en pull-begäran mot den gren som anges i `on` egenskapen. |
-|`close_pull_request_job` | Körs bara när du stänger en pull-begäran. |
+|`close_pull_request_job` | Körs bara när du stänger en pull-begäran som tar bort den mellanlagrings miljö som skapats från pull-begäranden. |
 
 ## <a name="steps"></a>Steg
 
@@ -134,11 +134,11 @@ with:
     ###### End of Repository/Build Configurations ######
 ```
 
-| Egenskap | Description | Obligatorisk |
+| Egenskap | Beskrivning | Obligatorisk |
 |---|---|---|
 | `app_location` | Plats för program koden.<br><br>Ange till exempel `/` om din program käll kod är i roten för lagrings platsen eller `/app` om program koden finns i en katalog som kallas `app` . | Ja |
-| `api_location` | Azure Functionss kodens plats.<br><br>Ange till exempel `/api` om din app-kod finns i en mapp med namnet `api` . Om det inte går att hitta någon Azure Functions app i mappen, kan inte versionen av det här arbets flödet antas att du inte vill ha något API. | Inga |
-| `app_artifact_location` | Platsen för build-utdatakatalogen i förhållande till `app_location` .<br><br>Om programmets käll kod till exempel finns i `/app` och bygg skriptet `/app/build` utvärderar filer till mappen, anger du `build` som `app_artifact_location` värde. | Inga |
+| `api_location` | Azure Functionss kodens plats.<br><br>Ange till exempel `/api` om din app-kod finns i en mapp med namnet `api` . Om det inte går att hitta någon Azure Functions app i mappen, kan inte versionen av det här arbets flödet antas att du inte vill ha något API. | Nej |
+| `app_artifact_location` | Platsen för build-utdatakatalogen i förhållande till `app_location` .<br><br>Om programmets käll kod till exempel finns i `/app` och bygg skriptet `/app/build` utvärderar filer till mappen, anger du `build` som `app_artifact_location` värde. | Nej |
 
 `repo_token`Värdena, `action` och `azure_static_web_apps_api_token` anges för dig av azures statiska Web Apps bör inte ändras manuellt.
 
@@ -148,7 +148,7 @@ Du kan få detaljerad kontroll över vilka kommandon som körs under en distribu
 
 Distributionen anropar alltid `npm install` före ett anpassat kommando.
 
-| Kommando            | Description |
+| Kommando            | Beskrivning |
 |---------------------|-------------|
 | `app_build_command` | Definierar ett anpassat kommando som ska köras under distributionen av programmet för statiskt innehåll.<br><br>Om du till exempel vill konfigurera en produktions version för ett ansvars program anger du `ng build --prod` . Om inget anges försöker arbets flödet köra `npm run build` `npm run build:Azure` kommandona eller.  |
 | `api_build_command` | Definierar ett anpassat kommando som ska köras under distributionen av Azure Functions API-programmet. |
@@ -157,7 +157,7 @@ Distributionen anropar alltid `npm install` före ett anpassat kommando.
 
 Du kan anpassa arbets flödet för att leta efter [routes. JSON](routes.md) i vilken mapp som helst i din lagrings plats. Följande egenskap kan definieras under ett jobb `with` avsnitt.
 
-| Egenskap            | Description |
+| Egenskap            | Beskrivning |
 |---------------------|-------------|
 | `routes_location` | Definierar den katalog plats där _routes. JSON_ -filen hittas. Den här platsen är relativ i förhållande till lagrings platsens rot. |
 
@@ -166,4 +166,4 @@ Du kan anpassa arbets flödet för att leta efter [routes. JSON](routes.md) i vi
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Granska pull-begäranden i för produktions miljöer](review-publish-pull-requests.md)
+> [Granska pull-begäranden i förproduktionsmiljöer](review-publish-pull-requests.md)

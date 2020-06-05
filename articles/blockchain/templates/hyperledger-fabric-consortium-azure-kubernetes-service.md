@@ -1,15 +1,15 @@
 ---
 title: Ledger-konsortiet i Azure Kubernetes service (AKS)
 description: Så här distribuerar och konfigurerar du nätverk för huvud konto för infrastruktur resurser i Azure Kubernetes service
-ms.date: 01/08/2020
+ms.date: 06/04/2020
 ms.topic: article
-ms.reviewer: v-umha
-ms.openlocfilehash: da4ec99f1b9d73ab67a2312094feaa1a89aee394
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.reviewer: ravastra
+ms.openlocfilehash: 98d89905c89156d05fd61389693ad8d5765ba9e1
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980241"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434332"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Ledger-konsortiet i Azure Kubernetes service (AKS)
 
@@ -190,7 +190,7 @@ CHANNEL_NAME=<channelName>
 > [!NOTE]
 > Baserat på antalet peer-organisationer i konsortiet kan du behöva upprepa peer-kommandona och ställa in miljövariabeln på motsvarande sätt.
 
-**Ange miljövariablerna nedan för att konfigurera Azure Storage-kontot**
+**Ange miljövariablerna nedan för att konfigurera Azure Storage konto**
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -200,7 +200,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Följ stegen nedan för att skapa Azure Storage-konton. Om du redan har skapat Azure Storage-kontot hoppar du över följande steg
+Följ stegen nedan för att skapa Azure Storage konto. Om du redan har skapat Azure Storage konto kan du hoppa över de här stegen
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -208,7 +208,7 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 ```
 
-Följ stegen nedan för att skapa en fil resurs i Azure Storage-kontot. Hoppa över de här stegen om du redan har skapat en fil resurs
+Följ stegen nedan för att skapa en fil resurs i Azure Storage konto. Hoppa över de här stegen om du redan har skapat en fil resurs
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
@@ -284,7 +284,7 @@ Från peer-organisationens klient, utfärda nedanstående kommando för att stä
 > Innan du börjar med en konsortiums åtgärd bör du kontrol lera att den första installationen av klient programmet är färdig.  
 
 Kör följande kommandon i angiven ordning för att lägga till en peer-organisation i en kanal och konsortiet
-1.  Ladda upp peer-organisationens MSP på Azure Storage från peer-organisationens klient
+1.  Från peer-organisationens klient, ladda upp peer-organisationens MSP på Azure Storage
 
       ```bash
       ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
@@ -297,13 +297,13 @@ Kör följande kommandon i angiven ordning för att lägga till en peer-organisa
       ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ```
 
-3.  Från ordnings organisations klient, ladda upp anslutnings profil för beställare i Azure Storage så att peer-organisationen kan ansluta till beställnings noder med den här anslutnings profilen
+3.  Från ordnings organisationens klient, ladda upp anslutnings profil för beställare på Azure Storage så att peer-organisationen kan ansluta till beställnings noder med den här anslutnings profilen
 
       ```bash
       ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ```
 
-4.  Från peer-organisationens klient, hämta anslutnings profil för beställare från Azure Storage och utfärda sedan kommando för att lägga till peer-noder i kanalen
+4.  Från peer-organisationens klient, hämta anslutnings profil för beställare från Azure Storage och sedan utfärda kommando för att lägga till peer-noder i kanalen
 
       ```bash
       ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
@@ -358,8 +358,8 @@ Den kommer att installera chaincode på alla peer-noder i peer-organisationen so
 
 Följ stegen:  
 
-1.  Set `ORGNAME` och `USER_IDENTITY` as per peerOrg1 och Issue `./azhlf chaincode install` -kommando.  
-2.  Set `ORGNAME` och `USER_IDENTITY` as per peerOrg2 och Issue `./azhlf chaincode install` -kommando.  
+1.  Set `ORGNAME` och `USER_IDENTITY` as per peerOrg1 och Issue- `./azhlf chaincode install` kommando.  
+2.  Set `ORGNAME` och `USER_IDENTITY` as per peerOrg2 och Issue- `./azhlf chaincode install` kommando.  
 
 ### <a name="instantiate-chaincode"></a>Instansiera chaincode  
 
@@ -368,7 +368,7 @@ Från peer-klientprogrammet kör du kommandot nedan för att instansiera chainco
 ```bash
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
-Skicka en lista över argument `<instantiateFunc>` `<instantiateFuncArgs>` för instansiering av funktions namn och blank steg. Till exempel, i chaincode_example02. go-chaincode, för att instansiera chaincode `<instantiateFunc>` inställt på `init`och `<instantiateFuncArgs>` till "a" "2000" "b" "1000".
+Skicka en lista över argument för instansiering av funktions namn och blank steg `<instantiateFunc>` `<instantiateFuncArgs>` . Till exempel, i chaincode_example02. go-chaincode, för att instansiera chaincode inställt `<instantiateFunc>` på `init` och `<instantiateFuncArgs>` till "a" "2000" "b" "1000".
 
 > [!NOTE]
 > Kör kommandot för en gång från en peer-organisation i kanalen. När transaktionen har skickats till ordern distribuerar beställaren transaktionen till alla peer-organisationer i kanalen. Därför instansieras chaincode på alla peer-noder på alla peer-organisationer i kanalen.  
@@ -382,7 +382,7 @@ Kör kommandot nedan från peer-organisationens klient för att anropa funktione
 ./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
-Skicka anrops funktions namn och blank stegs lista med `<invokeFunction>` argument `<invokeFuncArgs>` i respektive. Om du fortsätter med chaincode_example02. go chaincode-exemplet för att utföra Invoke `<invokeFunction>` - `invoke` åtgärden `<invokeFuncArgs>` till och till "a" "b" "10".  
+Skicka anrops funktions namn och blank stegs lista med argument i respektive  `<invokeFunction>`    `<invokeFuncArgs>`   . Om du fortsätter med chaincode_example02. go chaincode-exemplet för att utföra Invoke-åtgärden  `<invokeFunction>`   till  `invoke`   och  `<invokeFuncArgs>`   till "a" "b" "10".  
 
 >[!NOTE]
 > Kör kommandot för en gång från en peer-organisation i kanalen. När transaktionen har skickats till ordern distribuerar beställaren transaktionen till alla peer-organisationer i kanalen. Därför uppdateras världs läget på alla peer-noder i alla peer-organisationer i kanalen.  
@@ -395,7 +395,7 @@ Kör följande kommando för att fråga chaincode:
 ```bash
 ./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
 ```
-Skicka fråge funktions namn och blankstegsavgränsad lista med argument i `<queryFunction>`  `<queryFuncArgs>` respektive. Återigen, med chaincode_example02. go-chaincode som referens, för att ställa in värdet "a" i världs `<queryFunction>` läget `query` inställt på och `<queryArgs>` till "a".  
+Skicka fråge funktions namn och blankstegsavgränsad lista med argument i respektive  `<queryFunction>`    `<queryFuncArgs>`   . Återigen, med chaincode_example02. go-chaincode som referens, för att ställa in värdet "a" i världs läget inställt  `<queryFunction>`   på  `query` och  `<queryArgs>` till "a".  
 
 ## <a name="troubleshoot"></a>Felsöka
 
@@ -418,3 +418,17 @@ SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 
 ```
+
+## <a name="support-and-feedback"></a>Support och feedback
+
+För Azure blockchain News går du till [Azure blockchain-bloggen](https://azure.microsoft.com/blog/topics/blockchain/) för att hålla dig uppdaterad om blockchain service-erbjudanden och information från Azures teknik team för blockchain.
+
+För att ge feedback på produkter eller för att begära nya funktioner, post eller rösta för en idé via [Azure feedback-forumet för blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Community-support
+
+Engagera med Microsoft-tekniker och Azure blockchain community-experter.
+
+- [Microsoft Q&en fråge sida för Azure blockchain-tjänsten](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Teknisk support för blockchain-mallar är begränsad till distributions problem.
+- [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

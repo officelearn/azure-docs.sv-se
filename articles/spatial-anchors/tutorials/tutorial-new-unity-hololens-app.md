@@ -1,19 +1,19 @@
 ---
 title: 'Självstudie: skapa en ny HoloLens Unit-app'
 description: I den här självstudien får du lära dig hur du skapar en ny HoloLens Unity-app med hjälp av Azure spatiala ankare.
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
-ms.author: pmorgan
+ms.author: crtreasu
 ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e1abb759c80e770f1e650c232b6b2e21232b7e6f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a3a81cdfa9e3c6659c870b184cda4ebe6f7f805a
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75457719"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84429656"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Självstudie: steg-för-steg-anvisningar för att skapa en ny HoloLens Unity-app med hjälp av Azure spatiala ankare
 
@@ -35,7 +35,7 @@ Vi konfigurerar först vår projekt-och Unity-scen:
 4. Se till att **3D** är markerat.
 5. Namnge projektet och ange en lagrings **plats**.
 6. Klicka på **skapa projekt**.
-7. Spara den tomma standard scenen till en ny fil med: **fil** > **Spara som**.
+7. Spara den tomma standard scenen till en ny fil med: **fil**  >  **Spara som**.
 8. Namnge den nya scenens **huvud** namn och tryck på knappen **Spara** .
 
 **Konfigurera projekt inställningarna**
@@ -43,12 +43,12 @@ Vi konfigurerar först vår projekt-och Unity-scen:
 Vi kommer nu att ange vissa inställningar för enhets projekt som hjälper oss att rikta Windows Holographic SDK för utveckling.
 
 Först kan du ange kvalitets inställningar för programmet.
-1. Välj **Redigera** > **Project Settings** > **kvalitets** inställningar för projekt
+1. Välj **Redigera**  >  **kvalitets inställningar för projekt**  >  **Quality**
 2. I kolumnen under **Windows Store** -logotypen klickar du på pilen på **standard** raden och väljer **mycket låg**. Du vet att inställningen tillämpas korrekt när rutan i **Windows Store** -kolumnen och en **mycket låg** rad är grön.
 
 Vi måste meddela att appen vi försöker exportera ska kunna skapa en fördjupad vy i stället för en 2D-vy. Vi skapar en fördjupad vy genom att aktivera stöd för Virtual Reality på Unity riktade mot Windows 10 SDK.
 
-1. Gå till **Redigera** > **projekt inställnings** > **spelare**.
+1. Gå till **Redigera**  >  **projekt inställnings**  >  **spelare**.
 2. I **panelen kontrollant** för **Player-inställningar**väljer du **Windows Store** -ikonen.
 3. Expandera **inställnings gruppen XR** .
 4. I avsnittet **rendering** markerar du kryss rutan **Virtual verklighet support** för att lägga till en ny **Virtual verklighet SDK** -lista.
@@ -58,12 +58,12 @@ Vi måste meddela att appen vi försöker exportera ska kunna skapa en fördjupa
 > Om du inte ser Windows Store-ikonen, kontrol lera att du har valt Windows Store .NET-skript Server del före installationen. Om inte, kan du behöva installera om Unity med rätt Windows-installation.
 
 **Verifiera konfiguration av skript Server del**
-1. Gå till **Redigera** > **projekt inställnings** > **spelare** (du kanske fortfarande har en **spelare** öppen från föregående steg).
+1. Gå till **Redigera**  >  **projekt inställnings**  >  **spelare** (du kanske fortfarande har en **spelare** öppen från föregående steg).
 2. I **panelen kontrollant** för **Player-inställningar**väljer du **Windows Store** -ikonen.
 3. I avsnittet **andra** konfigurations inställningar kontrollerar du att **skript Server delen** är inställd på **IL2CPP**.
 
 **Ange funktioner**
-1. Gå till **Redigera** > **projekt inställnings** > **spelare** (du kanske fortfarande har en **spelare** öppen från föregående steg).
+1. Gå till **Redigera**  >  **projekt inställnings**  >  **spelare** (du kanske fortfarande har en **spelare** öppen från föregående steg).
 2. I **panelen kontrollant** för **Player-inställningar**väljer du **Windows Store** -ikonen.
 3. I avsnittet konfiguration av **publicerings inställningar** kontrollerar du **InternetClientServer** och **SpatialPerception**.
 
@@ -78,11 +78,11 @@ Vi måste meddela att appen vi försöker exportera ska kunna skapa en fördjupa
 **Skapa vårt skript**
 1. I fönstret **projekt** skapar du en ny mapp, **skript**, under mappen **till gångar** .
 2. Högerklicka på mappen och välj **skapa >**, **C#-skript**. Rubriken IT- **AzureSpatialAnchorsScript**.
-3. Gå till **GameObject** -> **Skapa tom**.
+3. Gå till **GameObject**  ->  **Skapa tom**.
 4. Markera den och i **kontrollanten** byter du namn på den från **GameObject** till **MixedRealityCloud**. Välj **Lägg till komponent** och Sök efter och Lägg till **AzureSpatialAnchorsScript**.
 
 **Skapa sfär-Prefab**
-1. Gå till **GameObject** -> **3D Object** -> **Sphere**.
+1. Gå till **GameObject**  ->  **3D Object**  ->  **Sphere**.
 2. I **kontrollen**anger du dess skala till **0,25, 0,25, 0,25**.
 3. Hitta **klot** -objektet i **hierarkifönstret** . Klicka på den och dra den till mappen **till gångar** i fönstret **projekt** .
 4. Högerklicka och **ta bort** den ursprungliga klotet som du skapade i **hierarkifönstret** .
@@ -95,7 +95,7 @@ Testa att allt fungerar genom att bygga din **app i enhet** och distribuera den 
 ## <a name="place-an-object-in-the-real-world"></a>Placera ett objekt i den verkliga världen
 Nu ska vi skapa & placera ett objekt med din app. Öppna Visual Studio-lösningen som vi skapade när vi [distribuerade vår app](#trying-it-out).
 
-Lägg först till följande importer i din `Assembly-CSharp (Universal Windows)\Scripts\AzureSpatialAnchorsScript.cs`:
+Lägg först till följande importer i din `Assembly-CSharp (Universal Windows)\Scripts\AzureSpatialAnchorsScript.cs` :
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=19-24)]
 
@@ -109,15 +109,15 @@ Innan vi fortsätter måste vi ställa in sfär-Prefab som vi skapade i vår sph
 
 Du bör nu ha **sfär** uppsättningen som Prefab i skriptet. Bygg från **Unity** och öppna sedan den resulterande **Visual Studio** -lösningen igen, precis som när du precis gjorde [det](#trying-it-out).
 
-I **Visual Studio**öppnar du `AzureSpatialAnchorsScript.cs` igen. Lägg till följande kod i din `Start()` -metod. Den här koden kommer att `GestureRecognizer`kopplas till, vilket kommer att identifiera när det finns en `HandleTap`luft tryck och ett anrop.
+I **Visual Studio**öppnar du `AzureSpatialAnchorsScript.cs` igen. Lägg till följande kod i din- `Start()` metod. Den här koden kommer att kopplas `GestureRecognizer` till, vilket kommer att identifiera när det finns en luft tryck och ett anrop `HandleTap` .
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-90,93&highlight=4-10)]
 
-Vi måste nu lägga till följande `HandleTap()` Metod nedan. `Update()` Den kommer att göra en Ray-Cast och få en träff punkt där du kan placera en sfär.
+Vi måste nu lägga till följande `HandleTap()` metod nedan `Update()` . Den kommer att göra en Ray-Cast och få en träff punkt där du kan placera en sfär.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-277,299-300,304-312)]
 
-Vi måste nu skapa sfären. Klotet blir inlednings vis vitt, men det här värdet kommer att justeras senare. Lägg till följande `CreateAndSaveSphere()` Metod:
+Vi måste nu skapa sfären. Klotet blir inlednings vis vitt, men det här värdet kommer att justeras senare. Lägg till följande `CreateAndSaveSphere()` metod:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-325,390)]
 
@@ -131,7 +131,7 @@ Nu ska vi lägga till en medlems variabel, dispatchQueue, som är en kö med åt
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=38-51&highlight=6-9)]
 
-Nu ska vi lägga till ett sätt att lägga till en åtgärd i kön. Lägg `QueueOnUpdate()` till höger `Update()` efter:
+Nu ska vi lägga till ett sätt att lägga till en åtgärd i kön. Lägg till `QueueOnUpdate()` höger efter `Update()` :
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=107-117)]
 
@@ -143,7 +143,7 @@ Nu ska vi använda loopen Update () för att kontrol lera om det finns en åtgä
 
 ## <a name="via-unity-package"></a>[Via Unity-paket](#tab/UnityPackage)
 
-Vi kommer nu att ladda ned Azures spatiala ankare SDK. Gå till [sidan med GitHub-versioner för Azure spatial ankare](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under till gångar laddar du ned **AzureSpatialAnchors. unitypackage**. I Unity går du till **till gångar**, klickar på **Importera paket** > **anpassat paket.**.. Navigera till paketet och välj **Öppna**.
+Vi kommer nu att ladda ned Azures spatiala ankare SDK. Gå till [sidan med GitHub-versioner för Azure spatial ankare](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under till gångar laddar du ned **AzureSpatialAnchors. unitypackage**. I Unity går du till **till gångar**, klickar på **Importera paket**  >  **anpassat paket.**.. Navigera till paketet och välj **Öppna**.
 
 I fönstret nytt **import Uniting-paket** som öppnas, avmarkerar du **plugin** -program och klickar sedan på **Importera** i det nedre högra hörnet.
 
@@ -151,15 +151,15 @@ Vi behöver nu återställa NuGet-paket för att få Azures spatialdata SDK. Byg
 
 ## <a name="via-nugetforunity"></a>[Via NuGetForUnity](#tab/NuGetForUnity)
 
-Först måste vi installera NuGetForUnity. Gå till [sidan med NuGetForUnity GitHub-versioner](https://github.com/GlitchEnzo/NuGetForUnity/releases). Under till gångar laddar du ned det senaste **NuGetForUnity. unitypackage**. I Unity går du till **till gångar**, klickar på **Importera paket** > **anpassat paket.**.. Navigera till paketet och välj **Öppna**. Unity kommer nu att installera NugetForUnity. Om du inte ser en ny **NuGet** -listruta i enhets omunionen kan du behöva Högerklicka under **projekt** > **till gångar**. Välj sedan **Importera alla**.
+Först måste vi installera NuGetForUnity. Gå till [sidan med NuGetForUnity GitHub-versioner](https://github.com/GlitchEnzo/NuGetForUnity/releases). Under till gångar laddar du ned det senaste **NuGetForUnity. unitypackage**. I Unity går du till **till gångar**, klickar på **Importera paket**  >  **anpassat paket.**.. Navigera till paketet och välj **Öppna**. Unity kommer nu att installera NugetForUnity. Om du inte ser en ny **NuGet** -listruta i enhets omunionen kan du behöva Högerklicka under **projekt**  >  **till gångar**. Välj sedan **Importera alla**.
 
-När du har installerat NuGetForUnity väljer du **NuGet** > **Hantera NuGet-paket**. Sök sedan efter Microsoft. Azure. SpatialAnchors. Unition och välj **Installera**.
+När du har installerat NuGetForUnity väljer du **NuGet**  >  **Hantera NuGet-paket**. Sök sedan efter Microsoft. Azure. SpatialAnchors. Unition och välj **Installera**.
 
 Vi behöver nu bygga för att få fram de faktiska Azure-Ankarea ankare som SDK, som det NuGet-paket som vi precis hämtade bara innehåller hjälp skript. Bygg från **Unity** och öppna och bygg sedan den resulterande **Visual Studio** -lösningen igen, så som beskrivs i [testa](#trying-it-out).
 
 ---
 
-Lägg till följande import i din **Visual Studio** -lösning `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`:
+Lägg till följande import i din **Visual Studio** -lösning `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs` :
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]
 
@@ -169,7 +169,7 @@ Lägg sedan till följande medlemsvariabler i `AzureSpatialAnchorsScript` klasse
 
 ## <a name="attach-a-local-azure-spatial-anchor-to-the-local-anchor"></a>Koppla en lokal Azure-spatial fäst punkt till den lokala fäst punkten
 
-Vi konfigurerar Azure spatial ankare CloudSpatialAnchorSession. Vi börjar med att lägga till följande `InitializeSession()` Metod i `AzureSpatialAnchorsScript` klassen. När den har anropats ser den till att en session med Azure-ankare skapas och initieras korrekt under starten av din app.
+Vi konfigurerar Azure spatial ankare CloudSpatialAnchorSession. Vi börjar med att lägga till följande `InitializeSession()` metod i `AzureSpatialAnchorsScript` klassen. När den har anropats ser den till att en session med Azure-ankare skapas och initieras korrekt under starten av din app.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=174-202,205-209)]
 
@@ -177,11 +177,11 @@ Vi måste nu skriva kod för att hantera ombuds anrop. Vi lägger till fler i de
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=211-226)]
 
-Nu ska vi ansluta din `initializeSession()` Metod till din `Start()` metod.
+Nu ska vi ansluta din `initializeSession()` metod till din `Start()` metod.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-93&highlight=12)]
 
-Slutligen lägger du till följande kod i din `CreateAndSaveSphere()` -metod. Den ansluter en lokal Azure-spatial fäst punkt till den sfär som vi placerar i den verkliga världen.
+Slutligen lägger du till följande kod i din- `CreateAndSaveSphere()` metod. Den ansluter en lokal Azure-spatial fäst punkt till den sfär som vi placerar i den verkliga världen.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-338,390&highlight=14-25)]
 
@@ -191,9 +191,9 @@ Innan du fortsätter måste du skapa en konto identifierare och nyckel för Azur
 
 ## <a name="upload-your-local-anchor-into-the-cloud"></a>Ladda upp ditt lokala ankare i molnet
 
-När du har en konto identifierare och nyckel för ditt Azure spatiala ankare går du och `Account Id` klistrar in `Account Key` i `SpatialAnchorsAccountKey` `SpatialAnchorsAccountId` och till.
+När du har en konto identifierare och nyckel för ditt Azure spatiala ankare går du och klistrar in `Account Id` i `SpatialAnchorsAccountId` och `Account Key` till `SpatialAnchorsAccountKey` .
 
-Slutligen är det dags att koppla ihop allt. Lägg till `SpawnNewAnchoredObject()` följande kod i metoden. `CreateAnchorAsync()` Metoden anropar metoden så snart din sfär skapas. När metoden returnerar utför koden nedan en slutgiltig uppdatering av din sfär och ändrar färgen till blå.
+Slutligen är det dags att koppla ihop allt. `SpawnNewAnchoredObject()`Lägg till följande kod i metoden. Metoden anropar `CreateAnchorAsync()` metoden så snart din sfär skapas. När metoden returnerar utför koden nedan en slutgiltig uppdatering av din sfär och ändrar färgen till blå.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-391&highlight=26-77)]
 
@@ -204,19 +204,19 @@ Kör appen från **Visual Studio** en gång till. Flytta runt ditt huvud och try
 
 ## <a name="locate-your-cloud-spatial-anchor"></a>Hitta molnets avstånds ankare
 
-En fäst punkt överförs till molnet, vi är redo att försöka hitta den igen. Nu ska vi lägga till följande kod i `HandleTap()` din-metod. Den här koden kommer att:
+En fäst punkt överförs till molnet, vi är redo att försöka hitta den igen. Nu ska vi lägga till följande kod i din- `HandleTap()` metod. Den här koden kommer att:
 
-* Ring `ResetSession()`, vilket stoppar `CloudSpatialAnchorSession` och tar bort vår befintliga blå sfär från skärmen.
+* Ring `ResetSession()` , vilket stoppar `CloudSpatialAnchorSession` och tar bort vår befintliga blå sfär från skärmen.
 * Initiera `CloudSpatialAnchorSession` igen. Vi gör detta för att vi ska kunna hitta ankaret som vi ska hitta från molnet istället för att vara det lokala ankare som vi har skapat.
 * Skapa en **övervakare** som söker efter den fäst som vi har laddat upp till Azure spatiala ankare.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-305&highlight=13-31,35-36)]
 
-Nu ska vi lägga till `ResetSession()` våra `CleanupObjects()` och metoder. Du kan ställa dem nedan`QueueOnUpdate()`
+Nu ska vi lägga till våra `ResetSession()` och `CleanupObjects()` metoder. Du kan ställa dem nedan`QueueOnUpdate()`
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=119-172)]
 
-Vi måste nu koppla upp koden som ska anropas när ankaret som vi frågar efter finns. `InitializeSession()`I lägger du till följande återanrop:
+Vi måste nu koppla upp koden som ska anropas när ankaret som vi frågar efter finns. I `InitializeSession()` lägger du till följande återanrop:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=200-206&highlight=4-5)]
 
@@ -225,6 +225,6 @@ Nu kan du lägga till kod som skapar & att placera en grön sfär när CloudSpat
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=228-265)]
 
-Klart! Kör din app från **Visual Studio** en sista gången för att testa hela scenariot från början till slut. Flytta runt enheten och placera din vita sfär. Fortsätt sedan att flytta ditt huvud till att avbilda miljö data tills klotet blir gult. Ditt lokala ankare laddas upp och sfären blir blå. Till sist trycker du på skärmen en gång till, så att ditt lokala ankare tas bort och vi kommer att fråga efter dess moln motsvarighet. Fortsätt att flytta enheten tills molnets spatiala ankare är belägen. En grön sfär bör visas på rätt plats och du kan skölja & upprepa hela scenariot igen.
+Det är allt. Kör din app från **Visual Studio** en sista gången för att testa hela scenariot från början till slut. Flytta runt enheten och placera din vita sfär. Fortsätt sedan att flytta ditt huvud till att avbilda miljö data tills klotet blir gult. Ditt lokala ankare laddas upp och sfären blir blå. Till sist trycker du på skärmen en gång till, så att ditt lokala ankare tas bort och vi kommer att fråga efter dess moln motsvarighet. Fortsätt att flytta enheten tills molnets spatiala ankare är belägen. En grön sfär bör visas på rätt plats och du kan skölja & upprepa hela scenariot igen.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]

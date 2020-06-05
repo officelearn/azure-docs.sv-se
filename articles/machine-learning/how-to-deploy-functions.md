@@ -5,17 +5,17 @@ description: Lär dig hur du använder Azure Machine Learning för att distribue
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: 104e0892e2ad6bc6a0b3212722781f9498eee219
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 4725b28ba769ac12f9e25e5c9be77f8bb3eaff46
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744987"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433875"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuera en maskin inlärnings modell till Azure Functions (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -97,7 +97,7 @@ pip install azureml-contrib-functions
 Om du vill skapa Docker-avbildningen som distribueras till Azure Functions använder du [azureml. contrib. functions. Package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) eller funktionen Package för den utlösare som du är intresse rad av. Följande kodfragment visar hur du skapar ett nytt paket med en BLOB-utlösare från modellen och konfigurationen för konfigurations härledning:
 
 > [!NOTE]
-> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att `inference_config` den innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
+> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att den `inference_config` innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -108,7 +108,7 @@ blob.wait_for_creation(show_output=True)
 print(blob.location)
 ```
 
-När `show_output=True`visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i `<acrinstance>.azurecr.io/package@sha256:<imagename>`formatet.
+När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` .
 
 > [!NOTE]
 > Paketering för functions stöder HTTP-utlösare, BLOB-utlösare och Service Bus-utlösare Mer information om utlösare finns i [Azure Functions-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
@@ -118,7 +118,7 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuera avbildning som en webbapp
 
-1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<myacr>` med det värde som returnerades `package.location`tidigare från: 
+1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<myacr>` med det värde som returnerades tidigare från `package.location` : 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -151,10 +151,10 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
     az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    I det här exemplet används en pris nivå för _Linux Basic_ (`--sku B1`).
+    I det här exemplet används en pris nivå för _Linux Basic_ ( `--sku B1` ).
 
     > [!IMPORTANT]
-    > Avbildningar som skapats av Azure Machine Learning använda Linux, så du måste `--is-linux` använda parametern.
+    > Avbildningar som skapats av Azure Machine Learning använda Linux, så du måste använda `--is-linux` parametern.
 
 1. Skapa lagrings kontot som ska användas för webb jobbets lagring och hämta dess anslutnings sträng. Ersätt `<webjobStorage>` med det namn som du vill använda.
 
@@ -281,7 +281,7 @@ När avbildningen har lästs in och appen är tillgänglig använder du följand
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
     ```
 
-    Utdata från det här kommandot liknar `sample_input_out.json`.
+    Utdata från det här kommandot liknar `sample_input_out.json` .
 
 4. Om du vill hämta filen och kontrol lera innehållet använder du följande kommando. Ersätt `<file>` med fil namnet som returneras av föregående kommando. Ersätt `<triggerConnectionString>` med den anslutnings sträng som returnerades tidigare: 
 

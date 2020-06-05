@@ -1,21 +1,21 @@
 ---
 title: Azure blockchain service-versioner, uppdatering, & uppgradering
 description: Översikt över de redovisnings versioner som stöds i Azure blockchain-tjänsten, inklusive principer för system korrigeringar och systemhanterade uppgraderingar och användar hanterade uppgraderingar.
-ms.date: 11/20/2019
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.reviewer: janders
-ms.openlocfilehash: 8d4a77699dd80743acfadd4d72d6d75bc1939b3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da7907c2c324932ba43863c1074cdff7d54d3827
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325192"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430747"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versioner som stöds av Azure blockchain service-redovisning
 
 I Azure blockchain service används den Ethereum-baserade [kvorumkonfigurationen](https://www.goquorum.com/developers) för bearbetning av privata transaktioner i en grupp kända deltagare som identifieras som konsortier i Azure blockchain-tjänsten.
 
-För närvarande stöder Azure blockchain-tjänsten [kvorumresursens version 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) och [Tessera Transaction Manager](https://github.com/jpmorganchase/tessera).
+För närvarande stöder Azure blockchain-tjänsten [2.5.0](https://github.com/jpmorganchase/quorum/releases/tag/v2.5.0) och [Tessera Transaction Manager](https://github.com/jpmorganchase/tessera).
 
 ## <a name="managing-updates-and-upgrades"></a>Hantera uppdateringar och uppgraderingar
 

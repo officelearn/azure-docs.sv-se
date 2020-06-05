@@ -5,26 +5,26 @@ services: iot-dps
 author: wesmc7777
 ms.service: iot-dps
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/04/2020
 ms.author: wesmc
-ms.openlocfilehash: 285832d80d37c8553ffc8e37c6f6eab5d7f6d943
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0daddd2fb1368819c8f7b4cf0183c90a8c6c065e
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984855"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417981"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>TLS-stöd i Azure IoT Hub Device Provisioning Service (DPS)
 
-DPS använder Transport Layer Security (TLS) för att skydda anslutningar från IoT-enheter. Tre versioner av TLS-protokollet stöds för närvarande, nämligen version 1,0, 1,1 och 1,2.
+DPS använder Transport Layer Security (TLS) för att skydda anslutningar från IoT-enheter. TLS-protokoll versioner som stöds av DPS inkluderar TLS 1,2.
 
-TLS 1,0 och 1,1 betraktas som äldre och planeras för utfasning. Mer information finns i [inaktuella TLS 1,0 och 1,1 för IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). Vi rekommenderar starkt att du använder TLS 1,2 som den önskade TLS-versionen när du ansluter till DPS.
+TLS 1,0 och 1,1 betraktas som äldre och planeras för utfasning. Mer information finns i [inaktuella TLS 1,0 och 1,1 för IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). 
 
 ## <a name="restrict-connections-to-tls-12"></a>Begränsa anslutningar till TLS 1,2
 
 För ökad säkerhet rekommenderar vi att du konfigurerar dina DPS-instanser så att de *bara* tillåter klient anslutningar för klienter som använder TLS version 1,2 och för att framtvinga användning av [rekommenderade chiffer](#recommended-ciphers).
 
-Det gör du genom att etablera en ny DPS-resurs i någon av de [regioner](#supported-regions) som stöds `minTlsVersion` och ange `1.2` egenskapen till i din Azure Resource Manager malls DPS-resurs specifikation. Följande exempel-mall-JSON anger `minTlsVersion` egenskapen för en ny DPS-instans.
+Det gör du genom att etablera en ny DPS-resurs i någon av de [regioner som stöds](#supported-regions) och ange `minTlsVersion` egenskapen till `1.2` i din Azure Resource Manager malls DPS-resurs specifikation. Följande exempel-mall-JSON anger `minTlsVersion` egenskapen för en ny DPS-instans.
 
 ```json
 {
@@ -59,7 +59,7 @@ Mer information om hur du skapar DPS-resurser med Resource Manager-mallar finns 
 DPS-resursen som skapas med den här konfigurationen kommer att neka enheter som försöker ansluta med TLS-versionerna 1,0 och 1,1. På samma sätt kommer TLS-handskakningen att nekas om enhets klientens HELLO-meddelande inte listar några av de [rekommenderade chiffer](#recommended-ciphers).
 
 > [!NOTE]
-> `minTlsVersion` Egenskapen är skrivskyddad och kan inte ändras när din DPS-resurs har skapats. Det är därför viktigt att du testar och kontrollerar att *alla* IoT-enheter är kompatibla med TLS 1,2 och de [rekommenderade chifferna](#recommended-ciphers) i förväg.
+> `minTlsVersion`Egenskapen är skrivskyddad och kan inte ändras när din DPS-resurs har skapats. Det är därför viktigt att du testar och kontrollerar att *alla* IoT-enheter är kompatibla med TLS 1,2 och de [rekommenderade chifferna](#recommended-ciphers) i förväg.
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
@@ -92,7 +92,10 @@ Använd länkarna nedan för att konfigurera TLS 1,2 och tillåtna chiffer i Azu
 | Java     | Version 1.19.0 eller senare            | [Länk](https://aka.ms/Tls_Java_SDK_IoT) |
 | NodeJS   | Version 1.12.2 eller senare            | [Länk](https://aka.ms/Tls_Node_SDK_IoT) |
 
+## <a name="use-tls-12-with-iot-hub"></a>Använd TLS 1,2 med IoT Hub
+
+IoT Hub kan konfigureras att använda TLS 1,2 vid kommunikation med enheter. Mer information finns i [inaktuella TLS 1,0 och 1,1 för IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md).
 
 ## <a name="use-tls-12-with-iot-edge"></a>Använd TLS 1,2 med IoT Edge
 
-IoT Edge enheter kan konfigureras för att använda TLS 1,2 när de kommunicerar med IoT Hub och DPS. För det här ändamålet använder du [sidan IoT Edge dokumentation](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
+IoT Edge enheter kan konfigureras för att använda TLS 1,2 när de kommunicerar med IoT Hub och DPS. Mer information finns på [sidan IoT Edge dokumentation](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).

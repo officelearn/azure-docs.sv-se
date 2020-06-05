@@ -4,12 +4,12 @@ description: Lär dig hur du definierar en anpassad utgående väg i Azure Kuber
 services: container-service
 ms.topic: article
 ms.date: 06/05/2020
-ms.openlocfilehash: d62f40fb835bfe6993ad31ddd20cfdea1d9135c2
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 03b18a9cb8fa28d54952a77bf8721c63dd56a9ad
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310877"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84416791"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Anpassa utgående kluster med en användardefinierad väg
 
@@ -17,7 +17,7 @@ Utgående från ett AKS-kluster kan anpassas så att de passar vissa scenarier. 
 
 Den här artikeln beskriver hur du anpassar ett klusters utgående väg för att stödja anpassade nätverks scenarier, till exempel sådana som inte tillåter offentliga IP-adresser och kräver att klustret placeras bakom en virtuell nätverks installation (NVA).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * Azure CLI-version 2.0.81 eller senare
 * API-version av `2020-01-01` eller större
 
@@ -227,11 +227,11 @@ Mer information om hur du kan åsidosätta Azures standard system vägar eller l
 ## <a name="adding-network-firewall-rules"></a>Lägga till nätverks brand Väggs regler
 
 > [!WARNING]
-> Nedan visas ett exempel på hur du lägger till en brand Väggs regel. Alla utgående slut punkter som definieras i de [obligatoriska utgående slut punkterna](egress.md) måste aktive ras av brand Väggs regler för AKS för att fungera. Det går inte att använda klustret, utan att dessa slut punkter har Aktiver ATS.
+> Nedan visas ett exempel på hur du lägger till en brand Väggs regel. Alla utgående slut punkter som definieras i de [obligatoriska utgående slut punkterna](limit-egress-traffic.md) måste aktive ras av brand Väggs regler för AKS för att fungera. Det går inte att använda klustret, utan att dessa slut punkter har Aktiver ATS.
 
 Nedan visas ett exempel på en nätverks-och program regel. Vi lägger till en nätverks regel som tillåter alla protokoll, käll adresser, mål adresser och mål portar. Vi lägger också till en program regel för **några** av slut punkterna som krävs av AKS.
 
-I ett produktions scenario bör du bara aktivera åtkomst till obligatoriska slut punkter för ditt program och de som definierats i [AKS-nödvändigt utgående](egress.md).
+I ett produktions scenario bör du bara aktivera åtkomst till obligatoriska slut punkter för ditt program och de som definierats i [AKS-nödvändigt utgående](limit-egress-traffic.md).
 
 ```
 # Add Network FW Rules

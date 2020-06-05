@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 02/27/2020
+ms.date: 06/03/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: subject-armqs
-ms.openlocfilehash: 86dc7a4ed05ceae5c7a641ffef23bd75ec48ceea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0cf880411a5c2a8eefd592a01de40b5098f31cda
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81605529"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424142"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Dirigera Blob Storage-händelser till webb slut punkt med hjälp av Azure Resource Manager mall
 
@@ -22,7 +22,7 @@ Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använ
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -43,14 +43,15 @@ Innan du prenumererar på händelserna för Blob Storage-kontot ska vi skapa slu
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
+Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
 
 [!code-json[<Azure Resource Manager template create Blob storage Event Grid subscription>](~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json)]
 
 Två Azure-resurser definieras i mallen:
 
 * [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): skapa ett Azure Storage-konto.
-* [**"Microsoft. Storage/storageAccounts/providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions): skapa en Azure Event Grid-prenumeration för lagrings kontot.
+* [**Microsoft. EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics): skapa ett system ämne med det angivna namnet för lagrings kontot. 
+* [**Microsoft. EventGrid/systemTopics/eventSubscriptions**](/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions): skapa en Azure Event Grid-prenumeration för system-avsnittet.
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -58,7 +59,7 @@ Två Azure-resurser definieras i mallen:
 
     [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
-2. Ange **slut punkten**: Ange webb adressen till webb programmet och Lägg till `api/updates` på Start sidans URL.
+2. Ange **slut punkten**: Ange webb adressen till webb programmet och Lägg till på `api/updates` Start sidans URL.
 3. Välj **köp** för att distribuera mallen.
 
   Azure Portal används här för att distribuera mallen. Du kan också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md).
@@ -91,5 +92,5 @@ Mer information om Azure Resource Manager-mallar finns i följande artiklar:
 
 * [Azure Resource Manager dokumentation](/azure/azure-resource-manager)
 * [Definiera resurser i Azure Resource Manager mallar](/azure/templates/)
-* [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/)
+* [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/)
 * [Azure Event Grid mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

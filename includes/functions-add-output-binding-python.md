@@ -11,8 +11,8 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "78191083"
 ---
-Uppdatera *\\\_HttpExample\_init\_. py för att matcha följande kod, genom att lägga till parametern i funktions definitionen och under instruktionen\_* `msg` `msg.set(name)` `if name:` .
+Uppdatera *HttpExample \\ \_ \_ init \_ \_ . py* för att matcha följande kod, genom att lägga till `msg` parametern i funktions definitionen och `msg.set(name)` under `if name:` instruktionen.
 
 :::code language="python" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
 
-`msg` Parametern är en instans av [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest). `set` Metoden skriver ett sträng meddelande till kön, i det här fallet skickas namnet till funktionen i URL-frågesträngen.
+`msg`Parametern är en instans av [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest) . `set`Metoden skriver ett sträng meddelande till kön, i det här fallet skickas namnet till funktionen i URL-frågesträngen.

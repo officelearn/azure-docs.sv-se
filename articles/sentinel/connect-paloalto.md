@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: a79b7a1448e1decb377aa0072261df068c366567
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 337575a85b899b918162ad59c0bbbbaf742a83fe
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588135"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417471"
 ---
 # <a name="connect-palo-alto-networks-to-azure-sentinel"></a>Anslut Palo-nätverk till Azure Sentinel
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du ansluter din Palo-enhet med-nätverk till Azu
 Konfigurera Palo-nätverk för att vidarebefordra syslog-meddelanden i CEF-format till Azure-arbetsytan via syslog-agenten:
 1.  Gå till [konfigurations guider för common Event format (CEF)](https://docs.paloaltonetworks.com/resources/cef) och ladda ned PDF-filen för din installations typ. Följ alla instruktioner i guiden för att konfigurera Palo-enheter för att samla in CEF-händelser. 
 
-1.  Gå till [Konfigurera Syslog-övervakning](https://aka.ms/asi-syslog-paloalto-forwarding) och följ steg 2 och 3 för att konfigurera CEF-händelse vidarebefordran från din Palo-enhets enhets nätverk till Azure Sentinel.
+1.  Gå till [Konfigurera Syslog-övervakning](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring) och följ steg 2 och 3 för att konfigurera CEF-händelse vidarebefordran från din Palo-enhets enhets nätverk till Azure Sentinel.
 
     1. Se till att ställa in **syslog-serverns format** på **BSD**.
 

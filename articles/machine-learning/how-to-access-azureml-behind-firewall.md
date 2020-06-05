@@ -5,17 +5,17 @@ description: Kontrol lera åtkomsten till Azure Machine Learning arbets ytor med
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
-ms.openlocfilehash: 40c25dda3fefa9c54df832e16149a68a4aa5a33b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 22136efc493b4838a8f538091d6272e3c167510e
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981973"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434730"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom Azure-brandväggen för Azure Machine Learning
 
@@ -28,7 +28,7 @@ Azure-brandväggen kan användas för att styra åtkomsten till din Azure Machin
 I brand väggen skapar du en nätverks regel som tillåter trafik till och från adresserna i den här artikeln.
 
 > [!TIP]
-> När du lägger till nätverks regeln ställer du in __protokollet__ på valfri, och portarna `*`till.
+> När du lägger till nätverks regeln ställer du in __protokollet__ på valfri, och portarna till `*` .
 >
 > Mer information om hur du konfigurerar Azure-brandväggen finns i [distribuera och konfigurera Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
 

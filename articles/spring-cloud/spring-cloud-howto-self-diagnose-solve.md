@@ -6,17 +6,17 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.openlocfilehash: c4eada891f68a21732ab9a19548cbdfe1a3833a8
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: f1d5161b0efe0b8d9b9c0b84ac149050c3823ab6
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325854"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84429470"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Så här identifierar och löser du problem i Azure våren Cloud
-Den här självstudien visar hur du själv diagnostiserar och löser problem med Azure våren Cloud. Det är ett enkelt sätt att samla in mått och loggar.
+App Service diagnostik är en interaktiv upplevelse som hjälper dig att felsöka din app. Ingen konfiguration krävs. När du hittar problem pekar App Service diagnostik upp vad som är fel och vägleder dig till information som hjälper dig att felsöka och lösa problemet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att slutföra den här kursen behöver du:
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -24,7 +24,7 @@ För att slutföra den här kursen behöver du:
 * Minst ett program som redan har skapats i din tjänst instans.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>Gå till sidan diagnostik
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 2. Gå till **översikts** sidan för Azure våren-molnet.
 3. Öppna **diagnostisera och lös problem** på menyn på vänster sida av sidan.
 

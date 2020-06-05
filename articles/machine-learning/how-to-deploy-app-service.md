@@ -5,17 +5,17 @@ description: Lär dig att använda Azure Machine Learning för att distribuera e
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 646254238f83166c53fe94a1821c68ff4dac8f04
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 787c8ec88b001a55a83bfba3124c62e12800aa58
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82651934"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433939"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -103,7 +103,7 @@ Mer information om konfiguration av konfiguration finns i [Distribuera modeller 
 Om du vill skapa Docker-avbildningen som distribueras till Azure App Service använder du [modell. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). Följande kodfragment visar hur du skapar en ny avbildning från modellen och konfigurationen för konfigurations härledning:
 
 > [!NOTE]
-> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att `inference_config` den innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
+> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att den `inference_config` innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -114,14 +114,14 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-När `show_output=True`visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i `<acrinstance>.azurecr.io/package@sha256:<imagename>`formatet. Till exempel `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
+När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Exempelvis `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Spara plats informationen som används när avbildningen distribueras.
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuera avbildning som en webbapp
 
-1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<acrinstance>` med det värde som returnerades `package.location`tidigare från:
+1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<acrinstance>` med det värde som returnerades tidigare från `package.location` :
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -154,10 +154,10 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
     az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    I det här exemplet används en __grundläggande__ pris nivå`--sku B1`().
+    I det här exemplet används en __grundläggande__ pris nivå ( `--sku B1` ).
 
     > [!IMPORTANT]
-    > Avbildningar som skapats av Azure Machine Learning använda Linux, så du måste `--is-linux` använda parametern.
+    > Avbildningar som skapats av Azure Machine Learning använda Linux, så du måste använda `--is-linux` parametern.
 
 1. Använd följande kommando för att skapa en webbapp. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagename>` med värdena från returnerade `package.location` tidigare:
 
@@ -234,7 +234,7 @@ Nu börjar webbappen läsa in avbildningen.
 > az webapp log tail --name <app-name> --resource-group myresourcegroup
 > ```
 >
-> När avbildningen har lästs in och platsen är aktiv, visar loggen ett meddelande om tillstånd `Container <container name> for site <app-name> initialized successfully and is ready to serve requests`.
+> När avbildningen har lästs in och platsen är aktiv, visar loggen ett meddelande om tillstånd `Container <container name> for site <app-name> initialized successfully and is ready to serve requests` .
 
 När avbildningen har distribuerats kan du hitta värd namnet med hjälp av följande kommando:
 
@@ -242,11 +242,11 @@ När avbildningen har distribuerats kan du hitta värd namnet med hjälp av föl
 az webapp show --name <app-name> --resource-group myresourcegroup
 ```
 
-Det här kommandot returnerar information som liknar följande hostname- `<app-name>.azurewebsites.net`. Använd det här värdet som en del av tjänstens __grundläggande URL__ .
+Det här kommandot returnerar information som liknar följande hostname- `<app-name>.azurewebsites.net` . Använd det här värdet som en del av tjänstens __grundläggande URL__ .
 
 ## <a name="use-the-web-app"></a>Använda webbapp
 
-Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score`. Till exempel `https://<app-name>.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
+Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score` . Exempelvis `https://<app-name>.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
 
 ```python
 import requests

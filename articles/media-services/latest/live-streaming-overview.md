@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: ee9dfc11cad61d6190ae4a2382f0124207c32c4c
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 23ee7ba7a5456916eb307e21aa2074924614cb4b
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801628"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418151"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Direktsänd strömning med Azure Media Services v3
 
@@ -30,12 +30,14 @@ Med Azure Media Services kan du leverera Live-händelser till dina kunder i Azur
 - En direkt video kodare som konverterar signaler från en kamera (eller en annan enhet, till exempel en bärbar dator) till en bidrags matning som skickas till Media Services. Bidrags flödet kan innehålla signaler som rör annonsering, till exempel SCTE-35-markörer.<br/>En lista över rekommenderade kodare för direkt uppspelning finns i [direkt uppspelnings kodare](recommended-on-premises-live-encoders.md). Ta också en titt på den här bloggen: [produktion av Direktsänd strömning med onlinebanksystem](https://link.medium.com/ttuwHpaJeT).
 - Komponenter i Media Services som gör att du kan mata in, förhandsgranska, paketera, registrera, kryptera och skicka Live-evenemanget till dina kunder eller till ett CDN för ytterligare distribution.
 
+För kunder som vill leverera innehåll till stora Internet-åhörare rekommenderar vi att du aktiverar CDN på [slut punkten för direkt uppspelning](streaming-endpoint-concept.md).
+
 Den här artikeln ger en översikt och vägledning för Live streaming med Media Services och länkar till andra relevanta artiklar.
  
 > [!NOTE]
 > Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
-## <a name="dynamic-packaging"></a>Dynamisk paketering
+## <a name="dynamic-packaging-and-delivery"></a>Dynamisk paketering och leverans
 
 Med Media Services kan du dra nytta av [dynamisk paketering](dynamic-packaging-overview.md)som gör att du kan förhandsgranska och skicka in dina Live-strömmar i [MPEG-streck, HLS och Smooth Streaming Format](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) från den bidrags feed som skickas till tjänsten. Dina användare kan spela upp direktsänd ström med alla HLS-, tank-eller Smooth Streaming-kompatibla spelare. Du kan använda [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) i dina webb-eller mobil program för att leverera data strömmen i något av dessa protokoll.
 
@@ -46,13 +48,13 @@ Med dynamisk kryptering kan du dynamiskt kryptera din direktsända eller på beg
 > [!NOTE]
 > Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
-## <a name="dynamic-manifest"></a>Dynamiskt manifest
+## <a name="dynamic-filtering"></a>Dynamisk filtrering
 
 Dynamisk filtrering används för att styra antalet spår, format, bit hastigheter och presentations tids fönster som skickas ut till spelarna. Mer information finns i [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
 
 ## <a name="live-event-types"></a>Direktsända händelse typer
 
-[Livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. En Live-händelse kan ställas in till antingen en *direkt* uppspelning (en lokal Live-kodare som skickar en data ström med flera bit hastigheter) eller *direktsänd kodning* (en lokal Live-kodare skickar en data ström med en bit hastighet). Mer information om Direktsänd strömning i Media Services v3 finns i [Live-händelser och Live-utdata](live-events-outputs-concept.md).
+[Live-händelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända video flöden. En Live-händelse kan ställas in till antingen en *direkt* uppspelning (en lokal Live-kodare som skickar en data ström med flera bit hastigheter) eller *direktsänd kodning* (en lokal Live-kodare skickar en data ström med en bit hastighet). Mer information om Direktsänd strömning i Media Services v3 finns i [Live-händelser och Live-utdata](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Direkt
 
@@ -77,14 +79,14 @@ Direkt avskrift är en funktion som du kan använda med Live-händelser som anti
 
 För att förstå Live streaming-arbetsflödet i Media Services v3 måste du först granska och förstå följande begrepp: 
 
-- [Slutpunkter för direktuppspelning](streaming-endpoint-concept.md)
-- [Livehändelser och liveresultat](live-events-outputs-concept.md)
-- [Positionerare för direktuppspelning](streaming-locators-concept.md)
+- [Slut punkter för direkt uppspelning](streaming-endpoint-concept.md)
+- [Live-händelser och Live-utdata](live-events-outputs-concept.md)
+- [Strömmande positionerare](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Allmänna steg
 
 1. I ditt Media Services konto kontrollerar du att **slut punkten för direkt uppspelning** körs. 
-2. Skapa en [Live-händelse](live-events-outputs-concept.md). <br/>När du skapar händelsen kan du ange att den ska autostartas. Du kan också starta händelsen när du är redo att börja strömma.<br/> När Autostart har angetts till True startas direkt sändningen direkt efter att den har skapats. Faktureringen börjar så snart direkt händelsen börjar köras. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering. Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
+2. Skapa en [Live-händelse](live-events-outputs-concept.md). <br/>När du skapar händelsen kan du ange att den ska autostartas. Du kan också starta händelsen när du är redo att börja strömma.<br/> När Autostart har angetts till True startas direkt sändningen direkt efter att den har skapats. Faktureringen börjar så snart direkt händelsen börjar köras. Du måste uttryckligen anropa Stop Event-resursen för att stoppa ytterligare fakturering. Mer information finns i [händelse tillstånd och fakturering](live-event-states-billing.md).
 3. Hämta hämtnings-URL: er och konfigurera din lokala kodare för att använda URL: en för att skicka bidrags flödet.<br/>Se [rekommenderade Live-kodare](recommended-on-premises-live-encoders.md).
 4. Hämta för hands versionen av URL: en och Använd den för att kontrol lera att inmatarna faktiskt tas emot.
 5. Skapa ett nytt **till gångs** objekt. 
@@ -103,8 +105,8 @@ För att förstå Live streaming-arbetsflödet i Media Services v3 måste du fö
 12. Följ stegen nedan om du är klar med strömningen av händelser och vill rensa de resurser som etablerades tidigare.
 
     * Stoppa sändningen av dataströmmen från kodaren.
-    * Stoppa livehändelsen. När livehändelsen har stoppats medför den inga avgifter. När du vill starta den igen har den samma infognings-URL så att du inte behöver konfigurera om din kodare.
-    * Du kan avbryta din strömningsslutpunkt om du inte vill fortsätta att tillhandahålla arkivet för din direktsända händelse som en strömning på begäran. Om livehändelsen är i stoppat tillstånd medför den inga avgifter.
+    * Stoppa Live-händelsen. När Live-händelsen har stoppats debiteras inga avgifter. När du vill starta den igen har den samma infognings-URL så att du inte behöver konfigurera om din kodare.
+    * Du kan stoppa slut punkten för direkt uppspelningen om du inte vill fortsätta att ange en Live-händelse som Arkiv lag ring. Om Live-händelsen är i stoppat tillstånd debiteras inga avgifter.
 
 Till gången som Live-utdata arkiveras till blir automatiskt en till gång på begäran när Live-utdata tas bort. Du måste ta bort alla Live-utdata innan en Live-händelse kan stoppas. Du kan använda en valfri flagga [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) för att automatiskt ta bort Live-utdata vid stopp. 
 

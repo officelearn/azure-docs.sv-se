@@ -5,17 +5,17 @@ description: Lär dig hur du använder metod tips för differentiell integritet 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 05/17/2020
-ms.openlocfilehash: 47497f23da94e529826b8dddb05b869727fb528e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 65f395197256132b6b92b234932fd17ec5ba552c
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664951"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433203"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning"></a>Använd differentiell sekretess i Azure Machine Learning
 
@@ -25,7 +25,7 @@ Lär dig hur du använder metod tips för differentiell integritet för att Azur
 
 Differentiell integritet är den guld standard definitionen av sekretess. System som följer denna definition av sekretess ger starka garantier mot en rad olika data återuppbyggnads-och återidentifierings attacker, inklusive attacker från angripare som har hjälp information. Läs mer om hur [differentiell integritet fungerar](./concept-differential-privacy.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 - [Python 3](https://www.python.org/downloads/)
@@ -148,7 +148,7 @@ Du kan använda biblioteket för att skapa mer komplexa analys diagram, med fler
 | Antal         | Gaussisk   | Långa       |
 | Histogram     | Geometriska  | Ihopfogning   |
 | Medelvärde          | Laplace    | Digitalisera   |
-| Quantiles     |            | Filtrera     |
+| Quantiles     |            | Filter     |
 | Summa           |            | Tillvitelse |
 | Varians/kovarians |      | Transformering  |
 

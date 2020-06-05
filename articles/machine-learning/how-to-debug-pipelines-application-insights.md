@@ -8,15 +8,15 @@ ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: b3e4bf19a7ec153f85483f3c5028e468e06ed7f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3da1cea0b5e17f43d42ced4d1c4ca55d0d3050ad
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982369"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433469"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Felsöka och felsöka maskin inlärnings pipeliner i Application Insights
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Om du loggar in på samma plats får du en historik över undantag och fel medde
 
 Det här avsnittet är en introduktion till hur du använder openräkning från en Azure Machine Learning pipeline. En detaljerad själv studie kurs finns i [Openinventering Azure Monitor exportörer](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Lägg till en PythonScriptStep i din Azure ML-pipeline. Konfigurera din [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) med beroendet av openinventering-ext-Azure. `APPLICATIONINSIGHTS_CONNECTION_STRING` Konfigurera miljövariabeln.
+Lägg till en PythonScriptStep i din Azure ML-pipeline. Konfigurera din [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) med beroendet av openinventering-ext-Azure. Konfigurera `APPLICATIONINSIGHTS_CONNECTION_STRING` miljövariabeln.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -101,7 +101,7 @@ Anpassade dimensioner utgör en ord lista med nyckel värdes par (lagrade som st
 
 ### <a name="helpful-context-to-include"></a>Användbart sammanhang för att inkludera
 
-| Field                          | Uppföljning/exempel                                                                                                                                                                       |
+| Fält                          | Uppföljning/exempel                                                                                                                                                                       |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | parent_run_id                  | Kan fråga efter loggar med samma parent_run_id för att se loggar över tid för alla steg, i stället för att behöva gå in i varje enskilt steg                                        |
 | step_id                        | Kan fråga efter loggar med samma step_id för att se var ett problem har inträffat med en smal omfattning för bara det enskilda steget                                                        |
@@ -113,7 +113,7 @@ Anpassade dimensioner utgör en ord lista med nyckel värdes par (lagrade som st
 
 De här fälten kan kräva ytterligare kod Instrumentation och tillhandahålls inte av körnings kontexten.
 
-| Field                   | Uppföljning/exempel                                                                                                                                                                                                           |
+| Fält                   | Uppföljning/exempel                                                                                                                                                                                                           |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | build_url/build_version | Om du använder CI/CD för att distribuera, kan det här fältet korrelera loggar till den kod version som tillhandahöll steget och pipeline-logiken. Den här länken kan hjälpa dig att diagnostisera problem eller identifiera modeller med specifika egenskaper (log/Metric-värden) |
 | run_type                       | Kan skilja mellan olika modell typer eller utbildningar jämfört med poängsättnings körningar |
@@ -142,7 +142,7 @@ logger.info("I will be sent to Application Insights with Custom Dimensions", cus
 
 AzureLogHandler för openräkning används för att dirigera python-loggar till Application Insights. Därför bör python-loggningens olika delarna övervägas. När en loggare skapas har den en standard logg nivå som visar loggar som är större än eller lika med den nivån. En referens för att använda python-loggnings funktioner är [loggnings Cookbook](https://docs.python.org/3/howto/logging-cookbook.html).
 
-`APPLICATIONINSIGHTS_CONNECTION_STRING` Miljö variabeln krävs för openinventerings biblioteket. Vi rekommenderar att du ställer in den här miljövariabeln i stället för att skicka den som en pipeline-parameter för att undvika att skicka i klartext-anslutningssträngar.
+`APPLICATIONINSIGHTS_CONNECTION_STRING`Miljö variabeln krävs för Openinventerings biblioteket. Vi rekommenderar att du ställer in den här miljövariabeln i stället för att skicka den som en pipeline-parameter för att undvika att skicka i klartext-anslutningssträngar.
 
 ## <a name="querying-logs-in-application-insights"></a>Fråga efter loggar i Application Insights
 
@@ -163,7 +163,7 @@ Några av frågorna nedan använder "customDimensions. level". Dessa allvarlighe
 | Logga resultat med severityLevel-fel under de senaste 7 dagarna              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
 | Antal logg resultat med severityLevel-fel under de senaste 7 dagarna     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 När du har loggat in Application Insights-instansen kan de användas för att ange [Azure Monitor aviseringar](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) baserat på frågeresultat.
 

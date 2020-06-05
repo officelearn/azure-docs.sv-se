@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mqtt
-ms.openlocfilehash: a8c5d9479585c0a519d0ad05a4d73f3f15b21287
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65f441425113d89010cc2d282758c5a042be9300
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81758195"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417913"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (Node. js)
 
@@ -23,7 +23,7 @@ ms.locfileid: "81758195"
 
 Den här självstudien visar hur du, som enhets utvecklare, ansluter ett Node. js-klientprogram till ditt Azure IoT Central-program. Node. js-programmet simulerar beteendet för en miljö sensor enhet. Du kan använda ett exempel på _enhets kapacitets modell_ för att skapa en _enhets mal len_ i IoT Central. Du lägger till vyer i enhets mal len för att låta en operatör interagera med en enhet.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Importera en enhets kapacitets modell för att skapa en enhets mall.
@@ -49,7 +49,7 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som ansluter till 
 
 1. I din kommando rads miljö navigerar du till `environmental-sensor` mappen som du skapade tidigare.
 
-1. Du initierar Node. js-projektet och installerar de nödvändiga beroendena genom att köra följande kommandon – acceptera alla standard alternativ när du kör `npm init`:
+1. Du initierar Node. js-projektet och installerar de nödvändiga beroendena genom att köra följande kommandon – acceptera alla standard alternativ när du kör `npm init` :
 
     ```cmd/sh
     npm init
@@ -58,7 +58,7 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som ansluter till 
 
 1. Skapa en fil med namnet **environmentalSensor. js** i `environmental-sensor` mappen.
 
-1. Lägg till följande `require` -instruktioner i början av filen **environmentalSensor. js** :
+1. Lägg till följande- `require` instruktioner i början av filen **environmentalSensor. js** :
 
     ```javascript
     "use strict";
@@ -87,7 +87,7 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som ansluter till 
     var ledOn = true;
     ```
 
-    Uppdatera plats hållarna `{your Scope ID}`, `{your Device ID}`och `{your Primary Key}` med de värden som du antecknade tidigare. I det här exemplet initierar `targetTemperature` du till noll, du kan använda den aktuella läsningen från enheten eller ett värde från enheten.
+    Uppdatera plats hållarna `{your Scope ID}` , `{your Device ID}` och `{your Primary Key}` med de värden som du antecknade tidigare. I det här exemplet initierar du `targetTemperature` till noll, du kan använda den aktuella läsningen från enheten eller ett värde från enheten.
 
 1. Om du vill skicka simulerad telemetri till ditt Azure IoT Central-program lägger du till följande funktion i filen:
 
@@ -107,7 +107,7 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som ansluter till 
     }
     ```
 
-    Namnen på telemetri-objekten (`temp` och `humid`) måste matcha namnen som används i enhets mal len.
+    Namnen på telemetri-objekten ( `temp` och `humid` ) måste matcha namnen som används i enhets mal len.
 
 1. Om du vill skicka enhetens dubbla egenskaper till ditt Azure IoT Central-program lägger du till följande funktion i filen:
 
@@ -164,7 +164,7 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som ansluter till 
 
     När operatorn ställer in en skrivbar egenskap i IoT Central-programmet använder programmet en enhet med dubbla önskade egenskaper för att skicka värdet till enheten. Enheten svarar sedan med en enhets dubbla rapporterad egenskap. När IoT Central tar emot det rapporterade egenskap svärdet uppdateras egenskaps läget med statusen **synkroniserad**.
 
-    Namnen på egenskaperna (`name` och `brightness`) måste matcha namnen som används i enhets mal len.
+    Namnen på egenskaperna ( `name` och `brightness` ) måste matcha namnen som används i enhets mal len.
 
 1. Lägg till följande kod för att hantera de kommandon som skickas från IoT Central-programmet:
 
@@ -246,7 +246,7 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som ansluter till 
     }
     ```
 
-    Namnen på kommandona`blink`(, `turnon`, `turnoff`och `rundiagnostics`) måste matcha namnen som används i enhets mal len.
+    Namnen på kommandona ( `blink` , `turnon` , `turnoff` och `rundiagnostics` ) måste matcha namnen som används i enhets mal len.
 
     För närvarande använder IoT Central inte det svars schema som definierats i enhetens kapacitets modell. För ett synkront kommando kan svars nytto lasten vara vilken giltig JSON som helst. För ett asynkront kommando ska enheten returnera ett 202-svar omedelbart följt av den rapporterande egenskaps uppdateringen när arbetet är klart. Formatet för den rapporterade egenskaps uppdateringen är:
 
@@ -330,8 +330,9 @@ Du kan se hur enheten svarar på kommandon och egenskaps uppdateringar:
 
 Som en enhets utvecklare nu har du lärt dig grunderna för hur du skapar en enhet med hjälp av Node. js, men vissa föreslagna nästa steg är att:
 
-- Lär dig hur du ansluter en riktig enhet till IoT Central i [ansluta en MXChip IoT DevKit-enhet till Azure IoT Central Application](./howto-connect-devkit.md) instruktion-artikeln.
-- Läs [bli ansluten till Azure IoT Central](./concepts-get-connected.md) om du vill veta mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhets anslutningar.
+* Lär dig hur du ansluter en riktig enhet till IoT Central i [ansluta en MXChip IoT DevKit-enhet till Azure IoT Central Application](./howto-connect-devkit.md) instruktion-artikeln.
+* Läs [Vad är enhets mallar?](./concepts-device-templates.md) om du vill lära dig mer om rollen hets mallar när du implementerar din enhets kod.
+* Läs [bli ansluten till Azure IoT Central](./concepts-get-connected.md) om du vill veta mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhets anslutningar.
 
 Om du föredrar att fortsätta med en uppsättning IoT Central själv studie kurser och lära dig mer om hur du skapar en IoT Central lösning, se:
 

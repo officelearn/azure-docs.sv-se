@@ -3,12 +3,12 @@ title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 223acb523b8a7e4bc14d894c0eb6781d147b8923
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: f077548f2de06ef35a80aea0e8e33718a18ff229
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308888"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424354"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -115,7 +115,7 @@ Exempel: använda gransknings funktionen.
 
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists möjliggör granskning av resurser som matchar **IF** -villkoret, men som inte har de komponenter som anges i **informationen** om **then** -villkoret.
+AuditIfNotExists möjliggör granskning av resurser som är _relaterade_ till den resurs som matchar **IF** -villkoret, men som inte har de egenskaper som anges i **informationen** om **then** -villkoret.
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists-utvärdering
 
@@ -491,7 +491,7 @@ Med egenskapen för **drifts** egenskaper kan du ändra flera taggar på olika s
 
 Egenskapen **operation** har följande alternativ:
 
-|Åtgärd |Description |
+|Åtgärd |Beskrivning |
 |-|-|
 |addOrReplace |Lägger till den definierade taggen och värdet i resursen, även om taggen redan finns med ett annat värde. |
 |Lägg till |Lägger till den definierade taggen och värdet i resursen. |
@@ -547,7 +547,7 @@ Exempel 2: ta bort `env` taggen och Lägg till `environment` taggen eller ersät
 
 ## <a name="layering-policy-definitions"></a>Skikt princip definitioner
 
-En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan finnas i samma omfång eller i olika omfång. Vart och ett av dessa tilldelningar är också troligt att en annan inverkan har definierats. Villkoret och påverkan för varje princip utvärderas oberoende av varandra. Till exempel:
+En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan finnas i samma omfång eller i olika omfång. Vart och ett av dessa tilldelningar är också troligt att en annan inverkan har definierats. Villkoret och påverkan för varje princip utvärderas oberoende av varandra. Exempel:
 
 - Princip 1
   - Begränsar resursens plats till "väst"

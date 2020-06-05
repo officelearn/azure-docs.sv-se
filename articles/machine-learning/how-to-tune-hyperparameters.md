@@ -8,15 +8,15 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: a58ea58ebf6fdc7d8521d204ac42fcbadeca39a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d018d87873d8b68f51363ddfd904d783dd5d1e0
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189308"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433750"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Justera dina modellers egenskaper med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -91,7 +91,7 @@ Ett exempel på en parameter utrymmes definition:
     }
 ```
 
-Den här koden definierar ett Sök utrymme med två parametrar `learning_rate` – `keep_probability`och. `learning_rate`har en normal distribution med medel värde 10 och en standard avvikelse på 3. `keep_probability`har en enhetlig distribution med ett lägsta värde på 0,05 och ett högsta värde på 0,1.
+Den här koden definierar ett Sök utrymme med två parametrar – `learning_rate` och `keep_probability` . `learning_rate`har en normal distribution med medel värde 10 och en standard avvikelse på 3. `keep_probability`har en enhetlig distribution med ett lägsta värde på 0,05 och ett högsta värde på 0,1.
 
 ### <a name="sampling-the-hyperparameter-space"></a>Sampling av områdets parameter utrymme
 
@@ -119,7 +119,7 @@ param_sampling = RandomParameterSampling( {
 
 #### <a name="grid-sampling"></a>Rutnäts sampling
 
-Vid [Rutnäts sampling](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py) utförs en enkel rutnäts sökning över alla genomförbara värden i det definierade Sök utrymmet. Det går endast att använda med de angivna de angivna `choice`egenskaperna. Följande utrymme har exempelvis totalt sex exempel:
+Vid [Rutnäts sampling](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py) utförs en enkel rutnäts sökning över alla genomförbara värden i det definierade Sök utrymmet. Det går endast att använda med de angivna de angivna egenskaperna `choice` . Följande utrymme har exempelvis totalt sex exempel:
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -136,7 +136,7 @@ param_sampling = GridParameterSampling( {
 
 När du använder Bayesian-sampling, har antalet samtidiga körningar påverka effektiviteten i justerings processen. Vanligt vis kan ett mindre antal samtidiga körningar leda till bättre provtagnings konvergens, eftersom den mindre graden av parallellitet ökar antalet körningar som förmånen från tidigare slutförda körningar.
 
-Bayesian-sampling stöder `choice`bara `uniform`, och `quniform` distributioner över Sök utrymmet.
+Bayesian-sampling stöder bara `choice` , `uniform` och `quniform` distributioner över Sök utrymmet.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -148,7 +148,7 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesian-sampling stöder inte någon tidig avslutnings princip (se [Ange en princip för tidig avslutning](#specify-early-termination-policy)). När du använder Bayesian parameter sampling, `early_termination_policy = None`anger eller lämnar du `early_termination_policy` parametern.
+> Bayesian-sampling stöder inte någon tidig avslutnings princip (se [Ange en princip för tidig avslutning](#specify-early-termination-policy)). När du använder Bayesian parameter sampling, anger `early_termination_policy = None` eller lämnar du `early_termination_policy` parametern.
 
 <a name='specify-primary-metric-to-optimize'/>
 
@@ -190,7 +190,7 @@ Avsluta dåligt utförande körs automatiskt med en princip för tidig avslutnin
 
 När du använder en tidig avslutnings princip kan du konfigurera följande parametrar som styr när en princip tillämpas:
 
-* `evaluation_interval`: frekvensen för att tillämpa principen. Varje tillfälle ska tränings skriptet logga in det primära måttet som ett intervall. Det innebär `evaluation_interval` att en av 1 tillämpar principen varje gång utbildnings skriptet rapporterar det primära måttet. En `evaluation_interval` av 2 tillämpar principen varannan gång som tränings skriptet rapporterar det primära måttet. Om inget värde anges `evaluation_interval` anges värdet 1 som standard.
+* `evaluation_interval`: frekvensen för att tillämpa principen. Varje tillfälle ska tränings skriptet logga in det primära måttet som ett intervall. Det innebär att en `evaluation_interval` av 1 tillämpar principen varje gång utbildnings skriptet rapporterar det primära måttet. En `evaluation_interval` av 2 tillämpar principen varannan gång som tränings skriptet rapporterar det primära måttet. Om inget värde anges `evaluation_interval` anges värdet 1 som standard.
 * `delay_evaluation`: fördröjer den första princip utvärderingen för ett angivet antal intervall. Det är en valfri parameter som gör att alla konfigurationer kan köras i ett ursprungligt minsta antal intervall, för att undvika att utbildningar avslutas för tidigt. Om det här alternativet anges gäller principen varje multipel av evaluation_interval som är större än eller lika med delay_evaluation.
 
 Azure Machine Learning stöder följande tidiga avslutnings principer.
@@ -199,9 +199,9 @@ Azure Machine Learning stöder följande tidiga avslutnings principer.
 
 [Bandit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py#definition) är en avslutnings princip som baseras på slack-faktorn/slack och utvärderings intervallet. Principen tidigt avslutar alla körningar där det primära måttet inte ligger inom den angivna slack-faktorn/slacket med avseende på bästa möjliga inlärnings körning. Det tar följande konfigurations parametrar:
 
-* `slack_factor`eller `slack_amount`: det tillåtna slacket i förhållande till bästa möjliga utbildning körs. `slack_factor`anger det tillåtna slacket som ett förhållande. `slack_amount`anger det tillåtna slacket som ett absolut belopp, i stället för en kvot.
+* `slack_factor`eller `slack_amount` : det tillåtna slacket i förhållande till bästa möjliga utbildning körs. `slack_factor`anger det tillåtna slacket som ett förhållande. `slack_amount`anger det tillåtna slacket som ett absolut belopp, i stället för en kvot.
 
-    Anta till exempel att en bandit-princip används vid intervall 10. Anta att den bästa presterande körningen vid intervall 10 rapporterade ett primärt mått 0,8 med målet att maximera det primära måttet. Om principen har angetts med `slack_factor` 0,2, kommer all utbildning som körs, vars bästa mått vid intervallet 10 är mindre än 0,66 (0,8/(1 +`slack_factor`)) att avslutas. I stället angavs principen med `slack_amount` 0,2, vilken utbildning som helst, vars bästa mått vid intervallet 10 är mindre än 0,6 (0,8- `slack_amount`) avbryts.
+    Anta till exempel att en bandit-princip används vid intervall 10. Anta att den bästa presterande körningen vid intervall 10 rapporterade ett primärt mått 0,8 med målet att maximera det primära måttet. Om principen har angetts med `slack_factor` 0,2, kommer all utbildning som körs, vars bästa mått vid intervallet 10 är mindre än 0,66 (0,8/(1 + `slack_factor` )) att avslutas. I stället angavs principen med `slack_amount` 0,2, vilken utbildning som helst, vars bästa mått vid intervallet 10 är mindre än 0,6 (0,8-) avbryts `slack_amount` .
 * `evaluation_interval`: frekvensen för att tillämpa principen (valfri parameter).
 * `delay_evaluation`: fördröjer den första princip utvärderingen för ett angivet antal intervall (valfri parameter).
 
@@ -257,7 +257,7 @@ Om ingen princip har angetts, kommer tjänsten för egenskaps justering att låt
 
 ### <a name="picking-an-early-termination-policy"></a>Plocka en princip för tidig avslutning
 
-* Om du letar efter en restriktiv princip som ger besparingar utan att avsluta löftes jobb, kan du använda en princip för att stoppa `evaluation_interval` en median `delay_evaluation` med 1 och 5. Dessa är restriktiva inställningar som kan ge cirka 25%-35% besparingar utan förlust av primärt mått (baserat på våra utvärderings data).
+* Om du letar efter en restriktiv princip som ger besparingar utan att avsluta löftes jobb, kan du använda en princip för att stoppa en median med `evaluation_interval` 1 och `delay_evaluation` 5. Dessa är restriktiva inställningar som kan ge cirka 25%-35% besparingar utan förlust av primärt mått (baserat på våra utvärderings data).
 * Om du vill ha mer aggressiva besparingar från tidiga uppsägningar kan du antingen använda bandit-principen med en striktare (mindre) tillåten slack eller trunkering princip för urvals princip med en större trunkning i procent.
 
 ## <a name="allocate-resources"></a>Allokera resurser
@@ -288,7 +288,7 @@ Den här koden konfigurerar experimentet för inställning av parameter till att
 
 ## <a name="configure-experiment"></a>Konfigurera experiment
 
-[Konfigurera ditt för inställnings](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) experiment med det definierade områdets sökområde, tidig avslutnings princip, primärt mått och resursallokering från avsnitten ovan. Ange dessutom ett `estimator` som kommer att anropas med de exempelbaserade parametrarna. `estimator` Beskriver det utbildnings skript som du kör, resurserna per jobb (Single eller multi-GPU) och beräknings målet som ska användas. Eftersom samtidighet för ditt preparameter-experiment är gated på resurserna som är tillgängliga, se till att det beräknings mål `estimator` som anges i har tillräckligt med resurser för önskad samtidighet. (Mer information om uppskattningar finns i [så här tränar du modeller](how-to-train-ml-models.md).)
+[Konfigurera ditt för inställnings](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) experiment med det definierade områdets sökområde, tidig avslutnings princip, primärt mått och resursallokering från avsnitten ovan. Ange dessutom ett `estimator` som kommer att anropas med de exempelbaserade parametrarna. `estimator`Beskriver det utbildnings skript som du kör, resurserna per jobb (Single eller multi-GPU) och beräknings målet som ska användas. Eftersom samtidighet för ditt preparameter-experiment är gated på resurserna som är tillgängliga, se till att det beräknings mål som anges i `estimator` har tillräckligt med resurser för önskad samtidighet. (Mer information om uppskattningar finns i [så här tränar du modeller](how-to-train-ml-models.md).)
 
 Konfigurera ditt inställnings experiment för en parameter:
 
@@ -313,7 +313,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name`är det namn som du tilldelar till ditt för inställnings experiment med `workspace` din parameter och är den arbets yta där du vill skapa experimentet (mer information om experiment finns i [Hur fungerar Azure Machine Learning?](concept-azure-machine-learning-architecture.md))
+`experiment_name`är det namn som du tilldelar till ditt för inställnings experiment med din parameter och `workspace` är den arbets yta där du vill skapa experimentet (mer information om experiment finns i [hur fungerar Azure Machine Learning?](concept-azure-machine-learning-architecture.md))
 
 ## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>Varm kom igång med ditt inställnings experiment för en parameter (valfritt)
 
@@ -339,7 +339,7 @@ resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
 child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
 ```
 
-Du kan konfigurera ditt inställnings experiment för att komma igång med ett tidigare experiment eller återuppta enskilda inlärnings körningar med valfria `resume_from` parametrar `resume_child_runs` och i konfigurationen:
+Du kan konfigurera ditt inställnings experiment för att komma igång med ett tidigare experiment eller återuppta enskilda inlärnings körningar med valfria parametrar `resume_from` och `resume_child_runs` i konfigurationen:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig

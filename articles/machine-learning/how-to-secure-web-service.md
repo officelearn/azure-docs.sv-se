@@ -5,18 +5,18 @@ description: Lär dig hur du aktiverar HTTPS för att skydda en webb tjänst som
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a58b0120feaba907c62bc646f4f85d9185227fed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb766a81cda822377eeda09cab75d19111523bef
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80287347"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432851"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Använd TLS för att skydda en webb tjänst via Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Det finns små skillnader när du skyddar er över [distributions mål](how-to-d
 
 ## <a name="get-a-domain-name"></a>Hämta ett domän namn
 
-Om du inte redan har ett domän namn kan du köpa ett från en *domän namns registrator*. Processen och priset skiljer sig mellan registratorn. Registratorn innehåller verktyg för att hantera domän namnet. Du använder dessa verktyg för att mappa ett fullständigt kvalificerat domän namn (FQDN) (till\.exempel www-contoso.com) till den IP-adress som är värd för webb tjänsten.
+Om du inte redan har ett domän namn kan du köpa ett från en *domän namns registrator*. Processen och priset skiljer sig mellan registratorn. Registratorn innehåller verktyg för att hantera domän namnet. Du använder dessa verktyg för att mappa ett fullständigt kvalificerat domän namn (FQDN) (till exempel www- \. contoso.com) till den IP-adress som är värd för webb tjänsten.
 
 ## <a name="get-a-tlsssl-certificate"></a>Hämta ett TLS/SSL-certifikat
 
@@ -63,7 +63,7 @@ Det finns många sätt att hämta ett TLS/SSL-certifikat (digitalt certifikat). 
 * Ett **certifikat**. Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
 * En **nyckel**. Nyckeln måste också vara PEM-kodad.
 
-När du begär ett certifikat måste du ange det fullständiga domän namnet för den adress som du planerar att använda för webb tjänsten (till exempel www\.-contoso.com). Adressen som stämplas in i certifikatet och den adress som klienterna använder jämförs för att verifiera webb tjänstens identitet. Om dessa adresser inte matchar får klienten ett fel meddelande.
+När du begär ett certifikat måste du ange det fullständiga domän namnet för den adress som du planerar att använda för webb tjänsten (till exempel www- \. contoso.com). Adressen som stämplas in i certifikatet och den adress som klienterna använder jämförs för att verifiera webb tjänstens identitet. Om dessa adresser inte matchar får klienten ett fel meddelande.
 
 > [!TIP]
 > Om certifikat utfärdaren inte kan ange certifikatet och nyckeln som PEM-kodade filer kan du använda ett verktyg som [openssl](https://www.openssl.org/) för att ändra formatet.
@@ -87,7 +87,7 @@ När du distribuerar till AKS kan du skapa ett nytt AKS-kluster eller koppla ett
 
 Metoden **enable_ssl** kan använda ett certifikat från Microsoft eller ett certifikat som du köper.
 
-  * När du använder ett certifikat från Microsoft måste du använda *leaf_domain_label* -parametern. Den här parametern genererar DNS-namnet för tjänsten. Till exempel skapar värdet "contoso" ett domän namn på "contoso\<sex-slumpmässiga tecken>. \<azureregion>. cloudapp.Azure.com ", där \<azureregion> är den region som innehåller tjänsten. Alternativt kan du använda parametern *overwrite_existing_domain* för att skriva över den befintliga *leaf_domain_label*.
+  * När du använder ett certifikat från Microsoft måste du använda *leaf_domain_label* -parametern. Den här parametern genererar DNS-namnet för tjänsten. Till exempel skapar värdet "contoso" domän namnet "contoso \<six-random-characters> . \<azureregion> . cloudapp.azure.com ", där \<azureregion> är den region som innehåller tjänsten. Alternativt kan du använda parametern *overwrite_existing_domain* för att skriva över den befintliga *leaf_domain_label*.
 
     Om du vill distribuera (eller distribuera om) tjänsten med TLS aktiverat, anger du parametern *ssl_enabled* till "true" oavsett var den gäller. Ange parametern *ssl_certificate* till värdet för *certifikat* filen. Ange *ssl_key* till *nyckel* filens värde.
 
@@ -172,6 +172,10 @@ TLS/SSL-certifikat upphör att gälla och måste förnyas. Detta sker vanligt vi
 
 Om certifikatet ursprungligen genererades av Microsoft (när du använder *leaf_domain_label* för att skapa tjänsten) kan du använda något av följande exempel för att uppdatera certifikatet:
 
+> [!IMPORTANT]
+> * Om det befintliga certifikatet fortfarande är giltigt använder du `renew=True` (SDK) eller `--ssl-renew` (CLI) för att tvinga konfigurationen att förnya det. Om det befintliga certifikatet fortfarande är giltigt i 10 dagar och du inte använder `renew=True` , kan det hända att certifikatet inte förnyas.
+> * När tjänsten ursprungligen distribuerades `leaf_domain_label` används den för att skapa ett DNS-namn med hjälp av mönstret `<leaf-domain-label>######.<azure-region>.cloudapp.azure.net` . Använd det ursprungliga värdet för att bevara det befintliga namnet (inklusive de 6 siffror som ursprungligen genererades) `leaf_domain_label` . Ta inte med de 6 siffror som genererades.
+
 **Använd SDK: n**
 
 ```python
@@ -183,7 +187,7 @@ from azureml.core.compute.aks import SslConfiguration
 aks_target = AksCompute(ws, clustername)
 
 # Update the existing certificate by referencing the leaf domain label
-ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True)
+ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True, renew=True)
 update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
 ```
@@ -191,7 +195,7 @@ aks_target.update(update_config)
 **Använda CLI**
 
 ```azurecli
-az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True
+az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True --ssl-renew
 ```
 
 Mer information finns i följande referens dokument:
@@ -241,7 +245,7 @@ Mer information finns i följande referens dokument:
 
 ## <a name="disable-tls"></a>Inaktivera TLS
 
-Om du vill inaktivera TLS för en modell som distribueras till Azure Kubernetes- `SslConfiguration` tjänsten `status="Disabled"`skapar du en med och utför sedan en uppdatering:
+Om du vill inaktivera TLS för en modell som distribueras till Azure Kubernetes-tjänsten skapar du en `SslConfiguration` med `status="Disabled"` och utför sedan en uppdatering:
 
 ```python
 from azureml.core.compute import AksCompute

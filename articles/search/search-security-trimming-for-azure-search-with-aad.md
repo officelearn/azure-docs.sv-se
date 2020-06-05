@@ -1,19 +1,19 @@
 ---
 title: Säkerhets filter för att trimma resultat med Active Directory
 titleSuffix: Azure Cognitive Search
-description: Åtkomst kontroll på Azure Kognitiv sökning-innehåll med säkerhets filter och Azure Active Directory-identiteter (AAD).
+description: Säkerhets behörigheter på dokument nivå för Azure Kognitiv sökning Sök resultat, med säkerhets filter och Azure Active Directory-identiteter (AAD).
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: bbf1aa2fe8410f6d624fb9d50b1edb6ac2c64093
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794309"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84429509"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Säkerhets filter för att trimma Azure-Kognitiv sökning resultat med hjälp av Active Directory identiteter
 
@@ -42,11 +42,11 @@ Ditt program måste också vara registrerat i AAD, enligt beskrivningen i följa
 
 I det här steget integreras ditt program med AAD i syfte att godkänna inloggningar av användar-och grupp konton. Om du inte är AAD-administratör i din organisation kan du behöva [skapa en ny klient](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) för att utföra följande steg.
 
-1. Gå till [**program registrerings portalen**](https://apps.dev.microsoft.com) >  **konvergerad app** > **Lägg till en app**.
+1. Gå till [**program registrerings portalen**](https://apps.dev.microsoft.com)  >   **konvergerad app**  >  **Lägg till en app**.
 2. Ange ett namn för ditt program och klicka sedan på **skapa**. 
 3. Välj ditt nyligen registrerade program på sidan mina program.
-4. På sidan program registrering > **plattformar** > **Lägg till plattform**väljer du **webb-API**.
-5. Fortfarande på sidan program registrering går du till > **Microsoft Graph behörigheter** > **Lägg till**.
+4. På sidan program registrering > **plattformar**  >  **Lägg till plattform**väljer du **webb-API**.
+5. Fortfarande på sidan program registrering går du till > **Microsoft Graph behörigheter**  >  **Lägg till**.
 6. I Välj behörigheter, lägger du till följande delegerade behörigheter och klickar sedan på **OK**:
 
    + **Directory. ReadWrite. all**

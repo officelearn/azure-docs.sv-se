@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 06/03/2020
 ms.author: b-juche
-ms.openlocfilehash: a8c299a6f0e6732d50b40fc29bde07179fc2c412
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e9ee573ca908c41fe7c7887d0f306971369f83f
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185650"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417505"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -64,7 +64,7 @@ Alla Azure NetApp Files volymer krypteras med hjälp av FIPS 140-2-standarden. A
 
 Nyckel hantering för Azure NetApp Files hanteras av tjänsten. En unik data krypterings nyckel för XTS-AES-256 genereras för varje volym. En krypterings nyckel hierarki används för att kryptera och skydda alla volym nycklar. Dessa krypterings nycklar visas aldrig eller rapporteras inte i okrypterat format. Krypterings nycklarna tas bort omedelbart när en volym tas bort.
 
-Stöd för användar hanterade nycklar (ta med dina egna nycklar) med hjälp av Azure Dedicated HSM är tillgängligt på ett kontrollerat sätt i USA, östra, amerikanska West2 och USA, södra centrala regionerna.  Du kan begära åtkomst på **anffeedback@microsoft.com**. Eftersom kapaciteten är tillgänglig kommer begäran att godkännas.
+Stöd för användar hanterade nycklar (ta med dina egna nycklar) med hjälp av Azure Dedicated HSM är tillgängligt på ett kontrollerat sätt i USA, östra, amerikanska West2 och USA, södra centrala regionerna.  Du kan begära åtkomst på **anffeedback@microsoft.com** . Eftersom kapaciteten är tillgänglig kommer begäran att godkännas.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Kan jag konfigurera princip reglerna för NFS-export för att kontrol lera åtkomsten till Azure NetApp Files tjänstens monterings mål?
 
@@ -79,7 +79,7 @@ Nej, för närvarande kan du inte använda nätverks säkerhets grupper för det
 
 Ja, Azure NetApp Files stöder RBAC-funktioner med Azure IAM.
 
-## <a name="performance-faqs"></a>Vanliga frågor om prestanda
+## <a name="performance-faqs"></a>Vanliga frågor och svar om prestanda
 
 ### <a name="what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance"></a>Vad gör jag för att optimera eller finjustera Azure NetApp Files prestanda?
 
@@ -107,7 +107,7 @@ Azure NetApp Files tillhandahåller volym prestanda mått. Du kan också använd
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Jag vill att en volym ska monteras automatiskt när en virtuell Azure-dator startas eller startas om.  Hur gör jag för att konfigurerar du min värd för beständiga NFS-volymer?
 
-Om en NFS-volym ska monteras automatiskt vid start eller omstart av virtuella datorer lägger du `/etc/fstab` till en post i filen på värden. 
+Om en NFS-volym ska monteras automatiskt vid start eller omstart av virtuella datorer lägger du till en post i `/etc/fstab` filen på värden. 
 
 Mer information finns i [montera eller demontera en volym för virtuella Windows-eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) .  
 
@@ -125,6 +125,10 @@ Rot-squashing stöds inte för närvarande.
 
 ## <a name="smb-faqs"></a>Vanliga frågor och svar om SMB
 
+### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Vilka SMB-versioner stöds av Azure NetApp Files?
+
+Azure NetApp Files stöder SMB 2,1 och SMB 3,1 (som har stöd för SMB 3,0).    
+
 ### <a name="is-an-active-directory-connection-required-for-smb-access"></a>Krävs en Active Directory anslutning för SMB-åtkomst? 
 
 Ja, du måste skapa en Active Directory anslutning innan du distribuerar en SMB-volym. De angivna domän kontrol Lanterna måste vara tillgängliga för det delegerade under nätet för Azure NetApp Files för lyckad anslutning.  Mer information finns i [skapa en SMB-volym](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) . 
@@ -139,7 +143,7 @@ En AD-anslutning har kon figurer ATS per NetApp-konto. AD-anslutningen visas bar
 
 Både [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) och [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) stöds. Du kan använda befintliga Active Directory domänkontrollanter med Azure NetApp Files. Domänkontrollanter kan finnas i Azure som virtuella datorer eller lokalt via ExpressRoute eller S2S VPN. Azure NetApp Files stöder inte AD Join för [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) för tillfället.
 
-Om du använder Azure NetApp Files med Azure Active Directory Domain Services är `OU=AADDC Computers` organisationsenhetens sökväg när du konfigurerar Active Directory för ditt NetApp-konto.
+Om du använder Azure NetApp Files med Azure Active Directory Domain Services är organisationsenhetens sökväg `OU=AADDC Computers` när du konfigurerar Active Directory för ditt NetApp-konto.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Vilka versioner av Windows Server Active Directory stöds?
 

@@ -5,17 +5,17 @@ description: Lär dig hur du ändrar åtkomst nycklarna för det Azure Storage k
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: f1541c177cea2d223a5e7df576d95fab7eafb310
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4ae4890d28236db493909243d66e28d308e2002
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80296918"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434643"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -95,7 +95,7 @@ Om du vill uppdatera Azure Machine Learning att använda den nya nyckeln använd
 
         [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
-    1. Använd följande kommando för att uppdatera arbets ytan för att använda den nya nyckeln. Ersätt `myworkspace` med namnet på din Azure Machine Learning arbets yta och `myresourcegroup` Ersätt med namnet på den Azure-resurs grupp som innehåller arbets ytan.
+    1. Använd följande kommando för att uppdatera arbets ytan för att använda den nya nyckeln. Ersätt `myworkspace` med namnet på din Azure Machine Learning arbets yta och Ersätt `myresourcegroup` med namnet på den Azure-resurs grupp som innehåller arbets ytan.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d29420d14a716e5a45e42dd681faa01f518f713a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: aa442e15dbc95709ecf3c818f69301d2f02e9b5b
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666542"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417029"
 ---
 # <a name="iot-central-device-development-overview"></a>Översikt över IoT Central enhets utveckling
 
@@ -85,7 +85,9 @@ Använd en av [Azure IoT-enhetens SDK](#languages-and-sdks) : er för att implem
 - Synkronisera egenskaps värden mellan enheten och IoT Central. Enhets mal len anger egenskaps namn och data typer så att IoT Central kan visa informationen.
 - Implementera kommando hanterare för kommandona anger i enhets mal len. Enhets mal len anger kommando namn och parametrar som enheten ska använda.
 
-Mer information finns i [skapa och ansluta ett Node. js-klientprogram](./tutorial-connect-device-nodejs.md) eller [skapa och ansluta ett python-klientprogram](./tutorial-connect-device-python.md).
+Mer information om rollen hets mallar finns i [Vad är enhets mallar?](./concepts-device-templates.md).
+
+En del exempel kod finns i [skapa och ansluta ett Node. js-klientprogram](./tutorial-connect-device-nodejs.md) eller [skapa och ansluta ett python-klientprogram](./tutorial-connect-device-python.md).
 
 ### <a name="languages-and-sdks"></a>Språk och SDK: er
 

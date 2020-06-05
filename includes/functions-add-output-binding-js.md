@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "78191103"
 ---
-Lägg till kod som använder `msg` objektet utgående bindning på `context.bindings` för att skapa ett köat meddelande. Lägg till den här koden `context.res` före instruktionen.
+Lägg till kod som använder `msg` objektet utgående bindning på `context.bindings` för att skapa ett köat meddelande. Lägg till den här koden före `context.res` instruktionen.
 
 :::code language="javascript" range="7" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/index.js":::
 

@@ -9,12 +9,12 @@ ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 3c84bf32f0d7b8b8381747e995f060d7e2dc1c9b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 877dab3376e1a4397d9f1c6971baea957b4eea68
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310529"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424201"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snabb start: dirigera Blob Storage-händelser till webb slut punkt med Azure Portal
 
@@ -92,7 +92,7 @@ Du prenumererar på ett ämne därför att du vill ange för Event Grid vilka h�
    ![Välj webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Utför följande steg på sidan **Skapa händelse prenumeration** : 
     1. Ange ett **namn** för händelse prenumerationen.
-    2. Ange ett **namn** för **system-ämnet**. 
+    2. Ange ett **namn** för **system-ämnet**. När du tidigare skapade en prenumeration för en händelse som aktive ras av Azure-källor, till exempel Azure Blob Storage eller Azure Event Hubs, skapade Event Grid tjänsten automatiskt ett system avsnitt med ett **slumpmässigt genererat namn**. Nu kan du ange ett namn för system avsnittet när du skapar avsnittet i Azure Portal som visas i följande bild. Du kan använda den här system ämnes resursen för att identifiera statistik och diagnostikloggar.
 
        ![Avsnittet Ange namn för händelse prenumeration och system](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
 

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-ms.openlocfilehash: 746366675501c80776f0a4308e22250f344a00c9
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: ed8a46683d79211559b4af7972c6d1bb784e1f02
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343446"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434172"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Förstå mått för Azure våren Cloud
 
@@ -90,8 +90,8 @@ I följande tabeller visas tillgängliga mått och information.
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
->| Tomcat globalt fel (inaktuellt)<br><br>(som ska tas bort efter den 1 juli 2020)  | tomcat. global. error | Antal | Antal fel som inträffar för bearbetade begär Anden |
->| tomcat. global. error | tomcat. global. error | Antal | Antal fel som inträffar för bearbetade begär Anden |
+>| Tomcat globalt fel (inaktuellt)<br><br>(som ska tas bort efter den 1 juli 2020)  | tomcat. global. error | Antal | Antal fel som inträffade i bearbetade begär Anden |
+>| tomcat. global. error | tomcat. global. error | Antal | Antal fel som inträffade i bearbetade begär Anden |
 
 ### <a name="performance"></a>Prestanda
 >[!div class="mx-tdCol2BreakAll"]
@@ -101,7 +101,7 @@ I följande tabeller visas tillgängliga mått och information.
 >| system. CPU. Usage | system. CPU. Usage | Procent | Senaste CPU-användning för hela systemet. Det här värdet är ett dubbelt i [0,0, 1,0]-intervallet. Värdet 0,0 innebär att alla processorer var inaktiva under den senaste tids perioden, medan värdet 1,0 innebär att alla processorer kördes aktivt 100% av tiden under den senaste perioden.|
 >| Procent andel program CPU-användning (inaktuell)<br><br>(borttaget efter den 1 juli 2020) | Procent andel CPU-användning för app | Procent | Senaste CPU-användning för Java Virtual Machine processen. Det här värdet är ett dubbelt i [0,0, 1,0]-intervallet. Värdet 0,0 innebär att ingen av processorerna körde trådar från JVM-processen under den senaste tids perioden, medan värdet 1,0 innebär att alla processorer aktivt körde trådar från JVM 100% av tiden under den senaste perioden. Trådar från JVM omfattar både program trådar och JVM interna trådar.|
 >| process. CPU. Usage | Procent andel CPU-användning för app | Procent | Senaste CPU-användning för Java Virtual Machine processen. Det här värdet är ett dubbelt i [0,0, 1,0]-intervallet. Värdet 0,0 innebär att ingen av processorerna körde trådar från JVM-processen under den senaste tids perioden, medan värdet 1,0 innebär att alla processorer aktivt körde trådar från JVM 100% av tiden under den senaste perioden. Trådar från JVM omfattar både program trådar och JVM interna trådar.|
->| Tilldelad app-minne (inaktuellt)<br><br>(som ska tas bort efter den 1 juli 2020) | JVM. Memory. dedikerat | Byte | Representerar mängden minne som garanterat kan användas av JVM. JVM kan frigöra minne till systemet och dedikerat kan vara mindre än init. bekräftat är alltid större än eller lika med används. |
+>| Tilldelad app-minne (inaktuellt)<br><br>(som ska tas bort efter den 1 juli 2020) | JVM. Memory. dedikerat | Byte | Representerar mängden minne som garanterat kan användas av JVM. JVM kan frigöra minne till systemet och allokerat minne kan vara mindre än det första minnet. Allokerat minne är alltid större än eller lika med använt minne. |
 >| JVM. Memory. dedikerat | JVM. Memory. dedikerat | Byte | Representerar mängden minne som garanterat kan användas av JVM. JVM kan frigöra minne till systemet och dedikerat kan vara mindre än init. bekräftat är alltid större än eller lika med används. |
 >| Använt program minne (inaktuellt)<br><br>(som ska tas bort efter den 1 juli 2020) | JVM. Memory. används | Byte | Representerar mängden minne som för närvarande används i byte. |
 >| JVM. Memory. används | JVM. Memory. används | Byte | Representerar mängden minne som för närvarande används i byte. |
@@ -140,8 +140,8 @@ I följande tabeller visas tillgängliga mått och information.
 >|----|----|----|------------|
 >| Högsta antal aktiva Tomcat-sessioner (inaktuella)<br><br>(borttaget efter den 1 juli 2020) | tomcat. sessions. Active. Max | Antal | Maximalt antal sessioner som har varit aktiva samtidigt |
 >| tomcat. sessions. Active. Max | tomcat. sessions. Active. Max | Antal | Maximalt antal sessioner som har varit aktiva samtidigt |
->| Tomcat-session, maximal Alive-tid (inaktuell)<br><br>(borttaget efter den 1 juli 2020) | tomcat. sessions. Alive. Max | Millisekunder | Längsta tid (i sekunder) som en utgången session hade varit aktiv |
->| tomcat. sessions. Alive. Max | tomcat. sessions. Alive. Max | Millisekunder | Längsta tid (i sekunder) som en utgången session hade varit aktiv |
+>| Tomcat-session, maximal Alive-tid (inaktuell)<br><br>(borttaget efter den 1 juli 2020) | tomcat. sessions. Alive. Max | Millisekunder | Längsta tid (i sekunder) som en utgången session var Alive |
+>| tomcat. sessions. Alive. Max | tomcat. sessions. Alive. Max | Millisekunder | Längsta tid (i sekunder) som en utgången session var Alive |
 >| Antal skapade Tomcat-sessioner (inaktuellt)<br><br>(borttaget efter den 1 juli 2020) | tomcat. sessions. created | Antal | Antal sessioner som har skapats |
 >| tomcat. sessions. created | tomcat. sessions. created | Antal | Antal sessioner som har skapats |
 >| Antalet utgångna Tomcat session (inaktuellt)<br><br>(borttaget efter den 1 juli 2020) | tomcat. sessions. har gått ut | Antal | Antal sessioner som har upphört att gälla |

@@ -2,13 +2,13 @@
 title: Distribuera resurser med REST API och mall
 description: Använd Azure Resource Manager-och Resource Manager-REST API för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: d7865ac6f9b2bb176ea5308e326dec0741a80962
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 06/04/2020
+ms.openlocfilehash: de24283301a4612179f8eaa3562e0c372898387f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723127"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431640"
 ---
 # <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Distribuera resurser med ARM-mallar och Resource Manager-REST API
 
@@ -73,7 +73,7 @@ I exemplen i den här artikeln används resurs grupps distributioner.
    }
    ```
 
-1. Verifiera distributionen innan du kör den genom att köra [distributions åtgärden verifiera en mall](/rest/api/resources/deployments/validate) . När du testar distributionen anger du parametrar exakt som du skulle göra när du utförde distributionen (visas i nästa steg).
+1. Innan du distribuerar din mall kan du förhandsgranska de ändringar som mallen kommer att göra i din miljö. Använd [åtgärden konsekvens](template-deploy-what-if.md) för att kontrol lera att mallen gör de ändringar som du förväntar dig. Vad händer om även validerar mallen för fel.
 
 1. Om du vill distribuera en mall anger du ditt prenumerations-ID, namnet på resurs gruppen, namnet på distributionen i begärande-URI: n.
 

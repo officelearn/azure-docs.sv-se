@@ -5,16 +5,16 @@ description: Lär dig hur du använder Azure CLI för att skapa en ny Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
-ms.openlocfilehash: 9a7d0b75140c50df61ff63f350e5b312a6a684c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9131ce9b211a33fe45ef571f3a274b4ddc81739f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617781"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430391"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -64,7 +64,7 @@ Azure Machine Learning-arbetsytan är beroende av följande Azure-tjänster elle
 | Tjänst | Parameter för att ange en befintlig instans |
 | ---- | ---- |
 | **Azure-resurs grupp** | `-g <resource-group-name>`
-| **Azure Storage konto** | `--storage-account <service-id>` |
+| **Azure Storage-konto** | `--storage-account <service-id>` |
 | **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
@@ -103,7 +103,7 @@ Mer information om hur du arbetar med resurs grupper finns i [AZ Group](https://
 Om du vill skapa en ny arbets yta där __tjänsterna skapas automatiskt__, använder du följande kommando:
 
 > [!TIP]
-> Kommandona i det här avsnittet skapar en Basic Edition-arbetsyta. Om du vill skapa en företags arbets yta `--sku enterprise` använder du växeln `az ml workspace create` med kommandot. Mer information om Azure Machine Learning-versioner finns i [Azure Machine Learning](overview-what-is-azure-ml.md#sku).
+> Kommandona i det här avsnittet skapar en Basic Edition-arbetsyta. Om du vill skapa en företags arbets yta använder du `--sku enterprise` växeln med `az ml workspace create` kommandot. Mer information om Azure Machine Learning-versioner finns i [Azure Machine Learning](overview-what-is-azure-ml.md#sku).
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -181,7 +181,7 @@ Om du vill skapa en arbets yta som använder befintliga resurser måste du ange 
     > [!IMPORTANT]
     > Kontot för behållar registret måste ha [Administratörs kontot](/azure/container-registry/container-registry-authentication#admin-account) aktiverat innan det kan användas med en Azure Machine Learning-arbetsyta.
 
-När du har ID: n för de resurser som du vill använda med arbets ytan använder du kommandot Base `az workspace create -w <workspace-name> -g <resource-group-name>` och lägger till parametrarna och ID: na för de befintliga resurserna. Följande kommando skapar till exempel en arbets yta som använder ett befintligt behållar register:
+När du har ID: n för de resurser som du vill använda med arbets ytan använder du `az workspace create -w <workspace-name> -g <resource-group-name>` kommandot Base och lägger till parametrarna och ID: na för de befintliga resurserna. Följande kommando skapar till exempel en arbets yta som använder ett befintligt behållar register:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name> --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"

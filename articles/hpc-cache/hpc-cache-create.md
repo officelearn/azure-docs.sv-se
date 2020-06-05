@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: v-erkel
-ms.openlocfilehash: 122ef938aad51e83f88cd7f1e4ab18e3975d7d80
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 894595ee3660532bf046a39e994fa669f7c6b002
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344312"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434094"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Skapa en Azure HPC-cache
 
@@ -21,7 +21,7 @@ Använd Azure Portal för att skapa din cache.
 
 Klicka på bilden nedan om du vill titta på en [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) av hur du skapar en cache och lägger till ett lagrings mål.
 
-[![video miniatyr: Azure HPC cache: Setup (Klicka för att besöka video sidan)](media/video4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+[![video miniatyr: Azure HPC cache: Setup (Klicka för att besöka video sidan)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="define-basic-details"></a>Definiera grundläggande information
 

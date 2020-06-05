@@ -1,14 +1,14 @@
 ---
 title: Resource Manager-resurs typer som stöds
 description: Ange en lista över resurs typer för resurs hanteraren som stöds av Azure Resource Graph och ändrings historik.
-ms.date: 05/21/2020
+ms.date: 06/04/2020
 ms.topic: reference
-ms.openlocfilehash: 7ccf8cc58ce19746958f89ff9d9207906aad16bd
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: a4679c9e1ecaef34445a7283e0d58ab78cb61ab0
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770592"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424303"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Resurs diagram tabell och referens för resurs typ i Azure
 
@@ -484,13 +484,6 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. Security/regulatorycompliancestandards
 - Microsoft. Security/regulatorycompliancestandards/regulatorycompliancecontrols
 - Microsoft. Security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
-- Microsoft. Security/securitystatuses
-- Microsoft. Security/securitystatuses/containerhosts
-- Microsoft. Security/securitystatuses/onpremisemachines
-- Microsoft. Security/securitystatuses/servers
-- Microsoft. Security/securitystatuses/undernät
-- Microsoft. Security/securitystatuses/virtualmachines
-- Microsoft. Security/securitystatusessummaries
 
 ## <a name="next-steps"></a>Nästa steg
 

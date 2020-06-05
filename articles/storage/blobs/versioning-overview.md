@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7e4bc74a51e3d6b19957bdd12512e18fa594c811
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 89d69547d793599fc669927b1a500716a858cc89
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123844"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433589"
 ---
 # <a name="blob-versioning-preview"></a>Blob-version (för hands version)
 
@@ -178,8 +178,8 @@ I följande tabell visas vilka RBAC-åtgärder som stöder borttagning av BLOB-e
 
 | Beskrivning | Blob Service åtgärd | Åtgärd för RBAC-data krävs | Stöd för RBAC-inbyggd roll |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Tar bort den aktuella versionen av blobben | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Delete/actionDeleting** | Storage BLOB data-deltagare |
-| Tar bort en version | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/deleteBlobVersion/** | Storage BLOB data-ägare |
+| Tar bort den aktuella versionen av blobben | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Delete** | Storage BLOB data-deltagare |
+| Tar bort en version | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/deleteBlobVersion/åtgärd** | Storage BLOB data-ägare |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parametrar för signatur för delad åtkomst (SAS)
 

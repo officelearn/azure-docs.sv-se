@@ -7,16 +7,16 @@ author: maxluk
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: c47bdc17041b2c388b01681dc1e65ddea29b0efb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 53a5a78f776982ec9bf21e5e45e3e89eb93e5cce
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584407"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433850"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med hjälp av uppskattning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -111,7 +111,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 Koden ovan visar följande nya parametrar för `Estimator` konstruktorn:
 
-Parameter | Beskrivning | Standard
+Parameter | Beskrivning | Default
 --|--|--
 `custom_docker_image`| Namnet på den avbildning som du vill använda. Ange bara avbildningar som är tillgängliga i offentliga Docker-databaser (i det här fallet Docker Hub). Använd konstruktorns parameter i stället om du vill använda en avbildning från en privat Docker-lagringsplats `environment_definition` . [Se exempel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Antal noder som ska användas för ditt utbildnings jobb. | `1`

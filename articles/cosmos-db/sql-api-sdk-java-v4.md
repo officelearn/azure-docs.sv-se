@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: b222a94ee754b24192261451d8ddc429886e705c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: c2e625a1e6f640e8c554e793abea553d75934f62
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725660"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418236"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -59,3 +59,73 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett 
 | **Lägsta körnings tid som stöds**|[JDK 8](/java/azure/jdk/?view=azure-java-stable) | 
 | **Azure Cosmos DB workshops och labb** |[Start sida för Cosmos DB workshops](https://aka.ms/cosmosworkshop)
 
+## <a name="release-history"></a>Versions historik
+
+### <a name="401-beta4-unreleased"></a>4.0.1 – beta. 4 (frisläppt)
+#### <a name="new-features"></a>Nya funktioner
+* Fler exempel & berikade dokument lades till `CosmosClientBuilder` . 
+* Uppdaterade `CosmosDatabase`  &  `CosmosContainer` API: er med throughputProperties för autoskalning/autopilot-stöd. 
+* Har bytt namn `CosmosClientException` till `CosmosException` . 
+* Ersatts `AccessCondition`  &  `AccessConditionType` av `ifMatchETag()`  &  `ifNoneMatchETag()` API: er. 
+* Sammanfogade alla `Cosmos*AsyncResponse`  &  `CosmosResponse` typer till en enda `CosmosResponse` typ.
+* Har bytt namn `CosmosResponseDiagnostics` till `CosmosDiagnostics` .  
+* Omsluten `FeedResponseDiagnostics` `CosmosDiagnostics` . 
+* `jackson`Beroende av Azure-cosmos & förlitar sig på Azure-Core. 
+* Ersatt `CosmosKeyCredential` av `AzureKeyCredential` typ. 
+* `ProxyOptions`API: er har lagts till i `GatewayConnectionConfig` . 
+* SDK har uppdaterats för att använda `Instant` typ i stället för `OffsetDateTime` . 
+* Ny Enum-typ har lagts till `OperationKind` . 
+* Har bytt namn `FeedOptions` till `QueryRequestOptions` . 
+* `getETag()`  &  `getTimestamp()` API: er har lagts till i `Cosmos*Properties` typerna. 
+* Information har lagts till `userAgent` i `CosmosException`  &  `CosmosDiagnostics` . 
+* Ett nytt rad avstånd har uppdaterats `Diagnostics` till rad i systemet. 
+
+### <a name="401-beta3-2020-05-15"></a>4.0.1 – beta. 3 (2020-05-15)
+#### <a name="new-features"></a>Nya funktioner
+* Har lagt till stöd för autoskalning/autopilot-genomflöde i SDK.  
+* Ersatt `ConnectionPolicy` med nya anslutnings konfigurationer. Exponerade `DirectConnectionConfig`  &  `GatewayConnectionConfig` API: er via `CosmosClientBuilder` för direktanslutna & Gateway mode-anslutnings konfigurationer.
+* Flyttad `JsonSerializable`  &  `Resource` till implementerings paketet. 
+* API har lagts `contentResponseOnWriteEnabled` till för CosmosClientBuilder, vilket inaktiverar fullständigt svars innehåll vid Skriv åtgärder.
+* Exponerade `getETag()` API: er för svars typer.
+* Flyttad `CosmosAuthorizationTokenResolver` till implementering. 
+* API har bytt namn `preferredLocations`  &  `multipleWriteLocations` till `preferredRegions`  &  `multipleWriteRegions` . 
+* Uppdaterat `reactor-core` till 3.3.5. release, `reactor-netty` till 0.9.7. release & `netty` till 4.1.49. Finale-versioner. 
+* Stöd har lagts till `analyticalStoreTimeToLive` i SDK.     
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Problem med fast socket läcker med direkt TCP-klient.
+* Åtgärdat `orderByQuery` med fel i fortsättnings-token.
+
+### <a name="401-beta2-2020-04-21"></a>4.0.1 – beta. 2 (2020-04-21)
+#### <a name="new-features"></a>Nya funktioner
+* `CosmosClientException`utökar `AzureException` . 
+* API: er har tagits bort `maxItemCount`  &  `requestContinuationToken` från `FeedOptions` i stället med `byPage()` API: er `CosmosPagedFlux`  &  `CosmosPagedIterable` .
+* Infört `CosmosPermissionProperties` på offentlig yta för `Permission` API: er.
+* Den borttagna `SqlParameterList` typen & ersatts av`List`
+* Fast flera minnes läckor i direkt TCP-klient. 
+* Stöd har lagts till för `DISTINCT` frågor. 
+* Externa beroenden har tagits bort `fasterxml.uuid, guava, commons-io, commons-collection4, commons-text` .  
+* Flyttad `CosmosPagedFlux`  &  `CosmosPagedIterable` till `utils` paket. 
+* Uppdaterad nettning till 4.1.45. slutlig & projekt reaktor till 3.3.3 version.
+* Uppdaterade offentliga rest-kontrakt till `Final` klasser. 
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* `ChangeFeedProcessor`fel korrigering för hantering av partition delas & när partitionen inte hittas.
+* `ChangeFeedProcessor`fel korrigering vid synkronisering av låne uppdateringar mellan olika trådar.
+
+### <a name="401-beta1-2020-03-10"></a>4.0.1 – beta. 1 (2020-03-10)
+#### <a name="new-features"></a>Nya funktioner 
+* Paketet har uppdaterats till`com.azure.cosmos`
+* `models`Paket för modell/rest-avtal har lagts till
+* Paket har lagts till `utils` för `CosmosPagedFlux`  &  `CosmosPagedIterable` typer. 
+* Uppdaterade offentliga API: er som ska användas i `Duration` SDK.
+* Alla rest-kontrakt har lagts till i `models` paketet.
+* `RetryOptions`har bytt namn till `ThrottlingRetryOptions` .
+* `CosmosPagedFlux`  &  `CosmosPagedIterable` Sid brytnings typer har lagts till för API: er för frågor. 
+* Stöd har lagts till för delning av TransportClient över flera instanser av CosmosClients med hjälp av ett nytt API i`CosmosClientBuilder#connectionSharingAcrossClientsEnabled(true)`
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Fast konkurrens tillstånd `ArrayIndexOutOfBound` som orsakar undantag i StoreReader
+
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+
+## <a name="see-also"></a>Se även
+Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.

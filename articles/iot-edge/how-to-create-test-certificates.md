@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 921a9c5f7136713f278d9c50bf67f02d9742a470
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309143"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430673"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Skapa demonstrations certifikat för att testa IoT Edge enhets funktioner
 
@@ -36,7 +36,7 @@ Följ de här stegen för att skapa demonstrations certifikat för att testa IoT
    * [Skapa IoT Edge enhets certifikat](#create-iot-edge-device-ca-certificates) för certifikat för att testa produktions scenarier eller Gateway-scenarier.
    * [Skapa certifikat för underordnad enhet](#create-downstream-device-certificates) för att testa att autentisera underordnade enheter IoT Hub i ett Gateway-scenario.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En utvecklings dator med git installerat.
 
@@ -272,7 +272,7 @@ Det är dock en bra idé att undvika att använda samma namn.
 ## <a name="create-downstream-device-certificates"></a>Skapa certifikat för underordnad enhet
 
 Om du konfigurerar en underordnad IoT-enhet för ett Gateway-scenario och vill använda X. 509-autentisering, kan du generera demo certifikat för den underordnade enheten.
-Om du vill använda symmetrisk nyckel autentisering behöver du inte några certifikat för den underordnade enheten.
+Om du vill använda symmetrisk nyckel autentisering behöver du inte skapa ytterligare certifikat för den underordnade enheten.
 Det finns två sätt att autentisera en IoT-enhet med X. 509-certifikat: använda självsignerade certifikat eller använda signerade certifikat från certifikat utfärdare (CA).
 För X. 509-självsignerad autentisering, som ibland kallas tumavtryck-autentisering, måste du skapa nya certifikat som ska placeras på din IoT-enhet.
 Dessa certifikat har ett tumavtryck i dem som du delar med IoT Hub för autentisering.
@@ -293,7 +293,7 @@ Din IoT-enhet behöver också en kopia av sina enhets certifikat så att den kan
 
 1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
 
-2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Till exempel:
+2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Exempel:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -323,7 +323,7 @@ Din IoT-enhet behöver också en kopia av sina enhets certifikat så att den kan
 
 1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
 
-2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Till exempel:
+2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Exempel:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

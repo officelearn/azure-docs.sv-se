@@ -50,12 +50,12 @@ I stället för att använda push-meddelanden för Multi-Factor Authentication k
 
 Microsoft Authenticator funktion | Tillgänglighet i Kina
 ------------------------------- | ---------------------
-MFA-registrering med push-meddelanden | Inga
-Redan befintligt MFA-konto verifierar identitet med push-meddelanden | Inga
+MFA-registrering med push-meddelanden | Nej
+Redan befintligt MFA-konto verifierar identitet med push-meddelanden | Nej
 Befintligt MFA-konto som utför manuell kontroll av meddelanden | Ja
 MFA-registrering/-autentisering med TOTP mobilapp/verifierings koder | Ja
-Registrering av telefonin loggning | Inga
-Befintlig telefonin loggning med push-meddelanden | Inga
+Registrering av telefonin loggning | Nej
+Befintlig telefonin loggning med push-meddelanden | Nej
 Befintlig telefonin loggning genom att utföra manuell kontroll av autentiseringsbegäranden | Ja
 
 ## <a name="next-steps"></a>Nästa steg

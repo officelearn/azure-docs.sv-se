@@ -3,12 +3,12 @@ title: Uppspelning av flera dagars inspelningar – Azure
 description: 'I den här självstudien får du lära dig hur du använder Azure Media Service-API: er för att spela upp en kontinuerlig video inspelning på flera dagar.'
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 0b294769fce58f5aaae82fec590c783e8328d826
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 52ef33e8c4380e9c21e99c4ba45b7f25f7c57780
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261890"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433652"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Självstudie: uppspelning av flera dagars inspelningar  
 
@@ -29,7 +29,7 @@ Vi rekommenderar att du läser igenom följande dokumentations sidor:
 * [Real tids analys av video i IoT Edge översikt](overview.md)
 * [Video analys i real tid med IoT Edge terminologi](terminology.md)
 * [Media diagram-koncept](media-graph-concept.md)
-* [Kontinuerlig inspelning av video](continuous-video-recording-concept.md) 
+* [Kontinuerlig videoinspelning](continuous-video-recording-concept.md) 
 * [Instruktions guide: uppspelning av inspelningar](playback-recordings-how-to.md)
 * [Självstudie: kontinuerlig videoinspelning](continuous-video-recording-tutorial.md)
 
@@ -57,7 +57,7 @@ Som en del av [självstudien om CVR](continuous-video-recording-tutorial.md)skul
 }
 ```
 
-Gå sedan till Visual Studio Code och öppna src/AMS-Asset-Player. Den här mappen innehåller de filer som krävs för den här självstudien. Öppna filen appSettings. JSON och kopiera innehållet till en ny fil, appSettings. Developer. JSON. Gör följande ändringar i den senare filen:
+Gå sedan till Visual Studio Code och öppna src/AMS-Asset-Player. Den här mappen innehåller de filer som krävs för den här självstudien. Öppna filen appSettings. JSON och kopiera dess innehåll till en ny fil, appSettings. Development. JSON. Gör följande ändringar i den senare filen:
 
 ```
   "AMS" : {

@@ -5,18 +5,18 @@ description: Lär dig hur du samlar in Azure Machine Learning indata för modell
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: laobri
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8c488b2ad6fcb5228de0e89bd036e299632c5dd4
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337418"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432994"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
@@ -55,7 +55,7 @@ Sökvägen till utdata i bloben följer den här syntaxen:
 >[!NOTE]
 > I versioner av Azure Machine Learning SDK för python tidigare än version 0.1.0 A16 `designation` heter argumentet `identifier` . Om du har utvecklat din kod med en tidigare version måste du uppdatera den.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 

@@ -6,18 +6,31 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 10/16/2019
+ms.date: 6/4/2020
 ms.author: dapatil
-ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74b02da51603366f5ec18aa4733117bc2c59faf7
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72433409"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417862"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Distributionshanteraren för Azure Site Recovery versions historik
 
 Den här artikeln innehåller en historik över alla versioner av Distributionshanteraren för Azure Site Recovery tillsammans med korrigeringar, kända begränsningar för varje versions datum.
+
+## <a name="version-252"></a>Version 2,52
+
+**Utgivnings datum: 4 juni 2020**
+
+**Fixe**
+
+- Stöd har lagts till för vCenter 7,0
+- Stöd har lagts till för följande operativ system:
+
+    - SUSE Linux Enterprise 15 (med alla del versioner)
+    - Red Hat Enterprise Linux 8 (med alla del versioner)
+
 
 ## <a name="version-251"></a>Version 2,51
 
@@ -44,7 +57,7 @@ Den här artikeln innehåller en historik över alla versioner av Distributionsh
 
 - Förbättrad kompatibilitet för operativ system, särskilt vid hantering av lokaliserings fel.
 - Virtuella datorer har lagts till med upp till 20 Mbps data ändrings frekvens (omsättning) i kompatibilitetskontroll.
-- Förbättrade fel meddelanden
+- Förbättrade felmeddelanden
 - Stöd har lagts till för vCenter 6,7.
 - Stöd har lagts till för Windows Server 2019 och Red Hat Enterprise Linux (RHEL)-arbets Station.
 
@@ -109,7 +122,7 @@ Den här artikeln innehåller en historik över alla versioner av Distributionsh
 
 **Kända begränsningar:**
 
-- För haveri beredskap för Hyper-V till Azure kan den virtuella datorn ha ett namn som `,`innehåller `"`de `[`tecken `]`som: ``` ` ``` ,,, och som inte stöds. Om profilerat Miss lyckas rapporterar rapportgenerering eller kommer att ha ett felaktigt resultat.
+- För haveri beredskap för Hyper-V till Azure kan den virtuella datorn ha ett namn som innehåller de tecken som: `,` , `"` ,, och som `[` `]` ``` ` ``` inte stöds. Om profilerat Miss lyckas rapporterar rapportgenerering eller kommer att ha ett felaktigt resultat.
 - För haveri beredskap för VMware till Azure stöds inte VM med namn som innehåller kommatecken. Om profilerade, rapportgenerering, Miss lyckas eller kommer att ha ett felaktigt resultat.
 
 ## <a name="version-131"></a>Version 1.3.1

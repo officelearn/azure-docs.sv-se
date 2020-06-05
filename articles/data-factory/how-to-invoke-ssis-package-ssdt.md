@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/31/2019
-ms.openlocfilehash: 11e76fea87c60ae2b56cc15d5827be6e1b2b5a01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d8261d05f59c7f40ba6b1e2d59d2b15ad56de95
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399434"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424590"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Köra SSIS-paket i Azure från SSDT
 
@@ -31,44 +31,74 @@ Med den här funktionen kan du skapa en ny Azure-SSIS IR eller bifoga en befintl
 Om du vill använda den här funktionen laddar du ned och installerar de senaste SSDT med SSIS Projects-tillägget för Visual Studio härifrån eller som [here](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)ett fristående installations [program härifrån.](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
 
 ## <a name="azure-enable-ssis-projects"></a>Azure – aktivera SSIS-projekt
+### <a name="create-new-azure-enabled-ssis-projects"></a>Skapa nya Azure-aktiverade SSIS-projekt
 På SSDT kan du skapa nya Azure-aktiverade SSIS-projekt med hjälp av mallen för **Integration Services-projekt (Azure-aktiverad)** .
 
-![Nytt Azure-aktiverat SSIS-projekt](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-new-project.png)
+   ![Nytt Azure-aktiverat SSIS-projekt](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-new-project.png)
 
-Du kan också Azure-aktivera dina befintliga SSIS-projekt genom att högerklicka på noden projekt i Solution Explorer panel i SSDT för att öppna en meny och sedan välja det **Azure-aktiverade** meny alternativet.
+När det Azure-aktiverade projektet har skapats uppmanas du att ansluta till SSIS i Azure Data Factory.
 
-![Azure – aktivera befintligt SSIS-projekt](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-existing-project.png)
+   ![Anslut Azure-SSIS IR-prompt](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-integration-runtime-connect-prompt.png)
 
-Azure-aktivera dina befintliga SSIS-projekt kräver att du anger att mål Server versionen ska vara den senaste versionen som stöds av Azure-SSIS IR, som för närvarande är **SQL Server 2017**, så om du inte redan har gjort det öppnas ett dialog fönster för att göra detta.
+Om du vill ansluta till din Azure-SSIS IR direkt, se [ansluta till Azure-SSIS IR](#irconnect) för mer information. Du kan också ansluta senare genom att högerklicka på noden projekt i Solution Explorer panel i SSDT för att popup-menyn och sedan välja kommandot **Anslut till SSIS i Azure Data Factory** -menyn under undermenyn **SSIS i Azure Data Factory** .
 
-## <a name="connect-azure-enabled-projects-to-ssis-in-azure-data-factory"></a>Ansluta Azure-aktiverade projekt till SSIS i Azure Data Factory
-Genom att ansluta dina Azure-aktiverade projekt till SSIS i ADF kan du ladda upp dina paket till Azure Files och köra dem på Azure-SSIS IR.  Det gör du genom att följa dessa steg:
+### <a name="azure-enable-existing-ssis-projects"></a>Azure – aktivera befintliga SSIS-projekt
+För befintliga SSIS-projekt kan du aktivera dem med Azure genom att följa dessa steg:
 
-1. Högerklicka på noden projekt eller **länkad Azure-resurser** på Solution Explorers panel i SSDT för att öppna en meny och markera meny alternativet **Anslut till SSIS i Azure Data Factory** för att starta **SSIS i guiden för automatisk**upplyft-anslutning.
+1. Högerklicka på noden projekt i Solution Explorer panel i SSDT för att öppna en meny och sedan välja det **Azure-aktiverade projekt** -menyobjektet på undermenyn **SSIS i Azure Data Factory** för att starta **guiden Azure-aktiverad projekt**.
 
-   ![Ansluta till SSIS i ADF](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-existing-project2.png)
+   ![Azure – aktivera befintligt SSIS-projekt](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-for-existing-project.png)
 
-2. På sidan **SSIS på ADF-introduktionen** granskar du introduktionen och klickar på knappen **Nästa** för att fortsätta.
+2. På sidan **Välj Visual Studio-konfiguration** väljer du Visual Studio-konfigurationen för att tillämpa paket körnings inställningar i Azure. En bra idé är att skapa en ny Visual Studio-konfiguration för molnet och Azure – aktivera ditt projekt mot moln konfigurationen. Med flera konfigurationer kan du tilldela olika värden till parametrarna baserat på olika miljöer (antingen lokalt eller i Azure). Se [det här exemplet](#example) om du vill ha mer information.
+
+   ![Välj Visual Studio-konfiguration](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
+
+3. Azure – aktivera dina befintliga SSIS-projekt kräver att du anger att mål Server versionen ska vara den senaste som stöds av Azure-SSIS IR, som för närvarande är **SQL Server 2017**. Om du inte redan har gjort det måste du kontrol lera om paketet innehåller ytterligare komponenter som inte stöds på SQL Server 2017 och klicka på knappen Nästa för att fortsätta om det inte finns något problem.
+
+   ![Byt mål Server version](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-switch-target-server-version-step.png)
+
+4. Se [ansluta till Azure-SSIS IR](#irconnect) för att slutföra anslutningen till Azure-SSIS IR.
+
+## <a name="connect-azure-enabled-projects-to-ssis-in-azure-data-factory"></a><a name="irconnect"></a>Ansluta Azure-aktiverade projekt till SSIS i Azure Data Factory
+
+Genom att ansluta dina Azure-aktiverade projekt till SSIS i ADF kan du ladda upp dina paket till Azure Files och köra dem på Azure-SSIS IR. Det gör du genom att följa dessa steg:
+
+1. På sidan **SSIS på ADF-introduktionen** granskar du introduktionen och klickar på knappen **Nästa** för att fortsätta.
 
    ![SSIS i ADF introduktion](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard.png)
 
-3. På sidan **Välj SSIS IR på ADF** väljer du den befintliga ADF-filen och Azure-SSIS IR att köra paket eller skapar nya om du inte har några.
+2. På sidan **Välj SSIS IR på ADF** väljer du den befintliga ADF-filen och Azure-SSIS IR att köra paket eller skapar nya om du inte har några.
    - Välj den aktuella Azure-prenumerationen och ADF först om du vill välja din befintliga Azure-SSIS IR.
    - Om du väljer din befintliga ADF som inte har några Azure-SSIS IR klickar du på knappen **skapa SSIS IR** för att skapa en ny på ADF-portalen/-appen.
    - Om du väljer din befintliga Azure-prenumeration som saknar ADF, klickar du på knappen **skapa SSIS IR** för att starta guiden skapa **integration runtime**, där du kan ange plats och prefix för att vi automatiskt ska skapa en ny Azure-resurs grupp, Data Factory och SSIS IR för din räkning, med namnet i följande mönster: **YourPrefix-RG/DF/IR-YourCreationTime**.
-   
+
    ![Välj SSIS IR i ADF](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard2.png)
 
-4. På sidan **välj Azure Storage** väljer du ditt befintliga Azure Storage-konto för att överföra paket till Azure Files eller skapa ett nytt om du inte har några.
+3. På sidan **välj Azure Storage** väljer du ditt befintliga Azure Storage-konto för att överföra paket till Azure Files eller skapa ett nytt om du inte har några.
    - Välj den aktuella Azure-prenumerationen först om du vill välja ditt befintliga Azure Storage-konto.
    - Om du väljer samma Azure-prenumeration som Azure-SSIS IR som inte har något Azure Storage konto, klickar du på knappen **skapa Azure Storage** för att vi automatiskt ska skapa en ny för din räkning på samma plats som din Azure-SSIS IR, med namnet genom att kombinera ett prefix av ditt Azure-SSIS IR namn och dess skapelse datum.
    - Om du väljer en annan Azure-prenumeration som inte har något Azure Storage konto klickar du på knappen **skapa Azure Storage** för att skapa en ny på Azure Portal.
-   
+
    ![Välj Azure Storage](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard3.png)
 
-5. Klicka på knappen **Anslut** för att slutföra anslutningen.  Vi kommer att visa den valda Azure-SSIS IR och Azure Storage kontot under noden **länkade Azure-resurser** i Solution Explorer panel i SSDT.  Vi uppdaterar också status för din Azure-SSIS IR, medan du kan hantera den genom att högerklicka på noden för att öppna en meny och sedan välja det **Start\Stop\Manage** -menyobjektet som leder dig till ADF-portalen/-appen.
+4. Klicka på knappen **Anslut** för att slutföra anslutningen.  Vi kommer att visa den valda Azure-SSIS IR och Azure Storage kontot under noden **länkade Azure-resurser** i Solution Explorer panel i SSDT.  Vi uppdaterar också status för din Azure-SSIS IR, medan du kan hantera den genom att högerklicka på noden för att öppna en meny och sedan välja det **Start\Stop\Manage** -menyobjektet som leder dig till ADF-portalen/-appen.
 
 ## <a name="execute-ssis-packages-in-azure"></a>Köra SSIS-paket i Azure
+### <a name="azure-enabled-setting"></a>Azure-aktiverad inställning
+Innan du kör dina paket i Azure kan du välja att konfigurera körnings inställningar. Om du vill aktivera Windows-autentisering för dina SSIS-paket följer du stegen nedan:
+
+1. Högerklicka på noden projekt i Solution Explorer panel i SSDT för att popup-menyn och sedan välja alternativet **Azure-aktiverade inställningar** på menyn **SSIS i Azure Data Factory** .
+
+   ![Azure-aktiverade inställningar](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
+
+2. Klicka på list rutan **Aktivera Windows-autentisering** och välj **Sant**. Klicka sedan på knappen Redigera för **autentiseringsuppgifter för Windows-autentisering** för att ange autentiseringsuppgifterna.
+
+   ![Aktivera Windows-autentisering](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-windows-authentication-open.png)
+
+3. Ange autentiseringsuppgifter i redigeraren för **autentiseringsuppgifter för Windows-autentisering** .
+
+   ![Autentiseringsuppgifter för Windows-autentisering](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-windows-authentication-credential.png)
+
 ### <a name="starting-package-executions"></a>Starta paket körningar
 När du har anslutit dina projekt till SSIS i ADF kan du köra paket på Azure-SSIS IR.  Det finns två alternativ för att starta paket körningar:
 -  Klicka på **Start** -knappen i SSDT-verktygsfältet för att ta bort en meny och välj meny alternativet **Kör i Azure** 
@@ -83,15 +113,15 @@ När du har anslutit dina projekt till SSIS i ADF kan du köra paket på Azure-S
 > Om du ska kunna köra dina paket i Azure måste du ha en Azure-SSIS IR, så om Azure-SSIS IR stoppas öppnas ett fönster i dialog rutan där du kan starta det.  Om du exkluderar en anpassad konfigurations tid bör den här processen slutföras inom 5 minuter, men det kan ta cirka 20-30 minuter för Azure-SSIS IR att ansluta till ett virtuellt nätverk.  När du har kört dina paket i Azure kan du stoppa Azure-SSIS IR för att hantera dess löpande kostnad genom att högerklicka på noden i Solution Explorer panel i SSDT för att öppna en meny och sedan välja **Start\Stop\Manage** -menyobjektet som tar dig till ADF-portalen/-appen.
 
 ### <a name="checking-package-execution-logs"></a>Kontrollerar paket körnings loggar
-När du startar paket körningen kommer vi att formatera och visa loggen i förlopps fönstret för SSDT.  För ett långvarigt paket kommer vi regelbundet att uppdatera loggen med minuterna.  Du kan stoppa paket körningen genom att klicka på **stopp** knappen i SSDT-verktygsfältet som omedelbart avbryter det.  Du kan också tillfälligt hitta logg rå data i sin Universal Naming Convention (UNC): `\\<YourConnectedAzureStorage>.file.core.windows.net\ssdtexecution\<YourProjectName-FirstConnectTime>\<YourPackageName-tmp-ExecutionTime>\logs`, men vi kommer att rensa upp den efter en dag.
+När du startar paket körningen kommer vi att formatera och visa loggen i förlopps fönstret för SSDT.  För ett långvarigt paket kommer vi regelbundet att uppdatera loggen med minuterna.  Du kan stoppa paket körningen genom att klicka på **stopp** knappen i SSDT-verktygsfältet som omedelbart avbryter det.  Du kan också tillfälligt hitta logg rå data i sin Universal Naming Convention (UNC): `\\<YourConnectedAzureStorage>.file.core.windows.net\ssdtexecution\<YourProjectName-FirstConnectTime>\<YourPackageName-tmp-ExecutionTime>\logs` , men vi kommer att rensa upp den efter en dag.
 
 ### <a name="switching-package-protection-level"></a>Växlar paket skydds nivå
-Körning av SSIS-paket i Azure stöder inte **EncryptSensitiveWithUserKey**/**EncryptAllWithUserKey** -skydds nivåer.  Om dina paket har kon figurer ATS med dessa växlar vi tillfälligt till **EncryptSensitiveWithPassword**/**EncryptAllWithPassword**med slumpmässigt genererade lösen ord när vi laddar upp dina paket till Azure Files för körning på din Azure-SSIS IR.
+Körning av SSIS-paket i Azure stöder inte **EncryptSensitiveWithUserKey** / **EncryptAllWithUserKey** -skydds nivåer.  Om dina paket har kon figurer ATS med dessa växlar vi tillfälligt till **EncryptSensitiveWithPassword** / **EncryptAllWithPassword**med slumpmässigt genererade lösen ord när vi laddar upp dina paket till Azure Files för körning på din Azure-SSIS IR.
 
 > [!NOTE]
-> Om dina paket innehåller uppgifter för att köra paket som refererar till andra paket som kon figurer ATS med **EncryptSensitiveWithUserKey**/**EncryptAllWithUserKey** -skydds nivåer måste du manuellt konfigurera om de andra paketen för att använda **EncryptSensitiveWithPassword**/-**EncryptAllWithPassword**, innan du kör dina paket.
+> Om dina paket innehåller uppgifter för att köra paket som refererar till andra paket som kon figurer ATS med **EncryptSensitiveWithUserKey** / **EncryptAllWithUserKey** -skydds nivåer måste du manuellt konfigurera om de andra paketen för att använda **EncryptSensitiveWithPassword**- / **EncryptAllWithPassword**, innan du kör dina paket.
 
-Om dina paket redan har kon figurer ATS med **EncryptSensitiveWithPassword**/**EncryptAllWithPassword** -skydds nivåer behåller vi dem oförändrade, men kommer fortfarande att använda slumpmässigt genererade lösen ord när vi laddar upp dina paket i Azure Files för körning på din Azure-SSIS IR.
+Om dina paket redan har kon figurer ATS med **EncryptSensitiveWithPassword** / **EncryptAllWithPassword** -skydds nivåer behåller vi dem oförändrade, men kommer fortfarande att använda slumpmässigt genererade lösen ord när vi laddar upp dina paket i Azure Files för körning på din Azure-SSIS IR.
 
 ### <a name="using-package-configuration-file"></a>Använda paket konfigurations fil
 Om du använder paketets konfigurationsfiler i paket distributions modellen för att ändra variabel värden vid körning kommer vi automatiskt att ladda upp dessa filer med dina paket till Azure Files för körning på din Azure-SSIS IR.
@@ -106,6 +136,30 @@ Om dina paket innehåller uppgifter för att köra paket som refererar till andr
    - Alternativt kan du använda en variabel för fil Sök vägen för att tilldela rätt värde vid körning
 
 Om dina paket innehåller uppgifter för att köra paket som refererar till andra paket i samma projekt krävs ingen ytterligare konfiguration.
+
+## <a name="switching-package-execution-environments-with-azure-enabled-projects"></a><a name="example"></a>Växla paket körnings miljöer med Azure-aktiverade projekt
+
+Om du vill växla paket körnings miljöer med Azure-aktiverade projekt kan du skapa flera Visual Studio-konfigurationer för att använda olika värden för miljöbaserade parametrar. Det finns till exempel ett enkelt SSIS-paket med en **fil system aktivitet** som anger attributen för den angivna filen. du kan bara migrera den till molnet med hjälp av följande steg:
+
+1. Definiera en parameter- **sökväg** av sträng typ, vilket är fil Sök vägen till mål filen.
+
+   ![Definiera paket parameter](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-define-parameters.png)
+
+2. Koppla **käll anslutningen** till den här parametern. 
+
+   ![Uppdatera käll anslutning](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-update-task-with-parameters.png)
+
+3. Skapa ny Visual Studio-konfiguration för molnet i Visual Studio-Configuration Manager.
+
+4. Definiera värdena för den här parametern gentemot varje Visual Studio-konfiguration.
+
+   ![Åsidosätt parameter värden](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-override-parameter.png)
+
+5. Azure – aktiverat det här SSIS-projektet mot Visual Studio-konfigurationen för molnet.
+
+6. Kör det här paketet i Azure. Du kan enkelt byta tillbaka miljön till den lokala miljön genom att växla den aktuella Visual Studio-konfigurationen.
+
+   ![Växla Visual Studio-konfiguration](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-switch-configurations.png)
 
 ## <a name="next-steps"></a>Nästa steg
 När du är nöjd med att köra dina paket i Azure från SSDT kan du distribuera och köra dem som kör SSIS-paket-aktiviteter i ADF-pipelines, se [köra SSIS-paket som EXECUTE SSIS-paket aktiviteter i ADF-pipeline](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

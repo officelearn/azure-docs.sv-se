@@ -2,13 +2,13 @@
 title: Distribuera resurser med Azure CLI och mall
 description: Använd Azure Resource Manager och Azure CLI för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.openlocfilehash: 8ee15699a085178add05137be895fe6b660b715b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: a2a1c1fe63d0a841f57407ed5402d7ddca3fcea4
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685691"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432078"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuera resurser med ARM-mallar och Azure CLI
 
@@ -26,35 +26,35 @@ Du kan rikta distributionen till en resurs grupp, prenumeration, hanterings grup
 
 Beroende på distributionens omfattning använder du olika kommandon.
 
-Om du vill distribuera till en **resurs grupp**använder du [AZ distributions grupp skapa](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
+* Om du vill distribuera till en **resurs grupp**använder du [AZ distributions grupp skapa](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
 
-```azurecli-interactive
-az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+  ```
 
-Om du vill distribuera till en **prenumeration**använder du [AZ Deployment sub Create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
+* Om du vill distribuera till en **prenumeration**använder du [AZ Deployment sub Create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
 
-```azurecli-interactive
-az deployment sub create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment sub create --location <location> --template-file <path-to-template>
+  ```
 
-Mer information om distributioner på prenumerations nivå finns i [skapa resurs grupper och resurser på prenumerations nivå](deploy-to-subscription.md).
+  Mer information om distributioner på prenumerations nivå finns i [skapa resurs grupper och resurser på prenumerations nivå](deploy-to-subscription.md).
 
-Om du vill distribuera till en **hanterings grupp**använder du [AZ Deployment mg Create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+* Om du vill distribuera till en **hanterings grupp**använder du [AZ Deployment mg Create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
 
-```azurecli-interactive
-az deployment mg create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment mg create --location <location> --template-file <path-to-template>
+  ```
 
-Mer information om distributioner på hanterings grupp nivå finns i [Skapa resurser på hanterings grupps nivå](deploy-to-management-group.md).
+  Mer information om distributioner på hanterings grupp nivå finns i [Skapa resurser på hanterings grupps nivå](deploy-to-management-group.md).
 
-Använd [AZ Deployment Tenant Create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create)för att distribuera till en **klient organisation**:
+* Använd [AZ Deployment Tenant Create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create)för att distribuera till en **klient organisation**:
 
-```azurecli-interactive
-az deployment tenant create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment tenant create --location <location> --template-file <path-to-template>
+  ```
 
-Mer information om distributioner på klient nivå finns i [Skapa resurser på klient nivå](deploy-to-tenant.md).
+  Mer information om distributioner på klient nivå finns i [Skapa resurser på klient nivå](deploy-to-tenant.md).
 
 I exemplen i den här artikeln används resurs grupps distributioner.
 
@@ -102,6 +102,10 @@ az deployment group create \
 
 I föregående exempel krävs en offentligt tillgänglig URI för mallen som fungerar i de flesta fall eftersom din mall inte ska innehålla känsliga data. Om du behöver ange känsliga data (som ett administratörs lösen ord) skickar du det värdet som en säker parameter. Men om du inte vill att din mall ska vara offentligt tillgänglig kan du skydda den genom att lagra den i en privat lagrings behållare. Information om hur du distribuerar en mall som kräver en SAS-token (signatur för delad åtkomst) finns i [distribuera privat mall med SAS-token](secure-template-with-sas-token.md).
 
+## <a name="preview-changes"></a>Förhandsgranska ändringar
+
+Innan du distribuerar din mall kan du förhandsgranska de ändringar som mallen kommer att göra i din miljö. Använd [åtgärden konsekvens](template-deploy-what-if.md) för att kontrol lera att mallen gör de ändringar som du förväntar dig. Vad händer om även validerar mallen för fel.
+
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../../includes/resource-manager-cloud-shell-deploy.md)]
 
 Använd följande kommandon i Cloud Shell:
@@ -119,7 +123,7 @@ Om du vill skicka parameter värden kan du använda antingen infogade parametrar
 
 ### <a name="inline-parameters"></a>Infogade parametrar
 
-Ange värdena i `parameters`om du vill skicka in infogade parametrar. Om du till exempel vill skicka en sträng och matris till en mall är ett bash-gränssnitt använder du:
+Ange värdena i om du vill skicka in infogade parametrar `parameters` . Om du till exempel vill skicka en sträng och matris till en mall är ett bash-gränssnitt använder du:
 
 ```azurecli-interactive
 az deployment group create \
@@ -128,7 +132,7 @@ az deployment group create \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-Om du använder Azure CLI med kommando tolken i Windows (CMD) eller PowerShell skickar du matrisen i formatet: `exampleArray="['value1','value2']"`.
+Om du använder Azure CLI med kommando tolken i Windows (CMD) eller PowerShell skickar du matrisen i formatet: `exampleArray="['value1','value2']"` .
 
 Du kan också hämta innehållet i filen och ange innehållet som en infogad parameter.
 
@@ -156,7 +160,7 @@ I stället för att skicka parametrar som infogade värden i skriptet, kan det v
 
 Mer information om parameter filen finns i [create Resource Manager parameter File](parameter-files.md).
 
-Om du vill skicka en lokal parameter fil `@` använder du för att ange en lokal fil med namnet Storage. Parameters. JSON.
+Om du vill skicka en lokal parameter fil använder `@` du för att ange en lokal fil med namnet Storage. Parameters. JSON.
 
 ```azurecli-interactive
 az deployment group create \
@@ -168,7 +172,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Hantera utökat JSON-format
 
-Om du vill distribuera en mall med strängar med flera rader eller kommentarer med hjälp av Azure CLI med version 2.3.0 eller äldre måste `--handle-extended-json-format` du använda växeln.  Ett exempel:
+Om du vill distribuera en mall med strängar med flera rader eller kommentarer med hjälp av Azure CLI med version 2.3.0 eller äldre måste du använda `--handle-extended-json-format` växeln.  Exempel:
 
 ```json
 {
@@ -188,57 +192,6 @@ Om du vill distribuera en mall med strängar med flera rader eller kommentarer m
   ],
 ```
 
-## <a name="test-a-template-deployment"></a>Testa en mall distribution
-
-Om du vill testa mallen och parameter värden utan att behöva distribuera några resurser använder du [AZ distributions grupp verifiera](/cli/azure/group/deployment).
-
-```azurecli-interactive
-az deployment group validate \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters @storage.parameters.json
-```
-
-Om inga fel upptäcks returnerar kommandot information om test distributionen. Observera **särskilt att felvärdet** är null.
-
-```output
-{
-  "error": null,
-  "properties": {
-      ...
-```
-
-Om ett fel upptäcks returnerar kommandot ett fel meddelande. Om du till exempel skickar ett felaktigt värde för lagrings kontots SKU returneras följande fel:
-
-```output
-{
-  "error": {
-    "code": "InvalidTemplate",
-    "details": null,
-    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter
-      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed
-      value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
-    "target": null
-  },
-  "properties": null
-}
-```
-
-Om din mall har ett syntaxfel returnerar kommandot ett fel som anger att mallen inte kunde parsas. Meddelandet anger rad numret och positionen för tolknings felet.
-
-```output
-{
-  "error": {
-    "code": "InvalidTemplate",
-    "details": null,
-    "message": "Deployment template parse failed: 'After parsing a value an unexpected character was encountered:
-      \". Path 'variables', line 31, position 3.'.",
-    "target": null
-  },
-  "properties": null
-}
-```
-
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du vill återställa till en lyckad distribution när du får ett fel, se [återställa vid fel till lyckad distribution](rollback-on-error.md).
@@ -246,4 +199,3 @@ Om din mall har ett syntaxfel returnerar kommandot ett fel som anger att mallen 
 - Information om hur du definierar parametrar i din mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
 - Tips om hur du löser vanliga distributions fel finns i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](common-deployment-errors.md).
 - Information om hur du distribuerar en mall som kräver en SAS-token finns i [distribuera privat mall med SAS-token](secure-template-with-sas-token.md).
-- För att på ett säkert sätt distribuera tjänsten till mer än en region, se [Azure Deployment Manager](deployment-manager-overview.md).

@@ -17,6 +17,6 @@ Nu kan du använda den nya `msg` parametern för att skriva till utgående bindn
 
 När du använder en utgående bindning behöver du inte använda Azure Storage SDK-koden för autentisering, hämta en referens till kön eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
 
-`run` Metoden bör nu se ut som i följande exempel:
+`run`Metoden bör nu se ut som i följande exempel:
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="17-38":::

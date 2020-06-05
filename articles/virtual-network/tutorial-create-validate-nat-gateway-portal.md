@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: a076020cc35032f248534f8302631ba0753ca5ed
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d798725892a9586c17cd7023863fe5cf7df05cb6
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84338592"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417845"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Självstudie: skapa en NAT-gateway med hjälp av Azure Portal och testa NAT-tjänsten
 
@@ -101,7 +101,7 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
 
 2. I **skapa offentlig IP-adress**anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | IP-version | Välj **IPv4**.
     | SKU | Välj **standard**.
@@ -170,9 +170,9 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNetdestination          |
 | **\<region-name>**          | USA, östra 2      |
-| **\<IPv4-address-space>**   | 192.168.0.0/16          |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
 | **\<subnet-name>**          | mySubnetdestination        |
-| **\<subnet-address-range>** | 192.168.0.0/24          |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

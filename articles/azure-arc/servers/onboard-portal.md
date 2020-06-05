@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 0b43bb92a58af58ae5924610f0667e9796a426e6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: febd5d1e49a87f0846aba2aaa976e170ee31fab8
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193744"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432340"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ansluta hybrid datorer till Azure från Azure Portal
 
@@ -42,7 +42,7 @@ Skriptet för att automatisera nedladdningen och installationen, och för att up
     >Azure-båge för servrar (för hands version) stöder endast följande regioner:
     >- WestUS2
     >- Västeuropa
-    >- WestAsia
+    >- Sydostasien
     >
     >Granska ytterligare överväganden när du väljer en region [här](overview.md#supported-regions) i översikts artikeln.
 

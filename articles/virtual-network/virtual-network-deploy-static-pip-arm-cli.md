@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: 8e3e37347c8c23ccc9746bbb98ef6a822743848b
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e0d17c91c4f5052d9ada369c14980dea8a606607
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790294"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417709"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure CLI
 
@@ -30,14 +31,14 @@ Du kan skapa en virtuell dator med en statisk offentlig IP-adress. Med en offent
 
 Du kan utföra följande steg från din lokala dator eller med hjälp av Azure Cloud Shell. Se till att du har [installerat Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)för att använda din lokala dator. Om du vill använda Azure Cloud Shell väljer du **testa det** i det övre högra hörnet i alla kommando rutor som följer. Cloud Shell signerar dig till Azure.
 
-1. Om du använder Cloud Shell går du vidare till steg 2. Öppna en kommando-session och logga in på `az login`Azure med.
+1. Om du använder Cloud Shell går du vidare till steg 2. Öppna en kommando-session och logga in på Azure med `az login` .
 2. Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resurs grupp i Azure-regionen USA, östra:
 
    ```azurecli-interactive
    az group create --name myResourceGroup --location eastus
    ```
 
-3. Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az-vm-create). `--public-ip-address-allocation=static` Alternativet tilldelar den virtuella datorn en statisk offentlig IP-adress. I följande exempel skapas en virtuell Ubuntu-dator med en statisk, grundläggande SKU offentlig IP-adress med namnet *myPublicIpAddress*:
+3. Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az-vm-create). `--public-ip-address-allocation=static`Alternativet tilldelar den virtuella datorn en statisk offentlig IP-adress. I följande exempel skapas en virtuell Ubuntu-dator med en statisk, grundläggande SKU offentlig IP-adress med namnet *myPublicIpAddress*:
 
    ```azurecli-interactive
    az vm create \
@@ -50,7 +51,7 @@ Du kan utföra följande steg från din lokala dator eller med hjälp av Azure C
      --public-ip-address-allocation static
    ```
 
-   Om den offentliga IP-adressen måste vara en standard-SKU `--public-ip-sku Standard` , lägger du till föregående kommando. Lär dig mer om [offentliga IP-adresser SKU: er](virtual-network-ip-addresses-overview-arm.md#sku). Om den virtuella datorn ska läggas till i backend-poolen för en offentlig Azure Load Balancer måste SKU: n för den virtuella datorns offentliga IP-adress matcha SKU: n för den offentliga IP-adressen för belastningsutjämnaren. Mer information finns i [Azure Load Balancer](../load-balancer/skus.md).
+   Om den offentliga IP-adressen måste vara en standard-SKU, lägger `--public-ip-sku Standard` du till föregående kommando. Lär dig mer om [offentliga IP-adresser SKU: er](virtual-network-ip-addresses-overview-arm.md#sku). Om den virtuella datorn ska läggas till i backend-poolen för en offentlig Azure Load Balancer måste SKU: n för den virtuella datorns offentliga IP-adress matcha SKU: n för den offentliga IP-adressen för belastningsutjämnaren. Mer information finns i [Azure Load Balancer](../load-balancer/skus.md).
 
 4. Visa den offentliga IP-adress som tilldelats och bekräfta att den har skapats som en statisk, grundläggande SKU-adress med [AZ Network Public-IP show](/cli/azure/network/public-ip#az-network-public-ip-show):
 

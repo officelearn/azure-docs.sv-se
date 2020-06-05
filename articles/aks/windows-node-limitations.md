@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Läs om kända begränsningar när du kör Windows Server-nodkonfigurationer och program arbets belastningar i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/18/2019
-ms.openlocfilehash: 935b049ce5e1951952b4af4e7df9574df764b6e8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/28/2020
+ms.openlocfilehash: 89cfb42da4433f17298cf2cb68f1a4b3d8f9e549
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208014"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433008"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för Windows Server-nodkonfigurationer och program arbets belastningar i Azure Kubernetes service (AKS)
 
@@ -57,6 +57,19 @@ Windows Server-noder i AKS måste *uppgraderas* för att få de senaste korriger
 > [!NOTE]
 > Den uppdaterade Windows Server-avbildningen kommer bara att användas om en kluster uppgradering (kontroll Plans uppgradering) har utförts innan du uppgraderar Node-poolen
 >
+
+## <a name="why-am-i-seeing-an-error-when-i-try-to-create-a-new-windows-agent-pool"></a>Varför ser jag ett fel när jag försöker skapa en ny Windows-agent?
+
+Om du har skapat klustret före februari 2020 och aldrig har gjort några kluster uppgraderings åtgärder, använder klustret fortfarande en gammal Windows-avbildning. Du kanske har sett ett fel som liknar:
+
+"Det gick inte att hitta följande lista över avbildningar som refereras från distributions mal len: utgivare: Microsoft Windows Server, erbjudande: Windows Server, SKU: 2019-Data Center-Core-smalldisk-2004, version: senaste. https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimageMer information om hur du hittar tillgängliga bilder finns i.
+
+Så här löser du detta:
+
+1. Uppgradera [kluster kontroll planet][upgrade-cluster-cp]. Avbildnings erbjudandet och utgivaren uppdateras.
+1. Skapa nya Windows agent-pooler.
+1. Flytta Windows-poddar från befintliga Windows-Gent till nya Windows agent-pooler.
+1. Ta bort gamla Windows agent-pooler.
 
 ## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Hur gör jag för att rotera tjänstens huvud namn för min Windows Node-pool?
 
@@ -112,6 +125,8 @@ Kom igång med Windows Server-behållare i AKS genom att [skapa en noduppsättni
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[upgrade-cluster]: upgrade-cluster.md
+[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909

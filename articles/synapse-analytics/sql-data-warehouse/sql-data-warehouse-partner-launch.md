@@ -23,7 +23,7 @@ ms.locfileid: "84324138"
 Azure Synapse Analytics-partner levereras med djup integrerings & verktyg för att hjälpa våra kunder att påskynda sin digitala omvandling med moln skalnings analys. Ta en titt på erbjudandena från följande partners som stöder lanseringen av den offentliga för hands versionen den 19 maj med social förstärkning, workshops och erbjudanden.
 
 ## <a name="our-public-preview-launch-partners"></a>Vår offentliga för hands versions lanserings partners
-| Partner | Description | Länk till webbplats/produkt |
+| Partner | Beskrivning | Länk till webbplats/produkt |
 | ------- | ----------- | -------------------- |
 | ![Accenture](./media/sql-data-warehouse-partner-public-preview/accenture-logo.png) |**Accenture**<br>Genom att samla ihop 45000 + engagerade experter, är Accenture Microsoft Business Group, som drivs av Avanade, att företag kan blomstra i era digitala störningar.|[Partner sida](https://www.accenture.com/us-en/services/microsoft-index)<br>|
 | ![Adatis](./media/sql-data-warehouse-partner-public-preview/adatis-logo.png) |**Adatis**<br>Adatis erbjuder professionella tjänster som är specialiserade i avancerad data analys, från data hanterings strategin och konsulter via världs klass leverans och hanterade tjänster. |[Partner sida](https://adatis.co.uk/)<br> |

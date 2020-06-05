@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4069774249795073b4390de839ae9f563c8b1cb
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392883"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424029"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Övervaka Azure AD B2C med Azure Monitor
 
@@ -25,8 +25,8 @@ Använd Azure Monitor för att dirigera Azure Active Directory B2C (Azure AD B2C
 Du kan dirigera logg händelser till:
 
 * Ett Azure [Storage-konto](../storage/blobs/storage-blobs-introduction.md).
-* En Azure [Event Hub](../event-hubs/event-hubs-about.md) (och integrera med dina Splunk-och Sumo Logic-instanser).
 * En [Log Analytics arbets yta](../azure-monitor/platform/resource-logs-collect-workspace.md) (för att analysera data, skapa instrument paneler och avisering om vissa händelser).
+* En Azure [Event Hub](../event-hubs/event-hubs-about.md) (och integrera med dina Splunk-och Sumo Logic-instanser).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
@@ -72,9 +72,9 @@ För att förenkla hanteringen rekommenderar vi att du använder Azure AD-använ
 
 ### <a name="create-an-azure-resource-manager-template"></a>Skapa en Azure Resource Manager mall
 
-Om du vill publicera din Azure AD-klient ( **kunden**) skapar du en [Azure Resource Manager mall](../lighthouse/how-to/onboard-customer.md) för ditt erbjudande med följande information. Värdena `mspOfferName` och `mspOfferDescription` visas när du visar erbjudande information på [sidan tjänst leverantörer](../lighthouse/how-to/view-manage-service-providers.md) i Azure Portal.
+Om du vill publicera din Azure AD-klient ( **kunden**) skapar du en [Azure Resource Manager mall](../lighthouse/how-to/onboard-customer.md) för ditt erbjudande med följande information. `mspOfferName`Värdena och `mspOfferDescription` visas när du visar erbjudande information på [sidan tjänst leverantörer](../lighthouse/how-to/view-manage-service-providers.md) i Azure Portal.
 
-| Field   | Definition |
+| Fält   | Definition |
 |---------|------------|
 | `mspOfferName`                     | Ett namn som beskriver den här definitionen. Till exempel *Azure AD B2C hanterade tjänster*. Det här värdet visas för kunden som titeln på erbjudandet. |
 | `mspOfferDescription`              | En kort beskrivning av ditt erbjudande. Till exempel kan *Azure Monitor i Azure AD B2C*.|
@@ -87,7 +87,7 @@ Ladda ned Azure Resource Manager mall och parameterstyrda filer:
 - [rgDelegatedResourceManagement. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
 - [rgDelegatedResourceManagement. Parameters. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
-Sedan uppdaterar du parameter filen med de värden du registrerade tidigare. Följande JSON-kodfragment visar ett exempel på en fil med parametrar för Azure Resource Manager-mall. För `authorizations.value.roleDefinitionId`använder du det [inbyggda roll](../role-based-access-control/built-in-roles.md) svärdet för *deltagar rollen* `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+Sedan uppdaterar du parameter filen med de värden du registrerade tidigare. Följande JSON-kodfragment visar ett exempel på en fil med parametrar för Azure Resource Manager-mall. För `authorizations.value.roleDefinitionId` använder du det [inbyggda roll](../role-based-access-control/built-in-roles.md) svärdet för *deltagar rollen* `b24988ac-6180-42a0-ab88-20f7382dd24c` .
 
 ```JSON
 {
@@ -141,7 +141,7 @@ Växla sedan till den prenumeration som du vill projicera till Azure AD B2C klie
 Select-AzSubscription <subscription ID>
 ```
 
-Slutligen distribuerar du Azure Resource Manager mall och de parameter-filer som du laddade ned och uppdaterade tidigare. Ersätt värdena `Location`, `TemplateFile`och `TemplateParameterFile` enligt detta.
+Slutligen distribuerar du Azure Resource Manager mall och de parameter-filer som du laddade ned och uppdaterade tidigare. Ersätt `Location` värdena, `TemplateFile` och enligt `TemplateParameterFile` detta.
 
 ```PowerShell
 New-AzDeployment -Name "AzureADB2C" `
@@ -234,7 +234,7 @@ Konfigurera övervaknings inställningar för Azure AD B2C aktivitets loggar:
 1. Ange ett namn för inställningen om det inte redan har en.
 1. Markera kryss rutan för varje mål för att skicka loggarna. Välj **Konfigurera** för att ange inställningarna enligt beskrivningen i följande tabell.
 
-    | Inställning | Beskrivning |
+    | Inställningen | Beskrivning |
     |:---|:---|
     | Arkivera till ett lagringskonto | Namn på lagrings konto. |
     | Strömma till en händelsehubb | Namn området där Event Hub skapas (om det här är din första gången strömnings loggar) eller strömmas till (om det redan finns resurser som är strömmande till den här namn rymden).

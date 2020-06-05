@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: ad6acbad57df24e5cd78c72c9d00bcd32a83219a
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 28453af7eb38f4195774d70c5960eacc8467dedd
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731585"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417012"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
 
@@ -306,7 +306,7 @@ Trafikvy prissättning baseras på antalet data punkter som används för att sk
 
 Det går inte att använda slut punkter från flera prenumerationer med Azure Web Apps. Azure Web Apps kräver att alla anpassade domän namn som används med Web Apps bara används i en enda prenumeration. Det går inte att använda Web Apps från flera prenumerationer med samma domän namn.
 
-För andra slut punkts typer är det möjligt att använda Traffic Manager med slut punkter från fler än en prenumeration. I Resource Manager kan du lägga till slut punkter från vilken prenumeration som helst i Traffic Manager, så länge som den person som konfigurerar Traffic Managers profilen har Läs behörighet till slut punkten. Dessa behörigheter kan beviljas med hjälp av [Azure Resource Manager rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/role-assignments-portal.md).
+För andra slut punkts typer är det möjligt att använda Traffic Manager med slut punkter från fler än en prenumeration. I Resource Manager kan du lägga till slut punkter från vilken prenumeration som helst i Traffic Manager, så länge som den person som konfigurerar Traffic Managers profilen har Läs behörighet till slut punkten. Dessa behörigheter kan beviljas med hjälp av [Azure Resource Manager rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/role-assignments-portal.md). Slut punkter från andra prenumerationer kan läggas till med [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) eller [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Kan jag använda Traffic Manager med moln tjänstens mellanlagrings platser?
 

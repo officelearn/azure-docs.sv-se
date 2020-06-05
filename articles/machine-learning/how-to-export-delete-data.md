@@ -5,18 +5,18 @@ description: 'Lär dig hur du exporterar eller tar bort din arbets yta med Azure
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
 ms.date: 04/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 50234eb356314039b8023f0442207ae0b762676e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d10228eb76f95a7d5225b6b414ca622c92bf1c5
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191642"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434275"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportera eller ta bort data för din Machine Learning service-arbetsyta
 
@@ -36,7 +36,7 @@ I Azure Machine Learning består personliga data av användar information i hist
 
 ## <a name="delete-workspace-data-with-the-rest-api"></a>Ta bort arbets ytans data med REST API
 
-Följande API-anrop kan göras med verbet HTTP DELETE för att ta bort data. De är auktoriserade genom att `Authorization: Bearer <arm-token>` ha ett huvud i begäran, `<arm-token>` där är AAD-åtkomsttoken för `https://management.core.windows.net/` slut punkten.  
+Följande API-anrop kan göras med verbet HTTP DELETE för att ta bort data. De är auktoriserade genom att ha ett `Authorization: Bearer <arm-token>` huvud i begäran, där `<arm-token>` är AAD-åtkomsttoken för `https://management.core.windows.net/` slut punkten.  
 
 Information om hur du hämtar denna token och anropar Azure-slutpunkter finns i [använda rest för att hantera ml-resurser](how-to-manage-rest.md) och [Azure REST API-dokumentation](https://docs.microsoft.com/rest/api/azure/).  
 
@@ -92,7 +92,7 @@ Enskilda tjänster kan tas bort med:
 
 ## <a name="export-service-data-with-the-rest-api"></a>Exportera tjänst data med REST API
 
-Följande API-anrop kan göras med HTTP GET-verbet för att exportera data. De är auktoriserade genom att `Authorization: Bearer <arm-token>` ha ett sidhuvud i begäran, `<arm-token>` där är AAD-åtkomsttoken för slut punkten`https://management.core.windows.net/`  
+Följande API-anrop kan göras med HTTP GET-verbet för att exportera data. De är auktoriserade genom att ha ett `Authorization: Bearer <arm-token>` sidhuvud i begäran, där `<arm-token>` är AAD-åtkomsttoken för slut punkten`https://management.core.windows.net/`  
 
 Information om hur du hämtar denna token och anropar Azure-slutpunkter finns i [använda rest för att hantera ml-resurser](how-to-manage-rest.md) och [Azure REST API-dokumentation](https://docs.microsoft.com/rest/api/azure/)..   
 

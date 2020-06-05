@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/03/2018
-ms.openlocfilehash: ee7a2f49641eb0cfe1f8a4bffb44c7f8642408fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/29/2020
+ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670652"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424473"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Wire Data 2.0 (för hands version)-lösning i Azure Monitor
 
@@ -19,12 +19,15 @@ ms.locfileid: "77670652"
 
 Tråd data är sammanställda nätverks-och prestanda data som samlas in från Windows-anslutna och Linux-anslutna datorer med Log Analytics agent, inklusive de som övervakas av Operations Manager i din miljö. Nätverksdata kombineras med dina övriga loggdata, vilket hjälper dig att korrelera data.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 Förutom Log Analytics-agenten använder enheten för data överföring Microsoft beroende agenter som du installerar på datorer i din IT-infrastruktur. Beroendeagenterna övervakar nätverksdata som skickas till och från dina datorer på nätverksnivåerna 2–3 i [OSI-modellen](https://en.wikipedia.org/wiki/OSI_model), inklusive de olika protokoll och portar som används. Data skickas sedan till Azure Monitor med hjälp av agenter.  
 
 >[!NOTE]
->Om du redan har distribuerat Tjänstkarta eller överväger Tjänstkarta eller [Azure Monitor for VMS](../../azure-monitor/insights/vminsights-overview.md)finns det en ny anslutnings mått data uppsättning som samlas in och lagras i Azure Monitor och ger jämförbar information till data.
+>Kabel data lösningen har ersatts av den [tjänstkarta lösningen](service-map.md).  Båda använder Log Analytics agent och beroende agent för att samla in data om nätverks anslutningen i Azure Monitor. 
+> 
+>Befintliga kunder som använder data överförings lösningen kan fortsätta att använda den. Vi kommer att publicera rikt linjer för en migrerings tids linje för att flytta till Tjänstkarta.
+>
+>Nya kunder bör installera [tjänstkarta lösning](service-map.md) eller [Azure Monitor for VMS](vminsights-overview.md).  Tjänstkarta data uppsättningen är jämförbar med data från ledningen.  Azure Monitor for VMs innehåller data uppsättningen Tjänstkarta med ytterligare prestanda data och funktioner för analys. 
+
 
 Som standard loggar Azure Monitor data för processor-, minnes-, disk-och nätverks prestanda data från räknare som är inbyggda i Windows och Linux, samt andra prestanda räknare som du kan ange. Nätverks- och annan datainsamling är klar i realtid för varje agent, inklusive de undernät och protokoll på programnivå som används av datorn.  Wire Data granskar nätverksdata på programnivå, inte ned på TCP-transportnivå. Lösningen granskar inte enskilda ACK:er och SYN-förfrågningar. När handskakningen har slutförts anses det finnas en live-anslutning, vilken markeras med Ansluten. Anslutningen finns så länge båda sidorna är överens om att socketen är öppen och data kan överföras fram och tillbaka. När någon av sidorna stänger anslutningen markeras den som frånkopplad.  Därför räknar den bara bandbredden för paket som har slutförts, den rapporterar inte om återsända eller misslyckade paket.
 
@@ -51,7 +54,7 @@ Men eftersom du ser metadata är det inte säkert att det går att använda vid 
 
 Wire Data hämtar sina data från Microsofts beroendeagent. Dependency Agent är beroende av att Log Analytics agenten för att ansluta till Azure Monitor. Det innebär att en server måste ha Log Analytics-agenten installerad och konfigurerad med beroende agenten. I följande tabell beskrivs de anslutna källor som stöds av Wire Data-lösningen.
 
-| **Ansluten källa** | **Stöds** | **Beskrivning** |
+| **Ansluten källa** | **Tillåtna** | **Beskrivning** |
 | --- | --- | --- |
 | Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Utöver [Log Analytics agent för Windows](../platform/agent-windows.md)kräver Windows-agenter Microsoft-beroende agent. Se [Operativsystem som stöds](vminsights-enable-overview.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | Linux-agenter | Ja | Wire Data analyserar och samlar in data från Linux-agentdatorer.<br><br> Utöver [Log Analytics-agenten för Linux](../learn/quick-collect-linux-computer.md)kräver Linux-agenterna Microsofts beroende agent. Se [Operativsystem som stöds](vminsights-enable-overview.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
@@ -392,7 +395,7 @@ En post av typen _WireData_ skapas för varje typ av indata. WireData-poster har
 | IPVersion | IP-version |
 | Riktning | Inkommande eller utgående |
 | MaliciousIP | IP-adressen för en känd skadlig källa |
-| Severity | Allvarlighetsgrad för misstänkt skadlig programvara |
+| Allvarlighetsgrad | Allvarlighetsgrad för misstänkt skadlig programvara |
 | RemoteIPCountry | Land/region för fjärr-IP-adressen |
 | ManagementGroupName | Namn på Operations Manager-hanteringsgrupp |
 | SourceSystem | Källa där data samlades in |

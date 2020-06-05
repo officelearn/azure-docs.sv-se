@@ -5,17 +5,17 @@ description: Lär dig hur du distribuerar dina Azure Machine Learning modeller s
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: aec1b7f7bf60be34d21d52ca652a776cf3275fe8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69bb5409b6463140bba77f0e78567e6ae98003d6
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811764"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433937"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -53,7 +53,7 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 
     Mer information om hur du ställer in dessa variabler finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
-- __CLI__ -kodfragmenten i den här artikeln förutsätter att du har `inferenceconfig.json` skapat ett dokument. Mer information om hur du skapar det här dokumentet finns i [så här distribuerar du modeller](how-to-deploy-and-where.md).
+- __CLI__ -kodfragmenten i den här artikeln förutsätter att du har skapat ett `inferenceconfig.json` dokument. Mer information om hur du skapar det här dokumentet finns i [så här distribuerar du modeller](how-to-deploy-and-where.md).
 
 ## <a name="create-a-new-aks-cluster"></a>Skapa ett nytt AKS-kluster
 
@@ -67,7 +67,7 @@ Att skapa eller ansluta ett AKS-kluster är en process för arbets ytan. Du kan 
 Om du vill skapa ett AKS-kluster för __utveckling__, __validering__och __testning__ i stället för produktion kan du ange ett __kluster syfte__ för __dev-test__.
 
 > [!WARNING]
-> Om du ställer `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`in är det kluster som skapas inte lämpligt för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans. Vi rekommenderar minst 2 virtuella processorer för dev/test-kluster.
+> Om du ställer in `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` är det kluster som skapas inte lämpligt för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans. Vi rekommenderar minst 2 virtuella processorer för dev/test-kluster.
 
 Följande exempel visar hur du skapar ett nytt AKS-kluster med hjälp av SDK och CLI:
 
@@ -92,7 +92,7 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> För [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), om du väljer anpassade värden för `agent_count` och `vm_size`, och `cluster_purpose` inte, `DEV_TEST`och inte, måste du se till `agent_count` att multiplicerat `vm_size` med är större än eller lika med 12 virtuella processorer. Om du till exempel använder en `vm_size` av "Standard_D3_v2", som har 4 virtuella processorer, måste du välja en `agent_count` av 3 eller fler.
+> För [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py) , om du väljer anpassade värden för `agent_count` och `vm_size` , och `cluster_purpose` inte, och inte `DEV_TEST` , måste du se till att `agent_count` multiplicerat med `vm_size` är större än eller lika med 12 virtuella processorer. Om du till exempel använder en `vm_size` av "Standard_D3_v2", som har 4 virtuella processorer, måste du välja en `agent_count` av 3 eller fler.
 >
 > Azure Machine Learning SDK ger inte stöd för skalning av ett AKS-kluster. Om du vill skala noderna i klustret använder du användar gränssnittet för ditt AKS-kluster i Azure Machine Learning Studio. Du kan bara ändra antalet noder, inte klustrets virtuella dator storlek.
 
@@ -124,9 +124,9 @@ Om du redan har AKS-kluster i din Azure-prenumeration och det är version 1,17 e
 
 När du kopplar ett AKS-kluster till en arbets yta kan du definiera hur du ska använda klustret genom att ange `cluster_purpose` parametern.
 
-Om du inte anger `cluster_purpose` parametern eller anger `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`så måste klustret ha minst 12 virtuella processorer tillgängliga.
+Om du inte anger `cluster_purpose` parametern eller anger så `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD` måste klustret ha minst 12 virtuella processorer tillgängliga.
 
-Om du ställer `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`in behöver klustret inte ha 12 virtuella processorer. Vi rekommenderar minst 2 virtuella processorer för utveckling/testning. Men ett kluster som har kon figurer ATS för utveckling/testning är inte lämpligt för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans.
+Om du ställer in `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` behöver klustret inte ha 12 virtuella processorer. Vi rekommenderar minst 2 virtuella processorer för utveckling/testning. Men ett kluster som har kon figurer ATS för utveckling/testning är inte lämpligt för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans.
 
 > [!WARNING]
 > Skapa inte flera, samtidiga bilagor till samma AKS-kluster från din arbets yta. Du kan till exempel koppla ett AKS-kluster till en arbets yta med två olika namn. Varje ny bilaga kommer att dela upp de tidigare befintliga bifogade filerna.
@@ -241,7 +241,7 @@ Analysera och uppgradera modell versioner på ett kontrollerat sätt med hjälp 
     > [!NOTE]
     > Om du inte tar hänsyn till 100% av trafiken dirigeras eventuella återstående procent till __standard__ slut punkts versionen. Om du till exempel konfigurerar slut punkts version "test" för att få 10% av trafiken och "Prod" i 30% skickas återstående 60% till standard slut punkts versionen.
     >
-    > Den första slut punkts versionen som skapas konfigureras automatiskt som standard. Du kan ändra detta genom att `is_default=True` ställa in när du skapar eller uppdaterar en slut punkts version.
+    > Den första slut punkts versionen som skapas konfigureras automatiskt som standard. Du kan ändra detta genom att ställa in `is_default=True` när du skapar eller uppdaterar en slut punkts version.
      
 * Tagga en slut punkts version som __kontroll__ eller __behandling__. Till exempel kan den aktuella produktions slut punkts versionen vara kontrollen, medan eventuella nya modeller distribueras som behandlings versioner. När du har utvärderat prestandan för behandlings versionerna, om en utför den aktuella kontrollen, kan den höjas till den nya produktionen/kontrollen.
 
@@ -327,7 +327,7 @@ endpoint.delete_version(version_name="versionb")
 
 När du distribuerar till Azure Kubernetes-tjänsten aktive ras __nyckelbaserad__ autentisering som standard. Du kan också aktivera __tokenbaserad__ autentisering. Token-baserad autentisering kräver att klienter använder ett Azure Active Directory konto för att begära en autentiseringstoken, som används för att göra förfrågningar till den distribuerade tjänsten.
 
-Om du vill __inaktivera__ autentisering ställer `auth_enabled=False` du in parametern när du skapar distributions konfigurationen. I följande exempel inaktive ras autentisering med hjälp av SDK:
+Om du vill __inaktivera__ autentisering ställer du in `auth_enabled=False` parametern när du skapar distributions konfigurationen. I följande exempel inaktive ras autentisering med hjälp av SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
@@ -337,7 +337,7 @@ Information om hur du autentiserar från ett klient program finns i [använda en
 
 ### <a name="authentication-with-keys"></a>Autentisering med nycklar
 
-Om du har aktiverat autentisering av `get_keys` nycklar kan du använda-metoden för att hämta en primär nyckel och en sekundär autentiseringsnyckel:
+Om du har aktiverat autentisering av nycklar kan du använda- `get_keys` metoden för att hämta en primär nyckel och en sekundär autentiseringsnyckel:
 
 ```python
 primary, secondary = service.get_keys()
@@ -349,13 +349,13 @@ print(primary)
 
 ### <a name="authentication-with-tokens"></a>Autentisering med token
 
-Om du vill aktivera token- `token_auth_enabled=True` autentisering anger du parametern när du skapar eller uppdaterar en distribution. I följande exempel aktive ras token-autentisering med SDK:
+Om du vill aktivera token-autentisering anger `token_auth_enabled=True` du parametern när du skapar eller uppdaterar en distribution. I följande exempel aktive ras token-autentisering med SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
 ```
 
-Om token-autentisering har Aktiver ATS kan `get_token` du använda metoden för att hämta en JWT-token och dess förfallo tid för token:
+Om token-autentisering har Aktiver ATS kan du använda `get_token` metoden för att hämta en JWT-token och dess förfallo tid för token:
 
 ```python
 token, refresh_by = service.get_token()
@@ -363,7 +363,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Du måste begära en ny token efter det att token `refresh_by` har uppnåtts.
+> Du måste begära en ny token efter det att token har `refresh_by` uppnåtts.
 >
 > Microsoft rekommenderar starkt att du skapar din Azure Machine Learning arbets yta i samma region som ditt Azure Kubernetes service-kluster. För att autentisera med en token kommer webb tjänsten att ringa till den region där din Azure Machine Learning arbets yta skapas. Om arbets ytans region inte är tillgänglig kan du inte hämta en token för din webb tjänst även om klustret finns i en annan region än din arbets yta. Detta leder till att tokenbaserad autentisering inte är tillgängligt förrän arbets ytans region är tillgänglig igen. Dessutom ökar avståndet mellan klustrets region och arbets ytans region, desto längre tid tar det att hämta en token.
 

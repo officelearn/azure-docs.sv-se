@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "78191086"
 ---
-Lägg till kod som använder `Push-OutputBinding` cmdleten för att skriva text till kön med `msg` hjälp av utgående bindning. Lägg till den här koden innan du anger statusen OK i `if` instruktionen.
+Lägg till kod som använder `Push-OutputBinding` cmdleten för att skriva text till kön med hjälp av `msg` utgående bindning. Lägg till den här koden innan du anger statusen OK i `if` instruktionen.
 
 :::code language="powershell" range="18-19" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/run.ps1":::
 

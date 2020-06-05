@@ -21,7 +21,7 @@ Tidigare skapade du ett Azure Storage-konto som ska användas av Function-appen.
     func azure functionapp fetch-app-settings <app_name>
     ```
     
-1. Öppna *Local. Settings. JSON* och leta upp värdet `AzureWebJobsStorage`med namnet, som är anslutnings strängen för lagrings kontot. Du använder namnet `AzureWebJobsStorage` och anslutnings strängen i andra avsnitt i den här artikeln.
+1. Öppna *Local. Settings. JSON* och leta upp värdet med namnet `AzureWebJobsStorage` , som är anslutnings strängen för lagrings kontot. Du använder namnet `AzureWebJobsStorage` och anslutnings strängen i andra avsnitt i den här artikeln.
 
 > [!IMPORTANT]
 > Eftersom *Local. Settings. JSON* innehåller hemligheter som hämtats från Azure, ska du alltid utesluta den här filen från käll kontroll. Filen *. gitignore* som skapas med ett lokalt Functions-projekt utesluter filen som standard.

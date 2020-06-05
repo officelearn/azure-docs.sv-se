@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: e5966f142ece32f148c56edb5b0ef5dfd88603aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 640884168aef13ef3a8d751c211bf16756ff350f
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380083"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417896"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvens nivåer i Azure Cosmos DB
 
@@ -72,13 +72,13 @@ Klienter utanför sessionen som utför skrivningar får följande garantier:
 - Konsekvens för klienter som skriver till en enda region för ett multi-master-konto = konsekvent prefix
 - Konsekvens för klienter som skriver till flera regioner för ett konto med flera huvud servrar = eventuell
 
-  Konsekvens av sessionen är den ofta använda konsekvens nivån för både en region och globalt distribuerade program. Det ger Skriv fördröjning, tillgänglighet och Läs data flöde som är jämförbar med eventuell konsekvens, men som även ger konsekvens garantier som passar de program som är skrivna för att köras i kontexten för en användare. Följande bild illustrerar konsekvensen i sessionen med noter. "Västra USA 2 Writer" och "västra USA 2-läsaren" använder samma session (session A) så att båda läser samma data samtidigt. Regionen "Australien, östra" använder "session B", så den tar emot data senare, men i samma ordning som skrivarna.
+  Konsekvens av sessionen är den mest använda konsekvens nivån för både en region och globalt distribuerade program. Det ger Skriv fördröjning, tillgänglighet och Läs data flöde som är jämförbar med eventuell konsekvens, men som även ger konsekvens garantier som passar de program som är skrivna för att köras i kontexten för en användare. Följande bild illustrerar konsekvensen i sessionen med noter. "Västra USA 2 Writer" och "västra USA 2-läsaren" använder samma session (session A) så att båda läser samma data samtidigt. Regionen "Australien, östra" använder "session B", så den tar emot data senare, men i samma ordning som skrivarna.
 
   ![video](media/consistency-levels/session-consistency.gif)
 
-- **Konsekvent prefix**: uppdateringar som returneras innehåller vissa prefix för alla uppdateringar, utan luckor. Konsekvens nivå för konsekvent prefix garanterar att Read aldrig ser inloggade skrivningar.
+- **Konsekvent prefix**: uppdateringar som returneras innehåller vissa prefix för alla uppdateringar, utan luckor. Konsekvent konsekvens nivå för prefix garanterar att läsning aldrig ser inloggade skrivningar.
 
-Om skrivningar utfördes i ordningen `A, B, C` ser klienten antingen `A`, `A,B` eller `A,B,C`, men aldrig i oordning, till exempel `A,C` eller `B,A,C`. Konsekvent prefix ger Skriv fördröjningar, tillgänglighet och Läs data flöde som är jämförbara med den slutliga konsekvensen, men ger även order garantier som uppfyller behoven i scenarier där ordningen är viktig. 
+Om skrivningar utfördes i beställningen `A, B, C` ser en klient antingen `A` , `A,B` , eller `A,B,C` , men inte i ordning-permutationer som `A,C` eller `B,A,C` . Konsekvent prefix ger Skriv fördröjningar, tillgänglighet och Läs data flöde som är jämförbara med den slutliga konsekvensen, men ger även order garantier som uppfyller behoven i scenarier där ordningen är viktig. 
 
 Nedan visas konsekvens garantier för konsekvent prefix:
 

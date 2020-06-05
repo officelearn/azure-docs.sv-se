@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 05/19/2020
-ms.openlocfilehash: 46c11ef3b3a1fa1a1861f9e944c93ffdf94f7c5a
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/04/2020
+ms.openlocfilehash: 3786b7a2b8b8fc40b1cf393aa452c15d72c5b963
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118900"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433711"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Självstudie: prognostisera efter frågan med automatiserad maskin inlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 > * Utforska experiment resultatet.
 > * Distribuera den bästa modellen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Enterprise Edition Azure Machine Learning-arbetsyta. Om du inte har en arbets yta [skapar du en Enterprise Edition-arbetsyta](how-to-manage-workspace.md). 
     * Automatisk maskin inlärning i Azure Machine Learning Studio är endast tillgängligt för Enterprise Edition-arbetsytor. 
@@ -77,7 +77,7 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
         
         Fält|Beskrivning| Värde för självstudier
         ---|---|---
-        Fil format|Definierar layout och typ av data som lagras i en fil.| Avgränsade
+        Filformat|Definierar layout och typ av data som lagras i en fil.| Avgränsade
         Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan &nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
         Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
         Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Använd huvuden från den första filen
@@ -124,7 +124,7 @@ När du har läst in och konfigurerat dina data konfigurerar du ditt fjärrberä
 
     1. Välj **Nästa**.
 
-## <a name="select-task-type-and-settings"></a>Välj aktivitets typ och inställningar
+## <a name="select-forecast-settings"></a>Välj prognos inställningar
 
 Slutför installationen av ditt automatiserade ML-experiment genom att ange aktivitets typ och konfigurations inställningar för Machine Learning.
 

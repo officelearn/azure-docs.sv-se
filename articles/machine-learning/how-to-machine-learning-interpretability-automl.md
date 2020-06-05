@@ -5,16 +5,16 @@ description: Lär dig hur du får förklaringar för hur din automatiserade ML-m
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.date: 03/11/2020
-ms.openlocfilehash: e0ec6cbc4cea926dfc50cdae247aea5d765c20ca
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691211"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430524"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Tolkning: modell förklaringar i automatiserad maskin inlärning
 
@@ -22,7 +22,7 @@ ms.locfileid: "82691211"
 
 I den här artikeln får du lära dig hur du får förklaringar för automatisk maskin inlärning (ML) i Azure Machine Learning. Med automatisk ML får du bättre funktioner. 
 
-Alla SDK-versioner efter 1.0.85 `model_explainability=True` anges som standard. I SDK-version 1.0.85 och tidigare versioner måste användare ange `model_explainability=True` i `AutoMLConfig` objektet för att kunna använda modell tolkning. 
+Alla SDK-versioner efter 1.0.85 anges `model_explainability=True` som standard. I SDK-version 1.0.85 och tidigare versioner måste användare ange `model_explainability=True` i `AutoMLConfig` objektet för att kunna använda modell tolkning. 
 
 I den här artikeln kan du se hur du:
 
@@ -37,11 +37,11 @@ I den här artikeln kan du se hur du:
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>Tolkning under utbildning för bästa modell
 
-Hämta förklaringen från `best_run`, som innehåller förklaringar för de funktioner som har utvecklats.
+Hämta förklaringen från `best_run` , som innehåller förklaringar för de funktioner som har utvecklats.
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Hämtnings bar funktions prioritet från artefakt arkivet
 
-Du kan använda `ExplanationClient` för att ladda ned de tekniker som är de som är utformade från artefakt `best_run`lagret för. 
+Du kan använda `ExplanationClient` för att ladda ned de tekniker som är de som är utformade från artefakt lagret för `best_run` . 
 
 ```python
 from azureml.explain.model._internal.explanation_client import ExplanationClient
@@ -63,13 +63,13 @@ automl_run, fitted_model = local_run.get_output(metric='accuracy')
 
 ### <a name="set-up-the-model-explanations"></a>Konfigurera modell förklaringarna
 
-Används `automl_setup_model_explanations` för att hämta de utformade förklaringarna. `fitted_model` Kan generera följande objekt:
+Används `automl_setup_model_explanations` för att hämta de utformade förklaringarna. `fitted_model`Kan generera följande objekt:
 
 - Aktuella data från utbildade eller test exempel
 - Namn listor för en förutformad funktion
 - Klasser som går att hitta i kolumnen med etiketter i klassificerings scenarier
 
-Listan `automl_explainer_setup_obj` innehåller alla strukturer från ovanstående.
+`automl_explainer_setup_obj`Listan innehåller alla strukturer från ovanstående.
 
 ```python
 from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
@@ -81,11 +81,11 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
 
 ### <a name="initialize-the-mimic-explainer-for-feature-importance"></a>Initiera utredaren för härma för funktions prioritet
 
-Om du vill generera en förklaring för AutoML-modeller `MimicWrapper` använder du-klassen. Du kan initiera MimicWrapper med följande parametrar:
+Om du vill generera en förklaring för AutoML-modeller använder du- `MimicWrapper` klassen. Du kan initiera MimicWrapper med följande parametrar:
 
 - Installations objekt för förklaring
 - Din arbets yta
-- En surrogat modell som förklarar den `fitted_model` AUTOMATISERAde ml-modellen
+- En surrogat modell som förklarar den `fitted_model` automatiserade ml-modellen
 
 MimicWrapper tar också `automl_run` objektet där de utformade förklaringarna kommer att laddas upp.
 

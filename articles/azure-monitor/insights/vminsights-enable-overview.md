@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/28/2020
-ms.openlocfilehash: 3c9c5e69eea72b20da485ffb1edf806f2c9f3b41
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: 87d8b26110eba647975de577e9d7b5b0ed138266
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195308"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84423980"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor for VMs översikt
 
@@ -24,7 +24,7 @@ Så här konfigurerar du Azure Monitor for VMs:
 * Aktivera två eller flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer i en angiven prenumeration eller resurs grupp med hjälp av PowerShell.
 * Aktivera Azure Monitor for VMs för att övervaka virtuella datorer eller fysiska datorer som finns i företagets nätverk eller i annan moln miljö.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att du förstår informationen i följande avsnitt. 
 
@@ -43,6 +43,7 @@ Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 - USA, östra 2
 - USA, centrala
 - USA, norra centrala
+- US Gov va
 - Kanada, centrala
 - Storbritannien, södra
 - Europa, norra
@@ -165,11 +166,11 @@ I en hybrid miljö kan du ladda ned och installera beroende agenten manuellt ell
 
 I följande tabell beskrivs de anslutna källor som kart funktionen stöder i en hybrid miljö.
 
-| Ansluten källa | Stöds | Description |
+| Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
-| Windows-agenter | Yes | Tillsammans med [Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
-| Linux-agenter | Yes | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
-| System Center Operations Manager-hanteringsgrupp | No | |
+| Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
+| Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
+| System Center Operations Manager-hanteringsgrupp | Nej | |
 
 Du kan ladda ned beroende agenten från följande platser:
 
@@ -188,7 +189,7 @@ Mer information om hur du styr åtkomsten till en Log Analytics arbets yta finns
 
 Aktivera Azure Monitor for VMs med någon av de metoder som beskrivs i den här tabellen:
 
-| Distributions tillstånd | Metod | Description |
+| Distributions tillstånd | Metod | Beskrivning |
 |------------------|--------|-------------|
 | Enskild virtuell Azure-dator eller skalnings uppsättning för virtuell dator | [Aktivera från den virtuella datorn](vminsights-enable-single-vm.md) | Du kan aktivera en enskild virtuell Azure-dator genom att välja **insikter** direkt från den virtuella datorn eller skalnings uppsättningen för virtuella datorer. |
 | Flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer | [Aktivera via Azure Policy](vminsights-enable-at-scale-policy.md) | Du kan aktivera flera virtuella Azure-datorer med hjälp av Azure Policy och tillgängliga princip definitioner. |

@@ -38,7 +38,7 @@ Användar konton i Azure Multi-Factor Authentication har följande tre distinkta
 
 | Status | Beskrivning | Icke-webbläsarbaserade appar som påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering påverkas |
 |:---:| --- |:---:|:--:|:--:|
-| Disabled | Standard läget för en ny användare som inte har registrerats i Azure Multi-Factor Authentication. | Inga | Inga | Inga |
+| Disabled | Standard läget för en ny användare som inte har registrerats i Azure Multi-Factor Authentication. | Nej | Nej | Nej |
 | Enabled | Användaren har registrerats i Azure Multi-Factor Authentication, men har inte registrerats. De får ett meddelande om att registrera sig nästa gången de loggar in. | Nej.  De fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure Multi-Factor Authentication registrering.| Ja. När åtkomsttoken har upphört att gälla krävs Azure Multi-Factor Authentication registrering. |
 | Enforced | Användaren har registrerats och slutfört registrerings processen för Azure Multi-Factor Authentication. | Ja. Appar kräver applösenord. | Ja. Azure Multi-Factor Authentication krävs vid inloggning. | Ja. Azure Multi-Factor Authentication krävs vid inloggning. |
 

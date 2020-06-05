@@ -6,12 +6,12 @@ ms.author: paelaz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 2249dbdebecc52a8f5d6decccb83d3b1fc0777f7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747377"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431969"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Använd Azure Policy för att implementera styrning och kontroller för Azure Cosmos DB resurser
 
@@ -79,21 +79,24 @@ De här kommandona visar listan över namn på egenskaps Ali Aset för Azure Cos
 
 Du kan använda något av dessa namn för egenskaps Ali Aset i [definitions reglerna för anpassade principer](../governance/policy/tutorials/create-custom-policy-definition.md#policy-rule).
 
-Följande är en exempel princip definition som kontrollerar om en Azure Cosmos DB SQL Databases etablerade data flöde är större än den högsta tillåtna gränsen på 400 RU/s. En anpassad princip definition innehåller två regler: en för att kontrol lera den speciella typen av egenskaps Ali Aset och den andra för typens egenskap. Båda reglerna använder namnen på alias.
+Följande är en exempel princip definition som kontrollerar om ett Azure Cosmos DB konto har kon figurer ATS för flera Skriv platser. Definitionen av den anpassade principen innehåller två regler: en för att kontrol lera den speciella typen av egenskaps Ali Aset och den andra för typens egenskap, i det här fallet fältet som lagrar inställningen för flera Skriv platser. Båda reglerna använder namnen på alias.
 
 ```json
 "policyRule": {
   "if": {
     "allOf": [
       {
-      "field": "type",
-      "equals": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings"
+        "field": "type",
+        "equals": "Microsoft.DocumentDB/databaseAccounts"
       },
       {
-      "field": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings/default.resource.throughput",
-      "greater": 400
+        "field": "Microsoft.DocumentDB/databaseAccounts/enableMultipleWriteLocations",
+        "notEquals": true
       }
     ]
+  },
+  "then": {
+    "effect": "Audit"
   }
 }
 ```
@@ -106,21 +109,26 @@ När princip tilldelningarna har skapats, utvärderar Azure Policy resurserna i 
 
 Du kan granska resultatet och reparations informationen i [Azure Portal](../governance/policy/how-to/get-compliance-data.md#portal) eller via [Azure CLI](../governance/policy/how-to/get-compliance-data.md#command-line) eller [Azure Monitor loggarna](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
 
-På följande skärm bild visas två exempel på princip tilldelningar. En tilldelning baseras på en inbyggd princip definition som kontrollerar att Azure Cosmos DB-resurser endast distribueras till de tillåtna Azure-regionerna. Den andra tilldelningen baseras på en anpassad princip definition. Den här tilldelningen kontrollerar att det etablerade data flödet på Azure Cosmos DB resurser inte överskrider den angivna Max gränsen.
+På följande skärm bild visas två exempel på princip tilldelningar.
 
-När princip tilldelningarna har distribuerats visas utvärderings resultaten i instrument panelen för efterlevnad. Observera att det kan ta upp till 30 minuter innan du distribuerar en princip tilldelning.
+En tilldelning baseras på en inbyggd princip definition som kontrollerar att Azure Cosmos DB-resurser endast distribueras till de tillåtna Azure-regionerna. Resource Compliance visar resultatet av princip utvärderingen (kompatibel eller icke-kompatibel) för resurser i omfång.
 
-Skärm bilden visar följande resultat för utvärdering av kompatibilitet:
+Den andra tilldelningen baseras på en anpassad princip definition. Den här tilldelningen kontrollerar att Cosmos DB-konton har kon figurer ATS för flera Skriv platser.
 
-- Noll av ett Azure Cosmos DB konton i det angivna omfånget är kompatibla med princip tilldelningen för att kontrol lera att resurserna har distribuerats till tillåtna regioner.
-- En av två Azure Cosmos DB databasen eller samlings resurserna i det angivna omfånget är kompatibla med princip tilldelningen för att kontrol lera om det etablerade data flödet överskrider den angivna Max gränsen.
+När princip tilldelningarna har distribuerats visas utvärderings resultaten i instrument panelen för efterlevnad. Observera att det kan ta upp till 30 minuter innan du distribuerar en princip tilldelning. Dessutom [kan genomsökningar av princip utvärderingen startas på begäran](../governance/policy/how-to/get-compliance-data.md#on-demand-evaluation-scan) omedelbart efter att du har skapat princip tilldelningarna.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Sök efter Azure Cosmos DB inbyggda princip definitioner":::
+Skärm bilden visar följande utvärderings resultat för omfångs Azure Cosmos DB-konton:
 
-Information om hur du åtgärdar icke-kompatibla resurser finns i avsnittet [åtgärdad med Azure policy](../governance/policy/how-to/remediate-resources.md) .
+- Noll av två konton är kompatibla med en princip som Virtual Network (VNet)-filtrering måste konfigureras.
+- Noll av två konton är kompatibla med en princip som kräver att kontot konfigureras för flera Skriv platser
+- Noll av två konton är kompatibla med en princip som resurserna distribuerades till tillåtna Azure-regioner.
 
-## <a name="next-steps"></a>Efterföljande moment
+:::image type="content" source="./media/policy/compliance.png" alt-text="Resultat för Azure Policy tilldelningar visas":::
 
-- [Granska exempel anpassade princip definitioner för Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)
+Information om hur du reparerar icke-kompatibla resurser finns i [så här åtgärdar du resurser med Azure policy](../governance/policy/how-to/remediate-resources.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Granska exempel anpassade princip definitioner för Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), inklusive för de principer för flera Skriv platser och VNET-filtrering som visas ovan.
 - [Skapa en princip tilldelning i Azure Portal](../governance/policy/assign-policy-portal.md)
 - [Granska Azure Policy inbyggda princip definitioner för Azure Cosmos DB](./policy-samples.md)

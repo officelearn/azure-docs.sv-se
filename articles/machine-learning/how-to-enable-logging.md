@@ -6,15 +6,15 @@ author: trevorbye
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: trbye
 ms.date: 03/05/2020
-ms.openlocfilehash: 73b9ae6bc3c15526bfdafd74330c7b86286631b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92120d7eabcd4f9fe8d30c1124555588fcadd19a
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78396151"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432916"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Aktivera loggning i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,13 +25,13 @@ Med Azure Machine Learning python SDK kan du aktivera loggning med hjälp av bå
 > * Tränings modeller och beräknings mål
 > * Skapa bild
 > * Distribuerade modeller
-> * Python `logging` -inställningar
+> * Python- `logging` Inställningar
 
 [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md). Använd [guiden](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) för mer information SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Tränings modeller och loggning av beräknings mål
 
-Det finns flera sätt att aktivera loggning under modell inlärnings processen och exemplen som visas illustrerar vanliga design mönster. Du kan enkelt logga körnings relaterade data till din arbets yta i molnet med hjälp `start_logging` av funktionen i `Experiment` klassen.
+Det finns flera sätt att aktivera loggning under modell inlärnings processen och exemplen som visas illustrerar vanliga design mönster. Du kan enkelt logga körnings relaterade data till din arbets yta i molnet med hjälp av `start_logging` funktionen i `Experiment` klassen.
 
 ```python
 from azureml.core import Experiment
@@ -43,7 +43,7 @@ run.log("test-val", 10)
 
 I referens dokumentationen för [körnings](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) klassen finns ytterligare loggnings funktioner.
 
-Om du vill aktivera lokal loggning av program tillstånd under utbildning, använder `show_output` du parametern. Genom att aktivera utförlig loggning kan du se information från inlärnings processen samt information om eventuella fjär resurser eller beräknings mål. Använd följande kod för att aktivera loggning vid experiment överföring.
+Om du vill aktivera lokal loggning av program tillstånd under utbildning, använder du `show_output` parametern. Genom att aktivera utförlig loggning kan du se information från inlärnings processen samt information om eventuella fjär resurser eller beräknings mål. Använd följande kod för att aktivera loggning vid experiment överföring.
 
 ```python
 from azureml.core import Experiment
@@ -58,7 +58,7 @@ Du kan också använda samma parameter i `wait_for_completion` funktionen på de
 run.wait_for_completion(show_output=True)
 ```
 
-SDK stöder också användning av standard-python-loggnings paketet i vissa scenarier för utbildning. `INFO` I följande exempel aktive ras loggnings nivån i `AutoMLConfig` ett objekt.
+SDK stöder också användning av standard-python-loggnings paketet i vissa scenarier för utbildning. I följande exempel aktive ras loggnings nivån `INFO` i ett `AutoMLConfig` objekt.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -85,7 +85,7 @@ compute.wait_for_completion(show_output=True)
 
 ## <a name="logging-for-deployed-models"></a>Loggning för distribuerade modeller
 
-Om du vill hämta loggar från en tidigare distribuerad webb tjänst läser du in tjänsten och `get_logs()` använder funktionen. Loggarna kan innehålla detaljerad information om eventuella fel som uppstod under distributionen.
+Om du vill hämta loggar från en tidigare distribuerad webb tjänst läser du in tjänsten och använder `get_logs()` funktionen. Loggarna kan innehålla detaljerad information om eventuella fel som uppstod under distributionen.
 
 ```python
 from azureml.core.webservice import Webservice

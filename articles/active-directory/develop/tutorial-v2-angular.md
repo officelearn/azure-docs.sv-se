@@ -43,13 +43,13 @@ I det här scenariot begärs en åtkomsttoken efter att användaren loggar in oc
 
 I den här självstudien används följande bibliotek:
 
-|Bibliotek|Description|
+|Bibliotek|Beskrivning|
 |---|---|
 |[msal. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library för Java Script, vinkel beslutning|
 
 Du hittar käll koden för biblioteket MSAL. js i [AzureAD/Microsoft-Authentication-Library-for-JS](https://github.com/AzureAD/microsoft-authentication-library-for-js) -lagringsplatsen på GitHub.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna köra den här självstudien behöver du:
 
@@ -262,14 +262,14 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 I den koden `scopes` innehåller omfattningar som begärs att returneras i åtkomsttoken för API: et.
 
-Ett exempel:
+Exempel:
 
 * `["user.read"]`för Microsoft Graph
 * `["<Application ID URL>/scope"]`för anpassade webb-API: er (dvs. `api://<Application ID>/access_as_user` )
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Ibland behöver du användaren för att kunna interagera med Microsoft Identity Platform-slutpunkten. Ett exempel:
+Ibland behöver du användaren för att kunna interagera med Microsoft Identity Platform-slutpunkten. Exempel:
 
 * Användare kan behöva ange sina autentiseringsuppgifter på grund av att deras lösen ord har upphört att gälla.
 * Ditt program begär åtkomst till ytterligare resurs omfattningar som användaren behöver godkänna.

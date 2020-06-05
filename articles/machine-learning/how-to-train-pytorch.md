@@ -5,18 +5,18 @@ description: Lär dig hur du kör dina PyTorch-utbildnings skript i företags sk
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 136ee197271fc659497c169e27a6399c3940c19e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df49a8e5a183f56c8584e9d85fe9cfa73bc17491
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834866"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433825"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Utbilda Pytorch djup inlärnings modeller i stor skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -68,9 +68,9 @@ from azureml.train.dnn import PyTorch
 
 ### <a name="initialize-a-workspace"></a>Initiera en arbets yta
 
-[Azure Machine Learning-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) ett objekt.
+[Azure Machine Learning-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa ett [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) objekt.
 
-Skapa ett objekt för arbets ytan `config.json` från filen som skapats i [avsnittet krav](#prerequisites).
+Skapa ett objekt för arbets ytan från `config.json` filen som skapats i [avsnittet krav](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
@@ -90,19 +90,19 @@ experiment = Experiment(ws, name=experiment_name)
 
 ### <a name="get-the-data"></a>Hämta data
 
-Data uppsättningen består av ungefär 120 utbildnings avbildningar för kalkoner och kycklingar, med 100 verifierings avbildningar för varje klass. Vi kommer att ladda ned och extrahera data uppsättningen som en del av `pytorch_train.py`vårt övnings skript. Avbildningarna är en delmängd av de [Öppna avbildningarna i V5-uppsättningen](https://storage.googleapis.com/openimages/web/index.html).
+Data uppsättningen består av ungefär 120 utbildnings avbildningar för kalkoner och kycklingar, med 100 verifierings avbildningar för varje klass. Vi kommer att ladda ned och extrahera data uppsättningen som en del av vårt övnings skript `pytorch_train.py` . Avbildningarna är en delmängd av de [Öppna avbildningarna i V5-uppsättningen](https://storage.googleapis.com/openimages/web/index.html).
 
 ### <a name="prepare-training-scripts"></a>Förbereda utbildnings skript
 
-I den här självstudien har övnings skriptet `pytorch_train.py`redan angetts. I praktiken kan du ta med ett anpassat utbildnings skript, som det är och köra det med Azure Machine Learning.
+I den här självstudien har övnings skriptet `pytorch_train.py` redan angetts. I praktiken kan du ta med ett anpassat utbildnings skript, som det är och köra det med Azure Machine Learning.
 
-Ladda upp utbildnings skriptet Pytorch `pytorch_train.py`.
+Ladda upp utbildnings skriptet Pytorch `pytorch_train.py` .
 
 ```Python
 shutil.copy('pytorch_train.py', project_folder)
 ```
 
-Men om du vill använda funktioner för Azure Machine Learning spårning och mått måste du lägga till en liten pris kod i ditt utbildnings skript. Exempel på mått spårning hittar du i `pytorch_train.py`.
+Men om du vill använda funktioner för Azure Machine Learning spårning och mått måste du lägga till en liten pris kod i ditt utbildnings skript. Exempel på mått spårning hittar du i `pytorch_train.py` .
 
 ## <a name="create-a-compute-target"></a>Skapa ett beräknings mål
 
@@ -132,7 +132,7 @@ Mer information om beräknings mål finns i artikeln [Vad är en Compute Target]
 
 PyTorch-uppskattningen implementeras via den generiska [`estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen, som kan användas för att stödja eventuella ramverk. Mer information om tränings modeller med hjälp av den generiska uppskattningen finns i [träna modeller med Azure Machine Learning med hjälp av uppskattning](how-to-train-ml-models.md)
 
-Om ditt utbildnings skript behöver ytterligare pip-eller Conda-paket för att kunna köras, kan du ha paketen installerade på den resulterande Docker-avbildningen genom att `pip_packages` skicka namnen via argumenten och `conda_packages` .
+Om ditt utbildnings skript behöver ytterligare pip-eller Conda-paket för att kunna köras, kan du ha paketen installerade på den resulterande Docker-avbildningen genom att skicka namnen via `pip_packages` `conda_packages` argumenten och.
 
 ```Python
 script_params = {
@@ -180,7 +180,7 @@ model = run.register_model(model_name='pt-dnn', model_path='outputs/')
 > [!TIP]
 > Den modell som du precis har registrerat har distribuerats exakt på samma sätt som andra registrerade modeller i Azure Machine Learning, oavsett vilken uppskattning som du använde för utbildning. Distributions anvisningar innehåller ett avsnitt om att registrera modeller, men du kan hoppa direkt till att [skapa ett beräknings mål](how-to-deploy-and-where.md#choose-a-compute-target) för distribution, eftersom du redan har en registrerad modell.
 
-Du kan också hämta en lokal kopia av modellen med hjälp av objektet kör. I övnings skriptet `pytorch_train.py`bevarar ett PyTorch Save-objekt modellen till en lokal mapp (lokal till beräknings målet). Du kan använda kör-objektet för att ladda ned en kopia.
+Du kan också hämta en lokal kopia av modellen med hjälp av objektet kör. I övnings skriptet bevarar `pytorch_train.py` ett PyTorch Save-objekt modellen till en lokal mapp (lokal till beräknings målet). Du kan använda kör-objektet för att ladda ned en kopia.
 
 ```Python
 # Create a model folder in the current directory
@@ -195,12 +195,12 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Distribuerad träning
 
-[`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) Uppskattningen stöder också distribuerad utbildning mellan processor-och GPU-kluster. Du kan enkelt köra distribuerade PyTorch-jobb och Azure Machine Learning hanterar dirigeringen åt dig.
+[`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)Uppskattningen stöder också distribuerad utbildning mellan processor-och GPU-kluster. Du kan enkelt köra distribuerade PyTorch-jobb och Azure Machine Learning hanterar dirigeringen åt dig.
 
 ### <a name="horovod"></a>Horovod
 [Horovod](https://github.com/uber/horovod) är en öppen källkod som alla reducerar ramverk för distribuerad utbildning som utvecklas av Uber. Den erbjuder en enkel väg till distribuerade GPU PyTorch-jobb.
 
-Om du vill använda Horovod anger [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) du ett objekt `distributed_training` för parametern i PyTorch-konstruktorn. Den här parametern säkerställer att Horovod-biblioteket installeras för användning i ditt utbildnings skript.
+Om du vill använda Horovod anger du ett [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) objekt för `distributed_training` parametern i PyTorch-konstruktorn. Den här parametern säkerställer att Horovod-biblioteket installeras för användning i ditt utbildnings skript.
 
 
 ```Python
@@ -216,7 +216,7 @@ estimator= PyTorch(source_directory=project_folder,
                       framework_version='1.13',
                       use_gpu=True)
 ```
-Horovod och dess beroenden kommer att installeras åt dig, så att du kan importera det i utbildnings `train.py` skriptet på följande sätt:
+Horovod och dess beroenden kommer att installeras åt dig, så att du kan importera det i utbildnings skriptet på `train.py` följande sätt:
 
 ```Python
 import torch

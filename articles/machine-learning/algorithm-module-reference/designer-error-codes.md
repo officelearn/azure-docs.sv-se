@@ -5,16 +5,16 @@ description: Felsöka modul undantag i Azure Machine Learning designer med felko
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 540c3eace72a1692a927916a48f772047115375f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9a6e77f630d9a78706a82bdc020dd7fd3eb11230
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167255"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431412"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Undantag och fel koder för designern (för hands version)
 
@@ -356,7 +356,7 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
 ## <a name="error-0018"></a>Fel 0018  
  Undantaget inträffar om indata-datauppsättningen är ogiltig.  
 
-**Lösning:** Det här felet i Azure Machine Learning kan visas i många sammanhang, så det finns ingen enskild lösning. I allmänhet anger felet att data som angetts som indata till en modul har fel antal kolumner eller att data typen inte överensstämmer med kraven för modulen. Ett exempel:  
+**Lösning:** Det här felet i Azure Machine Learning kan visas i många sammanhang, så det finns ingen enskild lösning. I allmänhet anger felet att data som angetts som indata till en modul har fel antal kolumner eller att data typen inte överensstämmer med kraven för modulen. Exempel:  
 
 -   Modulen kräver en etikett kolumn, men ingen kolumn har marker ATS som en etikett eller så har du inte valt en etikett kolumn ännu.  
   
@@ -438,7 +438,7 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
 ## <a name="error-0022"></a>Fel 0022  
  Undantag uppstår om antalet markerade kolumner i indata-datamängd inte motsvarar det förväntade antalet.  
 
- Det här felet i Azure Machine Learning kan inträffa när den underordnade modulen eller åtgärden kräver ett särskilt antal kolumner eller indata, och du har angett för få eller för många kolumner eller indata. Ett exempel:  
+ Det här felet i Azure Machine Learning kan inträffa när den underordnade modulen eller åtgärden kräver ett särskilt antal kolumner eller indata, och du har angett för få eller för många kolumner eller indata. Exempel:  
 
 -   Du anger en enskild etikett kolumn eller nyckel kolumn och har valt flera kolumner av misstag.  
   

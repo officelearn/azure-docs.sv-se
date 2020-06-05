@@ -14,7 +14,7 @@ ms.locfileid: "80673147"
 ::: zone pivot="programming-language-python"  
 ## <a name="create-and-activate-a-virtual-environment"></a><a name="create-venv"></a>Skapa och aktivera en virtuell miljö
 
-I en lämplig mapp kör du följande kommandon för att skapa och aktivera en virtuell miljö med `.venv`namnet. Se till att använda python 3,8, 3,7 eller 3,6, som stöds av Azure Functions.
+I en lämplig mapp kör du följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv` . Se till att använda python 3,8, 3,7 eller 3,6, som stöds av Azure Functions.
 
 # <a name="bash"></a>[bash](#tab/bash)
 
@@ -54,5 +54,5 @@ py -m venv .venv
 
 ---
 
-Du kör alla efterföljande kommandon i den här aktiverade virtuella miljön. (Du avslutar den virtuella miljön genom att `deactivate`köra.)
+Du kör alla efterföljande kommandon i den här aktiverade virtuella miljön. (Du avslutar den virtuella miljön genom att köra `deactivate` .)
 ::: zone-end

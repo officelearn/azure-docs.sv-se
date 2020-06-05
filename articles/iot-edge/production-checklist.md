@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780750"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431920"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbered för att distribuera din IoT Edge-lösning i produktion
 
@@ -28,7 +28,7 @@ Informationen i den här artikeln är inte lika stor. För att hjälpa dig att p
 
 IoT Edge enheter kan vara allt från en Raspberry Pi till en bärbar dator till en virtuell dator som körs på en server. Du kan ha åtkomst till enheten antingen fysiskt eller via en virtuell anslutning, eller så kan den vara isolerad under längre tids perioder. Oavsett hur du vill kontrol lera att den är konfigurerad för att fungera korrekt.
 
-* **Oviktig**
+* **Viktigt!**
   * Installera produktionscertifikat
   * Ha en plan för enhets hantering
   * Använd Moby som behållar motor
@@ -129,11 +129,11 @@ Standardvärdet för parametern timeToLiveSecs är 7200 sekunder, vilket är tv�
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>Använd inte fel söknings versioner av module-avbildningar
 
-Kom ihåg att ta bort fel söknings konfigurationerna från distributions manifest när du flyttar från test scenarier till produktions scenarier. Kontrol lera att ingen av modulens bilder i distributions manifesten har ** \.fel söknings** -suffixet. Om du har lagt till skapa alternativ för att exponera portar i modulerna för fel sökning tar du även bort de här alternativen för att skapa.
+Kom ihåg att ta bort fel söknings konfigurationerna från distributions manifest när du flyttar från test scenarier till produktions scenarier. Kontrol lera att ingen av modulens bilder i distributions manifesten har ** \. fel söknings** -suffixet. Om du har lagt till skapa alternativ för att exponera portar i modulerna för fel sökning tar du även bort de här alternativen för att skapa.
 
 ## <a name="container-management"></a>Hantering av behållare
 
-* **Oviktig**
+* **Viktigt!**
   * Hantera åtkomst till behållar registret
   * Använda taggar för att hantera versioner
 * **Användbart**
@@ -210,15 +210,15 @@ Om nätverks konfigurationen kräver att du uttryckligen tillåter anslutningar 
 * **IoT Edge hubb** öppnar en enda beständig AMQP-anslutning eller flera MQTT-anslutningar för att IoT Hub, möjligen över WebSockets.
 * **IoT Edge daemon** gör tillfälliga https-anrop till IoT Hub.
 
-I samtliga tre fall matchar DNS-namnet mönstret \*. Azure-Devices.net.
+I samtliga tre fall matchar DNS-namnet mönstret \* . Azure-Devices.net.
 
 Dessutom gör **behållar motorn** anrop till behållar register via https. Om du vill hämta IoT Edge runtime container-avbildningarna är DNS-namnet mcr.microsoft.com. Behållar motorn ansluter till andra register som kon figurer ATS i distributionen.
 
 Den här check listan är en start punkt för brand Väggs regler:
 
-   | URL (\* = jokertecken) | Utgående TCP-portar | Användning |
+   | URL ( \* = jokertecken) | Utgående TCP-portar | Användning |
    | ----- | ----- | ----- |
-   | mcr.microsoft.com  | 443 | Microsoft container Registry |
+   | mcr.microsoft.com  | 443 | Microsoft Container Registry |
    | global.azure-devices-provisioning.net  | 443 | DPS-åtkomst (valfritt) |
    | \*. azurecr.io | 443 | Personliga och tredje parts behållar register |
    | \*.blob.core.windows.net | 443 | Ladda ned Azure Container Registry avbildnings delta från Blob Storage |
@@ -226,6 +226,10 @@ Den här check listan är en start punkt för brand Väggs regler:
    | \*. docker.io  | 443 | Docker Hub-åtkomst (valfritt) |
 
 Vissa av brand Väggs reglerna ärvs från Azure Container Registry. Mer information finns i [Konfigurera regler för åtkomst till ett Azure Container Registry bakom en brand vägg](../container-registry/container-registry-firewall-access-rules.md).
+
+> [!NOTE]
+> För att tillhandahålla ett konsekvent FQDN mellan REST-och data slut punkter, från och med den **15 juni 2020** , kommer Microsoft container Registry data slut punkten att ändras från `*.cdn.mscr.io` till`*.data.mcr.microsoft.com`  
+> Mer information finns i [konfiguration av brand Väggs regler för Microsoft container Registry-klient](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
 
 Om du inte vill konfigurera brand väggen för att tillåta åtkomst till offentliga behållar register, kan du lagra avbildningar i din privata behållar register, enligt beskrivningen i [lagra runtime-behållare i ditt privata register](#store-runtime-containers-in-your-private-registry).
 
@@ -255,7 +259,7 @@ Som standard anger Moby container Engine inte storleks gränser för behållar l
 
 #### <a name="option-set-global-limits-that-apply-to-all-container-modules"></a>Alternativ: ange globala gränser som gäller för alla behållar moduler
 
-Du kan begränsa storleken på alla behållar logg fils loggar i behållar Motorns logg alternativ. I följande exempel anges logg driv rutinen `json-file` till (rekommenderas) med gränser för storlek och antal filer:
+Du kan begränsa storleken på alla behållar logg fils loggar i behållar Motorns logg alternativ. I följande exempel anges logg driv rutinen till `json-file` (rekommenderas) med gränser för storlek och antal filer:
 
 ```JSON
 {
@@ -267,9 +271,9 @@ Du kan begränsa storleken på alla behållar logg fils loggar i behållar Motor
 }
 ```
 
-Lägg till (eller Lägg till) den här informationen i `daemon.json` en fil med namnet och placera den rätt plats för din enhets plattform.
+Lägg till (eller Lägg till) den här informationen i en fil med namnet `daemon.json` och placera den rätt plats för din enhets plattform.
 
-| Plattform | Plats |
+| Plattform | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
@@ -296,7 +300,7 @@ Du kan göra det i **createOptions** för varje modul. Exempel:
 
 #### <a name="additional-options-on-linux-systems"></a>Ytterligare alternativ för Linux-system
 
-* Konfigurera behållar motorn att skicka loggar `systemd` till [journalen](https://docs.docker.com/config/containers/logging/journald/) genom att ange `journald` som standard driv rutin för loggning.
+* Konfigurera behållar motorn att skicka loggar till `systemd` [journalen](https://docs.docker.com/config/containers/logging/journald/) genom `journald` att ange som standard driv rutin för loggning.
 
 * Ta regelbundet bort gamla loggar från enheten genom att installera ett logrotate-verktyg. Använd följande fil specifikation:
 

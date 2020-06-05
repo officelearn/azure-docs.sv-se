@@ -33,7 +33,7 @@ Svaret som skickas från POP-servrarna till en användare inkluderar `X-EC-Debug
 ## <a name="requesting-debug-cache-information"></a>Begär information om felsöknings-cache
 Använd följande direktiv i den angivna begäran för att definiera den felsöknings-cache-information som ska ingå i svaret:
 
-Begärandehuvud | Description |
+Begärandehuvud | Beskrivning |
 ---------------|-------------|
 X-EG-debug: x-EC-cache | [Status kod för cache](#cache-status-code-information)
 X-EG-debug: x-EC-cache-Remote | [Status kod för cache](#cache-status-code-information)
@@ -54,7 +54,7 @@ Felsök cache-svarshuvuden kan begäras genom att inkludera följande rubrik och
 ## <a name="cache-status-code-information"></a>Information om cache status kod
 Svars huvudet för X-EG-debug kan identifiera en server och hur den hanterar svaret genom följande direktiv:
 
-Sidhuvud | Description
+Sidhuvud | Beskrivning
 -------|------------
 X-EG-debug: x-EC-cache | Den här rubriken rapporteras när innehållet dirigeras via CDN. Den identifierar den POP-server som uppfyllde begäran.
 X-EG-debug: x-EC-cache-Remote | Den här rubriken rapporteras endast när det begärda innehållet cachelagrades på en ursprungs skärms Server eller en och gateway-server.

@@ -4,14 +4,14 @@ description: I det här dokumentet beskrivs de steg som krävs för att konfigur
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 06/04/2020
 ms.author: mjbrown
-ms.openlocfilehash: 442623880c1b95f3d7e038ae44832b74853d2c4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 904b976b5e5c811912df9421dc64be1617b30b44
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366230"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431716"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Konfigurera åtkomst från virtuella nätverk (VNet)
 
@@ -52,7 +52,7 @@ I följande avsnitt beskrivs hur du konfigurerar en tjänst slut punkt för virt
 > Om du vill aktivera tjänst slut punkter för virtuella nätverk måste du ha följande prenumerations behörigheter:
 >   * Prenumeration med virtuellt nätverk: nätverks deltagare
 >   * Prenumeration med Azure Cosmos DB konto: DocumentDB Account Contributor
->   * Om ditt virtuella nätverk och Azure Cosmos DB konto finns i olika prenumerationer, kontrollerar du att prenumerationen som har ett virtuellt nätverk `Microsoft.DocumentDB` också har en registrerad resurs leverantör. Information om hur du registrerar en resurs leverantör finns i artikeln [Azure Resource providers och types](../azure-resource-manager/management/resource-providers-and-types.md) .
+>   * Om ditt virtuella nätverk och Azure Cosmos DB konto finns i olika prenumerationer, kontrollerar du att prenumerationen som har ett virtuellt nätverk också har en `Microsoft.DocumentDB` registrerad resurs leverantör. Information om hur du registrerar en resurs leverantör finns i artikeln [Azure Resource providers och types](../azure-resource-manager/management/resource-providers-and-types.md) .
 
 Här följer anvisningar för att registrera prenumeration med Resource Provider.
 
@@ -257,6 +257,10 @@ az network vnet subnet update \
    --vnet-name $vnetName \
    --service-endpoints Microsoft.AzureCosmosDB
 ```
+
+## <a name="port-range-when-using-direct-mode"></a>Port intervall när Direct-läge används
+
+När du använder tjänst slut punkter med ett Azure Cosmos-konto via en anslutning i direkt läge, måste du se till att TCP-portnumret från 10000 till 20000 är öppen.
 
 ## <a name="migrating-from-an-ip-firewall-rule-to-a-virtual-network-acl"></a><a id="migrate-from-firewall-to-vnet"></a>Migrera från en IP-brandväggsregel till en virtuell nätverks-ACL
 

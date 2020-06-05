@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 705c35570484f604e9281b9c19ceb734180ba3e1
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857695"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418270"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera lokalt installerad integrationskörning
 
@@ -97,7 +97,7 @@ Du kan automatisera IR-installationen med egen värd på en virtuell Azure-dator
 
 Du kan använda en kommando rad för att ställa in eller hantera en befintlig egen IR-anslutning. Den här användningen kan särskilt hjälpa dig att automatisera installationen och registreringen av IR-noder med egen värd.
 
-Dmgcmd. exe ingår i installations programmet för egen värd. Den finns vanligt vis i mappen C:\Program Files\Microsoft integration Runtime\3.0\Shared\. Det här programmet har stöd för olika parametrar och kan anropas via en kommando rad med hjälp av batch-skript för Automation.
+Dmgcmd. exe ingår i installations programmet för egen värd. Den finns vanligt vis i mappen C:\Program Files\Microsoft integration Runtime\4.0\Shared\. Det här programmet har stöd för olika parametrar och kan anropas via en kommando rad med hjälp av batch-skript för Automation.
 
 Använd programmet på följande sätt:
 
@@ -107,7 +107,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 Här följer information om programmets parametrar och egenskaper: 
 
-| Egenskap                                                    | Beskrivning                                                  | Krävs |
+| Egenskap                                                    | Beskrivning                                                  | Obligatorisk |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | Registrera en egen värd för integration runtime-noden med den angivna autentiseringsnyckel. | Nej       |
 | **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registrera en egen värd för integration runtime-noden med den angivna autentiseringsnyckel och nodnamn. | Nej       |
@@ -151,7 +151,7 @@ Här följer en översikt över de data flödes steg som krävs för att kopiera
 - Använd en integration runtime med egen värd för att stödja data integrering i ett virtuellt Azure-nätverk.
 - Behandla din data källa som en lokal data källa som ligger bakom en brand vägg, även när du använder Azure-ExpressRoute. Använd integration runtime med egen värd för att ansluta tjänsten till data källan.
 - Använd integration runtime med egen värd även om data lagret finns i molnet på en virtuell IaaS-dator (Azure Infrastructure as a Service).
-- Aktiviteter kan Miss Miss kan utföras i en integration runtime med egen värd som du har installerat på en Windows Server för vilken FIPS-kompatibel kryptering har Aktiver ATS. Undvik det här problemet genom att inaktivera FIPS-kompatibel kryptering på servern. Om du vill inaktivera FIPS-kompatibel kryptering ändrar du följande register under nyckels värde från 1 (aktiverat) till 0 (inaktiverat): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
+- Aktiviteter kan Miss Miss kan utföras i en integration runtime med egen värd som du har installerat på en Windows Server för vilken FIPS-kompatibel kryptering har Aktiver ATS. Undvik det här problemet genom att inaktivera FIPS-kompatibel kryptering på servern. Om du vill inaktivera FIPS-kompatibel kryptering ändrar du följande register under nyckels värde från 1 (aktiverat) till 0 (inaktiverat): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` .
 
 ## <a name="prerequisites"></a>Krav
 
@@ -220,7 +220,7 @@ Du kan associera flera noder genom att installera program varan för egen värd 
 > Du behöver inte skapa en ny integration runtime med egen värd för att associera varje nod. Du kan installera integration runtime med egen värd på en annan dator och registrera den med samma autentiseringsnyckel.
 
 > [!NOTE]
-> Innan du lägger till en annan nod för hög tillgänglighet och skalbarhet måste du kontrol lera att alternativet **fjärråtkomst till intranät** är aktiverat på den första noden. Det gör du genom att välja **Microsoft integration runtime Configuration Manager** > **Inställningar** > **fjärråtkomst till intranätet**.
+> Innan du lägger till en annan nod för hög tillgänglighet och skalbarhet måste du kontrol lera att alternativet **fjärråtkomst till intranät** är aktiverat på den första noden. Det gör du genom att välja **Microsoft integration runtime Configuration Manager**  >  **Inställningar**  >  **fjärråtkomst till intranätet**.
 
 ### <a name="scale-considerations"></a>Skalnings överväganden
 
@@ -375,9 +375,9 @@ Du kan använda Configuration Manager-verktyget för att visa och uppdatera HTTP
 
 Om du väljer alternativet **Använd systemproxy** för HTTP-proxyn använder den egen värdbaserade integrerings körningen proxyinställningarna i diahost. exe. config och diawp. exe. config. När de här filerna inte anger någon proxy ansluter den egna värdbaserade integrerings körningen till moln tjänsten direkt utan att gå via en proxy. Följande procedur innehåller instruktioner för att uppdatera filen diahost. exe. config:
 
-1. I Utforskaren skapar du en säker kopia av C:\Program\Microsoft integration Runtime\3.0\Shared\diahost.exe.config som en säkerhets kopia av den ursprungliga filen.
+1. I Utforskaren skapar du en säker kopia av C:\Program\Microsoft integration Runtime\4.0\Shared\diahost.exe.config som en säkerhets kopia av den ursprungliga filen.
 1. Öppna anteckningar som körs som administratör.
-1. I anteckningar öppnar du text filen C:\Program Files\Microsoft integration Runtime\3.0\Shared\diahost.exe.config.
+1. I anteckningar öppnar du text filen C:\Program Files\Microsoft integration Runtime\4.0\Shared\diahost.exe.config.
 1. Hitta standard tag gen **system.net** -taggen som visas i följande kod:
 
     ```xml
@@ -395,7 +395,7 @@ Om du väljer alternativet **Använd systemproxy** för HTTP-proxyn använder de
     </system.net>
     ```
 
-    Proxy-taggen tillåter ytterligare egenskaper för att ange de inställningar `scriptLocation`som krävs. Se [ \<proxy\> -elementet (nätverks inställningar)](https://msdn.microsoft.com/library/sa91de1e.aspx) för syntax.
+    Proxy-taggen tillåter ytterligare egenskaper för att ange de inställningar som krävs `scriptLocation` . Se [ \<proxy\> -element (nätverks inställningar)](https://msdn.microsoft.com/library/sa91de1e.aspx) för syntax.
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
@@ -416,7 +416,7 @@ Du måste också se till att Microsoft Azure finns i företagets lista över til
 Om du ser fel meddelanden som följande, är den troligaste orsaken felaktig konfiguration av brand väggen eller proxyservern. Sådan konfiguration förhindrar att integrerings körningen med egen värd ansluter till Data Factory att autentisera sig själv. Se föregående avsnitt för att kontrol lera att din brand vägg och proxyserver är korrekt konfigurerade.
 
 * När du försöker registrera den egna värdbaserade integrerings körningen visas följande fel meddelande: "Det gick inte att registrera den här Integration Runtime noden! Bekräfta att autentiseringsnyckel är giltig och att värd tjänsten för integrations tjänsten körs på den här datorn. "
-* När du öppnar Integration Runtime Configuration Manager visas statusen **frånkopplad** eller **ansluten**. När du visar händelse loggar för Windows, under **Loggboken** > **program-och tjänst loggar** > **Microsoft integration runtime**, visas fel meddelanden som detta:
+* När du öppnar Integration Runtime Configuration Manager visas statusen **frånkopplad** eller **ansluten**. När du visar händelse loggar för Windows, under **Loggboken**  >  **program-och tjänst loggar**  >  **Microsoft integration runtime**, visas fel meddelanden som detta:
 
     ```
     Unable to connect to the remote server

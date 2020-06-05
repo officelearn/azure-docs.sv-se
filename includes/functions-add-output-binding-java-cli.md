@@ -19,9 +19,9 @@ Bläddra till platsen för funktions koden under _src/main/Java_, öppna filen *
 @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") OutputBinding<String> msg
 ```
 
-`msg` Parametern är en [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) typ som representerar en samling strängar som skrivs som meddelanden till en utgående bindning när funktionen slutförs. I det här fallet är utdata en lagrings kö med `outqueue`namnet. Anslutnings strängen för lagrings kontot anges av- `connection` metoden. I stället för själva anslutnings strängen skickar du den program inställning som innehåller anslutnings strängen för lagrings kontot.
+`msg`Parametern är en [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) typ som representerar en samling strängar som skrivs som meddelanden till en utgående bindning när funktionen slutförs. I det här fallet är utdata en lagrings kö med namnet `outqueue` . Anslutnings strängen för lagrings kontot anges av- `connection` metoden. I stället för själva anslutnings strängen skickar du den program inställning som innehåller anslutnings strängen för lagrings kontot.
 
-`run` Metod definitionen bör nu se ut som i följande exempel:  
+`run`Metod definitionen bör nu se ut som i följande exempel:  
 
 ```java
 @FunctionName("HttpTrigger-Java")

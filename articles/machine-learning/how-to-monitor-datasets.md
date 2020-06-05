@@ -5,17 +5,17 @@ description: Skapa Azure Machine Learning data uppsättnings övervakare (för h
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: e49c621d92a8aa604b5f95291c5d80c0141f41dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15cfa56f718290af3ae5fb87aadab70016cc8594
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682727"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430234"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Identifiera data avvikelser (för hands version) på data uppsättningar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Mått och insikter är tillgängliga via den [Azure Application Insights](https:
 ## <a name="prerequisites"></a>Krav
 
 Om du vill skapa och arbeta med data uppsättnings övervakare behöver du:
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 * En [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 * [Azure Machine Learning SDK för python installerat](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), som innehåller paketet azureml-DataSets.
 * Strukturerad (tabell) data med en tidsstämpel som anges i fil Sök vägen, fil namnet eller kolumnen i data.
@@ -73,11 +73,11 @@ Med hjälp av Azure Machine Learning övervakas data driften via data uppsättni
 
 ### <a name="set-the-timeseries-trait-in-the-target-dataset"></a>Ange `timeseries` traiten i mål data uppsättningen
 
-Mål data uppsättningen måste ha angiven `timeseries` trait genom att ange kolumnen tidsstämpelkolumn från en kolumn i data eller en virtuell kolumn härledd från Sök vägs mönstret för filerna. Detta kan göras via python SDK eller Azure Machine Learning Studio. En kolumn som representerar en "fin kornig"-tidstämpel måste anges för `timeseries` att lägga till trait i data uppsättningen. Om dina data är partitionerade i mappstrukturen med tidsinformation, till exempel {ÅÅÅÅ/MM/DD}, kan du skapa en virtuell kolumn med hjälp av banans mönster inställning och ange den som "grov kornig"-tidsstämpel för att förbättra vikten av tids serie funktionen. 
+Mål data uppsättningen måste ha `timeseries` angiven trait genom att ange kolumnen tidsstämpelkolumn från en kolumn i data eller en virtuell kolumn härledd från Sök vägs mönstret för filerna. Detta kan göras via python SDK eller Azure Machine Learning Studio. En kolumn som representerar en "fin kornig"-tidstämpel måste anges för att lägga till `timeseries` trait i data uppsättningen. Om dina data är partitionerade i mappstrukturen med tidsinformation, till exempel {ÅÅÅÅ/MM/DD}, kan du skapa en virtuell kolumn med hjälp av banans mönster inställning och ange den som "grov kornig"-tidsstämpel för att förbättra vikten av tids serie funktionen. 
 
 #### <a name="python-sdk"></a>Python SDK
 
-[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) Klassen- [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metoden definierar tids stämplings kolumnen för data uppsättningen. 
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)Klassen- [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metoden definierar tids stämplings kolumnen för data uppsättningen. 
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -227,7 +227,7 @@ monitor = monitor.disable_schedule()
 monitor = monitor.enable_schedule()
 ```
 
-Ett komplett exempel på hur du konfigurerar en `timeseries` data uppsättning och data riktnings detektor finns i vårt [exempel antecknings bok](https://aka.ms/datadrift-notebook).
+Ett komplett exempel på hur du konfigurerar en data `timeseries` uppsättning och data riktnings detektor finns i vårt [exempel antecknings bok](https://aka.ms/datadrift-notebook).
 
 ## <a name="understanding-data-drift-results"></a>Förstå data avvikelse resultat
 
@@ -239,12 +239,12 @@ Data övervakaren producerar två resultat grupper: avvikelse översikt och funk
 
 Avsnittet **avvikelse översikt** innehåller insikter på toppnivå för data drift och vilka funktioner som bör undersökas ytterligare. 
 
-| Mått | Beskrivning | Tips | 
+| Metric | Beskrivning | Tips | 
 | ------ | ----------- | ---- | 
 | Data riktnings storlek | Tilldelas i procent mellan bas linjen och mål data uppsättningen över tid. Sträcker sig från 0 till 100 där 0 anger identiska data mängder och 100 anger att den Azure Machine Learning data drifts kapacitet kan fullständigt meddela de två data uppsättningarna. | Brus i exakt uppmätt procents ATS förväntas på grund av maskin inlärnings tekniker som används för att generera den här storleken. | 
 | Drift bidrag efter funktion | Bidraget för varje funktion i mål data uppsättningen till uppmätt drifts storlek. |  På grund av covariate Shift behöver inte den underliggande distributionen av en funktion nödvändigt vis ändra för att ha en relativt hög funktions betydelse. | 
 
-Följande bild är ett exempel på diagram som visas i **avvikelse översikten** i Azure Machine Learning Studio, vilket resulterar i en [NOAA integrerad Surface-data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). Data samplades till `stationName contains 'FLORIDA'`, med januari 2019 som används som bas linje data uppsättning och alla 2019-data som används som mål.
+Följande bild är ett exempel på diagram som visas i **avvikelse översikten** i Azure Machine Learning Studio, vilket resulterar i en [NOAA integrerad Surface-data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). Data samplades till `stationName contains 'FLORIDA'` , med januari 2019 som används som bas linje data uppsättning och alla 2019-data som används som mål.
  
 ![Avvikelse översikt](./media/how-to-monitor-datasets/drift-overview.png)
 
@@ -262,7 +262,7 @@ Dessa mått kan också hämtas i python SDK genom `get_metrics()` metoden för e
 
 Numeriska funktioner profilerade i varje data uppsättnings övervakare körs. Följande visas i Azure Machine Learning Studio. Sannolikhets täthet visas för fördelningen.
 
-| Mått | Beskrivning |  
+| Metric | Beskrivning |  
 | ------ | ----------- |  
 | Wasserstein avstånd | Minsta arbets mängd för att transformera bas linje distribution till mål distributionen. |
 | Genomsnitts värde | Genomsnittligt värde för funktionen. |
@@ -275,7 +275,7 @@ Numeriska funktioner profilerade i varje data uppsättnings övervakare körs. F
 
 Numeriska funktioner profilerade i varje data uppsättnings övervakare körs. Följande visas i Azure Machine Learning Studio. Ett histogram visas för fördelningen.
 
-| Mått | Beskrivning |  
+| Metric | Beskrivning |  
 | ------ | ----------- |  
 | Euclidian avstånd | Geometriskt avstånd mellan bas linje-och mål distributioner. |
 | Unika värden | Antal unika värden (kardinalitet) för funktionen. |
@@ -295,7 +295,7 @@ Välj loggar (analys) under övervakning i den vänstra rutan:
 
 ![Översikt över Application Insights](./media/how-to-monitor-datasets/ai-overview.png)
 
-Data uppsättnings övervaknings måtten lagras som `customMetrics`. Du kan skriva och köra en fråga när du har ställt in en data uppsättnings Övervakare för att visa dem:
+Data uppsättnings övervaknings måtten lagras som `customMetrics` . Du kan skriva och köra en fråga när du har ställt in en data uppsättnings Övervakare för att visa dem:
 
 [![Log Analytics-fråga](./media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
 

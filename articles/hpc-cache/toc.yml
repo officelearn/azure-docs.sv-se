@@ -38,6 +38,10 @@
       href: hpc-cache-manage.md
     - name: Konfigurera valfria inställningar
       href: configuration.md
+- name: Referens
+  items:
+    - name: Azure CLI
+      href: /cli/azure/ext/hpc-cache/hpc-cache
 - name: Resurser
   items:
     - name: Öppna en supportbegäran

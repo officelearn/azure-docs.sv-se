@@ -7,13 +7,13 @@ ms.author: mhopkins
 ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: f4e6e2f2732d1c90e8fe669788d82692c8016fd6
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135895"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463458"
 ---
 # <a name="copy-a-blob-with-net"></a>Kopiera en blob med .NET
 
@@ -109,7 +109,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 
 ## <a name="abort-a-blob-copy-operation"></a>Avbryt en BLOB-kopiera åtgärd
 
-Om du avbryter en kopierings åtgärd i ett mål-BLOB med längden noll för block-blobbar, bifoga blobbar och sid-blobar. Metadata för mål-bloben kommer dock att ha de nya värdena som kopieras från käll-bloben eller uttryckligen anges i [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) -eller [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) -anropet. Om du vill behålla de ursprungliga metadata från före kopian ska du skapa en ögonblicks bild av `StartCopy` mål `StartCopyAsync`-bloben innan du anropar eller.
+Om du avbryter en kopierings åtgärd i ett mål-BLOB med längden noll för block-blobbar, bifoga blobbar och sid-blobar. Metadata för mål-bloben kommer dock att ha de nya värdena som kopieras från käll-bloben eller uttryckligen anges i [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) -eller [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) -anropet. Om du vill behålla de ursprungliga metadata från före kopian ska du skapa en ögonblicks bild av mål-bloben innan du anropar `StartCopy` eller `StartCopyAsync` .
 
 När du avbryter en pågående BLOB Copy-åtgärd är mål-blobens [CopyState. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) inställt på [CopyStatus. abort](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
 

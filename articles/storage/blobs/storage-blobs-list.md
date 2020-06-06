@@ -4,16 +4,16 @@ description: Lär dig hur du listar blobbar i en behållare i ditt Azure Storage
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 03/30/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 76142838d1ec138b75fb6c594414b2ff5d8cd939
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 0f0b3488bd34a31002449b9b7635064d5d835072
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883302"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465583"
 ---
 # <a name="list-blobs-with-net"></a>Lista blobbar med .NET
 
@@ -24,6 +24,15 @@ Den här artikeln visar hur du listar blobbar med hjälp av [Azure Storage klien
 ## <a name="understand-blob-listing-options"></a>Förstå List alternativ för BLOB
 
 Om du vill visa en lista över blobarna i ett lagrings konto anropar du någon av följande metoder:
+
+# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+
+- [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet)
+
+# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
 
 - [CloudBlobClient. ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
 - [CloudBlobClient. ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
@@ -37,11 +46,13 @@ Om du vill visa en lista över blobarna i en behållare, anropa någon av följa
 
 Överlagringarna för dessa metoder ger ytterligare alternativ för att hantera hur blobbar returneras av list åtgärden. De här alternativen beskrivs i följande avsnitt.
 
+---
+
 ### <a name="manage-how-many-results-are-returned"></a>Hantera hur många resultat som returneras
 
-Som standard returnerar en List åtgärd upp till 5000 resultat i taget. Om du vill returnera en mindre uppsättning resultat anger du ett värde som inte är `maxresults` noll för parametern när du anropar en av **ListBlobs** -metoderna.
+Som standard returnerar en List åtgärd upp till 5000 resultat i taget, men du kan ange antalet resultat som du vill att varje List åtgärd ska returnera. I exemplen som visas i den här artikeln visas hur du gör detta.
 
-Om en List åtgärd returnerar mer än 5000 blobbar, eller om du har angett ett värde för `maxresults` en sådan att List åtgärden returnerar en delmängd av behållare i lagrings kontot, Azure Storage returnerar en *fortsättnings-token* med listan över blobbar. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
+Om en List åtgärd returnerar mer än 5000 blobbar, eller om antalet blobbar som är tillgängliga överstiger det antal som du angav, returnerar Azure Storage en *fortsättnings-token* med listan över blobbar. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
 
 I din kod kontrollerar du värdet för fortsättnings-token för att avgöra om det är null. När tilläggs-token är null slutförs uppsättningen av resultat. Om tilläggs-token inte är null anropar du List åtgärden igen och skickar i fortsättnings-token för att hämta nästa uppsättning resultat, tills den fortsatta token är null.
 
@@ -51,7 +62,11 @@ Om du vill filtrera listan över behållare anger du en sträng för `prefix` pa
 
 ### <a name="return-metadata"></a>Returnera metadata
 
-Om du vill returnera BLOB-metadata med resultaten anger du värdet för **metadata** för [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) -uppräkningen. Azure Storage innehåller metadata med varje blob som returneras, så du behöver inte anropa någon av **FetchAttributes** -metoderna i den här kontexten för att hämta BLOB-metadata.
+Du kan returnera BLOB-metadata med resultaten. 
+
+- Om du använder .NET V12 SDK anger du **metadata** -värdet för [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits?view=azure-dotnet) -uppräkningen.
+
+- Om du använder .NET V11 SDK anger du **metadata** -värdet för [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) -uppräkningen. Azure Storage innehåller metadata med varje blob som returneras, så du behöver inte anropa någon av **FetchAttributes** -metoderna i den här kontexten för att hämta BLOB-metadata.
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Platt lista jämfört med hierarkisk lista
 
@@ -66,6 +81,12 @@ Om du namnger Blobbarna med hjälp av en avgränsare kan du välja att lista blo
 Som standard returnerar en List åtgärd blobbar i en platt lista. I en platt lista organiseras blobbar inte av en virtuell katalog.
 
 I följande exempel visas blobarna i den angivna behållaren med hjälp av en platt lista, med en valfri segment storlek angiven och skriver BLOB-namnet i ett konsol fönster.
+
+# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
+
+# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -85,7 +106,6 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 
             foreach (var blobItem in resultSegment.Results)
             {
-                // A flat listing operation returns only blobs, not virtual directories.
                 blob = (CloudBlob)blobItem;
 
                 // Write out some blob properties.
@@ -108,6 +128,8 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
+---
+
 Exempel resultatet ser ut ungefär så här:
 
 ```
@@ -126,7 +148,17 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 När du anropar en List åtgärd hierarkiskt, returnerar Azure Storage virtuella kataloger och blobbar på den första nivån i hierarkin. Egenskapen [prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) för varje virtuell katalog är inställd så att du kan skicka prefixet i ett rekursivt anrop för att hämta nästa katalog.
 
-Om du vill visa blobar hierarkiskt anger `useFlatBlobListing` du parametern för List metoden till **falsk**.
+# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+
+Om du vill lista blobar hierarkiskt anropar du metoden [BlobContainerClient. GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)eller [BlobContainerClient. GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet) .
+
+I följande exempel visas blobarna i den angivna behållaren med hjälp av en hierarkisk lista, med en valfri segment storlek angiven och skriver BLOB-namnet i konsol fönstret.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
+
+# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
+
+Om du vill visa blobar hierarkiskt anger du `useFlatBlobListing` parametern för List metoden till **falsk**.
 
 I följande exempel visas blobarna i den angivna behållaren med hjälp av en platt lista, med en valfri segment storlek angiven och skriver BLOB-namnet i konsol fönstret.
 
@@ -182,6 +214,8 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
     }
 }
 ```
+
+---
 
 Exempel resultatet ser ut ungefär så här:
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 7213cb10936fc1c2117b2c5c3fc32a6bfea02d30
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 6a123fac9f199fc0b19a3e6af33ad705ce51945c
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816782"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464461"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Kundägda lagrings konton för logg inmatning i Azure Monitor
 
@@ -232,4 +232,4 @@ Om det registrerade lagrings kontot för din arbets yta finns i en annan region 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du konfigurerar en privat länk finns i [använda Azure Private Link för att ansluta nätverk på ett säkert sätt till Azure Monitor} (privat länk-security.md)
+- Mer information om hur du konfigurerar en privat länk finns i [använda Azure Private Link för att ansluta nätverk på ett säkert sätt till Azure Monitor](private-link-security.md)

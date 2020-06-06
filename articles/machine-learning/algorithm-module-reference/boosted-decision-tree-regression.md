@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: cb7f11f184ba8e19eb8786817da58edf8ddee44e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6b72d80f0be65af22bf334752052757346457a67
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137101"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448639"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Regressions modul för besluts träd
 
@@ -99,7 +99,7 @@ Metoden för tonings förstärkning kan också användas för klassificerings pr
 
 När utbildningen är klar:
 
-+ Om du vill använda modellen för poängsättning ansluter du den till [Poäng modellen](./score-model.md)och förutsäger värdena för nya ingångs exempel.
++ Om du vill använda modellen för poängsättning ansluter du [träna modell](train-model.md) till [Scores-modellen](./score-model.md)för att förutsäga värden för nya exempel på ingångar.
 
 + Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i den **tränade modellen** och klickar på ikonen **registrera data uppsättning** . Kopian av den tränade modellen sparas som en modul i modul trädet och kommer inte att uppdateras vid efterföljande körningar av pipelinen.
 

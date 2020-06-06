@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: f03d1cfeccf03614fe0a5828a05768a5ae3f56e2
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 269ad20d99f21c05d527d60af61692eb49048f08
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699650"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448081"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Konfigurera ett labb som fokuserar på djup inlärning i naturlig språk bearbetning med hjälp av Azure Lab Services
 Den här artikeln visar hur du konfigurerar ett labb som fokuserar på djup inlärning i naturlig språk bearbetning (NLP) med hjälp av Azure Lab Services. NLP (Natural Language Processing) är en form av artificiell intelligens (AI) som gör det möjligt för datorer med översättning, tal igenkänning och andra funktioner för språk förståelse.  
@@ -38,7 +38,7 @@ Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa e
 
 | Labb inställningar | Värde/anvisningar | 
 | ------------ | ------------------ |
-| Storlek för virtuell dator (VM) | Liten GPU (Compute). Den här storleken passar bäst för beräknings intensiva och nätverks intensiva program som artificiell intelligens och djup inlärning. |
+| Storlek för virtuell dator (VM) | **Liten GPU (Compute)**. Den här storleken passar bäst för beräknings intensiva och nätverks intensiva program som artificiell intelligens och djup inlärning. |
 | Avbildning av virtuell dator | [Data science Virtual Machine för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Den här avbildningen innehåller ramverk för djup inlärning och verktyg för maskin inlärning och data vetenskap. Om du vill visa en fullständig lista över installerade verktyg på den här avbildningen kan du läsa följande artikel: [Vad ingår i DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
 | Aktivera anslutning till fjärr skrivbord | <p>Data science-avbildningen har redan kon figurer ATS för att använda X2Go så att lärare och studenter kan ansluta med ett GUI-fjärrskrivbord.  X2Go kräver *inte* att inställningen **Aktivera fjärr skrivbords anslutning** är aktive rad.  Den här inställningen måste aktive ras om du väljer att använda RDP i stället.
 

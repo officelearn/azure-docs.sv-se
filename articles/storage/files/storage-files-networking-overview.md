@@ -7,20 +7,20 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296535"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464818"
 ---
 # <a name="azure-files-networking-considerations"></a>Azure Files nätverks överväganden 
 Du kan ansluta till en Azure-filresurs på två sätt:
 
 - Åtkomst till resursen direkt via SMB eller fileraste protokollen. Detta åtkomst mönster används i första hand för att eliminera så många lokala servrar som möjligt.
-- Skapa ett cacheminne för Azure-filresursen på en lokal server med Azure File Sync och få åtkomst till fil resursens data från den lokala servern med ditt protokoll (SMB, NFS, FTPS osv.) för ditt användnings fall. Det här åtkomst mönstret är användbart eftersom det kombinerar det bästa av både lokala prestanda och moln skalning och tjänster som kan anslutas utan server, till exempel Azure Backup.
+- Skapa ett cacheminne för Azure-filresursen på en lokal server (eller på en virtuell Azure-dator) med Azure File Sync och få åtkomst till fil resursens data från den lokala servern med ditt protokoll (SMB, NFS, FTPS osv.) för ditt användnings fall. Det här åtkomst mönstret är användbart eftersom det kombinerar det bästa av både lokala prestanda och moln skalning och tjänster som kan anslutas utan server, till exempel Azure Backup.
 
-Den här artikeln fokuserar på hur du konfigurerar nätverk för när ditt användnings fall anropar åtkomst till Azure-filresursen direkt i stället för att använda Azure File Sync. Mer information om nätverks överväganden för en Azure File Sync distribution finns i [konfigurera Azure File Sync proxy-och brand Väggs inställningar](storage-sync-files-firewall-and-proxy.md).
+Den här artikeln fokuserar på hur du konfigurerar nätverk för när ditt användnings fall anropar åtkomst till Azure-filresursen direkt i stället för att använda Azure File Sync. För ytterligare information om nätverks överväganden för en Azure File Sync distribution, se [Azure File Sync nätverks överväganden](storage-sync-files-networking-overview.md).
 
 Nätverks konfigurationen för Azure-filresurser görs på Azure Storage-kontot. Ett lagrings konto är en hanterings konstruktion som representerar en delad pool av lagring där du kan distribuera flera fil resurser, samt andra lagrings resurser, till exempel BLOB-behållare eller köer. Lagrings konton visar flera inställningar som hjälper dig att skydda nätverks åtkomsten till dina fil resurser: nätverks slut punkter, inställningar för lagrings konto brand vägg och kryptering under överföring. 
 

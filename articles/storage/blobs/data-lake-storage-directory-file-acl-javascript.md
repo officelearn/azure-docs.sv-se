@@ -5,21 +5,21 @@ author: normesta
 ms.service: storage
 ms.date: 03/20/2020
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 04d0d23bdbdaeda6a4823c900badb3133ba9eeae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a95af730e8250539e8b33af4bd5a90dc3a604a2
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061546"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466076"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd Java Script för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
 Den här artikeln visar hur du använder Java Script för att skapa och hantera kataloger, filer och behörigheter i lagrings konton som har hierarkiskt namn område (HNS) aktiverat. 
 
-[Paket (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake) | [exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples) | [ger feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+[Paket (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake)  |  [Exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)  |  [Ge feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -94,7 +94,7 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 
 Ett fil system fungerar som en behållare för dina filer. Du kan skapa en genom att hämta en **FileSystemClient** -instans och sedan anropa metoden **FileSystemClient. Create** .
 
-I det här exemplet skapas ett fil `my-file-system`system med namnet. 
+I det här exemplet skapas ett fil system med namnet `my-file-system` . 
 
 ```javascript
 async function CreateFileSystem(datalakeServiceClient) {
@@ -112,7 +112,7 @@ async function CreateFileSystem(datalakeServiceClient) {
 
 Skapa en katalog referens genom att hämta en **DirectoryClient** -instans och anropa sedan metoden **DirectoryClient. Create** .
 
-Det här exemplet lägger till en `my-directory` katalog med namnet i ett fil system. 
+Det här exemplet lägger till en katalog med namnet `my-directory` i ett fil system. 
 
 ```javascript
 async function CreateDirectory(fileSystemClient) {
@@ -128,7 +128,7 @@ async function CreateDirectory(fileSystemClient) {
 
 Byt namn på eller flytta en katalog genom att anropa metoden **DirectoryClient. Rename** . Skicka sökvägen till önskad katalog en parameter. 
 
-I det här exemplet byter namn på en under katalog till namnet `my-directory-renamed`.
+I det här exemplet byter namn på en under katalog till namnet `my-directory-renamed` .
 
 ```javascript
 async function RenameDirectory(fileSystemClient) {
@@ -139,7 +139,7 @@ async function RenameDirectory(fileSystemClient) {
 }
 ```
 
-I det här exemplet flyttas en `my-directory-renamed` katalog med namnet till en under katalog till en `my-directory-2`katalog med namnet. 
+I det här exemplet flyttas en katalog med namnet `my-directory-renamed` till en under katalog till en katalog med namnet `my-directory-2` . 
 
 ```javascript
 async function MoveDirectory(fileSystemClient) {
@@ -154,7 +154,7 @@ async function MoveDirectory(fileSystemClient) {
 
 Ta bort en katalog genom att anropa metoden **DirectoryClient. Delete** .
 
-Det här exemplet tar bort en `my-directory`katalog med namnet.   
+Det här exemplet tar bort en katalog med namnet `my-directory` .   
 
 ```javascript
 async function DeleteDirectory(fileSystemClient) {
@@ -167,7 +167,7 @@ async function DeleteDirectory(fileSystemClient) {
 
 ## <a name="manage-a-directory-acl"></a>Hantera en katalog-ACL
 
-Det här exemplet hämtar och anger sedan ACL för en katalog med `my-directory`namnet. Det här exemplet ger den ägande användaren Läs-, skriv-och körnings behörighet, ger den ägande gruppen endast Läs-och kör behörigheter och ger alla andra Läs behörighet.
+Det här exemplet hämtar och anger sedan ACL för en katalog med namnet `my-directory` . Det här exemplet ger den ägande användaren Läs-, skriv-och körnings behörighet, ger den ägande gruppen endast Läs-och kör behörigheter och ger alla andra Läs behörighet.
 
 > [!NOTE]
 > Om ditt program tillåter åtkomst genom att använda Azure Active Directory (Azure AD) måste du kontrol lera att det säkerhets objekt som programmet använder för att auktorisera åtkomst har tilldelats rollen som [lagrings-BLOB-dataägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -221,9 +221,9 @@ async function ManageDirectoryACLs(fileSystemClient) {
 
 ## <a name="upload-a-file-to-a-directory"></a>Ladda upp en fil till en katalog
 
-Börja med att läsa en fil. I det här exemplet används modulen Node `fs` . js. Skapa sedan en fil referens i mål katalogen genom att skapa en **FileClient** -instans och sedan anropa metoden **FileClient. Create** . Ladda upp en fil genom att anropa metoden **FileClient. append** . Se till att slutföra överföringen genom att anropa metoden **FileClient. flush** .
+Börja med att läsa en fil. I det här exemplet används modulen Node. js `fs` . Skapa sedan en fil referens i mål katalogen genom att skapa en **FileClient** -instans och sedan anropa metoden **FileClient. Create** . Ladda upp en fil genom att anropa metoden **FileClient. append** . Se till att slutföra överföringen genom att anropa metoden **FileClient. flush** .
 
-I det här exemplet överförs en textfil till en katalog med namnet `my-directory`.
+I det här exemplet överförs en textfil till en katalog med namnet `my-directory` .
 
 ```javascript
 async function UploadFile(fileSystemClient) {
@@ -249,7 +249,7 @@ async function UploadFile(fileSystemClient) {
 
 ## <a name="manage-a-file-acl"></a>Hantera en fil-ACL
 
-Det här exemplet hämtar och anger sedan ACL för en fil med `upload-file.txt`namnet. Det här exemplet ger den ägande användaren Läs-, skriv-och körnings behörighet, ger den ägande gruppen endast Läs-och kör behörigheter och ger alla andra Läs behörighet.
+Det här exemplet hämtar och anger sedan ACL för en fil med namnet `upload-file.txt` . Det här exemplet ger den ägande användaren Läs-, skriv-och körnings behörighet, ger den ägande gruppen endast Läs-och kör behörigheter och ger alla andra Läs behörighet.
 
 > [!NOTE]
 > Om ditt program tillåter åtkomst genom att använda Azure Active Directory (Azure AD) måste du kontrol lera att det säkerhets objekt som programmet använder för att auktorisera åtkomst har tilldelats rollen som [lagrings-BLOB-dataägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -303,7 +303,7 @@ await fileClient.setAccessControl(acl);
 
 ## <a name="download-from-a-directory"></a>Ladda ned från en katalog
 
-Börja med att skapa en **FileSystemClient** -instans som representerar den fil som du vill ladda ned. Använd metoden **FileSystemClient. Read** för att läsa filen. Skriv sedan filen. I det här exemplet används modulen Node `fs` . js för att göra det. 
+Börja med att skapa en **FileSystemClient** -instans som representerar den fil som du vill ladda ned. Använd metoden **FileSystemClient. Read** för att läsa filen. Skriv sedan filen. I det här exemplet används modulen Node. js `fs` för att göra det. 
 
 > [!NOTE]
 > Den här metoden för att hämta en fil fungerar bara för Node. js-program. Om du planerar att köra din kod i en webbläsare, se filen [Azure Storage fil data Lake klient bibliotek för Java Script](https://www.npmjs.com/package/@azure/storage-file-datalake) för ett exempel på hur du gör detta i en webbläsare. 
@@ -341,7 +341,7 @@ async function DownloadFile(fileSystemClient) {
 
 ## <a name="list-directory-contents"></a>Lista kataloginnehåll
 
-Det här exemplet skriver ut namnen på varje katalog och fil som finns i en katalog med namnet `my-directory`.
+Det här exemplet skriver ut namnen på varje katalog och fil som finns i en katalog med namnet `my-directory` .
 
 ```javascript
 async function ListFilesInDirectory(fileSystemClient) {

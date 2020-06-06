@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: e432f599196a6948633d7150e1a747fbe626e1f4
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869727"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464665"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 
@@ -146,7 +146,7 @@ Endast NTFS-volymer stöds. ReFS, FAT, FAT32 och andra fil system stöds inte.
 
 I följande tabell visas interop-tillstånd för NTFS-fil system funktioner: 
 
-| Funktion | Supportstatus | Anteckningar |
+| Funktion | Supportstatus | Obs! |
 |---------|----------------|-------|
 | Åtkomstkontrollistor (ACL) | Fullt stöd | Windows-typ Discretionary Access Control Lists bevaras av Azure File Sync och verkställs av Windows Server på Server slut punkter. ACL: er kan också tillämpas när du monterar Azure-filresursen direkt, men detta kräver ytterligare konfiguration. Mer information finns i [avsnittet om identiteter](#identity) . |
 | Hårda länkar | Överhoppad | |
@@ -194,7 +194,7 @@ Observera att volym besparingarna gäller endast för servern. dina data i Azure
 **Windows Server 2012 R2**  
 Azure File Sync stöder inte datadeduplicering och moln nivåer på samma volym på Windows Server 2012 R2. Om datadeduplicering har Aktiver ATS på en volym måste moln nivån vara inaktive rad. 
 
-**Obs!**
+**Anteckningar**
 - Om datadeduplicering installeras innan du installerar Azure File Sync agent krävs en omstart för att stödja datadeduplicering och moln nivåer på samma volym.
 - Om datadeduplicering har Aktiver ATS på en volym efter att moln nivån har Aktiver ATS optimerar optimerings jobbet för den inledande dedupliceringen filer på volymen som inte redan är i nivå och kommer att ha följande påverkan på moln nivåer:
     - Principen för ledigt utrymme kommer att fortsätta att göra filer på nivå av filer efter det lediga utrymmet på volymen med hjälp av termisk karta.
@@ -254,9 +254,7 @@ Baserat på din organisations policy eller unika myndighets krav kan du behöva 
 - Konfigurera Azure File Sync som stöder proxyservern i din miljö.
 - Begränsa nätverks aktivitet från Azure File Sync.
 
-Mer information om hur du konfigurerar nätverks funktionerna i Azure File Sync finns i:
-- [Proxy- och brandväggsinställningar för Azure File Sync](storage-sync-files-firewall-and-proxy.md)
-- [Att säkerställa Azure File Sync är en lämplig granne i ditt data Center](storage-sync-files-server-registration.md)
+Mer information om Azure File Sync och nätverk finns i [Azure File Sync nätverks överväganden](storage-sync-files-networking-overview.md).
 
 ## <a name="encryption"></a>Kryptering
 När du använder Azure File Sync finns det tre olika krypterings lager som du bör tänka på: kryptering i den andra lagringen av Windows Server, kryptering under överföring mellan Azure File Sync agent och Azure och kryptering i resten av dina data i Azure-filresursen. 
@@ -377,7 +375,7 @@ Om du använder en lokal lösning för säkerhets kopiering ska säkerhets kopio
 > Återställning utan operativ system (BMR) kan orsaka oväntade resultat och stöds inte för närvarande.
 
 > [!Note]  
-> Med version 9 av Azure File Sync agent, stöds nu VSS-ögonblicksbilder (inklusive tidigare versioner) på volymer som har aktiverat moln skikt. Du måste dock aktivera tidigare versions kompatibilitet via PowerShell. [Lär dig mer](storage-files-deployment-guide.md).
+> Med version 9 av Azure File Sync agent, stöds nu VSS-ögonblicksbilder (inklusive tidigare versioner) på volymer som har aktiverat moln skikt. Du måste dock aktivera tidigare versions kompatibilitet via PowerShell. [Lär dig hur](storage-files-deployment-guide.md).
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

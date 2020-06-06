@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: cbrooks
-ms.openlocfilehash: 6dc94cca66370daa307a21daa6c96a778baed08c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 90a7f37fb82cfea2f3ee44c31f6d3ef0a61c64c0
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017638"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465413"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
 
@@ -27,7 +27,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 **Uppskattad tidsåtgång:** 45 minuter
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 - [Azure Storage vanliga klient bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)

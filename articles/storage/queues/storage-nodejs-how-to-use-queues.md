@@ -6,15 +6,15 @@ ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7b5e679fa47437e7019884317d0ab14792055f3
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060926"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465430"
 ---
 # <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Använd Azure Queue Service för att skapa och ta bort köer från Node. js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -51,7 +51,7 @@ Om du vill använda Azure Storage behöver du Azure Storage SDK för Node. js, s
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
     ```
 
-3. Du kan köra **ls** -kommandot manuellt för att kontrol lera att en mapp för **Node\_-moduler** har skapats. I mappen hittar du paketet **azure storage**, som innehåller de bibliotek som du behöver för att få åtkomst till lagring.
+3. Du kan köra **ls** -kommandot manuellt för att kontrol lera att en mapp för **Node- \_ moduler** har skapats. I mappen hittar du paketet **azure storage**, som innehåller de bibliotek som du behöver för att få åtkomst till lagring.
 
 ### <a name="import-the-package"></a>Importera paketet
 Använd anteckningar eller något annat text redigerings program och Lägg till följande i den översta filen **Server. js** för programmet där du tänker använda Storage:
@@ -61,7 +61,7 @@ var azure = require('azure-storage');
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Konfigurera en Azure Storage anslutning
-Azure-modulen\_läser miljövariablerna Azure Storage\_-kontot och\_\_åtkomst\_nyckeln för Azure Storage, eller\_anslutnings\_\_strängen för Azure Storage för information som krävs för att ansluta till ditt Azure Storage-konto. Om de här miljövariablerna inte har angetts måste du ange konto informationen när du anropar **createQueueService**.
+Azure-modulen läser miljövariablerna AZURE \_ Storage \_ -kontot och \_ \_ åtkomst nyckeln för Azure Storage \_ , eller \_ \_ anslutnings strängen för Azure Storage \_ för information som krävs för att ansluta till ditt Azure Storage-konto. Om de här miljövariablerna inte har angetts måste du ange konto informationen när du anropar **createQueueService**.
 
 ## <a name="how-to-create-a-queue"></a>Gör så här: skapa en kö
 Följande kod skapar ett **QueueService** -objekt som gör att du kan arbeta med köer.
@@ -126,7 +126,7 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 });
 ```
 
-`result` Innehåller meddelandet.
+`result`Innehåller meddelandet.
 
 > [!NOTE]
 > Om du använder **peekMessages** när det inte finns några meddelanden i kön returneras inget fel, men inga meddelanden returneras.
@@ -156,7 +156,7 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 ```
 
 > [!NOTE]
-> Som standard är ett meddelande endast dolt i 30 sekunder, efter vilket det är synligt för andra klienter. Du kan ange ett annat värde med hjälp `options.visibilityTimeout` av with **GetMessage**.
+> Som standard är ett meddelande endast dolt i 30 sekunder, efter vilket det är synligt för andra klienter. Du kan ange ett annat värde med hjälp av `options.visibilityTimeout` with **GetMessage**.
 > 
 > [!NOTE]
 > Om du använder **GetMessage** när det inte finns några meddelanden i kön returneras inget fel, men inga meddelanden returneras.
@@ -227,7 +227,7 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 });
 ```
 
-Om det inte går att returnera alla `result.continuationToken` köer kan användas som den första parametern för **listQueuesSegmented** eller den andra parametern för **listQueuesSegmentedWithPrefix** för att hämta fler resultat.
+Om det inte går att returnera alla köer `result.continuationToken` kan användas som den första parametern för **listQueuesSegmented** eller den andra parametern för **listQueuesSegmentedWithPrefix** för att hämta fler resultat.
 
 ## <a name="how-to-delete-a-queue"></a>Så här gör du: ta bort en kö
 Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden **deleteQueue** på objektet köobjekt.

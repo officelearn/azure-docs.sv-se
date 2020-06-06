@@ -5,13 +5,13 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 533cd8fa69c01b8a36ff5e314ce61a4b624e62ec
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/04/2020
+ms.openlocfilehash: b2efca53ce8d59ca1e050a9c18100b67024f3ba3
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655820"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465668"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Skapa Azure Cosmos-behållare och databaser med autoskalning av data flöde
 
@@ -29,7 +29,7 @@ Azure Cosmos-databaser och behållare som är konfigurerade med autoskalning av 
 
 * **Skalbarhet:** Databaser och behållare skalar automatiskt det etablerade data flödet vid behov. Det uppstår inget avbrott i klient anslutningar, program eller påverkan på Azure Cosmos DB service avtal.
 
-* **Kostnads effektiv:** Med automatisk skalning kan du optimera din RU/s-användning och kostnads användning genom att skala ned när den inte används. Du betalar bara för de resurser som dina arbets belastningar behöver per timme.
+* **Kostnads effektiv:** Med automatisk skalning kan du optimera din RU/s-användning och kostnads användning genom att skala ned när den inte används. Du betalar bara för de resurser som dina arbets belastningar behöver per timme. För alla timmar under en månad, om du ställer in autoskalning Max RU/s (Tmax) och använder hela beloppet tmax för 66% av timmarna eller mindre, sparar du med autoskalning. Mer information finns i artikeln om [att välja mellan standard (manuell) och autoskalning av allokerat data flöde](how-to-choose-offer.md) .
 
 * **Hög tillgänglighet:** Databaser och behållare som använder autoskalning använder samma globalt distribuerade, feltoleranta Azure Cosmos DB server del för att säkerställa data hållbarhet och hög tillgänglighet.
 

@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: dbace6b93e07571693b221bb3d2a947010b1e476
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 9a5c03664205676d53c083bddcfa6833ace641d2
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800001"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457158"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -32,7 +32,7 @@ Några exempel på vad du kan göra med Azure Monitor är:
 
 ## <a name="overview"></a>Översikt
 
-I följande diagram ges en översikt över Azure Monitor på hög nivå. I diagrammets centrum finns data lager för mått och loggar, som är de två grundläggande data typerna som används av Azure Monitor. Till vänster visas [källorna till de övervaknings data](platform/data-sources.md) som finns i dessa [data lager](platform/data-platform.md). Till höger finns olika funktioner som Azure Monitor utför med dessa insamlade data, till exempel analys, aviseringar och strömning i externa system.
+I följande diagram ges en översikt över Azure Monitor på hög nivå. I diagrammets centrum finns data lager för mått och loggar, som är de två grundläggande typer av data som används av Azure Monitor. Till vänster visas [källorna till de övervaknings data](platform/data-sources.md) som finns i dessa [data lager](platform/data-platform.md). Till höger finns olika funktioner som Azure Monitor utför med dessa insamlade data, till exempel analys, aviseringar och strömning i externa system.
 
 ![Översikt över Azure Monitor](media/overview/overview.png)
 

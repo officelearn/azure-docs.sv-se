@@ -2,13 +2,13 @@
 title: Resurs leverantörer efter Azure-tjänster
 description: Visar en lista över alla resurs leverantörs namn områden för Azure Resource Manager och Azure-tjänsten för namn området visas.
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 272e6cb27b01ed971025bd273b225d4823d04501
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.date: 06/05/2020
+ms.openlocfilehash: 70abbfe09f3200f0d26978727d21a033e1d4ee34
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424447"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462863"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resurs leverantörer för Azure-tjänster
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
 | Microsoft. API Management | [API Management](../../api-management/index.yml) |
-| Microsoft. AppConfiguration | grundläggande |
+| Microsoft. AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
 | Microsoft. AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft. attestering | Tjänsten Azure attestering |
 | Microsoft. Authorization<sup>1</sup> | [Azure Resource Manager](../index.yml) |
@@ -62,7 +62,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. container service | [Azure Kubernetes Service (AKS)](/azure/aks/) |
 | Microsoft. CostManagement<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft. CostManagementExports | [Cost Management](/azure/cost-management/) |
-| Microsoft. CustomerLockbox | Customer Lockbox för Microsoft Azure |
+| Microsoft. CustomerLockbox | [Customer Lockbox för Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft. CustomProviders | [Anpassade providrar för Azure](../custom-providers/overview.md) |
 | Microsoft. data- | [Azure Data Box](/azure/databox-family/) |
 | Microsoft. DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
@@ -121,7 +121,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. Migrate | [Azure Migrate](../../migrate/migrate-overview.md) |
 | Microsoft. MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 | Microsoft. NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Lastbalanserare](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Lastbalanserare](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtuellt WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
 | Microsoft. NotificationHubs | [Notification Hubs](../../notification-hubs/index.yml) |
 | Microsoft. ObjectStore | Objekt Arkiv |
 | Microsoft. OffAzure | [Azure Migrate](../../migrate/migrate-overview.md) |

@@ -6,16 +6,16 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 8083efe833ec80290713fc14d9cb89acd8263fa2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1599fe76f3542717bebe63228d8c46f7e5de97c3
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010910"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457175"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provider av ASP.NET-sessionstillstånd för Azure Cache for Redis
 
-Azure cache för Redis innehåller en provider för sessionstillstånd som du kan använda för att lagra sessionens tillstånd i minnet med Azure cache för Redis i stället för en SQL Server databas. Om du vill använda providern för sessionstillstånd för cachelagring måste du först konfigurera cachen och sedan konfigurera ditt ASP.NET-program för cachelagring med Azure-cache för Redis NuGet-paketet.
+Azure cache för Redis innehåller en provider för sessionstillstånd som du kan använda för att lagra sessionens tillstånd i minnet med Azure cache för Redis i stället för en SQL Server databas. Om du vill använda providern för sessionstillstånd för cachelagring måste du först konfigurera cachen och sedan konfigurera ditt ASP.NET-program för cachelagring med Azure-cache för Redis NuGet-paketet. För ASP.NET Core program, Läs [session-och tillstånds hantering i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/app-state).
 
 Det är ofta inte praktiskt i en verklig molnbaserad app att undvika att lagra någon form av tillstånd för en användarsession, men vissa metoder påverkar prestanda och skalbarhet mer än andra. Om du behöver lagra tillstånd är den bästa lösningen att behålla mängden State Small och lagra den i cookies. Om det inte är möjligt är nästa bästa lösning att använda ASP.NET-sessionstillstånd med en provider för distribuerad minnes intern cache. Den värsta lösningen från en prestanda-och skalbarhet är att använda en databas som har säkerhetskopierats i ett sessionstillstånd. Det här avsnittet innehåller information om hur du använder ASP.NET-providern för sessionstillstånd för Azure cache för Redis. Information om andra sessionstillstånds alternativ finns i [ASP.net alternativ för sessionstillstånd](#aspnet-session-state-options).
 
@@ -89,10 +89,10 @@ Konfigurera attributen med värdena från ditt cache-blad i Microsoft Azure-port
 * **throwOnError** – sant om du vill att ett undantag ska genereras om det uppstår ett fel eller falskt om du vill att åtgärden ska Miss lyckas tyst. Du kan kontrol lera om det finns ett problem genom att kontrol lera den statiska Microsoft. Web. Redis. RedisSessionStateProvider. LastException-egenskapen. Standardvärdet är true.
 * **retryTimeoutInMilliseconds** – åtgärder som inte kan utföras på nytt under det här intervallet anges i millisekunder. Det första omförsöket sker efter 20 millisekunder och nya försök görs varje sekund tills retryTimeoutInMilliseconds-intervallet upphör att gälla. Omedelbart efter det här intervallet görs ett nytt försök att utföra åtgärden en sista gång. Om åtgärden fortfarande Miss lyckas, genereras undantaget tillbaka till anroparen, beroende på inställningen för throwOnError. Standardvärdet är 0, vilket innebär inga återförsök.
 * **databaseId** – anger vilken databas som ska användas för cachelagring av utdata. Om inget värde anges används standardvärdet 0.
-* **applicationName** – nycklarna lagras i Redis som `{<Application Name>_<Session ID>}_Data`. Detta namngivnings schema gör att flera program kan dela samma Redis-instans. Den här parametern är valfri, och om du inte anger den används inget standardvärde.
+* **applicationName** – nycklarna lagras i Redis som `{<Application Name>_<Session ID>}_Data` . Detta namngivnings schema gör att flera program kan dela samma Redis-instans. Den här parametern är valfri, och om du inte anger den används inget standardvärde.
 * **connectionTimeoutInMilliseconds** – med den här inställningen kan du åsidosätta inställningen ConnectTimeout i stackexchange. Redis-klienten. Om inget värde anges används standard connectTimeout-inställningen 5000. Mer information finns i [konfigurations modellen för stackexchange. Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **operationTimeoutInMilliseconds** – med den här inställningen kan du åsidosätta inställningen SyncTimeout i stackexchange. Redis-klienten. Om inget värde anges används standard syncTimeout-inställningen 1000. Mer information finns i [konfigurations modellen för stackexchange. Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
-* **redisSerializerType** – med den här inställningen kan du ange anpassad serialisering av sessionens innehåll som skickas till Redis. Den typ som anges måste `Microsoft.Web.Redis.ISerializer` implementera och måste deklarera en offentlig parameter lös konstruktor. Som standard `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` används.
+* **redisSerializerType** – med den här inställningen kan du ange anpassad serialisering av sessionens innehåll som skickas till Redis. Den typ som anges måste implementera `Microsoft.Web.Redis.ISerializer` och måste deklarera en offentlig parameter lös konstruktor. Som standard `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` används.
 
 Mer information om dessa egenskaper finns i det ursprungliga blogg inlägget för att [presentera ASP.net-providern för Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 

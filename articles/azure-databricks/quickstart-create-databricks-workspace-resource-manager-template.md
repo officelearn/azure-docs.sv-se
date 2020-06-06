@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/27/2020
-ms.openlocfilehash: 1fe0eb0a69e8522fa0eb8683e2eb706f3e60b92c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: c8503aee5cefbe197fd63cd6406006a1cdf8afa9
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433023"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463158"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-by-using-the-azure-resource-manager-template"></a>Snabb start: skapa en Azure Databricks-arbetsyta med hjälp av Azure Resource Manager-mallen
 
@@ -37,7 +37,7 @@ Mallen som används i den här snabb starten är från [Azure snabb starts-malla
 
 :::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53" highlight="33-46":::
 
-Den Azure-resurs som definierats i mallen är [Microsoft. Databricks/arbets ytor:](/azure/templates/microsoft.databricks/workspaces): skapa en arbets yta för Azure Databricks.
+Den Azure-resurs som definierats i mallen är [Microsoft. Databricks/arbetsytes](/azure/templates/microsoft.databricks/workspaces): skapa en arbets yta för Azure Databricks.
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 

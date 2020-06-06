@@ -4,19 +4,19 @@ description: Lär dig hur meddelanden stöder dina undersöknings aktiviteter.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 05/05/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 200ede6b4c5565a8eab95b0398abaa1c056c612f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c7b5208d2da3635e822049859cae9c8f17b6105a
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853107"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464257"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection meddelanden
 
@@ -43,7 +43,7 @@ Som administratör kan du ange:
 - Mottagare **av det här e-postmeddelandet** är som standard alla globala administratörer. Globala administratörer kan också lägga till andra globala administratörer, säkerhets administratörer och säkerhets läsare som mottagare.
    - Du kan också **lägga till ytterligare e-postmeddelanden för att få aviseringar om** den här funktionen är en förhands granskning och användare som har definierats måste ha rätt behörighet för att visa de länkade rapporterna i Azure Portal.
 
-Konfigurera användarna i ett riskfylldt e-postmeddelande i **Azure Portal** under **Azure Active Directory** > **säkerhets** > **identitets skydd** > **användare vid risk identifierings aviseringar**.
+Konfigurera användarna i ett riskfylldt e-postmeddelande i **Azure Portal** under **Azure Active Directory**  >  **säkerhets**  >  **identitets skydd**  >  **användare vid risk identifierings aviseringar**.
 
 ## <a name="weekly-digest-email"></a>E-postmeddelande om veckovis sammandrag
 
@@ -62,7 +62,7 @@ Som standard inkluderar mottagarna alla globala administratörer. Globala admini
 
 Som administratör kan du växla att skicka ett e-postmeddelande med veckovis sammanfattning på eller av och välja de användare som ska tilldelas e-postmeddelandet.
 
-Konfigurera e-postmeddelandet om veckovis sammandrag i **Azure Portal** under **Azure Active Directory** > **säkerhet** > för**veckovis sammandrag**av säkerhets**identitet** > .
+Konfigurera e-postmeddelandet om veckovis sammandrag i **Azure Portal** under **Azure Active Directory**  >  **säkerhet**för  >  **Identity Protection**  >  **veckovis sammandrag**av säkerhets identitet.
 
 ## <a name="see-also"></a>Se även
 

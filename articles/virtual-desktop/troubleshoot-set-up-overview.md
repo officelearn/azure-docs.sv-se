@@ -1,19 +1,19 @@
 ---
 title: Översikt över fel sökning av Windows Virtual Desktop – Azure
-description: En översikt för fel sökning av problem när du konfigurerar en Windows-miljö för virtuella Skriv bords klienter.
+description: En översikt för fel sökning av problem när du konfigurerar en Windows Virtual Desktop-miljö.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c5be26509eccdaebf1b504c1b0b8c7edb35e101c
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: f177c0961c1ab408916d046b36a0a1b54e816751
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203873"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84455815"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Översikt, feedback och support för felsökning
 
@@ -23,7 +23,7 @@ ms.locfileid: "84203873"
 > Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här artikeln innehåller en översikt över de problem som du kan stöta på när du konfigurerar en Windows-klient för virtuella skriv bord och ger lösningar på problemen.
+Den här artikeln innehåller en översikt över de problem som du kan stöta på när du konfigurerar en Windows Virtual Desktop-miljö och ger möjlighet att lösa problemen.
 
 ## <a name="report-issues-during-public-preview"></a>Rapportera problem under en offentlig för hands version
 
@@ -35,14 +35,13 @@ När du gör ett inlägg som ber om hjälp eller föreslår en ny funktion ska d
 
 Innan du gör något annat måste du kontrol lera [sidan Azure-status](https://status.azure.com/status) och [Azure Service Health](https://azure.microsoft.com/features/service-health/) för att kontrol lera att Azure-tjänsten körs på rätt sätt.
 
-Använd följande tabell för att identifiera och lösa problem som kan uppstå när du konfigurerar en klient miljö med hjälp av fjärr skrivbords klienten. När din klient organisation har konfigurerat kan du använda vår nya [diagnostik-tjänst](diagnostics-role-service.md) för att identifiera problem med vanliga scenarier.
+Använd följande tabell för att identifiera och lösa problem som kan uppstå när du konfigurerar en miljö med hjälp av fjärr skrivbords klienten. När din miljö har kon figurer ATS kan du använda vår nya [diagnostik-tjänst](diagnostics-role-service.md) för att identifiera problem med vanliga scenarier.
 
 | **Problem**                                                            | **Föreslagen lösning**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Åtkomst till Marketplace-mallar i Azure Portal       | Windows Virtual Desktop-mallar för Azure Marketplace är tillgängliga på ett kostnads fritt.|
 | Session Host pool Azure-Virtual Network (VNET) och Express Route-inställningar               | [Öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/)och välj lämplig tjänst (under kategorin nätverk). |
-| Skapa virtuell dator för Session Host pool (VM) när Azure Resource Manager mallar som medföljer Windows Virtual Desktop används inte | [Öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/)och välj sedan **virtuell dator som kör Windows** för tjänsten. <br> <br> Om du har problem med Azure Resource Manager mallar som medföljer Windows Virtual Desktop kan du läsa avsnittet Skapa Windows-klient för virtuella skriv bord i en [miljö och skapa en värd pool](troubleshoot-set-up-issues.md). |
-| Hantera Windows virtuell skrivbord värd miljö från Azure Portal    | [Öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> För hanterings problem när du använder Fjärrskrivbordstjänster/Windows Virtual Desktop PowerShell, se [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) eller [öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/), Välj **Windows Virtual Desktop** för tjänsten, Välj **konfiguration och hantering** för problem typen och välj sedan **problem med att konfigurera klient med PowerShell** som underordnat problem. |
+| Skapa virtuell dator för Session Host pool (VM) när Azure Resource Manager mallar som medföljer Windows Virtual Desktop används inte | [Öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/)och välj sedan **virtuell dator som kör Windows** för tjänsten. <br> <br> Om du har problem med Azure Resource Manager mallar som medföljer Windows Virtual Desktop kan du läsa avsnittet Azure Resource Manager mall fel i [skapa en Fakturapool](troubleshoot-set-up-issues.md). |
+| Hantera Windows virtuell skrivbord värd miljö från Azure Portal    | [Öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> För hanterings problem när du använder Fjärrskrivbordstjänster/Windows Virtual Desktop PowerShell, se [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) eller [öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/), Välj **Windows Virtual Desktop** för tjänsten, Välj **konfiguration och hantering** för problem typen och välj sedan **problem med att konfigurera miljön med PowerShell** för problem under typen. |
 | Hantera konfiguration av virtuella Windows-skrivbordet knutna till värdar och program grupper (app-grupper)      | Se [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md)eller [öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/), Välj **Windows Virtual Desktop** för tjänsten och välj sedan lämplig problem typ.|
 | Distribuera och hantera FSLogix profil behållare | Se [fel söknings guide för FSLogix-produkter](/fslogix/fslogix-trouble-shooting-ht/) och om det inte löser [problemet öppnar du en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/), väljer **Windows Virtual Desktop** för tjänsten, väljer **FSLogix** för problem typen och väljer sedan motsvarande typ av problem. |
 | Fjärr skrivbords klienter fungerar inte på Start                                                 | Se [Felsöka fjärr skrivbords klienten](troubleshoot-client.md) och om det inte löser problemet [öppnar du en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/), väljer **Windows Virtual Desktop** för tjänsten och väljer sedan **fjärr skrivbords klienter** för problem typen.  <br> <br> Om det är ett nätverks problem måste användarna kontakta sin nätverks administratör. |
@@ -57,7 +56,7 @@ Använd följande tabell för att identifiera och lösa problem som kan uppstå 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du felsöker problem när du skapar en adresspool i en Windows Virtual Desktop-miljö finns i avsnittet om att [skapa en miljö och en värddator](troubleshoot-set-up-issues.md).
+- Information om hur du felsöker problem när du skapar en adresspool i en Windows Virtual Desktop-miljö finns i [skapa pooler för värdar](troubleshoot-set-up-issues.md).
 - Information om hur du felsöker problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [konfiguration av Session Host-dator](troubleshoot-vm-configuration.md).
 - Information om hur du felsöker problem med klient anslutningar för virtuella Windows-datorer finns i [Windows Virtual Desktop Service Connections](troubleshoot-service-connection.md).
 - Information om hur du felsöker problem med fjärr skrivbords klienter finns i [Felsöka fjärr skrivbords klienten](troubleshoot-client.md)

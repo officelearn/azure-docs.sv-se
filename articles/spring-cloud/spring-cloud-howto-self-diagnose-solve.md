@@ -6,15 +6,15 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.openlocfilehash: f1d5161b0efe0b8d9b9c0b84ac149050c3823ab6
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 581d77a5568b9533d85ff476b63001c8a237bc4e
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429470"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457209"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Så här identifierar och löser du problem i Azure våren Cloud
-App Service diagnostik är en interaktiv upplevelse som hjälper dig att felsöka din app. Ingen konfiguration krävs. När du hittar problem pekar App Service diagnostik upp vad som är fel och vägleder dig till information som hjälper dig att felsöka och lösa problemet.
+Azure våren Cloud Diagnostics är en interaktiv upplevelse som hjälper dig att felsöka din app. Ingen konfiguration krävs. När du hittar problem pekar Azure våren Cloud Diagnostics upp vad som är fel och vägleder dig till information som hjälper dig att felsöka och lösa problemet.
 
 ## <a name="prerequisites"></a>Krav
 För att slutföra den här kursen behöver du:

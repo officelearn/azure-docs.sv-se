@@ -4,16 +4,16 @@ description: Lär dig hur du listar BLOB-behållare i ditt Azure Storage-konto m
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 155b8f5d50c7b106daff8dab4df17200b844c988
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da0c5bf6bc371bc512d9264afeab52b9908396fa
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135912"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463566"
 ---
 # <a name="list-blob-containers-with-net"></a>Lista BLOB-behållare med .NET
 
@@ -30,9 +30,9 @@ Om du vill lista behållare i ditt lagrings konto, anropa någon av följande me
 
 ### <a name="manage-how-many-results-are-returned"></a>Hantera hur många resultat som returneras
 
-Som standard returnerar en List åtgärd upp till 5000 resultat i taget. Om du vill returnera en mindre uppsättning resultat anger du ett värde som inte är `maxresults` noll för parametern när du anropar en av **ListContainerSegmented** -metoderna.
+Som standard returnerar en List åtgärd upp till 5000 resultat i taget. Om du vill returnera en mindre uppsättning resultat anger du ett värde som inte är noll för `maxresults` parametern när du anropar en av **ListContainerSegmented** -metoderna.
 
-Om ditt lagrings konto innehåller fler än 5000 behållare, eller om du har angett ett `maxresults` värde för en sådan att List åtgärden returnerar en delmängd av behållare i lagrings kontot, Azure Storage returnerar en *fortsättnings-token* med listan över behållare. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
+Om ditt lagrings konto innehåller fler än 5000 behållare, eller om du har angett ett värde för en `maxresults` sådan att List åtgärden returnerar en delmängd av behållare i lagrings kontot, Azure Storage returnerar en *fortsättnings-token* med listan över behållare. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
 
 I din kod kontrollerar du värdet för fortsättnings-token för att avgöra om det är null. När tilläggs-token är null slutförs uppsättningen av resultat. Om tilläggs-token inte är null anropar du **ListContainersSegmented** eller **ListContainersSegmentedAsync** igen och skickar i fortsättnings-token för att hämta nästa uppsättning resultat, tills den fortsatta token är null.
 
@@ -100,5 +100,5 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 ## <a name="see-also"></a>Se även
 
-[List behållare](/rest/api/storageservices/list-containers2)
-,[räkna upp BLOB-resurser](/rest/api/storageservices/enumerating-blob-resources)
+[Lista behållare](/rest/api/storageservices/list-containers2) 
+ [Räkna upp BLOB-resurser](/rest/api/storageservices/enumerating-blob-resources)

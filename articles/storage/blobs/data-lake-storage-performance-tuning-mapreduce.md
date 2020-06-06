@@ -4,16 +4,16 @@ description: Azure Data Lake Storage Gen2 MapReduces rikt linjer för prestanda 
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a3ea6858355d6cb921f629bf36134d96371f6244
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5de8da90ac3356480fd809af68ab2c8b30540aa
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327918"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465957"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Justera prestanda: MapReduce, HDInsight & Azure Data Lake Storage Gen2
 
@@ -40,7 +40,7 @@ När du kör MapReduce-jobb visas följande parametrar som du kan konfigurera f�
 
 **MapReduce. job. Maps/MapReduce. job. minskar** Detta fastställer det maximala antalet mappade mappningar eller reducerare som ska skapas.  Antalet delningar avgör hur många mappningar som ska skapas för MapReduce-jobbet.  Därför kan du få färre mappningar än du begärt om det finns mindre delningar än antalet efterfrågade mappningar.       
 
-## <a name="guidance"></a>Riktlinjer
+## <a name="guidance"></a>Vägledning
 
 > [!NOTE]
 > Vägledningen i det här dokumentet förutsätter att ditt program är det enda program som körs i klustret.

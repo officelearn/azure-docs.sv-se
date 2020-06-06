@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 45043718664eb1b3b6b865821b3f6b2a51199194
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c4842c673dc5d56cd57a2131f1c522b0bc682559
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115038"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448027"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Översikt över klass typer – Azure Lab Services
 
@@ -62,9 +62,19 @@ Du kan ställa in ett labb i Azure Lab Services för att lära en introduktion t
 Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för att lära mobil program utveckling med Android Studio](class-type-mobile-dev-android-studio.md).
 
 ## <a name="big-data-analytics"></a>Stordataanalyser
-Du kan ställa in ett labb för att lära en stor data analys klass. Med den här typen av klass kan studenter lära sig att hantera stora mängder data och använda algoritmer för maskin-och statistiska inlärning för att härleda data insikter. Ett viktigt mål för studenter är att lära sig att använda verktyg för data analys som Apache Hadoop programmets program varu paket med öppen källkod som innehåller verktyg för att lagra, hantera och bearbeta Big data. 
+Du kan ställa in ett GPU-labb för att lära en stor data analys klass. Med den här typen av klass kan studenter lära sig att hantera stora mängder data och använda algoritmer för maskin-och statistiska inlärning för att härleda data insikter. Ett viktigt mål för studenter är att lära sig att använda verktyg för data analys som Apache Hadoop programmets program varu paket med öppen källkod som innehåller verktyg för att lagra, hantera och bearbeta Big data. 
 
-Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för stor data analys med hjälp av Docker-distribution av HortonWorks Data Platform](class-type-big-data-analytics.md).
+Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för Big data Analytics med Docker-distribution av HortonWorks Data Platform](class-type-big-data-analytics.md).
+
+## <a name="matlab"></a>MATLAB
+[MATLAB](https://www.mathworks.com/products/matlab.html), som står för mat ris labb, är programmerings plattform från [MathWorks](https://www.mathworks.com/).  Den kombinerar beräknings kraft och visualisering som gör det till ett populärt verktyg i områdena matematik, teknik, fysik och kemi.
+
+Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för att lära sig MATLAB](class-type-matlab.md).
+
+## <a name="solidworks-computer-aided-design-cad"></a>SolidWorks Computer-Aided Design (CAD)
+Du kan konfigurera ett GPU-labb som ger tekniska studenter till gång till [SolidWorks](https://www.solidworks.com/).  SolidWorks är en 3D CAD-miljö för att utforma solida objekt.  Med SolidWorks kan ingenjörer enkelt skapa, visualisera, simulera och dokumentera sina design.
+
+Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för teknik klasser med SolidWorks](class-type-solidworks.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

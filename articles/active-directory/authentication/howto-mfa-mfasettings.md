@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef98f243abd02f0156190638cda8ab7c33f935d
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: dd804937fbd98121f3242c6906b890183d1284bb
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770915"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464376"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure Multi-Factor Authentication
 
@@ -218,7 +218,8 @@ Inställningar för applösenord, tillförlitliga IP-adresser, verifierings alte
 
 ![Azure Multi-Factor Authentication Service-inställningar](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
 
-De betrodda IP-adressintervall kan vara privata eller offentliga.
+> [!NOTE]
+> De betrodda IP-adresserna kan bara innehålla privata IP-adressintervall när du använder MFA Server. För molnbaserad Azure-Multi-Factor Authentication kan du bara använda offentliga IP-adressintervall.
 
 ## <a name="app-passwords"></a>Applösenord
 
@@ -294,8 +295,8 @@ Användare kan också skapa applösenord efter registreringen. Mer information o
 
 Funktionen _betrodda IP-adresser_ i Azure Multi-Factor Authentication används av administratörer för en hanterad eller federerad klient. Funktionen hoppar över tvåstegsverifiering för användare som loggar in från företagets intranät. Funktionen är tillgänglig med den fullständiga versionen av Azure Multi-Factor Authentication och inte den kostnads fria versionen för administratörer. Mer information om hur du hämtar den fullständiga versionen av Azure Multi-Factor Authentication finns i [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
-> [!NOTE]
-> MFA-betrodda IP-adresser och namngivna platser för villkorlig åtkomst fungerar bara med IPV4-adresser.
+> [!TIP]
+> IPv6-intervall stöds bara i gränssnittet för den [namngivna platsen (för hands version)](../conditional-access/location-condition.md#preview-features) .
 
 Om din organisation distribuerar NPS-tillägget för att tillhandahålla MFA till lokala program, ser käll-IP-adressen alltid vara den NPS-server som autentiseringen försöker flöda genom.
 
@@ -323,7 +324,7 @@ Oberoende av om funktionen för betrodda IP-adresser är aktive rad krävs tvås
 3. Välj **ny plats**.
 4. Ange ett namn på platsen.
 5. Välj **Markera som betrodd plats**.
-6. Ange IP-intervallet i CIDR-notation, t. ex. **192.168.1.1/24**.
+6. Ange IP-intervallet i CIDR-notation, t. ex. **40.77.182.32/27**.
 7. Välj **Skapa**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Aktivera funktionen för betrodda IP-adresser med hjälp av villkorlig åtkomst

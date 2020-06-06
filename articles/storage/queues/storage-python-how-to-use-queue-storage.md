@@ -6,15 +6,15 @@ ms.author: mhopkins
 ms.date: 09/17/2019
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-october2019
-ms.openlocfilehash: ca0831fd7554058d21e315b67d6965579af1d38b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cbaf19c5c4d52a5de1ef1d63ad5465859555810
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060922"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465311"
 ---
 # <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Så här använder du Azure Queue Storage v 2.1 från python
 
@@ -45,7 +45,7 @@ pip install azure-storage-queue==2.1.0
 ```
 
 > [!NOTE]
-> Om du uppgraderar från Azure Storage SDK för python version 0,36 eller tidigare, måste du avinstallera den äldre SDK: `pip uninstall azure-storage` n med innan du installerar det senaste paketet.
+> Om du uppgraderar från Azure Storage SDK för python version 0,36 eller tidigare, måste du avinstallera den äldre SDK: n med `pip uninstall azure-storage` innan du installerar det senaste paketet.
 
 Alternativa installations metoder finns i [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python/).
 
@@ -53,17 +53,17 @@ Alternativa installations metoder finns i [Azure Storage SDK för python](https:
 
 Om du vill visa och köra ett exempel program som visar hur du använder python med Azure-köer, se [Azure Storage: komma igång med Azure-köer i python](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
 
-Kontrol lera att du har installerat både- `azure-storage-queue` och `azure-storage-common` -paketen för att köra exempel programmet.
+Kontrol lera att du har installerat både-och-paketen för att köra exempel programmet `azure-storage-queue` `azure-storage-common` .
 
 ## <a name="create-a-queue"></a>Skapa en kö
 
-Med [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) -objektet kan du arbeta med köer. Följande kod skapar ett `QueueService` -objekt. Lägg till följande längst upp i en python-fil som du vill ha program mässigt åtkomst till Azure Storage:
+Med [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) -objektet kan du arbeta med köer. Följande kod skapar ett- `QueueService` objekt. Lägg till följande längst upp i en python-fil som du vill ha program mässigt åtkomst till Azure Storage:
 
 ```python
 from azure.storage.queue import QueueService
 ```
 
-Följande kod skapar ett `QueueService` -objekt med hjälp av lagrings kontots namn och konto nyckeln. Ersätt mitt *konto* och *MyKey* med ditt konto namn och din nyckel.
+Följande kod skapar ett- `QueueService` objekt med hjälp av lagrings kontots namn och konto nyckeln. Ersätt mitt *konto* och *MyKey* med ditt konto namn och din nyckel.
 
 ```python
 queue_service = QueueService(account_name='myaccount', account_key='mykey')
@@ -131,7 +131,7 @@ for message in messages:
 
 ## <a name="get-the-queue-length"></a>Hämta kölängden
 
-Du kan hämta en uppskattning av antalet meddelanden i en kö. Metoden [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) ber Queue Service att returnera metadata om kön och `approximate_message_count`. Resultatet är bara ungefärlig eftersom meddelanden kan läggas till eller tas bort när Queue Service svarar på din begäran.
+Du kan hämta en uppskattning av antalet meddelanden i en kö. Metoden [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) ber Queue Service att returnera metadata om kön och `approximate_message_count` . Resultatet är bara ungefärlig eftersom meddelanden kan läggas till eller tas bort när Queue Service svarar på din begäran.
 
 ```python
 metadata = queue_service.get_queue_metadata('taskqueue')

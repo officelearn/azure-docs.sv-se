@@ -1,5 +1,5 @@
 ---
-title: Skapa flera modell slut punkter
+title: Skapa flera modeller och slut punkter
 titleSuffix: ML Studio (classic) - Azure
 description: Använd PowerShell för att skapa flera Machine Learning-modeller och webb tjänst slut punkter med samma algoritm men olika data uppsättningar för utbildning.
 services: machine-learning
@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 1dd17d3ac715c2b32f645602203aa2551c91b42a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 145ee5b458927fc4e3cda5277de614383181eed5
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195336"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465702"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Skapa flera webb tjänst slut punkter från ett experiment med ML Studio (klassisk) och PowerShell
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: c55d81db848dcb1aebe9dacb03387565b3d8db48
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 69046772b81f0b5b597cce8e86aca9cbf27c49f8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745600"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457107"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
@@ -104,7 +104,7 @@ Följ de här anvisningarna för att skapa en tal resurs:
 
 I det här läget kontrollerar du att resurs gruppen (**SpeechEchoBotTutorial-ResourceGroup**) har en tal resurs:
 
-| Name | Typ  | Plats |
+| Namn | Typ  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
 
@@ -125,7 +125,7 @@ Nästa steg är att skapa en App Service-plan. En App Service-plan definierar en
 
 I det här läget kontrollerar du att resurs gruppen (**SpeechEchoBotTutorial-ResourceGroup**) har två resurser:
 
-| Name | Typ  | Plats |
+| Namn | Typ  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
 | SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
@@ -197,6 +197,7 @@ Nästa steg är att distribuera eko-roboten till Azure. Det finns några sätt a
    * För **värd plan**väljer du **SpeechEchoBotTutorial-AppServicePlan**
    * För **Application Insights**lämnar du som **none**
 1. Klicka på **skapa**
+1. Klicka på **publicera** på höger sida om den nyligen skapade profilen
 1. Du bör se ett meddelande som visar att det är klart i Visual Studio som ser ut så här:
 
    ```
@@ -207,7 +208,7 @@ Nästa steg är att distribuera eko-roboten till Azure. Det finns några sätt a
 1. Din standard webbläsare bör öppna och visa en sida som läser: "din robot är klar!".
 1. I det här läget kontrollerar du resurs gruppen **SpeechEchoBotTutorial-ResourceGroup** i Azure Portal och kontrollerar att det finns tre resurser:
 
-| Name | Typ  | Plats |
+| Namn | Typ  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | USA, västra |
 | SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
@@ -236,7 +237,7 @@ Nu när du har skapat en Azure App Service som värd för din robot, är nästa 
 
 1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Skapa en Azure bot Channel-registrering<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 2. Du uppmanas att ange viss information:
-   * För **bot-referens**anger du **SpeechEchoBotTutorial-BotRegistration**.
+   * För **bot-handtag**anger du **SpeechEchoBotTutorial-BotRegistration-# # # #** och ersätter **####** med du är ett valfritt antal. Observera att robot-referensen måste vara globalt unik. Om du anger ett robot handtag, men får ett fel meddelande om _att det begärda bot-ID: t inte är tillgängligt_, väljer du ett annat nummer. I exemplen nedan användes 8726
    * För **prenumeration**väljer du **kostnads fri utvärdering**.
    * För **resurs grupp**väljer du **SpeechEchoBotTutorial-ResourceGroup**.
    * För **plats**väljer du **västra USA**.
@@ -248,25 +249,47 @@ Nu när du har skapat en Azure App Service som värd för din robot, är nästa 
 
 I det här läget kontrollerar du resurs gruppen **SpeechEchoBotTutorial-ResourceGroup** i Azure Portal. Nu bör det Visa fyra resurser:
 
-| Name | Typ  | Plats |
+| Namn | Typ  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | USA, västra |
 | SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
-| SpeechEchoBotTutorial-BotRegistration | Registrering av robot kanaler | EAN |
+| SpeechEchoBotTutorial-BotRegistration-8726 | Registrering av robot kanaler | EAN |
 | SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
 
 > [!IMPORTANT]
 > Registrerings resursen för robot kanaler visar den globala regionen även om du valde västra USA. Detta är förväntat.
 
+## <a name="optional-test-in-web-chat"></a>Valfritt: testa i Web Chat
+
+Registrerings sidan för Azure bot Channels har ett **test i Web Chat-** alternativ under **bot Management**. Den fungerar inte som standard med din robot, eftersom Web Chat måste autentisera mot din robot. Om du vill testa din distribuerade robot med text inmatade följer du stegen nedan. Observera att de här stegen är valfria och inte krävs för att fortsätta med nästa steg i självstudien. 
+
+1. Leta upp och öppna din **EchoBotTutorial-BotRegistration-# #** # #-resurs i [Azure Portal](https://portal.azure.com)
+1. Välj **Inställningar**i navigeringen för **bot hantering** . Kopiera värdet under **Microsoft app ID**
+1. Öppna Visual Studio EchoBot-lösningen. Leta upp och dubbelklicka på **appSettings. JSON** i Solution Explorer.
+1. Ersätt den tomma strängen bredvid **MicrosoftAppId** i JSON-filen med det kopierade ID-värdet
+1. Gå tillbaka till Azure Portal och gå till navigering för **bot hantering** , Välj **Inställningar**och klicka på **(hantera)** bredvid **Microsoft app-ID**
+1. Klicka på **ny klient hemlighet**. Lägg till en beskrivning (t. ex. Web chat) och klicka på **Lägg till**. Kopiera den nya hemligheten
+1. Ersätt den tomma strängen bredvid **MicrosoftAppPassword** i JSON-filen med det kopierade hemliga värdet
+1. Spara JSON-filen. Det bör se ut ungefär så här:
+```json
+{
+  "MicrosoftAppId": "3be0abc2-ca07-475e-b6c3-90c4476c4370",
+  "MicrosoftAppPassword": "-zRhJZ~1cnc7ZIlj4Qozs_eKN.8Cq~U38G"
+}
+```
+9. Publicera appen på nytt (Högerklicka på **EchoBot** -projekt i Visual Studio Solution Explorer, Välj **publicera...** och klicka på knappen **publicera** )
+10. Nu är du redo att testa roboten i Web Chat!
+
 ## <a name="register-the-direct-line-speech-channel"></a>Registrera den direkta linjens tal kanal
 
 Nu är det dags att registrera din robot med den direkta rad igenkännings kanalen. Den här kanalen är det som används för att skapa en anslutning mellan din eko-robot och en klient app som kompileras med talet SDK.
 
-1. Leta upp och öppna din **SpeechEchoBotTutorial-BotRegistration-** resurs i [Azure Portal](https://portal.azure.com).
-1. I navigeringen för **Azure-tjänster** väljer du **kanaler**.
+1. Leta upp och öppna din **SpeechEchoBotTutorial-BotRegistration-# #** # #-resurs i [Azure Portal](https://portal.azure.com).
+1. Välj **kanaler**från navigeringen för **bot hantering** .
    * Leta efter **fler kanaler**, leta upp och klicka på **direkt linje tal**.
    * Granska texten på sidan **Konfigurera direkt linje tal**och expandera sedan den nedrullningsbara menyn med namnet "kognitivt tjänst konto".
    * Välj den tal resurs som du skapade tidigare (t. ex. **SpeechEchoBotTutorial-tal**) på menyn för att koppla din robot till din tal prenumerations nyckel.
+   * Ignorera resten av de valfria fälten
    * Klicka på **Spara**.
 
 1. Klicka på **Inställningar**i navigeringen för **bot hantering** .
@@ -289,7 +312,7 @@ Innan vi går vidare kontrollerar du att mikrofonen och högtalarna är aktivera
    * Hämta ett ZIP-paket som innehåller den körbara fil som ska köras eller
    * skapa den körbara filen själv, genom att klona lagrings platsen och skapa projektet.
 
-1. Starta klient programmet och konfigurera det.
+1. Starta klient programmet och konfigurera det för att ansluta till din robot, baserat på anvisningarna i GitHub-lagringsplatsen
 1. Klicka på **Återanslut igen** och se till att du ser meddelandet **Tryck på knappen MIC eller Skriv för att börja prata med din robot**.
 1. Låt oss testa det. Klicka på mikrofon knappen och tala om några ord på engelska. Den tolkade texten visas i takt med att du talar. När du är klar kommer roboten att svara i sin egen röst och säga "echo" följt av de identifierade orden.
 1. Du kan också använda text för att kommunicera med bot. Skriv bara texten i det nedre fältet. 
@@ -331,7 +354,7 @@ Här är ett exempel-JSON för en aktivitet som klienten tar emot:
     },
     "entities":[],
     "from":{
-        "id":"SpeechEchoBotTutorial-BotRegistration"
+        "id":"SpeechEchoBotTutorial-BotRegistration-8726"
     },
     "id":"89841b4d-46ce-42de-9960-4fe4070c70cc",
     "inputHint":"acceptingInput",

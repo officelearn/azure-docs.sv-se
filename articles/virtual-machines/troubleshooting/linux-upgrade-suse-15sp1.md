@@ -3,7 +3,7 @@ title: Uppgradera en virtuell Azure-dator med SUSE Linux Enterprise Server till 
 description: Den här artikeln innehåller allmänna anvisningar om hur du använder migrering av SUSE distributions system för att uppgradera SUSE Linux Enterprise Server till SUSE 15 SP1 för en virtuell Azure-dator.
 services: virtual-machines-linux
 documentationcenter: ''
-author: genlin
+author: amkarmak
 manager: dcscontentpm
 editor: ''
 tags: virtual-machines
@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
-ms.author: genli
-ms.openlocfilehash: 635758ad2624a4fc8b06702f881a34e4b2f3f123
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.author: arremana
+ms.openlocfilehash: 079574ab4c5846eae6266d1e13240baf99428a69
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261109"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449251"
 ---
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>Uppgradera virtuell Azure-dator med SLES 12 till SLES 15 SP1
 
 Den här artikeln innehåller allmänna anvisningar om hur du uppgraderar SUSE Linux Enterprise Server (SLES) 12 till SLES 15 SP1 för en virtuell Azure-dator (VM). Mer information finns i [använda migrerings systemet för SUSE distribution](https://documentation.suse.com/suse-distribution-migration-system/1.0/single-html/distribution-migration-system/index.html) och [SUSE Linux Enterprise Server 15 SP1 uppgraderings guide](https://documentation.suse.com/sles/15-SP1/single-html/SLES-upgrade/index.html#sec-update-preparation-update).
 
-## <a name="supported-upgrade-paths"></a>Stödda uppgraderingssökvägar
+## <a name="supported-upgrade-paths"></a>Uppgraderingsvägar som stöds
 Den aktuella SLES-versionen måste vara SLES 12 SP4 eller 12 SP5 innan du kan fortsätta till SLES 15 SP1.
 
 ![Skärm bilden om uppgraderings Sök väg som stöds](./media/linux-upgrade-suse-15sp1/upgrade-path.png)

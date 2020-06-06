@@ -3,15 +3,15 @@ title: Skapa och hantera åtgärds grupper i Azure Portal
 description: Lär dig hur du skapar och hanterar åtgärds grupper i Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 4/17/2020
+ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: b88b6d1ea4b9d9fc2b33849157968ee1c2f8c620
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170468"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465260"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -217,7 +217,12 @@ Du kan ha ett begränsat antal röst åtgärder i en åtgärds grupp.
 Priser för länder/regioner som stöds finns på [sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>Webhook
-Webhook-försök görs med följande regler. Webhook-anropet görs om högst 2 gånger när följande HTTP-status koder returneras: 408, 429, 503, 504 eller HTTP-slutpunkten svarar inte. Det första återförsöket görs efter 10 sekunder. Det andra återförsöket sker efter 100 sekunder. Efter två haveri anropar ingen åtgärds grupp slut punkten i 30 minuter. 
+Webhooks bearbetas med följande regler
+- Ett webhook-anrop görs maximalt 3 gånger.
+- Ett nytt anrop görs om ett svar inte tas emot inom tids perioden eller om en av följande HTTP-statuskod returneras: 408, 429, 503 eller 504.
+- Det första anropet kommer att vänta 10 sekunder för ett svar.
+- De andra och tredje försöken kommer att vänta i 30 sekunder för ett svar.
+- När tre försök att anropa webhooken Miss lyckas, kommer ingen åtgärds grupp att anropa slut punkten i 15 minuter.
 
 Käll-IP-adressintervall
  - 13.72.19.232

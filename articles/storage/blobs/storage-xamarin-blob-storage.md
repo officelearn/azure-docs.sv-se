@@ -6,13 +6,13 @@ ms.author: mhopkins
 ms.date: 05/11/2017
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 8a1c91c8a8a59af26386e70e68e7c4fd93f5eaa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: a724cf309ef0677b79636f6789de9a6c8f9ba248
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68726345"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465515"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Använda Blob Storage från Xamarin
 
@@ -37,7 +37,7 @@ Du bör nu ha ett program som gör att du kan klicka på en knapp som ökar en r
 
 ## <a name="create-container-and-upload-blob"></a>Skapa behållare och ladda upp BLOB
 
-Därefter lägger du till `(Portable)` en kod i `MyClass.cs`under ditt projekt. Den här koden skapar en behållare och överför en blob till den här behållaren. `MyClass.cs`bör se ut så här:
+Därefter `(Portable)` lägger du till en kod i under ditt projekt `MyClass.cs` . Den här koden skapar en behållare och överför en blob till den här behållaren. `MyClass.cs`bör se ut så här:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -229,11 +229,11 @@ namespace XamarinApp.WinPhone
 }
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Du kan nu köra det här programmet i en Android-eller Windows Phone-emulator. Du kan också köra det här programmet i en iOS-emulator, men det kräver en Mac. Om du vill ha mer information om hur du gör detta läser du dokumentationen för att [ansluta Visual Studio till en Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-När du har kört appen skapas behållaren `mycontainer` i ditt lagrings konto. Den ska innehålla blobben `myblob`, som innehåller texten,. `Hello, world!` Du kan kontrol lera detta med hjälp av [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
+När du har kört appen skapas behållaren `mycontainer` i ditt lagrings konto. Den ska innehålla blobben, `myblob` som innehåller texten, `Hello, world!` . Du kan kontrol lera detta med hjälp av [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: ba3e8b9d7649d56d1639f7f608d85a2da04ff74a
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856747"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465566"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge-körningen i Windows
 
@@ -42,7 +42,7 @@ Använd det här avsnittet för att se om din Windows-enhet har stöd för IoT E
 IoT Edge för Windows kräver Windows version 1809/build 17763, vilket är den senaste versionen av [Windows långtids support](https://docs.microsoft.com/windows/release-information/). För Windows SKU-stöd, se vad som stöds baserat på om du förbereder för produktions scenarier eller utvecklings-och test scenarier:
 
 * **Produktion**: den senaste informationen om vilka operativ system som för närvarande stöds för produktions scenarier finns i [Azure IoT Edge system som stöds](support.md#operating-systems).
-* **Utveckling och testning**: för utvecklings-och test scenarier kan Azure IoT Edge med Windows-behållare installeras på alla versioner av Windows 10 eller Windows Server 2019 som har stöd för funktionen containers.
+* **Utveckling och testning**: för utvecklings-och test scenarier kan Azure IoT Edge med Windows-behållare installeras på alla SKU: er (Pro, Enterprise, Server osv.) för windows build 17763 som stöder funktionen containers.
 
 IoT core-enheter måste innehålla den valfria funktionen IoT Core Windows-behållare som stöder IoT Edge Runtime. Använd följande kommando i en [fjärran sluten PowerShell-session](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) för att kontrol lera att Windows-behållare stöds på din enhet:
 
@@ -175,7 +175,7 @@ Du kan också använda parametern offline-installation Sök väg för att uppdat
 
 6. Kör `Initialize-IoTEdge` kommandot för att etablera din enhet med en identitet i IoT Hub. Ange antingen en enhets anslutnings sträng för manuell etablering eller Välj en av de metoder som beskrivs i avsnittet föregående [automatiskt etablering](#option-2-install-and-automatically-provision) .
 
-   Om enheten har startats om efter att `Deploy-IoTEdge`du har kört dot-källan, kör du `Initialize-IoTEdge`PowerShell-skriptet igen innan du kör.
+   Om enheten har startats om efter `Deploy-IoTEdge` att du har kört dot-källan, kör du PowerShell-skriptet igen innan du kör `Initialize-IoTEdge` .
 
 Om du vill ha mer information om installations alternativet offline kan du gå vidare till Lär dig om [alla installations parametrar](#all-installation-parameters).
 
@@ -246,11 +246,11 @@ Uninstall-IoTEdge
 
 Kommandot Uninstall-IoTEdge fungerar inte på Windows IoT Core. Om du vill ta bort IoT Edge från Windows IoT core-enheter måste du distribuera om Windows IoT Core-avbildningen.
 
-Om du vill ha mer information om avinstallations alternativ använder `Get-Help Uninstall-IoTEdge -full`du kommandot.
+Om du vill ha mer information om avinstallations alternativ använder du kommandot `Get-Help Uninstall-IoTEdge -full` .
 
 ## <a name="verify-installation-script"></a>Verifiera installations skript
 
-De installations kommandon som anges i den här artikeln använder cmdleten Invoke-WebRequest för att begära installations `aka.ms/iotedge-win`skriptet från. Den här länken pekar på`IoTEdgeSecurityDaemon.ps1` skriptet från den senaste [IoT Edge versionen](https://github.com/Azure/azure-iotedge/releases). Du kan också hämta skriptet eller en version av skriptet från en speciell version för att köra installations kommandona på din IoT Edge-enhet.
+De installations kommandon som anges i den här artikeln använder cmdleten Invoke-WebRequest för att begära installations skriptet från `aka.ms/iotedge-win` . Den här länken pekar på `IoTEdgeSecurityDaemon.ps1` skriptet från den senaste [IoT Edge versionen](https://github.com/Azure/azure-iotedge/releases). Du kan också hämta skriptet eller en version av skriptet från en speciell version för att köra installations kommandona på din IoT Edge-enhet.
 
 Det tillhandahållna skriptet är signerat för att öka säkerheten. Du kan kontrol lera signaturen genom att ladda ned skriptet till enheten och sedan köra följande PowerShell-kommando:
 
@@ -266,7 +266,7 @@ I föregående avsnitt introducerades vanliga installations scenarier med exempe
 
 ### <a name="deploy-iotedge"></a>Distribuera – IoTEdge
 
-Kommandot Deploy-IoTEdge hämtar och distribuerar IoT Edge Security daemon och dess beroenden. Distributions kommandot accepterar dessa vanliga parametrar, bland annat. För den fullständiga listan använder du kommandot `Get-Help Deploy-IoTEdge -full`.  
+Kommandot Deploy-IoTEdge hämtar och distribuerar IoT Edge Security daemon och dess beroenden. Distributions kommandot accepterar dessa vanliga parametrar, bland annat. För den fullständiga listan använder du kommandot `Get-Help Deploy-IoTEdge -full` .  
 
 | Parameter | Godkända värden | Kommentarer |
 | --------- | --------------- | -------- |
@@ -278,7 +278,7 @@ Kommandot Deploy-IoTEdge hämtar och distribuerar IoT Edge Security daemon och d
 
 ### <a name="initialize-iotedge"></a>Initiera-IoTEdge
 
-Kommandot Initialize-IoTEdge konfigurerar IoT Edge med enhetens anslutnings sträng och drift information. Mycket av den information som genereras av det här kommandot lagras sedan i iotedge\config.yaml-filen. Initierings kommandot accepterar dessa vanliga parametrar, bland annat. För den fullständiga listan använder du kommandot `Get-Help Initialize-IoTEdge -full`.
+Kommandot Initialize-IoTEdge konfigurerar IoT Edge med enhetens anslutnings sträng och drift information. Mycket av den information som genereras av det här kommandot lagras sedan i iotedge\config.yaml-filen. Initierings kommandot accepterar dessa vanliga parametrar, bland annat. För den fullständiga listan använder du kommandot `Get-Help Initialize-IoTEdge -full` .
 
 | Parameter | Godkända värden | Kommentarer |
 | --------- | --------------- | -------- |

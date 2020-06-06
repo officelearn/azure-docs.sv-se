@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 7fe29bfa7d6140f3abce8feb9e372a5c066b9692
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 2625e1f55c0b7e7df44da6c1f36e024911577d63
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343888"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457277"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -171,7 +171,7 @@ Om du behöver återställa en storskalig databas i Azure SQL Database till en a
 Den Azure SQL Database skalnings nivån är tillgänglig i alla regioner, men aktive ras som standard i följande regioner som anges nedan.
 Om du vill skapa en storskalig databas i en region som inte är listad som stöds kan du skicka en onboarding-begäran via Azure Portal. Anvisningar finns i [begär kvot ökningar för Azure SQL Database](quota-increase-request.md) . Använd följande rikt linjer när du skickar in din begäran:
 
-- Använd kvot typen [andra kvot förfrågan](quota-increase-request.md#other) för SQL-databasen.
+- Använd kvot typen [region åtkomst](quota-increase-request.md#region) för SQL-databas.
 - I text informationen lägger du till beräknings-SKU: n/total kärnor, inklusive läsbara repliker.
 - Ange även Beräknad TB.
 
@@ -216,7 +216,7 @@ Aktiverade regioner:
 
 Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från och med GA.  Vi arbetar aktivt för att ta bort så många av dessa begränsningar som möjligt.
 
-| Problem | Description |
+| Problem | Beskrivning |
 | :---- | :--------- |
 | I fönstret hantera säkerhets kopior för en server visas inte storskaliga databaser, de kommer att filtreras från vyn  | Storskaligt har en separat metod för att hantera säkerhets kopior och som sådana inställningar för långsiktig kvarhållning och tidpunkten för kvarhållning av säkerhets kopior gäller inte. Därför visas inte storskaliga databaser i fönstret hantera säkerhets kopiering.|
 | Återställning från tidpunkt | En databas som inte är storskalig kan inte återställas som en storskalig databas och en storskalig databas kan inte återställas som en databas som inte är storskalig. För en icke-storskalig databas som har migrerats till storskalig genom att ändra dess tjänst nivå återställer du till en tidpunkt innan migreringen och inom lagrings perioden för säkerhets kopior av databasen är möjlig [program mässigt](recovery-using-backups.md#programmatically-performing-recovery-by-using-automated-backups). Den återställda databasen får inte skalas. |

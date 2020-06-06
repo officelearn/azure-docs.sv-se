@@ -9,12 +9,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: 09ac31f31f42f5aed9e7dd464e1fce1436cfe581
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 9570724fdff3018c1dbcf76c15a9db8db0d68364
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597648"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447836"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>Bevara data sekretessen med hjälp av differentiell sekretess och WhiteNoise-paketet
 
@@ -60,7 +60,7 @@ Att implementera Differentiellt privat system är svårt. WhiteNoise är ett pro
 
 Kärn biblioteket innehåller följande sekretessfunktioner för att implementera ett Differentiellt privat system:
 
-|Komponent  |Description  |
+|Komponent  |Beskrivning  |
 |---------|---------|
 |Analys     | En diagram Beskrivning av godtyckliga beräkningar. |
 |Systemhälsoverifierare     | Ett Rust-bibliotek som innehåller en uppsättning verktyg för att kontrol lera och härleda de nödvändiga villkoren för en analys som är Differentiellt privat.          |
@@ -71,7 +71,7 @@ Kärn biblioteket innehåller följande sekretessfunktioner för att implementer
 
 System biblioteket innehåller följande verktyg och tjänster för att arbeta med tabell-och Relations data:
 
-|Komponent  |Description  |
+|Komponent  |Beskrivning  |
 |---------|---------|
 |Data åtkomst     | Bibliotek som fångar upp och bearbetar SQL-frågor och genererar rapporter. Det här biblioteket implementeras i python och stöder följande ODBC-och DBAPI-data Källor:<ul><li>PostgreSQL</li><li>SQL Server</li><li>Spark</li><li>Preston</li><li>Pandas</li></ul>|
 |Tjänst     | Körnings tjänst som tillhandahåller en REST-slutpunkt för att hantera begär Anden eller frågor mot delade data källor. Tjänsten är utformad för att tillåta sammansättning av differentiella integritets moduler som fungerar på begär Anden som innehåller olika delta-och Epsilon-värden, även kallade heterogena begär Anden. Det här referens implementerings kontona ger ytterligare påverkan från frågor om korrelerade data. |
@@ -79,4 +79,6 @@ System biblioteket innehåller följande verktyg och tjänster för att arbeta m
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du använder komponenterna i WhiteNoise finns i GitHub-databaserna för [WhiteNoise Core-paket](https://github.com/opendifferentialprivacy/whitenoise-core), [WhiteNoise-system paket](https://github.com/opendifferentialprivacy/whitenoise-system) och [WhiteNoise-exempel](https://github.com/opendifferentialprivacy/whitenoise-samples).
+[Bevara data sekretessen](how-to-differential-privacy.md) i Azure Machine Learning.
+
+Mer information om komponenterna i WhiteNoise finns i GitHub-databaserna för [WhiteNoise Core-paket](https://github.com/opendifferentialprivacy/whitenoise-core), [WhiteNoise system paket](https://github.com/opendifferentialprivacy/whitenoise-system) och [WhiteNoise-exempel](https://github.com/opendifferentialprivacy/whitenoise-samples).

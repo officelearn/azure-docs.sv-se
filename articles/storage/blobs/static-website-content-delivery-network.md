@@ -4,15 +4,15 @@ description: Lär dig hur du cachelagrar statisk webbplats innehåll från ett A
 author: normesta
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 4516e9f48174a0f1f5201c46cf114badf13d99d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878837"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465226"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrera en statisk webbplats med Azure CDN
 
@@ -41,7 +41,7 @@ Du kan aktivera Azure CDN för din statiska webbplats direkt från ditt lagrings
    Du hittar din statiska webbplats slut punkt genom att navigera till inställningarna för den **statiska webbplatsen** för ditt lagrings konto.  Kopiera den primära slut punkten och klistra in den i CDN-konfigurationen.
 
    > [!IMPORTANT]
-   > Se till att ta bort protokoll identifieraren (*t. ex.* https) och avslutande snedstreck i URL: en. Om till exempel den statiska webbplats slut punkten är `https://mystorageaccount.z5.web.core.windows.net/`, anger `mystorageaccount.z5.web.core.windows.net` du i fältet **Ursprungligt värdnamn** .
+   > Se till att ta bort protokoll identifieraren (*t. ex.* https) och avslutande snedstreck i URL: en. Om till exempel den statiska webbplats slut punkten är `https://mystorageaccount.z5.web.core.windows.net/` , anger du `mystorageaccount.z5.web.core.windows.net` i fältet **Ursprungligt värdnamn** .
 
    Följande bild visar ett exempel på en slut punkts konfiguration:
 
@@ -49,7 +49,7 @@ Du kan aktivera Azure CDN för din statiska webbplats direkt från ditt lagrings
 
 1. Välj **skapa**och vänta sedan på att CDN ska etableras. När slutpunkten har skapats visas den i listan med slutpunkter. (Om du har fel i formuläret visas ett utrops tecken bredvid fältet.)
 
-1. Kontrol lera att CDN-slutpunkten är korrekt konfigurerad genom att klicka på slut punkten för att navigera till dess inställningar. Från CDN-översikten för ditt lagrings konto letar du reda på slut punktens värdnamn och navigerar till slut punkten, som du ser i följande bild. Formatet på CDN-slutpunkten ser ut ungefär `https://staticwebsitesamples.azureedge.net`så här.
+1. Kontrol lera att CDN-slutpunkten är korrekt konfigurerad genom att klicka på slut punkten för att navigera till dess inställningar. Från CDN-översikten för ditt lagrings konto letar du reda på slut punktens värdnamn och navigerar till slut punkten, som du ser i följande bild. Formatet på CDN-slutpunkten ser ut ungefär så här `https://staticwebsitesamples.azureedge.net` .
 
     ![Skärm bild som visar översikt över CDN-slutpunkt](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 

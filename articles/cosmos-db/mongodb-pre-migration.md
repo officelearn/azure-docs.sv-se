@@ -5,14 +5,14 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 06/04/2020
 ms.author: lbosq
-ms.openlocfilehash: 8156c1c3601b0cd6f518f6a70bc4e0769c570e7f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a93486e00325e84de655b5b759162fcf63956454
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647291"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465685"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Steg före migrering för datamigrering från MongoDB till Azure Cosmos DB s API för MongoDB
 
@@ -42,7 +42,7 @@ Följande är särskilda egenskaper för Azure Cosmos DB s API för MongoDB:
 
 [Azure Database migration service för Azure Cosmos DB s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md) ger en mekanism som fören klar migreringen av data genom att tillhandahålla en helt hanterad värd plattform, alternativ för migrerings övervakning och automatisk begränsnings hantering. Den fullständiga listan med alternativ är följande:
 
-|**Typ av migrering**|**Lösa**|**Överväganden**|
+|**Typ av migrering**|**Lösa**|**Att tänka på**|
 |---------|---------|---------|
 |Offline|[Migreringsverktyg för data](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Enkelt att konfigurera och stödja flera källor <br/>&bull;Passar inte för stora data mängder.|
 |Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Enkelt att konfigurera och stödja flera källor <br/>&bull;Använder Azure Cosmos DB bulk utförar-biblioteket <br/>&bull;Lämplig för stora data uppsättningar <br/>&bull;Brist på kontroll punkter innebär att eventuella problem under migreringen skulle kräva en omstart av hela migreringsprocessen<br/>&bull;Brist på en kö för obeställbara meddelanden skulle innebära att några felaktiga filer kan stoppa hela migreringsprocessen <br/>&bull;Behöver anpassad kod för att öka Läs data flödet för vissa data källor|
@@ -79,7 +79,10 @@ Partitionering, även kallat horisontell partitionering, är en viktig faktor in
 På ett liknande sätt lägger partitionerings kapaciteten automatiskt till kapacitet och återskapar data enligt detta. Mer information och rekommendationer om hur du väljer rätt partitionsnyckel för dina data finns i artikeln om [att välja en partitionsnyckel](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indexera dina data
-Som standard tillhandahåller Azure Cosmos DB automatisk indexering för alla data som infogas. De indexerings funktioner som tillhandahålls av Azure Cosmos DB inkluderar att lägga till sammansatta index, unika index och Time to Live (TTL) index. Index hanterings gränssnittet är mappat till `createIndex()` kommandot. Läs mer vid [indexering i Azure Cosmos DBS API för MongoDB](mongodb-indexing.md).
+
+Azure Cosmos DBens API för MongoDB Server version 3,6 indexerar automatiskt `_id` endast fältet. Det går inte att ta bort det här fältet. Det tillämpar automatiskt `_id` fältets unikhet per Shard-nyckel. Om du vill indexera ytterligare fält tillämpar du MongoDB index-Management-kommandon. Den här standard indexerings principen skiljer sig från Azure Cosmos DB SQL API, som som standard indexerar alla fält.
+
+De indexerings funktioner som tillhandahålls av Azure Cosmos DB innefattar att lägga till sammansatta index, unika index och Time to Live (TTL) index. Index hanterings gränssnittet är mappat till `createIndex()` kommandot. Läs mer vid [indexering i Azure Cosmos DBS API för MongoDB](mongodb-indexing.md)-artikel.
 
 [Azure Database migration service](../dms/tutorial-mongodb-cosmos-db.md) migrerar automatiskt MongoDB-samlingar med unika index. Däremot måste de unika indexen skapas innan migreringen. Azure Cosmos DB har inte stöd för att skapa unika index när det redan finns data i samlingarna. Mer information finns i [unika nycklar i Azure Cosmos DB](unique-keys.md).
 

@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: b398f739189232f39a2fee06fc6e6ff0d53348f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656623"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449523"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Vanliga frågor om autoskalning av allokerat data flöde i Azure Cosmos DB
 
@@ -86,6 +86,10 @@ Ja, autoskalning stöds för delade data flödes databaser. Om du vill aktivera 
 
 ### <a name="what-is-the-number-of-allowed-containers-per-shared-throughput-database-when-autoscale-is-enabled"></a>Vad är antalet tillåtna behållare per delad data flödes databas när autoskalning är aktiverat?
 Azure Cosmos DB använder högst 25 behållare i en delad data flödes databas som gäller för databaser med autoskalning eller standard (manuell) data flöde. 
+
+### <a name="what-is-the-impact-of-autoscale-on-database-consistency-level"></a>Vad är effekten av autoskalning på konsekvens nivån för databasen?
+Det finns ingen inverkan på den automatiska skalningen av databasens konsekvens nivå.
+I artikeln [konsekvens nivåer](consistency-levels.md) finns mer information om tillgängliga konsekvens nivåer.
 
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>Vad är lagrings gränsen kopplad till varje Max RU/s-alternativ?  
 Lagrings gränsen i GB för varje högsta RU/s är: Max RU/s av databas eller container/100. Om t. ex. Max RU/s är 20 000 RU/s kan resursen stödja 200 GB lagrings utrymme. Se artikeln om [begränsningar för autoskalning](provision-throughput-autoscale.md#autoscale-limits) för de tillgängliga Max ru/s-och lagrings alternativen. 

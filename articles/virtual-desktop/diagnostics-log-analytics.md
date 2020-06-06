@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 04c02cb493941d101cf230b1ca3dab32aaa7a2fc
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 9b18b596e0be0e410f1d868f405e2a30105276d8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234560"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456461"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Använd Log Analytics för funktionen diagnostik
 
@@ -96,7 +96,7 @@ Du kan komma åt Log Analytics arbets ytor på Azure Portal eller Azure Monitor.
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Åtkomst Log Analytics på en Log Analytics arbets yta
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Sök efter **Log Analytics-arbetsyta**. 
 
@@ -230,16 +230,6 @@ Ta reda på om ett angivet fel har inträffat:
 WVDErrors 
 | where CodeSymbolic =="ErrorSymbolicCode" 
 | summarize count(UserName) by CodeSymbolic 
-```
-
-Så här hittar du förekomst av ett fel för alla användare:
-
-```kusto
-WVDErrors 
-| where ServiceError =="false" 
-| summarize usercount = count(UserName) by CodeSymbolic 
-| sort by usercount desc
-| render barchart 
 ```
 
 Så här hittar du förekomst av ett fel för alla användare:

@@ -4,16 +4,16 @@ description: Rikt linjer för prestanda justering Azure Data Lake Storage Gen2 S
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 125c583512f6bae34c2dd3c3dd76a1b96a181ac1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60e0d3fc22fdfc158110e9936748cc0bda280853
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327906"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465940"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Justera prestanda: storm, HDInsight & Azure Data Lake Storage Gen2
 
@@ -63,7 +63,7 @@ Låt oss säga att vi har åtta bult-trådar per kärna. Med 64 kärnor innebär
 När du har en grundläggande topologi kan du fundera över om du vill ändra någon av parametrarna:
 * **Antal JVMs per arbets nod.** Om du har en stor data struktur (till exempel en uppslags tabell) som du är värd för i minnet, kräver varje JVM en separat kopia. Du kan också använda data strukturen för många trådar om du har färre JVMs. För bultens I/O gör antalet JVMs inte lika mycket av skillnaden som antalet trådar som har lagts till i JVMs. För enkelhetens skull är det en bra idé att ha en JVM per arbets tagare. Du kan behöva ändra det här värdet, beroende på vad din bult gör eller vilken program bearbetning du behöver.
 * **Antal kanalen-körningar.** Eftersom föregående exempel använder bultar för att skriva till Data Lake Storage Gen2, är antalet kanaler inte direkt relevant för bultens prestanda. Beroende på mängden bearbetning eller I/O-åtgärder i kanalen är det dock en bra idé att justera kanaler för bästa prestanda. Se till att du har tillräckligt många kanaler för att kunna hålla bultarna upptagna. De utgående frekvenserna för kanaler bör matcha bultens data flöde. Den faktiska konfigurationen beror på kanalen.
-* **Antal aktiviteter.** Varje bult körs som en enda tråd. Ytterligare aktiviteter per bult ger ingen ytterligare samtidighet. Den enda tiden de är av förmånen är om din process att bekräfta att tuppeln tar en stor del av din bult-körnings tid. Det är en bra idé att gruppera många tupler i ett större tillägg innan du skickar ett bekräftelse från bulten. I de flesta fall ger flera aktiviteter ingen ytterligare förmån.
+* **Antal aktiviteter.** Varje bult körs som en enda tråd. Ytterligare aktiviteter per bult ger ingen ytterligare samtidighet. Den enda tiden de är av förmånen är om din process att bekräfta att tuppeln tar en stor del av din bult-körnings tid. Det är en bra idé att gruppera många tupler i ett större tillägg innan du skickar en bekräftelse från bulten. I de flesta fall ger flera aktiviteter ingen ytterligare förmån.
 * **Lokal eller blandad gruppering.** När den här inställningen är aktive rad skickas tupler till bultar inom samma arbets process. Detta minskar kommunikation mellan processer och nätverks anrop. Detta rekommenderas för de flesta topologier.
 
 Det här grundläggande scenariot är en lämplig start punkt. Testa med dina egna data för att justera föregående parametrar för att uppnå optimala prestanda.
@@ -72,7 +72,7 @@ Det här grundläggande scenariot är en lämplig start punkt. Testa med dina eg
 
 Du kan ändra följande inställningar för att finjustera kanalen.
 
-- **Tupel-timeout: topologi. Message. timeout. sekunder**. Den här inställningen anger hur lång tid ett meddelande tar att slutföra och får bekräftelse innan det betraktas som misslyckat.
+- **Tupel-timeout: topologi. Message. timeout. sekunder**. Den här inställningen avgör hur lång tid ett meddelande tar att slutföra och får bekräftelse innan det betraktas som misslyckat.
 
 - **Högsta mängd minne per arbets process: Worker. childopts**. Med den här inställningen kan du ange ytterligare kommando rads parametrar för Java-arbetarna. Den vanligaste inställningen här är XmX, som avgör den maximala mängd minne som allokerats till en JVM-heap.
 
@@ -110,8 +110,8 @@ Om du når gränserna för bandbredden som tillhandahålls av Data Lake Storage 
 
 Om du vill kontrol lera om du får en begränsning aktiverar du fel söknings loggning på klient sidan:
 
-1. I **Ambari** > **Storm** > **Config**config > **Advanced Storm-Work-log4j**, ändra ** &lt;rot nivå = "info"&gt; ** till ** &lt;rotnivån = "debug"&gt;**. Starta om alla noder/tjänster för att konfigurationen ska börja gälla.
-2. Övervaka loggfilerna för Storm-topologin på arbetsnoder&lt;(&gt;/&lt;under&gt;/var/log/Storm/Worker-Artifacts/TopologyName port/Worker.log) för data Lake Storage Gen2 begränsnings undantag.
+1. I **Ambari**  >  **Storm**  >  **config**  >  **Advanced Storm-Work-log4j**, ändra ** &lt; rot nivå = "info" &gt; ** till ** &lt; rotnivån = "debug" &gt; **. Starta om alla noder/tjänster för att konfigurationen ska börja gälla.
+2. Övervaka loggfilerna för Storm-topologin på arbetsnoder (under/var/log/Storm/Worker-Artifacts/ &lt; TopologyName &gt; / &lt; port &gt; /Worker.log) för data Lake Storage Gen2 begränsnings undantag.
 
 ## <a name="next-steps"></a>Nästa steg
 Ytterligare prestanda justering för Storm kan refereras till i [den här bloggen](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).

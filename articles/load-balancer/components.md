@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2020
+ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 84857315e4b6b4375ed5b78520b4c6ff0d66751a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b696cdf2d54c42d3967041c5d10b1bd9bb5a3065
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684980"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448690"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer-komponenter
 
@@ -39,6 +39,8 @@ IP-adressens typ avgör vilken **typ** av belastningsutjämnare som skapats. Val
 
 ![Exempel på nivå för belastnings utjämning](./media/load-balancer-overview/load-balancer.png)
 
+Load Balancer kan ha flera IP-adresser för klient delen. Läs mer om [flera klient](load-balancer-multivip-overview.md)delar.
+
 ## <a name="backend-pool"></a>Serverdelspool
 
 Gruppen med virtuella datorer eller instanser i en skalnings uppsättning för virtuella datorer som hanterar den inkommande begäran. Om du vill skala kostnads effektivt för att möta stora volymer inkommande trafik rekommenderar vi att du lägger till fler instanser i Server dels poolen.
@@ -57,7 +59,7 @@ Du kan definiera tröskelvärdet för hälso avsökningar. När en avsökning in
 - Tids gräns för inaktivitet inträffar
 - Den virtuella datorn stängs av
 
-Load Balancer innehåller olika typer av hälso avsökningar för slut punkter: TCP, HTTP och HTTPS.
+Load Balancer innehåller olika typer av hälso avsökningar för slut punkter: TCP, HTTP och HTTPS. [Läs mer om att Load Balancer hälso avsökningar](load-balancer-custom-probe-overview.md).
 
 Basic Load Balancer stöder inte HTTPS-avsökningar. Grundläggande Load Balancer stänger alla TCP-anslutningar (inklusive etablerade anslutningar).
 
@@ -67,15 +69,34 @@ En Load Balancer regel används för att definiera hur inkommande trafik distrib
 
 Om du till exempel vill att trafik på port 80 (eller en annan port) för klient delens IP-adress ska dirigeras till port 80 av alla Server dels instanser använder du en belastnings Utjämnings regel för att uppnå detta.
 
+### <a name="high-availability-ports"></a>Portar med hög tillgänglighet
+
+En Load Balancer regel konfigurerad med protokollet-all och Port-0. Detta gör det möjligt att tillhandahålla en enskild regel för att belastningsutjämna alla TCP-och UDP-flöden som kommer till alla portar i ett internt Standard Load Balancer. Belastnings Utjämnings beslutet görs per flöde. Den här åtgärden baseras på följande fem-tupel-anslutning: 
+1. 
+    källans IP-adress
+  
+2. källporten
+3. mål-IP-adressen
+4. målporten
+5. protokollhanterare
+
+Belastnings Utjämnings reglerna för HA-portar hjälper dig med kritiska scenarier, till exempel hög tillgänglighet och skalning för virtuella nätverks installationer (NVA) i virtuella nätverk. Funktionen kan också hjälpa när ett stort antal portar måste vara belastningsutjämnade.
+
+Du kan läsa mer om [ha-portar](load-balancer-ha-ports-overview.md).
+
 ## <a name="inbound-nat-rules"></a>Ingående NAT-regler
 
 En inkommande NAT-regel vidarebefordrar inkommande trafik som skickas till en vald klient dels-IP-adress och port kombination till en **specifik** virtuell dator eller instans i backend-poolen. Vidarebefordran av portar utförs av samma hash-baserade distribution som belastnings utjämning.
 
 Till exempel, om du vill att Remote Desktop Protocol (RDP) eller Secure Shell-sessioner (SSH) ska separera VM-instanser i en backend-pool. Flera interna slut punkter kan mappas till portar på samma IP-adress för klient delen. Klient delens IP-adresser kan användas för att fjärradministrera dina virtuella datorer utan någon ytterligare hopp ruta.
 
+Inkommande NAT-regler i kontexten för Virtual Machine Scale Sets (VMSS) är inkommande NAT-pooler. Läs mer om [Load Balancer-komponenter och VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
+
 ## <a name="outbound-rules"></a>Regler för utgående trafik
 
 En utgående regel konfigurerar utgående NAT (Network Address Translation) för alla virtuella datorer eller instanser som identifieras av backend-poolen. Detta gör det möjligt för instanser i Server delen att kommunicera (utgående) till Internet eller andra slut punkter.
+
+Läs mer om [utgående anslutningar och regler](load-balancer-outbound-connections.md).
 
 Den grundläggande belastningsutjämnaren stöder inte utgående regler.
 
@@ -89,9 +110,6 @@ Den grundläggande belastningsutjämnaren stöder inte utgående regler.
 - Lär dig mer om [standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Läs mer om [TCP-återställning vid inaktivitet](load-balancer-tcp-reset.md).
 - Lär dig mer om att [standard Load Balancer med belastnings Utjämnings regler för belastnings utjämning](load-balancer-ha-ports-overview.md).
-- Lär dig mer om att använda [Load Balancer med flera klient dels-IP-konfigurationer](load-balancer-multivip-overview.md).
 - Läs mer om [nätverks säkerhets grupper](../virtual-network/security-overview.md).
-- Lär dig mer om [avsöknings typer](load-balancer-custom-probe-overview.md#types).
 - Läs mer om [gränser för belastnings utjämning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
 - Lär dig mer om att använda [vidarebefordran av portar](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal).
-- Läs mer om [utgående regler för belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).

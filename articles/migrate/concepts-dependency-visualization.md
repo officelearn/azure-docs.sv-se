@@ -3,12 +3,12 @@ title: Beroende analys i Azure Migrate Server-utvärdering
 description: Beskriver hur du använder beroende analys för utvärdering med Azure Migrate Server bedömning.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: f0b956620895ae2264b53916015d440f5e586eb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b269322f5426a68b072452bc2f79531685be3742
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024769"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447585"
 ---
 # <a name="dependency-analysis"></a>Beroende analys
 
@@ -30,7 +30,7 @@ Det finns två alternativ för att distribuera beroende analyser
 - Utan **agent**: med en agent lös analys behöver du inte installera agenter på datorer som du vill kryssa för. Det här alternativet är för närvarande en för hands version och är bara tillgängligt för virtuella VMware-datorer.
 
 > [!NOTE]
-> Agent-baserad beroende analys är inte tillgänglig i Azure Government. Du kan använda agentens beroende analys.
+> Agent-baserad beroende analys är inte tillgänglig i Azure Government. Du kan använda agentlös beroendeanalys.
 
 ## <a name="agentless-analysis"></a>Analys utan agent
 
@@ -70,7 +70,7 @@ Log Analytics | Krävs inte. | Azure Migrate använder [tjänstkarta](https://do
 Så här fungerar det | Fångar upp TCP-anslutningsfel på datorer aktiverade för beroende visualisering. Efter identifieringen samlar den in data i intervall om fem minuter. | Tjänstkarta agenter som installerats på en dator samla in data om TCP-processer och inkommande/utgående anslutningar för varje process.
 Data | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port. | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port.<br/><br/> Antalet anslutningar, svars tid och data överförings information samlas in och är tillgängliga för Log Analytics frågor. 
 Visualisering | Beroende karta för enskild server kan visas över en varaktighet på en timme till 30 dagar. | Beroende karta för en enskild server.<br/><br/> Kartan kan endast visas över en timme.<br/><br/> Beroende karta för en grupp med servrar.<br/><br/> Lägga till och ta bort servrar i en grupp från MAP-vyn.
-Dataexport | Kan för närvarande inte hämtas i tabell format. | Data kan frågas med Log Analytics.
+Dataexport | De senaste 30 dagarna kan hämtas i CSV-format. | Data kan frågas med Log Analytics.
 
 
 

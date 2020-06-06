@@ -7,13 +7,13 @@ ms.author: mhopkins
 ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 74c023c06e7b28183a53772be6798419c91dd37a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.topic: how-to
+ms.openlocfilehash: 3d86b6e39d6199d2f0268070cfa5456e512daa49
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692451"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465889"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Hantera BLOB-egenskaper och metadata med .NET
 
@@ -30,14 +30,14 @@ Förutom de data som de innehåller, stöder blobbar system egenskaper och anvä
 >
 > Mer information om den här funktionen finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
-Hämtning av metadata och egenskaps värden för en Blob Storage-resurs är en två stegs process. Innan du kan läsa dessa värden måste du explicit hämta dem genom att `FetchAttributes` anropa metoden eller `FetchAttributesAsync` . Undantaget till den här regeln är att metoderna `Exists` och `ExistsAsync` anropar lämplig `FetchAttributes` metod under försättsblad. När du anropar någon av dessa metoder behöver du inte också anropa `FetchAttributes`.
+Hämtning av metadata och egenskaps värden för en Blob Storage-resurs är en två stegs process. Innan du kan läsa dessa värden måste du explicit hämta dem genom att anropa `FetchAttributes` metoden eller `FetchAttributesAsync` . Undantaget till den här regeln är att `Exists` metoderna och `ExistsAsync` anropar lämplig `FetchAttributes` metod under försättsblad. När du anropar någon av dessa metoder behöver du inte också anropa `FetchAttributes` .
 
 > [!IMPORTANT]
-> Om du upptäcker att egenskaps-eller metadata-värden för en lagrings resurs inte har fyllts i kontrollerar du att `FetchAttributes` koden `FetchAttributesAsync` anropar eller-metoden.
+> Om du upptäcker att egenskaps-eller metadata-värden för en lagrings resurs inte har fyllts i kontrollerar du att koden anropar `FetchAttributes` eller- `FetchAttributesAsync` metoden.
 
 ## <a name="set-and-retrieve-properties"></a>Ange och hämta egenskaper
 
-I följande kod exempel anges- `ContentType` och `ContentLanguage` -system egenskaperna för en blob.
+I följande kod exempel anges- `ContentType` och- `ContentLanguage` System egenskaperna för en blob.
 
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
@@ -65,7 +65,7 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 }
 ```
 
-Om du vill hämta BLOB-egenskaper `FetchAttributes` anropar du-eller `FetchAttributesAsync` -metoden på `Properties` blobben för att fylla i egenskapen. I följande kod exempel hämtas system egenskaper för en blob och några av värdena visas:
+Om du vill hämta BLOB-egenskaper anropar du- `FetchAttributes` eller- `FetchAttributesAsync` metoden på blobben för att fylla i `Properties` egenskapen. I följande kod exempel hämtas system egenskaper för en blob och några av värdena visas:
 
 ```csharp
 private static async Task GetBlobPropertiesAsync(CloudBlob blob)
@@ -94,7 +94,7 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 
 ## <a name="set-and-retrieve-metadata"></a>Ange och hämta metadata
 
-Du kan ange metadata som ett eller flera namn-värdepar på en BLOB-eller container resurs. Om du vill ange metadata lägger du till namn-värdepar `Metadata` i samlingen på resursen. Anropa sedan någon av följande metoder för att skriva värdena:
+Du kan ange metadata som ett eller flera namn-värdepar på en BLOB-eller container resurs. Om du vill ange metadata lägger du till namn-värdepar i `Metadata` samlingen på resursen. Anropa sedan någon av följande metoder för att skriva värdena:
 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
@@ -130,7 +130,7 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
 }
 ```
 
-Om du vill hämta metadata `FetchAttributes` anropar `FetchAttributesAsync` du eller-metoden på bloben eller behållaren `Metadata` för att fylla i samlingen och läser sedan värdena, som visas i exemplet nedan.
+Om du vill hämta metadata anropar du `FetchAttributes` eller- `FetchAttributesAsync` metoden på bloben eller behållaren för att fylla i `Metadata` samlingen och läser sedan värdena, som visas i exemplet nedan.
 
 ```csharp
 public static async Task ReadBlobMetadataAsync(CloudBlob blob)

@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a70b8112af201a49e7eece8b689e75102ec55880
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b28765c9ac4fa664b84c456c31ee10e0e9e19003
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327553"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465938"
 ---
 # <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>Justera prestanda: Spark, HDInsight & Azure Data Lake Storage Gen2
 
@@ -46,7 +46,7 @@ När du kör Spark-jobb är följande de viktigaste inställningarna som kan jus
 
 Som standard definieras två virtuella garn kärnor för varje fysisk kärna när Spark körs på HDInsight.  Det här talet ger en bättre balans mellan samtidighet och mängd kontext växling från flera trådar.  
 
-## <a name="guidance"></a>Riktlinjer
+## <a name="guidance"></a>Vägledning
 
 När du kör Spark-analytiska arbets belastningar för att arbeta med data i Data Lake Storage Gen2 rekommenderar vi att du använder den senaste HDInsight-versionen för att få bästa möjliga prestanda med Data Lake Storage Gen2. När jobbet är mer I/O-intensiv kan vissa parametrar konfigureras för att förbättra prestanda.  Data Lake Storage Gen2 är en mycket skalbar lagrings plattform som kan hantera stora data flöden.  Om jobbet huvudsakligen består av Läs-eller Skriv åtgärder kan du öka prestandan genom att öka samtidigheten för I/O till och från Data Lake Storage Gen2.
 

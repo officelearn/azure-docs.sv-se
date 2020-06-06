@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce19c670df5062a11bf86e9c383a322f9033818d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6e4459eea07f60d90dad692d6625dd45c5038093
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612018"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456971"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
@@ -36,7 +36,7 @@ Det här avsnittet innehåller PowerShell-kommandon som vanligt vis används nä
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Fel: New-AzRoleAssignment: den tillhandahållna informationen mappas inte till ett AD-objekt-ID
 
 ```powershell
-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
 **Orsak:** Användaren som anges av parametern *-SignInName* går inte att hitta i den Azure Active Directory som är kopplad till den virtuella Windows-miljön. 
@@ -73,7 +73,7 @@ KORRIGERA: en lista över regioner som stöds kommer att publiceras i fel meddel
 New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool
 ```
 
-**Orsak:** Det finns ett matchnings fel för platsen. Alla värdar, program grupper och arbets ytor har en plats där du kan lagra tjänstens metadata. Alla objekt som du skapar som är associerade med varandra måste finnas på samma plats. Om en adresspool till exempel finns i `eastus`måste du också skapa program grupperna i. `eastus` Om du skapar en arbets yta för att registrera dessa program grupper i, måste även den arbets `eastus` ytan finnas med.
+**Orsak:** Det finns ett matchnings fel för platsen. Alla värdar, program grupper och arbets ytor har en plats där du kan lagra tjänstens metadata. Alla objekt som du skapar som är associerade med varandra måste finnas på samma plats. Om en adresspool till exempel finns i `eastus` måste du också skapa program grupperna i `eastus` . Om du skapar en arbets yta för att registrera dessa program grupper i, måste även den arbets ytan finnas med `eastus` .
 
 **KORRIGERA:** Hämta platsen som värd poolen skapades i och tilldela sedan den program grupp som du skapar till samma plats.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: db488e4a9ec9aa0f4f12c8de45f123dba1a93cdf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 50b6244e5db6f812d1f9e3d23ea5fa88ea3bebea
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82112719"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456818"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabb start: lägga till inloggning med Microsoft i ett ASP.NET Core-webbprogram
 I den här snabb starten använder du ett kod exempel för att lära dig hur en ASP.NET Core webbapp kan logga in personliga konton (hotmail.com, outlook.com, andra) och arbets-och skol konton från valfri Azure Active Directory (Azure AD)-instans. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
@@ -43,9 +43,9 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `AspNetCore-Quickstart`.
->    - I **omdirigerings**- `https://localhost:44321/`URI, Lägg till och välj **Registrera**.
+>    - I **omdirigerings-URI**, Lägg till `https://localhost:44321/` och välj **Registrera**.
 > 1. Välj menyn **Autentisering** och lägg sedan till följande information:
->    - I **omdirigerings**- `https://localhost:44321/signin-oidc`URI: er lägger du till och väljer **Spara**.
+>    - I **omdirigerings-URI: er**lägger `https://localhost:44321/signin-oidc` du till och väljer **Spara**.
 >    - I avsnittet **Avancerade inställningar** ställer du in **Utloggnings-URL** på `https://localhost:44321/signout-oidc`.
 >    - Under **Implicit beviljande** kontrollerar du **ID-token**.
 >    - Välj **Spara**.
@@ -156,7 +156,7 @@ Raden som innehåller `.AddAzureAd` lägger till Microsoft Identity Platform-aut
 > Inställningen `ValidateIssuer = false` är en förenkling för den här snabb starten. I verkliga program måste du verifiera utfärdaren.
 > Se exemplen för att förstå hur du gör det.
 >
-> Observera också `Configure` metoden som innehåller två viktiga metoder: `app.UserCookiePolicy()` och`app.UseAuthentication()`
+> Observera också `Configure` metoden som innehåller två viktiga metoder: `app.UseCookiePolicy()` och`app.UseAuthentication()`
 
 ```csharp
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

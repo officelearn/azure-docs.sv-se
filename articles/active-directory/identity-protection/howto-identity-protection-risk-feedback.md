@@ -4,19 +4,19 @@ description: Hur och varför bör du ge feedback om identifieringar av identitet
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4be8290f12d64f0c556100c63ec159bd414c6fcb
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 03b06d46cb35346580070f1739fd43128fa7a7fa
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74382081"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463934"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Så här gör du för att ge risk feedback i Azure AD Identity Protection
 
@@ -45,7 +45,7 @@ Azure AD använder din feedback för att uppdatera risken för underliggande anv
 
 Här är scenarier och mekanismer för att ge feedback till Azure AD.
 
-| Scenario | Hur ger jag feedback? | Vad händer under huven? | Anteckningar |
+| Scenario | Hur ger jag feedback? | Vad händer under huven? | Obs! |
 | --- | --- | --- | --- |
 | **Inloggning är inte komprometterad (falskt positivt)** <br> Rapporten riskfyllda inloggningar visar en risk inloggning [risk tillstånd = i fara], men den inloggningen har inte komprometterats. | Välj inloggning och klicka på bekräfta inloggning säker. | Azure AD flyttar inloggnings summan risk till ingen [risk tillstånd = bekräftat säker, Risk nivå (agg regering) =-] och kommer att återföra sin inverkan på användar risken. | För närvarande är alternativet "bekräfta inloggning säker" endast tillgängligt i rapporten om riskfyllda inloggningar. |
 | **Inloggning komprometterad (sant positivt)** <br> Rapporten riskfyllda inloggningar visar en risk inloggning [risk tillstånd = i fara] med låg risk [risk nivå (agg regering) = låg] och att inloggningen faktiskt har komprometterats. | Välj inloggningen och klicka på bekräfta att inloggningen är komprometterad. | Azure AD flyttar inloggnings mängdens sammanlagda risk och användar risken till hög [risk tillstånd = bekräftat komprometterad; Risk nivå = hög]. | För närvarande finns inte alternativet bekräfta att inloggningen är komprometterat i rapporten om riskfyllda inloggningar. |

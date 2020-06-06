@@ -1,5 +1,5 @@
 ---
-title: Skapa, Visa och hantera system ämnen i Azure Event Grid
+title: Skapa, Visa och hantera system ämnen i Azure Event Grid (portal)
 description: Den här artikeln visar hur du visar det befintliga system avsnittet Skapa Azure Event Grid system ämnen med hjälp av Azure Portal.
 services: event-grid
 author: spelluru
@@ -7,29 +7,21 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: spelluru
-ms.openlocfilehash: ac22afb351973397960e66c2a8fe86031e0b213a
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 23b87812492485fc2336b8d2d35bf0426ede4772
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316658"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457243"
 ---
-# <a name="create-view-and-manage-system-topics-in-azure-event-grid"></a>Skapa, Visa och hantera system ämnen i Azure Event Grid
-Den här artikeln visar hur du utför följande uppgifter:
-
-- Avsnittet Skapa ett system
-- Visa alla befintliga system ämnen 
-- Ta bort ett system ämne
-- Skapa en händelse prenumeration för ett system ämne
-
+# <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Skapa, Visa och hantera Event Grid system ämnen i Azure Portal
+Den här artikeln visar hur du skapar och hanterar system ämnen med hjälp av Azure Portal. En översikt över system ämnen finns i [system avsnitt](system-topics.md).
 
 ## <a name="create-a-system-topic"></a>Avsnittet Skapa ett system
-Du kan skapa ett system ämne för en Azure-resurs på två sätt:
+Du kan skapa ett system ämne för en Azure-resurs (lagrings konto, Event Hubs namnrymd osv.) på två sätt:
 
-- På sidan resurs, till exempel lagrings konto sidan eller Event Hubs namn områdes sidan. 
-- Använd sidan **Event Grid system ämnen** . 
-
-I [den här snabb](blob-event-quickstart-portal.md) starten finns ett exempel på hur du skapar ett system ämne med en resurs sida (fliken**händelser** på en resurs sida i Azure Portal). Följande steg beskriver hur du skapar ett system avsnitt på sidan **Event Grid Systems ämnen** . 
+- Med hjälp av sidan **händelser** i en resurs, till exempel lagrings konto eller Event Hubs namnrymd. När du använder sidan **händelser** i Azure Portal för att skapa en händelse prenumeration för en händelse som aktive ras av en Azure-källa (till exempel: Azure Storage konto), skapar portalen ett system avsnitt för Azure-resursen och skapar sedan en prenumeration för system-avsnittet. Du anger namnet på system avsnittet om du skapar en händelse prenumeration på Azure-resursen för första gången. Från och med kan du Visa namnet på system avsnittet i skrivskyddat läge. Se [snabb start: dirigera Blob Storage-händelser till webb slut punkt med Azure Portal](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage) för detaljerade steg.
+- Använd sidan **Event Grid system ämnen** . Följande steg beskriver hur du skapar ett system avsnitt på sidan **Event Grid Systems ämnen** . 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I rutan Sök högst upp skriver du **Event Grid system ämnen**och trycker sedan på **RETUR**. 
@@ -57,11 +49,9 @@ I [den här snabb](blob-event-quickstart-portal.md) starten finns ett exempel p�
 
         ![Sidan system ämne](./media/create-view-manage-system-topics/system-topic-page.png)
 
+
 ## <a name="view-all-system-topics"></a>Visa alla system ämnen
 Följ dessa steg om du vill visa alla befintliga Event Grid system ämnen. 
-
-> [!NOTE]
-> När du tidigare skapade en prenumeration för en händelse som aktive ras av Azure-källor, skapade Event Grid tjänsten automatiskt ett system avsnitt med ett slumpmässigt genererat namn. Nu kan du ange ett namn för system avsnittet när du skapar avsnittet. Du kan använda den här system ämnes resursen för att identifiera statistik och diagnostikloggar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I rutan Sök högst upp skriver du **Event Grid system ämnen**och trycker sedan på **RETUR**. 
@@ -100,7 +90,6 @@ Följ dessa steg om du vill visa alla befintliga Event Grid system ämnen.
 3. Bekräfta att **ämnes typen**, **käll resursen**och **ämnes namnet** fylls i automatiskt. Ange ett namn, Välj en **slut punkts typ**och ange **slut punkten**. Välj sedan **skapa** för att skapa händelse prenumerationen. 
 
     ![System ämne – skapa händelse prenumeration](./media/create-view-manage-system-topics/create-event-subscription.png)
-
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om system ämnen och ämnes typer som stöds av Azure Event Grid finns i avsnittet [system ämnen i Azure Event Grid](system-topics.md) . 

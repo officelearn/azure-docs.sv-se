@@ -2,16 +2,14 @@
 title: Rotera certifikat i Azure Kubernetes service (AKS)
 description: Lär dig hur du roterar dina certifikat i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: zarhoads
-ms.openlocfilehash: 00dcef4ae0f04fc7f550859238ae8c7e1ad19384
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae85b544409cbf4532c221a2a7ca27940ae6f369
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549075"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465617"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotera certifikat i Azure Kubernetes service (AKS)
 
@@ -34,10 +32,10 @@ AKS genererar och använder följande certifikat, certifikat utfärdare och tjä
 * Nyckel värdes arkivet etcd skapar en certifikat utfärdare som signerar certifikat för att autentisera och auktorisera datareplikering mellan etcd-replikeringar i AKS-klustret.
 * API Aggregator använder kluster certifikat utfärdaren för att utfärda certifikat för kommunikation med andra API: er. API Aggregator kan också ha sin egen certifikat utfärdare för att utfärda dessa certifikat, men för närvarande används kluster certifikat utfärdaren.
 * Varje nod använder en tjänst konto-token (SA) som är signerad av kluster certifikat utfärdaren.
-* `kubectl` Klienten har ett certifikat för att kommunicera med AKS-klustret.
+* `kubectl`Klienten har ett certifikat för att kommunicera med AKS-klustret.
 
 > [!NOTE]
-> AKS-kluster som skapats före mars 2019 har certifikat som upphör att gälla efter två år. Alla kluster som skapats efter mars 2019 eller ett kluster som har sina certifikat roterade har kluster certifikat utfärdarens certifikat som upphör att gälla efter 30 år. Alla andra certifikat upphör att gälla efter två år. Om du vill kontrol lera när klustret har skapats `kubectl get nodes` kan du använda för att visa *ålder* för dina nodkonfigurationer.
+> AKS-kluster som skapats före mars 2019 har certifikat som upphör att gälla efter två år. Alla kluster som skapats efter mars 2019 eller ett kluster som har sina certifikat roterade har kluster certifikat utfärdarens certifikat som upphör att gälla efter 30 år. Alla andra certifikat upphör att gälla efter två år. Om du vill kontrol lera när klustret har skapats kan `kubectl get nodes` du använda för att visa *ålder* för dina nodkonfigurationer.
 > 
 > Dessutom kan du kontrol lera förfallo datumet för klustrets certifikat. Följande kommando visar till exempel certifikat informationen för *myAKSCluster* -klustret.
 > ```console
@@ -48,7 +46,7 @@ AKS genererar och använder följande certifikat, certifikat utfärdare och tjä
 ## <a name="rotate-your-cluster-certificates"></a>Rotera dina kluster certifikat
 
 > [!WARNING]
-> Att rotera dina certifikat `az aks rotate-certs` med kan orsaka upp till 30 minuters stillestånds tid för ditt AKS-kluster.
+> Att rotera dina certifikat med `az aks rotate-certs` kan orsaka upp till 30 minuters stillestånds tid för ditt AKS-kluster.
 
 Använd [AZ AKS get-credentials][az-aks-get-credentials] för att logga in på ditt AKS-kluster. Det här kommandot hämtar också och konfigurerar `kubectl` klient certifikatet på den lokala datorn.
 
@@ -63,22 +61,22 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 > [!IMPORTANT]
-> Det kan ta upp till 30 minuter `az aks rotate-certs` att slutföra. Om kommandot Miss lyckas innan du är klar använder `az aks show` du för att kontrol lera att klustrets status är ett certifikat som ska *roteras*. Om klustret är i ett felaktigt tillstånd, kör `az aks rotate-certs` om för att rotera dina certifikat igen.
+> Det kan ta upp till 30 minuter `az aks rotate-certs` att slutföra. Om kommandot Miss lyckas innan du är klar använder `az aks show` du för att kontrol lera att klustrets status är ett certifikat som ska *roteras*. Om klustret är i ett felaktigt tillstånd, kör om `az aks rotate-certs` för att rotera dina certifikat igen.
 
-Kontrol lera att de gamla certifikaten inte längre är giltiga genom `kubectl` att köra ett kommando. Eftersom du inte har uppdaterat certifikaten som används `kubectl`av visas ett fel meddelande.  Ett exempel:
+Kontrol lera att de gamla certifikaten inte längre är giltiga genom att köra ett `kubectl` kommando. Eftersom du inte har uppdaterat certifikaten som används av visas `kubectl` ett fel meddelande.  Ett exempel:
 
 ```console
 $ kubectl get no
 Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "ca")
 ```
 
-Uppdatera certifikatet som används av `kubectl` genom att `az aks get-credentials`köra.
+Uppdatera certifikatet som används av `kubectl` genom att köra `az aks get-credentials` .
 
 ```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Kontrol lera att certifikaten har uppdaterats genom `kubectl` att köra ett kommando som nu kommer att lyckas. Ett exempel:
+Kontrol lera att certifikaten har uppdaterats genom att köra ett `kubectl` kommando som nu kommer att lyckas. Ett exempel:
 
 ```console
 kubectl get no

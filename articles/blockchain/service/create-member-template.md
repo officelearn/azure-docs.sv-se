@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
-ms.date: 04/22/2020
-ms.openlocfilehash: 1e0e4018c79c231c69f29b2272420344198af413
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.date: 06/04/2020
+ms.openlocfilehash: 5524a8920ef49603ab9aa143ae4094cdaad9d340
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310367"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456544"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Snabb start: skapa en Azure blockchain service-medlem med en Azure Resource Manager-mall
 
@@ -23,7 +23,7 @@ I den här snabb starten distribuerar du en ny blockchain-medlem och konsortiet 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Inga.
 
@@ -61,6 +61,12 @@ Azure-resurser som definierats i mallen:
 1. Välj **köp** för att distribuera mallen.
 
   Azure Portal används här för att distribuera mallen. Du kan också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../../azure-resource-manager/templates/deploy-powershell.md).
+
+## <a name="review-deployed-resources"></a>Granska distribuerade resurser
+
+Du kan använda Azure Portal för att visa information om den distribuerade Azure blockchain-tjänstemedlemen. I portalen går du till resurs gruppen som innehåller din Azure blockchain service-medlem. Välj den blockchain-medlem som du skapade.
+
+![Distribuerad information om Azure blockchain-medlems översikt i Azure Portal](./media/create-member-template/deployed-member.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -3,17 +3,17 @@ title: Vara värd för en statisk webbplats i Azure Storage
 description: Azure Storage statisk webbplats värd, vilket ger en kostnads effektiv och skalbar lösning för moderna webb program.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: 6a007525f8402bb163195b623173d665f9721bff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f3dc7a051021c75c7e1ed6904096c43a27c3e05e
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648499"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465906"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
@@ -100,7 +100,7 @@ Det finns inget sätt att konfigurera rubriker som en del av den statiska webbpl
 
 Om du vill använda huvuden för att styra cachelagring, se [kontroll Azure CDN cachelagring med regler för cachelagring](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Du kan aktivera statisk webbplats värd utan kostnad. Du faktureras bara för den blob-lagring som webbplatsen använder och drifts kostnader. Mer information om priser för Azure-Blob Storage finns på sidan med [priser för azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

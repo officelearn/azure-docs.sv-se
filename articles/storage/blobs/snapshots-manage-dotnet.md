@@ -5,16 +5,16 @@ description: Lär dig hur du skapar en skrivskyddad ögonblicks bild av en BLOB 
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 438692d5c142c3f617ee9d0c3f55b9b3740f9b7a
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: be3d06d8ea493ab7c246ace5c49d5e5bc0036108
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884701"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463543"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Skapa och hantera en BLOB-ögonblicksbild i .NET
 
@@ -135,7 +135,7 @@ Om du vill ta bort en blob och dess ögonblicks bilder med version 12. x av Azur
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
 
-I följande kod exempel visas hur du tar bort en blob och dess ögonblicks bilder i .NET `blobClient` , där är ett objekt av typen [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)):
+I följande kod exempel visas hur du tar bort en blob och dess ögonblicks bilder i .NET, där `blobClient` är ett objekt av typen [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)):
 
 ```csharp
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
@@ -150,7 +150,7 @@ Om du vill ta bort en blob och dess ögonblicks bilder med version 11. x av Azur
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
 
-I följande kod exempel visas hur du tar bort en blob och dess ögonblicks bilder i .NET `blockBlob` , där är ett objekt av typen [CloudBlockBlob] [dotnet_CloudBlockBlob]:
+I följande kod exempel visas hur du tar bort en blob och dess ögonblicks bilder i .NET, där `blockBlob` är ett objekt av typen [CloudBlockBlob] [dotnet_CloudBlockBlob]:
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);

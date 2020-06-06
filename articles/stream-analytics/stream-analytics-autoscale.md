@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 04566bae2a9010dde5f9d6d4a0a63c237505597b
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 2f871312b7e36288d1b78e05aa4058dab6c1942f
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429640"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449574"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Skala Stream Analytics jobb med Azure Automation
 
@@ -29,7 +29,7 @@ Innan du börjar konfigurera autoskalning för jobbet utför du följande steg.
 ### <a name="configure-variables"></a>Konfigurera variabler
 Lägg till följande variabler i Azure Automation-kontot. Dessa variabler kommer att användas i Runbooks som beskrivs i nästa steg.
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | --- | --- | --- |
 | **jobName** | Sträng | Namnet på det Stream Analytics jobb som du vill skala. |
 | **resourceGroupName** | Sträng | Namnet på resurs gruppen där jobbet finns. |
@@ -67,7 +67,7 @@ Med Azure Automation kan du konfigurera ett schema för att utlösa dina runbook
 ## <a name="autoscale-based-on-load"></a>Autoskalning baserat på inläsning
 Det kan finnas fall där du inte kan förutsäga inläsningen. I sådana fall är det mer optimalt att skala upp/ned i steg inom ett lägsta och högsta gräns värde. Du kan konfigurera varnings regler i Stream Analytics jobb för att utlösa runbooks när jobb måtten är över eller under ett tröskelvärde.
 1. I ditt Azure Automation-konto skapar du två fler heltals variabler som heter **minSU** och **maxSU**. Detta anger de gränser inom vilka jobbet kommer att skalas i steg.
-2. Skapa två nya Runbooks. Du kan använda [StepScaleUp PowerShell-skriptet](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/Autoscaleup.ps1) som ökar SUS-jobbet i steg innan värdet för **maxSU** . Du kan också använda [PowerShell-skriptet StepScaleDown](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/autoscaledown.ps1) som minskar SUS-jobbet i steg tills **minSU** -värdet nås. Du kan också använda Runbooks från föregående avsnitt om du har vissa SU-värden som du vill skala till.
+2. Skapa två nya Runbooks. Du kan använda [StepScaleUp PowerShell-skriptet](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleUp.ps1) som ökar SUS-jobbet i steg innan värdet för **maxSU** . Du kan också använda [PowerShell-skriptet StepScaleDown](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleDown.ps1) som minskar SUS-jobbet i steg tills **minSU** -värdet nås. Du kan också använda Runbooks från föregående avsnitt om du har vissa SU-värden som du vill skala till.
 3. I Stream Analytics jobb väljer du **aviserings regler** under **övervakning**. 
 4. Skapa två åtgärds grupper. En som ska användas för skalnings åtgärder och en annan för skalnings åtgärder. Välj **Hantera åtgärder** och klicka sedan på **Lägg till åtgärds grupp**. 
 5. Fyll i de obligatoriska fälten. Välj **Automation Runbook** när du väljer **Åtgärds typ**. Välj den Runbook som du vill utlösa när aviseringen utlöses. Skapa sedan åtgärds gruppen.

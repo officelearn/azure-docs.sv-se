@@ -3,12 +3,12 @@ title: Konfigurera beroende analys utan agent i Azure Migrate Server bedömning
 description: Konfigurera en agent lös beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 2/24/2020
-ms.openlocfilehash: af767bf73a3b9a6f2a91298987f11974499fd694
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3259c861b0e64b560eb2a17a832a02b87855bebf
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455714"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449200"
 ---
 # <a name="set-up-agentless-dependency-visualization"></a>Konfigurera beroende visualisering för agent utan agent 
 
@@ -50,7 +50,7 @@ Lägg till användar kontot till enheten.
 1. Öppna appen för hantering av appar. 
 2. Navigera till panelen **Tillhandahåll vCenter-information** .
 3. I **identifiera program och beroenden på virtuella datorer**klickar du på **Lägg till autentiseringsuppgifter**
-3. Välj **operativ system**, ange ett eget namn för kontot och**lösen ordet** för **användar namn**/
+3. Välj **operativ system**, ange ett eget namn för kontot och **User name** / **lösen ordet** för användar namn
 6. Klicka på **Spara**.
 7. Klicka på **Spara och starta identifiering**.
 
@@ -63,9 +63,9 @@ Välj de datorer där du vill aktivera beroende identifiering.
 1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
 2. Klicka på ikonen **beroende analys** .
 3. Klicka på **Lägg till servrar**.
-3. På sidan **Lägg till servrar** väljer du den installation som identifierar relevanta datorer.
-4. Välj datorerna i listan dator.
-5. Klicka på **Lägg till servrar**.
+4. På sidan **Lägg till servrar** väljer du den installation som identifierar relevanta datorer.
+5. Välj datorerna i listan dator.
+6. Klicka på **Lägg till servrar**.
 
     ![Starta beroende identifiering](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -91,6 +91,20 @@ Du kan visualisera beroenden runt sex timmar efter start av beroende identifieri
 
 > [!NOTE]
 > Process information för ett beroende är inte alltid tillgängligt. Om det inte är tillgängligt visas beroendet med processen markerad som "okänd process".
+
+## <a name="export-dependency-data"></a>Exportera beroende data
+
+1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
+2. Klicka på ikonen **beroende analys** .
+3. Klicka på **Exportera program beroenden**.
+4. På sidan **Exportera program beroenden** väljer du den installation som identifierar relevanta datorer.
+5. Välj start tid och slut tid. Observera att du bara kan hämta data under de senaste 30 dagarna.
+6. Klicka på **Exportera beroende**.
+
+Beroende data exporteras och hämtas i CSV-format. Den hämtade filen innehåller beroende data över alla datorer som är aktiverade för beroende analys. 
+
+    ![Export dependencies](./media/how-to-create-group-machine-dependencies-agentless/export.png)
+
 
 ## <a name="stop-dependency-discovery"></a>Stoppa beroende identifiering
 

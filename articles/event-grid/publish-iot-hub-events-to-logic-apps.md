@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: robinsh
-ms.openlocfilehash: 5a0b9b2752a2ad8b7d2e03a40af11407b97391bc
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 2a0b25fc73bf0f549a199592d558c0097c2db8b8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322046"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457073"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Självstudie: skicka e-postaviseringar om Azure IoT Hub händelser med Event Grid och Logic Apps
 
@@ -20,7 +20,7 @@ Med Azure Event Grid kan du reagera på händelser i IoT Hub genom att utlösa �
 
 Den här artikeln beskriver en exempel konfiguration som använder IoT Hub och Event Grid. I slutet har du konfigurerat en Azure Logic app som skickar ett e-postmeddelande varje gång en enhet läggs till i IoT Hub. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En aktiv Azure-prenumeration. Om du inte har någon prenumeration kan du [skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -181,7 +181,7 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
    2. I avsnittet **avsnitts information** utför du följande uppgifter:
        1. Bekräfta att **ämnes typen** har angetts till **IoT Hub**. 
        2. Bekräfta att namnet på IoT Hub har angetts som värde för fältet för **käll resurs** . 
-       3. Ange ett namn på **system avsnittet** som ska skapas åt dig. 
+       3. Ange ett namn på **system avsnittet** som ska skapas åt dig. Information om system ämnen finns i [Översikt över system ämnen](system-topics.md).
    3. Utför följande uppgifter i avsnittet **händelse typer** : 
         1. Avmarkera alla val förutom enhet som har **skapats**för **att filtrera efter händelse typer**.
 

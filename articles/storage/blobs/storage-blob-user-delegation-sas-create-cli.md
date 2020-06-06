@@ -5,17 +5,17 @@ description: Lär dig hur du skapar en användar Delegerings-SAS med Azure Activ
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa864b5b2ded092ae7834ecd8c7d271d13117716
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "75371997"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464411"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure CLI
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du använder Azure Active Directory (Azure AD)-auten
 
 Kontrol lera att du har installerat den senaste versionen av Azure CLI för att använda Azure CLI för att skydda SAS med autentiseringsuppgifter för Azure AD. Mer information om hur du installerar Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Om du vill skapa en användar Delegerings-SAS med Azure CLI kontrollerar du att du har installerat version 2.0.78 eller senare. Använd `az --version` kommandot för att kontrol lera den installerade versionen.
+Om du vill skapa en användar Delegerings-SAS med Azure CLI kontrollerar du att du har installerat version 2.0.78 eller senare. Använd kommandot för att kontrol lera den installerade versionen `az --version` .
 
 ## <a name="sign-in-with-azure-ad-credentials"></a>Logga in med autentiseringsuppgifter för Azure AD
 
@@ -60,7 +60,7 @@ När du skapar en användar Delegerings-SAS med Azure CLI skapas den användar D
 
 Eftersom det maximala intervallet med vilken användar Delegerings nyckeln är giltigt är 7 dagar från start datumet, bör du ange en förfallo tid för SAS som ligger inom 7 dagar från start tiden. SAS är ogiltig när användar Delegerings nyckeln upphör att gälla, så en SAS med en förfallo tid på mer än 7 dagar är fortfarande bara giltig i 7 dagar.
 
-När du `--auth-mode login` skapar en användar Delegerings- `--as-user parameters` SAS krävs och. Ange *inloggning* för `--auth-mode` parametern så att begär anden som görs till Azure Storage auktoriseras med dina autentiseringsuppgifter för Azure AD. Ange `--as-user` parametern för att indikera att den returnerade SAS: en är en användar Delegerings-SAS.
+När du skapar en användar Delegerings-SAS `--auth-mode login` `--as-user parameters` krävs och. Ange *inloggning* för `--auth-mode` parametern så att begär Anden som görs till Azure Storage auktoriseras med dina AUTENTISERINGSUPPGIFTER för Azure AD. Ange `--as-user` parametern för att indikera att den returnerade SAS: en är en användar Delegerings-SAS.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Skapa en användar Delegerings-SAS för en behållare
 

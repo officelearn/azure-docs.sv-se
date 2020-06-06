@@ -7,16 +7,19 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: wesmc
-ms.openlocfilehash: 0daddd2fb1368819c8f7b4cf0183c90a8c6c065e
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: fefae4ad1f4e10598fcc67d65155c3b13efc9ff4
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417981"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449625"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>TLS-stöd i Azure IoT Hub Device Provisioning Service (DPS)
 
-DPS använder Transport Layer Security (TLS) för att skydda anslutningar från IoT-enheter. TLS-protokoll versioner som stöds av DPS inkluderar TLS 1,2.
+DPS använder [Transport Layer Security (TLS)](http://wikipedia.org/wiki/Transport_Layer_Security) för att skydda anslutningar från IoT-enheter. 
+
+De aktuella TLS-protokolls versioner som stöds av DPS är: 
+* TLS 1.2
 
 TLS 1,0 och 1,1 betraktas som äldre och planeras för utfasning. Mer information finns i [inaktuella TLS 1,0 och 1,1 för IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). 
 
@@ -24,7 +27,7 @@ TLS 1,0 och 1,1 betraktas som äldre och planeras för utfasning. Mer informatio
 
 För ökad säkerhet rekommenderar vi att du konfigurerar dina DPS-instanser så att de *bara* tillåter klient anslutningar för klienter som använder TLS version 1,2 och för att framtvinga användning av [rekommenderade chiffer](#recommended-ciphers).
 
-Det gör du genom att etablera en ny DPS-resurs i någon av de [regioner som stöds](#supported-regions) och ange `minTlsVersion` egenskapen till `1.2` i din Azure Resource Manager malls DPS-resurs specifikation. Följande exempel-mall-JSON anger `minTlsVersion` egenskapen för en ny DPS-instans.
+Det gör du genom att etablera en ny DPS-resurs som anger `minTlsVersion` egenskapen till `1.2` i din Azure Resource Manager MALLs DPS-resurs specifikation. Följande exempel-mall-JSON anger `minTlsVersion` egenskapen för en ny DPS-instans.
 
 ```json
 {
@@ -35,7 +38,7 @@ Det gör du genom att etablera en ny DPS-resurs i någon av de [regioner som st�
             "type": "Microsoft.Devices/ProvisioningServices",
             "apiVersion": "2020-01-01",
             "name": "<provide-a-valid-DPS-resource-name>",
-            "location": "<any-of-supported-regions-below>",
+            "location": "<any-region>",
             "properties": {
                 "minTlsVersion": "1.2"
             },
@@ -61,12 +64,6 @@ DPS-resursen som skapas med den här konfigurationen kommer att neka enheter som
 > [!NOTE]
 > `minTlsVersion`Egenskapen är skrivskyddad och kan inte ändras när din DPS-resurs har skapats. Det är därför viktigt att du testar och kontrollerar att *alla* IoT-enheter är kompatibla med TLS 1,2 och de [rekommenderade chifferna](#recommended-ciphers) i förväg.
 
-## <a name="supported-regions"></a>Regioner som stöds
-
-IoT DPS-instanser som kräver användning av TLS 1,2 kan skapas i följande regioner:
-
-* US Gov, Arizona
-* US Gov, Virginia
 
 > [!NOTE]
 > Vid redundans fortsätter `minTlsVersion` egenskapen för DPS att vara effektiv i den geo-kopplade regionen efter redundansväxlingen.

@@ -4,19 +4,19 @@ description: Lär dig hur du konfigurerar registrerings principen för Azure AD 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fa6a4cf184b426355f62117ea51642127eee529
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4c6b57eaa2a68906053faade48dd0e63fbf0db7
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74382134"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464342"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Gör så här: Konfigurera registrerings principen för Azure-Multi-Factor Authentication
 
@@ -36,13 +36,13 @@ Mer information om Azure Multi-Factor Authentication finns i [Vad är azure Mult
 ## <a name="policy-configuration"></a>Principkonfiguration
 
 1. Navigera till [Azure Portal](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory** > **säkerhets** > **identitets skydd** > **MFA registrerings princip**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **identitets skydd**  >  **MFA registrerings princip**.
    1. Under **tilldelningar**
       1. **Användare** – Välj **alla användare** eller **Välj personer och grupper** om du vill begränsa distributionen.
          1. Du kan också välja att exkludera användare från principen.
    1. Under **kontroller**
       1. Se till att kryss rutan **Kräv Azure MFA-registrering** är markerad och välj **Välj**.
-   1. **Tillämpa princip** - **på**
+   1. **Tillämpa princip**  -  **På**
    1. **Spara**
 
 ## <a name="user-experience"></a>Användarupplevelse

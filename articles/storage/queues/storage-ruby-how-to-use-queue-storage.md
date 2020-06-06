@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: cbrooks
-ms.openlocfilehash: c7211bc805f4ed1d026faedbfdc9d53d3c1dfd93
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 72185cf8bc5701e67c6126c9b1b5cc76bb80f362
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68721296"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463424"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Använda Queue Storage från Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -46,7 +46,7 @@ require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Konfigurera en Azure Storage anslutning
-Azure-modulen läser miljövariablerna **Azure\_\_Storage-kontot** och **Azure\_Storage\_-ACCESS_KEY** för information som krävs för att ansluta till ditt Azure Storage-konto. Om de här miljövariablerna inte har angetts måste du ange konto informationen innan du använder **Azure:: QueueService** med följande kod:
+Azure-modulen läser miljövariablerna **Azure \_ Storage- \_ kontot** och **Azure \_ Storage- \_ ACCESS_KEY** för information som krävs för att ansluta till ditt Azure Storage-konto. Om de här miljövariablerna inte har angetts måste du ange konto informationen innan du använder **Azure:: QueueService** med följande kod:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
@@ -86,7 +86,7 @@ azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Gör så här: granska vid nästa meddelande
-Du kan titta på meddelandet överst i en kö utan att ta bort det från kön genom att anropa metoden **läsa\_meddelanden ()** . Som standard tittar **gransknings\_meddelanden ()** på ett enskilt meddelande. Du kan också ange hur många meddelanden du vill granska.
+Du kan titta på meddelandet överst i en kö utan att ta bort det från kön genom att anropa metoden **läsa \_ meddelanden ()** . Som standard tittar **gransknings \_ meddelanden ()** på ett enskilt meddelande. Du kan också ange hur många meddelanden du vill granska.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
@@ -96,10 +96,10 @@ result = azure_queue_service.peek_messages("test-queue",
 ## <a name="how-to-dequeue-the-next-message"></a>Gör så här: ta bort nästa meddelande i kö
 Du kan ta bort ett meddelande från en kö i två steg.
 
-1. När du anropar **list\_meddelanden ()** får du nästa meddelande i en kö som standard. Du kan också ange hur många meddelanden du vill hämta. Meddelanden som returneras från **list\_meddelanden ()** blir osynliga för all annan kod som läser meddelanden från den här kön. Du skickar tids gränsen för synlighet i sekunder som en parameter.
+1. När du anropar **list \_ meddelanden ()** får du nästa meddelande i en kö som standard. Du kan också ange hur många meddelanden du vill hämta. Meddelanden som returneras från **list \_ meddelanden ()** blir osynliga för all annan kod som läser meddelanden från den här kön. Du skickar tids gränsen för synlighet i sekunder som en parameter.
 2. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **delete_message ()**.
 
-Den här två stegs processen för att ta bort ett meddelande säkerställer att när din kod inte kan bearbeta ett meddelande på grund av maskin-eller program varu fel, kan en annan instans av koden Hämta samma meddelande och försöka igen. Kod anropen **ta\_bort meddelandet ()** direkt efter att meddelandet har bearbetats.
+Den här två stegs processen för att ta bort ett meddelande säkerställer att när din kod inte kan bearbeta ett meddelande på grund av maskin-eller program varu fel, kan en annan instans av koden Hämta samma meddelande och försöka igen. Kod anropen **ta bort \_ meddelandet ()** direkt efter att meddelandet har bearbetats.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)
@@ -123,7 +123,7 @@ Det finns två metoder som du kan använda för att anpassa meddelandehämtninge
 1. Du kan få en batch med meddelandet.
 2. Du kan ange en längre eller kortare tids gräns för insikter, vilket gör att koden får mer eller mindre tid att bearbeta varje meddelande fullständigt.
 
-I följande kod exempel används metoden **list\_Messages ()** för att få 15 meddelanden i ett anrop. Sedan skriver den ut och tar bort varje meddelande. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande.
+I följande kod exempel används metoden **list \_ Messages ()** för att få 15 meddelanden i ett anrop. Sedan skriver den ut och tar bort varje meddelande. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande.
 
 ```ruby
 azure_queue_service.list_messages("test-queue", 300
@@ -134,7 +134,7 @@ end
 ```
 
 ## <a name="how-to-get-the-queue-length"></a>Så här gör du: Hämta Kölängd
-Du kan få en uppskattning av antalet meddelanden i kön. Metoden **get\_Queue\_metadata ()** uppmanar Queue Service att returnera det ungefärliga antalet meddelanden och metadata om kön.
+Du kan få en uppskattning av antalet meddelanden i kön. Metoden **get \_ Queue \_ metadata ()** uppmanar Queue Service att returnera det ungefärliga antalet meddelanden och metadata om kön.
 
 ```ruby
 message_count, metadata = azure_queue_service.get_queue_metadata(
@@ -142,7 +142,7 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
 ```
 
 ## <a name="how-to-delete-a-queue"></a>Så här gör du: ta bort en kö
-Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden **Delete\_Queue ()** i objektet köobjekt.
+Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden **Delete \_ Queue ()** i objektet köobjekt.
 
 ```ruby
 azure_queue_service.delete_queue("test-queue")

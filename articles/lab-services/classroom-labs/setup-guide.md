@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: 5c2ea38dfa799239adde158506e1359fb84adcc4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 751d55493b1bdb06dfe61d9f951846e13e1e5d72
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650531"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457192"
 ---
 # <a name="classroom-lab-setup-guide"></a>Installations guide för klass rums labb
 
@@ -137,7 +137,7 @@ När du har förstått kraven för klassens labb är du redo att konfigurera den
 1. **Använd instrument panelen.** Anvisningar finns i [använda Labbets instrument panel](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 
     > [!NOTE]
-    > Den uppskattade kostnaden som visas på instrument panelen är den högsta kostnad som du kan förväntar dig för studenters användning av labbet. Till exempel debiteras du *inte* för oanvända kvot timmar av dina studenter. De uppskattade kostnaderna återspeglar *inte* några avgifter för att använda mallen VM eller det delade avbildnings galleriet.
+    > Den uppskattade kostnaden som visas på instrument panelen är den högsta kostnad som du kan förväntar dig för studenters användning av labbet. Till exempel debiteras du *inte* för oanvända kvot timmar av dina studenter. De uppskattade kostnaderna återspeglar *inte* några avgifter för att använda mallen VM, delade avbildnings galleriet eller när labb skaparen startar en användar dator.
 
 ## <a name="next-steps"></a>Nästa steg
 

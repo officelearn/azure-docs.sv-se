@@ -4,16 +4,16 @@ description: Lär dig hur du använder WORM (Skriv en gång, Läs många) stöd 
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 539154135c35e034c889294d911fb53b3d45daa4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: a09dbd7d778a4f7ea2a9aac9ca07b9e6d06bc1ae
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771017"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463645"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Ange och hantera oföränderlighets-principer för Blob Storage
 

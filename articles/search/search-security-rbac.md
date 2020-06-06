@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 9262d01e35bd03a9116a30b070b023f578f0b15a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/03/2020
+ms.openlocfilehash: 402fae5622219b14cfdab921ebe1a78ad5dd111e
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74112552"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462846"
 ---
 # <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Ange RBAC-roller för administrativ åtkomst till Azure Kognitiv sökning
 
@@ -26,7 +26,7 @@ Azure tillhandahåller en [Global rollbaserad verifierings modell](../role-based
 
 För Azure Kognitiv sökning associeras roller med behörighets nivåer som stöder följande hanterings aktiviteter:
 
-| Roll | Aktivitet |
+| Roll | Uppgift |
 | --- | --- |
 | Ägare |Skapa eller ta bort tjänsten eller ett objekt på tjänsten, inklusive API-nycklar, index, indexerare, data källor för indexerare och index scheman.<p>Visa tjänst status, inklusive antal och lagrings storlek.<p>Lägg till eller ta bort roll medlemskap (endast ägaren kan hantera roll medlemskap).<p>Prenumerations administratörer och tjänst ägare har automatiskt medlemskap i rollen ägare. |
 | Deltagare |Samma åtkomst nivå som ägare, minus RBAC-roll hantering. En deltagare kan till exempel skapa eller ta bort objekt, eller Visa och återskapa [API-nycklar](search-security-api-keys.md), men kan inte ändra roll medlemskap. |
@@ -34,6 +34,21 @@ För Azure Kognitiv sökning associeras roller med behörighets nivåer som stö
 | Läsare |Visa service Essentials och Metrics. Medlemmar i den här rollen kan inte Visa index, indexerare, data källa eller viktig information.  |
 
 Roller beviljar inte åtkomst behörighet till tjänstens slut punkt. Sök tjänst åtgärder, till exempel index hantering, index ifyllning och frågor om Sök data, kontrol leras via API-nycklar, inte roller. Mer information finns i [Hantera API-nycklar](search-security-api-keys.md).
+
+## <a name="permissions-table"></a>Behörighets tabell
+
+I följande tabell sammanfattas de åtgärder som tillåts i Azure Kognitiv sökning och vilken nyckel som låser upp åtkomsten till en viss åtgärd.
+
+| Åtgärd | Behörigheter |
+|-----------|-------------------------|
+| Skapa en tjänst | Azure-prenumerations innehavare |
+| Skala en tjänst | Administratörs nyckel, RBAC-ägare eller deltagare på resursen  |
+| Ta bort en tjänst | Administratörs nyckel, RBAC-ägare eller deltagare på resursen |
+| Skapa, ändra och ta bort objekt på tjänsten: <br>Index och komponent delar (inklusive analys definitioner, bedömnings profiler, CORS-alternativ), indexerare, data källor, synonymer, förslag | Administratörs nyckel, RBAC-ägare eller deltagare på resursen |
+| Fråga ett index | Administratör eller frågegrupp (RBAC-ej tillämpligt) |
+| Fråga system information, t. ex. returnera statistik, antal och listor över objekt | Administratörs nyckel, RBAC på resursen (ägare, deltagare, läsare) |
+| Hantera administratörs nycklar | Administratörs nyckel, RBAC-ägare eller deltagare på resursen |
+| Hantera frågeinställningar |  Administratörs nyckel, RBAC-ägare eller deltagare på resursen  |
 
 ## <a name="see-also"></a>Se även
 

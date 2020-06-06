@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: aa71057d3819acb335153ee5b4b65960320405be
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 3cb4dd16592f3af962b32fe3005d2ad4b241d831
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997418"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457022"
 ---
 # <a name="samples-and-faqs"></a>Exempel och vanliga frågor och svar
 
@@ -43,7 +43,7 @@ Kontakta winvoiceassistants@microsoft.com för att begära dessa resurser.
 
 När ditt program först aktive ras av Voice startas det i en komprimerad vy. I [design vägledningen för för hands versionen av röst aktivering](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) hittar du information om olika vyer och över gångar mellan dem för röst assistenter i Windows.
 
-Använd appView-API: et `TryEnterViewModeAsync`för att göra över gången från komprimerad vy till fullständig app-vy:
+Använd appView-API: et för att göra över gången från komprimerad vy till fullständig app-vy `TryEnterViewModeAsync` :
 
 `var appView = ApplicationView.GetForCurrentView();
  await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);`

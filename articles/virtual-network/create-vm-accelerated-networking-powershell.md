@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 202acff5bae87174781dc6c914bebf0494dfcf05
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: da7164fbf9148764ef8da0205b147b0fd188de9d
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871447"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457260"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Skapa en virtuell Windows-dator med accelererat nätverk med Azure PowerShell
 
@@ -98,7 +98,7 @@ I nätverks gränssnitts information, bredvid den **accelererade nätverks** eti
 
 ## <a name="vm-creation-using-powershell"></a>Skapa virtuell dator med PowerShell
 
-Innan du fortsätter installerar du [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az`för att hitta den version som är installerad. Om du behöver installera eller uppgradera installerar du den senaste versionen av AZ-modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az). Logga in på ett Azure-konto med [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)i en PowerShell-session.
+Innan du fortsätter installerar du [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 eller senare. Kör för att hitta den version som är installerad `Get-Module -ListAvailable Az` . Om du behöver installera eller uppgradera installerar du den senaste versionen av AZ-modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az). Logga in på ett Azure-konto med [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)i en PowerShell-session.
 
 Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn som ingår *myResourceGroup*, *myNic*och *myVM*.
 
@@ -192,7 +192,7 @@ Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempe
 
 ### <a name="create-a-vm-and-attach-the-network-interface"></a>Skapa en virtuell dator och bifoga nätverks gränssnittet
 
-1. Ange autentiseringsuppgifterna för din virtuella dator `$cred` till variabeln med [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential), som gör att du kan logga in:
+1. Ange autentiseringsuppgifterna för din virtuella dator till `$cred` variabeln med [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential), som gör att du kan logga in:
 
     ```azurepowershell
     $cred = Get-Credential
@@ -244,7 +244,7 @@ När du har skapat den virtuella datorn i Azure ansluter du till den virtuella d
 
 3. På sidan VM-översikt, om **status** för den virtuella datorn visas som **skapa**, väntar du tills Azure har skapat den virtuella datorn. **Status** kommer att ändras till att **köras** när den virtuella datorn har skapats.
 
-4. I verktygsfältet översikt över virtuell dator väljer du **Anslut** > **RDP** > **Download RDP-fil**.
+4. I verktygsfältet översikt över virtuell dator väljer du **Anslut**  >  **RDP**  >  **Download RDP-fil**.
 
 5. Öppna. RDP-filen och logga sedan in på den virtuella datorn med de autentiseringsuppgifter som du angav i avsnittet [skapa en virtuell dator och bifoga nätverks gränssnittet](#create-a-vm-and-attach-the-network-interface) . Om du aldrig har anslutit till en virtuell Windows-dator i Azure, se [Anslut till virtuell dator](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 
@@ -327,7 +327,7 @@ En skalnings uppsättning för en virtuell dator är något annorlunda, men den 
 3. Ställ in de uppdateringar som tillämpas automatiskt så att ändringarna omedelbart hämtas:
 
     ```azurepowershell
-    $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+    $vmss.UpgradePolicy.Mode = "Automatic"
     
     Update-AzVmss -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `

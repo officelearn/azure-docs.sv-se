@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: a9378d0f499814706762349a0eac2c5a26ca939a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 02b7b7b78e2a5933d9e9cc5931ca2cd2a46a6e9e
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042038"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449307"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Hantera schemat i ett SaaS-program med hjälp av mönstret för databas per klient med Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,12 +49,10 @@ I mönstret för databas per klient isoleras klient data effektivt, men det öka
 ![skärmen](./media/saas-tenancy-schema-management/schema-management-dpt.png)
 
 
-## <a name="elastic-jobs-limited-preview"></a>Elastiska jobb begränsad förhandsvisning
+## <a name="elastic-jobs-public-preview"></a>Offentlig för hands version av elastiska jobb
 
-Det finns en ny version av elastiska jobb som nu är en integrerad funktion i Azure SQL Database. Den här nya versionen av elastiska jobb är för närvarande i begränsad förhandsvisning. Denna begränsade för hands version har stöd för att använda PowerShell för att skapa en jobb agent och T-SQL för att skapa och hantera jobb.
-
-> [!NOTE]
-> Den här guiden använder funktioner för SQL Database-tjänsten som är i en begränsad förhandsgranskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämne = för hands version av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här för hands versionen är begränsad, så kontakta dig SaaSFeedback@microsoft.com för relaterade frågor eller support.
+Det finns en ny version av elastiska jobb som nu är en integrerad funktion i Azure SQL Database. Den här nya versionen av elastiska jobb är för närvarande en offentlig för hands version. Den här offentliga för hands versionen stöder för närvarande användning av PowerShell för att skapa en jobb agent och T-SQL för att skapa och hantera jobb.
+Mer information finns i artikeln om [Elastic Database-jobb](https://docs.microsoft.com/azure/azure-sql/database/elastic-jobs-overview) .
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta Wingtip-biljetterna SaaS-databas per klient program skript
 

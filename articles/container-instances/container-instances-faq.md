@@ -3,13 +3,13 @@ title: Vanliga frågor och svar
 description: Svar på vanliga frågor som rör Azure Container Instances tjänsten
 author: dkkapur
 ms.topic: article
-ms.date: 04/10/2020
-ms.openlocfilehash: 4fca198356c8db006c4190e0f16b20f78dc1d477
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/02/2020
+ms.openlocfilehash: 64dcd3da42083401d7086c1db6f3f930beb9a76d
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115235"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447789"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Vanliga frågor och svar om Azure Container Instances
 
@@ -33,19 +33,22 @@ Mer [detaljerad](container-instances-troubleshooting.md#container-takes-a-long-t
 
 ### <a name="what-windows-base-os-images-are-supported"></a>Vilka Windows Base OS-avbildningar stöds?
 
+> [!NOTE]
+> På grund av problem med bakåtkompatibilitet efter Windows-uppdateringar i 2020 innehåller följande avbildnings versioner det lägsta versions nummer som vi rekommenderar att du använder i bas avbildningen. Nuvarande distributioner som använder äldre versioner av avbildningar påverkas inte, men nya distributioner bör följa följande bas avbildningar. 
+
 #### <a name="windows-server-2016-base-images"></a>Bas avbildningar för Windows Server 2016
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`,`sac2016`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,`10.0.14393.x`
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016` `10.0.14393.3506` eller senare
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016` `10.0.14393.3506` eller senare
 
 > [!NOTE]
 > Windows-avbildningar baserade på halvårs kanal version 1709 eller 1803 stöds inte.
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 och client Base images (för hands version)
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` `10.0.17763.914` eller tidigare
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809` `10.0.17763.914` eller tidigare
-* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.914` eller tidigare
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` `10.0.17763.1040` eller senare
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019` , `1809` `10.0.17763.1040` eller senare
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809` , `10.0.17763.1040` eller senare
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Vilket .NET-eller .NET Core-avbildnings lager ska jag använda i min behållare? 
 

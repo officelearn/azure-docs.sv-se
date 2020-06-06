@@ -6,13 +6,13 @@ ms.author: mhopkins
 ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 2e168abaf522fa1126e3cb4618941952b562df31
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.topic: how-to
+ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831882"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465498"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Använda Blob Storage från iOS
 
@@ -82,7 +82,7 @@ Du kan sedan importera Ramverks filen till ditt program genom att göra följand
 #import <AZSClient/AZSClient.h>
 ```
 
-Om du använder Swift måste du skapa ett bryggnings huvud och importera \< AZSClient/AZSClient. h> där:
+Om du använder Swift måste du skapa ett bryggnings huvud och importera \<AZSClient/AZSClient.h> där:
 
 1. Skapa en rubrik fil `Bridging-Header.h` och Lägg till import instruktionen ovan.
 2. Gå till fliken *versions inställningar* och Sök efter *mål-C-bryggnings huvud*.

@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/01/2020
+ms.date: 06/05/2020
 ms.author: borisb
-ms.openlocfilehash: d739f9f5c0e1be80005d5f3c6db5aa94ff6cc85d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b738d0a04ded3e592f69075d1b113a22905efa11
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299850"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462727"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Översikt över Oracle-program och Azure-lösningar på Azure
 
@@ -43,7 +43,7 @@ Välj bland en mängd olika WebLogic Server Azure-program för att påskynda mol
 
 ## <a name="applications-on-oracle-linux-and-weblogic-server"></a>Program på Oracle Linux-och WebLogic-Server
 
-Kör företags program i Azure på Oracle-operativsystem som stöds. Följande avbildningar av virtuella datorer är tillgängliga på Azure Marketplace:
+Kör företags program i Azure på Oracle Linux avbildningar som stöds. Följande avbildningar av virtuella datorer är tillgängliga på Azure Marketplace:
 
 * 12.1.2 för Oracle WebLogic-Server
 
@@ -53,7 +53,7 @@ Kör företags program i Azure på Oracle-operativsystem som stöds. Följande a
 
 * Konfigurera [Oracle data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [aktiva data skydd med FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [horisontell partitionering](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) eller [gyllene grind](https://www.oracle.com/middleware/technologies/goldengate.html) i Azure-infrastrukturen tillsammans med [Tillgänglighetszoner](../../../availability-zones/az-overview.md) för hög tillgänglighet i regionen. Du kan också konfigurera dessa konfigurationer i flera Azure-regioner för ytterligare tillgänglighet och haveri beredskap.
 
-* Använd [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) för att dirigera och hantera haveri beredskap för dina Oracle Linux virtuella datorer i Azure och dina lokala eller fysiska servrar. 
+* Använd [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) för att dirigera och hantera haveri beredskap för dina Oracle Linux virtuella datorer i Azure och dina fysiska servrar. 
 
 * Aktivera Oracle Real Application Clusters (RAC) i Azure med hjälp av [Azure VMware-lösning](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) eller [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
@@ -74,7 +74,7 @@ Köra Oracle-program i Azure-infrastrukturen, anslutna till backend-databaser i 
 
 Använd terraform-mallar för att konfigurera Azure-infrastrukturen och installera Oracle-program. 
 
-Från maj 2020 är följande Oracle-program certifierade för att köras i Azure när du använder Azure/Oracle Cloud Interconnect-lösningen:
+Oracle har certifierat att dessa program ska köras i Azure vid anslutning till en Oracle-databas via Azure/Oracle Cloud Interconnect-lösningen:
 
 * E-Business Suite
 * JD Edwards-EnterpriseOne
@@ -86,7 +86,7 @@ Distribuera även anpassade program i Azure som ansluter till OCI och andra Azur
 
 ### <a name="set-up-oracle-databases-in-oci"></a>Konfigurera Oracle-databaser i OCI
 
-Använd Oracle Database Cloud Services (autonom databas, RAC, Exadata, DBaaS, enskild nod) tillsammans med Oracle-program som körs i Azure. Läs mer om [OCI-databas alternativ](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
+Använd Oracle Database Cloud Services (autonom databas, RAC, Exadata, DBaaS, enskild nod) tillsammans med Oracle-programvara som körs i Azure. Läs mer om [OCI-databas alternativ](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
  
 
 ## <a name="licensing"></a>Licensiering

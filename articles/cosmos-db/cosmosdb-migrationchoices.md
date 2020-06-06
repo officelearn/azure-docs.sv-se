@@ -1,17 +1,17 @@
 ---
 title: Alternativ för Cosmos DB migrering
 description: Det här dokumentet beskriver de olika alternativen för att migrera dina lokala eller molnbaserade data till Azure Cosmos DB
-author: bharathsreenivas
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: bharathb
-ms.openlocfilehash: 281cdea42975172b7e2366ab5d3e1606f61d5025
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3945048060084874cf9d213aae83c3504312875c
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020548"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465753"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Alternativ för att migrera dina lokala eller molnbaserade data till Azure Cosmos DB
 

@@ -3,14 +3,14 @@ title: Malldistribution vad-om (för hands version)
 description: Ta reda på vilka ändringar som sker i resurserna innan du distribuerar en Azure Resource Manager-mall.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/05/2020
 ms.author: tomfitz
-ms.openlocfilehash: 62f46d158bea9507246fda7f24750c3743a5e1f1
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: abe834670c5df461b523bd48717f20093bdef0a3
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424252"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457294"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM-mall för att distribuera konsekvens åtgärder (för hands version)
 
@@ -136,6 +136,8 @@ Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera
 
 * `az deployment group what-if --no-pretty-print`för resurs grupps distributioner
 * `az deployment sub what-if --no-pretty-print`för distributioner på prenumerations nivå
+
+Om du vill returnera resultaten utan färger öppnar du [Azure CLI-konfigurationsfilen](/cli/azure/azure-cli-configuration) . Ange **no_color** till **Ja**.
 
 ### <a name="azure-rest-api"></a>REST-API för Azure
 

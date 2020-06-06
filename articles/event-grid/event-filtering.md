@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: 0f503b21d5a7d0fdfbee79354c198775789c0b91
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: afe97fd1736fbaa6858adb2fc658b4ab34546f84
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888788"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456854"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Förstå händelse filtrering för Event Grid prenumerationer
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs olika sätt att filtrera vilka händelser som skick
 
 ## <a name="event-type-filtering"></a>Händelse typs filtrering
 
-Som standard skickas alla [händelse typer](event-schema.md) för händelse källan till slut punkten. Du kan välja att bara skicka vissa händelse typer till din slut punkt. Du kan till exempel få ett meddelande om uppdateringar av dina resurser, men inte meddelas om andra åtgärder, t. ex. borttagningar. I så fall filtrerar du `Microsoft.Resources.ResourceWriteSuccess` efter händelse typ. Ange en matris med händelse typerna eller ange `All` för att hämta alla händelse typer för händelse källan.
+Som standard skickas alla [händelse typer](event-schema.md) för händelse källan till slut punkten. Du kan välja att bara skicka vissa händelse typer till din slut punkt. Du kan till exempel få ett meddelande om uppdateringar av dina resurser, men inte meddelas om andra åtgärder, t. ex. borttagningar. I så fall filtrerar du efter `Microsoft.Resources.ResourceWriteSuccess` händelse typ. Ange en matris med händelse typerna eller ange `All` för att hämta alla händelse typer för händelse källan.
 
 JSON-syntaxen för att filtrera efter händelse typ är:
 
@@ -41,7 +41,7 @@ JSON-syntaxen för att filtrera efter händelse typ är:
 
 För enkel filtrering efter ämne anger du ett start-eller slut värde för ämnet. Du kan till exempel ange att ämnet slutar med `.txt` om du bara vill hämta händelser som rör överföring av en textfil till lagrings kontot. Eller så kan du filtrera ämnet börjar med `/blobServices/default/containers/testcontainer` för att hämta alla händelser för behållaren, men inte andra behållare i lagrings kontot.
 
-När du publicerar händelser till anpassade ämnen skapar du ämnen för dina händelser som gör det enkelt för prenumeranter att veta om de är intresserade av evenemanget. Prenumeranter använder egenskapen subject för att filtrera och dirigera händelser. Överväg att lägga till sökvägen till platsen där händelsen inträffade, så att prenumeranter kan filtrera efter segment i den sökvägen. Med hjälp av sökvägen kan prenumeranter begränsa eller filtrera händelser på ett stort sätt. Om du anger en tre segment Sök väg `/A/B/C` som i ämnet kan prenumeranter filtrera efter det första segmentet `/A` för att få en bred uppsättning händelser. Dessa prenumeranter får händelser med ämnen `/A/B/C` som `/A/D/E`eller. Andra prenumeranter kan filtrera `/A/B` efter för att få en smalare uppsättning händelser.
+När du publicerar händelser till anpassade ämnen skapar du ämnen för dina händelser som gör det enkelt för prenumeranter att veta om de är intresserade av evenemanget. Prenumeranter använder egenskapen subject för att filtrera och dirigera händelser. Överväg att lägga till sökvägen till platsen där händelsen inträffade, så att prenumeranter kan filtrera efter segment i den sökvägen. Med hjälp av sökvägen kan prenumeranter begränsa eller filtrera händelser på ett stort sätt. Om du anger en tre segment Sök väg som `/A/B/C` i ämnet kan prenumeranter filtrera efter det första segmentet `/A` för att få en bred uppsättning händelser. Dessa prenumeranter får händelser med ämnen som `/A/B/C` eller `/A/D/E` . Andra prenumeranter kan filtrera efter `/A/B` för att få en smalare uppsättning händelser.
 
 JSON-syntaxen för att filtrera efter ämne är:
 
@@ -155,10 +155,10 @@ Värdena kan vara:
 
 Avancerad filtrering har följande begränsningar:
 
-* Fem avancerade filter per Event Grid-prenumeration
+* 5 avancerade filter och 25 filter värden i alla filter per Event Grid-prenumeration
 * 512 tecken per sträng värde
 * Fem värden för **in** -och **not** -operatorer
-* Nycklar med ** `.` (punkt)** -tecknen i dem. Till exempel: `http://schemas.microsoft.com/claims/authnclassreference` eller `john.doe@contoso.com`. För närvarande finns det inget stöd för escape-tecken i nycklar. 
+* Nycklar med ** `.` (punkt)** -tecknen i dem. Till exempel: `http://schemas.microsoft.com/claims/authnclassreference` eller `john.doe@contoso.com` . För närvarande finns det inget stöd för escape-tecken i nycklar. 
 
 Samma nyckel kan användas i mer än ett filter.
 

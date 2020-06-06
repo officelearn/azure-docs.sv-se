@@ -10,12 +10,12 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 3af87af0dca34b6587cf92bcc65568ad6dd943be
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 513f0240296debb5e878461ed1ca7cffecad760a
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324308"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462999"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Återställning av tidpunkt för block-blobar (för hands version)
 
@@ -122,7 +122,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 ### <a name="check-registration-status"></a>Kontrol lera registrerings status
 
-Kör följande kommandon för att kontrol lera status för registreringen:
+Registrering för återställning av tidpunkt är automatisk och bör ta mindre än 10 minuter. Kör följande kommandon för att kontrol lera status för registreringen:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell

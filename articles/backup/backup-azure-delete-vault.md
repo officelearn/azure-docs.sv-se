@@ -2,13 +2,13 @@
 title: Ta bort ett Microsoft Azure Recovery Services-valv
 description: I den här artikeln lär du dig hur du tar bort beroenden och sedan tar bort ett Azure Backup Recovery Services-valv.
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 5fcf8004cd5792b30ec57537d5d8ab0bc085dfb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: 07e6a0297d131f4a0b7dc93817d9abcf2ae109d2
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183763"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447755"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
@@ -16,33 +16,41 @@ I den här artikeln beskrivs hur du tar bort ett [Azure Backup](backup-overview.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Du kan inte ta bort ett Recovery Services-valv som har beroenden, till exempel skyddade servrar eller säkerhets kopierings hanterings servrar som är kopplade till den.
+Du kan inte ta bort ett Recovery Services valv med något av följande beroenden:
 
-- Det går inte att ta bort valv som innehåller säkerhets kopierings data (även om du har stoppat skyddet men behåller säkerhets kopierings data).
+- Det går inte att ta bort ett valv som innehåller skyddade data källor (till exempel IaaS VM, SQL-databaser, Azure-filresurser osv.)  
+- Du kan inte ta bort ett valv som innehåller säkerhets kopierings data. När säkerhetskopierade data har tagits bort hamnar de i läget Soft Deleted.
+- Det går inte att ta bort ett valv som innehåller säkerhets kopierings data i läget Soft Deleted.
+- Du kan inte ta bort ett valv som har registrerat lagrings konton.
 
-- Om du tar bort ett valv som innehåller beroenden visas följande meddelande:
+Om du försöker ta bort valvet utan att ta bort beroenden, uppstår något av följande fel meddelanden:
 
-  ![Ta bort valvet-felet.](./media/backup-azure-delete-vault/error.png)
+- Det går inte att ta bort valvet eftersom det finns befintliga resurser i valvet. Se till att det inte finns några säkerhets kopierings objekt, skyddade servrar eller säkerhets kopierings hanterings servrar kopplade till det här valvet. Avregistrera följande behållare som är kopplade till valvet innan du fortsätter för borttagning.
 
-- Om du tar bort ett lokalt skyddat objekt från en portal som innehåller beroenden visas ett varnings meddelande:
+- Recovery Services-valvet kan inte tas bort eftersom det finns säkerhetskopieringsobjekt i mjuk borttagning i valvet. De mjuka borttagna objekten tas bort permanent efter 14 dagars borttagnings åtgärd. Försök att ta bort valvet när säkerhets kopierings objekten har tagits bort permanent och att det inte finns något objekt i läget Soft Deleted kvar i valvet. Mer information finns i [mjuk borttagning för Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
-  ![Ta bort det skyddade Server felet.](./media/backup-azure-delete-vault/error-message.jpg)
+## <a name="proper-way-to-delete-a-vault"></a>Korrekt sätt att ta bort ett valv
 
-- Om säkerhets kopierings objekt är i tyst borttaget läge nedan visas varnings meddelandet och du måste vänta tills de tas bort permanent. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+>[!WARNING]
+>Följande åtgärd är förstörande och kan inte återställas. Alla säkerhets kopierings data och säkerhets kopierings objekt som är associerade med den skyddade servern tas bort permanent. Tänk dig för innan du fortsätter.
 
-   ![Ta bort valvet-felet.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
+Om du vill ta bort ett valv korrekt måste du följa stegen i den här ordningen:
 
-- Det går inte att ta bort valv som har registrerade lagrings konton. Information om hur du avregistrerar kontot finns i [avregistrera ett lagrings konto](manage-afs-backup.md#unregister-a-storage-account).
-  
-Om du vill ta bort valvet väljer du det scenario som matchar konfigurationen och följer de rekommenderade stegen:
+- **Steg 1**: inaktivera funktionen för mjuk borttagning. Mer information om hur du inaktiverar mjuk borttagning [finns här](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) .
 
-Scenario | Steg för att ta bort beroenden för att ta bort valv |
--- | --
-Jag har lokala filer och mappar som skyddas med hjälp av Azure Backup agenten, säkerhetskopiera till Azure | Utför stegen i [ta bort säkerhets kopierings objekt från mars Management Console](#delete-backup-items-from-the-mars-management-console)
-Jag har lokala datorer som skyddas med hjälp av MABS (Microsoft Azure Backup Server) eller DPM (System Center Data Protection Manager) till Azure | Utför stegen i [ta bort säkerhets kopierings objekt från hanterings konsolen för Mabs](#delete-backup-items-from-the-mabs-management-console)
-Jag har skyddat objekt i molnet (till exempel en virtuell laaS-dator eller en Azure Files-resurs)  | Utför stegen i [ta bort skyddade objekt i molnet](#delete-protected-items-in-the-cloud)
-Jag har skyddade objekt både lokalt och i molnet | Utför stegen i följande avsnitt i följande ordning: <br> 1. [ta bort skyddade objekt i molnet](#delete-protected-items-in-the-cloud)<br> 2. [ta bort säkerhets kopierings objekt från mars Management Console](#delete-backup-items-from-the-mars-management-console) <br> 3. [ta bort säkerhets kopierings objekt från hanterings konsolen för Mabs](#delete-backup-items-from-the-mabs-management-console)
-Jag har inga skyddade objekt lokalt eller i molnet. men jag får fortfarande valvet borttagnings fel | Utför stegen i [ta bort Recovery Services valvet med Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager) <br><br> Se till att inga lagrings konton har registrerats med valvet. Information om hur du avregistrerar kontot finns i [avregistrera ett lagrings konto](manage-afs-backup.md#unregister-a-storage-account).
+- **Steg 2**: när du har inaktiverat mjuk borttagning kontrollerar du om det finns några objekt som tidigare har tagits bort i läget Thee Soft Deleted. Om det finns objekt i läget tyst Borttagning måste du ångra *borttagningen* och *ta bort* dem igen. [Följ de här stegen](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) för att hitta mjuka borttagnings objekt och ta bort dem permanent.
+
+- **Steg 3**: du måste kontrol lera alla följande tre platser för att kontrol lera om det finns några skyddade objekt:
+
+  - **Moln skydds objekt**: gå till instrument panelen för valv-menyn > **säkerhets kopierings objekt**. Alla objekt som anges här måste tas bort med **stoppa säkerhets kopiering** eller **ta bort säkerhetskopierade data** tillsammans med sina säkerhets kopierings data.  [Följ de här stegen](#delete-protected-items-in-the-cloud) för att ta bort dessa objekt.
+  - **Mars-skyddade servrar**: gå till instrument panelen för valv-menyn > **säkerhets kopierings infrastruktur**  >  **skyddade servrar**. Om du har MARS-skyddade servrar måste alla objekt som anges här tas bort tillsammans med sina säkerhets kopierings data. [Följ dessa steg](#delete-protected-items-on-premises) om du vill ta bort mars-skyddade servrar.
+  - **Mabs-eller DPM-hanterings servrar**: gå till instrument panelen för valvet > **säkerhets kopierings**  >  **hanterings servrar**för säkerhets kopiering. Om du har DPM eller Azure Backup Server (MABS) måste alla objekt som anges här tas bort eller avregistreras tillsammans med sina säkerhets kopierings data. [Följ dessa steg](#delete-protected-items-on-premises) om du vill ta bort hanterings servrarna.
+
+- **Steg 4**: du måste se till att alla registrerade lagrings konton tas bort. Gå till instrument panelen för valv-menyn > **säkerhets kopierings infrastruktur**  >  **lagrings konton**. Om du har lagrings konton som listas här måste du avregistrera alla. Information om hur du avregistrerar kontot finns i [avregistrera ett lagrings konto](manage-afs-backup.md#unregister-a-storage-account).
+
+När du har slutfört de här stegen kan du fortsätta att [ta bort valvet](#delete-the-recovery-services-vault).
+
+Om du inte har några skyddade objekt lokalt eller i molnet, men ändå får ta bort valvet, utför du stegen i [ta bort Recovery Services valvet med Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
 
 ## <a name="delete-protected-items-in-the-cloud"></a>Ta bort skyddade objekt i molnet
 
@@ -64,7 +72,7 @@ Utför följande steg för att stoppa skyddet och ta bort säkerhetskopierade da
 
          ![Rutan ta bort säkerhets kopierings data.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-3. Kontrol lera **meddelande** ikonen: ![meddelande ikonen.](./media/backup-azure-delete-vault/messages.png) När processen har slutförts visar tjänsten följande meddelande: *stoppar säkerhets kopiering och tar bort säkerhetskopierade data för*säkerhets kopierings*objekt.* *Åtgärden har slutförts*.
+3. Kontrol lera **meddelande** ikonen: ![ meddelande ikonen.](./media/backup-azure-delete-vault/messages.png) När processen har slutförts visar tjänsten följande meddelande: *stoppar säkerhets kopiering och tar bort säkerhetskopierade data för*säkerhets kopierings*objekt.* *Åtgärden har slutförts*.
 4. Välj **Uppdatera** på menyn **säkerhets kopierings objekt** för att se till att säkerhets kopierings objekt har tagits bort.
 
       ![Sidan ta bort säkerhets kopierings objekt.](./media/backup-azure-delete-vault/empty-items-list.png)
@@ -97,8 +105,11 @@ Börja med att läsa avsnittet **[innan du börjar](#before-you-start)** och fö
 
 4. Markera kryss rutan medgivande och välj sedan **ta bort**.
 
-5. Kontrol lera **meddelande** ikonen ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/messages.png). När åtgärden har slutförts visar tjänsten meddelandet: *stoppar säkerhets kopiering och tar bort säkerhetskopierade data för säkerhets kopierings objekt.* *Åtgärden har slutförts*.
+5. Kontrol lera **meddelande** ikonen ![ ta bort säkerhetskopierade data ](./media/backup-azure-delete-vault/messages.png) . När åtgärden har slutförts visar tjänsten meddelandet: *stoppar säkerhets kopiering och tar bort säkerhetskopierade data för säkerhets kopierings objekt.* *Åtgärden har slutförts*.
 6. Välj **Uppdatera** på menyn **säkerhets kopierings objekt** för att se till att säkerhets kopierings objekt tas bort.
+
+>[!NOTE]
+>Om du tar bort ett lokalt skyddat objekt från en portal som innehåller beroenden får du en varning om att "ta bort serverns registrering är en destruktiv åtgärd och inte kan ångras. Alla säkerhets kopierings data (återställnings punkter som krävs för att återställa data) och säkerhets kopierings objekt som är associerade med den skyddade servern tas bort permanent. "
 
 När den här processen är klar kan du ta bort säkerhets kopierings objekt från hanterings konsolen:
 
@@ -116,7 +127,7 @@ När den här processen är klar kan du ta bort säkerhets kopierings objekt fr�
 
     ![Stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Du uppmanas att ange en PIN-kod för säkerhet (personal Identification Number) som du måste generera manuellt. Det gör du genom att först logga in på Azure Portal.
-5. Gå till**Inställningar** > **Properties**för **Recovery Services valv** > .
+5. Gå till inställningar för **Recovery Services valv**  >  **Settings**  >  **Properties**.
 6. Under **säkerhets-PIN**väljer du **generera**. Kopiera den här PIN-koden. PIN-koden är bara giltig i fem minuter.
 7. I hanterings konsolen klistrar du in PIN-koden och väljer sedan **OK**.
 
@@ -194,7 +205,7 @@ Stoppa skyddet och ta bort säkerhets kopierings data:
 
   [Läs mer](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) om hur du inaktiverar skydd för ett Azure Backup-skyddat objekt.
 
-- Stoppa skyddet och ta bort data för alla skyddade objekt i molnet (t. ex. laaS VM, Azure-filresurs osv.):
+- Stoppa skyddet och ta bort data för alla skyddade objekt i molnet (till exempel: IaaS VM, Azure-filresurs osv.):
 
     ```PowerShell
        Disable-AzRecoveryServicesBackupProtection
@@ -208,7 +219,7 @@ Stoppa skyddet och ta bort säkerhets kopierings data:
        [<CommonParameters>]
     ```
 
-    [Lär dig mer](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) om att inaktivera skydd för ett skyddat objekt med säkerhets kopiering.
+    [Läs mer](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)   om inaktiverar skydd för ett skyddat objekt med säkerhets kopiering.
 
 - För lokala filer och mappar som skyddas med hjälp av Azure Backup Agent (MARS) säkerhetskopiera till Azure använder du följande PowerShell-kommando för att ta bort säkerhetskopierade data från varje MARS PowerShell-modul:
 
@@ -218,9 +229,9 @@ Stoppa skyddet och ta bort säkerhets kopierings data:
 
     Post där följande meddelande visas:
 
-    *Microsoft Azure Backup är du säker på att du vill ta bort den här säkerhets kopierings principen? Borttagna säkerhets kopierings data sparas i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent. <br/> [J] Ja [A] ja till alla [N] nej [L] nej till alla [S] gör uppehåll [?] Hjälp (standard är "Y"):*
+    *Microsoft Azure Backup är du säker på att du vill ta bort den här säkerhets kopierings principen? Borttagna säkerhets kopierings data sparas i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent. <br/>[J] Ja [A] ja till alla [N] nej [L] nej till alla [S] gör uppehåll [?] Hjälp (standard är "Y"):*
 
-- För lokala datorer som skyddas med MABS (Microsoft Azure Backup Server) eller DPM till Azure (System Center Data Protection Manager) använder du följande kommando för att ta bort säkerhetskopierade data i Azure.
+- Använd följande kommando för att ta bort säkerhetskopierade data i Azure för lokala datorer som skyddas med MABS (Microsoft Azure Backup Server) eller DPM (System Center Data Protection Manager) till Azure.
 
     ```powershell
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
@@ -228,7 +239,7 @@ Stoppa skyddet och ta bort säkerhets kopierings data:
 
     Post där följande meddelande visas:
 
-   *Microsoft Azure Backup* Är du säker på att du vill ta bort den här säkerhets kopierings principen? Borttagna säkerhets kopierings data sparas i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent. <br/>
+   *Microsoft Azure Backup* Är du säker på att du vill ta bort den här säkerhets kopierings principen? Borttagna säkerhets kopierings data sparas i 14 dagar. Därefter tas de bort permanent. <br/>
    [J] Ja [A] ja till alla [N] nej [L] nej till alla [S] gör uppehåll [?] Hjälp (standard är "Y"):*
 
 När du har tagit bort säkerhetskopierade data avregistrerar du alla lokala behållare och hanterings servrar.
@@ -352,5 +363,5 @@ Mer information om kommandot ARMClient finns i README för [ARMClient](https://g
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om Recovery Services valv](backup-azure-recovery-services-vault-overview.md)<br/>
-[Lär dig mer om att övervaka och hantera Recovery Services valv](backup-azure-manage-windows-server.md)
+[Lär dig mer om Recovery Services valv](backup-azure-recovery-services-vault-overview.md) 
+ [Lär dig mer om att övervaka och hantera Recovery Services valv](backup-azure-manage-windows-server.md)

@@ -3,12 +3,12 @@ title: Event-baserad videoinspelning till molnet och uppspelningen från Cloud-s
 description: I den här självstudien får du lära dig hur du använder video analys i real tid för IoT Edge för att utföra en Event-baserad videoinspelning till molnet och uppspelningen från molnet.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 92367634a2f5785ecbb102db1e03f3d5f12d744e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7ff8502688e2b507b8a576c177948f29c2248be4
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300849"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456680"
 ---
 # <a name="tutorial-event-based-video-recording-to-cloud-and-playback-from-cloud"></a>Självstudie: Event-baserad videoinspelning till molnet och uppspelningen från molnet
 
@@ -34,7 +34,7 @@ Vi rekommenderar att du läser igenom följande dokumentations sidor
 * [Redigera Deployment. *. template. JSON](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 * Avsnitt om [hur du deklarerar vägar i IoT Edge distributions manifest](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Krav för den här självstudien är följande
 
@@ -181,7 +181,7 @@ Följ dessa steg om du vill se händelserna från modulen objekt räknare och fr
 
 1. Under noden GraphTopologySet redigerar du följande:
 
-    `"topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
     
 1. Sedan går du till noderna GraphInstanceSet och GraphTopologyDelete, redigerar,
 

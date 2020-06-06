@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: efbe41be6c923f3547df86fd6faeb56bff5e0802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c1e56eced3ed675a70cc1ec2461038c80cff233
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73954534"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449795"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Ansluta Raspberry Pi online Simulator till Azure IoT Hub (Node. js)
 
@@ -23,18 +23,20 @@ ms.locfileid: "73954534"
 
 I den här självstudien börjar du med att lära dig grunderna i att arbeta med Raspberry Pi online Simulator. Du lär dig sedan att sömlöst ansluta PI-simulatorn till molnet med hjälp av [Azure IoT Hub](about-iot-hub.md).
 
-Om du har fysiska enheter kan du gå till [Anslut Raspberry Pi till Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) för att komma igång.
-
 <p>
 <div id="diag" style="width:100%; text-align:center">
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
 <img src="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
 </div>
+</p>
 <p>
 <div id="button" style="width:100%; text-align:center">
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted" target="_blank">
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
 <img src="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5-button-click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6-button-default.png';">
+</a>
 </div>
+</p>
+
+Om du har fysiska enheter kan du gå till [Anslut Raspberry Pi till Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) för att komma igång.
 
 ## <a name="what-you-do"></a>Vad du gör
 
@@ -98,7 +100,7 @@ Det finns tre områden i webb simulatorn.
 
 2. Välj **Kör** eller Skriv `npm start` för att köra programmet.
 
-Du bör se följande utdata som visar sensor data och meddelanden som skickas till din IoT Hub ![-utdata från Raspberry Pi till din IoT-hubb](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
+Du bör se följande utdata som visar sensor data och meddelanden som skickas till din IoT Hub ![ -utdata från Raspberry Pi till din IoT-hubb](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Läs meddelanden som tagits emot av hubben
 

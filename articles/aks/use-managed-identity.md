@@ -2,30 +2,28 @@
 title: Använda hanterade identiteter i Azure Kubernetes-tjänsten
 description: Lär dig hur du använder hanterade identiteter i Azure Kubernetes service (AKS)
 services: container-service
-author: saudas
-manager: saudas
 ms.topic: article
-ms.date: 04/02/2020
-ms.author: saudas
-ms.openlocfilehash: 00ecc077ba55ab9f91fc58f8a47fcdf7440deea6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: ae66c6a6fbfef2a6052a037e010ecdeb4256bfd8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112974"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456444"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Använda hanterade identiteter i Azure Kubernetes-tjänsten
 
 För närvarande kräver ett Azure Kubernetes service (AKS)-kluster (specifikt Kubernetes Cloud Provider) en identitet för att skapa ytterligare resurser som belastningsutjämnare och hanterade diskar i Azure, den här identiteten kan antingen vara en *hanterad identitet* eller ett *huvud namn för tjänsten*. Om du använder ett [huvud namn för tjänsten](kubernetes-service-principal.md)måste du antingen ange ett eller AKS skapar ett för din räkning. Om du använder hanterad identitet skapas detta automatiskt åt dig av AKS. Kluster som använder tjänstens huvud namn når till sist ett tillstånd där tjänstens huvud namn måste förnyas för att hålla klustret igång. Hantering av tjänstens huvud namn ökar komplexiteten, vilket innebär att det är lättare att använda hanterade identiteter i stället. Samma behörighets krav gäller för både tjänstens huvud namn och hanterade identiteter.
 
-*Hanterade identiteter* är i grunden en omslutning av tjänstens huvud namn och gör hanteringen enklare. Läs mer om [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+*Hanterade identiteter* är i grunden en omslutning av tjänstens huvud namn och gör hanteringen enklare. Rotation av autentiseringsuppgifter för MSI sker automatiskt var 46: e dag enligt Azure Active Directory standard. Läs mer om [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 AKS skapar två hanterade identiteter:
 
-- **Systemtilldelad hanterad identitet**: den identitet som används av Kubernetes Cloud Provider för att skapa Azure-resurser för användarens räkning. Livs cykeln för den systemtilldelade identiteten är kopplad till klustret. Identiteten tas bort när klustret tas bort.
-- **Användarens tilldelade hanterade identitet**: den identitet som används för auktorisering i klustret. Den användardefinierade identiteten används till exempel för att auktorisera AKS till att använda Azure Container register (ACR: er), eller för att auktorisera kubelet för att hämta metadata från Azure.
+- **Systemtilldelad hanterad identitet**: den identitet som används av Kubernetes Cloud Provider för att skapa Azure-resurser för användarens räkning, till exempel en [BELASTNINGSUTJÄMNARE](load-balancer-standard.md) eller [offentlig IP-adress](static-ip.md). Livs cykeln för den systemtilldelade identiteten är knuten till klustrets livs cykel och bör endast användas av moln leverantören. Identiteten tas bort när klustret tas bort.
 
-Tillägg autentiseras också med hjälp av en hanterad identitet. För varje tillägg skapas en hanterad identitet av AKS och varar för livs längden för tillägget. 
+- **Användardefinierad hanterad identitet**: den identitet som används för auktorisering i klustret och annat som du vill kontrol lera. Den användardefinierade identiteten används till exempel för att auktorisera AKS till att använda Azure Container register (ACR: er), eller för att auktorisera kubelet för att hämta metadata från Azure.
+
+Tillägg autentiseras också med hjälp av en hanterad identitet. För varje tillägg skapas en hanterad identitet av AKS och varar för livs längden för tillägget.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

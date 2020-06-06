@@ -2,17 +2,15 @@
 title: För hands version – Lägg till en adresspool för en plats i ett Azure Kubernetes service-kluster (AKS)
 description: Lär dig hur du lägger till en adresspool för en plats i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
-author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: zarhoads
-ms.openlocfilehash: 466ad7c88547b6676ba0ae263b74d14059322f1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1dc54810371c4258616ca95b9f0f0abeee4c415
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77622047"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462965"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>För hands version – Lägg till en adresspool för en plats i ett Azure Kubernetes service-kluster (AKS)
 
@@ -28,7 +26,7 @@ Den här artikeln förutsätter grundläggande kunskaper om Kubernetes och Azure
 
 Den här funktionen finns för närvarande som en förhandsversion.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

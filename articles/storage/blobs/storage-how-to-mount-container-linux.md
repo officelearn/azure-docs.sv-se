@@ -4,16 +4,16 @@ description: Montera en Azure Blob Storage-behållare med säkring på Linux
 author: rishabpoh
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: a0a03df59bc6ecffcb4f0a701616297f2da78fdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3505cdaa009520f581e2ccf9f8bc60cbfb65586c
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061433"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465481"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Montera Blob Storage som ett fil system med blobfuse
 
@@ -43,7 +43,7 @@ Som exempel i en Enterprise Linux 6-distribution:
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
 ```
 
-På samma sätt kan du ändra URL `.../rhel/7/...` : en så att den pekar på en Enterprise Linux 7-distribution.
+På samma sätt kan du ändra URL: en så att den `.../rhel/7/...` pekar på en Enterprise Linux 7-distribution.
 
 Ett annat exempel på en Ubuntu 14,04-distribution:
 ```bash
@@ -52,7 +52,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-På samma sätt kan du ändra URL `.../ubuntu/16.04/...` : `.../ubuntu/18.04/...` en till eller till referens till en annan Ubuntu-version.
+På samma sätt kan du ändra URL: en till `.../ubuntu/16.04/...` eller `.../ubuntu/18.04/...` till referens till en annan Ubuntu-version.
 
 ### <a name="install-blobfuse"></a>Installera blobfuse
 
@@ -98,7 +98,7 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-`accountName` Är prefixet för ditt lagrings konto – inte den fullständiga URL: en.
+`accountName`Är prefixet för ditt lagrings konto – inte den fullständiga URL: en.
 
 Skapa den här filen med:
 
@@ -132,7 +132,7 @@ Om du vill montera blobfuse kör du följande kommando med användaren. Det här
 sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
-Du bör nu ha åtkomst till dina block-blobar via de vanliga API: erna för fil system. Den användare som monterar katalogen är den enda person som har åtkomst till den, som standard, vilket skyddar åtkomsten. Om du vill tillåta åtkomst till alla användare kan du montera via alternativet ```-o allow_other```. 
+Du bör nu ha åtkomst till dina block-blobar via de vanliga API: erna för fil system. Den användare som monterar katalogen är den enda person som har åtkomst till den, som standard, vilket skyddar åtkomsten. Om du vill tillåta åtkomst till alla användare kan du montera via alternativet ```-o allow_other``` . 
 
 ```bash
 cd ~/mycontainer

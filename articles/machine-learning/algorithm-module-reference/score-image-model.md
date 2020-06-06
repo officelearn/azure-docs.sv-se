@@ -1,0 +1,45 @@
+---
+title: Bild modell för Poäng
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen för Poäng avbildnings modell i Azure Machine Learning för att generera förutsägelser med hjälp av en utbildad avbildnings modell.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
+author: likebupt
+ms.author: keli19
+ms.date: 05/26/2020
+ms.openlocfilehash: 021572aef673cf88f7744a0a210ef794c739448b
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84450719"
+---
+# <a name="score-image-model"></a>Bild modell för Poäng
+
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+
+Använd den här modulen för att generera förutsägelser med hjälp av en utbildad avbildnings modell på indata från indata.
+
+## <a name="how-to-configure-score-image-model"></a>Så här konfigurerar du en modell för Poäng avbildning
+
+1. Lägg till **modell modulen för Poäng avbildning** i din pipeline.
+
+2. Koppla en utbildad avbildnings modell och en data uppsättning som innehåller data för indata. 
+
+    Data ska vara av typen ImageDirect. Mer information om hur du hämtar en avbildnings katalog hittar du i avsnittet [konvertera till en avbildnings katalog](convert-to-image-directory.md) . Schemat för data uppsättningen för indata ska också ofta matcha schemat för de data som används för att träna modellen.
+
+3. Skicka pipelinen.
+
+## <a name="results"></a>Resultat
+
+När du har genererat en uppsättning med poäng med hjälp av en [bild modell](score-image-model.md)för att generera en uppsättning mått som används för att utvärdera modellens exakthet (prestanda), kan du ansluta den här modulen och den returnerade data uppsättningen för att [utvärdera modellen](evaluate-model.md). 
+
+### <a name="publish-scores-as-a-web-service"></a>Publicera resultat som en webb tjänst
+
+En vanlig användning av poängsättning är att returnera utdata som en del av en förutsägbar webb tjänst. Mer information finns i [den här självstudien](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) om hur du distribuerar en slut punkt i real tid baserat på en pipeline i Azure Machine Learning designer.
+
+## <a name="next-steps"></a>Nästa steg
+
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

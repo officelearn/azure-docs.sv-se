@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
-ms.date: 02/04/2020
-ms.openlocfilehash: 53160fa5a2d24f747b0653673a6f817ae14a7975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/04/2020
+ms.openlocfilehash: bded7c33493c63a565ebab2dda2dccd320c6aecb
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118855"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456709"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Begärans kvot ökar för Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,17 +51,18 @@ Använd följande steg för att skapa en ny supportbegäran från Azure Portal f
 
 1. I **informations** fönstret väljer du **Ange information** för att ange ytterligare information.
 
-   ![Länken "Tillhandahåll information"](./media/quota-increase-request/provide-details-link.png)
+   ![Ange informations länk](./media/quota-increase-request/provide-details-link.png)
 
-Om du klickar på **Ange information** visas fönstret **kvot Detaljer** där du kan lägga till ytterligare information. I följande avsnitt beskrivs de olika alternativen för **SQL Database** och **SQL Database hanterade instans** kvot typer.
+Om du klickar på **Ange information** visas fönstret med **kvot information** som gör att du kan lägga till ytterligare information. I följande avsnitt beskrivs de olika alternativen för **SQL Database** och **SQL Database hanterade instans** kvot typer.
 
 ## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a>SQL Database kvot typer
 
-I följande avsnitt beskrivs tre kvot öknings alternativ för **SQL Database** kvot typer:
+I följande avsnitt beskrivs alternativ för att öka kvoten för **SQL Database** kvot typer:
 
 - Databas transaktions enheter (DTU: er) per server
 - Servrar per prenumeration
-- Aktivera prenumerations åtkomst till en region
+- Region åtkomst för M-serien
+- Regionåtkomst
 
 ### <a name="database-transaction-units-dtus-per-server"></a>Databas transaktions enheter (DTU: er) per server
 
@@ -91,15 +92,32 @@ Använd följande steg för att begära en ökning av antalet servrar per prenum
 
 Mer information finns i [SQL Database resurs gränser och resurs styrning](resource-limits-logical-server.md).
 
-### <a name="enable-subscription-access-to-a-region"></a><a id="other"></a>Aktivera prenumerations åtkomst till en region
+### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a>Aktivera prenumerations åtkomst till en region
 
 Vissa erbjudande typer är inte tillgängliga i varje region. Du kan se ett fel meddelande, till exempel följande:
 
-`This location is not available for subscription`
+`Your subscription does not have access to create a server in the selected region. For the latest information about region availability for your subscription, go to aka.ms/sqlcapacity. Please try another region or create a support ticket to request access.`
 
-Om din prenumeration behöver åtkomst i en viss region kan du använda alternativet **annan kvot förfrågan** för att begära åtkomst. I din begäran anger du det erbjudande och den SKU-information som du vill aktivera för regionen. Om du vill utforska erbjudande-och SKU-alternativen kan du läsa [Azure SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/single/).
+Om din prenumeration behöver åtkomst i en viss region väljer du alternativet **region åtkomst** . I din begäran anger du det erbjudande och den SKU-information som du vill aktivera för regionen. Om du vill utforska erbjudande-och SKU-alternativen kan du läsa [Azure SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-![Annan kvot information](./media/quota-increase-request/quota-details-whitelisting.png)
+1. Välj kvot typen **region åtkomst** .
+
+1. I listan **Välj en plats** väljer du den Azure-region som du vill använda. Kvoten är per prenumeration i varje region.
+
+1. Ange **inköps modellen**och **förväntad förbruknings** information.
+
+   ![Åtkomst till region för begäran](./media/quota-increase-request/quota-details-whitelisting.png)
+
+### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a>Aktivera åtkomst till M-serien till en region
+
+Om du vill aktivera maskin vara i M-serien för en prenumeration och region måste du öppna en supportbegäran.
+
+1. Välj åtkomst kvot typen för **området M-serien** .
+
+1. I listan **Välj en plats** väljer du den Azure-region som du vill använda. Kvoten är per prenumeration i varje region.
+
+
+   ![Åtkomst till region för begäran](./media/quota-increase-request/quota-m-series.png)
 
 ## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a>Kvot typ för SQL-hanterad instans
 

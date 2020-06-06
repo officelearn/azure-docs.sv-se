@@ -4,16 +4,16 @@ description: Använd Query acceleration (för hands version) om du vill hämta e
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.openlocfilehash: d7213bb44503fbe191a69683188bdea6976827ee
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: cc9235f07c0829abfb8be42e83d05d8428bc1806
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930088"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465872"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrera data med hjälp av Azure Data Lake Storage fråga acceleration (för hands version)
 
@@ -53,11 +53,11 @@ Fråga acceleration (för hands version) är en ny funktion för Azure Data Lake
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-1. Hämta accelerations paketen för frågor. Du kan hämta en komprimerad ZIP-fil som innehåller paketen med hjälp av den [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net)här länken:. 
+1. Hämta accelerations paketen för frågor. Du kan hämta en komprimerad ZIP-fil som innehåller paketen med hjälp av den här länken: [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net) . 
 
 2. Extrahera innehållet i den här filen till projekt katalogen.
 
-3. Öppna projekt filen (*. CSPROJ*) i en text redigerare och Lägg till dessa paket referenser inuti \<projekt\> elementet.
+3. Öppna projekt filen (*. CSPROJ*) i en text redigerare och Lägg till dessa paket referenser inuti \<Project\> elementet.
 
    ```xml
    <ItemGroup>
@@ -67,7 +67,7 @@ Fråga acceleration (för hands version) är en ny funktion för Azure Data Lake
    </ItemGroup>
    ```
 
-4. Återställa SDK-paket för för hands versionen. I det här exempel kommandot återställs för hands versionen av SDK- `dotnet restore` paketen med hjälp av kommandot. 
+4. Återställa SDK-paket för för hands versionen. I det här exempel kommandot återställs för hands versionen av SDK-paketen med hjälp av `dotnet restore` kommandot. 
 
    ```console
    dotnet restore --source C:\Users\contoso\myProject
@@ -86,7 +86,7 @@ Fråga acceleration (för hands version) är en ny funktion för Azure Data Lake
    > [!NOTE]
    > I exemplen i den här artikeln förutsätter vi att namnet på katalogen är **lib**.
 
-2. Hämta accelerations paketen för frågor. Du kan hämta en komprimerad ZIP-fil som innehåller paketen med hjälp av den [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java)här länken:. 
+2. Hämta accelerations paketen för frågor. Du kan hämta en komprimerad ZIP-fil som innehåller paketen med hjälp av den här länken: [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java) . 
 
 3. Extrahera filerna i zip-filen till den katalog som du har skapat. I vårt exempel heter katalogen **lib**. 
 
@@ -145,7 +145,7 @@ Fråga acceleration (för hands version) är en ny funktion för Azure Data Lake
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Lägg till `using` dessa uttryck överst i din kod fil.
+Lägg till dessa `using` uttryck överst i din kod fil.
 
 ```csharp
 using Azure.Storage.Blobs;
@@ -162,7 +162,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 ```
 
-För att kunna kompilera exempel som presenteras i den här artikeln måste du också lägga `using` till dessa instruktioner.
+För att kunna kompilera exempel som presenteras i den här artikeln måste du också lägga till dessa `using` instruktioner.
 
 ```csharp
 using System.Threading.Tasks;
@@ -174,7 +174,7 @@ using System.Linq;
 
 ### <a name="java"></a>[Java](#tab/java)
 
-Lägg till `import` dessa uttryck överst i din kod fil.
+Lägg till dessa `import` uttryck överst i din kod fil.
 
 ```java
 import com.azure.storage.blob.*;
@@ -190,15 +190,15 @@ import org.apache.commons.csv.*;
 
 ## <a name="retrieve-data-by-using-a-filter"></a>Hämta data med hjälp av ett filter
 
-Du kan använda SQL för att ange rad filter-predikat och kolumn projektioner i en begäran om acceleration av frågor. Följande kod frågar en CSV-fil i Storage och returnerar alla rader med data där den tredje kolumnen matchar värdet `Hemingway, Ernest`. 
+Du kan använda SQL för att ange rad filter-predikat och kolumn projektioner i en begäran om acceleration av frågor. Följande kod frågar en CSV-fil i Storage och returnerar alla rader med data där den tredje kolumnen matchar värdet `Hemingway, Ernest` . 
 
 - I SQL-frågan används nyckelordet `BlobStorage` för att beteckna filen som efter frågas.
 
-- Kolumn referenser anges som `_N` den första kolumnen. `_1` Om käll filen innehåller en rubrik rad kan du referera till kolumner med det namn som anges i rubrik raden. 
+- Kolumn referenser anges som `_N` den första kolumnen `_1` . Om käll filen innehåller en rubrik rad kan du referera till kolumner med det namn som anges i rubrik raden. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Metoden `BlobQuickQueryClient.QueryAsync` async skickar frågan till API för frågans acceleration och skickar sedan tillbaka resultatet till programmet som ett [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) -objekt.
+Metoden async `BlobQuickQueryClient.QueryAsync` skickar frågan till API för frågans acceleration och skickar sedan tillbaka resultatet till programmet som ett [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) -objekt.
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)

@@ -4,16 +4,16 @@ description: Visar hur du skapar ett Azure BlockBlobStorage-konto med förstklas
 author: tamram
 services: storage
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4767c0310783e7e2cc51b4caa7d6e6a052d0a05a
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 31a7048c263d7231fe827ad5a1c927c5cb3e2f6d
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007307"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463594"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Skapa ett BlockBlobStorage-konto
 
@@ -26,7 +26,7 @@ Mer information om BlockBlobStorage-konton finns i [Översikt över Azure Storag
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -110,7 +110,7 @@ Följ dessa steg om du vill skapa ett BlockBlobStorage-konto i Azure Portal:
 
    |Fält     |Värde  |
    |---------|---------|
-   |**Historik**    |  Välj **Premium**.   |
+   |**Prestanda**    |  Välj **Premium**.   |
    |**Typ av konto**    | Välj **BlockBlobStorage**.      |
    |**Replikering**    |  Lämna standardinställningen för **Lokalt Redundant lagring (LRS)**.      |
 

@@ -4,19 +4,19 @@ description: Aktivera och konfigurera risk principer i Azure Active Directory Id
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 01/06/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75707013"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464172"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Gör så här: Konfigurera och aktivera risk principer
 
@@ -54,24 +54,24 @@ Konfigurerade betrodda [nätverks platser](../conditional-access/location-condit
 Utför följande steg för att aktivera användar risk-och inloggnings risk principer.
 
 1. Navigera till [Azure Portal](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory** > **säkerhets** > **identitets skydd** > **– Översikt**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **identitets skydd**  >  **– Översikt**.
 1. Välj **Konfigurera användar risk princip**.
    1. Under **tilldelningar**
       1. **Användare** – Välj **alla användare** eller **Välj personer och grupper** om du vill begränsa distributionen.
          1. Du kan också välja att exkludera användare från principen.
-      1. **Villkor** - **användar risk** Microsofts rekommendation är att ställa in det här alternativet på **hög**.
+      1. **Villkor**  -  **Användar risk** Microsofts rekommendation är att ställa in det här alternativet på **hög**.
    1. Under **kontroller**
       1. **Åtkomst** – Microsofts rekommendation är att **tillåta åtkomst** och **Kräv lösen ords ändring**.
-   1. **Tillämpa princip** - **på**
+   1. **Tillämpa princip**  -  **På**
    1. **Spara** – den här åtgärden kommer att gå tillbaka till **översikts** sidan.
 1. Välj **Konfigurera inloggnings risk princip**.
    1. Under **tilldelningar**
       1. **Användare** – Välj **alla användare** eller **Välj personer och grupper** om du vill begränsa distributionen.
          1. Du kan också välja att exkludera användare från principen.
-      1. **Conditions**Inloggnings**risker** Microsofts rekommendation är att ställa in det här alternativet på **medel och högre.** - 
+      1. **Villkor**  -  **Inloggnings risk** Microsofts rekommendation är att ställa in det här alternativet på **medel och över**.
    1. Under **kontroller**
       1. **Åtkomst** – Microsofts rekommendation är att **tillåta åtkomst** och **kräva Multi-Factor Authentication**.
-   1. **Tillämpa princip** - **på**
+   1. **Tillämpa princip**  -  **På**
    1. **Spara**
 
 ## <a name="next-steps"></a>Nästa steg
@@ -82,4 +82,4 @@ Utför följande steg för att aktivera användar risk-och inloggnings risk prin
 
 - [Undersöka riskidentifieringar](howto-identity-protection-investigate-risk.md)
 
-- [Simulera risk identifieringar](howto-identity-protection-simulate-risk.md)
+- [Simulera riskidentifieringar](howto-identity-protection-simulate-risk.md)

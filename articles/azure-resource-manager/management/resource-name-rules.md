@@ -3,16 +3,18 @@ title: Begränsningar för resurs namn
 description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 73e5f7ce7f5c13a0ce456372d299e49033c7e704
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 1ed8db4c7f780af8ac06074c514a602cc1654554
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170587"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456884"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
 Den här artikeln sammanfattar namngivnings regler och begränsningar för Azure-resurser. Rekommendationer om hur du namnger resurser finns i [rekommenderade namngivnings-och taggnings konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+
+Den här artikeln innehåller resurser efter namn område för resurs leverantör. En lista över hur resurs leverantörer matchar Azure-tjänster finns i [Resource providers för Azure-tjänster](azure-services-resource-providers.md).
 
 Resurs namn är inte Skift läges känsliga om de inte uttryckligen anges i kolumnen giltiga tecken.
 
@@ -59,9 +61,9 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | tjänst-openidConnectProviders | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/principer | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/produkter | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | service/produkter/API: er | product | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | tjänst/produkter/grupper | product | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | service/produkter/Taggar | product | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | service/produkter/API: er | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/produkter/grupper | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | service/produkter/Taggar | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/egenskaper | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/prenumerationer | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | service/Taggar | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |

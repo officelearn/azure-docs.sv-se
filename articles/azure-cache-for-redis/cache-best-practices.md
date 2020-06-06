@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478619"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457311"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Bästa praxis för Azure Cache for Redis 
 Genom att följa dessa rekommendationer kan du maximera prestanda och kostnads effektiv användning av Azure-cachen för Redis-instansen.
@@ -38,6 +38,8 @@ Genom att följa dessa rekommendationer kan du maximera prestanda och kostnads e
  * **Undvik dyra åtgärder** – vissa redis-åtgärder, till exempel kommandot [nycklar](https://redis.io/commands/keys) , är *mycket* dyra och bör undvikas.  Mer information finns i några överväganden om [tids krävande kommandon](cache-troubleshoot-server.md#long-running-commands)
 
  * **Använd TLS-kryptering** – Azure cache för REDIS kräver TLS-krypterad kommunikation som standard.  TLS-versionerna 1,0, 1,1 och 1,2 stöds för närvarande.  TLS 1,0 och 1,1 finns dock på en sökväg till föråldrad bransch, så Använd TLS 1,2 om det är möjligt.  Om klient biblioteket eller verktyget inte stöder TLS kan du göra [det genom att](cache-configure.md#access-ports) aktivera okrypterade anslutningar via [API: erna](https://docs.microsoft.com/rest/api/redis/redis/update)för Azure Portal eller hantering.  I sådana fall där det inte går att kryptera anslutningar kan du rekommendera att placera cacheminnet och klient programmet i ett virtuellt nätverk.  Mer information om vilka portar som används i det virtuella nätverkets cache-scenario finns i den här [tabellen](cache-how-to-premium-vnet.md#outbound-port-requirements).
+ 
+ * **Tids gräns för inaktivitet** – Azure Redis har för närvarande 10 minuters inaktivitet för anslutningar, så detta ska vara mindre än 10 minuter.
  
 ## <a name="memory-management"></a>Minnes hantering
 Det finns flera saker som rör minnes användningen i Redis-serverinstansen som du kanske vill överväga.  Här är några:

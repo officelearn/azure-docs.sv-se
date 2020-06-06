@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8a64c8cabe91bb7bbfb533b38a32f58a82fd3351
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: baf5252a6b158855739546c2a03e63dceee6701e
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434382"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456512"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure spatiala ankare
 
@@ -174,13 +174,14 @@ Azure AD-åtkomsttoken hämtas med [MSAL-biblioteket](../../active-directory/dev
         1.  I Azure Portal navigerar du till **Azure Active Directory**och väljer **registrerade appar**
         2.  Välj **ny program registrering**
         3.  Ange namnet på programmet, Välj **webbapp/API** som program typ och ange autentiserings-URL: en för din tjänst. Tryck sedan på **skapa**.
-        4.  I det programmet klickar du på **Inställningar**och väljer sedan fliken **nycklar** . Ange namnet på nyckeln, Välj en varaktighet och tryck på **Spara**. Se till att spara det nyckel värde som visas vid tidpunkten, eftersom du måste ta med det i din webb tjänst kod.
+        4.  Klicka på **Inställningar**på programmet och välj fliken **certifikat och hemligheter** . skapa en ny klient hemlighet, Välj en varaktighet och tryck på **Lägg till**. Se till att spara det hemliga värdet eftersom du måste ta med det i din webb tjänst kod.
     2.  Ge ditt program och/eller användare åtkomst till din resurs:
         1.  Navigera till resurser för spatial ankare i Azure Portal
         2.  Växla till fliken **åtkomst kontroll (IAM)**
         3.  Tryck på **Lägg till roll tilldelning**
         1.  [Välj en roll](#role-based-access-control)
         2.  I fältet **Välj** anger du namnet på de program som du skapade och till vilka du vill tilldela åtkomst. Om du vill att appens användare ska ha olika roller mot kontot för spatiala ankare bör du registrera flera program i Azure AD och tilldela varje enskild roll. Implementera sedan din auktoriserings logik för att använda rätt roll för dina användare.
+        3.  Obs! i avsnittet **Lägg till roll tilldelning** väljer du att **tilldela åtkomst** till Azure AD-användare, grupp eller tjänstens huvud namn.
     3.  Tryck på **Save** (Spara).
 2.  I din kod (Obs: du kan använda tjänst exemplet som ingår i GitHub):
     1.  Se till att använda program-ID, program hemlighet och omdirigerings-URI för ditt eget Azure AD-program som klient-ID, hemligheter och RedirectUri-parametrar i MSAL

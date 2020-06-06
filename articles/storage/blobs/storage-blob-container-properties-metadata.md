@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: c66b521b5cd75825fcafe07b24d5d527c45f5153
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6923ab3a2344c8496f314e2f7a23b536a534bca
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135929"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457039"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Hantera behållar egenskaper och metadata med .NET
 
@@ -70,7 +70,7 @@ Du kan ange metadata som ett eller flera namn-värdepar på en BLOB-eller contai
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadataasync)
 
-Namnet på dina metadata måste följa namngivnings konventionerna för C#-identifierare. Metadata-namn bevarar det Skift läge som de skapades i, men är Skift läges okänsliga när de har angetts eller lästs. Om två eller flera metadata-huvuden med samma namn skickas för en resurs returnerar Blob Storage HTTP-felkoden 400 (felaktig begäran).
+Namnet på dina metadata måste följa namngivnings konventionerna för C#-identifierare. Metadata-namn bevarar det Skift läge som de skapades i, men är Skift läges okänsliga när de har angetts eller lästs. Om två eller flera metadata-huvuden med samma namn skickas för en resurs, separerar Blob Storage varandra och sammanfogar de två värdena och returnerar HTTP-svarskod 200 (OK).
 
 I följande kod exempel anges metadata i en behållare. Ett värde anges med samlingens **Add** -metod. Det andra värdet anges med implicit nyckel/värde-syntax. Båda är giltiga.
 

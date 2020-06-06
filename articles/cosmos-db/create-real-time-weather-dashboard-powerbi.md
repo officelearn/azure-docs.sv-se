@@ -1,18 +1,18 @@
 ---
 title: Skapa en instrument panel i real tid med hjälp av Azure Cosmos DB, Azure Analysis Services och Power BI
 description: Lär dig hur du skapar en Live väder instrument panel i Power BI att använda Azure Cosmos DB och Azure Analysis Services.
-author: bharathsreenivas
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: bharathb
 ms.reviewer: sngun
-ms.openlocfilehash: d225a14edddcad58c08094dbc758d67df8f834e6
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: aac89de936ae709ac825391eb0515e7f36a457a6
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70376598"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465804"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Skapa en instrument panel i real tid med hjälp av Azure Cosmos DB och Power BI
 
@@ -70,7 +70,7 @@ Konfigurera en pipeline för inmatning för att läsa in [väder data](https://c
    
    |Egenskap  |Datatyp  |Filter  |
    |---------|---------|---------|
-   |_ts     |   Numerisk      |  [_ts] > varaktighet. TotalSeconds (rang-The-#datetime (1970, 1,0) och [_ts] < duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 0, 0)))       |
+   |_ts     |   Numeriskt      |  [_ts] > varaktighet. TotalSeconds (rang-The-#datetime (1970, 1,0) och [_ts] < duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 0, 0)))       |
    |Datum (till exempel:-2019-08-19)     |   Sträng      | [Document. Date] > DateTime. ToText (rang, "åååå-MM-DD") och [Document. Date] < DateTime. ToText (RangeEnd, "åååå-MM-DD")        |
    |Datum (till exempel:-2019-08-11 12:00:00)   |  Sträng       |  [Document. Date] > DateTime. ToText (rang, "åååå-mm-dd HH: mm: SS") och [Document. Date] < DateTime. ToText (RangeEnd, "åååå-mm-dd HH: mm: SS")       |
 
@@ -96,9 +96,9 @@ Konfigurera en pipeline för inmatning för att läsa in [väder data](https://c
 
 ### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>Anslut Azure Analysis Services till Azure Cosmos-konto
 
-1. **Skapa ett nytt Azure Analysis Services-kluster** - [skapa en instans av Azure Analysis Services](../analysis-services/analysis-services-create-server.md) i samma region som Azure Cosmos-kontot och Databricks-klustret.
+1. **Skapa ett nytt Azure Analysis Services-kluster**  -  [Skapa en instans av Azure Analysis Services](../analysis-services/analysis-services-create-server.md) i samma region som Azure Cosmos-kontot och Databricks-klustret.
 
-1. **Skapa ett nytt Analysis Services tabell projekt i Visual Studio** -  [Installera SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017) och skapa ett Analysis Services tabell projekt i Visual Studio.
+1. **Skapa ett nytt Analysis Services tabell projekt i Visual Studio**  -   [Installera SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017) och skapa ett Analysis Services tabell projekt i Visual Studio.
 
    ![Skapa Azure Analysis Services-projekt](./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png)
 
@@ -106,7 +106,7 @@ Konfigurera en pipeline för inmatning för att läsa in [väder data](https://c
 
    ![Azure Analysis Services tabell modells designer](./media/create-real-time-weather-dashboard-powerbi/tabular-model-designer.png)
 
-1. **Lägg till Azure Cosmos db data källa** – navigera till **modeller**> **data källor** > **ny data källa** och Lägg till Azure Cosmos db data källan som visas på följande skärm bild:
+1. **Lägg till Azure Cosmos db data källa** – navigera till **modeller** >  **data källor**  >  **ny data källa** och Lägg till Azure Cosmos db data källan som visas på följande skärm bild:
 
    ![Lägg till Cosmos DB data Källa](./media/create-real-time-weather-dashboard-powerbi/add-data-source.png)
 

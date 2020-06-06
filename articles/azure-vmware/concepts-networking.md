@@ -3,12 +3,12 @@ title: Koncept – nätverks anslutning
 description: Lär dig mer om viktiga aspekter och användnings fall för nätverk och interanslutning i Azure VMware-lösning (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 82e5497c30bf02313e5ff8ad24167af569a153c2
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 1d869601110266f7ad16e23b66453c44793cdf31
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740920"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457090"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware-lösning (AVS) för hands version av nätverk och interanslutnings koncept
 
@@ -58,13 +58,13 @@ Det krävs en lokal till Azure Virtual Network ExpressRoute-krets för att anslu
 När de två ExpressRoute-kretsarna är länkade till Global Reach dirigeras nätverks trafiken mellan dina lokala miljöer och ditt privata moln. Den lokala anslutningen till molnet i det privata molnet visas i föregående diagram. Den sammankopplade anslutningen som representeras i diagrammet möjliggör följande användnings fall:
 
 - Hett/kall över-vCenter-vMotion
-- Åtkomst till hantering av privata moln lokalt till AVS-plats
+- Åtkomst för hantering av privata moln lokalt till AVS
 
 Om du vill aktivera fullständig anslutning kan du begära en nyckel och privat peering-ID för Global Reach i Azure Portal. Du använder nyckel och ID för att upprätta Global Reach mellan en ExpressRoute-krets i din prenumeration och ExpressRoute-kretsen för ditt nya privata moln. [Självstudien för att skapa ett privat moln](tutorial-create-private-cloud.md) ger dig procedurerna för att begära och använda nyckeln och ID: t.
 
 I kraven för routning måste du planera privata moln nätverk adress utrymmen så att du slipper överlappar andra virtuella nätverk och lokala nätverk. AVS-privata moln kräver minst ett `/22` CIDR-adressblock för undernät som visas nedan. Det här nätverket kompletterar dina lokala nätverk. För att kunna ansluta till lokala miljöer och virtuella nätverk måste detta vara ett nätverks adress block som inte överlappar varandra.
 
-Exempel `/22` på CIDR-nätverks adress block:`10.10.0.0/22`
+Exempel på `/22` CIDR-nätverks adress block:`10.10.0.0/22`
 
 Under näten:
 

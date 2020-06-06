@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3d7ab9d4e7a7c560fa05bdc06c7d1c357a2c2767
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 09aa3a5febe9ea25d8614a99ec3f832cc2d0309f
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196619"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456954"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -105,15 +105,15 @@ Det finns vissa begränsningar i vad som kan vidarebefordras och formuläret dä
 |OtherRequests|Andra gateway-begäranden (inaktuella)|Antal|Totalt|Antal andra gateway-begär Anden – Använd mått för flera dimensions begär Anden med GatewayResponseCodeCategory-dimensionen istället|Plats, värdnamn|
 |Varaktighet|Total varaktighet för gateway-begäranden|Millisekunder|Medel|Total varaktighet för gateway-begäranden i millisekunder|Plats, värdnamn|
 |BackendDuration|Varaktighet för backend-begäranden|Millisekunder|Medel|Varaktighet för backend-begäranden i millisekunder|Plats, värdnamn|
-|Kapacitet|Kapacitet|Procent|Medel|Användnings mått för API Management-tjänsten|Plats|
-|EventHubTotalEvents|Totalt antal EventHub-händelser|Antal|Totalt|Antal händelser som skickats till EventHub|Plats|
-|EventHubSuccessfulEvents|Lyckade EventHub-händelser|Antal|Totalt|Antal lyckade EventHub-händelser|Plats|
-|EventHubTotalFailedEvents|Misslyckade EventHub-händelser|Antal|Totalt|Antal misslyckade EventHub-händelser|Plats|
-|EventHubRejectedEvents|Avvisade EventHub-händelser|Antal|Totalt|Antal avvisade EventHub-händelser (felaktig konfiguration eller otillåten)|Plats|
-|EventHubThrottledEvents|Begränsade EventHub-händelser|Antal|Totalt|Antal begränsade EventHub-händelser|Plats|
-|EventHubTimedoutEvents|Tids gränsen nåddes för EventHub-händelser|Antal|Totalt|Antal inaktuella EventHub-händelser|Plats|
-|EventHubDroppedEvents|Ignorerade EventHub-händelser|Antal|Totalt|Antalet händelser som hoppades över på grund av att gränsen för kös Tor lek har uppnåtts|Plats|
-|EventHubTotalBytesSent|Storlek på EventHub-händelser|Byte|Totalt|Total storlek för EventHub-händelser i byte|Plats|
+|Kapacitet|Kapacitet|Procent|Medel|Användnings mått för API Management-tjänsten|Location|
+|EventHubTotalEvents|Totalt antal EventHub-händelser|Antal|Totalt|Antal händelser som skickats till EventHub|Location|
+|EventHubSuccessfulEvents|Lyckade EventHub-händelser|Antal|Totalt|Antal lyckade EventHub-händelser|Location|
+|EventHubTotalFailedEvents|Misslyckade EventHub-händelser|Antal|Totalt|Antal misslyckade EventHub-händelser|Location|
+|EventHubRejectedEvents|Avvisade EventHub-händelser|Antal|Totalt|Antal avvisade EventHub-händelser (felaktig konfiguration eller otillåten)|Location|
+|EventHubThrottledEvents|Begränsade EventHub-händelser|Antal|Totalt|Antal begränsade EventHub-händelser|Location|
+|EventHubTimedoutEvents|Tids gränsen nåddes för EventHub-händelser|Antal|Totalt|Antal inaktuella EventHub-händelser|Location|
+|EventHubDroppedEvents|Ignorerade EventHub-händelser|Antal|Totalt|Antalet händelser som hoppades över på grund av att gränsen för kös Tor lek har uppnåtts|Location|
+|EventHubTotalBytesSent|Storlek på EventHub-händelser|Byte|Totalt|Total storlek för EventHub-händelser i byte|Location|
 |Begäranden|Begäranden|Antal|Totalt|Mått för gateway-begäran med flera dimensioner|Plats, värdnamn, LastErrorReason, BackendResponseCode, GatewayResponseCode, BackendResponseCodeCategory, GatewayResponseCodeCategory|
 |NetworkConnectivity|Status för resurs för nätverks anslutning (förhands granskning)|Antal|Totalt|Nätverks anslutnings status för beroende resurs typer från API Management-tjänsten|Plats, ResourceType|
 
@@ -260,11 +260,11 @@ Det finns vissa begränsningar i vad som kan vidarebefordras och formuläret dä
 |totalkeys|Totalt antal nycklar|Antal|Maximal||ShardId|
 |expiredkeys|Utgångna nycklar|Antal|Totalt||ShardId|
 |usedmemory|Använt minne|Byte|Maximal||ShardId|
-|usedmemorypercentage|Använd minnes procent|Procent|Maximal||ShardId|
+|usedmemorypercentage|Använt minne i procent|Procent|Maximal||ShardId|
 |usedmemoryRss|RSS för använt minne|Byte|Maximal||ShardId|
-|serverLoad|Server belastning|Procent|Maximal||ShardId|
-|cacheWrite|Skrivcache|BytesPerSecond|Maximal||ShardId|
-|cacheRead|Läsning cache|BytesPerSecond|Maximal||ShardId|
+|serverLoad|Serverbelastning|Procent|Maximal||ShardId|
+|cacheWrite|Cacheskrivning|BytesPerSecond|Maximal||ShardId|
+|cacheRead|Cacheläsning|BytesPerSecond|Maximal||ShardId|
 |percentProcessorTime|Processor|Procent|Maximal||ShardId|
 |cacheLatency|Mikrosekunder för cache-fördröjning (för hands version)|Antal|Medel||ShardId|
 |fel|Fel|Antal|Maximal||ShardId,ErrorType|
@@ -697,7 +697,7 @@ Det finns vissa begränsningar i vad som kan vidarebefordras och formuläret dä
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|CpuUsage|CPU-användning|Antal|Medel|CPU-användning på alla kärnor i millicores.|containerName|
+|CpuUsage|Processoranvändning|Antal|Medel|CPU-användning på alla kärnor i millicores.|containerName|
 |MemoryUsage|Minnesanvändning|Byte|Medel|Total minnes användning i byte.|containerName|
 |NetworkBytesReceivedPerSecond|Mottagna nätverks byte per sekund|Byte|Medel|Mottagna nätverks byte per sekund.|Inga|
 |NetworkBytesTransmittedPerSecond|Överförda nätverks byte per sekund|Byte|Medel|Överförda nätverks byte per sekund.|Inga|
@@ -1085,7 +1085,7 @@ Det finns vissa begränsningar i vad som kan vidarebefordras och formuläret dä
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |TransactionCount|Antal transaktioner|Antal|Antal|Totalt antal transaktioner|TransactionCount|
-|SuccessCount|Antal slutförda|Antal|Antal|Antal genomförda transaktioner|SuccessCount|
+|SuccessCount|Antal lyckade|Antal|Antal|Antal genomförda transaktioner|SuccessCount|
 |FailureCount|Antal misslyckade|Antal|Antal|Antal misslyckade transaktioner|FailureCount|
 |SuccessLatency|Svars tid|Millisekunder|Medel|Svars tid för lyckade transaktioner|SuccessCount|
 

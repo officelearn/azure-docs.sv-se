@@ -3,12 +3,12 @@ title: Frågor om identifiering, utvärdering och beroende analys i Azure Migrat
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 9374330044bcd0c0c5f2be44688c2b35760d4418
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: cec0f655a5b3c71b58e5d0622e020568bf9aee68
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996741"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447874"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Identifiering, utvärdering och beroende analys – vanliga frågor
 
@@ -106,7 +106,7 @@ Log Analytics | Krävs inte. | Azure Migrate använder [tjänstkarta](https://do
 Så här fungerar det | Fångar upp TCP-anslutningsfel på datorer aktiverade för beroende visualisering. Efter identifieringen samlar den in data i intervall om fem minuter. | Tjänstkarta agenter som installerats på en dator samla in data om TCP-processer och inkommande/utgående anslutningar för varje process.
 Data | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port. | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port.<br/><br/> Antalet anslutningar, svars tid och data överförings information samlas in och är tillgängliga för Log Analytics frågor. 
 Visualisering | Beroende karta för enskild server kan visas över en varaktighet på en timme till 30 dagar. | Beroende karta för en enskild server.<br/><br/> Kartan kan endast visas över en timme.<br/><br/> Beroende karta för en grupp med servrar.<br/><br/> Lägga till och ta bort servrar i en grupp från MAP-vyn.
-Dataexport | Kan för närvarande inte hämtas i tabell format. | Data kan frågas med Log Analytics.
+Dataexport | De senaste 30 dagarna kan hämtas i CSV-format. | Data kan frågas med Log Analytics.
 
 
 ## <a name="do-i-need-to-deploy-the-appliance-for-agentless-dependency-analysis"></a>Behöver jag distribuera enheten för en agent lös beroende analys?

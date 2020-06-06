@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 04/09/2020
-ms.openlocfilehash: aa2ccf9c382ff560c081c7cdd13c4ab2199c2551
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f79eb910728286ef5dc3a28974353db012bc5a16
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044978"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449659"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Elastiska pooler hjälper dig att hantera och skala flera databaser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,10 +31,7 @@ SaaS-utvecklare utvecklar program på storskaliga datanivåer som består av fle
 - Under etableringen för att spara kostnaderna, vid kostnader för prestanda och kund nöjdhet under toppar.
 
 Elastiska pooler löser problemet genom att se till att databaserna får de prestanda resurser de behöver när de behöver det. De tillhandahåller en enkel resursallokeringsmekanism med en förutsägbar budget. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](saas-tenancy-app-design-patterns.md).
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
-
 > [!IMPORTANT]
 > Det finns ingen avgift per databas för elastiska pooler. Du debiteras för varje timme som en pool finns på högsta eDTU eller virtuella kärnor, oavsett användning eller om poolen var aktiv i mindre än en timme.
 

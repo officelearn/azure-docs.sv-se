@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: c388f433327b5328483f10fbef637a6fdfd08832
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c587275d41f9e46f6b7cd2b444330d971252513
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250548"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464393"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-drivrutins tillägg för Windows
 
@@ -71,7 +71,7 @@ Följande JSON visar schemat för tillägget.
 
 ### <a name="properties"></a>Egenskaper
 
-| Name | Värde/exempel | Datatyp |
+| Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | utgivare | Microsoft. HpcCompute | sträng |
@@ -127,13 +127,13 @@ Set-AzVMExtension
 ### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name NvidiaGpuDriverWindows `
-  --publisher Microsoft.HpcCompute `
-  --version 1.2 `
-  --settings '{ `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverWindows \
+  --publisher Microsoft.HpcCompute \
+  --version 1.2 \
+  --settings '{ \
   }'
 ```
 
@@ -159,7 +159,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 
 ### <a name="error-codes"></a>Felkoder
 
-| Felkod | Betydelse | Möjlig åtgärd |
+| Felkod | Innebörd | Möjlig åtgärd |
 | :---: | --- | --- |
 | 0 | Åtgärden lyckades |
 | 1 | Åtgärden lyckades. Omstart krävs. |

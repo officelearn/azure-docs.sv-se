@@ -4,17 +4,17 @@ titleSuffix: Azure Storage
 description: Mappa en anpassad domän till en Blob Storage eller en webb slut punkt i ett Azure Storage-konto.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 82f3f26ae5c70c9660a44ce50a90de79340bc1c2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 95fd62584ef73f3f2f198c84913652f460fc5b1a
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195238"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465549"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mappa en anpassad domän till en Azure Blob Storage-slutpunkt
 
@@ -177,7 +177,7 @@ Skapa en tillfällig CNAME-post för att peka på värd namnet. En CNAME-post ä
        
    - Det värdnamn som du hämtade i avsnittet [Hämta värd namnet för din lagrings slut punkt](#endpoint) tidigare i den här artikeln. 
 
-     Lägg till under domänen `asverify` till värd namnet. Exempel: `asverify.mystorageaccount.blob.core.windows.net`.
+     Lägg till under domänen `asverify` till värd namnet. Till exempel: `asverify.mystorageaccount.blob.core.windows.net`.
 
 4. Registrera den anpassade domänen genom att välja knappen **Spara** .
 

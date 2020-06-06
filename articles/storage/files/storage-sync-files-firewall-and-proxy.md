@@ -7,17 +7,19 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 37c646e2f08745b2a12df41b6310fb5d3834998b
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 415dc4f5609b912163be42605277a33ebcfda589
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142562"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466195"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, vilket möjliggör synkronisering av flera platser och moln nivåer. En lokal server måste därför vara ansluten till Internet. En IT-administratör måste bestämma den bästa sökvägen för att servern ska kunna komma åt Azure Cloud Services.
 
 I den här artikeln får du information om särskilda krav och alternativ som är tillgängliga för att ansluta servern till Azure File Sync på ett säkert sätt.
+
+Vi rekommenderar att du läser [Azure File Sync nätverks överväganden](storage-sync-files-networking-overview.md) innan du läser den här guiden.
 
 ## <a name="overview"></a>Översikt
 Azure File Sync fungerar som en Orchestration-tjänst mellan Windows Server, Azure-filresursen och flera andra Azure-tjänster för att synkronisera data som beskrivs i din Sync-grupp. För att Azure File Sync ska fungera korrekt måste du konfigurera servrarna så att de kommunicerar med följande Azure-tjänster:
@@ -134,8 +136,8 @@ För affärs kontinuitet och haveri beredskap (BCDR) kan du ha angett Azure-filr
 | Offentlig | Europa, västra | https: \/ /westeurope01.AFS.Azure.net<br>https: \/ /kailani6.One.Microsoft.com | Europa, norra | https: \/ /TM-westeurope01.AFS.Azure.net<br>https: \/ /TM-kailani6.One.Microsoft.com |
 | Offentlig | USA, västra | https: \/ /westus01.AFS.Azure.net<br>https: \/ /Kailani.One.Microsoft.com | USA, östra | https: \/ /TM-westus01.AFS.Azure.net<br>https: \/ /TM-Kailani.One.Microsoft.com |
 | Offentlig | USA, västra 2 | https: \/ /westus201.AFS.Azure.net | USA, västra centrala | https: \/ /TM-westus201.AFS.Azure.net |
-| Myndigheter | US Gov, Arizona | https: \/ /usgovarizona01.AFS.Azure.us | US Gov, Texas | https: \/ /TM-usgovarizona01.AFS.Azure.us |
-| Myndigheter | US Gov, Texas | https: \/ /usgovtexas01.AFS.Azure.us | US Gov, Arizona | https: \/ /TM-usgovtexas01.AFS.Azure.us |
+| Government | US Gov, Arizona | https: \/ /usgovarizona01.AFS.Azure.us | US Gov, Texas | https: \/ /TM-usgovarizona01.AFS.Azure.us |
+| Government | US Gov, Texas | https: \/ /usgovtexas01.AFS.Azure.us | US Gov, Arizona | https: \/ /TM-usgovtexas01.AFS.Azure.us |
 
 - Om du använder lokalt redundant (LRS) eller zon redundant lagrings konto (ZRS) behöver du bara aktivera URL: en som anges under "primär slut punkts-URL".
 

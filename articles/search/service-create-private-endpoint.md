@@ -8,16 +8,18 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 0945743fb2cf3e37345ff562250e48511944cee6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125561"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466178"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Skapa en privat slut punkt för en säker anslutning till Azure Kognitiv sökning
 
 I den här artikeln använder du Azure Portal för att skapa en ny Azure Kognitiv sökning-tjänstinstans som inte kan nås via Internet. Sedan konfigurerar du en virtuell Azure-dator i samma virtuella nätverk och använder den för att få åtkomst till Sök tjänsten via en privat slut punkt.
+
+Privata slut punkter tillhandahålls av en [privat Azure-länk](../private-link/private-link-overview.md), som en separat tjänst. Mer information om kostnader finns på sidan med [priser](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
 > Stöd för privata slut punkter för Azure Kognitiv sökning kan konfigureras med hjälp av Azure Portal eller [hanterings REST API version 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/). När tjänstens slut punkt är privat är vissa Portal funktioner inaktiverade. Du kan visa och hantera information om service nivå, men Portal åtkomst till index data och de olika komponenterna i tjänsten, till exempel index, indexerare och färdigheter definitioner, är begränsad av säkerhets skäl.
@@ -44,7 +46,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät som �
     | ------- | ----- |
     | Prenumeration | Välj din prenumeration|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup*och välj sedan **OK** |
-    | Name | Ange *MyVirtualNetwork* |
+    | Namn | Ange *MyVirtualNetwork* |
     | Region | Välj önskad region |
     |||
 
@@ -65,7 +67,7 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **INSTANSINFORMATION** |  |
     | URL | Ange ett unikt namn. |
-    | Plats | Välj önskad region. |
+    | Location | Välj önskad region. |
     | Prisnivå | Välj **pris nivå för ändring** och välj önskad tjänst nivå. (Stöds inte på den **kostnads fria** nivån. Måste vara **Basic** eller högre.) |
     |||
   
@@ -83,8 +85,8 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
     | ------- | ----- |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
-    | Plats | Välj **USA, västra**.|
-    | Name | Ange *myPrivateEndpoint*.  |
+    | Location | Välj **USA, västra**.|
+    | Namn | Ange *myPrivateEndpoint*.  |
     | Mål under resurs | Lämna standard **searchService**. |
     | **NÄTVERK** |  |
     | Virtuellt nätverk  | Välj *MyVirtualNetwork* från resurs gruppen *myResourceGroup*. |

@@ -5,17 +5,17 @@ services: cognitive-services
 author: roy-har
 manager: diberry
 ms.service: cognitive-services
-ms.date: 06/03/2020
+ms.date: 06/04/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: roy-har
-ms.openlocfilehash: cffc9af2ef93ec44e2af9363c0040d1f22d945f7
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 9965e4c856fdef2af17b116264ad5344ebc97eb2
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84416434"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84466831"
 ---
 Skapa pizza-appen.
 
@@ -57,7 +57,7 @@ Om du inte har någon redigerings resurs:
 
 Din pizza-app är nu redo att användas.
 
-## <a name="record-the-app-id-prediction-key-and-prediction-endpoint-of-your-pizza-app"></a>Registrera app-ID, förutsägelse nyckel och slut punkt för förutsägelse för din pizza-app
+## <a name="record-the-access-values-for-your-pizza-app"></a>Registrera åtkomst värden för din pizza-app
 
 Om du vill använda den nya pizza-appen behöver du appens ID, redigerings nyckel och redigerings slut punkt för din pizza-app.
 

@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/03/2020
 ms.author: aahi
-ms.openlocfilehash: c0e71ffcc88a85caf4b76c34940293663c4acf66
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 4fd893691f68c8b51fa3ef234d7828b1bd70cea5
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142171"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465600"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Språk stöd för API för textanalys v3 
 
 > [!IMPORTANT]
-> Version 3. x av API för textanalys är för närvarande inte tillgänglig i följande regioner: centrala Indien, Fairfax, Förenade Arabemiraten norr, Nord Sydafrika, Kina, norra 2, Kina, östra.
+> Version 3. x av API för textanalys är för närvarande inte tillgänglig i följande regioner: centrala Indien, Förenade Arabemiraten Nord, Kina, norra 2, Kina, östra.
 
 
 #### <a name="sentiment-analysis"></a>[Attitydanalys](#tab/sentiment-analysis)
 
-| Språk              | Språkkod | v2-stöd | v3-stöd | Startar v3-modell version: |              Anteckningar |
+| Språk              | Språkkod | v2-stöd | v3-stöd | Startar v3-modell version: |              Obs! |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
 | Kinesiska – Förenklad    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh`även godkänd |
 | Kinesiska (traditionell)   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
@@ -49,7 +49,7 @@ ms.locfileid: "84142171"
 
 ### <a name="opinion-mining-v31-preview-only"></a>Utåsikts utvinning (v 3.1 – endast för hands version)
 
-| Språk              | Språkkod | Från och med v3 modell version: |              Anteckningar |
+| Språk              | Språkkod | Från och med v3 modell version: |              Obs! |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Engelska               |     `en`      |              2020-04-01              |                    |
 
@@ -60,7 +60,7 @@ ms.locfileid: "84142171"
 > * NER v3 stöder för närvarande bara det engelska språket. Om du anropar NER v3 med ett annat språk returneras v 2.1-API: et, förutsatt att språket stöds i version 2,1.
 > * v 2.1 returnerar bara den fullständiga uppsättningen tillgängliga entiteter för de engelska, kinesiska, enkla, franska, tyska och spanska språken.  Entiteterna "person", "plats" och "organisation" returneras för de andra språk som stöds.
 
-| Språk               | Språkkod | v 2.1-stöd | v3-stöd | Från och med v3 modell version: |       Anteckningar        |
+| Språk               | Språkkod | v 2.1-stöd | v3-stöd | Från och med v3 modell version: |       Obs!        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Arabiska                |     `ar`      |     ✓      |            |                                 |                    |
 | Tjeckiska                 |     `cs`      |     ✓      |            |                                 |                    |
@@ -88,7 +88,7 @@ ms.locfileid: "84142171"
 
 #### <a name="key-phrase-extraction"></a>[Extrahering av nyckel fraser](#tab/key-phrase-extraction)
 
-| Språk              | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: |       Anteckningar        |
+| Språk              | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: |       Obs!        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Nederländska                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Engelska               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -108,7 +108,7 @@ ms.locfileid: "84142171"
 
 #### <a name="entity-linking"></a>[Länkning av entitet](#tab/entity-linking)
 
-| Språk | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: | Anteckningar |
+| Språk | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: | Obs! |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
 | Engelska  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | Spanska  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |

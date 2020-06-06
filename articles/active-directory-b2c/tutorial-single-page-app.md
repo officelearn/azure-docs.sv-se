@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 31db8aa750a0691940f9f55c2743764c38fd8b0b
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: cd696b6aba96b06a7b84722d61eb40bbfa15c0ff
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331465"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447961"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Självstudie: aktivera autentisering i ett program med en sida med Azure AD B2C
 
@@ -59,7 +59,8 @@ Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår 
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar**, Välj fliken **ägda program** och välj sedan *webapp1* -programmet.
-1. Under **webb**väljer du länken **Lägg till URI** , anger `http://localhost:6420` och väljer sedan **Spara**.
+1. Under **webb**väljer du länken **Lägg till URI** , anger `http://localhost:6420` .
+1. Under **implicit beviljande**väljer du kryss rutorna **för åtkomsttoken** och **ID-token** och väljer sedan **Spara**.
 1. Välj **Översikt**.
 1. Registrera **program-ID: t (klient)** för användning i ett senare steg när du uppdaterar koden i webb programmet med en sida.
 
@@ -118,7 +119,7 @@ Nu när du har hämtat exemplet uppdaterar du koden med ditt Azure AD B2C klient
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Ett exempel:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp

@@ -622,6 +622,10 @@
                   href: app/javascript.md
                 - name: Källkarta för JavaScript
                   href: app/source-map-support.md
+                - name: Felsöka
+                  items:
+                    - name: Inläsningsfel för SDK
+                      href: app/javascript-sdk-load-failure.md
             - name: Sammanfattning av Application Insights-API
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
@@ -743,6 +747,8 @@
               href: app/profiler-settings.md
             - name: Spåra begäranden för profilering
               href: app/profiler-trackrequests.md
+            - name: Konfigurera BYOS (Bring Your Own Storage)
+              href: app/profiler-bring-your-own-storage.md
             - name: Profiler-felsökning
               href: app/profiler-troubleshooting.md
         - name: Felsökning av ögonblicksbild
@@ -756,6 +762,8 @@
               href: app/snapshot-debugger-vm.md
             - name: Uppgradera Snapshot Debugger
               href: app/snapshot-debugger-upgrade.md
+            - name: Konfigurera BYOS (Bring Your Own Storage)
+              href: app/profiler-bring-your-own-storage.md
             - name: Felsökning för Snapshot Debugger
               displayname: 'troubleshoot, troubleshooting'
               href: app/snapshot-debugger-troubleshoot.md

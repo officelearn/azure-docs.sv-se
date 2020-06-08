@@ -106,6 +106,8 @@
       href: train-clustering-model.md
     - name: Träningsmodell
       href: train-model.md
+    - name: Träna Pytorch-modell
+      href: train-pytorch-model.md
     - name: Finjustera hyperparametrar för modell
       href: tune-model-hyperparameters.md
 - name: Modellbedömning och utvärdering
@@ -118,6 +120,8 @@
       href: cross-validate-model.md
     - name: Utvärdera modell
       href: evaluate-model.md
+    - name: Bildpoängmodell
+      href: score-image-model.md
     - name: Poängmodell
       href: score-model.md
 - name: Python-språk
@@ -142,6 +146,20 @@
       href: preprocess-text.md
     - name: Latent Dirichlet-allokering
       href: latent-dirichlet-allocation.md
+- name: Datorvision
+  items:
+    - name: Använda bildtransformering
+      href: apply-image-transformation.md
+    - name: Konvertera till bildkatalog
+      href: convert-to-image-directory.md
+    - name: Initiera bildtransformering
+      href: init-image-transformation.md
+    - name: Dela bildkatalog
+      href: split-to-image-directory.md
+    - name: DenseNet
+      href: densenet.md
+    - name: ResNet
+      href: resnet.md
 - name: Rekommendation
   items:
     - name: Utvärdera rekommenderare

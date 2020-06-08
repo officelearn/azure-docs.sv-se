@@ -1,0 +1,159 @@
+### YamlMime:Hub
+title: Dokumentation om Azure för mobilutvecklare
+summary: Hitta informationen du behöver för att utveckla mobilappar på Azure
+brand: azure
+metadata:
+  title: Azure för mobilutvecklare
+  description: Hitta informationen du behöver för att utveckla mobilappar på Azure
+  services: mobile-services
+  ms.service: mobile-services
+  ms.topic: hub-page
+  author: codemillmatt
+  ms.author: masoucou
+  ms.date: 06/01/2020
+  ms.openlocfilehash: 470928c43d0e80887ed0f3f8af1a92cadc29c05c
+  ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 06/05/2020
+  ms.locfileid: "84449907"
+highlightedContent:
+  items:
+  - title: Välj ramverk för mobilutveckling
+    itemType: architecture
+    url: concepts/front-end-development-platform.md
+  - title: Steg i utvecklingen av mobilprogram på Azure
+    itemType: architecture
+    url: concepts/stages-overview.md
+  - title: Skapa en hel mobilapp med Azure
+    itemType: video
+    url: https://channel9.msdn.com/Shows/Partly-Cloudy
+  - title: Skapa mobilappar med Xamarin.Forms
+    itemType: learn
+    url: https://docs.microsoft.com/learn/paths/build-mobile-apps-with-xamarin-forms/
+conceptualContent:
+  title: Kom igång
+  summary: Använd Azure för att skapa molnanslutna mobilappar
+  items:
+  - title: Anropa webbtjänster
+    links:
+    - url: concepts/serverless-compute.md
+      itemType: concept
+      text: Skapa en serverlös serverdel för mobilappar med Azure Functions och andra tjänster
+    - url: /xamarin/xamarin-forms/data-cloud/azure-services/azure-functions.md
+      itemType: quickstart
+      text: /xamarin/xamarin-forms/data-cloud/azure-services/azure-functions.md
+    - url: /learn/modules/consume-rest-services.md
+      itemType: learn
+      text: Använda en RESTful-webbtjänst med Xamarin
+    - url: /xamarin/xamarin-forms/data-cloud/azure-services/azure-signalr.md
+      itemType: concept
+      text: Azure SignalR Service med Xamarin.Forms
+    - url: ../api-management/api-management-key-concepts.md
+      itemType: overview
+      text: Översikt över Azure API Management
+    - url: concepts/real-time.md
+      itemType: overview
+      text: Skapa realtidsappar med Azure SignalR Service
+  - title: Spara data
+    links:
+    - url: concepts/data-storage.md
+      itemType: concept
+      text: Lagra, synkronisera och fråga data från mobilappar från molnet
+    - url: ../cosmos-db/create-sql-api-xamarin-dotnet.md
+      itemType: quickstart
+      text: Spara data med Azure Cosmos DB
+    - url: ../cosmos-db/create-mongodb-xamarin.md
+      itemType: quickstart
+      text: Skapa en Xamarin.Forms-app med .NET SDK och Azure Cosmos DB:s API för MongoDB
+    - url: concepts/azure-storage.md
+      itemType: overview
+      text: Molnlagring för mycket säkra, pålitliga och skalbara appar med Azure Storage
+    - url: ../storage/blobs/storage-quickstart-blobs-xamarin.md
+      itemType: quickstart
+      text: Arbeta med Blob-lagring
+    - url: concepts/azure-cdn.md
+      itemType: overview
+      text: Innehållsleverans med Azure Content Delivery Network
+  - title: Skicka push-meddelanden
+    links:
+    - url: concepts/push-notifications.md
+      itemType: overview
+      text: Kontakta dina appanvändare genom att skicka push-meddelanden
+    - url: ../notification-hubs/create-notification-hub-portal.md
+      itemType: quickstart
+      text: Skapa en Azure-meddelandehubb i Azure-portalen
+    - url: ../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md
+      itemType: tutorial
+      text: Skicka push-meddelanden till Android-enheter
+    - url: ../notification-hubs/push-notifications-android-specific-devices-firebase-cloud-messaging.md
+      itemType: tutorial
+      text: Skicka meddelanden till specifika enheter med hjälp av Notification Hubs och Google Firebase Cloud Messaging
+    - url: ../notification-hubs/notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
+      itemType: how-to-guide
+      text: Skicka formaterat innehåll till enheter
+  - title: Autentisera användare
+    links:
+    - url: concepts/authentication.md
+      itemType: overview
+      text: Lägga till autentisering och hantera användaridentiteter i dina mobilappar
+    - url: ../active-directory/develop/tutorial-v2-android.md
+      itemType: tutorial
+      text: Logga in användare och anropa Microsoft Graph från en Android-app
+    - url: ../active-directory-b2c/add-native-application.md
+      itemType: how-to-guide
+      text: Lägga till ett ursprungligt klientprogram i din Azure Active Directory B2C-klientorganisation
+    - url: ../active-directory/develop/msal-authentication-flows.md
+      itemType: concept
+      text: Autentiseringsflöden som stöds med Microsoft Authentication Library (MSAL)
+    - url: https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal
+      itemType: sample
+      text: Logga in användare med en Swift iOS-app
+  - title: DevOps
+    links:
+    - url: concepts/continuous-delivery.md
+      itemType: concept
+      text: Automatisera distributionen och publicera dina mobilprogram med kontinuerliga leveranstjänster
+    - url: concepts/continuous-integration.md
+      itemType: concept
+      text: Automatisera apparnas livscykel med kontinuerligt skapande och integrering
+    - url: /azure/devops/pipelines/get-started/key-pipelines-concepts.md
+      itemType: concept
+      text: Viktiga begrepp för nya Azure Pipelines-användare
+    - url: /appcenter/distribution/uploading.md
+      itemType: how-to-guide
+      text: Publicera en version med App Center
+    - url: /appcenter/distribution/codepush.md
+      itemType: overview
+      text: App Center CodePush
+  - title: Analyser och kraschrapporter
+    links:
+    - url: concepts/analytics.md
+      itemType: concept
+      text: Analysera och förstå användning av mobilprogram
+    - url: /appcenter/analytics/overview.md
+      itemType: overview
+      text: App Center-analys
+    - url: /appcenter/diagnostics/enabling-diagnostics.md
+      itemType: how-to-guide
+      text: Aktivera diagnostik i en app
+    - url: concepts/diagnostics.md
+      itemType: concept
+      text: Övervaka problem och fel för ditt mobilprogram i realtid
+    - url: /appcenter/analytics/log-flow.md
+      itemType: tutorial
+      text: Ta emot realtidsanalys
+additionalContent:
+  sections:
+  - title: Azure Mobile SDK:er
+    summary: Här är några av Azure Mobiles klient-SDK:er
+    items:
+    - title: iOS
+      summary: iOS-klient-SDK:er för Microsoft Azure
+      url: https://github.com/Azure/azure-sdk-for-ios
+    - title: Android
+      summary: 'Android-klient-SDK: er för Microsoft Azure'
+      url: https://github.com/Azure/azure-sdk-for-android
+    - title: .NET/Xamarin
+      summary: Azure SDK för .NET och Xamarin
+      url: https://azure.github.io/azure-sdk/releases/latest/dotnet.html

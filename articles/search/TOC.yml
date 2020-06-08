@@ -324,24 +324,28 @@
               href: search-dotnet-mgmt-sdk-migration.md
         - name: 'Uppgradera REST-API:et'
           href: search-api-migration.md
-    - name: Skydda
+    - name: Säkerhet
       items:
-        - name: Säkerhetsöversikt
+        - name: Översikt
           href: search-security-overview.md
-        - name: Skapa en privat slutpunkt
-          href: service-create-private-endpoint.md
-        - name: Konfigurera en IP-brandvägg
-          href: service-configure-firewall.md
-        - name: Hantering av servicenycklar
-          href: search-security-api-keys.md
-        - name: Rollbaserad administratörsåtkomst
-          href: search-security-rbac.md
-        - name: Säkerhetsfilter
-          href: search-security-trimming-for-azure-search.md
-        - name: Filtrera efter identiteter i AAD
-          href: search-security-trimming-for-azure-search-with-aad.md
-        - name: Hantera krypteringsnycklar
-          href: search-security-manage-encryption-keys.md
+        - name: Datakryptering
+          items:
+            - name: Kundhanterade nycklar
+              href: search-security-manage-encryption-keys.md
+        - name: Ingående säkerhet
+          items:
+            - name: API-åtkomstnycklar
+              href: search-security-api-keys.md
+            - name: Konfigurera en IP-brandvägg
+              href: service-configure-firewall.md
+            - name: Skapa en privat slutpunkt
+              href: service-create-private-endpoint.md
+        - name: Identitetsbaserad åtkomst
+          items:
+            - name: Säkerhetsfilter
+              href: search-security-trimming-for-azure-search.md
+            - name: Filtrera efter identiteter i AAD
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: Hantera
       items:
         - name: Portalen
@@ -350,6 +354,8 @@
           href: search-manage-powershell.md
         - name: Flytta en tjänst mellan regioner
           href: search-howto-move-across-regions.md
+        - name: Rollbaserad administratörsåtkomst
+          href: search-security-rbac.md
     - name: Övervaka
       items:
         - name: Grunder
@@ -473,6 +479,8 @@
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Feedback Forum (UserVoice)
       href: 'https://feedback.azure.com/forums/263029-azure-search'
+    - name: Efterlevnad och certifieringar
+      href: 'https://aka.ms/azurecompliance'
     - name: Demowebbplatser
       items:
         - name: Finansiella filer – demo

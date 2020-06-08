@@ -31,6 +31,8 @@
           href: understand-cost-mgt-data.md
         - name: Förstå och arbeta med omfång
           href: understand-work-scopes.md
+        - name: Hantera kostnader med automatisering
+          href: manage-automation.md
         - name: 'Migrera från EA till MCA API:er'
           href: migrate-cost-management-api.md
     - name: Anvisningar

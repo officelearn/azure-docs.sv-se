@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: a2083de1ddf400b368815877725d3b8dd446156b
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 3733989ad6eed113e37c87eb7da6748cec10e34d
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82844631"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485754"
 ---
 För att skapa och hantera virtuella datorer i Azure (VM) på ett konsekvent sätt i skala, är det vanligt att någon form av automatisering är det önskade. Det finns många verktyg och lösningar som gör att du kan automatisera hela livs cykeln för distribution och hantering av Azure-infrastrukturen. I den här artikeln beskrivs några av infrastruktur automatiserings verktygen som du kan använda i Azure. De här verktygen passar vanligt vis till någon av följande metoder:
 
@@ -52,7 +52,7 @@ Lär dig att:
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom Cloud-Init anropas under den första start processen finns det inga ytterligare steg eller nödvändiga agenter för att tillämpa konfigurationen.  Mer information om hur du formaterar `#cloud-config` filerna korrekt finns på webbplatsen för [Cloud-Init-dokumentation](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`filer är textfiler kodade i base64.
+[Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom Cloud-Init anropas under den första start processen finns det inga ytterligare steg eller nödvändiga agenter för att tillämpa konfigurationen.  Mer information om hur du formaterar filerna korrekt `#cloud-config` finns på webbplatsen för [Cloud-Init-dokumentation](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`filer är textfiler kodade i base64.
 
 Cloud-init fungerar med olika distributioner. Du använder till exempel inte **apt-get install** eller **yum install** när du vill installera ett paket. I stället definierar du en lista med paket att installera. Cloud-init använder automatiskt rätt pakethanteringsverktyg för den distribution du valt.
 
@@ -100,7 +100,7 @@ Lär dig att:
 
 Lär dig att:
 
-- [Installera och konfigurera terraform med Azure](/azure/developer/terraform/install-configure).
+- [Installera och konfigurera terraform med Azure](/azure/developer/terraform/getting-started-cloud-shell).
 - [Skapa en Azure-infrastruktur med terraform](/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure).
 
 

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: d0f37d32b7d2306865d435bc68ea12c9bb95651c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: ffb0cd65ed8c904098a1099540a5c3a55f605d36
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434708"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485085"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -102,6 +102,9 @@ Du hittar den information som du behöver för att fylla i `register_azure_*()` 
 
 * Om du planerar att använda en tjänst princip för autentisering går du till din **Appregistreringar** och väljer vilken app du vill använda. 
     * Dess motsvarande **översikts** sida innehåller nödvändig information, t. ex. klient-ID och klient-ID.
+
+> [!IMPORTANT]
+> Av säkerhets skäl kan du behöva ändra åtkomst nycklarna för ett Azure Storage konto (konto nyckel eller SAS-token). När du gör det måste du synkronisera de nya autentiseringsuppgifterna med din arbets yta och de data lager som är anslutna till den. Lär dig hur du synkroniserar dina uppdaterade autentiseringsuppgifter med [de här stegen](how-to-change-storage-access-key.md). 
 
 I följande exempel visas hur du registrerar en Azure Blob-behållare, en Azure-filresurs och Azure Data Lake Storage generation 2 som ett data lager. De parametrar som anges i de här exemplen är de **parametrar som krävs** för att skapa och registrera ett data lager. 
 
@@ -192,6 +195,9 @@ Du kan hitta den information som du behöver för att fylla i formuläret på [A
 * För verifierings objekt, som konto nyckel eller SAS-token, går du till **åtkomst nycklar** i fönstret **Inställningar** . 
 
 * För tjänstens huvud objekt, t. ex. klient-ID och klient-ID, går du till **Appregistreringar** och väljer vilken app du vill använda. Dess motsvarande **översikts** sida kommer att innehålla dessa objekt. 
+
+> [!IMPORTANT]
+> Av säkerhets skäl kan du behöva ändra åtkomst nycklarna för ett Azure Storage konto (konto nyckel eller SAS-token). När du gör det måste du synkronisera de nya autentiseringsuppgifterna med din arbets yta och de data lager som är anslutna till den. Lär dig hur du synkroniserar dina uppdaterade autentiseringsuppgifter med [de här stegen](how-to-change-storage-access-key.md). 
 
 Följande exempel visar hur formuläret ser ut när du skapar ett Azure Blob-datalager: 
     

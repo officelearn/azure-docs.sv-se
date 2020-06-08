@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 7159eac0e71819fd75abef07cae979d5425fc07c
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607290"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484619"
 ---
-# <a name="create-an-fslogix-profile-container-with-azure-files"></a>Skapa en FSLogix profil behållare med Azure Files
+# <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Skapa en profil behållare med Azure Files och Azure AD DS
 
 I den här artikeln visas hur du skapar en FSLogix profil behållare med Azure Files och Azure Active Directory Domain Services (AD DS).
 
@@ -103,12 +103,12 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
      ```
 
-    - Ersätt `<desired-drive-letter>` med en valfri enhets beteckning (till exempel `y:`).
+    - Ersätt `<desired-drive-letter>` med en valfri enhets beteckning (till exempel `y:` ).
     - Ersätt alla instanser av `<storage-account-name>` med namnet på det lagrings konto du angav tidigare.
     - Ersätt `<share-name>` med namnet på resursen som du skapade tidigare.
     - Ersätt `<storage-account-key>` med lagrings konto nyckeln från Azure.
 
-    Exempel:  
+    Ett exempel:  
   
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -123,7 +123,7 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<mounted-drive-letter>` med bokstaven för den enhet som du vill att användaren ska använda.
     - Ersätt `<user-email>` med UPN för den användare som ska använda profilen för att få åtkomst till de virtuella datorerna i sessionen.
 
-    Exempel:
+    Ett exempel:
      
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
@@ -137,20 +137,20 @@ Så här konfigurerar du en FSLogix profil behållare:
 
 1. Logga in på den virtuella dator som du konfigurerade i början av den här artikeln och [Ladda ned och installera FSLogix-agenten](/fslogix/install-ht/).
 
-2. Zippa upp FSLogix agent-filen som du laddade ned och gå till **x64** > -**versioner**och öppna sedan **FSLogixAppsSetup. exe**.
+2. Zippa upp FSLogix agent-filen som du laddade ned och gå till **x64**  >  -**versioner**och öppna sedan **FSLogixAppsSetup. exe**.
 
 3. När installations programmet har startat väljer **du jag accepterar licens villkoren.** Ange en ny nyckel om det är tillämpligt.
 
-4. Välj **Installera**.
+4. Välj **installera**.
 
-5. Öppna **enhet C**och gå sedan till **program filer** > **FSLogix** > -**appar** för att kontrol lera att FSLogix-agenten har installerats korrekt.
+5. Öppna **enhet C**och gå sedan till **program filer**  >  **FSLogix**-  >  **appar** för att kontrol lera att FSLogix-agenten har installerats korrekt.
 
      >[!NOTE]
      > Om det finns flera virtuella datorer i värd gruppen måste du upprepa steg 1 till 5 för varje virtuell dator.
 
 6. Kör **Registereditorn** (regedit) som administratör.
 
-7. Navigera till **datorn** > **HKEY_LOCAL_MACHINE** > **program vara** > **FSLogix**, högerklicka på **FSLogix**, Välj **ny**och välj sedan **nyckel**.
+7. Navigera till **datorn**  >  **HKEY_LOCAL_MACHINE**  >  **program vara**  >  **FSLogix**, högerklicka på **FSLogix**, Välj **ny**och välj sedan **nyckel**.
 
 8. Skapa en ny nyckel med namnet **profiler**.
 
@@ -197,9 +197,9 @@ Så här tilldelar du användare:
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
-    Precis som de tidigare cmdletarna, se till att `<your-wvd-tenant>`ersätta `<wvd-pool>`, och `<user-principal>` med relevanta värden.
+    Precis som de tidigare cmdletarna, se till att ersätta `<your-wvd-tenant>` , `<wvd-pool>` och `<user-principal>` med relevanta värden.
 
-    Exempel:
+    Ett exempel:
 
      ```powershell
      $pool1 = "contoso"
@@ -231,7 +231,7 @@ Så här verifierar du din profil:
 
 6. Välj ikonen **filer** och expandera sedan resursen.
 
-    Om allt är korrekt konfigurerat bör du se en **katalog** med ett namn som är formaterat så här: `<user SID>-<username>`.
+    Om allt är korrekt konfigurerat bör du se en **katalog** med ett namn som är formaterat så här: `<user SID>-<username>` .
 
 ## <a name="next-steps"></a>Nästa steg
 

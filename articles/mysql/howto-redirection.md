@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 608206ed1c1ffe1015f579d69868385ebd32208c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 6/5/2020
+ms.openlocfilehash: 7f43e47975b797b68b250399ee31bf56e0f01d21
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660269"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483372"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Anslut till Azure Database for MySQL med omdirigering
 
@@ -19,6 +19,10 @@ I det här avsnittet beskrivs hur du ansluter ett program till din Azure Databas
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Logga in på [Azure-portalen](https://portal.azure.com). Skapa en Azure Database for MySQL-server med motor version 5,6, 5,7 eller 8,0. Mer information finns i så här [skapar du Azure Database for MySQL server från portalen](quickstart-create-mysql-server-database-using-azure-portal.md) eller [hur du skapar Azure Database for MySQL server med CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+## <a name="enable-redirection"></a>Aktivera omdirigering
+
+På din Azure Database for MySQL-server konfigurerar du `redirect_enabled` parametern till `ON` att tillåta anslutningar med omdirigerings läge. Använd [Azure Portal](howto-server-parameters.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md)för att uppdatera denna server parameter.
 
 ## <a name="php"></a>PHP
 

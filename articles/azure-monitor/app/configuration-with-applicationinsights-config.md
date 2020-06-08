@@ -4,17 +4,17 @@ description: Aktivera eller inaktivera moduler för data insamling och Lägg til
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 3375c24739da8663aa6a40deeb53e02e65d1f9bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dde2cbf227f085b751f6ad22e1f2fa95f38c5915
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537567"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485135"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. [Kärn paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights) innehåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) tillhandahåller telemetri- *moduler* och *initierare* för automatisk spårning av telemetri från ditt program och dess kontext. Genom att justera konfigurations filen kan du aktivera eller inaktivera moduler för telemetri och initierare och ange parametrar för några av dem.
 
-Konfigurations filen heter `ApplicationInsights.config` eller `ApplicationInsights.xml`, beroende på typen av program. Den läggs automatiskt till i projektet när du [installerar de flesta versioner av SDK][start]. När du använder den automatiserade upplevelsen från Visual Studio Template-projekt som har stöd för **Lägg till > Application Insights Telemetry**skapas filen ApplicationInsights. config som standard i projektets rotmapp och när det är uppfyllt kopieras till bin-mappen. Den läggs också till i en webbapp genom att [statusövervakare på en IIS-server][redfield]. Konfigurations filen ignoreras om [tillägget för Azure-webbplatsen](azure-web-apps.md) eller [tillägget för Azure VM och skalnings uppsättningen för virtuella datorer](azure-vm-vmss-apps.md) används.
+Konfigurations filen heter `ApplicationInsights.config` eller `ApplicationInsights.xml` , beroende på typen av program. Den läggs automatiskt till i projektet när du [installerar de flesta versioner av SDK][start]. När du använder den automatiserade upplevelsen från Visual Studio Template-projekt som har stöd för **Lägg till > Application Insights Telemetry**skapas filen ApplicationInsights. config som standard i projektets rotmapp och när det är uppfyllt kopieras till bin-mappen. Den läggs också till i en webbapp genom att [statusövervakare på en IIS-server][redfield]. Konfigurations filen ignoreras om [tillägget för Azure-webbplatsen](azure-web-apps.md) eller [tillägget för Azure VM och skalnings uppsättningen för virtuella datorer](azure-vm-vmss-apps.md) används.
 
 Det finns ingen motsvarande fil för att kontrol lera [SDK: n på en webb sida][client].
 
@@ -45,7 +45,7 @@ Beroenden kan samlas in automatiskt utan att ändra din kod med hjälp av gruppr
 * [Microsoft. ApplicationInsights. PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet-paketet.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Application Insights Diagnostics-telemetri
-`DiagnosticsTelemetryModule` Rapporterar fel i själva Application Insights Instrumentation-koden. Om koden till exempel inte kan komma åt prestanda räknare eller om en `ITelemetryInitializer` genererar ett undantag. Trace-telemetri som spåras av den här modulen visas i den [diagnostiska sökningen][diagnostic].
+`DiagnosticsTelemetryModule`Rapporterar fel i själva Application Insights Instrumentation-koden. Om koden till exempel inte kan komma åt prestanda räknare eller om en `ITelemetryInitializer` genererar ett undantag. Trace-telemetri som spåras av den här modulen visas i den [diagnostiska sökningen][diagnostic].
 
 ```
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
@@ -69,7 +69,7 @@ Rapporterar [svars tid och resultat kod](../../azure-monitor/app/asp-net.md) fö
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft. ApplicationInsights. Web NuGet-](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) paket
-* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule`– spårar ej [observerade uppgifts undantag](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx).
+* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule`– spårar ej observerade uppgifts undantag
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule`– spårar ohanterade undantag för arbets roller, Windows-tjänster och konsol program.
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet-paket.
 
@@ -106,28 +106,28 @@ Standard initierarna anges antingen av webb-eller Windows Server NuGet-paket:
 
 * `AccountIdTelemetryInitializer`anger egenskapen AccountId.
 * `AuthenticatedUserIdTelemetryInitializer`anger egenskapen AuthenticatedUserId som anges av JavaScript SDK.
-* `AzureRoleEnvironmentTelemetryInitializer`uppdaterar `RoleName` och `RoleInstance` egenskaper för `Device` kontexten för alla telemetri-objekt med information som extraheras från Azure runtime-miljön.
-* `BuildInfoConfigComponentVersionTelemetryInitializer`uppdaterar `Version` egenskapen för `Component` kontexten för alla telemetri-objekt med det värde som extraheras `BuildInfo.config` från den fil som genererats av MS build.
-* `ClientIpHeaderTelemetryInitializer`Egenskapen `Ip` updates för `Location` kontexten för alla telemetri `X-Forwarded-For` -objekt baserat på http-rubriken för begäran.
+* `AzureRoleEnvironmentTelemetryInitializer`uppdaterar `RoleName` och `RoleInstance` Egenskaper för `Device` kontexten för alla telemetri-objekt med information som extraheras från Azure runtime-miljön.
+* `BuildInfoConfigComponentVersionTelemetryInitializer`uppdaterar `Version` egenskapen för `Component` kontexten för alla telemetri-objekt med det värde som extraheras från den `BuildInfo.config` fil som genererats av MS build.
+* `ClientIpHeaderTelemetryInitializer``Ip`egenskapen updates för `Location` kontexten för alla telemetri-objekt baserat på `X-Forwarded-For` http-rubriken för begäran.
 * `DeviceTelemetryInitializer`uppdaterar följande egenskaper för `Device` kontexten för alla telemetri-objekt.
   * `Type`har angetts till "PC"
   * `Id`har angetts till domän namnet för den dator där webb programmet körs.
   * `OemName`har värdet extraherat från `Win32_ComputerSystem.Manufacturer` fältet med WMI.
   * `Model`har värdet extraherat från `Win32_ComputerSystem.Model` fältet med WMI.
-  * `NetworkType`har angetts till värdet som extraheras från `NetworkInterface`.
-  * `Language`har angetts till namnet på `CurrentCulture`.
+  * `NetworkType`har angetts till värdet som extraheras från `NetworkInterface` .
+  * `Language`har angetts till namnet på `CurrentCulture` .
 * `DomainNameRoleInstanceTelemetryInitializer`uppdaterar `RoleInstance` egenskapen för `Device` kontexten för alla telemetri-objekt med domän namnet för den dator där webb programmet körs.
 * `OperationNameTelemetryInitializer`uppdaterar `Name` egenskapen för `RequestTelemetry` och `Name` egenskapen för `Operation` kontexten för alla telemetri-objekt baserat på http-metoden, samt namn på ASP.NET MVC-styrenhet och åtgärd som anropas för att bearbeta begäran.
-* `OperationIdTelemetryInitializer`eller `OperationCorrelationTelemetryInitializer` uppdaterar `Operation.Id` kontext egenskapen för alla telemetridata som spåras och hanterar en begäran med det automatiskt genererade `RequestTelemetry.Id`objektet.
+* `OperationIdTelemetryInitializer`eller `OperationCorrelationTelemetryInitializer` uppdaterar `Operation.Id` kontext egenskapen för alla telemetridata som spåras och hanterar en begäran med det automatiskt genererade objektet `RequestTelemetry.Id` .
 * `SessionTelemetryInitializer`uppdaterar `Id` egenskapen för `Session` kontexten för alla telemetri objekt med värdet som extraheras från `ai_session` cookien som genererats av ApplicationInsights JavaScript-Instrumentation-koden som körs i användarens webbläsare.
-* `SyntheticTelemetryInitializer`eller `SyntheticUserAgentTelemetryInitializer` uppdaterar egenskaperna `User`, `Session`, och `Operation` för alla telemetridata som spåras vid hantering av en begäran från en syntetisk källa, till exempel ett tillgänglighets test eller en sökmotor bot. Som standard visar [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) inte syntetisk telemetri.
+* `SyntheticTelemetryInitializer`eller `SyntheticUserAgentTelemetryInitializer` uppdaterar `User` egenskaperna, `Session` , och `Operation` för alla telemetridata som spåras vid hantering av en begäran från en syntetisk källa, till exempel ett tillgänglighets test eller en sökmotor bot. Som standard visar [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) inte syntetisk telemetri.
 
-    `<Filters>` Ange identifierings egenskaper för begär Anden.
-* `UserTelemetryInitializer`uppdaterar `Id` och `AcquisitionDate` egenskaper för `User` kontexten för alla telemetridata med värden som extraheras från `ai_user` cookien som genererats av Application Insights JavaScript-Instrumentation-koden som körs i användarens webbläsare.
+    `<Filters>`Ange identifierings egenskaper för begär Anden.
+* `UserTelemetryInitializer`uppdaterar `Id` och `AcquisitionDate` Egenskaper för `User` kontexten för alla telemetridata med värden som extraheras från `ai_user` cookien som genererats av Application Insights JavaScript-Instrumentation-koden som körs i användarens webbläsare.
 * `WebTestTelemetryInitializer`anger egenskaperna för användar-ID, sessions-ID och syntetisk källa för HTTP-förfrågningar som kommer från [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md).
-  `<Filters>` Ange identifierings egenskaper för begär Anden.
+  `<Filters>`Ange identifierings egenskaper för begär Anden.
 
-För .NET-program som körs i Service Fabric kan du inkludera `Microsoft.ApplicationInsights.ServiceFabric` NuGet-paketet. Det här paketet innehåller `FabricTelemetryInitializer`ett, som lägger till Service Fabric egenskaper till telemetri-objekt. Mer information finns på [sidan GitHub](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) om de egenskaper som lagts till av det här NuGet-paketet.
+För .NET-program som körs i Service Fabric kan du inkludera `Microsoft.ApplicationInsights.ServiceFabric` NuGet-paketet. Det här paketet innehåller ett `FabricTelemetryInitializer` , som lägger till Service Fabric egenskaper till telemetri-objekt. Mer information finns på [sidan GitHub](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) om de egenskaper som lagts till av det här NuGet-paketet.
 
 ## <a name="telemetry-processors-aspnet"></a>Telemetri-processorer (ASP.NET)
 Telemetri-processorer kan filtrera och ändra varje telemetri precis innan det skickas från SDK till portalen.
@@ -207,7 +207,7 @@ _Tillgänglig från och med v-2.6.0_
 
 Syftet med den här providern är att söka efter ett program-ID baserat på en Instrumentation-nyckel. Program-ID: t ingår i RequestTelemetry och DependencyTelemetry och används för att fastställa korrelationen i portalen.
 
-Detta är tillgängligt genom att `TelemetryConfiguration.ApplicationIdProvider` ställa in antingen i kod eller i konfig.
+Detta är tillgängligt genom att ställa in `TelemetryConfiguration.ApplicationIdProvider` antingen i kod eller i konfig.
 
 ### <a name="interface-iapplicationidprovider"></a>Gränssnitt: IApplicationIdProvider
 
@@ -219,7 +219,7 @@ public interface IApplicationIdProvider
 ```
 
 
-Vi tillhandahåller två implementeringar i SDK: n för [Microsoft. ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) : `ApplicationInsightsApplicationIdProvider` och `DictionaryApplicationIdProvider`.
+Vi tillhandahåller två implementeringar i SDK: n för [Microsoft. ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) : `ApplicationInsightsApplicationIdProvider` och `DictionaryApplicationIdProvider` .
 
 ### <a name="applicationinsightsapplicationidprovider"></a>ApplicationInsightsApplicationIdProvider
 
@@ -227,9 +227,9 @@ Detta är en omslutning runt vårt profil-API. Den kommer att begränsa begär A
 
 Den här providern läggs till i konfigurations filen när du installerar antingen [Microsoft. ApplicationInsights. DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) eller [Microsoft. ApplicationInsights. Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)
 
-Den här klassen har en valfri `ProfileQueryEndpoint`egenskap.
-Som standard är detta inställt på `https://dc.services.visualstudio.com/api/profiles/{0}/appId`.
-Om du behöver konfigurera en proxyserver för den här konfigurationen rekommenderar vi att du proxyerar bas adressen och inkluderar "/API/Profiles/{0}/appId". Observera att "{0}" ersätts vid körning per begäran med Instrumentation-nyckeln.
+Den här klassen har en valfri egenskap `ProfileQueryEndpoint` .
+Som standard är detta inställt på `https://dc.services.visualstudio.com/api/profiles/{0}/appId` .
+Om du behöver konfigurera en proxyserver för den här konfigurationen rekommenderar vi att du proxyerar bas adressen och inkluderar "/API/Profiles/ {0} /appId". Observera att " {0} " ersätts vid körning per begäran med Instrumentation-nyckeln.
 
 #### <a name="example-configuration-via-applicationinsightsconfig"></a>Exempel på konfiguration via ApplicationInsights. config:
 ```xml
@@ -251,9 +251,9 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApp
 
 Det här är en statisk provider som förlitar sig på den konfigurerade Instrumentation-nyckel/program-ID-paret.
 
-Den här klassen har en `Defined`egenskap, som är en ord lista<sträng, String> för Instrumentation-nyckel till program-ID-par.
+Den här klassen har en egenskap `Defined` , som är en ord lista<sträng, string> för Instrumentation-nyckel till program-ID-par.
 
-Den här klassen har en valfri `Next` egenskap som kan användas för att konfigurera en annan provider som ska användas när en Instrumentation-nyckel begärs som inte finns i konfigurationen.
+Den här klassen har en valfri egenskap `Next` som kan användas för att konfigurera en annan provider som ska användas när en Instrumentation-nyckel begärs som inte finns i konfigurationen.
 
 #### <a name="example-configuration-via-applicationinsightsconfig"></a>Exempel på konfiguration via ApplicationInsights. config:
 ```xml

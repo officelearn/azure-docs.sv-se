@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 46d8fb33c59fc5f0b6d844831e5ee1c937654afb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: e7776317b80dbe6d927cf33792d1a180a546fa05
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193799"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484236"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: regions tillgänglighet & data placering
 
@@ -41,7 +41,7 @@ Azure AD B2C lagrar användar data i antingen USA, Europa eller Asien och stilla
 
 Data placering bestäms av landet/regionen som du väljer när du [skapar en Azure AD B2C klient](tutorial-create-tenant.md):
 
-![Skärm bild av en för hands klient](./media/data-residency/data-residency-b2c-tenant.png)
+![Skärm bild av formuläret Skapa klient organisation, Välj land eller region.](./media/data-residency/data-residency-b2c-tenant.png)
 
 Data finns i **USA** för följande länder/regioner:
 
@@ -69,4 +69,4 @@ I så fall måste du bara använda din klient för utvecklings-och testnings syf
 
 Det finns kända problem när du tar bort en för hands version av B2C-klienten och skapar en B2C-klient för produktion med samma domän namn. *Du måste skapa en B2C-klient för produktions skala med ett annat domän namn*.
 
-![Skärm bild av en för hands klient](./media/data-residency/preview-b2c-tenant.png)
+![Skärm bild av en klient typ, som för hands versions klient.](./media/data-residency/preview-b2c-tenant.png)

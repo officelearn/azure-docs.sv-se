@@ -3,12 +3,12 @@ title: Felsöka Application Insights i ett Java-webbprojekt
 description: Fel söknings guide – övervakning av direktsända Java-appar med Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 04e98938bc5dd17816ae873f122073212275a414
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657188"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484784"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
 Är du av frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
@@ -16,24 +16,23 @@ ms.locfileid: "77657188"
 ## <a name="build-errors"></a>Build-fel
 **I Sol förmörkelse eller IntelliJ-idén, när jag lägger till Application Insights SDK via maven eller Gradle, får jag skapa eller kontroll Summa verifierings fel.**
 
-* Om beroende `<version>` elementet använder ett mönster med jokertecken (t. ex. (maven) `<version>[2.0,)</version>` eller (Gradle) `version:'2.0.+'`), kan du prova att ange en särskild version `2.0.1`i stället. Se [viktig information](https://github.com/Microsoft/ApplicationInsights-Java/releases) för den senaste versionen.
+* Om beroende `<version>` elementet använder ett mönster med jokertecken (t. ex. (maven) `<version>[2.0,)</version>` eller (Gradle) `version:'2.0.+'` ), kan du prova att ange en särskild version i stället `2.0.1` . Se [viktig information](https://github.com/Microsoft/ApplicationInsights-Java/releases) för den senaste versionen.
 
 ## <a name="no-data"></a>Inga data
 **Jag har lagt till Application Insights lyckades och körde appen, men jag har aldrig sett data i portalen.**
 
 * Vänta en minut och klicka på Uppdatera. Diagrammen uppdateras regelbundet, men du kan också uppdatera manuellt. Uppdaterings intervallet beror på diagrammets tidsintervall.
 * Kontrol lera att du har en Instrumentation-nyckel som har definierats i filen ApplicationInsights. XML (i mappen resurser i projektet) eller konfigurerat som miljö variabel.
-* Kontrol lera att det inte `<DisableTelemetry>true</DisableTelemetry>` finns någon nod i XML-filen.
+* Kontrol lera att det inte finns någon `<DisableTelemetry>true</DisableTelemetry>` nod i XML-filen.
 * I brand väggen kan du behöva öppna TCP-portarna 80 och 443 för utgående trafik till dc.services.visualstudio.com. Se den [fullständiga listan över brand Väggs undantag](../../azure-monitor/app/ip-addresses.md)
 * I Microsoft Azure start-tavlan tittar du på tjänst status kartan. Om det finns några aviserings indikationer väntar du tills de har kommit tillbaka till OK och stänger sedan och öppnar bladet Application Insights program igen.
-* [Aktivera loggning](#debug-data-from-the-sdk) genom att lägga till `<SDKLogger />` ett element under rotnoden i filen ApplicationInsights. XML (i mappen resurser i projektet) och Sök efter poster som föregås av AI: info/warn/Error för eventuella misstänkta loggar. 
+* [Aktivera loggning](#debug-data-from-the-sdk) genom att lägga till ett `<SDKLogger />` element under rotnoden i filen ApplicationInsights. XML (i mappen resurser i projektet) och Sök efter poster som föregås av AI: info/warn/Error för eventuella misstänkta loggar. 
 * Kontrol lera att rätt ApplicationInsights. XML-fil har lästs in av Java SDK genom att titta på konsolens utgående meddelanden för en "konfigurations fil har hittats"-instruktionen.
 * Om det inte går att hitta konfigurations filen kontrollerar du meddelandena för att se var konfigurations filen genomsöks och kontrollerar att ApplicationInsights. xml finns på någon av dessa Sök platser. Som en tumregel kan du placera konfigurations filen nära Application Insights SDK-jar v7. Exempel: i Tomcat kan detta innebära mappen WEB-INF/classes. Under utvecklingen kan du placera ApplicationInsights. xml i mappen resurser i ditt webb projekt.
 * Titta även på [sidan med GitHub-problem](https://github.com/Microsoft/ApplicationInsights-Java/issues) för kända problem med SDK: n.
 * Se till att använda samma version av Application Insights Core, webb, agent och logg tillägg för att undvika eventuella problem med versions konflikter.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Jag har använt för att se data, men har stoppats
-* Kontrol lera [status bloggen](https://blogs.msdn.com/b/applicationinsights-status/).
 * Har du nått din månads kvot för data punkter? Öppna inställningar/kvot och priser för att ta reda på det. I så fall kan du uppgradera planen eller betala för ytterligare kapacitet. Se [pris Planen](https://azure.microsoft.com/pricing/details/application-insights/).
 * Har du nyligen uppgraderat din SDK? Kontrol lera att det bara finns unika SDK-jar v7 i projekt katalogen. Det finns inte två olika versioner av SDK.
 * Tittar du på rätt AI-resurs? Matcha iKey för ditt program till den resurs där du förväntar dig telemetri. De bör vara identiska.
@@ -93,7 +92,7 @@ Med XML-metoden måste du starta om programmet när du ändrar värdet.
 
 **Hur kan jag ta reda på vad SDK gör?**
 
-Om du vill ha mer information om vad som händer i API: `<SDKLogger/>` et lägger du till under rotnoden i konfigurations filen ApplicationInsights. xml.
+Om du vill ha mer information om vad som händer i API: et lägger du till `<SDKLogger/>` under rotnoden i konfigurations filen ApplicationInsights. xml.
 
 ### <a name="applicationinsightsxml"></a>ApplicationInsights. XML
 
@@ -109,7 +108,7 @@ Du kan också instruera loggen att skicka utdata till en fil:
 
 ### <a name="spring-boot-starter"></a>Start starter för våren
 
-Lägg till följande i `application.properties` filen om du vill aktivera SDK-loggning med våren Boot Apps med Application Insights våren Boot starter:
+Lägg till följande i filen om du vill aktivera SDK-loggning med våren Boot Apps med Application Insights våren Boot starter `application.properties` :
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -173,10 +172,10 @@ I brand väggen kan du behöva öppna TCP-portarna 80 och 443 för utgående tra
 Se [data kvarhållning och sekretess][data].
 
 ## <a name="debug-logging"></a>Fel söknings loggning
-Application Insights använder `org.apache.http`. Detta finns i Application Insights Core-jar v7 under namn området `com.microsoft.applicationinsights.core.dependencies.http`. Detta gör att Application Insights kan hantera scenarier där olika versioner av samma `org.apache.http` finns i en kodbas.
+Application Insights använder `org.apache.http` . Detta finns i Application Insights Core-jar v7 under namn området `com.microsoft.applicationinsights.core.dependencies.http` . Detta gör att Application Insights kan hantera scenarier där olika versioner av samma `org.apache.http` finns i en kodbas.
 
 >[!NOTE]
->Om du aktiverar loggning av fel SÖKNINGs nivå för alla namn områden i appen, kommer den att följas av alla moduler som `org.apache.http` körs, inklusive omdöpt till `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights kan inte använda filtrering för dessa anrop eftersom logg anropet görs av Apache-biblioteket. Loggning av fel SÖKNINGs nivå ger en stor mängd loggdata och rekommenderas inte för direktsända produktions instanser.
+>Om du aktiverar loggning av fel SÖKNINGs nivå för alla namn områden i appen, kommer den att följas av alla moduler som körs, inklusive `org.apache.http` omdöpt till `com.microsoft.applicationinsights.core.dependencies.http` . Application Insights kan inte använda filtrering för dessa anrop eftersom logg anropet görs av Apache-biblioteket. Loggning av fel SÖKNINGs nivå ger en stor mängd loggdata och rekommenderas inte för direktsända produktions instanser.
 
 
 ## <a name="next-steps"></a>Nästa steg

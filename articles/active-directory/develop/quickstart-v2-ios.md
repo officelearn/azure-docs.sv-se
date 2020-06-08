@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 5ade4701c53287de5d5815531f12850b3dc839de
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 840c0157713e9758092ca5cc51ee2745428ae568
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169856"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483532"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Snabb start: Logga in användare och anropa Microsoft Graph API från en iOS-eller macOS-app
 
@@ -70,56 +70,32 @@ Den här snabb starten gäller både iOS-och macOS-appar. Vissa steg behövs bar
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Redan konfigurerad](media/quickstart-v2-ios/green-check.png) appen konfigureras med de här attributen
-
-#### <a name="step-2-download-the-sample-project"></a>Steg 2: Hämta exempel projektet
-
-- [Ladda ned kod exemplet för iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
-- [Ladda ned kod exemplet för macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
+> 
+> #### <a name="step-2-download-the-sample-project"></a>Steg 2: Hämta exempel projektet
+> > [!div id="autoupdate_ios" class="nextstepaction"]
+> > [Ladda ned kod exemplet för iOS]()
+> 
+> > [!div id="autoupdate_macos" class="nextstepaction"]
+> > [Ladda ned kod exemplet för macOS]()
+> [!div renderon="docs"]
+> #### <a name="step-2-download-the-sample-project"></a>Steg 2: Hämta exempel projektet
+> 
+> - [Ladda ned kod exemplet för iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+> - [Ladda ned kod exemplet för macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-install-dependencies"></a>Steg 3: Installera beroenden
 
 I ett terminalfönster navigerar du till mappen med det nedladdade kod exemplet och kör `pod install` för att installera det senaste MSAL-biblioteket.
 
-#### <a name="step-4-configure-your-project"></a>Steg 4: Konfigurera ditt projekt
-
-> [!div renderon="docs"]
-> Om du valde alternativ 1 ovan kan du hoppa över de här stegen.
-
 > [!div renderon="portal" class="sxs-lookup"]
-> 1. Extrahera zip-filen och öppna projektet i XCode.
-> 1. Redigera **ViewController. SWIFT** och ersätt raden som börjar med "Låt kClientID" med följande kodfragment. Kom ihåg att uppdatera värdet för `kClientID` med det klient-ID som du sparade när du registrerade din app i portalen tidigare i snabb starten:
->    ```swift
->    let kClientID = "Enter_the_Application_Id_Here"
->    ```
-> 1. Redigera **ViewController. SWIFT** och ersätt raden som börjar med "Låt kAuthority" med följande kodfragment:
->    ```swift
->    let kAuthority = "Enter_the_Authority_Endpoint_Host_HereEnter_the_Tenant_Info_Here"
->    ```
-> 1. Redigera **ViewController. SWIFT** och ersätt raden som börjar med "Låt kGraphEndpoint" med följande kodfragment:
->    ```swift
->    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
->    ```
-> 1. Öppna projekt inställningarna. I avsnittet **identitet** anger du det **paket-ID** som du angav i portalen.
-> 1. För endast iOS högerklickar du på **info. plist** och väljer **öppna som**  >  **källkod**.
-> 1. Endast för iOS, under noden dict-rotnod, ersätter `CFBundleURLSchemes` du med det ***paket-ID*** som du angav i portalen.
->
->    ```xml
->    <key>CFBundleURLTypes</key>
->    <array>
->       <dict>
->          <key>CFBundleURLSchemes</key>
->          <array>
->             <string>msauth.Enter_the_Bundle_Id_Here</string>
->          </array>
->       </dict>
->    </array>
->    ```
-> 1. Bygg & kör appen!
-> [!div class="sxs-lookup" renderon="portal"]
-> > [!NOTE]
+> #### <a name="step-4-your-app-is-configured-and-ready-to-run"></a>Steg 4: appen är konfigurerad och redo att köras
+> Vi har konfigurerat ditt projekt med värdena för appens egenskaper och är redo att köras.
+> >  [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
+
 > [!div renderon="docs"]
->
+>#### <a name="step-4-configure-your-project"></a>Steg 4: Konfigurera ditt projekt
+> Om du valde alternativ 1 ovan kan du hoppa över de här stegen.
 > 1. Extrahera zip-filen och öppna projektet i XCode.
 > 1. Redigera **ViewController. SWIFT** och ersätt raden som börjar med "Låt kClientID" med följande kodfragment. Kom ihåg att uppdatera värdet för `kClientID` med clientID som du sparade när du registrerade din app i portalen tidigare i den här snabb starten:
 >    ```swift
@@ -136,8 +112,8 @@ I ett terminalfönster navigerar du till mappen med det nedladdade kod exemplet 
 >     let kAuthority = "https://login.microsoftonline.de/common"
 >     ```
 > 1. Öppna projekt inställningarna. I avsnittet **identitet** anger du det **paket-ID** som du angav i portalen.
-> 1. För endast iOS högerklickar du på **info. plist** och väljer **öppna som**  >  **källkod**.
-> 1. Endast för iOS, under noden dict-rotnod, ersätter `Enter_the_bundle_Id_Here` du med det ***paket-ID*** som du använde i portalen.
+> 1. Högerklicka på **info. plist** och välj **öppna som**  >  **källkod**.
+> 1. Under noden dict root ersätter `Enter_the_bundle_Id_Here` du med det ***paket-ID*** som du använde i portalen.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>

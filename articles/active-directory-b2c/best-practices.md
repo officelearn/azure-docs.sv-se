@@ -8,23 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: b16c60130836cf0e3b38092b894129f503ee6e83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b18717b78a271bd390bc221e9ed0723cb02079ce
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82141673"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484302"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Rekommendationer och metod tips för Azure Active Directory B2C
 
 Följande metod tips och rekommendationer beskriver några av de viktigaste aspekterna av att integrera Azure Active Directory (Azure AD) B2C i befintliga eller nya program miljöer.
 
-## <a name="fundamentals"></a>Grunderna
+## <a name="fundamentals"></a>Grunder
 
-|  |  |
+| Regelverk | Beskrivning |
 |--|--|
 | Välj användar flöden för de flesta scenarier | Azure AD B2C av identitets erfarenhets ramverket för är tjänstens kärn styrka. Principer beskriver fullständigt identitets upplevelser som registrering, inloggning eller profil redigering. För att hjälpa dig att skapa de vanligaste identitets uppgifterna innehåller Azure AD B2C portalen fördefinierade, konfigurerbara principer som kallas användar flöden. Med användar flöden kan du skapa fantastiska användar upplevelser på några minuter, med bara några få klick. [Lär dig när du ska använda användar flöden jämfört med anpassade principer](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
 | Appregistreringar | Varje program (webb, ursprunglig) och API som skyddas måste registreras i Azure AD B2C. Om en app har både en webb-och en ursprunglig version av iOS och Android kan du registrera dem som ett program i Azure AD B2C med samma klient-ID. Lär dig hur du [registrerar OIDC-, SAML-, webb-och interna appar](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=applications). Läs mer om [program typer som kan användas i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/application-types). |
@@ -34,7 +34,7 @@ Följande metod tips och rekommendationer beskriver några av de viktigaste aspe
 
 Definiera din program-och tjänst arkitektur, inventera aktuella system och Planera migreringen till Azure AD B2C.
 
-|  |  |
+| Regelverk | Beskrivning |
 |--|--|
 | Skapa en lösning från slut punkt till slut punkt | Ta med alla dina program beroenden när du planerar en Azure AD B2C-integrering. Överväg alla tjänster och produkter som för närvarande finns i din miljö eller som kan behöva läggas till i lösningen, till exempel Azure Functions, CRM-system (Customer Relations hip Management), Azure API Management Gateway och lagrings tjänster. Ta hänsyn till säkerhet och skalbarhet för alla tjänster. |
 | Dokumentera användarnas upplevelser | Beskriv all den användare som dina kunder kan uppleva i ditt program. Ta med varje skärm och eventuella förgreningar som de kan stöta på när du interagerar med identitets-och profil aspekterna i ditt program. Inkludera användbarhet, tillgänglighet och lokalisering i planeringen. |
@@ -49,7 +49,7 @@ Definiera din program-och tjänst arkitektur, inventera aktuella system och Plan
 
 Beakta följande rekommendationer under implementerings fasen.
 
-|  |  |
+| Regelverk | Beskrivning |
 |--|--|
 | Redigera anpassade principer med Azure AD B2C-tillägget för Visual Studio Code | Hämta Visual Studio Code och detta community-integrerade [tillägg från Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). Även om det inte är en officiell Microsoft-produkt innehåller Azure AD B2C tillägget för Visual Studio Code flera funktioner som hjälper dig att arbeta med anpassade principer enklare. |
 | Lär dig hur du felsöker Azure AD B2C | Lär dig hur du [felsöker anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) under utveckling. Lär dig hur ett normalt autentiseringsschema ser ut och använder verktyg för att identifiera avvikelser och fel. Använd till exempel [Application Insights](troubleshoot-with-application-insights.md) för att granska utgående loggar för användar resor. |
@@ -60,7 +60,7 @@ Beakta följande rekommendationer under implementerings fasen.
 
 Testa och automatisera implementeringen av Azure AD B2C.
 
-|  |  |
+| Regelverk | Beskrivning |
 |--|--|
 | Konto för global trafik | Använd trafik källor från en annan global adress för att testa kraven på prestanda och lokalisering. Se till att alla HTML-, CSS-och-beroenden kan uppfylla dina prestanda behov. |
 | Funktionella och UI-testning | Testa att användaren flödar från slut punkt till slut punkt. Lägg till syntetiska tester i några minuter med hjälp av selen, VS Web test osv. |
@@ -74,7 +74,7 @@ Testa och automatisera implementeringen av Azure AD B2C.
 
 Hantera din Azure AD B2Cs miljö.
 
-|  |  |
+| Regelverk | Beskrivning |
 |--|--|
 | Skapa flera miljöer | För enklare drift och distribution kan du skapa separata miljöer för utveckling, testning, för produktion och produktion. Skapa Azure AD B2C klienter för var och en. |
 | Använd versions kontroll för dina anpassade principer | Överväg att använda GitHub, Azure databaser eller något annat molnbaserad versions kontroll system för dina Azure AD B2C anpassade principer. |
@@ -88,7 +88,7 @@ Hantera din Azure AD B2Cs miljö.
 
 Håll dig uppdaterad med tjänstens tillstånd och hitta support alternativ.
 
-|  |  |
+| Regelverk | Beskrivning |
 |--|--|
 | [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Håll dig uppdaterad med Azure AD B2C produkt uppdateringar och meddelanden. |
 | [Microsoft Support](support-options.md) | Skicka en supportbegäran till Azure AD B2C tekniska problem. Support för fakturering och prenumerations hantering ges utan kostnad. |

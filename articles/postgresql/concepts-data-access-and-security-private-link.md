@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 4216abdf8cc8aae00e3ba0c57961c4b8b7403672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2ed81972cd89856d0bcde689c3d1f61c5534c96
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371689"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485052"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Privat länk för Azure Database for PostgreSQL-enskild server
 
@@ -46,6 +46,10 @@ Med privat länk kan du nu konfigurera nätverks åtkomst kontroller som NSG: er
 När du ansluter till den offentliga slut punkten från lokala datorer måste du lägga till din IP-adress i den IP-baserade brand väggen med hjälp av en brand Väggs regel på server nivå. Även om den här modellen fungerar bra för att tillåta åtkomst till enskilda datorer för utveckling eller testning av arbets belastningar, är det svårt att hantera i en produktions miljö.
 
 Med privat länk kan du aktivera åtkomst mellan platser till den privata slut punkten med hjälp av [Express Route](https://azure.microsoft.com/services/expressroute/) (er), privat peering eller [VPN-tunnel](https://docs.microsoft.com/azure/vpn-gateway/). De kan sedan inaktivera all åtkomst via offentlig slut punkt och inte använda den IP-baserade brand väggen.
+
+> [!NOTE]
+> I vissa fall finns Azure Database for PostgreSQL och VNet-under nätet i olika prenumerationer. I dessa fall måste du se till att följande konfigurationer:
+> - Se till att båda prenumerations resurs leverantören för **Microsoft. DBforPostgreSQL** är registrerad. Mer information hittar du i [Resource Manager-Registration][resource-manager-portal]
 
 ## <a name="configure-private-link-for-azure-database-for-postgresql-single-server"></a>Konfigurera privat länk för Azure Database for PostgreSQL enskild server
 
@@ -129,3 +133,6 @@ Mer information om Azure Database for PostgreSQL funktioner för enskild server-
 * Information om hur du konfigurerar en tjänst slut punkt för virtuella nätverk för din Azure Database for PostgreSQL enskild server finns i [Konfigurera åtkomst från virtuella nätverk](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet).
 
 * En översikt över Azure Database for PostgreSQL enskild server-anslutning finns i [Azure Database for PostgreSQL anslutnings arkitektur](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

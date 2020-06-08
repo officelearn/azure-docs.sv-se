@@ -3,12 +3,12 @@ title: Skapa/anpassa återställnings planer i Azure Site Recovery
 description: Lär dig hur du skapar och anpassar återställnings planer för haveri beredskap med hjälp av Azure Site Recovery-tjänsten.
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 6540317324a9f0d9bccc046ecf95824d4128bd09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76705844"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485329"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Skapa och anpassa återställnings planer
 
@@ -16,7 +16,7 @@ Den här artikeln beskriver hur du skapar och anpassar en återställnings plan 
 
 ## <a name="create-a-recovery-plan"></a>Skapa en återställningsplan
 
-1. I Recovery Services-valvet väljer du **återställnings planer (Site Recovery)** > **+ återställnings plan**.
+1. I Recovery Services-valvet väljer du **återställnings planer (Site Recovery)**  >  **+ återställnings plan**.
 2. I **skapa återställnings plan**anger du ett namn för planen.
 3. Välj en källa och ett mål baserat på datorerna i planen och välj **Resource Manager** för distributions modellen. Käll platsen måste ha datorer som är aktiverade för redundans och återställning. 
 
@@ -28,10 +28,10 @@ Den här artikeln beskriver hur du skapar och anpassar en återställnings plan 
    Hyper-V till Azure | Välj namnet på Hyper-V-platsen | Välj Azure
    Hyper-V (hanteras av VMM) till Azure  | Välj VMM-Server | Välj Azure
   
-    Observera följande:
-    -  Du kan bara använda en återställnings plan för redundans från käll platsen till Azure. Du kan inte använda en återställnings plan för återställning efter fel från Azure.
-    - Käll platsen måste ha datorer som är aktiverade för redundans och återställning. 
-    - En återställnings plan kan innehålla datorer med samma källa och mål. 
+    . Tänk på följande:
+    - Du kan använda en återställnings plan för både redundans till Azure och återställning efter fel från Azure.
+    - Käll platsen måste ha datorer som är aktiverade för redundans och återställning.
+    - En återställnings plan kan innehålla datorer med samma källa och mål.
     - Du kan inkludera virtuella VMware-datorer och virtuella Hyper-V-datorer som hanteras av VMM i samma plan.
     - Virtuella VMware-datorer och fysiska servrar kan vara i samma plan.
 
@@ -63,9 +63,9 @@ Du kan anpassa en återställnings plan genom att lägga till ett skript eller e
     **Scenario** | **Redundans** | **Återställ**
     --- | --- | --- 
     Azure till Azure  | Runbook | Runbook
-    VMware till Azure | Runbook | Ej tillämpligt 
+    VMware till Azure | Runbook | NA 
     Hyper-V med VMM till Azure | Runbook | Skript
-    Hyper-V-plats till Azure | Runbook | Ej tillämpligt
+    Hyper-V-plats till Azure | Runbook | NA
     VMM till sekundär VMM | Skript | Skript
 
 1. I återställnings planen klickar du på steget som åtgärden ska läggas till i och anger när åtgärden ska utföras:
@@ -76,7 +76,7 @@ Du kan anpassa en återställnings plan genom att lägga till ett skript eller e
     1. Ange ett namn för åtgärden och skriv instruktions instruktioner. Den person som kör redundansväxlingen kommer att se dessa instruktioner.
     1. Ange om du vill lägga till den manuella åtgärden för alla typer av redundans (test, redundans, planerad redundansväxling (om det behövs)). Klicka sedan på **OK**.
 4. Gör så här om du vill lägga till ett skript:
-    1. Om du lägger till ett VMM-skript väljer du **redundans till VMM-skript**och anger den relativa sökvägen till resursen i **skript Sök väg** . Om resursen till exempel finns på \\ \<VMMServerName> \msscvmmlibrary\rpscripts anger du sökvägen: \RPScripts\RPScript.ps1.
+    1. Om du lägger till ett VMM-skript väljer du **redundans till VMM-skript**och anger den relativa sökvägen till resursen i **skript Sök väg** . Om resursen till exempel finns på \\ \<VMMServerName> \MSSCVMMLibrary\RPScripts anger du sökvägen: \RPScripts\RPScript.ps1.
     1. Om du lägger till en Azure Automation-körnings bok anger du **Azure Automation kontot** där runbooken finns och väljer lämpligt **Azure Runbook-skript**.
 5. Kör ett redundanstest för återställnings planen för att kontrol lera att skriptet fungerar som förväntat.
 

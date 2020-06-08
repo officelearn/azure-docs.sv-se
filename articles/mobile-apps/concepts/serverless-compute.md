@@ -5,14 +5,14 @@ author: codemillmatt
 ms.service: mobile-services
 ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 06eb757955f403b91ae38602f4dc8ccc3fa52f26
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: f27ef3868cb53c76ecd3ba5d3b24cd075f8a5531
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450978"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485307"
 ---
 # <a name="build-mobile-back-end-components-with-compute-services"></a>Bygg mobila Server dels komponenter med beräknings tjänster
 Varje mobil program behöver en server del som ansvarar för data lagring, affärs logik och säkerhet. Genom att hantera infrastrukturen som värd och köra backend-kod måste du ändra storlek, etablera och skala flera servrar. Du måste också hantera OS-uppdateringar och den berörda maskin varan och använda säkerhets korrigeringar. Sedan måste du övervaka alla dessa infrastruktur komponenter för prestanda, tillgänglighet och fel tolerans. 

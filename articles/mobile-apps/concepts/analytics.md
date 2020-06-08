@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: ebe07ec76e5b852dbe7d030ad8859d59ce5cd074
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 6895944e4ca5cb115725814e9d27cb1f5fa04cfa
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84451062"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484844"
 ---
 # <a name="analyze-and-understand-mobile-application-use"></a>Analysera och förstå användning av mobil program
 Hur bra är det att förstå hur dina användare använder dina program? Hur många aktiva användare har ditt program och hur ändras användningen över tid? Vilka funktioner använder de och vilka som används mest? Var är dessa användare baserade? Hur många användare använder den senaste versionen av programmet? Alla dessa frågor är viktiga att känna till för att göra din app till en lyckad verksamhet. Du måste samla in användnings data från dina appar för att kunna besvara dessa typer av användnings analys frågor.

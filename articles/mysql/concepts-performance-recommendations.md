@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/12/2020
-ms.openlocfilehash: cba07b84a1ddc2b9362c818ae2d3747b98379f2e
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.date: 6/3/2020
+ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402649"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485213"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Prestandarekommendationer i Azure Database for MySQL
 
@@ -29,23 +29,25 @@ Funktionen [Prestandarekommendationer](concepts-performance-recommendations.md) 
 
 Öppna **prestanda rekommendationer** från avsnittet **intelligent prestanda** i meny raden på Azure Portal sidan för MySQL-servern.
 
-![Landningssida för prestandarekommendationer](./media/concepts-performance-recommendations/performance-recommendations-page.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="Landningssida för prestandarekommendationer":::
 
 Välj **analysera** och välj en databas som kommer att påbörja analysen. Det kan ta flera minuter att slutföra analysen, beroende på din arbets belastning. När analysen är klar, visas ett meddelande i portalen. Analysen utför en djup granskning av din databas. Vi rekommenderar att du utför analyser under perioder med låg belastning.
 
 I fönstret **rekommendationer** visas en lista med rekommendationer om de hittades och det relaterade fråge-ID som skapade rekommendationen. Med fråge-ID kan du använda vyn [MySQL. query_store](concepts-query-store.md#mysqlquery_store) för att läsa mer om frågan.
 
-![Ny sida med prestanda rekommendationer](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Ny sida med prestanda rekommendationer":::
 
 Rekommendationerna tillämpas inte automatiskt. Om du vill tillämpa rekommendationen kopierar du frågetexten och kör den från din valda klient. Kom ihåg att testa och övervaka för att utvärdera rekommendationen.
 
 ## <a name="recommendation-types"></a>Rekommendations typer
 
-För närvarande stöds endast *create index* -rekommendationer.
-
-### <a name="create-index-recommendations"></a>Skapa index rekommendationer
+### <a name="index-recommendations"></a>Index rekommendationer
 
 *Skapa index* rekommendationer föreslå nya index för att påskynda de vanligaste frågorna för körning eller tids krävande frågor i arbets belastningen. Den här rekommendations typen kräver att [query Store](concepts-query-store.md) är aktiverat. Query Store samlar in frågedata och ger detaljerad information om fråge körning och frekvens statistik som används av analysen för att göra rekommendationen.
+
+### <a name="query-recommendations"></a>Fråga rekommendationer
+
+Fråga rekommendationer föreslår optimeringar och skriv om för frågor i arbets belastningen. Genom att identifiera MySQL-frågas anti-mönster och åtgärda dem syntaktiskt kan du förbättra prestanda för tids krävande frågor. Den här rekommendations typen kräver att Query Store är aktiverat. Query Store samlar in frågedata och ger detaljerad information om fråge körning och frekvens statistik som används av analysen för att göra rekommendationen.
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [övervakning och justering](concepts-monitoring.md) i Azure Database for MySQL.

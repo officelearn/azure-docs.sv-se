@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: 332b0193059c2c60cce0bc653d48bace45eca38d
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 62c7a3ecec3f941971cad552af2e36f63ab67c60
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432721"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485113"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -32,11 +32,14 @@ Hyper-V utan Virtual Machine Manager | Du kan utföra haveri beredskap till Azur
 
 **Server** | **Krav** | **Information**
 --- | --- | ---
-Hyper-V (körs utan Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 med senaste uppdateringar (inklusive Server Core-installation av dessa operativ system) | Om du redan har konfigurerat Windows Server 2012 R2 med/eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera operativ systemet, följer du vägledningen [.](upgrade-2012R2-to-2016.md) <br/><br/> Obs! failback stöds inte för Windows Server 2019 Server Core-version.
-Hyper-V (körs med Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Om Virtual Machine Manager används bör Windows Server 2019-värdar hanteras i Virtual Machine Manager 2019. På samma sätt bör Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.<br/><br/> Obs! failback till alternativ plats stöds inte för Windows Server 2019-värdar.
+Hyper-V (körs utan Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 med senaste uppdateringar (inklusive Server Core-installation av dessa operativ system) | Om du redan har konfigurerat Windows Server 2012 R2 med/eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera operativ systemet, följer du vägledningen [.](upgrade-2012R2-to-2016.md)
+Hyper-V (körs med Virtual Machine Manager) | Virtual Machine Manager 2019 Virtual Machine Manager 2016 Virtual Machine Manager 2012 R2 (inklusive Server Core-installation av dessa operativ system) | Om Virtual Machine Manager används bör Windows Server 2019-värdar hanteras i Virtual Machine Manager 2019. På samma sätt bör Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.
 
 > [!NOTE]
-> Se till att .NET Framework 4.6.2 eller högre finns på den lokala servern.
+>
+> - Se till att .NET Framework 4.6.2 eller högre finns på den lokala servern.
+> - Återställning efter fel stöds inte för Windows Server 2019 Server Core-version.
+> - Det finns inte stöd för återställning efter fel till den alternativa platsen för Windows Server 2019-värdar.
 
 ## <a name="replicated-vms"></a>Replikerade virtuella datorer
 

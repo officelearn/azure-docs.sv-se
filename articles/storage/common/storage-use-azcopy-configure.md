@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6066cd4f347ef05e6fcdb67bb1223ffbc0cae46b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 30244a426b6f934ef66261c6dccbb46e72f28488
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341020"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485198"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -34,7 +34,7 @@ Om du vill konfigurera proxyinställningarna för AzCopy anger du `https_proxy` 
 |--------|-----------|
 | **Windows** | Använd följande i en kommando tolk:`set https_proxy=<proxy IP>:<proxy port>`<br> I PowerShell använder du:`$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
 För närvarande stöder AzCopy inte proxyservrar som kräver autentisering med NTLM eller Kerberos.
 
@@ -63,23 +63,23 @@ Det här avsnittet hjälper dig att utföra följande optimerings aktiviteter:
 
 ### <a name="run-benchmark-tests"></a>Kör benchmark-tester
 
-Du kan köra ett prestandatest på vissa BLOB-behållare för att visa allmän prestanda statistik och för att identifiera Flask halsar i identiteter. 
+Du kan köra ett prestandatest på vissa BLOB-behållare eller fil resurser för att visa allmänna prestanda statistik och för att identifiera Flask halsar i identiteter. 
 
 Använd följande kommando för att köra ett prestandatest.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
-| **Exempel** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
+| **Syntax** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
+| **Exempel** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 > [!TIP]
 > I det här exemplet omges Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 Det här kommandot kör prestanda mätning genom att överföra test data till ett angivet mål. Test data genereras i minnet, överförs till målet och tas sedan bort från målet när testet har slutförts. Du kan ange hur många filer som ska genereras och vilken storlek du vill att de ska vara med hjälp av valfria kommando parametrar.
 
-Detaljerade referens dokument finns i [AzCopy bänk](storage-ref-azcopy-bench.md).
+Detaljerade referens dokument finns i [AzCopy benchmark](storage-ref-azcopy-bench.md).
 
-Om du vill visa detaljerad hjälp guide för det här kommandot skriver du `azcopy bench -h` och trycker sedan på RETUR-tangenten.
+Om du vill visa detaljerad hjälp guide för det här kommandot skriver du `azcopy benchmark -h` och trycker sedan på RETUR-tangenten.
 
 ### <a name="optimize-throughput"></a>Optimera data flödet
 
@@ -97,7 +97,7 @@ Om datorn har färre än 5 processorer anges värdet för den här variabeln til
 |--------|-----------|
 | **Windows** | `set AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
-| **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
+| **macOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
 Använd `azcopy env` för att kontrol lera det aktuella värdet för den här variabeln. Om värdet är tomt kan du läsa vilket värde som används genom att titta i början av en AzCopy logg fil. Det valda värdet, och orsaken till det valdes, rapporteras där.
 
@@ -112,7 +112,7 @@ Express detta värde i gigabyte (GB).
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
-| **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
+| **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
 ### <a name="optimize-file-synchronization"></a>Optimera filsynkronisering
 
@@ -193,9 +193,9 @@ Använd något av dessa kommandon.
 
 | Operativsystem | Kommando  |
 |--------|-----------|
-| **Windows** | `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **Windows** | PowerShell`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> Använd följande i en kommando tolk:`set AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
-| **MacOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **macOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 
 Använd `azcopy env` för att kontrol lera det aktuella värdet för den här variabeln. Om värdet är tomt skrivs planera filer till standard platsen.
 
@@ -205,9 +205,9 @@ Använd något av dessa kommandon.
 
 | Operativsystem | Kommando  |
 |--------|-----------|
-| **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
+| **Windows** | PowerShell`$env:AZCOPY_LOG_LOCATION="<value>"` <br> Använd följande i en kommando tolk:`set AZCOPY_LOG_LOCATION=<value>`|
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
-| **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
+| **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
 Använd `azcopy env` för att kontrol lera det aktuella värdet för den här variabeln. Om värdet är tomt skrivs loggar till standard platsen.
 

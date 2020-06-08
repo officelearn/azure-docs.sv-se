@@ -3,12 +3,12 @@ title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 46e8db865b022e4fa1294c96843553a0480e559f
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653333"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485451"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Skapa resurser på klient nivå
 
@@ -72,7 +72,7 @@ För Azure CLI använder du [AZ Deployment Tenant Create](/cli/azure/deployment/
 az deployment tenant create \
   --name demoTenantDeployment \
   --location WestUS \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 För Azure PowerShell använder du [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
@@ -81,7 +81,7 @@ För Azure PowerShell använder du [New-AzTenantDeployment](/powershell/module/a
 New-AzTenantDeployment `
   -Name demoTenantDeployment `
   -Location "West US" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 För REST API använder du [distributioner – skapa eller uppdatera i klient omfånget](/rest/api/resources/deployments/createorupdateattenantscope).
@@ -117,7 +117,7 @@ För klient distributioner finns det några viktiga saker att tänka på när du
 
 ## <a name="create-management-group"></a>Skapa en hanteringsgrupp
 
-[Följande mall](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg) skapar en hanterings grupp.
+[Följande mall](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) skapar en hanterings grupp.
 
 ```json
 {
@@ -143,7 +143,7 @@ För klient distributioner finns det några viktiga saker att tänka på när du
 
 ## <a name="assign-role"></a>Tilldela roll
 
-[Följande mall](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment) tilldelar en roll i klient omfånget.
+[Följande mall](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) tilldelar en roll i klient omfånget.
 
 ```json
 {

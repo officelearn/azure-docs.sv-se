@@ -4,14 +4,14 @@ description: Läs mer om SQL ORDER BY-satsen för Azure Cosmos DB. Använd SQL s
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641398"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484328"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>ORDER BY-sats i Azure Cosmos DB
 
@@ -33,7 +33,7 @@ ORDER BY <sort_specification>
   
    Flera egenskaper kan anges. Egenskaps namn måste vara unika. Ordningen på sorterings egenskaperna i- `ORDER BY` satsen definierar organisationen för den sorterade resultat uppsättningen. Det vill säga resultat uppsättningen sorteras efter den första egenskapen och sedan sorteras den sorterade listan efter den andra egenskapen och så vidare.  
   
-   De egenskaps namn som refereras `ORDER BY` i-satsen måste motsvara antingen en egenskap i SELECT-listan eller till en egenskap som har definierats i `FROM` mängden som anges i satsen utan tvetydigheter.  
+   De egenskaps namn som refereras i- `ORDER BY` satsen måste motsvara antingen en egenskap i SELECT-listan eller till en egenskap som har definierats i mängden som anges i `FROM` satsen utan tvetydigheter.  
   
 - `<sort_expression>`  
   
@@ -47,9 +47,9 @@ ORDER BY <sort_specification>
   
    Anger att värdena i den angivna kolumnen ska sorteras i stigande eller fallande ordning. `ASC`sorterar från det lägsta värdet till det högsta värdet. `DESC`sorterar från det högsta värdet till det lägsta värdet. `ASC`är standard sorterings ordningen. Null-värden behandlas som lägsta möjliga värden.  
   
-## <a name="remarks"></a>Anmärkningar  
+## <a name="remarks"></a>Kommentarer  
   
-   För `ORDER BY` -satsen krävs att indexerings principen inkluderar ett index för fälten som sorteras. Azure Cosmos DB Query runtime stöder sortering mot ett egenskaps namn och inte mot beräknade egenskaper. Azure Cosmos DB stöder flera `ORDER BY` egenskaper. För att kunna köra en fråga med flera ORDER BY-egenskaper bör du definiera ett [sammansatt index](index-policy.md#composite-indexes) för fälten som sorteras.
+   För- `ORDER BY` satsen krävs att indexerings principen inkluderar ett index för fälten som sorteras. Azure Cosmos DB Query runtime stöder sortering mot ett egenskaps namn och inte mot beräknade egenskaper. Azure Cosmos DB stöder flera `ORDER BY` Egenskaper. För att kunna köra en fråga med flera ORDER BY-egenskaper bör du definiera ett [sammansatt index](index-policy.md#composite-indexes) för fälten som sorteras.
 
 > [!Note]
 > Om egenskaperna som sorteras kan vara odefinierade för vissa dokument och du vill hämta dem i en ORDER BY-fråga, måste du uttryckligen ta med den här sökvägen i indexet. Standard indexerings principen tillåter inte hämtning av dokument där sorterings egenskapen är odefinierad. [Granska exempel frågor i dokument med några fält som saknas](#documents-with-missing-fields).
@@ -79,7 +79,7 @@ Resultatet är:
     ]
 ```
 
-Följande fråga hämtar Family `id`s i ordning efter deras objekts skapande datum. Objektet `creationDate` är ett tal som representerar den *Epoka tiden*, eller förfluten tid sedan Jan. 1, 1970 på några sekunder.
+Följande fråga hämtar Family `id` s i ordning efter deras objekts skapande datum. Objektet `creationDate` är ett tal som representerar den *Epoka tiden*, eller förfluten tid sedan Jan. 1, 1970 på några sekunder.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -116,7 +116,7 @@ Den här frågan hämtar familjen `id` i stigande ordning efter Orts namnet. Om 
 
 Frågor med `ORDER BY` som körs mot behållare med standard indexerings principen returnerar inte dokument där sorterings egenskapen är odefinierad. Om du vill inkludera dokument där sorterings egenskapen är odefinierad bör du uttryckligen ta med den här egenskapen i indexerings principen.
 
-Här är ett exempel på en behållare med en indexerings princip som inte uttryckligen innehåller några sökvägar, `"/*"`förutom:
+Här är ett exempel på en behållare med en indexerings princip som inte uttryckligen innehåller några sökvägar `"/*"` , förutom:
 
 ```json
 {
@@ -131,9 +131,9 @@ Här är ett exempel på en behållare med en indexerings princip som inte uttry
 }
 ```
 
-Om du kör en fråga som inkluderar `lastName` i- `Order By` satsen innehåller resultatet endast dokument som har en `lastName` definierad egenskap. Vi har inte definierat någon uttrycklig sökväg för `lastName` så alla dokument utan någon `lastName` visas inte i frågeresultatet.
+Om du kör en fråga som inkluderar `lastName` i `Order By` -satsen innehåller resultatet endast dokument som har en `lastName` definierad egenskap. Vi har inte definierat någon uttrycklig sökväg för `lastName` så alla dokument utan någon `lastName` visas inte i frågeresultatet.
 
-Här är en fråga som sorteras `lastName` efter i två dokument, en av som inte har någon `lastName` definierad:
+Här är en fråga som sorteras efter `lastName` i två dokument, en av som inte har någon `lastName` definierad:
 
 ```sql
     SELECT f.id, f.lastName
@@ -141,7 +141,7 @@ Här är en fråga som sorteras `lastName` efter i två dokument, en av som inte
     ORDER BY f.lastName
 ```
 
-Resultaten innehåller bara det dokument som har en definierad `lastName`:
+Resultaten innehåller bara det dokument som har en definierad `lastName` :
 
 ```json
     [
@@ -152,9 +152,9 @@ Resultaten innehåller bara det dokument som har en definierad `lastName`:
     ]
 ```
 
-Om vi uppdaterar behållarens indexerings princip för att explicit inkludera en sökväg för `lastName`, kommer vi att inkludera dokument med en odefinierad sorterings egenskap i frågeresultatet. Du måste uttryckligen definiera sökvägen för att leda till det här skalära värdet (och inte bortom det). Du bör använda `?` specialtecknet i Sök vägs definitionen i indexerings principen för att se till att du explicit indexerar egenskapen `lastName` och inga ytterligare inkapslade sökvägar. Om `Order By` frågan använder ett [sammansatt index](index-policy.md#composite-indexes), kommer resultatet alltid att innehålla dokument med en odefinierad sorterings egenskap i frågeresultatet.
+Om vi uppdaterar behållarens indexerings princip för att explicit inkludera en sökväg för `lastName` , kommer vi att inkludera dokument med en odefinierad sorterings egenskap i frågeresultatet. Du måste uttryckligen definiera sökvägen för att leda till det här skalära värdet (och inte bortom det). Du bör använda `?` specialtecknet i Sök vägs definitionen i indexerings principen för att se till att du explicit indexerar egenskapen `lastName` och inga ytterligare inkapslade sökvägar. Om `Order By` frågan använder ett [sammansatt index](index-policy.md#composite-indexes), kommer resultatet alltid att innehålla dokument med en odefinierad sorterings egenskap i frågeresultatet.
 
-Här är ett exempel på en indexerings princip som gör att du kan låta dokument med en `lastName` odefinierad visas i frågeresultaten:
+Här är ett exempel på en indexerings princip som gör att du kan låta dokument med en odefinierad `lastName` visas i frågeresultaten:
 
 ```json
 {
@@ -194,7 +194,7 @@ Resultatet är:
 ]
 ```
 
-Om du ändrar sorterings ordningen till `DESC`visas dokument som saknas `lastName` sist i frågeresultatet:
+Om du ändrar sorterings ordningen till `DESC` visas dokument som saknas `lastName` sist i frågeresultatet:
 
 ```sql
     SELECT f.id, f.lastName
@@ -215,6 +215,11 @@ Resultatet är:
     }
 ]
 ```
+
+> [!Note]
+> Endast .NET SDK-versionen 3.4.0 eller senare stöder ORDER BY med blandade typer. Om du vill sortera efter en kombination av odefinierade och definierade värden bör du därför använda den här versionen (eller senare).
+
+Du kan inte styra ordningen som olika typer visas i resultatet. I ovanstående exempel visade vi hur odefinierade värden sorterades före sträng värden. Om du till exempel vill ha mer kontroll över sorterings ordningen för odefinierade värden kan du tilldela alla odefinierade egenskaper ett sträng värde på "aaaaaaaaa" eller "zzzzzzzz" för att säkerställa att de var antingen först eller sist.
 
 ## <a name="next-steps"></a>Nästa steg
 

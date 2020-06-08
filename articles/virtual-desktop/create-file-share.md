@@ -5,23 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f8b31b97752a39724a4b1b7073c2d4282bc54763
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 4723c2a8fa66e4ed2c4b40975179d7d4d2b281d6
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344857"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484646"
 ---
-# <a name="create-an-azure-files-file-share-with-a-domain-controller"></a>Skapa en Azure Files fil resurs med en domänkontrollant
+# <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Skapa en profil behållare med Azure Files och AD DS
 
 I den här artikeln får du lära dig hur du skapar en Azure-filresurs som autentiseras av en domänkontrollant på en befintlig Windows-pool för virtuella skriv bord. Du kan använda den här fil resursen för att lagra lagrings profiler.
 
 Den här processen använder Active Directory Domain Services (AD DS), som är en lokal katalog tjänst. Om du letar efter information om hur du skapar en FSLogix profil behållare med Azure AD DS, se [skapa en FSLogix profil behållare med Azure Files](create-profile-container-adds.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera att domänkontrollanten är synkroniserad med Azure och kan matchas från det virtuella Azure-nätverket (VNET) som värdarna för din session är anslutna till.
 
@@ -31,7 +31,7 @@ Först måste du konfigurera ett Azure Files lagrings konto.
 
 Så här konfigurerar du ett lagrings konto:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Sök efter **lagrings konto** i Sök fältet.
 

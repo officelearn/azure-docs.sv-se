@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 63fd61ee2d4fc84e58563ea7ea20e79a382cf104
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 9070b8a8735cab62d412caa30de9a080862f10ba
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450866"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84482578"
 ---
 # <a name="monitor-failures-and-errors-in-real-time-for-your-mobile-application"></a>Övervaka fel och fel i real tid för ditt mobil program
 När ditt program används av tusentals användare är det sannolikt att du har buggar. Användarna kan stöta på oväntade program fel. Från användar perspektivet är alla de vill ha ett fungerande och tillförlitligt program. Program som är felfria och inte fungerar ger en bättre användar upplevelse. Besvikna användare kommer att avinstallera appen, lämna en felaktig granskning eller offentligt criticize och klaga på sin erfarenhet.

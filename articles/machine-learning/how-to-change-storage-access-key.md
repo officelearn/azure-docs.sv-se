@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: f4ae4890d28236db493909243d66e28d308e2002
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 0444ffd27b3a261268f04f0077cca3116521e6f7
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434643"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484516"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,27 +105,35 @@ Om du vill uppdatera Azure Machine Learning att använda den nya nyckeln använd
 
         Det här kommandot synkroniserar automatiskt de nya nycklarna för Azure Storage-kontot som används av arbets ytan.
 
-1. Om du vill registrera data lager på nytt som använder lagrings kontot använder du värdena från avsnittet [vad som behöver uppdateras](#whattoupdate) och nyckeln från steg 1 med följande kod:
-
-    ```python
-    # Re-register the blob container
-    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+1. Du kan registrera data lager på nytt som använder lagrings kontot via SDK: n eller [Azure Machine Learning Studio](https://ml.azure.com).
+    1. **Om du vill registrera data lager på nytt via python SDK**använder du värdena från avsnittet [vad som behöver uppdateras](#whattoupdate) och nyckeln från steg 1 med följande kod. 
+    
+        Eftersom `overwrite=True` har angetts skriver den här koden över den befintliga registreringen och uppdaterar den för att använda den nya nyckeln.
+    
+        ```python
+        # Re-register the blob container
+        ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                                  datastore_name='your datastore name',
+                                                  container_name='your container name',
+                                                  account_name='your storage account name',
+                                                  account_key='new storage account key',
+                                                  overwrite=True)
+        # Re-register file shares
+        ds_file = Datastore.register_azure_file_share(workspace=ws,
                                               datastore_name='your datastore name',
-                                              container_name='your container name',
+                                              file_share_name='your container name',
                                               account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
-    # Re-register file shares
-    ds_file = Datastore.register_azure_file_share(workspace=ws,
-                                          datastore_name='your datastore name',
-                                          file_share_name='your container name',
-                                          account_name='your storage account name',
-                                          account_key='new storage account key',
-                                          overwrite=True)
+        
+        ```
     
-    ```
-
-    Eftersom `overwrite=True` har angetts skriver den här koden över den befintliga registreringen och uppdaterar den för att använda den nya nyckeln.
+    1. **Om du vill registrera data lager på nytt via Studio**väljer du **data lager** i den vänstra rutan i Studio. 
+        1. Välj vilket data lager du vill uppdatera.
+        1. Välj knappen **uppdatera autentiseringsuppgifter** längst upp till vänster. 
+        1. Använd din nya åtkomst nyckel från steg 1 för att fylla i formuläret och klicka på **Spara**.
+        
+            Om du uppdaterar autentiseringsuppgifterna för ditt **standard data lager**slutför du det här steget och upprepar steg 2b för att synkronisera om den nya nyckeln med standard data lagret för arbets ytan. 
 
 ## <a name="next-steps"></a>Nästa steg
 

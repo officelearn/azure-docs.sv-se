@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: cd4cc90fb102d517a47ba458619e22b8921dd498
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aed015b67aa36e7678b31d7f2f047cb1e77c6a3d
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495323"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485322"
 ---
 # <a name="fail-back-vmware-vms-to-on-premises-site"></a>Återställa virtuella VMware-datorer till en lokal plats
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du återställer virtuella Azure-datorer till en
 
 ## <a name="run-a-failover-to-fail-back"></a>Köra en redundansväxling för att växla tillbaka
 
-1. Se till att virtuella Azure-datorer skyddas om och replikeras till den lokala platsen. 
+1. Se till att virtuella Azure-datorer skyddas om och replikeras till den lokala platsen.
     - En virtuell dator måste ha minst en återställnings punkt för att kunna återställas.
     - Om du växlar tillbaka till en återställnings plan bör alla datorer i planen ha minst en återställnings punkt.
 2. Välj den virtuella datorn i valvet > **replikerade objekt**. Högerklicka på den virtuella datorn > **oplanerad redundansväxling**.

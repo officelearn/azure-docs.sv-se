@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-0000-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 61f489cdd2c0493a88a2292eec8394a0dab31bd6
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 3349a7148ab4f5d381666c19cf19e8f44dccd728
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450929"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485258"
 ---
 # <a name="perform-automated-testing-on-thousands-of-mobile-devices-simultaneously"></a>Utföra automatiserad testning på tusentals mobila enheter samtidigt
 Testning kan vara utmanande och allt mer komplex på grund av fragmentering av enhet, program komplexitet, snabba lanserings cykler, korta sessioner och höga användar förväntningar. Du måste regelbundet se till att du levererar noggrant testade program som ger en bra kund upplevelse. Testning är inte en enkel uppgift och är inte en bra användning av utvecklar tiden för att testa varje version manuellt.

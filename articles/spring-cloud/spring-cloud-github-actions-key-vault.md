@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4a836ae195674556c486592a421c188f7c40e3f0
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945475"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484352"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autentisera Azure våren Cloud med Key Vault i GitHub-åtgärder
 Key Vault är en säker plats för att lagra nycklar. Företags användare måste lagra autentiseringsuppgifter för CI/CD-miljöer i den omfattning som de styr. Nyckeln för att hämta autentiseringsuppgifter i nyckel valvet bör begränsas till resurs omfånget.  Den har enbart åtkomst till nyckel valvets omfång, inte hela Azure-omfånget. Det är som en nyckel som bara kan öppna en stark ruta, inte en huvud nyckel som kan öppna alla dörrar i en byggnad. Det är ett sätt att hämta en nyckel till en annan nyckel, vilket är användbart i ett CICD-arbetsflöde. 
@@ -46,7 +46,7 @@ Gå till **Key Vault** instrument panelen i Azure Portal, klicka på menyn **åt
 
  ![Ange åtkomst princip](./media/github-actions/key-vault1.png)
 
-Kopiera namnet på autentiseringsuppgiften, till exempel `azure-cli-2020-01-19-04-39-02`. Öppna menyn **åtkomst principer** , klicka på länken **Lägg till åtkomst princip** .  Välj `Secret Management` för **mall**och välj sedan **huvud konto**. Klistra in **namnet på autentiseringsuppgiften i**/rutan**Välj** inmatare:
+Kopiera namnet på autentiseringsuppgiften, till exempel `azure-cli-2020-01-19-04-39-02` . Öppna menyn **åtkomst principer** , klicka på länken **Lägg till åtkomst princip** .  Välj `Secret Management` för **mall**och välj sedan **huvud konto**. Klistra in **namnet på autentiseringsuppgiften i** / rutan**Välj** inmatare:
 
  ![Välj](./media/github-actions/key-vault2.png)
 
@@ -73,7 +73,7 @@ Igen, resultat:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Kopiera hela JSON-strängen.  Bo tillbaka till **Key Vault** instrument panel. Öppna **hemligheter** -menyn och klicka på knappen **generera/importera** . Mata in det hemliga namnet, till `AZURE-CRENDENTIALS-FOR-SPRING`exempel. Klistra in JSON-autentiseringsuppgiften i rutan **värde** inmatare. Du kanske märker att indata-rutan är ett textfält med en rad, i stället för ett text område med flera rader.  Du kan klistra in hela JSON-strängen där.
+Kopiera hela JSON-strängen.  Bo tillbaka till **Key Vault** instrument panel. Öppna **hemligheter** -menyn och klicka på knappen **generera/importera** . Mata in det hemliga namnet, till exempel `AZURE-CREDENTIALS-FOR-SPRING` . Klistra in JSON-autentiseringsuppgiften i rutan **värde** inmatare. Du kanske märker att indata-rutan är ett textfält med en rad, i stället för ett text område med flera rader.  Du kan klistra in hela JSON-strängen där.
 
  ![Fullständiga autentiseringsuppgifter för omfattning](./media/github-actions/key-vault3.png)
 
@@ -92,7 +92,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}           # Strong box key you generated in the first step
     - uses: Azure/get-keyvault-secrets@v1.0
       with:
-        keyvault: "zlhe-test"
+        keyvault: "<Your Key Vault Name>"
         secrets: "AZURE-CREDENTIALS-FOR-SPRING"           # Master key to open all doors in the building
       id: keyvaultaction
     - uses: azure/login@v1

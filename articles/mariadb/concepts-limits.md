@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/1/2020
-ms.openlocfilehash: d4450689f6865c19436e437e09a3aa9f286c6e21
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 6/5/2020
+ms.openlocfilehash: c99851125552873e63f8199bf7b206c5fad231be
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653132"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484742"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Begränsningar i Azure Database for MariaDB
 I följande avsnitt beskrivs kapacitet, stöd för lagrings motor, stöd för stöd för data manipulation och funktionella gränser i databas tjänsten.
@@ -32,7 +32,7 @@ De lägsta och högsta värdena för flera populära Server parametrar bestäms 
 |Generell användning|16|2500|10|5000|
 |Generell användning|32|5000|10|10000|
 |Generell användning|64|10000|10|20000|
-|Minnesoptimerad|2|600|10|800|
+|Minnesoptimerad|2|625|10|1250|
 |Minnesoptimerad|4|1250|10|2500|
 |Minnesoptimerad|8|2500|10|5000|
 |Minnesoptimerad|16|5000|10|10000|

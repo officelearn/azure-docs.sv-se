@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12bbb070-9b3c-1234-5678-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 2d477fb5a33fe4c8db42ae067e72b4ab9d839cac
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: cd76ff64777892397aeb6152445652fae6f4ba24
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450943"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485286"
 ---
 # <a name="different-stages-in-mobile-application-development"></a>Olika steg i utvecklingen av mobil program
 Att skapa ett mobilt program omfattar flera steg. Du kan enkelt dra nytta av Microsofts tjänster, verktyg och tekniker för att skapa mobil program med hög klass.

@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 34a8a070-0123-8982-8345-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 33ef251f60a833721e17d36d8df01a6095434af5
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 424284799e5a823601473853aece3a598c50513b
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450999"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483298"
 ---
 # <a name="ai-powered-cloud-service-with-azure-cognitive-search"></a>AI-driven moln tjänst med Azure Kognitiv sökning
 [Azure kognitiv sökning](https://azure.microsoft.com/services/search/) är en moln lösning för Sök-som-en-tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program. Din anpassade kod anropar data inmatning (indexering) för att skapa och läsa in ett index. På den andra sidan utfärdar din program kod frågor om begär Anden och hanterar svar. Sök funktionen definieras i-klienten med hjälp av funktioner från Azure Kognitiv sökning, med frågekörningen över ett beständigt index som du skapar, äger och lagrar i din tjänst.

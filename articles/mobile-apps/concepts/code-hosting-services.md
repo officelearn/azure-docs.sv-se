@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2222-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: fdac28d50b9e03445c128a87a850294ba69fcaf9
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: db939dfee5e87312c380d57cbd5bb95f116408a0
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450901"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483248"
 ---
 # <a name="cloud-hosted-source-code-management-services"></a>Molnbaserade käll kods hanterings tjänster
 Om du har utvecklings grupper med flera team medlemmar som arbetar på samma kodbas måste du hitta en lämplig plats som värd för din kod. Genom att lagra data i molnet och med en central lagrings plats kan alla ladda upp, redigera och hantera-filerna. De kan också samverka med andra utvecklare i projekt. Koden kan vara lättillgänglig oavsett var du befinner dig, så länge du har en Internet anslutning.

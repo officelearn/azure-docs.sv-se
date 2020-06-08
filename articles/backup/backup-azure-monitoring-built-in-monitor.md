@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig mer om övervaknings-och avis
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8c72c192f3bd12169703b70cbee76599b15eb560
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247061"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485090"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup arbets belastningar
 
@@ -77,7 +77,7 @@ Ovanstående undantag är utformade från förståelsen av att resultatet av des
 Utifrån aviseringens allvarlighets grad kan aviseringar definieras i tre typer:
 
 - **Kritiskt**: i princip skulle eventuella säkerhets kopierings-eller återställnings problem (schemalagda eller användare som utlöses) leda till generering av en avisering och visas som en kritisk varning och även destruktiva åtgärder som att ta bort säkerhets kopiering.
-- **Varning**! om säkerhets kopieringen lyckas men med få varningar visas de som varnings aviseringar.
+- **Varning**! om säkerhets kopieringen lyckas men med få varningar visas de som varnings aviseringar. Varnings aviseringar är för närvarande endast tillgängliga för Azure Backup Agent-säkerhetskopieringar.
 - **Information**: för närvarande genereras ingen informations avisering av Azure Backup tjänsten.
 
 ## <a name="notification-for-backup-alerts"></a>Meddelande om säkerhets kopierings aviseringar

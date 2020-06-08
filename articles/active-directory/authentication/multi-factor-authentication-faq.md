@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d28f93f316ac2a63be6b3a8eb0b80678bd7607f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81271411"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483785"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor om Azure Multi-Factor Authentication
 
@@ -163,7 +163,7 @@ Ta bort alla användares applösenord för att förhindra obehörig åtkomst. N�
 
 ### <a name="what-if-a-user-cant-sign-in-to-non-browser-apps"></a>Vad händer om en användare inte kan logga in på icke-webbläsarbaserade appar?
 
-Om din organisation fortfarande använder äldre klienter och du har [tillåtit användningen av applösenord](howto-mfa-mfasettings.md#app-passwords), kan användarna inte logga in på dessa äldre klienter med sitt användar namn och lösen ord. De måste i stället [Konfigurera applösenord](../user-help/multi-factor-authentication-end-user-app-passwords.md). Användarna måste ta bort sin inloggnings information, starta om appen och sedan logga in med sitt användar namn och *applösenord* i stället för det vanliga lösen ordet.
+Om din organisation fortfarande använder äldre klienter och du har [tillåtit användningen av applösenord](howto-mfa-app-passwords.md), kan användarna inte logga in på dessa äldre klienter med sitt användar namn och lösen ord. De måste i stället [Konfigurera applösenord](../user-help/multi-factor-authentication-end-user-app-passwords.md). Användarna måste ta bort sin inloggnings information, starta om appen och sedan logga in med sitt användar namn och *applösenord* i stället för det vanliga lösen ordet.
 
 Om din organisation inte har äldre klienter bör du inte tillåta att användarna skapar applösenord.
 
@@ -257,4 +257,4 @@ Om din fråga inte besvaras här finns följande support alternativ:
 * Sök i [Microsoft Support Knowledge Base](https://support.microsoft.com) efter lösningar på vanliga tekniska problem.
 * Sök efter och bläddra efter tekniska frågor och svar från communityn eller Ställ din egen fråga i [Azure Active Directory Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
 * Kontakta Microsoft Professional via [Azure Multi-Factor Authentication-Server Support](https://support.microsoft.com/oas/default.aspx?prid=14947). När du kontaktar oss är det bra om du kan inkludera så mycket information om problemet som möjligt. Information som du kan tillhandahålla inkluderar sidan där du såg felet, den speciella felkoden, det ID som identifierades och ID: t för den användare som såg felet.
-* Om du är en äldre PhoneFactor-kund och har frågor eller behöver hjälp med att [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) återställa ett lösen ord, använder du e-postadressen för att öppna ett support ärende.
+* Om du är en äldre PhoneFactor-kund och har frågor eller behöver hjälp med att återställa ett lösen ord, använder du [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) e-postadressen för att öppna ett support ärende.

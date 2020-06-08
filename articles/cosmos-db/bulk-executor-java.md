@@ -6,25 +6,25 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: f5c6562c6def1fa588724b3bc5da502536b16aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad9c0f29ee10197c4dafe6ca24ee4df7b7afdb88
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985651"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485366"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använda massexecutor-biblioteket i Java för att utföra massåtgärder på Azure Cosmos DB-data
 
 Den här självstudien innehåller instruktioner om hur du använder Azure Cosmos DBs utförar Java-bibliotek för att importera och uppdatera Azure Cosmos DB dokument. Om du vill lära dig mer om bulk utförar Library och hur det hjälper dig att använda massivt data flöde och lagring, se [översikts](bulk-executor-overview.md) artikel för utförar-bibliotek. I den här självstudien skapar du ett Java-program som genererar slumpmässiga dokument och de har Mass importer ATS till en Azure Cosmos-behållare. När du har importerat kan du uppdatera vissa egenskaper för ett dokument. 
 
-För närvarande stöds inte bulk utförar-biblioteket av Azure Cosmos DB SQL API-och Gremlin API-konton. Den här artikeln beskriver hur du använder bulk utförar Java-bibliotek med SQL API-konton. Mer information om hur du använder bulk utförar .NET-bibliotek med Gremlin API finns i [utföra Mass åtgärder i Azure Cosmos DB GREMLIN API](bulk-executor-graph-dotnet.md).
+För närvarande stöds inte bulk utförar-biblioteket av Azure Cosmos DB SQL API-och Gremlin API-konton. Den här artikeln beskriver hur du använder bulk utförar Java-bibliotek med SQL API-konton. Mer information om hur du använder bulk utförar .NET-bibliotek med Gremlin API finns i [utföra Mass åtgärder i Azure Cosmos DB GREMLIN API](bulk-executor-graph-dotnet.md). Det bulk utförar-bibliotek som beskrivs är tillgängligt för program som använder Java SDK 2. x-versionen. Den är för närvarande inte tillgänglig för de 3. x, 4. x eller andra högre SDK-versionerna.
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.  
+* Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.  
 
 * Du kan [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan också använda [Azure Cosmos DB emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med `https://localhost:8081` slut punkten. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).  
 
@@ -118,8 +118,8 @@ Den klonade lagrings platsen innehåller två exempel: "bulkimport" och "bulkupd
    |int getNumberOfDocumentsImported ()  |   Det totala antalet dokument som har importer ATS från dokumenten som har skickats till API-anropet för Mass import.      |
    |dubbel getTotalRequestUnitsConsumed ()   |  Totalt antal begär ande enheter (RU) som förbrukas av API-anropet för Mass import.       |
    |Varaktighet getTotalTimeTaken ()   |    Den totala tid det tar för Mass importer att köra API-anrop för att slutföra körningen.     |
-   |Visa\<undantag> getErrors () |  Hämtar listan över fel om några dokument från batchen som angavs för Mass import API-anropet inte kunde infogas.       |
-   |List\<objekt> getBadInputDocuments ()  |    Listan med fel format dokument som inte har importer ATS i Mass import-API-anropet. Användaren bör åtgärda de returnerade dokumenten och försöka importera igen. Felaktigt formaterade dokument inkluderar dokument vars ID-värde inte är en sträng (null eller någon annan datatyp betraktas som ogiltig).     |
+   |Visa lista \<Exception> getErrors () |  Hämtar listan över fel om några dokument från batchen som angavs för Mass import API-anropet inte kunde infogas.       |
+   |Visa lista \<Object> getBadInputDocuments ()  |    Listan med fel format dokument som inte har importer ATS i Mass import-API-anropet. Användaren bör åtgärda de returnerade dokumenten och försöka importera igen. Felaktigt formaterade dokument inkluderar dokument vars ID-värde inte är en sträng (null eller någon annan datatyp betraktas som ogiltig).     |
 
 5. När du har Mass import applikationen klar skapar du kommando rads verktyget från källan genom att använda kommandot "mvn Clean Package". Det här kommandot genererar en jar-fil i målmappen:  
 
@@ -182,7 +182,7 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync-API: et. I det här exe
    |int getNumberOfDocumentsUpdated ()  |   Det totala antalet dokument som har uppdaterats från de dokument som har skickats till API-anropet för Mass uppdatering.      |
    |dubbel getTotalRequestUnitsConsumed () |  Totalt antal begär ande enheter (RU) som förbrukas av API-anropet för Mass uppdatering.       |
    |Varaktighet getTotalTimeTaken ()  |   Den totala tid det tar för Mass uppdatering av API-anrop för att slutföra körningen.      |
-   |Visa\<undantag> getErrors ()   |       Hämtar listan över fel om några dokument från batchen som angavs för Mass uppdaterings-API-anropet inte kunde infogas.      |
+   |Visa lista \<Exception> getErrors ()   |       Hämtar listan över fel om några dokument från batchen som angavs för Mass uppdaterings-API-anropet inte kunde infogas.      |
 
 3. När du har Mass uppdaterings applikationen klar skapar du kommando rads verktyget från källan genom att använda kommandot "mvn Clean Package". Det här kommandot genererar en jar-fil i målmappen:  
 

@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: 915243fb4dbc6bb274e26261bc5741811ef24592
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: e544e720f024b265e957e67d5bd2ee8af91f5c7f
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925991"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484569"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Så här indexerar du stora data uppsättningar i Azure Kognitiv sökning
 
@@ -102,7 +102,7 @@ Azure Kognitiv söknings .NET SDK försöker automatiskt 503s och andra misslyck
 
 ### <a name="batch-size"></a>Batchstorlek
 
-Som med push-API: et kan du med indexerare konfigurera antalet objekt per batch. För indexerare som baseras på [skapa indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)kan du ange `batchSize` argumentet för att anpassa den här inställningen för att bättre matcha egenskaperna för dina data. 
+Som med push-API: et kan du med indexerare konfigurera antalet objekt per batch. För indexerare som baseras på [skapa indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)kan du ange argumentet för att `batchSize` Anpassa den här inställningen för att bättre matcha egenskaperna för dina data. 
 
 Standardvärden för batch-storlek är data källa. Azure SQL Database och Azure Cosmos DB har en standard grupp storlek på 1000. Azure Blob-indexering ställer däremot in batchstorleken vid 10 dokument i redovisningen av den större genomsnittliga dokument storleken. 
 
@@ -139,7 +139,7 @@ För indexerare är bearbetnings kapaciteten löst baserat på ett under system 
 
 1. På sidan **Översikt** för search service instrument panel på [Azure Portal](https://portal.azure.com)kontrollerar du **pris nivån** för att bekräfta att den kan hantera parallell indexering. Både Basic-och standard-nivån erbjuder flera repliker.
 
-2. I **Inställningar** > **skala** [ökar du repliker](search-capacity-planning.md) för parallell bearbetning: ytterligare en replik för varje Indexer-arbetsbelastning. Lämna ett tillräckligt antal för den befintliga frågesträngen. Att offra frågor mot arbets belastningar för indexering är inte ett utmärkt kompromiss.
+2. Du kan köra så många indexerare parallellt som antalet Sök enheter i din tjänst. I **Inställningar**  >  **skala**, [öka repliker](search-capacity-planning.md) eller partitioner för parallell bearbetning: en ytterligare replik eller partition för varje Indexer-arbetsbelastning. Lämna ett tillräckligt antal för den befintliga frågesträngen. Att offra frågor mot arbets belastningar för indexering är inte ett utmärkt kompromiss.
 
 3. Distribuera data till flera behållare på en nivå som Azure Kognitiv sökning indexerare kan komma åt. Detta kan vara flera tabeller i Azure SQL Database, flera behållare i Azure Blob Storage eller flera samlingar. Definiera ett data käll objekt för varje tabell eller behållare.
 

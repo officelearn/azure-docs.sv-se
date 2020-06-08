@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-ms.date: 03/12/2019
-ms.openlocfilehash: f409a4c27e2b69993406f95301d21f05b547aed6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/06/2020
+ms.openlocfilehash: 7c451deb04c9fd8b394512979668ad266cadf02d
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047008"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485474"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Mål kod för händelse filen för utökade händelser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,11 +31,10 @@ I det här avsnittet presenteras ett kod exempel med två faser:
 
 - PowerShell, för att skapa en Azure Storage-behållare i molnet.
 - Transact-SQL:
-  
   - För att tilldela Azure Storage container till ett händelse fil mål.
   - För att skapa och starta händelsesessionen och så vidare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -71,7 +70,7 @@ Skriptet börjar med kommandon för att rensa efter en eventuell tidigare körni
 
    - Om du kör skriptet igen utan att avbryta din session, har du det praktiska alternativet att kommentera ut kommandot **Add-AzureAccount** .
 
-![PowerShell ISE, med Azure-modulen installerad, redo att köra skript.][30_powershell_ise]
+![PowerShell ISE, med Azure-modulen installerad, redo att köra skript.](./media/xevent-code-event-file/event-file-powershell-ise-b30.png)
 
 ### <a name="powershell-code"></a>PowerShell-kod
 
@@ -232,6 +231,15 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 ```
 
 Anteckna de få namngivna värden som PowerShell-skriptet skriver ut när det avslutas. Du måste redigera dessa värden i Transact-SQL-skriptet som följer som fas 2.
+
+<!--
+TODO:   Consider whether the preceding PowerShell code example deserves to be updated to the latest package (AzureRM.SQL?).
+2020/June/06   Adding the !NOTE below about "ADLS Gen2 storage accounts".
+Related to   https://github.com/MicrosoftDocs/azure-docs/issues/56520
+-->
+
+> [!NOTE]
+> I föregående PowerShell-kod exempel är SQL Extended Events inte kompatibla med ADLS Gen2 lagrings konton.
 
 ## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fas 2: Transact-SQL-kod som använder Azure Storage container
 
@@ -514,6 +522,3 @@ Mer information om konton och behållare i Azure Storage-tjänsten finns i:
 - [Lektion 1: skapa en lagrad åtkomst princip och en signatur för delad åtkomst på en Azure-behållare](https://msdn.microsoft.com/library/dn466430.aspx)
   - [Lektion 2: skapa en SQL Server autentiseringsuppgift med hjälp av signaturen för delad åtkomst](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Utökade händelser för Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
-
-<!-- Image references. -->
-[30_powershell_ise]: ./media/xevent-code-event-file/event-file-powershell-ise-b30.png

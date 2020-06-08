@@ -5,17 +5,17 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c2ffd22c8b3e3ca1786e0a1f905cd07d0568fcf2
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9210787c674e825c8728e3b79e261b184fbc42fa
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296365"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484636"
 ---
-# <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Skapa en FSLogix profil behållare för en värd-pool med hjälp av Azure NetApp Files
+# <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Skapa en profil behållare med Azure NetApp Files och AD DS
 
 Vi rekommenderar att du använder FSLogix profil behållare som en användar profils lösning för [Windows Virtual Desktop-tjänsten](overview.md). FSLogix profil behållare lagrar en fullständig användar profil i en enda behållare och är utformad för att ge centrala profiler i icke-beständiga data behandlings miljöer som Windows Virtual Desktop. När du loggar in ansluter behållaren dynamiskt till dator miljön med hjälp av en virtuell hård disk som stöds lokalt och en virtuell hård disk för Hyper-V (VHDX). Med dessa avancerade filter driv rutins tekniker kan användar profilen vara omedelbart tillgänglig och visas i systemet precis som en lokal användar profil. Mer information om FSLogix profil behållare finns i [FSLogix profil behållare och Azure Files](fslogix-containers-azure-files.md).
 
@@ -33,7 +33,7 @@ Anvisningarna i den här hand boken är specifika för användare av virtuella W
 >[!NOTE]
 >Om du letar efter jämförelse material om de olika lagrings alternativen för FSLogix Profile container på Azure, se [lagrings alternativ för FSLogix profil behållare](store-fslogix-profile.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan skapa en FSLogix profil behållare för en adresspool måste du:
 

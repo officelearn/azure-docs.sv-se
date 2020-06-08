@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 838a4123bd5007f987f27674862409445967a2d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/3/2020
+ms.openlocfilehash: 05bc0f1ae50f74cc7c8ab2b236d73bdb4a6fe787
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79528106"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484719"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Prestandarekommendationer i Azure Database for MariaDB
 
@@ -29,24 +29,25 @@ Funktionen [Prestandarekommendationer](concepts-performance-recommendations.md) 
 
 Öppna **prestanda rekommendationer** från avsnittet **intelligent prestanda** i meny raden på Azure Portal sidan för din MariaDB-Server.
 
-![Landningssida för prestandarekommendationer](./media/concepts-performance-recommendations/performance-recommendations-page.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="Landningssida för prestandarekommendationer":::
 
 Välj **analysera** och välj en databas som kommer att påbörja analysen. Det kan ta flera minuter att slutföra analysen, beroende på din arbets belastning. När analysen är klar, visas ett meddelande i portalen. Analysen utför en djup granskning av din databas. Vi rekommenderar att du utför analyser under perioder med låg belastning.
 
 I fönstret **rekommendationer** visas en lista med rekommendationer om de hittades och det relaterade fråge-ID som skapade rekommendationen. Med fråge-ID kan du använda vyn [MySQL. query_store](concepts-query-store.md#mysqlquery_store) för att läsa mer om frågan.
 
-![Ny sida med prestanda rekommendationer](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Ny sida med prestanda rekommendationer":::
 
 Rekommendationerna tillämpas inte automatiskt. Om du vill tillämpa rekommendationen kopierar du frågetexten och kör den från din valda klient. Kom ihåg att testa och övervaka för att utvärdera rekommendationen.
 
 ## <a name="recommendation-types"></a>Rekommendations typer
 
-För närvarande stöds endast *create index* -rekommendationer.
-
-### <a name="create-index-recommendations"></a>Skapa index rekommendationer
+### <a name="index-recommendations"></a>Index rekommendationer
 
 *Skapa index* rekommendationer föreslå nya index för att påskynda de vanligaste frågorna för körning eller tids krävande frågor i arbets belastningen. Den här rekommendations typen kräver att [query Store](concepts-query-store.md) är aktiverat. Query Store samlar in frågedata och ger detaljerad information om fråge körning och frekvens statistik som används av analysen för att göra rekommendationen.
 
+### <a name="query-recommendations"></a>Fråga rekommendationer
+
+Fråga rekommendationer föreslår optimeringar och skriv om för frågor i arbets belastningen. Genom att identifiera MariaDB frågar du efter mönster och åtgärdar dem syntaktiskt, kan prestanda för tids krävande frågor förbättras. Den här rekommendations typen kräver att Query Store är aktiverat. Query Store samlar in frågedata och ger detaljerad information om fråge körning och frekvens statistik som används av analysen för att göra rekommendationen.
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [övervakning och justering](concepts-monitoring.md) i Azure Database for MariaDB.

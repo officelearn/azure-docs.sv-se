@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d6502985c0267fe6636c606e493533daf17f6b56
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f39d5ca5e153da3d1644aabeb7e48b41d07fe253
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300020"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485154"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Snabb start: skapa en Azure Notification Hub med Azure CLI
 
@@ -112,7 +112,7 @@ Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör `az --v
 
 2. Hämta en lista över namn områden.
 
-   Om du vill se information om det nya namn området använder du kommandot [AZ Notification – Hub namespace List](/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) .  `--resource-group`Parametern är valfri om du vill visa alla namn områden för en prenumeration.
+   Om du vill se information om det nya namn området använder du kommandot [AZ Notification – Hub namespace List](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) .  `--resource-group`Parametern är valfri om du vill visa alla namn områden för en prenumeration.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -138,7 +138,7 @@ Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör `az --v
 
 3. Hämta en lista över Notification Hub.
 
-   Azure CLI returnerar antingen ett lyckat eller fel meddelande med varje exekverat kommando. men det går att fråga efter en lista över Notification Hub.  Kommandot [AZ Notification – Hub List](/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) har utformats för detta ändamål.
+   Azure CLI returnerar antingen ett lyckat eller fel meddelande med varje exekverat kommando. men det går att fråga efter en lista över Notification Hub.  Kommandot [AZ Notification – Hub List](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) har utformats för detta ändamål.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table

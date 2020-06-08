@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 34a8a070-0123-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 0837d709559c8970271e8a2c2e9f69222ddedbdf
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: c4426b7d1abd7e8f5cc1fe8e0896510ac007496f
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450908"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483139"
 ---
 # <a name="cognitive-services-helps-to-solve-business-problems-by-using-ai"></a>Cognitive Services hjälper till att lösa affärs problem med hjälp av AI
 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) tillhandahåller kraftfulla tjänster för att integrera dina appar med intelligenta algoritmer för att se, höra, tala, förstå och tolka användarnas behov av att omvandla din verksamhet med artificiell intelligens (AI). Du kan göra dina mobil program smarta, engagerande och kontextuellt relevanta för dina användare. Utvecklare kan använda API: er, SDK: er och tjänster för att lägga till AI i deras erbjudanden och hjälpa till att skapa intelligenta program utan att ha direkta AI-eller data vetenskaps kunskaper.

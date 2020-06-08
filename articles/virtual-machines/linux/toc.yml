@@ -13,6 +13,9 @@
       href: quick-create-portal.md
     - name: Skapa VM – Azure PowerShell
       href: quick-create-powershell.md
+    - name: Skapa VM – ARM-mall
+      displayName: 'Resource Manager, template, json'
+      href: quick-create-template.md
 - name: Självstudier
   items:
     - name: 1 – Skapa/hantera virtuella datorer

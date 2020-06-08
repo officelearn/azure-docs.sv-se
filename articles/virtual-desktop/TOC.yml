@@ -50,8 +50,8 @@
           href: create-fslogix-profile-container.md
         - name: Använda Azure Files och Azure AD DS
           href: create-profile-container-adds.md
-    - name: Skapa filresurser för profilcontainer
-      href: create-file-share.md
+        - name: Använda Azure Files och Active Directory Domain Services
+          href: create-file-share.md
     - name: Konfigurera inställningar för värdpool
       items:
         - name: RDP-egenskaper
@@ -110,7 +110,7 @@
       href: troubleshoot-set-up-overview.md
     - name: Identifiera och diagnostisera problem
       href: diagnostics-role-service.md
-    - name: Skapa klient- och värdpool
+    - name: Skapa värdpool
       href: troubleshoot-set-up-issues.md
     - name: Session för konfiguration av virtuell värddator
       href: troubleshoot-vm-configuration.md

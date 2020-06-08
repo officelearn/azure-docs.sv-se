@@ -11,6 +11,8 @@
       href: whats-new.md
     - name: Nyheter i Microsoft 365 Government
       href: whats-new-microsoft-365-government.md
+    - name: Arkivera för Nyheter i Azure AD
+      href: whats-new-archive.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -51,6 +53,8 @@
       items:
         - name: 'Distribution 30, 90 och senare'
           href: active-directory-deployment-checklist-p2.md
+        - name: Azure Active Directory-distributionsplaner
+          href: active-directory-deployment-plans.md
     - name: Datalagring
       items:
         - name: Identitetsdatalagring för Europa
@@ -100,6 +104,8 @@
           href: active-directory-groups-settings-azure-portal.md
         - name: Lägga till eller ta bort gruppägare
           href: active-directory-accessmanagement-managing-group-owners.md
+        - name: Hantera åtkomst till resurser med grupper
+          href: active-directory-manage-groups.md
     - name: Användare
       items:
         - name: Lägga till eller ta bort en ny användare
@@ -114,14 +120,10 @@
           href: license-users-groups.md
         - name: Återställa en borttagen användare
           href: active-directory-users-restore.md
-- name: Resurser
+- name: Felsökning
   expanded: true
   items:
     - name: Få support för Azure Active Directory
       href: active-directory-troubleshooting-support-howto.md
     - name: Vanliga frågor och svar om Azure Active Directory
       href: active-directory-faq.md
-    - name: Azure Active Directory-distributionsplaner
-      href: active-directory-deployment-plans.md
-    - name: Arkivera för Nyheter i Azure AD
-      href: whats-new-archive.md

@@ -195,6 +195,19 @@
         - name: Strömning
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-streaming.md
+    - name: Felsökning
+      items:
+        - name: Vanliga frågor och svar
+          displayName: faqs
+          href: frequently-asked-questions.md
+        - name: Felkoder
+          items:
+            - name: Felkoder för slutpunkter för direktuppspelning
+              href: streaming-endpoint-error-codes.md
+            - name: Felkoder för livehändelser
+              href: live-event-error-codes.md
+            - name: Jobbfelkoder
+              href: job-error-codes.md
     - name: Migrering från v2 till v3
       items:
         - name: v2 vs v3
@@ -340,19 +353,6 @@
           href: download-results-howto.md
         - name: Signalera beskrivande ljud
           href: signal-descriptive-audio-howto.md
-    - name: Felsöka
-      items:
-        - name: Vanliga frågor och svar
-          displayName: faqs
-          href: frequently-asked-questions.md
-        - name: Felkoder
-          items:
-            - name: Felkoder för slutpunkter för direktuppspelning
-              href: streaming-endpoint-error-codes.md
-            - name: Felkoder för livehändelser
-              href: live-event-error-codes.md
-            - name: Jobbfelkoder
-              href: job-error-codes.md
 - name: Referens
   items:
     - name: OpenAPI-specifikation (Swagger)

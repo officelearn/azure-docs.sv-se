@@ -59,8 +59,6 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: Kapacitetsplanering för kluster
           href: ./hdinsight-capacity-planning.md
-        - name: Begär ökning av CPU-kärnkvot
-          href: ./quota-increase-request.md
         - name: Metodtips för klusterhantering
           href: ./cluster-management-best-practices.md
         - name: Tillgänglighet och tillförlitlighet
@@ -239,6 +237,8 @@
               href: ./cluster-availability-monitor-logs.md
         - name: Felsöka
           items:
+            - name: Begär ökning av CPU-kärnkvot
+              href: ./quota-increase-request.md
             - name: Felsöka skriptåtgärder
               href: ./troubleshoot-script-action.md
             - name: Problem med att skapa resurser

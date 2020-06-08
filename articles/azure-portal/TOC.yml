@@ -8,13 +8,13 @@
       href: azure-portal-quickstart-center.md
     - name: Webbläsare och enheter som stöds
       href: azure-portal-supported-browsers-devices.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Dela instrumentpaneler med rollbaserad åtkomstkontroll
       href: azure-portal-dashboard-share-access.md
     - name: Skapa Azure-instrumentpaneler programmässigt
       href: azure-portal-dashboards-create-programmatically.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Ange Azure-portalinställningar
       href: set-preferences.md
@@ -70,11 +70,13 @@
       href: azure-portal-safelist-urls.md
     - name: Azure-instrumentpanelernas struktur
       href: azure-portal-dashboards-structure.md
+    - name: Azure CLI
+      href: /cli/azure/ext/portal/portal
 - name: Resurser
   items:
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/updates/'
-    - name: Utveckla din kompetens med Microsoft Learn
+    - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/?products=azure-portal
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

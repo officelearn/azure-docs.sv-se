@@ -80,6 +80,8 @@
           href: howto-mfa-userstates.md
         - name: Konfigurera autentiseringsproviders
           href: concept-mfa-authprovider.md
+        - name: Använda applösenord
+          href: howto-mfa-app-passwords.md
         - name: Directory Federation
           items:
             - name: Windows Server 2016 AD FS-adapter
@@ -169,6 +171,8 @@
           href: howto-mfaserver-deploy-userportal.md
         - name: Webbtjänsten Mobile App
           href: howto-mfaserver-deploy-mobileapp.md
+        - name: Konfigurera inställningar
+          href: howto-mfa-server-settings.md
         - name: Konfigurera hög tillgänglighet
           href: howto-mfaserver-deploy-ha.md
         - name: Uppgradera MFA Server

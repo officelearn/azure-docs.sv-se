@@ -162,6 +162,10 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Integration runtime
       href: concepts-integration-runtime.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Dataflöden
       items:
         - name: Omvandla data genom att mappa dataflöden

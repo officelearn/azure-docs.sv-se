@@ -5,12 +5,13 @@ author: gvashishtha
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
-ms.openlocfilehash: 2dd911eff1ba98341451ef9826b8053bc8059047
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.custom: tracking-python
+ms.openlocfilehash: 399a5bf40cff673f96aea46997bc639865619571
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82581520"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560785"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Självstudie: Distribuera en förtränad bild klassificerings modell till Azure Functions med PyTorch
 
@@ -22,7 +23,7 @@ I den här artikeln får du lära dig hur du använder python, PyTorch och Azure
 > * Bygg ett Server lös HTTP API för att klassificera en avbildning som en av 1000 ImageNet- [klasser](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a).
 > * Använda API: et från en webbapp.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Python 3.7.4 eller senare](https://www.python.org/downloads/release/python-374/). (Python 3.8. x och python 3.6. x verifieras också med Azure Functions.)
@@ -55,7 +56,7 @@ I den här artikeln får du lära dig hur du använder python, PyTorch och Azure
 
 ## <a name="create-and-activate-a-python-virtual-environment"></a>Skapa och aktivera en virtuell python-miljö
 
-Navigera till mappen *Start* och kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
+Navigera till mappen *Start* och kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv` .
 
 
 # <a name="bash"></a>[bash](#tab/bash)
@@ -90,12 +91,12 @@ py -m venv .venv
 
 ---
 
-Du kör alla efterföljande kommandon i den här aktiverade virtuella miljön. (Du avslutar den virtuella miljön genom att `deactivate`köra.)
+Du kör alla efterföljande kommandon i den här aktiverade virtuella miljön. (Du avslutar den virtuella miljön genom att köra `deactivate` .)
 
 
 ## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
 
-I Azure Functions är ett funktions projekt en behållare för en eller flera enskilda funktioner som varje svarar på en viss utlösare. Alla funktioner i ett projekt delar samma lokala och värdbaserade konfigurationer. I det här avsnittet skapar du ett funktions projekt som innehåller en enda formaterad funktion med `classify` namnet som tillhandahåller en http-slutpunkt. Du lägger till mer detaljerad kod i ett senare avsnitt.
+I Azure Functions är ett funktions projekt en behållare för en eller flera enskilda funktioner som varje svarar på en viss utlösare. Alla funktioner i ett projekt delar samma lokala och värdbaserade konfigurationer. I det här avsnittet skapar du ett funktions projekt som innehåller en enda formaterad funktion med namnet `classify` som tillhandahåller en HTTP-slutpunkt. Du lägger till mer detaljerad kod i ett senare avsnitt.
 
 1. I mappen *Start* använder du Azure Functions Core Tools för att initiera en python Function-app:
 
@@ -114,7 +115,7 @@ I Azure Functions är ett funktions projekt en behållare för en eller flera en
     func new --name classify --template "HTTP trigger"
     ```
 
-    Det här kommandot skapar en mapp som matchar namnet på funktionen, *klassificera*. I mappen finns två filer: * \_ \_\_\_init. py*, som innehåller funktions koden och *Function. JSON*, som beskriver funktionens utlösare och dess indata och utdata-bindningar. Mer information om innehållet i de här filerna finns i [Granska fil innehållet](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) i python-snabb starten.
+    Det här kommandot skapar en mapp som matchar namnet på funktionen, *klassificera*. I mappen finns två filer: * \_ \_ init \_ \_ . py*, som innehåller funktions koden och *Function. JSON*, som beskriver funktionens utlösare och dess indata och utdata-bindningar. Mer information om innehållet i de här filerna finns i [Granska fil innehållet](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) i python-snabb starten.
 
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
@@ -125,14 +126,14 @@ I Azure Functions är ett funktions projekt en behållare för en eller flera en
     func start
     ```
 
-1. När du ser `classify` slut punkten som visas i utdata går du till URL: en ```http://localhost:7071/api/classify?name=Azure```. Meddelandet "Hej Azure!" ska visas i utdata.
+1. När du ser `classify` slut punkten som visas i utdata går du till URL: en ```http://localhost:7071/api/classify?name=Azure``` . Meddelandet "Hej Azure!" ska visas i utdata.
 
-1. Använd **CTRL**-**C** för att stoppa värden.
+1. Använd **CTRL** - **C** för att stoppa värden.
 
 
 ## <a name="import-the-pytorch-model-and-add-helper-code"></a>Importera PyTorch-modellen och Lägg till hjälp kod
 
-Om du vill `classify` ändra funktionen för att klassificera en bild baserat på dess innehåll använder du en förtränad [ResNet](https://arxiv.org/abs/1512.03385) -modell. Den förtränade modellen, som kommer från [PyTorch](https://pytorch.org/hub/pytorch_vision_resnet/), klassificerar en bild i 1 av 1000 [ImageNet-klasser](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a). Du lägger sedan till viss hjälp kod och beroenden till ditt projekt.
+Om du vill ändra `classify` funktionen för att klassificera en bild baserat på dess innehåll använder du en förtränad [ResNet](https://arxiv.org/abs/1512.03385) -modell. Den förtränade modellen, som kommer från [PyTorch](https://pytorch.org/hub/pytorch_vision_resnet/), klassificerar en bild i 1 av 1000 [ImageNet-klasser](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a). Du lägger sedan till viss hjälp kod och beroenden till ditt projekt.
 
 1. I mappen *Start* kör du följande kommando för att kopiera förutsägelse koden och etiketter till mappen *klassificera* .
 
@@ -184,7 +185,7 @@ Installationen kan ta några minuter, då du kan fortsätta med att ändra funkt
 
 ## <a name="update-the-function-to-run-predictions"></a>Uppdatera funktionen för att köra förutsägelser
 
-1. Öppna *klassificera/\_\_init\_\_. py* i en text redigerare och Lägg till följande rader efter de befintliga `import` -instruktionerna för att importera standard-JSON-biblioteket och *förutsägelse* hjälp:
+1. Öppna *klassificera/ \_ \_ init \_ \_ . py* i en text redigerare och Lägg till följande rader efter de befintliga- `import` instruktionerna för att importera standard-JSON-biblioteket och *förutsägelse* hjälp:
 
     :::code language="python" source="~/functions-pytorch/end/classify/__init__.py" range="1-6" highlight="5-6":::
 
@@ -192,14 +193,14 @@ Installationen kan ta några minuter, då du kan fortsätta med att ändra funkt
 
     :::code language="python" source="~/functions-pytorch/end/classify/__init__.py" range="8-19":::
 
-    Den här funktionen tar emot en bild-URL i en frågesträngparametern `img`med namnet. Den anropar `predict_image_from_url` sedan från hjälp bibliotek för att ladda ned och klassificera avbildningen med hjälp av PyTorch-modellen. Funktionen returnerar sedan ett HTTP-svar med resultatet.
+    Den här funktionen tar emot en bild-URL i en frågesträngparametern med namnet `img` . Den anropar sedan `predict_image_from_url` från hjälp bibliotek för att ladda ned och klassificera avbildningen med hjälp av PyTorch-modellen. Funktionen returnerar sedan ett HTTP-svar med resultatet.
 
     > [!IMPORTANT]
-    > Eftersom den här HTTP-slutpunkten anropas av en webb sida som finns på en annan `Access-Control-Allow-Origin` domän, innehåller svaret en rubrik för att uppfylla webbläsarens krav på resurs delning mellan ursprung (CORS).
+    > Eftersom den här HTTP-slutpunkten anropas av en webb sida som finns på en annan domän, innehåller svaret en `Access-Control-Allow-Origin` rubrik för att uppfylla webbläsarens krav på resurs delning mellan ursprung (CORS).
     >
     > I ett produktions program ändrar `*` du till webb sidans specifika ursprung för ytterligare säkerhet.
 
-1. Spara dina ändringar och antar att beroenden har installerats, starta den lokala funktions värden igen med `func start`. Se till att köra värden i mappen *Start* med den virtuella miljön aktive rad. Annars startar värden, men du får fel meddelanden när du anropar funktionen.
+1. Spara dina ändringar och antar att beroenden har installerats, starta den lokala funktions värden igen med `func start` . Se till att köra värden i mappen *Start* med den virtuella miljön aktive rad. Annars startar värden, men du får fel meddelanden när du anropar funktionen.
 
     ```
     func start
@@ -241,7 +242,7 @@ Om du vill testa att anropa funktions slut punkten från en annan webbapp finns 
     py -m http.server
     ```
 
-1. I en webbläsare, navigerar `localhost:8000`du till och anger sedan någon av följande bild-URL: er i text rutan eller Använd URL: en för en offentligt tillgänglig bild.
+1. I en webbläsare, navigerar du till `localhost:8000` och anger sedan någon av följande bild-URL: er i text rutan eller Använd URL: en för en offentligt tillgänglig bild.
 
     - `https://raw.githubusercontent.com/Azure-Samples/functions-python-pytorch-tutorial/master/resources/assets/Bernese-Mountain-Dog-Temperament-long.jpg`
     - `https://github.com/Azure-Samples/functions-python-pytorch-tutorial/blob/master/resources/assets/bald-eagle.jpg?raw=true`
@@ -251,7 +252,7 @@ Om du vill testa att anropa funktions slut punkten från en annan webbapp finns 
 
     ![Skärm bild av färdig projekt](media/machine-learning-pytorch/screenshot.png)
 
-    Om webbläsaren rapporterar ett fel när du skickar bild-URL: en, kontrollerar du den terminal där du kör Function-appen. Om du ser ett fel som "Det gick inte att hitta PIL" i modulen kan du ha startat funktionen app i *startmappen utan* att först aktivera den virtuella miljö som du skapade tidigare. Om du fortfarande ser fel kan du `pip install -r requirements.txt` köra igen med den virtuella miljön aktive rad och leta efter fel.
+    Om webbläsaren rapporterar ett fel när du skickar bild-URL: en, kontrollerar du den terminal där du kör Function-appen. Om du ser ett fel som "Det gick inte att hitta PIL" i modulen kan du ha startat funktionen app i *startmappen utan* att först aktivera den virtuella miljö som du skapade tidigare. Om du fortfarande ser fel kan du köra `pip install -r requirements.txt` igen med den virtuella miljön aktive rad och leta efter fel.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -9,13 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.custom: mvc
-ms.openlocfilehash: 00e2f573a85d6926c8941a3ed05eeab1163b9ea1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 464c11c2cfb850ff50a08b7591f62145a1551c40
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121107"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560855"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Självstudie: använda Azure Key Vault med en virtuell Windows-dator i python
 
@@ -37,7 +37,7 @@ Läs [Key Vault grundläggande koncept](basic-concepts.md)innan du börjar.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För Windows, Mac och Linux:
   * [Git](https://git-scm.com/downloads)

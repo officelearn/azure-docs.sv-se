@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 450aa58d4ad9cbb721e621ec3db8b4ca7e914aa1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6fe25efe8f38772162c916c8d0b965267d457c0c
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121209"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488825"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Flytta en Azure Key Vault till en annan prenumeration
 
@@ -50,7 +50,7 @@ Du har ett program anslutet till nyckel valv som skapar certifikat som är gilti
 
 Se till att gå till Azure Policy sidan på Azure Portal och titta på princip tilldelningarna för din aktuella prenumeration samt den prenumeration som du flyttar till och se till att det inte finns några fel matchningar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Deltagar nivå åtkomst eller högre till den aktuella prenumerationen där nyckel valvet finns.
 * Deltagar nivå åtkomst eller högre till den prenumeration där du vill flytta nyckel valvet.
@@ -66,9 +66,8 @@ Se till att gå till Azure Policy sidan på Azure Portal och titta på princip t
 4. Välj knappen "flytta"
 5. Välj "flytta till en annan prenumeration" från List Rute alternativen
 6. Välj den resurs grupp där du vill flytta nyckel valvet
-7. Välj den resurs grupp där du vill flytta nyckel valvet
-8. Bekräfta varningen om att flytta resurser
-9. Välj OK
+7. Bekräfta varningen om att flytta resurser
+8. Välj OK
 
 ### <a name="additional-steps-post-move"></a>Ytterligare steg (post flyttning)
 

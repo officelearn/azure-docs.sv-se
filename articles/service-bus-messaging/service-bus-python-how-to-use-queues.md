@@ -13,13 +13,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.custom: seo-python-october2019
-ms.openlocfilehash: acb0b0e84804ecf6025e05590133dee9b0d54c48
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: seo-python-october2019, tracking-python
+ms.openlocfilehash: 38e4d4a8677ca88cfe4cf8d9fab19cec6a8874d4
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80478653"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560062"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Snabb start: använda Azure Service Bus köer med python
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du använder python för att skapa, skicka meddeland
 
 Mer information om python Azure Service Bus-bibliotek finns i [Service Bus bibliotek för python](/python/api/overview/azure/servicebus?view=azure-python).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - En Azure-prenumeration. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Ett Service Bus namn område som skapats genom att följa stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer](service-bus-quickstart-topics-subscriptions-portal.md). Kopiera den primära anslutnings strängen från skärmen **principer för delad åtkomst** som du kan använda senare i den här artikeln. 
 - Python 3.4 x eller senare, med [python Azure Service Bus][Python Azure Service Bus package] -paketet installerat. Mer information finns i [installations guiden för python](/azure/developer/python/azure-sdk-install). 
@@ -63,7 +63,7 @@ sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
 
 ## <a name="send-messages-to-a-queue"></a>Skicka meddelanden till en kö
 
-Om du vill skicka ett meddelande till en Service Bus kö anropar ett `send` program metoden i **ServiceBusClient** -objektet. Följande kod exempel skapar en Queue-klient och skickar ett test meddelande till `taskqueue` kön. Ersätt `<connectionstring>` med ditt Service Bus primärt värde för anslutnings sträng. 
+Om du vill skicka ett meddelande till en Service Bus kö anropar ett program `send` metoden i **ServiceBusClient** -objektet. Följande kod exempel skapar en Queue-klient och skickar ett test meddelande till `taskqueue` kön. Ersätt `<connectionstring>` med ditt Service Bus primärt värde för anslutnings sträng. 
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -102,19 +102,19 @@ with queue_client.get_receiver() as queue_receiver:
 
 ### <a name="use-the-peek_lock-parameter"></a>Använd peek_lock parameter
 
-Den valfria `peek_lock` parametern för `get_receiver` avgör om Service Bus tar bort meddelanden från kön när de läses. Standard läget för att ta emot meddelanden är *PeekLock*, `peek_lock` eller anges till **True**, som läser (tittar) och låser meddelanden utan att ta bort dem från kön. Varje meddelande måste slutföras explicit för att ta bort det från kön.
+Den valfria `peek_lock` parametern för `get_receiver` avgör om Service Bus tar bort meddelanden från kön när de läses. Standard läget för att ta emot meddelanden är *PeekLock*, eller `peek_lock` anges till **True**, som läser (tittar) och låser meddelanden utan att ta bort dem från kön. Varje meddelande måste slutföras explicit för att ta bort det från kön.
 
-Om du vill ta bort meddelanden från kön när de har lästs, kan `peek_lock` du ange `get_receiver` parametern till **false**. Att ta bort meddelanden som en del av Receive-åtgärden är den enklaste modellen, men fungerar bara om programmet kan tolerera saknade meddelanden om det uppstår ett fel. För att förstå det här beteendet bör du överväga ett scenario där konsumenten utfärdar en Receive-begäran och sedan kraschar innan den bearbetas. Om meddelandet togs bort när det togs emot när programmet startas om och börjar förbruka meddelanden igen, har det missa det meddelande som togs emot före kraschen.
+Om du vill ta bort meddelanden från kön när de har lästs, kan du ange `peek_lock` parametern `get_receiver` till **false**. Att ta bort meddelanden som en del av Receive-åtgärden är den enklaste modellen, men fungerar bara om programmet kan tolerera saknade meddelanden om det uppstår ett fel. För att förstå det här beteendet bör du överväga ett scenario där konsumenten utfärdar en Receive-begäran och sedan kraschar innan den bearbetas. Om meddelandet togs bort när det togs emot när programmet startas om och börjar förbruka meddelanden igen, har det missa det meddelande som togs emot före kraschen.
 
-Om programmet inte kan tolerera missade meddelanden, kan du ta emot en åtgärd i två steg. PeekLock söker efter nästa meddelande som ska förbrukas, låser det för att hindra andra användare från att ta emot det och returnerar det till programmet. När du har bearbetat eller lagrat meddelandet Slutför programmet det andra steget i Receive-processen genom `complete` att anropa metoden i objektet **Message** .  `complete` Metoden markerar meddelandet som förbrukat och tar bort det från kön.
+Om programmet inte kan tolerera missade meddelanden, kan du ta emot en åtgärd i två steg. PeekLock söker efter nästa meddelande som ska förbrukas, låser det för att hindra andra användare från att ta emot det och returnerar det till programmet. När du har bearbetat eller lagrat meddelandet Slutför programmet det andra steget i Receive-processen genom att anropa `complete` metoden i objektet **Message** .  `complete`Metoden markerar meddelandet som förbrukat och tar bort det från kön.
 
 ## <a name="handle-application-crashes-and-unreadable-messages"></a>Hantera program krascher och oläsbara meddelanden
 
-Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagar program inte kan bearbeta ett meddelande av någon anledning, kan det `unlock` anropa metoden i objektet **Message** . Service Bus låser upp meddelandet i kön och gör det tillgängligt att tas emot igen, antingen av samma eller ett annat användnings program.
+Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagar program inte kan bearbeta ett meddelande av någon anledning, kan det anropa `unlock` metoden i objektet **Message** . Service Bus låser upp meddelandet i kön och gör det tillgängligt att tas emot igen, antingen av samma eller ett annat användnings program.
 
 Det finns också en tids gräns för meddelanden som är låsta i kön. Om ett program inte kan bearbeta ett meddelande innan låsnings tids gränsen går ut, till exempel om programmet kraschar, Service Bus låser upp meddelandet automatiskt och gör det tillgängligt för att tas emot igen.
 
-Om ett program kraschar efter att ett meddelande har bearbetats `complete` men innan du anropar-metoden, skickas meddelandet vidare till programmet när det startas om. Det här beteendet kallas ofta *för bearbetning med minst en gång*. Varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om ditt scenario inte kan tolerera dubbla bearbetningar kan du använda meddelandets **messageid** -egenskap, som förblir konstant över leverans försök, för att hantera dubbla meddelande leveranser. 
+Om ett program kraschar efter att ett meddelande har bearbetats men innan du anropar `complete` -metoden, skickas meddelandet vidare till programmet när det startas om. Det här beteendet kallas ofta *för bearbetning med minst en gång*. Varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om ditt scenario inte kan tolerera dubbla bearbetningar kan du använda meddelandets **messageid** -egenskap, som förblir konstant över leverans försök, för att hantera dubbla meddelande leveranser. 
 
 > [!TIP]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Med Service Bus Explorer kan du ansluta till ett Service Bus-namnområde och enkelt administrera meddelande enheter. Verktyget innehåller avancerade funktioner som import/export-funktioner och möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub.

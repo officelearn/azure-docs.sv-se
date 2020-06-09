@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604888"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488806"
 ---
 Genom att använda regional VNet-integrering kan din app komma åt:
 
@@ -56,11 +56,7 @@ En adress används för varje plan instans. Om du skalar din app till fem instan
 
 Om du vill att dina appar i en annan plan ska kunna komma åt ett VNet som redan är anslutet till av appar i ett annat abonnemang väljer du ett annat undernät än det som används av den befintliga VNet-integreringen.
 
-Funktionen är i för hands version för Linux. Linux-formen för funktionen stöder bara anrop till RFC 1918-adresser (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
-
-### <a name="web-or-function-app-for-containers"></a>Webb eller Funktionsapp för behållare
-
-Om du är värd för din app på Linux med de inbyggda avbildningarna fungerar regional VNet-integrering utan ytterligare ändringar. Om du använder webb-eller Funktionsapp för behållare måste du ändra Docker-avbildningen för att använda VNet-integrering. I Docker-avbildningen använder du PORT miljö variabeln som den huvudsakliga webb serverns lyssnings port, i stället för att använda ett hårdkodad port nummer. PORT miljö variabeln anges automatiskt av plattformen vid behållarens start tid. Om du använder SSH måste SSH-daemon konfigureras för att lyssna på det port nummer som anges av SSH_PORT-miljövariabeln när du använder regional VNet-integrering. Det finns inget stöd för gateway-nödvändig VNet-integrering på Linux.
+Funktionen stöds fullt ut för både Windows-och Linux-webbappar. Alla beteenden fungerar på samma sätt mellan Windows-appar och Linux-appar.
 
 ### <a name="service-endpoints"></a>Tjänstslutpunkter
 

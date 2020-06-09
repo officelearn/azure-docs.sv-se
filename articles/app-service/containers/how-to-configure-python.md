@@ -4,19 +4,19 @@ description: Lär dig hur du konfigurerar en fördefinierad python-behållare f�
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 8a9276f73c1d9bdf0289f41bb59340b29f5a2575
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, tracking-python
+ms.openlocfilehash: 96f7684176df35e9ac085dd2d7a0c576b7266883
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80046031"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553258"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurera en Linux python-app för Azure App Service
 
 Den här artikeln beskriver hur [Azure App Service](app-service-linux-intro.md) kör Python-appar och hur du kan anpassa beteendet för App Service när det behövs. Python-appar måste distribueras med alla nödvändiga [pip](https://pypi.org/project/pip/) -moduler.
 
-App Service distributions motorn aktiverar automatiskt en virtuell miljö och körs `pip install -r requirements.txt` åt dig när du distribuerar en git- [lagringsplats](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), eller ett [zip-paket](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) med Bygg processer aktiverade.
+App Service distributions motorn aktiverar automatiskt en virtuell miljö och körs `pip install -r requirements.txt` åt dig när du distribuerar en [git-lagringsplats](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), eller ett [zip-paket](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) med Bygg processer aktiverade.
 
 Den här guiden innehåller viktiga begrepp och instruktioner för python-utvecklare som använder en inbyggd Linux-behållare i App Service. Om du aldrig har använt Azure App Service bör du först följa snabb starten för [python](quickstart-python.md) och [python med postgresql](tutorial-python-postgresql-app.md) .
 
@@ -52,12 +52,12 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatisering aktiverat, App Service bygga automatiserings steg i följande ordning:
 
-1. Kör anpassat skript om det anges `PRE_BUILD_SCRIPT_PATH`av.
+1. Kör anpassat skript om det anges av `PRE_BUILD_SCRIPT_PATH` .
 1. Kör `pip install -r requirements.txt`.
-1. Om *Manage.py* finns i roten för lagrings platsen kör du *Manage.py collectstatic*. Men om `DISABLE_COLLECTSTATIC` är inställt `true`på, hoppas det här steget över.
-1. Kör anpassat skript om det anges `POST_BUILD_SCRIPT_PATH`av.
+1. Om *Manage.py* finns i roten för lagrings platsen kör du *Manage.py collectstatic*. Men om `DISABLE_COLLECTSTATIC` är inställt på `true` , hoppas det här steget över.
+1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH` .
 
-`PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`och `DISABLE_COLLECTSTATIC` är miljövariabler som är tomma som standard. Definiera `PRE_BUILD_COMMAND`för att köra kommandon för att skapa för bygge. Definiera `POST_BUILD_COMMAND`för att köra kommandon efter kompilering. Om du vill inaktivera körning av collectstatic när du skapar `DISABLE_COLLECTSTATIC=true`django-appar anger du.
+`PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` och `DISABLE_COLLECTSTATIC` är miljövariabler som är tomma som standard. Definiera för att köra kommandon för att skapa för bygge `PRE_BUILD_COMMAND` . Definiera för att köra kommandon efter kompilering `POST_BUILD_COMMAND` . Om du vill inaktivera körning av collectstatic när du skapar django-appar anger du `DISABLE_COLLECTSTATIC=true` .
 
 I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
 
@@ -131,7 +131,7 @@ Du kan styra containerns startbeteende genom att ange ett anpassat Gunicorn-star
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
 ```
 
-Om du till exempel har en kolv-app vars huvudmodul är *Hello.py* och kolv-Appaketet i filen heter `myapp`, så är>för * \<anpassad kommando* :
+Om du till exempel har en kolv-app vars huvudsakliga modul är *Hello.py* och mappen kolv i filen heter, så gör du `myapp` *\<custom-command>* så här:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -143,9 +143,9 @@ Om din huvudmodul är i en undermapp, till exempel `website`, anger du den mappe
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Du kan också lägga till ytterligare argument för Gunicorn till * \<>för anpassade kommandon *, till exempel `--workers=4`. Mer information finns i [Köra Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+Du kan också lägga till ytterligare argument för Gunicorn till *\<custom-command>* , till exempel `--workers=4` . Mer information finns i [Köra Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
-Om du vill använda en icke-Gunicorn-Server, till exempel [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), kan du ersätta * \<>för anpassade kommandon* med något som liknar detta:
+Om du vill använda en icke-Gunicorn-Server, till exempel [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), kan du ersätta *\<custom-command>* med något som liknar detta:
 
 ```bash
 python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func

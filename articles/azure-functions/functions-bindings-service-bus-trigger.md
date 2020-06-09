@@ -6,12 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.custom: tracking-python
+ms.openlocfilehash: c15fe311b331592a54c61a5cddb29d4b467ca550
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690712"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560810"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Azure Service Bus utlösare för Azure Functions
 
@@ -21,7 +22,7 @@ Information om konfiguration och konfigurations information finns i [översikten
 
 ## <a name="example"></a>Exempel
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som läser [meddelandets metadata](#message-metadata) och loggar ett Service Bus Queue-meddelande:
 
@@ -119,7 +120,7 @@ module.exports = function(context, myQueueItem) {
 
 Följande exempel visar hur du läser ett Service Bus Queue-meddelande via en utlösare.
 
-En Service Bus-bindning definieras i *Function. JSON* där *Type* har angetts till `serviceBusTrigger`.
+En Service Bus-bindning definieras i *Function. JSON* där *Type* har angetts till `serviceBusTrigger` .
 
 ```json
 {
@@ -136,7 +137,7 @@ En Service Bus-bindning definieras i *Function. JSON* där *Type* har angetts ti
 }
 ```
 
-Koden i * _ \_init_\_. py* deklarerar en parameter som `func.ServiceBusMessage`, vilket gör att du kan läsa meddelandet i kön i din funktion.
+Koden i * _ \_ init_ \_ . py* deklarerar en parameter som `func.ServiceBusMessage` , vilket gör att du kan läsa meddelandet i kön i din funktion.
 
 ```python
 import azure.functions as func
@@ -168,7 +169,7 @@ def main(msg: func.ServiceBusMessage):
 
 # <a name="java"></a>[Java](#tab/java)
 
-Följande Java-funktion använder `@ServiceBusQueueTrigger` anteckningen från Java Functions runtime- [biblioteket](/java/api/overview/azure/functions/runtime) för att beskriva konfigurationen för en Service Bus Queue-utlösare. Funktionen tar bort meddelandet som placerats i kön och lägger till det i loggarna.
+Följande Java-funktion använder `@ServiceBusQueueTrigger` anteckningen från Java Functions [runtime-biblioteket](/java/api/overview/azure/functions/runtime) för att beskriva konfigurationen för en Service Bus Queue-utlösare. Funktionen tar bort meddelandet som placerats i kön och lägger till det i loggarna.
 
 ```java
 @FunctionName("sbprocessor")
@@ -203,13 +204,13 @@ Java-funktioner kan också aktive ras när ett meddelande läggs till i ett Serv
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Använd följande attribut i [C#-klass bibliotek](functions-dotnet-class-library.md)för att konfigurera en Service Bus-utlösare:
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs)
 
-  Attributets konstruktor tar namnet på kön eller ämnet och prenumerationen. I Azure Functions version 1. x kan du också ange anslutningens behörigheter. Om du inte anger åtkomst behörighet är `Manage`standardvärdet. Mer information finns i avsnittet om [Utlösar-konfiguration](#configuration) .
+  Attributets konstruktor tar namnet på kön eller ämnet och prenumerationen. I Azure Functions version 1. x kan du också ange anslutningens behörigheter. Om du inte anger åtkomst behörighet är standardvärdet `Manage` . Mer information finns i avsnittet om [Utlösar-konfiguration](#configuration) .
 
   Här är ett exempel som visar attributet som används med en sträng parameter:
 
@@ -222,7 +223,7 @@ Använd följande attribut i [C#-klass bibliotek](functions-dotnet-class-library
   }
   ```
 
-  Eftersom `Connection` egenskapen inte är definierad söker Functions efter en app-inställning `AzureWebJobsServiceBus`med namnet, som är standard namnet för Service Bus anslutnings strängen. Du kan också ange `Connection` egenskapen för att ange namnet på en program inställning som innehåller den Service Bus anslutnings sträng som ska användas, som du ser i följande exempel:
+  Eftersom `Connection` egenskapen inte är definierad söker Functions efter en app-inställning med namnet `AzureWebJobsServiceBus` , som är standard namnet för Service Bus anslutnings strängen. Du kan också ange `Connection` egenskapen för att ange namnet på en program inställning som innehåller den Service Bus anslutnings sträng som ska användas, som du ser i följande exempel:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -256,10 +257,10 @@ Använd följande attribut i [C#-klass bibliotek](functions-dotnet-class-library
 
 Service Bus kontot som ska användas fastställs i följande ordning:
 
-* `ServiceBusTrigger` Attributets `Connection` egenskap.
-* `ServiceBusAccount` Attributet som används för samma parameter som `ServiceBusTrigger` attributet.
-* `ServiceBusAccount` Attributet som används för funktionen.
-* `ServiceBusAccount` Attributet som används för klassen.
+* `ServiceBusTrigger`Attributets `Connection` egenskap.
+* `ServiceBusAccount`Attributet som används för samma parameter som `ServiceBusTrigger` attributet.
+* `ServiceBusAccount`Attributet som används för funktionen.
+* `ServiceBusAccount`Attributet som används för klassen.
 * App-inställningen "AzureWebJobsServiceBus".
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
@@ -288,7 +289,7 @@ Se utlösnings [exemplet](#example) för mer information.
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `ServiceBusTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|function. JSON-egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste vara inställd på "serviceBusTrigger". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
 |**position** | saknas | Måste vara inställt på "in". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
@@ -297,23 +298,23 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**topicName**|**TopicName**|Namn på det ämne som ska övervakas. Ange endast om du övervakar ett ämne, inte för en kö.|
 |**subscriptionName**|**SubscriptionName**|Namnet på den prenumeration som ska övervakas. Ange endast om du övervakar ett ämne, inte för en kö.|
 |**anslutningen**|**Anslutning**|Namnet på en app-inställning som innehåller den Service Bus anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet. Om du till exempel anger `connection` "MyServiceBus" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyServiceBus". Om du lämnar `connection` tomt använder Functions-körningen standard Service Bus anslutnings strängen i appens inställning med namnet "AzureWebJobsServiceBus".<br><br>Om du vill hämta en anslutnings sträng följer du stegen som visas i [Hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). Anslutnings strängen måste vara för ett Service Bus-namnområde, inte begränsat till en viss kö eller ett ämne. |
-|**accessRights**|**Åtkomst**|Åtkomst behörighet för anslutnings strängen. Tillgängliga värden är `manage` och `listen`. Standardvärdet `manage`är, vilket anger att `connection` har behörigheten **Hantera** . Om du använder en anslutnings sträng som inte har behörigheten **Hantera** , anger `accessRights` du "lyssna". I annat fall kan funktions körningen Miss kan försöka utföra åtgärder som kräver behörighet att hantera. I Azure Functions version 2. x och högre är den här egenskapen inte tillgänglig eftersom den senaste versionen av Service Bus SDK inte stöder hanterings åtgärder.|
+|**accessRights**|**Åtkomst**|Åtkomst behörighet för anslutnings strängen. Tillgängliga värden är `manage` och `listen` . Standardvärdet är `manage` , vilket anger att `connection` har behörigheten **Hantera** . Om du använder en anslutnings sträng som inte har behörigheten **Hantera** , anger `accessRights` du "lyssna". I annat fall kan funktions körningen Miss kan försöka utföra åtgärder som kräver behörighet att hantera. I Azure Functions version 2. x och högre är den här egenskapen inte tillgänglig eftersom den senaste versionen av Service Bus SDK inte stöder hanterings åtgärder.|
 |**isSessionsEnabled**|**IsSessionsEnabled**|`true`Om du ansluter till en session som är [medveten](../service-bus-messaging/message-sessions.md) om en kö eller prenumeration. `false`Annars, vilket är standardvärdet.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Användning
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Följande parameter typer är tillgängliga för kön eller ämnes meddelandet:
 
 * `string`– Om meddelandet är text.
 * `byte[]`– Användbart för binära data.
 * En anpassad typ – om meddelandet innehåller JSON Azure Functions försöker deserialisera JSON-data.
-* `BrokeredMessage`– Ger dig det deserialiserade meddelandet med metoden [BrokeredMessage. GetBody\<T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* `BrokeredMessage`– Ger dig det deserialiserade meddelandet med metoden [BrokeredMessage. GetBody \<T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
-Dessa parameter typer är för Azure Functions version 1. x. för 2. x och högre använder [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) du i stället `BrokeredMessage`för.
+Dessa parameter typer är för Azure Functions version 1. x. för 2. x och högre använder du [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) i stället för `BrokeredMessage` .
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
@@ -322,21 +323,21 @@ Följande parameter typer är tillgängliga för kön eller ämnes meddelandet:
 * `string`– Om meddelandet är text.
 * `byte[]`– Användbart för binära data.
 * En anpassad typ – om meddelandet innehåller JSON Azure Functions försöker deserialisera JSON-data.
-* `BrokeredMessage`– Ger dig det deserialiserade meddelandet med metoden [BrokeredMessage. GetBody\<T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* `BrokeredMessage`– Ger dig det deserialiserade meddelandet med metoden [BrokeredMessage. GetBody \<T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
-Dessa parametrar är för Azure Functions version 1. x. för 2. x och högre använder [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) du i stället `BrokeredMessage`för.
+Dessa parametrar är för Azure Functions version 1. x. för 2. x och högre använder du [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) i stället för `BrokeredMessage` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Få åtkomst till kön eller ämnes meddelandet med `context.bindings.<name from function.json>`hjälp av. Service Bus meddelandet skickas till funktionen som antingen en sträng eller ett JSON-objekt.
+Få åtkomst till kön eller ämnes meddelandet med hjälp av `context.bindings.<name from function.json>` . Service Bus meddelandet skickas till funktionen som antingen en sträng eller ett JSON-objekt.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Queue-meddelandet är tillgängligt för funktionen via en parameter som har angetts `func.ServiceBusMessage`som. Service Bus meddelandet skickas till funktionen som antingen en sträng eller ett JSON-objekt.
+Queue-meddelandet är tillgängligt för funktionen via en parameter som har angetts som `func.ServiceBusMessage` . Service Bus meddelandet skickas till funktionen som antingen en sträng eller ett JSON-objekt.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Det inkommande Service Buss meddelandet är tillgängligt via `ServiceBusQueueMessage` en `ServiceBusTopicMessage` -eller-parameter.
+Det inkommande Service Buss meddelandet är tillgängligt via en- `ServiceBusQueueMessage` eller- `ServiceBusTopicMessage` parameter.
 
 [Se exemplet för mer information](#example).
 
@@ -350,13 +351,13 @@ Hantering av skadligt meddelande kan inte styras eller konfigureras i Azure Func
 
 Functions-körningen tar emot ett meddelande i [PeekLock-läge](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Det anropar `Complete` meddelandet om funktionen har slutförts eller anropas `Abandon` om funktionen Miss lyckas. Om funktionen körs längre än `PeekLock` tids gränsen förnyas låset automatiskt så länge funktionen körs. 
 
-Kan konfigureras i *Host. JSON*, som mappar till [OnMessageOptions. MaxAutoRenewDuration.](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet) `maxAutoRenewDuration` Det högsta tillåtna värdet för den här inställningen är 5 minuter enligt Service Bus-dokumentationen, men du kan öka tids gränsen för funktioner från standardvärdet 5 minuter till 10 minuter. För Service Bus funktioner vill du inte göra det eftersom du skulle överskrida den Service Bus förnyelse gränsen.
+Kan `maxAutoRenewDuration` konfigureras i *Host. JSON*, som mappar till [OnMessageOptions. MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). Det högsta tillåtna värdet för den här inställningen är 5 minuter enligt Service Bus-dokumentationen, men du kan öka tids gränsen för funktioner från standardvärdet 5 minuter till 10 minuter. För Service Bus funktioner vill du inte göra det eftersom du skulle överskrida den Service Bus förnyelse gränsen.
 
 ## <a name="message-metadata"></a>Metadata för meddelande
 
 Service Bus utlösaren innehåller flera [Egenskaper för metadata](./functions-bindings-expressions-patterns.md#trigger-metadata). Dessa egenskaper kan användas som en del av bindnings uttryck i andra bindningar eller som parametrar i koden. De här egenskaperna är medlemmar i [meddelande](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet) klassen.
 
-|Egenskap|Typ|Beskrivning|
+|Egenskap|Typ|Description|
 |--------|----|-----------|
 |`ContentType`|`string`|En innehålls typ identifierare som används av avsändaren och mottagaren för programspecifik logik.|
 |`CorrelationId`|`string`|Korrelations-ID: t.|

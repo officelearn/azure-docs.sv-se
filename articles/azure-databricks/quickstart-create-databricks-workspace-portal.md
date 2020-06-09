@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.date: 03/23/2020
-ms.custom: mvc
-ms.openlocfilehash: d6af521238a034bc22612335119f08284b87eb4b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 6c7226a56d5811438ec9d0703e0b8242df13e17b
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80132713"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559307"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
 I den här snabb starten använder du Azure Portal för att skapa en Azure Databricks arbets yta med ett Apache Spark-kluster. Du kör ett jobb i klustret och använder anpassade diagram för att skapa rapporter i real tid från säkerhets data i Boston.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
@@ -37,7 +37,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. I Azure Portal väljer du **skapa en resurs** > **analys** > **Azure Databricks**.
+1. I Azure Portal väljer du **skapa en resurs**  >  **analys**  >  **Azure Databricks**.
 
     ![Databricks på Azure Portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks på Azure Portal")
 

@@ -3,12 +3,13 @@ title: Skapa ett program för Azure Service Fabric container i Linux
 description: Skapa din första Linux-containerapp på Azure Service Fabric. Skapa en Docker-avbildning med din app, överför avbildningen till ett containerregister och skapa och distribuera en Service Fabric-containerapp.
 ms.topic: conceptual
 ms.date: 1/4/2019
-ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 07e3682ec1787ceb350ac72c8b80d86eed80b339
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75457970"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560650"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -20,7 +21,7 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 > [!NOTE]
 > Den här artikeln gäller en Linux-utvecklings miljö.  Service Fabric kluster körning och Docker-körningsmiljön måste köras på samma OS.  Det går inte att köra Linux-behållare i ett Windows-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En utvecklingsdator som kör:
   * [Service Fabric SDK och verktyg](service-fabric-get-started-linux.md).
   * [Docker CE för Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -113,7 +114,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* namnger den container som körs (i stället för container-ID:t).
 
-Anslut till den container som körs. Öppna en webbläsare som pekar på IP-adressen som returnerades på port 4000, till exempel "\/http:/localhost: 4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den container som körs. Öppna en webbläsare som pekar på IP-adressen som returnerades på port 4000, till exempel "http: \/ /localhost: 4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ![Hello World!][hello-world]
 
@@ -256,9 +257,9 @@ Använd installations skriptet som finns i mallarna för https://github.com/Azur
 ./install.sh
 ```
 
-Öppna en webbläsare och gå till Service Fabric Explorer på http:\//localhost: 19080/Explorer (Ersätt localhost med den virtuella datorns privata IP om du använder Vagrant på Mac OS X). Expandera programnoden och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
+Öppna en webbläsare och gå till Service Fabric Explorer på http: \/ /localhost: 19080/Explorer (Ersätt localhost med den virtuella datorns privata IP om du använder Vagrant på Mac OS X). Expandera programnoden och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
-Anslut till den container som körs. Öppna en webbläsare som pekar på IP-adressen som returnerades på port 4000, till exempel "\/http:/localhost: 4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den container som körs. Öppna en webbläsare som pekar på IP-adressen som returnerades på port 4000, till exempel "http: \/ /localhost: 4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ![Hello World!][hello-world]
 

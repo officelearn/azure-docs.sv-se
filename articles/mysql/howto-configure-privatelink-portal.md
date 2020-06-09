@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 29400a374c421b0d1835c94ed302c57ba45744d7
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7dbce3f2645a1ae4e01dc52d516962297ea07df6
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485395"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488859"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Skapa och hantera en privat länk för Azure Database for MySQL med hjälp av portalen
 
@@ -144,7 +144,7 @@ I det här avsnittet ska du skapa en MySQL-server och lägga till en privat slut
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **Instans information** |  |
-    | Namn | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
+    | Name | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
     |Region|Välj **Europa, västra**.|
     |||
 
@@ -173,7 +173,7 @@ I det här avsnittet ska du skapa en MySQL-server och lägga till en privat slut
     |||
 
     > [!Note] 
-    > Se konfigurationen av [DNS-zonen för Azure-tjänster](../private-link/private-endpoint-dns.md).
+    > Använd den fördefinierade privata DNS-zonen för din tjänst eller skapa en ny. Mer information finns i [konfiguration av DNS-zoner för Azure-tjänster](../private-link/private-endpoint-dns.md) .
 
 1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
 2. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 

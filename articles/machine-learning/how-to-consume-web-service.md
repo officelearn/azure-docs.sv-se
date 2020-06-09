@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: cb957169f542fdf6dc01e1024e3daab57eabd894
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 3f7e2a5c2dca13ac705d67e1491d88a2537a9064
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433561"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555777"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använda en Azure Machine Learning modell som distribueras som en webb tjänst
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -88,7 +88,7 @@ Azure Machine Learning ger dig möjlighet att styra åtkomsten till dina webb tj
 
 |Autentiseringsmetod|ACI|AKS|
 |---|---|---|
-|Tangent|Inaktiverat som standard| Aktiverat som standard|
+|Nyckel|Inaktiverat som standard| Aktiverat som standard|
 |Token| Inte tillgängligt| Inaktiverat som standard |
 
 När du skickar en begäran till en tjänst som skyddas med en nyckel eller token ska du använda __Authorization__ -huvudet för att skicka nyckeln eller token. Nyckeln eller token måste formateras som `Bearer <key-or-token>` , där `<key-or-token>` är nyckel-eller token-värdet.

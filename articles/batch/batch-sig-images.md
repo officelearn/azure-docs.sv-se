@@ -3,12 +3,13 @@ title: Använd det delade avbildnings galleriet för att skapa en anpassad pool
 description: Anpassade avbildningar är ett effektivt sätt att konfigurera datornoder för att köra batch-arbetsbelastningar.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 6731086bfcbe6a671c579593791fb7467b280bca
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: tracking-python
+ms.openlocfilehash: bd71983a5c932b515a7d41a680a55772567694ca
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844496"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561261"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad pool
 
@@ -32,7 +33,7 @@ Att använda en delad avbildning som kon figurer ATS för ditt scenario kan ge f
 - **Bättre prestanda än anpassad avbildning.** Med hjälp av delade avbildningar kan den tid det tar för poolen att uppnå stabilt tillstånd vara upp till 25% snabbare och svars tiden för den virtuella datorn är upp till 30% kortare.
 - **Avbildnings version och gruppering för enklare hantering.** Definitionen för avbildnings gruppering innehåller information om varför avbildningen skapades, vilket operativ system den är för och information om hur du använder avbildningen. Gruppering av avbildningar möjliggör enklare bild hantering. Mer information finns i [bild definitioner](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!NOTE]
 > Du måste autentisera med hjälp av Azure AD. Om du använder Shared Key auth får du ett autentiseringsfel.  

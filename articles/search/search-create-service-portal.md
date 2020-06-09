@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en Sök tjänst i portalen'
+title: Skapa en Sök tjänst i portalen
 titleSuffix: Azure Cognitive Search
 description: I den här snabb starten av portalen lär du dig hur du konfigurerar en Azure Kognitiv sökning-resurs i Azure Portal. Välj resursgrupper, regioner, samt SKU eller prisnivå.
 manager: nitinme
@@ -7,17 +7,17 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 83b723c815825a255727e9a48d415fedd405c942
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77209366"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488230"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabb start: skapa en Azure Kognitiv sökning-tjänst i portalen
 
-Azure Kognitiv sökning är en fristående resurs som används för att koppla en Sök upplevelse till anpassade appar. Azure Kognitiv sökning integreras enkelt med andra Azure-tjänster, med appar på nätverks servrar eller med program vara som körs på andra moln plattformar.
+Azure Kognitiv sökning är en fristående resurs som används för att koppla en Sök upplevelse till anpassade appar. Kognitiv sökning integreras enkelt med andra Azure-tjänster, med appar på nätverks servrar eller med program vara som körs på andra moln plattformar.
 
 I den här artikeln får du lära dig hur du skapar en resurs i [Azure Portal](https://portal.azure.com/).
 
@@ -34,8 +34,10 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 ## <a name="find-azure-cognitive-search"></a>Hitta Azure-Kognitiv sökning
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
-3. Använd Sök fältet för att hitta "Azure kognitiv sökning" eller navigera till resursen via **Web** > **Azure kognitiv sökning**.
+
+1. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
+
+1. Använd Sök fältet för att hitta "Azure kognitiv sökning" eller navigera till resursen via **Web**  >  **Azure kognitiv sökning**.
 
 ![Skapa en resurs i portalen](./media/search-create-service-portal/find-search3.png "Skapa en resurs i portalen")
 
@@ -60,7 +62,7 @@ Med tiden kan du spåra aktuella och projicerade kostnader hela tiden, eller så
 
 ## <a name="name-the-service"></a>Namnge tjänsten
 
-I instans information anger du ett tjänst namn i **URL** -fältet. Namnet är en del av URL-slutpunkten mot vilken API-anrop `https://your-service-name.search.windows.net`utfärdas:. Till exempel, om du vill att slutpunkten ska vara `https://myservice.search.windows.net`, anger du `myservice`.
+I instans information anger du ett tjänst namn i **URL** -fältet. Namnet är en del av URL-slutpunkten mot vilken API-anrop utfärdas: `https://your-service-name.search.windows.net` . Till exempel, om du vill att slutpunkten ska vara `https://myservice.search.windows.net`, anger du `myservice`.
 
 Kraven för tjänstnamn:
 
@@ -75,20 +77,26 @@ Kraven för tjänstnamn:
 
 ## <a name="choose-a-location"></a>Välj en plats
 
-Som Azure-tjänst kan Azure Kognitiv sökning ligga i Data Center över hela världen. Du hittar en lista över regioner som stöds på [sidan med priser](https://azure.microsoft.com/pricing/details/search/). 
-
-Du kan minimera eller undvika bandbredds avgifter genom att välja samma plats för flera tjänster. Om du till exempel indexerar data som tillhandahålls av en annan Azure-tjänst (Azure Storage, Azure Cosmos DB Azure SQL Database) skapar du en Azure Kognitiv sökning-tjänst i samma region för att undvika bandbredds avgifter (det kostar inga avgifter för utgående data när tjänsterna är i samma region).
-
-Om du använder AI-anrikning skapar du din Sök tjänst i samma region som Cognitive Services. *Samplacering av Azure kognitiv sökning och Cognitive Services i samma region är ett krav för AI-berikning*.
+Azure Kognitiv sökning är tillgängligt i de flesta regioner. Du hittar en lista över regioner som stöds på [sidan med priser](https://azure.microsoft.com/pricing/details/search/).
 
 > [!Note]
-> Centrala Indien är för närvarande inte tillgängligt för nya tjänster. För tjänster som redan finns i Central Indien kan du skala upp utan begränsningar och tjänsten stöds fullt ut i den regionen. Begränsningen i den här regionen är temporär och begränsad till endast nya tjänster. Vi tar bort den här anteckningen när begränsningen inte längre gäller.
+> Centrala Indien och Förenade Arabemiraten Nord är för närvarande inte tillgängliga för nya tjänster. För tjänster som redan finns i dessa regioner kan du skala upp utan begränsningar och tjänsten stöds fullt ut i den regionen. Begränsningarna är temporära och begränsade till endast nya tjänster. Vi tar bort den här anteckningen när begränsningarna inte längre gäller.
+
+### <a name="requirements"></a>Krav
+
+ Om du använder AI-anrikning skapar du din Sök tjänst i samma region som Cognitive Services. *Samplacering av Azure kognitiv sökning och Cognitive Services i samma region är ett krav för AI-berikning*.
+
+ Kunder med krav på affärs kontinuitet och haveri beredskap (BCDR) bör skapa sina tjänster i [regionala par](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). Om du till exempel arbetar i Nordamerika kan du välja östra USA och västra USA, norra centrala USA och södra Central oss, för varje tjänst.
+
+### <a name="recommendations"></a>Rekommendationer
+
+Om du använder flera Azure-tjänster väljer du en region som också är värd för dina data eller program tjänster. Detta minimerar eller avvärderar bandbredds avgifter för utgående data (det kostar inget att debitera utgående data när tjänsterna är i samma region).
 
 ## <a name="choose-a-pricing-tier-sku"></a>Välj en pris nivå (SKU)
 
 [Azure kognitiv sökning erbjuds för närvarande på flera pris nivåer](https://azure.microsoft.com/pricing/details/search/): kostnads fri, Basic eller standard. Nivåerna har olika [kapacitet och begränsningar](search-limits-quotas-capacity.md). Mer information finns i [Välj en prisnivå nivå eller SKU](search-sku-tier.md).
 
-Basic och standard är de vanligaste alternativen för produktions arbets belastningar, men de flesta kunder börjar med den kostnads fria tjänsten. Viktiga skillnader mellan nivåer är partitionens storlek och hastighet och begränsningar för antalet objekt som du kan skapa.
+Basic och standard är de vanligaste alternativen för produktions arbets belastningar, men de flesta kunder börjar med den kostnads fria tjänsten. Viktiga skillnader mellan nivåer är partitionens storlek och hastighet samt begränsningar för antalet objekt som du kan skapa.
 
 Kom ihåg att det inte går att ändra pris nivån när tjänsten har skapats. Om du behöver en högre eller lägre nivå måste du återskapa tjänsten.
 
@@ -128,7 +136,7 @@ Om du lägger till resurser blir din månatliga faktura större. [Priskalkylator
 > En tjänst måste ha [2 repliker för skrivskyddad SLA och 3 repliker för läs-/skriv-SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Gå till söktjänstsidan i Azure-portalen.
-2. I det vänstra navigerings fönstret väljer du **Inställningar** > **skala**.
+2. I det vänstra navigerings fönstret väljer du **Inställningar**  >  **skala**.
 3. Använd reglaget om du vill lägga till resurser av endera typ.
 
 ![Lägg till kapacitet](./media/search-create-service-portal/settings-scale.png "Lägg till kapacitet via repliker och partitioner")
@@ -142,9 +150,11 @@ De flesta kunder använder bara en tjänst som etablerats på en nivå som har [
 
 Även om de flesta kunder bara använder en tjänst kan det vara nödvändigt med tjänstredundans om de operativa kraven omfattar följande:
 
-* Haveriberedskap (avbrott i datacenter). Azure Kognitiv sökning ger inte omedelbar redundans vid ett avbrott. Mer information och rekommendationer finns i [Tjänstadministration](search-manage.md).
-* Din undersökning av modeller med flera klientorganisationer har fastställt att ytterligare tjänster är den optimala designen. Mer information finns i [Design för flera klientorganisationer](search-modeling-multitenant-saas-applications.md).
-* För globalt distribuerade program kan du behöva en instans av Azure Kognitiv sökning i flera regioner för att minimera svars tiden för programmets internationella trafik.
++ [Verksamhets kontinuitet och haveri beredskap (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Azure Kognitiv sökning ger inte omedelbar redundans vid ett avbrott.
+
++ [Arkitekturer för flera innehavare](search-modeling-multitenant-saas-applications.md) anropar ibland för två eller flera tjänster.
+
++ Globalt distribuerade program kan kräva Sök tjänster i varje geografi för att minimera svars tiden.
 
 > [!NOTE]
 > I Azure Kognitiv sökning kan du inte åtskilja indexering och frågor om åtgärder. Därför skulle du aldrig skapa flera tjänster för åtskiljda arbets belastningar. Index tillfrågas alltid om vilken tjänst den skapades i (du kan inte skapa ett index i en tjänst och kopiera den till en annan).

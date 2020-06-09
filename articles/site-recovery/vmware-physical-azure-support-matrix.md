@@ -3,12 +3,12 @@ title: Support mat ris för VMware/fysisk haveri beredskap i Azure Site Recovery
 description: Sammanfattar stöd för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 48287f023e14dbf978a993db98b2d9c3392ea2db
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: b9f7deb16269aac94f5363a1588b2e1ed4ee9206
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323985"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488606"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -79,7 +79,7 @@ Linux | Endast 64-bitars system stöds. 32-bitars system stöds inte.<br/><br/>A
 Linux Red Hat Enterprise | 5,2 till 5,11</b><br/> 6,1 till 6,10</b> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1 <br/> Några äldre kärnor på servrar som kör Red Hat Enterprise Linux 5.2-5.11 & 6.1 – 6.10 har inte välinstallerade [komponenter för Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Om inbyggda LIS-komponenter saknas, se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för de datorer som ska starta i Azure.
 Linux: CentOS | 5,2 till 5,11</b><br/> 6,1 till 6,10</b><br/> 7,0 till 7,8<br/> <br/> 8,0 till 8,1<br/><br/> Några äldre kärnor på servrar som kör CentOS 5.2 – 5.11 & 6.1-6.10 har inte välinstallerade [komponenter för Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Om inbyggda LIS-komponenter saknas, se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för de datorer som ska starta i Azure.
 Ubuntu | Ubuntu 14,04 LTS [-Server (granska stödda kernel-versioner)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16,04 LTS [-Server (granska stödda kernel-versioner)](#ubuntu-kernel-versions) </br> Ubuntu 18,04 LTS [-Server (granska stödda kernel-versioner)](#ubuntu-kernel-versions)
-Debian | Debian 7/Debian 8 [(granska stödda kernel-versioner)](#debian-kernel-versions)
+Debian | Debian 7/Debian 8 (omfattar stöd för alla 7. *x*, 8. *x* -versioner) [(granska kernel-versioner som stöds)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(granska de kernel-versioner som stöds)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(granska stödda kernel-versioner)](#suse-linux-enterprise-server-15-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> Det finns inte stöd för att uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4. Om du vill uppgradera inaktiverar du replikeringen och aktiverar den igen efter uppgraderingen.
 Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery)<br/><br/> Köra Red Hat-kompatibel kernel eller Enterprise kernel release 3, 4 & 5 (UEK3, UEK4, UEK5)
 

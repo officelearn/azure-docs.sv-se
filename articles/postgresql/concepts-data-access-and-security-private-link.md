@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a2ed81972cd89856d0bcde689c3d1f61c5534c96
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 90e0f74f3a17a2c98abfcd886d59344b18619f8c
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485052"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509005"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Privat länk för Azure Database for PostgreSQL-enskild server
 
@@ -115,7 +115,7 @@ Följande situationer och resultat är möjliga när du använder en privat län
 
 Om du bara vill använda privata slut punkter för att komma åt sin Azure Database for PostgreSQL enskild server, kan du inaktivera inställningen alla offentliga slut punkter ([brand Väggs regler](concepts-firewall-rules.md) och virtuella nätverkets [slut punkter](concepts-data-access-and-security-vnet.md)) genom att ange den **nekade konfigurationen för offentlig nätverks åtkomst** på databas servern. 
 
-När den här inställningen är inställd på *Ja* tillåts bara anslutningar via privata slut punkter till din Azure Database for PostgreSQL. När den här inställningen är inställd på att *inga* klienter ska kunna ansluta till din Azure Database for PostgreSQL baserat på inställningen för brand väggen eller VNet-tjänstens slut punkt. När värdet för åtkomst till det privata nätverket är inställt på kunder kan de dessutom inte lägga till och/eller uppdatera befintliga brand Väggs regler och VNet-tjänstens slut punkts regel
+När den här inställningen är inställd på *Ja* tillåts bara anslutningar via privata slut punkter till din Azure Database for PostgreSQL. När den här inställningen är inställd på att *inga* klienter ska kunna ansluta till din Azure Database for PostgreSQL baserat på inställningen för brand väggen eller VNet-tjänstens slut punkt. När värdet för åtkomst till privat nätverk har angetts kan kunder dessutom inte lägga till och/eller uppdatera befintliga brand Väggs regler och VNet-tjänstens slut punkts regler.
 
 > [!Note]
 > Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for PostgreSQL-enskild server stöder Generell användning och minnesoptimerade pris nivåer.

@@ -3,12 +3,13 @@ title: Skapa ett program för Azure Service Fabric container
 description: Skapa din första Windows-containerapp på Azure Service Fabric. Bygg en Docker-avbildning med ett python-program, skicka avbildningen till ett behållar register och sedan bygga och distribuera behållaren till Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.openlocfilehash: 8e1de48874655721f708bfd1dfdda8d975f94c4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: d7076226b63fa3b45eaae82c2964997d3065ed88
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258478"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560669"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 
@@ -24,7 +25,7 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En utvecklingsdator som kör:
   * Visual Studio 2015 eller Visual Studio 2019.
@@ -35,7 +36,7 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 
   I den här artikeln måste versionen (build) av Windows Server med behållare som körs på klusternoderna matcha den på din utvecklings dator. Detta beror på att du skapar Docker-avbildningen på utvecklings datorn och att det finns kompatibilitetsproblem mellan versioner av behållar-OS och det värd-OS som den har distribuerats på. Mer information finns i [Windows Server container OS och Host OS-kompatibilitet](#windows-server-container-os-and-host-os-compatibility). 
   
-Du kan ta reda på vilken version av Windows Server med behållare du behöver för klustret genom `ver` att köra kommandot från en Windows-kommandotolk på utvecklings datorn:
+Du kan ta reda på vilken version av Windows Server med behållare du behöver för klustret genom att köra `ver` kommandot från en Windows-kommandotolk på utvecklings datorn:
 
 * Om versionen innehåller *x. x. 14323. x*väljer du *Windows Server 2016-Data Center-with-containers* för operativ systemet när du [skapar ett kluster](service-fabric-cluster-creation-via-portal.md).
   * Om versionen innehåller *x. x. 16299. x*väljer du *WindowsServerSemiAnnual Data Center-Core-1709-with-containers* för operativ systemet när du [skapar ett kluster](service-fabric-cluster-creation-via-portal.md).
@@ -142,12 +143,12 @@ När containern har startat letar du reda på dess IP-adress så att du kan ansl
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Om kommandot inte returnerar något kör du följande kommando och kontrollerar **NetworkSettings**->**Networks** -elementet för IP-adressen:
+Om kommandot inte returnerar något kör du följande kommando och kontrollerar **NetworkSettings** -> **Networks** -elementet för IP-adressen:
 ```
 docker inspect my-web-site
 ```
 
-Anslut till den container som körs. Öppna en webbläsare som pekar på den returnerade IP-adressen, till exempel "\/http:/172.31.194.61". Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den container som körs. Öppna en webbläsare som pekar på den returnerade IP-adressen, till exempel "http: \/ /172.31.194.61". Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 Om du vill stoppa containern kör du:
 
@@ -189,7 +190,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Skapa containertjänsten i Visual Studio
 SDK:en och verktygen för Service Fabric innehåller en tjänstmall som hjälper dig att skapa ett containerprogram.
 
-1. Starta Visual Studio. Välj **Arkiv** > **nytt** > **projekt**.
+1. Starta Visual Studio. Välj **Arkiv**  >  **nytt**  >  **projekt**.
 2. Välj **Service Fabric-programmet**, ge det namnet "MyFirstContainer" och klicka på **OK**.
 3. Välj **Container** i listan med **tjänstmallar**.
 4. I **Avbildningsnamn** skriver du "myregistry.azurecr.io/samples/helloworldapp" (den avbildning som du skickade till lagringsplatsen för containern).
@@ -320,7 +321,7 @@ Om du vill inaktivera integrering av **HEALTHCHECK** för hela Service Fabric-kl
 ## <a name="deploy-the-container-application"></a>Distribuera containerappen
 Spara alla dina ändringar och skapa programmet. Om du vill publicera appen högerklickar du på **MyFirstContainer** i Solution Explorer och väljer **Publish** (Publicera).
 
-I **anslutningsslutpunkten** anger du hanteringsslutpunkten för klustret. Till exempel `containercluster.westus2.cloudapp.azure.com:19000`. Slutpunkten för klientanslutningen finns på översiktsfliken för ditt kluster i [Azure Portal](https://portal.azure.com).
+I **anslutningsslutpunkten** anger du hanteringsslutpunkten för klustret. Exempelvis `containercluster.westus2.cloudapp.azure.com:19000`. Slutpunkten för klientanslutningen finns på översiktsfliken för ditt kluster i [Azure Portal](https://portal.azure.com).
 
 Klicka på **Publicera**.
 
@@ -368,7 +369,7 @@ Vi rekommenderar följande metoder för att se till att behållare distribueras 
  
 ## <a name="specify-os-build-specific-container-images"></a>Ange specifika containeravbildningar för operativsystemet 
 
-Windows Server-behållare kanske inte är kompatibla i olika versioner av operativ systemet. Till exempel fungerar inte Windows Server-behållare som skapats med Windows Server 2016 i Windows Server version 1709 i process isolerings läge. Om klusternoderna uppdateras till den senaste versionen kan det hända att behållar tjänster som skapats med tidigare versioner av operativ systemet Miss lyckas. För att kringgå detta med version 6,1 av körningen och senare, har Service Fabric stöd för att ange flera OS-avbildningar per behållare och tagga dem med build-versioner av operativ systemet i applikations manifestet. Du kan hämta build-versionen av operativ systemet genom att `winver` köra i kommando tolken i Windows. Uppdatera applikationsmanifesten och ange åsidosättningar av avbildning per operativsystemsversion innan du uppdaterar operativsystemet på noderna. Följande kodavsnitt visar hur du kan ange flera containeravbildningar i applikationsmanifestet, **ApplicationManifest.xml**:
+Windows Server-behållare kanske inte är kompatibla i olika versioner av operativ systemet. Till exempel fungerar inte Windows Server-behållare som skapats med Windows Server 2016 i Windows Server version 1709 i process isolerings läge. Om klusternoderna uppdateras till den senaste versionen kan det hända att behållar tjänster som skapats med tidigare versioner av operativ systemet Miss lyckas. För att kringgå detta med version 6,1 av körningen och senare, har Service Fabric stöd för att ange flera OS-avbildningar per behållare och tagga dem med build-versioner av operativ systemet i applikations manifestet. Du kan hämta build-versionen av operativ systemet genom att köra `winver` i kommando tolken i Windows. Uppdatera applikationsmanifesten och ange åsidosättningar av avbildning per operativsystemsversion innan du uppdaterar operativsystemet på noderna. Följande kodavsnitt visar hur du kan ange flera containeravbildningar i applikationsmanifestet, **ApplicationManifest.xml**:
 
 
 ```xml
@@ -496,7 +497,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Ställ in tidsintervall innan containern tvångsavslutas
 
-Du kan ställa in ett tidsintervall för hur lång exekveringstid som ska gå innan containern tas bort när borttagning av tjänsten (eller flytt till en annan nod) har påbörjats. När du ställer in ett tidsintervall skickas kommandot `docker stop <time in seconds>` till containern.  Mer information finns i [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Tidsintervallet anges i avsnittet `Hosting`. `Hosting` Avsnittet kan läggas till när klustret skapas eller senare i en konfigurations uppgradering. I följande klustermanifestutdrag visas hur du ställer in väntetidsintervallet:
+Du kan ställa in ett tidsintervall för hur lång exekveringstid som ska gå innan containern tas bort när borttagning av tjänsten (eller flytt till en annan nod) har påbörjats. När du ställer in ett tidsintervall skickas kommandot `docker stop <time in seconds>` till containern.  Mer information finns i [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Tidsintervallet anges i avsnittet `Hosting`. `Hosting`Avsnittet kan läggas till när klustret skapas eller senare i en konfigurations uppgradering. I följande klustermanifestutdrag visas hur du ställer in väntetidsintervallet:
 
 ```json
 "fabricSettings": [

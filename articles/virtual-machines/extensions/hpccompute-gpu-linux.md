@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 6bfbbacd0b30e206a9c1873c4df204117155e044
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 55ca9232252895dd46ad3da3912f808ebd9b9533
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465243"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559675"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutins tillägg för Linux
 
@@ -30,7 +30,7 @@ Anvisningar om manuell installation av driv rutinerna och de aktuella versioner 
 https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Det finns också ett tillägg för att installera NVIDIA GPU-drivrutiner på [virtuella datorer med Windows N-serien](hpccompute-gpu-windows.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -72,7 +72,7 @@ Följande JSON visar schemat för tillägget.
 
 ### <a name="properties"></a>Egenskaper
 
-| Namn | Värde/exempel | Datatyp |
+| Name | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | utgivare | Microsoft. HpcCompute | sträng |
@@ -138,7 +138,7 @@ Set-AzVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Följande exempel speglar ovanstående Azure Resource Manager-och PowerShell-exempel och lägger även till anpassade inställningar som exempel på driv rutins installation som inte är standard. Mer specifikt uppdaterar OS-kerneln och installerar en specifik versions driv rutin för CUDA Toolkit.
+I följande exempel speglas ovanstående Azure Resource Manager-och PowerShell-exempel.
 
 ```azurecli
 az vm extension set \
@@ -146,10 +146,22 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.2 \
+  --version 1.3 \
+  }'
+```
+
+Följande exempel lägger också till två valfria anpassade inställningar som exempel på driv rutins installation som inte är standard. Mer specifikt uppdaterar OS-kerneln till den senaste och installerar en specifik versions driv rutin för CUDA Toolkit. Observera återigen att "--Settings" är valfria och standard. Observera att uppdateringen av kernel kan öka installations tiderna för tillägget. Du kan också välja en speciell (äldre) CUDA tolkit-version som inte alltid är kompatibel med nyare kärnor.
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverLinux \
+  --publisher Microsoft.HpcCompute \
+  --version 1.3 \
   --settings '{ \
     "updateOS": true, \
-    "driverVersion": "9.1.85" \
+    "driverVersion": "10.0.130" \
   }'
 ```
 
@@ -167,7 +179,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Utökning av utdata loggas i följande fil:
+Utökning av utdata loggas i följande fil. Läs den här filen om du vill spåra statusen för (alla tids krävande) installationer och för att felsöka eventuella fel.
 
 ```bash
 /var/log/azure/nvidia-vmext-status

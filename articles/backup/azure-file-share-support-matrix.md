@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8198c06c1151dd86d99bc64f825764d0a4988287
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 72492ea77534b636d90820c96e36163e6c6efebe
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193855"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488468"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Support mat ris för säkerhets kopiering av Azure-filresurs
 
@@ -23,7 +23,7 @@ Säkerhets kopiering av Azure-filresurser är tillgänglig i alla regioner **uto
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>Regioner som stöds för oavsiktligt borttagnings skydd
 
-USA, västra centrala
+Västra centrala USA, östra Australien, södra centrala Kanada
 
 ## <a name="supported-storage-accounts"></a>Lagringskonton som stöds
 
@@ -44,21 +44,21 @@ USA, västra centrala
 
 ## <a name="protection-limits"></a>Skydds gränser
 
-| Inställning                                                      | Gräns |
+| Inställningen                                                      | Gräns |
 | ------------------------------------------------------------ | ----- |
 | Maximalt antal fil resurser som kan skyddas per dag per valv | 200   |
 | Maximalt antal lagrings konton som kan registreras per valv per dag | 50    |
 
 ## <a name="backup-limits"></a>Säkerhets kopierings gränser
 
-| Inställning                                      | Gräns |
+| Inställningen                                      | Gräns |
 | -------------------------------------------- | ----- |
-| Maximalt antal säkerhets kopior på begäran per dag | 4     |
+| Maximalt antal säkerhets kopior på begäran per dag | 10   |
 | Maximalt antal schemalagda säkerhets kopieringar per dag | 1     |
 
 ## <a name="restore-limits"></a>Återställa gränser
 
-| Inställning                                                      | Gräns   |
+| Inställningen                                                      | Gräns   |
 | ------------------------------------------------------------ | ------- |
 | Maximalt antal återställningar per dag                           | 10      |
 | Maximalt antal filer per återställning                         | 10      |
@@ -66,7 +66,7 @@ USA, västra centrala
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-| Inställning                                                      | Gräns    |
+| Inställningen                                                      | Gräns    |
 | ------------------------------------------------------------ | -------- |
 | Maximalt antal återställnings punkter per fil resurs vid varje tidpunkt | 200      |
 | Högsta kvarhållning av återställnings punkt som skapats av säkerhets kopiering på begäran | 10 år |

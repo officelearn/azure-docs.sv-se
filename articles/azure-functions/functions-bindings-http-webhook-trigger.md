@@ -5,12 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 2f102a2a335d61326ccb02a898f425e7924f7fdb
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: d8eb4abb600e1164e6de00d3abca190d019be011
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434040"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560612"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP-utlösare
 
@@ -479,7 +480,7 @@ Ett fullständigt exempel finns i [utlösaren exempel](#example).
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `HttpTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|function. JSON-egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 | **bastyp** | saknas| Required-måste anges till `httpTrigger` . |
 | **position** | saknas| Required-måste anges till `in` . |

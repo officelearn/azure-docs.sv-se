@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 7ae8c21ef12a1233268fda772525e91be9d62bb6
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 6ef929a2934d8480ce6d1eca8bb7ba3b70580110
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84435480"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84551997"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-a-resource-manager-template"></a>Snabb start: skapa en virtuell Windows-dator med en Resource Manager-mall
 
@@ -23,9 +23,13 @@ Den här snabb starten visar hur du använder en Resource Manager-mall för att 
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
+## <a name="prerequisites"></a>Förutsättningar
 
+Inga.
 
-## <a name="review-the-template"></a>Granska mallen
+## <a name="create-a-windows-virtual-machine"></a>Skapa en virtuell Windows-dator
+
+### <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
@@ -44,11 +48,11 @@ Flera resurser definieras i mallen:
 
 
 
-## <a name="deploy-the-template"></a>Distribuera mallen
+### <a name="deploy-the-template"></a>Distribuera mallen
 
 1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar ett nyckelvalv och en hemlighet.
 
-    [![Distribuera till Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
+    [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
 
 1. Välj eller ange följande värden. Använd standardvärdena om det är tillgängligt.
 

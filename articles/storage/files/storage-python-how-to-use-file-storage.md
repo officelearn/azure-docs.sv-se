@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: b8d460f35f67d4e7f48611fdc2a770d4a0bed002
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68699385"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84552080"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Utveckla för Azure Files med Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -42,14 +43,14 @@ pip install azure-storage-file
 ```
 
 > [!NOTE]
-> Om du uppgraderar från Azure Storage SDK för python version 0,36 eller tidigare, måste du avinstallera den äldre SDK: `pip uninstall azure-storage` n med innan du installerar det senaste paketet.
+> Om du uppgraderar från Azure Storage SDK för python version 0,36 eller tidigare, måste du avinstallera den äldre SDK: n med `pip uninstall azure-storage` innan du installerar det senaste paketet.
 
 Alternativa installations metoder finns i [Azure Storage SDK för python på GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="view-the-sample-application"></a>Visa exempel programmet
 f om du vill visa och köra ett exempel program som visar hur du använder python med Azure Files, se [Azure Storage: komma igång med Azure Files i python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
 
-Kontrol lera att du har installerat både- `azure-storage-file` och `azure-storage-common` -paketen för att köra exempel programmet.
+Kontrol lera att du har installerat både-och-paketen för att köra exempel programmet `azure-storage-file` `azure-storage-common` .
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Konfigurera ditt program så att det använder Azure Files
 Lägg till följande längst upp i en python-källfil som du vill ha åtkomst till Azure Storage via programmering.
@@ -59,7 +60,7 @@ from azure.storage.file import FileService
 ```
 
 ## <a name="set-up-a-connection-to-azure-files"></a>Konfigurera en anslutning till Azure Files 
-Med `FileService` objektet kan du arbeta med resurser, kataloger och filer. Följande kod skapar ett `FileService` -objekt med hjälp av lagrings kontots namn och konto nyckeln. Ersätt `<myaccount>` och `<mykey>` med kontonamnet och nyckeln.
+`FileService`Med objektet kan du arbeta med resurser, kataloger och filer. Följande kod skapar ett- `FileService` objekt med hjälp av lagrings kontots namn och konto nyckeln. Ersätt `<myaccount>` och `<mykey>` med kontonamnet och nyckeln.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
@@ -80,7 +81,7 @@ file_service.create_directory('myshare', 'sampledir')
 ```
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Räkna upp filer och kataloger i en Azure-filresurs
-Om du vill visa en lista över filer och kataloger i en resurs använder du metoden **lista\_\_kataloger och\_filer** . Den här metoden returnerar en generator. Följande kod matar ut **namnet** på varje fil och katalog i en resurs till-konsolen.
+Om du vill visa en lista över filer och kataloger i en resurs använder du metoden **lista \_ kataloger \_ och \_ filer** . Den här metoden returnerar en generator. Följande kod matar ut **namnet** på varje fil och katalog i en resurs till-konsolen.
 
 ```python
 generator = file_service.list_directories_and_files('myshare')
@@ -91,7 +92,7 @@ for file_or_dir in generator:
 ## <a name="upload-a-file"></a>Överför en fil 
 Azure-filresursen innehåller minst en rot katalog där filerna kan finnas. I det här avsnittet får du lära dig hur du laddar upp en fil från lokal lagring till rot katalogen för en resurs.
 
-Använd metoderna `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` eller `create_file_from_text` för att skapa en fil och överföra data. De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
+Använd `create_file_from_path` `create_file_from_stream` metoderna,, eller för att skapa en fil och överföra `create_file_from_bytes` data `create_file_from_text` . De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
 
 `create_file_from_path`överför innehållet i en fil från den angivna sökvägen och `create_file_from_stream` laddar upp innehållet från en redan öppnad fil/data ström. `create_file_from_bytes`laddar upp en matris med byte och `create_file_from_text` laddar upp det angivna textvärdet med den angivna kodningen (Standardvärdet är UTF-8).
 
@@ -108,16 +109,16 @@ file_service.create_file_from_path(
 ```
 
 ## <a name="download-a-file"></a>Hämta en fil
-Använd `get_file_to_path`, `get_file_to_stream` `get_file_to_bytes`, eller `get_file_to_text`för att hämta data från en fil. De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
+Använd,, eller för att hämta data från en fil `get_file_to_path` `get_file_to_stream` `get_file_to_bytes` `get_file_to_text` . De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
 
-I följande exempel visas hur `get_file_to_path` du hämtar innehållet **i filen i** filen och lagrar det till filen **out-Sunset. png** .
+I följande exempel visas hur `get_file_to_path` du hämtar innehållet i **filen i** filen och lagrar det till filen **out-Sunset. png** .
 
 ```python
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 ```
 
 ## <a name="delete-a-file"></a>Ta bort en fil
-Ta slutligen bort en fil genom att anropa `delete_file`.
+Ta slutligen bort en fil genom att anropa `delete_file` .
 
 ```python
 file_service.delete_file('myshare', None, 'myfile')

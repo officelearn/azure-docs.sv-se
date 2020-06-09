@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 191a2246afdc60953d8c353f9ccdc2339130f910
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 67bf19c08d9a9309d8d4b731bf30a6db1091ebf1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159343"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558950"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Avbilda Event Hubs data i Azure Storage och läsa den med hjälp av python (Azure-eventhub version 5)
 
@@ -37,7 +38,7 @@ I den här snabbstarten kommer du att göra följande:
 > * Skicka data till händelsehubben med hjälp av ett Python-skript.
 > * Läsa och bearbeta filer från Event Hubs avbildning med hjälp av ett annat Python-skript.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Python 2,7 och 3,5 eller senare, med PIP installerat och uppdaterat.  
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.  

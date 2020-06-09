@@ -7,24 +7,24 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: c232ab06d2b3a28dad7ae98a8f22f457778fd3e6
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: b138d93b400c16837c250ede1e264b54a851327c
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83874072"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488757"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrera Azure Stream Analytics med Azure Machine Learning (förhands granskning)
 
 Du kan implementera maskin inlärnings modeller som en användardefinierad funktion (UDF) i dina Azure Stream Analytics jobb för att utföra resultat i real tid och förutsägelser på dina strömmande indata. Med [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) kan du använda alla populära verktyg för öppen källkod, till exempel Tensorflow, scikit-lära eller PyTorch, för att prepa, träna och distribuera modeller.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande steg innan du lägger till en Machine Learning-modell som en funktion i Stream Analytics jobbet:
 
 1. Använd Azure Machine Learning för att [distribuera din modell som en webb tjänst](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-2. Ditt bedömnings skript ska ha [exempel på indata och utdata](../machine-learning/how-to-deploy-and-where.md#example-entry-script) som används av Azure Machine Learning för att generera en schema specifikation. Stream Analytics använder schemat för att förstå funktions signaturen för webb tjänsten.
+2. Ditt bedömnings skript ska ha [exempel på indata och utdata](../machine-learning/how-to-deploy-and-where.md#example-entry-script) som används av Azure Machine Learning för att generera en schema specifikation. Stream Analytics använder schemat för att förstå funktions signaturen för webb tjänsten. Du kan använda den här [exempel Swagger-definitionen](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) som en referens för att kontrol lera att du har konfigurerat den korrekt.
 
 3. Kontrol lera att din webb tjänst accepterar och returnerar JSON-serialiserade data.
 

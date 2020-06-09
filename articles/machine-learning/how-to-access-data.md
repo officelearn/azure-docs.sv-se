@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
-ms.custom: seodec18
-ms.openlocfilehash: ffb0cd65ed8c904098a1099540a5c3a55f605d36
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 835bcba5e24137377c33c9166b1c3076d19cacc1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485085"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84552387"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du ansluter till Azure Storage-tjänst
 
 Du kan skapa data lager från [dessa Azure Storage-lösningar](#matrix). Vi rekommenderar att du [flyttar dina data](#move) till Azure Storage-lösningar som stöds för lagrings lösningar som inte stöds och för att spara data Utgångs kostnader under Machine Learning-experiment. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver:
 - En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
@@ -289,7 +289,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 Azure Machine Learning tillhandahåller flera olika sätt att använda dina modeller för att beräkna poäng. Några av dessa metoder ger inte åtkomst till data lager. Använd följande tabell för att förstå vilka metoder du kan använda för att komma åt data lager under poängsättningen:
 
-| Metod | Åtkomst till data lager | Beskrivning |
+| Metod | Åtkomst till data lager | Description |
 | ----- | :-----: | ----- |
 | [Batchförutsägelse](how-to-use-parallel-run-step.md) | ✔ | Göra förutsägelser kring stora mängder data asynkront. |
 | [Webb tjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webb tjänst. |

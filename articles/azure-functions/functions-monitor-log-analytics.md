@@ -5,12 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 4b21912de95ccba1d97d187922bfada4d9dc2c56
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: tracking-python
+ms.openlocfilehash: 44de63ccd90ca8a76835fabe48d6047139ddc634
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121665"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561716"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Övervaka Azure Functions med Azure Monitor loggar
 
@@ -44,7 +45,7 @@ Azure Monitor använder en version av [Kusto-frågespråket](/azure/kusto/query/
 Om du vill skapa anpassade loggar använder du loggnings instruktionen som är specifik för ditt språk. Här är exempel kods tycken:
 
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 log.LogInformation("My app logs here.");

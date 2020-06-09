@@ -2,17 +2,17 @@
 title: Händelse drivna arkitekturer på kant – Azure Event Grid på IoT Edge
 description: Använd Azure Event Grid som en modul på IoT Edge för att vidarebefordra händelser mellan moduler, gräns enheter och molnet.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: overview
 ms.date: 10/22/2019
-ms.author: babanisa
-ms.openlocfilehash: feac5891734731e6f7377750127958a40a815036
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: femila
+ms.openlocfilehash: d569a4be6c9747dea4280d17ed2f888c3bed9936
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76844672"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561688"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>Vad är Azure Event Grid på Azure IoT Edge?
 Event Grid på IoT Edge ger kraften och flexibiliteten i Azure Event Grid till gränsen. Skapa ämnen, publicera händelser och prenumerera på flera destinationer oavsett om de är moduler på samma enhet, andra gräns enheter eller tjänster i molnet.
@@ -80,7 +80,7 @@ Det finns fem koncept i Azure Event Grid som gör att du kan komma igång:
 Event Grid på IoT Edge är gratis under den offentliga för hands versionen.
 
 ## <a name="issues"></a>Problem
-Rapportera eventuella problem med att använda Event Grid på IoT Edge [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues)på.
+Rapportera eventuella problem med att använda Event Grid på IoT Edge på [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues) .
 
 ## <a name="next-steps"></a>Nästa steg
 

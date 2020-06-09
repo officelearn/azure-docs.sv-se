@@ -2,17 +2,17 @@
 title: Använda Azure Event Grid med händelser i CloudEvents-schemat
 description: Beskriver hur du använder CloudEvents-schemat för händelser i Azure Event Grid. Tjänsten stöder händelser i JSON-implementeringen av moln händelser.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: 127095bef2c67a93097bf90bea54ca1b44b16c58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: femila
+ms.openlocfilehash: 57827b1c5a43a3408d374e8bddb7b91113b2929a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81394389"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560694"
 ---
 # <a name="cloudevents-v10-schema-with-event-grid"></a>CloudEvents v 1.0-schema med Event Grid
 
@@ -56,7 +56,7 @@ Här är ett exempel på en Azure Blob Storage-händelse i CloudEvents-format:
 
 En detaljerad beskrivning av tillgängliga fält, deras typer och definitioner i CloudEvents v 1.0 finns [här](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
-Rubrik värden för händelser som levereras i CloudEvents-schemat och Event Grid schemat är samma förutom för `content-type`. Detta huvud värde är `"content-type":"application/cloudevents+json; charset=utf-8"`för CloudEvents-schemat. För Event Grid schema är `"content-type":"application/json; charset=utf-8"`detta huvud värde.
+Rubrik värden för händelser som levereras i CloudEvents-schemat och Event Grid schemat är samma förutom för `content-type` . Detta huvud värde är för CloudEvents-schemat `"content-type":"application/cloudevents+json; charset=utf-8"` . För Event Grid schema är detta huvud värde `"content-type":"application/json; charset=utf-8"` .
 
 ## <a name="event-grid-for-cloudevents"></a>Event Grid för CloudEvents
 

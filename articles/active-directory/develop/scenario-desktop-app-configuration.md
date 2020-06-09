@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: d07add7950da531330fe9f64629299cef9fad1ac
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: f197dd5063f8584968277d8d55298c03d9d71ea6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734594"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558851"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Skriv bords app som anropar webb-API: kod konfiguration
 
@@ -26,7 +26,7 @@ Nu när du har skapat ditt program får du lära dig hur du konfigurerar koden m
 
 Följande Microsoft-MSALs (Authentication Libraries) stöder Skriv bords program.
 
-  Microsofts autentiseringsbibliotek | Beskrivning
+  Microsofts autentiseringsbibliotek | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Har stöd för att skapa ett Skriv bords program på flera plattformar, till exempel Linux, Windows och macOS.
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Har stöd för att skapa ett Skriv bords program på flera plattformar.
@@ -39,7 +39,7 @@ I kodvyn är Skriv bords program offentliga klient program. Konfigurationen är 
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Du behöver bygga och manipulera MSAL.NET `IPublicClientApplication`.
+Du behöver bygga och manipulera MSAL.NET `IPublicClientApplication` .
 
 ![IPublicClientApplication](media/scenarios/public-client-application.png)
 
@@ -52,7 +52,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-Om du avser att använda interaktiv autentisering eller enhets kod flöde, som tidigare sett, använder `.WithRedirectUri` du modifieraren.
+Om du avser att använda interaktiv autentisering eller enhets kod flöde, som tidigare sett, använder du `.WithRedirectUri` modifieraren.
 
 ```csharp
 IPublicClientApplication app;
@@ -107,12 +107,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Lär dig mer om hur du konfigurerar ett MSAL.NET Desktop-program:
 
-- En lista över alla modifierare som är tillgängliga `PublicClientApplicationBuilder`på finns i referens dokumentationen [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- En beskrivning av alla alternativ som visas i `PublicClientApplicationOptions`finns i [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) i referens dokumentationen.
+- En lista över alla modifierare som är tillgängliga på `PublicClientApplicationBuilder` finns i referens dokumentationen [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- En beskrivning av alla alternativ som visas i finns i `PublicClientApplicationOptions` [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) i referens dokumentationen.
 
 ### <a name="complete-example-with-configuration-options"></a>Slutför exempel med konfigurations alternativ
 
-Föreställ dig ett .NET Core-konsolprogram som har `appsettings.json` följande konfigurations fil:
+Föreställ dig ett .NET Core-konsolprogram som har följande `appsettings.json` konfigurations fil:
 
 ```json
 {
@@ -180,7 +180,7 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-Innan du anropar- `.Build()` metoden kan du åsidosätta konfigurationen med anrop till `.WithXXX` metoder som visas ovan.
+Innan du anropar `.Build()` -metoden kan du åsidosätta konfigurationen med anrop till `.WithXXX` metoder som visas ovan.
 
 # <a name="java"></a>[Java](#tab/java)
 

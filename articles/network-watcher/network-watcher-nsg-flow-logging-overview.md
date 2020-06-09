@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0b25b07e3517bbbf17dce95660f209bd74bcccb
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189811"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561741"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödes loggning för nätverks säkerhets grupper
 
@@ -67,7 +67,7 @@ Flödes loggar är källan till sanningen för all nätverks aktivitet i din mol
 Flödes loggar innehåller följande egenskaper:
 
 * **tid** när händelsen loggades
-* **systemId** -nätverks säkerhets grupp resurs-ID.
+* **systemId** -nätverks säkerhets grupp system-ID.
 * **kategori** – händelsens kategori. Kategorin är alltid **NetworkSecurityGroupFlowEvent**
 * **ResourceID** -resurs-ID för NSG
 * **operationName** -Always NetworkSecurityGroupFlowEvents
@@ -323,7 +323,7 @@ Om du vill uppdatera parametrar via kommando rads verktyg använder du samma kom
 
 *Läs-och export flödes loggar*
 
-- [Ladda &amp; ned Visa flödes loggar från portalen](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#download-flow-log)
+- [Ladda ned &amp; Visa flödes loggar från portalen](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#download-flow-log)
 - [Läs flödes loggar med PowerShell Functions](https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs)
 - [Exportera NSG Flow-loggar till Splunk](https://www.splunk.com/en_us/blog/tips-and-tricks/splunking-microsoft-azure-network-watcher-data.html)
 

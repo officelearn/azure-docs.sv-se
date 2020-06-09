@@ -9,12 +9,13 @@ ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: d40658e1510c9ae8a2e3e1f865df7ac95f61abfb
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.custom: tracking-python
+ms.openlocfilehash: 34b3801d32720b8512f056ad16e3b3e3a979ee4b
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "68355977"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559254"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Hantera Azure Data Lake Analytics med python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -37,13 +38,13 @@ Installera följande moduler:
 * Modulen **Azure-MGMT-datalake-Store** innehåller Azure Data Lake Store konto hanterings åtgärder.
 * Modulen **Azure-MGMT-datalake-Analytics** innehåller Azure Data Lake Analytics åtgärder. 
 
-Se först till att du har det `pip` senaste genom att köra följande kommando:
+Se först till att du har det senaste `pip` genom att köra följande kommando:
 
 ```
 python -m pip install --upgrade pip
 ```
 
-Det här dokumentet skrevs `pip version 9.0.1`med.
+Det här dokumentet skrevs med `pip version 9.0.1` .
 
 Använd följande `pip` kommandon för att installera modulerna från kommando raden:
 

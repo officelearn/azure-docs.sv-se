@@ -9,18 +9,19 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 93e120a0519e1fc61a716e606e088801fdf508dd
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75360726"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84556365"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webb- och arbetsroller för Python med Python Tools för Visual Studio
 
 I den här artikeln ges en översikt över hur du använder webb- och arbetsroller för Python med hjälp av [Python Tools för Visual Studio][Python Tools for Visual Studio]. Lär dig hur du använder Visual Studio för att skapa och distribuera en grundläggande molntjänst som använder Python.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * [Visual Studio 2013, 2015 eller 2017](https://www.visualstudio.com/)
 * [Python Tools för Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Azure SDK Tools för VS 2013][Azure SDK Tools for VS 2013] eller  
@@ -323,7 +324,7 @@ Förloppet visas i utdatafönstret. Därefter visas fönstret med Microsoft Azur
 Distributionen tar flera minuter. När den är klar körs dina webb- och/eller arbetsroller i Azure!
 
 ### <a name="investigate-logs"></a>Undersöka loggar
-När den virtuella molntjänstdatorn startar och installerar Python, kan du titta på loggarna för att hitta eventuella felmeddelanden. Dessa loggar finns i mappen **C:\Resources\Directory\\{Role} \LogFiles** . **PrepPython.err.txt** har minst ett fel från när skriptet försöker identifiera om Python är installerat och **PipInstaller.err.txt** kan klaga över en inaktuell version av pip.
+När den virtuella molntjänstdatorn startar och installerar Python, kan du titta på loggarna för att hitta eventuella felmeddelanden. Dessa loggar finns i mappen **C:\Resources\Directory \\ {Role} \LogFiles** . **PrepPython.err.txt** har minst ett fel från när skriptet försöker identifiera om Python är installerat och **PipInstaller.err.txt** kan klaga över en inaktuell version av pip.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer detaljerad information om hur du arbetar med webb- och arbetsroller i Python Tools för Visual Studio finns i dokumentationen till PTVS:

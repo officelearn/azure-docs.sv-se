@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: a4aa7240cb91ef1048626b1578d7ab9e649832c6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c94cd3b4b455691e85e7525007fcdf7a056a2b28
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263728"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558082"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>Snabb start: skapa ett geo-replikerat behållar register med hjälp av en Resource Manager-mall
 
@@ -23,7 +23,7 @@ Den här snabb starten visar hur du skapar en Azure Container Registry-instans m
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Inga.
 
@@ -31,7 +31,7 @@ Inga.
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). Mallen konfigurerar ett register och en ytterligare regional replik.
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). Mallen konfigurerar ett register och en ytterligare regional replik.
 
 :::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json" range="1-81" highlight="45-74" :::
 

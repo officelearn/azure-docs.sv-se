@@ -7,13 +7,13 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 2609ff908b3c2f872cb63d3dcd7dcd481d316484
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, tracking-python
+ms.openlocfilehash: d9c7b9b296aaf287d185cd3e7544e40d9cdef2f5
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085868"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561108"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Självstudie: skapa en anpassad avbildning och köra i App Service från ett privat register
 
@@ -31,14 +31,14 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
 * [Git](https://git-scm.com/downloads)
 * [Docker](https://docs.docker.com/get-started/#setup)
 
-## <a name="download-the-sample"></a>Hämta exemplet
+## <a name="download-the-sample"></a>Ladda ned exemplet
 
 Öppna terminalfönstret och kör följande kommando för att klona exempelappens lagringsplats till din lokala dator. Ändra sedan till katalogen som innehåller exempelkoden.
 
@@ -49,7 +49,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Skapa avbildningen från Docker-filen
 
-På Git-lagringsplatsen tar du en titt på _Dockerfile_. Den här filen beskriver Python-miljön som krävs för att köra programmet. Dessutom konfigurerar avbildningen en [SSH](https://www.ssh.com/ssh/protocol/)-server för säker kommunikation mellan containern och värden. Den sista raden i _Dockerfile_, `ENTRYPOINT ["init.sh"]`anropar `init.sh` för att starta SSH-tjänsten och python-servern.
+På Git-lagringsplatsen tar du en titt på _Dockerfile_. Den här filen beskriver Python-miljön som krävs för att köra programmet. Dessutom konfigurerar avbildningen en [SSH](https://www.ssh.com/ssh/protocol/)-server för säker kommunikation mellan containern och värden. Den sista raden i _Dockerfile_, `ENTRYPOINT ["init.sh"]` anropar `init.sh` för att starta SSH-tjänsten och python-servern.
 
 ```Dockerfile
 FROM python:3.4
@@ -139,7 +139,7 @@ Utdata visar två lösen ord tillsammans med användar namnet.
 }
 </pre>
 
-Från det lokala terminalfönstret loggar du in på Azure Container Registry med hjälp av `docker login` kommandot, som du ser i följande exempel. Ersätt * \<Azure-Container-Registry-Name>* och * \<register-username>* med värden för registret. När du uppmanas till det skriver du ett av lösen orden från föregående steg.
+Från det lokala terminalfönstret loggar du in på Azure Container Registry med hjälp av `docker login` kommandot, som du ser i följande exempel. Ersätt *\<azure-container-registry-name>* och *\<registry-username>* med värden för registret. När du uppmanas till det skriver du ett av lösen orden från föregående steg.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
@@ -180,7 +180,7 @@ Du bör få följande utdata.
 
 ### <a name="create-web-app"></a>Skapa webbapp
 
-Skapa i Cloud Shell en [webbapp](app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Ersätt _ \<App-Name->_ med ett unikt app-namn och _ \<Azure-Container – register namn>_ med ditt register namn.
+Skapa i Cloud Shell en [webbapp](app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Ersätt _\<app-name>_ med ett unikt namn på appen och _\<azure-container-registry-name>_ med ditt register namn.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
@@ -205,14 +205,14 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Konfigurera autentiseringsuppgifter för registret i en webbapp
 
-För att App Service ska kunna hämta den privata avbildningen behöver den information om registret och avbildningen. I Cloud Shell anger du [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) dem med kommandot. Ersätt * \<App-Name>*, * \<Azure-Container-register-Name>*, _ \<registret-username>_ och _ \<Password>_.
+För att App Service ska kunna hämta den privata avbildningen behöver den information om registret och avbildningen. I Cloud Shell anger du dem med [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) kommandot. Ersätt *\<app-name>* , *\<azure-container-registry-name>* , _\<registry-username>_ och _\<password>_ .
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
 ```
 
 > [!NOTE]
-> När du använder ett annat register än Docker Hub `--docker-registry-server-url` måste det formateras `https://` som följt av registrets fullständigt kvalificerade domän namn.
+> När du använder ett annat register än Docker Hub `--docker-registry-server-url` måste det formateras som `https://` följt av registrets fullständigt kvalificerade domän namn.
 >
 
 ### <a name="configure-environment-variables"></a>Konfigurera miljövariabler
@@ -293,7 +293,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Din anpa
 
 ### <a name="open-ssh-connection-to-container"></a>Öppna SSH-anslutning till container
 
-SSH-anslutningen är bara tillgänglig via kudu-webbplatsen, som är tillgänglig `https://<app-name>.scm.azurewebsites.net`på.
+SSH-anslutningen är bara tillgänglig via kudu-webbplatsen, som är tillgänglig på `https://<app-name>.scm.azurewebsites.net` .
 
 Anslut genom att gå till `https://<app-name>.scm.azurewebsites.net/webssh/host` och logga in med ditt Azure-konto.
 

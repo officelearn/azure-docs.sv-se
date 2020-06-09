@@ -5,12 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: c594f269d32bc87b2389c430343f6480e97bc5f6
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.custom: tracking-python
+ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142256"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559982"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob Storage-utlösare för Azure Functions
 
@@ -276,7 +277,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function. JSON-egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
-|**typ** | saknas | Måste anges till `blobTrigger` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
+|**bastyp** | saknas | Måste anges till `blobTrigger` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
 |**position** | saknas | Måste anges till `in` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. Undantag anges i [användnings](#usage) avsnittet. |
 |**Namn** | saknas | Namnet på variabeln som representerar blobben i funktions koden. |
 |**sökväg** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) som ska övervakas.  Kan vara ett [BLOB Name-mönster](#blob-name-patterns). |

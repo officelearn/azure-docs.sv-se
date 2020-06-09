@@ -4,29 +4,25 @@ description: Integrera appen i Azure App Service med virtuella Azure-nätverk.
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7df06ea7ff07907a292bdcc32e66aafa44ae68
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: ee2c279db7dde0e3e6acadb318c470813dccc7a3
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170791"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488807"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med ett virtuellt Azure-nätverk
 
-Den här artikeln beskriver funktionen Azure App Service VNet-integrering och hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Med [Azure Virtual Network][VNETOverview] (virtuella nätverk) kan du placera många av dina Azure-resurser i ett nätverk som inte är Internet-dirigerbart.
+Den här artikeln beskriver funktionen Azure App Service VNet-integrering och hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Med [Azure Virtual Network][VNETOverview] (virtuella nätverk) kan du placera många av dina Azure-resurser i ett nätverk som inte är Internet-dirigerbart. Funktionen för VNet-integrering gör att dina appar kan komma åt resurser i eller via ett VNet. VNet-integrering gör att dina appar inte kan nås privat.
 
-Azure App Service har två varianter:
+Azure App Service har två varianter på funktionen för VNet-integrering:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 ## <a name="enable-vnet-integration"></a>Aktivera VNet-integrering
-
-> [!NOTE]
-> Om bladet "nätverk" är inaktiverat (nedtonat) i menyn för dina Linux-appar innebär det att funktionen inte är tillgänglig för tillfället.
->
 
 1. Gå till **nätverks** gränssnittet i App Service portalen. Under **VNet-integrering**väljer **du klicka här för att konfigurera**.
 
@@ -75,8 +71,8 @@ Gateway-nödvändig VNet-integrering stöder anslutning till ett VNet i en annan
 
 Du kan inte använda Gateway-nödvändig VNet-integrering:
 
-* Med Linux-appar.
 * Med ett virtuellt nätverk som är anslutet till Azure ExpressRoute.
+* Från en Linux-app
 * För att få åtkomst till tjänstens slut punkts säkra resurser.
 * Med en gateway för samexistens som stöder både ExpressRoute-och punkt-till-plats-eller plats-till-plats-VPN.
 

@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.openlocfilehash: e400669fd96518adead74a81fc332767c5f9b23b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 4d9f4475edb9d2f44fe51549dd0dc701b638bf8e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669938"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553973"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Spåra beroenden med python-räkning python
 
@@ -35,7 +36,7 @@ with tracer.span(name='foo'): # <-- A dependency telemetry item will be sent for
 
 ## <a name="dependencies-with-requests-integration"></a>Beroenden med "förfrågningar"-integration
 
-Spåra dina utgående begär Anden med openräkning `requests` -integrering.
+Spåra dina utgående begär Anden med openräkning- `requests` integrering.
 
 Hämta och installera `opencensus-ext-requests` från [pypi](https://pypi.org/project/opencensus-ext-requests/) och Lägg till det i spårnings integrationerna. Begär Anden som skickas med hjälp av python- [begärandena](https://pypi.org/project/requests/) -biblioteket kommer att spåras.
 
@@ -56,7 +57,7 @@ with tracer.span(name='parent'):
 
 ## <a name="dependencies-with-httplib-integration"></a>Beroenden med "httplib"-integrering
 
-Spåra dina utgående begär Anden med openräkning `httplib` -integrering.
+Spåra dina utgående begär Anden med openräkning- `httplib` integrering.
 
 Hämta och installera `opencensus-ext-httplib` från [pypi](https://pypi.org/project/opencensus-ext-httplib/) och Lägg till det i spårnings integrationerna. Begär Anden som skickas med [http. client](https://docs.python.org/3.7/library/http.client.html) för python3 eller [httplib](https://docs.python.org/2/library/httplib.html) för Python2 spåras.
 
@@ -82,9 +83,9 @@ conn.close()
 
 ## <a name="dependencies-with-django-integration"></a>Beroenden med "django"-integrering
 
-Spåra dina utgående django-begäranden med openräkning `django` -integrering.
+Spåra dina utgående django-begäranden med openräkning- `django` integrering.
 
-Hämta och installera `opencensus-ext-django` från [pypi](https://pypi.org/project/opencensus-ext-django/) och Lägg till följande rad i `MIDDLEWARE` avsnittet i Django `settings.py` -filen.
+Hämta och installera `opencensus-ext-django` från [pypi](https://pypi.org/project/opencensus-ext-django/) och Lägg till följande rad i `MIDDLEWARE` avsnittet i Django- `settings.py` filen.
 
 ```python
 MIDDLEWARE = [
@@ -108,7 +109,7 @@ OPENCENSUS = {
 
 ## <a name="dependencies-with-mysql-integration"></a>Beroenden med "MySQL"-integrering
 
-Spåra dina MYSQL-beroenden med openräkning `mysql` -integrering. Den här integrationen stöder [MySQL-Connector-](https://pypi.org/project/mysql-connector-python/) biblioteket.
+Spåra dina MYSQL-beroenden med openräkning- `mysql` integrering. Den här integrationen stöder [MySQL-Connector-](https://pypi.org/project/mysql-connector-python/) biblioteket.
 
 Hämta och installera `opencensus-ext-mysql` från [pypi](https://pypi.org/project/opencensus-ext-mysql/) och Lägg till följande rader i koden.
 
@@ -120,7 +121,7 @@ config_integration.trace_integrations(['mysql'])
 
 ## <a name="dependencies-with-pymysql-integration"></a>Beroenden med "pymysql"-integrering
 
-Spåra dina PyMySQL-beroenden med openräkning `pymysql` -integrering.
+Spåra dina PyMySQL-beroenden med openräkning- `pymysql` integrering.
 
 Hämta och installera `opencensus-ext-pymysql` från [pypi](https://pypi.org/project/opencensus-ext-pymysql/) och Lägg till följande rader i koden.
 
@@ -132,7 +133,7 @@ config_integration.trace_integrations(['pymysql'])
 
 ## <a name="dependencies-with-postgresql-integration"></a>Beroenden med "postgresql"-integrering
 
-Spåra dina PostgreSQL-beroenden med openräkning `postgresql` -integrering. Den här integrationen stöder [psycopg2](https://pypi.org/project/psycopg2/) -biblioteket.
+Spåra dina PostgreSQL-beroenden med openräkning- `postgresql` integrering. Den här integrationen stöder [psycopg2](https://pypi.org/project/psycopg2/) -biblioteket.
 
 Hämta och installera `opencensus-ext-postgresql` från [pypi](https://pypi.org/project/opencensus-ext-postgresql/) och Lägg till följande rader i koden.
 
@@ -144,7 +145,7 @@ config_integration.trace_integrations(['postgresql'])
 
 ## <a name="dependencies-with-pymongo-integration"></a>Beroenden med "pymongo"-integrering
 
-Spåra dina MongoDB-beroenden med openräkning `pymongo` -integrering. Den här integrationen stöder [pymongo](https://pypi.org/project/pymongo/) -biblioteket.
+Spåra dina MongoDB-beroenden med openräkning- `pymongo` integrering. Den här integrationen stöder [pymongo](https://pypi.org/project/pymongo/) -biblioteket.
 
 Hämta och installera `opencensus-ext-pymongo` från [pypi](https://pypi.org/project/opencensus-ext-pymongo/) och Lägg till följande rader i koden.
 
@@ -156,7 +157,7 @@ config_integration.trace_integrations(['pymongo'])
 
 ### <a name="dependencies-with-sqlalchemy-integration"></a>Beroenden med "sqlalchemy"-integrering
 
-Spåra dina beroenden med SQLAlchemy med hjälp `sqlalchemy` av openräkning-integrering. Den här integrationen spårar användningen av [sqlalchemy](https://pypi.org/project/SQLAlchemy/) -paketet, oavsett vilken underliggande databas som används.
+Spåra dina beroenden med SQLAlchemy med hjälp av openräkning- `sqlalchemy` integrering. Den här integrationen spårar användningen av [sqlalchemy](https://pypi.org/project/SQLAlchemy/) -paketet, oavsett vilken underliggande databas som används.
 
 ```python
 from opencensus.trace import config_integration

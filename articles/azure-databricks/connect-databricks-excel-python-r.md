@@ -9,18 +9,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
-ms.openlocfilehash: f7494d36cf9b16ac6c7a1287a6ff96dd2285c6e2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.custom: tracking-python
+ms.openlocfilehash: 77b9bcf0dad8fa11fad4828649cd75d7df7806d5
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73601952"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561314"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Ansluta till Azure Databricks från Excel, python eller R
 
 I den här artikeln får du lära dig hur du använder Databricks ODBC-drivrutin för att ansluta Azure Databricks med Microsoft Excel, python eller R language. När du har upprättat anslutningen kan du komma åt data i Azure Databricks från Excel-, python-eller R-klienter. Du kan också använda klienterna för att analysera data ytterligare. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste ha en Azure Databricks arbets yta, ett Spark-kluster och exempel data som är kopplade till klustret. Om du inte redan har de här kraven måste du slutföra snabb starten vid [körning av ett Spark-jobb på Azure Databricks med hjälp av Azure Portal](quickstart-create-databricks-workspace-portal.md).
 
@@ -54,12 +55,12 @@ Ett namn på data källan (DSN) innehåller information om en speciell data käl
 
     Följande tabell innehåller information om de värden som ska finnas i dialog rutan.
     
-    |Field  | Värde  |
+    |Fält  | Värde  |
     |---------|---------|
     |**Namn på datakälla**     | Ange ett namn för data källan.        |
     |**Värd (er)**     | Ange det värde som du kopierade från Databricks-arbetsytan för *Server värdnamn*.        |
-    |**Lastning**     | Ange *443*.        |
-    |**Autentiseringsmekanism** > **Mechanism**     | Välj *användar namn och lösen ord*.        |
+    |**Port**     | Ange *443*.        |
+    |**Autentisering**  >  **Mekanism**     | Välj *användar namn och lösen ord*.        |
     |**Användarnamn**     | Ange *token*.        |
     |**Lösenord**     | Ange det token-värde som du kopierade från arbets ytan Databricks. |
     
@@ -102,7 +103,7 @@ När du har data i din Excel-arbetsbok kan du utföra analytiska åtgärder på 
 I det här avsnittet använder du en R language IDE för att referera till data som är tillgängliga i Azure Databricks. Innan du börjar måste du ha följande installerat på datorn.
 
 * Ett IDE för R-språk. Den här artikeln använder RStudio för Desktop. Du kan installera den från [R Studio Download](https://www.rstudio.com/products/rstudio/download/).
-* Om du använder RStudio för Desktop som IDE, installerar du även Microsoft R client från [https://aka.ms/rclient/](https://aka.ms/rclient/). 
+* Om du använder RStudio för Desktop som IDE, installerar du även Microsoft R client från [https://aka.ms/rclient/](https://aka.ms/rclient/) . 
 
 Öppna RStudio och utför följande steg:
 
@@ -134,7 +135,7 @@ I det här avsnittet använder du en python IDE (till exempel inaktivitet) för 
 
 * Installera python härifrån [.](https://www.python.org/downloads/) Om du installerar python från den här länken installeras även inaktiv.
 
-* Installera `pyodbc` paketet från en kommando tolk på datorn. Kör följande kommando:
+* Installera paketet från en kommando tolk på datorn `pyodbc` . Kör följande kommando:
 
       pip install pyodbc
 

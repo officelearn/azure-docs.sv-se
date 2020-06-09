@@ -10,12 +10,13 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: e0d8cb42e0dc1e161de56ca2b56eee0ce62ec25f
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: 32b33eed6b4dba303993f4c16fbd2ad42b3902f9
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430716"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560205"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Använd tolknings paketet för att förklara ML-modeller & förutsägelser i python
 
@@ -303,7 +304,7 @@ När du har laddat ned förklaringarna i din lokala Jupyter-anteckningsbok kan d
 
 I följande områden finns en övergripande vy av den tränade modellen tillsammans med dess förutsägelser och förklaringar.
 
-|Basera|Beskrivning|
+|Basera|Description|
 |----|-----------|
 |Data utforskning| Visar en översikt över data uppsättningen tillsammans med förutsägelse värden.|
 |Global prioritet|Sammanställer funktions värden för enskilda Datapoints för att Visa modellens övergripande viktigaste K (konfigurerbara K) viktiga funktioner. Hjälper till att förstå den underliggande modellens övergripande beteende.|
@@ -317,7 +318,7 @@ I följande områden finns en övergripande vy av den tränade modellen tillsamm
 
 Du kan läsa in prioritets kurvan för enskilda funktioner för alla data punkter genom att klicka på någon av de enskilda data punkterna i de övergripande områdena.
 
-|Basera|Beskrivning|
+|Basera|Description|
 |----|-----------|
 |Lokal prioritet|Visar de viktigaste K (konfigurerbara K) viktiga funktioner för en enskild förutsägelse. Hjälper till att illustrera den underliggande modellens lokala beteende på en viss data punkt.|
 |Perturbation-utforskning (vad händer om-analys)|Tillåter ändringar av funktions värden för den valda data punkten och observerar resulterande ändringar i förutsägelse värde.|

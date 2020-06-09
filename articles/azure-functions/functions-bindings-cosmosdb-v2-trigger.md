@@ -5,12 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: de8ad39ef731af3dc272d700eeee346acda64b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: e7a422e0637c6343e1b2757fdf9aee7375ee2c3f
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277575"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561631"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Azure Cosmos DB utlösare för Azure Functions 2. x
 
@@ -20,7 +21,7 @@ Information om konfiguration och konfigurations information finns i [översikten
 
 <a id="example" name="example"></a>
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som anropas när det finns infogningar eller uppdateringar i den angivna databasen och samlingen.
 
@@ -169,13 +170,13 @@ Den här funktionen anropas när det finns infogningar eller uppdateringar i den
 ```
 
 
-I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@CosmosDBTrigger` anteckningen för parametrar vars värde kommer från Cosmos dB.  Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden `Optional<T>`med hjälp av.
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@CosmosDBTrigger` anteckningen för parametrar vars värde kommer från Cosmos dB.  Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden med hjälp av `Optional<T>` .
 
 ---
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Använd attributet [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) i [C#-klass bibliotek](functions-dotnet-class-library.md).
 
@@ -216,19 +217,19 @@ I [Java Functions runtime-bibliotek](https://docs.microsoft.com/java/api/overvie
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `CosmosDBTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|function. JSON-egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
-|**bastyp** | saknas | Måste anges till `cosmosDBTrigger`. |
-|**riktning** | saknas | Måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**bastyp** | saknas | Måste anges till `cosmosDBTrigger` . |
+|**position** | saknas | Måste anges till `in` . Den här parametern anges automatiskt när du skapar utlösaren i Azure Portal. |
 |**Namn** | saknas | Variabel namnet som används i funktions kod som representerar listan med dokument med ändringar. |
 |**connectionStringSetting**|**ConnectionStringSetting** | Namnet på en app-inställning som innehåller anslutnings strängen som används för att ansluta till det Azure Cosmos DB-konto som övervakas. |
 |**Databas**|**DatabaseName**  | Namnet på Azure Cosmos DB databasen med den samling som övervakas. |
 |**Samling** |**CollectionName** | Namnet på den samling som övervakas. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | Valfritt Namnet på en app-inställning som innehåller anslutnings strängen till det Azure Cosmos DB konto som innehåller låne samlingen. Om `connectionStringSetting` värdet inte anges används värdet. Den här parametern anges automatiskt när bindningen skapas i portalen. Anslutnings strängen för samlingen lån måste ha Skriv behörighet.|
-|**leaseDatabaseName** |**LeaseDatabaseName** | Valfritt Namnet på databasen som innehåller den samling som används för att lagra lån. Om `databaseName` inställningen inte anges används värdet för inställningen. Den här parametern anges automatiskt när bindningen skapas i portalen. |
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | Valfritt Namnet på en app-inställning som innehåller anslutnings strängen till det Azure Cosmos DB konto som innehåller låne samlingen. Om värdet inte anges `connectionStringSetting` används värdet. Den här parametern anges automatiskt när bindningen skapas i portalen. Anslutnings strängen för samlingen lån måste ha Skriv behörighet.|
+|**leaseDatabaseName** |**LeaseDatabaseName** | Valfritt Namnet på databasen som innehåller den samling som används för att lagra lån. Om inställningen inte anges används värdet för `databaseName` inställningen. Den här parametern anges automatiskt när bindningen skapas i portalen. |
 |**leaseCollectionName** | **LeaseCollectionName** | Valfritt Namnet på den samling som används för att lagra lån. Om värdet inte anges används värdet `leases` . |
-|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | Valfritt När den är `true`inställd på skapas låne samlingen automatiskt när den inte redan finns. Standardvärdet är `false`. |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| Valfritt Definierar antalet enheter för programbegäran som ska tilldelas när låne samlingen skapas. Den här inställningen används bara när `createLeaseCollectionIfNotExists` har angetts till `true`. Den här parametern anges automatiskt när bindningen skapas med hjälp av portalen.
+|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | Valfritt När den är inställd på `true` skapas låne samlingen automatiskt när den inte redan finns. Standardvärdet är `false`. |
+|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| Valfritt Definierar antalet enheter för programbegäran som ska tilldelas när låne samlingen skapas. Den här inställningen används bara när `createLeaseCollectionIfNotExists` har angetts till `true` . Den här parametern anges automatiskt när bindningen skapas med hjälp av portalen.
 |**leaseCollectionPrefix**| **LeaseCollectionPrefix**| Valfritt När värdet har angetts läggs värdet till som ett prefix till de lån som skapas i leasing samlingen för den här funktionen. Genom att använda ett prefix kan två separata Azure Functions dela samma Lease-samling med olika prefix.
 |**feedPollDelay**| **FeedPollDelay**| Valfritt Tiden (i millisekunder) för fördröjningen mellan avsökning av en partition för nya ändringar i flödet efter att alla aktuella ändringar har tömts. Standardvärdet är 5 000 millisekunder eller 5 sekunder.
 |**leaseAcquireInterval**| **LeaseAcquireInterval**| Valfritt När det är inställt definierar den, i millisekunder, intervallet för att starta en aktivitet för att beräkna om partitioner distribueras jämnt mellan kända värd instanser. Standardvärdet är 13000 (13 sekunder).
@@ -236,7 +237,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**leaseRenewInterval**| **LeaseRenewInterval**| Valfritt När det är inställt definierar förnyelse intervallet i millisekunder för alla lån för partitioner som för närvarande innehas av en instans. Standardvärdet är 17000 (17 sekunder).
 |**checkpointFrequency**| **CheckpointFrequency**| Valfritt När det är inställt definierar den, i millisekunder, intervallet mellan låne kontroll punkter. Standardvärdet är alltid efter varje funktions anrop.
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| Valfritt När den här egenskapen anges anger den här egenskapen det maximala antalet objekt som tas emot per funktions anrop. Om åtgärder i den övervakade samlingen utförs genom lagrade procedurer bevaras [transaktions omfång](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) vid läsning av objekt från ändrings flödet. Det innebär att antalet mottagna objekt kan vara högre än det angivna värdet så att objekten som ändras av samma transaktion returneras som en del av en atomisk batch.
-|**startFromBeginning**| **StartFromBeginning**| Valfritt Det här alternativet anger att utlösaren ska läsa ändringar från början av samlingens ändrings historik i stället för att starta vid den aktuella tiden. Det går bara att läsa från början första gången utlösaren startar, precis som vid efterföljande körningar. kontroll punkterna är redan lagrade. Att ställa in det `true` här alternativet på när det redan har skapats lån har ingen påverkan. |
+|**startFromBeginning**| **StartFromBeginning**| Valfritt Det här alternativet anger att utlösaren ska läsa ändringar från början av samlingens ändrings historik i stället för att starta vid den aktuella tiden. Det går bara att läsa från början första gången utlösaren startar, precis som vid efterföljande körningar. kontroll punkterna är redan lagrade. Att ställa in det här alternativet på `true` när det redan har skapats lån har ingen påverkan. |
 |**preferredLocations**| **PreferredLocations**| Valfritt Definierar önskade platser (regioner) för geo-replikerade databas konton i Azure Cosmos DBs tjänsten. Värdena ska vara kommaavgränsade. Till exempel "östra USA, södra centrala USA, norra Europa". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -246,7 +247,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 Utlösaren kräver en andra samling som används för att lagra _lån_ över partitionerna. Både samlingen som övervakas och samlingen som innehåller lånet måste vara tillgängliga för att utlösaren ska fungera.
 
 >[!IMPORTANT]
-> Om flera funktioner har kon figurer ATS för att använda en Cosmos DB-utlösare för samma samling, ska varje funktion använda en dedikerad Lease-samling `LeaseCollectionPrefix` eller ange en annan för varje funktion. Annars aktive ras bara en av funktionerna. Information om prefixet finns i [avsnittet konfiguration](#configuration).
+> Om flera funktioner har kon figurer ATS för att använda en Cosmos DB-utlösare för samma samling, ska varje funktion använda en dedikerad Lease-samling eller ange en annan `LeaseCollectionPrefix` för varje funktion. Annars aktive ras bara en av funktionerna. Information om prefixet finns i [avsnittet konfiguration](#configuration).
 
 Utlösaren anger inte om ett dokument har uppdaterats eller infogats. det innehåller bara själva dokumentet. Om du behöver hantera uppdateringar och infogningar på olika sätt kan du göra det genom att implementera tidsstämpelfält för infogning eller uppdatering.
 

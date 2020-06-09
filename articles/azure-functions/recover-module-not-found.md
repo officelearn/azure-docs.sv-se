@@ -5,12 +5,13 @@ author: Hazhzeng
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: hazeng
-ms.openlocfilehash: 191cde0f90b4968ca230db72bad68cca8b1db3fd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: tracking-python
+ms.openlocfilehash: b2582caf407b3983b32c40482fa0f0275f00fb8d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691231"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554758"
 ---
 # <a name="troubleshoot-python-module-errors-in-azure-functions"></a>Felsök fel i python-modul i Azure Functions
 
@@ -97,7 +98,7 @@ Följande är möjliga åtgärder för problem med att åtgärda moduler. Använ
 
 Kontrol lera att fjärran sluten version är aktive rad. Hur du gör detta beror på din distributions metod.
 
-# <a name="visual-studio-code"></a>[Visuell Studio-kod](#tab/vscode)
+# <a name="visual-studio-code"></a>[Visual Studio-koden](#tab/vscode)
 Kontrol lera att den senaste versionen av [Azure Functions-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) är installerad. Kontrol lera att `.vscode/settings.json` den finns och att den innehåller inställningen `"azureFunctions.scmDoBuildDuringDeployment": true` . Om inte, skapar du den här filen med `azureFunctions.scmDoBuildDuringDeployment` inställningen aktive rad och distribuerar om projektet.
 
 # <a name="azure-functions-core-tools"></a>[Azure Functions Core Tools](#tab/coretools)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63486d6ee627d3b321978fb9f0268d15a8a86f34
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264250"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488196"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Självstudie: skapa användar flöden i Azure Active Directory B2C
 
@@ -30,9 +30,9 @@ I den här artikeln kan du se hur du:
 
 Den här självstudien visar hur du skapar vissa rekommenderade användar flöden med hjälp av Azure Portal. Om du vill ha information om hur du konfigurerar ett ROPC-flöde (Resource Owner Password Credential) i programmet, se [Konfigurera flödet för autentiseringsuppgifter för resurs ägare i Azure AD B2C](configure-ropc.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [Registrera dina program](tutorial-register-applications.md) som är en del av de användar flöden som du vill skapa.
 
@@ -63,12 +63,12 @@ Användar flödet för registrering och inloggning hanterar både registrering o
 
     ![Sidan för attribut och val av anspråk med tre anspråk valda](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-1. Klicka på **skapa** för att lägga till användar flödet. Ett prefix för *B2C_1* läggs automatiskt till i namnet.
+1. Klicka på **skapa** för att lägga till användar flödet. Ett prefix för *B2C_1* anpassningsprefix automatiskt till namnet.
 
 ### <a name="test-the-user-flow"></a>Testa användar flödet
 
 1. Välj det användar flöde som du skapade för att öppna sidan Översikt och välj sedan **Kör användar flöde**.
-1. För **program**väljer du det webb program som heter *webapp1* som du tidigare har registrerat. **Svars-URL: en** ska visas `https://jwt.ms`.
+1. För **program**väljer du det webb program som heter *webapp1* som du tidigare har registrerat. **Svars-URL: en** ska visas `https://jwt.ms` .
 1. Klicka på **Kör användar flöde**och välj sedan **Registrera dig nu**.
 
     ![Sidan kör användar flöde i portalen med knappen Kör användar flöde markerat](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
@@ -92,7 +92,7 @@ Om du vill att användarna ska kunna redigera sin profil i ditt program använde
 ### <a name="test-the-user-flow"></a>Testa användar flödet
 
 1. Välj det användar flöde som du skapade för att öppna sidan Översikt och välj sedan **Kör användar flöde**.
-1. För **program**väljer du det webb program som heter *webapp1* som du tidigare har registrerat. **Svars-URL: en** ska visas `https://jwt.ms`.
+1. För **program**väljer du det webb program som heter *webapp1* som du tidigare har registrerat. **Svars-URL: en** ska visas `https://jwt.ms` .
 1. Klicka på **Kör användar flöde**och logga sedan in med det konto som du skapade tidigare.
 1. Nu har du möjlighet att ändra visnings namn och befattning för användaren. Klicka på **Fortsätt**. Token returneras till `https://jwt.ms` och ska visas för dig.
 
@@ -111,7 +111,7 @@ Om du vill göra det möjligt för användare av ditt program att återställa s
 ### <a name="test-the-user-flow"></a>Testa användar flödet
 
 1. Välj det användar flöde som du skapade för att öppna sidan Översikt och välj sedan **Kör användar flöde**.
-1. För **program**väljer du det webb program som heter *webapp1* som du tidigare har registrerat. **Svars-URL: en** ska visas `https://jwt.ms`.
+1. För **program**väljer du det webb program som heter *webapp1* som du tidigare har registrerat. **Svars-URL: en** ska visas `https://jwt.ms` .
 1. Klicka på **Kör användar flöde**, verifiera e-postadressen för det konto som du skapade tidigare och välj **Fortsätt**.
 1. Nu har du möjlighet att ändra lösen ordet för användaren. Ändra lösen ordet och välj **Fortsätt**. Token returneras till `https://jwt.ms` och ska visas för dig.
 

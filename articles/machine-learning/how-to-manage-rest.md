@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
-ms.openlocfilehash: f096f432111e4e8b52ffcaff355fbf8d9e603819
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430422"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560163"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Skapa, köra och ta bort Azure ML-resurser med REST
 
@@ -32,7 +33,7 @@ I den här artikeln kan du se hur du:
 > * Rensa resurser med DELETE-begäranden 
 > * Använd nyckelbaserad auktorisering för att ange distribuerade modeller
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En **Azure-prenumeration** som du har administratörs behörighet för. Om du inte har en sådan prenumeration kan du prova den [kostnads fria eller betalda personliga prenumerationen](https://aka.ms/AMLFree)
 - En [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)

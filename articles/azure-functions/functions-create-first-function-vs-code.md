@@ -3,14 +3,14 @@ title: Skapa din första funktion i Azure med Visual Studio Code
 description: Skapa och publicera en enkel HTTP-utlöst funktion till Azure med Azure Functions-tillägget i Visual Studio Code.
 ms.topic: quickstart
 ms.date: 01/10/2020
-ms.custom: mvc, devcenter, seo
+ms.custom: mvc, devcenter, seo, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 64c2e813743a772692efcb1d966c8ab7b52cc66d
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: ebb402da5a647d20b669442c05c47a0f1c627471
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628205"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559931"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Snabb start: skapa en funktion i Azure med Visual Studio Code
 
@@ -101,48 +101,48 @@ I det här avsnittet använder du Visual Studio Code för att skapa ett lokalt A
 1. Ange följande information i prompten:
 
     ::: zone pivot="programming-language-csharp"
-    + **Välj ett språk för ditt funktions projekt**: Välj `C#`.
+    + **Välj ett språk för ditt funktions projekt**: Välj `C#` .
     ::: zone-end
     ::: zone pivot="programming-language-javascript"
-    + **Välj ett språk för ditt funktions projekt**: Välj `JavaScript`.
+    + **Välj ett språk för ditt funktions projekt**: Välj `JavaScript` .
     ::: zone-end
     ::: zone pivot="programming-language-typescript"
-    + **Välj ett språk för ditt funktions projekt**: Välj `TypeScript`.
+    + **Välj ett språk för ditt funktions projekt**: Välj `TypeScript` .
     ::: zone-end
     ::: zone pivot="programming-language-powershell"
-    + **Välj ett språk för ditt funktions projekt**: Välj `PowerShell`.
+    + **Välj ett språk för ditt funktions projekt**: Välj `PowerShell` .
     ::: zone-end
     ::: zone pivot="programming-language-python"
-    + **Välj ett språk för ditt funktions projekt**: Välj `Python`.
+    + **Välj ett språk för ditt funktions projekt**: Välj `Python` .
 
     + **Välj ett python-alias för att skapa en virtuell miljö**: Välj platsen för din python-tolk. Om platsen inte visas anger du den fullständiga sökvägen till din python-binärfil.  
     ::: zone-end
 
     ::: zone pivot="programming-language-java"  
-    + **Välj ett språk för ditt funktions projekt**: Välj `Java`.
+    + **Välj ett språk för ditt funktions projekt**: Välj `Java` .
 
-    + **Ange ett grupp-ID**: `com.function`Välj.
+    + **Ange ett grupp-ID**: Välj `com.function` .
 
-    + **Ange ett artefakt-ID**: `myFunction`Välj.
+    + **Ange ett artefakt-ID**: Välj `myFunction` .
 
-    + **Ange en version**: Välj `1.0-SNAPSHOT`.
+    + **Ange en version**: Välj `1.0-SNAPSHOT` .
 
-    + **Ange ett paket namn**: Välj `com.function`.
+    + **Ange ett paket namn**: Välj `com.function` .
 
-    + **Ange ett namn på appen**: `myFunction-12345`Välj.
+    + **Ange ett namn på appen**: Välj `myFunction-12345` .
     ::: zone-end  
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    + **Välj en mall för projektets första funktion**: Välj `HTTP trigger`.
+    + **Välj en mall för projektets första funktion**: Välj `HTTP trigger` .
     
-    + **Ange ett funktions namn**: typ `HttpExample`.
+    + **Ange ett funktions namn**: typ `HttpExample` .
     ::: zone-end  
     ::: zone pivot="programming-language-csharp"
-    + **Ange ett namn område**: `My.Functions`typ. 
+    + **Ange ett namn område**: typ `My.Functions` . 
     ::: zone-end  
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    + **Autentiseringsnivå**: Välj `Anonymous`, vilket gör att vem som helst kan anropa funktions slut punkten. Mer information om autentiseringsnivå finns i [Authorization Keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    + **Autentiseringsnivå**: Välj `Anonymous` , vilket gör att vem som helst kan anropa funktions slut punkten. Mer information om autentiseringsnivå finns i [Authorization Keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
     ::: zone-end  
-    + **Välj hur du vill öppna projektet**: Välj `Add to workspace`.
+    + **Välj hur du vill öppna projektet**: Välj `Add to workspace` .
 
 1. Med hjälp av den här informationen genererar Visual Studio Code ett Azure Functions-projekt med en HTTP-utlösare. Du kan visa de lokala projektfilerna i Utforskaren. Mer information om filer som skapas finns i [genererade projektfiler](functions-develop-vs-code.md#generated-project-files). 
 
@@ -170,7 +170,7 @@ När du har kontrollerat att funktionen fungerar korrekt på den lokala datorn �
 
     ![Kopiera funktions webb adressen för den nya HTTP-utlösaren](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 
-1. Klistra in URL: en för HTTP-begäran i webbläsarens Adress fält, Lägg `name` till frågesträngen `?name=Functions` som i slutet av den här URL: en och kör sedan begäran. Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:
+1. Klistra in URL: en för HTTP-begäran i webbläsarens Adress fält, Lägg till `name` frågesträngen som `?name=Functions` i slutet av den här URL: en och kör sedan begäran. Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:
 
         http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
         

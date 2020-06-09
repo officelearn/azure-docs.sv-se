@@ -10,13 +10,13 @@ ms.reviewer: trbye, jmartens, larryfr
 ms.author: tracych
 author: tracychms
 ms.date: 04/15/2020
-ms.custom: Build2020
-ms.openlocfilehash: 058cdaa77a38dcb45164e01a54e73218b469940b
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.custom: Build2020, tracking-python
+ms.openlocfilehash: b26527321cf7fc5ca7fc4b061f11b86f8830ec29
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860961"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84552322"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batch-härledning på stora mängder data med hjälp av Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig följande uppgifter:
 > * Skapa en [pipeline för maskin inlärning](concept-ml-pipelines.md) som innehåller ParallelRunStep och kör batch-härledning på MNIST-testavbildningar. 
 > * Skicka en ny körnings härledning igen med nya indata och parametrar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 

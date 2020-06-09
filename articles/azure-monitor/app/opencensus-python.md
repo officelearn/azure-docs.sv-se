@@ -6,18 +6,19 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6b8343d08962d8ce749e1160b0226b68571571f8
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.custom: tracking-python
+ms.openlocfilehash: 3a47296d755c2a933e7e136a4b17ae87561213ad
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83815731"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553857"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurera Azure Monitor för ditt python-program
 
 Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av python-program via integrering med [openräkning](https://opencensus.io). Den här artikeln vägleder dig genom processen med att konfigurera openräkning för python och skicka övervaknings data till Azure Monitor.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Python-installation. Den här artikeln använder [python 3.7.0](https://www.python.org/downloads/), men tidigare versioner kommer förmodligen att fungera med mindre ändringar.
@@ -39,7 +40,7 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
    | Inställningen        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar den app som du övervakar |
-   | **Resource Group**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för Application Insights data |
+   | **Resurs grupp**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för Application Insights data |
    | **Position** | USA, östra | En plats nära dig, eller nära var din app finns |
 
 1. Välj **Skapa**.

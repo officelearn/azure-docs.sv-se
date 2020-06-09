@@ -7,33 +7,35 @@ manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 8324ca0184c508591fa4568175bad0f606f952a8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 061907783d21372f0e926e529730e9e82b7a4ddb
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80369457"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488774"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
 > [!div class="op_single_selector"]
-> * [Portalen](search-get-started-portal.md)
-> * [C #](search-get-started-dotnet.md)
+> * [Portal](search-get-started-portal.md)
+> * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Node.js](search-get-started-nodejs.md)
 > * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Använd portalens guide för att **Importera data** och **Sök i utforskar** -verktyg för att snabbt öka rampen på koncept, och skriv intressanta frågor mot ett index på några minuter.
+Guiden **Importera data** är ett Azure Portal verktyg som vägleder dig genom skapandet av ett Sök index så att du kan skriva intressanta frågor inom några minuter. 
 
-Om verktygen är för begränsade kan du överväga en [kod baserad introduktion till programmering av Azure kognitiv sökning i .net](search-howto-dotnet-sdk.md) eller använda [Postman för att göra REST API samtal](search-get-started-postman.md). 
+Guiden innehåller också sidor för AI-berikning så att du kan extrahera text och struktur från bildfiler och ostrukturerad text. Innehålls bearbetning med AI inkluderar optisk tecken läsning (OCR), nyckel fras och enhets extrahering och bild analys.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Krav
+Innan du börjar måste du ha följande:
 
-[Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
++ Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
+
++ En Azure Kognitiv sökning-tjänst. [Skapa en tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
 
 ### <a name="check-for-space"></a>Kontrollera utrymmet
 
@@ -51,15 +53,17 @@ I den här självstudien använder vi en inbyggd exempel data uppsättning som k
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Steg 1 – starta guiden Importera data och skapa en datakälla
 
-1. På instrument panelen för Azure Kognitiv sökning-tjänsten klickar du på **Importera data** i kommando fältet för att skapa och fylla i ett sökindex.
+1. Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
+
+1. [Hitta Sök tjänsten](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) och klicka på **Importera data** i kommando fältet för att skapa och fylla i ett sökindex på sidan Översikt.
 
    ![Kommandot Importera data](media/search-get-started-portal/import-data-cmd.png)
 
-2. I guiden klickar du på **Anslut till dina data** > **exempel** > **Hotels-Sample**. Den här datakällan är inbyggd. Om du skapar din egen datakälla så behöver du ange ett namn, typ och anslutningsinformation. När du har skapat den blir den en ”befintlig datakälla” som kan återanvändas i andra importåtgärder.
+1. I guiden klickar du på **Anslut till dina data**  >  **exempel**  >  **Hotels-Sample**. Den här datakällan är inbyggd. Om du skapar din egen datakälla så behöver du ange ett namn, typ och anslutningsinformation. När du har skapat den blir den en ”befintlig datakälla” som kan återanvändas i andra importåtgärder.
 
    ![Välj exempeldatauppsättning](media/search-get-started-portal/import-datasource-sample.png)
 
-3. Fortsätt till nästa sida.
+1. Fortsätt till nästa sida.
 
 ### <a name="step-2---skip-the-enrich-content-page"></a>Steg 2 – hoppa över sidan "utöka innehåll"
 
@@ -193,7 +197,7 @@ Fasettfilter tas med i sökbegäranden. Du kan använda parametern facet för at
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Exempel (fasetterat med områdesreducering): `search=*&facet=Category&$top=2`
 
 * **search=*** är en tom sökning. Tomma sökningar söker efter allt. En anledning till att skicka en tom fråga är att filtrera eller fasettera över hela uppsättningen dokument. Du vill till exempel att en aspekt navigerings struktur ska bestå av alla hotell i indexet.
-* **facet** returnerar en navigeringsstruktur som du kan skicka till en kontroll i användargränssnittet. Den returnerar kategorier och antal. I det här fallet baseras kategorierna på ett fält som är bekvämt kallat *kategori*. Det finns ingen agg regering i Azure Kognitiv sökning, men du kan uppskatta agg regering `facet`via, vilket ger ett antal dokument i varje kategori.
+* **facet** returnerar en navigeringsstruktur som du kan skicka till en kontroll i användargränssnittet. Den returnerar kategorier och antal. I det här fallet baseras kategorierna på ett fält som är bekvämt kallat *kategori*. Det finns ingen agg regering i Azure Kognitiv sökning, men du kan uppskatta agg regering via `facet` , vilket ger ett antal dokument i varje kategori.
 
 * **$top=2** hämtar tillbaka två dokument, som visar att du kan använda `top` för att både minska eller öka resultat.
 

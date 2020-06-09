@@ -6,12 +6,13 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: c72dbf24df850d8b0f7e5f26a873b78f5664c9e0
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.custom: tracking-python
+ms.openlocfilehash: 89d91a3c5c8a4209489ed427067a90e7e2d0b880
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82200946"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561167"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportera Azure Cosmos DB emulatorcertifikat för användning med Java, Python och Node.js
 
@@ -70,7 +71,7 @@ Du kan återskapa båda certifikaten genom att klicka på **Återställ data** e
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Så här använder du certifikatet i Java
 
-När du kör Java-program eller MongoDB-program som använder Java-klienten är det enklare att installera certifikatet i Java standard certifikat arkivet än att `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` skicka flaggorna. Till exempel är det inkluderade java demo`https://localhost:8081/_explorer/index.html`programmet () beroende av standard certifikat arkivet.
+När du kör Java-program eller MongoDB-program som använder Java-klienten är det enklare att installera certifikatet i Java standard certifikat arkivet än att skicka `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flaggorna. Till exempel är det inkluderade java demo programmet ( `https://localhost:8081/_explorer/index.html` ) beroende av standard certifikat arkivet.
 
 Följ instruktionerna i avsnittet [om hur du lägger till ett certifikat i Java CA certifikatarkiv](https://docs.microsoft.com/azure/java-add-certificate-ca-store) för att importera X.509-certifikatet till standardcertifikatarkivet för Java. Observera att du kommer att arbeta i katalogen %JAVA_HOME% när du kör nyckelverktyget.
 

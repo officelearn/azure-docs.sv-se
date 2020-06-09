@@ -6,12 +6,13 @@ ms.date: 11/27/2018
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 07ad9115f6cb602b4df5adbe9a7acdc0425bbf86
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+- tracking-python
+ms.openlocfilehash: 5c4f8a90a43d19f3bc94da04681d9d690dc33e70
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117207"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561780"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Snabb start: Använd python API för att köra ett Azure Batch jobb
 
@@ -21,7 +22,7 @@ Här lär du dig viktiga begrepp i batch-tjänsten och är redo att testa batch 
 
 ![Översikt över Azure Batch arbets flöde](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett **Azure Batch** konto och länkat **Azure Storage** konto. Använd [Azure Portal](quick-create-portal.md) eller [CLI](quick-create-cli.md) för att skapa dessa konton.
@@ -33,7 +34,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
-## <a name="download-the-sample"></a>Hämta exemplet
+## <a name="download-the-sample"></a>Ladda ned exemplet
 
 [Ladda ned eller klona exempelappen](https://github.com/Azure-Samples/batch-python-quickstart) från GitHub. Om du vill klona lagringsplatsen för exempelappen med en Git-klient använder du följande kommando:
 
@@ -41,7 +42,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-Gå till den katalog som innehåller python-skriptet `python_quickstart_client.py`.
+Gå till den katalog som innehåller python-skriptet `python_quickstart_client.py` .
 
 I Python-miljön installerar du de nödvändiga paketen med `pip`.
 

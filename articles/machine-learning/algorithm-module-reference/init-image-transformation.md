@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: aa8d7bf4b9c709c5fb7ff32e89f0af6c4e82b3e7
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: f54dd09ac82ddefeb2528462c7131aa921592d2a
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450761"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84487958"
 ---
-# <a name="init-image-transformation"></a>Omvandling av init-avbildning
+# <a name="init-image-transformation"></a>Initiera bildtransformering
 
 Den här artikeln beskriver hur du använder modulen **init-avbildnings-omvandling** i Azure Machine Learning designer (för hands version) för att initiera avbildnings omvandlingen för att ange hur du vill att bilden ska transformeras.
 
@@ -51,7 +51,6 @@ Den här artikeln beskriver hur du använder modulen **init-avbildnings-omvandli
 
 14.  I **slumpmässigt perspektiv**anger du om du vill utföra en perspektiv omvandling av den aktuella pil-bilden slumpmässigt med sannolikhet 0,5.
 
-15.  För **slumpmässig radering**anger du om du vill slumpmässigt välja en Rectangle-region i en bild och radera dess pixlar med sannolikhet 0,5.
 
 16.  Anslut till [Använd avbildnings omvandlings](apply-image-transformation.md) modul för att tillämpa den omvandling som anges ovan för data uppsättningen för indata.
 
@@ -68,7 +67,7 @@ Se [https://pytorch.org/docs/stable/torchvision/transforms.html](https://pytorch
 
 ###  <a name="module-parameters"></a>Parametrar för modul  
 
-| Namn                    | Intervall   | Typ    | Default | Beskrivning                              |
+| Name                    | Intervall   | Typ    | Default | Description                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
 | Ändra storlek                  | Alla     | Boolesk | Sant    | Ändra storlek på PIL-avbildningen till den angivna storleken |
 | Storlek                    | >= 1     | Heltal | 256     | Ange önskad storlek på utdata          |
@@ -92,9 +91,9 @@ Se [https://pytorch.org/docs/stable/torchvision/transforms.html](https://pytorch
 | Slumpmässigt perspektiv      | Alla     | Boolesk | Falskt   | Utför perspektiv omvandling av den aktuella PIL-avbildningen slumpvis med sannolikhet 0,5 |
 | Slumpmässig radering          | Alla     | Boolesk | Falskt   | Väljer slumpmässigt en Rectangle-region i en bild och raderar dess pixlar med sannolikhet 0,5 |
 
-###  <a name="output"></a>Resultat  
+###  <a name="output"></a>Utdata  
 
-| Namn                        | Typ                    | Beskrivning                              |
+| Name                        | Typ                    | Description                              |
 | --------------------------- | ----------------------- | ---------------------------------------- |
 | Transformering av utgående avbildning | TransformationDirectory | Transformering av utgående avbildning som kan anslutas till **Använd bild-Transformation** . |
 

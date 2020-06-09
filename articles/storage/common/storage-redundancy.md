@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/08/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d14c21174f9631a1ad72489d4c0bafe013572c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 143820eb3c58d2aaac4d4176c4456fca676a0e45
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681349"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554106"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -81,7 +81,7 @@ Azure Storage erbjuder två alternativ för att kopiera data till en sekundär r
 - **Geo-redundant lagring (GRS)** kopierar dina data synkront tre gånger inom en enda fysisk plats i den primära regionen med hjälp av LRS. Därefter kopieras data asynkront till en enda fysisk plats i den sekundära regionen.
 - **Geo-Zone-redundant lagring (GZRS)** kopierar dina data synkront över tre tillgänglighets zoner i Azure i den primära regionen med hjälp av ZRS. Därefter kopieras data asynkront till en enda fysisk plats i den sekundära regionen.
 
-Den främsta skillnaden mellan GRS och GZRS är hur data replikeras i den primära regionen. På den sekundära platsen replikeras alltid data synkront under tre gånger med hjälp av LRS.
+Den främsta skillnaden mellan GRS och GZRS är hur data replikeras i den primära regionen. På den sekundära platsen replikeras alltid data synkront under tre gånger med hjälp av LRS. LRS i den sekundära regionen skyddar dina data mot maskin varu problem.
 
 Med GRS eller GZRS är data på den sekundära platsen inte tillgängliga för Läs-eller skriv åtkomst, såvida det inte finns någon redundansväxling till den sekundära regionen. För Läs behörighet till den sekundära platsen konfigurerar du ditt lagrings konto så att det använder Read-Access Geo-redundant lagring (RA-GRS) eller Läs åtkomst till geo-Zone-redundant lagring (RA-GZRS). Mer information finns i [Läs åtkomst till data i den sekundära regionen](#read-access-to-data-in-the-secondary-region).
 

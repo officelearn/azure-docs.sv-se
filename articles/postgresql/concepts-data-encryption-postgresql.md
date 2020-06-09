@@ -6,23 +6,24 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 4ef5d89ea58c5c27f4344633afa2fe8048948719
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: e4811b1b892fb04400b5a96450db14a260532003
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849490"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488842"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
-
-> [!NOTE]
-> För tillfället måste du begära åtkomst för att använda den här funktionen. Det gör du genom att kontakta AskAzureDBforPostgreSQL@service.microsoft.com .
 
 Med data kryptering med Kundhanterade nycklar för Azure Database for PostgreSQL enskild server kan du ta med din egen nyckel (BYOK) för data skydd i vila. Det gör det även möjligt för organisationer att implementera ansvarsfördelning vad gäller hanteringen av nycklar och data. Med kundhanterad kryptering ansvarar du för och har fullständig kontroll över en nyckels livscykel, behörigheter för nyckelanvändning och granskning av åtgärder på nycklar.
 
 Data kryptering med Kundhanterade nycklar för Azure Database for PostgreSQL enskild server, anges på server nivå. För en specifik server används en kundhanterad nyckel, som kallas nyckel krypterings nyckel (KEK), för att kryptera data krypterings nyckeln (DEK) som används av tjänsten. KEK är en asymmetrisk nyckel som lagras i en kundägda och kundhanterad [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) instans. Nyckel krypterings nyckeln (KEK) och data krypterings nyckeln (DEK) beskrivs mer detaljerat längre fram i den här artikeln.
 
 Key Vault är ett molnbaserad, externt nyckel hanterings system. Den har hög tillgänglighet och ger skalbar och säker lagring för kryptografiska RSA-nycklar, eventuellt backas upp av FIPS 140-2 nivå 2, verifierade HSM: er (Hardware Security modules). Den tillåter inte direkt åtkomst till en lagrad nyckel, men tillhandahåller tjänster för kryptering och dekryptering till auktoriserade entiteter. Key Vault kan generera nyckeln, importera den eller [låta den överföras från en lokal HSM-enhet](../key-vault/key-Vault-hsm-protected-keys.md).
+
+
+> [!NOTE]
+> Den här funktionen distribueras för närvarande globalt och kommer snart att vara tillgänglig i alla regioner. Om du inte ser det i din region kontaktar du AskAzureDBforPostgreSQL@service.microsoft.com .
 
 > [!NOTE]
 > Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for PostgreSQL enskild server stöder pris nivåer för "Generell användning" och "Minnesoptimerade".
@@ -129,6 +130,19 @@ För att undvika problem när du konfigurerar kundhanterad data kryptering under
 * Initiera processen för att återställa eller läsa replikering från huvud Azure Database for PostgreSQL enskild server.
 * Behåll den nyligen skapade servern (återställd/replik) i ett otillgängligt tillstånd eftersom dess unika identitet ännu inte har fått behörighet att Key Vault.
 * På den återställda/replik servern verifierar du om den Kundhanterade nyckeln på data krypterings inställningarna. På så sätt ser du till att den nya servern har fått behörighet att radbryta och packa upp den nyckel som lagras i Key Vault.
+
+## <a name="limitations"></a>Begränsningar
+
+För Azure Database for PostgreSQL har stödet för att kryptera data i vila med hjälp av kundhanterad nyckel (CMK) några begränsningar –
+
+* Stöd för den här funktionen är begränsat till **generell användning** och **minnesoptimerade pris nivåer** .
+* Den här funktionen stöds bara i regioner och servrar som stöder lagring upp till 16TB. En lista över Azure-regioner som stöder lagring upp till 16TB finns i lagrings avsnittet i dokumentationen [här](concepts-pricing-tiers.md#storage)
+
+    > [!NOTE]
+    > - Alla nya PostgreSQL-servrar som skapats i de regioner som anges ovan, stöd för kryptering med kund Manager-nycklar är **tillgängliga**. Tidpunkten för återställning av PITR-servern eller Läs repliken kvalificerar sig inte, annars är den "ny".
+    > - Om du vill verifiera att den etablerade servern har stöd för upp till 16TB kan du gå till bladet pris nivå i portalen och se den maximala lagrings storleken som stöds av den etablerade servern. Om du kan flytta skjutreglaget upp till 4 TB kanske servern inte stöder kryptering med Kundhanterade nycklar. Men data krypteras med hjälp av tjänst hanterade nycklar hela tiden. Kontakta AskAzureDBforPostgreSQL@service.microsoft.com om du har några frågor.
+
+* Kryptering stöds endast med kryptografisk nyckel för RSA 2048.
 
 ## <a name="next-steps"></a>Nästa steg
 

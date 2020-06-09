@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 06/08/2020
 ms.author: b-juche
-ms.openlocfilehash: 8e9ee573ca908c41fe7c7887d0f306971369f83f
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: d3f5095f8b8c140f704160feff9cd12ad9ca0974
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417505"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553763"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -177,7 +177,7 @@ Nej. Azure NetApp Files stöds inte av Azure Storage Explorer.
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Hur gör jag för att avgöra om en katalog närmar sig gräns storleken?
 
-Du kan använda `stat` kommandot från en klient för att se om en katalog närmar sig den maximala storleks gränsen (320 MB).
+Du kan använda `stat` kommandot från en klient för att se om en katalog närmar sig den maximala storleks gränsen för katalogens metadata (320 MB).
 
 För en katalog på 320 MB är antalet block 655360, med varje block storlek 512 byte.  (Det vill säga 320x1024x1024/512.)  
 

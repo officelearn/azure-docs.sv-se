@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.custom: has-adal-ref
-ms.openlocfilehash: 690cb37df4a5d195bfce6ee792f7565a6f7f1768
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: has-adal-ref, tracking-python
+ms.openlocfilehash: 857303009b31945b0fe4f5555cb7e545cd16719d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612783"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558880"
 ---
 # <a name="develop-a-secure-web-app"></a>Utveckla en säker webbapp
 
@@ -140,7 +140,7 @@ Om du vill distribuera resurserna i exempel appen med säkerhetsfunktionerna må
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång med programmet måste du installera följande verktyg:
 
@@ -177,11 +177,11 @@ Kör distributions skripten för att konfigurera miljön och prenumerationen:
 
 Webbläsaren öppnas, logga in med dina autentiseringsuppgifter. När du har loggat in kan du börja distribuera resurserna från kommando tolken.
 
-Distributions `deploy-powershell.ps1` skripten `deploy-bash.sh` och innehåller kod som distribuerar hela programmet.
+Distributions skripten `deploy-powershell.ps1` och `deploy-bash.sh` innehåller kod som distribuerar hela programmet.
 Så här distribuerar du lösningen:
 
 1. Om du använder PowerShell kör du `deploy-powershell.ps1` filen genom att skriva `./deploy-powershell.ps1 REGION RESOURCE_GROUP_NAME` ersätta regionen och resurs gruppens namn med lämpliga Azure-regioner och ett namn för resurs gruppen
-2. Om du använder Linux för att köra `deploy-bash.sh` filen genom att `/deploy-bash.sh REGION RESOURCE_GROUP_NAME`skriva, kan du behöva göra filen körbar genom att skriva`chmod +x deploy-bash.sh`
+2. Om du använder Linux för att köra `deploy-bash.sh` filen genom att skriva `/deploy-bash.sh REGION RESOURCE_GROUP_NAME` , kan du behöva göra filen körbar genom att skriva`chmod +x deploy-bash.sh`
 
 I följande exempel demonstreras kodfragmenten i viktiga komponenter. Du kan distribuera exemplen individuellt eller med resten av komponenterna genom att köra Deploy-filerna.
 
@@ -311,7 +311,7 @@ Koden nedan förlitar sig på PGUSERNAME-och PGPASSWORD-hemligheter som lagras i
 När du har distribuerat databasen måste du lagra dess autentiseringsuppgifter och anslutnings sträng i Azure Key Vault.
 I mappen skript finns det en `functions.sql` fil som innehåller den pl/pgsql-kod som skapar lagrade funktioner när du kör den. Genom att köra den här filen parameterizes du indata för att begränsa SQL-inmatning.
 
-PostgreSQL paketeras med ett verktyg som kallas `psql` som används för att ansluta till databasen. För att `functions.sql`köra måste du ansluta till Azure Database for PostgreSQL-instansen från den lokala datorn och köra den därifrån. Installationen av verktyget psql ingår i standard installationen för PostgreSQL på varje operativ system.
+PostgreSQL paketeras med ett verktyg som kallas `psql` som används för att ansluta till databasen. För att köra `functions.sql` måste du ansluta till Azure Database for PostgreSQL-instansen från den lokala datorn och köra den därifrån. Installationen av verktyget psql ingår i standard installationen för PostgreSQL på varje operativ system.
 Mer information finns i psql- [dokumentationen](https://www.postgresql.org/docs/9.3/app-psql.html).
 
 Azure Cloud Shell inkluderar även `psql` verktyget. Du kan använda Cloud Shell direkt från Azure Portal genom att välja Cloud Shell-ikonen.
@@ -437,7 +437,7 @@ USER appuser
 ENTRYPOINT ["/usr/local/bin/init.sh"]
 ```
 
-Dockerfile ovan används för att bygga den behållare som finns på Azure Container Registry på `mcr.microsoft.com/samples/basic-linux-app`.
+Dockerfile ovan används för att bygga den behållare som finns på Azure Container Registry på `mcr.microsoft.com/samples/basic-linux-app` .
 
 Koden nedan:
 
@@ -696,7 +696,7 @@ App Service instanser kan integreras med virtuella nätverk. Den här integratio
 
 1. På nästa sida väljer du **Lägg till VNet (för hands version)**.
 
-1. På nästa meny väljer du det virtuella nätverk som skapades i distributionen som börjar med `hello-vnet`. Du kan antingen skapa ett nytt undernät eller välja ett befintligt.
+1. På nästa meny väljer du det virtuella nätverk som skapades i distributionen som börjar med `hello-vnet` . Du kan antingen skapa ett nytt undernät eller välja ett befintligt.
    I det här fallet skapar du ett nytt undernät. Ange **adress intervallet** till **10.0.3.0/24** och ge under **nätet**ett namn.
 
    ![App Service konfiguration av virtuellt nätverk](./media/secure-web-app/app-vnet-config.png)
@@ -723,7 +723,7 @@ Nu när du har aktiverat integrering av virtuella nätverk kan du lägga till n�
 
    *Konfigurera NSG*
 
-4. I utgående regler för gateway-NSG lägger du till en regel som tillåter utgående anslutningar till App Service-instansen genom att skapa en regel som är `AppService`riktad mot tjänst tag gen:
+4. I utgående regler för gateway-NSG lägger du till en regel som tillåter utgående anslutningar till App Service-instansen genom att skapa en regel som är riktad mot tjänst tag gen `AppService` :
 
    ![Lägg till utgående regler för NSG](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
 
@@ -754,7 +754,7 @@ Nu när du har aktiverat integrering av virtuella nätverk kan du lägga till n�
 Om du vill begränsa angrepps ytan ändrar du App Service nätverks inställningar så att endast programgatewayen får åtkomst till programmet.
 Du gör detta genom att gå till fliken App Service nätverk, välja fliken **IP-begränsningar** och skapa en Tillåt-regel som endast tillåter programgatewayens IP att komma åt tjänsten direkt.
 
-Du kan hämta IP-adressen för gatewayen från sidan Översikt. På fliken **CIDR för IP-adress** anger du IP-adressen i följande format `<GATEWAY_IP_ADDRESS>/32`:.
+Du kan hämta IP-adressen för gatewayen från sidan Översikt. På fliken **CIDR för IP-adress** anger du IP-adressen i följande format: `<GATEWAY_IP_ADDRESS>/32` .
 
 ![Tillåt endast gatewayen](./media/secure-web-app/app-allow-gw-only.png)
 
@@ -783,16 +783,16 @@ Konfigurera appen så att de använder de autentiseringsuppgifter som krävs i A
    *Konfigurera registrering av Azure AD-App*
 
 4. En skärm visas som visar den registrerade appen och dess information. Du måste lägga till den här informationen i Azure Key Vault-instansen.
-   1. Kopiera program-ID: t (Client) och spara det i `CLIENTID`Key Vault som.
-   2. Kopiera omdirigerings-URI: n som du angav i föregående steg och `REDIRECTURI`Spara den som.
-   3. Kopiera standard katalog namnet för Azure AD, som har formatet *Name*. microsoftonline.com, och spara det i Key Vault som `TENANT`.
-   4. Gå till fliken **certifikat & hemligheter** i den Azure AD-app som du skapade tidigare och välj **ny klient hemlighet**, som visas i följande skärm bild. Ange ett förfallo datum och kopiera sedan det genererade värdet och spara det i Key Vault som `CLIENTSECRET`.
+   1. Kopiera program-ID: t (Client) och spara det i Key Vault som `CLIENTID` .
+   2. Kopiera omdirigerings-URI: n som du angav i föregående steg och spara den som `REDIRECTURI` .
+   3. Kopiera standard katalog namnet för Azure AD, som har formatet *Name*. microsoftonline.com, och spara det i Key Vault som `TENANT` .
+   4. Gå till fliken **certifikat & hemligheter** i den Azure AD-app som du skapade tidigare och välj **ny klient hemlighet**, som visas i följande skärm bild. Ange ett förfallo datum och kopiera sedan det genererade värdet och spara det i Key Vault som `CLIENTSECRET` .
 
       ![Azure AD-Authorization Secret](./media/secure-web-app/ad-auth-secrets.png)
 
       *Azure AD-Authorization Secret*
 
-   5. Generera en säker slumpmässig hemlig nyckel med hjälp av kommando rads verktyg och online verktyg. Spara den i Key Vault som `FLASKSECRETKEY`. Program ramverket använder den här nyckeln för att skapa sessioner.
+   5. Generera en säker slumpmässig hemlig nyckel med hjälp av kommando rads verktyg och online verktyg. Spara den i Key Vault som `FLASKSECRETKEY` . Program ramverket använder den här nyckeln för att skapa sessioner.
         Information om hur du skapar en hemlig nyckel finns i [kolv-sessioner](http://flask.pocoo.org/docs/1.0/quickstart/#sessions).
 
 5. När du har konfigurerat inloggningen måste du lägga till användare i Azure AD-länken så att de kan logga in på resursen. Om du vill lägga till dem går du till fliken **användare** i Azure AD, väljer **alla användare**och väljer sedan **ny användare** eller **ny gäst användare**. För testning kan du lägga till en gäst användare och bjuda in användaren till katalogen. Du kan också lägga till en ny användare om den domän där appen körs är verifierad. I det här exemplet kan endast användare som är registrerade i Azure AD-klienten registreras för åtkomst. Information om åtkomst till flera innehavare finns i dokumentationen.
@@ -804,7 +804,7 @@ Konfigurera appen så att de använder de autentiseringsuppgifter som krävs i A
 När du har lagt till Azure AD-konfigurationen och hemligheterna i Key Vault kan användarna autentiseras i appen med hjälp av Azure OAuth-autentisering.
 I app-koden hanteras detta av Azure Active Directory Authentication Library (ADAL).
 
-När hemligheterna är i Key Vault och programmet har åtkomst till hemligheterna och databasen kan program tjänsten nås via gatewayens program-URL (https:\//GATEWAY_HASH. cloudapp. net), som du kan hämta från sitt blad.
+När hemligheterna är i Key Vault och programmet har åtkomst till hemligheterna och databasen kan program tjänsten nås via gatewayens program-URL (https: \/ /GATEWAY_HASH. cloudapp. net), som du kan hämta från sitt blad.
 
 Om du när du loggar in på Azure AD visas ett fel meddelande om att användaren inte är registrerad i den katalog som du försöker logga in på, måste du lägga till användaren. Om du vill lägga till användaren går du till fliken **användare** i Azure AD och lägger till användaren manuellt genom att ange informationen eller Bjud in användaren genom att ange deras e-postadress som gäst användare i Azure AD på bladet **Bjud in gäst** .
 

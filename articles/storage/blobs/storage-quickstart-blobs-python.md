@@ -7,20 +7,21 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 8daf7380e859cd2f9b5890c716f7b7d95e6c3fe4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: c5ab718fdccfebe852c1522a0cb07303a541a3dd
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061336"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554247"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Snabb start: hantera blobbar med python V12 SDK
 
 I den här snabb starten lär du dig att hantera blobbar med hjälp av python. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du laddar upp, laddar ned och listar blobbar och skapar och tar bort behållare.
 
-[API Reference dokumentation](/python/api/azure-storage-blob) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [paket (python-paket index)](https://pypi.org/project/azure-storage-blob/) | [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API-referens dokumentation](/python/api/azure-storage-blob)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)  |  [Paket (python-paket index)](https://pypi.org/project/azure-storage-blob/)  |  [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).
@@ -59,7 +60,7 @@ Skapa ett python-program med namnet *BLOB-snabb start-V12*.
 
 ### <a name="install-the-package"></a>Installera paketet
 
-När du fortfarande är i program katalogen installerar du Azure Blob Storage-klient biblioteket för python-paket med `pip install` hjälp av kommandot.
+När du fortfarande är i program katalogen installerar du Azure Blob Storage-klient biblioteket för python-paket med hjälp av `pip install` kommandot.
 
 ```console
 pip install azure-storage-blob
@@ -72,7 +73,7 @@ Det här kommandot installerar Azure Blob Storage-klientprogrammet för python-p
 Från projekt katalogen:
 
 1. Öppna en ny textfil i kod redigeraren
-1. Lägg `import` till instruktioner
+1. Lägg till `import` instruktioner
 1. Skapa strukturen för programmet, inklusive grundläggande undantags hantering
 
     Här är koden:
@@ -126,7 +127,7 @@ I de här exempel kods tycken visas hur du gör följande med klient biblioteket
 
 Koden nedan hämtar anslutnings strängen för lagrings kontot från den miljö variabel som skapades i avsnittet [Konfigurera din lagrings anslutnings sträng](#configure-your-storage-connection-string) .
 
-Lägg till den här koden `try` inuti blocket:
+Lägg till den här koden inuti `try` blocket:
 
 ```python
 # Retrieve the connection string for use with the application. The storage
@@ -226,7 +227,7 @@ with open(download_file_path, "wb") as download_file:
 
 Följande kod rensar resurserna som skapats av appen genom att ta bort hela behållaren med hjälp av metoden [delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#delete-container---kwargs-) . Du kan också ta bort de lokala filerna, om du vill.
 
-Appen pausar indata från användaren genom att `input()` anropa innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna har skapats korrekt innan de tas bort.
+Appen pausar indata från användaren genom `input()` att anropa innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna har skapats korrekt innan de tas bort.
 
 Lägg till den här koden i slutet av `try` blocket:
 

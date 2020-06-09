@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/07/2020
 ms.author: rogarana
-ms.openlocfilehash: 6e49201b0574e0a1235cc9e2cb313b40b0563f93
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 436f0ae3e19b2a0591a2727bde48bae66b91a94e
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268494"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509261"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Del tre: Konfigurera behörigheter för kataloger och filnivå över SMB 
 
@@ -31,12 +31,22 @@ Om du vill konfigurera ACL: er med behörighet för superanvändare måste du mo
 Följande behörigheter ingår i rot katalogen för en fil resurs:
 
 - BUILTIN\Administrators: (OI) (CI) (F)
-- NT INSTANS\SYSTEM: (OI) (CI) (F)
 - BUILTIN\Users: (RX)
 - BUILTIN\Users: (OI) (CI) (IO) (GR, GE)
 - NT Instans\autentiserade-användare: (OI) (CI) (M)
+- NT INSTANS\SYSTEM: (OI) (CI) (F)
 - NT INSTANS\SYSTEM: (F)
 - SKAPARE ÄGARE: (OI) (CI) (IO) (F)
+
+|Användare|Definition|
+|---|---|
+|BUILTIN\Administrators|Alla användare som är domän administratörer av lokal AD DS-miljön.
+|BUILTIN\Users|Inbyggd säkerhets grupp i AD. Den innehåller NT Instans\autentiserade-användare som standard. För en traditionell fil Server kan du konfigurera medlemskaps definitionen per server. För Azure Files finns det ingen värd Server, och därför innehåller BUILTIN\Users samma uppsättning användare som NT Instans\autentiserade-användare.|
+|NT INSTANS\SYSTEM|Tjänst kontot för fil serverns operativ system. Detta tjänst konto gäller inte i Azure Files-kontexten. Den ingår i rot katalogen så att den överensstämmer med Windows-filer Server upplevelse för Hybrid scenarier.|
+|NT Instans\autentiserade-användare|Alla användare i AD som kan få en giltig Kerberos-token.|
+|SKAPARE ÄGARE|Varje objekts katalog eller fil har en ägare för objektet. Om det finns ACL: er tilldelade till "skapare ägare" på objektet, har användaren som äger det här objektet behörighet till objektet som definieras av ACL: en.|
+
+
 
 ## <a name="mount-a-file-share-from-the-command-prompt"></a>Montera en fil resurs från kommando tolken
 
@@ -65,7 +75,7 @@ Använd Utforskaren i Windows för att ge fullständig behörighet till alla kat
 1. I fönstret prompt för att lägga till nya användare anger du det användar namn som du vill bevilja behörigheter i rutan **Ange de objekt namn som ska väljas** och väljer **kontrol lera namn** för att hitta det fullständiga UPN-namnet för mål användaren.
 1.    Välj **OK**.
 1.    På fliken **säkerhet** väljer du alla behörigheter som du vill ge den nya användaren.
-1.    Välj **Använd**.
+1.    Välj **Tillämpa**.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Konfigurera Windows ACL: er med icacls
 

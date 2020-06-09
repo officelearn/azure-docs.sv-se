@@ -5,16 +5,17 @@ description: Utföra data utforsknings-och modellerings uppgifter på Windows-Da
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: acada42cd50d607925d7c4583820c2590ff76639
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: f59ee4a21581310a0729079cd25afa1c683071cd
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266567"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84552701"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker du kan göra på Windows-Data Science Virtual Machine
 
@@ -40,7 +41,7 @@ I den här artikeln får du lära dig hur du använder din DSVM för att utföra
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du behöver en Azure-prenumeration. Du kan [Registrera dig för en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
 * Instruktioner för hur du konfigurerar en Data Science Virtual Machine på Azure Portal finns i [skapa en virtuell dator](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
@@ -129,7 +130,7 @@ IrisPredictor(3,2,3,4)
 ```
 
 ### <a name="build-and-operationalize-r-models"></a>Build-och operationalisera R-modeller
-Du kan distribuera R-modeller som bygger på Data Science Virtual Machine eller någon annan stans på Azure Machine Learning på ett sätt som liknar hur det är för python. Gör så här:
+Du kan distribuera R-modeller som bygger på Data Science Virtual Machine eller någon annan stans på Azure Machine Learning på ett sätt som liknar hur det är för python. Här är stegen:
 
 1. Skapa en Settings. JSON-fil för att ange arbetsyte-ID och autentiseringstoken. 
 2. Skriv en omslutning för modellens predict-funktion.
@@ -260,7 +261,7 @@ Du hittar mer information om hur du använder Git för att arbeta med din GitHub
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob Storage är en tillförlitlig, ekonomisk moln lagrings tjänst för data som är stora och små. I det här avsnittet beskrivs hur du kan flytta data till Blob Storage och komma åt data som lagras i en Azure-blob.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 * Skapa ditt Azure Blob Storage-konto från [Azure Portal](https://portal.azure.com).
 
@@ -362,7 +363,7 @@ Data läses som en data ram:
 ### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake Storage är en storskalig lagrings plats för Big data Analytics-arbetsbelastningar och är kompatibel med Hadoop Distributed File System (HDFS). Det fungerar med Hadoop, Spark och Azure Data Lake Analytics. I det här avsnittet får du lära dig hur du kan flytta data till Azure Data Lake Storage och köra analyser med hjälp av Azure Data Lake Analytics.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 * Skapa din Azure Data Lake Analytics-instans i [Azure Portal](https://portal.azure.com).
 

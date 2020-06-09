@@ -4,14 +4,14 @@ description: Lär dig hur Azure Cosmos DB tillhandahåller databas skydd med RBA
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4e028e7a5e7e7b8f747d7a1cfb36c553a8113544
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 0782d5f091671a235df1ab85a8b9706c7efe9170
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583730"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509040"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Rollbaserad åtkomstkontroll i Azure Cosmos DB
 
@@ -43,14 +43,39 @@ Förutom de inbyggda rollerna kan användare också skapa [anpassade roller](../
 
 ## <a name="preventing-changes-from-cosmos-sdk"></a>Förhindra ändringar från Cosmos SDK
 
-Cosmos Resource Provider kan låsas för att förhindra ändringar av resurser, inklusive Cosmos-konto, databaser, behållare och data flöde från klienter som ansluter via konto nycklar (d.v.s. program som ansluter via Cosmos SDK). När det är inställt måste ändringar av en resurs vara från en användare med rätt RBAC-roll och autentiseringsuppgifter. Den här funktionen har angetts `disableKeyBasedMetadataWriteAccess` med egenskap svärdet i Cosmos-resurs leverantören. Ett exempel på en Azure Resource Manager-mall med denna egenskaps inställning finns nedan.
+> [!WARNING]
+> Aktivering av den här funktionen kan ha skadlig påverkan på ditt program. Läs noggrant innan du aktiverar den här funktionen.
+
+Azure Cosmos DB Resource Provider kan låsas för att förhindra ändringar av resurser som har gjorts från klienter som ansluter med hjälp av konto nycklar (d.v.s. program som ansluter via Cosmos SDK). Detta omfattar även ändring som gjorts från Azure Portal. Detta kan vara önskvärt för användare som vill ha högre kontroll-och styrnings nivåer för produktions miljöer och aktivera funktioner som resurs lås och även aktivera diagnostikloggar för kontroll Plans åtgärder. Klienter som ansluter via Cosmos DB SDK förhindras från att ändra någon egenskap för Cosmos-konton, databaser, behållare och data flöde. Åtgärder som rör läsning och skrivning av data till Cosmos-behållare påverkas inte.
+
+När den är aktive rad kan ändringar i alla resurser endast göras från en användare med rätt RBAC-roll och Azure Active Directory autentiseringsuppgifter, inklusive hanterade tjänst identiteter.
+
+### <a name="check-list-before-enabling"></a>Kontrol lera listan innan du aktiverar
+
+Den här inställningen förhindrar eventuella ändringar av Cosmos-resurser från klienter som ansluter med hjälp av konto nycklar, inklusive Cosmos DB SDK, verktyg som ansluter via konto nycklar eller från Azure Portal. För att förhindra problem eller fel från program när du har aktiverat den här funktionen kontrollerar du om program eller Azure Portal användare utför någon av följande åtgärder innan du aktiverar den här funktionen, inklusive:
+
+- Alla ändringar i Cosmos-kontot, inklusive eventuella egenskaper eller att lägga till eller ta bort regioner.
+
+- Skapa, ta bort underordnade resurser, till exempel databaser och behållare. Detta inkluderar resurser för andra API: er, till exempel Cassandra, MongoDB, Gremlin och table-resurser.
+
+- Uppdaterar data flödet på databas-eller container nivå resurser.
+
+- Ändra behållar egenskaper, inklusive index princip, TTL och unika nycklar.
+
+- Ändra lagrade procedurer, utlösare eller användardefinierade funktioner.
+
+Om dina program (eller användare via Azure Portal) utför någon av dessa åtgärder måste de migreras för att köras via [arm-mallar](manage-sql-with-resource-manager.md), [POWERSHELL](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), [rest](/rest/api/cosmos-db-resource-provider/) eller [Azures hanterings bibliotek](https://github.com/Azure-Samples/cosmos-management-net). Observera att Azure-hantering är tillgängligt på [flera språk](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
+
+### <a name="set-via-arm-template"></a>Ställ in via ARM-mall
+
+Om du vill ange den här egenskapen med en ARM-mall uppdaterar du din befintliga mall eller exporterar en ny mall för den aktuella distributionen och inkluderar sedan `"disableKeyBasedMetadataWriteAccess": true` egenskaperna för databaseAccounts-resurserna. Nedan visas ett grundläggande exempel på en Azure Resource Manager-mall med den här egenskaps inställningen.
 
 ```json
 {
     {
       "type": "Microsoft.DocumentDB/databaseAccounts",
       "name": "[variables('accountName')]",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-04-01",
       "location": "[parameters('location')]",
       "kind": "GlobalDocumentDB",
       "properties": {
@@ -62,11 +87,25 @@ Cosmos Resource Provider kan låsas för att förhindra ändringar av resurser, 
     }
 }
 ```
-Om du exporterar en befintlig Resource Manager-mall och uppdaterar den med den här egenskapen kan den ersätta mallens funktioner helt. Så om alla värden inte ingår återställs de till standardvärdet. Ett annat sätt att inaktivera den nyckelbaserade metadata-Skriv åtkomsten är genom att använda Azure CLI som du ser i följande kommando:
 
-```cli
-az cosmosdb update  --name CosmosDBAccountName --resource-group ResourceGroupName  --disable-key-based-metadata-write-access true
+> [!IMPORTANT]
+> Se till att du inkluderar de andra egenskaperna för ditt konto och underordnade resurser när du redploying med den här egenskapen. Distribuera inte den här mallen som den är eller så kommer den att återställa alla dina konto egenskaper.
 
+### <a name="set-via-azure-cli"></a>Ange via Azure CLI
+
+Om du vill aktivera med hjälp av Azure CLI använder du kommandot nedan:
+
+```azurecli-interactive
+az cosmosdb update  --name [CosmosDBAccountName] --resource-group [ResourceGroupName]  --disable-key-based-metadata-write-access true
+
+```
+
+### <a name="set-via-powershell"></a>Ange via PowerShell
+
+Om du vill aktivera med Azure PowerShell använder du kommandot nedan:
+
+```azurepowershell-interactive
+Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBAccountName] -DisableKeyBasedMetadataWriteAccess true
 ```
 
 ## <a name="next-steps"></a>Nästa steg

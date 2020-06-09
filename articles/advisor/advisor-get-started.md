@@ -3,12 +3,12 @@ title: Kom igång med Azure Advisor
 description: Kom igång med Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f40aa9d3177f251787d60f3087c5f85b6d982b6e
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259635"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509125"
 ---
 # <a name="get-started-with-azure-advisor"></a>Kom igång med Azure Advisor
 
@@ -127,4 +127,4 @@ Mer information om Advisor finns i:
 - [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
 - [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
 - [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
-- [Rekommendationer om Advisor-kostnader](advisor-performance-recommendations.md)
+- [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)

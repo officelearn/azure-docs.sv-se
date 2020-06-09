@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7e809def048c95b6688a13ac99783615eb045d11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53a84bd970d564411ec9a56b54159e5a96717a6e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885197"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558751"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Program med en sida: inloggning och utloggning
 
@@ -45,22 +45,34 @@ Du kan inte använda båda metoderna pop-up och Redirect i ditt program. Valet m
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const loginRequest = {
-    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
 }
 
-userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
-    //login success
-    let idToken = loginResponse.idToken;
-}).catch(function (error) {
-    //login failure
-    console.log(error);
-});
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+const myMsal = new userAgentApplication(config);
+
+myMsal.loginPopup(loginRequest)
+    .then(function (loginResponse) {
+        //login success
+        let idToken = loginResponse.idToken;
+    }).catch(function (error) {
+        //login failure
+        console.log(error);
+    });
 ```
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-Med MSAL vinkel omslutning kan du skydda specifika vägar i programmet genom att `MsalGuard` lägga till dem i väg definitionen. Det här skydds metoden anropar metoden för att logga in när den vägen nås.
+Med MSAL vinkel omslutning kan du skydda specifika vägar i programmet genom att lägga till dem i `MsalGuard` väg definitionen. Det här skydds metoden anropar metoden för att logga in när den vägen nås.
 
 ```javascript
 // In app-routing.module.ts
@@ -91,7 +103,7 @@ const routes: Routes = [
 export class AppRoutingModule { }
 ```
 
-Aktivera `popUp` konfigurations alternativet för en popup-fönster upplevelse. Du kan också skicka de omfattningar som kräver medgivande enligt följande:
+Aktivera konfigurations alternativet för en popup-fönster upplevelse `popUp` . Du kan också skicka de omfattningar som kräver medgivande enligt följande:
 
 ```javascript
 // In app.module.ts
@@ -103,7 +115,7 @@ Aktivera `popUp` konfigurations alternativet för en popup-fönster upplevelse. 
             }
         }, {
             popUp: true,
-            consentScopes: ["https://graph.microsoft.com/User.ReadWrite"]
+            consentScopes: ["User.ReadWrite"]
         })
     ]
 })
@@ -117,17 +129,28 @@ Aktivera `popUp` konfigurations alternativet för en popup-fönster upplevelse. 
 Omdirigerings metoderna returnerar inte ett löfte på grund av att huvud-appen har flyttats bort. Om du vill bearbeta och komma åt de returnerade tokens måste du registrera lyckade och felfria återanrop innan du anropar omdirigerings metoderna.
 
 ```javascript
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+const myMsal = new userAgentApplication(config);
+
 function authCallback(error, response) {
     //handle redirect response
 }
 
-userAgentApplication.handleRedirectCallback(authCallback);
+myMsal.handleRedirectCallback(authCallback);
 
-const loginRequest = {
-    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
-}
-
-userAgentApplication.loginRedirect(loginRequest);
+myMsal.loginRedirect(loginRequest);
 ```
 
 # <a name="angular"></a>[Angular](#tab/angular)
@@ -143,7 +166,7 @@ Koden här är samma som beskrivs tidigare i avsnittet om att logga in med ett p
 
 MSAL-biblioteket innehåller en `logout` metod som rensar cacheminnet i webbläsarens lagring och skickar en inloggningsbegäran till Azure Active Directory (Azure AD). Efter utloggning omdirigerar biblioteket tillbaka till program start sidan som standard.
 
-Du kan konfigurera den URI som den ska omdirigeras till efter utloggning genom att ange `postLogoutRedirectUri`. Denna URI bör också registreras som utloggnings-URI i program registreringen.
+Du kan konfigurera den URI som den ska omdirigeras till efter utloggning genom att ange `postLogoutRedirectUri` . Denna URI bör också registreras som utloggnings-URI i program registreringen.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -156,9 +179,9 @@ const config = {
     }
 }
 
-const userAgentApplication = new UserAgentApplication(config);
-userAgentApplication.logout();
+const myMsal = new UserAgentApplication(config);
 
+myMsal.logout();
 ```
 
 # <a name="angular"></a>[Angular](#tab/angular)

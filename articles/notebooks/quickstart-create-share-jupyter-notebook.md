@@ -3,25 +3,26 @@ title: Skapa och dela en Jupyter-anteckningsbok för Azure Notebooks för hands 
 description: Skapa snabbt och kör en Jupyter-anteckningsbok på Azure Notebooks för hands versionen och dela den sedan med andra.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: d3310444fa28240b8fb1344199514a9601a2c615
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 01d1035f794287e679b6ebc84fa9498b184b4791
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77064452"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561082"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Snabb start: skapa och dela en antecknings bok i Azure Notebooks för hands version
 
 I den här snabb starten skapar du och kör en Jupyter Notebook på Azure Notebooks och delar sedan den bärbara datorn med andra. Med Jupyter kan du enkelt kombinera markdown text, körbar kod, beständiga data, grafik och visualiseringar på en enda delbar arbets yta, antecknings boken. Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Inga.
 
 ## <a name="create-a-new-project-and-notebook"></a>Skapa ett nytt projekt och en ny antecknings bok
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-1. Gå till [Azure Notebooks-platsen (https://notebooks.azure.com) ](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start – logga in till Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
+1. Gå till [Azure Notebooks-platsen ( https://notebooks.azure.com) ](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start – logga in till Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
 1. Från din offentliga profil sida väljer du **Mina projekt** överst på sidan:
 
@@ -40,7 +41,7 @@ Inga.
 
      ![Popup-fönstret nytt projekt med ifylld information](media/quickstarts/new-project-popup.png)
 
-1. Efter en liten stund navigerar Azure Notebooks till det nya projektet. Lägg till en antecknings bok i projektet genom att markera List rutan **+ ny** (som endast **+** visas som) och sedan välja **antecknings bok**:
+1. Efter en liten stund navigerar Azure Notebooks till det nya projektet. Lägg till en antecknings bok i projektet genom att markera List rutan **+ ny** (som endast visas som **+** ) och sedan välja **antecknings bok**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
@@ -92,7 +93,7 @@ Inga.
 
     ![Spara ikon i Jupyter Notebook-verktygsfältet](media/quickstarts/hello-results-save-icon.png)
 
-1. Välj Meny kommandot**Stäng och** stoppa för att stoppa servern och stänga webbläsarfönstret. **File** > 
+1. Välj **File**  >  meny kommandot**Stäng och** stoppa för att stoppa servern och stänga webbläsarfönstret.
 
 ## <a name="share-the-notebook"></a>Dela antecknings boken
 

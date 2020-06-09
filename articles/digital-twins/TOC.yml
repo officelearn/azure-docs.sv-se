@@ -1,78 +1,19 @@
 - name: Azure Digital Twins
   href: index.yml
 - name: Översikt
-  items:
-    - name: Om Azure Digital Twins
-      href: about-digital-twins.md
 - name: Snabbstarter
   expanded: true
-  items:
-    - name: Hitta tillgängliga rum
-      href: quickstart-view-occupancy-dotnet.md
 - name: Självstudier
   items:
     - name: Övervaka en byggnad med Digital Twins
-      items:
-        - name: Distribuera och konfigurera
-          href: tutorial-facilities-setup.md
-        - name: Etablera och övervaka villkor
-          href: tutorial-facilities-udf.md
-        - name: Meddela med Logic Apps
-          href: tutorial-facilities-events.md
-        - name: Visualisera händelser med Time Series Insights
-          href: tutorial-facilities-analyze.md
 - name: Begrepp
   items:
-    - name: Graf för objektmodell och rumslig intelligens i Digital Twins
-      href: concepts-objectmodel-spatialgraph.md
-    - name: Enhetsanslutning och inkommande telemetri
-      href: concepts-device-ingress.md
-    - name: Databearbetning och användardefinierade funktioner
-      href: concepts-user-defined-functions.md
-    - name: Routningshändelser och meddelanden
-      href: concepts-events-routing.md
-    - name: Tjänstbegränsningar för allmän förhandsversion
-      href: concepts-service-limits.md
     - name: Säkerhet
-      items:
-        - name: Metodtips för säkerhet
-          href: security-best-practices.md
-        - name: Rollbaserad åtkomstkontroll
-          href: security-role-based-access-control.md
-        - name: Skapa och hantera rolltilldelningar
-          href: security-create-manage-role-assignments.md
-        - name: 'Autentisering för API:er för hantering'
-          href: security-authenticating-apis.md
 - name: Anvisningar
   items:
-    - name: Aktivera program med flera klienter
-      href: how-to-multitenant-applications.md
-    - name: Skapa användardefinierade funktioner
-      href: how-to-user-defined-functions.md
-    - name: Dirigera händelser och meddelanden via slutpunkter
-      href: how-to-egress-endpoints.md
-    - name: Lägga till blobar i objekt
-      href: how-to-add-blobs.md
-    - name: Använda Digital Twins Swagger
-      href: how-to-use-swagger.md
-    - name: Felsöka användardefinierade funktioner
-      href: how-to-diagnose-user-defined-functions.md
-    - name: Konfigurera övervakning
-      href: how-to-configure-monitoring.md
     - name: 'Fråga Digital Twins-API:er'
-      items:
-        - name: Konfigurera Postman
-          href: how-to-configure-postman.md
-        - name: 'Använda Digital Twins-API:er'
-          href: how-to-navigate-apis.md
-        - name: Vanliga frågemönster
-          href: how-to-query-common-apis.md
 - name: Referens
-  items:
-    - name: Användardefinierade funktioner – klientbibliotek
-      href: reference-user-defined-functions-client-library.md
 - name: Resurser
-  expanded: true
   items:
     - name: Resurser för utvecklare
       items:
@@ -116,3 +57,4 @@
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
     - name: Azure IoT-uppdateringar
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
+  expanded: true

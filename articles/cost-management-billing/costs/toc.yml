@@ -35,6 +35,8 @@
           href: manage-automation.md
         - name: 'Migrera från EA till MCA API:er'
           href: migrate-cost-management-api.md
+        - name: Alternativ för gruppering och filter
+          href: group-filter.md
     - name: Anvisningar
       items:
         - name: Förhindra och analysera oväntade kostnader

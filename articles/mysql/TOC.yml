@@ -132,6 +132,8 @@
           href: concepts-query-performance-insight.md
         - name: Prestandarekommendationer
           href: concepts-performance-recommendations.md
+        - name: Serverparametrar
+          href: concepts-server-parameters.md
     - name: Utveckling
       items:
         - name: Kompatibilitet för drivrutiner och verktyg

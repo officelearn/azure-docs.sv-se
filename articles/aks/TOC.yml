@@ -133,6 +133,8 @@
           href: upgrade-cluster.md
         - name: Använda serviceavtal för drifttid
           href: uptime-sla.md
+        - name: Uppgradera nodavbildningen (förhandsversion)
+          href: node-image-upgrade.md
         - name: Bearbeta OS-noduppdateringar
           href: node-updates-kured.md
         - name: Konfigurera ett AKS-kluster
